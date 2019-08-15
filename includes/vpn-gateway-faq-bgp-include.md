@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 23386139364a72b0275936cdc458c8cd2a5771c9
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 0e3f996ab2a42057198368759c75f10e911d5f54
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386948"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68936875"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>O BGP é suportado em todos os SKUs do VPN Gateway do Azure?
 Não, o BGP é suportado no Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** e nos gateways de VPN **HighPerformance**. O SKU **Básico** NÃO é suportado.
@@ -39,6 +39,13 @@ Não pode especificar estes ASNs para os seus dispositivos VPN no local quando s
 Sim, os seguintes ASNs estão [reservados pela IANA](http://www.iana.org/assignments/iana-as-numbers-special-registry/iana-as-numbers-special-registry.xhtml) e não podem ser configurados no Gateway de VPN do Azure:
 
 23456, 64496-64511, 65535-65551 e 429496729
+
+### <a name="what-private-asns-can-i-use"></a>Que ASNs privado posso usar?
+O intervalo utilizável de ASNs privado que podem ser usados são:
+
+* 64512-65514, 65521-65534
+
+Esses ASNs não são reservados pelo IANA ou pelo Azure para uso e, portanto, podem ser usados para atribuir ao gateway de VPN do Azure.
 
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>Posso utilizar o mesmo ASN para as redes VPN no local e as VNets do Azure?
 Não, tem de atribuir ASNs diferentes entre as suas redes no local e as VNets do Azure se estiver a ligá-las entre si com o BGP. Os Gateways de VPN do Azure têm uma predefinição ASN de 65515 atribuída,quer o BGP esteja ou não ativado para a conectividade em vários locais. Pode substituir esta predefinição atribuindo um ASN diferente ao criar o gateway de VPN ou alterar o ASN depois do gateway ter sido criado. Terá de atribuir os seus ASNs no local aos Gateways de Rede Local do Azure correspondentes.

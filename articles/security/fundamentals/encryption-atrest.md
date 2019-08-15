@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: barclayn
-ms.openlocfilehash: bc305938801a4edcf32e36ce57f76079f33c5bf8
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c91c8de35dcf3f1bc8fd5f41bd2356336c3fe450
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727386"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927956"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados do Azure em repouso
 
@@ -161,7 +161,7 @@ Para operações que usam chaves de criptografia, uma identidade de serviço pod
 Para obter uma chave para uso na criptografia ou descriptografia de dados em repouso, a identidade do serviço que a instância do serviço do Gerenciador de recursos executará como deve ter UnwrapKey (para obter a chave para descriptografia) e WrapKey (para inserir uma chave no cofre de chaves ao criar uma nova chave).
 
 >[!NOTE]
->Para obter mais detalhes sobre a autorização de Key Vault, consulte a página proteger o cofre de chaves na [documentação do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
+>Para obter mais detalhes sobre a autorização de Key Vault, consulte a página proteger o cofre de chaves na [documentação do Azure Key Vault](../../key-vault/key-vault-secure-your-key-vault.md).
 
 **Principais**
 
@@ -237,14 +237,14 @@ Os serviços Microsoft Azures oferecem suporte a um ou mais dos modelos de cript
 
 ### <a name="azure-disk-encryption"></a>Criptografia de disco do Azure
 
-Qualquer cliente que use recursos de IaaS (infraestrutura como serviço) do Azure pode alcançar a criptografia em repouso para suas VMs e discos de IaaS por meio de Azure Disk Encryption. Para obter mais informações sobre a criptografia de disco do Azure, consulte a [documentação do Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
+Qualquer cliente que use recursos de IaaS (infraestrutura como serviço) do Azure pode alcançar a criptografia em repouso para suas VMs e discos de IaaS por meio de Azure Disk Encryption. Para obter mais informações sobre a criptografia de disco do Azure, consulte a [documentação do Azure Disk Encryption](../azure-security-disk-encryption-overview.md).
 
 #### <a name="azure-storage"></a>Storage do Azure
 
 Todos os serviços de armazenamento do Azure (armazenamento de BLOBs, armazenamento de filas, armazenamento de tabelas e arquivos do Azure) dão suporte à criptografia no lado do servidor em repouso; alguns serviços adicionalmente dão suporte a chaves gerenciadas pelo cliente e criptografia do lado do cliente. 
 
-- No lado do servidor: Todos os serviços de armazenamento do Azure habilitam a criptografia do lado do servidor por padrão usando chaves gerenciadas pelo serviço, que é transparente para o aplicativo. Para obter mais informações, consulte [criptografia do serviço de armazenamento do Azure para dados em repouso](https://docs.microsoft.com/azure/storage/storage-service-encryption). O armazenamento de BLOBs do Azure e os arquivos do Azure também dão suporte a chaves gerenciadas pelo cliente RSA de 2048 bits no Azure Key Vault. Para obter mais informações, consulte [criptografia do serviço de armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
-- No lado do cliente: Os BLOBs, tabelas e filas do Azure dão suporte à criptografia do lado do cliente. Ao usar a criptografia do lado do cliente, os clientes criptografam os dados e carregam os dados como um blob criptografado. O gerenciamento de chaves é feito pelo cliente. Para obter mais informações, consulte [criptografia do lado do cliente e Azure Key Vault para armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
+- No lado do servidor: Todos os serviços de armazenamento do Azure habilitam a criptografia do lado do servidor por padrão usando chaves gerenciadas pelo serviço, que é transparente para o aplicativo. Para obter mais informações, consulte [criptografia do serviço de armazenamento do Azure para dados em repouso](../../storage/common/storage-service-encryption.md). O armazenamento de BLOBs do Azure e os arquivos do Azure também dão suporte a chaves gerenciadas pelo cliente RSA de 2048 bits no Azure Key Vault. Para obter mais informações, consulte [criptografia do serviço de armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](../../storage/common/storage-encryption-keys-portal.md).
+- No lado do cliente: Os BLOBs, tabelas e filas do Azure dão suporte à criptografia do lado do cliente. Ao usar a criptografia do lado do cliente, os clientes criptografam os dados e carregam os dados como um blob criptografado. O gerenciamento de chaves é feito pelo cliente. Para obter mais informações, consulte [criptografia do lado do cliente e Azure Key Vault para armazenamento do Microsoft Azure](../../storage/common/storage-client-side-encryption.md).
 
 #### <a name="azure-sql-database"></a>Base de Dados SQL do Azure
 

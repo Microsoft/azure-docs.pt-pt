@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4e21fdef5be09148f001ab6f66f87dd270ccf54
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 4430e2115e4282ba7bb618184139a845547a06ed
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618259"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967082"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegar tarefas no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -86,7 +86,7 @@ A tabela a seguir lista as tarefas que essas funções podem executar.
 | [Adicionar um proprietário do catálogo ou um Gerenciador de pacotes do Access a um catálogo](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
 | [Criar um novo pacote do Access em um catálogo](entitlement-management-access-package-create.md) |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
 | [Gerenciar funções de recurso em um pacote de acesso](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Especificar quem pode solicitar um pacote de acesso](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Criar e editar políticas](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Atribuir diretamente um usuário a um pacote do Access](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Exibir quem tem uma atribuição para um pacote de acesso](entitlement-management-access-package-edit.md#view-who-has-an-assignment) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Exibir solicitações de um pacote de acesso](entitlement-management-access-package-edit.md#view-requests) |  | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -100,7 +100,7 @@ A tabela a seguir lista as tarefas que essas funções podem executar.
 
 Um administrador global pode adicionar ou remover qualquer grupo (grupos de segurança criados na nuvem ou grupos do Office 365 criados na nuvem), aplicativo ou site do SharePoint Online em um catálogo. Um administrador de usuário pode adicionar ou remover qualquer grupo ou aplicativo em um catálogo.
 
-Para um usuário que não seja um administrador global ou um administrador de usuário, para adicionar grupos, aplicativos ou sites do SharePoint Online a um catálogo, esse usuário deve *ter a* função de gerenciamento de direitos e a função de diretório do Azure ad necessária. A tabela a seguir lista as combinações de função que são necessárias para adicionar recursos a um catálogo. Para remover recursos de um catálogo, você deve ter as mesmas funções.
+Para um usuário que não seja um administrador global ou um administrador de usuário, para adicionar grupos, aplicativos ou sites do SharePoint Online a um catálogo, esse usuário deve ter a função de gerenciamento de direitos e a função de diretório do Azure ad necessária. A tabela a seguir lista as combinações de função que são necessárias para adicionar recursos a um catálogo. Para remover recursos de um catálogo, você deve ter as mesmas funções.
 
 | Função de diretório do Azure AD | Função de gerenciamento de direitos | Pode adicionar grupo de segurança | Pode adicionar o grupo do Office 365 | Pode adicionar aplicativo | Pode adicionar site do SharePoint Online |
 | --- | :---: | :---: | :---: | :---: | :---: |
@@ -148,7 +148,7 @@ Se você quiser delegar o gerenciamento de um catálogo ou acessar pacotes no ca
 
 1. Clique em **selecionar** para adicionar esses membros.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Adicionar aprovadores](entitlement-management-access-package-edit.md#policy-request)
 - [Adicionar recursos a um catálogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog)

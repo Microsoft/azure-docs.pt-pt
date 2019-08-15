@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 554a77b65b1baab980d765c69a5bffaeacb483d9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 850d580d4eb1ca41932a28005d3375ced709db60
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855407"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016382"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Atualize suas soluções de análise de Big Data de Azure Data Lake Storage Gen1 para Azure Data Lake Storage Gen2
 
@@ -82,7 +82,7 @@ Esta secção descreve as capacidades da plataforma de geração 1 de armazename
 | |Desempenho otimizado para cargas de trabalho de análise paralela. Alto débito e IOPS. | Desempenho otimizado para cargas de trabalho de análise paralela. Alto débito e IOPS. | *Já disponível* |
 | Suporte à VNet (rede virtual)  | [Usando a integração de rede virtual](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-network-security)  | [Usando o ponto de extremidade de serviço para o armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | *Já disponível* |
 | Limites de tamanho | Sem limites de tamanhos de conta, tamanhos de ficheiro ou número de ficheiros | Sem limites de tamanhos de conta ou o número de ficheiros. Limitado a 5TB de tamanho de ficheiro. | *Já disponível*|
-| Redundância geográfica| Localmente redundante (LRS) | Localmente redundante (LRS) zona redundante (ZRS) globalmente redundante consulte (RA-GRS) globalmente georredundante com acesso de leitura (GRS) [aqui](https://docs.microsoft.com/azure/storage/common/storage-redundancy) para obter mais informações| *Já disponível* |
+| Redundância geográfica| Localmente redundante (LRS) | Localmente redundante (LRS) com redundância de zona (ZRS) com redundância geográfica de acesso de leitura (GRS) com redundância geográfica (RA-GRS), consulte [aqui](https://docs.microsoft.com/azure/storage/common/storage-redundancy) para obter mais informações| *Já disponível* |
 | Disponibilidade regional | Consulte [aqui](https://azure.microsoft.com/regions/) | Todos os [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)                                                                                                                                                                                                                                                                                                                                       | *Já disponível*                                                                                                                           |
 | Preço                                       | Consulte [preços](https://azure.microsoft.com/pricing/details/data-lake-store/)                                                                            | Consulte [preços](https://azure.microsoft.com/pricing/details/storage/data-lake/)                                                                                                                                                                                                                                                                                                                                         |                                                                                                                                           |
 | SLA de disponibilidade                            | [Veja o SLA](https://azure.microsoft.com/support/legal/sla/data-lake-store/v1_0/)                                                                   | [Veja o SLA](https://azure.microsoft.com/support/legal/sla/storage/v1_3/)                                                                                                                                                                                                                                                                                                                                                | *Já disponível*                                                                                                                           |

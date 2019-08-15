@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 18d8f2a974fb192578163f71a57d00824ae6b0fa
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 507af54b8b4c2e7c67538a1a25a040c7ee5fdfd5
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839470"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976323"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo controladas por dados (SDK da Web)
 
@@ -65,7 +65,8 @@ Todos os exemplos neste documento usarão o recurso a seguir para demonstrar dif
         "type": "Point",
         "coordinates": [-122.13284, 47.63699]
     },
-    "properties": {     
+    "properties": { 
+        "id": 123,
         "entityType": "restaurant",
         "revenue": 12345,
         "subTitle": "Building 40", 
@@ -83,7 +84,7 @@ As expressões de dados fornecem acesso aos dados de propriedade em um recurso.
 | Expressão | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Recupera um item de uma matriz. |
-| `['geometry-type']` | cadeia | Obtém o tipo de geometria do recurso: Point, multiponto, LineString, MultiLineString, polígono, MultiPolygon. |
+| `['geometry-type']` | Cadeia de caracteres | Obtém o tipo de geometria do recurso: Point, multiponto, LineString, MultiLineString, polígono, MultiPolygon. |
 | `['get', string]` | value | Obtém o valor da propriedade das propriedades do recurso atual. Retornará NULL se a propriedade solicitada estiver ausente. |
 | `['get', string, object]` | value | Obtém o valor da propriedade das propriedades do objeto fornecido. Retornará NULL se a propriedade solicitada estiver ausente. |
 | `['has', string]` | boolean | Determina se as propriedades de um recurso têm a propriedade especificada. |
@@ -314,6 +315,28 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
+O exemplo a seguir usa uma expressão de correspondência para executar um filtro de tipo "em matriz" ou "matriz contém", neste caso, filtrando dados que têm um valor de ID que está em uma lista de IDs permitidas. Ao usar expressões com filtros, o resultado precisa ser um valor booliano.
+
+```javascript
+var layer = new atlas.layer.BubbleLayer(datasource, null, {
+    filter: [
+        'match',  
+
+        //Get the property to match.
+        ['get', 'id'],  
+
+         //List of values to match.
+        [24, 53, 98], 
+
+        //If there is a match, return true.
+        true,
+    
+        //Otherwise return false.
+        false
+    ]
+});
+```
+
 ### <a name="coalesce-expression"></a>Expressão de adesão
 
 Uma `coalesce` expressão percorre um conjunto de expressões até que o primeiro valor não nulo seja obtido e retorne esse valor. 
@@ -362,7 +385,7 @@ As expressões de tipo fornecem ferramentas para testar e converter diferentes t
 | `['to-boolean', value]` | boolean | Converte o valor de entrada em um booliano. O resultado é `false` quando a entrada é uma cadeia de caracteres `0`vazia `false`, `null`,, `NaN`ou; caso `true`contrário, seu. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | cor | Converte o valor de entrada em uma cor. Se vários valores forem fornecidos, cada um será avaliado na ordem até que a primeira conversão bem-sucedida seja obtida. Se nenhuma das entradas puder ser convertida, a expressão será um erro. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | número | Converte o valor de entrada em um número, se possível. Se a entrada for `null` ou `false`, o resultado será 0. Se a entrada for `true`, o resultado será 1. Se a entrada for uma cadeia de caracteres, ela será convertida em um [](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) número usando a função de cadeia de caracteres ToNumber da especificação da linguagem ECMAScript. Se vários valores forem fornecidos, cada um será avaliado na ordem até que a primeira conversão bem-sucedida seja obtida. Se nenhuma das entradas puder ser convertida, a expressão será um erro. |
-| `['to-string', value]` | cadeia | Converte o valor de entrada em uma cadeia de caracteres. Se a entrada for `null`, o resultado será `""`. Se a entrada for um booliano, o resultado `"true"` será `"false"`ou. Se a entrada for um número, ela será convertida em uma cadeia de caracteres usando a função de número [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) da especificação da linguagem ECMAScript. Se a entrada for uma cor, ela será convertida em cadeia de caracteres `"rgba(r,g,b,a)"`de cor de CSS RGBA. Caso contrário, a entrada é convertida em uma cadeia de caracteres usando a função [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) da especificação da linguagem ECMAScript. |
+| `['to-string', value]` | Cadeia de caracteres | Converte o valor de entrada em uma cadeia de caracteres. Se a entrada for `null`, o resultado será `""`. Se a entrada for um booliano, o resultado `"true"` será `"false"`ou. Se a entrada for um número, ela será convertida em uma cadeia de caracteres usando a função de número [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) da especificação da linguagem ECMAScript. Se a entrada for uma cor, ela será convertida em cadeia de caracteres `"rgba(r,g,b,a)"`de cor de CSS RGBA. Caso contrário, a entrada é convertida em uma cadeia de caracteres usando a função [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) da especificação da linguagem ECMAScript. |
 | `['typeof', value]` | Cadeia de caracteres | Retorna uma cadeia de caracteres que descreve o tipo do valor especificado. |
 
 > [!TIP]
@@ -421,7 +444,7 @@ Expressões do operador String executam operações de conversão em cadeias de 
 
 | Expressão | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
-| `['concat', string, string, …]` | cadeia | Concatena várias cadeias de caracteres juntas. Cada valor deve ser uma cadeia de caracteres. Use a `to-string` expressão Type para converter outros tipos de valor em String, se necessário. |
+| `['concat', string, string, …]` | Cadeia de caracteres | Concatena várias cadeias de caracteres juntas. Cada valor deve ser uma cadeia de caracteres. Use a `to-string` expressão Type para converter outros tipos de valor em String, se necessário. |
 | `['downcase', string]` | Cadeia de caracteres | Converte a cadeia de caracteres especificada em minúsculas. |
 | `['upcase', string]` | Cadeia de caracteres | Converte a cadeia de caracteres especificada em maiúsculas. |
 
@@ -634,7 +657,7 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 });
 ```
 
-[Consulte o exemplo ao vivo](map-add-shape.md#line-stroke-gradient)
+[Consulte o exemplo ao vivo](map-add-line-layer.md#line-stroke-gradient)
 
 ### <a name="text-field-format-expression"></a>Expressão de formato de campo de texto
 
@@ -806,7 +829,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os artigos a seguir para obter mais exemplos de código que implementam expressões:
 
@@ -816,8 +839,11 @@ Consulte os artigos a seguir para obter mais exemplos de código que implementam
 > [!div class="nextstepaction"] 
 > [Adicionar uma camada de bolha](map-add-bubble-layer.md)
 
-> [!div class="nextstepaction"] 
-> [Adicionar formas](map-add-shape.md)
+> [!div class="nextstepaction"]
+> [Adicionar uma camada de linha](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Adicionar uma camada de polígono](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
 > [Adicionar uma camada do mapa de calor](map-add-heat-map-layer.md)

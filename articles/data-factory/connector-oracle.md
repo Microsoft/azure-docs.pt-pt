@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 079a0721e77174215c7256eecbe9bc522256f0b8
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 142c99b2471a9010a00bf9b5d50549c5e84548f1
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881470"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966453"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oracle usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -33,11 +33,13 @@ Você pode copiar dados de um banco de dados Oracle para qualquer armazenamento 
 Especificamente, este conector Oracle oferece suporte a:
 
 - As seguintes versões de um banco de dados Oracle:
-  - Oracle 12c R1 (12,1)
-  - Oracle 11g R1, R2 (11,1, 11,2)
-  - Oracle 10g R1, R2 (10,1, 10,2)
-  - Oracle 9i R1, R2 (9.0.1, 9,2)
-  - Oracle 8i R3 (8.1.7)
+    - Oracle 18C R1 (18,1) e superior
+    - Oracle 12c R1 (12,1) e superior
+    - Oracle 11g R1 (11,1) e superior
+    - Oracle 10g R1 (10,1) e superior
+    - Oracle 9i R2 (9,2) e superior
+    - Oracle 8i R3 (8.1.7) e superior
+    - Oracle Database serviço Cloud Exadata
 - Copiar dados usando autenticações Básica ou OID.
 - Cópia paralela de uma origem do Oracle. Consulte a seção [cópia paralela do Oracle](#parallel-copy-from-oracle) para obter detalhes.
 
@@ -46,7 +48,9 @@ Especificamente, este conector Oracle oferece suporte a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para copiar dados de e para um Oracle Database que não é acessível publicamente, você precisa configurar um [Integration Runtime de hospedagem interna](create-self-hosted-integration-runtime.md). O Integration Runtime fornece um driver da Oracle interno. Portanto, você não precisa instalar um driver manualmente ao copiar dados do e para o Oracle.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
+
+O Integration Runtime fornece um driver da Oracle interno. Portanto, você não precisa instalar um driver manualmente ao copiar dados do e para o Oracle.
 
 ## <a name="get-started"></a>Introdução
 
@@ -62,7 +66,7 @@ O serviço vinculado do Oracle oferece suporte às seguintes propriedades:
 |:--- |:--- |:--- |
 | type | A propriedade Type deve ser definida como **Oracle**. | Sim |
 | connectionString | Especifica as informações necessárias para se conectar à instância de Oracle Database. <br/>Marque este campo como um `SecureString` para armazená-lo com segurança em data Factory. Você também pode colocar uma senha em Azure Key Vault e extrair a `password` configuração da cadeia de conexão. Consulte os exemplos a seguir e [armazene as credenciais em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. <br><br>**Tipo de conexão com suporte**: Você pode usar o **Oracle Sid** ou o **nome do serviço Oracle** para identificar seu banco de dados:<br>-Se você usar o SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Se você usar o nome do serviço:`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sim |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Você pode usar o tempo de execução de integração auto-hospedado ou o tempo de execução de integração do Azure (se o armazenamento de dados estiver publicamente acessível). Se não for especificado, essa propriedade usará o tempo de execução de integração do Azure padrão. |Não |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, é utilizada a predefinição de Runtime de integração do Azure. |Não |
 
 >[!TIP]
 >Se você receber um erro, "ORA-01025: Parâmetro UPI fora do intervalo ", e sua versão do Oracle é 8i, `WireProtocolMode=1` adicione à sua cadeia de conexão. Em seguida, tente novamente.
@@ -191,11 +195,10 @@ Para copiar dados de e para o Oracle, defina a propriedade Type do conjunto como
 
 Esta seção fornece uma lista das propriedades com suporte pela origem e pelo coletor do Oracle. Para obter uma lista completa de seções e propriedades disponíveis para definir atividades, [](concepts-pipelines-activities.md)consulte pipelines. 
 
-### <a name="oracle-as-a-source-type"></a>Oracle como um tipo de origem
+### <a name="oracle-as-source"></a>Oracle como fonte
 
-> [!TIP]
->
-> Para carregar dados do Oracle com eficiência usando o particionamento de dados, consulte [cópia paralela do Oracle](#parallel-copy-from-oracle).
+>[!TIP]
+>Para carregar dados do Oracle com eficiência usando o particionamento de dados, consulte [cópia paralela do Oracle](#parallel-copy-from-oracle).
 
 Para copiar dados do Oracle, defina o tipo de fonte na atividade de cópia `OracleSource`como. As seguintes propriedades são suportadas na atividade de cópia **origem** secção.
 
@@ -242,7 +245,7 @@ Para copiar dados do Oracle, defina o tipo de fonte na atividade de cópia `Orac
 ]
 ```
 
-### <a name="oracle-as-a-sink-type"></a>Oracle como um tipo de coletor
+### <a name="oracle-as-sink"></a>Oracle como coletor
 
 Para copiar dados para o Oracle, defina o tipo de coletor na atividade de `OracleSink`cópia como. As propriedades a seguir têm suporte na seção **coletor** de atividade de cópia.
 
@@ -341,7 +344,7 @@ Quando você copia dados do e para o Oracle, os mapeamentos a seguir se aplicam.
 | BARQUIVO |Byte[] |
 | BLOB |Byte[]<br/>(com suporte apenas no Oracle 10g e superior) |
 | º |Cadeia |
-| CLOB |Cadeia |
+| CLOB |String |
 | DATE |DateTime |
 | FLOAT |Decimal, String (se precisão > 28) |
 | INTEGER |Decimal, String (se precisão > 28) |

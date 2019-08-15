@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
+ms.date: 08/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7f253b71271787f7f2ef722134862ca72e0159df
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: bd0ed971b84baae3b85badfcc669bbad657d1551
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855751"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018958"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute
 
@@ -99,7 +99,7 @@ As **regiões locais do Azure** são aquelas que o [ExpressRoute local](expressr
 | **Dubai** | Etisalat dos EAU | Norte dos E.A.U. | Etisalat dos EAU |
 | **Dubai2** | du datamena | Norte dos E.A.U. | du datamena, Orixcom |
 | **Dublin** | Equinix | Europa do Norte | Colt, eir, Equinix, Interxion, Megaport |
-| **Frankfurt** | Interxion | n/d | CIX, Interxion |
+| **Frankfurt** | Interxion | n/d | CIX, Interxion, laranja |
 | **Rae de Hong Kong** | Equinix | Ásia Oriental | Redes de aryaka Networks, telecomunicações britânicas, CenturyLink Cloud Connect, diretor de telecomunicações, China Telecom global, Equinix, Megaport, comunicação de NTT, laranja, PCCW global Limited, Tata Communications, Telia Carrier, Verizon |
 | **Joanesburgo** | Teraco | Norte da África do Sul | British Telecom, soluções de Internet – conexão em nuvem, Liquid Telecom, teraco |
 | **Kuala Lumpur** | TIME dotCom | n/d | TIME dotCom |
@@ -110,7 +110,7 @@ As **regiões locais do Azure** são aquelas que o [ExpressRoute local](expressr
 | **Marselha** |Interxion | Sul de França | Rede DE CIX, Interxion, Jaguar |
 | **Melbourne** | NextDC | Sudeste da Austrália | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | Equinix | n/d | C3ntro+, Equinix, Megaport, Neutrona Networks |
-| **Montreal** | Cologix | n/d | Bell Canada, Cologix, Telus, Zayo |
+| **Montreal** | Cologix | n/d | Bell Canada, Cologix, Megaport, Telus, Zayo |
 | **Mumbai** | Tata Communications | Oeste da Índia | CloudXchange global (GCX), dependência Jio, Sify, comunicações Tata, Verizon |
 | **Mumbai2** | Airtel | Oeste da Índia | Airtel, Sify, Vodafone Idea |
 | **Nova Iorque** | Equinix | n/d | CenturyLink Cloud Connect, Coresite, Equinix, discloud, Megaport, pacote, Zayo |
@@ -123,7 +123,7 @@ As **regiões locais do Azure** são aquelas que o [ExpressRoute local](expressr
 | **São Paulo** | Equinix | Sul do Brasil | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
 | **Seattle** | Equinix | EUA Oeste 2 | Redes aryaka Networks, Equinix, comunicações de nível 3, Megaport, Telus, Zayo |
 | **Seul** | KINX | Coreia do Sul Central | KINX, LG CNS, Sejong Telecom |
-| **Silicon Valley** | Equinix | EUA Oeste | Redes aryaka networkss, em & T netbonde, British Telecom, CenturyLink Cloud Connect, Comcast, Coresite, Equinix, internuvem, IX REACH, pacote, PacketFabric, comunicações de nível 3, Megaport, laranja, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
+| **Silicon Valley** | Equinix | EUA Oeste | Redes aryaka networkss, em & T netbonde, British Telecom, CenturyLink Cloud Connect, Comcast, Coresite, Equinix, internuvem, Internet2, IX REACH, pacote, PacketFabric, comunicações de nível 3, Megaport, Orange, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 | **Valley2 de silício** | Coresite | EUA Oeste | Coresite | 
 | **Singapura** | Equinix | Sudeste Asiático | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
 | **Singapura2** | Global Switch | Sudeste Asiático | Colt, Épsilon Global Communications, Megaport, SingTel |
@@ -224,7 +224,7 @@ A ativação da conectividade privada para atender as suas necessidades pode ser
 | **Europa** |Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
 | **América do Norte** |Avanade Inc., Equinix Professional Services, FlexManage, Lightstream, Perficient, Presidio |
 | **América do Sul** |Avanade Inc., Venha Pra Nuvem |
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para obter mais informações acerca do ExpressRoute, veja as [FAQs do ExpressRoute](expressroute-faqs.md).
 * Confirme que todos os pré-requisitos são cumpridos. Veja os [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
 

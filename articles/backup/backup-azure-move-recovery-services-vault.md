@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: c78a0a001e617b4db50f717fdf58f91a53d7fe10
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 6ca07a6ba96aa271241271dcba264c1ea2ceefbb
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735529"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018813"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre dos serviços de recuperação entre assinaturas e grupos de recursos do Azure
 
@@ -112,7 +112,7 @@ Você pode mover um cofre dos serviços de recuperação e seus recursos associa
 
 Para mover um cofre dos serviços de recuperação para outro grupo de recursos `Move-AzureRMResource` , use o cmdlet. `Move-AzureRMResource`requer o nome do recurso e o tipo de recurso. Você pode obter ambos do `Get-AzureRmRecoveryServicesVault` cmdlet.
 
-```
+```powershell
 $destinationRG = "<destinationResourceGroupName>"
 $vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
 Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
@@ -120,7 +120,7 @@ Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $v
 
 Para mover os recursos para uma assinatura diferente, inclua `-DestinationSubscriptionId` o parâmetro.
 
-```
+```powershell
 Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
@@ -130,7 +130,7 @@ Depois de executar os cmdlets acima, você será solicitado a confirmar que dese
 
 Para mover um cofre dos serviços de recuperação para outro grupo de recursos, use o seguinte cmdlet:
 
-```
+```azurecli
 az resource move --destination-group <destinationResourceGroupName> --ids <VaultResourceID>
 ```
 
@@ -143,7 +143,7 @@ Para mover para uma nova subscrição, forneça o `--destination-subscription-id
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você pode mover muitos tipos diferentes de recursos entre grupos de recursos e assinaturas.
 

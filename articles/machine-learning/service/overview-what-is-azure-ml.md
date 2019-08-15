@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80a04333260b7aa710c1598b64a414ce53a1037a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1dea5e174c66685f889595ab15b3edf57dd02493
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883316"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018236"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>O que é o serviço Azure Machine Learning?
 
@@ -49,15 +49,15 @@ Inicie o treinamento em seu computador local usando o <a href="https://aka.ms/am
 
 Você também pode [automatizar o treinamento e o ajuste do modelo](tutorial-auto-train-models.md) usando o SDK.
 
-### <a name="code-free--low-code-experience"></a>Experiência de código sem código/baixa
+### <a name="ui-based-low-code-experience"></a>Experiência de baixo código baseada na interface do usuário
 
 Para treinamento sem código, tente:
 
-+ A interface visual para os testes e a implantação de arrastar-n-drop
++ Criando [experimentos de ml automatizados](tutorial-first-experiment-automated-ml.md) na interface fácil de usar.
++ O [recurso arrastar-n-drop está experimentando na interface visual](ui-tutorial-automobile-price-train-score.md).
+  ![Interface visual para serviço Azure Machine Learning](media/overview-what-is-azure-ml/visual-interface.png)
 
-    ![Interface visual para serviço Azure Machine Learning](media/overview-what-is-azure-ml/visual-interface.png)
 
-+ A opção de portal do Azure para experimentos de ML automatizados
 
 ### <a name="operationalization-mlops"></a>Operacionalização (MLOps)
 
@@ -69,10 +69,10 @@ Esses modelos podem ser consumidos e retornar previsões em [tempo real](how-to-
 
 E com pipelines avançados de [aprendizado de máquina](concept-ml-pipelines.md), você pode colaborar em cada etapa de preparação de dados, treinamento de modelo e avaliação, por meio da implantação. Os pipelines permitem que você:
 
-* automatizar o processo de aprendizado de máquina de ponta a ponta na nuvem
-* reutilize os componentes e apenas execute as etapas novamente quando precisar
-* usar diferentes recursos de computação em cada etapa
-* executar tarefas de Pontuação do lote
+* Automatizar o processo de aprendizado de máquina de ponta a ponta na nuvem
+* Reutilizar componentes e executar novamente as etapas novamente quando necessário
+* Usar diferentes recursos de computação em cada etapa
+* Executar tarefas de Pontuação do lote
 
 Para começar a usar o Azure Machine Learning Service, consulte [as próximas etapas](#next-steps).
 
@@ -103,7 +103,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de co
 
 Receberá créditos para gastar em serviços do Azure. Depois de serem utilizados, pode manter a conta e utilizar os [serviços gratuitos do Azure](https://azure.microsoft.com/free/). O seu cartão de crédito não será cobrado, a menos que altere explicitamente as suas definições e peça para ser cobrado. Ou [ative os benefícios](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)para assinantes do MSDN, que fornecem créditos todos os meses que você pode usar para serviços pagos do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Crie um Machine Learning espaço de trabalho de serviço](how-to-manage-workspace.md) para começar.
 

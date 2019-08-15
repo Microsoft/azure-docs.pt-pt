@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 748abc08c432518be4ce8698713b1df95077c3c1
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: e0b7154e3c4d6a6f493aac93ffcbcc424a67c300
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68722468"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932321"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Conectar-se com o SSH para os nós de cluster do AKS (serviço kubernetes do Azure) para manutenção ou solução de problemas
 
@@ -37,7 +37,7 @@ Para configurar o conjunto de dimensionamento de máquinas virtuais baseado para
 Use o comando [AZ AKs show][az-aks-show] para obter o nome do grupo de recursos do seu cluster AKs e, em seguida, o comando [AZ vmss List][az-vmss-list] para obter o nome do seu conjunto de dimensionamento.
 
 ```azurecli-interactive
-CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+$CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
 ```
 
@@ -94,7 +94,7 @@ Para configurar o cluster AKS baseado em conjunto de disponibilidade de máquina
 Use o comando [AZ AKs show][az-aks-show] para obter o nome do grupo de recursos do cluster do AKs e, em seguida, o comando [AZ VM List][az-vm-list] para listar o nome da máquina virtual do nó Linux do cluster.
 
 ```azurecli-interactive
-CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+$CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 

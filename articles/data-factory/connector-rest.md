@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de uma origem REST com o Azure Data Factory | Documentos da Microsoft
-description: Saiba como copiar dados de uma origem REST na cloud ou no local para os arquivos de dados de sink suportado com uma atividade de cópia num pipeline do Azure Data Factory.
+title: Copiar dados de uma fonte REST usando Azure Data Factory | Microsoft Docs
+description: Saiba como copiar dados de uma nuvem ou fonte REST local para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,64 +10,68 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: ee47f464c59bd9deed98671f19cfcc6d2c3c1b39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8c7c8faad70022ba985a4041fd578becbaf70078
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60546647"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966873"
 ---
-# <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto final REST através do Azure Data Factory
+# <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade REST usando Azure Data Factory
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de um ponto final REST. O artigo se baseia no [atividade de cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de um ponto de extremidade REST. O artigo se baseia no [atividade de cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da atividade de cópia.
 
-A diferença entre este conector REST [conector HTTP](connector-http.md) e o [conector de tabela de Web](connector-web-table.md) são:
+A diferença entre esse conector REST, o [conector http](connector-http.md) e o [conector de tabela da Web](connector-web-table.md) são:
 
-- **Conector REST** especificamente suporte copiam dados a partir de RESTful APIs; 
-- **Conector HTTP** é genérico para recuperar dados a partir de qualquer ponto final de HTTP, por exemplo, para transferir o ficheiro. Para que este conector REST fica disponível, pode ocorrer ao utilizar o conector HTTP para copiar dados a partir da API RESTful, que é suportado, mas menos funcional comparando com o conector REST.
-- **Conector de tabela de Web** extrações de tabela conteúdo a partir de uma página da Web HTML.
+- O **conector REST** especificamente dá suporte à cópia de dados de APIs RESTful; 
+- O **conector http** é genérico para recuperar dados de qualquer ponto de extremidade http, por exemplo, para baixar o arquivo. Antes que esse conector REST fique disponível, você pode usar o conector HTTP para copiar dados da API RESTful, que tem suporte, mas menos funcional comparando o conector REST.
+- O **conector de tabela da Web** extrai o conteúdo da tabela de uma página HTML.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados de uma origem REST para qualquer arquivo de dados de sink suportados. Para obter uma lista de dados armazena se a atividade de cópia suporta como origens e sinks, consulte [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Você pode copiar dados de uma fonte REST para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de dados armazena se a atividade de cópia suporta como origens e sinks, consulte [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Especificamente, este conector genérico do REST suporta:
+Especificamente, esse conector REST genérico dá suporte a:
 
-- Obter dados a partir de um ponto final REST utilizando o **Obtenha** ou **POST** métodos.
-- Recuperação de dados ao utilizar uma das autenticações seguintes: **Anónimo**, **básica**, **principal de serviço do AAD**, e **geridos identidades para recursos do Azure**.
-- **[Paginação](#pagination-support)**  nas REST APIs.
-- Copiar a resposta JSON de REST [como-é](#export-json-response-as-is) ou analisá-lo utilizando [mapeamento de esquema](copy-activity-schema-and-type-mapping.md#schema-mapping). Payload de resposta no **JSON** é suportada.
+- Recuperando dados de um ponto de extremidade REST usando os métodos **Get** ou **post** .
+- Recuperando dados usando uma das seguintes autenticações: **Anônimo**, **básico**, **entidade de serviço do AAD**e **identidades gerenciadas para recursos do Azure**.
+- **[](#pagination-support)** Paginação nas APIs REST.
+- Copiar a resposta JSON REST [como está](#export-json-response-as-is) ou analisá-la usando o [mapeamento de esquema](copy-activity-schema-and-type-mapping.md#schema-mapping). Há suporte apenas para carga de resposta em **JSON** .
 
 > [!TIP]
-> Para testar um pedido de obtenção de dados antes de configurar o conector REST no Data Factory, saiba mais sobre a especificação de API do cabeçalho e requisitos de corpo. Pode usar ferramentas como o Postman ou um navegador da web para validar.
+> Para testar uma solicitação de recuperação de dados antes de configurar o conector REST no Data Factory, saiba mais sobre a especificação de API para requisitos de cabeçalho e corpo. Você pode usar ferramentas como o postmaster ou um navegador da Web para validar.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que pode usar para definir entidades do Data Factory que são específicas para o conector REST.
+As seções a seguir fornecem detalhes sobre as propriedades que podem ser usadas para definir Data Factory entidades específicas para o conector REST.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As seguintes propriedades são suportadas para o serviço REST ligado:
+As propriedades a seguir têm suporte para o serviço vinculado REST:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade tem de ser definida como **RestService**. | Sim |
-| url | O URL de base do serviço REST. | Sim |
-| enableServerCertificateValidation | Se é necessário validar o certificado SSL de lado do servidor ao ligar-se para o ponto final. | Não<br /> (a predefinição é **true**) |
-| authenticationType | Tipo de autenticação utilizado para ligar ao serviço REST. Valores permitidos são **anónimo**, **básica**, **AadServicePrincipal** e **ManagedServiceIdentity**. Consulte as secções correspondentes abaixo sobre mais propriedades e exemplos, respetivamente. | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a utilizar para ligar ao arquivo de dados. Pode usar o Runtime de integração do Azure ou um Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, esta propriedade usa o padrão do Runtime de integração do Azure. |Não |
+| type | A propriedade **Type** deve ser definida como **RestService**. | Sim |
+| url | A URL base do serviço REST. | Sim |
+| enableServerCertificateValidation | Se o certificado SSL do lado do servidor deve ser validado ao se conectar ao ponto de extremidade. | Não<br /> (o padrão é **true**) |
+| authenticationType | Tipo de autenticação usado para se conectar ao serviço REST. Os valores permitidos são **Anonymous**, **Basic**, **AadServicePrincipal** e **ManagedServiceIdentity**. Consulte as seções correspondentes abaixo em mais propriedades e exemplos, respectivamente. | Sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a utilizar para ligar ao arquivo de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, essa propriedade usará o Azure Integration Runtime padrão. |Não |
 
-### <a name="use-basic-authentication"></a>Utilize a autenticação básica
+### <a name="use-basic-authentication"></a>Usar autenticação básica
 
-Definir o **authenticationType** propriedade **básica**. Além de propriedades genéricas que são descritas na secção anterior, especifique as seguintes propriedades:
+Defina a propriedade **authenticationType** como **básica**. Além das propriedades genéricas que são descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Requerido |
 |:--- |:--- |:--- |
-| userName | O nome de utilizador a utilizar para aceder ao ponto final REST. | Sim |
+| userName | O nome de usuário a ser usado para acessar o ponto de extremidade REST. | Sim |
 | password | A palavra-passe para o utilizador (o **userName** valor). Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 
 **Exemplo**
@@ -94,16 +98,16 @@ Definir o **authenticationType** propriedade **básica**. Além de propriedades 
 }
 ```
 
-### <a name="use-aad-service-principal-authentication"></a>Utilizar a autenticação de principal de serviço do AAD
+### <a name="use-aad-service-principal-authentication"></a>Usar a autenticação de entidade de serviço do AAD
 
-Definir o **authenticationType** propriedade **AadServicePrincipal**. Além de propriedades genéricas que são descritas na secção anterior, especifique as seguintes propriedades:
+Defina a propriedade **authenticationType** como **AadServicePrincipal**. Além das propriedades genéricas que são descritas na seção anterior, especifique as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| servicePrincipalId | Especifique o ID de cliente. da aplicação do Azure Active Directory | Sim |
-| servicePrincipalKey | Especifique a chave da aplicação do Azure Active Directory. Marcar esse campo como um **SecureString** armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| servicePrincipalId | Especifique a ID do cliente do aplicativo Azure Active Directory. | Sim |
+| servicePrincipalKey | Especifique a chave do aplicativo Azure Active Directory. Marcar esse campo como um **SecureString** armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | tenant | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim |
-| aadResourceId | Especificar o recurso do AAD que está a pedir para autorização, por exemplo, `https://management.core.windows.net`.| Sim |
+| aadResourceId | Especifique o recurso do AAD que você está solicitando para autorização `https://management.core.windows.net`, por exemplo,.| Sim |
 
 **Exemplo**
 
@@ -131,13 +135,13 @@ Definir o **authenticationType** propriedade **AadServicePrincipal**. Além de p
 }
 ```
 
-### <a name="managed-identity"></a> Utilizar identidades geridas para a autenticação de recursos do Azure
+### <a name="managed-identity"></a>Usar identidades gerenciadas para a autenticação de recursos do Azure
 
-Definir o **authenticationType** propriedade **ManagedServiceIdentity**. Além de propriedades genéricas que são descritas na secção anterior, especifique as seguintes propriedades:
+Defina a propriedade **authenticationType** como **ManagedServiceIdentity**. Além das propriedades genéricas que são descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Requerido |
 |:--- |:--- |:--- |
-| aadResourceId | Especificar o recurso do AAD que está a pedir para autorização, por exemplo, `https://management.core.windows.net`.| Sim |
+| aadResourceId | Especifique o recurso do AAD que você está solicitando para autorização `https://management.core.windows.net`, por exemplo,.| Sim |
 
 **Exemplo**
 
@@ -161,22 +165,22 @@ Definir o **authenticationType** propriedade **ManagedServiceIdentity**. Além d
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Esta seção fornece uma lista de propriedades que suporta o conjunto de dados REST. 
+Esta seção fornece uma lista das propriedades que o conjunto de DataSet do REST dá suporte. 
 
 Para obter uma lista completa de seções e as propriedades que estão disponíveis para definir conjuntos de dados, consulte [conjuntos de dados e serviços ligados](concepts-datasets-linked-services.md). 
 
-Para copiar dados de REST, são suportadas as seguintes propriedades:
+Para copiar dados do REST, há suporte para as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade do conjunto de dados tem de ser definida como **RestResource**. | Sim |
-| relativeUrl | Um URL relativo ao recurso que contém os dados. Quando esta propriedade não for especificada, é utilizado apenas o URL especificado na definição do serviço ligado. | Não |
-| requestMethod | O método HTTP. Valores permitidos são **Obtenha** (predefinição) e **Post**. | Não |
-| additionalHeaders | Cabeçalhos de pedido HTTP adicionais. | Não |
-| requestBody | O corpo do pedido HTTP. | Não |
-| paginationRules | As regras de paginação para compor próximas solicitações de página. Consulte a [suporte de paginação](#pagination-support) secção em detalhes. | Não |
+| type | A propriedade **Type** do conjunto de conjuntos deve ser definida como **RestResource**. | Sim |
+| relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente a URL especificada na definição de serviço vinculado é usada. | Não |
+| requestMethod | O método HTTP. Os valores permitidos são **Get** (padrão) e **post**. | Não |
+| additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
+| requestBody | O corpo da solicitação HTTP. | Não |
+| paginationRules | As regras de paginação para compor solicitações da próxima página. Consulte a seção [suporte](#pagination-support) à paginação em detalhes. | Não |
 
-**Exemplo 1: Usando o método Get com a paginação**
+**Exemplo 1: Usando o método Get com paginação**
 
 ```json
 {
@@ -200,7 +204,7 @@ Para copiar dados de REST, são suportadas as seguintes propriedades:
 }
 ```
 
-**Exemplo 2: Usando o método Post**
+**Exemplo 2: Usando o método post**
 
 ```json
 {
@@ -222,19 +226,19 @@ Para copiar dados de REST, são suportadas as seguintes propriedades:
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade copy
 
-Esta seção fornece uma lista de propriedades que suporta a origem REST.
+Esta seção fornece uma lista das propriedades às quais a fonte REST dá suporte.
 
 Para obter uma lista completa de seções e as propriedades que estão disponíveis para a definição de atividades, consulte [Pipelines](concepts-pipelines-activities.md). 
 
-### <a name="rest-as-source"></a>REST como origem
+### <a name="rest-as-source"></a>REST como fonte
 
 As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **RestSource**. | Sim |
-| httpRequestTimeout | O tempo limite (o **TimeSpan** valor) para o pedido HTTP para obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler os dados de resposta. O valor predefinido é **01:00:40**.  | Não |
-| requestInterval | O tempo de espera antes de enviar o pedido para a página seguinte. O valor predefinido é **00:00:01** |  Não |
+| type | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **REST**. | Sim |
+| httpRequestTimeout | O tempo limite (o valor de **TimeSpan** ) para a solicitação HTTP obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. O valor padrão é **00:01:40**.  | Não |
+| requestInterval | O tempo de espera antes de enviar a solicitação para a próxima página. O valor padrão é **00:00:01** |  Não |
 
 **Exemplo**
 
@@ -268,39 +272,39 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
 ]
 ```
 
-## <a name="pagination-support"></a>Suporte de paginação
+## <a name="pagination-support"></a>Suporte à paginação
 
-Normalmente, a REST API limitar seu tamanho de payload de resposta de uma única solicitação num número razoável; tempo para retornar a grande quantidade de dados, ele divide o resultado em várias páginas e requer que os autores de chamadas enviar pedidos consecutivos para obter a página seguinte do resultado. Normalmente, o pedido para uma página é dinâmica e compostos por informações retornadas da resposta da página anterior.
+Normalmente, a API REST limita seu tamanho de carga de resposta de uma única solicitação em um número razoável; Embora seja possível retornar uma grande quantidade de dados, ele divide o resultado em várias páginas e exige que os chamadores enviem solicitações consecutivas para obter a próxima página do resultado. Normalmente, a solicitação de uma página é dinâmica e composta pelas informações retornadas da resposta da página anterior.
 
-Este conector genérico do REST suporta os seguintes padrões de paginação: 
+Este conector REST genérico dá suporte aos seguintes padrões de paginação: 
 
-* URL absoluto ou relativo do próximo pedido = valor da propriedade no corpo de resposta atual
-* URL absoluto ou relativo do próximo pedido = valor do cabeçalho nos cabeçalhos de resposta atual
-* Parâmetro de consulta do pedido seguinte = valor da propriedade no corpo de resposta atual
-* Parâmetro de consulta do pedido seguinte = valor do cabeçalho nos cabeçalhos de resposta atual
-* Cabeçalho do pedido seguinte = valor da propriedade no corpo de resposta atual
-* Cabeçalho do pedido seguinte = valor do cabeçalho nos cabeçalhos de resposta atual
+* Valor da propriedade da URL absoluta ou relativa da próxima solicitação no corpo da resposta atual
+* URL absoluta ou relativa da próxima solicitação = valor do cabeçalho nos cabeçalhos de resposta atuais
+* Parâmetro de consulta da próxima solicitação = valor da propriedade no corpo da resposta atual
+* Parâmetro de consulta da próxima solicitação = valor do cabeçalho nos cabeçalhos de resposta atuais
+* Cabeçalho da próxima solicitação = valor da propriedade no corpo da resposta atual
+* Cabeçalho da próxima solicitação = valor do cabeçalho nos cabeçalhos de resposta atuais
 
-**Regras de paginação** são definidos como um dicionário no conjunto de dados que contêm um ou mais pares de chave-valor diferencia maiúsculas de minúsculas. A configuração será utilizada para gerar o pedido a partir da segunda página. O conector será a iteração é interrompida quando obtém o código de estado HTTP 204 (sem conteúdo) ou qualquer um da expressão de JSONPath na "paginationRules" devolve um valor nulo.
+**As regras** de paginação são definidas como um dicionário no conjunto de dados que contém um ou mais pares chave-valor que diferenciam maiúsculas de minúsculas. A configuração será usada para gerar a solicitação a partir da segunda página. O conector deixará de iteração quando obter o código de status HTTP 204 (sem conteúdo) ou qualquer uma das expressões JSONPath em "paginationRules" retornar NULL.
 
-**Suportado chaves** nas regras de paginação:
+**Chaves com suporte** nas regras de paginação:
 
 | Chave | Descrição |
 |:--- |:--- |
-| AbsoluteUrl | Indica a URL para emitir o pedido seguinte. Pode ser **URL absoluto ou relativo URL**. |
-| QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter" é definida pelo utilizador que referencia um nome de parâmetro de consulta no seguinte URL de pedido HTTP. |
-| Headers.*request_header* OR Headers['request_header'] | "request_header" é definida pelo utilizador que referencia um nome de cabeçalho na próxima solicitação HTTP. |
+| AbsoluteUrl | Indica a URL para emitir a próxima solicitação. Ele pode ser **uma URL absoluta ou relativa**. |
+| QueryParameters. *request_query_parameter* OU QueryParameters [' request_query_parameter '] | "request_query_parameter" é definido pelo usuário, que faz referência a um nome de parâmetro de consulta na próxima URL de solicitação HTTP. |
+| Conector. *request_header* OU cabeçalhos [' request_header '] | "request_header" é definido pelo usuário, que faz referência a um nome de cabeçalho na próxima solicitação HTTP. |
 
-**Valores suportados** nas regras de paginação:
+**Valores com suporte** nas regras de paginação:
 
 | Value | Descrição |
 |:--- |:--- |
-| Headers.*response_header* OR Headers['response_header'] | "response_header" é definida pelo utilizador que referencia um nome de cabeçalho na resposta HTTP atual, o valor que será utilizado para emitir o pedido seguinte. |
-| Uma expressão de JSONPath começando com "$" (que representa a raiz do corpo da resposta) | O corpo da resposta deve conter apenas um objeto JSON. A expressão de JSONPath deverá devolver um valor único primitivo, que será utilizado para emitir o pedido seguinte. |
+| Conector. *response_header* OU cabeçalhos [' response_header '] | "response_header" é definido pelo usuário, que faz referência a um nome de cabeçalho na resposta HTTP atual, o valor que será usado para emitir a próxima solicitação. |
+| Uma expressão JSONPath que começa com "$" (representando a raiz do corpo da resposta) | O corpo da resposta deve conter apenas um objeto JSON. A expressão JSONPath deve retornar um único valor primitivo, que será usado para emitir a próxima solicitação. |
 
-**Exemplo:**
+**Example:**
 
-Graph API do Facebook retorna a resposta na estrutura seguinte, em que casos seguinte do URL da página é representado no ***paging.next***:
+O Facebook API do Graph retorna a resposta na estrutura a seguir, caso em que a URL da próxima página é representada na paginação ***. em seguida***:
 
 ```json
 {
@@ -332,7 +336,7 @@ Graph API do Facebook retorna a resposta na estrutura seguinte, em que casos seg
 }
 ```
 
-A configuração de conjunto de dados REST correspondente especialmente a `paginationRules` é o seguinte:
+A configuração correspondente do conjunto de DataSet `paginationRules` REST é, especialmente, a seguinte:
 
 ```json
 {
@@ -353,13 +357,13 @@ A configuração de conjunto de dados REST correspondente especialmente a `pagin
 }
 ```
 
-## <a name="export-json-response-as-is"></a>Exportar resposta JSON como-é
+## <a name="export-json-response-as-is"></a>Exportar resposta JSON como está
 
-Pode utilizar este conector REST para exportar resposta JSON da API de REST como-consiste em vários arquivos baseados em ficheiros. Para alcançar essa cópia sem esquema, ignore a "estrutura" (também denominado *esquema*) secção no conjunto de dados e o mapeamento de esquema na atividade de cópia.
+Você pode usar esse conector REST para exportar a resposta JSON da API REST no estado em que se encontra em vários repositórios baseados em arquivo. Para obter essa cópia independente de esquema, ignore a seção "estrutura" (também chamada de *esquema*) no conjunto de dados e no mapeamento de esquema na atividade de cópia.
 
 ## <a name="schema-mapping"></a>Mapeamento de esquema
 
-Para copiar dados de ponto final REST para o sink de tabela, consulte [mapeamento de esquema](copy-activity-schema-and-type-mapping.md#schema-mapping).
+Para copiar dados do ponto de extremidade REST para o coletor tabular, consulte [mapeamento de esquema](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

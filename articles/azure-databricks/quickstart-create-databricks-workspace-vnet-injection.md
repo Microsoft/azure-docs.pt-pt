@@ -1,6 +1,6 @@
 ---
-title: Criar uma área de trabalho do Azure Databricks numa rede Virtual
-description: Este artigo descreve como implementar o Azure Databricks à sua rede virtual.
+title: Criar um espaço de trabalho Azure Databricks em uma rede virtual
+description: Este artigo descreve como implantar Azure Databricks em sua rede virtual.
 services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 295b64b10f9f78ca6224d60fb84c6d1310aaa42e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12ac5c44a0ee479d84616b138f9e2369a195c275
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60770724"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976471"
 ---
-# <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Início rápido: Criar uma área de trabalho do Azure Databricks numa rede Virtual
+# <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Início rápido: Criar um espaço de trabalho Azure Databricks em uma rede virtual
 
-Este início rápido mostra como criar uma área de trabalho do Azure Databricks numa rede virtual. Também irá criar um cluster do Apache Spark dentro dessa área de trabalho.
+Este guia de início rápido mostra como criar um Azure Databricks espaço de trabalho em uma rede virtual. Você também criará um cluster Apache Spark dentro desse espaço de trabalho.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 
@@ -25,88 +25,92 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
+> [!Note]
+> Este tutorial não pode ser executado usando a **assinatura de avaliação gratuita do Azure**.
+> Se você tiver uma conta gratuita, vá para seu perfil e altere sua assinatura para pré- **pago**. Para obter mais informações, veja [Conta gratuita do Azure](https://azure.microsoft.com/free/). Em seguida, [remova o limite de gastos](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)e [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para vCPUs em sua região. Ao criar seu espaço de trabalho Azure Databricks, você pode selecionar o tipo de preço de **avaliação (Premium-14 dias gratuitos DBUs)** para dar ao espaço de trabalho o acesso Premium Azure Databricks DBUs por 14 dias.
+
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-1. No portal do Azure, selecione **criar um recurso** > **rede** > **rede Virtual**.
+1. Na portal do Azure, selecione **criar um recurso** >  > rede redes**virtuais**.
 
-2. Sob **criar rede virtual**, aplicar as seguintes definições: 
+2. Em **criar rede virtual**, aplique as seguintes configurações: 
 
     |Definição|Valor sugerido|Descrição|
     |-------|---------------|-----------|
-    |Name|databricks-quickstart|Selecione um nome para a rede virtual.|
-    |Espaço de endereços|10.1.0.0/16|Intervalo de endereços da rede virtual na notação CIDR.|
-    |Subscrição|\<A sua subscrição\>|Selecione a subscrição do Azure que pretende utilizar.|
-    |Grupo de recursos|databricks-quickstart|Selecione **criar novo** e introduza um nome de grupo de recursos novo para a sua conta.|
-    |Location|\<Selecione a região mais próxima dos seus utilizadores\>|Selecione uma localização geográfica onde pode alojar a sua rede virtual. Utilize a localização mais próxima dos seus utilizadores.|
-    |Nome da sub-rede|predefinição|Selecione um nome para a sub-rede de predefinição na sua rede virtual.|
-    |Intervalo de endereços da sub-rede|10.1.0.0/24|O intervalo de endereços da sub-rede na notação CIDR. Tem de estar contido pelo espaço de endereços da rede virtual. Não é possível editar o intervalo de endereços de uma subrede em utilização.|
+    |Nome|databricks-início rápido|Selecione um nome para sua rede virtual.|
+    |Espaço de endereços|10.1.0.0/16|O intervalo de endereços das redes virtuais na notação CIDR.|
+    |Subscription|\<A sua subscrição\>|Selecione a subscrição do Azure que pretende utilizar.|
+    |Resource group|databricks-início rápido|Selecione **criar novo** e insira um novo nome de grupo de recursos para sua conta.|
+    |Location|\<Selecione a região mais próxima dos seus utilizadores\>|Selecione uma localização geográfica na qual você pode hospedar sua rede virtual. Use o local mais próximo de seus usuários.|
+    |Nome de sub-rede|predefinição|Selecione um nome para a sub-rede padrão em sua rede virtual.|
+    |Intervalo de endereços da sub-rede|10.1.0.0/24|O intervalo de endereços da sub-rede na notação CIDR. Ele deve estar contido no espaço de endereço da rede virtual. O intervalo de endereços de uma sub-rede que está em uso não pode ser editado.|
 
     ![Criar uma rede virtual no portal do Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
 
-3. Assim que a implementação estiver concluída, navegue até à sua rede virtual e selecione **espaço de endereços** sob **definições**. Na caixa que diz *adicionar intervalo de endereços adicionais*, insira `10.179.0.0/16` e selecione **guardar**.
+3. Depois que a implantação for concluída, navegue até sua rede virtual e selecione **espaço de endereço** em **configurações**. Na caixa que diz *Adicionar intervalo de endereços adicional*, insira `10.179.0.0/16` e selecione **salvar**.
 
-    ![Espaço de endereços de rede virtual do Azure](./media/quickstart-create-databricks-workspace-vnet-injection/add-address-space.png)
+    ![Espaço de endereço de rede virtual do Azure](./media/quickstart-create-databricks-workspace-vnet-injection/add-address-space.png)
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar uma área de trabalho do Azure Databricks
 
-1. No portal do Azure, selecione **criar um recurso** > **análise** > **Databricks**.
+1. Na portal do Azure, selecione **criar um Resource** > **Analytics** > databricks.
 
-2. Sob **serviço Azure Databricks**, aplicar as seguintes definições:
+2. Em **serviço Azure Databricks**, aplique as seguintes configurações:
 
     |Definição|Valor sugerido|Descrição|
     |-------|---------------|-----------|
-    |Nome de área de trabalho|databricks-quickstart|Selecione um nome para a área de trabalho do Azure Databricks.|
-    |Subscrição|\<A sua subscrição\>|Selecione a subscrição do Azure que pretende utilizar.|
-    |Grupo de recursos|databricks-quickstart|Selecione o mesmo grupo de recursos que utilizou para a rede virtual.|
-    |Location|\<Selecione a região mais próxima dos seus utilizadores\>|Escolha a mesma localização que a rede virtual.|
-    |Escalão de Preço|Escolha entre o Standard ou Premium.|Para obter mais informações sobre os escalões de preços, consulte a [Databricks página de preços](https://azure.microsoft.com/pricing/details/databricks/).|
-    |Implementar o Azure Databricks a área de trabalho na sua rede Virtual|Sim|Esta definição permite-lhe implementar uma área de trabalho do Azure Databricks na sua rede virtual.|
-    |Rede virtual|databricks-quickstart|Selecione a rede virtual que criou na secção anterior.|
-    |Nome de sub-rede pública|público-sub-rede|Utilize o nome de sub-rede pública de predefinido.|
-    |Intervalo de CIDR de sub-rede público|10.179.64.0/18|Intervalo CIDR para esta sub-rede deve ser entre /18 e /26.|
-    |Nome de sub-rede privada|private-subnet|Utilize o nome de sub-rede privado predefinido.|
-    |Intervalo de CIDR de sub-rede privada|10.179.0.0/18|Intervalo CIDR para esta sub-rede deve ser entre /18 e /26.|
+    |Nome da área de trabalho|databricks-início rápido|Selecione um nome para seu espaço de trabalho Azure Databricks.|
+    |Subscription|\<A sua subscrição\>|Selecione a subscrição do Azure que pretende utilizar.|
+    |Resource group|databricks-início rápido|Selecione o mesmo grupo de recursos que você usou para a rede virtual.|
+    |Location|\<Selecione a região mais próxima dos seus utilizadores\>|Escolha o mesmo local da sua rede virtual.|
+    |Escalão de Preço|Escolha entre Standard ou Premium.|Para obter mais informações sobre tipos de preço, consulte a [página de preços](https://azure.microsoft.com/pricing/details/databricks/)do databricks.|
+    |Implantar Azure Databricks espaço de trabalho em sua rede virtual|Sim|Essa configuração permite que você implante um espaço de trabalho Azure Databricks em sua rede virtual.|
+    |Rede virtual|databricks-início rápido|Selecione a rede virtual que você criou na seção anterior.|
+    |Nome da sub-rede pública|sub-rede pública|Use o nome da sub-rede pública padrão.|
+    |Intervalo de CIDR da sub-rede pública|10.179.64.0/18|O intervalo CIDR para essa sub-rede deve estar entre/18 e/26.|
+    |Nome da sub-rede privada|privada-sub-rede|Use o nome da sub-rede privada padrão.|
+    |Intervalo de CIDR de sub-rede privada|10.179.0.0/18|O intervalo CIDR para essa sub-rede deve estar entre/18 e/26.|
 
-    ![Criar uma área de trabalho do Azure Databricks no portal do Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
+    ![Criar um espaço de trabalho Azure Databricks no portal do Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
 
-3. Assim que a implementação estiver concluída, navegue para o recurso do Azure Databricks. Tenha em atenção que o peering de rede virtual está desabilitado. Observe também o grupo de recursos e o grupo de recursos gerido na página de descrição geral. 
+3. Quando a implantação for concluída, navegue até o recurso Azure Databricks. Observe que o emparelhamento de rede virtual está desabilitado. Observe também o grupo de recursos e o grupo de recursos gerenciados na página Visão geral. 
 
-    ![Descrição geral do Azure do Databricks no portal do Azure](./media/quickstart-create-databricks-workspace-vnet-injection/databricks-overview-portal.png)
+    ![Azure Databricks visão geral no portal do Azure](./media/quickstart-create-databricks-workspace-vnet-injection/databricks-overview-portal.png)
 
-    O grupo de recursos gerido contém a localização física da conta de armazenamento (DBFS), trabalho-sg (grupo de segurança de rede), os operadores de vnet (rede virtual). Também é o local onde as máquinas virtuais, o disco, o endereço IP e o interface de rede vão ser criadas. Este grupo de recursos está bloqueado por padrão. No entanto quando um cluster é iniciado na rede virtual, é criada uma Interface de rede entre a vnet de funções de trabalho no grupo de recursos gerido e a rede virtual "hub".
+    O grupo de recursos gerenciado contém o local físico da conta de armazenamento (DBFS), Worker-SG (grupo de segurança de rede), Works-vnet (rede virtual). Também é o local onde as máquinas virtuais, o disco, o endereço IP e a interface de rede serão criados. Esse grupo de recursos está bloqueado por padrão; no entanto, quando um cluster é iniciado na rede virtual, uma interface de rede é criada entre os trabalhadores-vnet no grupo de recursos gerenciados e a rede virtual "Hub".
 
-    ![Grupo de recursos gerido do Azure Databricks](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group.png)
+    ![Azure Databricks grupo de recursos gerenciados](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group.png)
 
 ## <a name="create-a-cluster"></a>Criar um cluster
 
 > [!NOTE]
 > Para utilizar uma conta gratuita para criar o cluster do Azure Databricks, antes de criar o cluster, aceda ao seu perfil e altere a subscrição para **pay as you go**. Para obter mais informações, veja [Conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-1. Regresse ao seu serviço do Azure Databricks e selecione **iniciar área de trabalho** sobre o **descrição geral** página.
+1. Retorne ao serviço de Azure Databricks e selecione **Iniciar espaço de trabalho** na página **visão geral** .
 
-2. Selecione **Clusters** >  **+ criar Cluster**. Em seguida, crie um nome de cluster, como *databricks-início rápido-cluster*e aceite as restantes predefinições. Selecione **criar Cluster**.
+2. Selecione **clusters** >  **+ criar cluster**. Em seguida, crie um nome de cluster, como databricks *-QuickStart-cluster*, e aceite as configurações padrão restantes. Selecione **criar cluster**.
 
-    ![Criar cluster do Azure Databricks](./media/quickstart-create-databricks-workspace-vnet-injection/create-cluster.png)
+    ![Criar Azure Databricks cluster](./media/quickstart-create-databricks-workspace-vnet-injection/create-cluster.png)
 
-3. Quando o cluster estiver em execução, devolva para o grupo de recursos gerido no portal do Azure. Tenha em atenção as novas máquinas virtuais, discos, endereço IP e interfaces de rede. É criada uma interface de rede em cada uma das sub-redes com endereços IP públicas e privadas.  
+3. Depois que o cluster estiver em execução, retorne ao grupo de recursos gerenciados no portal do Azure. Observe as novas máquinas virtuais, discos, endereço IP e interfaces de rede. Uma interface de rede é criada em cada uma das sub-redes públicas e privadas com endereços IP.  
 
-    ![Grupo de recursos gerido do Azure Databricks após a criação de cluster](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group2.png)
+    ![Azure Databricks grupo de recursos gerenciado após a criação do cluster](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group2.png)
 
-4. Regresse à sua área de trabalho do Azure Databricks e selecione o cluster que criou. Em seguida, navegue para o **executores** separador no **interface do Usuário do Spark** página. Tenha em atenção que os endereços para o driver e os executores estão no intervalo de sub-rede privada. Neste exemplo, o driver é 10.179.0.6 e executores são 10.179.0.4 e 10.179.0.5. Os endereços IP podem ser diferentes.
+4. Retorne ao seu espaço de trabalho Azure Databricks e selecione o cluster que você criou. Em seguida, navegue até a guia executores na página **da interface do usuário do Spark** . Observe que os endereços para o driver e os executores estão no intervalo de sub-rede privada. Neste exemplo, o driver é 10.179.0.6 e executores são 10.179.0.4 e 10.179.0.5. Seus endereços IP podem ser diferentes.
 
-    ![Executores de interface do Usuário do Databricks Spark do Azure](./media/quickstart-create-databricks-workspace-vnet-injection/databricks-sparkui-executors.png)
+    ![Azure Databricks executores da interface do usuário do Spark](./media/quickstart-create-databricks-workspace-vnet-injection/databricks-sparkui-executors.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de ler o artigo, pode terminar o cluster. Para tal, na área de trabalho do Azure Databricks, no painel esquerdo, selecione **Clusters**. Para o cluster que quer terminar, mova o cursor sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**. Isso deixa o cluster.
+Depois de ler o artigo, pode terminar o cluster. Para tal, na área de trabalho do Azure Databricks, no painel esquerdo, selecione **Clusters**. Para o cluster que quer terminar, mova o cursor sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**. Isso interrompe o cluster.
 
 Se não terminar manualmente o cluster, este irá parar automaticamente, desde que tenha selecionado a **terminar após \_ \_ minutos de inatividade** caixa de verificação ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
 
-Se não pretender reutilizar o cluster, pode eliminar o grupo de recursos que criou no portal do Azure.
+Se você não quiser reutilizar o cluster, poderá excluir o grupo de recursos criado na portal do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, criou um cluster do Spark no Azure Databricks que implementou a uma rede virtual. Avance para o artigo seguinte para saber como consultar um contentor de Docker do SQL Server Linux na rede virtual usando o JDBC a partir de um bloco de notas do Azure Databricks.  
+Neste artigo, você criou um cluster Spark no Azure Databricks implantado em uma rede virtual. Avance para o próximo artigo para saber como consultar um contêiner SQL Server do Docker do Linux na rede virtual usando JDBC em um notebook Azure Databricks.  
 
 > [!div class="nextstepaction"]
->[Consultar um contentor de Docker do SQL Server Linux numa rede virtual a partir de um bloco de notas do Azure Databricks](vnet-injection-sql-server.md)
+>[Consultar um SQL Server contêiner do Docker do Linux em uma rede virtual de um notebook Azure Databricks](vnet-injection-sql-server.md)

@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
-ms.date: 07/07/2019
+ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 822b8bd1d0f5be854b6d345d68fcdb680b2ef1c4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1581a62f0999cf502feaad31d2c884f4d171e770
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882570"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019664"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL de instância gerenciada do banco de dados SQL do Azure de SQL Server
 
@@ -309,12 +309,12 @@ Para obter informações sobre SQL Server Agent, consulte [SQL Server Agent](htt
 
 ### <a name="tables"></a>Tabelas
 
-As tabelas a seguir não têm suporte:
+Os seguintes tipos de tabela não têm suporte:
 
-- `FILESTREAM`
-- `FILETABLE`
-- `EXTERNAL TABLE`
-- `MEMORY_OPTIMIZED` 
+- [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server)
+- [FILETABLE](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server)
+- [tabela externa](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) Polybase
+- [MEMORY_OPTIMIZED](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables) (sem suporte apenas na camada Uso Geral)
 
 Para obter informações sobre como criar e alterar tabelas, consulte [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) e [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
 
@@ -468,10 +468,13 @@ As opções de banco de dados a seguir são definidas ou substituídas e não po
 
 Limitações 
 
+- Os backups dos bancos de dados corrompidos podem ser restaurados dependendo do tipo de corrupção, mas os backups automatizados não serão feitos até que a corrupção seja corrigida. Certifique-se de executar `DBCC CHECKDB` na instância de origem e use o `WITH CHECKSUM` backup para evitar esse problema.
+- A restauração `.BAK` do arquivo de um banco de dados que contém qualquer limitação descrita neste documento (por `FILESTREAM` exemplo `FILETABLE` , ou objetos) não pode ser restaurada em instância gerenciada.
 - `.BAK`os arquivos que contêm vários conjuntos de backup não podem ser restaurados. 
 - `.BAK`arquivos que contêm vários arquivos de log não podem ser restaurados.
-- A restauração falhará se. `FILESTREAM` bak contiver dados.
-- Os backups que contêm bancos de dados que têm objetos na memória ativos não podem ser restaurados em uma instância do Uso Geral. Para obter informações sobre instruções RESTORE, consulte [instruções RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
+- Os backups que contêm bancos de dados maiores que 8 TB, objetos OLTP na memória ativa ou mais de 280 arquivos não podem ser restaurados em uma instância de Uso Geral. 
+- Os backups que contêm bancos de dados maiores que 4 TB ou objetos OLTP na memória com o tamanho total maior do que o tamanho descrito nos [limites de recursos](sql-database-managed-instance-resource-limits.md) não podem ser restaurados na instância comercialmente crítico.
+Para obter informações sobre instruções RESTORE, consulte [instruções RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### <a name="service-broker"></a>Service Broker
 
@@ -548,11 +551,6 @@ Neste exemplo, os bancos de dados existentes continuam funcionando e podem cresc
 
 Você pode [identificar o número de arquivos restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) usando exibições do sistema. Se você atingir esse limite, tente esvaziar [e excluir alguns dos arquivos menores usando a instrução DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou alterne para a [camada comercialmente crítico, que não tem esse limite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
-### <a name="incorrect-configuration-of-the-sas-key-during-database-restore"></a>Configuração incorreta da chave SAS durante a restauração do banco de dados
-
-`RESTORE DATABASE`isso lê que o arquivo. bak pode estar constantemente tentando ler o arquivo. bak e retornar um erro após um longo período de tempo se a assinatura `CREDENTIAL` de acesso compartilhado estiver incorreta. Execute RESTOre HEADERONLY antes de restaurar um banco de dados para certificar-se de que a chave SAS esteja correta.
-Certifique-se de remover a entrelinha `?` da chave SAS que é gerada usando o portal do Azure.
-
 ### <a name="tooling"></a>Ferramentas
 
 SQL Server Management Studio e SQL Server Data Tools podem ter alguns problemas enquanto acessam uma instância gerenciada.
@@ -624,11 +622,6 @@ Os módulos CLR colocados em uma instância gerenciada e servidores vinculados o
 Não é possível `BACKUP DATABASE ... WITH COPY_ONLY` executar o em um banco de dados criptografado com o TDE (Transparent Data Encryption gerenciamento de serviços gerenciados). O TDE gerenciado por serviço força os backups a serem criptografados com uma chave TDE interna. A chave não pode ser exportada, portanto, não é possível restaurar o backup.
 
 **Resolução** Use backups automáticos e restauração pontual ou use o [TDE (BYOK) gerenciado pelo cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) em vez disso. Você também pode desabilitar a criptografia no banco de dados.
-
-### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>A restauração pontual segue a hora do conjunto de fusos horários na instância de origem
-
-A restauração pontual atualmente interpreta o tempo de restauração para o seguindo o fuso horário da instância de origem, em vez do UTC seguinte.
-Verifique [problemas conhecidos do fuso horário da instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) para obter mais detalhes.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

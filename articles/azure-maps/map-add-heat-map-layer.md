@@ -1,6 +1,6 @@
 ---
 title: Adicionar uma camada do mapa de calor ao Azure Maps | Microsoft Docs
-description: Como adicionar uma camada do mapa de calor ao mapa do JavaScript
+description: Como adicionar uma camada do mapa de calor ao SDK da Web do Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 85f184603cdcadce6bf750db5765f32a0735453d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e83b3c5f7f7cb6fa729a628f01f4103d44c19df8
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639015"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976189"
 ---
 # <a name="add-a-heat-map-layer"></a>Adicionar uma camada de mapa térmico
 
 Mapas de calor, também conhecidos como mapas de densidade de ponto, são um tipo de visualização de dados usado para representar a densidade de dados usando um intervalo de cores. Geralmente, eles são usados para mostrar os dados "pontos de acesso" em um mapa e são uma ótima maneira de renderizar conjuntos de dados de ponto grande.  Por exemplo, renderizar dezenas de milhares de pontos dentro da exibição do mapa como símbolos, abrange a maior parte da área do mapa e resultaria em muitos símbolos sobrepostos, dificultando muito a percepção dos dados. No entanto, Visualizar esse mesmo conjunto de dados como um mapa de calor facilita a visualização de onde os dados do ponto são os mais densos e a densidade relativa a outras áreas. Há muitos cenários em que os mapas de calor são usados. Aqui estão alguns exemplos;
 
-* Os dados de temperatura são normalmente renderizados como mapa de calor, pois fornecem aproximaçãos para a temperatura entre dois pontos de dados.
-* Renderizar dados para sensores de ruído como um mapa de calor não apenas mostra a intensidade do ruído em que o sensor é, mas também pode fornecer informações sobre a dissipação ao longo de uma distância. O nível de ruído em qualquer site pode não ser alto, no entanto, se a área de cobertura de ruído de vários sensores se sobrepuser, é possível que essa área sobreposta possa ter níveis de ruído mais altos e, portanto, fique visível no mapa de calor.
-* Visualizar um rastreamento de GPS que inclui a velocidade como um mapa de altura ponderado em que a intensidade de cada ponto de dados é baseada na velocidade é uma ótima maneira de ver onde o veículo estava acelerando.
+- Os dados de temperatura são normalmente renderizados como mapa de calor, pois fornecem aproximaçãos para a temperatura entre dois pontos de dados.
+- Renderizar dados para sensores de ruído como um mapa de calor não apenas mostra a intensidade do ruído em que o sensor é, mas também pode fornecer informações sobre a dissipação ao longo de uma distância. O nível de ruído em qualquer site pode não ser alto, no entanto, se a área de cobertura de ruído de vários sensores se sobrepuser, é possível que essa área sobreposta possa ter níveis de ruído mais altos e, portanto, fique visível no mapa de calor.
+- Visualizar um rastreamento de GPS que inclui a velocidade como um mapa de altura ponderado em que a intensidade de cada ponto de dados é baseada na velocidade é uma ótima maneira de ver onde o veículo estava acelerando.
 
 > [!TIP]
 > As camadas do mapa de calor, por padrão, renderizarão as coordenadas de todas as geometrias em uma fonte de dados. Para limitar a camada para que ela só processe recursos de geometria de ponto, defina `filter` a propriedade da camada como `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` se você quiser incluir recursos do MultiPoint também.
@@ -31,12 +31,29 @@ Mapas de calor, também conhecidos como mapas de densidade de ponto, são um tip
 
 Para renderizar uma fonte de dados de pontos como um mapa de calor, passe sua fonte de dados para `HeatMapLayer` uma instância da classe e adicione-a ao mapa, conforme mostrado aqui.
 
+No código a seguir, cada ponto de calor tem um raio de 10 pixels em todos os níveis de zoom. Ao adicionar a camada do mapa de calor ao mapa, este exemplo o insere abaixo da camada de rótulo para criar uma melhor experiência do usuário, pois os rótulos são claramente visíveis acima do mapa de calor. Os dados neste exemplo são originados do programa de [riscos de terremoto USGS](https://earthquake.usgs.gov/) e representam terremotos significativos que ocorreram nos últimos 30 dias.
+
+```javascript
+//Create a data source and add it to the map.
+var datasource = new atlas.source.DataSource();
+map.sources.add(datasource);
+
+//Load a data set of points, in this case earthquake data from the USGS.
+datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson');
+
+//Create a heatmap and add it to the map.
+map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
+  radius: 10,
+  opacity: 0.8
+}), 'labels');
+```
+
+Abaixo está o exemplo de código completo em execução da funcionalidade acima.
+
 <br/>
 
 <iframe height='500' scrolling='no' title='Camada do mapa de calor simples' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a <a href='https://codepen.io/azuremaps/pen/gQqdQB/'>camada do mapa de calor simples</a> da caneta pelo<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
-Neste exemplo, cada ponto de calor tem um raio de 10 pixels em todos os níveis de zoom. Ao adicionar a camada do mapa de calor ao mapa, este exemplo o insere abaixo da camada de rótulo para criar uma melhor experiência do usuário, pois os rótulos são claramente visíveis acima do mapa de calor. Os dados neste exemplo são originados do programa de [riscos de terremoto USGS](https://earthquake.usgs.gov/) e representam terremotos significativos que ocorreram nos últimos 30 dias.
 
 ## <a name="customizing-the-heat-map-layer"></a>Personalizando a camada do mapa de calor
 
@@ -49,10 +66,10 @@ O exemplo anterior personalizou o mapa de calor definindo as opções de raio e 
 |--------------------------------|--------------------------|
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;' interpolar ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\[' linear '\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\[' calor-densidade '\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 1, ' roxo ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, ' #00c3ff '<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;' Step ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\[' calor-densidade '\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,25, ' verde ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,50, ' amarelo ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,75, ' vermelho '<br/>\] | 
 
-* `opacity`: Especifica o quão opaco ou transparente a camada do mapa de calor é.
-* `intensity`: Aplica um multiplicador ao peso de cada ponto de dados para aumentar a intensidade geral do calor e ajuda a fazer com que as pequenas diferenças no peso dos pontos de dados se tornem mais fáceis de Visualizar.
-* `weight`: Por padrão, todos os pontos de dados têm um peso de 1, portanto, todos os pontos de dados são ponderados igualmente. A opção Weight atua como um multiplicador e pode ser definida como um número ou uma expressão. Se um número for definido como o peso, digamos 2, ele será o equivalente a colocar cada ponto de dados no mapa duas vezes, dobrando a densidade. Definir a opção de peso para um número renderiza o mapa de calor de forma semelhante ao uso da opção de intensidade. No entanto, se uma expressão for usada, o peso de cada ponto de dados poderá ser baseado nas propriedades de cada ponto de dados. Pegue dados de terremoto como exemplo, cada ponto de dados representa um terremoto. Uma métrica importante de cada ponto de dados de terremoto tem, é um valor de magnitude. Os terremotos acontecem o tempo todo, mas têm uma magnitude menor e nem mesmo são sentidos. Usar o valor de magnitude em uma expressão para atribuir o peso a cada ponto de dados permitirá que os terremotos mais significativos sejam mais bem representados no mapa de calor.
-* Além das opções de camada base; zoom mínimo/máximo, visível e filtro, também há uma `source` opção se você quiser atualizar a fonte de dados e `source-layer` a opção se sua fonte de dados for uma fonte de bloco vetorial.
+- `opacity`: Especifica o quão opaco ou transparente a camada do mapa de calor é.
+- `intensity`: Aplica um multiplicador ao peso de cada ponto de dados para aumentar a intensidade geral do calor e ajuda a fazer com que as pequenas diferenças no peso dos pontos de dados se tornem mais fáceis de Visualizar.
+- `weight`: Por padrão, todos os pontos de dados têm um peso de 1, portanto, todos os pontos de dados são ponderados igualmente. A opção Weight atua como um multiplicador e pode ser definida como um número ou uma expressão. Se um número for definido como o peso, digamos 2, ele será o equivalente a colocar cada ponto de dados no mapa duas vezes, dobrando a densidade. Definir a opção de peso para um número renderiza o mapa de calor de forma semelhante ao uso da opção de intensidade. No entanto, se uma expressão for usada, o peso de cada ponto de dados poderá ser baseado nas propriedades de cada ponto de dados. Pegue dados de terremoto como exemplo, cada ponto de dados representa um terremoto. Uma métrica importante de cada ponto de dados de terremoto tem, é um valor de magnitude. Os terremotos acontecem o tempo todo, mas têm uma magnitude menor e nem mesmo são sentidos. Usar o valor de magnitude em uma expressão para atribuir o peso a cada ponto de dados permitirá que os terremotos mais significativos sejam mais bem representados no mapa de calor.
+- Além das opções de camada base; zoom mínimo/máximo, visível e filtro, também há uma `source` opção se você quiser atualizar a fonte de dados e `source-layer` a opção se sua fonte de dados for uma fonte de bloco vetorial.
 
 Aqui está uma ferramenta para testar as diferentes opções de camada do mapa de calor.
 
@@ -63,11 +80,11 @@ Aqui está uma ferramenta para testar as diferentes opções de camada do mapa d
 
 ## <a name="consistent-zoomable-heat-map"></a>Mapa de calor com zoom consistente
 
-Por padrão, o raios de pontos de dados renderizados na camada do mapa de calor têm um raio de pixel fixo para todos os níveis de zoom. Como o mapa é ampliado, os dados agregados em conjunto e a camada do mapa de calor é diferente. Uma `zoom` expressão pode ser usada para dimensionar o raio para cada nível de zoom, de modo que cada ponto de dados cubra a mesma área física do mapa. Isso fará com que a camada do mapa de calor pareça mais estática e consistente. Cada nível de zoom do mapa tem duas vezes mais pixels vertical e horizontalmente como o nível de zoom anterior. Dimensionar o raio de forma a dobrar com cada nível de zoom criará um mapa de calor que se parece consistente em todos os níveis de zoom. Isso pode ser feito usando o `zoom` com uma expressão base 2 `exponential interpolation` , conforme mostrado no exemplo abaixo. Aplique zoom no mapa para ver como o mapa de calor é dimensionado com o nível de zoom.
+Por padrão, o raios de pontos de dados renderizados na camada do mapa de calor têm um raio de pixel fixo para todos os níveis de zoom. À medida que o mapa é ampliado, os dados são agregados juntos e a camada do mapa de calor é diferente. Uma `zoom` expressão pode ser usada para dimensionar o raio para cada nível de zoom, de modo que cada ponto de dados cubra a mesma área física do mapa. Isso fará com que a camada do mapa de calor pareça mais estática e consistente. Cada nível de zoom do mapa tem duas vezes mais pixels vertical e horizontalmente como o nível de zoom anterior. Dimensionar o raio de forma a dobrar com cada nível de zoom criará um mapa de calor que se parece consistente em todos os níveis de zoom. Isso pode ser feito usando o `zoom` com uma expressão base 2 `exponential interpolation` , conforme mostrado no exemplo abaixo. Aplique zoom no mapa para ver como o mapa de calor é dimensionado com o nível de zoom.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Mapa de calor com zoom consistente" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=light&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Mapa de calor com zoom consistente" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte o <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>mapa de calor com zoom consistente</a> com a caneta pelo<a href='https://codepen.io/azuremaps'>@azuremaps</a>mapas do Azure () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -93,7 +110,7 @@ Saiba mais sobre as classes e os métodos usados neste artigo:
 Para obter mais exemplos de código a serem adicionados aos seus mapas, consulte os seguintes artigos:
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de símbolo](./map-add-pin.md)
+> [Criar uma fonte de dados](create-data-source-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Usar expressões de estilo controladas por dados](data-driven-style-expressions-web-sdk.md)

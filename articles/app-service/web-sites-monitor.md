@@ -1,6 +1,6 @@
 ---
-title: Monitorizar aplicações - serviço de aplicações do Azure | Documentos da Microsoft
-description: Saiba como monitorizar aplicações no serviço de aplicações do Azure com o portal do Azure.
+title: Monitorar aplicativos – serviço de Azure App | Microsoft Docs
+description: Saiba como monitorar aplicativos no serviço de Azure App usando o portal do Azure.
 services: app-service
 documentationcenter: ''
 author: btardif
@@ -16,152 +16,152 @@ ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60832595"
 ---
-# <a name="monitor-apps-in-azure-app-service"></a>Monitorizar aplicações no serviço de aplicações do Azure
-[Serviço de aplicações do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) fornece a funcionalidade interna de monitorização para aplicações web, móveis back-ends e aplicações API no [portal do Azure](https://portal.azure.com).
+# <a name="monitor-apps-in-azure-app-service"></a>Monitorar aplicativos no serviço Azure App
+O [serviço de Azure app](https://go.microsoft.com/fwlink/?LinkId=529714) fornece funcionalidade de monitoramento interna para aplicativos Web, back-ends móveis e aplicativos de API no [portal do Azure](https://portal.azure.com).
 
-No portal do Azure, pode rever *quotas* e *métricas* para uma aplicação, reveja o plano do serviço de aplicações e configurar automaticamente a *alertas* e *dimensionamento* que se baseiam nas métricas.
+No portal do Azure, você pode examinar as *cotas* e as métricas de um aplicativo, examinar o plano do serviço de aplicativo e configurar automaticamente os *alertas* e o *dimensionamento* com base nas métricas.
 
-## <a name="understand-quotas"></a>Compreender as quotas
+## <a name="understand-quotas"></a>Entender as cotas
 
-Aplicações que estão alojadas no serviço de aplicações estão sujeitas a determinados limites para os recursos podem utilizar. Os limites são definidos pelo plano de serviço de aplicações que está associada a aplicação.
+Os aplicativos hospedados no serviço de aplicativo estão sujeitos a determinados limites nos recursos que eles podem usar. Os limites são definidos pelo plano do serviço de aplicativo associado ao aplicativo.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Se a aplicação estiver alojada num *gratuito* ou *partilhado* plano, os limites nos recursos que pode utilizar a aplicação são definidos por quotas.
+Se o aplicativo estiver hospedado em um plano *gratuito* ou *compartilhado* , os limites dos recursos que o aplicativo pode usar serão definidos por cotas.
 
-Se a aplicação estiver alojada num *básica*, *padrão*, ou *Premium* plano, os limites nos recursos que eles podem usar são definidos pelo *tamanho* ( Pequeno, médio, grande) e *contagem de instâncias* (1, 2, 3 e assim por diante) do plano do serviço de aplicações.
+Se o aplicativo estiver hospedado em um plano *básico*, *Standard*ou *Premium* , os limites dos recursos que eles podem usar serão definidos pelo *tamanho* (pequeno, médio, grande) e pela contagem de *instâncias* (1, 2, 3 e assim por diante) do plano do serviço de aplicativo.
 
-As quotas para aplicações gratuito ou partilhado são:
+As cotas para aplicativos livres ou compartilhados são:
 
 | Quota | Descrição |
 | --- | --- |
-| **CPU (curto)** | A quantidade de CPU permitida para esta aplicação num intervalo de 5 minutos. Esta quota repõe a cada cinco minutos. |
-| **CPU (dia)** | A quantidade total de CPU permitida para esta aplicação num dia. Esta quota repõe a cada 24 horas à meia-noite UTC. |
-| **Memória** | A quantidade total de memória permitida para esta aplicação. |
-| **Largura de banda** | A quantidade total de largura de banda de saída permitida para esta aplicação num dia. Esta quota repõe a cada 24 horas à meia-noite UTC. |
-| **Sistema de ficheiros** | A quantidade total de armazenamento permitida. |
+| **CPU (curta)** | A quantidade de CPU permitida para esse aplicativo em um intervalo de 5 minutos. Essa cota é redefinida a cada cinco minutos. |
+| **CPU (dia)** | A quantidade total de CPU permitida para esse aplicativo em um dia. Essa cota é redefinida a cada 24 horas à meia-noite UTC. |
+| **Memória** | A quantidade total de memória permitida para este aplicativo. |
+| **Larga** | A quantidade total de largura de banda de saída permitida para esse aplicativo em um dia. Essa cota é redefinida a cada 24 horas à meia-noite UTC. |
+| **WPD** | A quantidade total de armazenamento permitido. |
 
-A quota apenas aplicável a aplicações que estão alojadas numa *básica*, *padrão*, e *Premium* planos é o sistema de ficheiros.
+A única cota aplicável a aplicativos hospedados em planos *Basic*, *Standard*e *Premium* é FileSystem.
 
-Para obter mais informações sobre as quotas específicas, limites e recursos disponíveis para as várias SKUs de serviço de aplicação, consulte [limites de serviço de subscrição do Azure](../azure-subscription-service-limits.md#app-service-limits).
+Para obter mais informações sobre cotas, limites e recursos específicos disponíveis para as várias SKUs do serviço de aplicativo, consulte [limites de serviço de assinatura do Azure](../azure-subscription-service-limits.md#app-service-limits).
 
-### <a name="quota-enforcement"></a>Imposição de quota
+### <a name="quota-enforcement"></a>Imposição de cota
 
-Se uma aplicação exceder os *CPU (curto)* , *CPU (dia)* , ou *largura de banda* quota, a aplicação está parado até que repõe a quota. Durante este período, todos os pedidos recebidos resultam num erro HTTP 403.
+Se um aplicativo exceder a cota de *CPU (curto)* , *CPU (dia)* ou *largura de banda* , o aplicativo será interrompido até que a cota seja redefinida. Durante esse tempo, todas as solicitações de entrada resultarão em um erro HTTP 403.
 
 ![mensagem de erro 403][http403]
 
-Se for excedida a quota de memória da aplicação, o aplicativo é reiniciado.
+Se a cota de memória do aplicativo for excedida, o aplicativo será reiniciado.
 
-Se for excedida a quota do sistema de ficheiros, qualquer escrever operação falhar. Falhas de operação incluem quaisquer escritas nos registos de escrita.
+Se a cota do sistema de arquivos for excedida, qualquer operação de gravação falhará. As falhas de operação de gravação incluem qualquer gravação nos logs.
 
-Pode aumentar ou remover quotas a partir da sua aplicação ao atualizar o seu plano do serviço de aplicações.
+Você pode aumentar ou remover cotas do seu aplicativo atualizando seu plano do serviço de aplicativo.
 
-## <a name="understand-metrics"></a>Compreender as métricas
+## <a name="understand-metrics"></a>Entender as métricas
 
-Métricas fornecem informações sobre a aplicação ou o serviço de aplicações de comportamento do plano.
+As métricas fornecem informações sobre o aplicativo ou o comportamento do plano do serviço de aplicativo.
 
-Para uma aplicação, as métricas disponíveis são:
+Para um aplicativo, as métricas disponíveis são:
 
 | Métrica | Descrição |
 | --- | --- |
-| **Tempo médio de resposta** | O tempo médio despendido para a aplicação atender a solicitações, em milissegundos. |
-| **Conjunto de trabalho de memória média** | A quantidade média de memória utilizada pela aplicação, em megabytes (MiB). |
-| **Ligações** | O número de sockets vinculadas existentes na área de segurança (w3wp.exe e os processos filho).  Um soquete vinculado é criado chamando bind()/connect() APIs e permanece até que disse soquete é fechado com CloseHandle()/closesocket(). |
-| **Tempo de CPU** | A quantidade de CPU consumida pela aplicação, em segundos. Para obter mais informações sobre esta métrica, consulte [percentagem de CPU do vs de tempo de CPU](#cpu-time-vs-cpu-percentage). |
-| **Assemblagens actuais** | O número atual de Assemblies carregados em todos os AppDomains nesta aplicação. |
-| **Dados em** | A quantidade de largura de banda de entrada consumida pela aplicação, no MiB. |
-| **Saída de dados** | A quantidade de largura de banda de saída consumida pela aplicação, no MiB. |
-| **Coletas de Gen 0** | O número de vezes que os objetos de geração 0 são lixo coletado desde o início do processo de aplicação. GCs de geração superior incluem todos os GCs de geração inferior.|
-| **Coletas de lixo da geração 1** | O número de vezes que os objetos de geração 1 são lixo coletado desde o início do processo de aplicação. GCs de geração superior incluem todos os GCs de geração inferior.|
-| **Coletas de lixo da geração 2** | O número de vezes que os objetos de geração 2 são lixo coletado desde o início do processo de aplicação.|
-| **Contagem de identificadores** | O número total de identificadores atualmente abertas pelo processo de aplicação.|
-| **Http 2xx** | Contagem de pedidos, resultando num código de estado HTTP ≥ 200 mas < 300. |
-| **Http 3xx** | Contagem de pedidos, resultando num código de estado HTTP ≥ 300 mas < 400. |
-| **HTTP 401** | Contagem de pedidos, resultando em código de estado HTTP 401. |
-| **HTTP 403** | Contagem de pedidos, resultando em código de estado HTTP 403. |
-| **HTTP 404** | Contagem de pedidos, resultando em código de estado de HTTP 404. |
-| **Http 406** | Contagem de pedidos, resultando em código de estado HTTP 406. |
-| **Http 4xx** | Contagem de pedidos, resultando num código de estado HTTP ≥ 400 mas < 500. |
-| **Erros de servidor HTTP** | Contagem de pedidos, resultando num código de estado HTTP ≥ 500 mas < 600. |
-| **E/s outros Bytes por segundo** | A velocidade a que o processo de aplicação está a emitir bytes para operações de e/s não envolvem dados, como operações de controle.|
-| **E/s outras operações por segundo** | A velocidade a que o processo de aplicação está a emitir operações de e/s que não são de leitura nem operações de escrita.|
-| **Bytes de leitura de e/s por segundo** | A velocidade a que o processo de aplicação é leitura de bytes de operações de e/s.|
-| **Operações de leitura de e/s por segundo** | A taxa a que o processo de aplicação está a emitir a operações de e/s de leitura.|
-| **Bytes por segundo de escrita de e/s** | A velocidade a que o processo de aplicação está a escrever bytes para operações de e/s.|
-| **Operações por segundo de escrita de e/s** | A velocidade a que o processo de aplicação está a emitir operações de e/s de escrita.|
-| **Conjunto de trabalho de memória** | A quantidade atual de memória utilizada pela aplicação, no MiB. |
-| **Bytes privados** | Bytes privados é o tamanho atual, em bytes, da memória que atribuiu o processo de aplicação que não pode ser compartilhada com outros processos.|
-| **Pedidos** | O número total de pedidos, independentemente do seu código de estado HTTP resultante. |
-| **Pedidos na fila de aplicação** | O número de pedidos na fila de pedido de aplicação.|
-| **Contagem de threads** | O número de threads atualmente ativos no processo de aplicação.|
-| **Domínios de aplicação totais** | O número atual de AppDomains carregados nesta aplicação.|
-| **Domínios de aplicação totais descarregados** | O número total de AppDomains descarregado desde o início do aplicativo.|
+| **Tempo médio de resposta** | O tempo médio necessário para o aplicativo atender solicitações, em milissegundos. |
+| **Conjunto de trabalho de memória média** | A quantidade média de memória usada pelo aplicativo, em megabytes (MiB). |
+| **Ligações** | O número de soquetes vinculados existentes na área restrita (w3wp. exe e seus processos filho).  Um soquete associado é criado chamando-se as APIs BIND ()/Connect () e permanece até que o soquete seja fechado com CloseHandle ()/closesocket (). |
+| **Tempo de CPU** | A quantidade de CPU consumida pelo aplicativo, em segundos. Para obter mais informações sobre essa métrica, consulte [CPU time vs CPU Percentage](#cpu-time-vs-cpu-percentage). |
+| **Assemblies atuais** | O número atual de assemblies carregados em todos os AppDomains neste aplicativo. |
+| **Dados em** | A quantidade de largura de banda de entrada consumida pelo aplicativo, na MiB. |
+| **Saída de dados** | A quantidade de largura de banda de saída consumida pelo aplicativo, na MiB. |
+| **Coletas de lixo de Gen 0** | O número de vezes que os objetos de geração 0 são coletados como lixo desde o início do processo do aplicativo. Os GCs de geração mais alta incluem todos os GCs de geração mais baixa.|
+| **Coletas de lixo da Gen 1** | O número de vezes que os objetos da geração 1 são coletados como lixo desde o início do processo do aplicativo. Os GCs de geração mais alta incluem todos os GCs de geração mais baixa.|
+| **Coletas de lixo da Gen 2** | O número de vezes que os objetos de geração 2 são coletados como lixo desde o início do processo do aplicativo.|
+| **Contagem de identificadores** | O número total de identificadores abertos no momento pelo processo do aplicativo.|
+| **2xx http** | A contagem de solicitações que resultam em um código de status HTTP ≥ 200, mas < 300. |
+| **3xx http** | A contagem de solicitações que resultam em um código de status HTTP ≥ 300, mas < 400. |
+| **Http 401** | A contagem de solicitações que resultam no código de status HTTP 401. |
+| **Http 403** | A contagem de solicitações que resultam no código de status HTTP 403. |
+| **Http 404** | A contagem de solicitações que resultam no código de status HTTP 404. |
+| **Http 406** | A contagem de solicitações que resultam no código de status HTTP 406. |
+| **4xx http** | A contagem de solicitações que resultam em um código de status HTTP ≥ 400, mas < 500. |
+| **Erros do servidor http** | A contagem de solicitações que resultam em um código de status HTTP ≥ 500, mas < 600. |
+| **E/s outros bytes por segundo** | A taxa na qual o processo do aplicativo está emitindo bytes para operações de e/s que não envolvem dados, como operações de controle.|
+| **E/s outras operações por segundo** | A taxa na qual o processo do aplicativo está emitindo operações de e/s que não são operações de leitura nem de gravação.|
+| **Bytes de leitura de e/s por segundo** | A taxa na qual o processo do aplicativo está lendo bytes de operações de e/s.|
+| **Operações de leitura de e/s por segundo** | A taxa na qual o processo do aplicativo está emitindo operações de e/s de leitura.|
+| **Bytes de gravação de e/s por segundo** | A taxa na qual o processo do aplicativo está gravando bytes em operações de e/s.|
+| **Operações de gravação de e/s por segundo** | A taxa na qual o processo do aplicativo está emitindo operações de e/s de gravação.|
+| **Conjunto de trabalho de memória** | A quantidade atual de memória usada pelo aplicativo, na MiB. |
+| **Bytes particulares** | Bytes privados é o tamanho atual, em bytes, da memória alocada pelo processo do aplicativo que não pode ser compartilhada com outros processos.|
+| **Pedido** | O número total de solicitações, independentemente do código de status HTTP resultante. |
+| **Solicitações na fila de aplicativos** | O número de solicitações na fila de solicitações do aplicativo.|
+| **Contagem de threads** | O número de threads atualmente ativos no processo do aplicativo.|
+| **Total de domínios de aplicativo** | O número atual de AppDomains carregados neste aplicativo.|
+| **Total de domínios de aplicativo descarregados** | O número total de AppDomains descarregados desde o início do aplicativo.|
 
 
-Para um plano de serviço de aplicações, as métricas disponíveis são:
+Para um plano do serviço de aplicativo, as métricas disponíveis são:
 
 > [!NOTE]
-> Métricas do plano de serviço de aplicações estão disponíveis apenas para planos *básica*, *padrão*, e *Premium* escalões.
+> As métricas do plano do serviço de aplicativo estão disponíveis apenas para planos nas camadas *básica*, *Standard*e *Premium* .
 > 
 
 | Métrica | Descrição |
 | --- | --- |
-| **Percentagem de CPU** | A CPU média utilizada em todas as instâncias do plano. |
-| **Percentagem de memória** | Média de memória utilizada em todas as instâncias do plano. |
-| **Dados em** | A média entrada largura de banda utilizada em todas as instâncias do plano. |
-| **Saída de dados** | A média de largura de banda utilizada em todas as instâncias do plano de saída. |
-| **Comprimento da fila de disco** | O número médio de leitura e pedidos que foram colocados em fila de escrita no armazenamento. Um comprimento de fila de disco elevados é uma indicação de uma aplicação que pode ser mais lento devido a e/s de disco excessiva. |
-| **Comprimento da fila de HTTP** | O número médio de pedidos HTTP que tinha sentar-se na fila antes de a ser concluído. Um comprimento de fila de HTTP alto ou crescente é um sintoma de um plano com muita carga. |
+| **Percentual de CPU** | A média de CPU usada em todas as instâncias do plano. |
+| **Porcentagem de memória** | A média de memória usada em todas as instâncias do plano. |
+| **Dados em** | A largura de banda de entrada média usada em todas as instâncias do plano. |
+| **Saída de dados** | A largura de banda de saída média usada em todas as instâncias do plano. |
+| **Comprimento da fila de disco** | O número médio de solicitações de leitura e gravação que foram enfileiradas no armazenamento. Um comprimento de fila de disco alto é uma indicação de um aplicativo que pode estar causando lentidão devido a uma e/s excessiva de disco. |
+| **Comprimento da fila http** | O número médio de solicitações HTTP que tinham que ficar na fila antes de serem atendidas. Um comprimento de fila HTTP alto ou crescente é um sintoma de um plano sob carga pesada. |
 
-### <a name="cpu-time-vs-cpu-percentage"></a>Percentagem de CPU do vs de tempo de CPU
+### <a name="cpu-time-vs-cpu-percentage"></a>Tempo de CPU versus percentual de CPU
 <!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
 
-Existem duas métricas que refletem a utilização da CPU:
+Há duas métricas que refletem o uso da CPU:
 
-**Tempo de CPU**: Útil para as aplicações alojadas no gratuito ou partilhado planos, como uma das suas quotas é definida em minutos de CPU utilizados pela aplicação.
+**Tempo de CPU**: Útil para aplicativos hospedados em planos gratuitos ou compartilhados, porque uma de suas cotas é definida nos minutos de CPU usados pelo aplicativo.
 
-**Percentagem de CPU**: Útil para aplicações alojadas nos planos básico, Standard e Premium, uma vez que podem ser aumentados horizontalmente. Percentagem de CPU é uma boa indicação de que o uso geral em todas as instâncias.
+**Percentual de CPU**: Útil para aplicativos hospedados nos planos básico, Standard e Premium, pois eles podem ser escalados horizontalmente. A porcentagem de CPU é uma boa indicação do uso geral em todas as instâncias.
 
-## <a name="metrics-granularity-and-retention-policy"></a>Política de retenção e a granularidade de métricas
-As métricas para uma aplicação e o plano do serviço de aplicações são registadas e agregadas pelo serviço, com as políticas de retenção e nas duas granularidades seguintes:
+## <a name="metrics-granularity-and-retention-policy"></a>Granularidade de métricas e política de retenção
+As métricas para um aplicativo e um plano do serviço de aplicativo são registradas e agregadas pelo serviço, com as seguintes granularidades e políticas de retenção:
 
-* **Minuto** métricas de granularidade são retidas durante 30 horas.
-* **Hora** métricas de granularidade são retidas durante 30 dias.
-* **Dia** métricas de granularidade são retidas durante 30 dias.
+* As métricas de granularidade de **minuto** são mantidas por 30 horas.
+* As métricas de granularidade de **hora** são retidas por 30 dias.
+* As métricas de granularidade de **dia** são retidas por 30 dias.
 
-## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Monitorização de quotas e as métricas no portal do Azure
-Para rever o estado dos vários quotas e métricas que afetam uma aplicação, vá para o [portal do Azure](https://portal.azure.com).
+## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Monitoramento de cotas e métricas no portal do Azure
+Para examinar o status das várias cotas e métricas que afetam um aplicativo, acesse o [portal do Azure](https://portal.azure.com).
 
-![Gráfico de quotas no portal do Azure][quotas]
+![Gráfico de cotas no portal do Azure][quotas]
 
-Para encontrar as quotas, selecione **configurações** > **Quotas**. O gráfico, pode rever: 
-1. O nome da quota.
-1. O intervalo de reposição.
-1. O limite atual.
-1. O valor atual.
+Para localizar cotas, selecione **configurações** > **cotas**. No gráfico, você pode examinar: 
+1. O nome da cota.
+1. Seu intervalo de redefinição.
+1. Seu limite atual.
+1. Seu valor atual.
 
-![Gráfico de métricas no portal do Azure][metrics] pode aceder a métricas diretamente a partir de **recurso** página. Para personalizar o gráfico: 
+![Gráfico de métrica no portal do Azure][metrics] você pode acessar as métricas diretamente da página de **recursos** . Para personalizar o gráfico: 
 1. Selecione o gráfico.
-1. Selecione **editar gráfico**.
-1. Editar a **intervalo de tempo**.
-1. Editar a **tipo de gráfico**.
-1. Edite as métricas que pretende apresentar.  
+1. Selecione **Editar gráfico**.
+1. Edite o **intervalo de tempo**.
+1. Edite o **tipo de gráfico**.
+1. Edite as métricas que você deseja exibir.  
 
-Para saber mais sobre métricas, veja [monitorizar as métricas de serviço](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Para saber mais sobre métricas, consulte [monitorar métricas de serviço](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
-## <a name="alerts-and-autoscale"></a>Alertas e o dimensionamento automático
-As métricas para uma aplicação ou um plano do serviço de aplicações podem ser conectadas a alertas. Para obter mais informações, consulte [Receber notificações de alerta](../monitoring-and-diagnostics/insights-alerts-portal.md).
+## <a name="alerts-and-autoscale"></a>Alertas e dimensionamento automático
+As métricas para um aplicativo ou um plano do serviço de aplicativo podem ser conectadas a alertas. Para obter mais informações, consulte [Receber notificações de alerta](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Aplicações de serviço de aplicações alojadas nesse autoscale de suporte de planos básico, Standard ou Premium do serviço de aplicações. Com o dimensionamento automático, pode configurar regras que monitoram as métricas de plano de serviço de aplicações. Regras podem aumentar ou diminuir a contagem de instâncias, que pode fornecer recursos adicionais conforme necessário. As regras também podem ajudar a poupar dinheiro quando a aplicação é aprovisionada excessiva.
+Os aplicativos do serviço de aplicativo hospedados nos planos do serviço de aplicativo básico, Standard ou Premium oferecem suporte a autoescala. Com o dimensionamento automático, você pode configurar regras que monitoram as métricas do plano do serviço de aplicativo. As regras podem aumentar ou diminuir a contagem de instâncias, o que pode fornecer recursos adicionais, conforme necessário. As regras também podem ajudá-lo a economizar dinheiro quando o aplicativo estiver excessivamente provisionado.
 
-Para obter mais informações sobre o dimensionamento automático, consulte [como dimensionar](../monitoring-and-diagnostics/insights-how-to-scale.md) e [melhores práticas para o dimensionamento automático do Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
+Para obter mais informações sobre o dimensionamento automático, consulte [como dimensionar](../monitoring-and-diagnostics/insights-how-to-scale.md) e [as práticas recomendadas para Azure monitor autoescala](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

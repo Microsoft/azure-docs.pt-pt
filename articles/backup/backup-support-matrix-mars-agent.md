@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 6d05b6ac49b372caff1bdc2f03358598fcc1afba
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 8c983772f58c1ea01db175b47225ccfafa515b96
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737094"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951987"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -72,8 +72,8 @@ Limitação de rede | Não disponível para computadores com backup que executam
 
 Você pode usar o agente MARS para fazer backup diretamente no Azure em alguns sistemas operacionais que são executados em máquinas locais e VMs do Azure. Os sistemas operacionais devem ser de 64 bits e devem estar executando os serviços e atualizações mais recentes. A tabela a seguir resume estes sistemas operacionais:
 
-**Sistema operativo** | **Arquivos/pastas** | **Estado do sistema**
---- | --- | ---
+**Sistema operativo** | **Arquivos/pastas** | **Estado do sistema** 
+--- | --- | --- 
 Windows 10 (Enterprise, Pro, Home) | Sim | Não
 Windows 8.1 (Enterprise, Pro)| Sim |Não
 Windows 8 (Enterprise, Pro) | Sim | Não
@@ -142,6 +142,6 @@ Usando o recurso de [restauração instantânea](backup-instant-restore-capabili
 
 Os backups não podem ser restaurados em um computador de destino que esteja executando uma versão anterior do sistema operacional. Por exemplo, um backup feito de um computador que executa o Windows 7 pode ser restaurado no Windows 8 ou posterior. Mas um backup feito de um computador que executa o Windows 8 não pode ser restaurado em um computador que esteja executando o Windows 7.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [a arquitetura de backup que usa o agente Mars](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
 - Saiba o que tem suporte quando você [executa o agente Mars no mAbs ou em um servidor DPM](backup-support-matrix-mabs-dpm.md).

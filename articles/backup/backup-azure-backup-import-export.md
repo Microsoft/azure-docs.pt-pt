@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: dacurwin
-ms.openlocfilehash: a59cff3b2edc4d5b94cc0a44472665c95652f868
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 1d3dc50d141a4e1d2864a56aff5c3adb3d2ca0b1
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736680"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954863"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de cópias de segurança offline no Azure Backup
 O backup do Azure tem várias eficiências internas que economizam os custos de rede e armazenamento durante os backups completos iniciais dos dados no Azure. Os backups completos iniciais normalmente transferem grandes quantidades de dados e exigem mais largura de banda de rede em comparação com os backups subsequentes que transferem apenas os deltas/incrementos. Por meio do processo de propagação offline, o backup do Azure pode usar discos para carregar os dados de backup offline no Azure.
@@ -93,7 +93,7 @@ Esta seção descreve o fluxo de trabalho de backup offline para que seus dados 
 
 4. Na página confirmação do assistente, clique em **fazer backup**. O backup inicial é gravado na área de preparação como parte da configuração.
 
-   ![Confirme que você está pronto para fazer o backup agora](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
+   ![Confirme que você está pronto para fazer backup agora](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
 
     Após a conclusão da operação, o local de preparo estará pronto para ser usado para a preparação do disco.
 
@@ -197,6 +197,6 @@ No momento do próximo backup agendado, o backup do Azure executa um backup incr
 ### <a name="cleaning-up-resources"></a>Limpando recursos
 Depois que o backup inicial for concluído, você poderá excluir com segurança os dados importados para o contêiner de armazenamento do Azure e os dados de backup no local de preparo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para perguntas sobre o fluxo de trabalho de importação/exportação do Azure, consulte [usar o serviço de importação/exportação Microsoft Azure para transferir dados para o armazenamento de BLOBs](../storage/common/storage-import-export-service.md).
 * Consulte a seção backup offline das [perguntas frequentes](backup-azure-backup-faq.md) sobre o backup do Azure para dúvidas sobre o fluxo de trabalho.

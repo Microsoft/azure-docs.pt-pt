@@ -10,18 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: d1ad89943f6acfec6e42199ef399643be12e2b8b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ebecb69e57c620b2eb84568757c8e3e6f1cb1663
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856219"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946395"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Segurança da empresa para o serviço Azure Machine Learning
 
 Neste artigo, você aprenderá sobre os recursos de segurança disponíveis com o serviço Azure Machine Learning.
 
-Ao usar um serviço de nuvem, é uma prática recomendada restringir o acesso somente aos usuários que precisam dele. Isso começa compreendendo o modelo de autenticação e autorização usado pelo serviço. Talvez você também queira restringir o acesso à rede ou unir com segurança recursos em sua rede local com aqueles na nuvem. A criptografia de dados também é vital, em repouso e enquanto os dados se movem entre os serviços. Por fim, você precisa ser capaz de monitorar o serviço e produzir um log de auditoria de todas as atividades.
+Ao usar um serviço de nuvem, é uma prática recomendada restringir o acesso somente aos usuários que precisam dele. Isso começa compreendendo o modelo de autenticação e autorização usado pelo serviço. Talvez você também queira restringir o acesso à rede ou unir com segurança recursos em sua rede local com a nuvem. A criptografia de dados também é vital, em repouso e enquanto os dados se movem entre os serviços. Por fim, você precisa ser capaz de monitorar o serviço e produzir um log de auditoria de todas as atividades.
 
 ## <a name="authentication"></a>Authentication
 
@@ -29,7 +29,7 @@ A autenticação multifator terá suporte se o Azure Active Directory (Azure AD)
 
 * O cliente faz logon no Azure AD e obtém Azure Resource Manager token.  Os usuários e as entidades de serviço têm suporte total.
 * O cliente apresenta um token para Azure Resource Manager & todos os serviços de Azure Machine Learning
-* Azure Machine Learning serviço fornece um token de Azure Machine Learning para a computação do usuário. Por exemplo, Computação do Machine Learning. Esse Azure Machine Learning token é usado pela computação do usuário para retornar ao serviço Azure Machine Learning (limita o escopo ao espaço de trabalho) após a execução ser concluída.
+* Azure Machine Learning serviço fornece um token de Azure Machine Learning para a computação do usuário. Por exemplo, Computação do Machine Learning. Esse token é usado pela computação do usuário para chamar de volta para o serviço Azure Machine Learning (limita o escopo ao espaço de trabalho) após a execução ser concluída.
 
 ![Captura de tela mostrando como funciona a autenticação no serviço Azure Machine Learning](./media/enterprise-readiness/authentication.png)
 
@@ -159,8 +159,8 @@ Todas as imagens de contêiner no seu registro (ACR) são criptografadas em repo
 
 #### <a name="machine-learning-compute"></a>Computação do Machine Learning
 
-O disco do sistema operacional para cada nó de computação é armazenado no armazenamento do Azure é criptografado usando chaves gerenciadas pela Microsoft em Azure Machine Learning contas de armazenamento de serviço. Essa computação é efêmera, e os clusters são normalmente reduzidos quando não há execuções na fila. A máquina virtual subjacente é desprovisionada e o disco de so foi excluído. O disco do sistema operacional não oferece suporte à criptografia de disco do Azure.
-Cada máquina virtual também tem um disco temporário local para operações do sistema operacional. Esse disco também pode ser usado opcionalmente para preparar dados de treinamento. Este disco não está criptografado.
+O disco do sistema operacional para cada nó de computação é armazenado no armazenamento do Azure é criptografado usando chaves gerenciadas pela Microsoft em Azure Machine Learning contas de armazenamento de serviço. Esse destino de computação é efêmero, e os clusters são normalmente reduzidos quando não há execuções na fila. A máquina virtual subjacente é desprovisionada e o disco de so foi excluído. O disco do sistema operacional não oferece suporte à criptografia de disco do Azure.
+Cada máquina virtual também tem um disco temporário local para operações do sistema operacional. O disco também pode ser usado opcionalmente para preparar dados de treinamento. O disco não está criptografado.
 Para obter mais informações sobre como a criptografia em repouso funciona no Azure, consulte [criptografia de dados do Azure em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 ### <a name="encryption-in-transit"></a>Criptografia em trânsito
@@ -199,7 +199,12 @@ A captura de tela a seguir mostra o log de atividades para um espaço de trabalh
 
 ![Captura de tela mostrando o log de atividades em um espaço de trabalho](./media/enterprise-readiness/workspace-activity-log.png)
 
-Os detalhes da solicitação de pontuação são armazenados no AppInsights, que é criado na assinatura do usuário durante a criação do espaço de trabalho. Isso inclui campos como HTTPMethod, UserAgent, computable, RequestUrl, StatusCode, RequestId, Duration, etc.
+Os detalhes da solicitação de pontuação são armazenados no Application insights, que é criado na assinatura do usuário durante a criação do espaço de trabalho. As informações registradas incluem campos como HTTPMethod, UserAgent, computable, RequestUrl, StatusCode, RequestId, Duration, etc.
+
+> [!IMPORTANT]
+> Algumas ações dentro do espaço de trabalho Azure Machine Learning não registram informações no log de atividades. Por exemplo, iniciar uma execução de treinamento ou registrar um modelo.
+>
+> Algumas dessas ações aparecem na área __atividades__ do seu espaço de trabalho, no entanto, elas não indicam quem iniciou a atividade.
 
 ## <a name="data-flow-diagram"></a>Diagrama de fluxo de dados
 
@@ -220,7 +225,7 @@ Outras computações anexadas a um espaço de trabalho (serviço kubernetes do A
 ### <a name="save-source-code-training-scripts"></a>Salvar código-fonte (scripts de treinamento)
 
 O diagrama a seguir mostra o fluxo de trabalho de instantâneo de código.
-Associado a um espaço de trabalho de serviço do Azure Machine Learning são diretórios (experimentos), que contém o código-fonte (scripts de treinamento).  Eles são armazenados na máquina local do cliente e na nuvem (no armazenamento de BLOBs do Azure em assinatura do cliente). Esses instantâneos de código são usados para execução ou inspeção para auditoria histórica.
+Associado a um espaço de trabalho de serviço do Azure Machine Learning são diretórios (experimentos), que contém o código-fonte (scripts de treinamento).  Esses scripts são armazenados na máquina local do cliente e na nuvem (no armazenamento de BLOBs do Azure em assinatura do cliente). Os instantâneos de código são usados para execução ou inspeção para auditoria histórica.
 
 ![Captura de tela mostrando criar fluxo de trabalho](./media/enterprise-readiness/code-snapshot.png)
 
@@ -233,12 +238,12 @@ O diagrama a seguir mostra o fluxo de trabalho de treinamento.
 * Você pode escolher uma computação gerenciada (por exemplo, Computação do Machine Learning) ou computação não gerenciada (ex. VM) para executar seus trabalhos de treinamento. O fluxo de dados é explicado para os dois cenários abaixo:
 * (VM/HDInsight – acessado usando credenciais SSH no Key Vault na assinatura da Microsoft) Azure Machine Learning serviço executa o código de gerenciamento no destino de computação que:
 
-   1. Prepara o ambiente. (Observe que o Docker é uma opção para VM e local também. Consulte as etapas a seguir para Computação do Machine Learning entender como funciona a execução do experimento no contêiner do Docker.)
+   1. Prepara o ambiente. (O Docker é uma opção para VM e local também. Consulte as etapas a seguir para Computação do Machine Learning entender como funciona a execução do experimento no contêiner do Docker.)
    1. Baixa o código.
    1. Configura variáveis de ambiente e configurações.
    1. Executa o script do usuário (instantâneo de código mencionado acima).
 
-* (Computação do Machine Learning – acessado usando a identidade gerenciada do espaço de trabalho) Observe que, como Computação do Machine Learning é uma computação gerenciada, ela é gerenciada pela Microsoft, como resultado, ela é executada na assinatura da Microsoft.
+* (Computação do Machine Learning – acessado usando a identidade gerenciada pelo espaço de trabalho) Como Computação do Machine Learning é uma computação gerenciada, ela é gerenciada pela Microsoft, como resultado, ela é executada na assinatura da Microsoft.
 
    1. A construção remota do Docker é inicializada, se necessário.
    1. Grava o código de gerenciamento no compartilhamento de usuários do Azure.
@@ -259,12 +264,12 @@ Veja os detalhes abaixo:
 * O usuário cria a imagem usando modelo, arquivo de Pontuação e outras dependências de modelo
 * A imagem do Docker é criada e armazenada no ACR
 * O WebService é implantado no destino de computação (ACI/AKS) usando a imagem criada acima
-* Os detalhes da solicitação de pontuação são armazenados no AppInsights, que está na assinatura do usuário
+* Os detalhes da solicitação de pontuação são armazenados no Application insights, que está na assinatura do usuário
 * A telemetria também é enviada por push para a assinatura do Microsoft/Azure
 
 ![Captura de tela mostrando criar fluxo de trabalho](./media/enterprise-readiness/inferencing.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Proteger serviços da web do Azure Machine Learning com SSL](how-to-secure-web-service.md)
 * [Consumir um modelo de ML implementado como um serviço web](how-to-consume-web-service.md)

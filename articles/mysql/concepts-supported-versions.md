@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 7/25/2019
-ms.openlocfilehash: 3d4bab4558ebfd0f6031ef00a0b67bb0d5b61120
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.date: 08/09/2019
+ms.openlocfilehash: 28d635dc5042799790d032ef4b46bf28118cb326
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501449"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947159"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Banco de dados do Azure para versões do servidor MySQL com suporte
 
@@ -38,8 +38,8 @@ Consulte as notas de [versão](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/n
 
 ## <a name="mysql-version-80"></a>MySQL versão 8,0
 
-> [!NOTE]
-> O MySQL 8,0 está atualmente em versão prévia. Se você não vir o MySQL 8,0 no portal do Azure, a implantação poderá não ter sido concluída em sua região. 
+> [!IMPORTANT]
+> O MySQL 8,0 está atualmente em versão prévia.
 
 Versão de correção de bug: 8.0.15
 
@@ -50,6 +50,6 @@ O serviço gerencia automaticamente a aplicação de patch para atualizações d
 
 Atualmente, não há suporte para atualizações de versões secundárias e principais. Por exemplo, não há suporte para a atualização do MySQL 5,6 para o MySQL 5,7. Se você quiser atualizar de 5,6 para 5,7, faça um [despejo e restaure](./concepts-migrate-dump-restore.md) -o para um servidor que foi criado com a nova versão do mecanismo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre cotas e limitações de recursos específicas com base em sua **camada de serviço**, consulte [camadas de serviço](./concepts-pricing-tiers.md)

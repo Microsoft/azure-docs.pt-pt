@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 754eb063f82344e72bece8fb0ac5708dbc8ab791
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0da426a9302ce72b5359df15d3f8e244fc1766a0
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249136"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935364"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -133,9 +133,9 @@ Conclua o processo de planejamento antes de executar a implantação. O planejam
 | Definição de rede virtual/sub-rede | Onde as VMs para IBM DB2 e Azure Load Balancer estão sendo implantadas. Pode ser existente ou criado recentemente. |
 | Máquinas virtuais que hospedam o IBM DB2 LUW | Tamanho da VM, armazenamento, rede, endereço IP. |
 | Nome de host virtual e IP virtual para banco de dados IBM DB2| O IP virtual ou o nome do host que é usado para conexão de servidores de aplicativos SAP. **db-virt-hostname**, **db-virt-ip**. |
-| Isolamento do Azure | Isolamento do Azure ou isolamento SBD (altamente recomendado). O método para evitar situações de divisão Brain é impedido. |
+| Isolamento do Azure | Isolamento do Azure ou isolamento SBD (altamente recomendado). Método para evitar situações de divisão Brain. |
 | VM SBD | Tamanho da máquina virtual SBD, armazenamento, rede. |
-| Azure Load Balancer | Uso de básico ou padrão (recomendado), porta de investigação para banco de dados DB2 (nossa recomendação 62500) **porta-investigação**. |
+| Balanceador de Carga do Azure | Uso de básico ou padrão (recomendado), porta de investigação para banco de dados DB2 (nossa recomendação 62500) **porta-investigação**. |
 | Resolução de nomes| Como a resolução de nomes funciona no ambiente. O serviço DNS é altamente recomendado. O arquivo de hosts local pode ser usado. |
     
 Para obter mais informações sobre o pacemaker do Linux no Azure, consulte [Configurar o pacemaker no SUSE Linux Enterprise Server no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker).
@@ -172,7 +172,7 @@ Para criar um cluster pacemaker básico para este servidor IBM DB2, consulte [C
 
 Antes de iniciar a instalação de um ambiente SAP baseado em IBM DB2 LUW, examine a seguinte documentação:
 
-+ Documentação do Azure
++ Documentação Azure
 + Documentação do SAP
 + Documentação da IBM
 
@@ -404,10 +404,10 @@ sudo crm configure property maintenance-mode=false</pre></code>
 # <a name="full-list-of-resources"></a>Lista completa de recursos:
 
 #  <a name="stonith-sbd----stonithexternalsbd-started-azibmdb02"></a>stonith-SBD (stonith: External/SBD): Azibmdb02 iniciado
-#  <a name="resource-group-gipdb2ptrptr"></a>Grupo de recursos: g_ip_db2ptr_PTR
-#      <a name="rscipdb2ptrptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR (OCF:: Heartbeat: IPaddr2):       Azibmdb02 iniciado
-#      <a name="rscncdb2ptrptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (OCF:: Heartbeat: qualquer coisa):      Azibmdb02 iniciado
-#  <a name="masterslave-set-msldb2db2ptrptr-rscdb2db2ptrptr"></a>Conjunto mestre/escravo: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
+#  <a name="resource-group-g_ip_db2ptr_ptr"></a>Grupo de recursos: g_ip_db2ptr_PTR
+#      <a name="rsc_ip_db2ptr_ptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR (OCF:: Heartbeat: IPaddr2):       Azibmdb02 iniciado
+#      <a name="rsc_nc_db2ptr_ptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (OCF:: Heartbeat: qualquer coisa):      Azibmdb02 iniciado
+#  <a name="masterslave-set-msl_db2_db2ptr_ptr-rsc_db2_db2ptr_ptr"></a>Conjunto mestre/escravo: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
 #      <a name="masters--azibmdb02-"></a>Mestres: [azibmdb02]
 #      <a name="slaves--azibmdb01-"></a>Servidores subordinados: [azibmdb01]
 </pre>
@@ -896,7 +896,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
      Masters: [ azibmdb02 ]
      Slaves: [ azibmdb01 ]</code></pre>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Arquitetura e cenários de alta disponibilidade para o SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
 - [Configurar o pacemaker no SUSE Linux Enterprise Server no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
 

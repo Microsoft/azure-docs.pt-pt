@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: c92c1b87de1b728fd79c1ef02b32135463c7124f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 6fd7c4ffafa54acb7ff67bd2e595f0b3c02a0e5a
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720674"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967406"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copiar dados do SAP ECC usando o Azure Data Factory
 
@@ -50,6 +50,10 @@ Geralmente, o SAP ECC expõe entidades por meio de serviços OData por meio do g
 
 - **Ative e configure o serviço do SAP OData**. Você pode ativar o serviço OData por meio de TCODE SICF em segundos. Você também pode configurar quais objetos precisam ser expostos. Para obter mais informações, consulte as diretrizes passo a [passo](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -66,7 +70,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do SAP ECC:
 | `url` | A URL do serviço de OData do SAP ECC. | Sim |
 | `username` | O nome de usuário usado para se conectar ao SAP ECC. | Não |
 | `password` | A senha de texto sem formatação usada para se conectar ao SAP ECC. | Não |
-| `connectVia` | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Você pode usar um tempo de execução de integração auto-hospedado ou o tempo de execução de integração do Azure (se o armazenamento de dados estiver publicamente acessível). Se você não especificar um tempo de `connectVia` execução, o usará o tempo de execução de integração do Azure padrão. | Não |
+| `connectVia` | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se você não especificar um tempo de execução, o tempo de execução de integração do Azure padrão será usado. | Não |
 
 ### <a name="example"></a>Exemplo
 

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5571f84de5c6dd4f5dffea5869c744b7e5c02e24
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 6f35bf82e1c3275772bc9f5ccdcaceed024bd7d9
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875292"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967779"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -76,7 +76,6 @@ ms.locfileid: "67875292"
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
                                                             <a href="./learn/dotnetcore-quick-start.md">Núcleo do ASP.NET</a><br>
                                                             <a href="./learn/nodejs-quick-start.md">Node.js</a><br>
-                                                            <a href="./learn/java-quick-start.md">Java</a><br>
                                                             <a href="./learn/mobile-center-quickstart.md">Móveis</a><br>
                                                             <a href="./app/website-monitoring.md">Monitoramento do lado do cliente/navegador</a>
                                                         </p>

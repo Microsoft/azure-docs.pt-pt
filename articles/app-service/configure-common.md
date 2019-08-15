@@ -1,11 +1,11 @@
 ---
-title: Configurar aplicações no portal - serviço de aplicações do Azure
-description: Saiba como configurar definições comuns para uma aplicação de serviço de aplicações no portal do Azure.
-keywords: serviço de aplicações do Azure, aplicação web, as definições da aplicação, as variáveis de ambiente
+title: Configurar aplicativos no portal-serviço de Azure App
+description: Saiba como definir configurações comuns para um aplicativo do serviço de aplicativo no portal do Azure.
+keywords: serviço de aplicativo do Azure, aplicativo Web, configurações de aplicativo, variáveis de ambiente
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
@@ -13,29 +13,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 08/13/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bcc970375120f76e4ec8a90f487d251296f92dba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb4ac9953bcadd9e49cee5b7b99e853705b6567c
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957914"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990274"
 ---
-# <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar uma aplicação de serviço de aplicações no portal do Azure
+# <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar um aplicativo do serviço de aplicativo no portal do Azure
 
-Este tópico explica como configurar definições comuns para aplicações web, back-end móvel ou aplicação de API com o [portal do Azure].
+Este tópico explica como definir configurações comuns para aplicativos Web, back-end móvel ou aplicativo de API usando o [portal do Azure].
 
 ## <a name="configure-app-settings"></a>Configurar as definições da aplicação
 
-No serviço de aplicações, utilize as definições da aplicação como variáveis de ambiente. Na [portal do Azure], navegue até à página de gestão da sua aplicação. No menu à esquerda da aplicação, clique em **Configuration** > **configurações de aplicativo**.
+No serviço de aplicativo, as configurações de aplicativo são variáveis passadas como variáveis de ambiente para o código do aplicativo. Para aplicativos Linux e contêineres personalizados, o serviço de aplicativo passa configurações de aplicativo para `--env` o contêiner usando o sinalizador para definir a variável de ambiente no contêiner.
 
-![Definições da aplicação](./media/configure-common/open-ui.png)
+Na [portal do Azure], navegue até a página de gerenciamento do aplicativo. No menu à esquerda do aplicativo, clique em**configurações do aplicativo**de **configuração** > .
 
-Para os desenvolvedores ASP.NET e ASP.NET Core, as definições de configuração de aplicações no serviço de aplicações são como defini-las na `<appSettings>` no *Web. config*, mas os valores no serviço de aplicações de substituição nos *Web. config*. Pode manter as definições de desenvolvimento (por exemplo, MySQL palavra-passe local) *Web. config*, mas seguros no serviço de aplicações de segredos de produção (por exemplo, senha de base de dados MySQL do Azure). O mesmo código utiliza as definições de desenvolvimento quando depurar localmente, e utiliza os segredos de produção quando implementada no Azure.
+![Definições da Aplicação](./media/configure-common/open-ui.png)
 
-Pilhas de outros idiomas, da mesma forma, obtém as definições da aplicação como variáveis de ambiente em tempo de execução. Para obter passos específicos de pilha de linguagem, veja:
+Para os desenvolvedores de ASP.net e ASP.NET Core, definir configurações de aplicativo no serviço de aplicativo é `<appSettings>` como configurá-los no *Web. config* ou *appSettings. JSON*, mas os valores no serviço de aplicativo substituem aqueles em *Web. config* ou  *appSettings. JSON*. Você pode manter as configurações de desenvolvimento (por exemplo, a senha local do MySQL) em *Web. config* ou *appSettings. JSON*, mas os segredos de produção (por exemplo, a senha do banco de dados MySQL do Azure) são seguros no serviço de aplicativo. O mesmo código usa suas configurações de desenvolvimento quando você depura localmente e usa seus segredos de produção quando implantado no Azure.
+
+Outras pilhas de idiomas, da mesma forma, obtêm as configurações do aplicativo como variáveis de ambiente no tempo de execução. Para obter as etapas específicas da pilha de idiomas, consulte:
 
 - [Núcleo do ASP.NET](containers/configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
@@ -43,34 +45,34 @@ Pilhas de outros idiomas, da mesma forma, obtém as definições da aplicação 
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
 - [Ruby](containers/configure-language-ruby.md#access-environment-variables)
-- [Contentores personalizados](containers/configure-custom-container.md#configure-environment-variables)
+- [Contêineres personalizados](containers/configure-custom-container.md#configure-environment-variables)
 
-Definições da aplicação são sempre encriptadas quando armazenada (encriptados em repouso).
+As configurações do aplicativo são sempre criptografadas quando armazenadas (criptografadas em repouso).
 
 > [!NOTE]
-> Também podem ser resolvidas de definições da aplicação [Key Vault](/azure/key-vault/) usando [referencia o Key Vault](app-service-key-vault-references.md).
+> As configurações do aplicativo também podem ser resolvidas de [Key Vault](/azure/key-vault/) usando [referências Key Vault](app-service-key-vault-references.md).
 
 ### <a name="show-hidden-values"></a>Mostrar valores ocultos
 
-Por predefinição, os valores para as definições da aplicação estão ocultos no portal de segurança. Para ver um valor oculto de uma definição de aplicação, clique a **valor** campo dessa definição. Para ver os valores de todas as definições de aplicação, clique nas **Mostrar valor** botão.
+Por padrão, os valores para as configurações do aplicativo ficam ocultos no portal para segurança. Para ver um valor oculto de uma configuração de aplicativo, clique no campo **valor** dessa configuração. Para ver os valores de todas as configurações de aplicativo, clique no botão **Mostrar valor** .
 
 ### <a name="add-or-edit"></a>Adicionar ou editar
 
-Para adicionar uma nova definição de aplicação, clique em **nova definição de aplicação**. Na caixa de diálogo, pode [adotar a definição de ranhura atual](deploy-staging-slots.md#which-settings-are-swapped).
+Para adicionar uma nova configuração de aplicativo, clique em **nova configuração de aplicativo**. Na caixa de diálogo, você pode [fixar a configuração no slot atual](deploy-staging-slots.md#which-settings-are-swapped).
 
-Para editar uma definição, clique a **editar** botão à direita.
+Para editar uma configuração, clique no botão **Editar** no lado direito.
 
-Quando terminar, clique em **atualização**. Não se esqueça de clicar **salvar** de volta a **configuração** página.
+Quando terminar, clique em **Atualizar**. Não se esqueça de clicar em **salvar** de volta na página de **configuração** .
 
 > [!NOTE]
-> No contentor do Linux padrão ou um contentor personalizado do Linux, como qualquer estrutura de chave JSON aninhada no nome da definição da aplicação `ApplicationInsights:InstrumentationKey` tem de ser configurado no serviço de aplicações como `ApplicationInsights__InstrumentationKey` para o nome da chave. Em outras palavras, qualquer `:` deve ser substituído por `__` (sublinhado duplo).
+> Em um contêiner do Linux padrão ou um contêiner personalizado do Linux, qualquer estrutura de chave JSON aninhada no nome `ApplicationInsights:InstrumentationKey` da configuração do aplicativo como precisa ser configurada no serviço de aplicativo como `ApplicationInsights__InstrumentationKey` para o nome da chave. Em outras palavras, qualquer `:` um deve ser substituído `__` por (sublinhado duplo).
 >
 
 ### <a name="edit-in-bulk"></a>Editar em massa
 
-Para adicionar ou editar as definições da aplicação em massa, clique nas **Advanced editar** botão. Quando terminar, clique em **atualização**. Não se esqueça de clicar **salvar** de volta a **configuração** página.
+Para adicionar ou editar as configurações do aplicativo em massa, clique no botão de **edição avançado** . Quando terminar, clique em **Atualizar**. Não se esqueça de clicar em **salvar** de volta na página de **configuração** .
 
-Definições da aplicação têm a formatação do JSON seguinte:
+As configurações do aplicativo têm a seguinte formatação JSON:
 
 ```json
 [
@@ -90,22 +92,22 @@ Definições da aplicação têm a formatação do JSON seguinte:
 
 ## <a name="configure-connection-strings"></a>Configurar cadeias de ligação
 
-Na [portal do Azure], navegue até à página de gestão da aplicação. No menu à esquerda da aplicação, clique em **Configuration** > **configurações de aplicativo**.
+Na [portal do Azure], navegue até a página de gerenciamento do aplicativo. No menu à esquerda do aplicativo, clique em**configurações do aplicativo**de **configuração** > .
 
-![Definições da aplicação](./media/configure-common/open-ui.png)
+![Definições da Aplicação](./media/configure-common/open-ui.png)
 
-Para os desenvolvedores ASP.NET e ASP.NET Core, cadeias de ligação da definição no serviço de aplicações são como defini-las na `<connectionStrings>` no *Web. config*, mas os valores definidos no serviço de aplicações de substituição nos *Web. config*. Pode manter as definições de desenvolvimento (por exemplo, um ficheiro de base de dados) *Web. config* e seguro no serviço de aplicações de segredos de produção (por exemplo, credenciais de base de dados SQL). O mesmo código utiliza as definições de desenvolvimento quando depurar localmente, e utiliza os segredos de produção quando implementada no Azure.
+Para desenvolvedores de ASP.net e ASP.NET Core, definir cadeias de conexão no serviço de aplicativo é `<connectionStrings>` como configurá-los no *Web. config*, mas os valores definidos no serviço de aplicativo substituem aqueles em *Web. config*. Você pode manter as configurações de desenvolvimento (por exemplo, um arquivo de banco de dados) em *Web. config* e segredos de produção (por exemplo, credenciais do banco de dados SQL) seguras no serviço de aplicativo. O mesmo código usa suas configurações de desenvolvimento quando você depura localmente e usa seus segredos de produção quando implantado no Azure.
 
-Para outras pilhas de idioma, é melhor usar [as definições da aplicação](#configure-app-settings) em vez disso, como cadeias de ligação requerem formatação especial nas chaves de variável em para poder acessar os valores. Aqui está uma exceção, no entanto: determinados tipos de base de dados do Azure são uma cópia de segurança, juntamente com a aplicação se configurar suas cadeias de caracteres de conexão na sua aplicação. Para obter mais informações, consulte [o que obtém uma cópia de segurança](manage-backup.md#what-gets-backed-up). Se não tiver esta cópia de segurança automatizada, em seguida, utilize as definições da aplicação.
+Para outras pilhas de idiomas, é melhor usar [as configurações do aplicativo](#configure-app-settings) , pois as cadeias de conexão exigem formatação especial nas chaves variáveis para acessar os valores. Aqui está uma exceção. no entanto: certos tipos de banco de dados do Azure são submetidos a backup junto com o aplicativo se você configurar suas cadeias de conexão em seu aplicativo. Para obter mais informações, consulte [o que é feito](manage-backup.md#what-gets-backed-up)backup. Se você não precisar desse backup automatizado, use as configurações do aplicativo.
 
-No tempo de execução, as cadeias de ligação estão disponíveis como variáveis de ambiente, o prefixo com os seguintes tipos de ligação:
+Em tempo de execução, as cadeias de conexão estão disponíveis como variáveis de ambiente, prefixadas com os seguintes tipos de conexão:
 
 * SQL Server: `SQLCONNSTR_`
-* MySQL: `MYSQLCONNSTR_`
-* Base de dados SQL: `SQLAZURECONNSTR_`
-* Personalizada: `CUSTOMCONNSTR_`
+* MySQL`MYSQLCONNSTR_`
+* Banco de dados SQL:`SQLAZURECONNSTR_`
+* Personalizar`CUSTOMCONNSTR_`
 
-Por exemplo, uma cadeia de ligação do MySql com o nome *connectionstring1* pode ser acessada como a variável de ambiente `MYSQLCONNSTR_connectionString1`. Para obter passos específicos de pilha de linguagem, veja:
+Por exemplo, uma cadeia de conexão do MySql chamada *connectionstring1* pode ser acessada `MYSQLCONNSTR_connectionString1`como a variável de ambiente. Para obter as etapas específicas da pilha de idiomas, consulte:
 
 - [Núcleo do ASP.NET](containers/configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
@@ -113,30 +115,30 @@ Por exemplo, uma cadeia de ligação do MySql com o nome *connectionstring1* pod
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
 - [Ruby](containers/configure-language-ruby.md#access-environment-variables)
-- [Contentores personalizados](containers/configure-custom-container.md#configure-environment-variables)
+- [Contêineres personalizados](containers/configure-custom-container.md#configure-environment-variables)
 
-Cadeias de ligação são sempre encriptadas quando armazenada (encriptados em repouso).
+As cadeias de conexão são sempre criptografadas quando armazenadas (criptografadas em repouso).
 
 > [!NOTE]
-> Também podem ser resolvidas de cadeias de ligação [Key Vault](/azure/key-vault/) usando [referencia o Key Vault](app-service-key-vault-references.md).
+> As cadeias de conexão também podem ser resolvidas de [Key Vault](/azure/key-vault/) usando [referências Key Vault](app-service-key-vault-references.md).
 
 ### <a name="show-hidden-values"></a>Mostrar valores ocultos
 
-Por predefinição, os valores de cadeias de ligação estão ocultos no portal de segurança. Basta clicar para ver um valor oculto de uma cadeia de ligação, o **valor** campo dessa cadeia de caracteres. Para ver os valores de todas as cadeias de ligação, clique nas **Mostrar valor** botão.
+Por padrão, os valores para cadeias de conexão ficam ocultos no portal para segurança. Para ver um valor oculto de uma cadeia de conexão, basta clicar no campo **valor** dessa cadeia de caracteres. Para ver os valores de todas as cadeias de conexão, clique no botão **Mostrar valor** .
 
 ### <a name="add-or-edit"></a>Adicionar ou editar
 
-Para adicionar uma nova cadeia de ligação, clique em **nova cadeia de ligação**. Na caixa de diálogo, pode [permanecer fiel a cadeia de ligação para a ranhura atual](deploy-staging-slots.md#which-settings-are-swapped).
+Para adicionar uma nova cadeia de conexão, clique em **nova cadeia de conexão**. Na caixa de diálogo, você pode colocar [a cadeia de conexão no slot atual](deploy-staging-slots.md#which-settings-are-swapped).
 
-Para editar uma definição, clique a **editar** botão à direita.
+Para editar uma configuração, clique no botão **Editar** no lado direito.
 
-Quando terminar, clique em **atualização**. Não se esqueça de clicar **salvar** de volta a **configuração** página.
+Quando terminar, clique em **Atualizar**. Não se esqueça de clicar em **salvar** de volta na página de **configuração** .
 
 ### <a name="edit-in-bulk"></a>Editar em massa
 
-Para adicionar ou editar as cadeias de ligação em massa, clique nas **Advanced editar** botão. Quando terminar, clique em **atualização**. Não se esqueça de clicar **salvar** de volta a **configuração** página.
+Para adicionar ou editar cadeias de conexão em massa, clique no botão de **edição avançado** . Quando terminar, clique em **Atualizar**. Não se esqueça de clicar em **salvar** de volta na página de **configuração** .
 
-Cadeias de ligação têm a formatação do JSON seguinte:
+As cadeias de conexão têm a seguinte formatação JSON:
 
 ```json
 [
@@ -161,79 +163,79 @@ Cadeias de ligação têm a formatação do JSON seguinte:
 
 ## <a name="configure-general-settings"></a>Configurar as definições gerais
 
-Na [portal do Azure], navegue até à página de gestão da aplicação. No menu à esquerda da aplicação, clique em **Configuration** > **configurações de aplicativo**.
+Na [portal do Azure], navegue até a página de gerenciamento do aplicativo. No menu à esquerda do aplicativo, clique em**configurações do aplicativo**de **configuração** > .
 
 ![Definições gerais](./media/configure-common/open-general.png)
 
-Aqui, pode configurar algumas definições comuns para a aplicação. Algumas configurações exigem que [aumente verticalmente para escalões de preço superior](web-sites-scale.md).
+Aqui, você pode definir algumas configurações comuns para o aplicativo. Algumas configurações exigem que você [Escale verticalmente para os tipos de preço mais altos](web-sites-scale.md).
 
-- **Definições de pilha**: A pilha de software para executar a aplicação, incluindo o idioma e as versões do SDK. Para aplicações do Linux e aplicações de contentor personalizado, também pode definir um ficheiro ou do comando de arranque opcional.
-- **As configurações da plataforma**: Permite-lhe configurar definições para a plataforma de hospedagem, incluindo:
-    - **Número de bits**: 32 bits ou 64 bits.
-    - **Protocolo WebSocket**: Para [SignalR de ASP.NET] ou [socket.io](https://socket.io/), por exemplo.
-    - **Always On**: Manter a aplicação carregada, mesmo quando não houver tráfego. Terá de ativá-la para o WebJobs contínuos ou para o WebJobs que são acionados com uma expressão CRON.
-    - **Versão de pipeline gerido**: O IIS [modo de pipeline]. Defina-o como **clássico** se tiver uma aplicação legada que requer uma versão mais antiga do IIS.
-    - **Versão HTTP**: Defina como **2.0** para ativar o suporte para [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocolo.
+- **Configurações de pilha**: A pilha de software para executar o aplicativo, incluindo as versões de linguagem e SDK. Para aplicativos do Linux e aplicativos de contêiner personalizados, você também pode definir um arquivo ou comando de inicialização opcional.
+- **Configurações da plataforma**: Permite que você defina as configurações para a plataforma de hospedagem, incluindo:
+    - Bit de **bits**: 32 bits ou 64 bits.
+    - **Protocolo WebSocket**: Para [Sinalizador ASP.NET] ou [Socket.Io](https://socket.io/), por exemplo.
+    - **Always on**: Mantenha o aplicativo carregado mesmo quando não houver tráfego. Ele é necessário para trabalhos Web contínuos ou para trabalhos Web que são disparados usando uma expressão CRON.
+    - **Versão do pipeline gerenciado**: O [modo de pipeline]do IIS. Defina-o como **clássico** se você tiver um aplicativo herdado que exija uma versão mais antiga do IIS.
+    - **Versão de http**: Defina como **2,0** para habilitar o suporte para o protocolo [https/2](https://wikipedia.org/wiki/HTTP/2) .
     > [!NOTE]
-    > Os navegadores mais modernos suportam protocolo HTTP/2 por TLS apenas, enquanto o tráfego não encriptadas continua a utilizar HTTP/1.1. Para se certificar de que o cliente navegadores ligar à sua aplicação com o HTTP/2, seja [compre um certificado de serviço de aplicações](web-sites-purchase-ssl-web-site.md) para o domínio personalizado da aplicação ou [vincular um certificado de terceiros](app-service-web-tutorial-custom-ssl.md).
-    - **Afinidade ARR**: Numa implementação de várias instâncias, certifique-se de que o cliente é encaminhado para a mesma instância para o ciclo de vida da sessão. Pode configurar esta opção como **desativar** para aplicativos sem monitoração de estado.
-- **Depuração**: Ativar a depuração remota para [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure), ou [node. js](containers/configure-language-nodejs.md#debug-remotely) aplicações. Esta opção se desligar automaticamente após 48 horas.
-- **Certificados de cliente recebidos**: exigir certificados de cliente no [autenticação mútua](app-service-web-configure-tls-mutual-auth.md).
+    > A maioria dos navegadores modernos dá suporte ao protocolo HTTP/2 somente por TLS, enquanto o tráfego não criptografado continua a usar HTTP/1.1. Para garantir que os navegadores cliente se conectem ao seu aplicativo com HTTP/2, [compre um certificado do serviço de aplicativo](web-sites-purchase-ssl-web-site.md) para o domínio personalizado do aplicativo ou [associe um certificado de](app-service-web-tutorial-custom-ssl.md)terceiros.
+    - **Afinidade de arr**: Em uma implantação de várias instâncias, verifique se o cliente é roteado para a mesma instância durante a vida útil da sessão. Você pode definir essa opção como **off** para aplicativos sem estado.
+- **Depuração**: Habilite a depuração remota para aplicativos [ASP.net](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure)ou [node. js](containers/configure-language-nodejs.md#debug-remotely) . Essa opção é desativada automaticamente após 48 horas.
+- **Certificados de cliente de entrada**: requer certificados de cliente na [autenticação mútua](app-service-web-configure-tls-mutual-auth.md).
 
-## <a name="configure-default-documents"></a>Configurar documentos predefinidos
+## <a name="configure-default-documents"></a>Configurar documentos padrão
 
-Esta definição é apenas para aplicações do Windows.
+Essa configuração é apenas para aplicativos do Windows.
 
-Na [portal do Azure], navegue até à página de gestão da aplicação. No menu à esquerda da aplicação, clique em **Configuration** > **predefinido documentos**.
+Na [portal do Azure], navegue até a página de gerenciamento do aplicativo. No menu à esquerda do aplicativo, clique em **configuração** > **documentos padrão**.
 
 ![Definições gerais](./media/configure-common/open-documents.png)
 
-O documento predefinido é a página da web que é apresentado no URL raiz para um Web site. É utilizado o primeiro arquivo correspondente na lista. Para adicionar um novo documento predefinido, clique em **novo documento**. Não se esqueça de clicar **guardar**.
+O documento padrão é a página da Web que é exibida na URL raiz de um site. O primeiro arquivo correspondente na lista é usado. Para adicionar um novo documento padrão, clique em **novo documento**. Não se esqueça de clicar em **salvar**.
 
-Se a aplicação utilizar módulos que encaminham com base no URL em vez de servir conteúdo estático, não é necessário para documentos predefinidos.
+Se o aplicativo usa módulos que roteiam com base na URL em vez de fornecer conteúdo estático, não há necessidade de documentos padrão.
 
 ## <a name="configure-path-mappings"></a>Configurar mapeamentos de caminho
 
-Na [portal do Azure], navegue até à página de gestão da aplicação. No menu à esquerda da aplicação, clique em **Configuration** > **mapeamentos de caminho**.
+Na [portal do Azure], navegue até a página de gerenciamento do aplicativo. No menu à esquerda do aplicativo, clique em mapeamentos de**caminho**de **configuração** > .
 
 ![Definições gerais](./media/configure-common/open-path.png)
 
-O **mapeamentos de caminho** página mostra-lhe coisas diferentes, consoante o tipo de SO.
+A página Mapeamentos de **caminho** mostra diferentes coisas com base no tipo de sistema operacional.
 
-### <a name="windows-apps-uncontainerized"></a>Aplicações do Windows (uncontainerized)
+### <a name="windows-apps-uncontainerized"></a>Aplicativos do Windows (não-contêinered)
 
-Para aplicações do Windows, pode personalizar os mapeamentos do processador IIS e aplicações virtuais e diretórios.
+Para aplicativos do Windows, você pode personalizar os mapeamentos de manipulador do IIS e os diretórios e aplicativos virtuais.
 
-Mapeamentos do processador permitem-lhe adicionar processadores de script personalizado para processar pedidos para extensões de ficheiro específicas. Para adicionar um manipulador personalizado, clique em **novo manipulador**. Configure o manipulador da seguinte forma:
+Mapeamentos de manipulador permitem que você adicione processadores de script personalizados para manipular solicitações para extensões de arquivo específicas. Para adicionar um manipulador personalizado, clique em **novo manipulador**. Configure o manipulador da seguinte maneira:
 
-- **Extensão**. A extensão de ficheiro que pretende processar, tal como  *\*PHP* ou *handler.fcgi*.
-- **Processador de scripts**. O caminho absoluto do processador de script para. Pedidos para ficheiros correspondentes à extensão de ficheiro são processados pelo processador do script. Utilize o caminho `D:\home\site\wwwroot` para fazer referência ao diretório de raiz da sua aplicação.
-- **Argumentos**. Argumentos da linha de comandos opcionais para o processador de scripts.
+- **Extensão**. A extensão de arquivo que você deseja manipular,  *\*como. php* ou *Handler. fcgi*.
+- **Processador de script**. O caminho absoluto do processador de script para você. As solicitações para arquivos que correspondem à extensão de arquivo são processadas pelo processador de script. Use o caminho `D:\home\site\wwwroot` para se referir ao diretório raiz do seu aplicativo.
+- **Argumentos**. Argumentos de linha de comando opcionais para o processador de script.
 
-Cada aplicação tem o caminho de raiz predefinido (`/`) mapeado para `D:\home\site\wwwroot`, onde o seu código é implementado por predefinição. Se a raiz da aplicação está numa pasta diferente, ou se o seu repositório tem mais de uma aplicação, pode editar ou adicionar aplicativos virtuais e diretórios aqui. Clique em **novo aplicativo virtual ou diretório**.
+Cada aplicativo tem o caminho raiz padrão (`/`) mapeado para `D:\home\site\wwwroot`, onde seu código é implantado por padrão. Se a raiz do aplicativo estiver em uma pasta diferente ou se o repositório tiver mais de um aplicativo, você poderá editar ou adicionar diretórios e aplicativos virtuais aqui. Clique em **novo aplicativo virtual ou diretório**.
 
-Para configurar aplicações virtuais e diretórios, especificar cada diretório virtual e o caminho físico correspondente relativo à raiz do Web site (`D:\home`). Opcionalmente, pode selecionar o **aplicativo** caixa de verificação para marcar um diretório virtual como uma aplicação.
+Para configurar aplicativos e diretórios virtuais, especifique cada diretório virtual e seu caminho físico correspondente em relação à raiz do site`D:\home`(). Opcionalmente, você pode marcar a caixa de seleção **aplicativo** para marcar um diretório virtual como um aplicativo.
 
-### <a name="containerized-apps"></a>Aplicações em contentores
+### <a name="containerized-apps"></a>Aplicativos em contêineres
 
-Pode [adicionar armazenamento personalizado para a sua aplicação em contentores](containers/how-to-serve-content-from-azure-storage.md). As aplicações em contentores incluem todas as aplicações do Linux e também os contentores de personalizado Windows e Linux em execução no serviço de aplicações. Clique em **armazenamento do Azure novo montar** e configurar o armazenamento de personalizado da seguinte forma:
+Você pode [Adicionar armazenamento personalizado para seu aplicativo em contêiner](containers/how-to-serve-content-from-azure-storage.md). Os aplicativos em contêineres incluem todos os aplicativos do Linux e também os contêineres personalizados do Windows e Linux em execução no serviço de aplicativo. Clique em **nova montagem de armazenamento do Azure** e configure seu armazenamento personalizado da seguinte maneira:
 
-- **Nome**: O nome a apresentar.
-- **Opções de configuração**: **Básica** ou **Advanced**.
-- **Contas de armazenamento**: A conta de armazenamento com o contentor que pretende.
-- **Tipo de armazenamento**: **Blobs do Azure** ou **os ficheiros do Azure**.
+- **Nome**: O nome de exibição.
+- **Opções de configuração**: **Básico** ou **avançado**.
+- **Contas de armazenamento**: A conta de armazenamento com o contêiner desejado.
+- **Tipo de armazenamento**: **BLOBs do Azure** ou **arquivos do Azure**.
   > [!NOTE]
-  > Aplicações de contentor do Windows só suportam ficheiros do Azure.
-- **Contentor de armazenamento**: Para a configuração básica, o contentor que pretende.
-- **Nome da partilha**: Para uma configuração avançada, o partilha de ficheiros nome.
+  > Os aplicativos de contêiner do Windows só dão suporte a arquivos do Azure.
+- **Contêiner de armazenamento**: Para a configuração básica, o contêiner desejado.
+- **Nome do compartilhamento**: Para configuração avançada, o nome do compartilhamento de arquivos.
 - **Chave de acesso**: Para configuração avançada, a chave de acesso.
-- **Caminho de montagem**: O caminho absoluto no seu contentor de montagem do armazenamento personalizado.
+- **Caminho de montagem**: O caminho absoluto em seu contêiner para montar o armazenamento personalizado.
 
-Para obter mais informações, consulte [servir conteúdo a partir do armazenamento do Azure no serviço de aplicações no Linux](containers/how-to-serve-content-from-azure-storage.md).
+Para obter mais informações, consulte [fornecer conteúdo do armazenamento do Azure no serviço de aplicativo no Linux](containers/how-to-serve-content-from-azure-storage.md).
 
-## <a name="configure-language-stack-settings"></a>Configurar definições de pilha de idioma
+## <a name="configure-language-stack-settings"></a>Definir configurações de pilha de idiomas
 
-Para aplicações do Linux, consulte:
+Para aplicativos do Linux, consulte:
 
 - [Núcleo do ASP.NET](containers/configure-language-dotnetcore.md)
 - [Node.js](containers/configure-language-nodejs.md)
@@ -242,28 +244,28 @@ Para aplicações do Linux, consulte:
 - [Java](containers/configure-language-java.md)
 - [Ruby](containers/configure-language-ruby.md)
 
-## <a name="configure-custom-containers"></a>Configurar contentores personalizados
+## <a name="configure-custom-containers"></a>Configurar contêineres personalizados
 
-Consulte [configurar um contentor personalizado do Linux para o serviço de aplicações do Azure](containers/configure-custom-container.md)
+Consulte [configurar um contêiner personalizado do Linux para o serviço Azure app](containers/configure-custom-container.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Configurar um nome de domínio personalizado no Serviço de Aplicações do Azure]
 - [Configurar ambientes de teste no Serviço de Aplicações do Azure]
-- [Ativar HTTPS para uma aplicação no serviço de aplicações do Azure]
-- [Ativar registos de diagnóstico](troubleshoot-diagnostic-logs.md)
-- [Dimensionar uma aplicação no serviço de aplicações do Azure]
-- [Noções básicas de monitorização no App Service do Azure]
-- [Alterar as definições de applicationHost. config com applicationHost.xdt](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
+- [Habilitar HTTPS para um aplicativo no serviço Azure App]
+- [Habilitar logs de diagnóstico](troubleshoot-diagnostic-logs.md)
+- [Dimensionar um aplicativo no serviço Azure App]
+- [Noções básicas de monitoramento no serviço Azure App]
+- [Alterar as configurações de applicationHost. config com applicationHost. xdt](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
 
 <!-- URL List -->
 
-[SignalR de ASP.NET]: https://www.asp.net/signalr
+[Sinalizador ASP.NET]: https://www.asp.net/signalr
 [Portal do Azure]: https://portal.azure.com/
 [Configurar um nome de domínio personalizado no Serviço de Aplicações do Azure]: ./app-service-web-tutorial-custom-domain.md
 [Configurar ambientes de teste no Serviço de Aplicações do Azure]: ./deploy-staging-slots.md
-[Ativar HTTPS para uma aplicação no serviço de aplicações do Azure]: ./app-service-web-tutorial-custom-ssl.md
+[Habilitar HTTPS para um aplicativo no serviço Azure App]: ./app-service-web-tutorial-custom-ssl.md
 [How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
-[Noções básicas de monitorização no App Service do Azure]: ./web-sites-monitor.md
+[Noções básicas de monitoramento no serviço Azure App]: ./web-sites-monitor.md
 [modo de pipeline]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Dimensionar uma aplicação no serviço de aplicações do Azure]: ./web-sites-scale.md
+[Dimensionar um aplicativo no serviço Azure App]: ./web-sites-scale.md

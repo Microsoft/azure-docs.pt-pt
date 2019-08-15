@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: 62f73f17d598cb2a22ef57d3ec0bcf91b8852298
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 77f04b9688be2a7b7343bac05b24a3fcd4e0fcde
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728793"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019690"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros MSP de rede do Azure
 
@@ -24,9 +24,11 @@ As MSPs de rede do Azure são um conjunto especializado de provedores de serviç
 
 Os clientes podem comprar ofertas de serviços gerenciados por MSP no Azure Marketplace ou diretamente do MSP. O MSPs pode implantar e gerenciar recursos de rede do Azure nas assinaturas e nos grupos de recursos dos clientes usando o Azure Lighthouse.
 
-## <a name="msp"></a>Parceiros MSP
+## <a name="msp"></a>Parceiros MSP de rede do Azure
 
 Use os links nesta seção para obter mais informações sobre os serviços de rede em nuvem gerenciados oferecidos pelos parceiros MSP de rede do Azure. Se o seu parceiro de serviços de rede de nuvem não estiver listado na seção abaixo, peça ao provedor entre em contato conosco. Eles podem entrar em contato conosco enviando um email ManagedVirtualWAN@microsoft.compara. 
+
+[Grupo ANS no Reino Unido](https://www.ans.co.uk/)
 
 [Redes aryaka Networks](https://www.aryaka.com/)
 
@@ -43,6 +45,8 @@ Use os links nesta seção para obter mais informações sobre os serviços de r
 [ixreach](https://www.ixreach.com/)
 
 [Megaport](https://www.megaport.com/)
+
+[Serviços de nuvem Oncore]( https://www.oncore.cloud/services/ue-for-expressroute/)
 
 [Tata Communications](https://www.tatacommunications.com/)
 

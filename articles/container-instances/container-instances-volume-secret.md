@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: danlep
 ms.openlocfilehash: 2e96ef73c3ff89fd7941fa14a8a1e53e6d4d8593
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68325430"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montar um volume secreto em instâncias de contêiner do Azure

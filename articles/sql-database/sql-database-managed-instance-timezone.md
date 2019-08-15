@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 07/05/2019
-ms.openlocfilehash: 33c844374d6d2b8e64cde6c7c9633e54a292d95f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/12/2019
+ms.openlocfilehash: 515e971214244cdd14955cc269a5f005cb93734f
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567276"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967926"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fusos horários em Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -83,10 +83,7 @@ Você pode restaurar um arquivo de backup ou importar dados para uma instância 
 
 ### <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
 
-<del>Quando você executa uma restauração pontual, o tempo para restaurar é interpretado como hora UTC. Essa configuração evita qualquer ambiguidade devido ao horário de verão e suas alterações potenciais.<del>
-
- >[!WARNING]
-  > O comportamento atual não está em linha com a instrução acima, e o tempo para restaurar é interpretado de acordo com o fuso horário da instância gerenciada de origem na qual os backups automáticos de banco de dados são obtidos. Estamos trabalhando para corrigir esse comportamento para interpretar determinado ponto no tempo como hora UTC. Consulte [problemas conhecidos](sql-database-managed-instance-timezone.md#known-issues) para obter mais detalhes.
+Quando você executa uma restauração pontual, o tempo para restaurar é interpretado como hora UTC. Dessa forma, quaisquer ambiguidades devido ao horário de verão e suas possíveis alterações são evitadas.
 
 ### <a name="auto-failover-groups"></a>Grupos de ativação pós-falha automática
 

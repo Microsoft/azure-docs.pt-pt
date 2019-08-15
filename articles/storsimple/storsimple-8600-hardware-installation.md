@@ -1,6 +1,6 @@
 ---
-title: Instalar o dispositivo do Microsoft Azure StorSimple 8600 | Documentos da Microsoft
-description: Descreve como descompactar, montar em bastidor e instalar o seu dispositivo StorSimple 8600 antes de implementar e configurar o software.
+title: Instalar o dispositivo Microsoft Azure StorSimple 8600 | Microsoft Docs
+description: Descreve como desempacotar, montar em rack e cabear o dispositivo StorSimple 8600 antes de implantar e configurar o software.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,258 +14,261 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: be3f68a00647840801e7c205d7abb34b718bd61c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 571c8b729408d7b9e805b875baccfd9ac8d6b9be
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630942"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965271"
 ---
-# <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Descompactar,-montar, em bastidor e instalar os cabos do dispositivo StorSimple 8600
+# <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desembalar, montar em rack e cabear seu dispositivo StorSimple 8600
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>Descrição geral
-O Microsoft Azure StorSimple 8600 é um dispositivo duplo de bastidor e é composta por um site primário e um bastidor EBOD. Este tutorial explica como descompactar, montar em bastidor e hardware do dispositivo de cabo o StorSimple 8600 antes de configuram o software do StorSimple.
+Seu Microsoft Azure StorSimple 8600 é um dispositivo de compartimento duplo e consiste em um compartimento primário e um EBOD. Este tutorial explica como desempacotar, montar em rack e conectar o hardware do dispositivo StorSimple 8600 antes de configurar o software StorSimple.
 
-## <a name="unpack-your-storsimple-8600-device"></a>Descompactar o seu dispositivo StorSimple 8600
-Os passos seguintes fornecem instruções claras e detalhadas sobre como descompactar o seu dispositivo de armazenamento StorSimple 8600. Este dispositivo é enviado em duas caixas, um para o bastidor primário e outro para a inclusão EBOD. Essas duas caixas, em seguida, são colocadas numa única caixa.
+## <a name="unpack-your-storsimple-8600-device"></a>Desempacotar seu dispositivo StorSimple 8600
+As etapas a seguir fornecem instruções claras e detalhadas sobre como desempacotar seu dispositivo de armazenamento StorSimple 8600. Esse dispositivo é fornecido em duas caixas, uma para o compartimento principal e outra para o compartimento EBOD. Essas duas caixas são colocadas em uma única caixa.
 
-### <a name="prepare-to-unpack-your-device"></a>Preparar para descompactar o seu dispositivo
-Antes de descompactar o seu dispositivo, reveja as informações seguintes.
+### <a name="prepare-to-unpack-your-device"></a>Preparar para desempacotar seu dispositivo
+Antes de desempacotar o dispositivo, examine as informações a seguir.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesada](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **aviso!**
+![Ícone](./media/storsimple-safety/IC740879.png)![de aviso ícone](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) de peso pesado **aviso!**
 
-1. Certifique-se de que tem duas pessoas disponíveis para gerir o peso do dispositivo, se estiver lidando com-lo manualmente. Um bastidor totalmente configurado pode avaliar até 32 kg (70 lbs.).
+1. Verifique se você tem duas pessoas disponíveis para gerenciar o peso do dispositivo se você o estiver manipulando manualmente. Um compartimento totalmente configurado pode pesar até 32 kg (70 lb.).
 2. Coloque a caixa numa superfície plana e uniforme.
 
-Em seguida, conclua os seguintes passos para descompactar o seu dispositivo.
+Em seguida, conclua as etapas a seguir para desempacotar seu dispositivo.
 
-#### <a name="to-unpack-your-device"></a>Para desempacotar o dispositivo
-1. Inspecione a caixa e a espuma de empacotamento para verificar se existem partes esmagadas, cortes, danos causados por água ou quaisquer outros danos óbvios. Se a caixa ou embalagem estiver gravemente danificada, não abra a caixa. Volte [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para o ajudar a avaliar se o dispositivo está em boa ordem funcional.
-2. Abrir a caixa externa e, em seguida, remova as duas caixas correspondentes a primária e as inclusões EBOD. Agora pode descompactar o principal e as inclusões EBOD. A figura a seguir mostra a vista descompactada de uma das caixas.
+#### <a name="to-unpack-your-device"></a>Para desempacotar seu dispositivo
+1. Inspecione a caixa e a espuma de empacotamento para verificar se existem partes esmagadas, cortes, danos causados por água ou quaisquer outros danos óbvios. Se a caixa ou embalagem estiver gravemente danificada, não abra a caixa. [Entre em contato com suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) para ajudá-lo a avaliar se o dispositivo está em boas condições de funcionamento.
+2. Abra a caixa externa e, em seguida, retire as duas caixas correspondentes aos compartimentos primário e EBOD. Agora você pode desempacotar os compartimentos primário e EBOD. A figura a seguir mostra a exibição desempacotada de um dos compartimentos.
    
-    ![Descompactar o dispositivo de armazenamento](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
+    ![Desempacotar seu dispositivo de armazenamento](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
    
-    **Vista descompactada do seu dispositivo de armazenamento**
+    **Exibição desempacotada do seu dispositivo de armazenamento**
    
    | Etiqueta | Descrição |
    | --- | --- |
-   |   1 |Caixa de remessa |
-   |   2 |Cabos SAS (na Bandeja de acessórios e cabos) |
-   |   3 |Espuma na parte inferior |
+   |   1 |Caixa de embalagem |
+   |   2 |Cabos SAS (na bandeja de acessórios e cabos) |
+   |   3 |Espuma inferior |
    |   4 |Dispositivo |
    |   5 |Espuma superior |
-   |   6 |Caixa de acessórios |
-3. Após desempacotar as duas caixas, certifique-se de que tem:
+   |   6 |Caixa de acessório |
+3. Depois de desempacotar as duas caixas, verifique se você tem:
    
-   * 1 Bastidor principal (o bastidor principal e a inclusão EBOD são nas duas caixas separadas)
-   * 1 Bastidor de EBOD
-   * cabos, 2 em cada caixa de energia de 4
-   * 2 cabos SAS (para ligar o bastidor principal ao bastidor EBOD)
-   * 1 crossover cabo Ethernet
-   * 2 cabos de consola de série
-   * 1 conversor de USB de série para o acesso de série
-   * 4 QSFP-para-SFP + adaptadores para utilização com interfaces de rede de 10 GbE
-   * 2 bastidor kits de montagem (o 4 rails de lado com a montagem de hardware, 2 para o bastidor principal e a inclusão EBOD), 1 em cada caixa
-   * Obter documentação de introdução
+   * 1 compartimento principal (o compartimento primário e o compartimento EBOD estão em duas caixas separadas)
+   * 1 compartimento EBOD
+   * 4 cabos de alimentação, 2 em cada caixa
+   * 2 cabos SAS (para conectar o compartimento principal ao compartimento EBOD)
+   * 1 cabo Ethernet cruzado
+   * 2 cabos de console serial
+   * 1 conversor serial USB para acesso serial
+   * 4 adaptadores QSFP-to-SFP + para uso com interfaces de rede de 10 GbE
+   * 2 kits de montagem em rack (4 trilhos laterais com hardware de montagem, 2 cada para o compartimento primário e o compartimento EBOD), 1 em cada caixa
+   * Documentação de introdução
      
-     Se não recebeu qualquer um dos itens listados acima, [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md).  
+     Se você não recebeu nenhum dos itens listados acima, [entre em contato com suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).  
 
 O passo seguinte é montar o dispositivo em bastidor.
 
-## <a name="rack-mount-your-storsimple-8600-device"></a>Montar em Bastidor seu dispositivo StorSimple 8600
-Siga os passos seguintes para instalar o dispositivo de armazenamento StorSimple 8600 num bastidor 19 polegadas padrão com o front-end e postagens rear. Este dispositivo é fornecido com duas inclusões: um bastidor principal e um bastidor EBOD. Ambas as tem de ser rack-montado.
+## <a name="rack-mount-your-storsimple-8600-device"></a>Montar em rack seu dispositivo StorSimple 8600
+Siga as próximas etapas para instalar o dispositivo de armazenamento StorSimple 8600 em um rack padrão de 19 polegadas com postagens dianteiras e traseiras. Este dispositivo é fornecido com dois compartimentos: um compartimento principal e um compartimento EBOD. Ambos precisam ser montados em rack.
 
-A instalação é composta por vários passos, cada um dos quais é abordada nos seguintes procedimentos.
+A instalação consiste em várias etapas, cada uma das quais é discutida nos procedimentos a seguir.
 
 > [!IMPORTANT]
-> Dispositivos do StorSimple tem de ser montado rack para a operação apropriada.
+> Os dispositivos StorSimple devem ser montados em rack para uma operação adequada.
 > 
 > 
 
 ### <a name="site-preparation"></a>Preparação do site
-As inclusões tem de ser instaladas num bastidor 19 polegadas padrão que tenha o front-end e postagens rear. Utilize o procedimento seguinte para se preparar para a instalação de rack.
+Os compartimentos devem ser instalados em um rack padrão de 19 polegadas que tem as postagens frontal e traseira. Use o procedimento a seguir para preparar a instalação do rack.
 
-#### <a name="to-prepare-the-site-for-rack-installation"></a>Para preparar o site para a instalação de bastidor
-1. Certifique-se de que o servidor primário e os bastidores de EBOD são ficar com segurança numa superfície plana, estável e nível de trabalho (ou semelhante).
-2. Certifique-se de que o site onde pretende configurar tem alternada padrão de uma origem de independente ou um bastidor de unidade de distribuição de energia (PDU) com uma alimentação ininterrupta (UPS).
-3. Certifique-se de que (2 X 2U) a uma 4U ranhura está disponível no rack no qual pretende montar as inclusões.
+#### <a name="to-prepare-the-site-for-rack-installation"></a>Para preparar o site para instalação em rack
+1. Verifique se os compartimentos primário e EBOD estão sendo protegidos com segurança em uma superfície de trabalho plana, estável e nivelada (ou semelhante).
+2. Verifique se o site onde você pretende configurar tem energia CA padrão de uma fonte independente ou uma unidade de distribuição de energia (PDU) de rack com uma fonte de alimentação ininterrupta (UPS).
+3. Verifique se um slot de 4U (2 X 2U) está disponível no rack no qual você pretende montar os compartimentos.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesada](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **aviso!**
+![Ícone](./media/storsimple-safety/IC740879.png)![de aviso ícone](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) de peso pesado **aviso!**
 
- Certifique-se de que tem duas pessoas disponíveis para gerir o peso, se estiver lidando com a configuração do dispositivo manualmente. Um bastidor totalmente configurado pode avaliar até 32 kg (70 lbs.).
+ Verifique se você tem duas pessoas disponíveis para gerenciar o peso se estiver manipulando a configuração do dispositivo manualmente. Um compartimento totalmente configurado pode pesar até 32 kg (70 lb.).
 
-### <a name="rack-prerequisites"></a>Pré-requisitos de bastidor
-As inclusões destinam-se para a instalação no cab com um bastidor de 19 polegadas padrão:
+### <a name="rack-prerequisites"></a>Pré-requisitos do rack
+Os compartimentos foram projetados para instalação em um gabinete de rack padrão de 19 polegadas com:
 
-* Profundidade mínima de 27.84 polegadas a partir de rack post para post
+* Profundidade mínima de 27,84 polegadas da postagem do rack para a postagem
 * Peso máximo de 32 kg para o dispositivo
-* Pressão máximo de 5 Pascal (medidor de água de 0,5 mm)
+* Pressão de retorno máxima de 5 Pascal (medidor de água de 0,5 mm)
 
-### <a name="rack-mounting-rail-kit"></a>Kit do rail de montagem de bastidor
-Um conjunto de montar rails será fornecido para utilização com o CAB de bastidor de 19 polegadas. Os rails foram testados para lidar com o peso de bastidor máximo. Estes rails também irão permitir a instalação de múltiplas inclusões sem perda de espaço no rack. Instale o bastidor EBOD primeiro.
+### <a name="rack-mounting-rail-kit"></a>Kit de trilhos de montagem de rack
+Um conjunto de trilhos de montagem será fornecido para uso com o gabinete de rack de 19 polegadas. Os trilhos foram testados para lidar com o peso máximo do compartimento. Esses trilhos também permitirão a instalação de vários compartimentos sem perda de espaço no rack. Instale o compartimento EBOD primeiro.
 
-#### <a name="to-install-the-ebod-enclosure-on-the-rails"></a>Para instalar o bastidor EBOD nos rails
-1. Efetue este passo apenas se rails internas não estão instalados no seu dispositivo. Normalmente, as internas rails são instalados na fábrica. Se não estiverem instalados rails, em seguida, instale os slides do rail do esquerda e direita para os lados do chassi bastidor. Eles anexar utilizando seis screws métrica em cada lado. Para ajudar com a orientação, os slides do rail são marcados **LH-Front** e **RH – Front**, e o end que está a afixação para trás do bastidor tem um end tapered.
+#### <a name="to-install-the-ebod-enclosure-on-the-rails"></a>Para instalar o compartimento EBOD nos trilhos
+1. Execute esta etapa somente se os trilhos internos não estiverem instalados no seu dispositivo. Normalmente, os trilhos internos são instalados na fábrica. Se os trilhos não estiverem instalados, instale os slides do trilho esquerdo e do trilho direito nos lados do chassi do compartimento. Eles são anexados usando seis parafusos de métricas em cada lado. Para ajudar com a orientação, os slides do trilho são marcados como **LH – front** e **RH – front**, e o final fixado em direção à parte posterior do compartimento tem um fim cônico.
    
-    ![Anexar o slides do rail chassis de bastidor](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+    ![Anexando slides do trilho ao chassi do compartimento](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
    
-    **Anexar slides do rail para os lados do bastidor**
+    **Anexando slides do trilho aos lados do compartimento**
    
    | Etiqueta | Descrição |
    | --- | --- |
-   |  1 |M 3 x 4 screws de cabeça de botão |
-   |  2 |Slides de chassis |
-2. Anexe o lado esquerdo e os assemblies de right rail para os membros de vertical cab rack. Os colchetes são marcados **LH**, **RH**, e **nesse lado até** para orientar orientação correta.
-3. Localize os pinos na parte frontal e posterior da montagem das calhas. Expanda o rail ajustar entre as postagens de rack e inseri os pins em frente e no rack traseiro post buracos de membro vertical. Certifique-se de que o assembly do rail é o nível.
-4. Proteger o assembly do rail para rack membros verticais com dois das métrica screws fornecidos. Utilize um screw em frente e um no traseiro.
-5. Repita estes passos para o assembly de grade.
+   |  1 |Botão M 3x4-parafusos de cabeça |
+   |  2 |Slides do chassi |
+2. Anexe os assemblies esquerdo do trilho e do trilho à direita aos membros verticais do gabinete do rack. Os colchetes estão marcados como **LH**, **RH**e **este lado** para orientá-lo na orientação correta.
+3. Localize os pinos na parte frontal e posterior da montagem das calhas. Estenda o trilho para ajustá-lo entre as postagens do rack e insira os pinos nos orifícios do membro vertical da postagem do rack frontal e traseiro. Certifique-se de que o assembly do trilho seja nível.
+4. Proteja o assembly do trilho para os membros verticais do rack usando dois dos parafusos de métrica fornecidos. Use um parafuso na frente e outro na parte traseira.
+5. Repita essas etapas para o outro assembly de trilho.
    
-     ![Anexar o slides do rail rack Cab](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+     ![Anexando slides do trilho ao gabinete do rack](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
    
-    **Anexar o assemblies do rail rack**
-   
-   | Etiqueta | Descrição |
-   | --- | --- |
-   |   1 |Afixação screw |
-   |   2 |Bastidor de front-quadrado buraco post screw |
-   |   3 |LEFT pins de localização de front-rail |
-   |   4 |Afixação screw |
-   |   5 |Pins de localização do rail rear à esquerda |
-
-### <a name="mounting-the-ebod-enclosure-in-the-rack"></a>Montar o bastidor EBOD no rack
-Utilizar os rails rack que apenas foram instalados, execute os seguintes passos para montar o bastidor EBOD no rack.
-
-#### <a name="to-mount-the-ebod-enclosure"></a>Para montar o bastidor EBOD
-1. Com um assistente, o bastidor de comparação de precisão e alinhá-lo com os rails rack.
-2. Inserir cuidadosamente o bastidor nos rails e, em seguida, enviá-los completamente em rack Cab.
-   
-    ![Inserir o dispositivo no rack](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
-   
-    **Montar o bastidor no rack**
-3. Remova os limites esquerdo e direito front-flange ao extrair os limites gratuitos. Os limites de flange simplesmente ajustar para os flanges.
-4. Proteja o bastidor no rack, instalando um screw de cabeça Phillips fornecido por meio de cada flange, esquerda e direita.
-5. Instale os limites de flange ao premi-los para a posição pretendida e ajuste-os no lugar certo.
-   
-     ![Instalação de caps de flange](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
-   
-    **Instalar os limites de flange**
+    **Anexando assemblies do trilho ao rack**
    
    | Etiqueta | Descrição |
    | --- | --- |
-   |   1 |Screw fastening de bastidor |
+   |   1 |Parafuso fixação MSS |
+   |   2 |Parafuso do rack frontal do buraco quadrado |
+   |   3 |Pins do local do trilho frontal esquerdo |
+   |   4 |Parafuso fixação MSS |
+   |   5 |Pins do local do trilho traseiro esquerdo |
 
-### <a name="mounting-the-primary-enclosure-in-the-rack"></a>Montar o bastidor principal no rack
-Depois de terminar o bastidor EBOD de montagem, terá de montar o bastidor principal, os mesmos passos a seguir.
+### <a name="mounting-the-ebod-enclosure-in-the-rack"></a>Montando o compartimento EBOD no rack
+Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a seguir para montar o compartimento EBOD no rack.
+
+#### <a name="to-mount-the-ebod-enclosure"></a>Para montar o compartimento EBOD
+1. Com um assistente, levante o compartimento e alinhe-o com os trilhos do rack.
+2. Insira cuidadosamente o compartimento nos trilhos e, em seguida, envie-o por completo para o gabinete do rack.
+   
+    ![Inserindo dispositivo no rack](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
+   
+    **Montando o compartimento no rack**
+3. Remova as tampas do flange frontal esquerda e direita puxando as tampas gratuitas. Os limites do flange simplesmente se encaixam nos flanges.
+4. Proteja o compartimento no rack instalando um parafuso de cabeça Phillips fornecido por cada flange, à esquerda e à direita.
+5. Instale as tampas do flange pressionando-as na posição e encaixando-as no lugar.
+   
+     ![Instalando as tampas do flange](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
+   
+    **Instalando as tampas do flange**
+   
+   | Etiqueta | Descrição |
+   | --- | --- |
+   |   1 |Parafuso de fixação do compartimento |
+
+### <a name="mounting-the-primary-enclosure-in-the-rack"></a>Montando o compartimento principal no rack
+Depois de concluir a montagem do compartimento EBOD, será necessário montar o compartimento primário seguindo as mesmas etapas.
 
 > [!NOTE]
-> * É possível ter alguns blocos vazios no rack entre o bastidor principal e a inclusão EBOD.
-> * Utilize o cabo SAS fornecido 2m para ligar o bastidor principal para a inclusão EBOD.
-> * Não há nenhuma restrição no posicionamento da unidade principal para a unidade EBOD relativo. Por conseguinte, o bastidor principal pode ser colocado na ranhura de principal e o bastidor EBOD abaixo — e vice-versa.
+> * É possível ter alguns Slots vazios no rack entre o compartimento principal e o compartimento EBOD.
+> * Use o cabo SAS de 2 m fornecido para conectar o compartimento principal ao compartimento EBOD.
+> * Não há restrições sobre o posicionamento relativo da unidade principal na unidade EBOD. Portanto, o compartimento principal pode ser colocado no slot superior e no compartimento EBOD abaixo — ou vice-versa.
 > 
 > 
 
-A próxima etapa é instalar os cabos do dispositivo de alimentação, rede e acesso de série.
+A próxima etapa é conectar o dispositivo a energia, rede e acesso serial.
 
-## <a name="cable-your-storsimple-8600-device"></a>Instalar os cabos do dispositivo StorSimple 8600
-Os procedimentos seguintes explicam como ligar o seu dispositivo StorSimple 8600 de alimentação, rede e ligações seriais.
+## <a name="cable-your-storsimple-8600-device"></a>Cabear o dispositivo StorSimple 8600
+Os procedimentos a seguir explicam como conectar o dispositivo StorSimple 8600 para conexões de energia, rede e série.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Antes de começar a instalar os cabos do dispositivo, terá de:
+Antes de começar a conectar o dispositivo, será necessário:
 
-* Completamente descompactado o bastidor principal e a inclusão EBOD
-* 4 cabos de energia (2 cada de principal e a inclusão EBOD) com o seu dispositivo
-* 2 cabos SAS fornecidos com o dispositivo para ligar o bastidor EBOD ao bastidor principal
-* Acesso a unidades de distribuição do 2 energia (PDUs) (recomendado)
+* Seu compartimento principal e o compartimento EBOD, completamente desempacotados
+* 4 cabos de alimentação (2 cada para o compartimento primário e EBOD) que vieram com seu dispositivo
+* 2 cabos SAS fornecidos com o dispositivo para conectar o compartimento EBOD ao compartimento principal
+* Acesso a 2 PDUs (unidades de distribuição de energia) (recomendado)
 * Cabos de rede
-* Fornecido seriais cabos
-* Conversor de USB de série com o driver adequado instalado no seu PC (se necessário)
-* Fornecido 4 QSFP-para-SFP + adaptadores para utilização com interfaces de rede de 10 GbE
-* [Hardware suportado para as interfaces de rede 10 GbE no dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+* Cabos de série fornecidos
+* Conversor serial USB com o driver apropriado instalado no seu PC (se necessário)
+* Fornecidos 4 adaptadores QSFP-to-SFP + para uso com interfaces de rede de 10 GbE
+* [Hardware com suporte para as interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### <a name="sas-and-power-cabling"></a>SAS e cabeamento de energia
-O dispositivo tem um bastidor principal e um bastidor EBOD. Isto requer que as unidades ser instalou os cabos em conjunto para conectividade Serial Attached SCSI (SAS) e de energia.
+Seu dispositivo tem um compartimento principal e um compartimento EBOD. Isso exige que as unidades sejam cabeadas para conectividade e energia SAS (Serial Attached SCSI).
 
-Ao configurar este dispositivo pela primeira vez, execute os passos para cablagem de SAS primeiro e, em seguida, conclua os passos para cablagem de energia.
+Ao configurar este dispositivo pela primeira vez, execute as etapas para cabeamento SAS primeiro e, em seguida, conclua as etapas para cabeamento de energia.
 
 [!INCLUDE [storsimple-cable-8600-for-SAS](../../includes/storsimple-sas-cable-8600.md)]
 
 [!INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
-### <a name="network-cabling"></a>Cabos de rede
-O dispositivo está numa configuração de ativo-em espera: em qualquer momento, um módulo de controlador está ativo e todas as operações de disco e rede enquanto o outro módulo do controlador de processamento está no modo de espera. Se ocorrer uma falha de controlador, o controlador de reserva ativa imediatamente e continua a todas as operações de disco e rede.
+### <a name="network-cabling"></a>Cabeamento de rede
+Seu dispositivo está em uma configuração ativa-em espera: a qualquer momento, um módulo do controlador está ativo e processando todas as operações de disco e rede enquanto o outro módulo do controlador está em espera. Se ocorrer uma falha do controlador, o controlador em espera ativará imediatamente e continuará todas as operações de disco e de rede.
 
-Para suportar esta ativação pós-falha de controlador redundantes, terá de instalar sua rede de dispositivos, conforme mostrado nas etapas a seguir.
+Para dar suporte a esse failover de controlador redundante, você precisa conectar a rede do dispositivo, conforme mostrado nas etapas a seguir.
 
-#### <a name="to-cable-for-network-connection"></a>Para instalar os cabos de ligação de rede
-1. O dispositivo tem seis interfaces de rede em cada controlador: quatro portas de Gbps Ethernet de 1 Gbps e dois 10. Consulte a ilustração a seguir para identificar as portas de dados no backplane do seu dispositivo.
+#### <a name="to-cable-for-network-connection"></a>Para cabo para conexão de rede
+1. Seu dispositivo tem seis interfaces de rede em cada controlador: quatro portas Ethernet de 1 Gbps e 2 10 Gbps. Consulte a ilustração a seguir para identificar as portas de dados no plano posterior do seu dispositivo.
    
-     ![Backplane do dispositivo 8600](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
+     ![Plano posterior do dispositivo 8600](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
    
-    **Volta do seu dispositivo a mostrar as portas de dados**
+    **Parte traseira do dispositivo mostrando as portas de dados**
    
    | Etiqueta | Descrição |
    | --- | --- |
-   |   0,1,4,5 |Interfaces de rede 1 GbE |
-   |   2,3 |Interfaces de rede de 10 GbE |
+   |   0,1,4,5 |interfaces de rede de 1 GbE |
+   |   2,3 |interfaces de rede de 10 GbE |
    |   6 |Portas seriais |
-2. Consulte o diagrama seguinte para cabos de rede. (A configuração de rede mínima é mostrada por linhas azuis sólidas. Para elevada disponibilidade e desempenho, necessária configuração adicional é mostrada por linhas pontilhadas.)
+2. Consulte o diagrama a seguir para o cabeamento de rede. (A configuração mínima de rede é mostrada por linhas azuis sólidas. Para alta disponibilidade e desempenho, a configuração adicional necessária é mostrada por linhas pontilhadas.)
 
-![Instalar os cabos do dispositivo 4U para a rede](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
+![Cabear o dispositivo 4U para rede](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
-**Cablagem para o seu dispositivo de rede**
+**Cabeamento de rede para seu dispositivo**
 
 | Etiqueta | Descrição |
 | --- | --- |
-| A |Rede local com acesso à Internet |
+| A |LAN com acesso à Internet |
 | B |Controlador 0 |
 | C |PCM 0 |
 | D |Controlador 1 |
 | E |PCM 1 |
-| F |Controlador 0 de EBOD |
-| G |1 o controlador de EBOD |
-| H,I |Anfitriões (por exemplo, servidores de ficheiros) |
+| S |Controlador EBOD 0 |
+| O |Controlador EBOD 1 |
+| H, I |Hosts (por exemplo, servidores de arquivos) |
 | 0-5 |Interfaces de rede |
-| 6 |Bastidor principal |
-| 7 |Bastidor EBOD |
+| 6 |Compartimento principal |
+| 7 |Compartimento EBOD |
 
-Quando os cabos do dispositivo, requer a configuração mínima:
+Ao cabear o dispositivo, a configuração mínima requer:
 
-* Pelo menos duas interfaces de rede ligado em cada controlador com um para acesso à nuvem e outro para iSCSI. Os dados 0 porta é automaticamente ativada e configurada através da consola de série do dispositivo. Para além dos dados 0, outra porta de dados também tem de ser configurado através do portal clássico do Azure. Neste caso, ligue os dados 0 porta como a principal LAN (rede com acesso à Internet). As outras portas de dados podem ser ligadas ao segmento de LAN (VLAN) em SAN/iSCSI da rede, de acordo com a função pretendida.
-* Interfaces idênticos em cada controlador ligado à mesma rede para garantir a disponibilidade, se ocorrer uma ativação pós-falha de controlador. Por exemplo, se optar por ligar dados 0 e 3 de dados para um dos controladores, terá de ligar os dados correspondentes 0 e 3 de dados no outro controlador.
+* Pelo menos duas interfaces de rede conectadas em cada controlador com uma para acesso à nuvem e outra para iSCSI. A porta DATA 0 é automaticamente habilitada e configurada por meio do console serial do dispositivo. Além do DATA 0, outra porta de dados também precisa ser configurada por meio do portal clássico do Azure. Nesse caso, conecte a porta DATA 0 à LAN primária (rede com acesso à Internet). As outras portas de dados podem ser conectadas ao segmento de rede de área de LAN (VLAN) SAN/iSCSI, dependendo da função pretendida.
+* Interfaces idênticas em cada controlador conectado à mesma rede para garantir a disponibilidade se ocorrer um failover do controlador. Por exemplo, se você optar por conectar DATA 0 e DATA 3 para um dos controladores, será necessário conectar os dados correspondentes 0 e 3 no outro controlador.
 
-Tenha em consideração a alta disponibilidade e desempenho:
+Tenha em mente para alta disponibilidade e desempenho:
 
-* Sempre que possível, configure um par de interface de rede para acesso à nuvem (de 1 GbE) e outro par de iSCSI (10 GbE recomendado) em cada controlador.
-* Sempre que possível, ligar a interfaces de rede de cada controlador para duas opções diferentes para garantir a disponibilidade em relação a uma falha de comutador. A figura ilustra as duas 10 GbE interfaces de rede, dados 2 e 3 de dados, de cada controlador ligada a comutadores diferentes dois. Para obter mais informações, consulte a **interfaces de rede** sob a [requisitos de alta disponibilidade para o dispositivo StorSimple](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
+* Quando possível, configure um par de interface de rede para acesso à nuvem (1 GbE) e outro par para iSCSI (10 GbE recomendado) em cada controlador.
+* Quando possível, conecte as interfaces de rede de cada controlador a dois comutadores diferentes para garantir a disponibilidade contra uma falha de comutador. A figura ilustra as interfaces de rede 2 10 GbE, DATA 2 e DATA 3, de cada controlador conectado a dois comutadores diferentes. Para obter mais informações, consulte as **interfaces de rede** sob os [requisitos de alta disponibilidade para seu dispositivo StorSimple](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
-> Se utilizar SFP + transcetores com suas interfaces de rede de 10 GbE, utilize o QSFP fornecido-SFP + adaptadores. Para obter mais informações, aceda a [hardware suportado para as interfaces de rede 10 GbE no dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
+> Se estiver usando transceptores SFP + com suas interfaces de rede de 10 GbE, use os adaptadores QSFP-SFP + fornecidos. Para obter mais informações, acesse [hardware com suporte para as interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 > 
 > 
 
-### <a name="serial-port-cabling"></a>Cablagem de porta série
-Execute os seguintes passos para instalar os cabos sua porta serial.
+### <a name="serial-port-cabling"></a>Cabeamento de porta serial
+Execute as etapas a seguir para cabear a porta serial.
 
-#### <a name="to-cable-for-serial-connection"></a>Para instalar os cabos para conexão serial
-1. O dispositivo tem uma porta serial em cada controlador de que é identificado por um ícone de chave inglesa. Para localizar as portas seriais, consulte a ilustração que mostra os dados de portas na parte de trás do seu dispositivo.
-2. Identifica o controlador ativo no backplane seu dispositivo. Um piscando LED azul indica que o controlador está ativo.
-3. Utilize o cabo serial fornecido (se necessário, o conversor de USB de série para o seu computador portátil) e ligue a sua consola ou o computador (com a emulação do terminal para o dispositivo) para a porta serial do controlador ativo.
-4. Instale os controladores de USB de série (foi fornecidos com o dispositivo) no seu computador.
-5. Configure a conexão serial da seguinte forma:
+#### <a name="to-cable-for-serial-connection"></a>Para cabo para conexão serial
+1. Seu dispositivo tem uma porta serial em cada controlador que é identificado por um ícone de chave inglesa. Para localizar as portas seriais, consulte a ilustração que mostra as portas de dados na parte posterior do seu dispositivo.
+2. Identifique o controlador ativo no backplane do seu dispositivo. Um LED azul piscando indica que o controlador está ativo.
+3. Use o cabo serial fornecido (se necessário, o conversor serial USB para seu laptop) e conecte seu console ou computador (com emulação de terminal ao dispositivo) à porta serial do controlador ativo.
+4. Instale os drivers Serial USB (fornecidos com o dispositivo) em seu computador.
+5. Configure a conexão serial da seguinte maneira:
    
-   * 115\.200 bauds
-   * bits de 8 dados
-   * bits de 1 paragem
-   * Não existem paridade
-   * Fluxo de controlo definido como **None**
-6. Certifique-se de que a ligação está a funcionar, premindo Enter no console. Um menu da consola de série deve aparecer.
+   * 115.200 baud
+   * 8 bits de dados
+   * 1 bit de parada
+   * Sem paridade
+   * Controle de fluxo definido como **nenhum**
+6. Verifique se a conexão está funcionando pressionando Enter no console. Um menu do console serial deve aparecer.
 
 > [!NOTE]
-> **Gestão de Lights-out:** Quando o dispositivo é instalado num datacenter remoto ou numa sala de computadores com acesso limitado, certifique-se de que as ligações seriais para os dois controladores sempre estão ligadas a um comutador de consola de série ou equipamento semelhante. Isso permite que o controlo remoto de fora de banda e as operações de suporte em caso de interrupção de rede ou falhas inesperadas.
+> **Gerenciamento de luzes:** Quando o dispositivo for instalado em um datacenter remoto ou em uma sala de computadores com acesso limitado, verifique se as conexões de série para ambos os controladores estão sempre conectadas a um comutador de console serial ou equipamento semelhante. Isso permite operações de suporte e controle remoto fora de banda em caso de interrupção da rede ou falhas inesperadas.
 > 
 > 
 
-Concluiu a cablagem o seu dispositivo para a potência, acesso à rede e conexão serial. A próxima etapa é configurar o software no seu dispositivo.
+Você concluiu o cabeamento do seu dispositivo para energia, acesso à rede e conexão serial. A próxima etapa é configurar o software em seu dispositivo.
 
-## <a name="next-steps"></a>Passos Seguintes
-Agora, está pronto para [implementar e configurar o dispositivo do StorSimple no local](storsimple-8000-deployment-walkthrough-u2.md).
+## <a name="next-steps"></a>Passos seguintes
+Agora você está pronto para [implantar e configurar seu dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 

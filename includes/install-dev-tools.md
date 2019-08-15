@@ -4,17 +4,17 @@ ms.service: cloud-services
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 26910fe2b0b45a6e31f9c907ac31d83a74a95775
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a73e8b2d0c35fe4575f36598beee1c1e4bbca488
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184599"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968923"
 ---
 > [!NOTE]
-> Para concluir com êxito nesta secção, tem de ter uma instalação do node. js e o Azure SDK para node. js para a sua plataforma.
+> Para concluir esta seção com êxito, você deve ter uma instalação funcional do node. js e do SDK do Azure para node. js para sua plataforma.
 > 
-> * Instale o Azure SDK para node. js: [Instalador do Windows](https://go.microsoft.com/fwlink/?LinkId=254279) | [instalador do Mac](https://go.microsoft.com/fwlink/?LinkId=253471) | [download do Linux](https://go.microsoft.com/fwlink/?LinkId=253472)
-> * Se estiver a utilizar o Mac ou Linux, instale o node. js a partir [ http://nodejs.org ](http://nodejs.org). O instalador do Windows já inclui o node. js.
+> * Instale o SDK do Azure para node. js: [Download do Windows Installer](https://go.microsoft.com/fwlink/?LinkId=254279) | [Mac Installer](https://go.microsoft.com/fwlink/?LinkId=253471) | [Linux](https://go.microsoft.com/fwlink/?LinkId=253472)
+> * Se você estiver usando Mac ou Linux, instale o Node. js [https://nodejs.org](https://nodejs.org)de. O Windows Installer já inclui o Node. js.
 > 
 > 

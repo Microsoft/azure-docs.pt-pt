@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: d815b471b0a1d7842118c7ac0b5e1665b8fb3c1e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: eb9908fc7b2d4ecd8af8c2b4a65ab43352035ec5
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879948"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018899"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar Servidor de Backup do Azure
 > [!div class="op_single_selector"]
@@ -173,9 +173,9 @@ Quando o processo de extração for concluído, marque a caixa para iniciar o *S
 
     **Configuração do SSRS com o SQL 2017**
 
-    Ao usar a própria instância do SQL 2017, você precisa configurar manualmente o SSRS. Após a configuração do SSRS, Verifique se a propriedade IsInitialized do SSRS está definida como *true*. Quando definido como true, MABS pressupõe que o SSRS já está configurado e ignorará a configuração do SSRS.
+    Ao usar sua própria instância do SQL 2017, você precisa configurar manualmente o SSRS. Após a configuração do SSRS, Verifique se a propriedade IsInitialized do SSRS está definida como *true*. Quando definido como true, MABS pressupõe que o SSRS já está configurado e ignorará a configuração do SSRS.
 
-    Use os seguintes valores para a configuração do SSRS:
+    Use os seguintes valores para a configuração do SSRS: 
 
         - Service Account: ‘Use built-in account’ should be Network Service
         - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>

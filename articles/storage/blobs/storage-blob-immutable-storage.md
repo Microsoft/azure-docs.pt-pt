@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: c0b4a83b2c950683926be7fb3be3b0cbe977fef8
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 06e1d881a14367c579bd58ffae04dc0970eb041a
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618411"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941941"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Armazene dados críticos para os negócios no armazenamento de BLOBs do Azure
 
@@ -81,7 +81,7 @@ A tabela a seguir mostra os tipos de operações de BLOB que estão desabilitada
 |O intervalo de retenção efetivo do blob ainda não expirou e/ou a retenção legal está definida     |Imutável: protegido contra eliminação e escrita         | Colocar blob<sup>1</sup>, colocar bloco<sup>1</sup>, colocar lista de blocos<sup>1</sup>, excluir contêiner, excluir BLOB, definir metadados de BLOB, colocar página, definir propriedades de BLOB, BLOB de instantâneo, BLOB de cópia incremental, bloco de acréscimo         |
 |O intervalo de retenção efetivo no blob expirou     |Protegido apenas contra escrita (as operações de eliminação são permitidas)         |Colocar blob<sup>1</sup>, colocar bloco<sup>1</sup>, colocar lista de blocos<sup>1</sup>, definir metadados de BLOB, colocar página, definir propriedades de BLOB, BLOB de instantâneo, BLOB de cópia incremental, bloco de acréscimo         |
 |Todas as contenções legais foram limpas e nenhuma política de retenção baseada em tempo está definida no contêiner     |Mutável         |Nenhum         |
-|Nenhuma política de WORM é criada (retenção baseada em tempo ou espera legal)     |Mutável         |Nenhuma         |
+|Nenhuma política de WORM é criada (retenção baseada em tempo ou espera legal)     |Mutável         |Nenhum         |
 
 <sup>1</sup> o aplicativo permite que essas operações criem um novo BLOB uma vez. Todas as operações de substituição subsequentes em um caminho de blob existente em um contêiner imutável não são permitidas.
 
@@ -175,7 +175,7 @@ Sim. Para documentar a conformidade, a Microsoft manteve uma importante empresa 
 
 **O recurso se aplica apenas a blobs de blocos ou a páginas e a blobs de acréscimo também?**
 
-O armazenamento imutável pode ser usado com qualquer tipo de BLOB, mas é recomendável usá-lo principalmente para BLOBs de blocos. Ao contrário de blobs de blocos, blobs de páginas e blobs de acréscimo precisam ser criados fora de um contêiner de WORM e, em seguida, copiados em. Depois de copiar esses BLOBs em um contêiner de WORM, não são permitidos acréscimos adicionais a um blob de acréscimo ou alterações em um blob de páginas.
+O armazenamento imutável pode ser usado com qualquer tipo de blob como definido no nível de contêiner, mas recomendamos que você use WORM para contêineres que armazenam principalmente blobs de bloco. Ao contrário de blobs de bloco, todos os blobs de página e blobs de acréscimo precisam ser criados fora de um contêiner de WORM e, em seguida, copiados no. Depois de copiar esses BLOBs em um contêiner de WORM, não são permitidos acréscimos adicionais a um blob de acréscimo ou alterações em um blob de páginas. Portanto, a definição de uma política de WORM em um contêiner que armazena VHDs (BLOBs de páginas) para qualquer máquina virtual ativa é fortemente desencorajada, pois bloqueará o disco da VM.
 
 **É necessário criar uma nova conta de armazenamento para usar esse recurso?**
 

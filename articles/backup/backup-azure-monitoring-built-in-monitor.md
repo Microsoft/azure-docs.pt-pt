@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 5fde581f322504c7e329da7fa153671b8a91183d
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: bae05e890ef76ada9f775293c673cb8baa82c8bf
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688368"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954600"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorando cargas de trabalho de backup do Azure
 
@@ -87,6 +87,9 @@ Depois que um alerta é gerado, os usuários são notificados. O backup do Azure
 
 ![Notificação de email interno do cofre RS](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
 
+> [!NOTE]
+> Os alertas para backups do SQL serão consolidados e o email será enviado somente para a primeira ocorrência. Mas se o alerta for desativado pelo usuário, a próxima ocorrência disparará outro email.
+
 Quando a notificação estiver configurada, você receberá um email de boas-vindas ou introdutório. Isso confirma que o backup do Azure pode enviar emails para esses endereços quando um alerta é gerado.<br>
 
 Se a frequência foi definida como um resumo por hora e um alerta foi gerado e resolvido em uma hora, ele não fará parte do próximo resumo por hora.
@@ -96,6 +99,14 @@ Se a frequência foi definida como um resumo por hora e um alerta foi gerado e r
 > * Se uma operação destrutiva, como **parar proteção com dados de exclusão** , for executada, um alerta será gerado e um email será enviado aos proprietários, administradores e coadministradores da assinatura, mesmo que as notificações não estejam configuradas para o cofre do serviço de recuperação.
 > * Para configurar a notificação para trabalhos com êxito, use [log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="inactivating-alerts"></a>Inativando alertas
+
+Para desativar/resolver um alerta ativo, você pode clicar no item de lista correspondente ao alerta que deseja desativar. Isso abre uma tela que exibe informações detalhadas sobre o alerta, com um botão ' desativar ' na parte superior. Clicar nesse botão alteraria o status do alerta para ' inactive '. Você também pode desativar um alerta simplesmente clicando com o botão direito do mouse no item de lista correspondente a esse alerta e selecionando ' desativar '.
+
+![Inativação de alerta do cofre RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+
+
+
+## <a name="next-steps"></a>Passos Seguintes
 
 [Monitorar cargas de trabalho de backup do Azure usando Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)

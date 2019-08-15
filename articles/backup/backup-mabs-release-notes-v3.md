@@ -1,6 +1,6 @@
 ---
 title: Notas de versão do Backup do Microsoft Azure Server v3
-description: Este artigo fornece informações sobre os problemas conhecidos e soluções alternativas para o MABS v3.
+description: Este artigo fornece informações sobre os problemas conhecidos e soluções alternativas para o Backup do Microsoft Azure Server (MABS) v3.
 ms.reviewer: v-jysur
 author: dcurwin
 manager: carmonm
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/22/2018
 ms.author: dacurwin
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: a80a5ac64b58d93bb0d4e4b799cb7424805c9baa
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5ca3305dd96ad9f14f028c88520368ae5a49016c
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698379"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019025"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notas de versão do Backup do Microsoft Azure Server
 Este artigo fornece os problemas conhecidos e as soluções alternativas para o Backup do Microsoft Azure Server (MABS) v3.
@@ -25,7 +25,7 @@ Este artigo fornece os problemas conhecidos e as soluções alternativas para o 
 
 **Solução alternativa:** Para evitar isso, abra SQL Server Management Studio (SSMS)) e execute o seguinte script SQL no banco de BD do DPM:
 
-
+```sql
     IF EXISTS (SELECT * FROM dbo.sysobjects
         WHERE id = OBJECT_ID(N'[dbo].[tbl_PRM_DatasourceLastActiveServerMap]')
         AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
@@ -50,6 +50,7 @@ Este artigo fornece os problemas conhecidos e as soluções alternativas para o 
             0
         ) FOR [IsGCed]
     GO
+```
 
 
 ##  <a name="upgrade-to-mabs-v3-fails-in-russian-locale"></a>A atualização para o MABS v3 falha na localidade russa
@@ -66,11 +67,11 @@ Este artigo fornece os problemas conhecidos e as soluções alternativas para o 
 6.  [Instalar](backup-azure-microsoft-azure-backup.md) o MABS V3.
 7. [Restaurar](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL usando o SSMS e execute a ferramenta de sincronização do DPM, conforme descrito [aqui](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
 8.  Atualize a propriedade ' DataBaseVersion ' na tabela dbo. tbl _DLS_GlobalSetting usando o seguinte comando:
-
+```sql
         UPDATE dbo.tbl_DLS_GlobalSetting
         set PropertyValue = '13.0.415.0'
         where PropertyName = 'DatabaseVersion'
-
+```
 
 9.  Inicie o serviço MSDPM.
 

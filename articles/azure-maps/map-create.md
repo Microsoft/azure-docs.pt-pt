@@ -1,6 +1,6 @@
 ---
 title: Criar um mapa com mapas do Azure | Microsoft Docs
-description: Como criar um mapa JavaScript
+description: Como criar um mapa com o SDK da Web do Azure Maps.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9f1188fcf2aa24791ca5181f5c94a1b0f6b15dc1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 932c244ff41e757413a05cde019ee7ee1a82232d
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882073"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976129"
 ---
 # <a name="create-a-map"></a>Criar um mapa
 
@@ -51,7 +51,7 @@ Há duas maneiras de definir a área exibida do mapa usando a câmera. Você pod
 
 ### <a name="set-the-camera"></a>Definir a câmera
 
-No código a seguir, um [objeto MAP](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) é criado e as opções Center e zoom são definidas. As propriedades do mapa, como o centro e o nível de [](/javascript/api/azure-maps-control/atlas.cameraoptions)zoom, fazem parte das câmerasoptions.
+No código a seguir, um [objeto MAP](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) é criado e as opções Center e zoom são definidas. As propriedades do mapa, como centro, e nível de zoom fazem [](/javascript/api/azure-maps-control/atlas.cameraoptions)parte das câmerasoptions.
 
 <br/>
 
@@ -84,7 +84,7 @@ Dê uma olhada no código de exemplo acima. Você pode editar o código JavaScri
 
 <a id="relatedReference"></a>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre as classes e os métodos usados neste artigo:
 
@@ -104,3 +104,6 @@ Consulte exemplos de código para adicionar funcionalidade ao seu aplicativo:
 
 > [!div class="nextstepaction"]
 > [Adicionar controles ao mapa](map-add-controls.md)
+
+> [!div class="nextstepaction"]
+> [Exemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)

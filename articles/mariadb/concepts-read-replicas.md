@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 07/12/2019
-ms.openlocfilehash: 8d4a7a1b176a0c232c4461c7a8cfc2b1e3faddd6
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 08/12/2019
+ms.openlocfilehash: a01f6cbb20d084864d3a7f64aa8c90d2bc3405f2
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638370"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977075"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Ler réplicas no banco de dados do Azure para MariaDB
 
@@ -34,7 +34,33 @@ Como as réplicas são somente leitura, elas não reduzem diretamente as sobreca
 
 O recurso ler réplica usa replicação assíncrona. O recurso não é destinado a cenários de replicação síncrona. Haverá um atraso mensurável entre o mestre e a réplica. Os dados na réplica eventualmente se tornam consistentes com os dados no mestre. Use esse recurso para cargas de trabalho que podem acomodar esse atraso.
 
-As réplicas de leitura podem aprimorar seu plano de recuperação de desastre. Se houver um desastre regional e o servidor mestre não estiver disponível, você poderá direcionar sua carga de trabalho para uma réplica em outra região. Para fazer isso, primeiro permita que a réplica aceite gravações usando a função parar replicação. Em seguida, você pode redirecionar seu aplicativo atualizando a cadeia de conexão. Saiba mais na seção [parar replicação](#stop-replication) .
+
+## <a name="cross-region-replication"></a>Replicação entre regiões
+Você pode criar uma réplica de leitura em uma região diferente do servidor mestre. A replicação entre regiões pode ser útil para cenários como planejamento de recuperação de desastres ou trazer dados mais próximos aos seus usuários.
+
+> [!IMPORTANT]
+> A replicação entre regiões está atualmente em visualização pública.
+
+Você pode ter um servidor mestre em qualquer [banco de dados do Azure para a região MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Um servidor mestre pode ter uma réplica em sua região emparelhada ou nas regiões de réplica universal.
+
+### <a name="universal-replica-regions"></a>Regiões de réplica universal
+Você sempre pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente de onde o servidor mestre está localizado. Estas são as regiões de réplica universal:
+
+Leste da Austrália, sudeste da Austrália, EUA Central, Ásia Oriental, leste dos EUA, leste dos EUA 2, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Europa Ocidental, oeste dos EUA, oeste dos EUA 2.
+
+
+### <a name="paired-regions"></a>Regiões emparelhadas
+Além das regiões de réplica universal, você pode criar uma réplica de leitura na região emparelhada do Azure do seu servidor mestre. Se você não souber o par de sua região, poderá aprender mais no [artigo regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+Se você estiver usando réplicas entre regiões para planejamento de recuperação de desastres, recomendamos que você crie a réplica na região emparelhada em vez de uma das outras regiões. Regiões emparelhadas evitam atualizações simultâneas e priorizam o isolamento físico e a residência de dados.  
+
+No entanto, há limitações a serem consideradas: 
+
+* Disponibilidade regional: O banco de dados do Azure para MariaDB está disponível no oeste dos EUA 2, França central, Norte dos EAU e Alemanha central. No entanto, suas regiões emparelhadas não estão disponíveis.
+    
+* Pares unidirecionais: Algumas regiões do Azure são emparelhadas somente em uma direção. Essas regiões incluem Índia ocidental, sul do Brasil e US Gov-Virgínia. 
+   Isso significa que um servidor mestre na Índia ocidental pode criar uma réplica na Índia Sul. No entanto, um servidor mestre na Índia Sul não pode criar uma réplica na Índia ocidental. Isso ocorre porque a região secundária da Índia ocidental é sul da Índia, mas a região secundária do Sul da Índia não é oeste da Índia.
+
 
 ## <a name="create-a-replica"></a>Criar uma réplica
 
@@ -130,7 +156,7 @@ O [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/
 - Tabelas na memória podem fazer com que as réplicas fiquem fora de sincronia. Essa é uma limitação da tecnologia de replicação MariaDB.
 - Verifique se as tabelas do servidor mestre têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre o mestre e as réplicas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar e gerenciar réplicas de leitura usando o portal do Azure](howto-read-replicas-portal.md)
 - Saiba como [criar e gerenciar réplicas de leitura usando o CLI do Azure](howto-read-replicas-cli.md)

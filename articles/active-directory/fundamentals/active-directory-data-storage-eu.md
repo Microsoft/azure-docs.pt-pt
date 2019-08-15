@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33704c3392726ccd12ca0fd74f26465a54697e11
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 178f81cf42e5c57be4a0b69ada6560d46951a3a3
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722134"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942850"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Armazenamento de dados de identidade para os clientes europeus no Azure Active Directory
 Os dados de identidade são armazenados pelo Azure AD em uma localização geográfica com base no endereço fornecido pela sua organização ao assinar um serviço online da Microsoft, como o Office 365 e o Azure. Para obter informações sobre onde os dados de identidade são armazenados, você pode usar a seção [onde os dados estão localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) da central de confiabilidade da Microsoft.
@@ -43,6 +43,15 @@ O Azure AD B2B armazena convites com as informações de enviar link e redirecio
 ## <a name="microsoft-azure-active-directory-domain-services-azure-ad-ds"></a>Serviços de domínio Microsoft Azure Active Directory (AD DS do Azure)
 
 O Azure AD DS armazena os dados de utilizador na mesma localização da rede virtual do Azure que os utilizadores selecionam. Assim, se a rede estiver fora da Europa, os dados são replicados e armazenados fora deste continente.
+
+## <a name="federation-in-microsoft-exchange-server-2013"></a>Federação no Microsoft Exchange Server 2013
+    
+- Identificador de aplicativo (AppID) – um número exclusivo gerado pelo sistema de autenticação de Azure Active Directory para identificar organizações do Exchange.
+- Lista de domínios federados aprovados para o aplicativo
+- Chave pública de assinatura de token do aplicativo 
+
+Para obter mais informações sobre Federação no Microsoft Exchange Server, consulte [a Federação: Artigo de ajuda](https://docs.microsoft.com/exchange/federation-exchange-2013-help) do Exchange 2013.
+
 
 ## <a name="other-considerations"></a>Outras considerações
 

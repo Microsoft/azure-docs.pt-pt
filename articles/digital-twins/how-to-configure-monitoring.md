@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/03/2018
+ms.date: 08/09/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 66a0b98e2cae14c3708cf8a6aa3f8bd498f41c9f
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: dd1481c74cdf519dcb4588e0b7cf09b7b6ab5f1d
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609635"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950116"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Como configurar o monitoramento no Azure digital gêmeos
 
@@ -125,7 +125,7 @@ Os logs de Azure Monitor também fornecem serviços de notificação de erro e a
 
 O Azure digital gêmeos também dá suporte ao log específico do aplicativo e à auditoria de segurança. Para obter uma visão geral completa de todas as opções de log do Azure disponíveis para sua instância do gêmeos digital do Azure, consulte o artigo [auditoria de log do Azure](../security/fundamentals/log-audit.md) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [os logs de atividades](../azure-monitor/platform/activity-logs-overview.md)do Azure.
 

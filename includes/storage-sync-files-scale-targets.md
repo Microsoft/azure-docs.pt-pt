@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/05/2019
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 46bf9851ccf8877885d9f98a023aa95ebdc533bc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: e7aa2b4389fe60eed80b15aff04d6f7fcbc7b013
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857465"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968918"
 ---
 | Resource | Destino | Limite rígido |
 |----------|--------------|------------|
@@ -23,7 +23,7 @@ ms.locfileid: "68857465"
 | Pontos de extremidade de nuvem por grupo de sincronização | 1 ponto de extremidade de nuvem | Sim |
 | Pontos de extremidade do servidor por grupo de sincronização | 50 pontos de extremidade do servidor | Não |
 | Pontos de extremidade do servidor por servidor | 30 pontos de extremidade do servidor | Sim |
-| Objetos do sistema de arquivos (diretórios e arquivos) por grupo de sincronização | 25 milhões objetos | Não |
+| Objetos do sistema de arquivos (diretórios e arquivos) por grupo de sincronização | 50 milhões objetos | Não |
 | Número máximo de objetos do sistema de arquivos (diretórios e arquivos) em um diretório | 5 milhões objetos | Sim |
 | Tamanho do descritor de segurança máximo de objetos (diretórios e arquivos) | 64 KiB | Sim |
 | Tamanho do ficheiro | 100 GiB | Não |

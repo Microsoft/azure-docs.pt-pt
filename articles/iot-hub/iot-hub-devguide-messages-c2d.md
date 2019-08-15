@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 4b8df538110f6c0b17a1ed37a2a6063a5b89a6e4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d4a51a44b48e94669e92a9d525c1b0966df53c18
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880982"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68964136"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Enviar mensagens da nuvem para o dispositivo de um hub IoT
 
@@ -82,10 +82,6 @@ Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode sol
 
 Se o valor de **ACK** estiver *cheio*e você não receber uma mensagem de comentários, isso significa que a mensagem de comentários expirou. O serviço não pode saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que ele possa processar os comentários antes que ele expire. O tempo de expiração máximo é de dois dias, o que deixa o tempo para que o serviço seja executado novamente se ocorrer uma falha.
 
-> [!NOTE]
-> Quando o dispositivo for excluído, todos os comentários pendentes também serão excluídos.
->
-
 Conforme explicado em [pontos](iot-hub-devguide-endpoints.md)de extremidade, o Hub IOT entrega comentários por meio de um ponto de extremidades voltado para o serviço, */messages/servicebound/feedback*, como mensagens. A semântica para receber comentários é a mesma das mensagens da nuvem para o dispositivo. Sempre que possível, os comentários da mensagem são enviados em lote em uma única mensagem, com o seguinte formato:
 
 | Propriedade     | Descrição |
@@ -126,6 +122,12 @@ O corpo de uma mensagem de comentários é mostrado no código a seguir:
 ]
 ```
 
+**Comentários pendentes para dispositivos excluídos**
+
+Quando um dispositivo é excluído, todos os comentários pendentes também são excluídos. Os comentários do dispositivo são enviados em lotes. Se um dispositivo for excluído na janela estreita (geralmente menos de 1 segundo) entre quando o dispositivo confirmar o recebimento da mensagem e quando o próximo lote de comentários for preparado, os comentários não ocorrerão.
+
+Você pode resolver esse comportamento aguardando um período de tempo para que os comentários pendentes cheguem antes de excluir o dispositivo. Comentários de mensagem relacionados devem ser considerados perdidos depois que um dispositivo é excluído.
+
 ## <a name="cloud-to-device-configuration-options"></a>Opções de configuração da nuvem para o dispositivo
 
 Cada Hub IoT expõe as seguintes opções de configuração para mensagens da nuvem para o dispositivo:
@@ -139,7 +141,7 @@ Cada Hub IoT expõe as seguintes opções de configuração para mensagens da nu
 
 Para obter mais informações sobre como definir essas opções de configuração, consulte [criar hubs IOT](iot-hub-create-through-portal.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre os SDKs que você pode usar para receber mensagens da nuvem para o dispositivo, consulte [SDKs do IOT do Azure](iot-hub-devguide-sdks.md).
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 4ebc48f8bd35487275f797ffc8e2b5b4d8101a71
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
-ms.translationtype: HT
+ms.openlocfilehash: 37bdcb48dcd37bf81aac8f5c2e1213d7f0deb327
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839781"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966439"
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Copiar dados do servidor SFTP usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -39,6 +39,10 @@ Especificamente, esse conector SFTP dá suporte a:
 - Copiar arquivos usando a autenticação **básica** ou **SshPublicKey** .
 - Copiando arquivos no estado em que se encontram ou analisando arquivos com os [formatos de arquivo e codecs](supported-file-formats-and-compression-codecs.md)de compactação com suporte.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -57,7 +61,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do SFTP:
 | skipHostKeyValidation | Especifique se deseja ignorar a validação da chave do host.<br/>Os valores permitidos são: **true**, **false** (padrão).  | Não |
 | hostKeyFingerprint | Especifique a impressão digital da chave do host. | Sim se "skipHostKeyValidation" estiver definido como false.  |
 | authenticationType | Especifique o tipo de autenticação.<br/>Valores permitidos são: **Básico**, **SshPublicKey**. Consulte [usando a autenticação básica](#using-basic-authentication) e [usando seções de autenticação de chave pública SSH](#using-ssh-public-key-authentication) em mais propriedades e exemplos JSON, respectivamente. |Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 ### <a name="using-basic-authentication"></a>Usando a autenticação básica
 

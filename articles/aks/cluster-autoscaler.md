@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 09610782f211b4cfb80a1291b73ab543328376a3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ef3e9a9c68ca524b7f7f86c92130a10952a9f065
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68424193"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949611"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Visualização – dimensionar automaticamente um cluster para atender às demandas do aplicativo no serviço de kubernetes do Azure (AKS)
 
@@ -102,7 +102,7 @@ Se você precisar criar um cluster AKS, use o comando [AZ AKs Create][az-aks-cre
 > [!IMPORTANT]
 > O dimensionador de cluster é um componente kubernetes. Embora o cluster AKS use um conjunto de dimensionamento de máquinas virtuais para os nós, não habilite manualmente ou edite as configurações para dimensionamento automático do conjunto de dimensionamento no portal do Azure ou usando o CLI do Azure. Permita que o dimensionador de cluster kubernetes gerencie as configurações de escala necessárias. Para obter mais informações, consulte posso [modificar os recursos do AKS no grupo de recursos do nó?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group)
 
-O exemplo a seguir cria um cluster AKS com o conjunto de dimensionamento de máquinas virtuais. Ele também habilita o dimensionador do cluster em conjunto de nós para o cluster e define um mínimo de *1* e o máximo de *3* nós:
+O exemplo a seguir cria um cluster AKS com um pool de nós único apoiado por um conjunto de dimensionamento de máquinas virtuais. Ele também habilita o dimensionador do cluster em conjunto de nós para o cluster e define um mínimo de *1* e o máximo de *3* nós:
 
 ```azurecli-interactive
 # First create a resource group
@@ -124,9 +124,24 @@ az aks create \
 
 Leva alguns minutos para criar o cluster e definir as configurações de dimensionamento de clusters.
 
-### <a name="enable-the-cluster-autoscaler-on-an-existing-node-pool-in-an-aks-cluster"></a>Habilitar o dimensionamento de cluster em um pool de nós existente em um cluster AKS
+### <a name="update-the-cluster-autoscaler-on-an-existing-node-pool-in-a-cluster-with-a-single-node-pool"></a>Atualizar o dimensionamento automática do cluster em um pool de nós existente em um cluster com um único pool de nós
 
-Você pode habilitar o conjunto de dimensionamento de clusters em um pool de nós em um cluster AKS que atenda aos requisitos conforme descrito na seção anterior [antes de começar](#before-you-begin) . Use o comando [AZ AKs nodepool Update][az-aks-nodepool-update] para habilitar o dimensionamento automática do cluster em seu pool de nós.
+Você pode atualizar as configurações de autoescalar do cluster anteriores em um cluster que atenda aos requisitos conforme descrito na seção anterior [antes de começar](#before-you-begin) . Use o comando [AZ AKs Update][az-aks-update] para habilitar o dimensionamento automática do cluster em seu cluster com um *único* pool de nós.
+
+```azurecli-interactive
+az aks update \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --update-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 5
+```
+
+Subsequentemente, o dimensionador em escala pode ser habilitado ou `az aks update --enable-cluster-autoscaler` desabilitado com comandos ou `az aks update --disable-cluster-autoscaler` .
+
+### <a name="enable-the-cluster-autoscaler-on-an-existing-node-pool-in-a-cluster-with-multiple-node-pools"></a>Habilitar o dimensionamento de cluster em um pool de nós existente em um cluster com vários pools de nós
+
+O dimensionador de clusters múltiplos também pode ser usado com o [recurso de visualização de vários pools de nós](use-multiple-node-pools.md) habilitados. Você pode habilitar o dimensionamento de clusters em pools de nós individuais em um cluster AKS que contém vários pools de nó e atende aos requisitos conforme descrito na seção anterior [antes de começar](#before-you-begin) . Use o comando [AZ AKs nodepool Update][az-aks-nodepool-update] para habilitar o dimensionamento automática do cluster em um pool de nós individual.
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -138,7 +153,7 @@ az aks nodepool update \
   --max-count 3
 ```
 
-O exemplo acima habilita o conjunto de dimensionamento de clusters no pool de nós *mynodepool* no *myAKSCluster* e define um mínimo de *1* e o máximo de *3* nós. Se a contagem de nós mínima for maior que o número existente de nós no pool de nós, levará alguns minutos para criar os nós adicionais.
+Subsequentemente, o dimensionador em escala pode ser habilitado ou `az aks nodepool update --enable-cluster-autoscaler` desabilitado com comandos ou `az aks nodepool update --disable-cluster-autoscaler` .
 
 ## <a name="change-the-cluster-autoscaler-settings"></a>Alterar as configurações de dimensionamento de clusters
 
@@ -177,7 +192,7 @@ az aks nodepool update \
 
 Você pode dimensionar manualmente o cluster usando o comando [AZ AKs Scale][az-aks-scale] . Se você usar a escalabilidade horizontal Pod, esse recurso continuará a ser executado com o cluster de dimensionamento em escalabilidade desabilitado, mas o pods poderá não ser agendado se os recursos do nó estiverem todos em uso.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo mostrou como dimensionar automaticamente o número de nós AKS. Você também pode usar a escala automática de Pod horizontal para ajustar automaticamente o número de pods que executam o aplicativo. Para obter as etapas sobre como usar a escalabilidade horizontal Pod, consulte [dimensionar aplicativos em AKs][aks-scale-apps].
 

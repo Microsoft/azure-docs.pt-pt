@@ -1,21 +1,21 @@
 ---
 title: Store blobs de blocos em dispositivos - Azure IoT Edge | Documentos da Microsoft
 description: Entenda as camadas e os recursos de vida útil, consulte operações de armazenamento de BLOBs com suporte e conecte-se à sua conta de armazenamento de BLOBs.
-author: arduppal
+author: kgremban
 manager: mchad
-ms.author: arduppal
-ms.reviewer: arduppal
+ms.author: kgremban
+ms.reviewer: kgremban
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a40389ca378826aef1b6aa136f8f5d69783c638e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 861b5c3ee6d5661339788e7a27ba70557d0ea267
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881223"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947023"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Armazene dados na borda com o armazenamento de BLOBs do Azure no IoT Edge
 
@@ -28,7 +28,7 @@ Esse módulo é útil em cenários:
 * Quando você quiser reduzir os custos de largura de banda e evitar a transferência de terabytes de dados para a nuvem. Você pode processar os dados localmente e enviar somente os dados processados para a nuvem.
 
 Assista ao vídeo para obter uma introdução rápida
-> [!VIDEO https://www.youtube.com/embed/QhCYCvu3tiM]
+> [!VIDEO https://www.youtube.com/embed/xbwgMNGB_3Y]
 
 Este módulo vem com os recursos **deviceToCloudUpload** e **deviceAutoDelete** .
 
@@ -63,7 +63,7 @@ Um dispositivo Azure IoT Edge:
 
 - Consulte [Azure IOT Edge sistemas com suporte](support.md#operating-systems) para obter uma lista de sistemas operacionais e arquiteturas com suporte. O armazenamento de BLOBs do Azure no módulo IoT Edge dá suporte às seguintes arquiteturas:
     - Windows AMD64
-    - AMD64 do Linux
+    - Linux AMD64
     - Linux ARM32
     - Linux ARM64 (versão prévia)
 
@@ -267,7 +267,7 @@ Seus comentários são importantes para que possamos tornar este módulo e seus 
 
 Você pode entrar em contato conosco emabsiotfeedback@microsoft.com
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como [implantar o armazenamento de BLOBs do Azure no IOT Edge](how-to-deploy-blob.md)
 

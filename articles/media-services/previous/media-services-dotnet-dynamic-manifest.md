@@ -13,39 +13,40 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;cenkdin
-ms.openlocfilehash: 05b899658b5c58e15b2f30ab759eb49319979fee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: cenkdin
+ms.openlocfilehash: c60b223f91a151bf63cabc5e95816f2545022503
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465563"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016595"
 ---
-# <a name="creating-filters-with-media-services-net-sdk"></a>Criar filtros com o .NET SDK dos serviços de multimédia 
+# <a name="creating-filters-with-media-services-net-sdk"></a>Criando filtros com o SDK do .NET dos serviços de mídia 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-dynamic-manifest.md)
 > * [REST](media-services-rest-dynamic-manifest.md)
 > 
 > 
 
-A partir da versão 2.17, serviços de multimédia permite-lhe definir os filtros para os seus ativos. Estes filtros são regras de lado do servidor que permitem que os clientes podem optar por fazer coisas como: reprodução apenas uma secção de um vídeo (em vez de reproduzir o vídeo inteiro), ou especifique apenas um subconjunto de representações de áudio e vídeos que o dispositivo do seu cliente pode manipular (em vez de todas as representações que estão associadas a com elemento). Esta filtragem de seus ativos é assegurado através da **dinâmica manifestar**s que são criados mediante solicitação do seu cliente para transmitir um vídeo com base nos filtros especificados.
+A partir da versão 2,17, os serviços de mídia permitem que você defina filtros para seus ativos. Esses filtros são regras do lado do servidor que permitem que seus clientes escolham tarefas como: reproduzir apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro) ou especificar apenas um subconjunto de representações de áudio e vídeo que o dispositivo do seu cliente pode manipular (em vez de todas as representações associadas ao ativo). Essa filtragem de seus ativos é obtida pormeio de manifestos dinâmicos que são criados na solicitação do cliente para transmitir um vídeo com base nos filtros especificados.
 
-Para obter mais informações relacionadas com filtros e de manifesto dinâmico, consulte [descrição geral de manifestos dinâmicos](media-services-dynamic-manifest-overview.md).
+Para obter informações mais detalhadas relacionadas aos filtros e ao manifesto dinâmico, consulte [visão geral](media-services-dynamic-manifest-overview.md)de manifestos dinâmicos.
 
-Este artigo mostra como utilizar o SDK .NET dos Media Services para criar, atualizar e eliminar filtros. 
+Este artigo mostra como usar o SDK do .NET dos serviços de mídia para criar, atualizar e excluir filtros. 
 
-Tenha em atenção de que se atualizar um filtro, pode demorar até dois minutos para o ponto final para atualizar as regras de transmissão em fluxo. Se o conteúdo tiver sido servido com este filtro (e armazenado em cache em proxies e CDN caches), a atualizar este filtro pode resultar em falhas de player. Sempre limpe a cache depois de atualizar o filtro. Se esta opção não for possível, considere utilizar um filtro de diferente. 
+Observação Se você atualizar um filtro, poderá levar até dois minutos para que o ponto de extremidade de streaming atualize as regras. Se o conteúdo foi servido usando esse filtro (e armazenado em cache em proxies e caches CDN), a atualização desse filtro pode resultar em falhas do Player. Sempre limpe o cache depois de atualizar o filtro. Se essa opção não for possível, considere usar um filtro diferente. 
 
-## <a name="types-used-to-create-filters"></a>Tipos utilizados para criar filtros
-Os seguintes tipos são utilizados durante a criação de filtros: 
+## <a name="types-used-to-create-filters"></a>Tipos usados para criar filtros
+Os seguintes tipos são usados ao criar filtros: 
 
-* **IStreamingFilter**.  Este tipo baseia-se a seguinte API de REST [filtro](https://docs.microsoft.com/rest/api/media/operations/filter)
-* **IStreamingAssetFilter**. Este tipo baseia-se a seguinte API de REST [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
-* **PresentationTimeRange**. Este tipo baseia-se a seguinte API de REST [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
-* **FilterTrackSelectStatement** e **IFilterTrackPropertyCondition**. Esses tipos baseiam-se as seguintes APIs de REST [FilterTrackSelect e FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
+* **IStreamingFilter**.  Esse tipo se baseia no seguinte [filtro](https://docs.microsoft.com/rest/api/media/operations/filter) de API REST
+* **IStreamingAssetFilter**. Esse tipo se baseia na seguinte API REST [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
+* **PresentationTimeRange**. Esse tipo se baseia na seguinte API REST [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
+* **FilterTrackSelectStatement** e **IFilterTrackPropertyCondition**. Esses tipos se baseiam nas seguintes APIs REST [FilterTrackSelect e FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
-## <a name="createupdatereaddelete-global-filters"></a>Criar/atualizar/ler/eliminar filtros de global
-O código seguinte mostra como usar o .NET para criar, atualizar e ler e eliminar filtros do elemento.
+## <a name="createupdatereaddelete-global-filters"></a>Criar/atualizar/ler/excluir filtros globais
+O código a seguir mostra como usar o .NET para criar, atualizar, ler e excluir filtros de ativos.
 
 ```csharp
     string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
@@ -74,8 +75,8 @@ O código seguinte mostra como usar o .NET para criar, atualizar e ler e elimina
     filter.Delete();
 ```
 
-## <a name="createupdatereaddelete-asset-filters"></a>Filtros de criar/atualizar/ler/eliminar recurso
-O código seguinte mostra como usar o .NET para criar, atualizar e ler e eliminar filtros do elemento.
+## <a name="createupdatereaddelete-asset-filters"></a>Criar/atualizar/ler/excluir filtros de ativo
+O código a seguir mostra como usar o .NET para criar, atualizar, ler e excluir filtros de ativos.
 
 ```csharp
     string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
@@ -106,24 +107,24 @@ O código seguinte mostra como usar o .NET para criar, atualizar e ler e elimina
 ```
 
 
-## <a name="build-streaming-urls-that-use-filters"></a>Criar a URLs que utilizam filtros de transmissão em fluxo
-Para obter informações sobre como publicar e entregar os seus recursos, consulte [entrega de conteúdos para os clientes descrição-geral](media-services-deliver-content-overview.md).
+## <a name="build-streaming-urls-that-use-filters"></a>Criar URLs de streaming que usam filtros
+Para obter informações sobre como publicar e entregar seus ativos, consulte [visão geral sobre como fornecer conteúdo aos clientes](media-services-deliver-content-overview.md).
 
-Os exemplos seguintes mostram como adicionar filtros a suas URLs de transmissão em fluxo.
+Os exemplos a seguir mostram como adicionar filtros às suas URLs de streaming.
 
 **MPEG DASH** 
 
     http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf, filter=MyFilter)
 
-**Apple HTTP Live Streaming (HLS) V4**
+**Apple HTTP Live Streaming (HLS) v4**
 
     http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=MyFilter)
 
-**Apple HTTP Live Streaming (HLS) V3**
+**Apple HTTP Live Streaming (HLS) v3**
 
     http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)
 
-**Transmissão em fluxo uniforme**
+**Smooth Streaming**
 
     http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 
@@ -135,5 +136,5 @@ Os exemplos seguintes mostram como adicionar filtros a suas URLs de transmissão
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Consultar Também
-[Descrição geral de manifestos dinâmicos](media-services-dynamic-manifest-overview.md)
+[Visão geral de manifestos dinâmicos](media-services-dynamic-manifest-overview.md)
 

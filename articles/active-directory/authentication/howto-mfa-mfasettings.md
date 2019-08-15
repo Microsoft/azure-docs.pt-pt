@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7011025a1d94a5c99bf2338d9f80c683c2fd7b35
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 12fd08fa301cb22857470e3c81d7f4f7c1f04de9
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514967"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68948881"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Definir as configurações de autenticação multifator do Azure
 
@@ -389,8 +389,7 @@ O recurso _lembrar a autenticação_ multifator para dispositivos e navegadores 
 >[!IMPORTANT]
 >Se uma conta ou dispositivo for comprometido, lembrar a autenticação multifator para dispositivos confiáveis pode afetar a segurança. Se uma conta corporativa for comprometida ou um dispositivo confiável for perdido ou roubado, você deverá [restaurar a autenticação multifator em todos os dispositivos](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
 >
->A ação restaurar revoga o status confiável de todos os dispositivos e o usuário precisa executar a verificação em duas etapas novamente. Você também pode instruir seus usuários a restaurar a autenticação multifator em seus próprios dispositivos com as instruções em [gerenciar suas configurações para verificação em duas etapas](../user-help/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
->
+>A ação restaurar revoga o status confiável de todos os dispositivos e o usuário precisa executar a verificação em duas etapas novamente. Você também pode instruir seus usuários a restaurar a autenticação multifator em seus próprios dispositivos com as instruções em [gerenciar suas configurações para verificação em duas etapas](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ### <a name="how-the-feature-works"></a>Como o recurso funciona
 

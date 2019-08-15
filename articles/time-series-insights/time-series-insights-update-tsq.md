@@ -1,6 +1,6 @@
 ---
-title: Consulta de dados pré-visualização do Time Series Insights do Azure | Documentos da Microsoft
-description: Consultar um dados de pré-visualização do Time Series Insights do Azure.
+title: Azure Time Series Insights Visualizar consulta de dados | Microsoft Docs
+description: Azure Time Series Insights Visualizar a consulta de dados.
 author: ashannon7
 ms.author: dpalled
 ms.workload: big-data
@@ -8,75 +8,75 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: bbf682df2df7a8cdc9fedb36aa4244fc5c0e9488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29418345aaa8042e50b1297541cac3af0a3c1504
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244008"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935199"
 ---
 # <a name="data-querying"></a>Consulta de dados
 
-Pré-visualização de informações de série de tempo do Azure permite a consultas de dados em eventos e metadados armazenados no ambiente através de APIs de superfície públicas. Essas APIs também são usadas no [Explorador de pré-visualização do Time Series Insights](./time-series-insights-update-explorer.md).
+Azure Time Series Insights visualização permite consultar dados em eventos e metadados armazenados no ambiente por meio de APIs de superfície pública. Essas APIs também são usadas no [Gerenciador de visualização Time Series insights](./time-series-insights-update-explorer.md).
 
-Três categorias principais de API estão disponíveis no Time Series Insights:
+Três categorias de API principais estão disponíveis no Time Series Insights:
 
-* **APIs de ambiente**: Permite que as consultas do ambiente do Time Series Insights em si. Exemplos de consultas são a lista de ambientes, que o chamador tem acesso ao e metadados de ambiente.
+* **APIs de ambiente**: Habilita consultas do próprio ambiente de Time Series Insights. Exemplos de consultas são a lista de ambientes aos quais o chamador tem acesso e os metadados do ambiente.
 
-* **APIs de modelo-Query (TSM-Q) de série de tempo**: Permite cria, ler, atualizar e eliminar operações em metadados armazenados na parte do ambiente do modelo de série de tempo. Os exemplos são instâncias, tipos e hierarquias.
+* **APIs de consulta de modelo de série temporal (TSM-Q)** : Habilita operações de criação, leitura, atualização e exclusão em metadados armazenados na parte do ambiente do modelo de série temporal. Os exemplos são instâncias, tipos e hierarquias.
 
-* **Série de tempo de consulta (TSQ) APIs**: Permite a obtenção de dados de eventos como ele será gravado do fornecedor de origem. Essas APIs podem executar operações de transformar, combinar e efetuar cálculos nos dados de séries de tempo.
+* **APIs de consulta de série temporal (TSQ)** : Permite a recuperação de dados de eventos conforme eles são registrados do provedor de origem. Essas APIs podem executar operações para transformar, combinar e executar cálculos em dados de série temporal.
 
-O [linguagem de expressão de série de tempo (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx) é uma quarta categoria poderosas. Utiliza modelos de série de tempo para habilitar a composição de computação avançada.
+A [linguagem TSX (expressão de série temporal)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx) é uma quarta categoria poderosa. Ele usa modelos de série temporal para habilitar a composição de computação avançada.
 
-## <a name="azure-time-series-insights-preview-core-apis"></a>APIs principais do Time Series Insights pré-visualização do Azure
+## <a name="azure-time-series-insights-preview-core-apis"></a>APIs principais do Azure Time Series Insights Preview
 
-As seguintes principais que APIs são suportadas.
+As APIs principais a seguir têm suporte.
 
-[![Descrição geral de consulta de série de tempo](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
+[![Visão geral de consulta de série temporal](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
 ## <a name="environment-apis"></a>APIs de ambiente
 
-As APIs de ambiente seguintes estão disponíveis:
+As seguintes APIs de ambiente estão disponíveis:
 
-* [Obter ambiente API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environments-api): Devolve a lista de ambientes de que o chamador está autorizado a aceder.
-* [Obter ambiente disponibilidade API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): Devolve a distribuição de contagem de eventos durante o período de tempo do evento `$ts`. Esta API ajuda a determinar se existem quaisquer eventos o carimbo de hora ao devolver a contagem de eventos, se existir alguma.
-* [Obter esquema de eventos API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): Devolve os metadados de esquema de eventos para um intervalo de pesquisa especificada. Esta API ajuda a recuperar todos os metadados e propriedades disponíveis no esquema do intervalo de pesquisa especificada.
+* [Obter API do ambiente](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environments-api): Retorna a lista de ambientes aos quais o chamador está autorizado a acessar.
+* [Obter API de disponibilidade do ambiente](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): Retorna a distribuição da contagem de eventos sobre o carimbo `$ts`de data/hora do evento. Essa API ajuda a determinar se há algum evento no carimbo de data/hora retornando a contagem de eventos, se existir.
+* [Obter API do esquema de evento](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): Retorna os metadados do esquema de evento para um determinado intervalo de pesquisa. Essa API ajuda a recuperar todos os metadados e propriedades disponíveis no esquema para o intervalo de pesquisa fornecido.
 
-## <a name="time-series-model-query-tsm-q-apis"></a>APIs de modelo-Query (TSM-Q) de série de tempo
+## <a name="time-series-model-query-tsm-q-apis"></a>APIs de consulta de modelo de série temporal (TSM-Q)
 
-As APIs de consulta do modelo de série de tempo seguintes estão disponíveis:
+As seguintes APIs de consulta de modelo de série temporal estão disponíveis:
 
-* [API de definições de modelo](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api): Permite obter e aplicar um patch no tipo de padrão e o nome do modelo do ambiente.
-* [Tipos de API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api): Permite CRUD em tipos de séries de tempo e as respetivas variáveis associadas.
-* [API de hierarquias](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): Ativa o CRUD em hierarquias de séries de tempo e seus caminhos de campo associados.
-* [API de instâncias](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Permite CRUD em instâncias de série de tempo e seus campos de instância associada.
+* [API de configurações de modelo](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api): Habilita Get e patch no tipo padrão e no nome do modelo do ambiente.
+* [API de tipos](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api): Habilita CRUD nos tipos de série temporal e suas variáveis associadas.
+* [API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api)de hierarquias: Habilita CRUD nas hierarquias de série temporal e seus caminhos de campo associados.
+* [API de instâncias](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Habilita CRUD em instâncias de série temporal e seus campos de instância associados.
 
-## <a name="time-series-query-tsq-apis"></a>APIs de consulta (TSQ) de série de tempo
+## <a name="time-series-query-tsq-apis"></a>APIs de consulta de série temporal (TSQ)
 
-As APIs de consulta de série de tempo seguintes estão disponíveis:
+As seguintes APIs de consulta de série temporal estão disponíveis:
 
-* [Obter eventos API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api): Permite a consulta e a obtenção de dados do Time Series Insights de eventos à medida que são registradas no Time Series Insights do fornecedor de origem.
+* [API de obtenção de eventos](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api): Permite a consulta e a recuperação de Time Series Insights dados de eventos conforme eles são gravados em Time Series Insights do provedor de origem.
 
-* [Obter série API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api): Consulta ativa e a obtenção de dados de Time Series Insights dos eventos capturados através da utilização de dados registados na conexão. Os valores que são devolvidos baseiam-se as variáveis que foram definidas no modelo ou fornecidas inline.
+* [Obter a API da série](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api): Permite a consulta e a recuperação de dados de Time Series Insights de eventos capturados usando dados registrados na conexão. Os valores retornados são baseados nas variáveis que foram definidas no modelo ou embutidas em linha.
 
     >[!NOTE]
-    > A cláusula de agregação é ignorada, mesmo caso de especificado num modelo ou fornecido inline.
+    > A cláusula de agregação é ignorada mesmo que seja especificada em um modelo ou fornecida em linha.
 
-  A API de série obter devolve um valor de séries de tempo para cada variável, para cada intervalo. Um valor de série de tempo é um formato que utiliza o Time Series Insights para a saída JSON de uma consulta. Os valores que são devolvidos baseiam-se o ID de série de tempo e o conjunto de variáveis que foram fornecidos.
+  A API obter série retorna um valor de série temporal para cada variável para cada intervalo. Um valor de série temporal é um formato que Time Series Insights usa para o JSON de saída de uma consulta. Os valores retornados são baseados na ID da série temporal e no conjunto de variáveis que foram fornecidas.
 
-* [Agregar série API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api): Consulta ativa e obtenção de dados de Time Series Insights dos eventos capturados por amostragem e agregar registados dados.
+* [API da série agregada](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api): Permite a consulta e a recuperação de dados de Time Series Insights de eventos capturados por amostragem e agregação de dados gravados.
 
-  A API de série agregado devolve um valor de séries de tempo para cada variável, para cada intervalo. Os valores baseiam-se o ID de série de tempo e o conjunto de variáveis que foram fornecidos. A API de série agregado alcança redução usando variáveis armazenada no modelo de série de tempo ou fornecida inline para dados de agregação ou de exemplo.
+  A API da série agregada retorna um valor de série temporal para cada variável para cada intervalo. Os valores são baseados na ID da série temporal e no conjunto de variáveis que foram fornecidas. A API da série agregada alcança a redução usando variáveis armazenadas no modelo de série temporal ou fornecidas em linha para agregar ou dados de exemplo.
 
-  Tipos de agregação suportados: `Min`, `Max`, `Sum`, `Count`, `Average`
+  Tipos de agregação `Min`com `Max`suporte: `Count`,, `Sum`,,`Average`
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [armazenamento e de entrada](./time-series-insights-update-storage-ingress.md) na pré-visualização do Azure Time Series Insights.
+- Saiba mais sobre o [armazenamento e a entrada](./time-series-insights-update-storage-ingress.md) na versão prévia do Azure Time Series insights.
 
-- Leia a pré-visualização do Time Series Insights [modelação de dados](./time-series-insights-update-tsm.md) artigo.
+- Leia o artigo Time Series Insights Preview [Data Modeling](./time-series-insights-update-tsm.md) .
 
-- Descubra [melhores práticas ao escolher um ID de série de tempo](./time-series-insights-update-how-to-id.md).
+- Descubra [as práticas recomendadas ao escolher uma ID de série temporal](./time-series-insights-update-how-to-id.md).

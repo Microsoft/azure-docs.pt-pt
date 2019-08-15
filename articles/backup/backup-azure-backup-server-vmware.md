@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: dacurwin
-ms.openlocfilehash: c53e2c383739b717a5ce94c872b4616bbd1b3f26
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9ae21e2bf71789d0b0dd19e3dd7a65ad10fae241
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639948"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018961"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Fazer backup de VMs VMware com Servidor de Backup do Azure
 
@@ -41,7 +41,7 @@ Por padrão, o Servidor de Backup do Azure se comunica com servidores VMware por
 - Se você não quiser usar HTTPS, poderá [desabilitar a validação de certificado HTTPS para todos os servidores VMware](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
 - Normalmente, você se conecta de um navegador na máquina Servidor de Backup do Azure ao servidor vCenter/ESXi usando o cliente Web vSphere. Na primeira vez que você fizer isso, a conexão não será segura e mostrará o seguinte.
 - É importante entender como Servidor de Backup do Azure lida com os backups.
-    - Como uma primeira etapa Servidor de Backup do Azure faz backup dos dados no armazenamento em disco local. Servidor de Backup do Azure usa um pool de armazenamento, um conjunto de discos e volumes nos quais o Servidor de Backup do Azure armazena pontos de recuperação de disco para seus dados protegidos. O pool de armazenamento pode ser DAS (armazenamento conectado diretamente), um SAN de canal de fibra ou um dispositivo de armazenamento iSCSI ou SAN. É importante garantir que você tenha armazenamento suficiente para backup local de seus dados de VM do VMware.
+    - Como uma primeira etapa Servidor de Backup do Azure faz backup dos dados no armazenamento em disco local. Servidor de Backup do Azure usa um pool de armazenamento, um conjunto de discos e volumes nos quais o Servidor de Backup do Azure armazena pontos de recuperação de disco para seus dados protegidos. O pool de armazenamento pode ser DAS (armazenamento conectado diretamente), um SAN de canal de fibra ou um dispositivo de armazenamento iSCSI ou SAN. É importante garantir que você tenha armazenamento suficiente para o backup local de seus dados de VM do VMware.
     - Em seguida, Servidor de Backup do Azure faz backup do armazenamento em disco local para o Azure.
     - [Obtenha ajuda](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1807#figure-out-how-much-storage-space-you-need) para descobrir quanto espaço de armazenamento você precisa. As informações são para o DPM, mas também podem ser usadas para Servidor de Backup do Azure.
 
@@ -102,10 +102,10 @@ Configure um canal seguro da seguinte maneira:
 
 ### <a name="disable-https-certificate-validation"></a>Desabilitar validação de certificado HTTPS
 
-Se você tiver limites de segurança em sua organização e não quiser usar o protocolo HTTPS entre servidores VMware e o computador Servidor de Backup do Azure, desabilite o HTTPS da seguinte maneira: u
+Se você tiver limites de segurança em sua organização e não quiser usar o protocolo HTTPS entre servidores VMware e o computador Servidor de Backup do Azure, desabilite o HTTPS da seguinte maneira: 
 1. Copie e cole o texto a seguir em um arquivo. txt.
 
-      ```
+      ```text
       Windows Registry Editor Version 5.00
       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
       "IgnoreCertificateValidation"=dword:00000001
@@ -221,7 +221,7 @@ Na guia **gerenciar** do painel **permissões globais** , a nova conta de usuár
 
     ![Caixa de diálogo Servidor de Backup do Azure gerenciar credenciais](./media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
-4. Em **Adicionar credencial** , insira um nome e uma descrição para a nova credencial e especifique o nome de usuário e a senha que você definiu no servidor VMware. O nome, *credencial do contoso vCenter* , é usado para identificar a credencial neste procedimento. Se o servidor VMware e Servidor de Backup do Azure não estiverem no mesmo domínio, especifique o domínio no nome de usuário.
+4. Em **Adicionar credencial**, insira um nome e uma descrição para a nova credencial e especifique o nome de usuário e a senha que você definiu no servidor VMware. O nome, *credencial do contoso vCenter* , é usado para identificar a credencial neste procedimento. Se o servidor VMware e Servidor de Backup do Azure não estiverem no mesmo domínio, especifique o domínio no nome de usuário.
 
     ![Caixa de diálogo Servidor de Backup do Azure adicionar credencial](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
@@ -286,10 +286,10 @@ Adicione VMs VMware para backup. Os grupos de proteção reúnem várias VMs e a
 
 1. Na página **Selecionar tipo de grupo de proteção** , selecione **servidores** e clique em **Avançar**. A página **selecionar membros do grupo** é exibida.
 
-1. Em **selecionar membros do grupo** > selecione as VMs (ou as pastas de VM) que você deseja fazer backup. Clique depois em **Seguinte**.
+1. Em **selecionar membros do grupo**, selecione as VMs (ou pastas de VM) das quais você deseja fazer backup. Clique depois em **Seguinte**.
 
     - Quando você seleciona uma pasta, ou as VMs ou pastas dentro dessa pasta também são selecionadas para backup. Você pode desmarcar as pastas ou VMs das quais você não deseja fazer backup.
-1. Se uma VM ou pasta já estiver sendo submetida a backup, você não poderá selecioná-la. Isso garante que os pontos de recuperação duplicados não sejam criados para uma VM. .
+1. Se uma VM ou pasta já estiver sendo submetida a backup, você não poderá selecioná-la. Isso garante que os pontos de recuperação duplicados não sejam criados para uma VM.
 
      ![Selecionar membros do grupo](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 

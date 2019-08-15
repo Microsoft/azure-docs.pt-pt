@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4df8ff8abfeb7a6ba96ec3344407e95e0a9a3b3d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c4314a0dcbbcb907ef4d6de0a2788cf04dfe1641
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728724"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934858"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Práticas recomendadas de desenvolvimento seguro no Azure
 Esta série de artigos apresenta as atividades e os controles de segurança a serem considerados ao desenvolver aplicativos para a nuvem. As fases do SDL (ciclo de vida do desenvolvimento de segurança) da Microsoft e dos conceitos de segurança e de conceito a serem considerados durante cada fase do ciclo de vida são abordadas. O objetivo é ajudá-lo a definir atividades e serviços do Azure que você pode usar em cada fase do ciclo de vida para projetar, desenvolver e implantar um aplicativo mais seguro.
@@ -69,13 +69,13 @@ Use os recursos a seguir para saber mais sobre como desenvolver aplicativos segu
 
 [Enviando para a esquerda, como um chefe](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.mc_id=docs-blog-tajanca) – uma série de artigos online que descreve diferentes tipos de atividades de segurança de aplicativo que os desenvolvedores devem concluir para criar um código mais seguro.
 
-[Plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/) – a plataforma de identidade da Microsoft é uma evolução do serviço de identidade do Azure AD e da plataforma de desenvolvedor. É uma plataforma completa que consiste em um serviço de autenticação, bibliotecas de software livre, registro e configuração de aplicativos, documentação completa para desenvolvedores, exemplos de código e outros conteúdos de desenvolvedores. A plataforma de identidade da Microsoft dá suporte a protocolos padrão do setor, como OAuth 2,0 e OpenID Connect.
+[Plataforma de identidade da Microsoft](../../active-directory/develop/index.yml) – a plataforma de identidade da Microsoft é uma evolução do serviço de identidade do Azure AD e da plataforma de desenvolvedor. É uma plataforma completa que consiste em um serviço de autenticação, bibliotecas de software livre, registro e configuração de aplicativos, documentação completa para desenvolvedores, exemplos de código e outros conteúdos de desenvolvedores. A plataforma de identidade da Microsoft dá suporte a protocolos padrão do setor, como OAuth 2,0 e OpenID Connect.
 
 [Práticas recomendadas de segurança para soluções do Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/) – uma coleção de práticas recomendadas de segurança para usar ao projetar, implantar e gerenciar soluções de nuvem usando o Azure. Este documento destina-se a ser um recurso para os profissionais de ti. Isso pode incluir designers, arquitetos, desenvolvedores e testadores que criam e implantam soluções seguras do Azure.
 
 [Plantas de segurança e conformidade no Azure](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) – plantas de segurança e conformidade do Azure são recursos que podem ajudá-lo a criar e iniciar aplicativos baseados em nuvem que estão em conformidade com regulamentos e padrões rígidos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Nos artigos a seguir, recomendamos os controles de segurança e as atividades que podem ajudá-lo a projetar, desenvolver e implantar aplicativos seguros.
 
 - [Criar aplicativos seguros](secure-design.md)

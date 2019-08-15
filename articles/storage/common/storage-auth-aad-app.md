@@ -1,21 +1,21 @@
 ---
-title: Autenticar com Azure Active Directory para acessar dados de BLOB e de fila do seu aplicativo cliente
+title: Autorizar o acesso a BLOBs e filas com Azure Active Directory de um aplicativo cliente-armazenamento do Azure
 description: Use Azure Active Directory para autenticar de dentro de um aplicativo cliente, adquirir um token OAuth 2,0 e autorizar solicitações para armazenamento de BLOBs do Azure e armazenamento de filas.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2019
+ms.date: 07/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ffae7467e9f94c68cf004b74c9791f2d9cda3171
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5138fb6338f4ade322414619f8785d77550a91d1
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249994"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986792"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Autenticar com Azure Active Directory de um aplicativo para acessar BLOBs e filas
+# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>Autorizar o acesso a BLOBs e filas com Azure Active Directory de um aplicativo cliente
 
 Uma vantagem importante de usar o Azure Active Directory (Azure AD) com o armazenamento de BLOBs do Azure ou o armazenamento de filas é que suas credenciais não precisam mais ser armazenadas em seu código. Em vez disso, você pode solicitar um token de acesso OAuth 2,0 da plataforma de identidade da Microsoft (anteriormente Azure AD). O Azure AD autentica a entidade de segurança (um usuário, grupo ou entidade de serviço) que executa o aplicativo. Se a autenticação for bem sucedido, o Azure AD retornará o token de acesso para o aplicativo e o aplicativo poderá usar o token de acesso para autorizar solicitações ao armazenamento de BLOBs do Azure ou armazenamento de filas.
 
@@ -297,7 +297,7 @@ Ao executar o exemplo, você pode descobrir que precisa atualizar o URI de redir
 
     ![Captura de tela mostrando URIs de redirecionamento para registro de aplicativo](media/storage-auth-aad-app/redirect-uri.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre a plataforma de identidade da Microsoft, consulte [plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
 - Para saber mais sobre as funções RBAC para o armazenamento do Azure, consulte [gerenciar direitos de acesso aos dados de armazenamento com o RBAC](storage-auth-aad-rbac.md).

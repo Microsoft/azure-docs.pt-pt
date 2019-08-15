@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1cbd0f649bd5e89c1ed424604697afa179964175
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 23492133035f27aa3e1217269022565e0ff217a9
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689006"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018763"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
@@ -340,7 +340,7 @@ V2VM              Backup              InProgress          4/23/2016             
 
 ### <a name="change-policy-for-backup-items"></a>Alterar política para itens de backup
 
-O usuário pode modificar a política existente ou alterar a política do item de backup de Policy1 para Policy2. Para alternar as políticas para um item de backup, basta buscar a política relevante e fazer backup do item e usar o comando [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) com o item de backup como o parâmetro.
+O usuário pode modificar a política existente ou alterar a política do item de backup de Policy1 para Policy2. Para alternar políticas para um item de backup, busque a política relevante e faça backup do item e use o comando [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) com o item de backup como o parâmetro.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -720,7 +720,7 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
 
    * **Para VM sem Azure ad** -use o seguinte comando para habilitar manualmente a criptografia para os discos de dados.
 
-     Se o uso da execução do comando solicitar AADClientID, você precisará atualizar seu Azure PowerShell.
+     Se durante a execução do comando solicitar AADClientID, você precisará atualizar seu Azure PowerShell.
 
      **Somente BEK**
 

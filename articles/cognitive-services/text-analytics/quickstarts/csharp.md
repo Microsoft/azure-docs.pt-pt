@@ -10,19 +10,19 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: assafi
-ms.openlocfilehash: 4373cd8da8d302722c5edbe3ee716eec96e6419f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: deb8c742161d59c8926c1ec139978d15b891bd4a
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881055"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019480"
 ---
 # <a name="quickstart-text-analytics-client-library-for-net"></a>Início rápido: Biblioteca de cliente de análise de texto para .NET
 <a name="HOLTop"></a>
 
 Introdução à biblioteca de cliente do Análise de Texto para .NET. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. 
 
-Use a biblioteca de cliente Análise de Texto para Python para executar:
+Use a biblioteca de cliente Análise de Texto para .NET para executar:
 
 * Análise de sentimentos
 * Deteção de idioma
@@ -97,10 +97,16 @@ No método do `Main` aplicativo, crie variáveis para o ponto de extremidade e a
 static void Main(string[] args)
 {
     // replace this endpoint with the correct one for your Azure resource. 
-    string endpoint = $"https://westus2.api.cognitive.microsoft.com";
+    string endpoint = $"https://westus.api.cognitive.microsoft.com";
     //This sample assumes you have created an environment variable for your key
     string key = Environment.GetEnvironmentVariable("TEXT_ANALYTICS_SUBSCRIPTION_KEY");
-    ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials(key));
+
+    var credentials = new ApiKeyServiceClientCredentials(key);
+    TextAnalyticsClient client = new TextAnalyticsClient(credentials)
+    {
+        Endpoint = endpoint
+    };
+
     Console.OutputEncoding = System.Text.Encoding.UTF8;
     SentimentAnalysisExample(client);
     // languageDetectionExample(client);
@@ -159,10 +165,14 @@ class ApiKeyServiceClientCredentials : ServiceClientCredentials
 }
 ```
 
-`main()` No método, instancie o cliente.
+`main()` No método, instancie o cliente com sua chave e ponto de extremidade.
 
 ```csharp
-ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials(key));
+var credentials = new ApiKeyServiceClientCredentials(key);
+TextAnalyticsClient client = new TextAnalyticsClient(credentials)
+{
+    Endpoint = endpoint
+};
 ```
 
 ## <a name="sentiment-analysis"></a>Análise de sentimentos
@@ -172,7 +182,7 @@ Crie uma nova função chamada `SentimentAnalysisExample()` que usa o cliente qu
 Uma pontuação que está perto de 0 indica uma observação negativa, enquanto uma pontuação mais próxima de 1 indica um sentimentos positivo.
 
 ```csharp
-static void SentimentAnalysisExample(ITextAnalyticsClient client){
+static void SentimentAnalysisExample(TextAnalyticsClient client){
     var result = client.Sentiment("I had the best day of my life.", "en");
     Console.WriteLine($"Sentiment Score: {result.Score:0.00}");
 }
@@ -192,7 +202,7 @@ Crie uma nova função chamada `languageDetectionExample()` que usa o cliente qu
 > Em alguns casos, pode ser difícil eliminar a ambiguidade de idiomas com base na entrada. Você pode usar o `countryHint` parâmetro para especificar um código de país de duas letras. Por padrão, a API está usando o "US" como o countryHint padrão, para remover esse comportamento, você pode redefinir esse parâmetro definindo esse valor como cadeia `countryHint = ""` de caracteres vazia.
 
 ```csharp
-static void languageDetectionExample(ITextAnalyticsClient client){
+static void languageDetectionExample(TextAnalyticsClient client){
     var result = client.DetectLanguage("This is a document written in English.");
     Console.WriteLine($"Language: {result.DetectedLanguages[0].Name}");
 }
@@ -212,7 +222,7 @@ Language: English
 Crie uma nova função chamada `RecognizeEntitiesExample()` que usa o cliente que você criou anteriormente e chame sua função [Entities ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.entities?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_Entities_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) . Iterar pelos resultados. O objeto [EntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.entitiesresult?view=azure-dotnet) retornado conterá a lista de entidades detectadas `Entities` em se bem-sucedido e um `errorMessage` se não. Para cada entidade detectada, imprima seu tipo, subtipo, nome da Wikipédia (se existir), bem como os locais no texto original.
 
 ```csharp
-static void entityRecognitionExample(ITextAnalyticsClient client){
+static void entityRecognitionExample(TextAnalyticsClient client){
 
     var result = client.Entities("Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.");
     Console.WriteLine("Entities:");
@@ -279,7 +289,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)

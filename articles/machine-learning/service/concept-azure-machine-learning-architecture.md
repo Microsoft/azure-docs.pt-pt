@@ -1,7 +1,7 @@
 ---
 title: Arquitetura & conceitos principais
 titleSuffix: Azure Machine Learning service
-description: Saiba mais sobre a arquitetura, os termos, os conceitos e o fluxo de trabalho que compõem Azure Machine Learning serviço.
+description: Saiba mais sobre a arquitetura, os termos, os conceitos e os fluxos de trabalho que compõem o serviço de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6f6c41e5de4f4a053748dfb08dc57e8acac32e5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ea5e476680b07a6a7ba2b57e94f1f0b99cc10987
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848228"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990090"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Como Azure Machine Learning serviço funciona: Arquitetura e conceitos
 
@@ -49,12 +49,16 @@ Use estas ferramentas para Azure Machine Learning:
 + Gravar código em Visual Studio Code com [Azure Machine Learning extensão de vs Code](how-to-vscode-tools.md)
 + Use a [interface visual (visualização) para Azure Machine Learning serviço](ui-concept-visual-interface.md) para executar as etapas do fluxo de trabalho sem escrever código.
 
-## <a name="glossary-of-concepts"></a>Glossário de conceitos
+> [!NOTE]
+> Embora este artigo defina os termos e conceitos usados pelo serviço Azure Machine Learning, ele não define os termos e conceitos para a plataforma Azure. Para obter mais informações sobre a terminologia da plataforma Azure, consulte o [Glossário de Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
+
+## <a name="glossary"></a>Glossário
 
 + <a href="#workspaces">Espaço</a>
 + <a href="#experiments">Experiências</a>
 + <a href="#models">Modelos</a>
 + <a href="#run-configurations">Configuração de execução</a>
++ [Estimativas](#estimators)
 + <a href="#datasets-and-datastores">Repositórios de & de conjunto de armazenamento</a>
 + <a href="#compute-targets">Destinos de computação</a>
 + <a href="#training-scripts">Script de treinamento</a>
@@ -69,19 +73,9 @@ Use estas ferramentas para Azure Machine Learning:
 + <a href="#ml-pipelines">Pipelines de ML</a>
 + <a href="#logging">Logging</a>
 
-> [!NOTE]
-> Embora este artigo defina os termos e conceitos usados pelo serviço Azure Machine Learning, ele não define os termos e conceitos para a plataforma Azure. Para obter mais informações sobre a terminologia da plataforma Azure, consulte o [Glossário de Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
-
-
 ### <a name="workspaces"></a>Áreas de trabalho
 
-[O espaço de trabalho](concept-workspace.md) é o recurso de nível superior para Azure Machine Learning serviço. Ele fornece um local centralizado para trabalhar com todos os artefatos criados quando você usa o serviço Azure Machine Learning.
-
-Uma taxonomia do espaço de trabalho é ilustrada no diagrama a seguir:
-
-[![Taxonomia da área de trabalho](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
-
-Para obter mais informações sobre espaços de trabalho, consulte [o que é um espaço de trabalho Azure Machine Learning?](concept-workspace.md).
+[O espaço de trabalho](concept-workspace.md) é o recurso de nível superior para Azure Machine Learning serviço. Ele fornece um local centralizado para trabalhar com todos os artefatos criados quando você usa o serviço Azure Machine Learning. Você pode compartilhar um espaço de trabalho com outras pessoas. Para obter uma descrição detalhada dos espaços de trabalho, consulte [o que é um espaço de trabalho Azure Machine Learning?](concept-workspace.md).
 
 ### <a name="experiments"></a>Experimentações
 
@@ -97,7 +91,7 @@ Um modelo é produzido por uma execução no Azure Machine Learning. Você tamb�
 
 O serviço de Azure Machine Learning é independente da estrutura. Ao criar um modelo, você pode usar qualquer estrutura de aprendizado de máquina popular, como Scikit-learn, XGBoost, PyTorch, TensorFlow e Chainer.
 
-Para obter um exemplo de treinamento de um modelo [, consulte Tutorial: Treine um modelo de classificação de imagem com](tutorial-train-models-with-aml.md)o serviço Azure Machine Learning.
+Para obter um exemplo de treinamento de um modelo usando Scikit-Learn e um estimador, consulte [o tutorial: Treine um modelo de classificação de imagem com](tutorial-train-models-with-aml.md)o serviço Azure Machine Learning.
 
 O **registro de modelo** mantém o controle de todos os modelos em seu espaço de trabalho do Azure Machine Learning Service.
 
@@ -120,11 +114,24 @@ Uma configuração de execução pode ser persistida em um arquivo dentro do dir
 
 Por exemplo, execute as configurações, consulte [selecionar e usar um destino de computação para treinar seu modelo](how-to-set-up-training-targets.md).
 
+### <a name="estimators"></a>Estimativas
+
+Para facilitar o treinamento de modelo com estruturas populares, a classe Estimate permite que você construa facilmente configurações de execução. Você pode criar e usar um [estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar scripts de treinamento que usam qualquer estrutura de aprendizado que você escolher (como scikit-learn).
+
+Para as tarefas PyTorch, TensorFlow e Chainer, Azure Machine Learning também fornece os respectivos estimadores [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)e [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) para simplificar o uso dessas estruturas.
+
+Para obter mais informações, veja os artigos seguintes:
+
+* [Treinar modelos ml com estimações](how-to-train-ml-models.md).
+* [Treine os modelos de aprendizado profundo do Pytorch em escala com Azure Machine Learning](how-to-train-pytorch.md).
+* [Treine e registre os modelos de TensorFlow em escala com o serviço Azure Machine Learning](how-to-train-tensorflow.md).
+* [Treine e registre modelos de encadeamento em escala com o serviço Azure Machine Learning](how-to-train-chainer.md).
+
 ### <a name="datasets-and-datastores"></a>Conjuntos de e armazenamentos de
 
 **Conjuntos de Azure Machine Learning** (versão prévia) facilite o acesso e o trabalho com seus dados. DataSets gerenciam dados em vários cenários, como treinamento de modelo e criação de pipeline. Usando o SDK do Azure Machine Learning, você pode acessar o armazenamento subjacente, explorar e preparar dados, gerenciar o ciclo de vida de definições de conjunto de dados diferentes e comparar entre os DataSets usados no treinamento e na produção.
 
-DataSets fornece métodos para trabalhar com dados em formatos populares, como usar `from_delimited_files()` o ou `to_pandas_dataframe()`o.
+DataSets fornecem métodos para trabalhar com dados em formatos populares, como usar `from_delimited_files()` o ou `to_pandas_dataframe()`o.
 
 Para obter mais informações, consulte [criar e registrar conjuntos de dados Azure Machine Learning](how-to-create-register-datasets.md).  Para obter mais exemplos usando conjuntos de informações, consulte os [blocos de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/work-with-data/datasets).
 
@@ -132,7 +139,7 @@ Um **datastore** é uma abstração de armazenamento em uma conta de armazenamen
 
 ### <a name="compute-targets"></a>Destinos de computação
 
-Um [destino de computação](concept-compute-target.md) permite que você especifique o recurso de computação no qual você executa o script de treinamento ou hospeda sua implantação de serviço. Esse local pode ser seu computador local ou um recurso de computação baseado em nuvem. Os destinos de computação facilitam a alteração do ambiente de computação sem alterar seu código.
+Um [destino de computação](concept-compute-target.md) permite especificar o recurso de computação em que você executa o script de treinamento ou hospeda sua implantação de serviço. Esse local pode ser seu computador local ou um recurso de computação baseado em nuvem. Os destinos de computação facilitam a alteração do ambiente de computação sem alterar seu código.
 
 Saiba mais sobre os [destinos de computação disponíveis para treinamento e implantação](concept-compute-target.md).
 
@@ -152,7 +159,6 @@ Uma execução é um registo que contém as seguintes informações:
 * Um instantâneo do diretório que contém os scripts, antes da execução
 
 Você produz uma execução quando envia um script para treinar um modelo. Uma execução pode ter zero ou mais execuções de subordinados. Por exemplo, a execução de nível superior pode ter duas execuções filhas, cada uma das quais pode ter sua própria execução filho.
-
 
 ### <a name="github-tracking-and-integration"></a>Acompanhamento e integração do GitHub
 

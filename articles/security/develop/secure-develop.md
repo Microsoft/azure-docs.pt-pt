@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1b2e6e0aa74c06afea09a67dbdf65ca47727b72e
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: c1c7dd0bd017852144139a841ff609dabf0f1a27
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780569"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68928059"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolva aplicativos seguros no Azure
 Neste artigo, apresentamos as atividades de segurança e os controles a serem considerados ao desenvolver aplicativos para a nuvem. As perguntas e os conceitos de segurança a serem considerados durante as fases de implementação e verificação do [SDL (Microsoft Security Development Lifecycle)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) são abordados. O objetivo é ajudá-lo a definir atividades e serviços do Azure que você pode usar para desenvolver um aplicativo mais seguro.
@@ -89,7 +89,7 @@ Isso significa que menos pessoas têm acesso aos dados reais, o que reduz a supe
 
 Para se defender contra a força bruta e a adivinhação baseada em dicionário, você deve implementar uma política de senha forte para garantir que os usuários criem uma senha complexa (por exemplo, comprimento mínimo de 12 caracteres e exigindo caracteres alfanuméricos e especiais).
 
-Você pode usar uma estrutura de identidade para criar e impor políticas de senha. Azure AD B2C ajuda com o gerenciamento de senhas, fornecendo [políticas internas](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow), redefinição de [senha](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr)de autoatendimento e muito mais.
+Você pode usar uma estrutura de identidade para criar e impor políticas de senha. Azure AD B2C ajuda com o gerenciamento de senhas, fornecendo [políticas internas](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), redefinição de [senha](../../active-directory-b2c/active-directory-b2c-reference-sspr.md)de autoatendimento e muito mais.
 
 Para se defender contra ataques em contas padrão, verifique se todas as chaves e senhas são substituíveis e se elas são geradas ou substituídas após a instalação dos recursos.
 
@@ -99,9 +99,9 @@ Se o aplicativo precisar gerar senhas automaticamente, verifique se as senhas ge
 
 Se seu aplicativo permitir [uploads de arquivos](https://www.owasp.org/index.php/Unrestricted_File_Upload), considere as precauções que você pode tomar para essa atividade arriscada. A primeira etapa em muitos ataques é obter um código mal-intencionado em um sistema que está sob ataque. O uso de um upload de arquivo ajuda o invasor a fazer isso. O OWASP oferece soluções para validar um arquivo para garantir que o arquivo que você está carregando seja seguro.
 
-A proteção Antimalware ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. Você pode instalar [o Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) ou uma solução de proteção de ponto de extremidade do parceiro da Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)e [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
+A proteção Antimalware ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. Você pode instalar [o Microsoft Antimalware](../fundamentals/antimalware.md) ou uma solução de proteção de ponto de extremidade do parceiro da Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)e [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
 
-[O Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) inclui recursos como proteção em tempo real, verificação agendada, correção de malware, atualizações de assinatura, atualizações de mecanismo, relatórios de amostras e coleta de eventos de exclusão. Você pode integrar o Microsoft antimalware e as soluções de parceiros à [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) para facilitar a implantação e detecções internas (alertas e incidentes).
+[O Microsoft Antimalware](../fundamentals/antimalware.md) inclui recursos como proteção em tempo real, verificação agendada, correção de malware, atualizações de assinatura, atualizações de mecanismo, relatórios de amostras e coleta de eventos de exclusão. Você pode integrar o Microsoft antimalware e as soluções de parceiros à [central de segurança do Azure](../../security-center/security-center-partner-integration.md) para facilitar a implantação e detecções internas (alertas e incidentes).
 
 ### <a name="dont-cache-sensitive-content"></a>Não armazenar conteúdo confidencial em cache
 
@@ -117,7 +117,7 @@ Você examina seu aplicativo e suas bibliotecas dependentes para identificar os 
 A verificação de vulnerabilidade da plataforma de [tinfoil Security](https://www.tinfoilsecurity.com/) está disponível para aplicativos Web do Azure app Service. A [verificação de tinfoil Security por meio do serviço de aplicativo](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) oferece aos desenvolvedores e administradores um meio rápido, integrado e econômico de descobrir e endereçar vulnerabilidades antes que um ator mal-intencionado possa tirar proveito delas.
 
 > [!NOTE]
-> Você também pode [integrar o tinfoil Security ao Azure ad](https://docs.microsoft.com/azure/active-directory/saas-apps/tinfoil-security-tutorial). A integração do tinfoil Security ao Azure AD oferece os seguintes benefícios:
+> Você também pode [integrar o tinfoil Security ao Azure ad](../../active-directory/saas-apps/tinfoil-security-tutorial.md). A integração do tinfoil Security ao Azure AD oferece os seguintes benefícios:
 >  - No Azure AD, você pode controlar quem tem acesso ao tinfoil Security.
 >  - Seus usuários podem ser automaticamente conectados ao tinfoil Security (logon único) usando suas contas do Azure AD.
 >  - Você pode gerenciar suas contas em um único local central, o portal do Azure.
@@ -128,7 +128,7 @@ O DAST (teste de segurança do aplicativo dinâmico) é um processo de teste de 
 
 O DAST é diferente do SAST (teste de segurança do aplicativo) estático. As ferramentas SAST analisam o código-fonte ou as versões compiladas do código quando o código não está em execução para encontrar falhas de segurança.
 
-Execute o DAST, preferencialmente com a assistência de um profissional de [](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) segurança (um testador de penetração ou uma assessor de vulnerabilidade). Se um profissional de segurança não estiver disponível, você poderá executar o DAST por conta própria com um scanner de proxy da Web e algum treinamento. Conecte um scanner DAST no início para garantir que você não introduza problemas de segurança óbvios em seu código. Consulte o site do [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) para obter uma lista de scanners de vulnerabilidade de aplicativos Web.
+Execute o DAST, preferencialmente com a assistência de um profissional de [](../fundamentals/pen-testing.md) segurança (um testador de penetração ou uma assessor de vulnerabilidade). Se um profissional de segurança não estiver disponível, você poderá executar o DAST por conta própria com um scanner de proxy da Web e algum treinamento. Conecte um scanner DAST no início para garantir que você não introduza problemas de segurança óbvios em seu código. Consulte o site do [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) para obter uma lista de scanners de vulnerabilidade de aplicativos Web.
 
 ### <a name="perform-fuzz-testing"></a>Executar teste de difusão
 
@@ -144,7 +144,7 @@ Você pode criar uma imagem da superfície de ataque examinando o aplicativo. A 
 
 ### <a name="perform-security-penetration-testing"></a>Executar teste de penetração de segurança
 
-Garantir que seu aplicativo seja seguro é tão importante quanto testar qualquer outra funcionalidade. Faça um [teste](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) de penetração de uma parte padrão do processo de compilação e implantação. Agende testes de segurança regulares e a verificação de vulnerabilidade em aplicativos implantados e monitore para portas abertas, pontos de extremidade e ataques.
+Garantir que seu aplicativo seja seguro é tão importante quanto testar qualquer outra funcionalidade. Faça um [teste](../fundamentals/pen-testing.md) de penetração de uma parte padrão do processo de compilação e implantação. Agende testes de segurança regulares e a verificação de vulnerabilidade em aplicativos implantados e monitore para portas abertas, pontos de extremidade e ataques.
 
 ### <a name="run-security-verification-tests"></a>Executar testes de verificação de segurança
 

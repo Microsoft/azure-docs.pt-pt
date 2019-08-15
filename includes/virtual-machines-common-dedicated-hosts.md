@@ -8,26 +8,13 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 438f450efe207999947795878a9815fca64f45ca
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: a627592bdfcbebc3c7fcda911e31c0ae6f4a630f
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68702944"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976636"
 ---
-O host dedicado do Azure é um serviço que fornece servidores físicos capazes de hospedar uma ou mais máquinas virtuais-dedicadas a uma assinatura do Azure. Os hosts dedicados são os mesmos servidores físicos usados em nossos data centers, fornecidos como um recurso. Você pode provisionar hosts dedicados em uma região, zona de disponibilidade e domínio de falha. Em seguida, você pode posicionar VMs diretamente em seus hosts provisionados, em qualquer configuração que melhor atenda às suas necessidades.
-
-> [!IMPORTANT]
-> Atualmente, os hosts dedicados do Azure estão em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Limitações de visualização conhecidas**
-> - Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
-> - A versão inicial da visualização dá suporte à seguinte série de VMs: DSv3 e ESv3. 
-> - Durante a versão prévia, você não poderá redimensionar uma máquina virtual implantada em um host dedicado.
-> - O controle sobre os recursos de manutenção está em uma versão prévia limitada. Comece fazendo esta [pesquisa](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u) de nominação para experimentá-las.  
-> Durante a visualização, não ofereceremos a opção de capacidade reservada. 
-
 ## <a name="benefits"></a>Benefícios 
 
 Reservar o host inteiro oferece os seguintes benefícios:
@@ -126,6 +113,6 @@ O Azure monitora e gerencia o status de integridade de seus hosts. Os seguintes 
 |----------|----------------|
 | Host disponível     | Não há problemas conhecidos com o host.   |
 | Host em investigação  | Estamos com alguns problemas com o host que estamos procurando. Esse é um estado de transição necessário para que o Azure tente e identifique o escopo e a causa raiz do problema identificado. As máquinas virtuais em execução no host podem ser afetadas. |
-| Desalocação pendente do host   | O Azure não pode restaurar o host de volta para um estado íntegro e pedir que você reimplante suas máquinas virtuais fora desse host. Se `autoHealingOnFailure` o estiver habilitado, suas máquinas virtuais serão reparadas *para o* hardware íntegro. Caso contrário, sua máquina virtual pode estar em execução em um host que está prestes a falhar.|
+| Desalocação pendente do host   | O Azure não pode restaurar o host de volta para um estado íntegro e pedir que você reimplante suas máquinas virtuais fora desse host. Se `autoHealingOnFailure` o estiver habilitado, suas máquinas virtuais serão reparadas para o hardware íntegro. Caso contrário, sua máquina virtual pode estar em execução em um host que está prestes a falhar.|
 | Host desalocado  | Todas as máquinas virtuais foram removidas do host. Você não está mais sendo cobrado por esse host, pois o hardware foi retirado da rotação.   |
 

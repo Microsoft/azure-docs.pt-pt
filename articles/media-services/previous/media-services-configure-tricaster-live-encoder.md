@@ -1,6 +1,6 @@
 ---
-title: Configurar o codificador de NewTek tricaster para enviar um fluxo em direto com velocidade de transmissão única | Documentos da Microsoft
-description: Este tópico mostra como configurar o codificador em direto de Tricaster para enviar um fluxo de velocidade de transmissão única para canais de AMS ativados para live encoding.
+title: Configurar o codificador codificador Newtek tricastr para enviar uma transmissão ao vivo de taxa de bits única | Microsoft Docs
+description: Este tópico mostra como configurar o codificador dinâmico do TriCaster para enviar um fluxo de taxa de bits única para os canais do AMS que estão habilitados para codificação ativa.
 services: media-services
 documentationcenter: ''
 author: cenkdin
@@ -13,29 +13,30 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: 6e09ce83296fccfbcb4a04913d55961e0da4de79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: anilmur
+ms.openlocfilehash: 0e793a5aa7d619b0bb7a1d3efcdf665ea400c555
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720796"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69016745"
 ---
-# <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador de NewTek tricaster para enviar um fluxo em direto com velocidade de transmissão única  
+# <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador codificador Newtek TriCaster para enviar uma transmissão ao vivo de taxa de bits única  
 > [!div class="op_single_selector"]
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
-> * [Elemental Live](media-services-configure-elemental-live-encoder.md)
+> * [Dinâmico do elemento](media-services-configure-elemental-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 >
 >
 
-Este artigo mostra como configurar o [codificador de NewTek TriCaster](https://newtek.com/products/tricaster-40.html) codificador em direto para enviar um fluxo de velocidade de transmissão única para o AMS canais que estão ativados para live encoding. Para obter mais informações, consulte [Trabalhar com Canais Ativados para Realizar Live Encoding com Media Services do Azure](media-services-manage-live-encoder-enabled-channels.md).
+Este artigo mostra como configurar o codificador dinâmico [codificador Newtek](https://newtek.com/products/tricaster-40.html) TriCaster para enviar um fluxo de taxa de bits única para os canais do AMS que estão habilitados para codificação ativa. Para obter mais informações, consulte [Trabalhar com Canais Ativados para Realizar Live Encoding com Media Services do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 Este tutorial mostra como gerir o Azure Media Services (AMS) com a ferramenta do Explorador de serviços de multimédia do Azure (AMSE). Essa ferramenta só é executado no PC do Windows. Se estiver no Mac ou Linux, utilize o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 > [!NOTE]
-> Quando utilizar Tricaster para o envio de uma contribuição feed para canais de AMS ativados para live encoding, pode haver falhas de vídeo/áudio em seu evento em direto se usar determinados recursos do Tricaster, como o rápido cortando entre feeds ou mudar de/para slates. A equipe de AMS é trabalhar para corrigir esses problemas, até lá, ele não é recomendado usar esses recursos.
+> Ao usar o tricastr para enviar em um feed de contribuição para os canais do AMS que estão habilitados para codificação ativa, pode haver falhas de vídeo/áudio em seu evento ao vivo se você usar determinados recursos do TriCaster, como a rápida recorte entre feeds ou troca de/para slates. A equipe do AMS está trabalhando para corrigir esses problemas, até lá, não é recomendável usar esses recursos.
 >
 >
 
@@ -56,7 +57,7 @@ Este tutorial mostra como gerir o Azure Media Services (AMS) com a ferramenta do
 
 1. Na ferramenta AMSE, navegue para o **Live** separador e, com o botão direito dentro da área de canal. Selecione **criar canal...** no menu.
 
-    ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
+    ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
 2. Especifique um nome de canal, o campo de descrição é opcional. Em definições do canal, selecione **padrão** para a opção Live Encoding, com o protocolo de entrada definido como **RTMP**. Pode deixar todas as outras definições conforme está.
 
@@ -64,7 +65,7 @@ Este tutorial mostra como gerir o Azure Media Services (AMS) com a ferramenta do
 
 3. Clique em **criar canal**.
 
-   ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster2.png)
+   ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster2.png)
 
 > [!NOTE]
 > O canal pode demorar até 20 minutos a iniciar.
@@ -78,56 +79,56 @@ Embora o canal está a iniciar, pode [configurar o codificador](media-services-c
 >
 >
 
-## <a name="a-idconfiguretricasterrtmpconfigure-the-newtek-tricaster-encoder"></a><a id="configure_tricaster_rtmp"/>Configurar o codificador de NewTek tricaster
+## <a name="a-idconfigure_tricaster_rtmpconfigure-the-newtek-tricaster-encoder"></a><a id="configure_tricaster_rtmp"/>Configurar o codificador codificador Newtek tricastr
 
 Neste tutorial, são utilizadas as seguintes definições de saída. O resto desta secção descreve os passos de configuração mais detalhadamente.
 
 **Vídeo**:
 
-* Codec: H.264
-* Perfil: Alto (nível 4.0)
-* Velocidade de transmissão: 5000 kbps
-* Quadro-chave: 2 segundos (60 segundos)
+* Codec H. 264
+* Criar Alta (nível 4,0)
+* 720p 5000 kbps
+* Keyframe 2 segundos (60 segundos)
 * Taxa de quadros: 30
 
 **Áudio**:
 
-* Codec: AAC (LC)
-* Velocidade de transmissão: 192 kbps
-* Taxa da amostragem: 44.1 kHz
+* Codec AAC (LC)
+* 720p 192 kbps
+* Taxa de amostra: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Passos de configuração
 
-1. Criar uma nova **codificador de NewTek TriCaster** projeto dependendo de que origem de entrada de vídeo está a ser utilizada.
-2. Uma vez dentro desse projeto, encontre o **Stream** botão e clique no ícone de engrenagem junto ao mesmo para aceder ao menu de configuração do fluxo.
+1. Crie um novo projeto do **codificador Newtek** TriCaster dependendo de qual fonte de entrada de vídeo está sendo usada.
+2. Uma vez dentro desse projeto, localize o botão de **fluxo** e clique no ícone de engrenagem ao lado dele para acessar o menu de configuração de fluxo.
 
-    ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster3.png)
-3. Assim que tiver aberto o menu, clique em **New** sob o cabeçalho de ligação. Quando lhe for pedido para o tipo de ligação, selecione **Adobe Flash**.
+    ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster3.png)
+3. Depois que o menu for aberto, clique em **novo** no cabeçalho conexão. Quando for solicitado o tipo de conexão, selecione **Adobe Flash**.
 
-    ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster4.png)
+    ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster4.png)
 4. Clique em **OK**.
-5. Um perfil FMLE agora pode ser importado clicando na pendente na seta sob **perfil de transmissão em fluxo** e navegando até **procurar**.
+5. Um perfil FMLE agora pode ser importado clicando na seta suspensa no **perfil de streaming** e navegando até **procurar**.
 
-    ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster5.png)
-6. Navegue para onde foi guardado o perfil FMLE configurado.
-7. Selecione-o e prima **OK**.
+    ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster5.png)
+6. Navegue até onde o perfil FMLE configurado foi salvo.
+7. Selecione-o e pressione **OK**.
 
-    Depois do perfil é carregado, avance para o passo seguinte.
-8. URL de entrada do Get o canal para poder atribuí-lo para o Tricaster **ponto final de RTMP**.
+    Depois que o perfil for carregado, vá para a próxima etapa.
+8. Obtenha a URL de entrada do canal para atribuí-la ao **ponto de extremidade RTMP**do TriCaster.
 
     Navegue de volta para a ferramenta AMSE e verificar o estado de conclusão do canal. Assim que o estado foi alterado de **inicial** ao **em execução**, pode obter o URL de entrada.
 
-    Quando o canal está em execução, clique com o botão direito do rato em nome do canal, percorra para baixo para a passagem de Mouse **URL de entrada de cópia para área de transferência** e, em seguida, selecione **URL de entrada principal**.  
+    Quando o canal estiver em execução, clique com o botão direito do mouse no nome do canal, navegue para baixo até o cursor **copiar a URL de entrada para a área de transferência** e selecione **URL de entrada primária**.  
 
-    ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster6.png)
-9. Cole esta informação na **localização** em **Flash servidor** dentro do projeto Tricaster. Também atribuir um nome de fluxo a **ID de Stream** campo.
+    ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster6.png)
+9. Cole essas informações no campo **local** , em **servidor flash** , dentro do projeto de tricasts. Atribua também um nome de fluxo no campo **ID de fluxo** .
 
-    Se as informações de fluxo foi adicionadas ao perfil de FMLE, ele também é possível importar a esta secção clicando **importar as definições**, navegar para o perfil FMLE guardado e clicar em **OK**. Os campos relevantes do Flash Server devem preencher com as informações do FMLE.
+    Se as informações de fluxo tiverem sido adicionadas ao perfil FMLE, elas também poderão ser importadas para esta seção clicando em **Importar configurações**, navegando até o perfil FMLE salvo e clicando em **OK**. Os campos de servidor flash relevantes devem preencher com as informações de FMLE.
 
-    ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster7.png)
-10. Quando terminar, clique em **OK** na parte inferior do ecrã. Quando as entradas de áudio e vídeos para o Tricaster estiverem prontas, começar a transmissão em fluxo para o AMS clicando a **Stream** botão.
+    ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster7.png)
+10. Quando terminar, clique em **OK** na parte inferior da tela. Quando as entradas de vídeo e áudio no TriCaster estiverem prontas, comece a transmitir para o AMS clicando no botão **fluxo** .
 
-     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
+     ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
 
 > [!IMPORTANT]
 > Antes de clicar em **Stream**, **tem** Certifique-se de que o canal está pronto.
@@ -143,13 +144,13 @@ Navegue para a ferramenta AMSE e o canal a ser testado com o botão direito. No 
 
 Se o fluxo aparece no player de, em seguida, o codificador foi corretamente configurado para ligar para o AMS.
 
-Se for recebido um erro, será necessário repor o canal e definições de codificador ajustado. Consulte a [resolução de problemas](media-services-troubleshooting-live-streaming.md) artigo para obter orientações.  
+Se um erro for recebido, o canal precisará ser redefinido e as configurações do codificador serão ajustadas. Consulte a [resolução de problemas](media-services-troubleshooting-live-streaming.md) artigo para obter orientações.  
 
 ## <a name="create-a-program"></a>Criar um programa
 
 1. Assim que a reprodução de canal é confirmada, crie um programa. Sob o **Live** separador a ferramenta AMSE, com o botão direito dentro da área de programa e selecione **criar novo programa**.  
 
-    ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
+    ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
 2. Nome do programa e, se necessário, ajuste o **duração da janela de arquivo** (que está predefinida para quatro horas). Também pode especificar uma localização de armazenamento ou deixe como a predefinição.  
 3. Verifique os **iniciar o programa agora** caixa.
 4. Clique em **criar programa**.  

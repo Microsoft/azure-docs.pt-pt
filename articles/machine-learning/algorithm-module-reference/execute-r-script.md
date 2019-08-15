@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 710d64b445953ae3124830931c8cbb9315d32b83
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 3594d9670e8fb94b053479352fb88997caa16db6
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875718"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016483"
 ---
 # <a name="execute-r-script"></a>Executar Script R
 
@@ -76,8 +76,7 @@ Os conjuntos de dados armazenados na interface visual são automaticamente conve
 
 1.  Adicione o módulo **Executar script R** ao seu experimento.
 
-    > [!NOTE]
-    > Todos os dados passados para o módulo **Executar script R** são convertidos no `data.frame` formato R.
+  
 
 1. Conecte as entradas necessárias ao script. As entradas são opcionais e podem incluir dados e código de R adicional.
 
@@ -90,10 +89,33 @@ Os conjuntos de dados armazenados na interface visual são automaticamente conve
 1. Na caixa de texto **script r** , digite ou cole um script R válido.
 
     Para ajudá-lo a começar, a caixa de texto **script R** é preenchida previamente com o código de exemplo, que você pode editar ou substituir.
+    
+```R
+# R version: 3.5.1
+# The script MUST contain a function named azureml_main
+# which is the entry point for this module.
 
-    * O script deve conter uma função chamada `azureml_main`, que é o ponto de entrada para esse módulo.
+# The entry point function can contain up to two input arguments:
+#   Param<dataframe1>: a R DataFrame
+#   Param<dataframe2>: a R DataFrame
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
 
-    * A função de ponto de entrada pode conter até dois argumentos de `Param<dataframe1>` entrada: e`Param<dataframe2>`
+  # If a zip file is connected to the third input port, it is
+  # unzipped under "./Script Bundle". This directory is added
+  # to sys.path.
+
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
+ * O script deve conter uma função chamada `azureml_main`, que é o ponto de entrada para esse módulo.
+
+ * A função de ponto de entrada pode conter até dois argumentos de `Param<dataframe1>` entrada: e`Param<dataframe2>`
+ 
+   > [!NOTE]
+    > Os dados passados para o módulo **Executar script R** são referenciados `dataframe1` como `dataframe2`e, que é diferente do Azure Machine Learning Studio (referência do `dataset1`Studio `dataset2`como,). Verifique se os dados de entrada estão referneced corretamente em seu script.  
  
     > [!NOTE]
     >  O código R existente pode precisar de alterações secundárias para ser executado em um experimento de interface visual. Por exemplo, os dados de entrada que você fornecer no formato CSV devem ser explicitamente convertidos em um DataSet antes que você possa usá-lo em seu código. Os tipos de dados e colunas usados na linguagem R também são diferentes de algumas maneiras dos tipos de dados e colunas usados na interface visual.
@@ -243,8 +265,8 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | associador        | 0.1.1      | 
 | bindrcpp     | 0.2.2      | 
 | bitops       | 1,0-6      | 
-| niciar         | 1.3-22     | 
-| Broom        | 0.5.2      | 
+| arranque         | 1.3-22     | 
+| broom        | 0.5.2      | 
 | chamador        | 3.2.0      | 
 | acento        | 6.0-84     | 
 | caTools      | 1.17.1.2   | 
@@ -252,7 +274,7 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | Classe        | 7.3-15     | 
 | CLI          | 1.1.0      | 
 | clipe        | 0.6.0      | 
-| em      | 2.0.7-1    | 
+| cluster      | 2.0.7-1    | 
 | codetools    | 0.2-16     | 
 | colorspace   | 1.4-1      | 
 | Compiler     | 3.5.1      | 
@@ -280,7 +302,7 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | gplots       | 3.0.1.1    | 
 | gráficos     | 3.5.1      | 
 | grDevices    | 3.5.1      | 
-| grade         | 3.5.1      | 
+| grelha         | 3.5.1      | 
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1      | 
 | foram        | 2.1.0      | 

@@ -1,6 +1,6 @@
 ---
-title: Melhores práticas para a Cache de Redis do Azure
-description: Saiba como utilizar a sua Cache do Azure para Redis com eficiência ao seguir estas melhores práticas.
+title: Práticas recomendadas para o cache do Azure para Redis
+description: Saiba como usar o cache do Azure para Redis com eficiência seguindo estas práticas recomendadas.
 services: cache
 documentationcenter: na
 author: joncole
@@ -14,86 +14,86 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 06/21/2019
 ms.author: joncole
-ms.openlocfilehash: bdc75033e0aa2e401a511789728feef3248d46ad
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6ac4722c1253f97bfb8c232202e24a923c027edf
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67452465"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018831"
 ---
-# <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas para a Cache de Redis do Azure 
-Ao seguir estas melhores práticas, pode ajudar a maximizar o desempenho e a utilização rentável do seu Cache do Azure para a instância de Redis.
+# <a name="best-practices-for-azure-cache-for-redis"></a>Práticas recomendadas para o cache do Azure para Redis 
+Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempenho e o uso econômico de seu cache do Azure para a instância Redis.
 
 ## <a name="configuration-and-concepts"></a>Configuração e conceitos
- * **Utilize o escalão Standard ou Premium para sistemas de produção.**  O escalão básico é um sistema de nó único com nenhuma replicação de dados e nenhum SLA. Além disso, utilize, pelo menos, uma cache de C1.  C0 caches destinam-se a cenários de desenvolvimento/teste simples, uma vez que eles têm um núcleo de CPU compartilhado, pouca memória e estão sujeitos a problemas de "vizinho ruidoso".
+ * **Use a camada Standard ou Premium para sistemas de produção.**  A camada básica é um sistema de nó único sem replicação de dados e nenhum SLA. Além disso, use pelo menos um cache C1.  Os caches C0 são destinados a cenários de desenvolvimento/teste simples, pois eles têm um núcleo de CPU compartilhado, pouca memória e estão sujeitos a problemas de "vizinho ruidosa".
 
- * **Lembre-se de que o Redis é um arquivo de dados na memória.**  [Este artigo](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) descreve alguns cenários em que pode ocorrer perda de dados.
+ * **Lembre-se de que Redis é um armazenamento de dados na memória.**  [Este artigo](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) descreve alguns cenários em que podem ocorrer perda de dados.
 
- * **Desenvolver o seu sistema, de modo a que possa tratar blips de ligação** [devido a aplicação de patches e de ativação pós-falha](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
+ * **Desenvolva seu sistema de modo que ele possa lidar com blips de conexão** [devido a patches e failover](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
 
- * **Configurar o seu [definição reservados maxmemory](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para melhorar a capacidade de resposta do sistema** sob condições de pressão de memória.  Esta definição é especialmente importante para cargas de trabalho pesadas de escrita ou se está a armazenar valores maiores (100 KB ou mais) no Redis.  Eu seria Recomendamos comece com 10% do tamanho da cache, em seguida, aumentar se tiver cargas pesadas de escrita. Ver [algumas considerações](cache-how-to-troubleshoot.md#considerations-for-memory-reservations) ao selecionar um valor.
+ * **Configure sua [configuração de MaxMemory-reservado](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para melhorar a capacidade de resposta do sistema** em condições de pressão de memória.  Essa configuração é especialmente importante para cargas de trabalho pesadas de gravação ou se você estiver armazenando valores maiores (100 KB ou mais) em Redis.  Eu recomendaria começar com 10% do tamanho do cache e, em seguida, aumentaria se você tiver cargas pesadas de gravação. Veja [algumas considerações](cache-how-to-troubleshoot.md#considerations-for-memory-reservations) ao selecionar um valor.
 
- * **Redis funciona melhor com valores menores**, por isso considere talhar dos dados de maiores em várias chaves.  Na [essa discussão de Redis](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/), listadas algumas considerações que deve considerar cuidadosamente.  Leia [este artigo](cache-how-to-troubleshoot.md#large-requestresponse-size) para um problema de exemplo que pode ser causado por valores grandes.
+ * O **Redis funciona melhor com valores menores**, portanto, considere a possibilidade de aumentar dados maiores em várias chaves.  Nesta [discussão de Redis](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/), são listadas algumas considerações que você deve considerar com cuidado.  Leia [Este artigo](cache-how-to-troubleshoot.md#large-requestresponse-size) para obter um problema de exemplo que pode ser causado por valores grandes.
 
- * **Localize a instância da cache e a sua aplicação na mesma região.**  Ligar a uma cache numa região diferente pode significativamente aumentar a latência e reduzir a confiabilidade.  Enquanto pode ligar a partir de fora do Azure, não recomendado *especialmente ao utilizar o Redis como uma cache*.  Se estiver a utilizar o Redis como apenas um arquivo de chave/valor, latência pode não ser a principal preocupação. 
+ * **Localize sua instância de cache e seu aplicativo na mesma região.**  Conectar-se a um cache em uma região diferente pode aumentar significativamente a latência e reduzir a confiabilidade.  Embora você possa se conectar de fora do Azure, isso não é recomendado *especialmente ao usar Redis como um cache*.  Se você estiver usando Redis como apenas um repositório de chave/valor, a latência poderá não ser a principal preocupação. 
 
- * **Reutilizar conexões** -criação de novas ligações é cara e aumenta a latência, por isso, reutilizar conexões tanto quanto possíveis. Se optar por criar novas ligações, certifique-se fechar as conexões antigas antes do lançamento (mesmo em linguagens de memória gerenciada como .NET ou Java).
+ * **Reutilizar conexões** – criar novas conexões é caro e aumenta a latência, portanto, reutilize as conexões o máximo possível. Se você optar por criar novas conexões, certifique-se de fechar as conexões antigas antes de liberá-las (mesmo em linguagens de memória gerenciada como .NET ou Java).
 
- * **Configurar a sua biblioteca de cliente para utilizar um *tempo limite da ligação* de, pelo menos, 15 segundos**, dando a hora do sistema para se conectar mesmo sob condições de CPU superior.  Um valor de tempo limite de ligação pequeno não garante que a ligação é estabelecida nesse período de tempo.  Se algo entram errado (CPU de cliente elevado, CPU do servidor de elevada etc.), em seguida, um valor de tempo limite de ligação abreviada fará com que a tentativa de ligação falha. Muitas vezes, esse comportamento faz um pior situação ruim.  Em vez de ajuda, tempos limite mais curto aggravate o problema ao aplicar o sistema para reiniciar o processo de tentar restabelecer a ligação, que pode levar a uma *connect -> falha -> repetição* loop. Normalmente, recomendamos que deixe a ligação de tempo limite em 15 segundos ou superior. É melhor permitir que a tentativa de ligação for bem sucedido após 15 ou 20 segundos que fazer com que ele falhar rapidamente apenas para tentar novamente. Esse ciclo de tentativas pode causar a falha durar mais do que se deixar que o sistema apenas está a demorar mais inicialmente.  
+ * **Configure sua biblioteca de cliente para usar um *tempo limite de conexão* de, pelo menos, 15 segundos**, dando à hora do sistema a conexão, mesmo sob condições de CPU mais altas.  Um valor de tempo limite de conexão pequeno não garante que a conexão seja estabelecida nesse período de tempo.  Se algo der errado (alta CPU de cliente, alta CPU de servidor e assim por diante), um valor de tempo limite de conexão curto causará falha na tentativa de conexão. Esse comportamento geralmente resulta em uma situação pior.  Em vez de ajudar, tempos limite mais curtos aggravatem o problema ao forçar o sistema a reiniciar o processo de tentativa de reconexão, o que pode levar a um loop de *repetição de falha > de > conexão* . Geralmente, é recomendável deixar o tempo limite de conexão em 15 segundos ou superior. É melhor permitir que sua tentativa de conexão seja bem-sucedida após 15 ou 20 segundos do que fazer com que ela falhe rapidamente apenas para tentar novamente. Esse loop de repetição pode fazer com que a interrupção seja mais longa do que se você deixar que o sistema simplesmente demore mais tempo inicialmente.  
      > [!NOTE]
-     > Esta orientação é específica para o *tentativa de ligação* e não estão relacionados até ao momento em que está disposto a esperar que um *operação* como GET ou SET para concluir.
+     > Essa diretriz é específica para a *tentativa de conexão* e não está relacionada ao tempo que você deseja aguardar uma *operação* como Get ou Set como concluída.
  
 
- * **Evitar comandos caros** -alguns redis operações, como o [comando KEYS](https://redis.io/commands/keys), são *muito* Caro e deve ser evitado.  Para obter mais informações, consulte [algumas considerações em torno de comandos de caras](cache-how-to-troubleshoot.md#expensive-commands)
+ * **Evite comandos caros** – algumas operações Redis, como o [comando Keys](https://redis.io/commands/keys), são *muito* caras e devem ser evitadas.  Para obter mais informações, consulte [algumas considerações sobre comandos caros](cache-how-to-troubleshoot.md#expensive-commands)
 
 
  
 ## <a name="memory-management"></a>Gerenciamento de memória
-Há várias coisas relacionadas com a utilização de memória na sua instância de servidor Redis que deve considerar.  Aqui estão alguns:
+Há várias coisas relacionadas ao uso de memória em sua instância do servidor Redis que você talvez queira considerar.  Aqui estão algumas:
 
- * **Escolher uma [política de expulsão](https://redis.io/topics/lru-cache) que funciona para a sua aplicação.**  A política predefinida para de Redis do Azure é *volátil lru*, que significa que apenas chaves com um valor de TTL Valor conjunto serão elegível para expulsão.  Se não existem chaves tenham um valor TTL, o sistema não expulsar quaisquer chaves.  Se pretender que o sistema para permitir que qualquer tecla para ser expulsas se sob pressão de memória, então deve considerar a *allkeys lru* política.
+ * **Escolha uma [política de remoção](https://redis.io/topics/lru-cache) que funcione para seu aplicativo.**  A política padrão para o Azure Redis é *volátil-LRU*, o que significa que somente as chaves que têm um valor de TTL definido serão elegíveis para remoção.  Se nenhuma chave tiver um valor TTL, o sistema não removerá nenhuma chave.  Se você quiser que o sistema permita que qualquer chave seja removida se estiver sob pressão de memória, convém considerar a política *AllKeys-LRU* .
 
- * **Defina um valor de expiração as suas chaves.**  Esta ação irá remover chaves de forma proativa, em vez de aguardar até que haja pressão de memória.  Quando surgir expulsão devido a pressão de memória, isso pode causar a carga adicional no seu servidor.  Para obter mais informações, consulte a documentação para o [expirar](https://redis.io/commands/expire) e [ExpireAt](https://redis.io/commands/expireat) comandos.
+ * **Defina um valor de expiração em suas chaves.**  Isso removerá as chaves proativamente, em vez de aguardar até que haja pressão de memória.  Quando a remoção é acionada devido à pressão de memória, ela pode causar carga adicional no servidor.  Para obter mais informações, consulte a documentação para os comandos [expire](https://redis.io/commands/expire) e [ExpireAt](https://redis.io/commands/expireat) .
  
-## <a name="client-library-specific-guidance"></a>Orientações específicas de biblioteca de cliente
+## <a name="client-library-specific-guidance"></a>Diretrizes específicas da biblioteca de cliente
  * [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
- * [Java - qual cliente devo utilizar?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
+ * [Java-qual cliente devo usar?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
  * [Lettuce (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
- * [Fornecedor de estado de sessão do Asp.Net](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
+ * [Provedor de estado de sessão Asp.Net](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 
 ## <a name="when-is-it-safe-to-retry"></a>Quando é seguro tentar novamente?
-Infelizmente, não existe uma resposta fácil.  Cada aplicação tem de decidir quais operações podem ser repetidas e que não é possível.  Cada operação tem requisitos diferentes e dependências entre chaves.  Aqui estão algumas coisas que pode considerar:
+Infelizmente, não há uma resposta fácil.  Cada aplicativo precisa decidir quais operações podem ser repetidas e quais não podem.  Cada operação tem requisitos e dependências entre chaves diferentes.  Aqui estão algumas coisas que você pode considerar:
 
- * Pode obter os erros do lado do cliente, mesmo que o Redis executou com êxito o comando solicitado que seja executado.  Por exemplo:
-     - Tempos limite é um conceito do lado do cliente.  Se a operação alcançou o servidor, o servidor será executado o comando mesmo se o cliente desiste de espera.  
-     - Quando ocorre um erro na ligação de socket, não é possível saber se a operação, na verdade, executado no servidor.  Por exemplo, o erro de ligação pode ocorrer depois do pedido é processado pelo servidor, mas antes da resposta é recebida pelo cliente.
- *  Como meu aplicativo reagir se eu executar acidentalmente a mesma operação duas vezes?  Por exemplo, e se eu incrementar um número inteiro duas vezes em vez de apenas uma vez?  Meu aplicativo escreve para a mesma chave de vários locais?  E se a minha lógica de repetição substitui um valor definido por alguma outra parte do meu aplicativo?
+ * Você pode obter erros do lado do cliente, embora Redis tenha executado com êxito o comando que você solicitou que ele fosse executado.  Por exemplo:
+     - Os tempos limite são um conceito do lado do cliente.  Se a operação tiver atingido o servidor, o servidor executará o comando mesmo se o cliente desistir de espera.  
+     - Quando ocorre um erro na conexão de soquete, não é possível saber se a operação realmente foi executada no servidor.  Por exemplo, o erro de conexão pode ocorrer depois que a solicitação é processada pelo servidor, mas antes de a resposta ser recebida pelo cliente.
+ *  Como meu aplicativo reage se eu executar acidentalmente a mesma operação duas vezes?  Por exemplo, e se eu incrementar um inteiro duas vezes em vez de apenas uma vez?  Meu aplicativo está gravando na mesma chave de vários locais?  E se minha lógica de repetição substituir um valor definido por alguma outra parte do meu aplicativo?
 
-Se desejar testar o funcionamento do seu código sob condições de erro, considere utilizar o [reiniciar funcionalidade](cache-administration.md#reboot). Isto permite-lhe ver como blips de ligação afetam a sua aplicação.
+Se você quiser testar como o código funciona em condições de erro, considere usar o [recurso](cache-administration.md#reboot)de reinicialização. Isso permite que você veja como a conexão blips afeta seu aplicativo.
 
 ## <a name="performance-testing"></a>Teste de desempenho
- * **Comece usando `redis-benchmark.exe`**  ter uma noção do débito/latência possível antes de escrever seu próprio desempenho testa.  Documentação de referência de redis pode ser [encontrado aqui](http://redis.io/topics/benchmarks).  Observe nesse benchmark de redis não suporta SSL, para que precisará [ativar a porta não SSL através do Portal](cache-configure.md#access-ports) antes de executar o teste.  [Uma versão compatível do windows de redis benchmark.exe pode ser encontrada aqui](https://github.com/MSOpenTech/redis/releases)
- * O cliente VM utilizada para fins de teste deve ser **na mesma região** como a instância da cache de Redis.
- * **Recomendamos que utilize a série de VM Dv2** para o seu cliente tiver hardware melhor e dará os melhores resultados.
- * Certificar-se de que o cliente tem de VM que utiliza * *, pelo menos, tanta computação e a largura de banda* como a cache que está sendo testada. 
- * **Ativar o VRSS** no computador cliente se estiver no Windows.  [Veja aqui para obter detalhes](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Script do powershell de exemplo:
-     >PowerShell -ExecutionPolicy Unrestricted Enable-NetAdapterRSS -Name (    Get-NetAdapter).Name 
+ * **Comece usando `redis-benchmark.exe`**  para ter uma ideia de taxa de transferência/latência possível antes de escrever seus próprios testes de desempenho.  A documentação do Redis-benchmark pode ser [encontrada aqui](https://redis.io/topics/benchmarks).  Observe que Redis-benchmark não dá suporte a SSL, portanto, você precisará [habilitar a porta não SSL por meio do portal](cache-configure.md#access-ports) antes de executar o teste.  [Uma versão compatível com Windows do Redis-benchmark. exe pode ser encontrada aqui](https://github.com/MSOpenTech/redis/releases)
+ * A VM do cliente usada para teste deve estar **na mesma região** que a instância do cache Redis.
+ * **É recomendável usar a série de VMs Dv2** para seu cliente, pois eles têm um hardware melhor e fornecerão os melhores resultados.
+ * Verifique se a VM do cliente que você usa tem **pelo menos tanto de computação quanto de largura de banda* quanto o cache que está sendo testado. 
+ * **Habilite o VRSS** no computador cliente se você estiver no Windows.  [Consulte aqui para obter detalhes](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Exemplo de script do PowerShell:
+     >PowerShell-ExecutionPolicy irrestrito-NetAdapterRSS-Name (Get-netadapter). Nomes 
      
- * **Considere a utilização de instâncias de Redis de escalão Premium**.  Estes tamanhos de cache terão o débito e latência de rede melhor porque está em execução em hardware melhor da CPU e da rede.
+ * **Considere o uso de instâncias de Redis da camada Premium**.  Esses tamanhos de cache terão melhor latência de rede e taxa de transferência, pois estão em execução em hardware melhor para CPU e rede.
  
      > [!NOTE]
-     > Nossos resultados observados de desempenho são [publicada aqui](cache-faq.md#azure-cache-for-redis-performance) para sua referência.   Além disso, lembre-se de que o SSL/TLS adiciona alguma sobrecarga, para que talvez tenha latências diferentes e/ou de débito se estiver a utilizar a encriptação de transporte.
+     > Nossos resultados de desempenho observados são [publicados aqui](cache-faq.md#azure-cache-for-redis-performance) para sua referência.   Além disso, lembre-se de que o SSL/TLS adiciona alguma sobrecarga, de modo que você poderá obter latências e/ou taxa de transferência diferentes se estiver usando a criptografia de transporte.
  
-### <a name="redis-benchmark-examples"></a>Exemplos de Benchmark de redis
-**Configuração de pré-teste**: Isto irá preparar a instância da cache com os dados necessários para a latência e débito teste comandos listados abaixo.
-> redis benchmark.exe - h yourcache.redis.cache.windows.net - a yourAccesskey -t SET -n - 10d 1024 
+### <a name="redis-benchmark-examples"></a>Redis-exemplos de benchmark
+**Configuração de pré-teste**: Isso irá preparar a instância de cache com os dados necessários para os comandos de teste de latência e taxa de transferência listados abaixo.
+> Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a Suachavedeacesso-t SET-n 10-d 1024 
 
-**Para testar a latência**: Isto irá testar a solicitações GET com um payload de k 1.
-> redis benchmark.exe - h yourcache.redis.cache.windows.net - a yourAccesskey -t obter 50 1024 - P -d -c 4
+**Para testar a latência**: Isso testará as solicitações GET usando uma carga de 1K.
+> Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a Suachavedeacesso-t GET-d 1024-P 50-c 4
 
-**Para testar a taxa de transferência:** Esta opção utiliza Pipelined obter pedidos com o payload de 1 k.
-> -n 1000000 - d 1024 - P 50 - c 50 de introdução do redis benchmark.exe - h yourcache.redis.cache.windows.net - a yourAccesskey -t
+**Para testar a taxa de transferência:** Isso usa solicitações GET em pipeline com carga de 1K.
+> Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a Suachavedeacesso-t GET-n 1 milhão-d 1024-P 50-c 50

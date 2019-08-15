@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 928b0bcfb32d1a319c811d00fc84a37f85702895
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c163e3cce862640d43f8696dca4eeef29f2ae12a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857466"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912463"
 ---
 A tabela a seguir lista cotas e limites específicos para os [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Para obter informações sobre os preços dos hubs de eventos, consulte [preços dos hubs de eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -36,6 +36,8 @@ A tabela a seguir lista cotas e limites específicos para os [hubs de eventos do
 | Número de grupos de consumidores por Hub de eventos |Entidade | - |1 |20 |
 | Número de conexões AMQP por namespace |Espaço de Nomes |As solicitações subsequentes para conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |100 |5,000|
 | Período de retenção máximo de dados de evento |Entidade | - |1 dia |1-7 dias |
+|Apache Kafka namespace habilitado|Espaço de Nomes |Namespace de hubs de eventos transmite aplicativos usando o protocolo Kafka |Não | Sim |
+|Captura |Entidade | Quando habilitado, micro lotes no mesmo fluxo |Não |Sim |
 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Hubs de Eventos Dedicados-cotas e limites

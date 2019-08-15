@@ -1,6 +1,6 @@
 ---
-title: Configurar o codificador FMLE para enviar um fluxo em direto com velocidade de transmissão única | Documentos da Microsoft
-description: Este tópico mostra como configurar o codificador de Flash Media Live Encoder (FMLE) para enviar um fluxo de velocidade de transmissão única para canais de AMS ativados para live encoding.
+title: Configurar o codificador FMLE para enviar uma transmissão ao vivo de taxa de bits única | Microsoft Docs
+description: Este tópico mostra como configurar o codificador do Flash Media Live encoder (FMLE) para enviar um fluxo de taxa de bits única para os canais do AMS que estão habilitados para codificação ativa.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 01bb628a6520488dcebf49a1e868213b955abc31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: cenkdin;anilmur
+ms.openlocfilehash: 09d9bdffefe9204e9f58b8f07af5b21228269f6c
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466017"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016761"
 ---
-# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador FMLE para enviar um fluxo em direto com velocidade de transmissão única 
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador FMLE para enviar uma transmissão ao vivo de taxa de bits única 
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -29,11 +30,11 @@ ms.locfileid: "61466017"
 >
 >
 
-Este artigo mostra como configurar o [Flash Media Live Encoder](https://www.adobe.com/products/flash-media-encoder.html) encoder (FMLE) para enviar um fluxo de velocidade de transmissão única para o AMS canais que estão ativados para live encoding. Para obter mais informações, consulte [Trabalhar com Canais Ativados para Realizar Live Encoding com Media Services do Azure](media-services-manage-live-encoder-enabled-channels.md).
+Este artigo mostra como configurar o codificador FMLE ( [Flash Media Live Encoder](https://www.adobe.com/products/flash-media-encoder.html) ) para enviar um fluxo de taxa de bits única para os canais do AMS que estão habilitados para codificação ativa. Para obter mais informações, consulte [Trabalhar com Canais Ativados para Realizar Live Encoding com Media Services do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 Este tutorial mostra como gerir o Azure Media Services (AMS) com a ferramenta do Explorador de serviços de multimédia do Azure (AMSE). Essa ferramenta só é executado no PC do Windows. Se estiver no Mac ou Linux, utilize o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-Este tutorial descreve AAC a utilizar. No entanto, FMLE não suporta AAC por predefinição. Terá de comprar um plug-in para a codificação de AAC como do MainConcept: [AAC plugin](https://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+Este tutorial descreve como usar o AAC. No entanto, o FMLE não dá suporte a AAC por padrão. Você precisaria comprar um plug-in para a codificação AAC, como de MainConcept: [Plug-in AAC](https://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Criar uma conta de Media Services do Azure](media-services-portal-create-account.md)
@@ -67,7 +68,7 @@ Este tutorial descreve AAC a utilizar. No entanto, FMLE não suporta AAC por pre
 Embora o canal está a iniciar, pode [configurar o codificador](media-services-configure-fmle-live-encoder.md).
 
 > [!IMPORTANT]
-> Tenha em atenção que a faturação tem início assim que o canal entra num Estado de pronto. Para obter mais informações, consulte [Estados do canal](media-services-manage-live-encoder-enabled-channels.md#states).
+> Observe que a cobrança começa assim que o canal entra em um estado pronto. Para obter mais informações, consulte [Estados do canal](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
@@ -76,60 +77,60 @@ Neste tutorial, são utilizadas as seguintes definições de saída. O resto des
 
 **Vídeo**:
 
-* Codec: H.264
-* Perfil: Alto (nível 4.0)
-* Velocidade de transmissão: 5000 kbps
-* Quadro-chave: 2 segundos (60 segundos)
+* Codec H. 264
+* Criar Alta (nível 4,0)
+* 720p 5000 kbps
+* Keyframe 2 segundos (60 segundos)
 * Taxa de quadros: 30
 
 **Áudio**:
 
-* Codec: AAC (LC)
-* Velocidade de transmissão: 192 kbps
-* Taxa da amostragem: 44.1 kHz
+* Codec AAC (LC)
+* 720p 192 kbps
+* Taxa de amostra: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Passos de configuração
-1. Navegue para o Flash Media Live Encoder (FMLE) de interface na máquina que está a ser utilizada.
+1. Navegue até a interface do Flash Media Live encoder (FMLE) no computador que está sendo usado.
 
-    A interface é uma página principal de definições. Tome nota das seguintes definições para iniciar a transmissão em fluxo através de FMLE recomendadas.
+    A interface é uma página principal de configurações. Anote as seguintes configurações recomendadas para começar a usar o streaming usando o FMLE.
 
-   * Formato: Taxa de quadros H.264: 30.00
-   * Tamanho de entrada: 1280 x 720
-   * Taxa de bits: 5000 kbps (pode ser ajustado com base no limitações de rede)  
+   * Formato: Taxa de quadros H. 264: 30, 0
+   * Tamanho da entrada: 1280 x 720
+   * Taxa de bits: 5000 kbps (pode ser ajustado com base nas limitações de rede)  
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
 
-     Quando utilizar entrelaçadas origens, volte a marca de verificação a opção "Deinterlace"
-2. Selecione o ícone de chave inglesa junto ao formato, estas definições adicionais deverão ser:
+     Ao usar fontes entrelaçadas, faça uma marca de seleção na opção "desentrelaçar"
+2. Selecione o ícone de chave inglesa ao lado do formato. essas configurações adicionais devem ser:
 
-   * Perfil: Principal
+   * Criar Principal
    * Nível: 4.0
    * Frequência de quadro-chave: 2 segundos
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle4.png)
-3. Defina a seguinte definição de áudio importante:
+3. Defina a seguinte configuração de áudio importante:
 
    * Formato: AAC
-   * Taxa da amostragem: 44100 Hz
-   * Velocidade de transmissão: 192 Kbps
+   * Taxa de amostra: 44100 Hz
+   * 720p 192 kbps
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
-4. URL de entrada do Get o canal para poder atribuí-lo para o FMLE **ponto final de RTMP**.
+4. Obtenha a URL de entrada do canal para atribuí-la ao **ponto de extremidade RTMP**do FMLE.
 
     Navegue de volta para a ferramenta AMSE e verificar o estado de conclusão do canal. Assim que o estado foi alterado de **inicial** ao **em execução**, pode obter o URL de entrada.
 
     Quando o canal está a ser executado, faça duplo clique o nome do canal, percorra para baixo para a passagem de Mouse **URL de entrada de cópia para área de transferência** e, em seguida, selecione **URL de entrada principal**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
-5. Cole esta informação na **FMS URL** campo da secção de saída e atribuir um nome de fluxo.
+5. Cole essas informações no campo **URL do FMS** da seção de saída e atribua um nome de fluxo.
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
 
-    Para fins de redundância extra, repita essas etapas com o URL de entrada secundário.
+    Para redundância extra, repita essas etapas com a URL de entrada secundária.
 6. Selecione **Ligar**.
 
 > [!IMPORTANT]
-> Antes de clicar em **Connect**, **tem** Certifique-se de que o canal está pronto.
+> Antes de clicar em **conectar**, você **deve** garantir que o canal esteja pronto.
 > Além disso, certifique-se de que não o canal no estado pronto sem uma contribuição entrada feed durante mais de > 15 minutos.
 >
 >
@@ -148,7 +149,7 @@ Se for recebido um erro, o canal tem de ser reposto e definições de codificado
 1. Assim que a reprodução de canal é confirmada, crie um programa. Sob o **Live** separador a ferramenta AMSE, com o botão direito dentro da área de programa e selecione **criar novo programa**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
-2. Nome do programa e, se necessário, ajuste o **duração da janela de arquivo** (que está predefinida para 4 horas). Também pode especificar uma localização de armazenamento ou deixe como a predefinição.  
+2. Nomeie o programa e, se necessário, ajuste o **tamanho da janela de arquivo** (que usa como padrão 4 horas). Também pode especificar uma localização de armazenamento ou deixe como a predefinição.  
 3. Verifique os **iniciar o programa agora** caixa.
 4. Clique em **criar programa**.  
 

@@ -11,12 +11,12 @@ ms.date: 10/18/2018
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: bf4dc55d0ec17daf4c611563dd7aee3a06aa192b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 32edacb7dd66274757359c4eb0e8c169995026ce
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384725"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019529"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um gatilho que executa um pipeline em resposta a um evento
 
@@ -49,10 +49,7 @@ Esta seção mostra como criar um gatilho de evento dentro da interface Azure Da
 5. Selecione sua conta de armazenamento na lista suspensa assinatura do Azure ou manualmente usando sua ID de recurso da conta de armazenamento. Escolha em qual contêiner você deseja que os eventos ocorram. A seleção de contêiner é opcional, mas lembre-se de que a seleção de todos os contêineres pode levar a um grande número de eventos.
 
    > [!NOTE]
-   > O gatilho de evento atualmente dá suporte apenas às contas de armazenamento da versão 2 (uso geral).
-
-   > [!NOTE]
-   > Devido a uma limitação da grade de eventos do Azure, Azure Data Factory dá suporte apenas a um máximo de 500 gatilhos de eventos por conta de armazenamento.
+   > O gatilho de evento atualmente dá suporte apenas a Azure Data Lake Storage Gen2 e contas de armazenamento da versão 2 de uso geral. Devido a uma limitação da grade de eventos do Azure, Azure Data Factory dá suporte apenas a um máximo de 500 gatilhos de eventos por conta de armazenamento.
 
 6. O **caminho do blob começa com** e o **caminho do blob termina com** as propriedades permitem que você especifique os contêineres, as pastas e os nomes de BLOB para os quais deseja receber eventos. Seu gatilho de evento requer que pelo menos uma dessas propriedades seja definida. Você pode usar uma variedade de padrões para o **caminho de blob começa com** e o **caminho de blob termina com** Propriedades, conforme mostrado nos exemplos mais adiante neste artigo.
 

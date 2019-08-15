@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 05e2375998b3bce4320b2d66ab7fce44cd911dcc
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 6767644e037c6abb3e3044c8707e923a9137a01c
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479132"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019537"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gerenciar os custos e o uso do AWS no Azure
 
@@ -138,7 +138,7 @@ Há duas maneiras de obter permissões para acessar os custos de contas vinculad
 
 Por padrão, o criador do conector do AWS é o proprietário de todos os objetos criados pelo conector. Incluindo, a conta consolidada do AWS e a conta vinculada do AWS.
 
-Para poder verificar as configurações do conector, você precisará de pelo menos uma função do Contributor, o leitor não pode verificar as configurações do conector
+Para poder verificar as configurações do conector, você precisará de pelo menos uma função de colaborador, o leitor não pode verificar as configurações do conector
 
 ### <a name="collection-failed-with-assumerole"></a>Falha na coleta com AssumeRole
 

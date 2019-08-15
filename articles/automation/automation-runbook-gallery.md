@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ef739a7053fffdd45c6d5e144ae736429597a4f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 5daa1cf04e04507174fa480c785bd15b656541a1
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850500"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019095"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerias de runbook e módulo para a automação do Azure
 
@@ -99,6 +99,15 @@ Os Runbooks do Python estão disponíveis na [Galeria do script Center](https://
 ## <a name="requesting-a-runbook-or-module"></a>Solicitando um runbook ou módulo
 
 Você pode enviar solicitações para o [usuário Voice](https://feedback.azure.com/forums/246290-azure-automation/).  Se precisar de ajuda para escrever um runbook ou tiver uma pergunta sobre o PowerShell, poste uma pergunta em nosso [Fórum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+
+## <a name="common-solutions-available-in-the-runbook-gallery"></a>Soluções comuns disponíveis na Galeria de runbooks
+
+A lista a seguir contém alguns runbooks que fornecem soluções para cenários comuns. Para obter uma lista completa de runbooks criados pela equipe de automação do Azure, consulte [AzureAutomationTeam Profile](https://www.powershellgallery.com/profiles/AzureAutomationTeam).
+
+* [Update-ModulesInAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/) -importa a versão mais recente na galeria do PowerShell de todos os módulos em uma conta de automação.
+* [Enable-AzureDiagnostics](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/) -esse script configura Diagnóstico do Azure e log Analytics para receber logs de automação do Azure que contêm o status do trabalho e os fluxos de trabalho.
+* [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) -este runbook copia um arquivo remoto de uma máquina virtual do Windows Azure.
+* [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) -este runbook copia um arquivo local para uma máquina virtual do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

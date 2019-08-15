@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: eb49649e9c92416fc674c032b9dc6a613a34dd77
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b99dbd403de0de948527fbe74b7e1205316822c0
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569670"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019684"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Usar a autenticação Azure Active Directory para autenticação com o SQL
 
@@ -98,7 +98,7 @@ Para criar um usuário de banco de dados independente no banco de dados SQL do A
   - `SUSER_ID(<admin name>)`
   - `SUSER_SID(<admin name>)`
 
-### <a name="manage-instances"></a>Gerenciar instâncias
+### <a name="managed-instances"></a>Instâncias Geridas
 
 - As entidades de segurança do servidor do Azure AD (logons) e os usuários têm suporte como um recurso de visualização para [instâncias gerenciadas](sql-database-managed-instance.md).
 - A definição de entidades de segurança do Azure AD (logons) mapeados para um grupo do Azure AD como proprietário do banco de dados não tem suporte em [instâncias gerenciadas](sql-database-managed-instance.md).

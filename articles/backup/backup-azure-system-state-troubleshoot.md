@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 55af6d17f18efd11fe2d6f89b9b87ca9f407ec25
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 26ba811eba1a25dacddd04814f8e0d2805360920
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688663"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018785"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solucionar problemas de backup do estado do sistema
 
@@ -25,7 +25,7 @@ Recomendamos que você execute a validação abaixo antes de iniciar a solução
 
 - [Verifique se o agente de Serviços de Recuperação do Microsoft Azure (MARS) está atualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Certifique-se de que existe conectividade de rede entre o agente MARS e o Azure](https://aka.ms/AB-A4dp50)
-- Certifique-se de que os Serviços de Recuperação do Microsoft Azure estão em execução (na consola do Serviço). Se necessário, reinicie e volte a tentar a operação
+- Certifique-se de que os Serviços de Recuperação do Microsoft Azure estão em execução (na consola do Serviço). Se necessário, reinicie e repita a operação
 - [Certifique-se de que 5 a 10% de espaço livre do volume está disponível na localização da pasta de rascunho](https://aka.ms/AB-AA4dwtt)
 - [Verifique se outro processo ou software antivírus está a interferir com o Azure Backup](https://aka.ms/AB-AA4dwtk)
 - [A cópia de segurança agendada falha, mas a cópia de segurança manual funciona](https://aka.ms/ScheduledBackupFailManualWorks)
@@ -36,7 +36,7 @@ Recomendamos que você execute a validação abaixo antes de iniciar a solução
 - Se estiver a tentar **registar novamente o servidor** para um cofre, então: <br>
   - Certifique-se de que o agente foi desinstalado no servidor e que foi eliminado do portal <br>
   - Utilize a mesma frase de acesso que foi inicialmente utilizada para registar o servidor <br>
-- No caso de backup offline, verifique se Azure PowerShell versão 3.7.0 está instalada no computador de origem e de cópia antes de começar a operação de backup offline
+- No caso de backup offline, verifique se Azure PowerShell versão 3.7.0 está instalada em ambos os computadores de origem e de cópia antes de começar a operação de backup offline
 - [Consideração quando o agente de backup estiver em execução em uma máquina virtual do Azure](https://aka.ms/AB-AA4dwtr)
 
 ### <a name="limitation"></a>Limitação
@@ -45,14 +45,14 @@ Recomendamos que você execute a validação abaixo antes de iniciar a solução
 
 ## <a name="pre-requisite"></a>Pré-requisito
 
-Antes de solucionarmos problemas de backup de estado do sistema com o backup do Azure, verifique se você realizar a verificação de pré-requisitos abaixo.  
+Antes de solucionarmos problemas de backup de estado do sistema com o backup do Azure, execute a verificação de pré-requisitos abaixo.  
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Verificar se Backup do Windows Server está instalado
 
-Verifique se Backup do Windows Server está instalado e habilitado no servidor. Para verificar o status da instalação, execute o comando do PowerShell abaixo:
+Verifique se Backup do Windows Server está instalado e habilitado no servidor. Para verificar o status da instalação, execute este comando do PowerShell:
 
- ```
- PS C:\> Get-WindowsFeature Windows-Server-Backup
+ ```powershell
+Get-WindowsFeature Windows-Server-Backup
  ```
 Se a saída exibir o **estado de instalação** como **disponível**, significa que o recurso de backup do Windows Server está disponível para a instalação, mas não instalado no servidor. No entanto, se Backup do Windows Server não estiver instalado, use um dos métodos abaixo para instalá-lo.
 
@@ -60,15 +60,15 @@ Se a saída exibir o **estado de instalação** como **disponível**, significa 
 
 Para instalar Backup do Windows Server usando o PowerShell, execute o comando abaixo:
 
-  ```
-  PS C:\> Install-WindowsFeature -Name Windows-Server-Backup
+  ```powershell
+  Install-WindowsFeature -Name Windows-Server-Backup
   ```
 
 **Método 2: Instalar Backup do Windows Server usando Gerenciador do Servidor**
 
-Para instalar Backup do Windows Server usando Gerenciador do Servidor, execute o seguinte:
+Para instalar Backup do Windows Server usando Gerenciador do Servidor, execute as etapas abaixo:
 
-1. No **Gerenciador de servidores** e clique em **adicionar funções e recursos**. O **Assistente Adicionar funções e recursos** é exibido.
+1. Em **Gerenciador de servidores**, clique em **adicionar funções e recursos**. O **Assistente Adicionar funções e recursos** é exibido.
 
     ![Dashboard](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
@@ -114,7 +114,7 @@ Para validar Backup do Windows Server status, execute o seguinte:
     > [!WARNING]
     > Get-WBJob: O termo ' Get-WBJob ' não é reconhecido como o nome de um cmdlet, função, arquivo de script ou programa operável. Verifique a ortografia do nome ou, se um caminho foi incluído, verifique se o caminho está correto e tente novamente.
 
-    -   Se ele falhar com esse erro, reinstale o recurso de Backup do Windows Server no computador do servidor, conforme mencionado na etapa 1 pré-requisitos.
+    -   Se ele falhar com esse erro, reinstale o recurso Backup do Windows Server no computador servidor, conforme mencionado na etapa 1 pré-requisitos.
 
   * Verifique se o backup do WSB está funcionando corretamente, executando o comando abaixo no prompt de comando elevado:
 
@@ -141,14 +141,14 @@ Se o trabalho falhar, ele indica um problema WSB que resultaria em falha nos bac
 
 | Sintoma | Resolução
 | -- | --
-| -O agente MARS falha com a mensagem de erro: O backup falhou porque o volume da cópia de sombra não pôde crescer devido a espaço em disco insuficiente nos volumes que contêm arquivos do sistema <br/><br/> -O seguinte log de erro/aviso está presente nos logs de eventos do sistema VolSnap: "Espaço em disco insuficiente no volume C: para aumentar o armazenamento de cópia de sombra para cópias de sombra de C: devido a essa falha, todas as cópias de sombra do volume C: correm o risco de serem excluídas" | -Libere espaço no volume realçado no log de eventos para que haja espaço suficiente para que as cópias de sombra cresçam enquanto o backup está em andamento <br/><br/> -Ao configurar o espaço de cópia de sombra, podemos restringir a quantidade de espaço usado para cópia de sombra, para obter mais informações, consulte este [artigo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
+| -O agente MARS falha com a mensagem de erro: O backup falhou porque o volume da cópia de sombra não pôde crescer devido a espaço em disco insuficiente nos volumes que contêm arquivos do sistema <br/><br/> -O seguinte log de erro/aviso está presente nos logs de eventos do sistema VolSnap: "Espaço em disco insuficiente no volume C: para aumentar o armazenamento de cópia de sombra para cópias de sombra de C: devido a essa falha, todas as cópias de sombra do volume C: correm o risco de serem excluídas" | -Libere espaço no volume realçado no log de eventos para que haja espaço suficiente para que as cópias de sombra cresçam enquanto o backup está em andamento <br/><br/> -Ao configurar o espaço de cópia de sombra, podemos restringir a quantidade de espaço usado para cópia de sombra. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
 
 
 ### <a name="efi-partition-locked"></a>Partição EFI bloqueada
 
 | Sintoma | Resolução
 | -- | --
-| O agente MARS falha com a mensagem de erro: "O backup do estado do sistema falhou porque a partição do sistema EFI está bloqueada. Isso pode ser devido ao acesso à partição do sistema por uma segurança de terceiros ou backup de software " | -Se o problema for devido a um software de segurança de terceiros, você precisará entrar em contato com o fornecedor de antivírus para que ele possa permitir o agente MARS <br/><br/> -Se um software de backup de terceiros estiver em execução, aguarde sua conclusão e repita o backup
+| O agente MARS falha com a mensagem de erro: "Falha no backup do estado do sistema porque a partição do sistema EFI está bloqueada. Isso pode ser devido ao acesso à partição do sistema por uma segurança de terceiros ou backup de software " | -Se o problema for devido a um software de segurança de terceiros, você precisará entrar em contato com o fornecedor de antivírus para que ele possa permitir o agente MARS <br/><br/> -Se um software de backup de terceiros estiver em execução, aguarde sua conclusão e repita o backup
 
 
 ## <a name="next-steps"></a>Passos Seguintes

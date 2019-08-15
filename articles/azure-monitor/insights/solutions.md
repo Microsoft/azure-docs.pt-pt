@@ -1,6 +1,6 @@
 ---
-title: Monitorizar soluções no Azure Monitor | Documentos da Microsoft
-description: Soluções de monitorização no Azure Monitor são um conjunto de dados, visualização e lógica de regras de aquisição que fornecem métricas articuladas em torno de uma área de problema específico.  Este artigo fornece informações sobre como instalar e utilizar soluções de monitorização.
+title: Soluções de monitoramento no Azure Monitor | Microsoft Docs
+description: As soluções de monitoramento no Azure Monitor são uma coleção de lógica, visualização e regras de aquisição de dados que fornecem métricas dinamizadas em uma área de problema específica.  Este artigo fornece informações sobre como instalar e usar soluções de monitoramento.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,29 +11,29 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 08/13/2019
 ms.author: bwren
-ms.openlocfilehash: b66d9cf15aaeaca975b60f24601b8ad7f555f458
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6932f9f302bf1816842d78a662f01ebaafed8686
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110162"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989216"
 ---
-# <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização no Azure Monitor
-Soluções de monitorização tirar partido dos serviços do Azure para fornecer informações adicionais sobre o funcionamento de uma determinada aplicação ou serviço. Este artigo fornece uma breve descrição geral do monitoramento de soluções no Azure e detalhes sobre como utilizar e instalá-los.
+# <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitoramento no Azure Monitor
+As soluções de monitoramento aproveitam os serviços no Azure para fornecer informações adicionais sobre a operação de um determinado aplicativo ou serviço. Este artigo fornece uma breve visão geral das soluções de monitoramento no Azure e detalhes sobre como usá-las e instalá-las.
 
 > [!NOTE]
-> Soluções de monitorização anteriormente eram referidas como soluções de gestão.
+> As soluções de monitoramento eram anteriormente chamadas de soluções de gerenciamento.
 
-Normalmente, soluções de monitorização recolhem dados de registo e fornecem consultas e vistas para analisar os dados recolhidos. Eles também podem tirar partido outros serviços, como a automatização do Azure para efetuar ações relacionadas com a aplicação ou serviço.
+Soluções de monitoramento normalmente coletam dados de log e fornecem consultas e exibições para analisar os dados coletados. Eles também podem tirar partido outros serviços, como a automatização do Azure para efetuar ações relacionadas com a aplicação ou serviço.
 
-Pode adicionar soluções de monitorização para o Azure Monitor para quaisquer aplicações e serviços que utilizar. Eles estão normalmente disponíveis em nenhum dado de custo mas recolher invoca os custos de utilização. Além das soluções fornecidas pela Microsoft, parceiros e clientes podem [criar soluções de gestão](solutions-creating.md) a ser utilizada no seu próprio ambiente ou disponibilizados aos clientes através da Comunidade.
+Você pode adicionar soluções de monitoramento para Azure Monitor para quaisquer aplicativos e serviços que você usar. Eles estão normalmente disponíveis em nenhum dado de custo mas recolher invoca os custos de utilização. Além das soluções fornecidas pela Microsoft, parceiros e clientes podem [criar soluções de gestão](solutions-creating.md) a ser utilizada no seu próprio ambiente ou disponibilizados aos clientes através da Comunidade.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="use-monitoring-solutions"></a>Utilizar soluções de monitorização
-Abra o **descrição geral** página no Azure Monitor para apresentar um mosaico para cada solução instalado na área de trabalho. 
+Abra a página **visão geral** no Azure monitor para exibir um bloco para cada solução instalada no espaço de trabalho. 
 
 1. Inicie sessão no portal do Azure.
 1. Open **todos os serviços** e localize **Monitor**.
@@ -43,14 +43,14 @@ Abra o **descrição geral** página no Azure Monitor para apresentar um mosaico
 
 ![Descrição geral](media/solutions/overview.png)
 
-Soluções de monitorização podem conter vários tipos de recursos do Azure e pode ver todos os recursos incluídos com uma solução, assim como qualquer outro recurso. Por exemplo, quaisquer consultas de log incluídas na solução estão listadas na **consultas de solução** na [Explorador de consultas](../log-query/get-started-portal.md#load-queries) pode usar essas consultas ao executar a análise ad hoc com [consultas de registo ](../log-query/log-query-overview.md).
+As soluções de monitoramento podem conter vários tipos de recursos do Azure e você pode exibir todos os recursos incluídos em uma solução, assim como qualquer outro recurso. Por exemplo, todas as consultas de log incluídas na solução são listadas em **consultas de solução** no [Gerenciador de consultas](../log-query/get-started-portal.md#load-queries) . você pode usar essas consultas ao executar análises ad hoc com consultas de [log](../log-query/log-query-overview.md).
 
-## <a name="list-installed-monitoring-solutions"></a>Lista instalado soluções de monitorização 
-Utilize o procedimento seguinte para listar as soluções de monitorização instaladas na sua subscrição.
+## <a name="list-installed-monitoring-solutions"></a>Listar soluções de monitoramento instaladas 
+Use o procedimento a seguir para listar as soluções de monitoramento instaladas em sua assinatura.
 
 1. Inicie sessão no portal do Azure.
 1. Open **todos os serviços** e localize **soluções**.
-4. Soluções instaladas em todas as áreas de trabalho são listadas. O nome da solução é seguido do nome da área de trabalho que está instalado na.
+4. Soluções instaladas em todas as áreas de trabalho são listadas. O nome da solução é seguido pelo nome do espaço de trabalho em que ele está instalado.
 1. Utilize as caixas de lista pendente na parte superior do ecrã para filtrar por subscrição ou grupo de recursos.
 
 
@@ -62,14 +62,14 @@ Clique no nome de uma solução para abrir a página de resumida. Esta página a
 
 
 
-## <a name="install-a-monitoring-solution"></a>Instalar uma solução de monitorização
-Soluções de monitorização da Microsoft e parceiros estão disponíveis a partir da [do Azure Marketplace](https://azuremarketplace.microsoft.com). Pode procurar as soluções disponíveis e instalá-los utilizando o procedimento seguinte. Quando instala uma solução, tem de selecionar uma [área de trabalho do Log Analytics](../platform/manage-access.md) onde a solução será instalada e onde serão recolhidos os seus dados.
+## <a name="install-a-monitoring-solution"></a>Instalar uma solução de monitoramento
+As soluções de monitoramento da Microsoft e dos parceiros estão disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com). Pode procurar as soluções disponíveis e instalá-los utilizando o procedimento seguinte. Quando instala uma solução, tem de selecionar uma [área de trabalho do Log Analytics](../platform/manage-access.md) onde a solução será instalada e onde serão recolhidos os seus dados.
 
-1. Partir do [lista de soluções para a sua subscrição](#list-installed-monitoring-solutions), clique em **Add**. 
-1. À direita da **soluções de gestão**, clique em **mais**. 
-1. Localize a solução de monitorização que pretende e ler sua descrição.
+1. Partir do [lista de soluções para a sua subscrição](#list-installed-monitoring-solutions), clique em **Add**.
+1. Procure uma solução ou pesquise por ela. Você também pode procurar soluções [neste link de pesquisa](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions).
+1. Localize a solução de monitoramento que você deseja e leia sua descrição.
 1. Clique em **criar** para iniciar o processo de instalação.
-1. Quando o processo de instalação é iniciado, lhe for pedido para fornecer configuração necessárias que varia para cada solução.
+1. Quando o processo de instalação for iniciado, você será solicitado a especificar o espaço de trabalho Log Analytics e fornecer qualquer configuração necessária para a solução.
 
 ![Instalar uma solução](media/solutions/install-solution.png)
 
@@ -86,7 +86,7 @@ Membros da Comunidade podem submeter soluções de gestão para modelos de iníc
 
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Área de trabalho do log Analytics e a conta de automatização
-Todas as soluções de monitorização exigem uma [área de trabalho do Log Analytics](../platform/manage-access.md) para armazenar os dados coletados pela solução e para alojar as suas vistas e pesquisas de registos. Algumas soluções também exigem um [conta de automatização](../../automation/automation-security-overview.md#automation-account-overview) para conter runbooks e recursos relacionados. A área de trabalho e a conta tem de cumprir os seguintes requisitos.
+Todas as soluções de monitoramento exigem um [espaço de trabalho log Analytics](../platform/manage-access.md) para armazenar dados coletados pela solução e hospedar suas pesquisas e exibições de logs. Algumas soluções também exigem um [conta de automatização](../../automation/automation-security-overview.md#automation-account-overview) para conter runbooks e recursos relacionados. A área de trabalho e a conta tem de cumprir os seguintes requisitos.
 
 * Cada instalação de uma solução só pode utilizar uma área de trabalho do Log Analytics e uma conta de automatização. Pode instalar a solução em separado em várias áreas de trabalho.
 * Se uma solução requer uma conta de automatização, em seguida, a área de trabalho do Log Analytics e a conta de automatização devem ser vinculados a um do outro. Uma área de trabalho do Log Analytics só pode ser ligada a uma conta de automatização e uma conta de automatização só pode ser ligada a uma área de trabalho do Log Analytics.
@@ -105,11 +105,11 @@ Pode verificar a ligação entre uma área de trabalho do Log Analytics e uma co
 1. Desloque-se para o **recursos relacionados** secção do menu.
 1. Se o **área de trabalho** está habilitada, em seguida, esta conta está ligada a uma área de trabalho do Log Analytics. Pode clicar em **área de trabalho** para ver os detalhes da área de trabalho.
 
-## <a name="remove-a-monitoring-solution"></a>Remover uma solução de monitorização
+## <a name="remove-a-monitoring-solution"></a>Remover uma solução de monitoramento
 Para remover uma solução de instalados, localizá-la na [lista de soluções instaladas](#list-installed-monitoring-solutions). Clique no nome da solução para abrir a página de resumida e, em seguida, clique em **eliminar**.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Obter um [lista de soluções da Microsoft de monitorização](solutions-inventory.md).
-* Saiba como [criar consultas](../log-query/log-query-overview.md) para analisar os dados recolhidos por soluções de monitorização.
+* Obtenha uma [lista de soluções de monitoramento da Microsoft](solutions-inventory.md).
+* Saiba como [criar consultas](../log-query/log-query-overview.md) para analisar os dados coletados por soluções de monitoramento.
 

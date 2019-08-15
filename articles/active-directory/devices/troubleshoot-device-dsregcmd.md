@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 189e4f280e8aba28c4d1af449aa8a3428e303911
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 4aa8f9a7c6807a2f9505559ea13fb0b4f410346d
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298415"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987176"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Solucionando problemas de dispositivos usando o comando dsregcmd
 
@@ -28,10 +28,10 @@ Esta seção lista os parâmetros de estado de ingresso no dispositivo. A tabela
 
 | AzureAdJoined | EnterpriseJoined | DomainJoined | Estado do dispositivo |
 | ---   | ---   | ---   | ---   |
-| OK | NO | NO | Ingressado no Azure AD |
-| NO | NO | OK | Ingressado no domínio |
-| OK | NO | OK | Ingressado no AD híbrido |
-| NO | OK | OK | DRS local Unido |
+| SIM | NO | NO | Azure AD Associado |
+| NO | NO | SIM | Domínio Associado |
+| SIM | NO | SIM | Ingressado no AD híbrido |
+| NO | SIM | SIM | DRS local Unido |
 
 > [!NOTE]
 > O estado do Workplace Join (Azure AD registrado) é exibido na seção "estado do usuário"
@@ -295,6 +295,9 @@ Esta seção exibe a saída de verificações de sanidade executadas em um dispo
 ## <a name="ngc-prerequisite-check"></a>Verificação de pré-requisitos do NGC
 
 Esta seção executa as verificações de perquisite para o provisionamento de uma chave do NGC. 
+
+> [!NOTE]
+> Talvez você não veja detalhes de verificação de pré-requisito do NGC em dsregcmd/status se o usuário já tiver configurado com êxito as credenciais do NGC.
 
 ### <a name="sample-ngc-prerequisite-check-output"></a>Exemplo de saída de verificação de pré-requisitos de NGC
 

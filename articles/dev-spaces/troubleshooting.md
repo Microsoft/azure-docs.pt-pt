@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S '
-ms.openlocfilehash: 2434507ac89d631bb96ae9633403075801879a37
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 6ab2e0866c4e6c5cc8f89cb490504f6ca6a076fc
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277408"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019654"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -186,7 +186,7 @@ A porta do contentor não está disponível. Esse problema pode ocorrer porque:
 
 ### <a name="try"></a>Experimente:
 1. Se o contentor está no processo a ser criado/implementado, pode aguardar 2 a 3 segundos e tente acessar o serviço novamente. 
-1. Verifique a configuração de porta. Os números de porta especificados devem  ser idênticos em todos os seguintes ativos:
+1. Verifique a configuração de porta. Os números de porta especificados devem ser idênticos em todos os seguintes ativos:
     * **Dockerfile** Especificado pela `EXPOSE` instrução.
     * **[Gráfico de Helm](https://docs.helm.sh):** Especificado pelos `externalPort` valores e `internalPort` para um serviço (geralmente localizado em um `values.yml` arquivo),
     * Nenhuma porta de que está a ser aberta no código da aplicação, por exemplo, no node. js: `var server = app.listen(80, function () {...}`
@@ -445,7 +445,14 @@ Atualize a instalação do [CLI do Azure](/cli/azure/install-azure-cli?view=azur
 
 ### <a name="reason"></a>Reason
 
-Quando você executa um serviço em um espaço de desenvolvimento, o Pod do serviço é [injetado com contêineres adicionais para instrumentação](how-dev-spaces-works.md#prepare-your-aks-cluster). Esses contêineres não têm solicitações de recursos ou limites definidos, o que faz com que o autodimensionamento de Pod horizontal seja desabilitado para o pod.
+Quando você executa um serviço em um espaço de desenvolvimento, o Pod do serviço é [injetado com contêineres adicionais para instrumentação](how-dev-spaces-works.md#prepare-your-aks-cluster) e todos os contêineres em um pod precisam ter limites de recursos e solicitações definidas para dimensionamento automático de Pod horizontal. 
+
+
+As solicitações de recursos e os limites podem ser aplicados ao contêiner injetado (devspaces-proxy) adicionando `azds.io/proxy-resources` a anotação à especificação do pod. O valor deve ser definido como um objeto JSON que representa a seção de recursos da especificação do contêiner para o proxy.
 
 ### <a name="try"></a>Experimente
-Execute o dimensionador vertical Pod horizontal em um namespace que não tenha espaços de desenvolvimento habilitados.
+
+Abaixo está um exemplo de uma anotação de recursos de proxy que deve ser aplicada à sua especificação de Pod.
+```
+azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
+```

@@ -1,75 +1,75 @@
 ---
-title: Ativar aplicações multi-inquilino duplos Digital do Azure | Documentos da Microsoft
-description: Como configurar aplicações multi-inquilino do Azure Active Directory duplos Digital do Azure.
+title: Habilitar aplicativos multilocatários com o Azure digital gêmeos | Microsoft Docs
+description: Como configurar aplicativos de Azure Active Directory multilocatário para o gêmeos digital do Azure.
 author: mavoge
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 08/12/2019
 ms.author: mavoge
-ms.openlocfilehash: 03b5693fe016cfb11d6f685f9088fe6e94f03b90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ee3681640f68839c32e2963b34d5547abb6943b
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688608"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976885"
 ---
-# <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Ativar aplicações multi-inquilino duplos Digital do Azure
+# <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Habilitar aplicativos multilocatários com o gêmeos digital do Azure
 
-Os desenvolvedores de soluções que criam no duplos Digital do Azure podem achar que pretende suportar vários clientes com um único serviço ou solução. Na verdade, *multi-inquilino* aplicativos estão entre as configurações mais comuns de duplos Digital do Azure.
+Os desenvolvedores de soluções que criam no Azure digital gêmeos podem descobrir que desejam dar suporte a vários clientes com um único serviço ou solução. Na verdade, os aplicativos multilocatário estão entre as configurações mais comuns do Azure digital gêmeos.
 
-Este documento descreve como configurar uma aplicação de duplos Digital do Azure para suportar vários inquilinos do Azure Active Directory e os clientes.
+Este documento descreve como configurar um aplicativo gêmeos digital do Azure para dar suporte a vários locatários e clientes do Azure Active Directory.
 
-## <a name="multitenancy"></a>Arquitetura "multitenancy"
+## <a name="multitenancy"></a>Multilocação
 
-R *multi-inquilino* recursos é uma única instância de aprovisionamento que oferece suporte a vários clientes. Cada cliente tem seus próprios dados independentes e privilégios. Experiência de cada um dos clientes é isolada umas das outras que seus "ver" do aplicativo é diferente.
+Um recurso multilocatário é uma instância provisionada única que dá suporte a vários clientes. Cada cliente tem seus próprios dados e privilégios independentes. A experiência de cada cliente é isolada entre si, de modo que sua "exibição" do aplicativo seja distinta.
 
-Para saber mais sobre a arquitetura "multitenancy", leia [aplicações de multi-inquilino no Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications).
+Para saber mais sobre multilocação, leia [aplicativos multilocatários no Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications).
 
-## <a name="problem-scenario"></a>Cenário de problema
+## <a name="problem-scenario"></a>Cenário do problema
 
-Neste cenário, considere um desenvolvedor criar uma solução de duplos Digital do Azure (**DESENVOLVEDOR**) e um cliente que utiliza essa solução (**cliente**):
+Nesse cenário, considere um desenvolvedor que cria uma solução de gêmeos (**desenvolvedor**) do Azure digital e um cliente que usa essa solução (**cliente**):
 
-- **DESENVOLVEDOR** tem uma subscrição do Azure com um inquilino do Azure Active Directory.
-- **DESENVOLVEDOR** implementa uma instância de duplos Digital do Azure na sua subscrição do Azure. O Azure Active Directory automaticamente um principal de serviço criado em **DESENVOLVEDOR**do inquilino do Azure Active Directory.
-- Os utilizadores dentro **DESENVOLVEDOR**do inquilino do Azure Active Directory pode então [adquira tokens de OAuth 2.0](./security-authenticating-apis.md) do serviço duplos Digital do Azure.
-- **DESENVOLVEDOR** agora cria uma aplicação móvel que é integrado diretamente com as APIs de gestão de duplos Digital do Azure.
-- **DESENVOLVEDOR** permite **cliente** a utilização da aplicação móvel.
-- **CUSTOMER** tem de ser autorizado a utilizar a API Management da duplos Digital do Azure dentro **PROGRAMADOR**do aplicativo.
+- O **desenvolvedor** tem uma assinatura do Azure com um locatário Azure Active Directory.
+- O **desenvolvedor** implanta uma instância de gêmeos digital do Azure em sua assinatura do Azure. Azure Active Directory criou automaticamente uma entidade de serviço no locatário do Azure Active Directory do **desenvolvedor**.
+- Os usuários no locatário Azure Active Directory do **desenvolvedor**podem [adquirir tokens OAuth 2,0](./security-authenticating-apis.md) do serviço gêmeos do Azure digital.
+- Agora, o **desenvolvedor** cria um aplicativo móvel que se integra diretamente com as APIs de gerenciamento de gêmeos digital do Azure.
+- O **desenvolvedor** permite que o **cliente** use o aplicativo móvel.
+- O **cliente** deve estar autorizado a usar a API de gerenciamento de gêmeos digital do Azure no aplicativo do **desenvolvedor**.
 
 O problema:
 
-- Quando **CUSTOMER** inicia sessão na **DESENVOLVEDOR**do aplicativo, a aplicação não é possível adquirir os tokens do **cliente**do utilizadores para se autenticar com as APIs de gestão de duplos Digital do Azure.
-- Uma exceção for lançada no Azure Active Directory que indica que duplos Digital do Azure não é reconhecido dentro **cliente**do diretório.
+- Quando o **cliente** faz logon no aplicativo do **desenvolvedor**, o aplicativo não pode adquirir tokens para que os usuários do **cliente**se autentiquem com as APIs de gerenciamento de gêmeos digital do Azure.
+- Uma exceção é emitida no Azure Active Directory indicando que o Azure digital gêmeos não é reconhecido no diretório do **cliente**.
 
 ## <a name="problem-solution"></a>Solução de problema
 
-Para resolver o cenário de problema anterior, as seguintes ações são necessários para criar um duplos Digital do Azure principal de serviço dentro de **cliente**do inquilino do Azure Active Directory:
+Para resolver o cenário do problema anterior, as ações a seguir são necessárias para criar uma entidade de serviço do Azure digital gêmeos no locatário do Azure Active Directory do **cliente**:
 
-- Se **cliente** ainda não tiver uma subscrição do Azure com um inquilino do Azure Active Directory:
+- Se o **cliente** ainda não tiver uma assinatura do Azure com um locatário Azure Active Directory:
 
-  - **CUSTOMER**do administrador de inquilinos do Azure Active Directory tem de adquirir um [pay as you go de subscrição do Azure](https://azure.microsoft.com/offers/ms-azr-0003p/).
-  - **CUSTOMER**do administrador de inquilinos do Azure Active Directory, em seguida, deve [vincular o respetivo inquilino com a nova subscrição](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity).
+  - O administrador de locatários Azure Active Directory do **cliente**deve adquirir uma [assinatura paga conforme o uso do Azure](https://azure.microsoft.com/offers/ms-azr-0003p/).
+  - O administrador de locatários Azure Active Directory do **cliente**deve [vincular seu locatário à nova assinatura](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity).
 
-- Sobre o [portal do Azure](https://portal.azure.com), **cliente**do administrador de inquilinos do Azure Active Directory realiza as seguintes etapas:
+- No [portal do Azure](https://portal.azure.com), o administrador de locatários do Azure Active Directory do **cliente**executa as seguintes etapas:
 
-  1. Open **subscrições**.
-  1. Selecione a subscrição com o inquilino do Azure Active Directory a ser utilizado no **DESENVOLVEDOR**do aplicativo.
+  1. Abrir **assinaturas**.
+  1. Selecione a assinatura que tem o locatário Azure Active Directory a ser usado no aplicativo do **desenvolvedor**.
 
-     ![Subscrições do Azure Active Directory][1]
+     ![Assinaturas de Azure Active Directory][1]
 
-  1. Selecione **fornecedores de recursos**.
-  1. Procure **Microsoft.IoTSpaces**.
+  1. Selecione **provedores de recursos**.
+  1. Procure **Microsoft. IoTSpaces**.
   1. Selecione **Registar**.
 
-     ![Fornecedores de recursos do Azure Active Directory][2]
+     ![Provedores de recursos de Azure Active Directory][2]
   
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre como utilizar funções definidas pelo utilizador duplos Digital do Azure, leia [como criar funções definidas pelo utilizador de duplos Digital do Azure](./how-to-user-defined-functions.md).
+- Para saber mais sobre como usar funções definidas pelo usuário com o gêmeos digital do Azure, leia [como criar funções definidas pelo usuário do Azure digital gêmeos](./how-to-user-defined-functions.md).
 
-- Para saber como utilizar o controlo de acesso baseado em funções para proteger ainda mais o aplicativo com atribuições de funções, leia [como criar e gerir o controlo de acesso baseado em funções de duplos Digital do Azure](./security-create-manage-role-assignments.md).
+- Para saber como usar o controle de acesso baseado em função para proteger ainda mais o aplicativo com as atribuições de função, leia [como criar e gerenciar o controle de acesso baseado em função gêmeos do Azure digital](./security-create-manage-role-assignments.md).
 
 <!-- Images -->
 [1]: media/multitenant/ad-subscriptions.png

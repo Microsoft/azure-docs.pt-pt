@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 5a942aa10f36df55ac232defa610102700e3995b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 9bccd826a37b66f7f89e70c57260a0db08342421
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614187"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019194"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Dimensionar aplicativos no serviço kubernetes do Azure (AKS)
 
@@ -76,12 +76,13 @@ O Kubernetes suporta [dimensionamento automático horizontal de pods][kubernetes
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-Se a versão do cluster AKS for inferior a *1.10*, instale o Servidor de Métricas; caso contrário, ignore este passo. Para instalar o, clone `metrics-server` o repositório GitHub e instale as definições de recurso de exemplo. Para exibir o conteúdo dessas definições de YAML, consulte [servidor de métricas para Kuberenetes 1.8 +][metrics-server-github].
-
-```console
-git clone https://github.com/kubernetes-incubator/metrics-server.git
-kubectl create -f metrics-server/deploy/1.8+/
-```
+> [!NOTE]
+> Se o cluster AKS for menor que *1,10*, o servidor de métricas não será instalado automaticamente. Para instalar o, clone `metrics-server` o repositório GitHub e instale as definições de recurso de exemplo. Para exibir o conteúdo dessas definições de YAML, consulte [servidor de métricas para Kuberenetes 1.8 +][metrics-server-github].
+> 
+> ```console
+> git clone https://github.com/kubernetes-incubator/metrics-server.git
+> kubectl create -f metrics-server/deploy/1.8+/
+> ```
 
 Para usar o dimensionador, todos os contêineres em seu pods e pods devem ter limites e solicitações de CPU definidos. `azure-vote-front` Na implantação, o contêiner de front-end já solicita a CPU de 0,25, com um limite de 0,5 de CPU. Essas solicitações de recursos e limites são definidos conforme mostrado no seguinte trecho de exemplo:
 
@@ -138,7 +139,7 @@ Quando o cluster for dimensionado com êxito, a saída será semelhante ao exemp
   }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, utilizou diferentes funcionalidades de dimensionamento no seu cluster Kubernetes. Aprendeu a:
 

@@ -1,167 +1,169 @@
 ---
-title: Reescreva os cabeçalhos HTTP com o Gateway de aplicação do Azure | Documentos da Microsoft
-description: Este artigo fornece uma visão geral de regravação de cabeçalhos HTTP no Gateway de aplicação do Azure
+title: Reescrever cabeçalhos HTTP com Aplicativo Azure gateway | Microsoft Docs
+description: Este artigo fornece uma visão geral da reescrita de cabeçalhos HTTP no gateway Aplicativo Azure
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 08/08/2019
 ms.author: absha
-ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6f26eca0592017306eaefd3f5fecb544dc6fb36
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476029"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932199"
 ---
-# <a name="rewrite-http-headers-with-application-gateway"></a>Reescreva os cabeçalhos HTTP com o Gateway de aplicação
+# <a name="rewrite-http-headers-with-application-gateway"></a>Reescrever cabeçalhos HTTP com o gateway de aplicativo
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Cabeçalhos HTTP permitem que um cliente e servidor passar informações adicionais com uma solicitação ou resposta. Ao converter esses cabeçalhos, pode realizar tarefas importantes, como a adição de campos de cabeçalho relacionadas à segurança, como HSTS / X-XSS-proteção, remover os campos de cabeçalho de resposta que podem revelar informações confidenciais e remover as informações de porta de X-reencaminhados-para cabeçalhos.
+Os cabeçalhos HTTP permitem que um cliente e um servidor passem informações adicionais com uma solicitação ou resposta. Ao reescrever esses cabeçalhos, você pode realizar tarefas importantes, como adicionar campos de cabeçalho relacionados à segurança, como HSTS/X-XSS-Protection, remover campos de cabeçalho de resposta que podem revelar informações confidenciais e remover informações de porta de X-encaminhadas-para cabeçalhos.
 
 O Gateway de Aplicação permite-lhe adicionar, remover ou atualizar cabeçalhos de pedido e de resposta HTTP enquanto os pacotes de pedido e de resposta se movem entre os conjuntos de cliente e back-end. Além disso, permite-lhe adicionar condições para garantir que os cabeçalhos especificados são reescritos apenas quando forem cumpridas determinadas condições.
 
-Gateway de aplicação também suporta vários [variáveis de servidor](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) que o ajudam a armazenar informações adicionais sobre pedidos e respostas. Isto torna mais fácil de criar regras de reescrita poderosas.
+O gateway de aplicativo também dá suporte a várias [variáveis de servidor](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) que ajudam a armazenar informações adicionais sobre solicitações e respostas. Isso facilita a criação de regras de reescrita avançadas.
 
 > [!NOTE]
 >
-> O suporte de reescrita de cabeçalho HTTP só está disponível para o [Standard_V2 e WAF_v2 SKU](application-gateway-autoscaling-zone-redundant.md).
+> O suporte à reescrita do cabeçalho HTTP só está disponível para o [SKU Standard_V2 e WAF_v2](application-gateway-autoscaling-zone-redundant.md).
 
-![Cabeçalhos de reconfiguração](media/rewrite-http-headers/rewrite-headers.png)
+![Regravando cabeçalhos](media/rewrite-http-headers/rewrite-headers.png)
 
-## <a name="supported-headers"></a>Cabeçalhos suportados
+## <a name="supported-headers"></a>Cabeçalhos com suporte
 
-Pode reescrever todos os cabeçalhos em solicitações e respostas, exceto os cabeçalhos de anfitrião, a ligação e a atualização. Também pode utilizar o gateway de aplicação para criar os cabeçalhos personalizados e adicioná-los para os pedidos e respostas que está a ser encaminhadas através do mesmo.
+Você pode reescrever todos os cabeçalhos em solicitações e respostas, exceto para os cabeçalhos host, conexão e atualização. Você também pode usar o gateway de aplicativo para criar cabeçalhos personalizados e adicioná-los às solicitações e respostas que estão sendo roteadas por meio dele.
 
-## <a name="rewrite-conditions"></a>Reescrever condições
+## <a name="rewrite-conditions"></a>Condições de regravação
 
-Pode utilizar condições de reescrita para avaliar o conteúdo dos pedidos de HTTP (S) e as respostas e realizar uma reescrita de cabeçalho apenas quando um ou mais condições são cumpridas. O gateway de aplicação utiliza estes tipos de variáveis para avaliar o conteúdo dos pedidos de HTTP (S) e as respostas:
+Você pode usar condições de reescrita para avaliar o conteúdo das solicitações e respostas de HTTP (S) e executar uma regravação de cabeçalho somente quando uma ou mais condições forem atendidas. O gateway de aplicativo usa esses tipos de variáveis para avaliar o conteúdo das solicitações e respostas HTTP (S):
 
-- Cabeçalhos HTTP no pedido.
+- Cabeçalhos HTTP na solicitação.
 - Cabeçalhos HTTP na resposta.
-- Variáveis de servidor de Gateway de aplicação.
+- Variáveis de servidor do gateway de aplicativo.
 
-Pode utilizar uma condição para avaliar se o numa variável especificada está presente, quer numa variável especificada corresponde a um valor específico, ou se uma variável especificada corresponde a um padrão específico. Utilizar o [biblioteca de Perl compatível Regular expressões (PCRE)](https://www.pcre.org/) para configurar as condições de correspondência de padrão de expressão regular. Para saber mais sobre a sintaxe de expressão regular, consulte a [página de principal de expressões regulares do Perl](https://perldoc.perl.org/perlre.html).
+Você pode usar uma condição para avaliar se uma variável especificada está presente, se uma variável especificada corresponde a um valor específico ou se uma variável especificada corresponde a um padrão específico. Use a [biblioteca PCRE (expressões regulares comuns) do Perl](https://www.pcre.org/) para configurar a correspondência de padrão de expressão regular nas condições. Para saber mais sobre a sintaxe de expressão regular, consulte a [página principal de expressões regulares do Perl](https://perldoc.perl.org/perlre.html).
 
-## <a name="rewrite-actions"></a>Ações de reconfiguração
+## <a name="rewrite-actions"></a>Ações de regravação
 
-Utilizar ações de reescrita para especificar os cabeçalhos de solicitação e resposta que queira reescrever e o novo valor para os cabeçalhos. Pode criar um novo cabeçalho, modifique o valor de um cabeçalho existente ou eliminar um cabeçalho existente. O valor de um novo cabeçalho ou um cabeçalho existente pode ser definido para esses tipos de valores:
+Você usa ações de reescrita para especificar os cabeçalhos de solicitação e resposta que deseja reescrever e o novo valor para os cabeçalhos. Você pode criar um novo cabeçalho, modificar o valor de um cabeçalho existente ou excluir um cabeçalho existente. O valor de um novo cabeçalho ou de um cabeçalho existente pode ser definido para esses tipos de valores:
 
 - Texto.
-- Cabeçalho do pedido. Para especificar um cabeçalho de pedido, tem de utilizar a sintaxe {http_req_*headerName*}.
-- O cabeçalho da resposta. Para especificar um cabeçalho de resposta, precisa usar a sintaxe {http_resp_*headerName*}.
-- Variável de servidor. Para especificar uma variável de servidor, tem de utilizar a sintaxe {var_*serverVariable*}.
-- Uma combinação de texto, um cabeçalho de pedido, um cabeçalho de resposta e uma variável de servidor.
+- Cabeçalho da solicitação. Para especificar um cabeçalho de solicitação, você precisa usar a sintaxe {http_req_*HeaderName*}.
+- O cabeçalho da resposta. Para especificar um cabeçalho de resposta, você precisa usar a sintaxe {http_resp_*HeaderName*}.
+- Variável de servidor. Para especificar uma variável de servidor, você precisa usar a sintaxe {var_*serverVariable*}.
+- Uma combinação de texto, um cabeçalho de solicitação, um cabeçalho de resposta e uma variável de servidor.
 
 ## <a name="server-variables"></a>Variáveis de servidor
 
-Gateway de aplicação utiliza variáveis de servidor para armazenar informações úteis sobre o servidor, a ligação com o cliente e a solicitação atual na ligação. Exemplos de informações armazenadas incluem o endereço IP do cliente e o tipo de navegador da web. Variáveis de servidor mudam de forma dinâmica, por exemplo, quando uma nova página for carregada, ou quando é publicado um formulário. Pode utilizar estas variáveis para avaliar condições de reescrita e volte a escrever cabeçalhos.
+O gateway de aplicativo usa variáveis de servidor para armazenar informações úteis sobre o servidor, a conexão com o cliente e a solicitação atual na conexão. Exemplos de informações armazenadas incluem o endereço IP do cliente e o tipo de navegador da Web. As variáveis de servidor são alteradas dinamicamente, por exemplo, quando uma nova página é carregada ou quando um formulário é Postado. Você pode usar essas variáveis para avaliar as condições de regravação e reescrever os cabeçalhos.
 
-Gateway de aplicação suporta estas variáveis de servidor:
+O gateway de aplicativo dá suporte a essas variáveis de servidor:
 
 | Nome da variável | Descrição                                                  |
 | -------------------------- | :----------------------------------------------------------- |
-| add_x_forwarded_for_proxy  | O campo de cabeçalho de pedido X-reencaminhados-para o cliente com o `client_ip` variável (consulte a explicação mais tarde nesta tabela) acrescentado no formato IP1, IP2, IP3 e assim por diante. Se o campo de X-reencaminhados-para que não está no cabeçalho de pedido do cliente, o `add_x_forwarded_for_proxy` é igual ao `$client_ip` variável. Esta variável é particularmente útil quando desejar reescrever o cabeçalho X-reencaminhados-para definido pelo Gateway de aplicação, para que o cabeçalho contém apenas o endereço IP sem as informações da porta. |
-| ciphers_supported          | Uma lista de cifras suportados pelo cliente.          |
-| ciphers_used               | A cadeia de cifras utilizadas para uma ligação SSL estabelecida. |
-| client_ip                  | O endereço IP do cliente a partir do qual o gateway de aplicação recebeu o pedido. Se existir um proxy inverso antes do gateway de aplicação e o cliente de origem, *client_ip* retornará o endereço IP do proxy inverso. |
-| client_port                | A porta de cliente.                                                  |
-| client_tcp_rtt             | Informações sobre o cliente de conexão TCP. Disponível em sistemas que suportam a opção de soquete TCP_INFO. |
-| client_user                | Quando é utilizada a autenticação HTTP, o nome de utilizador fornecido para a autenticação. |
-| host                       | Por esta ordem de precedência: o nome de anfitrião a partir da linha de solicitação, o nome de anfitrião do campo de cabeçalho de pedido de anfitrião ou o nome de servidor correspondente a um pedido. |
-| cookie_*nome*              | O *nome* cookie.                                            |
-| http_method                | o método usado para fazer o pedido de URL. Por exemplo, obter ou PUBLIQUE. |
-| http_status                | O estado de sessão. Por exemplo, 200, 400 ou 403.                       |
-| http_version               | O protocolo de pedido. Normalmente, HTTP/1.0, HTTP/1.1 ou HTTP/2.0. |
-| query_string               | A lista de pares de valor/variável que se segue o "?" no URL solicitado. |
-| received_bytes             | O comprimento do pedido (incluindo a linha de solicitação, o cabeçalho e o corpo do pedido). |
+| add_x_forwarded_for_proxy  | O campo de cabeçalho de solicitação de cliente X encaminhado-para `client_ip` com a variável (consulte a explicação mais adiante nesta tabela) acrescentado a ele no formato IP1, IP2, IP3 e assim por diante. Se o campo X-Forwarded-for não estiver no cabeçalho de solicitação do cliente `add_x_forwarded_for_proxy` , a variável será igual `$client_ip` à variável. Essa variável é particularmente útil quando você deseja reescrever o cabeçalho X-Forwardd-for definido pelo gateway de aplicativo para que o cabeçalho contenha apenas o endereço IP sem as informações de porta. |
+| ciphers_supported          | Uma lista de codificações com suporte do cliente.          |
+| ciphers_used               | A cadeia de caracteres de codificações usada para uma conexão SSL estabelecida. |
+| client_ip                  | O endereço IP do cliente do qual o gateway de aplicativo recebeu a solicitação. Se houver um proxy reverso antes do gateway de aplicativo e do cliente de origem, *client_ip* retornará o endereço IP do proxy reverso. |
+| client_port                | A porta do cliente.                                                  |
+| client_tcp_rtt             | Informações sobre a conexão TCP do cliente. Disponível em sistemas que dão suporte à opção de soquete TCP_INFO. |
+| client_user                | Quando a autenticação HTTP é usada, o nome de usuário fornecido para autenticação. |
+| host                       | Nesta ordem de precedência: o nome do host da linha de solicitação, o nome do host do campo de cabeçalho de solicitação do host ou o nome do servidor que corresponde a uma solicitação. |
+| *nome* do cookie_              | O *nome* do cookie.                                            |
+| http_method                | O método usado para fazer a solicitação de URL. Por exemplo, GET ou POST. |
+| http_status                | O status da sessão. Por exemplo, 200, 400 ou 403.                       |
+| http_version               | O protocolo de solicitação. Geralmente, HTTP/1.0, HTTP/1.1 ou HTTP/2.0. |
+| query_string               | A lista de pares de variáveis/valores que segue o "?" na URL solicitada. |
+| received_bytes             | O comprimento da solicitação (incluindo a linha de solicitação, o cabeçalho e o corpo da solicitação). |
 | request_query              | Os argumentos na linha de solicitação.                                |
-| request_scheme             | O esquema de pedido: http ou https.                            |
-| request_uri                | O pedido original completo URI (com argumentos).                   |
-| sent_bytes                 | O número de bytes enviados para um cliente.                             |
-| server_port                | A porta do servidor que aceite um pedido.                 |
-| ssl_connection_protocol    | O protocolo de uma ligação SSL estabelecida.        |
-| ssl_enabled                | "On" se a ligação funciona em modo SSL. Caso contrário, uma cadeia vazia. |
+| request_scheme             | O esquema de solicitação: http ou HTTPS.                            |
+| request_uri                | O URI de solicitação original completo (com argumentos).                   |
+| sent_bytes                 | O número de bytes enviados a um cliente.                             |
+| server_port                | A porta do servidor que aceitou uma solicitação.                 |
+| ssl_connection_protocol    | O protocolo de uma conexão SSL estabelecida.        |
+| ssl_enabled                | "Ativado" se a conexão opera no modo SSL. Caso contrário, uma cadeia de caracteres vazia. |
 
-## <a name="rewrite-configuration"></a>Reescrever a configuração
+## <a name="rewrite-configuration"></a>Reescrever configuração
 
-Para configurar a reescrita de cabeçalho HTTP, terá de concluir estes passos.
+Para configurar a reescrita do cabeçalho HTTP, você precisa concluir estas etapas.
 
-1. Crie os objetos que são necessários para a reescrita de cabeçalho HTTP:
+1. Crie os objetos que são necessários para a reescrita do cabeçalho HTTP:
 
-   - **Ação de reescrever**: Utilizado para especificar o pedido e campos de cabeçalho de solicitação que queira reescrever e o novo valor para os cabeçalhos. Pode associar uma ou mais condições com uma ação de reescrita de regravação.
+   - **Ação**de regravação: Usado para especificar os campos de cabeçalho de solicitação e de solicitação que você deseja reescrever e o novo valor para os cabeçalhos. Você pode associar uma ou mais condições de regravação a uma ação de regravação.
 
-   - **Condição de reescrever**: Uma configuração opcional. Condições de reescrita avaliam o conteúdo dos pedidos de HTTP (S) e as respostas. A ação de reescrita ocorrerá se o pedido de HTTP (S) ou resposta corresponde a condição de regravação.
+   - **Condição**de regravação: Uma configuração opcional. As condições de regravação avaliam o conteúdo das solicitações e respostas HTTP (S). A ação de regravação ocorrerá se a solicitação ou resposta HTTP (S) corresponder à condição de regravação.
 
-     Se associar mais do que uma condição uma ação, a ação ocorre apenas quando todas as condições são cumpridas. Em outras palavras, a operação é uma operação lógica AND.
+     Se você associar mais de uma condição a uma ação, a ação ocorrerá somente quando todas as condições forem atendidas. Em outras palavras, a operação é uma operação AND lógica.
 
-   - **Regra de reescrever**: Contém vários de reescrita de ação / reescrever combinações de condição.
+   - **Regra**de regravação: Contém várias combinações de condição de ação de regravação/regravação.
 
-   - **Sequência de regra**: Ajuda a determinar a ordem na qual as regras de reescrita executar. Esta configuração é útil quando tem várias regras de reescrita de um conjunto de regravação. Uma regra de reescrita que tem um valor de seqüência de regra inferior é executado primeira. Se atribuir a mesma seqüência de regra para duas regras de reescrita, a ordem de execução é determinística.
+   - **Sequência de regras**: Ajuda a determinar a ordem na qual as regras de regravação são executadas. Essa configuração é útil quando você tem várias regras de regravação em um conjunto de regravação. Uma regra de regravação que tem um valor de sequência de regra mais baixo é executada primeiro. Se você atribuir a mesma sequência de regras a duas regras de reescrita, a ordem de execução será não determinística.
 
-   - **Conjunto de reescrever**: Contém várias regras de reescrita que serão associadas uma regra de encaminhamento do pedido.
+   - **Conjunto**de regravação: Contém várias regras de regravação que serão associadas a uma regra de roteamento de solicitação.
 
-2. Anexar o conjunto de reescrita (*rewriteRuleSet*) para uma regra de roteamento. A configuração de reescrita está ligada ao serviço de escuta de origem através da regra de encaminhamento. Quando utiliza uma regra básica de encaminhamento, a configuração de reescrita de cabeçalho está associada um serviço de escuta de origem e é uma reescrita de cabeçalho global. Quando utiliza uma regra de encaminhamento baseado no caminho, a configuração de reescrita de cabeçalho é definida no mapa do caminho do URL. Nesse caso, ele só se aplica a área de caminho específico de um site.
+2. Anexe o conjunto de regravação (*rewriteRuleSet*) a uma regra de roteamento. A configuração de regravação é anexada ao ouvinte de origem por meio da regra de roteamento. Quando você usa uma regra de roteamento básica, a configuração de reescrita de cabeçalho é associada a um ouvinte de origem e é uma reescrita de cabeçalho global. Quando você usa uma regra de roteamento com base em caminho, a configuração de reescrita de cabeçalho é definida no mapa de caminho de URL. Nesse caso, ele se aplica somente à área de caminho específica de um site.
+   > [!NOTE]
+   > Reescrever URL alterar os cabeçalhos; Ele não altera a URL para o caminho.
 
-Pode criar vários conjuntos de reescrita de cabeçalho HTTP e aplicar a cada reescrita definida como vários serviços de escuta. Mas pode aplicar-se apenas um reescrever definido como um serviço de escuta específico.
+Você pode criar vários conjuntos de regravação de cabeçalho HTTP e aplicar cada regravação definida a vários ouvintes. Mas você pode aplicar apenas uma regravação definida a um ouvinte específico.
 
 ## <a name="common-scenarios"></a>Cenários comuns
 
-Seguem-se alguns cenários comuns para a utilização de reescrita de cabeçalho.
+Aqui estão alguns cenários comuns para usar a reescrita de cabeçalho.
 
-### <a name="remove-port-information-from-the-x-forwarded-for-header"></a>Remover informações de porta a partir do cabeçalho X-reencaminhados-para
+### <a name="remove-port-information-from-the-x-forwarded-for-header"></a>Remover informações de porta do cabeçalho X-Forwarded-for
 
-Gateway de aplicação insere um cabeçalho X-reencaminhados-para todos os pedidos antes de ela encaminha os pedidos para o back-end. Este cabeçalho é uma lista separada por vírgulas de portas IP. Pode haver situações em que os servidores de back-end precisam apenas os cabeçalhos para conter endereços IP. Pode utilizar a Reescrita do cabeçalho para remover as informações da porta do cabeçalho X-reencaminhados-para. Uma forma de fazer isso é definir o cabeçalho para a variável de servidor add_x_forwarded_for_proxy:
+O gateway de aplicativo insere um cabeçalho X/encaminhado para todas as solicitações antes de encaminhar as solicitações para o back-end. Esse cabeçalho é uma lista separada por vírgulas de portas IP. Pode haver cenários nos quais os servidores back-end só precisam dos cabeçalhos para conter endereços IP. Você pode usar a reescrita de cabeçalho para remover as informações de porta do cabeçalho X-Forwardd-for. Uma maneira de fazer isso é definir o cabeçalho para a variável de servidor add_x_forwarded_for_proxy:
 
-![Remover a porta](media/rewrite-http-headers/remove-port.png)
+![Remover porta](media/rewrite-http-headers/remove-port.png)
 
-### <a name="modify-a-redirection-url"></a>Modificar um URL de redirecionamento
+### <a name="modify-a-redirection-url"></a>Modificar uma URL de redirecionamento
 
-Quando uma aplicação de back-end envia uma resposta de redirecionamento, pode querer redirecionamento do cliente para um URL diferente daquele especificado pela aplicação de back-end. Por exemplo, pode querer fazer isso, quando um serviço de aplicações é alojado por trás de um gateway de aplicação e exige que o cliente fazer um redirecionamento para seu caminho relativo. (Por exemplo, um redirecionamento de contoso.azurewebsites.net/path1 para contoso.azurewebsites.net/path2.)
+Quando um aplicativo de back-end envia uma resposta de redirecionamento, talvez você queira redirecionar o cliente para uma URL diferente daquela especificada pelo aplicativo de back-end. Por exemplo, talvez você queira fazer isso quando um serviço de aplicativo é hospedado atrás de um gateway de aplicativo e requer que o cliente faça um redirecionamento para seu caminho relativo. (Por exemplo, um redirecionamento de contoso.azurewebsites.net/path1 para contoso.azurewebsites.net/path2.)
 
-Como o serviço de aplicações é um serviço multi-inquilino, ele usa o cabeçalho de anfitrião no pedido para encaminhar a solicitação para o ponto final correto. Serviços de aplicações tem um nome de domínio predefinido *. azurewebsites.net (Digamos contoso.azurewebsites.net), que é diferente do nome de domínio de gateway de aplicação (por exemplo, contoso.com). Uma vez que o pedido original do cliente tem o nome de domínio (contoso.com) o gateway de aplicação como o nome de anfitrião, o gateway de aplicação muda o nome de anfitrião para contoso.azurewebsites.net. Faz esta alteração, para que o serviço de aplicações pode encaminhar a solicitação para o ponto final correto.
+Como o serviço de aplicativo é um serviço multilocatário, ele usa o cabeçalho de host na solicitação para rotear a solicitação para o ponto de extremidade correto. Os serviços de aplicativos têm um nome de domínio padrão *. azurewebsites.net (digamos, contoso.azurewebsites.net) diferente do nome de domínio do gateway de aplicativo (digamos contoso.com). Como a solicitação original do cliente tem o nome de domínio do gateway de aplicativo (contoso.com) como o hostname, o gateway de aplicativo altera o nome do host para contoso.azurewebsites.net. Ele faz essa alteração para que o serviço de aplicativo possa encaminhar a solicitação para o ponto de extremidade correto.
 
-Quando o serviço de aplicações envia uma resposta de redirecionamento, ele usa o mesmo nome de anfitrião no cabeçalho location da resposta quanto do pedido que recebe do gateway de aplicação. Portanto, o cliente fará com que o pedido diretamente para contoso.azurewebsites.net/path2 em vez de utilizar o gateway de aplicação (contoso.com/path2). Ignorar o gateway de aplicação não é desejável.
+Quando o serviço de aplicativo envia uma resposta de redirecionamento, ele usa o mesmo nome de host no cabeçalho de local de sua resposta como aquele na solicitação que recebe do gateway de aplicativo. Portanto, o cliente fará a solicitação diretamente para contoso.azurewebsites.net/path2 em vez de passar pelo gateway de aplicativo (contoso.com/path2). Ignorar o gateway de aplicativo não é desejável.
 
-Pode resolver este problema ao definir o nome de anfitrião no cabeçalho location para o nome de domínio de gateway de aplicação.
+Você pode resolver esse problema definindo o nome do host no cabeçalho Location como o nome de domínio do gateway de aplicativo.
 
-Eis os passos para substituir o nome de anfitrião:
+Aqui estão as etapas para substituir o nome do host:
 
-1. Crie uma regra de reescrita com uma condição que avalia se o cabeçalho de localização na resposta contém azurewebsites.net. Introduza o padrão `(https?):\/\/.*azurewebsites\.net(.*)$`.
-1. Execute uma ação de reescrever o cabeçalho de localização para que ele tem o nome de anfitrião de gateway de aplicação. Fazê-lo ao introduzir `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` como o valor de cabeçalho.
+1. Crie uma regra de reescrita com uma condição que seja avaliada se o cabeçalho de local na resposta contiver azurewebsites.net. Insira o padrão `(https?):\/\/.*azurewebsites\.net(.*)$`.
+1. Execute uma ação para reescrever o cabeçalho de local para que ele tenha o nome de host do gateway de aplicativo. Faça isso inserindo `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` como o valor do cabeçalho.
 
-![Modificar o cabeçalho de localização](media/rewrite-http-headers/app-service-redirection.png)
+![Modificar cabeçalho de local](media/rewrite-http-headers/app-service-redirection.png)
 
-### <a name="implement-security-http-headers-to-prevent-vulnerabilities"></a>Implementar os cabeçalhos HTTP de segurança para evitar vulnerabilidades
+### <a name="implement-security-http-headers-to-prevent-vulnerabilities"></a>Implementar cabeçalhos HTTP de segurança para evitar vulnerabilidades
 
-Pode corrigir várias vulnerabilidades de segurança, implementando cabeçalhos na resposta da aplicação. Esses cabeçalhos de segurança incluem a proteção de XSS X, segurança de transporte Strict e política de segurança de conteúdo. Pode utilizar o Gateway de aplicação para definir esses cabeçalhos para todas as respostas.
+Você pode corrigir várias vulnerabilidades de segurança implementando os cabeçalhos necessários na resposta do aplicativo. Esses cabeçalhos de segurança incluem o X-XSS-Protection, o Strict-Transport-Security e a política de segurança de conteúdo. Você pode usar o gateway de aplicativo para definir esses cabeçalhos para todas as respostas.
 
 ![Cabeçalho de segurança](media/rewrite-http-headers/security-header.png)
 
-### <a name="delete-unwanted-headers"></a>Eliminar cabeçalhos indesejados
+### <a name="delete-unwanted-headers"></a>Excluir cabeçalhos indesejados
 
-Pode querer remover os cabeçalhos que revelam informações confidenciais de uma resposta HTTP. Por exemplo, pode querer remover informações como o nome do servidor de back-end, sistema operativo ou os detalhes da biblioteca. Pode utilizar o gateway de aplicação para remover estes cabeçalhos:
+Talvez você queira remover os cabeçalhos que revelam informações confidenciais de uma resposta HTTP. Por exemplo, talvez você queira remover informações como o nome do servidor back-end, o sistema operacional ou os detalhes da biblioteca. Você pode usar o gateway de aplicativo para remover estes cabeçalhos:
 
-![A eliminar cabeçalho](media/rewrite-http-headers/remove-headers.png)
+![Excluindo cabeçalho](media/rewrite-http-headers/remove-headers.png)
 
 ### <a name="check-for-the-presence-of-a-header"></a>Verificar a presença de um cabeçalho
 
-Pode avaliar um cabeçalho de solicitação ou resposta HTTP para a presença de uma variável do cabeçalho ou no servidor. Essa avaliação é útil quando deseja realizar uma reescrita de cabeçalho apenas quando um determinado cabeçalho está presente.
+Você pode avaliar uma solicitação HTTP ou um cabeçalho de resposta para a presença de um cabeçalho ou uma variável de servidor. Essa avaliação é útil quando você deseja executar uma regravação de cabeçalho somente quando um determinado cabeçalho está presente.
 
-![A verificar a presença de um cabeçalho](media/rewrite-http-headers/check-presence.png)
+![Verificando a presença de um cabeçalho](media/rewrite-http-headers/check-presence.png)
 
 ## <a name="limitations"></a>Limitações
 
-- Se uma resposta tem mais do que um cabeçalhos com o mesmo nome, em seguida, reescrever o valor de um dos cabeçalhos de irá resultar em remover os outros cabeçalhos na resposta. Normalmente, isto pode acontecer com cabeçalho Set-Cookie, uma vez que pode ter mais de um cabeçalho de Set-Cookie numa resposta. Um cenário desse tipo é quando estiver a utilizar um serviço de aplicações com um gateway de aplicação e tiver configurado a afinidade de sessão baseada em cookies no gateway de aplicação. Neste caso, a resposta conterá 2 cabeçalhos de Set-Cookie: usada pelo serviço de aplicações, ou seja, `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e outro para a afinidade do gateway de aplicação, ou seja, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. A regravação de um dos cabeçalhos Set-Cookie neste cenário pode resultar em remover o cabeçalho de Set-Cookie da resposta.
+- Se uma resposta tiver mais de um cabeçalho com o mesmo nome, a regravação do valor de um desses cabeçalhos fará com que os outros cabeçalhos sejam descartados na resposta. Isso geralmente pode acontecer com o cabeçalho Set-cookie, pois você pode ter mais de um cabeçalho Set-cookie em uma resposta. Um cenário desse tipo é quando você está usando um serviço de aplicativo com um gateway de aplicativo e configurou a afinidade de sessão baseada em cookie no gateway de aplicativo. Nesse caso, a resposta conterá dois cabeçalhos Set-Cookie: um usado pelo serviço de aplicativo, por exemplo: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e outro para afinidade de gateway de aplicativo, por exemplo `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`,. Reescrever um dos cabeçalhos Set-cookie nesse cenário pode resultar na remoção do outro cabeçalho Set-cookie da resposta.
 
-- Reescrever os cabeçalhos de ligação, a atualização e o anfitrião não é atualmente suportada.
+- Atualmente, não há suporte para a regravação da conexão, da atualização e dos cabeçalhos de host.
 
-- Os nomes de cabeçalho podem conter quaisquer carateres alfanuméricos e símbolos específicos conforme definido na [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Atualmente não é suportado o caráter de sublinhado (\_) caráter especial no nomes de cabeçalho.
+- Os nomes de cabeçalho podem conter caracteres alfanuméricos e símbolos específicos, conforme definido no [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). No momento, não há suporte para o\_caractere especial sublinhado () em nomes de cabeçalho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber como reescrever cabeçalhos HTTP, consulte:
 
-- [Reescreva os cabeçalhos HTTP com o portal do Azure](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
-- [Reescreva os cabeçalhos HTTP com o Azure PowerShell](add-http-header-rewrite-rule-powershell.md)
+- [Reescrever cabeçalhos HTTP usando portal do Azure](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Reescrever cabeçalhos HTTP usando Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

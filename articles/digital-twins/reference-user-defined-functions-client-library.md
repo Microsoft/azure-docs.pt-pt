@@ -1,265 +1,265 @@
 ---
-title: Referência da biblioteca de cliente de funções do Azure duplos Digital definidas pelo utilizador | Documentos da Microsoft
-description: Referência da biblioteca de cliente de funções do Azure duplos Digital definidas pelo utilizador.
+title: Referência da biblioteca de cliente de funções definidas pelo usuário do Azure digital gêmeos | Microsoft Docs
+description: Referência da biblioteca de cliente das funções definidas pelo usuário do Azure digital gêmeos.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 08/12/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: be05cec8e3d755f1b04e5ecc5ec7c740053a74d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 14c153a6e5837da28060122a629c8cc5df8262cf
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073042"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013761"
 ---
-# <a name="user-defined-functions-client-library-reference"></a>Referência da biblioteca de cliente funções definidas pelo utilizador
+# <a name="user-defined-functions-client-library-reference"></a>Referência da biblioteca de cliente de funções definidas pelo usuário
 
-Este documento fornece informações de referência para a biblioteca de cliente de funções definidas pelo utilizador duplos Digital do Azure.
+Este documento fornece informações de referência para a biblioteca de cliente de funções definidas pelo usuário do Azure digital gêmeos.
 
 ## <a name="helper-methods"></a>Métodos auxiliares
 
-A biblioteca de cliente define métodos auxiliares para operações usadas.
+A biblioteca de cliente define métodos auxiliares para operações comumente usadas.
 
-### <a name="getspacemetadataid--space"></a>getSpaceMetadata(id) ⇒ `space`
+### <a name="getspacemetadataid--space"></a>getSpaceMetadata (ID) ⇒`space`
 
-Tendo em conta um identificador de espaço, esta função recupera o espaço do gráfico.
+Dado um identificador de espaço, essa função recupera o espaço do grafo.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ---------- | ------------------- | ------------ |
 | *id*  | `guid` | Identificador de espaço |
 
-### <a name="getsensormetadataid--sensor"></a>getSensorMetadata(id) ⇒ `sensor`
+### <a name="getsensormetadataid--sensor"></a>getSensorMetadata (ID) ⇒`sensor`
 
-Tendo em conta um identificador de sensor, essa função obtém o sensor do gráfico.
+Dado um identificador de sensor, essa função recupera o sensor do grafo.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ---------- | ------------------- | ------------ |
-| *id*  | `guid` | Identificador de sensor |
+| *id*  | `guid` | Identificador do sensor |
 
-### <a name="getdevicemetadataid--device"></a>getDeviceMetadata(id) ⇒ `device`
+### <a name="getdevicemetadataid--device"></a>getDeviceMetadata (ID) ⇒`device`
 
-Tendo em conta um identificador de dispositivo, esta função recupera o dispositivo do gráfico.
+Dado um identificador de dispositivo, essa função recupera o dispositivo do grafo.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *id* | `guid` | Identificador de dispositivo |
+| *id* | `guid` | Identificador do dispositivo |
 
-### <a name="getsensorvaluesensorid-datatype--value"></a>getSensorValue(sensorId, dataType) ⇒ `value`
+### <a name="getsensorvaluesensorid-datatype--value"></a>getsensorvalue (sensorid, dataType) ⇒`value`
 
-Tendo em conta um identificador de sensor e o respetivo tipo de dados, essa função obtém o valor atual para esse sensor.
+Dado um identificador de sensor e seu tipo de dados, essa função recupera o valor atual para esse sensor.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *sensorId*  | `guid` | Identificador de sensor |
-| *dataType*  | `string` | tipo de dados do sensor |
+| *sensorId*  | `guid` | Identificador do sensor |
+| *dataType*  | `string` | Tipo de dados do sensor |
 
 ### <a name="getspacevaluespaceid-valuename--value"></a>getSpaceValue(spaceId, valueName) ⇒ `value`
 
-Com um identificador de espaço e o nome do valor, esta função recupera o valor atual para essa propriedade de espaço.
+Dado um identificador de espaço e o nome do valor, essa função recupera o valor atual dessa propriedade de espaço.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
 | *spaceId*  | `guid` | Identificador de espaço |
-| *valueName* | `string` | nome da propriedade de espaço |
+| *valueName* | `string` | Nome da propriedade de espaço |
 
-### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues(sensorId, dataType) ⇒ `value[]`
+### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues (sensorid, dataType) ⇒`value[]`
 
-Tendo em conta um identificador de sensor e o respetivo tipo de dados, esta função recupera os valores históricos para esse sensor.
+Dado um identificador de sensor e seu tipo de dados, essa função recupera os valores históricos para esse sensor.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *sensorId* | `guid` | Identificador de sensor |
-| *dataType* | `string` | tipo de dados do sensor |
+| *sensorId* | `guid` | Identificador do sensor |
+| *dataType* | `string` | Tipo de dados do sensor |
 
-### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>getSpaceHistoryValues(spaceId, dataType) ⇒ `value[]`
+### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>getSpaceHistoryValues (spaceid, dataType) ⇒`value[]`
 
-Com um identificador de espaço e o nome do valor, esta função recupera os valores históricos para essa propriedade no espaço de.
+Dado um identificador de espaço e o nome do valor, essa função recupera os valores históricos para essa propriedade no espaço.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
-| ------ | ------------------- | ------------ |
-| *spaceId* | `guid` | Identificador de espaço |
-| *valueName* | `string` | nome da propriedade de espaço |
-
-### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒ `space[]`
-
-Tendo em conta um identificador de espaço, essa função obtém os espaços de subordinados para esse espaço principal.
-
-**Tipo**: função global
-
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Identificador de espaço |
+| *valueName* | `string` | Nome da propriedade de espaço |
 
-### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors(spaceId) ⇒ `sensor[]`
+### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces (spaceid) ⇒`space[]`
 
-Tendo em conta um identificador de espaço, essa função obtém os sensores de subordinados para esse espaço principal.
+Dado um identificador de espaço, essa função recupera os espaços filho para esse espaço pai.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Identificador de espaço |
 
-### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices(spaceId) ⇒ `device[]`
+### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors (spaceid) ⇒`sensor[]`
 
-Tendo em conta um identificador de espaço, essa função obtém os dispositivos de subordinados para esse espaço principal.
+Dado um identificador de espaço, essa função recupera os sensores filho para esse espaço pai.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Identificador de espaço |
 
-### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors(deviceId) ⇒ `sensor[]`
+### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices (spaceid) ⇒`device[]`
 
-Tendo em conta um identificador de dispositivo, esta função recupera os sensores de subordinados para esse dispositivo principal.
+Dado um identificador de espaço, essa função recupera os dispositivos filho para esse espaço pai.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *deviceId* | `guid` | Identificador de dispositivo |
+| *spaceId* | `guid` | Identificador de espaço |
 
-### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒ `space`
+### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors (DeviceID) ⇒`sensor[]`
 
-Tendo em conta um identificador de espaço, essa função obtém seu espaço de principal.
+Dado um identificador de dispositivo, essa função recupera os sensores filho para esse dispositivo pai.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
+| ------ | ------------------- | ------------ |
+| *deviceId* | `guid` | Identificador do dispositivo |
+
+### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒`space`
+
+Dado um identificador de espaço, essa função recupera seu espaço pai.
+
+**Kind**: função global
+
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
 | *childSpaceId* | `guid` | Identificador de espaço |
 
 ### <a name="getsensorparentspacechildsensorid--space"></a>getSensorParentSpace(childSensorId) ⇒ `space`
 
-Tendo em conta um identificador de sensor, essa função obtém seu espaço de principal.
+Dado um identificador de sensor, essa função recupera seu espaço pai.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *childSensorId* | `guid` | Identificador de sensor |
+| *childSensorId* | `guid` | Identificador do sensor |
 
-### <a name="getdeviceparentspacechilddeviceid--space"></a>getDeviceParentSpace(childDeviceId) ⇒ `space`
+### <a name="getdeviceparentspacechilddeviceid--space"></a>getDeviceParentSpace(childDeviceId) ⇒`space`
 
-Tendo em conta um identificador de dispositivo, essa função obtém seu espaço de principal.
+Dado um identificador de dispositivo, essa função recupera seu espaço pai.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *childDeviceId* | `guid` | Identificador de dispositivo |
+| *childDeviceId* | `guid` | Identificador do dispositivo |
 
 ### <a name="getsensorparentdevicechildsensorid--space"></a>getSensorParentDevice(childSensorId) ⇒ `space`
 
-Tendo em conta um identificador de sensor, essa função obtém o respetivo dispositivo principal.
+Dado um identificador de sensor, essa função recupera seu dispositivo pai.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *childSensorId* | `guid` | Identificador de sensor |
+| *childSensorId* | `guid` | Identificador do sensor |
 
-### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>⇒ getSpaceExtendedProperty (spaceId, propertyName) `extendedProperty`
+### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>getSpaceExtendedProperty (spaceid, propertyName) ⇒`extendedProperty`
 
-Tendo em conta um identificador de espaço, esta função recupera a propriedade e o respetivo valor do espaço.
+Dado um identificador de espaço, essa função recupera a propriedade e seu valor do espaço.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Identificador de espaço |
-| *propertyName* | `string` | nome da propriedade de espaço |
+| *propertyName* | `string` | Nome da propriedade de espaço |
 
-### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>⇒ getSensorExtendedProperty (sensorId, propertyName) `extendedProperty`
+### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>getSensorExtendedProperty (sensorid, propertyName) ⇒`extendedProperty`
 
-Tendo em conta um identificador de sensor, esta função recupera a propriedade e o respetivo valor do sensor.
+Dado um identificador de sensor, essa função recupera a propriedade e seu valor do sensor.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *sensorId* | `guid` | Identificador de sensor |
-| *propertyName* | `string` | nome de propriedade do sensor |
+| *sensorId* | `guid` | Identificador do sensor |
+| *propertyName* | `string` | Nome da Propriedade do sensor |
 
-### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>getDeviceExtendedProperty(deviceId, propertyName) ⇒ `extendedProperty`
+### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>getDeviceExtendedProperty (DeviceID, propertyName) ⇒`extendedProperty`
 
-Tendo em conta um identificador de dispositivo, esta função recupera a propriedade e o respetivo valor do dispositivo.
+Dado um identificador de dispositivo, essa função recupera a propriedade e seu valor do dispositivo.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *deviceId* | `guid` | Identificador de dispositivo |
-| *propertyName* | `string` | nome de propriedade do dispositivo |
+| *deviceId* | `guid` | Identificador do dispositivo |
+| *propertyName* | `string` | Nome da Propriedade do dispositivo |
 
 ### <a name="setsensorvaluesensorid-datatype-value"></a>setSensorValue(sensorId, dataType, value)
 
-Esta função define um valor no objeto de sensor com o tipo de dados fornecido.
+Essa função define um valor no objeto sensor com o tipo de dados fornecido.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *sensorId* | `guid` | Identificador de sensor |
-| *dataType*  | `string` | tipo de dados do sensor |
+| *sensorId* | `guid` | Identificador do sensor |
+| *dataType*  | `string` | Tipo de dados do sensor |
 | *valor*  | `string` | Value |
 
 ### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue(spaceId, dataType, value)
 
-Esta função define um valor no objeto espaço com o tipo de dados fornecido.
+Essa função define um valor no objeto Space com o tipo de dados fornecido.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Identificador de espaço |
 | *dataType* | `string` | Tipo de dados |
 | *valor* | `string` | Value |
 
-### <a name="logmessage"></a>log(Message)
+### <a name="logmessage"></a>log (mensagem)
 
-Esta função regista a mensagem seguinte dentro da função definida pelo utilizador.
+Essa função registra a seguinte mensagem na função definida pelo usuário.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *message* | `string` | mensagem de ter sessão iniciada |
+| *message* | `string` | Mensagem a ser registrada |
 
-### <a name="sendnotificationtopologyobjectid-topologyobjecttype-payload"></a>sendNotification(topologyObjectId, topologyObjectType, payload)
+### <a name="sendnotificationtopologyobjectid-topologyobjecttype-payload"></a>sendNotification (topologyObjectId, topologyObjectType, payload)
 
-Esta função envia uma notificação para ser expedida.
+Essa função envia uma notificação personalizada a ser expedida.
 
-**Tipo**: função global
+**Kind**: função global
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *topologyObjectId*  | `guid` | Identificador de objeto de gráfico. Os exemplos são espaço, o sensor e o ID de dispositivo.|
-| *topologyObjectType*  | `string` | Os exemplos são sensor e do dispositivo.|
-| *payload*  | `string` | O payload JSON para serem enviados com a notificação. |
+| *topologyObjectId*  | `guid` | Identificador de objeto de grafo. Os exemplos são espaço, sensor e ID do dispositivo.|
+| *topologyObjectType*  | `string` | Os exemplos são sensor e dispositivo.|
+| *carga*  | `string` | A carga JSON a ser enviada com a notificação. |
 
 ## <a name="return-types"></a>Tipos de retorno
 
-Os modelos de resposta retornados dos métodos de programa auxiliar de referência do cliente são descritos abaixo.
+Os modelos de resposta retornados dos métodos auxiliares de referência do cliente são descritos abaixo.
 
 ### <a name="space"></a>Espaço
 
@@ -276,49 +276,49 @@ Os modelos de resposta retornados dos métodos de programa auxiliar de referênc
 
 ### <a name="space-methods"></a>Métodos de espaço
 
-#### <a name="parent--space"></a>Parent() ⇒ `space`
+#### <a name="parent--space"></a>⇒ Pai ()`space`
 
-Esta função devolve o espaço de principal do espaço atual.
+Essa função retorna o espaço pai do espaço atual.
 
-#### <a name="childsensors--sensor"></a>ChildSensors() ⇒ `sensor[]`
+#### <a name="childsensors--sensor"></a>ChildSensors() ⇒`sensor[]`
 
-Essa função retorna o filho sensores do espaço atual.
+Essa função retorna os sensores filho do espaço atual.
 
-#### <a name="childdevices--device"></a>ChildDevices() ⇒ `device[]`
+#### <a name="childdevices--device"></a>ChildDevices() ⇒`device[]`
 
-Essa função retorna o filho de dispositivos do espaço atual.
+Essa função retorna os dispositivos filho do espaço atual.
 
-#### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
+#### <a name="extendedpropertypropertyname--extendedproperty"></a>Extended (PropertyName) ⇒`extendedProperty`
 
-Essa função retorna a propriedade estendida e o respetivo valor para o atual espaço.
+Essa função retorna a propriedade estendida e seu valor para o espaço atual.
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *propertyName* | `string` | nome da propriedade expandida |
+| *propertyName* | `string` | Nome da propriedade estendida |
 
-#### <a name="valuevaluename--value"></a>Value(valueName) ⇒ `value`
+#### <a name="valuevaluename--value"></a>Valor (valor) ⇒`value`
 
-Esta função devolve o valor do espaço atual.
+Essa função retorna o valor do espaço atual.
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *valueName* | `string` | nome do valor |
+| *valueName* | `string` | Nome do valor |
 
-#### <a name="historyvaluename--value"></a>History(VALUENAME) ⇒ `value[]`
+#### <a name="historyvaluename--value"></a>Histórico (valor) ⇒`value[]`
 
-Esta função devolve os valores de histórico do espaço atual.
+Essa função retorna os valores históricos do espaço atual.
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *valueName* | `string` | nome do valor |
+| *valueName* | `string` | Nome do valor |
 
-#### <a name="notifypayload"></a>NOTIFY(Payload)
+#### <a name="notifypayload"></a>Notificar (carga)
 
-Esta função envia uma notificação com o payload especificado.
+Essa função envia uma notificação com a carga especificada.
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *payload* | `string` | Payload JSON para incluir na notificação |
+| *carga* | `string` | Carga JSON a ser incluída na notificação |
 
 ### <a name="device"></a>Dispositivo
 
@@ -340,29 +340,29 @@ Esta função envia uma notificação com o payload especificado.
 
 ### <a name="device-methods"></a>Métodos do dispositivo
 
-#### <a name="parent--space"></a>Parent() ⇒ `space`
+#### <a name="parent--space"></a>⇒ Pai ()`space`
 
-Esta função devolve o espaço de principal do dispositivo atual.
+Essa função retorna o espaço pai do dispositivo atual.
 
-#### <a name="childsensors--sensor"></a>ChildSensors() ⇒ `sensor[]`
+#### <a name="childsensors--sensor"></a>ChildSensors() ⇒`sensor[]`
 
-Essa função retorna o filho sensores do dispositivo atual.
+Essa função retorna os sensores filho do dispositivo atual.
 
-#### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
+#### <a name="extendedpropertypropertyname--extendedproperty"></a>Extended (PropertyName) ⇒`extendedProperty`
 
-Essa função retorna a propriedade estendida e o respetivo valor para o dispositivo atual.
+Essa função retorna a propriedade estendida e seu valor para o dispositivo atual.
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *propertyName* | `string` | nome da propriedade expandida |
+| *propertyName* | `string` | Nome da propriedade estendida |
 
-#### <a name="notifypayload"></a>NOTIFY(Payload)
+#### <a name="notifypayload"></a>Notificar (carga)
 
-Esta função envia uma notificação com o payload especificado.
+Essa função envia uma notificação com a carga especificada.
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *payload* | `string` | Payload JSON para incluir na notificação |
+| *carga* | `string` | Carga JSON a ser incluída na notificação |
 
 ### <a name="sensor"></a>Sensor
 
@@ -388,37 +388,37 @@ Esta função envia uma notificação com o payload especificado.
 
 ### <a name="sensor-methods"></a>Métodos de sensor
 
-#### <a name="space--space"></a>Space() ⇒ `space`
+#### <a name="space--space"></a>Espaço () ⇒`space`
 
-Esta função devolve o espaço de principal do sensor de corrente.
+Essa função retorna o espaço pai do sensor atual.
 
-#### <a name="device--device"></a>Device() ⇒ `device`
+#### <a name="device--device"></a>Dispositivo () ⇒`device`
 
-Esta função devolve o dispositivo principal do sensor de corrente.
+Essa função retorna o dispositivo pai do sensor atual.
 
-#### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
+#### <a name="extendedpropertypropertyname--extendedproperty"></a>Extended (PropertyName) ⇒`extendedProperty`
 
-Essa função retorna a propriedade estendida e o respetivo valor para o sensor de corrente.
+Essa função retorna a propriedade estendida e seu valor para o sensor atual.
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *propertyName* | `string` | nome da propriedade expandida |
+| *propertyName* | `string` | Nome da propriedade estendida |
 
-#### <a name="value--value"></a>Value () ⇒ `value`
+#### <a name="value--value"></a>Valor () ⇒`value`
 
-Esta função devolve o valor do sensor de corrente.
+Essa função retorna o valor do sensor atual.
 
-#### <a name="history--value"></a>History() ⇒ `value[]`
+#### <a name="history--value"></a>Histórico () ⇒`value[]`
 
-Esta função devolve os valores de histórico do sensor de corrente.
+Essa função retorna os valores históricos do sensor atual.
 
-#### <a name="notifypayload"></a>NOTIFY(Payload)
+#### <a name="notifypayload"></a>Notificar (carga)
 
-Esta função envia uma notificação com o payload especificado.
+Essa função envia uma notificação com a carga especificada.
 
-| Parâmetro  | Tipo                | Descrição  |
+| Parâmetro  | Type                | Descrição  |
 | ------ | ------------------- | ------------ |
-| *payload* | `string` | Payload JSON para incluir na notificação |
+| *carga* | `string` | Carga JSON a ser incluída na notificação |
 
 ### <a name="value"></a>Value
 
@@ -430,7 +430,7 @@ Esta função envia uma notificação com o payload especificado.
 }
 ```
 
-### <a name="extended-property"></a>Propriedade expandida
+### <a name="extended-property"></a>Propriedade estendida
 
 ```JSON
 {
@@ -441,8 +441,8 @@ Esta função envia uma notificação com o payload especificado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [as funções definidas pelo utilizador de duplos Digital do Azure](./concepts-user-defined-functions.md).
+- Saiba mais sobre as [funções definidas pelo usuário do Azure digital gêmeos](./concepts-user-defined-functions.md).
 
-- Saiba mais [como criar funções definidas pelo utilizador](./how-to-user-defined-functions.md).
+- Saiba [como criar funções definidas pelo usuário](./how-to-user-defined-functions.md).
 
-- Saiba mais [como depurar funções definidas pelo utilizador](./how-to-diagnose-user-defined-functions.md).
+- Saiba [como depurar funções definidas pelo usuário](./how-to-diagnose-user-defined-functions.md).

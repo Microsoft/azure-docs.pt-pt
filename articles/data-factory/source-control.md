@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 91c0ad260c16ac09fd764246d31f99d481f8f147
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: fd8168b5786f669de0c5c2109c9e02b43c62c582
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886835"
+ms.locfileid: "68933662"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle do código-fonte no Azure Data Factory
 
@@ -68,7 +68,7 @@ Ambos os métodos abrem o painel de configuração configurações do repositór
 
 O painel de configuração mostra as seguintes configurações de Azure Repos repositório de código:
 
-| Definição | Descrição | Valor |
+| Definição | Descrição | Value |
 |:--- |:--- |:--- |
 | **Tipo de repositório** | O tipo do repositório de código de Azure Repos.<br/> | Azure DevOps git ou GitHub |
 | **Azure Active Directory** | O nome do locatário do Azure AD. | `<your tenant name>` |
@@ -243,7 +243,7 @@ Usar Key Vault também facilita a integração e a implantação contínua, pois
 
 Se a ramificação de publicação estiver fora de sincronia com a ramificação mestre e contiver recursos desatualizados, independentemente de uma publicação recente, tente seguir estas etapas:
 
-1. Remova seu repositório git atual/
+1. Remover seu repositório git atual
 1. Reconfigure o Git com as mesmas configurações, mas certifique-se de que **importar recursos existentes do data Factory para o repositório** esteja selecionado e escolha **novo Branch**
 1. Excluir todos os recursos de sua ramificação de colaboração
 1. Criar uma solicitação de pull para mesclar as alterações para a ramificação de colaboração 
