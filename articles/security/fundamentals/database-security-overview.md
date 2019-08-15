@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: dc4c36735ade8a094acbf897ee040a239a1bed48
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 9053866b76ec1cc409c3f00d0af59bf3761d3936
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727417"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927984"
 ---
 # <a name="azure-database-security-overview"></a>Visão geral da segurança do banco de dados Azure
 
@@ -206,7 +206,7 @@ O [banco de dados do Azure para PostgreSQL proteção avançada contra ameaças]
 
 O [Centro de Segurança do Azure](https://azure.microsoft.com/documentation/services/security-center/) ajuda-o a evitar, detetar e responder a ameaças. Ele fornece monitoramento de segurança integrado e gerenciamento de políticas em suas assinaturas do Azure. Ele ajuda a detectar ameaças que poderiam passar despercebidas e trabalha com um amplo ecossistema de soluções de segurança.
 
-A [central de segurança](https://docs.microsoft.com/azure/security-center/security-center-sql-database) ajuda você a proteger os dados no SQL Database, fornecendo visibilidade sobre a segurança de todos os seus servidores e bancos de dados. Com a central de segurança, você pode:
+A [central de segurança](../../security-center/security-center-sql-database.md) ajuda você a proteger os dados no SQL Database, fornecendo visibilidade sobre a segurança de todos os seus servidores e bancos de dados. Com a central de segurança, você pode:
 
 - Defina políticas para a criptografia e a auditoria do banco de dados SQL.
 - Monitore a segurança dos recursos do banco de dados SQL em todas as suas assinaturas.
@@ -228,7 +228,7 @@ Você pode configurar [políticas de proteção de informações do SQL](/azure/
 O Azure Marketplace é um mercado online de aplicações e serviços que permite às empresas recém-criadas e aos fabricantes independentes de software (ISV) oferecerem as suas soluções aos clientes Azure de todo o mundo.
 O Azure Marketplace combina Microsoft Azure ecossistemas de parceiros em uma plataforma unificada para atender melhor aos clientes e parceiros. Você pode [executar uma pesquisa](https://azuremarketplace.microsoft.com/marketplace/apps?search=Database%20Security&page=1) para exibir os produtos de segurança de banco de dados disponíveis no Azure Marketplace.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Proteja seu banco de dados SQL do Azure](/azure/sql-database/sql-database-security-tutorial)
 - [Central de segurança do Azure e serviço do banco de dados SQL do Azure](/azure/security-center/security-center-sql-database)

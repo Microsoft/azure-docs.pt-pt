@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: b79039c45006b81201d455cc4bbbf1b3468a3923
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 13eef9beb6c86683c56efc744dc42b4614b84fe9
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845540"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946490"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagindo a eventos de armazenamento de BLOBs
 
@@ -30,8 +30,8 @@ Se você quiser experimentar isso agora, consulte qualquer um destes artigos de 
 |Se você quiser usar essa ferramenta:    |Consulte este artigo: |
 |--|-|
 |Portal do Azure    |[Quickstart: Rotear eventos de armazenamento de BLOBs para o ponto de extremidade da Web com o portal do Azure](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|CLI do Azure    |[Quickstart: Rotear eventos de armazenamento para o ponto de extremidade da Web com o PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Powershell    |[Quickstart: Rotear eventos de armazenamento para o ponto de extremidade da Web com CLI do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|PowerShell    |[Quickstart: Rotear eventos de armazenamento para o ponto de extremidade da Web com o PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|CLI do Azure    |[Quickstart: Rotear eventos de armazenamento para o ponto de extremidade da Web com CLI do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## <a name="the-event-model"></a>O modelo de evento
 
@@ -95,7 +95,7 @@ Os aplicativos que tratam eventos de armazenamento de BLOBs devem seguir algumas
 > * Se você quiser garantir que o evento **Microsoft. Storage. BlobCreated** seja disparado somente quando um blob de blocos for completamente confirmado, filtre o evento `CopyBlob`para as `PutBlockList` chamadas `FlushWithClose` da API REST, `PutBlob`ou. Essas chamadas de API disparam o evento **Microsoft. Storage. BlobCreated** somente depois que os dados são totalmente confirmados em um blob de blocos. Para saber como criar um filtro, consulte [filtrar eventos para a grade de eventos](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a grade de eventos e forneça eventos de armazenamento de BLOBs uma tentativa:
 

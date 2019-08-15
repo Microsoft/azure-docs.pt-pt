@@ -1,35 +1,35 @@
 ---
-title: Como implementar personalizado de sincronização para otimizar para elevada disponibilidade e desempenho no Azure Cosmos DB
-description: Saiba como implementar a sincronização personalizada para otimizar para elevada disponibilidade e desempenho no Azure Cosmos DB.
+title: Como implementar a sincronização personalizada para otimizar para maior disponibilidade e desempenho no Azure Cosmos DB
+description: Saiba como implementar a sincronização personalizada para otimizar a disponibilidade e o desempenho mais altos no Azure Cosmos DB.
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: rimman
-ms.openlocfilehash: de66149a2ea3e01e62aa8e33ea5a99121a21524f
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 0f630c2139d1d7d391d6c5578e5e7f378e56dcb4
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67986086"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013776"
 ---
-# <a name="implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>Implementar a sincronização personalizada para otimizar para elevada disponibilidade e desempenho
+# <a name="implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>Implemente a sincronização personalizada para otimizar para maior disponibilidade e desempenho
 
-Azure Cosmos DB oferece [cinco níveis de consistência bem definidos](consistency-levels.md) à sua escolha de equilibrar o compromisso entre disponibilidade, desempenho e consistência. Consistência forte ajuda a garantir que os dados são replicados de forma síncrona e mantidos de maneira duradoura em cada região em que a conta do Cosmos do Azure está disponível. Esta configuração fornece o nível mais elevado de durabilidade, mas impacta o desempenho e disponibilidade. Se pretender que o seu aplicativo para controlar ou relaxe durabilidade dos dados de acordo com o aplicativo precisa sem comprometer a disponibilidade, pode utilizar *personalizado de sincronização* na camada da aplicação para alcançar o nível de durabilidade que.
+O Azure Cosmos DB oferece [cinco níveis de consistência bem definidos](consistency-levels.md) para que você escolha entre equilibrar a compensação entre consistência, desempenho e disponibilidade. A consistência forte ajuda a garantir que os dados sejam replicados de forma síncrona e permanentemente persistiram em todas as regiões em que a conta do Azure Cosmos está disponível. Essa configuração fornece o nível mais alto de durabilidade, mas acompanha o custo de desempenho e disponibilidade. Se você quiser que seu aplicativo controle ou relaxe a durabilidade dos dados para atender às necessidades do aplicativo sem comprometer a disponibilidade, poderá usar a *sincronização personalizada* na camada do aplicativo para atingir o nível de durabilidade desejado.
 
-A imagem seguinte mostra visualmente o modelo personalizado de sincronização:
+A imagem a seguir descreve visualmente o modelo de sincronização personalizado:
 
-![Personalizado de sincronização](./media/how-to-custom-synchronization/custom-synchronization.png)
+![Sincronização personalizada](./media/how-to-custom-synchronization/custom-synchronization.png)
 
-Neste cenário, um contentor do Cosmos do Azure é replicado globalmente em várias regiões em vários continentes. Usando a consistência forte para todas as regiões neste cenário afeta o desempenho. Para garantir um nível mais elevado de durabilidade dos dados sem comprometer a latência de escrita, o aplicativo pode usar dois clientes que partilham o mesmo [token de sessão](how-to-manage-consistency.md#utilize-session-tokens).
+Nesse cenário, um contêiner Cosmos do Azure é replicado globalmente em várias regiões em vários continentes. O uso de uma consistência forte para todas as regiões neste cenário afeta o desempenho. Para garantir um nível mais alto de durabilidade dos dados sem comprometer a latência de gravação, o aplicativo pode usar dois clientes que compartilham o mesmo [token de sessão](how-to-manage-consistency.md#utilize-session-tokens).
 
-O primeiro cliente possa escrever dados para a região local (por exemplo, e.u.a. Centro-Oeste). O segundo cliente (por exemplo, nos EUA Leste) é um cliente de leitura que é utilizado para garantir a sincronização. Ao enviar o token de sessão da resposta de escrita para a leitura seguinte, a leitura garante a sincronização de escritas, EUA Leste. O Azure Cosmos DB garante que as escritas são visualizadas pelo menos uma região. É garantido que sobrevivem a uma falha regional, se a região de escrita original ficar inativo. Neste cenário, a cada gravação está sincronizada com E.U. a leste, reduzindo a latência de emprego de consistência forte em todas as regiões. Num cenário de vários mestre, onde ocorrem escritas em cada região, é possível estender esse modelo para sincronizar em várias regiões em paralelo.
+O primeiro cliente pode gravar dados na região local (por exemplo, oeste dos EUA). O segundo cliente (por exemplo, no leste dos EUA) é um cliente de leitura que é usado para garantir a sincronização. Ao fluir o token de sessão da resposta de gravação para a leitura a seguir, a leitura garante a sincronização de gravações no leste dos EUA. Azure Cosmos DB garante que as gravações sejam vistas por pelo menos uma região. Eles têm a garantia de sobreviver a uma interrupção regional se a região de gravação original ficar inativa. Nesse cenário, todas as gravações são sincronizadas para o leste dos EUA, reduzindo a latência de emprego de consistência forte em todas as regiões. Em um cenário de vários mestres, em que as gravações ocorrem em todas as regiões, você pode estender esse modelo para sincronizar com várias regiões em paralelo.
 
 ## <a name="configure-the-clients"></a>Configurar os clientes
 
-O exemplo seguinte mostra uma camada de acesso de dados que cria uma instância de dois clientes para personalizado de sincronização:
+O exemplo a seguir mostra uma camada de acesso a dados que instancia dois clientes para sincronização personalizada:
 
-### <a name="net-v2-sdk"></a>.NET V2 SDK
+### <a name="net-v2-sdk"></a>SDK do .net v2
 ```csharp
 class MyDataAccessLayer
 {
@@ -65,7 +65,7 @@ class MyDataAccessLayer
 }
 ```
 
-### <a name="net-v3-sdk"></a>.NET V3 SDK
+### <a name="net-v3-sdk"></a>SDK do .net v3
 ```csharp
 class MyDataAccessLayer
 {
@@ -84,16 +84,16 @@ class MyDataAccessLayer
 
 
         writeClient = new CosmosClient(accountEndpoint, key, writeConnectionOptions);
-        writeClient = new CosmosClient(accountEndpoint, key, writeConnectionOptions);
+        readClient = new CosmosClient(accountEndpoint, key, readConnectionOptions);
     }
 }
 ```
 
 ## <a name="implement-custom-synchronization"></a>Implementar sincronização personalizada
 
-Depois dos clientes são inicializados, o aplicativo pode realizar escritas para a região local (E.u.a. oeste) e a sincronização de força as gravações em E.u.a. leste da seguinte forma.
+Depois que os clientes são inicializados, o aplicativo pode executar gravações na região local (oeste dos EUA) e forçar a sincronização das gravações para o leste dos EUA, como a seguir.
 
-### <a name="net-v2-sdk"></a>.NET V2 SDK
+### <a name="net-v2-sdk"></a>SDK do .net v2
 ```csharp
 class MyDataAccessLayer
 {
@@ -108,7 +108,7 @@ class MyDataAccessLayer
 }
 ```
 
-### <a name="net-v3-sdk"></a>.NET V3 SDK
+### <a name="net-v3-sdk"></a>SDK do .net v3
 ```csharp
 class MyDataAccessLayer
 {
@@ -127,13 +127,13 @@ class MyDataAccessLayer
 }
 ```
 
-Pode estender o modelo de sincronização em várias regiões em paralelo.
+Você pode estender o modelo para sincronizar em várias regiões em paralelo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre a distribuição global e consistência no Azure Cosmos DB, leia os seguintes artigos:
+Para saber mais sobre a distribuição global e a consistência em Azure Cosmos DB, leia estes artigos:
 
-* [Escolha o nível certo de consistência no Azure Cosmos DB](consistency-levels-choosing.md)
-* [Compromissos de consistência, disponibilidade e desempenho no Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Gerir a consistência no Azure Cosmos DB](how-to-manage-consistency.md)
-* [Distribuição de criação de partições e os dados no Azure Cosmos DB](partition-data.md)
+* [Escolha o nível de consistência certo no Azure Cosmos DB](consistency-levels-choosing.md)
+* [Compensações de consistência, disponibilidade e desempenho no Azure Cosmos DB](consistency-levels-tradeoffs.md)
+* [Gerenciar a consistência no Azure Cosmos DB](how-to-manage-consistency.md)
+* [Particionamento e distribuição de dados no Azure Cosmos DB](partition-data.md)

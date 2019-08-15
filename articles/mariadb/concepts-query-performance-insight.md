@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: cb12d80756c88c8e24dbec41a31c15c2133615ec
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 709428d420c7d5f725d1b7df85e4860aec765b48
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882580"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950667"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Análise de Desempenho de Consultas no banco de dados do Azure para MariaDB
 
 **Aplica-se a:** Banco de dados do Azure para MariaDB 10,2
 
-> [!NOTE]
+> [!IMPORTANT]
 > Análise de Desempenho de Consultas está em versão prévia.
 
 Análise de Desempenho de Consultas ajuda a identificar rapidamente o que são suas consultas em execução mais longas, como elas mudam com o passar do tempo e quais esperas estão afetando-as.
@@ -69,6 +69,6 @@ As consultas exibidas na exibição Estatísticas de espera são agrupadas pelas
 
 ![Estatísticas de esperas de Análise de Desempenho de Consultas](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [monitoramento e ajuste](concepts-monitoring.md) no banco de dados do Azure para MariaDB.

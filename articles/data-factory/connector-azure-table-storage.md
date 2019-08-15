@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: c4ea3c93daac1ebb88bae2b8cb01485d955be2bb
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: bf28fb69d35256d65fdfd2c092ad48d0ad1281f9
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726202"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985990"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiar dados de e para o armazenamento de tabelas do Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -112,7 +112,7 @@ Você também pode criar um serviço vinculado de armazenamento usando uma assin
 Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento. Você pode usá-lo para conceder a um cliente permissões limitadas a objetos em sua conta de armazenamento por um período especificado e com um conjunto especificado de permissões. Não tem de partilhar as chaves de acesso da conta. A assinatura de acesso partilhado é um URI que abrange em seus parâmetros de consulta todas as informações necessárias para acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a assinatura de acesso partilhado, o cliente precisa apenas passar a assinatura de acesso partilhado para o método ou construtor apropriado. Para obter mais informações sobre assinaturas de acesso compartilhado [, consulte assinaturas de acesso compartilhado: Entenda o modelo](../storage/common/storage-dotnet-shared-access-signature-part-1.md)de assinatura de acesso compartilhado.
 
 > [!NOTE]
-> O Data Factory suporta agora ambos **serviço de assinaturas de acesso partilhado** e **assinaturas de acesso partilhado de conta**. Para obter mais informações sobre estes dois tipos e como construí-las, consulte [tipos de assinaturas de acesso partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
+> O Data Factory suporta agora ambos **serviço de assinaturas de acesso partilhado** e **assinaturas de acesso partilhado de conta**. Para obter mais informações sobre assinaturas de acesso compartilhado, consulte [conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../storage/common/storage-sas-overview.md). 
 
 > [!TIP]
 > Para gerar uma assinatura de acesso partilhado do serviço para a sua conta de armazenamento, pode executar os seguintes comandos do PowerShell. Substitua os marcadores de posição e conceder a permissão necessária.
@@ -342,5 +342,5 @@ Quando você move dados de e para a tabela do Azure, os seguintes [mapeamentos d
 | Edm.Int64 |Int64 |Um inteiro de 64 bits. |
 | Edm.String |Cadeia |Um valor codificado em UTF-16. Os valores de cadeia de caracteres podem ser de até 64 KB. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 4b66d015e8a182e305a36dacaa2e082288a3e19e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 186ba03142e01c4b9340fc5b492621cc17575104
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840537"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934281"
 ---
 # <a name="introduction-to-deep-learning-vs-machine-learning"></a>Introdução ao aprendizado profundo versus aprendizado de máquina
 
@@ -78,7 +78,7 @@ Uma tarefa importante que o aprendizado profundo pode realizar é a e-Discovery.
 
 ## <a name="what-are-artificial-neural-networks"></a>O que são redes neurais artificiais?
 
-Uma rede neural artificial é um modelo de aprendizado profundo inspirado pela forma de redes neurais biológicas nas informações do processo de cérebro humana. Há vários tipos de redes neurais artificiais que estão sendo usadas no momento. Os typologies de rede neural artificial mais populares são discutidos abaixo.
+Redes neurais artificial são formadas por camadas de nós conectados. Os modelos de aprendizado profundo usam redes neurais com um número muito grande de camadas. Os typologies de rede neural artificial mais populares são discutidos abaixo.
 
 ### <a name="feedforward-neural-network"></a>Rede neural Feedforward
 
@@ -92,7 +92,7 @@ As redes neurais recorrentes são um tipo mais amplamente usado de rede neural a
 
 Uma rede neural de revolução é um tipo particularmente eficaz de rede neural artificial, que apresenta uma arquitetura exclusiva. Primeiro, as camadas são organizadas em três dimensões: largura, altura e profundidade. Além disso, os neurônios em uma camada não se conectam a todos os neurônios na próxima camada, mas apenas a uma pequena região dele. Por fim, a saída final será reduzida a um único vetor de pontuações de probabilidade, organizadas ao longo da dimensão de profundidade. Essas redes neurais foram usadas em áreas como reconhecimento e classificação de imagens.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Os artigos a seguir mostram como usar a tecnologia de aprendizado profundo no [serviço de Azure Machine Learning](/azure/machine-learning/service/):
 

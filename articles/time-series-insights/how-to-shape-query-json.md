@@ -6,15 +6,15 @@ author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 08/09/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 421e25570cd4c4495769530e4072cd8e0219f752
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 48e09a64812f7552bd79c529138db693df283790
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666270"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947154"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Forma JSON para maximizar o desempenho da consulta 
 

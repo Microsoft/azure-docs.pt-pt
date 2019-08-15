@@ -7,18 +7,17 @@ author: raiye
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/2/2019
 ms.author: raiye
-ms.openlocfilehash: 534a77ad29338ca1cdba22a3adeb8113521a6246
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 6f7fc27674ad26d8de8dd5d0c6c801b269b0e686
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780079"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941715"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Response Center) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao sistema operacional convidado que você está usando. As atualizações sempre são postergadas para a [família][family-explain] específica em que foram introduzidas.

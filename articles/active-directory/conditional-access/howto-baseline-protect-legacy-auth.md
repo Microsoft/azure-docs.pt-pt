@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91cc2707034eabf85afae70278f2448b77d3ee14
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 413df402d5acc878130a47821efd5fa3a512257d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608082"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931941"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Política de linha de base: Bloquear autenticação herdada (versão prévia)
 
@@ -37,7 +37,7 @@ Antes de poder bloquear a autenticação herdada em seu diretório, primeiro voc
 
 1. Navegue até o **portal do Azure** > **Azure Active Directory** > **entradas**.
 1. Adicione a coluna aplicativo cliente se ela não for exibida clicando em **colunas** > **aplicativo cliente**.
-1. Filtre por **aplicativos** > cliente**outros clientes** e clique em **aplicar**.
+1. **Adicionar** > **aplicativo cliente** de filtros > selecione todas as opções para **outros clientes** e clique em **aplicar**.
 
 A filtragem mostrará apenas as tentativas de entrada feitas por protocolos de autenticação herdados. Clicar em cada tentativa de entrada individual mostrará detalhes adicionais. O campo **aplicativo cliente** na guia **informações básicas** indicará qual protocolo de autenticação herdado foi usado.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08be09f7bee3aa17ff9d1baae4271e994fa235cb
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3b7265f8d5ec4b7336253787e9cb881900a52b79
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248870"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963450"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Práticas recomendadas para acesso condicional no Azure Active Directory
 
@@ -31,7 +31,7 @@ Este artigo pressupõe que você esteja familiarizado com os conceitos e a termi
 
 Quando você cria uma nova política, não há usuários, grupos, aplicativos ou controles de acesso selecionados.
 
-![Aplicativos de nuvem](./media/best-practices/02.png)
+![Aplicações na cloud](./media/best-practices/02.png)
 
 Para fazer sua política funcionar, você deve configurar:
 
@@ -50,7 +50,8 @@ Mais de uma política de acesso condicional pode ser aplicada quando você acess
 Todas as políticas são impostas em duas fases:
 
 - Na **primeira** fase, todas as políticas são avaliadas e todos os controles de acesso que não são satisfeitos são coletados. 
-- Na **segunda** fase, você receberá uma solicitação para atender aos requisitos que não atendeu. Se qualquer uma das políticas bloquear o acesso, você será bloqueado e não será solicitado a atender a outros controles de política. Se as políticas bloquearem você, você será solicitado a atender a outros controles de política na seguinte ordem:
+
+- Na **segunda** fase, você receberá uma solicitação para atender aos requisitos que não atendeu. Se qualquer uma das políticas bloquear o acesso, você será bloqueado e não será solicitado a atender a outros controles de política. Se nenhuma das políticas bloquear você, você será solicitado a atender a outros controles de política na seguinte ordem:
 
    ![Encomenda](./media/best-practices/06.png)
     
@@ -58,7 +59,7 @@ Todas as políticas são impostas em duas fases:
 
 ### <a name="how-are-assignments-evaluated"></a>Como as atribuições são avaliadas?
 
-Todas as atribuições são logicamente ANDeddas. Se você tiver mais de uma atribuição configurada, todas as atribuições deverão ser satisfeitas para disparar uma política.  
+Todas as atribuiçõessão logicamente ANDeddas. Se você tiver mais de uma atribuição configurada, todas as atribuições deverão ser satisfeitas para disparar uma política.  
 
 Se você precisar configurar uma condição de local que se aplica a todas as conexões feitas de fora da rede da sua organização:
 

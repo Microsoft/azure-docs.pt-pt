@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 619a4de993f052f143e4117f0100ed1e0aa77b03
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: bde4572ec72286be7d845f4e83bf9c0fe3bff6f1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498581"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932400"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup e a restauração do serviço no gerenciamento de API do Azure
 
@@ -76,7 +76,7 @@ Todas as tarefas que você faz em recursos usando o Azure Resource Manager devem
 2. Clique em **permissões necessárias**.
 3. Clique em **+ Adicionar**.
 4. Pressione **selecionar uma API**.
-5. Escolha  **API de gerenciamento de serviços do Windows Azure**.
+5. Escolha **API de gerenciamento de serviços do Windows Azure**.
 6. Pressione **selecionar**.
 
     ![Adicionar permissões](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
@@ -176,6 +176,7 @@ Observe as seguintes restrições ao fazer uma solicitação de backup:
 -   Enquanto o backup está em andamento, **Evite alterações no gerenciamento de serviços** , como atualização de SKU ou downgrade, alteração no nome de domínio e muito mais.
 -   A restauração de um **backup é garantida somente por 30 dias** desde o momento de sua criação.
 -   Os **dados de uso** usados para a criação de relatórios de análise não estão **incluídos** no backup. Use a [API REST de gerenciamento de API do Azure][azure api management rest api] para recuperar periodicamente relatórios de análise para fins de proteção.
+-   Além disso, os seguintes itens não fazem parte dos dados de backup: certificados SSL de domínio personalizados e quaisquer certificados intermediários ou raiz carregados pelo cliente, pelo conteúdo do portal do desenvolvedor e pelas configurações de integração de rede virtual.
 -   A frequência com a qual você realiza backups de serviço afeta seu objetivo de ponto de recuperação. Para minimizá-lo, é recomendável implementar backups regulares e executar backups sob demanda depois de fazer alterações no serviço de gerenciamento de API.
 -   **As alterações** feitas na configuração do serviço (por exemplo, APIs, políticas e aparência do portal do desenvolvedor) enquanto a operação de backup está em processo **podem ser excluídas do backup e serão perdidas**.
 -   **Permitir** o acesso do plano de controle à conta de armazenamento do Azure. O cliente deve abrir o seguinte conjunto de IPs de entrada em sua conta de armazenamento para backup. 
@@ -220,7 +221,7 @@ Restore é uma operação de execução demorada que pode levar até 30 ou mais 
 > [!NOTE]
 > As operações de backup e restauração também podem ser executadas com os comandos _backup-AzApiManagement_ e _Restore-AzApiManagement_ do PowerShell, respectivamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Confira os seguintes recursos para obter orientações diferentes sobre o processo de backup/restauração.
 

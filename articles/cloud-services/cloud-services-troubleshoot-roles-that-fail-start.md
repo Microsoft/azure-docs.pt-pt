@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas de funções que falharem ao iniciar | Documentos da Microsoft
-description: Aqui estão algumas razões comuns, por que uma função de serviço em nuvem pode falhar ao iniciar. Também são fornecidas soluções para esses problemas.
+title: Solucionar problemas de funções que falham ao iniciar | Microsoft Docs
+description: Aqui estão alguns motivos comuns pelos quais uma função de serviço de nuvem pode falhar ao iniciar. Também são fornecidas soluções para esses problemas.
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -9,120 +9,119 @@ editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e1ae9ca6106a6a55e0cfc933ad47a5944ed5abb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653394"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945401"
 ---
-# <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Resolver problemas de funções do serviço Cloud que falharem ao iniciar
-Seguem-se alguns problemas comuns e soluções relacionadas para serviços Cloud do Azure, funções que falharem ao iniciar.
+# <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Solucionar problemas de funções de serviço de nuvem que falham ao iniciar
+Aqui estão alguns problemas comuns e soluções relacionadas a funções de serviços de nuvem do Azure que falham ao iniciar.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="missing-dlls-or-dependencies"></a>DLLs em falta ou dependências
-Funções sem resposta e funções que são andar de bicicleta entre **a inicializar**, **ocupado**, e **parar** Estados podem ser causados por falta de DLLs ou assemblies.
+## <a name="missing-dlls-or-dependencies"></a>DLLs ou dependências ausentes
+Funções e funções sem resposta que são alternadasentre os Estados inicializando, **ocupado**e **parando** podem ser causadas por DLLs ou assemblies ausentes.
 
-Os sintomas de DLLs ou assemblies em falta podem ser:
+Os sintomas de DLLs ou assemblies ausentes podem ser:
 
-* A instância de função está passando por toda **a inicializar**, **ocupado**, e **parar** Estados.
-* A instância de função foi movido para **pronto** , mas se navega para a sua aplicação web, a página não aparece.
+* Sua instância de função está alternando os Estados **inicializando**, **ocupado**e **parando** .
+* Sua instância de função foi movida para **pronto** , mas se você navegar para seu aplicativo Web, a página não será exibida.
 
-Existem vários métodos recomendados para investigar esses problemas.
+Há vários métodos recomendados para investigar esses problemas.
 
-## <a name="diagnose-missing-dll-issues-in-a-web-role"></a>Diagnosticar problemas DLL em falta numa função da web
-Ao navegar para um Web site que é implementado numa web função e o browser apresenta um erro de servidor semelhante ao seguinte, poderá indicar que está faltando uma DLL.
+## <a name="diagnose-missing-dll-issues-in-a-web-role"></a>Diagnosticar problemas de DLL ausentes em uma função Web
+Quando você navega para um site que é implantado em uma função Web e o navegador exibe um erro de servidor semelhante ao seguinte, isso pode indicar que uma DLL está ausente.
 
-![Erro de servidor na aplicação '/'.](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
+![Erro de servidor no aplicativo '/'.](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
 
-## <a name="diagnose-issues-by-turning-off-custom-errors"></a>Diagnosticar problemas ao desativar erros personalizados
-Informações de erro mais completas podem ser visualizadas ao configurar o Web. config para a função da web definir o modo de erro personalizadas para desativado e voltar a implementar o serviço.
+## <a name="diagnose-issues-by-turning-off-custom-errors"></a>Diagnosticar problemas desativando erros personalizados
+Informações de erro mais completas podem ser exibidas Configurando o Web. config para a função Web a fim de definir o modo de erro personalizado como desativado e reimplantar o serviço.
 
-Para ver os erros mais completos sem utilizar o ambiente de trabalho remoto:
+Para exibir erros mais completos sem usar Área de Trabalho Remota:
 
 1. Abra a solução no Microsoft Visual Studio.
-2. Na **Explorador de soluções**, localize o ficheiro Web. config e abra-o.
-3. No ficheiro Web. config, localize a seção System. Web e adicione a seguinte linha:
+2. No **Gerenciador de soluções**, localize o arquivo Web. config e abra-o.
+3. No arquivo Web. config, localize a seção System. Web e adicione a seguinte linha:
 
     ```xml
     <customErrors mode="Off" />
     ```
 4. Guarde o ficheiro.
-5. Reempacotar e reimplemente o serviço.
+5. Reempacotar e reimplantar o serviço.
 
-Assim que o serviço está a ser reimplementado, verá uma mensagem de erro com o nome do assembly ou DLL em falta.
+Depois que o serviço for reimplantado, você verá uma mensagem de erro com o nome do assembly ou DLL ausente.
 
-## <a name="diagnose-issues-by-viewing-the-error-remotely"></a>Diagnosticar problemas visualizando o erro remotamente
-Pode utilizar o ambiente de trabalho remoto para aceder à função e ver informações de erro mais completas remotamente. Utilize os seguintes passos para ver os erros com o ambiente de trabalho remoto:
+## <a name="diagnose-issues-by-viewing-the-error-remotely"></a>Diagnosticar problemas exibindo o erro remotamente
+Você pode usar Área de Trabalho Remota para acessar a função e exibir informações de erro mais completas remotamente. Use as etapas a seguir para exibir os erros usando Área de Trabalho Remota:
 
-1. Certifique-se de que o Azure SDK 1.3 ou posterior está instalado.
-2. Durante a implantação da solução com o Visual Studio, ative o ambiente de trabalho remoto. Para obter mais informações, consulte [ativar a ligação de ambiente de trabalho remoto para uma função nos serviços Cloud do Azure com o Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
-3. No portal do Microsoft Azure, uma vez que a instância apresentem o estado **pronto**remoto para a instância. Para obter mais informações sobre como utilizar o ambiente de trabalho remoto com os serviços Cloud, consulte [remotamente a instâncias de função](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
-5. Entrar para a máquina virtual com as credenciais que foram especificadas durante a configuração do ambiente de trabalho remoto.
+1. Verifique se o SDK do Azure 1,3 ou posterior está instalado.
+2. Durante a implantação da solução usando o Visual Studio, habilite Área de Trabalho Remota. Para obter mais informações, consulte [habilitar conexão de área de trabalho remota para uma função nos serviços de nuvem do Azure usando o Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
+3. No portal do Microsoft Azure, uma vez que a instância mostra um status de **pronto**, remoto na instância. Para obter mais informações sobre como usar a área de trabalho remota com serviços de nuvem, consulte [remoto em instâncias de função](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
+5. Entre na máquina virtual usando as credenciais que foram especificadas durante a configuração de Área de Trabalho Remota.
 6. Abra uma janela de comandos.
 7. Digite `IPconfig`.
-8. Tenha em atenção o valor de endereço IPV4.
+8. Observe o valor do endereço IPV4.
 9. Abra o Internet Explorer.
-10. Escreva o endereço e o nome da aplicação web. Por exemplo, `http://<IPV4 Address>/default.aspx`.
+10. Digite o endereço e o nome do aplicativo Web. Por exemplo, `http://<IPV4 Address>/default.aspx`.
 
-Navegar para o Web site agora irá devolver mensagens de erro mais explícitas:
+Navegar até o site agora retornará mensagens de erro mais explícitas:
 
-* Erro de servidor na aplicação '/'.
-* Descrição: Ocorreu uma exceção não processada durante a execução da solicitação da web atual. Consulte o rastreio de pilha para obter mais informações sobre o erro e em que foi gerado no código.
-* Detalhes da exceção: System.IO.FIleNotFoundException: Não foi possível carregar o ficheiro ou a assemblagem ' Microsoft.WindowsAzure.StorageClient, versão = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35' ou uma de suas dependências. O sistema não é possível localizar o ficheiro especificado.
+* Erro de servidor no aplicativo '/'.
+* Descrição: Ocorreu uma exceção sem tratamento durante a execução da solicitação da Web atual. Examine o rastreamento de pilha para obter mais informações sobre o erro e onde ele foi originado no código.
+* Detalhes da exceção: System.IO.FIleNotFoundException: Não foi possível carregar o arquivo ou assembly ' Microsoft. WindowsAzure. StorageClient, Version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35 ' ou uma de suas dependências. Não é possível ao sistema localizar o ficheiro especificado.
 
 Por exemplo:
 
-![Erro de servidor explícito na aplicação '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
+![Erro de servidor explícito no aplicativo '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
-## <a name="diagnose-issues-by-using-the-compute-emulator"></a>Diagnosticar problemas ao utilizar o emulador de computação
-Pode utilizar o emulador de computação do Microsoft Azure para diagnosticar e resolver problemas de falta de dependências e erros de Web. config.
+## <a name="diagnose-issues-by-using-the-compute-emulator"></a>Diagnosticar problemas usando o emulador de computação
+Você pode usar o emulador de computação Microsoft Azure para diagnosticar e solucionar problemas de dependências ausentes e erros de Web. config.
 
-Para obter melhores resultados na através deste método de diagnóstico, deve usar um computador ou máquina virtual que tenha uma instalação limpa do Windows. Para simular melhor o ambiente do Azure, utilize o Windows Server 2008 R2 x64.
+Para obter melhores resultados ao usar esse método de diagnóstico, você deve usar um computador ou uma máquina virtual que tenha uma instalação limpa do Windows. Para simular melhor o ambiente do Azure, use o Windows Server 2008 R2 x64.
 
-1. Instalar a versão autônoma dos [SDK do Azure](https://azure.microsoft.com/downloads/).
-2. Na máquina de desenvolvimento, crie o projeto de serviço em nuvem.
-3. No Explorador do Windows, navegue para a pasta de bin\debug do projeto de serviço em nuvem.
-4. Copie o ficheiro de pasta e. cscfg. csx para o computador que está a utilizar para depurar os problemas.
-5. Na máquina limpa, abra uma janela de linha de comandos do Azure SDK e o tipo `csrun.exe /devstore:start`.
+1. Instale a versão autônoma do [SDK do Azure](https://azure.microsoft.com/downloads/).
+2. No computador de desenvolvimento, compile o projeto de serviço de nuvem.
+3. No Windows Explorer, navegue até a pasta bin\debug do projeto de serviço de nuvem.
+4. Copie a pasta. CSX e o arquivo. cscfg para o computador que você está usando para depurar os problemas.
+5. No computador limpo, abra uma janela do prompt de comando do SDK do `csrun.exe /devstore:start`Azure e digite.
 6. No prompt de comando, digite `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`.
-7. Quando a função for iniciada, irá ver informações de erro detalhadas no Internet Explorer. Também pode utilizar o Windows padrão, ferramentas de resolução de problemas para diagnosticar melhor o problema.
+7. Quando a função for iniciada, você verá informações detalhadas sobre o erro no Internet Explorer. Você também pode usar ferramentas padrão de solução de problemas do Windows para diagnosticar o problema.
 
-## <a name="diagnose-issues-by-using-intellitrace"></a>Diagnosticar problemas com o IntelliTrace
-Para a função de trabalho e funções da web que utilizam o .NET Framework 4, pode usar [IntelliTrace](/visualstudio/debugger/intellitrace), que está disponível no Microsoft Visual Studio Enterprise.
+## <a name="diagnose-issues-by-using-intellitrace"></a>Diagnosticar problemas usando o IntelliTrace
+Para funções de trabalho e Web que usam o .NET Framework 4, você pode usar o [IntelliTrace](/visualstudio/debugger/intellitrace), que está disponível no Microsoft Visual Studio Enterprise.
 
-Siga estes passos para implementar o serviço com o IntelliTrace habilitado:
+Siga estas etapas para implantar o serviço com o IntelliTrace habilitado:
 
-1. Confirme que o Azure SDK 1.3 ou posterior está instalado.
-2. Implante a solução usando o Visual Studio. Durante a implementação, consulte a **ativar o IntelliTrace para funções de .NET 4** caixa de verificação.
-3. Assim que a instância for iniciada, abra a **Explorador de servidores**.
-4. Expanda a **Azure\\serviços Cloud** nó e localize a implementação.
-5. Expanda a implantação até ver as instâncias de função. Clique com o botão direito em uma das instâncias.
-6. Escolher **protokoly IntelliTrace vista**. O **resumo de IntelliTrace** será aberto.
-7. Localize a secção de exceções do resumo. Se existirem exceções, a seção serão identificados como **dados de exceção**.
-8. Expanda a **dados de exceção** e procure **FileNotFoundException** erros semelhantes ao seguinte:
+1. Confirme se o SDK do Azure 1,3 ou posterior está instalado.
+2. Implante a solução usando o Visual Studio. Durante a implantação, marque a caixa de seleção **Habilitar IntelliTrace para funções do .NET 4** .
+3. Depois que a instância for iniciada, abra o **Gerenciador de servidores**.
+4. Expanda o nó **serviços de\\nuvem do Azure** e localize a implantação.
+5. Expanda a implantação até ver as instâncias de função. Clique com o botão direito do mouse em uma das instâncias.
+6. Escolha **Exibir logs do IntelliTrace**. O **Resumo do IntelliTrace** será aberto.
+7. Localize a seção de exceções do resumo. Se houver exceções, a seção será rotulada como **dados de exceção**.
+8. Expanda os **dados de exceção** e procure erros **System. IO. FileNotFoundException** semelhantes ao seguinte:
 
-![Dados de exceção, ficheiro em falta ou assemblagem](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)
+![Dados de exceção, arquivo ausente ou assembly](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)
 
-## <a name="address-missing-dlls-and-assemblies"></a>DLLs em falta e os assemblies de endereços
-Para resolver a DLL em falta e erros de assembly, siga estes passos:
+## <a name="address-missing-dlls-and-assemblies"></a>Endereçar DLLs e assemblies ausentes
+Para resolver erros de DLL e assembly ausentes, siga estas etapas:
 
 1. Abra a solução no Visual Studio.
-2. Na **Explorador de soluções**, abra o **referências** pasta.
-3. Clique em assembly identificado no erro.
-4. Na **propriedades** painel, localize **propriedade Copy Local** e defina o valor como **verdadeiro**.
-5. Reimplemente o serviço de nuvem.
+2. Em **Gerenciador de soluções**, abra a pasta **referências** .
+3. Clique no assembly identificado no erro.
+4. No painel **Propriedades** , localize a **Propriedade Copy local** e defina o valor como **true**.
+5. Reimplante o serviço de nuvem.
 
-Assim que tiver verificado que todos os erros foram corrigidos, pode implementar o serviço sem verificar o **ativar o IntelliTrace para funções de .NET 4** caixa de verificação.
+Depois de verificar se todos os erros foram corrigidos, você pode implantar o serviço sem marcar a caixa de seleção **Habilitar IntelliTrace para funções do .NET 4** .
 
 ## <a name="next-steps"></a>Passos Seguintes
-Ver mais [artigos de resolução de problemas](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) para serviços em nuvem.
+Veja mais [artigos de solução de problemas](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) para serviços de nuvem.
 
-Para saber como resolver problemas de função do serviço cloud, utilizando dados de diagnóstico do computador de PaaS do Azure, veja [série de blogue de Kevin Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Para saber como solucionar problemas de função de serviço de nuvem usando dados de diagnóstico de computador de PaaS do Azure, consulte a [série de Blogs de Kevin Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

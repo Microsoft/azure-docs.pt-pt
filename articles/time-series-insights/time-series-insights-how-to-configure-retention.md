@@ -1,6 +1,6 @@
 ---
-title: Como configurar a retenção no seu ambiente do Azure Time Series Insights | Documentos da Microsoft
-description: Este artigo descreve como configurar a retenção no seu ambiente do Azure Time Series Insights.
+title: Como configurar a retenção em seu ambiente de Azure Time Series Insights | Microsoft Docs
+description: Este artigo descreve como configurar a retenção em seu ambiente de Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -9,29 +9,29 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3235844c8750003d08e996f5065fcef256c2d244
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e5cc1489af1dce3a9a57b96a3240c63e0395c33a
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165668"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947235"
 ---
-# <a name="configuring-retention-in-time-series-insights"></a>Configurar a retenção no Time Series Insights
+# <a name="configuring-retention-in-time-series-insights"></a>Configurando a retenção no Time Series Insights
 
-Este artigo descreve como configurar **período de retenção de dados** e **limite de armazenamento excedido comportamento** no Azure Time Series Insights.
+Este artigo descreve como configurar o **tempo de retenção de dados** e o **comportamento de limite de armazenamento excedido** no Azure Time Series insights.
 
 ## <a name="summary"></a>Resumo
 
-Cada ambiente do Time Series Insights (TSI) tem uma definição para configurar **período de retenção de dados**. Abrange o valor de 1 para 400 dias. Os dados são eliminados com base no ambiente armazenamento capacidade ou de retenção de duração (1-400), o que ocorrer primeiro.
+Cada ambiente de Time Series Insights (TSI) tem uma configuração para configurar o **tempo de retenção de dados**. O valor se estende de 1 a 400 dias. Os dados são excluídos com base na capacidade de armazenamento do ambiente ou na duração da retenção (1-400), o que vier primeiro.
 
-Cada ambiente de TSI tem uma configuração adicional **limite de armazenamento excedido comportamento**. Esta definição controla o comportamento de entrada e de remoção quando for atingida a capacidade máxima de um ambiente. Existem dois comportamentos à sua escolha:
+Cada ambiente de TSI tem um **comportamento de limite de armazenamento**de configuração adicional excedido. Essa configuração controla o comportamento de entrada e limpeza quando a capacidade máxima de um ambiente é atingida. Há dois comportamentos para escolher:
 
-- **Remover dados antigos** (predefinição)
-- **Entrada de colocação em pausa**
+- **Limpar dados antigos** os
+- **Pausar entrada**
 
-Para obter informações detalhadas compreender melhor estas definições, reveja [retenção de compreensão no Time Series Insights](time-series-insights-concepts-retention.md).  
+Para obter informações detalhadas para entender melhor essas configurações, consulte [noções básicas sobre retenção em time Series insights](time-series-insights-concepts-retention.md).  
 
 ## <a name="configure-data-retention"></a>Configurar a retenção de dados
 
@@ -39,16 +39,16 @@ Para obter informações detalhadas compreender melhor estas definições, revej
 
 1. Localize o seu ambiente do Time Series Insights existente. Selecione **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do Time Series Insights.
 
-1. Sob o **configurações** cabeçalho, selecione **configurar**.
+1. No título **configurações** , selecione **Configurar**.
 
-1. Selecione o **período de retenção de dados** para configurar a retenção usando a barra de controlo de deslize ou escreva um número na caixa de texto.
+1. Selecione o **tempo de retenção de dados** para configurar a retenção usando a barra deslizante ou digite um número na caixa de texto.
 
-1. Tenha em atenção a **capacidade** definição, uma vez que esta configuração afeta a quantidade máxima de eventos de dados e a capacidade de armazenamento total para armazenar dados.
+1. Observe a configuração de **capacidade** , pois essa configuração afeta a quantidade máxima de eventos de dados e a capacidade de armazenamento total para armazenar dados.
 
-1. Ativar/desativar a **limite de armazenamento excedido comportamento** definição. Selecione **remover dados antigos** ou **colocar em pausa entrada** comportamento.
+1. Alterne a configuração de **comportamento de limite de armazenamento excedido** . Selecione **limpar dados antigos** ou pausar comportamento de **entrada** .
 
-1. Selecione **guardar** para configurar as alterações.
+1. Selecione **salvar** para configurar as alterações.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações, consulte [retenção de compreensão no Time Series Insights](time-series-insights-concepts-retention.md).
+- Para obter mais informações, consulte [noções básicas sobre retenção em time Series insights](time-series-insights-concepts-retention.md).

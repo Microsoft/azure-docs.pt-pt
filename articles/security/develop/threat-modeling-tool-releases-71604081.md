@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: jegeib
-ms.openlocfilehash: df4eb5c247d4ec2c3da266c64899527c3ebe447d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 6992ac58ebf8976714e5a478dd7b886efab2a4b7
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728000"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934790"
 ---
 # <a name="threat-modeling-tool-update-release-71604081---492019"></a>Versão de atualização do Threat Modeling Tool 7.1.60408.1-4/9/2019
 
@@ -60,8 +60,8 @@ Todos os links de suporte dentro da ferramenta foram atualizados para direcionar
 
 ## <a name="documentation-and-feedback"></a>Documentação e comentários
 
-- A documentação do Threat Modeling Tool está localizada em [docs.Microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool)e inclui informações [sobre como usar a ferramenta](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started).
+- A documentação do Threat Modeling Tool está localizada em [docs.Microsoft.com](threat-modeling-tool.md)e inclui informações [sobre como usar a ferramenta](threat-modeling-tool-getting-started.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Baixe a versão mais recente do [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).

@@ -1,5 +1,5 @@
 ---
-title: Regressão Prever o preço e comparar algoritmos
+title: 'Exemplo de interface visual #3: regressão para algoritmos de preço e comparação'
 titleSuffix: Azure Machine Learning service
 description: Este artigo mostra como criar um experimento de aprendizado de máquina complexo sem escrever uma única linha de código usando a interface visual. Saiba como treinar e comparar vários modelos de regressão para prever o preço de um carro com base nos recursos técnicos
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 28af7b814a8d214c3529ecb12ffe25ede78b1cb6
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d05a601196ec4a5349a0acb4763098d9716c17f5
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855927"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990010"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exemplo 2-regressão: Prever o preço e comparar algoritmos
 

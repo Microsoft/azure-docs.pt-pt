@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 46850ad430aa5fb8ad25a71515bdd640855350c2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 371c3b9fde17bba33fb6f2526be68fe89aec6b01
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727251"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934696"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Práticas recomendadas de segurança de controle de acesso e gerenciamento de identidade do Azure
 Neste artigo, discutiremos uma coleção de práticas recomendadas de segurança de controle de acesso e gerenciamento de identidades do Azure. Essas práticas recomendadas derivam de nossa experiência com o [Azure ad](../../active-directory/fundamentals/active-directory-whatis.md) e as experiências de clientes como você.
@@ -84,8 +84,8 @@ Para obter mais informações, consulte [implementar a sincronização de hash d
 **Detalhe**: Use os recursos corretos para dar suporte à autenticação:
 
   - Azure AD para funcionários
-  - [B2B do Azure ad](https://docs.microsoft.com/azure/active-directory/b2b/) para usuários convidados e parceiros externos
-  - [Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/) para controlar como os clientes se inscrevem, entram e gerenciam seus perfis quando usam seus aplicativos
+  - [B2B do Azure ad](../../active-directory/b2b/index.yml) para usuários convidados e parceiros externos
+  - [Azure ad B2C](../../active-directory-b2c/index.yml) para controlar como os clientes se inscrevem, entram e gerenciam seus perfis quando usam seus aplicativos
 
 As organizações que não integram sua identidade local à identidade de nuvem podem ter mais sobrecarga no gerenciamento de contas. Essa sobrecarga aumenta a probabilidade de erros e violações de segurança.
 

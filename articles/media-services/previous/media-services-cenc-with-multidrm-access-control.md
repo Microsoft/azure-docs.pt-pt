@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 336552c142e504ae7296314512f00688e30d032e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: willzhan
+ms.reviewer: kilroyh;yanmf;juliako
+ms.openlocfilehash: 6004e08f5f30c7f3c63bb87437147db15da5e335
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466582"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016770"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com o controlo de acesso através dos serviços de multimédia do Azure 
 
@@ -130,11 +131,11 @@ Por que são essas considerações importantes?
 
 Se utilizar uma cloud pública para entrega de licenças, persistentes e nonpersistent licenças têm um impacto direto no custo da entrega de licença. Os seguintes dois casos de design diferentes servem para ilustrar:
 
-* Subscrição mensal: Utilize uma licença persistente e o mapeamento de recurso de chave de conteúdo 1-para-muitos. Por exemplo, para filmes dos menores, utilizamos uma única chave de conteúdo para a encriptação. Neste caso:
+* Assinatura mensal: Use uma licença persistente e um mapeamento de chave para ativo de conteúdo de um para muitos. Por exemplo, para filmes dos menores, utilizamos uma única chave de conteúdo para a encriptação. Neste caso:
 
     Número total de licenças solicitadas para filmes/dispositivo todos os filhos = 1
 
-* Subscrição mensal: Utilize uma licença nonpersistent e mapeamento de 1 para 1 entre a chave de conteúdo e ativos. Neste caso:
+* Assinatura mensal: Use uma licença não persistente e um mapeamento de 1 para 1 entre a chave de conteúdo e o ativo. Neste caso:
 
     Número total de licenças solicitadas para filmes/dispositivo todos os filhos = [número de filmes assistiu] x [número de sessões]
 
@@ -256,7 +257,7 @@ Utilize as seguintes informações de resolução de problemas para obter ajuda 
 
 * Associação de grupo de conceder privilégios de afirmações. Certifique-se de que é o seguinte no ficheiro de manifesto de aplicação do Azure AD: 
 
-    "groupMembershipClaims": "All" (o valor predefinido é nulo)
+    "groupMembershipClaims": "All" (o valor padrão é NULL)
 
 * Defina o TokenType adequada quando criar requisitos de restrição.
 
@@ -335,7 +336,7 @@ Para registar e configurar a aplicação de ponteiro no Azure AD, siga os passos
 
 2. Adicione uma nova chave para a aplicação de recurso.
 
-3. Atualize o ficheiro de manifesto de aplicação para que a propriedade groupMembershipClaims tem o valor "groupMembershipClaims": "Tudo".
+3. Atualize o arquivo de manifesto do aplicativo para que a propriedade groupMembershipClaims tenha o valor "groupMembershipClaims": "Todos".
 
 4. Na aplicação do Azure AD que aponta para a aplicação web player, na secção **permissões para outras aplicações**, adicionar a aplicação de recurso que foi adicionada no passo 1. Sob **delegado permissão**, selecione **acesso [resource_name]** . Esta opção dá a permissão da aplicação web para criar tokens de acesso que acederem à aplicação de recurso. Fazer isso para a versão local e implantada da aplicação web se desenvolver com o Visual Studio e a aplicação web do Azure.
 
@@ -367,13 +368,13 @@ Quando utilizar um STS personalizado, duas alterações devem ser feitas:
 
 Existem dois tipos de chaves de segurança:
 
-* Chave simétrica: A mesma chave é utilizada para gerar e verificar um JWT.
-* Chave assimétrica: Um par de chaves públicas-privadas uma X509 certificado é utilizado com uma chave privada para encriptar/gerar um JWT e com a chave pública para verificar o token.
+* Chave simétrica: A mesma chave é usada para gerar e verificar um JWT.
+* Chave assimétrica: Um par de chaves pública-privada em um certificado X509 é usado com uma chave privada para criptografar/gerar um JWT e com a chave pública para verificar o token.
 
 > [!NOTE]
 > Se usar o .NET Framework / c# como sua plataforma de desenvolvimento, X509 certificado utilizado para uma chave assimétrica segurança tem de ter um comprimento de chave de, pelo menos, 2048. Este é um requisito da classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey no .NET Framework. Caso contrário, é gerada a seguinte exceção:
 > 
-> IDX10630: O 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' para a assinatura não pode ser menor que "2048" bits.
+> IDX10630: O ' System. IdentityModel. Tokens. X509AsymmetricSecurityKey ' para assinatura não pode ser menor que ' 2048 ' bits.
 
 ## <a name="the-completed-system-and-test"></a>O sistema concluído e o teste
 Esta secção explica os cenários seguintes no sistema ponto a ponto concluído para que possa ter uma imagem básica do comportamento antes de obter uma conta de início de sessão:
@@ -407,15 +408,15 @@ Pode contactar qualquer um dos autores tenham uma conta criada ou adicionado par
 
 As capturas de ecrã seguintes mostram as páginas de início de início de sessão diferentes utilizadas por contas de domínio diferente:
 
-**Conta de domínio de inquilino personalizado do Azure AD**: A página personalizada início de sessão do Azure AD personalizado o domínio de inquilino.
+**Conta de domínio de locatário personalizada do Azure ad**: A página de entrada personalizada do domínio de locatário personalizado do Azure AD.
 
 ![Conta de domínio de inquilino personalizado do Azure AD](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
-**Conta de domínio da Microsoft com smart card**: A página de início de sessão personalizada através do Microsoft empresarial IT com a autenticação de dois fatores.
+**Conta de domínio da Microsoft com cartão inteligente**: A página de entrada personalizada pela Microsoft Corporate IT com autenticação de dois fatores.
 
 ![Conta de domínio de inquilino personalizado do Azure AD](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
-**Conta Microsoft**: A página de início de sessão da conta Microsoft para os consumidores.
+**Conta Microsoft**: A página de entrada do conta Microsoft para os consumidores.
 
 ![Conta de domínio de inquilino personalizado do Azure AD](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain3.png)
 

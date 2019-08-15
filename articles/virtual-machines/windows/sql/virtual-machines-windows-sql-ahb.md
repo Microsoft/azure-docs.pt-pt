@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2b961b855c7a0bb08c31b4e7ea8deb7f82ebb77c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: fb13cd65142214ccf852c591ae081e7e633e1a4d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846187"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935316"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Alterar o modelo de licença para uma máquina virtual SQL Server no Azure
 Este artigo descreve como alterar o modelo de licença para uma VM (máquina virtual) SQL Server no Azure usando o novo provedor de recursos de VM do SQL, **Microsoft. SqlVirtualMachine**.
@@ -52,7 +52,7 @@ O uso do provedor de recursos da VM do SQL requer a extensão SQL Server IaaS. A
 
 ## <a name="change-the-license-for-vms-already-registered-with-the-resource-provider"></a>Alterar a licença para VMs já registradas com o provedor de recursos 
 
-# <a name="azure-portaltabazure-portal"></a>[Azure portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -66,7 +66,7 @@ Você pode modificar o modelo de licença diretamente do portal:
 ![Benefício Híbrido do Azure no portal](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
 
 
-# <a name="azure-clitabbash"></a>[CLI do Azure](#tab/bash)
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Você pode usar o CLI do Azure para alterar o modelo de licença.  
 
@@ -88,7 +88,7 @@ O trecho de código a seguir alterna seu modelo traga sua própria licença para
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Você pode usar o PowerShell para alterar seu modelo de licença.
 
 O trecho de código a seguir alterna seu modelo de licença pago conforme o uso para trazer sua própria licença (ou usando Benefício Híbrido do Azure):
@@ -177,7 +177,7 @@ Use o código a seguir para verificar sua versão do Azure PowerShell:
   Get-Module -ListAvailable -Name Azure -Refresh
   ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, veja os artigos seguintes: 
 

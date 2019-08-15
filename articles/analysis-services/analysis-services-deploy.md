@@ -1,5 +1,5 @@
 ---
-title: Implementar Azure Analysis Services com o Visual Studio (SSDT) | Documentos da Microsoft
+title: Implantar em Azure Analysis Services usando o Visual Studio (SSDT) | Microsoft Docs
 description: Saiba como implementar um modelo de tabela num servidor Azure Analysis Services com o SSDT.
 author: minewiskan
 manager: kfile
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b9740d74a25964286ea92b4238684db81a64c9e2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2811685df678730b90f2fdb28d472f8fa268ec6a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60497510"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932444"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Implementar um modelo do Visual Studio
 
@@ -24,7 +24,7 @@ Depois de criar um servidor na sua subscrição do Azure, está pronto para impl
 Para começar, precisa do seguinte:
 
 * **Servidor Analysis Services** no Azure. Para obter mais informações, consulte [Criar um servidor Azure Analysis](analysis-services-create-server.md).
-* **Projeto de modelo de tabela** no SSDT ou modelo de tabela existente no nível de compatibilidade 1200 ou posterior. Nunca criou um? Experimente o [tutorial do modelo de tabela de vendas na Internet Adventure Works](/sql/analysis-services/tabular-modeling-adventure-works-tutorial).
+* **Projeto de modelo de tabela** no SSDT ou modelo de tabela existente no nível de compatibilidade 1200 ou posterior. Nunca criou um? Experimente o [tutorial do modelo de tabela de vendas na Internet Adventure Works](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial).
 * **Gateway local** - se uma ou mais origens de dados se encontrarem no local da rede da sua organização, é necessário instalar um [gateway de dados no local](analysis-services-gateway.md). O gateway é necessário para que o servidor na nuvem se ligue às suas origens de dados no local para processar e atualizar os dados no modelo.
 
 > [!TIP]
@@ -38,7 +38,7 @@ No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**
    
 ![Obter o nome do servidor no Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
-## <a name="to-deploy-from-ssdt"></a>Para implementar a partir do SSDT
+## <a name="to-deploy-from-ssdt"></a>Para implantar do SSDT
 
 1. No SSDT > **Explorador de Soluções**, clique com o botão direito do rato no projeto > **Propriedades**. Em seguida, em **Implementação** > **Servidor** cole o nome do servidor.   
    

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 13f80b42ef6dfd0c70067a3ecf5f3e172527a63f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6bb3be3805243bba4d11037b180e7f8418a84014
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846526"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947209"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contentores de perfil FSLogix e ficheiros do Azure
 
@@ -77,7 +77,7 @@ Desde a aquisição, a Microsoft começou a substituir as soluções de perfil d
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Integração de arquivos do Azure com o serviço de domínio Azure Active Directory
 
-O desempenho e os recursos dos contêineres de perfil do FSLogix aproveitam a nuvem. Em 7 de agosto de 2019, os arquivos de Microsoft Azure anunciaram a disponibilidade geral da [autenticação de arquivos do Azure com o AD DS (serviço de domínio Azure Active Directory)](/articles/storage/files/storage-files-active-directory-overview.md). Ao abordar o custo e a sobrecarga administrativa, os arquivos do Azure com a autenticação de AD DS do Azure são uma solução premium para perfis de usuário no serviço de área de trabalho virtual do Windows.
+O desempenho e os recursos dos contêineres de perfil do FSLogix aproveitam a nuvem. Em 7 de agosto de 2019, os arquivos de Microsoft Azure anunciaram a disponibilidade geral da [autenticação de arquivos do Azure com o AD DS (serviço de domínio Azure Active Directory)](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-overview). Ao abordar o custo e a sobrecarga administrativa, os arquivos do Azure com a autenticação de AD DS do Azure são uma solução premium para perfis de usuário no serviço de área de trabalho virtual do Windows.
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Práticas recomendadas para área de trabalho virtual do Windows
 
@@ -92,7 +92,7 @@ Para garantir que seu ambiente de área de trabalho virtual do Windows siga as p
 - Para obter um desempenho ideal, a solução de armazenamento e o contêiner de perfil FSLogix devem estar no mesmo local de data center.
 - A conta de armazenamento que contém a imagem mestra deve estar na mesma região e assinatura em que as VMs estão sendo provisionadas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Use os guias a seguir para configurar um ambiente de área de trabalho virtual do Windows.
 

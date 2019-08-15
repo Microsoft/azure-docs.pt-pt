@@ -1,5 +1,5 @@
 ---
-title: Realizar a transmissão em direto através dos serviços de multimédia do Azure para criar transmissões em fluxo com o portal do Azure | Documentos da Microsoft
+title: Executar a transmissão ao vivo usando os serviços de mídia do Azure para criar fluxos de múltiplas taxas de bits com portal do Azure | Microsoft Docs
 description: Este tutorial explica-lhe os passos da criação de um canal que recebe uma transmissão em fluxo em direto com uma velocidade de transmissão única e a codifica para uma transmissão em fluxo com velocidade de transmissão múltipla utilizando o Portal do Azure.
 services: media-services
 documentationcenter: ''
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: daab3c3b2a5b756686a4867350478faaa1142279
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3217a2d5ba3d45a069eacdb67a8d69e9abc674b8
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726852"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69015211"
 ---
-# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Realizar a transmissão em direto através dos serviços de multimédia para criar transmissões em fluxo com o portal do Azure  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Executar a transmissão ao vivo usando os serviços de mídia para criar fluxos de múltiplas taxas de bits com portal do Azure  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tutorial explica-lhe os passos da criação de um **Canal** que recebe uma transmissão em fluxo em direto com uma velocidade de transmissão única e a codifica para uma transmissão com velocidade de transmissão múltipla.
 
@@ -39,12 +39,12 @@ Para obter mais informações conceptuais relacionadas com Canais ativados para 
 Os seguintes são passos gerais referentes à criação de aplicações comuns de transmissão em fluxo em direto.
 
 > [!NOTE]
-> Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amslived@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
+> Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amshelp@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
 
-1. Ligue uma câmara de vídeo a um computador. <br/>Para obter ideias de configuração, confira [programa de configuração de engrenagem de vídeo de evento simples e portátil]( https://link.medium.com/KNTtiN6IeT).
+1. Ligue uma câmara de vídeo a um computador. <br/>Para ideias de instalação, confira [configuração simples e portátil de monitoração de vídeo de eventos]( https://link.medium.com/KNTtiN6IeT).
 
-    Se não tiver acesso a uma câmera, as ferramentas como [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) pode ser utilizado gerar ao live feed a partir de um ficheiro de vídeo.
-1. Iniciar e configurar um codificador em direto no local que possa enviar um fluxo de velocidade de transmissão única dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Além disso, consulte este blogue: [Transmissão em fluxo em direto em produção com OBS](https://link.medium.com/ttuwHpaJeT).
+    Se você não tiver acesso a uma câmera, as ferramentas como [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) poderão ser usadas para gerar um feed ao vivo de um arquivo de vídeo.
+1. Inicie e configure um codificador ao vivo local que pode gerar um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Além disso, confira este blog: [Produção de transmissão ao vivo com Obs](https://link.medium.com/ttuwHpaJeT).
 
     Este passo também pode ser realizado depois de criar o Canal.
 1. Crie e inicie um Canal. 
@@ -114,7 +114,7 @@ Para obter mais informações, consulte [Transmissão em fluxo em direto utiliza
 ## <a name="get-ingest-urls"></a>Obter URLs de inserção
 Assim que o canal seja criado, pode obter os URLs de inserção que fornecerá ao codificador em direto. O codificador utiliza estes URLs para exibir uma transmissão um fluxo direto.
 
-![urls de inserção](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![URLs de ingestão](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>Criar e gerir eventos
 
@@ -149,7 +149,7 @@ Existem duas formas de iniciar o evento:
 
     Especifique: nome do evento, nome do elemento, janela de arquivo e opção de encriptação.
 
-    ![Criar programa](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    ![criar programa](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 
     Se tiver marcado **Publicar este evento em direto agora**, serão criados os URLs de PUBLICAÇÃO.
 
@@ -186,7 +186,7 @@ Para gerir os seus elementos, selecione **Definição** e clique em **Elementos*
 ![Elementos](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## <a name="considerations"></a>Considerações
-* Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amslived@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
+* Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amshelp@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
 * Certifique-se de que o ponto final de transmissão em fluxo a partir do qual quer transmitir o seu conteúdo está no estado **Em execução**.
 
 ## <a name="next-step"></a>Passo seguinte

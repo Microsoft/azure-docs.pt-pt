@@ -1,9 +1,9 @@
 ---
-title: Interpretar o esquema de registo de auditoria do Azure Active Directory no Azure Monitor | Documentos da Microsoft
-description: Descrever o esquema de registo de auditoria do Azure AD para utilização no Azure Monitor
+title: Interpretar o Azure Active Directory esquema de log de auditoria no Azure Monitor | Microsoft Docs
+description: Descrever o esquema de log de auditoria do Azure AD para uso no Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f75af14e388626a9ebbb54d43079f30dcfdd98a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437078"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987944"
 ---
-# <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de registos de auditoria do Azure AD no Azure Monitor (pré-visualização)
+# <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de logs de auditoria do Azure AD no Azure Monitor (versão prévia)
 
-Este artigo descreve o esquema de registo de auditoria do Azure Active Directory (Azure AD) no Azure Monitor. Cada entrada de log individuais é armazenada como texto e formatada como um blob JSON, conforme mostrado nos exemplos a seguir dois: 
+Este artigo descreve o esquema de log de auditoria do Azure Active Directory (AD do Azure) no Azure Monitor. Cada entrada de log individual é armazenada como texto e formatada como um blob JSON, conforme mostrado nos dois exemplos a seguir: 
 
 ```json
 { 
@@ -145,36 +145,36 @@ Este artigo descreve o esquema de registo de auditoria do Azure Active Directory
 
 ```
 
-## <a name="field-and-property-descriptions"></a>Descrições de campo e de propriedade
+## <a name="field-and-property-descriptions"></a>Descrições de campo e Propriedade
 
 | Nome do campo | Descrição |
 |------------|-------------|
 | time       | A data e hora (UTC). |
 | operationName | O nome da operação. |
-| operationVersion | A versão de REST API é solicitada pelo cliente. |
-| category | Atualmente, *auditoria* é o único valor suportado. |
-| tenantId | O GUID associada os registos de inquilino. |
-| resultType | O resultado da operação. O resultado pode ser *sucesso* ou *falha*. |
-| resultSignature |  Este campo é não mapeado, e pode ignorá-lo com segurança. | 
+| operationVersion | A versão da API REST solicitada pelo cliente. |
+| category | Atualmente, a *auditoria* é o único valor com suporte. |
+| tenantId | O GUID do locatário que está associado aos logs. |
+| resultType | O resultado da operação. O resultado pode ser *êxito* ou *falha*. |
+| resultSignature |  Esse campo não está mapeado e você pode ignorá-lo com segurança. | 
 | resultDescription | Uma descrição adicional do resultado, quando disponível. | 
-| durationMs |  Este campo é não mapeado, e pode ignorá-lo com segurança. |
-| callerIpAddress | O endereço IP do cliente que efetuou o pedido. | 
-| correlationId | Um GUID opcional que é passado pelo cliente. Ele pode ajudar a correlacionar operações do lado do cliente com as operações do lado do servidor e é útil quando está a controlar os registos que abrangem serviços. |
-| identidade | A identidade do token que foi apresentado quando efetuou o pedido. A identidade pode ser uma conta de utilizador, a conta de sistema ou o principal de serviço. |
-| nível | O tipo de mensagem. Para os registos de auditoria, o nível é sempre *informativo*. |
-| localização | A localização do datacenter. |
-| properties | Lista de propriedades suportadas que estão relacionados com um registo de auditoria. Para obter mais informações, consulte a tabela seguinte. | 
+| durationMs |  Esse campo não está mapeado e você pode ignorá-lo com segurança. |
+| callerIpAddress | O endereço IP do cliente que fez a solicitação. | 
+| correlationId | Um GUID opcional que é passado pelo cliente. Ele pode ajudar a correlacionar operações do lado do cliente com operações do lado do servidor e é útil quando você está controlando logs que abrangem serviços. |
+| identity | A identidade do token que foi apresentado quando você fez a solicitação. A identidade pode ser uma conta de usuário, uma conta de sistema ou uma entidade de serviço. |
+| level | O tipo de mensagem. Para logs de auditoria, o nível ésempre informativo. |
+| location | O local do datacenter. |
+| properties | Lista as propriedades com suporte que estão relacionadas a um log de auditoria. Para obter mais informações, consulte a tabela a seguir. | 
 
 <br>
 
 | Nome da propriedade | Descrição |
 |---------------|-------------|
-| AuditEventCategory | O tipo de evento de auditoria. Pode ser *gestão de utilizadores*, *gestão de aplicações*, ou outro tipo.|
-| Tipo de identidade | O tipo pode ser *aplicativo* ou *utilizador*. |
-| Tipo de Operação | O tipo pode ser *Add*, *Update*, *eliminar*. ou *outros*. |
-| Tipo de recurso de destino | Especifica o tipo de recurso de destino que a operação foi efetuada. O tipo pode ser *aplicativo*, *utilizador*, *função*, *política* | 
-| Nome do recurso de destino | O nome do recurso de destino. Pode ser um nome de aplicação, um nome de função, um nome principal de utilizador ou um nome principal de serviço. |
-| additionalTargets | Lista as propriedades adicionais para operações específicas. Por exemplo, para uma operação de atualização, os valores antigos e novos valores estão listados na *targetUpdatedProperties*. | 
+| AuditEventCategory | O tipo de evento de auditoria. Pode ser *Gerenciamento de usuários*, *Gerenciamento de aplicativos*ou outro tipo.|
+| Tipo de identidade | O tipo pode ser *aplicativo* ou *usuário*. |
+| Tipo de Operação | O tipo pode ser *Adicionar*, *Atualizar*, *excluir*. ou *outro*. |
+| Tipo de Recurso de Destino | Especifica o tipo de recurso de destino no qual a operação foi executada. O tipo pode ser *aplicativo*, *usuário*, *função*, *política* | 
+| Nome do recurso de destino | O nome do recurso de destino. Pode ser um nome de aplicativo, um nome de função, um nome principal de usuário ou um nome de entidade de serviço. |
+| additionalTargets | Lista todas as propriedades adicionais para operações específicas. Por exemplo, para uma operação de atualização, os valores antigos e os novos valores são listados em *targetUpdatedProperties*. | 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

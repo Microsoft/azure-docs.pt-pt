@@ -1,6 +1,6 @@
 ---
-title: Segurança do dispositivo StorSimple | Documentos da Microsoft
-description: Descreve as convenções de segurança, diretrizes e as considerações e explica como instalar e operar o dispositivo StorSimple em segurança.
+title: Segurança para seu dispositivo StorSimple | Microsoft Docs
+description: Descreve as convenções de segurança, as diretrizes e as considerações e explica como instalar e operar seu dispositivo StorSimple com segurança.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,142 +14,145 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
-ms.openlocfilehash: 9d0c8c01ae0d87c944922dece74e13f00879b02f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4622a8575d7b6a38226ee3a980c05f143c128356
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629263"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963543"
 ---
-# <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar e operar o dispositivo StorSimple em segurança
-![Ícone de aviso](./media/storsimple-safety/IC740879.png)
-![ícone de aviso de segurança de ler](./media/storsimple-safety/IC740885.png) **leitura informações de estado de funcionamento e segurança**
+# <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar e operar seu dispositivo StorSimple com segurança
 
-Ler todas as informações de segurança e o estado de funcionamento neste artigo que se aplica ao seu dispositivo do Microsoft Azure StorSimple. Manter todos os guias de impressos, fornecidos com o dispositivo StorSimple para referência futura. Falha ao siga as instruções e corretamente configurado, utilizar e se importa com para este produto pode aumentar o risco de tendão grave ou de morte ou danificar o dispositivo ou dispositivos. R [versão disponível para download deste guia](https://www.microsoft.com/download/details.aspx?id=44233) também está disponível.
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
+![Ícone de aviso](./media/storsimple-safety/IC740885.png) ler ícone de aviso de segurança ler segurança e informações de integridade![](./media/storsimple-safety/IC740879.png)
+
+
+Leia todas as informações de segurança e integridade neste artigo que se aplicam ao seu dispositivo de Microsoft Azure StorSimple. Mantenha todos os guias impressos fornecidos com seu dispositivo StorSimple para referência futura. A falha em seguir as instruções e a configuração, o uso e o cuidado corretos para esse produto pode aumentar o risco de sérios ferimentos ou morte ou danos ao dispositivo ou aos dispositivos. Também está disponível uma [versão para download deste guia](https://www.microsoft.com/download/details.aspx?id=44233) .
 
 ## <a name="safety-icon-conventions"></a>Convenções de ícone de segurança
-Aqui estão os ícones que encontrará ao rever as precauções de segurança a ser observado quando configurar e executar o seu dispositivo do Microsoft Azure StorSimple.
+Aqui estão os ícones que você encontrará ao examinar as precauções de segurança a serem observadas ao configurar e executar o dispositivo Microsoft Azure StorSimple.
 
 | Ícone | Descrição |
 |:--- |:--- |
-| ![Ícone de perigo](./media/storsimple-safety/IC740879.png) **perigo!** |Indica uma situação perigosa que, se não evitado, resultará em morte ou grave tendão. Esta palavra de sinal é ter um limite das situações mais graves. |
-| ![Ícone de aviso](./media/storsimple-safety/IC740879.png) **aviso!** |Indica uma situação perigosa que, se não evitado, poderá resultar em morte ou grave tendão. |
-| ![Ícone de aviso](./media/storsimple-safety/IC740879.png) **cuidado!** |Indica uma situação perigosa que, se não evitado, poderá resultar em lesão moderada ou pouco frequentes. |
-| ![Observe o ícone](./media/storsimple-safety/IC740881.png) **aviso:** |Indica informações consideradas importantes, mas não relacionados com o perigo. |
-| ![Ícone de um choque elétrico](./media/storsimple-safety/IC740882.png) **choque Elétrico perigo** |Tensão elevada |
-| ![Ícone de peso pesada](./media/storsimple-safety/IC740883.png) **peso pesado** | |
-| ![Nenhum utilizador serviceable na partes ícone](./media/storsimple-safety/IC740879.png) **sem partes serviceable do utilizador** |Não acedam a não ser devidamente treinados. |
-| ![Ícone de aviso de segurança de ler](./media/storsimple-safety/IC740885.png)**ler todas as instruções em primeiro lugar** | |
-| ![Ícone de perigo de sugestão](./media/storsimple-safety/IC740886.png) **sugestão perigo** | |
+| ![Ícone](./media/storsimple-safety/IC740879.png) de perigo **perigo!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou ferimentos sério. Esta palavra de sinal é limitada às situações mais extremas. |
+| ![Aviso de](./media/storsimple-safety/IC740879.png) ícone de aviso **!** |Indica uma situação perigosa que, se não for evitada, pode resultar em morte ou ferimentos grave. |
+| ![Cuidado com](./media/storsimple-safety/IC740879.png) o ícone de aviso **!** |Indica uma situação perigosa que, se não for evitada, pode resultar em ferimentos secundário ou moderado. |
+| ![Aviso do](./media/storsimple-safety/IC740881.png) ícone de aviso **:** |Indica informações consideradas importantes, mas não relacionadas a riscos. |
+| ![Ícone](./media/storsimple-safety/IC740882.png) de choque elétrico **risco de choque elétrico** |Alta tensão |
+| ![Ícone](./media/storsimple-safety/IC740883.png) de peso pesado **peso pesado** | |
+| ![Nenhum ícone](./media/storsimple-safety/IC740879.png) de partes sem serviço de usuário **sem nenhuma parte do usuário** |Não acesse, a menos que seja devidamente treinado. |
+| ![Ler o ícone de aviso de segurança](./media/storsimple-safety/IC740885.png)**Leia todas as instruções primeiro** | |
+| ![Ícone](./media/storsimple-safety/IC740886.png) de risco Tip de **gorjeta** | |
 
-## <a name="handling-precautions"></a>Precauções de tratamento
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![ícone de peso pesada](./media/storsimple-safety/IC740883.png) **aviso!** 
+## <a name="handling-precautions"></a>Precauções de manipulação
+![Ícone](./media/storsimple-safety/IC740879.png) ](./media/storsimple-safety/IC740883.png) de aviso ícone de peso pesado aviso! ![ 
 
-Para reduzir o risco de tendão:
+Para reduzir o risco de ferimentos:
 
-* Um bastidor totalmente configurado pode avaliar até 32 kg (70 lbs); Não tente retirá-lo sozinho.
-* Antes de passar o bastidor, certifique-se sempre de que duas pessoas estão disponíveis para lidar com o peso. Lembre-se de que uma pessoa tentar acabar com esta peso suportar injuries.
-* Não migrar o bastidor pelos identificadores na energia e refrigeração módulos (PCMs), localizados em traseiro da unidade. Estas entidades não foram concebidas para tirar o peso.
+* Um compartimento totalmente configurado pode pesar até 32 kg (70 lbs); Não tente fazê-lo por conta própria.
+* Antes de mover o compartimento, sempre verifique se duas pessoas estão disponíveis para lidar com o peso. Lembre-se de que uma pessoa que está tentando levantar esse peso pode sustentar ferimentos.
+* Não levante o compartimento pelas alças nos módulos de energia e resfriamento (PCMs) localizados na parte posterior da unidade. Elas não foram projetadas para assumir o peso.
 
-## <a name="connection-precautions"></a>Precauções de ligação
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![ícone choque Elétrico](./media/storsimple-safety/IC740882.png) **aviso!**
+## <a name="connection-precautions"></a>Precauções de conexão
+![Ícone](./media/storsimple-safety/IC740879.png) ](./media/storsimple-safety/IC740882.png) de aviso ícone de choque elétrico aviso! ![
 
-Para reduzir a probabilidade de uma contusão, choque elétrico ou morte:
+Para reduzir a probabilidade de ferimentos, choque elétrico ou morte:
 
-* Quando com tecnologia de várias origens de AC, desligue todos os de fonte de alimentação de energia para completo isolamento.
-* Desligue permanentemente a unidade antes, movê-lo ou se achar que tem de se tornar danificado de qualquer forma.
-* Fornece uma ligação de terra elétrico seguro para os cabos de fonte de alimentação de energia. Certifique-se de que o aterrados do bastidor cumpre os requisitos de nacionais e locais antes de aplicar power.
-* Certifique-se de que a ligação de energia é sempre desconectada antes da remoção de um PCM da inclusão.
-* Dado que o plug no cabo de alimentação de energia é o principal desligar o dispositivo, certifique-se de que a comunicação de socket localização próxima aos equipamentos e são facilmente acessível.
+* Quando alimentado por várias fontes AC, desconecte todos os recursos de alimentação para o isolamento completo.
+* Desconecte permanentemente a unidade antes de movê-la ou se você acreditar que ela se tornou danificada de alguma forma.
+* Forneça uma conexão de terra elétrica segura para os cabos de fonte de alimentação. Verifique se o aterramento do compartimento atende aos requisitos nacionais e locais antes de aplicar energia.
+* Verifique se a conexão de energia está sempre desconectada antes da remoção de um PCM do compartimento.
+* Considerando que o plug-in do cabo da fonte de energia é o dispositivo de desconexão principal, verifique se as saídas do soquete estão localizadas perto do equipamento e estão facilmente acessíveis.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![ícone choque Elétrico](./media/storsimple-safety/IC740882.png) **aviso!**
+![Ícone](./media/storsimple-safety/IC740879.png) ](./media/storsimple-safety/IC740882.png) de aviso ícone de choque elétrico aviso! ![
 
-Para reduzir a probabilidade de superaquecimento ou são disparados a partir as ligações elétrica:
+Para reduzir a probabilidade de superaquecimento ou incêndios das conexões elétricas:
 
-* Forneça uma fonte de energia adequado com proteção de sobrecarga elétrico para cumprir os requisitos detalhados na especificação técnica.
-* Não utilize bifurcated power cabos ("Y" oportunidades potenciais).
-* Para cumprir requisitos térmicos, emissões e segurança aplicável, não abrange deve ser removidos e compartimentos de todos os devem ser preenchidos com módulos de plug-ins ou unidade espaços em branco.
-* Certifique-se de que o equipamento é usado de forma especificada pelo fabricante. Se este equipamento é usado de forma não especificada pelo fabricante, a proteção fornecida pelos equipamentos pode ser afetada.
+* Forneça uma fonte de energia adequada com proteção contra sobrecarga elétrica para atender aos requisitos detalhados na especificação técnica.
+* Não use cabos de energia cabos ("Y" leads).
+* Para estar em conformidade com os requisitos de segurança, emissão e térmico aplicáveis, nenhuma capa deve ser removida e todos os compartimentos devem ser preenchidos com módulos de plug-in ou em espaços em branco da unidade.
+* Verifique se o equipamento é usado de uma maneira especificada pelo fabricante. Se este equipamento for usado de uma maneira não especificada pelo fabricante, a proteção fornecida pelo equipamento poderá ser prejudicada.
 
-![Observe o ícone](./media/storsimple-safety/IC740881.png) **aviso:**
+![Aviso do](./media/storsimple-safety/IC740881.png) ícone de aviso **:**
 
-Para a operação adequada do seu equipamento e para evitar danos de produto:
+Para a operação adequada do seu equipamento e para evitar danos ao produto:
 
-* As portas RJ45 parte traseira desse dispositivo destinam-se apenas uma ligação de Ethernet. Eles não devem estar conectados a uma rede de telecomunicações.
-* Certifique-se de que instalar o dispositivo num bastidor que pode acomodar um design de resfriamento de frente para trás.
-* Módulos de todos os plug-ins e em branco pratos fazem parte da cobertura do sistema. Eles só devem ser removidos quando uma substituição pode ser adicionada imediatamente. O sistema não podem ser executado sem todos os módulos ou espaços em branco no local.
+* As portas RJ45 na parte posterior do dispositivo são apenas para uma conexão Ethernet. Eles não devem estar conectados a uma rede de telecomunicações.
+* Certifique-se de instalar o dispositivo em um rack que possa acomodar um design de resfriamento de frente para trás.
+* Todos os módulos de plug-in e placas em branco fazem parte do compartimento do sistema. Eles só devem ser removidos quando uma substituição puder ser adicionada imediatamente. O sistema não deve ser executado sem todos os módulos ou espaços em branco em vigor.
 
-## <a name="rack-system-precautions"></a>Precauções de sistema de bastidor
-Os seguintes requisitos de segurança tem de ser considerados ao montar o dispositivo num bastidor Cab.
+## <a name="rack-system-precautions"></a>Precauções do sistema de rack
+Os requisitos de segurança a seguir devem ser considerados quando você monta o dispositivo em um gabinete de rack.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![ícone de perigo de sugestão](./media/storsimple-safety/IC740886.png) **aviso!**
+![Ícone](./media/storsimple-safety/IC740879.png) de![aviso ícone](./media/storsimple-safety/IC740886.png) de risco de dica de advertência **!**
 
-Para reduzir a probabilidade de uma contusão de uma dica sobre:
+Para reduzir a probabilidade de ferimentos de uma dica:
 
-* O design de rack deve suportar o peso total das caixas de instalado e deve incorporar funcionalidades de estabilização adequadas impedir que o bastidor tipping ou que está sendo transmitido pelo durante a instalação ou de uso normal.
-* Ao carregar um bastidor, preencha o bastidor na parte inferior e vazio na parte superior para baixo.
-* Não é slide mais de um bastidor fora do rack cada vez para evitar o perigo de bastidor toppling ao longo.
+* O design do rack deve dar suporte ao peso total dos compartimentos instalados e deve incorporar os recursos de estabilização adequados para impedir que o rack se dedique ou seja enviado durante a instalação ou o uso normal.
+* Ao carregar um rack, preencha o rack de baixo para cima e esvazie-o de cima para baixo.
+* Não deslize mais de um compartimento para fora do rack de cada vez para evitar o perigo do rack.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![ícone choque Elétrico](./media/storsimple-safety/IC740882.png) **aviso!**
+![Ícone](./media/storsimple-safety/IC740879.png) ](./media/storsimple-safety/IC740882.png) de aviso ícone de choque elétrico aviso! ![
 
-Para reduzir a probabilidade de uma contusão, choque elétrico ou morte:
+Para reduzir a probabilidade de ferimentos, choque elétrico ou morte:
 
-* Bastidor deve ter um sistema de distribuição elétrico seguro. Ele tem de fornecer proteção de excesso atual para o bastidor e não deve ser sobrecarregado pelo número total de inclusões instalado. A classificação de consumo de energia elétrica mostrada no nameplate deve ser observada.
-* O sistema de distribuição elétrico tem de fornecer uma raiz confiável para cada bastidor no rack.
-* O design do sistema de distribuição elétrico deve levar em consideração a fuga de zero total atual de todas as fontes de alimentação em todas as inclusões. Observe que cada fonte de alimentação em cada bastidor tem um atual de fuga de raiz de 1,0 máximo de mA em 60 Hz, 264 volts. Bastidor pode exigir a etiquetagem com "atual de FUGA elevada. Ligação de zero (Terra) é essencial antes de ligar uma fonte de alimentação."
-* Bastidor, quando configurado com as inclusões, tem de cumprir os requisitos de segurança de UL 60950-1 e IEC 60950-1/EN 60950-1.
+* O rack deve ter um sistema de distribuição elétrica seguro. Ele deve fornecer proteção de sobrecarga para o compartimento e não deve ser sobrecarregado pelo número total de compartimentos instalados. A classificação de consumo de energia elétrica mostrada no placa deve ser observada.
+* O sistema de distribuição elétrica deve fornecer um aterramento confiável para cada compartimento no rack.
+* O design do sistema de distribuição elétrica deve levar em consideração o total de vazamentos de aterramento de todas as fontes de alimentação em todos os compartimentos. Observe que cada fonte de alimentação em cada compartimento tem uma corrente de vazamento de aterramento do máximo de 1,0 mA a 60 Hz, 264 volts. O rack pode exigir rotulagem com "corrente de alta perda. A conexão terrestre (terra) é essencial antes de conectar um fornecimento. "
+* O rack, quando configurado com os compartimentos, deve atender aos requisitos de segurança de UL 60950-1 e IEC 60950-1/EN 60950-1.
 
-![Observe o ícone](./media/storsimple-safety/IC740881.png) **aviso:**
+![Aviso do](./media/storsimple-safety/IC740881.png) ícone de aviso **:**
 
-Para o resfriamento apropriado do seu sistema de rack:
+Para o resfriamento adequado do seu sistema de rack:
 
-* Certifique-se de que o design de rack leva em consideração o bastidor máximo operacional temperatura ambiente de 35 graus Celsius (95 graus Fahrenheit).
-* O sistema é operado com low-pressure, esgotar por trás da instalação (pressão criado por rack portas e os obstáculos não deve exceder 5 Pascal [medidor de água de 0,5 mm]).
+* Verifique se o design do rack leva em consideração a temperatura ambiente máxima de operação do compartimento de 35 graus Celsius (95 graus Fahrenheit).
+* O sistema é operado com baixa pressão, instalação de exaustão traseira (pressão traseira criada por portas de rack e obstáculos para não exceder 5 Pascal [0,5 mm de indicador de água]).
 
-## <a name="power-cooling-module-pcm-precautions"></a>Precauções de refrigeração módulo PCM () de energia
-O dispositivo foi concebido para operar com dois PCMs. Cada um os PCMs tem uma fonte de alimentação e um fã de eixo de dual. Durante uma condição crítica, o sistema permite uma falha de uma fonte de alimentação e continuar as operações normais. Dois PCMs (e, por conseguinte, alimentação) tem de ser sempre instalada. Um único PCM não fornece energia redundante. Por conseguinte, a falha de até mesmo um PCM pode resultar em tempo de inatividade ou possível perda de dados.
+## <a name="power-cooling-module-pcm-precautions"></a>Precauções do módulo de refrigeração de energia (PCM)
+O dispositivo foi projetado para operar com dois PCMs. Cada um dos PCMs tem uma fonte de alimentação e um ventilador de dois eixos. Durante uma condição crítica, o sistema permite uma falha de uma fonte de alimentação enquanto continua as operações normais. Duas PCMs (e, portanto, fontes de alimentação) devem ser sempre instaladas. Um único PCM não fornece energia redundante. Portanto, a falha de até mesmo um PCM pode resultar em tempo de inatividade ou possível perda de dados.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![ícone choque Elétrico](./media/storsimple-safety/IC740882.png) **aviso!**
+![Ícone](./media/storsimple-safety/IC740879.png) ](./media/storsimple-safety/IC740882.png) de aviso ícone de choque elétrico aviso! ![
 
-Para reduzir a probabilidade de uma contusão, choque elétrico ou morte:
+Para reduzir a probabilidade de ferimentos, choque elétrico ou morte:
 
-* Não remova bastidores do PCM. Existe um perigo de choque elétrico dentro. Para devolver o PCM e obter uma substituição [contacte o Microsoft Support](storsimple-contact-microsoft-support.md).
+* Não remova as capas do PCM. Há um perigo de choque elétrico dentro. Para retornar o PCM e obter uma substituição, [entre em contato com suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
-![Observe o ícone](./media/storsimple-safety/IC740881.png) **aviso:**
+![Aviso do](./media/storsimple-safety/IC740881.png) ícone de aviso **:**
 
-Para a operação adequada do seu equipamento e para evitar danos de produto:
+Para a operação adequada do seu equipamento e para evitar danos ao produto:
 
-* Tem de substituir o PCM com falha dentro de 24 horas. Depois de remover um PCM para substituição, a substituição deve ser concluída em 10 minutos após a remoção.
-* Não remova um PCM, a menos que uma substituição pode ser instalada imediatamente. A inclusão não tem de ser utilizada sem todos os módulos no local.
+* Você deve substituir o PCM com falha dentro de 24 horas. Depois que um PCM é removido para substituição, a substituição deve ser concluída em 10 minutos após a remoção.
+* Não remova um PCM, a menos que uma substituição possa ser instalada imediatamente. O compartimento não deve ser operado sem todos os módulos em vigor.
 
-## <a name="electrostatic-discharge-esd-precautions"></a>Precauções mecânico altas (ESD)
-![Observe o ícone](./media/storsimple-safety/IC740881.png) **aviso:**
+## <a name="electrostatic-discharge-esd-precautions"></a>Precauções de descarga eletrostática (ESD)
+![Aviso do](./media/storsimple-safety/IC740881.png) ícone de aviso **:**
 
-Observe as seguintes precauções ESD relacionados.
+Observe as seguintes precauções relacionadas a ESD.
 
-* Certifique-se de que tem instalado e verificado uma strap pulso ou pulseiras antistatic adequado.
-* Quando o processamento de módulos e componentes, observe todas as precauções ESD convencionais.
-* Evite contacto com os componentes de backplane e conectores de módulo.
-* Danos ESD não é abrangido por garantia.
+* Verifique se você instalou e verificou uma pulseira antiestática ou um pulso tornozelo adequado.
+* Observe todas as precauções de ESD convencionais ao manipular módulos e componentes.
+* Evite contatar com componentes de backplane e conectores de módulo.
+* Danos ESD não são cobertos pela garantia.
 
-## <a name="battery-disposal-precautions"></a>Precauções de disposição de bateria
-A fonte de alimentação usa uma bateria especial para proteger o conteúdo da memória durante falhas de energia temporária de curto prazo. A bateria é sentada no PCM. Tenha as seguintes informações em mente sobre a bateria.
+## <a name="battery-disposal-precautions"></a>Precauções de descarte de bateria
+A fonte de alimentação usa uma bateria especial para proteger o conteúdo da memória durante interrupções de energia temporárias e de curto prazo. A bateria está encaixada no PCM. Tenha em mente as seguintes informações sobre a bateria.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) **aviso!**
+![Aviso de](./media/storsimple-safety/IC740879.png) ícone de aviso **!**
 
-Para reduzir o risco de caras, fire, explosão, lesão ou morte:
+Para reduzir o risco de curto, incêndio, explosão, lesão ou morte:
 
-* Descarte baterias utilizadas em conformidade com regulamentos national/regionais.
-* Não desassemblar, supere, ou de calor acima 60 graus Celsius (140 graus Fahrenheit) ou incinerate. Substitua a bateria PCM com apenas uma bateria fornecida. Utilização da bateria outro pode representam um risco de fogo ou explosão.
-* Utilize limites de proteção final as baterias se estes são removidos de alimentação.
+* Descarte as baterias usadas de acordo com as normas nacionais/regionais.
+* Não desmonte, Crush ou calor acima de 60 graus Celsius (140 graus Fahrenheit) ou incinere. Substitua a bateria do PCM somente por uma bateria fornecida. O uso de outra bateria pode representar um risco de incêndio ou explosão.
+* Use as tampas de extremidade de proteção nas baterias se elas forem removidas da fonte de alimentação.
 
-![Observe o ícone](./media/storsimple-safety/IC740881.png) **aviso:**
+![Aviso do](./media/storsimple-safety/IC740881.png) ícone de aviso **:**
 
-Quando envio ou caso contrário, transportar as baterias pelo ar, siga o documento de orientação de bateria do Lithium IATA disponível em [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+Ao enviar ou transportar de outra forma as baterias por ar, siga o documento de diretrizes de bateria de lítio IATA disponível em[https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
-Depois de rever estes avisos de segurança, os passos seguintes são para descompactar, montar e ligar o seu dispositivo.
+Depois de revisar esses avisos de segurança, as próximas etapas serão desempacotadas, rack e cabeamento do seu dispositivo.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para um dispositivo 8100, aceda a [instalar o seu dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md).
-* Para um dispositivo 8600, aceda a [instalar o seu dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
+* Para um dispositivo 8100, acesse [instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md).
+* Para um dispositivo 8600, acesse [instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
 

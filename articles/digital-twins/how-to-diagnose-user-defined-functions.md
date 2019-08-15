@@ -6,15 +6,15 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/12/2019
 ms.author: stegaw
 ms.custom: seodec18
-ms.openlocfilehash: 577467a6322b7f6d3cd7f199d80963f2f1a98ed6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 61c3f033fbe3febe7b0d048b247cc1fe8d597698
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849333"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014178"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Como depurar funções definidas pelo usuário no Azure digital gêmeos
 
@@ -45,7 +45,7 @@ Para rastrear a telemetria do sensor, verifique se as configurações de diagnó
 
 Para fazer a correspondência de uma mensagem de telemetria do sensor com seus respectivos logs, você pode especificar uma ID de correlação nos dados do evento que estão sendo enviados. Para fazer isso, defina a `x-ms-client-request-id` Propriedade como um GUID.
 
-Depois de enviar telemetria, abra o log Analytics para consultar logs usando a ID de correlação do conjunto:
+Depois de enviar telemetria, abra Azure Monitor log Analytics para consultar logs usando a ID de correlação do conjunto:
 
 ```Kusto
 AzureDiagnostics

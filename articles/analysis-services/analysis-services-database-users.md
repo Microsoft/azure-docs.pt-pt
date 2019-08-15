@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c38b11ceda010c122e17a7fad3df1684e0a1cf42
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2a6c63c4ae58079c79a9d344f1e2550e4768088f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696279"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932246"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerenciar usuários e funções de banco de dados
 
@@ -26,7 +26,7 @@ As permissões de função incluem:
 *  **Process** -os usuários podem se conectar e executar operações de processo no banco de dados, e analisar o modelo de dado do banco.
 *  **Leia** -os usuários podem usar um aplicativo cliente para se conectar e analisar os dados do modelo de banco.
 
-Ao criar um projeto de modelo de tabela, você cria funções e adiciona usuários ou grupos a essas funções usando o Gerenciador de funções no SQL Server Data Tools (SSDT). Quando implantado em um servidor, você usa SQL Server Management Studio (SSMS), [Analysis Services cmdlets do PowerShell](/sql/analysis-services/powershell/analysis-services-powershell-reference)ou TMSL (linguagem de script de [modelo de tabela](https://msdn.microsoft.com/library/mt614797.aspx) ) para adicionar ou remover funções e membros do usuário.
+Ao criar um projeto de modelo de tabela, você cria funções e adiciona usuários ou grupos a essas funções usando o Gerenciador de funções no SQL Server Data Tools (SSDT). Quando implantado em um servidor, você usa SQL Server Management Studio (SSMS), [Analysis Services cmdlets do PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)ou TMSL (linguagem de script de [modelo de tabela](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) ) para adicionar ou remover funções e membros do usuário.
 
 Os **grupos de segurança** devem ser habilitados para `MailEnabled` email com a propriedade definida como. [](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) `True` Ao especificar um grupo por endereço de email `obj:groupid@tenantid`, use.
 
@@ -86,7 +86,7 @@ Para adicionar funções e usuários a um banco de dados modelo implantado, voc�
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Para adicionar funções e usuários usando um script TMSL
 
-Você pode executar um script TMSL na janela XMLA no SSMS ou usando o PowerShell. Use o comando [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) e o objeto [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl) .
+Você pode executar um script TMSL na janela XMLA no SSMS ou usando o PowerShell. Use o comando [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) e o objeto [Roles](https://docs.microsoft.com/bi-reference/tmsl/roles-object-tmsl) .
 
 **Exemplo de script TMSL**
 
@@ -120,13 +120,13 @@ Neste exemplo, um usuário externo B2B e um grupo são adicionados à função d
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Para adicionar funções e usuários usando o PowerShell
 
-O módulo [SqlServer](/sql/analysis-services/powershell/analysis-services-powershell-reference) fornece cmdlets de gerenciamento de banco de dados específicos de tarefas e o cmdlet Invoke-ASCmd de uso geral que aceita uma consulta ou script de TMSL (linguagem de script de modelo de tabela). Os cmdlets a seguir são usados para gerenciar usuários e funções de banco de dados.
+O módulo [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) fornece cmdlets de gerenciamento de banco de dados específicos de tarefas e o cmdlet Invoke-ASCmd de uso geral que aceita uma consulta ou script de TMSL (linguagem de script de modelo de tabela). Os cmdlets a seguir são usados para gerenciar usuários e funções de banco de dados.
   
 |Cmdlet|Descrição|
 |------------|-----------------| 
-|[Add-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Adicione um membro a uma função de banco de dados.| 
-|[Remove-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Remover um membro de uma função de banco de dados.|   
-|[Invoke-ASCmd](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Execute um script TMSL.|
+|[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Adicione um membro a uma função de banco de dados.| 
+|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Remover um membro de uma função de banco de dados.|   
+|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Execute um script TMSL.|
 
 ## <a name="row-filters"></a>Filtros de linha  
 
@@ -148,9 +148,9 @@ Os filtros de linha se aplicam às linhas especificadas e linhas relacionadas. Q
   
  Você pode usar o filtro, *= false ()* , para negar o acesso a todas as linhas de uma tabela inteira.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
   [Gerenciar administradores de servidor](analysis-services-server-admins.md)   
   [Gerenciar Azure Analysis Services com o PowerShell](analysis-services-powershell.md)  
-  [Referência de TMSL (linguagem de script de modelo de tabela)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
+  [Referência de TMSL (linguagem de script de modelo de tabela)](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)
 

@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3a49681c5c5fa081157e1264f3e9f757c3ee0e6c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: dfe27878f018dfbf5f4bdcb52d711c8727c436e0
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516970"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950693"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure firewalls e redes virtuais
 
@@ -357,6 +357,7 @@ Se ativar o **permitir confiável a serviços da Microsoft...**  exceção, os s
 | Azure Event Hubs         | Microsoft.EventHub         | Arquivar dados com a captura de Hubs de eventos. [Saiba mais](/azure/event-hubs/event-hubs-capture-overview).                                                                                                                                                                                                                           |
 | Azure File Sync          | Microsoft.StorageSync      | Permite transformar seu servidor de arquivos local em um cache para compartilhamentos de arquivos do Azure. Permitir a sincronização de vários sites, recuperação rápida de desastres e backup no lado da nuvem. [Saiba mais](../files/storage-sync-files-planning.md)                                                                                                       |
 | Azure HDInsight          | Microsoft.HDInsight        | Provisione o conteúdo inicial do sistema de arquivos padrão para um novo cluster HDInsight. [Saiba mais](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).                                                                                                                                    |
+| Serviço Azure Machine Learning | Microsoft.MachineLearningServices | Os espaços de trabalho Azure Machine Learning autorizados gravam a saída, os modelos e os logs do experimento no armazenamento de BLOBs. [Saiba mais](/azure/machine-learning/service/how-to-enable-virtual-network#storage-account-for-your-workspace).                                                               
 | Azure Monitor            | Microsoft. insights         | Permite a escrita de dados para uma conta de armazenamento seguro de monitorização [Saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).                                                                                                                                                                        |
 | Redes do Azure         | Microsoft.Network          | Store e analisar registos de tráfego de rede. [Saiba mais](/azure/network-watcher/network-watcher-packet-capture-overview).                                                                                                                                                                                                        |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Configure recuperação após desastre ao ativar a replicação para máquinas de virtuais de IaaS do Azure. Isto é necessário se estiver a utilizar a conta de armazenamento de cache de firewall ativada ou a conta de armazenamento de origem ou a conta de armazenamento de destino.  [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |

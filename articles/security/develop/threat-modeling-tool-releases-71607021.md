@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: jegeib
-ms.openlocfilehash: 5759ef1332fa632aa2250f0703b36e7738f2668e
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 889704a2312bc51e57c18f25875fdbc838876522
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727905"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68928049"
 ---
 # <a name="threat-modeling-tool-update-release-71607021---722019"></a>Versão de atualização do Threat Modeling Tool 7.1.60702.1-7/2/2019
 
@@ -49,7 +49,7 @@ Um conjunto de estênceis para modelagem de dispositivos médicos foi contribuí
 
 ## <a name="documentation-and-feedback"></a>Documentação e comentários
 
-- A documentação do Threat Modeling Tool está localizada em [docs.Microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool)e inclui informações [sobre como usar a ferramenta](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started).
+- A documentação do Threat Modeling Tool está localizada em [docs.Microsoft.com](threat-modeling-tool.md)e inclui informações [sobre como usar a ferramenta](threat-modeling-tool-getting-started.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

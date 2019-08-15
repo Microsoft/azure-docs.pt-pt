@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2018
 ms.author: atsenthi
 ms.openlocfilehash: d84525e869d47fc609ee8aac7feb7feda36a5f23
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68599949"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um Cluster Service Fabric no Azure

@@ -8,12 +8,12 @@ ms.topic: reference
 caps.latest.revision: 28
 author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 4c2a85daba259f2b676174176753af90dd489491
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: c5a6501c71420ca5b43c4c08c2a29ae5f27b4af5
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360692"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945932"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Esquema NetworkConfiguration de configuração dos serviços de nuvem do Azure
 
@@ -44,7 +44,7 @@ O exemplo a seguir mostra `NetworkConfiguration` o elemento e seus elementos fil
         <DnsServer name="<server-name>" IPAddress="<server-address>" />
       </DnsServers>
     </Dns>
-    <VirtualNetworkSite name="<site-name>"/>
+    <VirtualNetworkSite name="Group <RG-VNet> <VNet-name>"/>
     <AddressAssignments>
       <InstanceAddress roleName="<role-name>">
         <Subnets>

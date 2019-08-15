@@ -6,18 +6,18 @@ author: JasonWHowell
 ms.author: jasonh
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: cdf90029d02680de4ce55e33b3ed0fe810d70b4c
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 7d0e27802745dda62f87e412053650907e9b812c
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775254"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950164"
 ---
 # <a name="azure-data-catalog-developer-samples"></a>Exemplos de desenvolvedor do catálogo de dados do Azure
 
 Comece a desenvolver aplicativos do catálogo de dados do Azure usando a API REST do catálogo de dados. A API REST do catálogo de dados é uma API baseada em REST que fornece acesso programático a recursos do catálogo de dados para registrar, anotar e Pesquisar ativos de dados programaticamente.
 
-Aqui estão os exemplos que temos no GitHub:
+## <a name="samples-available-on-githubcom"></a>Exemplos disponíveis em GitHub.com
 
 * [Introdução ao Catálogo de Dados do Azure](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/)
   

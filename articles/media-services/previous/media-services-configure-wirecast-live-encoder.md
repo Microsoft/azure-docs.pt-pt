@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: d0da69601bfc6fd09c10b30d45195722781d87d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: cenkdin;anilmur
+ms.openlocfilehash: be3c75680599c07a3cebe3dcf0436884958e1706
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61232137"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016669"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador de Wirecast para enviar um fluxo em direto com velocidade de transmissão única 
 > [!div class="op_single_selector"]
@@ -69,22 +70,22 @@ Embora o canal está a iniciar, pode [configurar o codificador](media-services-c
 >
 >
 
-## <a name="a-idconfigurewirecastrtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configurar o codificador Telestream Wirecast
+## <a name="a-idconfigure_wirecast_rtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configurar o codificador Telestream Wirecast
 Neste tutorial, são utilizadas as seguintes definições de saída. O resto desta secção descreve os passos de configuração mais detalhadamente.
 
 **Vídeo**:
 
-* Codec: H.264
-* Perfil: Alto (nível 4.0)
-* Velocidade de transmissão: 5000 kbps
-* Quadro-chave: 2 segundos (60 segundos)
+* Codec H. 264
+* Criar Alta (nível 4,0)
+* 720p 5000 kbps
+* Keyframe 2 segundos (60 segundos)
 * Taxa de quadros: 30
 
 **Áudio**:
 
-* Codec: AAC (LC)
-* Velocidade de transmissão: 192 kbps
-* Taxa da amostragem: 44.1 kHz
+* Codec AAC (LC)
+* 720p 192 kbps
+* Taxa de amostra: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Passos de configuração
 1. Abra a aplicação de Telestream Wirecast sobre o computador que está a ser utilizado e definida para RTMP de transmissão em fluxo.
@@ -103,16 +104,16 @@ Neste tutorial, são utilizadas as seguintes definições de saída. O resto des
 
     **Vídeo**
 
-   * Codificador: MainConcept H.264
+   * Fita MainConcept H. 264
    * Quadros por segundo: 30
-   * Taxa de bits média: 5000 kbits/seg (pode ser ajustado com base no limitações de rede)
-   * Perfil: Principal
-   * Quadro-chave cada: 60 quadros
+   * Taxa média de bits: 5000 kbits/s (pode ser ajustado com base nas limitações de rede)
+   * Criar Principal
+   * Quadro-chave a cada: quadros de 60
 
      **Áudio**
 
-   * Taxa de bits de destino: 192 kbits/seg
-   * Taxa da amostragem: 44.100 kHz
+   * Taxa de bits de destino: 192 kbits/s
+   * Taxa de amostra: 44,100 kHz
 
      ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 6. Prima **Guardar**.

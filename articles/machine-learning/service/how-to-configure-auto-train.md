@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: adca67152c33f4c6a3ec272b63c4c8157a777f36
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6e29e0f89d9270a143d48cf6e85b479813e19d9d
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856195"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013650"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
 
@@ -72,6 +72,11 @@ automl_config = AutoMLConfig(task="classification")
 Aprendizagem automática suporta os dados que residem no ambiente de trabalho local ou na cloud, como o armazenamento de Blobs do Azure. Os dados podem ser lidos em scikit-saiba formatos de dados suportados. Pode ler os dados em:
 * Matrizes de Numpy X (recursos) e y (variável de destino ou também conhecido como etiqueta)
 * Pandas dataframe
+
+>[!Important]
+> Requisitos para dados de treinamento:
+>* Os dados devem estar no formato de tabela.
+>* O valor que você deseja prever (coluna de destino) deve estar presente nos dados.
 
 Exemplos:
 
@@ -563,7 +568,7 @@ RunDetails(automl_run).show()
 
 Para obter mais informações sobre como as explicações de modelo e a importância do recurso podem ser habilitadas em outras áreas do SDK fora do aprendizado de máquina automatizado, consulte o artigo [conceito](machine-learning-interpretability-explainability.md) sobre interpretação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre [como e onde implementar um modelo](how-to-deploy-and-where.md).
 

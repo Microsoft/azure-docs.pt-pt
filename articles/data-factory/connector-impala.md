@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: f86931aad4eab697e4a0d2dfc47a6d4ff5bfc256
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a344c94561c43652e360f7da02c16877e4d70529
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401217"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966973"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Copiar dados do Impala com o Azure Data Factory (pré-visualização)
 
@@ -30,7 +30,11 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 
 Pode copiar dados de Impala para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
- Data Factory fornece um driver incorporado para permitir a conectividade. Portanto, não precisa de instalar manualmente um driver para utilizar este conector.
+Data Factory fornece um driver incorporado para permitir a conectividade. Portanto, não precisa de instalar manualmente um driver para utilizar este conector.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>Introdução
 
@@ -55,7 +59,7 @@ As seguintes propriedades são suportadas para o serviço ligado de Impala.
 | useSystemTrustStore | Especifica se pretende utilizar um certificado de AC a partir da loja de confiança do sistema ou a partir de um ficheiro PEM especificado. O valor predefinido é **false**.  | Não |
 | allowHostNameCNMismatch | Especifica se exige um nome de certificado SSL emitidos pela AC para corresponder ao nome do anfitrião do servidor, quando se liga através de SSL. O valor predefinido é **false**.  | Não |
 | allowSelfSignedServerCert | Especifica se pretende permitir que os certificados autoassinados do servidor. O valor predefinido é **false**.  | Não |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 **Exemplo:**
 
@@ -90,7 +94,7 @@ Para copiar dados de Impala, defina a propriedade de tipo de conjunto de dados p
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo do conjunto de dados deve ser definida como: **ImpalaObject** | Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **ImpalaObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**

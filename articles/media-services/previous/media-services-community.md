@@ -1,6 +1,6 @@
 ---
-title: Descrição geral da Comunidade dos serviços de multimédia do Azure | Documentos da Microsoft
-description: 'Esta página da Comunidade de serviços de multimédia do Azure (AMS) descreve formas diferentes, pode obter atualizações sobre AMS, ver novos vídeos e podcasts, faça perguntas e comentários. '
+title: Visão geral da Comunidade dos serviços de mídia do Azure | Microsoft Docs
+description: 'Esta página da Comunidade dos serviços de mídia do Azure (AMS) discute diferentes maneiras pelas quais você pode obter atualizações sobre o AMS, consulte novos vídeos e podcasts, faça perguntas e forneça comentários. '
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,58 +14,50 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8070d0cc302e0c0745216cdd40c9cbbf34e2bf58
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61245126"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69016640"
 ---
 # <a name="azure-media-services-community"></a>Comunidade dos Serviços de Multimédia do Azure  
 
-Esta página da Comunidade de serviços de multimédia do Azure (AMS) aborda as diferentes formas de obter atualizações sobre AMS. Também pode ver os novos vídeos e podcasts, colocar questões e enviar comentários.   
+Esta página da Comunidade dos serviços de mídia do Azure (AMS) discute diferentes maneiras pelas quais você pode obter atualizações sobre o AMS. Você também pode exibir novos vídeos e podcasts, fazer perguntas e fornecer comentários.   
 
-## <a name="videos-and-podcasts"></a>Vídeos e Podcasts
+## <a name="videos-and-podcasts"></a>Vídeos e podcasts
 
-- [Proteger o seu conteúdo de multimédia com o DRM](https://azure.microsoft.com/documentation/videos/azurefridayprotectingyourmediacontentdrm/) 
-- [Proteger o seu conteúdo de multimédia com encriptação AES](https://azure.microsoft.com/documentation/videos/azure-media-services-protecting-your-media-content-with-aes-encryption/) 
-- [Aprofunde-se para programadores dos serviços de multimédia do Azure](https://azure.microsoft.com/documentation/videos/build-2015-azure-media-services-developer-deep-dive/) 
-- [O indexador de multimédia do Azure cria automaticamente transcrições para o suporte de dados](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/)  
+- [Protegendo seu conteúdo de mídia com DRM](https://azure.microsoft.com/documentation/videos/azurefridayprotectingyourmediacontentdrm/) 
+- [Protegendo seu conteúdo de mídia com a criptografia AES](https://azure.microsoft.com/documentation/videos/azure-media-services-protecting-your-media-content-with-aes-encryption/) 
+- [Aprofundamento do desenvolvedor dos serviços de mídia do Azure](https://azure.microsoft.com/documentation/videos/build-2015-azure-media-services-developer-deep-dive/) 
+- [Azure Media Indexer cria transcrições automaticamente para sua mídia](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/)  
 
 
-## <a name="provide-feedback-and-make-suggestions"></a>Fornecer comentários e sugestões
+## <a name="provide-feedback-and-make-suggestions"></a>Fornecer comentários e fazer sugestões
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="discussion"></a>Discussão
 
 ### <a name="twitter"></a>Twitter
 
-Utilize o [ @MSFTAzureMedia ](https://twitter.com/MSFTAzureMedia) identificador do twitter contacte-nos ou seguir as atualizações no Twitter. Pode utilizar o [ @AzureSupport ](https://twitter.com/azuresupport) identificador do twitter para pedir suporte no Twitter.  
+Use o [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) identificador do Twitter para entrar em contato conosco ou seguir as atualizações no Twitter. Você pode usar o [@AzureSupport](https://twitter.com/azuresupport) identificador do Twitter para solicitar suporte no Twitter.  
 
 ### <a name="online-forums"></a>Fóruns online
 
-Fóruns do seguintes podem ser utilizados para fazer perguntas sobre produtos atuais e os recursos.
+Os fóruns a seguir podem ser usados para fazer perguntas sobre os produtos e recursos atuais.
 
-Atualmente, o MSDN é o Fórum de Comunidade principal da equipe de serviços de multimédia.
+Atualmente, o MSDN é o fórum da comunidade principal da equipe de serviços de mídia.
 
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
-A equipe também monitora perguntas marcadas no Stack Overflow com 'azure--serviços de multimédia'.
+A equipe também monitora as perguntas marcadas em Stack Overflow com ' Azure-Media-Services '.
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="contact-the-team"></a>Contactar a equipa
 
-Serviços de multimédia do Azure, o e-mail de suporte principal é: **amshelp\@microsoft.com**.
+O email de suporte primário dos serviços de **amshelp@microsoft.com** mídia do Azure é:.
 
-A tabela seguinte apresenta uma lista de correio eletrónico de equipes de recursos de sub-rotina:
+## <a name="next-steps"></a>Passos Seguintes
 
-| Funcionalidade | Email |
-| --- | --- |
-| Análise de multimédia do Azure |amsanalytics@microsoft.com |
-| Media Player do Azure |ampinfo@microsoft.com |
-| Explorador de multimédia do Azure |amse@microsoft.com |
-| Designer de fluxo de trabalho |mepd@microsoft.com |
-| Transmissão em fluxo do ficheiro e empacotamento |amsstreaming@microsoft.com |
-| Em tempo real de transmissão em fluxo e empacotamento |amslived@microsoft.com |
-
+[Descrição Geral](media-services-overview.md)

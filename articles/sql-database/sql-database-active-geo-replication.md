@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 4b1a551ea2dd62d428fee6a7be475472235a3994
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 131333f140518f6fb2f63f17d0aa72692dc7d49a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569619"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935060"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criando e usando a replicação geográfica ativa
 
@@ -76,7 +76,7 @@ Para obter continuidade de negócios real, a adição de redundância de banco d
 > [!NOTE]
 > A repetição de log será atrasada no banco de dados secundário se houver atualizações de esquema no primário. O último requer um bloqueio de esquema no banco de dados secundário.
 > [!IMPORTANT]
-> Você pode usar a replicação geográfica para criar um banco de dados secundário na mesma região que o primário. Você pode usar esse secundário para balancear a carga de cargas de trabalho somente leitura na mesma região. No entanto, um banco de dados secundário na mesma região não fornece resiliência de falha adicional e, portanto, não é um destino de failover adequado para recuperação de desastres. Ele também não garantirá o isolamento de zona avaialability. Use a camada de serviço comercialmente crítica ou Premium com [configuração com redundância de zona](sql-database-high-availability.md#zone-redundant-configuration) para obter o isolamento de zona avaialability.   
+> Você pode usar a replicação geográfica para criar um banco de dados secundário na mesma região que o primário. Você pode usar esse secundário para balancear a carga de cargas de trabalho somente leitura na mesma região. No entanto, um banco de dados secundário na mesma região não fornece resiliência de falha adicional e, portanto, não é um destino de failover adequado para recuperação de desastres. Ele também não garantirá o isolamento da zona de disponibilidade. Use a camada de serviço comercialmente crítica ou Premium com [configuração com redundância de zona](sql-database-high-availability.md#zone-redundant-configuration) para obter isolamento de zona de disponibilidade.   
 >
 
 - **Failover planejado**
