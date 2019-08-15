@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 61f0b42731f98dc772a588e5840af6e8535af118
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 7b07fee46bce4c7b80346eb0b4c0fccd5245d87f
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68781082"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946879"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Esquema de Segurança e Conformidade do Azure: Análise para FedRAMP
 
@@ -44,7 +44,7 @@ O banco de dados SQL do Azure é normalmente gerenciado por meio do SQL Server M
 ![Análise do diagrama da arquitetura de referência do FedRAMP](images/fedramp-analytics-reference-architecture.png?raw=true "Análise do diagrama da arquitetura de referência do FedRAMP")
 
 ### <a name="roles"></a>Funções
-O plano gráfico de análise descreve um cenário com três tipos de usuário gerais: o usuário operacional, o administrador de SQL/dados e o engenheiro de sistemas. O RBAC (controle de acesso baseado em função) do Azure permite a implementação do gerenciamento de acesso preciso por meio de funções personalizadas internas. Os recursos estão disponíveis para configurar o [controle de acesso baseado em função e a](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) estrutura de tópicos e a implementação de [funções](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)predefinidas.
+O plano gráfico de análise descreve um cenário com três tipos de usuário gerais: o usuário operacional, o administrador de SQL/dados e o engenheiro de sistemas. O RBAC (controle de acesso baseado em função) do Azure permite a implementação do gerenciamento de acesso preciso por meio de funções personalizadas internas. Os recursos estão disponíveis para configurar o [controle de acesso baseado em função e a](../../role-based-access-control/role-assignments-portal.md) estrutura de tópicos e a implementação de [funções](../../role-based-access-control/built-in-roles.md)predefinidas.
 
 #### <a name="systems-engineer"></a>Engenheiro de sistemas
 O engenheiro de sistemas possui a assinatura de cliente do Azure e configura a implantação da solução por meio do portal do Azure.
@@ -80,11 +80,11 @@ A seção a seguir detalha os elementos de desenvolvimento e implementação.
 **Power bi**: O [Power bi](https://docs.microsoft.com/power-bi/service-azure-and-power-bi) fornece a funcionalidade de análise e geração de relatórios para clientes que tentam extrair mais informações sobre seus esforços de processamento de dados.
 
 ### <a name="networking"></a>Redes
-**Grupos de segurança de rede**: [NSGs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) são configurados para gerenciar o tráfego direcionado em serviços e recursos implantados. Os grupos de segurança de rede são definidos como um esquema de negação por padrão e só permitem o tráfego contido na ACL (lista de controle de acesso) pré-configurada.
+**Grupos de segurança de rede**: [NSGs](../../virtual-network/virtual-network-vnet-plan-design-arm.md) são configurados para gerenciar o tráfego direcionado em serviços e recursos implantados. Os grupos de segurança de rede são definidos como um esquema de negação por padrão e só permitem o tráfego contido na ACL (lista de controle de acesso) pré-configurada.
 
 Cada um dos NSGs tem portas e protocolos específicos abertos para que a solução possa funcionar de forma segura e correta. Além disso, as seguintes configurações estão habilitadas para cada NSG:
   - [Os logs e eventos de diagnóstico](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) são habilitados e armazenados em uma conta de armazenamento
-  - [Os logs de Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics) estão conectados aos logs de diagnóstico do NSG.
+  - [Os logs de Azure monitor](../../azure-monitor/insights/azure-networking-analytics.md) estão conectados aos logs de diagnóstico do NSG.
 
 ### <a name="data-at-rest"></a>Dados inativos
 A arquitetura protege os dados em repouso por meio de criptografia, auditoria de banco e outras medidas.
@@ -93,38 +93,38 @@ A arquitetura protege os dados em repouso por meio de criptografia, auditoria de
  - A configuração padrão para a replicação de dados é o **armazenamento com redundância geográfica (GRS)** , que armazena de forma assíncrona os dados do cliente em um Data Center separado fora da região primária. Isso garante a recuperação de dados em um evento de perda total para o data center primário.
  - O **LRS (armazenamento com redundância local)** pode ser configurado como alternativa por meio da conta de armazenamento do Azure. O LRS replica dados em uma unidade de escala de armazenamento, que é hospedada na mesma região em que o cliente cria sua conta. Todos os dados são replicados simultaneamente, garantindo que nenhum dado de backup seja perdido em uma falha de unidade de escala de armazenamento primária.
 
-**Armazenamento do Azure** Para atender aos requisitos de dados criptografados em repouso, todos os serviços implantados nessa arquitetura de referência aproveitam o [armazenamento do Azure](https://azure.microsoft.com/services/storage/), que armazena dados com [criptografia do serviço de armazenamento](https://docs.microsoft.com/azure/storage/storage-service-encryption).
+**Armazenamento do Azure** Para atender aos requisitos de dados criptografados em repouso, todos os serviços implantados nessa arquitetura de referência aproveitam o [armazenamento do Azure](https://azure.microsoft.com/services/storage/), que armazena dados com [criptografia do serviço de armazenamento](../../storage/common/storage-service-encryption.md).
 
 AzureDiskEncryption
-[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) aproveita o recurso BitLocker do Windows para fornecer criptografia de volume para o sistema operacional e discos de dados. A solução se integra com Azure Key Vault para ajudar a controlar e gerenciar as chaves de criptografia de disco.
+[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) aproveita o recurso BitLocker do Windows para fornecer criptografia de volume para o sistema operacional e discos de dados. A solução se integra com Azure Key Vault para ajudar a controlar e gerenciar as chaves de criptografia de disco.
 
 **Banco de dados SQL do Azure** A instância do banco de dados SQL do Azure usa as seguintes medidas de segurança de banco de dados:
 -   A [autenticação e a autorização do AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permitem o gerenciamento de identidades de usuários de banco de dados e outros serviços da Microsoft em um local central.
--   A [auditoria do banco de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) rastreia eventos de banco de dados e os grava em um log de auditoria em uma conta de armazenamento do Azure.
+-   A [auditoria do banco de dados SQL](../../sql-database/sql-database-auditing.md) rastreia eventos de banco de dados e os grava em um log de auditoria em uma conta de armazenamento do Azure.
 -   O banco de dados SQL está configurado para usar o [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), que executa criptografia e descriptografia em tempo real de arquivos de log e data para proteger informações em repouso. O TDE fornece garantia de que os dados armazenados não estão sujeitos a acesso não autorizado.
 -   [As regras de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) impedem todo o acesso a servidores de banco de dados até que sejam concedidas permissões adequadas A firewall concede acesso a bases de dados com base no endereço IP de origem de cada pedido.
--   A [detecção de ameaças do SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) permite a detecção e a resposta a ameaças potenciais à medida que elas ocorrem, fornecendo alertas de segurança para atividades suspeitas de banco de dados, vulnerabilidades potenciais, ataques de injeção de SQL e padrões de acesso de banco de dados anormais
+-   A [detecção de ameaças do SQL](../../sql-database/sql-database-threat-detection.md) permite a detecção e a resposta a ameaças potenciais à medida que elas ocorrem, fornecendo alertas de segurança para atividades suspeitas de banco de dados, vulnerabilidades potenciais, ataques de injeção de SQL e padrões de acesso de banco de dados anormais
 -   [Always Encrypted colunas](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) garantem que os dados confidenciais nunca apareçam como texto não criptografado no sistema de banco de dados. Depois de habilitar a criptografia de dados, somente aplicativos cliente ou servidores de aplicativos com acesso às chaves podem acessar dados de texto sem formatação.
 -   O mascaramento de [dados dinâmicos do banco SQL](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) pode ser feito após a implantação da arquitetura de referência. Os clientes precisarão ajustar as configurações de mascaramento de dados dinâmicos para aderir ao seu esquema de banco de dado.
 
 ### <a name="logging-and-audit"></a>Registro em log e auditoria
-O [Azure monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) gera uma exibição completa dos dados de monitoramento, incluindo logs de atividades, métricas e dados de diagnóstico, permitindo que os clientes criem uma visão geral da integridade do sistema.  
-[Os logs de Azure monitor](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) fornecem log extensivo de atividade do sistema e do usuário, bem como a integridade do sistema. Ele coleta e analisa os dados gerados pelos recursos no Azure e em ambientes locais.
-- **Logs de atividade**: [Os logs de atividade](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações sobre as operações executadas nos recursos em uma assinatura.
-- **Logs de diagnóstico**: Os [logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os logs emitidos por cada recurso. Esses logs incluem logs do sistema de eventos do Windows e armazenamento de BLOBs do Azure, tabelas e logs de fila.
+O [Azure monitor](../../azure-monitor/overview.md) gera uma exibição completa dos dados de monitoramento, incluindo logs de atividades, métricas e dados de diagnóstico, permitindo que os clientes criem uma visão geral da integridade do sistema.  
+[Os logs de Azure monitor](../azure-security-disk-encryption-overview.md) fornecem log extensivo de atividade do sistema e do usuário, bem como a integridade do sistema. Ele coleta e analisa os dados gerados pelos recursos no Azure e em ambientes locais.
+- **Logs de atividade**: [Os logs de atividade](../../azure-monitor/platform/activity-logs-overview.md) fornecem informações sobre as operações executadas nos recursos em uma assinatura.
+- **Logs de diagnóstico**: Os [logs de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) incluem todos os logs emitidos por cada recurso. Esses logs incluem logs do sistema de eventos do Windows e armazenamento de BLOBs do Azure, tabelas e logs de fila.
 - **Logs de firewall**: O gateway de aplicativo fornece logs completos de diagnóstico e acesso. Os logs de firewall estão disponíveis para recursos de gateway de aplicativo habilitados para WAF.
 - **Arquivamento de log**: Todos os logs de diagnóstico gravam em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento com um período de retenção definido de 2 dias. Esses logs se conectam a logs de Azure Monitor para processamento, armazenamento e relatórios de painel.
 
 Além disso, as soluções de monitoramento a seguir são incluídas como parte dessa arquitetura:
 -   [Automação do Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): A solução de automação do Azure armazena, executa e gerencia runbooks.
--   [Segurança e auditoria](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): O painel de Segurança e Auditoria fornece uma percepção de alto nível do estado de segurança dos recursos, fornecendo métricas sobre domínios de segurança, problemas notáveis, detecções, inteligência contra ameaças e consultas de segurança comuns.
--   [Avaliação do SQL](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): A solução de verificação de integridade do SQL avalia o risco e a integridade dos ambientes de servidor em um intervalo regular e fornece aos clientes uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
--   [Logs de atividades do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): A solução Análise do Log de Atividades auxilia na análise dos logs de atividade do Azure em todas as assinaturas do Azure para um cliente.
+-   [Segurança e auditoria](../../security-center/security-center-intro.md): O painel de Segurança e Auditoria fornece uma percepção de alto nível do estado de segurança dos recursos, fornecendo métricas sobre domínios de segurança, problemas notáveis, detecções, inteligência contra ameaças e consultas de segurança comuns.
+-   [Avaliação do SQL](../../azure-monitor/insights/sql-assessment.md): A solução de verificação de integridade do SQL avalia o risco e a integridade dos ambientes de servidor em um intervalo regular e fornece aos clientes uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
+-   [Logs de atividades do Azure](../../azure-monitor/platform/collect-activity-logs.md): A solução Análise do Log de Atividades auxilia na análise dos logs de atividade do Azure em todas as assinaturas do Azure para um cliente.
 
 ### <a name="identity-management"></a>Gestão de identidades
--   A autenticação para o aplicativo é executada usando o Azure AD. Para obter mais informações, consulte [integrando aplicativos com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Além disso, a criptografia de coluna de banco de dados usa o Azure AD para autenticar o aplicativo no banco de dados SQL do Azure. Para obter mais informações, Confira como [proteger dados confidenciais no SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
--   [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) detecta possíveis vulnerabilidades que afetam as identidades de uma organização, configura as respostas automatizadas para detectar ações suspeitas relacionadas às identidades de uma organização e investiga incidentes suspeitos para tomar as medidas apropriadas para resolvê-los.
--   O [RBAC (controle de acesso baseado em função) do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) permite o gerenciamento de acesso focado para o Azure. O acesso à assinatura é limitado ao administrador da assinatura.
+-   A autenticação para o aplicativo é executada usando o Azure AD. Para obter mais informações, consulte [integrando aplicativos com Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Além disso, a criptografia de coluna de banco de dados usa o Azure AD para autenticar o aplicativo no banco de dados SQL do Azure. Para obter mais informações, Confira como [proteger dados confidenciais no SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+-   [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) detecta possíveis vulnerabilidades que afetam as identidades de uma organização, configura as respostas automatizadas para detectar ações suspeitas relacionadas às identidades de uma organização e investiga incidentes suspeitos para tomar as medidas apropriadas para resolvê-los.
+-   O [RBAC (controle de acesso baseado em função) do Azure](../../role-based-access-control/role-assignments-portal.md) permite o gerenciamento de acesso focado para o Azure. O acesso à assinatura é limitado ao administrador da assinatura.
 
 Para saber mais sobre como usar os recursos de segurança do banco de dados SQL do Azure, consulte o exemplo de [aplicativo de demonstração da Contoso Clinic](https://github.com/Microsoft/azure-sql-security-sample) .
 
@@ -137,7 +137,7 @@ Para saber mais sobre como usar os recursos de segurança do banco de dados SQL 
 O [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou um túnel VPN seguro precisa ser configurado para estabelecer com segurança uma conexão com os recursos implantados como parte dessa arquitetura de referência da análise de dados. Como as conexões do ExpressRoute não passam pela Internet, essas conexões oferecem mais confiabilidade, velocidades mais rápidas, latências menores e mais segurança do que as conexões típicas pela Internet. Ao configurar adequadamente o ExpressRoute ou uma VPN, os clientes podem adicionar uma camada de proteção para os dados em trânsito.
 
 ### <a name="azure-active-directory-setup"></a>Azure Active Directory configuração
-[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) é essencial para gerenciar a implantação e o provisionamento de acesso à equipe interagindo com o ambiente. Um Active Directory do Windows Server existente pode ser integrado com o AAD em [quatro cliques](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Os clientes também podem vincular a infraestrutura de Active Directory implantada (controladores de domínio) a um AAD existente, tornando a infraestrutura de Active Directory implantada um subdomínio de uma floresta do AAD.
+[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) é essencial para gerenciar a implantação e o provisionamento de acesso à equipe interagindo com o ambiente. Um Active Directory do Windows Server existente pode ser integrado com o AAD em [quatro cliques](../../active-directory/hybrid/how-to-connect-install-express.md). Os clientes também podem vincular a infraestrutura de Active Directory implantada (controladores de domínio) a um AAD existente, tornando a infraestrutura de Active Directory implantada um subdomínio de uma floresta do AAD.
 
 ### <a name="additional-services"></a>Serviços adicionais
 #### <a name="iaas---vm-considerations"></a>Considerações sobre IaaS-VM
@@ -149,11 +149,11 @@ Essa solução PaaS não incorpora nenhuma VM IaaS do Azure. Um cliente pode cri
 - **Cofre dos serviços de recuperação**: O [cofre dos serviços de recuperação](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) hospeda dados de backup e protege todas as configurações de máquinas virtuais do Azure nessa arquitetura. Com um cofre dos serviços de recuperação, os clientes podem restaurar arquivos e pastas de uma VM IaaS sem restaurar toda a VM, permitindo tempos de restauração mais rápidos.
 
 ##### <a name="monitoring-solutions"></a>Soluções de monitorização
--   [Avaliação do AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): A solução de verificação de integridade Active Directory avalia o risco e a integridade dos ambientes de servidor em um intervalo regular e fornece uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
--   [Avaliação de antimalware](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): A solução antimalware relata sobre malware, ameaças e status de proteção.
--   [Gerenciamento de atualizações](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): A solução Gerenciamento de Atualizações permite o gerenciamento de clientes das atualizações de segurança do sistema operacional, incluindo o status das atualizações disponíveis e o processo de instalação das atualizações necessárias.
--   [Integridade do agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): A solução Integridade do Agente relata Quantos agentes são implantados e sua distribuição geográfica, bem como Quantos agentes que não respondem e o número de agentes que estão enviando dados operacionais.
--   [Controle de alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking): A solução Controle de Alterações permite que os clientes identifiquem facilmente as alterações no ambiente.
+-   [Avaliação do AD](../../azure-monitor/insights/ad-assessment.md): A solução de verificação de integridade Active Directory avalia o risco e a integridade dos ambientes de servidor em um intervalo regular e fornece uma lista priorizada de recomendações específicas para a infraestrutura de servidor implantada.
+-   [Avaliação de antimalware](../../security-center/security-center-install-endpoint-protection.md): A solução antimalware relata sobre malware, ameaças e status de proteção.
+-   [Gerenciamento de atualizações](../../automation/automation-update-management.md): A solução Gerenciamento de Atualizações permite o gerenciamento de clientes das atualizações de segurança do sistema operacional, incluindo o status das atualizações disponíveis e o processo de instalação das atualizações necessárias.
+-   [Integridade do agente](../../monitoring/monitoring-solution-agenthealth.md): A solução Integridade do Agente relata Quantos agentes são implantados e sua distribuição geográfica, bem como Quantos agentes que não respondem e o número de agentes que estão enviando dados operacionais.
+-   [Controle de alterações](../../automation/change-tracking.md): A solução Controle de Alterações permite que os clientes identifiquem facilmente as alterações no ambiente.
 
 ##### <a name="security"></a>Segurança
 - **Proteção contra malware**: [O Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) para máquinas virtuais fornece recursos de proteção em tempo real que ajudam a identificar e remover vírus, spyware e outros softwares mal-intencionados, com alertas configuráveis quando um software mal-intencionado ou indesejado conhecido tenta instalar ou executar em máquinas virtuais protegidas.

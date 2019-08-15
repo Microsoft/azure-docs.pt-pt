@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: af88d2f0ce0e26fe67dda265b59684083c133dd5
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 598ad4c103035ec2d94015e1f8e12194d1b723fc
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297593"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935103"
 ---
 # <a name="database-collation-support-for-azure-sql-data-warehouse"></a>Suporte a agrupamento de banco de dados para o Azure SQL Data Warehouse
 
@@ -26,7 +26,7 @@ Para alterar o agrupamento padrão, é simples atualizar para o campo de agrupam
 
 Por exemplo, se você quisesse alterar o agrupamento padrão para diferenciar maiúsculas de minúsculas, bastaria renomear o agrupamento de SQL_Latin1_General_CP1_CI_AS para SQL_Latin1_General_CP1_CS_AS. 
 
-#<a name="list-of-unsupported-collation-types"></a>Lista de tipos de agrupamentos sem suporte
+## <a name="list-of-unsupported-collation-types"></a>Lista de tipos de agrupamentos sem suporte
 *   Japanese_Bushu_Kakusu_140_BIN
 *   Japanese_Bushu_Kakusu_140_BIN2
 *   Japanese_Bushu_Kakusu_140_CI_AI_VSS

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07c035f4823ea8c8eaa96ca9bda22450246811cd
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1cb4d3e35ae743dbae4c049f515d61b3042e7efe
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779632"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952811"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Solução de problemas de proteção de senha do Azure AD
 
@@ -41,6 +41,8 @@ O principal sintoma desse problema é 30018 eventos no log de eventos do adminis
 1. O computador host proxy está bloqueando o acesso ao ponto de extremidade RPC (dinâmico ou estático) escutado pelo serviço de proxy
 
    O instalador de proxy de proteção de senha do Azure AD cria automaticamente uma regra de entrada do firewall do Windows que permite o acesso a qualquer porta de entrada escutada pelo serviço de proxy de proteção de senha do Azure AD. Se essa regra for excluída ou desabilitada posteriormente, os agentes de DC não poderão se comunicar com o serviço de proxy. Se o firewall interno do Windows tiver sido desabilitado no lugar de outro produto de firewall, você deverá configurar esse firewall para permitir o acesso a qualquer porta de entrada escutada pelo serviço de proxy de proteção de senha do Azure AD. Essa configuração pode se tornar mais específica se o serviço de proxy tiver sido configurado para escutar em uma porta RPC estática específica (usando `Set-AzureADPasswordProtectionProxyConfiguration` o cmdlet).
+
+1. O computador host proxy não está configurado para permitir que os controladores de domínio possam fazer logon no computador. Esse comportamento é controlado por meio da atribuição de privilégio de usuário "acessar este computador pela rede". Todos os controladores de domínio em todos os domínios na floresta devem receber esse privilégio. Essa configuração geralmente é restrita como parte de um esforço maior de proteção de rede.
 
 ## <a name="proxy-service-is-unable-to-communicate-with-azure"></a>O serviço de proxy não pode se comunicar com o Azure
 
@@ -239,7 +241,7 @@ Se for decidido desinstalar o software de proteção de senha do Azure AD e limp
 
    Esse caminho será diferente se o compartilhamento de SYSVOL tiver sido configurado em um local não padrão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Perguntas frequentes sobre a proteção de senha do Azure AD](howto-password-ban-bad-on-premises-faq.md)
 

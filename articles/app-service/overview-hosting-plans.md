@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: fef509d705d0b904586a86b7dc58decc54e7023d
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 4ea983255463080592181cda321ef6b6d1ff147f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716647"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932348"
 ---
 # <a name="azure-app-service-plan-overview"></a>Visão geral do plano de serviço Azure App
 
@@ -32,14 +32,13 @@ Quando você cria um plano do serviço de aplicativo em uma determinada região 
 - Região (oeste dos EUA, leste dos EUA, etc.)
 - Número de instâncias de VM
 - Tamanho das instâncias de VM (pequeno, médio, grande)
-- Tipo de preço (gratuito, compartilhado, básico, Standard, Premium, PremiumV2, isolado, consumo)
+- Tipo de preço (gratuito, compartilhado, básico, Standard, Premium, PremiumV2, isolado)
 
 O _tipo de preço_ de um plano do serviço de aplicativo determina quais recursos do serviço de aplicativo você obtém e quanto você paga para o plano. Há algumas categorias de tipos de preço:
 
 - **Computação compartilhada**: **Livres** ecompartilhadas, as duas camadas de base, executam um aplicativo na mesma VM do Azure que outros aplicativos do serviço de aplicativo, incluindo aplicativos de outros clientes. Essas camadas alocam cotas de CPU para cada aplicativo que é executado nos recursos compartilhados, e os recursos não podem ser expandidos.
 - **Computação dedicada**: As camadas **Basic**, **Standard**, **Premium**e **PremiumV2** executam aplicativos em VMs do Azure dedicadas. Somente os aplicativos no mesmo plano do serviço de aplicativo compartilham os mesmos recursos de computação. Quanto maior a camada, mais instâncias de VM estarão disponíveis para você para expansão.
-- **Isolado**: Essa camada executa VMs do Azure dedicadas em redes virtuais dedicadas do Azure, que fornece isolamento de rede sobre o isolamento de computação para seus aplicativos. Ele fornece os recursos máximos de expansão.
-- **Consumo**: Essa camada só está disponível para [aplicativos de funções](../azure-functions/functions-overview.md). Ele dimensiona as funções dinamicamente dependendo da carga de trabalho. Para obter mais informações, consulte [comparação de Azure Functions planos de hospedagem](../azure-functions/functions-scale.md).
+- **Isolado**: Essa camada executa VMs do Azure dedicadas em redes virtuais do Azure dedicadas. Ele fornece isolamento de rede na parte superior do isolamento de computação para seus aplicativos. Ele fornece os recursos máximos de expansão.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -80,8 +79,7 @@ Exceto para a camada **gratuita** , um plano do serviço de aplicativo recebe um
 
 - Na camada **compartilhada** , cada aplicativo recebe uma cota de minutos de CPU, de modo que _cada aplicativo_ é cobrado por hora para a cota de CPU.
 - Nas camadas de computação dedicadas (**Basic**, **Standard**, **Premium**, **PremiumV2**), o plano do serviço de aplicativo define o número de instâncias de VM para as quais os aplicativos são dimensionados, de modo que _cada instância de VM_ no plano do serviço de aplicativo tem um custo por hora. Essas instâncias de VM são cobradas da mesma forma, independentemente de quantos aplicativos estão em execução nelas. Para evitar encargos inesperados, consulte [limpar um plano do serviço de aplicativo](app-service-plan-manage.md#delete).
-- Na camada **isolada** , o ambiente do serviço de aplicativo define o número de trabalhadores isolados que executam seus aplicativos e _cada trabalho_ é cobrado por hora. Além disso, há uma taxa de base por hora para a execução do Ambiente do Serviço de Aplicativo em si. 
-- (Somente Azure Functions) A camada de **consumo** aloca dinamicamente instâncias de VM para atender a uma carga de trabalho do aplicativo de funções e é cobrada dinamicamente por segundo pelo Azure. Para obter mais informações, consulte [preços de funções do Azure](https://azure.microsoft.com/pricing/details/functions/).
+- Na camada **isolada** , o ambiente do serviço de aplicativo define o número de trabalhadores isolados que executam seus aplicativos e _cada trabalho_ é cobrado por hora. Além disso, há uma taxa de base por hora para a execução do Ambiente do Serviço de Aplicativo em si.
 
 Você não é cobrado pelo uso dos recursos do serviço de aplicativo que estão disponíveis para você (Configurando domínios personalizados, certificados SSL, slots de implantação, backups, etc.). As exceções são:
 

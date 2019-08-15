@@ -1,6 +1,6 @@
 ---
-title: Edite rostos com análise de multimédia do Azure | Documentos da Microsoft
-description: Este tópico demonstra como edite rostos com análise de multimédia do Azure.
+title: Redação faces com Análise de Mídia do Azure | Microsoft Docs
+description: Este tópico demonstra como redação faces com o Azure Media Analytics.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,49 +12,49 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;
-ms.openlocfilehash: 1fe003ae13bc5f195932f4f140e17c4dc2791959
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.openlocfilehash: e350b6ed90324e7ed645d85c046fd74c0a089452
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61247401"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016023"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>Edite rostos com análise de multimédia do Azure 
+# <a name="redact-faces-with-azure-media-analytics"></a>Redação faces com Análise de Mídia do Azure 
 ## <a name="overview"></a>Descrição geral
-**O Azure Media Redactor** é um [análise de multimédia do Azure](media-services-analytics-overview.md) processador de multimédia (MP) que oferece a redação de rostos escalável na cloud. A redação de rostos permite-lhe modificar o vídeo para Desfoca rostos de indivíduos selecionados. Pode querer utilizar o serviço de redação de rostos em cenários de segurança e multimédia para notícias pública. Alguns minutos de imagens que contém vários rostos de podem demorar horas a edite manualmente, mas com este serviço, o processo de redação de rostos exigirá apenas alguns passos simples. Para obter mais informações, consulte [isso](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
+**Azure Media redactor** é um processador de mídia [análise de mídia do Azure](media-services-analytics-overview.md) (MP) que oferece uma edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de indivíduos selecionados. Talvez você queira usar o serviço de edição facial em cenários de segurança pública e de mídia de notícias. Alguns minutos de seqüência de imagens que contém vários rostos podem levar horas para serem editados manualmente, mas com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para obter mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
-Este artigo fornece detalhes sobre **do Azure Media Redactor** e mostra como utilizá-lo com o SDK de Media Services para .NET.
+Este artigo fornece detalhes sobre **Azure Media redactor** e mostra como usá-lo com o SDK dos serviços de mídia para .net.
 
-## <a name="face-redaction-modes"></a>Modos de redação de rostos
-Redação de facial funciona por detetar rostos em cada quadro de vídeo e rastrear o objeto de face, de ambos os para a frente e para trás no tempo, para que a mesma pessoa pode desfocada de outros ângulos também. O processo automatizado de redação é complexo e faz não sempre produzir 100% de saída desejado, por esse motivo, a análise de multimédia fornecem-lhe duas formas para modificar o resultado final.
+## <a name="face-redaction-modes"></a>Modos de edição facial
+A edição facial funciona detectando faces em cada quadro de vídeo e acompanhando o objeto de face para frente e para trás no tempo, para que a mesma pessoa também possa ser desfocada de outros ângulos. O processo de redação automatizado é complexo e nem sempre produz 100% da saída desejada, por esse motivo Análise de Mídia fornece duas maneiras de modificar a saída final.
 
-Além de um modo totalmente automático, há um fluxo de trabalho de dois, que permite a seleção/desaprovisionamento-selection de faces encontradas por meio de uma lista de IDs. Além disso tornar arbitrário por ajustes de quadro o pacote de gestão utiliza um ficheiro de metadados no formato JSON. Este fluxo de trabalho é dividido em **Analyze** e **Redact** modos. Pode combinar os dois modos numa única passagem, que executa ambas as tarefas numa tarefa; Este modo é chamado **combinado**.
+Além de um modo totalmente automático, há um fluxo de trabalho de duas passagens, que permite a seleção/remoção de faces encontradas por meio de uma lista de IDs. Além disso, para fazer ajustes arbitrários por quadro, o MP usa um arquivo de metadados no formato JSON. Esse fluxo de trabalho é dividido em modos de **análise** e redação. Você pode combinar os dois modos em uma única passagem que executa ambas as tarefas em um trabalho; Esse modo é chamado **combinado**.
 
 ### <a name="combined-mode"></a>Modo combinado
-Isso produz um mp4 eliminadas automaticamente sem qualquer manual de entrada.
+Isso produz um MP4 reproduzido automaticamente sem nenhuma entrada manual.
 
 | Fase | Nome de Ficheiro | Notas |
 | --- | --- | --- |
-| Elemento de entrada |foo.bar |Vídeo em formato WMV, MOV ou MP4 |
-| Entrada de configuração |Configuração predefinida de configuração da tarefa |{'version':'1.0', 'options': {'mode':'combined'}} |
-| Elemento de saída |foo_redacted.mp4 |Vídeo com desfocar aplicada |
+| Ativo de entrada |foo.bar |Vídeo no formato WMV, MOV ou MP4 |
+| Configuração de entrada |Predefinição de configuração de trabalho |{'version':'1.0', 'options': {'mode':'combined'}} |
+| Ativo de saída |foo_redacted.mp4 |Vídeo com Desfoque aplicado |
 
 #### <a name="input-example"></a>Exemplo de entrada:
-[Veja este vídeo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
+[exibir este vídeo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
 #### <a name="output-example"></a>Exemplo de saída:
-[Veja este vídeo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
+[exibir este vídeo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
-### <a name="analyze-mode"></a>Analisar o modo
-O **analisar** pass do fluxo de trabalho dois precisar de uma entrada de vídeo e produz um ficheiro JSON de localizações de rostos e jpg imagens de cada detetado face.
+### <a name="analyze-mode"></a>Modo de análise
+A passagem de **análise** do fluxo de trabalho de duas passagens usa uma entrada de vídeo e produz um arquivo JSON de locais de face e imagens de jpg de cada face detectada.
 
 | Fase | Nome de Ficheiro | Notas |
 | --- | --- | --- |
-| Elemento de entrada |foo.bar |Vídeo em formato WMV, MPV ou MP4 |
-| Entrada de configuração |Configuração predefinida de configuração da tarefa |{'version':'1.0', 'options': {'mode':'analyze'}} |
-| Elemento de saída |foo_annotations.json |Dados de anotação de localizações de face no formato JSON. Isso pode ser editado pelo utilizador para modificar o desfocar delimitação de caixas. Veja o exemplo abaixo. |
-| Elemento de saída |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Um jpg cropped de cada detetado face, em que o número indica o labelId do mostrador da |
+| Ativo de entrada |foo.bar |Vídeo no formato WMV, MPV ou MP4 |
+| Configuração de entrada |Predefinição de configuração de trabalho |{' version ': ' 1.0 ', ' Opções ': {' Mode ': ' ANALYZE '}} |
+| Ativo de saída |foo_annotations.json |Dados de anotação de locais de face no formato JSON. Isso pode ser editado pelo usuário para modificar as caixas delimitadoras de desfoque. Consulte o exemplo abaixo. |
+| Ativo de saída |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Um jpg cortado de cada face detectada, em que o número indica o rótulo da face |
 
 #### <a name="output-example"></a>Exemplo de saída:
 
@@ -107,39 +107,39 @@ O **analisar** pass do fluxo de trabalho dois precisar de uma entrada de vídeo 
     … truncated
 ```
 
-### <a name="redact-mode"></a>Edite o modo
-A segunda passagem do fluxo de trabalho demora um grande número de entradas que devem ser combinados num único recurso.
+### <a name="redact-mode"></a>Modo de redação
+A segunda passagem do fluxo de trabalho usa um número maior de entradas que devem ser combinadas em um único ativo.
 
-Isto inclui uma lista de IDs de Desfoca, o vídeo original e as anotações JSON. Esse modo usa as anotações para aplicar desfocar no vídeo de entrada.
+Isso inclui uma lista de IDs para desfoque, o vídeo original e as anotações JSON. Esse modo usa as anotações para aplicar o desfoque no vídeo de entrada.
 
-O resultado da passagem de análise não inclui o vídeo original. O vídeo tem de ser carregados para o elemento de entrada para a tarefa de modo Redact e selecionada como ficheiro principal.
+A saída da passagem de análise não inclui o vídeo original. O vídeo precisa ser carregado no ativo de entrada para a tarefa modo de edição e selecionado como o arquivo primário.
 
 | Fase | Nome de Ficheiro | Notas |
 | --- | --- | --- |
-| Elemento de entrada |foo.bar |Vídeo em formato MP4, MPV ou WMV. Mesmo vídeo como no passo 1. |
-| Elemento de entrada |foo_annotations.json |ficheiro de metadados de anotações da primeira fase, com modificações opcionais. |
-| Elemento de entrada |foo_IDList.txt (opcional) |Lista de rosto IDs para edite separados por opcional nova linha. Se deixado em branco, isso torna obscura todos os rostos. |
-| Entrada de configuração |Configuração predefinida de configuração da tarefa |{'version':'1.0', 'options': {'mode':'redact'}} |
-| Elemento de saída |foo_redacted.mp4 |Vídeo com desfocar aplicadas com base em anotações |
+| Ativo de entrada |foo.bar |Vídeo no formato WMV, MPV ou MP4. Mesmo vídeo da etapa 1. |
+| Ativo de entrada |foo_annotations.json |arquivo de metadados de anotações da fase 1, com modificações opcionais. |
+| Ativo de entrada |foo_IDList. txt (opcional) |Nova lista separada por linhas opcional de IDs de face para redigir. Se for deixado em branco, isso desfocará todas as faces. |
+| Configuração de entrada |Predefinição de configuração de trabalho |{'version':'1.0', 'options': {'mode':'redact'}} |
+| Ativo de saída |foo_redacted.mp4 |Vídeo com Desfoque aplicado com base em anotações |
 
 #### <a name="example-output"></a>Exemplo de saída
-Esta é a saída de um IDList com um ID selecionado.
+Esta é a saída de um IDList com uma ID selecionada.
 
-[Veja este vídeo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
+[exibir este vídeo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
-Foo_IDList.txt de exemplo
+Exemplo de foo_IDList. txt
  
      1
      2
      3
 
-## <a name="blur-types"></a>Desfoca tipos
+## <a name="blur-types"></a>Tipos de desfoque
 
-Na **combinado** ou **Redact** modo, existem 5 obscurecimento diferentes modos, pode escolher de entre através da configuração de entrada de JSON: **Baixa**, **Med**, **elevada**, **caixa**, e **preto**. Por predefinição **Med** é utilizado.
+No modo **combinado** ou **redação** , há cinco modos de desfoque diferentes que podem ser escolhidos por meio da configuração de entrada JSON: **Baixo**, **médio**, **alto**, **caixa**e **preto**. Por padrão, o **med** é usado.
 
-Pode encontrar exemplos dos tipos de obscurecimento abaixo.
+Você pode encontrar exemplos dos tipos de desfoque abaixo.
 
-### <a name="example-json"></a>JSON de exemplo:
+### <a name="example-json"></a>Exemplo de JSON:
 
 ```json
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
@@ -165,18 +165,18 @@ Pode encontrar exemplos dos tipos de obscurecimento abaixo.
 
 ![Preto](./media/media-services-face-redaction/blur5.png)
 
-## <a name="elements-of-the-output-json-file"></a>Elementos do ficheiro de saída JSON
+## <a name="elements-of-the-output-json-file"></a>Elementos do arquivo JSON de saída
 
-O pacote de gestão de redação de fornece detecção de localização de rosto de alta precisão e de controlo que pode detetar até 64 rostos humanos num quadro de vídeo. Rostos frontal fornecem os melhores resultados, ao lado de rostos e pequeno rostos (menor ou igual a 24x24 pixels) são um desafio.
+O MP de edição fornece detecção e acompanhamento de local de face de alta precisão que podem detectar até 64 rostos humanas em um quadro de vídeo. Os frontais faces fornecem os melhores resultados, enquanto as faces laterais e pequenas faces (menores ou iguais a 24x24 pixels) são desafiadoras.
 
 [!INCLUDE [media-services-analytics-output-json](../../../includes/media-services-analytics-output-json.md)]
 
 ## <a name="net-sample-code"></a>Código de exemplo do .NET
 
-O seguinte programa mostra como:
+O programa a seguir mostra como:
 
-1. Criar um elemento e carregue um ficheiro de multimédia para o elemento.
-2. Crie uma tarefa com uma tarefa de redação de rostos com base num arquivo de configuração que contém a seguinte configuração predefinida de json: 
+1. Crie um ativo e carregue um arquivo de mídia no ativo.
+2. Crie um trabalho com uma tarefa de edição facial baseada em um arquivo de configuração que contenha a predefinição JSON a seguir: 
 
     ```json
             {
@@ -187,7 +187,7 @@ O seguinte programa mostra como:
             }
     ```
 
-3. Transferir os ficheiros JSON de saída. 
+3. Baixe os arquivos JSON de saída. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
@@ -363,7 +363,7 @@ namespace FaceRedaction
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
@@ -371,7 +371,7 @@ namespace FaceRedaction
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Ligações relacionadas
-[Descrição geral da análise dos serviços de multimédia do Azure](media-services-analytics-overview.md)
+[Visão geral da análise dos serviços de mídia do Azure](media-services-analytics-overview.md)
 
-[Demonstrações de análise de multimédia do Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demonstrações de Análise de Mídia do Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

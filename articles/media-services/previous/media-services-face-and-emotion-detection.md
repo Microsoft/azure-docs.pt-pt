@@ -1,6 +1,6 @@
 ---
-title: Detetar rostos e emoções com análise de multimédia do Azure | Documentos da Microsoft
-description: Este tópico explica como detetar rostos e emoções com análise de multimédia do Azure.
+title: Detectar rosto e emoções com Análise de Mídia do Azure | Microsoft Docs
+description: Este tópico demonstra como detectar rostos e emoções com Análise de Mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,57 +13,58 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: milanga;juliako;
-ms.openlocfilehash: 46e60583da79006c133c8d9fac63e27f28bd699f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: milanga
+ms.openlocfilehash: 3ae2e49b812e7a9515cef81b328ceb87e1a7f017
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217266"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69015467"
 ---
-# <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detetar rostos e emoções com análise de multimédia do Azure
+# <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detectar rosto e emoções com Análise de Mídia do Azure
 ## <a name="overview"></a>Descrição geral
-O **detetor de rostos de suporte de dados do Azure** processador de multimédia (MP) permite-lhe contar, controlar os movimentos e até mesmo avaliar a participação de público-alvo e reação por meio de expressões faciais. Este serviço contém dois recursos: 
+O MP (processador de mídia **Azure Media face detector** ) permite que você conte, acompanhe movimentos e até mesmo avalie a participação e a reação do público por meio de expressões faciais. Esse serviço contém dois recursos: 
 
-* **Deteção de rostos**
+* **Detecção facial**
   
-    Deteção de rostos localiza e controla rostos humanos dentro de um vídeo. Várias faces podem ser detetadas e, em seguida, ser controladas quando eles passam, com os metadados de tempo e de localização devolvido num ficheiro JSON. Durante o controlo, ele tenta fornecer um ID de consistente para a mesma face enquanto a pessoa está se movendo em torno na tela, mesmo que eles são obstructed ou deixam resumidamente o quadro.
+    A detecção facial localiza e rastreia rostos humanas em um vídeo. Várias faces podem ser detectadas e, posteriormente, acompanhadas à medida que elas se movimentam, com os metadados de hora e local retornados em um arquivo JSON. Durante o acompanhamento, ele tenta dar uma ID consistente à mesma face, enquanto a pessoa está se movendo pela tela, mesmo que esteja obstruída ou saia do quadro rapidamente.
   
   > [!NOTE]
-  > Este serviço não efetua o reconhecimento facial. Um indivíduo que deixa o quadro ou se torna obstructed para demasiado tempo terá um novo ID quando elas retornam.
+  > Esse serviço não executa o reconhecimento facial. Uma pessoa que deixa o quadro ou ficará obstruída por muito tempo receberá uma nova ID quando retornar.
   > 
   > 
-* **Deteção de emoções**
+* **Detecção de emoções**
   
-    Deteção de emoções é um componente opcional do processador de suporte de dados de deteção de rostos que retorna análise em vários atributos emocional de rostos detetados, incluindo felicidade, tristeza, medo, raiva e muito mais. 
+    A detecção de emoções é um componente opcional do processador de mídia Detecção Facial que retorna a análise em vários atributos emocional dos rostos detectados, incluindo felicidade, tristeza, medo, raiva e muito mais. 
 
-O **detetor de rostos de suporte de dados do Azure** MP está atualmente em pré-visualização.
+O **Azure Media face detector** MP está atualmente em visualização.
 
-Este artigo fornece detalhes sobre **detetor de rostos de suporte de dados do Azure** e mostra como utilizá-lo com o SDK de Media Services para .NET.
+Este artigo fornece detalhes sobre **Azure Media face detector** e mostra como usá-lo com o SDK dos serviços de mídia para .net.
 
-## <a name="face-detector-input-files"></a>Ficheiros de entrada detetor de rostos
-Ficheiros de vídeo. Atualmente, são suportados os seguintes formatos: MP4, MOV e WMV.
+## <a name="face-detector-input-files"></a>Arquivos de entrada do detector de face
+Arquivos de vídeo. Atualmente, há suporte para os seguintes formatos: MP4, MOV e WMV.
 
-## <a name="face-detector-output-files"></a>Ficheiros de saída detetor de rostos
-A API de deteção e controlo de face fornece detecção de localização de rosto de alta precisão e controle que pode detetar até 64 rostos humanos num vídeo. Rostos frontal fornecem os melhores resultados, ao lado de rostos e pequeno rostos (menor ou igual a 24x24 pixels) podem não ser tão precisos.
+## <a name="face-detector-output-files"></a>Arquivos de saída de detector de face
+A API de detecção e acompanhamento facial fornece detecção e acompanhamento de local de face de alta precisão que podem detectar até 64 rostos humanas em um vídeo. Os frontais faces fornecem os melhores resultados, enquanto as faces laterais e pequenas faces (menores ou iguais a 24x24 pixels) podem não ser tão precisas.
 
-Os rostos detetados e monitorizados são devolvidos com coordenadas (à esquerda, superior, largura e altura) que indica a localização de rostos na imagem em pixels, bem como um número de identificação de face indicando o rastreamento dessa pessoa. Números de ID do rosto são suscetíveis a repor em circunstâncias, o mostrador frontal caso de perda ou overlapped no frame, resultando em alguns indivíduos introdução atribuídos a vários IDs.
+As faces detectadas e controladas são retornadas com coordenadas (esquerda, superior, largura e altura) que indicam o local das faces na imagem em pixels, bem como um número de identificação de face indicando o acompanhamento dessa pessoa. Os números de ID de face são propensos a redefinição em circunstâncias em que a face frontais é perdida ou sobreposta no quadro, resultando em alguns indivíduos que recebem várias IDs.
 
-## <a id="output_elements"></a>Elementos do ficheiro de saída JSON
+## <a id="output_elements"></a>Elementos do arquivo JSON de saída
 
 [!INCLUDE [media-services-analytics-output-json](../../../includes/media-services-analytics-output-json.md)]
 
-Detetor de rostos utiliza técnicas de fragmentação (em que os metadados podem ser dividido em blocos baseados no tempo e pode transferir apenas o que precisa) e a segmentação de (em que os eventos são divididos no caso de se tornarem demasiado grandes). Alguns cálculos simples podem ajudá-lo a transformar os dados. Por exemplo, se um evento iniciou a 6300 (ticks), com uma escala temporal do 2997 (ticks/seg) e framerate de 29.97 (quadros/seg), em seguida:
+O tipo de detecção facial usa técnicas de fragmentação (onde os metadados podem ser divididos em partes baseadas em tempo e você pode baixar apenas o que precisa) e segmentação (onde os eventos são divididos caso eles fiquem muito grandes). Alguns cálculos simples podem ajudá-lo a transformar os dados. Por exemplo, se um evento for iniciado em 6300 (tiques), com uma escala de tempo de 2997 (tiques/s) e taxa de quadros de 29,97 (quadros/s), então:
 
 * Início/Escala temporal = 2,1 segundos
-* Segundos x Framerate = 63 quadros
+* Segundos x taxa de quadros = 63 frames
 
-## <a name="face-detection-input-and-output-example"></a>Exemplo de saída e entrada de deteção de rostos
+## <a name="face-detection-input-and-output-example"></a>Exemplo de entrada e saída de detecção facial
 ### <a name="input-video"></a>Vídeo de entrada
 [Vídeo de entrada](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-preset"></a>Configuração da tarefa (predefinição)
-Ao criar uma tarefa com **detetor de rostos de suporte de dados do Azure**, tem de especificar uma predefinição de configuração. A predefinição de configuração seguinte é apenas para a deteção de rostos.
+### <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
+Ao criar uma tarefa com **Azure Media face detector**, você deve especificar uma predefinição de configuração. A predefinição de configuração a seguir é apenas para detecção facial.
 
 ```json
     {
@@ -75,12 +76,12 @@ Ao criar uma tarefa com **detetor de rostos de suporte de dados do Azure**, tem 
 ```
 
 #### <a name="attribute-descriptions"></a>Descrições de atributo
-| Nome de atributo | Descrição |
+| Nome do atributo | Descrição |
 | --- | --- |
-| Modo |Fast - rápida processamento velocidade, mas menos precisa (predefinição).|
+| Modo |Velocidade de processamento rápida-rápida, mas menos precisa (padrão).|
 
 ### <a name="json-output"></a>Saída JSON
-O exemplo a seguir da saída do JSON foi truncado.
+O exemplo de saída JSON a seguir foi truncado.
 
 ```json
     {
@@ -130,12 +131,12 @@ O exemplo a seguir da saída do JSON foi truncado.
 ```
 
 
-## <a name="emotion-detection-input-and-output-example"></a>Deteção de emoções de entrada e saída de exemplo
+## <a name="emotion-detection-input-and-output-example"></a>Exemplo de entrada e saída de detecção de emoções
 ### <a name="input-video"></a>Vídeo de entrada
 [Vídeo de entrada](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-preset"></a>Configuração da tarefa (predefinição)
-Ao criar uma tarefa com **detetor de rostos de suporte de dados do Azure**, tem de especificar uma predefinição de configuração. Especifica a predefinição de configuração seguinte para criar o JSON com base na deteção de emoções.
+### <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
+Ao criar uma tarefa com **Azure Media face detector**, você deve especificar uma predefinição de configuração. A predefinição de configuração a seguir especifica a criação de JSON com base na detecção de emoção.
 
 ```json
     {
@@ -150,22 +151,22 @@ Ao criar uma tarefa com **detetor de rostos de suporte de dados do Azure**, tem 
 
 
 #### <a name="attribute-descriptions"></a>Descrições de atributo
-| Nome de atributo | Descrição |
+| Nome do atributo | Descrição |
 | --- | --- |
-| Modo |Rostos: Apenas a deteção.<br/>PerFaceEmotion: Devolva emoções de forma independente para cada deteção de rostos.<br/>AggregateEmotion: Devolve valores de média de emoções para todos os rostos no quadro. |
-| AggregateEmotionWindowMs |Utilize se AggregateEmotion modo selecionado. Especifica o período de vídeo utilizado para produzir cada resultado agregado, em milissegundos. |
-| AggregateEmotionIntervalMs |Utilize se AggregateEmotion modo selecionado. Especifica com que freqüência para produzir resultados de agregação. |
+| Modo |Frente Somente detecção facial.<br/>PerFaceEmotion: Retorne a emoções de forma independente para cada detecção de face.<br/>AggregateEmotion: Retorna valores de emoções médias para todas as faces no quadro. |
+| AggregateEmotionWindowMs |Use se o modo AggregateEmotion estiver selecionado. Especifica o comprimento do vídeo usado para produzir cada resultado agregado, em milissegundos. |
+| AggregateEmotionIntervalMs |Use se o modo AggregateEmotion estiver selecionado. Especifica com que frequência produzir resultados de agregação. |
 
-#### <a name="aggregate-defaults"></a>Predefinições de agregação
-Abaixo, são recomendadas valores para as definições de janela e o intervalo de agregação. AggregateEmotionWindowMs deve ter mais de AggregateEmotionIntervalMs.
+#### <a name="aggregate-defaults"></a>Agregar padrões
+Abaixo estão os valores recomendados para a janela agregada e as configurações de intervalo. AggregateEmotionWindowMs deve ser maior que AggregateEmotionIntervalMs.
 
-|| Predefinições (s) | Max(s) | Min (s) |
+|| Padrões (es) | Máx. (s) | Min (s) |
 |--- | --- | --- | --- |
 | AggregateEmotionWindowMs |0,5 |2 |0.25|
 | AggregateEmotionIntervalMs |0,5 |1 |0.25|
 
 ### <a name="json-output"></a>Saída JSON
-JSON de saída para emoções agregada (truncada):
+Saída JSON para a emoção da agregação (truncada):
 
 ```json
     {
@@ -321,24 +322,24 @@ JSON de saída para emoções agregada (truncada):
 ```
 
 ## <a name="limitations"></a>Limitações
-* Os formatos de vídeo de entrada suportados incluem MP4, MOV e WMV.
-* O intervalo de tamanho de face detetável é 24x24 para 2048 x 2048 pixels. Os rostos fora deste intervalo não serão detetados.
-* Para cada vídeo, o número máximo de faces devolvido é 64.
-* Alguns rostos poderão não ser detetados devido a desafios técnicos; Por exemplo, muito grande de face de ângulos (head-representam) e oclusão grandes. Rostos frontal e quase frontal tem os melhores resultados.
+* Os formatos de vídeo de entrada com suporte incluem MP4, MOV e WMV.
+* O intervalo de tamanho de face detectável é de 24x24 a 2048x2048 pixels. As faces fora desse intervalo não serão detectadas.
+* Para cada vídeo, o número máximo de faces retornado é 64.
+* Algumas faces podem não ser detectadas devido a desafios técnicos; por exemplo, ângulos de face muito grandes (pose de cabeça) e grandes oclusão. Os rostos frontais e Near-frontais têm os melhores resultados.
 
 ## <a name="net-sample-code"></a>Código de exemplo do .NET
 
-O seguinte programa mostra como:
+O programa a seguir mostra como:
 
-1. Criar um elemento e carregue um ficheiro de multimédia para o elemento.
-2. Crie uma tarefa com uma tarefa de deteção de rostos com base num arquivo de configuração que contém a seguinte configuração predefinida de json: 
+1. Crie um ativo e carregue um arquivo de mídia no ativo.
+2. Crie um trabalho com uma tarefa de detecção facial baseada em um arquivo de configuração que contenha a predefinição JSON a seguir: 
 
     ```json
             {
                 "version": "1.0"
             }
     ```
-3. Transferir os ficheiros JSON de saída. 
+3. Baixe os arquivos JSON de saída. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
@@ -520,7 +521,7 @@ namespace FaceDetection
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Ligações relacionadas
-[Descrição geral da análise dos serviços de multimédia do Azure](media-services-analytics-overview.md)
+[Visão geral da análise dos serviços de mídia do Azure](media-services-analytics-overview.md)
 
-[Demonstrações de análise de multimédia do Azure](https://amslabs.azurewebsites.net/demos/Analytics.html)
+[Demonstrações de Análise de Mídia do Azure](https://amslabs.azurewebsites.net/demos/Analytics.html)
 

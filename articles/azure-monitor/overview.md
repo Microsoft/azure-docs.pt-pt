@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 836a17051aee4e6a9ac3089f60da30673783e408
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: a80f99bc37d3a92a794a78f1f47ce32fbaae75a3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875974"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989173"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -83,7 +83,7 @@ Os dados de monitoramento só serão úteis se puderem aumentar sua visibilidade
 O [Azure monitor para VMs](insights/vminsights-overview.md) monitora suas máquinas virtuais (VM) do Azure em escala analisando o desempenho e a integridade de suas VMs Windows e Linux, incluindo seus processos diferentes e dependências interconectadas em outros recursos e externos processar. A solução inclui suporte para monitoramento de desempenho e dependências de aplicativo para VMs hospedadas no local ou outro provedor de nuvem.  
 
 
-![Informações de VM](media/overview/vm-insights.png)
+![VM Insights](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>Soluções de monitorização
 [Soluções de monitoramento](insights/solutions.md) em Azure monitor são conjuntos de lógicas empacotados que fornecem informações para um determinado aplicativo ou serviço. Eles incluem a lógica para coletar dados de monitoramento para o aplicativo ou serviço, [consultas](log-query/log-query-overview.md) para analisar esses dados [](../log-analytics/log-analytics-view-designer.md) e exibições para visualização. As soluções de monitoramento estão [disponíveis da Microsoft e de](insights/solutions-inventory.md) parceiros para fornecer monitoramento para vários serviços do Azure e outros aplicativos.
@@ -146,3 +146,4 @@ Saiba mais sobre:
 * [Métricas e logs](platform/data-platform.md) para os dados coletados por Azure monitor.
 * [Fontes de dados](platform/data-sources.md) para saber como os diferentes componentes do seu aplicativo enviam telemetria.
 * [Consultas de log](log-query/log-query-overview.md) para analisar os dados coletados.
+* [Práticas recomendadas](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) para monitorar serviços e aplicativos de nuvem.

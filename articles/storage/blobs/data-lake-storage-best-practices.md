@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 630d8f64b39888533aff4847dec64fa50fc43d7e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a5bfc664c412c93bbf3e522b01528e8247be3291
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855593"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016061"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Práticas recomendadas para usar o Azure Data Lake Storage Gen2
 
@@ -49,7 +49,7 @@ Ao arquitetar um sistema com Data Lake Storage Gen2 ou qualquer serviço de nuve
 
 ### <a name="high-availability-and-disaster-recovery"></a>Elevada disponibilidade e recuperação após desastre
 
-A HA (alta disponibilidade) e a DR (recuperação de desastre) às vezes podem ser combinadas em conjunto, embora cada uma tenha uma estratégia um pouco diferente, especialmente quando se trata de dados. O Data Lake Storage Gen2 já manipula a replicação 3x nos bastidores para proteger contra falhas de hardware localizadas. Além disso, outras opções de replicação, como ZRS, melhoram a HA enquanto GRS & RA-GRS a melhorar a recuperação de desastres. Ao criar um plano de HA, no caso de uma interrupção de serviço, a carga de trabalho precisa ter acesso aos dados mais recentes o mais rápido possível, alternando para uma instância replicada separada localmente ou em uma nova região.
+A HA (alta disponibilidade) e a DR (recuperação de desastre) às vezes podem ser combinadas em conjunto, embora cada uma tenha uma estratégia um pouco diferente, especialmente quando se trata de dados. O Data Lake Storage Gen2 já manipula a replicação 3x nos bastidores para proteger contra falhas de hardware localizadas. Além disso, outras opções de replicação, como ZRS ou GZRS (versão prévia), melhoram a HA, enquanto GRS & RA-GRS a melhorar o DR. Ao criar um plano de HA, no caso de uma interrupção de serviço, a carga de trabalho precisa ter acesso aos dados mais recentes o mais rápido possível, alternando para uma instância replicada separada localmente ou em uma nova região.
 
 Em uma estratégia de DR, para se preparar para o evento improvável de uma falha catastrófica de uma região, também é importante ter dados replicados em uma região diferente usando a replicação GRS ou RA-GRS. Você também deve considerar seus requisitos para casos de borda, como corrupção de dados, em que você pode desejar criar instantâneos periódicos para o qual fazer fallback. Dependendo da importância e do tamanho dos dados, considere a possibilidade de reverter instantâneos Delta de períodos de 1, 6 e 24 horas, de acordo com as tolerâncias de risco.
 

@@ -1,6 +1,6 @@
 ---
-title: O Hub IoT do Azure e o Event Grid | Documentos da Microsoft
-description: Utilize o Azure Event Grid para acionar processos com base nas ações que ocorrem no IoT Hub.
+title: Hub IoT do Azure e grade de eventos | Microsoft Docs
+description: Use a grade de eventos do Azure para disparar processos com base em ações que ocorrem no Hub IoT.
 author: kgremban
 manager: philmea
 ms.service: iot-hub
@@ -8,46 +8,46 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 73a9aebfd0c5338f63927860ce3f6c57b20428a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a357e403aba64a5d05e359bf1186b01f73146758
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754770"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934102"
 ---
-# <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir a eventos do IoT Hub com o Event Grid para realizar ações
+# <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir aos eventos do Hub IoT usando a grade de eventos para disparar ações
 
-O IoT Hub do Azure integra-se com o Azure Event Grid para que possa enviar notificações de eventos para outros serviços e acionar processos downstream. Configure seus aplicativos de negócios para escutar eventos do IoT Hub para que possa reagir a eventos críticos de forma fiável, dimensionável e segura. Por exemplo, crie uma aplicação que atualiza uma base de dados, cria um tíquete de trabalho e fornece uma notificação por e-mail sempre que é registado um novo dispositivo de IoT ao seu hub IoT.
+O Hub IoT do Azure integra-se à grade de eventos do Azure para que você possa enviar notificações de eventos para outros serviços e disparar processos downstream. Configure seus aplicativos de negócios para escutar eventos do Hub IoT para que você possa reagir a eventos críticos de maneira confiável, escalonável e segura. Por exemplo, crie um aplicativo que atualize um banco de dados, crie um tíquete de trabalho e entregue uma notificação por email toda vez que um novo dispositivo IoT for registrado no Hub IoT.
 
-[O Azure Event Grid](../event-grid/overview.md) é um serviço de encaminhamento de eventos totalmente gerido que utiliza um publicar-subscrever o modelo. Grelha de eventos possui suporte interno para serviços do Azure como [as funções do Azure](../azure-functions/functions-overview.md) e [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)e pode enviar alertas de eventos para serviços não pertencente ao Azure através de webhooks. Para obter uma lista completa dos manipuladores de eventos que suporta o Event Grid, veja [uma introdução ao Azure Event Grid](../event-grid/overview.md).
+A [grade de eventos do Azure](../event-grid/overview.md) é um serviço de roteamento de eventos totalmente gerenciado que usa um modelo de publicação/assinatura. A grade de eventos tem suporte interno para serviços do Azure, como [Azure Functions](../azure-functions/functions-overview.md) e [aplicativos lógicos do Azure](../logic-apps/logic-apps-what-are-logic-apps.md), e pode entregar alertas de eventos a serviços não Azure usando WebHooks. Para obter uma lista completa dos manipuladores de eventos aos quais a grade de eventos dá suporte, consulte [uma introdução à grade de eventos do Azure](../event-grid/overview.md).
 
-![Arquitetura do Azure Event Grid](./media/iot-hub-event-grid/event-grid-functional-model.png)
+![Arquitetura da grade de eventos do Azure](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A integração do Event Grid está disponível para os hubs IoT localizados em regiões onde o Event Grid é suportada. Todos os eventos de dispositivo, exceto os eventos de telemetria do dispositivo estão geralmente disponíveis. Eventos de telemetria do dispositivo está em pré-visualização pública e está disponível em todas as regiões, exceto E.U.A. leste, E.U.A. oeste, Europa Ocidental, [do Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china), e [Azure Alemanha](https://azure.microsoft.com/global-infrastructure/germany/). Para obter a lista mais recente de regiões, consulte [uma introdução ao Azure Event Grid](../event-grid/overview.md).
+A integração da grade de eventos está disponível para os hubs IoT localizados nas regiões em que há suporte para a grade de eventos. Todos os eventos de dispositivo, exceto os eventos de telemetria do dispositivo, estão geralmente disponíveis. O evento de telemetria do dispositivo está em visualização pública e está disponível em todas as regiões, exceto leste dos EUA, oeste dos EUA, Europa Ocidental, [Azure governamental](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china)e [Azure Alemanha](https://azure.microsoft.com/global-infrastructure/germany/). Para obter a lista mais recente de regiões, consulte [uma introdução à grade de eventos do Azure](../event-grid/overview.md).
 
 ## <a name="event-types"></a>Tipos de eventos
 
-IoT Hub publica os seguintes tipos de evento:
+O Hub IoT publica os seguintes tipos de evento:
 
 | Tipo de evento | Descrição |
 | ---------- | ----------- |
-| Microsoft.Devices.DeviceCreated | Publicado quando um dispositivo é registado para um hub IoT. |
-| Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é eliminado de um hub IoT. |
-| Microsoft.Devices.DeviceConnected | Publicado quando um dispositivo está ligado a um hub IoT. |
-| Microsoft.Devices.DeviceDisconnected | Publicado quando um dispositivo é ligado à Internet de um hub IoT. |
-| Microsoft.Devices.DeviceTelemetry | Publicado quando uma mensagem de telemetria do dispositivo é enviada para um hub IoT |
+| Microsoft.Devices.DeviceCreated | Publicado quando um dispositivo é registrado em um hub IoT. |
+| Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é excluído de um hub IoT. |
+| Microsoft.Devices.DeviceConnected | Publicado quando um dispositivo está conectado a um hub IoT. |
+| Microsoft. Devices. DeviceDisconnected | Publicado quando um dispositivo é desconectado de um hub IoT. |
+| Microsoft.Devices.DeviceTelemetry | Publicado quando uma mensagem de telemetria do dispositivo é enviada a um hub IoT |
 
-Utilize o portal do Azure ou a CLI do Azure para configurar os eventos de publicar a partir de cada hub IoT. Por exemplo, experimente o tutorial [enviar notificações de e-mail sobre eventos do IoT Hub do Azure com o Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
+Use o portal do Azure ou CLI do Azure para configurar quais eventos publicar de cada Hub IoT. Para obter um exemplo, experimente o tutorial [enviar notificações por email sobre eventos do Hub IOT do Azure usando aplicativos lógicos](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
 ## <a name="event-schema"></a>Esquema de eventos
 
-Eventos do IoT Hub contenham todas as informações que necessárias para responder a alterações no seu ciclo de vida do dispositivo. Pode identificar um evento de IoT Hub, verificando a propriedade eventType iniciado por **Microsoft.Devices**. Para obter mais informações sobre como utilizar as propriedades de eventos do Event Grid, consulte a [esquema de eventos do Event Grid](../event-grid/event-schema.md).
+Os eventos do Hub IoT contêm todas as informações necessárias para responder às alterações no ciclo de vida do seu dispositivo. Você pode identificar um evento do Hub IoT verificando se a propriedade eventType começa com **Microsoft.** Devices. Para obter mais informações sobre como usar propriedades de evento da grade de eventos, consulte o [esquema de evento da grade de eventos](../event-grid/event-schema.md).
 
-### <a name="device-connected-schema"></a>Esquema de dispositivo ligada
+### <a name="device-connected-schema"></a>Esquema conectado ao dispositivo
 
-O exemplo seguinte mostra o esquema de um evento de ligada do dispositivo:
+O exemplo a seguir mostra o esquema de um evento conectado ao dispositivo:
 
 ```json
 [{  
@@ -72,11 +72,11 @@ O exemplo seguinte mostra o esquema de um evento de ligada do dispositivo:
 
 ### <a name="device-telemetry-schema"></a>Esquema de telemetria do dispositivo
 
-Mensagem de telemetria do dispositivo tem de estar no formato JSON válido com o contentType definido como JSON e contentEncoding definido como UTF-8 na mensagem [propriedades do sistema](iot-hub-devguide-routing-query-syntax.md#system-properties). Se não for definida, o IoT Hub escrever as mensagens no formato codificado de 64 base.
+A mensagem de telemetria do dispositivo deve estar em um formato JSON válido com o contentType definido como JSON e contentEncoding definido como UTF-8 nas [Propriedades do sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)de mensagens. Se isso não estiver definido, o Hub IoT gravará as mensagens no formato codificado 64 base.
 
-Pode enriquecer a eventos de telemetria do dispositivo antes de serem publicados para o Event Grid, selecionando o ponto de extremidade como o Event Grid. Para obter mais informações, consulte [descrição geral de possível de mensagem](iot-hub-message-enrichments-overview.md).
+Você pode enriquecer os eventos de telemetria do dispositivo antes que eles sejam publicados na grade de eventos selecionando o ponto de extremidade como grade de eventos. Para obter mais informações, consulte [visão geral](iot-hub-message-enrichments-overview.md)de aprimoramentos de mensagem.
 
-O exemplo seguinte mostra o esquema de um evento de telemetria do dispositivo:
+O exemplo a seguir mostra o esquema de um evento de telemetria do dispositivo:
 
 ```json
 [{  
@@ -110,9 +110,9 @@ O exemplo seguinte mostra o esquema de um evento de telemetria do dispositivo:
 }]
 ```
 
-### <a name="device-created-schema"></a>Esquema de dispositivo criado
+### <a name="device-created-schema"></a>Esquema criado pelo dispositivo
 
-O exemplo seguinte mostra o esquema de um dispositivo que criou o evento:
+O exemplo a seguir mostra o esquema de um evento criado pelo dispositivo:
 
 ```json
 [{
@@ -160,46 +160,46 @@ O exemplo seguinte mostra o esquema de um dispositivo que criou o evento:
 }]
 ```
 
-Para obter uma descrição detalhada de cada propriedade, veja [esquema de eventos do Azure Event Grid para o IoT Hub](../event-grid/event-schema-iot-hub.md).
+Para obter uma descrição detalhada de cada propriedade, consulte [esquema de evento da grade de eventos do Azure para o Hub IOT](../event-grid/event-schema-iot-hub.md).
 
 ## <a name="filter-events"></a>Filtrar eventos
 
-Subscrições de eventos do IoT Hub podem filtrar eventos com base no tipo de evento, o conteúdo de dados e o assunto, o que é o nome do dispositivo.
+As assinaturas de evento do Hub IoT podem filtrar eventos com base no tipo de evento, conteúdo de dados e assunto, que é o nome do dispositivo.
 
-O Event Grid permite [filtragem](../event-grid/event-filtering.md) no conteúdo de tipos, assuntos e dados de eventos. Ao criar a subscrição do Event Grid, pode optar por subscrever a eventos de IoT selecionados. Qual se baseia assunto filtros em projetos do Event Grid **começa com** (prefixo) e **termina com** corresponde a (sufixo). O filtro utiliza um `AND` operador, para que os eventos com um assunto que corresponderem o prefixo e o sufixo são entregues ao subscritor.
+A grade de eventos permite [Filtrar](../event-grid/event-filtering.md) tipos de eventos, assuntos e conteúdo de dados. Ao criar a assinatura da grade de eventos, você pode optar por assinar os eventos de IoT selecionados. Os filtros de assunto na grade de eventos funcionam com base em **começa com** (prefixo) e **termina com** as correspondências (sufixo). O filtro usa um `AND` operador, de modo que os eventos com um assunto que correspondam ao prefixo e ao sufixo sejam entregues ao Assinante.
 
-O assunto de eventos de IoT utiliza o formato:
+O assunto dos eventos de IoT usa o formato:
 
 ```json
 devices/{deviceId}
 ```
 
-Grelha de eventos também permite a filtragem de atributos de cada evento, incluindo o conteúdo de dados. Isto permite-lhe escolher quais eventos são entregues com base conteúdo da mensagem de telemetria. Veja [filtragem avançada](../event-grid/event-filtering.md#advanced-filtering) para ver exemplos.
+A grade de eventos também permite a filtragem de atributos de cada evento, incluindo o conteúdo de dados. Isso permite que você escolha quais eventos são entregues com base no conteúdo da mensagem de telemetria. Consulte [filtragem avançada](../event-grid/event-filtering.md#advanced-filtering) para exibir exemplos. Para filtrar o corpo da mensagem de telemetria, você deve definir o contentType como JSON e contentEncoding como UTF-8 nas [Propriedades do sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)de mensagens.
 
-Sem ser de telemetria dos eventos, como DeviceConnected, DeviceDisconnected, DeviceCreated e DeviceDeleted, a filtragem do Event Grid pode ser utilizada ao criar a subscrição. Para eventos de telemetria, além de filtragem na grelha de eventos, os utilizadores também podem filtrar em dispositivos duplos, propriedades da mensagem e corpo através da consulta de encaminhamento de mensagens. Criamos uma predefinição [rota](iot-hub-devguide-messages-d2c.md) no IoT Hub, com base na sua subscrição do Event Grid para telemetria do dispositivo. Esta rota única pode processar todas as suas subscrições do Event Grid. Para filtrar as mensagens antes do envio de dados de telemetria, pode atualizar sua [consulta de encaminhamento](iot-hub-devguide-routing-query-syntax.md). Tenha em atenção de que essa consulta de encaminhamento pode ser aplicada ao corpo da mensagem apenas se o corpo for JSON.
+Para eventos que não são de telemetria como DeviceConnected, DeviceDisconnected, DeviceCreated e DeviceDeleted, a filtragem da grade de eventos pode ser usada ao criar a assinatura. Para eventos de telemetria, além da filtragem na grade de eventos, os usuários também podem filtrar no dispositivo gêmeos, propriedades de mensagem e corpo por meio da consulta de roteamento de mensagens. Criamos uma [rota](iot-hub-devguide-messages-d2c.md) padrão no Hub IOT, com base em sua assinatura da grade de eventos para a telemetria do dispositivo. Essa rota única pode lidar com todas as suas assinaturas de grade de eventos. Para filtrar mensagens antes que os dados de telemetria sejam enviados, você pode atualizar sua [consulta de roteamento](iot-hub-devguide-routing-query-syntax.md). Observe que a consulta de roteamento pode ser aplicada ao corpo da mensagem somente se o corpo for JSON. Você também deve definir o contentType como JSON e contentEncoding como UTF-8 nas propriedades do [sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)de mensagens.
 
-## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitações para dispositivo ligado e o dispositivo desligado eventos
+## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitações para o dispositivo conectado e eventos desconectados do dispositivo
 
-Para receber o dispositivo ligado e eventos de dispositivo desligado, tem de abrir a ligação de D2C ou C2D ligação para o seu dispositivo. Se o dispositivo estiver a utilizar o protocolo MQTT, o IoT Hub manterá C2D link abrir. Para AMQP, é possível abrir a ligação de C2D ao chamar o [receber API de Async](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet).
+Para receber eventos conectados e dispositivos desconectados do dispositivo, você deve abrir o link do D2C ou o link do C2D para o seu dispositivo. Se o dispositivo estiver usando o protocolo MQTT, o Hub IoT manterá o link C2D aberto. Para AMQP, você pode abrir o link C2D chamando a [API assíncrona Receive](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet).
 
-A ligação de D2C é aberta, se estiverem a enviar telemetria. Se a ligação do dispositivo é cintilação, que significa que o dispositivo liga e desliga com frequência, nós não enviará a cada Estado de ligação único, mas irá publicar o estado de ligação que é obtido um instantâneo a cada minuto. Em caso de indisponibilidade do IoT Hub, vamos publicar o estado de ligação do dispositivo assim que a falha está acima. Se o dispositivo se desliga durante esse período de inatividade, o evento desconectado do dispositivo será publicado em 10 minutos.
+O link do D2C será aberto se você estiver enviando telemetria. Se a conexão do dispositivo estiver piscando, o que significa que o dispositivo se conecta e desconecta com frequência, não enviaremos todos os Estados de conexão única, mas publicaremos o estado de conexão do qual um instantâneo é levado a cada minuto. No caso de uma interrupção do Hub IoT, publicaremos o estado de conexão do dispositivo assim que a interrupção terminar. Se o dispositivo se desconectar durante essa interrupção, o evento de dispositivo desconectado será publicado em 10 minutos.
 
-## <a name="tips-for-consuming-events"></a>Dicas para o consumo de eventos
+## <a name="tips-for-consuming-events"></a>Dicas para consumir eventos
 
-Aplicações que processam os eventos do IoT Hub devem seguir estas práticas sugeridas:
+Os aplicativos que lidam com eventos do Hub IoT devem seguir estas práticas sugeridas:
 
-* Várias subscrições podem ser configuradas para encaminhar eventos para o mesmo manipulador de eventos, pelo que não parta do princípio que os eventos são de uma origem específica. Verifique sempre o tópico de mensagem para se certificar de que trata do hub IoT que esperava.
+* Várias assinaturas podem ser configuradas para rotear eventos para o mesmo manipulador de eventos, portanto, não presuma que os eventos sejam de uma fonte específica. Sempre verifique o tópico da mensagem para garantir que ele venha do Hub IoT esperado.
 
-* Não parta do princípio que todos os eventos recebidos são os tipos que esperava. Verifique sempre o eventType antes de processar a mensagem.
+* Não presuma que todos os eventos recebidos são os tipos esperados. Sempre verifique o eventType antes de processar a mensagem.
 
-* As mensagens podem chegar fora de ordem ou após um atraso. Utilize o campo de etag para saber se as informações sobre objetos são atualizadas para o dispositivo criado ou eventos de dispositivo eliminado.
+* As mensagens podem chegar fora de ordem ou após um atraso. Use o campo ETag para entender se suas informações sobre objetos estão atualizadas para dispositivos criados pelo dispositivo ou eventos excluídos do dispositivo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Experimente o tutorial de eventos do IoT Hub](../event-grid/publish-iot-hub-events-to-logic-apps.md)
+* [Experimente o tutorial de eventos do Hub IoT](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 
 * [Saiba como encomendar eventos de dispositivos ligados e desligados](iot-hub-how-to-order-connection-state-events.md)
 
-* [Saiba mais sobre o Event Grid](../event-grid/overview.md)
+* [Saiba mais sobre a grade de eventos](../event-grid/overview.md)
 
-* [Comparar as diferenças entre mensagens e encaminhamento eventos do IoT Hub](iot-hub-event-grid-routing-comparison.md)
+* [Comparar as diferenças entre rotear eventos e mensagens do Hub IoT](iot-hub-event-grid-routing-comparison.md)

@@ -1,6 +1,6 @@
 ---
-title: Copiar ficheiros novos e alterados com base no LastModifiedDate com a ferramenta copiar dados de forma incremental | Documentos da Microsoft
-description: Crie uma fábrica de dados do Azure e, em seguida, utilize a ferramenta copiar dados para carregar novos ficheiros com base em LastModifiedDate de forma incremental.
+title: Copiar arquivos novos e alterados incrementalmente com base em LastModifiedDate usando a ferramenta de Copiar Dados | Microsoft Docs
+description: Crie um data factory do Azure e, em seguida, use a ferramenta Copiar Dados para carregar incrementalmente novos arquivos com base em LastModifiedDate.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 3865bb10346c4a55adbf94a7df225eacf2c11252
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f6fd57586603d0d987faa674d40a7e4678530a1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65519137"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933862"
 ---
-# <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copiar ficheiros novos e alterados com base no LastModifiedDate com a ferramenta copiar dados de forma incremental
+# <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copiar arquivos novos e alterados incrementalmente com base em LastModifiedDate usando a ferramenta de Copiar Dados
 
-Neste tutorial, irá utilizar o portal do Azure para criar uma fábrica de dados. Em seguida, usará a ferramenta copiar dados para criar um pipeline de forma incremental copia arquivos novos e alterados apenas, com base na respetiva **LastModifiedDate** do armazenamento de Blobs do Azure para o armazenamento de Blobs do Azure.
+Neste tutorial, você usará o portal do Azure para criar um data factory. Em seguida, você usará a ferramenta Copiar Dados para criar um pipeline que copia incrementalmente somente arquivos novos e alterados, com base em seus **LastModifiedDate** do armazenamento de BLOBs do Azure para o armazenamento de BLOBs do Azure.
 
-Ao fazê-lo, ADF irá analisar todos os ficheiros de arquivo de origem, aplique o filtro de ficheiros pelo respetivo LastModifiedDate e copie o ficheiro de novo e atualizado apenas desde a última vez para o arquivo de destino.  Tenha em atenção que se permitir que enormes quantidades da ADF análise de ficheiros, mas apenas copiar alguns arquivos para o destino, ainda esperaria que a duração de tempo devido a análise do ficheiro é demorada também.   
+Ao fazer isso, o ADF examinará todos os arquivos do repositório de origem, aplicará o filtro de arquivo por seus LastModifiedDate e copiará o arquivo novo e atualizado somente desde a última vez para o repositório de destino.  Observe que, se você deixar o ADF digitalizar grandes quantidades de arquivos, mas copiar apenas alguns arquivos para o destino, você ainda esperará que a longa duração devido à verificação de arquivos também seja demorada.   
 
 > [!NOTE]
 > Se não estiver familiarizado com o Azure Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
 
-Neste tutorial, irá executar as seguintes tarefas:
+Neste tutorial, você executará as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar uma fábrica de dados.
@@ -38,33 +38,31 @@ Neste tutorial, irá executar as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Subscrição do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de armazenamento do Azure**: Utilizar o armazenamento de BLOBs como o _origem_ e _sink_ arquivo de dados. Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
+* **Assinatura do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Conta de armazenamento do Azure**: Use o armazenamento de BLOBs como o armazenamento de dados de _origem_ e de _coletor_ . Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
 
-### <a name="create-two-containers-in-blob-storage"></a>Criar dois contentores no armazenamento de BLOBs
+### <a name="create-two-containers-in-blob-storage"></a>Criar dois contêineres no armazenamento de BLOBs
 
-Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
+Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 
-1. Criar um contentor com o nome **origem**. Pode utilizar várias ferramentas para realizar esta tarefa, tal como [Explorador de armazenamento do Azure](https://storageexplorer.com/).
+1. Crie um contêiner chamado **origem**. Você pode usar várias ferramentas para executar essa tarefa, como [Gerenciador de armazenamento do Azure](https://storageexplorer.com/).
 
-2. Criar um contentor com o nome **destino**. 
+2. Crie um contêiner chamado **destino**. 
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. No menu da esquerda, selecione **criar um recurso** > **dados + análise** > **Data Factory**: 
+1. No menu à esquerda, selecione **criar um recurso** > **dados + análise** > **Data Factory**: 
    
-   ![Seleção do Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 2. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**. 
-      
-     ![Nova fábrica de dados](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
  
    O nome da fábrica de dados tem de ser _globalmente exclusivo_. Poderá receber a seguinte mensagem de erro:
    
-   ![Mensagem de erro de nova fábrica de dados](./media/tutorial-copy-data-tool/name-not-available-error.png)
+   ![Mensagem de erro de nova fábrica de dados](./media/doc-common-process/name-not-available-error.png)
 
    Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. Por exemplo, utilize o nome _**oseunome**_ **ADFTutorialDataFactory**. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
-3. Selecione o Azure **subscrição** no qual irá criar a nova fábrica de dados. 
+3. Selecione a **assinatura** do Azure na qual você criará o novo data Factory. 
 4. Em **Grupo de Recursos**, efetue um destes passos:
      
     * Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
@@ -73,33 +71,33 @@ Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
          
     Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).
 
-5. Sob **versão**, selecione **V2**.
-6. Em **Localização**, selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os arquivos de dados (por exemplo, armazenamento do Azure e base de dados SQL) e as computações (por exemplo, o Azure HDInsight) que a fábrica de dados utiliza podem estar noutras localizações e regiões.
+5. Em **versão**, selecione **v2**.
+6. Em **Localização**, selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os armazenamentos de dados (por exemplo, o armazenamento do Azure e o SQL Database) e as computações (por exemplo, Azure HDInsight) que seu data factory usa podem estar em outros locais e regiões.
 7. Selecione **Afixar ao dashboard**. 
 8. Selecione **Criar**.
-9. No dashboard, consulte a **implementar o Data Factory** mosaico para ver o estado do processo.
+9. No painel, consulte o bloco implantando **Data Factory** para ver o status do processo.
 
-    ![Implantando o mosaico da fábrica de dados](media/tutorial-copy-data-tool/deploying-data-factory.png)
+    ![Implantando Data Factory bloco](media/tutorial-copy-data-tool/deploying-data-factory.png)
 10. Depois de concluída a criação, é apresentada a home page **Fábrica de Dados**.
    
-    ![Home page da fábrica de dados](./media/tutorial-copy-data-tool/data-factory-home-page.png)
-11. Para abrir a interface de utilizador (IU) do Azure Data Factory num separador à parte, selecione o **criar e monitorizar** mosaico. 
+    ![Home page da fábrica de dados](./media/doc-common-process/data-factory-home-page.png)
+11. Para abrir a interface do usuário do Azure Data Factory (IU) em uma guia separada, selecione o bloco **criar & monitor** . 
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Utilizar a ferramenta Copiar Dados para criar um pipeline
 
-1. Sobre o **Vamos começar** página, selecione a **copiar dados** title para abrir a ferramenta copiar dados. 
+1. Na página introdução, selecione o título de **copiar dados** para abrir a ferramenta de copiar dados. 
 
-   ![Mosaico ferramenta Copiar Dados](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
+   ![Mosaico ferramenta Copiar Dados](./media/doc-common-process/get-started-page.png)
    
-2. Sobre o **propriedades** página, siga os passos seguintes:
+2. Na página **Propriedades** , execute as seguintes etapas:
 
-    a. Sob **nome da tarefa**, introduza **DeltaCopyFromBlobPipeline**.
+    a. Em **nome da tarefa**, insira **DeltaCopyFromBlobPipeline**.
 
-    b. Sob **cadência de tarefas** ou **agenda de tarefa**, selecione **regularmente executada numa agenda**.
+    b. Em **cadência da tarefa** ou no **agendamento da tarefa**, selecione **executar regularmente na agenda**.
 
-    c. Sob **tipo de Acionador**, selecione **janela em cascata**.
+    c. Em **tipo de gatilho**, selecione **janela em cascata**.
     
-    d. Sob **periodicidade**, introduza **minuto (s 15)** . 
+    d. Em **recorrência**, insira **15 minuto (s)** . 
     
     e. Selecione **Seguinte**. 
     
@@ -109,43 +107,43 @@ Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
     
 3. Na página **Arquivo de dados de origem**, conclua os seguintes passos:
 
-    a. Selecione **+ criar nova ligação**, para adicionar uma ligação.
+    a. Selecione **+ criar nova conexão**para adicionar uma conexão.
     
     ![Página de arquivo de dados de origem](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page.png)
 
-    b. Selecione **armazenamento de Blobs do Azure** da Galeria e, em seguida, selecione **continuar**.
+    b. Selecione **armazenamento** de BLOBs do Azure na galeria e selecione **continuar**.
     
     ![Página de arquivo de dados de origem](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
-    c. Sobre o **novo serviço ligado** , selecione a sua conta de armazenamento da **nome da conta de armazenamento** lista e, em seguida, selecione **concluir**.
+    c. Na página **novo serviço vinculado** , selecione sua conta de armazenamento na lista **nome da conta de armazenamento** e, em seguida, selecione **concluir**.
     
     ![Página de arquivo de dados de origem](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-linkedservice.png)
     
-    d. Selecione o serviço ligado criado recentemente e, em seguida, selecione **seguinte**. 
+    d. Selecione o serviço vinculado recém-criado e, em seguida, selecione **Avançar**. 
     
    ![Página de arquivo de dados de origem](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
 
 4. Na página **Escolher o ficheiro ou pasta de entrada**, complete os seguintes passos:
     
-    a. Procure e selecione o **origem** e, em seguida, selecione **escolha**.
+    a. Procure e selecione a pasta de **origem** e selecione **escolher**.
     
     ![Escolher o ficheiro ou pasta de entrada](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-input-file-folder.png)
     
-    b. Sob **comportamento de carregamento do ficheiro**, selecione **carga Incremental: LastModifiedDate**.
+    b. Em **comportamento de carregamento**de arquivo **, selecione carga incremental: LastModifiedDate**.
     
     ![Escolher o ficheiro ou pasta de entrada](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-loading-behavior.png)
     
-    c. Verifique **cópia binária** e selecione **próxima**.
+    c. Marque **cópia binária** e selecione **Avançar**.
     
      ![Escolher o ficheiro ou pasta de entrada](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
      
-5. Sobre o **o arquivo de dados de destino** página, selecione **AzureBlobStorage**. Esta é a mesma conta de armazenamento como o arquivo de dados de origem. Em seguida, selecione **Seguinte**.
+5. Na página **armazenamento de dados de destino** , selecione **AzureBlobStorage**. Essa é a mesma conta de armazenamento que o armazenamento de dados de origem. Em seguida, selecione **Seguinte**.
 
     ![Página arquivo de dados de destino](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/destination-data-store-page-select-linkedservice.png)
     
 6. Na página **Escolher o ficheiro ou pasta de saída**, complete os seguintes passos:
     
-    a. Procure e selecione o **destino** e, em seguida, selecione **escolha**.
+    a. Procure e selecione a pasta de **destino** e selecione **escolher**.
     
     ![Escolher ficheiro ou pasta de saída](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
     
@@ -157,7 +155,7 @@ Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
 
     ![Página de definições](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/settings-page.png)
     
-8. Sobre o **resumo** página, reveja as definições e, em seguida, selecione **próxima**.
+8. Na página **Resumo** , examine as configurações e, em seguida, selecione **Avançar**.
 
     ![Página de resumo](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/summary-page.png)
     
@@ -165,47 +163,47 @@ Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
 
     ![Página de implementação](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/deployment-page.png)
     
-10. Tenha em atenção que o separador **Monitorização** à esquerda é selecionado automaticamente. A coluna **Ações** inclui ligações para ver os detalhes de execução da atividade e voltar a executar o pipeline. Selecione **Atualize** para atualizar a lista e selecione o **ver execuções de atividades** ligação no **ações** coluna. 
+10. Tenha em atenção que o separador **Monitorização** à esquerda é selecionado automaticamente. A coluna **Ações** inclui ligações para ver os detalhes de execução da atividade e voltar a executar o pipeline. Selecione **Atualizar** para atualizar a lista e selecione o link **Exibir execuções de atividade** na coluna **ações** . 
 
-    ![Atualizar lista e selecione ver execuções de atividades](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs1.png)
+    ![Atualizar lista e selecionar Exibir execuções de atividade](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs1.png)
 
-11. Há apenas uma atividade (atividade de cópia) no pipeline, pelo que vai ver apenas uma entrada. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos) na coluna **Ações**. 
+11. Há apenas uma atividade (a atividade de cópia) no pipeline, para que você veja apenas uma entrada. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos) na coluna **Ações**. 
 
-    ![Atividade de cópia está no pipeline](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs2.png)
+    ![A atividade de cópia está no pipeline](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs2.png)
     
-    Porque não existe nenhum ficheiro no **origem** contentor na sua conta de armazenamento de BLOBs, não verá qualquer ficheiro copiado para o **destino** contentor na sua conta de armazenamento de Blobs.
+    Como não há nenhum arquivo no contêiner de **origem** em sua conta de armazenamento de BLOBs, você não verá nenhum arquivo copiado para o contêiner de **destino** em sua conta de armazenamento de BLOBs.
     
-    ![Não existem ficheiros no contentor de origem ou o contentor de destino](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
+    ![Nenhum arquivo no contêiner de origem ou de destino](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
     
-12. Crie um ficheiro de texto vazio e nomeie- **file1.txt**. Carregar este ficheiro de texto para o **origem** contentor na sua conta de armazenamento. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).   
+12. Crie um arquivo de texto vazio e nomeie-o como **arquivo1. txt**. Carregue esse arquivo de texto no contêiner de **origem** em sua conta de armazenamento. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).   
 
-    ![Criar file1.txt e carregar para o contentor de origem](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
+    ![Criar file1. txt e carregar no contêiner de origem](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
     
-13. Voltar para o **execuções de Pipeline** visualizar, selecione **todas as execuções de Pipeline**e aguarde até mesmo pipeline sejam acionadas automaticamente novamente.  
+13. Para voltar à exibição de **execuções de pipeline** , selecione **todas as execuções de pipeline**e aguarde até que o mesmo pipeline seja disparado novamente automaticamente.  
 
-    ![Selecione todas as execuções de Pipeline](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
+    ![Selecionar todas as execuções de pipeline](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
 
-14. Selecione **vista de execução da atividade** para o segundo pipeline executado quando vê-lo. Em seguida, reveja os detalhes da mesma forma que fez para a primeira execução de pipeline.  
+14. Selecione **Exibir execução da atividade** para a segunda execução de pipeline quando você a vir. Em seguida, examine os detalhes da mesma maneira que você fez para a primeira execução do pipeline.  
 
-    ![Selecione a vista de execução da atividade e rever os detalhes](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs5.png)
+    ![Selecione Exibir execução da atividade e revisar detalhes](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs5.png)
 
-    Irá consulte o artigo um ficheiro (file1.txt) foram copiado dos **origem** contentor para o **destino** contentor da conta de armazenamento de Blobs.
+    Você verá que um arquivo (file1. txt) foi copiado do contêiner de **origem** para o contêiner de **destino** da sua conta de armazenamento de BLOBs.
     
-    ![File1.txt foram copiados do contentor de origem para o contentor de destino](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
+    ![File1. txt foi copiado do contêiner de origem para o contêiner de destino](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
     
-15. Crie outro ficheiro de texto vazio e nomeie- **file2.txt**. Carregar este ficheiro de texto para o **origem** contentor na sua conta de armazenamento de Blobs.   
+15. Crie outro arquivo de texto vazio e nomeie-o como **file2. txt**. Carregue esse arquivo de texto no contêiner de **origem** em sua conta de armazenamento de BLOBs.   
     
-16. Repita os passos 13 e 14 para este ficheiro de texto de segundo. Verá que apenas o ficheiro novo (file2.txt) foram copiado dos **origem** contentor para o **destino** contentor da conta de armazenamento na próxima execução de pipeline.  
+16. Repita as etapas 13 e 14 para esse segundo arquivo de texto. Você verá que apenas o novo arquivo (file2. txt) foi copiado do contêiner de **origem** para o contêiner de **destino** da sua conta de armazenamento na próxima execução do pipeline.  
     
-    ![File2.txt foram copiados do contentor de origem para o contentor de destino](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs7.png)
+    ![Arquivo2. txt foi copiado do contêiner de origem para o contêiner de destino](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs7.png)
 
-    Também pode verificar isto utilizando [Explorador de armazenamento do Azure](https://storageexplorer.com/) para analisar os ficheiros.
+    Você também pode verificar isso usando [Gerenciador de armazenamento do Azure](https://storageexplorer.com/) para verificar os arquivos.
     
-    ![Analisar ficheiros com o Explorador de armazenamento do Azure](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
+    ![Verificar arquivos usando Gerenciador de Armazenamento do Azure](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
 
     
 ## <a name="next-steps"></a>Passos Seguintes
-Avance para o tutorial seguinte para saber como transformar dados através de um cluster do Apache Spark no Azure:
+Avance para o tutorial a seguir para saber mais sobre como transformar dados usando um cluster Apache Spark no Azure:
 
 > [!div class="nextstepaction"]
->[Transformar dados na cloud através de um cluster do Apache Spark](tutorial-transform-data-spark-portal.md)
+>[Transformar dados na nuvem usando um cluster Apache Spark](tutorial-transform-data-spark-portal.md)

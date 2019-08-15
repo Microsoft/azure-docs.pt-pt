@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8163b2261601b701913e07d703f5db0ac6fa7c0
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 13c9003baaca11dce5a2192a8183674faddfa6dc
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688079"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967285"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Atribuir utilizadores e grupos a uma aplicação no Azure Active Directory
 Este artigo mostra-lhe como atribuir utilizadores ou grupos a uma aplicação no Azure Active Directory (Azure AD). Os usuários primeiro devem ser atribuídos a uma aplicação antes de um administrador pode conceder-lhes acesso para fazer o seguinte:
@@ -82,7 +82,7 @@ Para atribuir diretamente um ou mais utilizadores a uma aplicação, siga os pas
 
 15. Clique nas **atribuir** botão para atribuir a aplicação aos utilizadores selecionados.
 
-Após um curto período de tempo, os utilizadores que selecionou ser capaz de iniciar esses aplicativos usando os métodos descritos na secção de descrição de solução.
+Após um curto período de tempo, os usuários selecionados poderão iniciar esses aplicativos usando os métodos descritos na seção Descrição da solução.
 
 ## <a name="assign-groups"></a>Atribuir grupos
 
@@ -120,7 +120,7 @@ Para atribuir um ou mais grupos diretamente a uma aplicação, siga os passos ab
 
 15. Clique nas **atribuir** botão para atribuir a aplicação aos grupos selecionados.
 
-Após um curto período de tempo, os utilizadores nos grupos que selecionou ser capaz de iniciar esses aplicativos usando os métodos descritos na secção de descrição de solução. Se estes são grupos dinâmicos, pode haver algum atraso de processamento adicional nestas atribuições que aparece para os utilizadores dentro estes grupos atribuídos.
+Após um curto período de tempo, os usuários dentro dos grupos que você selecionou poderão iniciar esses aplicativos usando os métodos descritos na seção Descrição da solução. Se estes são grupos dinâmicos, pode haver algum atraso de processamento adicional nestas atribuições que aparece para os utilizadores dentro estes grupos atribuídos.
 
 ## <a name="enable-self-service-application-access"></a>Ativar o acesso de aplicações self-service
 
@@ -165,7 +165,7 @@ Para ativar o acesso de aplicações self-service a uma aplicação, siga os pas
 
 Depois de concluir a configuração de aplicações self-service, os usuários podem navegar para seus [painel de acesso de aplicação](https://myapps.microsoft.com/) e clique nas **+ adicionar** botão para encontrar as aplicações a que tiver ativado o Self-Service acesso. Aprovadores empresariais também veem uma notificação no seu [painel de acesso de aplicação](https://myapps.microsoft.com/). Pode ativar um e-mail a notificar quando um utilizador pediu acesso a um aplicativo que requer a sua aprovação. 
 
-Estas aprovações suportam apenas, fluxos de trabalho de aprovação única que significa que, se especificar vários aprovadores, qualquer um único aprovador pode acesso aprovador à aplicação.
+Essas aprovações só dão suporte a fluxos de trabalho de aprovação única, o que significa que, se você especificar vários Aprovadores, qualquer aprovador poderá aprovar o acesso ao aplicativo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Fornecer início de sessão único às suas aplicações com o Proxy de aplicações](application-proxy-configure-single-sign-on-with-kcd.md)

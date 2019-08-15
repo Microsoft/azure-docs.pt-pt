@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: bacb677b8354c0b0e219ce7483a1446a96c28288
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 369069ef9a9c562ef6ba88a46dc0ef82c4debba1
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855519"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950688"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
 
@@ -100,7 +100,7 @@ A tabela a seguir lista todos os outros recursos e ferramentas que ainda não t�
 | **Blobfuse** |Ainda não tem suporte|
 | **Domínios personalizados** |Ainda não tem suporte|
 | **Explorador do sistema de arquivos** | Suporte limitado |
-| **Registo de diagnósticos** |Os logs de diagnóstico só têm suporte se você se registrar no [acesso de vários protocolos na](data-lake-storage-multi-protocol-access.md) versão prévia do data Lake Storage. <br><br>No momento, não há suporte para a habilitação de logs no portal do Azure. Aqui está um exemplo de como habilitar os logs usando o PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzureStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Certifique-se de `Blob` especificar como o valor `-ServiceType` do parâmetro, conforme mostrado neste exemplo. 
+| **Registo de diagnósticos** |Os logs de diagnóstico só têm suporte se você se registrar no [acesso de vários protocolos na](data-lake-storage-multi-protocol-access.md) versão prévia do data Lake Storage. <br><br>No momento, não há suporte para a habilitação de logs no portal do Azure. Aqui está um exemplo de como habilitar os logs usando o PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Certifique-se de `Blob` especificar como o valor `-ServiceType` do parâmetro, conforme mostrado neste exemplo. 
 | **Armazenamento imutável** |Ainda não tem suporte <br><br>O armazenamento imutável oferece a capacidade de armazenar dados em um estado de [worm (gravar uma vez, ler muitos)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) .|
 | **Camadas de nível de objeto** |As camadas frias e de arquivo só têm suporte se você se registrar no [acesso de vários protocolos na versão prévia do data Lake Storage](data-lake-storage-multi-protocol-access.md) . <br><br> Todas as outras camadas de acesso ainda não têm suporte.|
 | **Suporte ao PowerShell e à CLI** | Funcionalidade limitada <br><br>As operações de gerenciamento, como a criação de uma conta, têm suporte. As operações do plano de dados, como carregar e baixar arquivos, estão em visualização pública como parte do [acesso de vários protocolos em data Lake Storage](data-lake-storage-multi-protocol-access.md). O trabalho com diretórios e a configuração de listas de controle de acesso (ACLs) ainda não têm suporte. |

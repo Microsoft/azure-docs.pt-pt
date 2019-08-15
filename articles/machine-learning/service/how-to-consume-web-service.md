@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a007e3adb72148cfde1590e996f7df9082159445
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 873f45a6cce85669581037c4c398a52b1ebd6d68
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840510"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966845"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como um serviço web
 
@@ -80,6 +80,7 @@ O Azure Machine Learning fornece duas maneiras de controlar o acesso aos serviç
 |---|---|---|
 |Chave|Desabilitado por padrão| Habilitado por padrão|
 |Certificado de| Não Disponível| Desabilitado por padrão |
+
 #### <a name="authentication-with-keys"></a>Autenticação com chaves
 
 Ao habilitar a autenticação para uma implantação, você cria automaticamente chaves de autenticação.
@@ -98,7 +99,6 @@ print(primary)
 
 > [!IMPORTANT]
 > Se precisar de voltar a gerar uma chave, utilize [ `service.regen_key` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
-
 
 #### <a name="authentication-with-tokens"></a>Autenticação com tokens
 
@@ -155,50 +155,17 @@ Por exemplo, o modelo no [Train dentro do bloco de notas](https://github.com/Azu
             ]
         ]
 }
-``` 
+```
 
 O serviço web pode aceitar vários conjuntos de dados numa solicitação. Ele retorna um documento JSON que contenha uma matriz de respostas.
 
 ### <a name="binary-data"></a>Dados binários
 
-Se o seu modelo aceita dados binários, como uma imagem, tem de modificar o `score.py` ficheiro utilizado para a sua implementação para aceitar pedidos HTTP não processados. Aqui está um exemplo de um `score.py` que aceita dados binários:
+Para obter informações sobre como habilitar o suporte para dados binários em seu serviço, consulte [dados binários](how-to-deploy-and-where.md#binary).
 
-```python
-from azureml.contrib.services.aml_request import AMLRequest, rawhttp
-from azureml.contrib.services.aml_response import AMLResponse
+### <a name="cross-origin-resource-sharing-cors"></a>CORS (compartilhamento de recursos entre origens)
 
-
-def init():
-    print("This is init()")
-
-
-@rawhttp
-def run(request):
-    print("This is run()")
-    print("Request: [{0}]".format(request))
-    if request.method == 'GET':
-        # For this example, just return the URL for GETs
-        respBody = str.encode(request.full_path)
-        return AMLResponse(respBody, 200)
-    elif request.method == 'POST':
-        reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody
-        # and send to the model. Then return the response.
-
-        # For demonstration purposes, this example just returns the posted data as the response.
-        return AMLResponse(reqBody, 200)
-    else:
-        return AMLResponse("bad request", 500)
-```
-
-> [!IMPORTANT]
-> O `azureml.contrib` namespace é alterado com frequência, à medida que trabalhamos para melhorar o serviço. Assim, qualquer coisa neste namespace deve ser considerada como uma versão prévia e não tem suporte total da Microsoft.
->
-> Se precisar testar isso em seu ambiente de desenvolvimento local, você poderá instalar os componentes no `contrib` namespace usando o seguinte comando:
-> 
-> ```shell
-> pip install azureml-contrib-services
-> ```
+Para obter informações sobre como habilitar o suporte a CORS em seu serviço, consulte [compartilhamento de recursos entre origens](how-to-deploy-and-where.md#cors).
 
 ## <a name="call-the-service-c"></a>Chamar o serviço (C#)
 
@@ -528,3 +495,7 @@ O Power BI dá suporte ao consumo de serviços Web Azure Machine Learning para e
 Para gerar um serviço Web com suporte para consumo no Power BI, o esquema deve dar suporte ao formato exigido pelo Power BI. [Saiba como criar um esquema com suporte a Power bi](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-script-with-dictionary-input-support-consumption-from-power-bi).
 
 Depois que o serviço Web for implantado, ele será consumível de Power BI fluxos de os. [Saiba como consumir um serviço web Azure Machine Learning do Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+
+## <a name="next-steps"></a>Passos seguintes
+
+Para exibir uma arquitetura de referência para a pontuação em tempo real dos modelos de aprendizado profundo e Python, vá para o [centro de arquitetura do Azure](/azure/architecture/reference-architectures/ai/realtime-scoring-python).

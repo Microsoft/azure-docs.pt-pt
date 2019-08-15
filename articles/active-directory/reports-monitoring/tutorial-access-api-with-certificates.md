@@ -1,9 +1,9 @@
 ---
-title: Obter os dados tutoriais utilizar a API de relatórios do AD do Azure com certificados | Documentos da Microsoft
-description: Este tutorial explica como utilizar a API de relatórios do AD do Azure com credenciais de certificados para obter dados de diretórios sem intervenção do utilizador.
+title: Tutorial obter dados usando a API de relatórios do Azure AD com certificados | Microsoft Docs
+description: Este tutorial explica como usar a API de relatórios do Azure AD com credenciais de certificado para obter dados de diretórios sem intervenção do usuário.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
@@ -13,46 +13,46 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e006111cce7f53ff87f1c6d60b2a5147da02e1e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fdab5bc4be366f778213127a307fb4fcf7cf38a3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60284908"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989487"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutorial: Obter dados com a API de relatórios do Azure Active Directory com certificados
 
-As [APIs de relatórios Azure Active Directory (Azure AD)](concept-reporting-api.md) proporcionam acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação. Se desejar acessar a API de relatórios de AD do Azure sem intervenção do utilizador, tem de configurar o acesso ao utilizar certificados.
+As [APIs de relatórios Azure Active Directory (Azure AD)](concept-reporting-api.md) proporcionam acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação. Se você quiser acessar a API de relatórios do Azure AD sem intervenção do usuário, deverá configurar o acesso para usar certificados.
 
-Neste tutorial, irá aprender a utilizar um certificado de teste para aceder à Graph API do MS para relatórios. Não é recomendada a utilização de certificados de teste num ambiente de produção. 
+Neste tutorial, você aprenderá a usar um certificado de teste para acessar o MS API do Graph para relatórios. Não recomendamos o uso de certificados de teste em um ambiente de produção. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Para aceder aos dados de início de sessão, certifique-se de que tem um inquilino do Azure Active Directory com uma licença premium (P1/P2). Ver [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar a sua edição do Azure Active Directory. Tenha em atenção que, se não tem quaisquer dados de atividades antes da atualização, demorará alguns dias para os dados sejam apresentados nos relatórios depois de atualizar para uma licença premium. 
+1. Para acessar os dados de entrada, verifique se você tem um locatário Azure Active Directory com uma licença Premium (P1/P2). Consulte [introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para atualizar sua edição do Azure Active Directory. Observe que, se você não tiver dados de atividades antes da atualização, levará alguns dias para que os dados sejam exibidos nos relatórios após a atualização para uma licença Premium. 
 
-2. Criar ou mudar para uma conta de utilizador a **administrador global**, **administrador de segurança**, **leitor de segurança** ou **leitor de relatório** função para o inquilino. 
+2. Crie ou alterne para uma conta de usuário na função **administrador global**, **administrador de segurança**, leitor de **segurança** ou leitor de **relatório** para o locatário. 
 
-3. Concluir o [pré-requisitos para aceder ao Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md). 
+3. Conclua os [pré-requisitos para acessar a API de relatório do Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md). 
 
-4. Transfira e instale [do Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
+4. Baixe e instale o [PowerShell v2 do Azure ad](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
 
-5. Instale [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Este módulo disponibiliza vários cmdlets de utilitário, incluindo:
-    - As bibliotecas ADAL necessárias à autenticação
+5. Instale o [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Este módulo disponibiliza vários cmdlets de utilitário, incluindo:
+    - As bibliotecas ADAL necessárias para a autenticação
     - Tokens de acesso de utilizador, chaves de aplicação e certificados, através da ADAL
     - Graph API que processa resultados paginados
 
-6. Se for a primeira vez utilizando o módulo execute **Install-MSCloudIdUtilsModule**, caso contrário, importe-o utilizando o **Import-Module** comando do Powershell. A sua sessão deve ter um aspeto semelhante a este ecrã: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Se for a primeira vez que você usa o módulo, execute **install-MSCloudIdUtilsModule**, caso contrário, importe-o usando o comando do PowerShell **Import-Module** . Sua sessão deve ser semelhante a esta tela: ![Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-7. Utilize o **New-SelfSignedCertificate** commandlet do Powershell para criar um certificado de teste.
+7. Use o commandlet do PowerShell **New-SelfSignedCertificate** para criar um certificado de teste.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
    ```
 
-8. Utilize o **Export-Certificate** commandlet para os exportar para um ficheiro de certificado.
+8. Use o commandlet **Export-Certificate** para exportá-lo para um arquivo de certificado.
 
    ```
    Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"
@@ -61,15 +61,15 @@ Neste tutorial, irá aprender a utilizar um certificado de teste para aceder à 
 
 ## <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Obter dados com a API de relatórios do Azure Active Directory com certificados
 
-1. Navegue para o [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**, em seguida, selecione **registos das aplicações** e escolha a sua aplicação na lista. 
+1. Navegue até a [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**, em seguida, selecione **registros de aplicativo** e escolha o aplicativo na lista. 
 
 2. Selecione **configurações** > **chaves** e selecione **carregar chave pública**.
 
-3. Selecione o ficheiro de certificado do passo anterior e selecione **guardar**. 
+3. Selecione o arquivo de certificado da etapa anterior e selecione **salvar**. 
 
-4. Tenha em atenção que o ID da aplicação e o thumbprint do certificado que acabou de registar com a sua aplicação. Para encontrar o thumbprint, a partir da sua página de aplicativo no portal, aceda a **configurações** e clique em **chaves**. O thumbprint será sob o **chaves públicas** lista.
+4. Anote a ID do aplicativo e a impressão digital do certificado que você acabou de registrar com seu aplicativo. Para localizar a impressão digital, na página do aplicativo no portal, vá para **configurações** e clique em **chaves**. A impressão digital estará na lista de **chaves públicas** .
 
-5. Abra o manifesto do aplicativo no editor de manifesto de inline e substitua a *keyCredentials* propriedade com as suas informações de certificado novo com o esquema abaixo. 
+5. Abra o manifesto do aplicativo no editor de manifesto embutido e substitua a propriedade keycredentials por suas novas informações de certificado usando o esquema a seguir. 
 
    ```
    "keyCredentials": [
@@ -83,24 +83,24 @@ Neste tutorial, irá aprender a utilizar um certificado de teste para aceder à 
     ]
    ```
 
-6. Guarde o manifesto. 
+6. Salve o manifesto. 
   
-7. Agora, pode obter um token de acesso para a Graph API do MS utilizando este certificado. Utilize o **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet do módulo do PowerShell de MSCloudIdUtils, passando o ID da aplicação e o thumbprint que obteve no passo anterior. 
+7. Agora, você pode obter um token de acesso para o MS API do Graph usando esse certificado. Use o cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** do módulo MSCloudIdUtils do PowerShell, passando a ID do aplicativo e a impressão digital obtida da etapa anterior. 
 
    ![Portal do Azure](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-8. Utilize o token de acesso no seu script de Powershell para consultar a Graph API. Utilize o **Invoke-MSCloudIdMSGraphQuery** cmdlet a partir de MSCloudIDUtils enumerar o ponto de extremidade signins e directoryAudits. Este cmdlet processa resultados paginados múltiplos e envia-os para o pipeline do PowerShell.
+8. Use o token de acesso no script do PowerShell para consultar o API do Graph. Use o cmdlet **Invoke-MSCloudIdMSGraphQuery** do MSCloudIDUtils para enumerar o ponto de extremidade entrada e directoryAudits. Esse cmdlet manipula os resultados de várias páginas e envia esses resultados para o pipeline do PowerShell.
 
-9. Consulte o ponto de extremidade directoryAudits obtém os registos de auditoria. 
-   ![Portal do Azure](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+9. Consulte o ponto de extremidade directoryAudits para recuperar os logs de auditoria. 
+   ![Azure portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-10. Consulte o ponto de extremidade signins obtém os registos de início de sessão.
-    ![Portal do Azure](./media/tutorial-access-api-with-certificates/query-signins.png)
+10. Consulte o ponto de extremidade entrada para recuperar os logs de entrada.
+    ![Azure portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
-11. Agora, pode optar por exportar estes dados para um CSV e guardar num sistema SIEM. Também pode encapsular o script numa tarefa agendada para obter dados do Azure AD a partir do seu inquilino periodicamente, sem ter de armazenar chaves de aplicação no código de origem. 
+11. Agora você pode optar por exportar esses dados para um CSV e salvá-los em um sistema SIEM. Também pode encapsular o script numa tarefa agendada para obter dados do Azure AD a partir do seu inquilino periodicamente, sem ter de armazenar chaves de aplicação no código de origem. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Obter uma primeira impressão das APIs de relatórios](concept-reporting-api.md)
-* [Referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Relatório de atividade de início de sessão de referência da API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Referência de API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [Referência da API de relatório de atividade de entrada](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

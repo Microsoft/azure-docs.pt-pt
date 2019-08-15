@@ -1,57 +1,58 @@
 ---
-title: Capacidade de gestão do armazém de dados SQL do Azure e monitorização - atividade, a utilização de recursos de consulta | Documentos da Microsoft
-description: Saber que capacidades estão disponíveis para gerir e monitorizar o Azure SQL Data Warehouse. Utilize o portal do Azure e a vistas de gestão dinâmica (DMVs) para compreender a atividade de consulta e a utilização de recursos do seu armazém de dados.
+title: Gerenciamento de SQL Data Warehouse do Azure e monitoramento – atividade de consulta, utilização de recursos | Microsoft Docs
+description: Saiba quais recursos estão disponíveis para gerenciar e monitorar SQL Data Warehouse do Azure. Use o portal do Azure e as DMVs (exibições de gerenciamento dinâmico) para entender a atividade de consulta e a utilização de recursos do seu data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 06/20/2019
+ms.date: 08/09/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5038ae99a804b456c2cc388f07899278cc0f9a24
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 7f7575daa91cef5cb5be6274a699323fafe67a68
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312887"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935143"
 ---
-# <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Monitorizar atividade de consulta e de utilização de recursos no Azure SQL Data Warehouse
-O Azure SQL Data Warehouse oferece uma Rica experiência de monitorização no portal do Azure para obter informações para a sua carga de trabalho do armazém de dados. O portal do Azure é a ferramenta recomendada quando o armazém de dados de monitorização, pois fornece períodos de retenção configurável, alertas, recomendações e personalizáveis gráficos e dashboards para métricas e registos. O portal também permite integrar com outros serviços de monitorização do Azure, como o Operations Management Suite (OMS) e o Azure Monitor (logs) para fornecer uma experiência holística de monitorização para não apenas seu armazém de dados, mas também suas análises do Azure inteiras plataforma para uma experiência de monitorização integrada. Esta documentação descreve as capacidades de monitorização estão disponíveis para otimizar e gerir a sua plataforma de análise com o SQL Data Warehouse. 
+# <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Monitorando a utilização de recursos e a atividade de consulta no Azure SQL Data Warehouse
+O Azure SQL Data Warehouse fornece uma experiência de monitoramento avançada dentro do portal do Azure para insights de superfície para sua carga de trabalho de data warehouse. O portal do Azure é a ferramenta recomendada ao monitorar seu data warehouse, pois fornece períodos de retenção, alertas, recomendações e gráficos personalizáveis e painéis para métricas e logs configuráveis. O portal também permite que você integre com outros serviços de monitoramento do Azure, como o OMS (Operations Management Suite) e Azure Monitor (logs) para fornecer uma experiência de monitoramento holística para não apenas seus data warehouse, mas também toda a análise do Azure plataforma para uma experiência de monitoramento integrada. Esta documentação descreve quais recursos de monitoramento estão disponíveis para otimizar e gerenciar sua plataforma de análise com o SQL Data Warehouse. 
 
 ## <a name="resource-utilization"></a>Utilização de recursos 
-As métricas seguintes estão disponíveis no portal do Azure para o SQL Data Warehouse. Estas métricas são apresentadas [do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
+As métricas a seguir estão disponíveis no portal do Azure para SQL Data Warehouse. Essas métricas são apresentadas por meio de [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
 
-> [!NOTE]
-> Atualmente o nível de nó da CPU e métricas de e/s reflete propriamente o uso de armazém de dados. Estas métricas serão removidas no futuro próximo à medida que a equipe melhora a monitorização e resolução de problemas de experiência para o SQL Data Warehouse. 
 
 | Nome da Métrica             | Descrição                                                  | Tipo de Agregação |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
-| Percentagem de CPU          | Utilização da CPU de todos os nós para o armazém de dados      | Máximo          |
-| Percentagem de ES de Dados      | Utilização de e/s em todos os nós para o armazém de dados       | Máximo          |
-| Percentagem de memória       | Utilização da memória (SQL Server) em todos os nós para o armazém de dados | Máximo          |
-| Ligações com êxito  | Número de conexões com êxito para os dados                 | Total            |
-| Ligações com Falhas      | Número de ligações falhadas ao armazém de dados           | Total            |
-| Bloqueado pela Firewall     | Número de inícios de sessão para o armazém de dados que foi bloqueado     | Total            |
+| Percentagem de CPU          | Utilização da CPU em todos os nós para o data warehouse      | Máximo          |
+| Percentagem de E/S de Dados      | Utilização de e/s em todos os nós para o data warehouse       | Máximo          |
+| Percentagem de memória       | Utilização de memória (SQL Server) em todos os nós para o data warehouse | Máximo          |
+| Conexões com êxito  | Número de conexões bem-sucedidas com os dados                 | Total            |
+| Ligações com Falhas      | Número de conexões com falha para o data warehouse           | Total            |
+| Bloqueado pelo firewall     | Número de logons no data warehouse que foi bloqueado     | Total            |
 | Limite de DWU               | Objetivo de nível de serviço do data warehouse                | Máximo          |
-| Percentagem DWU          | Máximo entre a percentagem de CPU e percentagem de es de dados        | Máximo          |
-| DWU utilizado                | Limite de DWU * percentagem DWU                                   | Máximo          |
-| Percentagem de acertos na cache    | (colocar em cache pedidos com êxito na / falha de acerto em cache) * erros de 100 onde acertos na cache é a soma de todos os acessos de segmentos de columnstore na cache SSD local e os segmentos de columnstore de é de falha de acerto na cache na cache SSD local somado em todos os nós | Máximo          |
-| Percentagem de cache utilizada   | (o cache utilizada / capacidade em cache) * 100 onde cache utilizada é a soma de todos os bytes no cache SSD local em todos os nós e a capacidade de cache é a soma da capacidade de local SSD de armazenamento em cache em todos os nós | Máximo          |
-| Percentagem de local tempdb | Utilização de local tempdb em todos os nós de computação - valores são emitidos a cada cinco minutos | Máximo          |
+| Porcentagem de DWU          | Máximo entre percentual de CPU e porcentagem de e/s de dados        | Máximo          |
+| DWU usado                | Limite de DWU * DWU percentual                                   | Máximo          |
+| Porcentagem de acesso ao cache    | (acertos de cache/erro de cache) * 100 em que acertos de cache é a soma de todos os segmentos columnstore acertos no cache SSD local e o erro de cache é a perda de segmentos columnstore no cache SSD local somado em todos os nós | Máximo          |
+| Percentual de cache usado   | (cache usado/capacidade de cache) * 100 em que o cache usado é a soma de todos os bytes no cache SSD local em todos os nós e a capacidade de cache é a soma da capacidade de armazenamento do cache SSD local em todos os nós | Máximo          |
+| Porcentagem de tempdb local | Utilização de tempdb local em todos os nós de computação-os valores são emitidos a cada cinco minutos | Máximo          |
+
+> Itens a serem considerados ao exibir métricas e definir alertas:
+>
+> - Conexões com falha e bem-sucedidas são relatadas para um determinado data warehouse-não para o servidor lógico
 
 ## <a name="query-activity"></a>Atividade de consulta
-Para uma experiência de programação ao monitorizar o SQL Data Warehouse através de T-SQL, o serviço fornece um conjunto de vistas de gestão dinâmica (DMVs). Estas vistas são úteis quando ativamente a solução de problemas e identificar afunilamentos de desempenho com a carga de trabalho.
+Para uma experiência programática ao monitorar SQL Data Warehouse por meio de T-SQL, o serviço fornece um conjunto de DMVs (exibições de gerenciamento dinâmico). Essas exibições são úteis ao solucionar problemas e identificar ativamente afunilamentos de desempenho com sua carga de trabalho.
 
-Para ver a lista de DMVs que fornece o SQL Data Warehouse, consulte este [documentação](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
+Para exibir a lista de DMVs que o SQL Data Warehouse fornece, consulte esta [documentação](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
 
-## <a name="metrics-and-diagnostics-logging"></a>Métricas e registo de diagnósticos
-Métricas e registos podem ser exportados para o Azure Monitor, especificamente a [registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) componente e pode ser acessada programaticamente através de [consultas de registo](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata). A latência de registo de armazém de dados SQL é cerca de 10 a 15 minutos. Para obter mais detalhes sobre os fatores que afetam o latência, visite a seguinte documentação.
+## <a name="metrics-and-diagnostics-logging"></a>Log de métricas e diagnósticos
+As métricas e os logs podem ser exportados para Azure Monitor, especificamente o componente de [logs de Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) e podem ser acessados programaticamente por meio de [consultas de log](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata). A latência de log para SQL Data Warehouse é de cerca de 10-15 minutos. Para obter mais detalhes sobre os fatores que impactam a latência, visite a documentação a seguir.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Os guias de procedimentos seguintes descrevem cenários comuns e casos quando monitorizar e gerir o armazém de dados de utilização:
+Os guias de instruções a seguir descrevem cenários comuns e casos de uso ao monitorar e gerenciar seus data warehouse:
 
-- [Monitorizar a sua carga de trabalho do armazém de dados com DMVs](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
-
+- [Monitorar sua carga de trabalho de data warehouse com DMVs](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: c20e782423c60985adb9e18e275fde59e57e00a2
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 08864d6a965921f7f6d284dc53bd2586d30fedd1
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599876"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014434"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar configurações de Cluster Service Fabric
 Este artigo descreve as várias configurações de malha para o Cluster Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizar as configurações por meio do [portal do Azure](https://portal.azure.com) ou usando um modelo de Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autônomos, você personaliza as configurações atualizando o arquivo *ClusterConfig. JSON* e realizando uma atualização de configuração no cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -411,6 +411,11 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |WriteBufferMemoryPoolMaximumInKB | Int, o padrão é 0 |Dinâmico|O número de KB para permitir que o pool de memória do buffer de gravação cresça até. Use 0 para indicar que não há limite. |
 |WriteBufferMemoryPoolMinimumInKB |Int, o padrão é 8388608 |Dinâmico|O número de KB para alocar inicialmente para o pool de memória do buffer de gravação. Use 0 para indicar que nenhum padrão de limite deve ser consistente com SharedLogSizeInMB abaixo. |
 
+## <a name="managedidentitytokenservice"></a>ManagedIdentityTokenService
+| **Parâmetro** | **Valores permitidos** | **Atualizar política** | **Orientação ou descrição resumida** |
+| --- | --- | --- | --- |
+|isEnabled|bool, o padrão é FALSE|Estático|Sinalizador que controla a presença e o status do serviço de token de identidade gerenciado no cluster; esse é um pré-requisito para usar a funcionalidade de identidade gerenciada de aplicativos Service Fabric.|
+
 ## <a name="management"></a>Gestão
 
 | **Parâmetro** | **Valores permitidos** | **Atualizar política** | **Orientação ou descrição resumida** |
@@ -610,7 +615,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |RunAsAccountType|Cadeia de caracteres, o padrão é "" |Dinâmico|Indica o tipo de conta Executar como. Isso é necessário para qualquer seção RunAs, os valores válidos são "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
 |RunAsPassword|Cadeia de caracteres, o padrão é "" |Dinâmico|Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
 
-## <a name="runasdca"></a>RunAs_DCA
+## <a name="runas_dca"></a>RunAs_DCA
 
 | **Parâmetro** | **Valores permitidos** | **Atualizar política** | **Orientação ou descrição resumida** |
 | --- | --- | --- | --- |
@@ -618,7 +623,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |RunAsAccountType|Cadeia de caracteres, o padrão é "" |Dinâmico|Indica o tipo de conta Executar como. Isso é necessário para qualquer seção RunAs, os valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|Cadeia de caracteres, o padrão é "" |Dinâmico|Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
 
-## <a name="runasfabric"></a>RunAs_Fabric
+## <a name="runas_fabric"></a>RunAs_Fabric
 
 | **Parâmetro** | **Valores permitidos** | **Atualizar política** | **Orientação ou descrição resumida** |
 | --- | --- | --- | --- |
@@ -626,7 +631,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |RunAsAccountType|Cadeia de caracteres, o padrão é "" |Dinâmico|Indica o tipo de conta Executar como. Isso é necessário para qualquer seção RunAs, os valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|Cadeia de caracteres, o padrão é "" |Dinâmico|Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
 
-## <a name="runashttpgateway"></a>RunAs_HttpGateway
+## <a name="runas_httpgateway"></a>RunAs_HttpGateway
 
 | **Parâmetro** | **Valores permitidos** | **Atualizar política** | **Orientação ou descrição resumida** |
 | --- | --- | --- | --- |

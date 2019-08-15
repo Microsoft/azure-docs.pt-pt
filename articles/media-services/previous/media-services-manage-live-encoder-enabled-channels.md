@@ -1,6 +1,6 @@
 ---
-title: Live a transmissão em fluxo através dos serviços de multimédia do Azure para criar transmissões em fluxo | Documentos da Microsoft
-description: 'Este tópico descreve como configurar um canal que recebe um fluxo em direto com velocidade de transmissão única de um codificador no local e, em seguida, realiza a codificação em tempo real para o fluxo de velocidade de transmissão adaptável com os Media Services. O fluxo, em seguida, pode ser fornecido para aplicações de reprodução de cliente através de um ou mais de transmissão em fluxo pontos finais, através de um dos seguintes protocolos de transmissão em fluxo adaptáveis: HLS, Smooth Stream, MPEG DASH.'
+title: Transmissão ao vivo usando os serviços de mídia do Azure para criar fluxos de múltiplas taxas de bits | Microsoft Docs
+description: 'Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo de taxa de bits única de um codificador local e, em seguida, executa a codificação ativa para o fluxo de taxa de bits adaptável com os serviços de mídia. O fluxo pode então ser entregue a aplicativos de reprodução de cliente por meio de um ou mais pontos de extremidade de streaming, usando um dos seguintes protocolos de streaming adaptável: HLS, Smooth Stream e MPEG DASH.'
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -13,84 +13,85 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;anilmur
-ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: anilmur
+ms.reviewer: juliako
+ms.openlocfilehash: a828d03093c73d5c65a92ccf899fbaa1ef622bd6
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217265"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69016496"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
 
 > [!NOTE]
-> A partir de 12 de Maio de 2018, os canais em direto será já não suporte o fluxo de transporte RTP/MPEG-2 protocolo de ingestão. Migre de RTP/MPEG-2 para RTMP ou MP4 fragmentado (Smooth Streaming) protocolos de ingestão.
+> A partir de 12 de maio de 2018, os canais ao vivo não serão mais compatíveis com o protocolo de ingestão de fluxo de transporte RTP/MPEG-2. Migre do RTP/MPEG-2 para protocolos de ingestão RTMP ou MP4 fragmentado (Smooth Streaming).
 
 ## <a name="overview"></a>Descrição geral
-No Azure Media Services (AMS), um **canal** representa um pipeline de processamento de conteúdo de transmissão em fluxo em direto. R **canal** recebe transmissões em direto de entrada em uma das seguintes formas:
+No AMS (serviços de mídia do Azure), um **canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um **canal** recebe fluxos de entrada ao vivo de uma das duas maneiras:
 
-* Um codificador em direto no local envia um fluxo de velocidade de transmissão única para o canal ativado para realizar live encoding com Media Services dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
-* Um codificador em direto no local envia uma velocidade de transmissão **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o canal que não está ativado para realizar live encoding com o AMS. As transmissões em fluxo passam-through **canal**s sem qualquer processamento adicional. Esse método é chamado **pass-through**. Pode utilizar os seguintes codificadores em direto que múltipla transmissão em fluxo uniforme de saída: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores em direto transmitem RTMP: Codificadores Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek e Tricaster.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
+* Um codificador ao vivo local envia um fluxo de taxa de bits única para o canal que está habilitado para executar a codificação ativa com os serviços de mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
+* Um codificador ao vivo local envia um **RTMP** de múltiplas taxas de bits ou **Smooth streaming** (MP4 fragmentado) para o canal que não está habilitado para executar a codificação ativa com o AMS. Os fluxos ingeridos passam pelo **canal**s sem nenhum processamento adicional. Esse método é chamado **de passagem**. Você pode usar os codificadores dinâmicos a seguir que geram Smooth Streaming de múltiplas taxas de bits: MediaExcel, Ateme, imagine Communications, envivio, Cisco e Elemental. Os seguintes codificadores dinâmicos produzem RTMP: O Adobe Flash Media Live encoder (FMLE), o Telestream Wirecast, o HaiVision, o Teradek e o TriCaster codificadores.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 
   > [!NOTE]
-  > Usando um método pass-through é a forma mais económica para transmissão em direto.
+  > Usar um método de passagem é a maneira mais econômica de realizar a transmissão ao vivo.
   > 
   > 
 
-Começando com o lançamento de 2.10 de serviços de multimédia, quando cria um canal, pode especificar de que forma pretende para o canal receber o fluxo de entrada e se é ou não desejar para o canal realizar live encoding da sua transmissão em fluxo. Tem duas opções:
+A partir da versão 2,10 dos serviços de mídia, ao criar um canal, você pode especificar de que maneira deseja que o canal receba o fluxo de entrada e se deseja ou não que o canal execute a codificação ativa de seu fluxo. Tem duas opções:
 
-* **Nenhum** – especificar este valor, se planeja usar um codificador em direto no local, que serão de saída do fluxo de velocidade de transmissão (um fluxo de pass-through). Neste caso, o fluxo de entrada transmitida para a saída sem qualquer tipo de codificação. Este é o comportamento de um canal antes do lançamento 2.10.  Para obter mais informações sobre como trabalhar com canais deste tipo, consulte [transmissão em fluxo em direto com codificadores no local que criam transmissões em fluxo](media-services-live-streaming-with-onprem-encoders.md).
-* **Padrão** – escolha esse valor, se planeja usar serviços de multimédia para codificar a transmissão em direto de velocidade de transmissão única para o fluxo de velocidade de transmissão. Lembre-se de que há um impacto de faturação para live encoding e deve se lembrar de que a sair de um canal de codificação em direto no estado "Em execução" irá incorrer em custos de faturas.  Recomenda-se que parar imediatamente os seus canais em execução depois do evento de transmissão em fluxo em direto foi concluído para evitar custos adicionais por hora.
+* **Nenhum** – Especifique esse valor se você planeja usar um codificador ao vivo local que produzirá fluxo de múltiplas taxas de bits (um fluxo de passagem). Nesse caso, o fluxo de entrada passou para a saída sem nenhuma codificação. Esse é o comportamento de um canal antes da versão 2,10.  Para obter informações mais detalhadas sobre como trabalhar com canais desse tipo, consulte [transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md).
+* **Padrão** – escolha esse valor se você planeja usar os serviços de mídia para codificar sua transmissão ao vivo de taxa de bits única para fluxo de múltiplas taxas de bits. Lembre-se de que há um impacto de cobrança para a codificação ativa e você deve se lembrar de que deixar um canal de codificação ativa no estado "em execução" incorrerá em encargos de cobrança.  É recomendável parar imediatamente os canais em execução após a conclusão do evento de transmissão ao vivo para evitar cobranças por hora extra.
 
 > [!NOTE]
-> Este tópico descreve os atributos de canais que estão ativados para realizar live encoding (**padrão** tipo de codificação). Para obter informações sobre como trabalhar com canais que não estão ativados para realizar live encoding, consulte [transmissão em fluxo em direto com codificadores no local que criam transmissões em fluxo](media-services-live-streaming-with-onprem-encoders.md).
+> Este tópico discute os atributos de canais que estão habilitados para executar a codificação ativa (tipo de codificação**padrão** ). Para obter informações sobre como trabalhar com canais que não estão habilitados para executar a codificação ativa, consulte [transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas](media-services-live-streaming-with-onprem-encoders.md)de bits.
 > 
-> Lembre-se de que reveja os [considerações](media-services-manage-live-encoder-enabled-channels.md#Considerations) secção.
+> Certifique-se de examinar a seção [considerações](media-services-manage-live-encoder-enabled-channels.md#Considerations) .
 > 
 > 
 
-## <a name="billing-implications"></a>Implicações de faturação
-Um canal de codificação em direto começa assim que é transições de estado para "Em execução" através da API de faturação.   Também pode ver o estado no portal do Azure ou na ferramenta do Explorador de serviços de multimédia do Azure (https://aka.ms/amse).
+## <a name="billing-implications"></a>Implicações de cobrança
+Um canal de codificação ativa começa a cobrança assim que é transição de estado para "em execução" por meio da API.   Você também pode exibir o estado na portal do Azure ou na ferramenta do Gerenciador de serviços de mídia do Azure https://aka.ms/amse) (.
 
-A tabela seguinte mostra como os Estados de um canal mapeiam para Estados de faturas no portal do Azure e de API. Os Estados são ligeiramente diferentes entre a API e o Portal de experiência do usuário. Assim que um canal está no estado "Em execução" através da API ou, no estado "Pronto" ou "Transmissão em fluxo" no portal do Azure, a faturação será Active Directory.
-Para parar o canal de faturação ainda mais, terá de parar o canal através da API ou no portal do Azure.
-É responsável por seus canais a parar quando tiver terminado com o canal de codificação em direto.  Falha ao parar um canal de codificação irá resultar numa faturação contínua.
+A tabela a seguir mostra como os Estados de canal são mapeados para os Estados de cobrança na API e portal do Azure. Os Estados são ligeiramente diferentes entre a API e o UX do Portal. Assim que um canal estiver no estado "em execução" por meio da API, ou no estado "pronto" ou "streaming" na portal do Azure, a cobrança estará ativa.
+Para impedir que o canal faça uma cobrança adicional, você precisa interromper o canal por meio da API ou na portal do Azure.
+Você é responsável por parar seus canais quando terminar com o canal de codificação ativa.  A falha na interrupção de um canal de codificação resultará em uma cobrança contínua.
 
-### <a id="states"></a>Estados de um canal e como devem ser mapeadas para o modo de faturação
+### <a id="states"></a>Estados de canal e como eles são mapeados para o modo de cobrança
 O estado atual de um Canal. Os valores possíveis incluem:
 
-* **Parado**. Este é o estado inicial do canal após a sua criação (a menos que início automático foi selecionado no portal.) Ocorre uma faturação sem neste estado. Neste estado, as propriedades do Canal podem ser atualizadas, mas a transmissão em fluxo não é permitida.
-* **A iniciar**. O Canal está a ser iniciado. Ocorre uma faturação sem neste estado. Não são permitidas transmissões em fluxo nem atualizações durante este estado. Caso ocorra um erro, o Canal volta para o estado Parado.
-* **Executar**. O Canal é capaz de processar transmissões em fluxo. Ele é agora utilização de faturação. Tem de parar o canal para impedir que mais de faturação. 
-* **A parar**. O Canal está a ser parado. Ocorre uma faturação sem neste estado transitório. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
-* **A eliminar**. O Canal está a ser apagado. Ocorre uma faturação sem neste estado transitório. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
+* **Parado**. Esse é o estado inicial do canal após sua criação (a menos que AutoStart tenha sido selecionado no Portal). Nenhuma cobrança ocorre nesse estado. Neste estado, as propriedades do Canal podem ser atualizadas, mas a transmissão em fluxo não é permitida.
+* **Iniciando**. O Canal está a ser iniciado. Nenhuma cobrança ocorre nesse estado. Não são permitidas transmissões em fluxo nem atualizações durante este estado. Caso ocorra um erro, o Canal volta para o estado Parado.
+* **Em execução**. O Canal é capaz de processar transmissões em fluxo. Agora é o uso de cobrança. Você deve parar o canal para evitar cobrança adicional. 
+* **Parando**. O Canal está a ser parado. Nenhuma cobrança ocorre nesse estado transitório. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
+* **Excluindo**. O Canal está a ser apagado. Nenhuma cobrança ocorre nesse estado transitório. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
 
 A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de faturação. 
 
-| Estado do canal | Indicadores IU do portal | É a faturação? |
+| Estado do canal | Indicadores IU do portal | É cobrança? |
 | --- | --- | --- |
 | A iniciar |A iniciar |Não (estado transitório) |
 | A executar |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |SIM |
 | A parar |A parar |Não (estado transitório) |
 | Parada |Parada |Não |
 
-### <a name="automatic-shut-off-for-unused-channels"></a>Desligar-off automático para canais não utilizados
-A partir de 25 de Janeiro de 2016, os serviços de multimédia distribuiu uma atualização que para automaticamente um canal (com codificação em tempo real ativada) após está funcionando num Estado de funcionamento não utilizado por um longo período. Isto aplica-se aos canais que não têm a nenhum programa de Active Directory e que não tenham recebido uma contribuição de entrada por um longo período de tempo do feed.
+### <a name="automatic-shut-off-for-unused-channels"></a>Desligamento automático para canais não utilizados
+A partir de 25 de janeiro de 2016, os serviços de mídia distribuíram uma atualização que interrompe automaticamente um canal (com codificação ativa habilitada) depois de ser executado em um estado não utilizado por um longo período. Isso se aplica a canais que não têm programas ativos e que não receberam um feed de contribuição de entrada por um longo período de tempo.
 
-O limiar durante um período não utilizado é nominally 12 horas, mas está sujeitas a alterações.
+O limite de um período não usado é nominalmente 12 horas, mas está sujeito a alterações.
 
-## <a name="live-encoding-workflow"></a>Fluxo de trabalho de codificação em direto
-O diagrama abaixo representa um fluxo de trabalho de transmissão em fluxo em direto onde um canal recebe um fluxo de velocidade de transmissão única dos seguintes protocolos: RTMP ou Smooth Streaming; ele codifica, em seguida, o fluxo para um fluxo de velocidade de transmissão. 
+## <a name="live-encoding-workflow"></a>Fluxo de trabalho de codificação ativa
+O diagrama a seguir representa um fluxo de trabalho de transmissão ao vivo em que um canal recebe um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP ou Smooth Streaming; em seguida, ele codifica o fluxo para um fluxo de múltiplas taxas de bits. 
 
 ![Fluxo de trabalho em direto][live-overview]
 
-## <a id="scenario"></a>Cenário comum de transmissão em fluxo em direto
+## <a id="scenario"></a>Cenário comum de transmissão ao vivo
 Os seguintes são passos gerais referentes à criação de aplicações comuns de transmissão em fluxo em direto.
 
 > [!NOTE]
-> Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amslived@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos. Há um impacto de faturação para live encoding e deve se lembrar de que a sair de um canal de codificação em direto no estado "Em execução" irá incorrer em custos de faturas por hora.  Recomenda-se que parar imediatamente os seus canais em execução depois do evento de transmissão em fluxo em direto foi concluído para evitar custos adicionais por hora. 
+> Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amshelp@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos. Há um impacto de cobrança para a codificação ativa e você deve se lembrar de que deixar um canal de codificação ativa no estado "em execução" incorrerá em encargos de cobrança por hora.  É recomendável parar imediatamente os canais em execução após a conclusão do evento de transmissão ao vivo para evitar cobranças por hora extra. 
 
-1. Ligue uma câmara de vídeo a um computador. Iniciar e configurar um codificador em direto no local, cuja saída pode ser um **único** transmissão em fluxo em um dos seguintes protocolos: RTMP ou Smooth Streaming. 
+1. Ligue uma câmara de vídeo a um computador. Inicie e configure um codificador ao vivo local que pode gerar um fluxo de taxa de bits **única** em um dos seguintes protocolos: RTMP ou Smooth Streaming. 
 
     Este passo também pode ser realizado depois de criar o Canal.
 2. Crie e inicie um Canal. 
@@ -102,10 +103,10 @@ Os seguintes são passos gerais referentes à criação de aplicações comuns d
     Utilize este URL para verificar se o canal está a receber corretamente a transmissão em fluxo em direto.
 5. Crie um programa. 
 
-    Ao utilizar o portal do Azure, a criação de um programa também cria um recurso. 
+    Ao usar o portal do Azure, a criação de um programa também cria um ativo. 
 
-    Ao utilizar o SDK do .NET ou REST terá de criar um elemento e especifique a utilização deste recurso ao criar um programa. 
-6. Publique o elemento associado ao programa.   
+    Ao usar o SDK do .NET ou o REST, você precisa criar um ativo e especificar para usar esse ativo ao criar um programa. 
+6. Publicar o ativo associado ao programa.   
 
     >[!NOTE]
     >Quando a sua conta AMS é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à sua conta no estado **Parado**. O ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. 
@@ -116,107 +117,107 @@ Os seguintes são passos gerais referentes à criação de aplicações comuns d
 10. Elimine o Programa (e, opcionalmente, elimine o elemento).   
 
 > [!NOTE]
-> É muito importante não se esqueça de parar um canal de codificação em direto. Lembre-se de que há uma hora a hora de faturação impacto para a codificação em direto e deve se lembrar de que a sair de um canal de codificação em direto no estado "Em execução" irá incorrer em custos de faturas.  Recomenda-se que parar imediatamente os seus canais em execução depois do evento de transmissão em fluxo em direto foi concluído para evitar custos adicionais por hora. 
+> É muito importante não esquecer de parar um canal de codificação ativa. Lembre-se de que há um impacto de cobrança por hora para a codificação ativa e você deve se lembrar de que deixar um canal de codificação ativa no estado "em execução" incorrerá em encargos de cobrança.  É recomendável parar imediatamente os canais em execução após a conclusão do evento de transmissão ao vivo para evitar cobranças por hora extra. 
 > 
 > 
 
-## <a id="channel"></a>Entrada do canal (ingerir) configurações
-### <a id="Ingest_Protocols"></a>Transmissão em fluxo de protocolo de ingestão
-Se o **tipo de codificador** está definida como **padrão**, as opções válidas são:
+## <a id="channel"></a>Configurações de entrada (ingestão) do canal
+### <a id="Ingest_Protocols"></a>Protocolo de streaming de ingestão
+Se o **tipo** de codificador for definido como **padrão**, as opções válidas serão:
 
-* Velocidade de transmissão única **RTMP**
-* Velocidade de transmissão única **MP4 fragmentado** (transmissão em fluxo uniforme)
+* **RTMP** de taxa de bits única
+* **MP4 fragmentado** de taxa de bits única (Smooth streaming)
 
-#### <a id="single_bitrate_RTMP"></a>RTMP de velocidade de transmissão única
+#### <a id="single_bitrate_RTMP"></a>RTMP de taxa de bits única
 Considerações:
 
-* Fluxo de entrada não pode conter a velocidade de transmissão vídeo
-* O fluxo de vídeo deve ter uma média de velocidade de transmissão abaixo de 15 Mbps
-* O fluxo de áudio deve ter uma média de velocidade de transmissão abaixo 1 Mbps
-* Seguem-se os codecs suportados:
-* MPEG-4 AVC / H.264 vídeo
-* Linha de base, o principal, o perfil alto (4 de 8 bits: 2:0)
-* Perfil de 10 elevada (4 de 10 bits: 2:0)
-* Perfil 422 elevada (4 de 10 bits: 2:2)
-* Áudio AAC-LC MPEG-2
-* Mono, Estéreo, Surround (5.1, 7.1)
-* frequência de amostragem 44.1 kHz
-* Empacotamento de ADTS de estilo de MPEG-2
-* Codificadores recomendados incluem:
-* Telestream Wirecast
-* Codificador em direto de mídia Flash
+* O fluxo de entrada não pode conter vídeo de múltiplas taxas de bits
+* O fluxo de vídeo deve ter uma taxa de bits média abaixo de 15 Mbps
+* O fluxo de áudio deve ter uma taxa de bits média abaixo de 1 Mbps
+* A seguir estão os codecs com suporte:
+* Vídeo MPEG-4 AVC/H. 264
+* Linha de base, principal, perfil alto (8 bits 4:2:0)
+* Alto perfil 10 (10 bits 4:2:0)
+* Alto perfil 422 (10 bits 4:2:2)
+* Áudio MPEG-2 AAC-LC
+* Mono, estéreo, surround (5,1, 7,1)
+* taxa de amostragem de 44,1 kHz
+* Empacotamento de ADTS de estilo MPEG-2
+* Os codificadores recomendados incluem:
+* Wirecast de Telestream
+* Codificador do Flash Media Live
 
 #### <a name="single-bitrate-fragmented-mp4-smooth-streaming"></a>MP4 fragmentado de velocidade de transmissão única (Transmissão em Fluxo Uniforme)
 Caso de uso típico:
 
-Utilizar codificadores no local em direto de fornecedores como tecnologias elementar, Ericsson, Ateme, Envivio para enviar o fluxo de entrada na Internet aberta para um Azure próximos Centro de dados.
+Use codificadores ativos locais de fornecedores como tecnologias de elemento, Ericsson, Ateme, envivio para enviar o fluxo de entrada pela Internet aberta para uma data center próxima do Azure.
 
 Considerações:
 
-Mesmo que para [único RTMP de velocidade de transmissão](media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP).
+O mesmo que para [RTMP de taxa de bits única](media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP).
 
 #### <a name="other-considerations"></a>Outras considerações
 * Não é possível alterar o protocolo de entrada enquanto o Canal ou os seus programas associados estiverem em execução. Se necessitar de protocolos diferentes, deve criar canais separados para cada protocolo de entrada.
-* Resolução máxima de fluxo de vídeo de entrada é de 1920 x 1080 e até 60 campos por segundo se entrelaçadas ou 30 quadros por segundo se progressiva.
+* A resolução máxima para o fluxo de vídeo de entrada é 1920 x 1080 e, no máximo, 60 campos/segundo se entrelaçados ou 30 quadros/segundo se progressivo.
 
-### <a name="ingest-urls-endpoints"></a>URLs (pontos de extremidade) de inserção
-Um canal fornece um ponto de final de entrada (URL de ingestão) que especifica em que o codificador em direto, para que o codificador pode enviar por push fluxos aos seus canais.
+### <a name="ingest-urls-endpoints"></a>URLs de ingestão (pontos de extremidade)
+Um canal fornece um ponto de extremidade de entrada (URL de ingestão) que você especifica no codificador ao vivo, para que o codificador possa enviar fluxos para seus canais.
 
-Depois de criar um canal, pode obter os URLs de inserção. Para obter estes URLs, o canal não tem de estar no **em execução** estado. Quando estiver pronto para começar a enviar por push dados para o canal, tem de ter o **em execução** estado. Assim que o canal de inicia a ingestão de dados, pode visualizar a sua transmissão em fluxo por meio da URL de pré-visualização.
+Você pode obter as URLs de ingestão depois de criar um canal. Para obter essas URLs, o canal não precisa estar no estado **executando** . Quando você estiver pronto para começar a enviar dados por push para o canal, ele deverá estar no estado **executando** . Depois que o canal inicia a ingestão de dados, você pode visualizar seu fluxo por meio da URL de visualização.
 
-Tem uma opção de ingestão de MP4 fragmentado (Smooth Streaming) em fluxo em direto através de uma ligação SSL. Ingerir através de SSL, certifique-se atualizar o URL de inserção para HTTPS. Atualmente, o AMS não suporta SSL com domínios personalizados.  
+Você tem a opção de ingerir a transmissão ao vivo com MP4 fragmentado (Smooth Streaming) em uma conexão SSL. Para ingerir sobre SSL, certifique-se de atualizar a URL de ingestão para HTTPS. Atualmente, o AMS não dá suporte a SSL com domínios personalizados.  
 
 ### <a name="allowed-ip-addresses"></a>Endereços IP permitidos
-Pode definir os endereços IP que estão autorizados a publicar vídeo neste canal. Permitido IP endereços podem ser especificados como um único IP de endereços (por exemplo, "10.0.0.1"), um intervalo IP com um endereço IP e uma máscara de sub-rede CIDR (por exemplo, "10.0.0.1/22") ou um IP no intervalo com um endereço IP e uma máscara de sub-rede de ponto decimal (por exemplo , ' 10.0.0.1(255.255.252.0)').
+Você pode definir os endereços IP que têm permissão para publicar o vídeo nesse canal. Os endereços IP permitidos podem ser especificados como um único endereço IP (por exemplo, ' 10.0.0.1 '), um intervalo de IP usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ' 10.0.0.1/22 ') ou um intervalo de IP usando um endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, , ' 10.0.0.1 (255.255.252.0) ').
 
 Se não for especificado qualquer endereço IP e não existir nenhuma definição de regra, então, não será permitido qualquer endereço IP. Para permitir um endereço IP, crie uma regra e defina 0.0.0.0/0.
 
 ## <a name="channel-preview"></a>Pré-visualização do canal
-### <a name="preview-urls"></a>URLs de pré-visualização
-Canais de fornecem um ponto de extremidade pré-visualização (URL de pré-visualização) que utilizar para pré-visualizar e validar a sua transmissão antes de mais processamentos e entregas.
+### <a name="preview-urls"></a>URLs de visualização
+Os canais fornecem um ponto de extremidade de visualização (URL de visualização) que você usa para visualizar e validar seu fluxo antes do processamento e da entrega.
 
-Pode obter o URL de pré-visualização ao criar o canal. Para obter o URL, o canal não tem de estar no **em execução** estado.
+Você pode obter a URL de visualização ao criar o canal. Para obter a URL, o canal não precisa estar no estado **executando** .
 
-Assim que o canal de inicia a ingestão de dados, pode visualizar a sua transmissão em fluxo.
+Depois que o canal inicia a ingestão de dados, você pode visualizar seu fluxo.
 
 > [!NOTE]
-> Atualmente o fluxo de pré-visualização só pode ser fornecido num MP4 fragmentado (Smooth Streaming) formato, independentemente do tipo de entrada especificado.  Pode usar um leitor alojado no portal do Azure para ver a sua transmissão em fluxo.
+> Atualmente, o fluxo de visualização só pode ser entregue em formato MP4 fragmentado (Smooth Streaming), independentemente do tipo de entrada especificado.  Você pode usar um player hospedado no portal do Azure para exibir seu fluxo.
 > 
 > 
 
 ### <a name="allowed-ip-addresses"></a>Endereços IP permitidos
-Pode definir os endereços IP que estão autorizados a ligar para o ponto final de pré-visualização. Se não houver endereços IP são especificados qualquer endereço IP será permitido. Permitido IP endereços podem ser especificados como um único IP de endereços (por exemplo, "10.0.0.1"), um intervalo IP com um endereço IP e uma máscara de sub-rede CIDR (por exemplo, "10.0.0.1/22") ou um IP no intervalo com um endereço IP e uma máscara de sub-rede de ponto decimal (por exemplo , ' 10.0.0.1(255.255.252.0)').
+Você pode definir os endereços IP que têm permissão para se conectar ao ponto de extremidade de visualização. Se não forem especificados endereços IP, qualquer endereço IP será permitido. Os endereços IP permitidos podem ser especificados como um único endereço IP (por exemplo, ' 10.0.0.1 '), um intervalo de IP usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ' 10.0.0.1/22 ') ou um intervalo de IP usando um endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, , ' 10.0.0.1 (255.255.252.0) ').
 
-## <a name="live-encoding-settings"></a>Definições de codificação direta
-Esta secção descreve como as definições para o codificador em direto dentro do canal podem ser ajustadas, quando o **tipo de codificação** de um canal está definido como **padrão**.
+## <a name="live-encoding-settings"></a>Configurações de codificação ao vivo
+Esta seção descreve como as configurações para o codificador ao vivo dentro do canal podem ser ajustadas quando o **tipo de codificação** de um canal é definido como **Standard**.
 
 > [!NOTE]
-> O feed de contribuição só pode conter uma faixa de áudio única – ingestão de múltiplas faixas de áudio não é atualmente suportada. Quando realizar live encoding com os [locais live codifica](media-services-live-streaming-with-onprem-encoders.md), pode enviar uma contribuição feed no protocolo de transmissão em fluxo uniforme de mensagens em fila que contém várias faixas de áudio.
+> Seu feed de contribuição pode conter apenas uma única faixa de áudio – não há suporte para a ingestão de várias faixas de áudio no momento. Ao fazer a codificação ativa com os [codificadores ativos locais](media-services-live-streaming-with-onprem-encoders.md), você pode enviar um feed de contribuição no protocolo Smooth streaming que contém várias faixas de áudio.
 > 
 > 
 
-### <a name="ad-marker-source"></a>Origem de marcador do AD
-Pode especificar a origem de sinais de marcadores do ad. Valor predefinido é **Api**, que indica que o codificador em direto dentro do canal deve ouvir assíncrona **API de marcador do Ad**.
+### <a name="ad-marker-source"></a>Fonte do marcador do AD
+Você pode especificar a fonte para sinais de marcadores do AD. O valor padrão é **API**, que indica que o codificador ao vivo dentro do canal deve escutar uma API assíncrona do **marcador do AD**.
 
-### <a name="cea-708-closed-captions"></a>Legenda oculta CEA 708 legendas
-Um sinalizador opcional que informa ao codificador em direto para ignorar quaisquer dados de legendas de legenda oculta CEA 708 incorporado no vídeo de entrada. Quando o sinalizador é definido como false (predefinição), o codificador detectará e volte a inserir dados de legenda oculta CEA 708 para os fluxos de vídeo de saída.
+### <a name="cea-708-closed-captions"></a>Legendas codificadas CEA 708
+Um sinalizador opcional que informa o codificador ao vivo para ignorar os dados de legendas CEA 708 inseridos no vídeo de entrada. Quando o sinalizador é definido como false (padrão), o codificador detectará e reinserirá dados CEA 708 nos fluxos de vídeo de saída.
 
 #### <a name="index"></a>Índice
-Recomenda-se para enviar num fluxo de transporte de único programa (SPTS). Se o fluxo de entrada contém vários programas, o codificador em direto dentro do canal analisa a tabela de mapa do programa (PMT) na entrada, que identifica as entradas que tem um nome de tipo de fluxo de MPEG-2 AAC ADTS ou AC-3 System-A ou AC-3. o sistema-B ou MPEG-2 de PES privada ou MPEG-1 Áudio ou áudio de MPEG-2 e as organiza em ordem especificada no PMT. O índice baseado em zero, em seguida, é utilizado para recolher a entrada de n-th essa disposição.
+É recomendável enviar em um fluxo de transporte de programa único (SPTS). Se o fluxo de entrada contiver vários programas, o codificador ao vivo dentro do canal analisa a tabela de mapa do programa (PGTO) na entrada, identifica as entradas que têm um nome de tipo de fluxo de MPEG-2 AAC ADTS ou AC-3 System-A ou AC-3 sistema-B ou MPEG-2 Private PES ou MPEG-1 Áudio ou MPEG-2 Audio e os organiza na ordem especificada no pgto. Em seguida, o índice de base zero é usado para pegar a entrada n-ésimo nesse arranjo.
 
 #### <a name="language"></a>Idioma
-O identificador de idioma do fluxo de áudio, estando em conformidade com ISO 639-2, como ENG. Se não estiver presente, a predefinição é UND (indefinido).
+O identificador de idioma do fluxo de áudio, em conformidade com o ISO 639-2, como ENG. Se não estiver presente, o padrão será UND (indefinido).
 
-### <a id="preset"></a>Configuração predefinida do sistema
-Especifica a configuração predefinida a ser utilizado pelo codificador em direto dentro deste canal. Atualmente, o único valor permitido é **Default720p** (predefinição).
+### <a id="preset"></a>Predefinição do sistema
+Especifica a predefinição a ser usada pelo codificador ao vivo dentro deste canal. Atualmente, o único valor permitido é **default720p** (padrão).
 
-Tenha em atenção que se precisar de configurações predefinidas personalizadas, deve contactar amslived@microsoft.com.
+Observe que, se você precisar de predefinições personalizadas, entre amshelp@microsoft.comem contato com.
 
-**Default720p** irá codificar o vídeo para as camadas de 6 seguintes.
+**Default720p** codificará o vídeo nas 6 camadas a seguir.
 
-#### <a name="output-video-stream"></a>Stream de vídeo de saída
+#### <a name="output-video-stream"></a>Fluxo de vídeo de saída
 
-| BitRate | Largura | Altura | MaxFPS | Perfil | Nome do Stream de saída |
+| BitRate | Largura | Altura | MaxFPS | Perfil | Nome do fluxo de saída |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Alta |Video_1280x720_3500kbps |
 | 2200 |960 |540 |30 |Alta |Video_960x540_2200kbps |
@@ -225,68 +226,68 @@ Tenha em atenção que se precisar de configurações predefinidas personalizada
 | 550 |384 |216 |30 |Alta |Video_384x216_550kbps |
 | 200 |340 |192 |30 |Alta |Video_340x192_200kbps |
 
-#### <a name="output-audio-stream"></a>Stream de áudio de saída
+#### <a name="output-audio-stream"></a>Fluxo de áudio de saída
 
-Áudio está codificado para estéreo AAC-LC em 128 kbps, taxa de amostragem de 48 kHz.
+O áudio é codificado para estéreo AAC-LC a 128 kbps, taxa de amostragem de 48 kHz.
 
-## <a name="signaling-advertisements"></a>Sinalização de anúncios
-Quando seu canal tem Live Encoding ativado, que tem um componente no seu pipeline, que é o processamento de vídeo e pode manipulá-lo. Pode sinalizar ao canal a inserção de slates e/ou anúncios no fluxo de velocidade de transmissão adaptável de saída. Imagens fixas são imagens que podem ser utilizadas para cobrir o feed entrado em direto em certos casos (por exemplo, durante). Sinais de publicidade, são a hora sincronizada sinais que incorporar no fluxo de saída para informar o player de vídeo para adotar nenhuma medida especial – por exemplo, para mudar para um anúncio no momento adequado. Ver isso [blogue](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) para uma descrição geral do mecanismo de sinalização SCTE 35 utilizado para esta finalidade. Segue-se um cenário típico, que poderia implementar no seu evento em direto.
+## <a name="signaling-advertisements"></a>Sinalizando anúncios
+Quando o canal tiver a codificação ativa habilitada, você terá um componente em seu pipeline que está processando o vídeo e poderá manipulá-lo. Você pode sinalizar para que o canal insira slates e/ou anúncios no fluxo de taxa de bits adaptável de saída. Os slates ainda são imagens que você pode usar para cobrir o feed ao vivo de entrada em determinados casos (por exemplo, durante um intervalo comercial). Os sinais de publicidade, são sinais sincronizados de tempo que você insere no fluxo de saída para instruir o player de vídeo a executar uma ação especial – por exemplo, para alternar para um anúncio no momento apropriado. Consulte este [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) para obter uma visão geral do mecanismo de sinalização SCTE-35 usado para essa finalidade. Veja abaixo um cenário típico que você poderia implementar em seu evento ao vivo.
 
-1. Ter os visualizadores de obter uma imagem de pré-evento de antes do evento é iniciado.
-2. Ter os visualizadores de obter uma imagem de pós-evento após o evento terminar.
-3. Ter os visualizadores de obter uma imagem de evento de erro, se houver um problema durante o evento (por exemplo, falha de energia no estádio).
-4. Envie uma imagem de quebra de AD para ocultar o feed, durante de eventos em direto.
+1. Os visualizadores recebem uma imagem anterior ao evento antes do início do evento.
+2. Faça com que os visualizadores obtenham uma imagem de POST-evento após o término do evento.
+3. Os visualizadores recebem uma imagem de evento de erro se houver um problema durante o evento (por exemplo, falha de energia no estádio).
+4. Envie uma imagem de quebra de anúncio para ocultar o feed de eventos ao vivo durante um intervalo comercial.
 
-Seguem-se as propriedades que pode definir se os anúncios de sinalização. 
+A seguir estão as propriedades que você pode definir ao sinalizar anúncios. 
 
-### <a name="duration"></a>Duração
-A duração, em segundos, da quebra comercial. Isso deve ser um valor positivo diferente de zero para iniciar a garantia de reparação comercial. Quando uma quebra de comercial está em curso e a duração é definida como zero com o CueId correspondentes a quebra de comercial em curso, em seguida, essa garantia de reparação foi cancelada.
+### <a name="duration"></a>Duration
+A duração, em segundos, do intervalo comercial. Isso deve ser um valor positivo diferente de zero para iniciar o intervalo comercial. Quando um intervalo comercial está em andamento, e a duração é definida como zero com o CueId correspondente ao intervalo comercial contínuo, essa interrupção é cancelada.
 
 ### <a name="cueid"></a>CueId
-Um ID exclusivo para a quebra comercial, para ser utilizadas pela aplicação a jusante para efetuar ações adequadas. Tem de ser um número inteiro positivo. Pode definir este valor para qualquer número inteiro aleatório ou usar um sistema a montante para controlar os Ids de indicação. Certifique-se normalizar qualquer IDs para números inteiros positivos antes de submeter por meio da API.
+Uma ID exclusiva para o intervalo comercial, a ser usada pelo aplicativo downstream para executar as ações apropriadas. Precisa ser um inteiro positivo. Você pode definir esse valor como qualquer inteiro positivo aleatório ou usar um sistema upstream para acompanhar as IDs de indicação. Certifique-se de normalizar quaisquer IDs para inteiros positivos antes de enviar por meio da API.
 
-### <a name="show-slate"></a>Show slate
-Opcional. Sinaliza o codificador em direto para mudar para o [predefinido slate](media-services-manage-live-encoder-enabled-channels.md#default_slate) de imagem, durante e ocultar a transmissão de vídeo de entrada. Áudio também ficará sem áudio durante a imagem fixa. A predefinição é **false**. 
+### <a name="show-slate"></a>Mostrar Slate
+Opcional. Sinaliza o codificador ao vivo para alternar para a imagem [Slate padrão](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante um intervalo comercial e ocultar o feed de vídeo de entrada. O áudio também é mudo durante o Slate. O padrão é **false**. 
 
-A imagem utilizada que vai ser especificado por meio da propriedade de Id de recurso de fixa predefinida no momento da criação de canal. A imagem fixa será esticada para se ajustar ao tamanho da imagem de apresentação. 
+A imagem usada será aquela especificada por meio da propriedade ID do ativo de Slate padrão no momento da criação do canal. O Tablet será alongado para se ajustar ao tamanho da imagem de exibição. 
 
-## <a name="insert-slate--images"></a>Inserir as imagens de imagem fixa
-O codificador em direto dentro do canal pode ser indicado para mudar para uma imagem fixa. Também pode ser indicado para terminar uma ficha em curso. 
+## <a name="insert-slate--images"></a>Inserir imagens Slate
+O codificador ao vivo dentro do canal pode ser sinalizado para alternar para uma imagem de Slate. Ele também pode ser sinalizado para encerrar um Slate contínuo. 
 
-O codificador em direto pode ser configurado para mudar para uma imagem fixa e ocultar o sinal de vídeo de entrada em determinadas situações – por exemplo, durante uma garantia de reparação do ad. Se tais uma ficha não estiver configurada, o vídeo de entrada não está oculto durante essa garantia de reparação do ad.
+O codificador ao vivo pode ser configurado para alternar para uma imagem Slate e ocultar o sinal de vídeo de entrada em determinadas situações – por exemplo, durante um intervalo de anúncio. Se esse Slate não estiver configurado, o vídeo de entrada não será mascarado durante esse intervalo de anúncio.
 
-### <a name="duration"></a>Duração
-A duração da ficha em segundos. Isso deve ser um valor positivo diferente de zero para iniciar a imagem fixa. Se existir um slate contínuo, e uma duração de zero for especificada, em seguida, esse slate em curso será terminado.
+### <a name="duration"></a>Duration
+A duração do Slate em segundos. Isso deve ser um valor positivo diferente de zero para iniciar o Slate. Se houver um Slate contínuo e uma duração igual a zero for especificada, esse Tablet contínuo será encerrado.
 
 ### <a name="insert-slate-on-ad-marker"></a>Inserir imagem fixa num marcador de publicidade
-Quando definido como true, esta definição configura o codificador em direto para inserir uma imagem fixa durante uma garantia de reparação do ad. O valor predefinido é verdadeiro. 
+Quando definido como true, essa configuração configura o codificador ao vivo para inserir uma imagem de Slate durante um intervalo de anúncio. O valor predefinido é verdadeiro. 
 
-### <a id="default_slate"></a>Id do elemento fixa predefinida
+### <a id="default_slate"></a>ID do ativo de Slate padrão
 
-Opcional. Especifica o Id de recurso do recurso de serviços de suporte de dados que contém a imagem fixa. A predefinição é nulo. 
+Opcional. Especifica a ID de ativo do ativo dos serviços de mídia que contém a imagem de Slate. O padrão é NULL. 
 
 
 > [!NOTE] 
-> Antes de criar o canal, a imagem fixa com as seguintes restrições deve ser enviada como um recurso dedicado (não existem outros ficheiros devem ser deste recurso). Esta imagem é utilizada apenas quando o codificador em direto é inserir um slate devido a uma quebra de ad ou tiver sido assinalado explicitamente para inserir uma imagem fixa. Atualmente, não existe nenhuma opção para utilizar uma imagem personalizada quando o codificador em direto entra tais num estado "sinal de entrada perdido". Pode votar para esta funcionalidade [aqui](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
+> Antes de criar o canal, a imagem Slate com as seguintes restrições deve ser carregada como um ativo dedicado (nenhum outro arquivo deve estar nesse ativo). Essa imagem é usada somente quando o codificador ao vivo está inserindo um Slate devido a um intervalo de anúncio ou foi sinalizado explicitamente para inserir um Slate. Atualmente, não há nenhuma opção para usar uma imagem personalizada quando o codificador ao vivo entra no estado ' sinal de entrada perdido '. Você pode votar neste recurso [aqui](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
 
 
 * No máximo 1920 x 1080 na resolução.
 * No máximo 3 Mbytes de tamanho.
-* O nome do ficheiro tem de ter uma extensão *. jpg.
-* A imagem deve ser carregada para um elemento como o AssetFile apenas em que o recurso e este AssetFile deverá ser marcado como ficheiro principal. O elemento não pode ser armazenamento encriptado.
+* O nome do arquivo deve ter uma extensão *. jpg.
+* A imagem deve ser carregada em um ativo como o único Assetfile nesse ativo e esse Assetfile deve ser marcado como o arquivo primário. O ativo não pode ser criptografado como armazenamento.
 
-Se o **predefinição azulado Id do elemento** não for especificado, e **Inserir imagem fixa num marcador de publicidade** está definida como **verdadeiro**, uma imagem de serviços de multimédia do Azure de predefinição será utilizada para ocultar o vídeo de entrada Stream. Áudio também ficará sem áudio durante a imagem fixa. 
+Se a **ID do ativo de Slate padrão** não for especificada e a **inserção de Slate no marcador do AD** estiver definida como **true**, uma imagem padrão dos serviços de mídia do Azure será usada para ocultar o fluxo de vídeo de entrada. O áudio também é mudo durante o Slate. 
 
 ## <a name="channels-programs"></a>Programas do canal
-Um canal está associado a programas que permitem controlar a publicação e armazenamento de segmentos numa transmissão em fluxo em direto. Canais gerem Programas. A relação de canal e o programa é muito semelhante à multimédia tradicional onde um canal tem um fluxo constante de conteúdo e um programa está confinado a alguns eventos temporizados nesse canal.
+Um canal está associado a programas que permitem controlar a publicação e armazenamento de segmentos numa transmissão em fluxo em direto. Canais gerem Programas. A relação entre canal e programa é muito semelhante à mídia tradicional, em que um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento cronometrado nesse canal.
 
-Pode especificar o número de horas que pretenda manter o conteúdo gravado para o programa através da configuração da duração da **Janela de Arquivo**. Este valor pode ser definido a partir de um mínimo de 5 minutos até um máximo de 25 horas. Duração da janela de arquivo dita também que o número máximo de clientes de tempo pode recuar a partir da posição atual em direto. Os programas podem ser executados durante o período de tempo especificado, mas o conteúdo que se situe atrás da duração da janela é continuamente descartado. O valor desta propriedade também determina durante quanto tempo os manifestos dos clientes podem aumentar.
+Pode especificar o número de horas que pretenda manter o conteúdo gravado para o programa através da configuração da duração da **Janela de Arquivo**. Este valor pode ser definido a partir de um mínimo de 5 minutos até um máximo de 25 horas. O comprimento da janela de arquivo também determina o número máximo de tempo que os clientes podem buscar de volta no tempo a partir da posição dinâmica atual. Os programas podem ser executados durante o período de tempo especificado, mas o conteúdo que se situe atrás da duração da janela é continuamente descartado. O valor desta propriedade também determina durante quanto tempo os manifestos dos clientes podem aumentar.
 
-Cada programa está associado um recurso que armazena o conteúdo de transmissão em fluxo contínuo. Um elemento é mapeado para um contentor de BLOBs de blocos na conta de armazenamento do Azure e ficheiros no elemento são armazenados como blobs existentes nesse contentor. Para publicar o programa, para que seus clientes podem ver o fluxo tem de criar um localizador OnDemand para o elemento associado. Ter este localizador irá permitir compilar um URL de transmissão em fluxo que pode fornecer aos seus clientes.
+Cada programa é associado a um ativo que armazena o conteúdo transmitido. Um ativo é mapeado para um contêiner de blobs de blocos na conta de armazenamento do Azure e os arquivos no ativo são armazenados como BLOBs nesse contêiner. Para publicar o programa para que os clientes possam exibir o fluxo, você deve criar um localizador OnDemand para o ativo associado. Ter este localizador irá permitir compilar um URL de transmissão em fluxo que pode fornecer aos seus clientes.
 
-Um canal suporta até três programas em execução em simultâneo para que possa criar vários arquivos da mesma transmissão em fluxo recebido. Isto permite publicar e arquivar diferentes partes de um evento, conforme necessário. Por exemplo, os seus requisitos de negócios devem arquivar 6 horas de um programa, mas difundir apenas os últimos 10 minutos. Para tal, tem de criar dois programas em execução em simultâneo. Um programa está definido para arquivar 6 horas do evento, mas o programa não está publicado. O outro programa está definido para arquivar durante 10 minutos e este está publicado.
+Um canal dá suporte a até três programas em execução simultânea, para que você possa criar vários arquivos do mesmo fluxo de entrada. Isto permite publicar e arquivar diferentes partes de um evento, conforme necessário. Por exemplo, os seus requisitos de negócios devem arquivar 6 horas de um programa, mas difundir apenas os últimos 10 minutos. Para tal, tem de criar dois programas em execução em simultâneo. Um programa está definido para arquivar 6 horas do evento, mas o programa não está publicado. O outro programa está definido para arquivar durante 10 minutos e este está publicado.
 
-Não deve reutilizar programas existentes para novos eventos. Em vez disso, crie e inicie um novo programa para cada evento, conforme descrito na secção de programação em direto de transmissão em fluxo aplicativos.
+Não deve reutilizar programas existentes para novos eventos. Em vez disso, crie e inicie um novo programa para cada evento, conforme descrito na seção Programming Live streaming Applications.
 
 Inicie o programa quando estiver pronto para começar a transmissão em fluxo e o arquivamento. Pare o programa sempre que pretender interromper a transmissão e arquivar o evento. 
 
@@ -296,17 +297,17 @@ Mesmo depois de parar e eliminar o programa, os utilizadores conseguirão transm
 
 Se pretende manter o conteúdo arquivado, mas não o quer manter disponível para transmissão em fluxo, elimine o localizador de transmissão em fluxo.
 
-## <a name="getting-a-thumbnail-preview-of-a-live-feed"></a>Obter uma pré-visualização em miniatura de uma transmissão em direto
-Quando o Live Encoding está ativado, agora pode obter uma pré-visualização do feed em direto, quando ela atinge o canal. Isso pode ser uma ferramenta valiosa para verificar se o feed ao vivo, na verdade, está a atingir o canal. 
+## <a name="getting-a-thumbnail-preview-of-a-live-feed"></a>Obtendo uma visualização em miniatura de um feed ao vivo
+Quando a codificação ativa está habilitada, agora você pode obter uma visualização do feed ao vivo enquanto ele atinge o canal. Essa pode ser uma ferramenta valiosa para verificar se o feed ao vivo está realmente atingindo o canal. 
 
-## <a id="states"></a>Estados de um canal e como os Estados de mapeiam para o modo de faturação
+## <a id="states"></a>Estados de canal e como os Estados são mapeados para o modo de cobrança
 O estado atual de um Canal. Os valores possíveis incluem:
 
 * **Parado**. Este é o estado inicial de um Canal após a sua criação. Neste estado, as propriedades do Canal podem ser atualizadas, mas a transmissão em fluxo não é permitida.
-* **A iniciar**. O Canal está a ser iniciado. Não são permitidas transmissões em fluxo nem atualizações durante este estado. Caso ocorra um erro, o Canal volta para o estado Parado.
-* **Executar**. O Canal é capaz de processar transmissões em fluxo.
-* **A parar**. O Canal está a ser parado. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
-* **A eliminar**. O Canal está a ser apagado. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
+* **Iniciando**. O Canal está a ser iniciado. Não são permitidas transmissões em fluxo nem atualizações durante este estado. Caso ocorra um erro, o Canal volta para o estado Parado.
+* **Em execução**. O Canal é capaz de processar transmissões em fluxo.
+* **Parando**. O Canal está a ser parado. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
+* **Excluindo**. O Canal está a ser apagado. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
 
 A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de faturação. 
 
@@ -318,27 +319,27 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 | Parada |Parada |Não |
 
 > [!NOTE]
-> Atualmente, a média de início do canal é cerca de dois minutos, mas às vezes, pode demorar até mais de 20 minutos. Reposições do canal podem demorar até 5 minutos.
+> Atualmente, a média de início do canal é de cerca de 2 minutos, mas às vezes pode levar até 20 minutos. As redefinições de canal podem levar até 5 minutos.
 > 
 > 
 
-## <a id="Considerations"></a>Considerações
-* Quando um canal de **padrão** ocorre com o tipo de codificação com uma perda de feed de origem de entrada/contribuição, contrabalança-lo ao substituir o áudio/vídeo de origem uma imagem fixa de erro e silêncio. O canal irá continuar a emitir uma ficha até que a entrada/contribuição feed retoma. Recomendamos que um canal em direto não ser deixada no estado durante mais de 2 horas. Esse ponto, o comportamento de um canal no restabelecimento de ligação de entrada não é garantido, nenhuma delas é seu comportamento em resposta a um comando de reposição. Terá de parar o canal, eliminá-la e criar um novo.
+## <a id="Considerations"></a>Considere
+* Quando um canal de tipo de codificação **padrão** passa por uma perda de fonte de entrada/feed de contribuição, ele compensa isso substituindo o vídeo/áudio de origem por um erro Slate e silêncio. O canal continuará emitindo um Slate até que o feed de entrada/contribuição seja retomado. É recomendável que um canal ativo não seja deixado nesse estado por mais de 2 horas. Além desse ponto, o comportamento do canal na reconexão de entrada não é garantido, nenhum deles é seu comportamento em resposta a um comando de redefinição. Você precisará parar o canal, excluí-lo e criar um novo.
 * Não é possível alterar o protocolo de entrada enquanto o Canal ou os seus programas associados estiverem em execução. Se necessitar de protocolos diferentes, deve criar canais separados para cada protocolo de entrada.
-* Sempre que reconfigurar o codificador em direto, chamar o **repor** método no canal. Antes de repor o canal, terá de parar o programa. Depois de repor o canal, reinicie o programa.
-* Um canal pode ser parado apenas quando ele está no Estado em execução, e todos os programas no canal foram parados.
-* Por predefinição só pode adicionar 5 canais à sua conta de Media Services. Trata-se de uma quota não restritiva em todas as contas de novo. Para obter mais informações, consulte [Quotas e limitações](media-services-quotas-and-limitations.md).
+* Toda vez que você reconfigurar o codificador ao vivo, chame o método **Reset** no canal. Antes de redefinir o canal, você precisa parar o programa. Depois de redefinir o canal, reinicie o programa.
+* Um canal pode ser interrompido somente quando está no estado de execução e todos os programas no canal foram interrompidos.
+* Por padrão, você só pode adicionar 5 canais à sua conta de serviços de mídia. Esta é uma cota flexível em todas as novas contas. Para obter mais informações, consulte [cotas e limitações](media-services-quotas-and-limitations.md).
 * Não é possível alterar o protocolo de entrada enquanto o Canal ou os seus programas associados estiverem em execução. Se necessitar de protocolos diferentes, deve criar canais separados para cada protocolo de entrada.
-* É faturado apenas quando o canal permanece no **em execução** estado. Para obter mais informações, consulte [isso](media-services-manage-live-encoder-enabled-channels.md#states) secção.
-* Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amslived@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
-* Certifique-se de ter o partir do qual pretende transmitir conteúdo no ponto final de transmissão a **em execução** estado.
-* A predefinição de codificação usa a noção de "taxa de quadros máximo" de 30 fps. Então, se a entrada é 60fps / 59.94i, os quadros de entrada são ignorados/desaprovisionamento-interlaced para 30/29.97 fps. Se a entrada for 50fps/50i, os quadros de entrada são ignorados/desaprovisionamento-interlaced para 25 fps. Se a entrada for 25 fps, a saída permanece em 25 fps.
-* Não se esqueça de parar de canais do seu quando tiver terminado. Se não o fizer, irá continuar a faturação.
+* Você só será cobrado quando o canal estiver no estado **executando** . Para obter mais informações, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) seção.
+* Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amshelp@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
+* Certifique-se de ter o ponto de extremidade de streaming do qual você deseja transmitir conteúdo no estado de **execução** .
+* A predefinição de codificação usa a noção de "taxa de quadros máxima" de 30 fps. Portanto, se a entrada for 60fps/59,94 i, os quadros de entrada serão descartados/desentrelaçados a 30/29,97 fps. Se a entrada for 50fps/50i, os quadros de entrada serão descartados/desentrelaçados para 25 fps. Se a entrada for 25 fps, a saída permanecerá em 25 fps.
+* Não se esqueça de parar seus canais quando terminar. Caso contrário, a cobrança continuará.
 
 ## <a name="known-issues"></a>Problemas Conhecidos
-* Tempo de inicialização canal foi aperfeiçoado para uma média de 2 minutos, mas às vezes à demanda aumentada pode ainda demorar até mais de 20 minutos.
-* Imagens de imagem fixa devem estar em conformidade com restrições descritas [aqui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se está tentando criar um canal com uma ficha de predefinição que é maior do que 1920 x 1080, o pedido, por fim, irá apresentar um erro.
-* Mais uma vez... não se esqueça de canais de seu parar quando tiver terminado de transmissão em fluxo. Se não o fizer, irá continuar a faturação.
+* O tempo de inicialização do canal foi melhorado para uma média de 2 minutos, mas às vezes o aumento de demanda ainda pode levar até 20 minutos.
+* As imagens de Slate devem estar em conformidade com as restrições descritas [aqui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se você tentar criar um canal com um Slate padrão maior que 1920 x 1080, a solicitação eventualmente falhará.
+* Mais uma vez.... Não se esqueça de parar seus canais quando terminar de transmitir. Caso contrário, a cobrança continuará.
 
 ## <a name="next-step"></a>Passo seguinte
 Rever os percursos de aprendizagem dos Serviços de Multimédia
@@ -349,17 +350,17 @@ Rever os percursos de aprendizagem dos Serviços de Multimédia
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Tópicos relacionados
-[Entrega de eventos de transmissão em fluxo em direto com os serviços de multimédia do Azure](media-services-overview.md)
+[Entregando eventos de transmissão ao vivo com os serviços de mídia do Azure](media-services-overview.md)
 
-[Criar canais que realizam live encoding a partir de uma única de velocidade de transmissão em fluxo de velocidade de transmissão adaptável com o Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+[Criar canais que executam codificação ativa de uma taxa de bits única para o fluxo de taxa de bits adaptável com o portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 
-[Criar canais que realizam live encoding a partir de uma única de velocidade de transmissão em fluxo de velocidade de transmissão adaptável com o SDK do .NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+[Criar canais que executam codificação ativa de uma taxa de bits única para o fluxo de taxa de bits adaptável com o SDK do .NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
-[Gerir canais com a REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
+[Gerenciar canais com a API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 
-[Conceitos dos serviços de multimédia](media-services-concepts.md)
+[Conceitos dos serviços de mídia](media-services-concepts.md)
 
-[Especificação de ingestão de MP4 fragmentado em direto de serviços de multimédia do Azure](media-services-fmp4-live-ingest-overview.md)
+[Especificação de ingestão dinâmica de MP4 fragmentado dos serviços de mídia do Azure](../media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 

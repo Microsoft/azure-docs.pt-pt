@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: db3f5aca0240c19f67d5d0775148d5eec76daa03
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 3c4bdb3d46e4630257c2567cf2003ebede00b71e
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726993"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934777"
 ---
 # <a name="azure-network-security"></a>Segurança de rede do Azure
 
@@ -55,9 +55,9 @@ O Microsoft Azure inclui uma infraestrutura de rede robusta para dar suporte aos
 
 ![Visão geral de rede do Azure](./media/network-security/azure-network-security-fig-1.png)
 
-A [infraestrutura de rede do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines) permite que você conecte com segurança os recursos do Azure entre si com redes virtuais (VNets). Uma VNet é uma representação de sua própria rede na nuvem. Uma VNet é um isolamento lógico da rede de nuvem do Azure dedicada à sua assinatura. Você pode conectar o VNets às suas redes locais.
+A [infraestrutura de rede do Azure](../../virtual-machines/windows/infrastructure-example.md) permite que você conecte com segurança os recursos do Azure entre si com redes virtuais (VNets). Uma VNet é uma representação de sua própria rede na nuvem. Uma VNet é um isolamento lógico da rede de nuvem do Azure dedicada à sua assinatura. Você pode conectar o VNets às suas redes locais.
 
-O Azure dá suporte à conectividade de link WAN dedicada à sua rede local e a uma rede virtual do Azure com o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction). O link entre o Azure e seu site usa uma conexão dedicada que não passa pela Internet pública. Se o aplicativo do Azure estiver sendo executado em vários datacenters, você poderá usar o [Gerenciador de tráfego do Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) para rotear solicitações de usuários de forma inteligente entre instâncias do aplicativo. Você também pode rotear o tráfego para os serviços que não estão em execução no Azure se eles estiverem acessíveis pela Internet.
+O Azure dá suporte à conectividade de link WAN dedicada à sua rede local e a uma rede virtual do Azure com o [ExpressRoute](../../expressroute/expressroute-introduction.md). O link entre o Azure e seu site usa uma conexão dedicada que não passa pela Internet pública. Se o aplicativo do Azure estiver sendo executado em vários datacenters, você poderá usar o [Gerenciador de tráfego do Azure](../../traffic-manager/traffic-manager-overview.md) para rotear solicitações de usuários de forma inteligente entre instâncias do aplicativo. Você também pode rotear o tráfego para os serviços que não estão em execução no Azure se eles estiverem acessíveis pela Internet.
 
 ## <a name="enterprise-view-of-azure-networking-components"></a>Exibição empresarial de componentes de rede do Azure
 O Azure tem muitos componentes de rede que são relevantes para as discussões de segurança de rede. descrevemos esses componentes de rede e nos concentramos nos problemas de segurança relacionados a eles.
@@ -77,11 +77,11 @@ Neste artigo, abordaremos os seguintes recursos corporativos de rede do Azure:
 
 ### <a name="basic-network-connectivity"></a>Conectividade de rede básica
 
-O serviço de [rede virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) permite que você conecte com segurança recursos do Azure entre si com redes virtuais (VNet). Uma VNet é uma representação de sua própria rede na nuvem. Uma VNet é um isolamento lógico da infraestrutura de rede do Azure dedicada à sua assinatura. Você também pode conectar o VNets entre si e às suas redes locais usando VPNs site a site e [links WAN](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)dedicados.
+O serviço de [rede virtual do Azure](../../virtual-network/virtual-networks-overview.md) permite que você conecte com segurança recursos do Azure entre si com redes virtuais (VNet). Uma VNet é uma representação de sua própria rede na nuvem. Uma VNet é um isolamento lógico da infraestrutura de rede do Azure dedicada à sua assinatura. Você também pode conectar o VNets entre si e às suas redes locais usando VPNs site a site e [links WAN](../../expressroute/expressroute-introduction.md)dedicados.
 
 ![Conectividade de rede básica](./media/network-security/azure-network-security-fig-2.png)
 
-Com a compreensão de que você usa VMs para hospedar servidores no Azure, a pergunta é como essas VMs se conectam a uma rede. A resposta é que as VMs se conectam a uma [rede virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Com a compreensão de que você usa VMs para hospedar servidores no Azure, a pergunta é como essas VMs se conectam a uma rede. A resposta é que as VMs se conectam a uma [rede virtual do Azure](../../virtual-network/virtual-networks-overview.md).
 
 As redes virtuais do Azure são como as redes virtuais que você usa localmente com suas próprias soluções de plataforma de virtualização, como o Microsoft Hyper-V ou o VMware.
 
@@ -89,7 +89,7 @@ As redes virtuais do Azure são como as redes virtuais que você usa localmente 
 
 Você pode conectar o VNets entre si, permitindo que os recursos conectados à VNet se comuniquem entre si em VNets. Você pode usar uma ou ambas as opções a seguir para conectar o VNets entre si:
 
-- **Emparelhamento** Permite que os recursos conectados a diferentes VNets do Azure no mesmo local do Azure se comuniquem entre si. A largura de banda e a latência em toda a VNet são as mesmas que se os recursos estivessem conectados à mesma VNet. Para saber mais sobre emparelhamento, leia [emparelhamento de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Emparelhamento** Permite que os recursos conectados a diferentes VNets do Azure no mesmo local do Azure se comuniquem entre si. A largura de banda e a latência em toda a VNet são as mesmas que se os recursos estivessem conectados à mesma VNet. Para saber mais sobre emparelhamento, leia [emparelhamento de rede virtual](../../virtual-network/virtual-network-peering-overview.md).
 
   ![Peering](./media/network-security/azure-network-security-fig-3.png)
 
@@ -120,7 +120,7 @@ Como você pode ver, uma rede virtual do Azure fornece máquinas virtuais para s
 
 **Isolado**
 
-VNets são [isoladas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) uns dos outros. Você pode criar VNets separadas para desenvolvimento, teste e produção que usam os mesmos blocos de endereço [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Por outro lado, você pode criar vários VNets que usam blocos de endereço CIDR diferentes e conectam redes. Você pode segmentar uma VNet em várias sub-redes.
+VNets são [isoladas](../../virtual-network/virtual-networks-overview.md) uns dos outros. Você pode criar VNets separadas para desenvolvimento, teste e produção que usam os mesmos blocos de endereço [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Por outro lado, você pode criar vários VNets que usam blocos de endereço CIDR diferentes e conectam redes. Você pode segmentar uma VNet em várias sub-redes.
 
 O Azure fornece resolução de nomes interna para instâncias de função de VMs e [serviços de nuvem](https://azure.microsoft.com/services/cloud-services/) conectadas a uma VNet. Opcionalmente, você pode configurar uma VNet para usar seus próprios servidores DNS, em vez de usar a resolução de nomes internos do Azure.
 
@@ -130,35 +130,35 @@ Você pode implementar vários VNets em cada [assinatura](https://docs.microsoft
 
 -   Segmente a VNet em uma ou mais sub-redes e aloque uma parte do espaço de endereço da VNet para cada sub-rede.
 
--   Use a resolução de nomes fornecida pelo Azure ou especifique seu próprio servidor DNS para uso por recursos conectados a uma VNet. Para saber mais sobre a resolução de nomes em VNets, leia a [resolução de nomes para VMs e serviços de nuvem](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+-   Use a resolução de nomes fornecida pelo Azure ou especifique seu próprio servidor DNS para uso por recursos conectados a uma VNet. Para saber mais sobre a resolução de nomes em VNets, leia a [resolução de nomes para VMs e serviços de nuvem](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 **Ligação à Internet**
 
-Todas as instâncias de função de [VM (máquinas virtuais) do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/) e serviços de nuvem conectadas a uma VNet têm acesso à Internet, por padrão. Você também pode habilitar o acesso de entrada a recursos específicos, conforme necessário. As instâncias de função (VM) e serviços de nuvem conectadas a uma VNet têm acesso à Internet, por padrão. Você também pode habilitar o acesso de entrada a recursos específicos, conforme necessário.
+Todas as instâncias de função de [VM (máquinas virtuais) do Azure](../../virtual-machines/windows/index.yml) e serviços de nuvem conectadas a uma VNet têm acesso à Internet, por padrão. Você também pode habilitar o acesso de entrada a recursos específicos, conforme necessário. As instâncias de função (VM) e serviços de nuvem conectadas a uma VNet têm acesso à Internet, por padrão. Você também pode habilitar o acesso de entrada a recursos específicos, conforme necessário.
 
 Por padrão, todos os recursos conectados a uma VNet têm conectividade de saída com a Internet. O endereço IP privado do recurso é um endereço de rede de origem traduzido (SNAT) para um endereço IP público pela infraestrutura do Azure. Você pode alterar a conectividade padrão implementando o roteamento personalizado e a filtragem de tráfego. Para saber mais sobre a conectividade de Internet de saída, leia [noções básicas sobre conexões de saída no Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Para comunicar a entrada com os recursos do Azure da Internet ou para comunicar a saída à Internet sem SNAT, um recurso deve ser atribuído a um endereço IP público. Para saber mais sobre endereços IP públicos, leia os [endereços IP públicos](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+Para comunicar a entrada com os recursos do Azure da Internet ou para comunicar a saída à Internet sem SNAT, um recurso deve ser atribuído a um endereço IP público. Para saber mais sobre endereços IP públicos, leia os [endereços IP públicos](../../virtual-network/virtual-network-public-ip-address.md).
 
 **Conectividade de recursos do Azure**
 
-[Recursos do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) , como serviços de nuvem e VMS, podem ser conectados à mesma VNet. Os recursos podem se conectar entre si usando endereços IP privados, mesmo se estiverem em sub-redes diferentes. O Azure fornece roteamento padrão entre sub-redes, VNets e redes locais, para que você não precise configurar e gerenciar rotas.
+[Recursos do Azure](../../virtual-network/virtual-networks-overview.md) , como serviços de nuvem e VMS, podem ser conectados à mesma VNet. Os recursos podem se conectar entre si usando endereços IP privados, mesmo se estiverem em sub-redes diferentes. O Azure fornece roteamento padrão entre sub-redes, VNets e redes locais, para que você não precise configurar e gerenciar rotas.
 
-Você pode conectar vários recursos do Azure a uma VNet, como máquinas virtuais (VM), serviços de nuvem, ambientes de serviço de aplicativo e conjuntos de dimensionamento de máquinas virtuais. As VMs se conectam a uma sub-rede em uma VNet por meio de uma NIC (interface de rede). Para saber mais sobre NICs, leia as [interfaces de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface).
+Você pode conectar vários recursos do Azure a uma VNet, como máquinas virtuais (VM), serviços de nuvem, ambientes de serviço de aplicativo e conjuntos de dimensionamento de máquinas virtuais. As VMs se conectam a uma sub-rede em uma VNet por meio de uma NIC (interface de rede). Para saber mais sobre NICs, leia as [interfaces de rede](../../virtual-network/virtual-network-network-interface.md).
 
 **Conectividade VNet**
 
-O [VNets](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) pode ser conectado entre si, permitindo que os recursos conectados a qualquer vnet se comuniquem com qualquer recurso em qualquer outra vnet.
+O [VNets](../../virtual-network/virtual-networks-overview.md) pode ser conectado entre si, permitindo que os recursos conectados a qualquer vnet se comuniquem com qualquer recurso em qualquer outra vnet.
 
 Você pode conectar o VNets entre si, permitindo que os recursos conectados à VNet se comuniquem entre si em VNets. Você pode usar uma ou ambas as opções a seguir para conectar o VNets entre si:
 
-- **Emparelhamento** Permite que os recursos conectados a diferentes VNets do Azure no mesmo local do Azure se comuniquem entre si. A largura de banda e a latência em VNets são as mesmas que se os recursos estivessem conectados ao mesmo VNet.To saiba mais sobre o emparelhamento, leia o [emparelhamento de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Emparelhamento** Permite que os recursos conectados a diferentes VNets do Azure no mesmo local do Azure se comuniquem entre si. A largura de banda e a latência em VNets são as mesmas que se os recursos estivessem conectados ao mesmo VNet.To saiba mais sobre o emparelhamento, leia o [emparelhamento de rede virtual](../../virtual-network/virtual-network-peering-overview.md).
 
 - **Conexão VNet a VNet:** Habilita recursos conectados a uma VNet diferente do Azure dentro dos mesmos locais do Azure ou diferentes. Ao contrário do emparelhamento, a largura de banda é limitada entre VNets porque o tráfego deve fluir por meio de um gateway de VPN do Azure. Para saber mais sobre como conectar o VNets com uma conexão VNet a VNet. Para saber mais, leia [Configurar uma conexão de vnet para vnet](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) .
 
 **Conectividade no local**
 
-O VNets pode ser conectado a redes [locais](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) por meio de conexões de rede privada entre sua rede e o Azure, ou por meio de uma conexão VPN site a site pela Internet.
+O VNets pode ser conectado a redes [locais](../../virtual-network/virtual-networks-overview.md) por meio de conexões de rede privada entre sua rede e o Azure, ou por meio de uma conexão VPN site a site pela Internet.
 
 Você pode conectar sua rede local a uma VNet usando qualquer combinação das seguintes opções:
 
@@ -166,15 +166,15 @@ Você pode conectar sua rede local a uma VNet usando qualquer combinação das s
 
 - **VPN site a site:** Estabelecido entre o dispositivo VPN e um gateway de VPN do Azure. Esse tipo de conexão habilita qualquer recurso local que você autorizar a acessar uma VNet. A conexão é uma VPN IPsec/IKE que fornece comunicação criptografada pela Internet entre o dispositivo local e o gateway de VPN do Azure. A latência de uma conexão site a site é imprevisível, pois o tráfego atravessa a Internet.
 
-- **Azure ExpressRoute:** Estabelecida entre sua rede e o Azure, por meio de um parceiro de ExpressRoute. Esta ligação é privada. O tráfego não atravessa a Internet. A latência de uma conexão do ExpressRoute é previsível, pois o tráfego não atravessa a Internet. Para saber mais sobre todas as opções de conexão anteriores, leia os diagramas de [topologia de conexão](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Azure ExpressRoute:** Estabelecida entre sua rede e o Azure, por meio de um parceiro de ExpressRoute. Esta ligação é privada. O tráfego não atravessa a Internet. A latência de uma conexão do ExpressRoute é previsível, pois o tráfego não atravessa a Internet. Para saber mais sobre todas as opções de conexão anteriores, leia os diagramas de [topologia de conexão](../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Filtragem do tráfego**
 
-Instâncias de função de serviços de nuvem e de VM o [tráfego de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) pode ser filtrado de entrada e saída por endereço IP de origem e porta, endereço IP de destino e porta e protocolo.
+Instâncias de função de serviços de nuvem e de VM o [tráfego de rede](../../virtual-network/virtual-networks-overview.md) pode ser filtrado de entrada e saída por endereço IP de origem e porta, endereço IP de destino e porta e protocolo.
 
 Pode filtrar o tráfego de rede entre as sub-redes com uma ou ambas das seguintes opções:
 
-- **NSG (grupos de segurança de rede):** Cada NSG pode conter várias regras de segurança de entrada e saída que permitem filtrar o tráfego por endereço IP de origem e de destino, porta e protocolo. Você pode aplicar um NSG a cada NIC em uma VM. Você também pode aplicar um NSG à sub-rede uma NIC ou a outro recurso do Azure, está conectado ao. Para saber mais sobre o NSGs, leia os [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- **NSG (grupos de segurança de rede):** Cada NSG pode conter várias regras de segurança de entrada e saída que permitem filtrar o tráfego por endereço IP de origem e de destino, porta e protocolo. Você pode aplicar um NSG a cada NIC em uma VM. Você também pode aplicar um NSG à sub-rede uma NIC ou a outro recurso do Azure, está conectado ao. Para saber mais sobre o NSGs, leia os [grupos de segurança de rede](../../virtual-network/virtual-network-vnet-plan-design-arm.md).
 
 - **Dispositivos de rede virtual:** Um dispositivo de rede virtual é uma VM que executa um software que executa uma função de rede, como um firewall. Exiba uma lista de NVAs disponíveis no Azure Marketplace. NVAs também estão disponíveis para fornecer otimização de WAN e outras funções de tráfego de rede. NVAs normalmente são usados com rotas BGP ou definidas pelo usuário. Você também pode usar um NVA para filtrar o tráfego entre VNets.
 
@@ -184,7 +184,7 @@ Opcionalmente, você pode substituir o roteamento padrão do Azure Configurando 
 
 O Azure cria tabelas de rotas que permitem que os recursos conectados a qualquer sub-rede em qualquer VNet se comuniquem entre si, por padrão. Pode implementar uma ou ambas das seguintes opções para substituir as rotas predefinidas que o Azure cria:
 
-- **Rotas definidas pelo usuário:** Você pode criar tabelas de rotas personalizadas com rotas que controlam para onde o tráfego é roteado para cada sub-rede. Para saber mais sobre rotas definidas pelo usuário, leia as [rotas definidas pelo usuário](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+- **Rotas definidas pelo usuário:** Você pode criar tabelas de rotas personalizadas com rotas que controlam para onde o tráfego é roteado para cada sub-rede. Para saber mais sobre rotas definidas pelo usuário, leia as [rotas definidas pelo usuário](../../virtual-network/virtual-networks-udr-overview.md).
 
 - **Rotas BGP:** Se você conectar sua VNet à sua rede local usando um gateway de VPN do Azure ou uma conexão de ExpressRoute, você poderá propagar rotas BGP para seu VNets.
 
@@ -201,12 +201,12 @@ Você pode conectar sua rede local a uma VNet usando qualquer combinação das s
 
 #### <a name="internet-connectivity"></a>Conectividade com a Internet
 
-Como seu nome sugere, a conectividade com a Internet torna suas cargas de trabalho acessíveis da Internet, fazendo com que você exponha pontos de extremidade públicos diferentes para cargas de trabalho que residem dentro da rede virtual. Essas cargas de trabalho podem ser expostas usando [Load Balancer voltadas](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview) para a Internet ou simplesmente atribuindo um endereço IP público à VM. Dessa forma, é possível que qualquer coisa na Internet seja capaz de alcançar essa máquina virtual, desde que um firewall de host, [NSG (grupos de segurança de rede)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)e [rotas definidas pelo usuário](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) permitam que isso aconteça.
+Como seu nome sugere, a conectividade com a Internet torna suas cargas de trabalho acessíveis da Internet, fazendo com que você exponha pontos de extremidade públicos diferentes para cargas de trabalho que residem dentro da rede virtual. Essas cargas de trabalho podem ser expostas usando [Load Balancer voltadas](../../load-balancer/load-balancer-overview.md#publicloadbalancer) para a Internet ou simplesmente atribuindo um endereço IP público à VM. Dessa forma, é possível que qualquer coisa na Internet seja capaz de alcançar essa máquina virtual, desde que um firewall de host, [NSG (grupos de segurança de rede)](../../virtual-network/virtual-network-vnet-plan-design-arm.md)e [rotas definidas pelo usuário](../../virtual-network/virtual-networks-udr-overview.md) permitam que isso aconteça.
 
 Nesse cenário, você pode expor um aplicativo que precisa ser público para a Internet e ser capaz de se conectar a ele de qualquer lugar ou de locais específicos, dependendo da configuração de suas cargas de trabalho.
 
 #### <a name="point-to-site-vpn-or-site-to-site-vpn"></a>VPN ponto a site ou VPN site a site
-Esses dois se enquadram na mesma categoria. Ambos precisam que sua VNet tenha um gateway de VPN e você pode se conectar a ele usando um cliente VPN para sua estação de trabalho como parte da [configuração ponto a site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal) ou você pode configurar seu [dispositivo VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices) local para poder encerrar um site a site VPNs. Dessa forma, os dispositivos locais podem se conectar aos recursos na VNet.
+Esses dois se enquadram na mesma categoria. Ambos precisam que sua VNet tenha um gateway de VPN e você pode se conectar a ele usando um cliente VPN para sua estação de trabalho como parte da [configuração ponto a site](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) ou você pode configurar seu [dispositivo VPN](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) local para poder encerrar um site a site VPNs. Dessa forma, os dispositivos locais podem se conectar aos recursos na VNet.
 
 Uma configuração Ponto a Site (P2S) permite-lhe criar uma ligação segura a partir de um computador cliente individual para a sua rede virtual. Uma P2S é uma ligação VPN através de SSTP (Secure Socket Tunneling Protocol).
 
@@ -219,7 +219,7 @@ As ligações P2S não precisam de nenhum dispositivo VPN ou endereço IP destin
 ![VPN site a Site](./media/network-security/azure-network-security-fig-6.png)
 
 > [!Note]
-> Para obter mais informações sobre conexões ponto a site, consulte o [FA v ponto a site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal).
+> Para obter mais informações sobre conexões ponto a site, consulte o [FA v ponto a site](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).
 
 Uma ligação de gateway de VPN de Site para Site é utilizada para ligar a sua rede no local a uma rede virtual do Azure através de um túnel VPN IPsec/IKE (IKEv1 ou IKEv2).
 
@@ -230,7 +230,7 @@ Embora a VPN site a site seja uma tecnologia confiável, confiável e estabeleci
 Se você precisar de um nível excepcional de segurança ou desempenho para suas conexões entre locais, recomendamos que você use o Azure ExpressRoute para a conectividade entre locais. O ExpressRoute é um link WAN dedicado entre sua localização local ou um provedor de hospedagem do Exchange. Como essa é uma conexão Telco, seus dados não viajam pela Internet e, portanto, não são expostos aos riscos potenciais inerentes às comunicações da Internet.
 
 > [!Note]
-> Para obter mais informações sobre gateways de VPN, consulte sobre o [Gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+> Para obter mais informações sobre gateways de VPN, consulte sobre o [Gateway de VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 #### <a name="dedicated-wan-link"></a>Link WAN dedicado
 Microsoft Azure ExpressRoute permite que você estenda suas redes locais para o Azure por meio de uma conexão privada dedicada, facilitada por um provedor de conectividade.
@@ -240,9 +240,9 @@ As ligações do ExpressRoute não passam para a Internet pública. Tal permite 
 ![ Link WAN dedicado](./media/network-security/azure-network-security-fig-7.png)
 
 > [!Note]
-> Para obter informações sobre como conectar sua rede à Microsoft usando o ExpressRoute, consulte [modelos de conectividade do expressroute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) e [visão geral técnica do expressroute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+> Para obter informações sobre como conectar sua rede à Microsoft usando o ExpressRoute, consulte [modelos de conectividade do expressroute](../../vpn-gateway/vpn-gateway-about-vpngateways.md) e [visão geral técnica do expressroute](../../expressroute/expressroute-introduction.md).
 
-Assim como nas opções de VPN site a site, o ExpressRoute também permite que você se conecte a recursos que não estão necessariamente em apenas uma VNet. Na verdade, dependendo do SKU, você pode se conectar a 10 VNets. Se você tiver o [complemento Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs), as conexões com até 100 VNets são possíveis, dependendo da largura de banda. Para saber mais sobre como esses tipos de conexões são semelhantes, leia [diagramas de topologia de conexão](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Assim como nas opções de VPN site a site, o ExpressRoute também permite que você se conecte a recursos que não estão necessariamente em apenas uma VNet. Na verdade, dependendo do SKU, você pode se conectar a 10 VNets. Se você tiver o [complemento Premium](../../expressroute/expressroute-faqs.md), as conexões com até 100 VNets são possíveis, dependendo da largura de banda. Para saber mais sobre como esses tipos de conexões são semelhantes, leia [diagramas de topologia de conexão](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="security-controls"></a>Controles de segurança
 Uma rede virtual do Azure fornece uma rede lógica segura que é isolada de outras redes virtuais e dá suporte a muitos controles de segurança que você usa em suas redes locais. Os clientes criam sua própria estrutura usando: sub-redes — eles usam seu próprio intervalo de endereços IP privado, configuram tabelas de rotas, grupos de segurança de rede, ACLs (listas de controle de acesso), gateways e dispositivos virtuais para executar suas cargas de trabalho na nuvem.
@@ -309,11 +309,11 @@ Este fluxo de comunicação é possível porque o Azure utiliza uma série de ro
 
 -   A partir de uma VNet para outra VNet através de um gateway VPN.
 
--   De uma VNet para outra VNet por meio de emparelhamento VNet ([encadeamento de serviço](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)).
+-   De uma VNet para outra VNet por meio de emparelhamento VNet ([encadeamento de serviço](../../virtual-network/virtual-network-peering-overview.md)).
 
 -   A partir de um VNet para a sua rede no local através de um gateway VPN.
 
-Muitas empresas têm requisitos estritos de segurança e conformidade que exigem a inspeção local de todos os pacotes de rede para impor políticas específicas. O Azure fornece um mecanismo chamado [túnel forçado](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) que roteia o tráfego das VMs para o local criando uma rota personalizada ou por anúncios de [Border Gateway Protocol (BGP)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) por meio do ExpressRoute ou da VPN.
+Muitas empresas têm requisitos estritos de segurança e conformidade que exigem a inspeção local de todos os pacotes de rede para impor políticas específicas. O Azure fornece um mecanismo chamado [túnel forçado](../../vpn-gateway/vpn-gateway-about-forced-tunneling.md) que roteia o tráfego das VMs para o local criando uma rota personalizada ou por anúncios de [Border Gateway Protocol (BGP)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) por meio do ExpressRoute ou da VPN.
 
 O túnel forçado no Azure está configurado por meio de rotas definidas pelo utilizador da rede virtual (UDR). Redirecionar o tráfego para um site no local é expressa como uma rota predefinida para o gateway de VPN do Azure.
 
@@ -369,7 +369,7 @@ Os dispositivos de segurança de rede do Azure melhoram as funções de rede e s
 
 #### <a name="application-gateway"></a>Gateway de aplicação
 
-[Microsoft Azure gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) é uma solução de virtualização dedicada que fornece um ADC (controlador de entrega de aplicativo) como um serviço.
+[Microsoft Azure gateway de aplicativo](../../application-gateway/overview.md) é uma solução de virtualização dedicada que fornece um ADC (controlador de entrega de aplicativo) como um serviço.
 
  ![Gateway de Aplicação](./media/network-security/azure-network-security-fig-11.png)
 
@@ -384,13 +384,13 @@ O gateway de aplicativo permite otimizar o desempenho e a disponibilidade do web
 -   Capacidade de hospedar vários sites por trás de um único gateway de aplicativo
 
 
-Um [WAF (firewall do aplicativo Web)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) também é fornecido como parte do gateway de aplicativo. Isso fornece proteção aos aplicativos Web contra explorações e vulnerabilidades comuns da Web. O gateway de aplicativo pode ser configurado como um gateway voltado para a Internet, um gateway somente interno ou uma combinação de ambos.
+Um [WAF (firewall do aplicativo Web)](../../application-gateway/waf-overview.md) também é fornecido como parte do gateway de aplicativo. Isso fornece proteção aos aplicativos Web contra explorações e vulnerabilidades comuns da Web. O gateway de aplicativo pode ser configurado como um gateway voltado para a Internet, um gateway somente interno ou uma combinação de ambos.
 
 O WAF do gateway de aplicativo pode ser executado no modo de detecção ou prevenção. Um caso de uso comum é para os administradores executarem no modo de detecção para observar o tráfego de padrões mal-intencionados. Após a detecção de possíveis explorações, a ativação do modo de prevenção bloqueia o tráfego de entrada suspeito.
 
  ![Gateway de Aplicação](./media/network-security/azure-network-security-fig-12.png)
 
-Além disso, o WAF do gateway de aplicativo ajuda a monitorar aplicativos Web contra ataques usando um log WAF em tempo real que é integrado com o [Azure monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) e a [central de segurança do Azure](https://azure.microsoft.com/services/security-center/) para controlar alertas de WAF e monitorar facilmente as tendências.
+Além disso, o WAF do gateway de aplicativo ajuda a monitorar aplicativos Web contra ataques usando um log WAF em tempo real que é integrado com o [Azure monitor](../../azure-monitor/overview.md) e a [central de segurança do Azure](https://azure.microsoft.com/services/security-center/) para controlar alertas de WAF e monitorar facilmente as tendências.
 
 O log formatado em JSON vai diretamente para a conta de armazenamento do cliente. Você tem controle total sobre esses logs e pode aplicar suas próprias políticas de retenção.
 
@@ -402,7 +402,7 @@ Os aplicativos Web são cada vez mais alvos de ataques mal-intencionados que exp
 
  ![Firewall do aplicativo Web do Azure (WAF)](./media/network-security/azure-network-security-fig-13.png)
 
-Um [WAF (firewall de aplicativo Web)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) centralizado pode proteger contra ataques da Web e simplifica o gerenciamento de segurança sem a necessidade de qualquer alteração no aplicativo.
+Um [WAF (firewall de aplicativo Web)](../../application-gateway/waf-overview.md) centralizado pode proteger contra ataques da Web e simplifica o gerenciamento de segurança sem a necessidade de qualquer alteração no aplicativo.
 
 Uma solução WAF também pode reagir mais rapidamente a uma ameaça de segurança ao corrigir uma vulnerabilidade conhecida numa localização central, em vez de proteger cada uma das aplicações Web individualmente. Os gateways de aplicações existentes podem ser facilmente convertidos num gateway de aplicação com firewall de aplicações Web ativada.
 
@@ -427,9 +427,9 @@ Fornece alta disponibilidade e desempenho de rede para seus aplicativos. É um b
 
 Azure Load Balancer pode ser configurado para:
 
--   Balancear a carga do tráfego de entrada da Internet para máquinas virtuais. Essa configuração é conhecida como [balanceamento de carga voltado para a Internet](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview).
+-   Balancear a carga do tráfego de entrada da Internet para máquinas virtuais. Essa configuração é conhecida como [balanceamento de carga voltado para a Internet](../../load-balancer/load-balancer-overview.md#publicloadbalancer).
 
--   Balancear a carga do tráfego entre máquinas virtuais em uma rede virtual, entre máquinas virtuais em serviços de nuvem ou entre computadores locais e máquinas virtuais em uma rede virtual entre locais. Essa configuração é conhecida como [balanceamento de carga interno](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview).
+-   Balancear a carga do tráfego entre máquinas virtuais em uma rede virtual, entre máquinas virtuais em serviços de nuvem ou entre computadores locais e máquinas virtuais em uma rede virtual entre locais. Essa configuração é conhecida como [balanceamento de carga interno](../../load-balancer/load-balancer-overview.md#internalloadbalancer).
 
 -   Encaminhe o tráfego externo para uma máquina virtual específica.
 
@@ -443,15 +443,15 @@ Todos os recursos na nuvem precisam de um endereço IP público para serem acess
 
 Gerenciador de Tráfego do Microsoft Azure permite que você controle a distribuição do tráfego do usuário para pontos de extremidade de serviço em diferentes data centers. Os pontos de extremidade de serviço com suporte do Gerenciador de tráfego incluem VMs do Azure, aplicativos Web e serviços de nuvem. Também pode utilizar o Gestor de Tráfego com pontos finais externos, não pertencentes ao Azure.
 
-O Gerenciador de tráfego usa o DNS (sistema de nomes de domínio) para direcionar solicitações de cliente para o ponto de extremidade mais apropriado com base em um [método de roteamento de tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) e a integridade dos pontos. O Gerenciador de tráfego fornece uma variedade de métodos de roteamento de tráfego para atender a necessidades de aplicativos diferentes, [monitoramento](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring)de integridade do ponto de extremidade e failover automático. O Gestor de Tráfego é resiliente a falhas, incluindo a falhas numa região do Azure inteira.
+O Gerenciador de tráfego usa o DNS (sistema de nomes de domínio) para direcionar solicitações de cliente para o ponto de extremidade mais apropriado com base em um [método de roteamento de tráfego](../../traffic-manager/traffic-manager-routing-methods.md) e a integridade dos pontos. O Gerenciador de tráfego fornece uma variedade de métodos de roteamento de tráfego para atender a necessidades de aplicativos diferentes, [monitoramento](../../traffic-manager/traffic-manager-monitoring.md)de integridade do ponto de extremidade e failover automático. O Gestor de Tráfego é resiliente a falhas, incluindo a falhas numa região do Azure inteira.
 
 O Gerenciador de tráfego do Azure permite controlar a distribuição de tráfego entre os pontos de extremidade do aplicativo. Os pontos finais são serviços com acesso à Internet alojados dentro ou fora do Azure.
 
 O Gerenciador de tráfego fornece dois benefícios principais:
 
--   Distribuição de tráfego de acordo com um dos vários [métodos de roteamento de tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods).
+-   Distribuição de tráfego de acordo com um dos vários [métodos de roteamento de tráfego](../../traffic-manager/traffic-manager-routing-methods.md).
 
--   [Monitoramento contínuo da integridade do ponto de extremidade](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) e failover automático quando os pontos de extremidade falham.
+-   [Monitoramento contínuo da integridade do ponto de extremidade](../../traffic-manager/traffic-manager-monitoring.md) e failover automático quando os pontos de extremidade falham.
 
 Quando um cliente tenta se conectar a um serviço, ele deve primeiro resolver o nome DNS do serviço para um endereço IP. Em seguida, o cliente se conecta a esse endereço IP para acessar o serviço. O Gerenciador de tráfego usa o DNS para direcionar clientes para pontos de extremidade de serviço específicos com base nas regras do método de roteamento de tráfego. Os clientes se conectam diretamente ao ponto de extremidade selecionado. O Gerenciador de tráfego não é um proxy ou um gateway. O Gerenciador de tráfego não vê o tráfego que passa entre o cliente e o serviço.
 
@@ -461,11 +461,11 @@ A validação de rede do Azure é para garantir que a rede do Azure esteja funci
 
 A segurança operacional do Azure refere-se aos serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros ativos no Microsoft Azure. A segurança operacional do Azure baseia-se em uma estrutura que incorpora o conhecimento obtido por meio de vários recursos que são exclusivos à Microsoft, incluindo o SDL (ciclo de vida do desenvolvimento de segurança da Microsoft), o programa Microsoft Security Response Centre e conscientização profunda do panorama de ameaças à segurança cibernético.
 
--   [Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+-   [Centro de Segurança do Azure](../../security-center/security-center-intro.md)
 
--   [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
+-   [Azure Monitor](../../azure-monitor/overview.md)
 
--   [Observador de rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+-   [Observador de rede do Azure](../../network-watcher/network-watcher-monitoring-overview.md)
 
 -   [Análise de armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
 
@@ -498,7 +498,7 @@ O Resource Manager oferece várias vantagens:
 -   Você pode esclarecer a cobrança da sua organização exibindo os custos de um grupo de recursos de compartilhamento de marca.
 
 > [!Note]
-> O Resource Manager proporciona uma nova forma de implementar e gerir as suas soluções. Se utilizou o modelo de implementação anterior e pretende obter informações sobre as alterações, consulte [Compreender a implementação do Resource Manager e a implementação clássica](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
+> O Resource Manager proporciona uma nova forma de implementar e gerir as suas soluções. Se utilizou o modelo de implementação anterior e pretende obter informações sobre as alterações, consulte [Compreender a implementação do Resource Manager e a implementação clássica](../../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="azure-network-logging-and-monitoring"></a>Monitoramento e registro em log de rede do Azure
 
@@ -512,7 +512,7 @@ O Azure oferece muitas ferramentas para monitorar, prevenir, detectar e responde
 
 ### <a name="network-watcher"></a>Observador de rede
 
-[Observador de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) – o monitoramento baseado em cenário é fornecido com os recursos no observador de rede. Esse serviço inclui captura de pacote, próximo salto, verificação de fluxo de IP, exibição de grupo de segurança, logs de fluxo de NSG. O monitoramento em nível de cenário fornece uma exibição de ponta a ponta dos recursos de rede em contraste com o monitoramento de recursos de rede individual.
+[Observador de rede](../../network-watcher/network-watcher-monitoring-overview.md) – o monitoramento baseado em cenário é fornecido com os recursos no observador de rede. Esse serviço inclui captura de pacote, próximo salto, verificação de fluxo de IP, exibição de grupo de segurança, logs de fluxo de NSG. O monitoramento em nível de cenário fornece uma exibição de ponta a ponta dos recursos de rede em contraste com o monitoramento de recursos de rede individual.
 
  ![Observador de Rede](./media/network-security/azure-network-security-fig-15.png)
 
@@ -522,7 +522,7 @@ O observador de rede atualmente tem os seguintes recursos:
 
 #### <a name="topology"></a>Topologia
 
-A [topologia](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview) retorna um grafo de recursos de rede em uma rede virtual. O grafo ilustra a interconexão entre os recursos para representar a conectividade de rede de ponta a ponta. No portal, a topologia retorna os objetos de recurso de acordo com cada rede virtual. As relações são representadas por linhas entre os recursos fora da região do observador de rede, mesmo se o grupo de recursos não for exibido. Os recursos retornados na exibição do portal são um subconjunto dos componentes de rede que estão grafos. Para ver a lista completa de recursos de rede, você pode usar o [PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-powershell) ou [REST](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-rest).
+A [topologia](../../network-watcher/view-network-topology.md) retorna um grafo de recursos de rede em uma rede virtual. O grafo ilustra a interconexão entre os recursos para representar a conectividade de rede de ponta a ponta. No portal, a topologia retorna os objetos de recurso de acordo com cada rede virtual. As relações são representadas por linhas entre os recursos fora da região do observador de rede, mesmo se o grupo de recursos não for exibido. Os recursos retornados na exibição do portal são um subconjunto dos componentes de rede que estão grafos. Para ver a lista completa de recursos de rede, você pode usar o [PowerShell](../../network-watcher/view-network-topology.md) ou [REST](../../network-watcher/view-network-topology.md).
 
 À medida que os recursos são retornados, a conexão entre eles é modelada sob duas relações.
 
@@ -532,49 +532,49 @@ A [topologia](https://docs.microsoft.com/azure/network-watcher/network-watcher-t
 
 #### <a name="variable-packet-capture"></a>Captura de pacote variável
 
-A captura de [pacotes da variável](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview) do observador de rede permite que você crie sessões de captura de pacote para controlar o tráfego de e para uma máquina virtual. A captura de pacotes ajuda a diagnosticar anomalias de rede reativas e de proatividade. Outros usos incluem a coleta de estatísticas de rede, a obtenção de informações sobre invasões de rede, a depuração de comunicações cliente-servidor e muito mais.
+A captura de [pacotes da variável](../../network-watcher/network-watcher-packet-capture-overview.md) do observador de rede permite que você crie sessões de captura de pacote para controlar o tráfego de e para uma máquina virtual. A captura de pacotes ajuda a diagnosticar anomalias de rede reativas e de proatividade. Outros usos incluem a coleta de estatísticas de rede, a obtenção de informações sobre invasões de rede, a depuração de comunicações cliente-servidor e muito mais.
 
 A captura de pacote é uma extensão de máquina virtual que é iniciada remotamente por meio do observador de rede. Esse recurso facilita a carga de executar uma captura de pacote manualmente na máquina virtual desejada, o que economiza tempo valioso. A captura de pacotes pode ser disparada por meio do portal, do PowerShell, da CLI ou da API REST. Um exemplo de como a captura de pacotes pode ser disparado é com alertas de máquina virtual.
 
 #### <a name="ip-flow-verify"></a>Verificação do fluxo de IP
 
-Os [fluxos de IP verificam](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) se um pacote é permitido ou negado para ou de uma máquina virtual com base em informações de 5 tuplas. Essas informações consistem em direção, protocolo, IP local, IP remoto, porta local e porta remota. Se o pacote for negado por um grupo de segurança, o nome da regra que negou o pacote será retornado. Embora qualquer IP de origem ou de destino possa ser escolhido, esse recurso ajuda os administradores a diagnosticar rapidamente problemas de conectividade de ou para a Internet e de ou para o ambiente local.
+Os [fluxos de IP verificam](../../network-watcher/network-watcher-ip-flow-verify-overview.md) se um pacote é permitido ou negado para ou de uma máquina virtual com base em informações de 5 tuplas. Essas informações consistem em direção, protocolo, IP local, IP remoto, porta local e porta remota. Se o pacote for negado por um grupo de segurança, o nome da regra que negou o pacote será retornado. Embora qualquer IP de origem ou de destino possa ser escolhido, esse recurso ajuda os administradores a diagnosticar rapidamente problemas de conectividade de ou para a Internet e de ou para o ambiente local.
 
 A verificação de fluxos de IP visa uma interface de rede de uma máquina virtual. O fluxo de tráfego é verificado com base nas configurações definidas de ou para essa interface de rede. Esse recurso é útil para confirmar se uma regra em um grupo de segurança de rede está bloqueando o tráfego de entrada ou saída de ou para uma máquina virtual.
 
 #### <a name="next-hop"></a>Próximo salto
 
-Determina o [próximo salto](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) para os pacotes que estão sendo roteados na malha de rede do Azure, permitindo que você diagnostique quaisquer rotas definidas pelo usuário mal configuradas. O tráfego de uma VM é enviado para um destino com base nas rotas efetivas associadas a uma NIC. O próximo salto Obtém o tipo do próximo salto e o endereço IP de um pacote de uma máquina virtual específica e NIC. Isso ajuda a determinar se o pacote está sendo direcionado para o destino ou se o tráfego está em buraco negro.
+Determina o [próximo salto](../../network-watcher/network-watcher-next-hop-overview.md) para os pacotes que estão sendo roteados na malha de rede do Azure, permitindo que você diagnostique quaisquer rotas definidas pelo usuário mal configuradas. O tráfego de uma VM é enviado para um destino com base nas rotas efetivas associadas a uma NIC. O próximo salto Obtém o tipo do próximo salto e o endereço IP de um pacote de uma máquina virtual específica e NIC. Isso ajuda a determinar se o pacote está sendo direcionado para o destino ou se o tráfego está em buraco negro.
 
 O próximo salto também retorna a tabela de rotas associada ao próximo salto. Ao consultar um próximo salto se a rota for definida como uma rota definida pelo usuário, essa rota será retornada. Caso contrário, o próximo salto retornará "rota do sistema".
 
 #### <a name="security-group-view"></a>Vista do grupo de segurança
 
-Obtém as regras de segurança efetivas e aplicadas que são aplicadas em uma VM. Os grupos de segurança de rede são associados no nível de sub-rede ou em um nível de NIC. Quando associado a um nível de sub-rede, ele se aplica a todas as instâncias de VM na sub-rede. A [exibição do grupo de segurança](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) de rede retorna todos os NSGs e regras configurados que estão associados em um nível de NIC e de sub-rede para uma máquina virtual que fornece informações sobre a configuração. Além disso, as regras de segurança em vigor são retornadas para cada uma das NICs em uma VM. Usando a exibição grupo de segurança de rede, você pode avaliar uma VM para vulnerabilidades de rede, como portas abertas. Você também pode validar se o grupo de segurança de rede está funcionando conforme o esperado com base em uma [comparação entre as regras de segurança configuradas e efetivas](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-auditing-powershell).
+Obtém as regras de segurança efetivas e aplicadas que são aplicadas em uma VM. Os grupos de segurança de rede são associados no nível de sub-rede ou em um nível de NIC. Quando associado a um nível de sub-rede, ele se aplica a todas as instâncias de VM na sub-rede. A [exibição do grupo de segurança](../../network-watcher/network-watcher-security-group-view-overview.md) de rede retorna todos os NSGs e regras configurados que estão associados em um nível de NIC e de sub-rede para uma máquina virtual que fornece informações sobre a configuração. Além disso, as regras de segurança em vigor são retornadas para cada uma das NICs em uma VM. Usando a exibição grupo de segurança de rede, você pode avaliar uma VM para vulnerabilidades de rede, como portas abertas. Você também pode validar se o grupo de segurança de rede está funcionando conforme o esperado com base em uma [comparação entre as regras de segurança configuradas e efetivas](../../network-watcher/network-watcher-nsg-auditing-powershell.md).
 
 #### <a name="nsg-flow-logging"></a>Log de fluxo do NSG
 
  Os logs de fluxo para grupos de segurança de rede permitem capturar logs relacionados ao tráfego permitido ou negado pelas regras de segurança no grupo. O fluxo é definido por informações de 5 tuplas – IP de origem, IP de destino, porta de origem, porta de destino e protocolo.
 
-[Os logs de fluxo do grupo de segurança de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) são um recurso do observador de rede que permite exibir informações sobre o tráfego IP de entrada e saída por meio de um grupo de segurança de rede.
+[Os logs de fluxo do grupo de segurança de rede](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) são um recurso do observador de rede que permite exibir informações sobre o tráfego IP de entrada e saída por meio de um grupo de segurança de rede.
 
 #### <a name="virtual-network-gateway-and-connection-troubleshooting"></a>Solução de problemas de gateway de rede virtual e conexão
 
-O observador de rede fornece muitos recursos que se relacionam com a compreensão de seus recursos de rede no Azure. Um desses recursos é a solução de problemas de recursos. A [solução de problemas de recursos](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest) pode ser chamada pelo PowerShell, pela CLI ou pela API REST. Quando chamado, o observador de rede inspeciona a integridade de um gateway de rede virtual ou uma conexão e retorna suas descobertas.
+O observador de rede fornece muitos recursos que se relacionam com a compreensão de seus recursos de rede no Azure. Um desses recursos é a solução de problemas de recursos. A [solução de problemas de recursos](../../network-watcher/network-watcher-troubleshoot-manage-rest.md) pode ser chamada pelo PowerShell, pela CLI ou pela API REST. Quando chamado, o observador de rede inspeciona a integridade de um gateway de rede virtual ou uma conexão e retorna suas descobertas.
 
 Esta seção o conduz pelas diferentes tarefas de gerenciamento que estão disponíveis atualmente para solução de problemas de recursos.
 
--   [Solucionar problemas de um gateway de rede virtual](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)
+-   [Solucionar problemas de um gateway de rede virtual](../../network-watcher/network-watcher-troubleshoot-manage-rest.md)
 
--   [Solucionar problemas de conexão](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)
+-   [Solucionar problemas de conexão](../../network-watcher/network-watcher-troubleshoot-manage-rest.md)
 
 #### <a name="network-subscription-limits"></a>Limites de assinatura de rede
 
-[Os limites de assinatura de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) fornecem detalhes do uso de cada recurso de rede em uma assinatura em uma região em relação ao número máximo de recursos disponíveis.
+[Os limites de assinatura de rede](../../network-watcher/network-watcher-monitoring-overview.md) fornecem detalhes do uso de cada recurso de rede em uma assinatura em uma região em relação ao número máximo de recursos disponíveis.
 
 #### <a name="configuring-diagnostics-log"></a>Configurando o log de diagnóstico
 
-O observador de rede fornece uma exibição de [logs de diagnóstico](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) . Esta exibição contém todos os recursos de rede que dão suporte ao log de diagnóstico. Nessa exibição, você pode habilitar e desabilitar os recursos de rede de forma conveniente e rápida.
+O observador de rede fornece uma exibição de [logs de diagnóstico](../../network-watcher/network-watcher-monitoring-overview.md) . Esta exibição contém todos os recursos de rede que dão suporte ao log de diagnóstico. Nessa exibição, você pode habilitar e desabilitar os recursos de rede de forma conveniente e rápida.
 
 ### <a name="network-resource-level-monitoring"></a>Monitoramento no nível de recurso de rede
 
@@ -585,7 +585,7 @@ Os seguintes recursos estão disponíveis para o monitoramento no nível do recu
 As operações executadas como parte da configuração de redes são registradas em log. Esses logs de auditoria são essenciais para estabelecer várias conformidades. Esses logs podem ser exibidos no portal do Azure ou recuperados usando ferramentas da Microsoft, como Power BI ou ferramentas de terceiros. Os logs de auditoria estão disponíveis por meio do portal, do PowerShell, da CLI e da API REST.
 
 > [!Note]
-> Para obter mais informações sobre logs de auditoria, consulte [operações de auditoria com o Gerenciador de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
+> Para obter mais informações sobre logs de auditoria, consulte [operações de auditoria com o Gerenciador de recursos](../../azure-resource-manager/resource-group-audit.md).
 Os logs de auditoria estão disponíveis para operações realizadas em todos os recursos de rede.
 
 
@@ -594,19 +594,19 @@ Os logs de auditoria estão disponíveis para operações realizadas em todos os
 Métricas são medidas de desempenho e contadores coletados em um período. As métricas estão disponíveis no momento para o gateway de aplicativo. Métricas podem ser usadas para disparar alertas com base no limite. O gateway de Aplicativo Azure, por padrão, monitora a integridade de todos os recursos em seu pool de back-ends e remove automaticamente qualquer recurso considerado não íntegro do pool. O gateway de aplicativo continua monitorando as instâncias não íntegras e as adiciona de volta ao pool de back-end íntegro quando elas ficam disponíveis e respondem a investigações de integridade. O gateway de aplicativo envia as investigações de integridade com a mesma porta que é definida nas configurações de HTTP de back-end. Essa configuração garante que a investigação esteja testando a mesma porta que os clientes usam para se conectar ao back-end.
 
 > [!Note]
-> Consulte [diagnóstico do gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview) para exibir como as métricas podem ser usadas para criar alertas.
+> Consulte [diagnóstico do gateway de aplicativo](../../application-gateway/application-gateway-probe-overview.md) para exibir como as métricas podem ser usadas para criar alertas.
 
 #### <a name="diagnostic-logs"></a>Registos de diagnósticos
 
-Eventos periódicos e ESPONTANEOS são criados por recursos de rede e registrados em contas de armazenamento, enviados a um hub de eventos ou logs de Azure Monitor. Esses logs fornecem informações sobre a integridade de um recurso. Esses logs podem ser exibidos em ferramentas como Power BI e Azure Monitor logs. Para saber como exibir os logs de diagnóstico, visite [Azure monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Eventos periódicos e ESPONTANEOS são criados por recursos de rede e registrados em contas de armazenamento, enviados a um hub de eventos ou logs de Azure Monitor. Esses logs fornecem informações sobre a integridade de um recurso. Esses logs podem ser exibidos em ferramentas como Power BI e Azure Monitor logs. Para saber como exibir os logs de diagnóstico, visite [Azure monitor logs](../../azure-monitor/insights/azure-networking-analytics.md).
 
-Os logs de diagnóstico estão disponíveis para [Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), rotas e gateway de [aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
+Os logs de diagnóstico estão disponíveis para [Load Balancer](../../load-balancer/load-balancer-monitor-log.md), [grupos de segurança de rede](../../virtual-network/virtual-network-nsg-manage-log.md), rotas e gateway de [aplicativo](../../application-gateway/application-gateway-diagnostics.md).
 
 O observador de rede fornece uma exibição de logs de diagnóstico. Esta exibição contém todos os recursos de rede que dão suporte ao log de diagnóstico. Nessa exibição, você pode habilitar e desabilitar os recursos de rede de forma conveniente e rápida.
 
 ### <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
-[Os logs de Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) são um serviço no Azure que monitora seus ambientes locais e de nuvem para manter a disponibilidade e o desempenho. Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens.
+[Os logs de Azure monitor](../../log-analytics/log-analytics-queries.md) são um serviço no Azure que monitora seus ambientes locais e de nuvem para manter a disponibilidade e o desempenho. Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens.
 
 Os logs de Azure Monitor oferecem as seguintes soluções para monitorar suas redes:
 
@@ -617,7 +617,7 @@ Os logs de Azure Monitor oferecem as seguintes soluções para monitorar suas re
 -   Análise do grupo de segurança de rede do Azure
 
 #### <a name="network-performance-monitor-npm"></a>Monitor de desempenho de rede (NPM)
-A solução de gerenciamento de [Monitor de desempenho de rede](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor) é uma solução de monitoramento de rede que monitora a integridade, a disponibilidade e a acessibilidade das redes.
+A solução de gerenciamento de [Monitor de desempenho de rede](../../azure-monitor/insights/network-performance-monitor.md) é uma solução de monitoramento de rede que monitora a integridade, a disponibilidade e a acessibilidade das redes.
 
 Ele é usado para monitorar a conectividade entre:
 
@@ -644,7 +644,7 @@ As métricas a seguir têm suporte para gateways de aplicativo:
 
 #### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Análise de grupo de segurança de rede do Azure em logs de Azure Monitor
 
-Os seguintes logs têm suporte para [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log):
+Os seguintes logs têm suporte para [grupos de segurança de rede](../../virtual-network/virtual-network-nsg-manage-log.md):
 
 - **NetworkSecurityGroupEvent:** Contém entradas para as quais as regras de NSG são aplicadas às VMs e funções de instância com base no endereço MAC. O status dessas regras é coletado a cada 60 segundos.
 
@@ -653,7 +653,7 @@ Os seguintes logs têm suporte para [grupos de segurança de rede](https://docs.
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre segurança lendo alguns dos nossos tópicos de segurança aprofundados:
 
--   [Logs de Azure Monitor para NSGs (grupos de segurança de rede)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-   [Logs de Azure Monitor para NSGs (grupos de segurança de rede)](../../virtual-network/virtual-network-nsg-manage-log.md)
 
 -   [Inovações de rede que conduzem a interrupção da nuvem](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 

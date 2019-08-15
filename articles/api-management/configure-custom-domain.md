@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b3513ab2583939943ff188b582f57f49530e5ded
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 45e1ad6bd757ec5acaf784c94e4cfb5e487ce9ba
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736248"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975743"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
 
@@ -34,7 +34,8 @@ Para executar as etapas descritas neste artigo, você deve ter:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 -   Uma instância de gerenciamento de API. Para obter mais informações, consulte [criar uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
--   Um nome de domínio personalizado que pertence a você. O nome de domínio personalizado que você deseja usar deve ser adquirido separadamente e hospedado em um servidor DNS. Este tópico não fornece instruções sobre como hospedar um nome de domínio personalizado.
+-   Um nome de domínio personalizado que pertence a você ou à sua organização. Este tópico não fornece instruções sobre como adquirir um nome de domínio personalizado.
+-   Um registro CNAME hospedado em um servidor DNS que mapeia o nome de domínio personalizado para o nome de domínio padrão da sua instância de gerenciamento de API. Este tópico não fornece instruções sobre como hospedar um registro CNAME.
 -   Você deve ter um certificado válido com uma chave pública e privada (. PFX). A entidade ou o nome alternativo da entidade (SAN) deve corresponder ao nome de domínio (isso permite que a instância do gerenciamento de API exponha URLs com segurança por SSL).
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Usar o portal do Azure para definir um nome de domínio personalizado
@@ -52,13 +53,17 @@ Para executar as etapas descritas neste artigo, você deve ter:
     > [!NOTE]
     > Somente o ponto de extremidade do **Gateway** está disponível para configuração na camada de consumo.
     > Você pode atualizar todos os pontos de extremidade ou alguns deles. Normalmente, os clientes atualizam o **Gateway** (essa URL é usada para chamar a API exposta por meio do gerenciamento de API) e do **portal** (a URL do portal do desenvolvedor).
-    > Os pontos de extremidade de **Gerenciamento** e **SCM** são usados internamente apenas pelos proprietários da instância do gerenciamento de API e, portanto, são atribuídos com menos frequência um nome de domínio personalizado. A camada **Premium** dá suporte à configuração de vários nomes de host para o ponto de extremidade do **Gateway** .
+    > Os pontos de extremidade de **Gerenciamento** e **SCM** são usados internamente apenas pelos proprietários da instância do gerenciamento de API e, portanto, são atribuídos com menos frequência um nome de domínio personalizado.
+    > A camada **Premium** dá suporte à configuração de vários nomes de host para o ponto de extremidade do **Gateway** .
 
 1. Selecione o ponto de extremidade que você deseja atualizar.
 1. Na janela à direita, clique em **personalizado**.
 
-    - No **nome de domínio personalizado**, especifique o nome que você deseja usar. Por exemplo, `api.contoso.com`. Também há suporte para nomes de domínio \*curinga (por exemplo,. domain.com).
+    - No **nome de domínio personalizado**, especifique o nome que você deseja usar. Por exemplo, `api.contoso.com`.
     - No **certificado**, selecione um certificado de Key Vault. Você também pode carregar um válido. Arquivo PFX e forneça sua **senha**, se o certificado estiver protegido com uma senha.
+
+    > [!NOTE]
+    > Os nomes de domínio curinga, `*.contoso.com` por exemplo, têm suporte em todas as camadas, exceto a camada de consumo.
 
     > [!TIP]
     > É recomendável usar Azure Key Vault para gerenciar certificados e defini-los para rotação automática.
@@ -79,8 +84,8 @@ Para executar as etapas descritas neste artigo, você deve ter:
 
 Ao configurar o DNS para seu nome de domínio personalizado, você tem duas opções:
 
-- Configure um registro CNAME que aponte para o ponto de extremidade do seu nome de domínio personalizado configurado.
-- Configure um registro A que aponta para seu endereço IP do gateway de gerenciamento de API.
+-   Configure um registro CNAME que aponte para o ponto de extremidade do seu nome de domínio personalizado configurado.
+-   Configure um registro A que aponta para seu endereço IP do gateway de gerenciamento de API.
 
 > [!NOTE]
 > Embora o endereço IP da instância de gerenciamento de API seja estático, ele pode ser alterado em alguns cenários. Por isso, é recomendável usar CNAME ao configurar o domínio personalizado. Leve isso em consideração ao escolher o método de configuração de DNS. Leia mais nas [perguntas frequentes sobre a API Mananagement](https://docs.microsoft.com/azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules).

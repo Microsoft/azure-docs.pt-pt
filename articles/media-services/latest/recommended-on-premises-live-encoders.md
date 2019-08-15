@@ -6,15 +6,15 @@ keywords: codificação; codificadores; mídia
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 08/16/2019
+ms.date: 08/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 1f152f7f94c12beecf015d9389ed85cb310573bd
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6b9cb325f2bb7419e32efd5bde4705786c5dbeb5
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297728"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934934"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificadores de transmissão ao vivo recomendados
 
@@ -129,6 +129,6 @@ Siga as mesmas etapas da [verificação de eventos ao vivo de passagem](#pass-th
 
 Por fim, envie por email suas configurações gravadas e os parâmetros de arquivamento dinâmico para os serviços de mídia do Azure em amshelp@microsoft.com uma notificação de que todas as verificações de Autoverificação passaram. Além disso, inclua suas informações de contato para qualquer acompanhamento. Você pode entrar em contato com a equipe dos serviços de mídia do Azure com perguntas sobre esse processo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Transmissão ao vivo com os serviços de mídia v3](live-streaming-overview.md)

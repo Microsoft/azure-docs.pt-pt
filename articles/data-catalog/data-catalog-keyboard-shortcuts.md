@@ -1,20 +1,22 @@
 ---
 title: Atalhos de teclado do Catálogo de Dados do Azure
-description: Este artigo mostra os atalhos de teclado para o catálogo de dados do Azure.
+description: Este artigo mostra uma lista de atalhos de teclado que você pode usar no catálogo de dados do Azure.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 499067f33bddbede6510f61e2cb5da3fb33a5e7c
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 72d1ce0ded61b1143f99769319892981f3cd1c10
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736308"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014441"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Atalhos de teclado do Catálogo de Dados do Azure
+
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Atalhos de teclado para a ferramenta de registro de fonte de dados do catálogo de dados
+
 ### <a name="general-keyboard-shortcuts"></a>Atalhos gerais de teclado
 | Operação | Impressão |
 | --- | --- |

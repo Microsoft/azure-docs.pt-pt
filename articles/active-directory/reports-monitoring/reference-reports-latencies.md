@@ -1,9 +1,9 @@
 ---
-title: O Azure Active Directory latências dos relatórios | Documentos da Microsoft
-description: Saiba mais sobre a quantidade de tempo que demora para eventos de relatório a aparecer no portal do Azure
+title: Azure Active Directoryndo latências de relatório | Microsoft Docs
+description: Saiba mais sobre a quantidade de tempo que leva para relatar eventos a serem exibidos em seu portal do Azure
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
@@ -14,74 +14,74 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 05/13/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f57f09f146e542768c83fa034f0b4e65bc6b2ae
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65594028"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987916"
 ---
-# <a name="azure-active-directory-reporting-latencies"></a>O Azure Active Directory latências dos relatórios
+# <a name="azure-active-directory-reporting-latencies"></a>Latências de Azure Active Directory relatórios
 
-Latência é a quantidade de tempo necessário para o Azure Active Directory (Azure AD) dados de relatórios a aparecer no [portal do Azure](https://portal.azure.com). Este artigo apresenta a latência esperada para os diferentes tipos de relatórios. 
+Latência é a quantidade de tempo que leva para os dados de relatório do Azure Active Directory (AD do Azure) aparecerem no [portal do Azure](https://portal.azure.com). Este artigo lista a latência esperada para os diferentes tipos de relatórios. 
 
 ## <a name="activity-reports"></a>Relatórios de atividade
 
-Existem dois tipos de relatórios de atividade:
+Há dois tipos de relatórios de atividade:
 
-- [Inícios de sessão](concept-sign-ins.md) – fornece informações sobre a utilização de aplicações geridas e utilizador atividades de início de sessão
-- [Registos de auditoria](concept-audit-logs.md) -fornece informações de atividade do sistema sobre utilizadores e grupos, aplicações geridas e atividades de diretório
+- [Entradas](concept-sign-ins.md) – fornece informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário
+- [Logs de auditoria](concept-audit-logs.md) – fornece informações de atividade do sistema sobre usuários e grupos, aplicativos gerenciados e atividades de diretório
 
-A tabela seguinte lista as informações de latência para relatórios de atividade. 
+A tabela a seguir lista as informações de latência para relatórios de atividade. 
 
 > [!NOTE]
-> **Latência (o percentil 95)** refere-se até ao momento em que serão comunicadas 95% dos registos, e **latência (99 por cento dos)** refere-se ao tempo pelo qual serão comunicadas 99% dos registos. 
+> **Latência (95 º percentil)** refere-se ao tempo pelo qual 95% dos logs serão relatados e **latência (99 º percentil)** refere-se ao tempo pelo qual 99% dos logs serão relatados. 
 >
 
-| Relatório | Latência (o percentil 95) |Latência (99 por cento dos)|
+| Relatório | Latência (95 º percentil) |Latência (99 º percentil)|
 | :-- | --- | --- |
 | Registos de auditoria | 2 mins  | 5 mins  |
 | Inícios de sessão | 2 mins  | 5 mins |
 
-### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Assim como pode ver dados de atividades depois de obter uma licença premium?
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Quanto tempo é possível ver os dados das atividades depois de obter uma licença Premium?
 
-Se já tiver dados de atividades com sua licença gratuita, em seguida, pode vê-lo imediatamente a actualização. Se não tiver quaisquer dados, em seguida, irá demorar um ou dois dias para os dados sejam apresentados nos relatórios depois de atualizar para uma licença premium.
+Se você já tiver dados de atividades com sua licença gratuita, poderá vê-los imediatamente na atualização. Se você não tiver dados, levará um ou dois dias para que os dados sejam exibidos nos relatórios após a atualização para uma licença Premium.
 
 ## <a name="security-reports"></a>Relatórios de segurança
 
-Existem dois tipos de relatórios de segurança:
+Há dois tipos de relatórios de segurança:
 
 - [Inícios de sessão de risco](concept-risky-sign-ins.md) – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador. 
 - [Utilizadores sinalizados para risco](concept-user-at-risk.md) – Um utilizador de risco é um indicador de uma conta de utilizador que pode ter sido comprometida. 
 
-A tabela seguinte lista as informações de latência para relatórios de segurança.
+A tabela a seguir lista as informações de latência para relatórios de segurança.
 
-| Relatório | Mínimo | Média | Máximo |
+| Relatório | Mínimo | Average | Máximo |
 | :-- | --- | --- | --- |
-| Utilizadores em risco          | 5 minutos   | 15 minutos  | 2 horas  |
-| Inícios de sessão de risco         | 5 minutos   | 15 minutos  | 2 horas  |
+| Utilizadores em risco          | 5 minutos   | 15 minutos  | Duas horas  |
+| Inícios de sessão de risco         | 5 minutos   | 15 minutos  | Duas horas  |
 
 ## <a name="risk-events"></a>Eventos de risco
 
-Azure AD utiliza de machine learning e heurística de algoritmos para detectar ações suspeitas relacionadas com as contas de utilizador. Cada detetado, ação suspeita é armazenada num registo denominado um **evento de risco**.
+O Azure AD usa algoritmos de aprendizado de máquina adaptáveis e heurística para detectar ações suspeitas relacionadas às suas contas de usuário. Cada ação suspeita detectada é armazenada em um registro chamado **evento de risco**.
 
-A tabela seguinte lista as informações de latência para eventos de risco.
+A tabela a seguir lista as informações de latência para eventos de risco.
 
-| Relatório | Mínimo | Média | Máximo |
+| Relatório | Mínimo | Average | Máximo |
 | :-- | --- | --- | --- |
-| Inícios de sessão de endereços IP anónimos |5 minutos |15 Minutos |2 horas |
-| Inícios de sessão de localizações desconhecidas |5 minutos |15 Minutos |2 horas |
-| Utilizadores com fuga de credenciais |2 horas |4 horas |8 horas |
+| Inícios de sessão de endereços IP anónimos |5 minutos |15 Minutos |Duas horas |
+| Inícios de sessão de localizações desconhecidas |5 minutos |15 Minutos |Duas horas |
+| Utilizadores com fuga de credenciais |Duas horas |4 horas |8 horas |
 | Deslocação impossível para localizações atípicas |5 minutos |1 hora |8 horas  |
-| Inícios de sessão de dispositivos infetados |2 horas |4 horas |8 horas  |
-| Inícios de sessão de endereços IP com atividade suspeita |2 horas |4 horas |8 horas  |
+| Inícios de sessão de dispositivos infetados |Duas horas |4 horas |8 horas  |
+| Inícios de sessão de endereços IP com atividade suspeita |Duas horas |4 horas |8 horas  |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Descrição geral de relatórios do Azure AD](overview-reports.md)
+* [Visão geral dos relatórios do Azure AD](overview-reports.md)
 * [Acesso programático aos relatórios do Azure AD](concept-reporting-api.md)
 * [Eventos de risco do Azure Active Directory](concept-risk-events.md)

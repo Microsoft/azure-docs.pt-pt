@@ -1,58 +1,58 @@
 ---
-title: Conta de armazenamento do Azure Key Vault geridos - versão do PowerShell
-description: A funcionalidade da conta de armazenamento gerido fornece uma integração de seemless, entre o Azure Key Vault e uma conta de armazenamento do Azure.
+title: Conta de armazenamento gerenciado Azure Key Vault-versão do PowerShell
+description: O recurso de conta de armazenamento gerenciada fornece uma integração aparentemente desproporcionada, entre Azure Key Vault e uma conta de armazenamento do Azure.
 ms.topic: conceptual
 ms.service: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 9b6089aa828b5667f100c1a8cbff3e69345e4512
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 708c34347966eee7817ca04e0552dcba233765cb
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150428"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934502"
 ---
-# <a name="azure-key-vault-managed-storage-account---powershell"></a>O Azure Key Vault geridos a conta de armazenamento - PowerShell
+# <a name="azure-key-vault-managed-storage-account---powershell"></a>Azure Key Vault conta de armazenamento gerenciado-PowerShell
 
 > [!NOTE]
-> [Integração de armazenamento do Azure com o Azure Active Directory (Azure AD) está agora em pré-visualização](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Recomendamos a utilização do Azure AD para autenticação e autorização, que fornece acesso baseado em tokens do OAuth2 ao armazenamento do Azure, tal como o Azure Key Vault. Isto permite-lhe:
-> - Autenticar a sua aplicação de cliente com uma identidade de utilizador ou aplicação, em vez das credenciais da conta de armazenamento. 
-> - Utilize um [identidade gerida do Azure AD](/azure/active-directory/managed-identities-azure-resources/) quando em execução no Azure. Gerido identidades remove a necessidade de autenticação de cliente em conjunto e armazenar credenciais no ou com a sua aplicação.
-> - Utilize o controlo de acesso baseado em ' (RBAC) da função para gerir a autorização, que também é suportada pelo Key Vault.
+> [A integração do armazenamento do Azure com o Azure Active Directory (Azure AD) agora está em visualização](../storage/common/storage-auth-aad.md). É recomendável usar o Azure AD para autenticação e autorização, que fornece acesso baseado em token OAuth2 ao armazenamento do Azure, assim como Azure Key Vault. Isso permite que você:
+> - Autentique seu aplicativo cliente usando uma identidade de aplicativo ou de usuário, em vez de credenciais de conta de armazenamento. 
+> - Use uma [identidade gerenciada do Azure ad](/azure/active-directory/managed-identities-azure-resources/) ao executar no Azure. Identidades gerenciadas eliminam a necessidade de autenticação de cliente e armazenam credenciais em ou com seu aplicativo.
+> - Use o RBAC (controle de acesso baseado em função) para gerenciar a autorização, que também tem suporte pelo Key Vault.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Uma [conta de armazenamento do Azure](/azure/storage/storage-create-storage-account) utiliza uma credencial que consiste num nome de conta e uma chave. A chave é gerado automaticamente e serve mais como uma "palavra-passe" em vez de uma chave criptográfica. Cofre de chaves pode gerir estas chaves de conta de armazenamento, armazenando-os como [segredos do Key Vault](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
+Uma [conta de armazenamento do Azure](/azure/storage/storage-create-storage-account) usa uma credencial que consiste em um nome de conta e uma chave. A chave é gerada automaticamente e serve mais como uma "senha" em vez de uma chave criptográfica. Key Vault pode gerenciar essas chaves de conta de armazenamento, armazenando-as como [segredos Key Vault](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
 
 ## <a name="overview"></a>Descrição geral
 
-O Cofre de chaves geridas recurso executa várias funções de gerenciamento em seu nome de conta de armazenamento:
+O recurso Key Vault conta de armazenamento gerenciado executa várias funções de gerenciamento em seu nome:
 
-- Chaves de listas (sincronizações) com uma conta de armazenamento do Azure.
-- Regenera (roda) as chaves periodicamente.
-- Gere chaves para contas de armazenamento e as contas de armazenamento clássico.
-- Valores de chaves nunca são retornados em resposta ao chamador.
+- Lista (sincroniza) chaves com uma conta de armazenamento do Azure.
+- Gera novamente (gira) as chaves periodicamente.
+- Gerencia chaves para contas de armazenamento e contas de armazenamento clássico.
+- Os valores de chave nunca são retornados em resposta ao chamador.
 
-Quando utiliza a funcionalidade de chave de conta de armazenamento gerido:
+Quando você usa o recurso chave de conta de armazenamento gerenciado:
 
-- **Permitir apenas o Key Vault para gerir as chaves de conta de armazenamento.** Não tente geri-los por conta própria, pois irá interferir com os processos de Key Vault.
-- **Não permitir que as chaves de conta de armazenamento ser gerido por mais de um objeto do Cofre de chaves**.
-- **Manualmente não voltar a gerar as chaves de conta de armazenamento**. Recomendamos que regenere-los através do Key Vault.
+- **Permita apenas Key Vault gerenciar suas chaves de conta de armazenamento.** Não tente gerenciá-los por conta própria, pois você interferirá com os processos de Key Vault.
+- **Não permita que as chaves da conta de armazenamento sejam gerenciadas por mais de um objeto Key Vault**.
+- **Não regenere manualmente as chaves da conta de armazenamento**. Recomendamos que você os gere novamente por meio de Key Vault.
 
-O exemplo seguinte mostra como permitir que o Key Vault para gerir as chaves de conta de armazenamento.
+O exemplo a seguir mostra como permitir que Key Vault gerenciem suas chaves de conta de armazenamento.
 
-## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>Autorizar o Key Vault para aceder à sua conta de armazenamento
+## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>Autorizar Key Vault a acessar sua conta de armazenamento
 
 > [!IMPORTANT]
-> Um inquilino do Azure AD fornece cada aplicação registada com um  **[principal de serviço](/azure/active-directory/develop/developer-glossary#service-principal-object)** , que serve como identidade da aplicação. ID da aplicação do principal de serviço é utilizado quando dando a ele autorização para aceder a outros recursos do Azure, através do controlo de acesso baseado em funções (RBAC). Uma vez que o Key Vault é um aplicativo da Microsoft, previamente está registado em todos os inquilinos do Azure AD sob o mesmo ID de aplicação, dentro de cada cloud do Azure:
-> - Utilizam o Azure AD inquilinos na cloud do Azure government ID da aplicação `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
-> - ID da aplicação de utilizar do Azure AD inquilinos na cloud pública do Azure e todos os outros `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
+> Um locatário do Azure AD fornece a cada aplicativo registrado uma **[entidade de serviço](/azure/active-directory/develop/developer-glossary#service-principal-object)** , que serve como a identidade do aplicativo. A ID do aplicativo da entidade de serviço é usada ao fornecer autorização de ti para acessar outros recursos do Azure, por meio do controle de acesso baseado em função (RBAC). Como Key Vault é um aplicativo da Microsoft, ele é previamente registrado em todos os locatários do Azure AD com a mesma ID de aplicativo em cada nuvem do Azure:
+> - Locatários do Azure AD na nuvem do Azure governamental usam `7e7c393b-45d0-48b1-a35e-2905ddf8183c`a ID do aplicativo.
+> - Locatários do Azure AD na nuvem pública do Azure e todos os outros `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`usam a ID do aplicativo.
 
-Antes de Key Vault pode aceder e gerir as chaves de conta de armazenamento, tem de autorizar o acesso da sua conta de armazenamento. A aplicação do Key Vault requer permissões para *lista* e *voltar a gerar* chaves para a sua conta de armazenamento. Estas permissões são habilitadas através da função RBAC incorporada [função de serviço de operador de chave de conta de armazenamento](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
+Antes que Key Vault possa acessar e gerenciar suas chaves de conta de armazenamento, você deve autorizar seu acesso à sua conta de armazenamento. O aplicativo Key Vault requer permissões para *listar* e *regenerar* chaves para sua conta de armazenamento. Essas permissões são habilitadas por meio da [função de serviço do operador chave de conta de armazenamento](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role)de função RBAC interna. 
 
-Atribua esta função para o Cofre de chave principal de serviço, limitar o âmbito para a sua conta de armazenamento, utilizando os passos seguintes. Certifique-se de que atualizar o `$resourceGroupName`, `$storageAccountName`, `$storageAccountKey`, e `$keyVaultName` variáveis antes de executar o script:
+Atribua essa função à entidade de serviço Key Vault, limitando o escopo à sua conta de armazenamento, usando as etapas a seguir. Certifique-se de atualizar `$resourceGroupName`as `$storageAccountName`variáveis `$storageAccountKey`,, `$keyVaultName` e antes de executar o script:
 
 ```azurepowershell-interactive
 # TODO: Update with the resource group where your storage account resides, your storage account name, the name of your active storage account key, and your Key Vault instance name
@@ -72,7 +72,7 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -St
 New-AzRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 ```
 
-Após a atribuição de função efetuada com êxito, deverá ver um resultado semelhante ao seguinte exemplo:
+Após a atribuição de função bem-sucedida, você deverá ver uma saída semelhante ao exemplo a seguir:
 
 ```console
 RoleAssignmentId   : /subscriptions/03f0blll-ce69-483a-a092-d06ea46dfb8z/resourceGroups/rgContoso/providers/Microsoft.Storage/storageAccounts/sacontoso/providers/Microsoft.Authorization/roleAssignments/189cblll-12fb-406e-8699-4eef8b2b9ecz
@@ -86,14 +86,14 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-Se o Cofre de chaves já foi adicionado à função na sua conta de armazenamento, receberá um *"a atribuição de função já existe."* Erro. Também pode verificar a atribuição de função, usando a página de "Controlo de acesso (IAM)" da conta de armazenamento no portal do Azure.  
+Se Key Vault já tiver sido adicionada à função em sua conta de armazenamento, você receberá uma mensagem *"a atribuição de função já existe".* ao. Você também pode verificar a atribuição de função usando a página "controle de acesso (IAM)" da conta de armazenamento na portal do Azure.  
 
-## <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Conceder permissão de conta de utilizador para contas de armazenamento gerido
+## <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Dê permissão à sua conta de usuário para contas de armazenamento gerenciadas
 
 >[!TIP] 
-> Tal como o Azure AD fornece um **principal de serviço** para a identidade de um aplicativo, uma **principal de utilizador** é fornecido para a identidade do utilizador. O principal de utilizador, em seguida, pode receber autorização para aceder ao Cofre de chaves, através de permissões de política de acesso do Cofre de chaves.
+> Assim como o Azure AD fornece uma **entidade de serviço** para a identidade de um aplicativo, uma entidade de **usuário** é fornecida para a identidade de um usuário. A entidade de usuário pode receber autorização para acessar Key Vault, por meio de permissões de política de acesso Key Vault.
 
-Utilizar a mesma sessão do PowerShell, atualize a política de acesso do Cofre de chaves para contas de armazenamento gerido. Este passo aplica-se as permissões de conta de armazenamento à sua conta de utilizador, garantindo que pode acessar os recursos da conta de armazenamento gerido: 
+Usando a mesma sessão do PowerShell, atualize a política de acesso de Key Vault para contas de armazenamento gerenciadas. Esta etapa aplica permissões de conta de armazenamento à sua conta de usuário, garantindo que você possa acessar os recursos da conta de armazenamento gerenciado: 
 
 ```azurepowershell-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
@@ -101,18 +101,18 @@ Utilizar a mesma sessão do PowerShell, atualize a política de acesso do Cofre 
 Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $azureProfile.Context.Account.Id -PermissionsToStorage get, list, listsas, delete, set, update, regeneratekey, recover, backup, restore, purge
 ```
 
-Tenha em atenção que as permissões para contas de armazenamento não estão disponíveis na página de "Políticas de acesso" da conta de armazenamento no portal do Azure.
+Observe que as permissões para contas de armazenamento não estão disponíveis na página "políticas de acesso" da conta de armazenamento no portal do Azure.
 
-## <a name="add-a-managed-storage-account-to-your-key-vault-instance"></a>Adicionar uma conta de armazenamento gerido para a sua instância do Key Vault
+## <a name="add-a-managed-storage-account-to-your-key-vault-instance"></a>Adicionar uma conta de armazenamento gerenciado à sua instância do Key Vault
 
-Utilizar a mesma sessão do PowerShell, crie uma conta de armazenamento gerido na sua instância do Key Vault. O `-DisableAutoRegenerateKey` comutador Especifica para não voltar a gerar as chaves de conta de armazenamento.
+Usando a mesma sessão do PowerShell, crie uma conta de armazenamento gerenciado em sua instância de Key Vault. A `-DisableAutoRegenerateKey` opção especifica não gerar novamente as chaves da conta de armazenamento.
 
 ```azurepowershell-interactive
 # Add your storage account to your Key Vault's managed storage accounts
 Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -DisableAutoRegenerateKey
 ```
 
-Após a adição concluída com êxito a conta de armazenamento com nenhuma nova geração de chaves, deverá ver um resultado semelhante ao seguinte exemplo:
+Após a adição bem-sucedida da conta de armazenamento sem nova geração de chave, você deverá ver uma saída semelhante ao exemplo a seguir:
 
 ```console
 Id                  : https://kvcontoso.vault.azure.net:443/storage/sacontoso
@@ -128,16 +128,16 @@ Updated             : 11/19/2018 11:54:47 PM
 Tags                : 
 ```
 
-### <a name="enable-key-regeneration"></a>Ativar a nova geração de chaves
+### <a name="enable-key-regeneration"></a>Habilitar regeneração de chave
 
-Se pretender que o Cofre de chaves para regenerar as chaves de conta de armazenamento periodicamente, pode definir um período de regeneração. No exemplo a seguir, definimos um período de regeneração de três dias. Após três dias, o Cofre de chaves irá regenerar 'chave1' e trocar a chave ativa de 'chave2' para 'chave1'.
+Se desejar que Key Vault regenerar as chaves da conta de armazenamento periodicamente, você poderá definir um período de regeneração. No exemplo a seguir, definimos um período de regeneração de três dias. Após três dias, Key Vault regenerará ' key1 ' e permutará a chave ativa de ' Key2 ' para ' key1 '.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
 Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
 ```
 
-Após a adição concluída com êxito a conta de armazenamento com a nova geração de chaves, deverá ver um resultado semelhante ao seguinte exemplo:
+Após a adição bem-sucedida da conta de armazenamento com a regeneração de chave, você deverá ver uma saída semelhante ao exemplo a seguir:
 
 ```console
 Id                  : https://kvcontoso.vault.azure.net:443/storage/sacontoso
@@ -153,8 +153,8 @@ Updated             : 11/19/2018 11:54:47 PM
 Tags                : 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Gerido exemplos de chave de conta de armazenamento](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
+- [Exemplos de chave de conta de armazenamento gerenciado](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
 - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
-- [Referência do PowerShell do Cofre de chaves](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
+- [Referência do Key Vault PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)

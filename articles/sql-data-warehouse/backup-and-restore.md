@@ -1,6 +1,6 @@
 ---
-title: Restauro - instantâneos, georredundante e cópia de segurança do armazém de dados SQL do Azure | Documentos da Microsoft
-description: Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Backups de armazém de dados de utilização para restaurar o seu armazém de dados para um ponto de restauro na região primária. Utilize cópias de segurança georredundante para restaurar para uma região geográfica diferente.
+title: Backup e restauração do Azure SQL Data Warehouse-instantâneos, com redundância geográfica | Microsoft Docs
+description: Saiba como o backup e a restauração funcionam no Azure SQL Data Warehouse. Use data warehouse backups para restaurar o data warehouse para um ponto de restauração na região primária. Use backups com redundância geográfica para restaurar para uma região geográfica diferente.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,30 +10,30 @@ ms.subservice: manage
 ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 84ad88ef738f798103a1d5bf8f9c8504433686a7
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 90544e182eb25f53232cee9a4dd0c05bd25508a3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653194"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988477"
 ---
-# <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Cópia de segurança e restauro no Azure SQL Data Warehouse
+# <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Backup e restauração no Azure SQL Data Warehouse
 
-Saiba como utilizar a cópia de segurança e restaurar no Azure SQL Data Warehouse. Utilize pontos de restauro do armazém de dados para recuperar ou copiar o armazém de dados para um estado anterior na região primária. As cópias de segurança georredundante para restaurar para uma região geográfica diferente do armazém de dados de utilização.
+Saiba como usar o backup e a restauração no Azure SQL Data Warehouse. Use data warehouse pontos de restauração para recuperar ou copiar seus data warehouse para um estado anterior na região primária. Use data warehouse backups com redundância geográfica para restaurar para uma região geográfica diferente.
 
-## <a name="what-is-a-data-warehouse-snapshot"></a>O que é um instantâneo do armazém de dados
+## <a name="what-is-a-data-warehouse-snapshot"></a>O que é um instantâneo data warehouse
 
-R *instantâneo de armazém de dados* cria um ponto de restauro que pode aproveitar para recuperar ou cópia do armazém de dados para um estado anterior.  Uma vez que o SQL Data Warehouse é um sistema distribuído, um instantâneo do armazém de dados consiste em muitos ficheiros que estão localizados no armazenamento do Azure. Instantâneos capturam as alterações incrementais dos dados armazenados no seu armazém de dados.
+Um *instantâneo data warehouse* cria um ponto de restauração que você pode aproveitar para recuperar ou copiar seus data warehouse para um estado anterior.  Como SQL Data Warehouse é um sistema distribuído, um instantâneo de data warehouse consiste em muitos arquivos que estão localizados no armazenamento do Azure. Os instantâneos capturam alterações incrementais dos dados armazenados em seu data warehouse.
 
-R *restauro do armazém de dados* é um novo armazém de dados que é criado a partir de um ponto de restauro de um existente ou o armazém de dados eliminado. Restaurar o seu armazém de dados é uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade comercial, porque ele cria novamente os dados depois de danos acidentais ou eliminação. Armazém de dados também é um mecanismo poderoso para criar cópias do seu armazém de dados para fins de teste ou desenvolvimento.  Tarifas de restauro do SQL Data Warehouse podem variar dependendo do tamanho de base de dados e a localização do armazém de dados de origem e de destino. Em média na mesma região, taxas de restauro normalmente demoram cerca de 20 minutos. 
+Uma *restauração de data warehouse* é uma nova data warehouse que é criada a partir de um ponto de restauração de um data warehouse existente ou excluído. A restauração de sua data warehouse é uma parte essencial de qualquer estratégia de continuidade de negócios e recuperação de desastres, pois ela recria seus dados após a corrupção ou exclusão acidental. O data warehouse também é um mecanismo poderoso para criar cópias do seu data warehouse para fins de teste ou desenvolvimento.  SQL Data Warehouse taxas de restauração podem variar dependendo do tamanho do banco de dados e do local da data warehouse de origem e de destino. Em média na mesma região, as taxas de restauração normalmente levam cerca de 20 minutos. 
 
-## <a name="automatic-restore-points"></a>Pontos de restauro automático
+## <a name="automatic-restore-points"></a>Pontos de Restauro Automático
 
-Os instantâneos são uma funcionalidade incorporada do serviço que cria pontos de restauro. Não é necessário que ativar esta capacidade. Pontos de restauro automático atualmente não não possível eliminar por utilizadores onde o serviço utiliza estes restaurar aponta para manter os SLAs para recuperação.
+Instantâneos são um recurso interno do serviço que cria pontos de restauração. Você não precisa habilitar esse recurso. Atualmente, os pontos de restauração automáticos não podem ser excluídos por usuários em que o serviço usa esses pontos de restauração para manter os SLAs para recuperação.
 
-O SQL Data Warehouse tira instantâneos do seu armazém de dados ao longo do dia a criação de pontos de restauro que estão disponíveis durante sete dias. Não é possível alterar o período de retenção. SQL Data Warehouse suporta um objetivo de ponto de recuperação de oito horas (RPO). Pode restaurar o armazém de dados na região primária a partir de qualquer um dos instantâneos realizados nos últimos sete dias.
+SQL Data Warehouse Obtém instantâneos de seu data warehouse ao longo do dia criando pontos de restauração que estão disponíveis por sete dias. Este período de retenção não pode ser alterado. O SQL Data Warehouse dá suporte a um RPO (objetivo de ponto de recuperação) de oito horas. Você pode restaurar seu data warehouse na região primária de qualquer um dos instantâneos tirados nos últimos sete dias.
 
-Para ver quando o último instantâneo iniciado, execute esta consulta no seu armazém de dados online do SQL.
+Para ver quando o último instantâneo foi iniciado, execute esta consulta em seu SQL Data Warehouse online.
 
 ```sql
 select   top 1 *
@@ -42,70 +42,70 @@ order by run_id desc
 ;
 ```
 
-## <a name="user-defined-restore-points"></a>Pontos de restauro definidas pelo utilizador
+## <a name="user-defined-restore-points"></a>Pontos de Restauro Definidos pelo Utilizador
 
-Esta funcionalidade permite-lhe manualmente os instantâneos de Acionador para criar pontos de restauração do seu armazém de dados antes e depois grandes modificações. Esta capacidade assegura que os pontos de restauração estão logicamente consistentes, que fornece proteção de dados adicional em caso de quaisquer interrupções de carga de trabalho ou erros de utilizador para o tempo de recuperação rápida. Pontos de restauro definidas pelo utilizador estão disponíveis durante sete dias e são automaticamente eliminados em seu nome. Não é possível alterar o período de retenção de pontos de restauro definidas pelo utilizador. **pontos de restauro de 42 definidas pelo utilizador** são garantidas em qualquer ponto no tempo para que estes têm de estar [eliminado](https://go.microsoft.com/fwlink/?linkid=875299) antes de criar outro ponto de restauro. Pode acionar instantâneos para criar pontos de restauro definidas pelo utilizador através da [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) ou o portal do Azure.
+Esse recurso permite que você acione manualmente os instantâneos para criar pontos de restauração do seu data warehouse antes e depois de grandes modificações. Esse recurso garante que os pontos de restauração sejam logicamente consistentes, o que fornece proteção de dados adicional no caso de quaisquer interrupções de carga de trabalho ou erros de usuário para o tempo de recuperação rápida. Os pontos de restauração definidos pelo usuário estão disponíveis por sete dias e são excluídos automaticamente em seu nome. Você não pode alterar o período de retenção de pontos de restauração definidos pelo usuário. **42 pontos de restauração definidos pelo usuário** são garantidos em qualquer ponto no tempo para que eles devam ser [excluídos](https://go.microsoft.com/fwlink/?linkid=875299) antes de criar outro ponto de restauração. Você pode disparar instantâneos para criar pontos de restauração definidos pelo usuário por meio do [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) ou do portal do Azure.
 
 > [!NOTE]
-> Se necessitar de mais de 7 dias de pontos de restauração, votar, para esta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Também pode criar um ponto de restauro definidas pelo utilizador e restaurar a partir do ponto de restauro recentemente criado para um novo armazém de dados. Depois de ter restaurado, ter o armazém de dados online e pode colocar em pausa indefinidamente para reduzir os custos de computação. A base de dados em pausa leva a custos de armazenamento à tarifa de armazenamento Premium do Azure. Se precisar de uma cópia ativa do armazém de dados restaurada, pode retomar o que deverá demorar apenas alguns minutos.
+> Se você precisar de pontos de restauração por mais de 7 dias, vote nesse recurso [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Você também pode criar um ponto de restauração definido pelo usuário e restaurar do ponto de restauração recém-criado para um novo data warehouse. Depois de ter restaurado, você tem o data warehouse online e pode pausá-lo indefinidamente para economizar custos de computação. O banco de dados em pausa provoca encargos de armazenamento na taxa de armazenamento Premium do Azure. Se precisar de uma cópia ativa do data warehouse restaurado, você poderá retomar, o que deve levar apenas alguns minutos.
 
-### <a name="restore-point-retention"></a>Retenção do ponto de restauro
+### <a name="restore-point-retention"></a>Retenção do ponto de restauração
 
-Os seguintes detalhes de listas para períodos de retenção do ponto de restauro:
+A lista a seguir detalha os períodos de retenção do ponto de restauração:
 
-1. O SQL Data Warehouse elimina um ponto de restauro, quando ela atinge o período de retenção de 7 dias **e** quando existem, pelo menos, 42 pontos de restauro total (incluindo definidas pelo utilizador e automática)
-2. Não são tirados instantâneos quando um armazém de dados está em pausa
-3. A duração de um ponto de restauro é medida aos dias de calendário absoluto desde o momento em que o ponto de restauro está a ser utilizado incluindo quando o armazém de dados está em pausa
-4. Em qualquer altura, é garantido que um armazém de dados poderá armazenar até 42 pontos de restauro definidas pelo utilizador e 42 pontos de restauro automático, desde que esses pontos de restauro não atingiu o período de retenção de 7 dias
-5. Se um instantâneo, o armazém de dados, em seguida, fica em pausa durante mais de 7 dias e, em seguida, retoma, é possível que o ponto de restauro persistir até que haja 42 pontos de restauro total (incluindo definidas pelo utilizador e automática)
+1. SQL Data Warehouse exclui um ponto de restauração quando atinge o período de retenção de 7 dias **e** quando há pelo menos 42 pontos de restauração totais (incluindo os definidos pelo usuário e automaticamente)
+2. Os instantâneos não são feitos quando um data warehouse é pausado
+3. A idade de um ponto de restauração é medida pelos dias de calendário absolutos a partir do momento em que o ponto de restauração é feito, incluindo quando o data warehouse está em pausa
+4. A qualquer momento, é garantido que um data warehouse seja capaz de armazenar até 42 pontos de restauração definidos pelo usuário e 42 pontos de restauração automáticos, contanto que esses pontos de restauração não tenham atingido o período de retenção de 7 dias
+5. Se um instantâneo for obtido, a data warehouse será pausada por mais de 7 dias e, em seguida, retomará, é possível que o ponto de restauração persista até que haja 42 de pontos de restauração totais (incluindo os definidos pelo usuário e automaticamente)
 
-### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Retenção de instantâneo quando é arrastado para um armazém de dados
+### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Retenção de instantâneo quando um data warehouse é Descartado
 
-Quando remover um armazém de dados, o SQL Data Warehouse cria um instantâneo final e guarda-o durante sete dias. Pode restaurar o armazém de dados para o ponto de restauro final criado na eliminação.
+Quando você remove um data warehouse, SQL Data Warehouse cria um instantâneo final e o salva por sete dias. Você pode restaurar o data warehouse para o ponto de restauração final criado na exclusão.
 
 > [!IMPORTANT]
-> Se eliminar uma instância do SQL server lógica, todas as bases de dados que pertencem à instância também são eliminados e não podem ser recuperados. Não é possível restaurar um servidor foi eliminado.
+> Se você excluir uma instância lógica do SQL Server, todos os bancos de dados que pertencem à instância também serão excluídos e não poderão ser recuperados. Não é possível restaurar um servidor excluído.
 
-## <a name="geo-backups-and-disaster-recovery"></a>Após desastre e cópias de segurança geo recuperação
+## <a name="geo-backups-and-disaster-recovery"></a>Backups geográficos e recuperação de desastre
 
-O SQL Data Warehouse efetua uma cópia de segurança geo uma vez por dia para uma [Centro de dados emparelhado](../best-practices-availability-paired-regions.md). O RPO para um georrestauro é de 24 horas. Pode restaurar a cópia de segurança geo para um servidor em qualquer outra região em que o SQL Data Warehouse é suportado. Uma cópia de segurança geo assegura que pode restaurar o armazém de dados no caso de não conseguir aceder os pontos de restauro na sua região primária.
+SQL Data Warehouse executa um backup geográfico uma vez por dia para um [Data Center emparelhado](../best-practices-availability-paired-regions.md). O RPO para uma restauração geográfica é de 24 horas. Você pode restaurar o backup geográfico para um servidor em qualquer outra região em que SQL Data Warehouse tem suporte. Um backup geográfico garante que você possa restaurar data warehouse caso não seja possível acessar os pontos de restauração em sua região primária.
 
-Cópias de segurança geo são ativados por padrão. Se o seu armazém de dados é a geração 1, pode [para anular](/powershell/module/az.sql/set-azsqldatabasegeobackuppolicy) se desejar. Não pode desativar cópias de segurança geo para a geração 2, como proteção de dados é uma incorporada garantida.
-
-> [!NOTE]
-> Se necessitar de um RPO mais curto para cópias de segurança geo, votar para esta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse). Também pode criar um ponto de restauro definidas pelo utilizador e restaurar a partir do ponto de restauro recentemente criado para um novo armazém de dados numa região diferente. Depois de ter restaurado, ter o armazém de dados online e pode colocar em pausa indefinidamente para reduzir os custos de computação. A base de dados em pausa leva a custos de armazenamento à tarifa de armazenamento Premium do Azure. Se necessitar de uma cópia ativa do armazém de dados, é possível retomar o que deve demorar apenas alguns minutos.
-
-## <a name="backup-and-restore-costs"></a>Custos de cópia de segurança e restauro
-
-Notará que a fatura do Azure tem um item de linha para armazenamento e um item de linha para armazenamento de recuperação após desastre. O custo de armazenamento é o custo total de armazenamento dos dados na região primária, juntamente com as alterações incrementais capturado por instantâneos. Para obter uma explicação mais detalhada de como os instantâneos são cobrados, consulte [compreender como instantâneos de acumulam encargos](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). A cobrança georredundante abrange o custo para o armazenamento de cópias de segurança geo.  
-
-O total de custos para o seu armazém de dados primária e sete dias de alterações de instantâneo é arredondado para o TB mais próximo. Por exemplo, se o armazém de dados tiver 1,5 TB e 100 GB de captura de instantâneos, é-lhe cobrada para 2 TB de dados às tarifas de armazenamento Premium do Azure.
-
-Se estiver a utilizar o armazenamento georredundante, receberá uma fatura de armazenamento separada. O armazenamento georredundante é cobrado à tarifa padrão de acesso de leitura geograficamente com redundância de armazenamento (RA-GRS).
-
-Para obter mais informações sobre os preços do SQL Data Warehouse, consulte [SQL Data Warehouse preços]. Não é cobrada a saída de dados durante a restauração entre regiões.
-
-## <a name="restoring-from-restore-points"></a>Restaurar a partir de pontos de restauro
-
-Cada instantâneo cria um ponto de restauro que representa a hora de início de instantâneo. Para restaurar um armazém de dados, escolha um ponto de restauro e emitir um comando de restauro.  
-
-Pode manter o armazém de dados restaurados e atual ou elimine um deles. Se pretende substituir o armazém de dados atual com o armazém de dados restaurada, pode alterá-lo usando [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) com a opção de modificar o nome.
-
-Para restaurar um armazém de dados, consulte [restaurar um armazém de dados com o portal do Azure](sql-data-warehouse-restore-database-portal.md), [restaurar um armazém de dados com o PowerShell](sql-data-warehouse-restore-database-powershell.md), ou [restaurar um armazém de dados com REST APIs](sql-data-warehouse-restore-database-rest-api.md).
-
-Para restaurar um armazém de dados eliminada ou em pausa, pode [criar um pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md).
-
-## <a name="cross-subscription-restore"></a>Entre o restauro de subscrição
-
-Se tiver de restaurar diretamente na subscrição, votar para esta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Restaurar para um servidor lógico diferente e ["Mover"](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) o servidor entre subscrições para efetuar um restauro entre subscrições. 
-
-## <a name="geo-redundant-restore"></a>Restauro com redundância geográfica
-
-Pode [restaurar o seu armazém de dados](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region-using-powershell) para qualquer região que suporta o SQL Data Warehouse no seu nível de desempenho escolhido.
+Os backups geográficos são ativados por padrão. Se sua data warehouse for Gen1, você poderá [recusar](/powershell/module/az.sql/set-azsqldatabasegeobackuppolicy) se desejar. Não é possível recusar backups geográficos para Gen2, pois a proteção de dados é uma garantia interna.
 
 > [!NOTE]
-> Para efetuar um restauro com redundância geográfica tem não tiver optado por fora desta funcionalidade.
+> Se você precisar de um RPO mais curto para backups geográficos, vote nesse recurso [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse). Você também pode criar um ponto de restauração definido pelo usuário e restaurar do ponto de restauração recém-criado para um novo data warehouse em uma região diferente. Depois de ter restaurado, você tem o data warehouse online e pode pausá-lo indefinidamente para economizar custos de computação. O banco de dados em pausa provoca encargos de armazenamento na taxa de armazenamento Premium do Azure. Se precisar de uma cópia ativa do data warehouse, você poderá retomar, o que deve levar apenas alguns minutos.
+
+## <a name="backup-and-restore-costs"></a>Custos de backup e restauração
+
+Você notará que a fatura do Azure tem um item de linha para armazenamento e um item de linha para armazenamento de recuperação de desastre. O encargo de armazenamento é o custo total para armazenar seus dados na região primária junto com as alterações incrementais capturadas por instantâneos. Para obter uma explicação mais detalhada de como os instantâneos são cobrados, consulte [noções básicas sobre como](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios)os instantâneos acumulam encargos. O encargo com redundância geográfica cobre o custo para armazenar os backups geográficos.  
+
+O custo total para seu data warehouse primário e sete dias de alterações de instantâneo é arredondado para os TB mais próximos. Por exemplo, se o data warehouse for de 1,5 TB e os instantâneos capturarem 100 GB, você será cobrado por 2 TB de dados em taxas de armazenamento Premium do Azure.
+
+Se você estiver usando o armazenamento com redundância geográfica, receberá um encargo de armazenamento separado. O armazenamento com redundância geográfica é cobrado na taxa padrão de armazenamento geograficamente redundante do acesso de leitura (RA-GRS).
+
+Para obter mais informações sobre preços de SQL Data Warehouse, consulte [preços de SQL Data Warehouse]. Você não será cobrado pela saída de dados durante a restauração entre regiões.
+
+## <a name="restoring-from-restore-points"></a>Restaurando de pontos de restauração
+
+Cada instantâneo cria um ponto de restauração que representa a hora em que o instantâneo foi iniciado. Para restaurar um data warehouse, escolha um ponto de restauração e emita um comando de restauração.  
+
+Você pode manter o data warehouse restaurado e o atual, ou excluir um deles. Se desejar substituir o data warehouse atual pelo data warehouse restaurado, você poderá renomeá-lo usando [ALTER DATABASE (Azure SQL data warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) com a opção Modify Name.
+
+Para restaurar um data warehouse, consulte [restaurar um data warehouse usando o portal do Azure](sql-data-warehouse-restore-database-portal.md), [restaurar um data warehouse usando o PowerShell](sql-data-warehouse-restore-database-powershell.md)ou [restaurar um data warehouse usando APIs REST](sql-data-warehouse-restore-database-rest-api.md).
+
+Para restaurar uma data warehouse excluída ou em pausa, você pode [criar um tíquete de suporte](sql-data-warehouse-get-started-create-support-ticket.md).
+
+## <a name="cross-subscription-restore"></a>Restauração de assinatura cruzada
+
+Se você precisar restaurar diretamente na assinatura, vote nesse recurso [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Restaure para um servidor lógico diferente e [' mova '](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) o servidor em assinaturas para executar uma restauração de assinatura cruzada. 
+
+## <a name="geo-redundant-restore"></a>Restauração com redundância geográfica
+
+Você pode [restaurar seu data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup#restore-from-an-azure-geographical-region-through-powershell) para qualquer região que dê suporte a SQL data warehouse no nível de desempenho escolhido.
+
+> [!NOTE]
+> Para executar uma restauração com redundância geográfica, você não deve ter recusado esse recurso.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre o planeamento de desastres, consulte [descrição geral da continuidade de negócio](../sql-database/sql-database-business-continuity.md)
+Para obter mais informações sobre o planejamento de desastres, consulte [visão geral](../sql-database/sql-database-business-continuity.md) da continuidade de negócios

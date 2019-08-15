@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 07/23/2019
-ms.openlocfilehash: 1d2a0c9e1531ace16335ea57acaccedfe2c1a3c8
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 7ef19db472b30d82f14a5dd650cb8f4cb1f3ed3a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815889"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990083"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-train-and-deploy-your-first-classification-model-preview"></a>Tutorial: Usar o Machine Learning automatizado para treinar e implantar seu primeiro modelo de classificação (versão prévia)
 
@@ -95,7 +95,7 @@ Neste tutorial, você aprende as seguintes tarefas:
     Simultaneidade| Selecione **5** para o número máximo de iterações simultâneas.
 
    >[!NOTE]
-   > Para este experimento, não definimos um limite de métrica ou de iterações máximas. Também não bloqueamos que os algoritmos sejam testados.
+   > Para este experimento, não definimos uma métrica ou um limite máximo de núcleos por iterações. Também não bloqueamos que os algoritmos sejam testados.
 
 1. Selecione **Iniciar** para executar o experimento.
 
@@ -155,7 +155,7 @@ Exclua apenas a instância de implantação do portal do Azure, se você quiser 
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial de aprendizado de máquina automatizado, você usou o portal do Azure para criar e implantar um modelo de classificação. Consulte estes artigos para obter mais informações e as próximas etapas:
 

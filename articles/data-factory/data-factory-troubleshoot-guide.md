@@ -2,19 +2,18 @@
 title: Solucionar problemas Azure Data Factory | Microsoft Docs
 description: Saiba como solucionar problemas de atividades de controle externo no Azure Data Factory.
 services: data-factory
-author: abnarain
-manager: craigg
+author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 6/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: c76242c176ba4f4c9ffc0d6934f6b645743d77f4
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 1995ce2a91bfbc115f80c99687cc84b52ef614ec
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234574"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950100"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Solucionar problemas Azure Data Factory
 
@@ -47,7 +46,7 @@ A tabela a seguir se aplica ao U-SQL.
 | Código de erro         | Mensagem de erro                                                | Descrição                                          | Recomendação                            |
 | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 2709                 | O token de acesso é do locatário incorreto.                    | Locatário incorreto do Azure Active Directory (AD do Azure).                                         | A entidade de serviço usada para acessar o Azure Data Lake Analytics pertence a outro locatário do Azure AD. Crie uma nova entidade de serviço no mesmo locatário que a conta de Data Lake Analytics. |
-| 2711,   2705,   2704 | Proibido. Falha na verificação da ACL. Ou o recurso não existe ou o usuário não está autorizado a executar a operação solicitada.<br/><br/>O usuário não consegue acessar Data Lake Store.  <br/><br/>O usuário não está autorizado a usar Data Lake Analytics. | A entidade de serviço ou o certificado não tem acesso ao arquivo no armazenamento. | Verifique se a entidade de serviço ou o certificado que o usuário fornece para Data Lake Analytics trabalhos tem acesso à conta de Data Lake Analytics e à instância de Data Lake Storage padrão da pasta raiz. |
+| 2711,   2705,   2704 | Proibido. ACL verification failed. Ou o recurso não existe ou o usuário não está autorizado a executar a operação solicitada.<br/><br/>O usuário não consegue acessar Data Lake Store.  <br/><br/>O usuário não está autorizado a usar Data Lake Analytics. | A entidade de serviço ou o certificado não tem acesso ao arquivo no armazenamento. | Verifique se a entidade de serviço ou o certificado que o usuário fornece para Data Lake Analytics trabalhos tem acesso à conta de Data Lake Analytics e à instância de Data Lake Storage padrão da pasta raiz. |
 | 2711                 | Não é possível localizar o arquivo ou a pasta ' Azure Data Lake Store '.       | O caminho para o arquivo U-SQL está errado ou as credenciais do serviço vinculado não têm acesso. | Verifique o caminho e as credenciais fornecidas no serviço vinculado. |
 | 2707                 | Não é possível resolver a conta de AzureDataLakeAnalytics. Verifique ' AccountName ' e ' DataLakeAnalyticsUri '. | A conta de Data Lake Analytics no serviço vinculado está incorreta.                  | Verifique se a conta certa é fornecida.             |
 | 2703                 | ID do erro: E_CQO_SYSTEM_INTERNAL_ERROR (ou qualquer erro que comece com "ID do erro:"). | O erro é de Data Lake Analytics.                                    | Um erro como o exemplo significa que o trabalho foi enviado para Data Lake Analytics, e o script falhou. Investigue no Data Lake Analytics. No portal, vá para a conta de Data Lake Analytics e procure o trabalho usando a ID de execução de atividade de Data Factory (não a ID de execução de pipeline). O trabalho fornece mais informações sobre o erro e irá ajudá-lo a solucionar problemas. Se a resolução não estiver clara, entre em contato com a equipe de suporte do Data Lake Analytics e forneça a URL do trabalho, que inclui o nome da conta e a ID do trabalho. |
@@ -145,7 +144,7 @@ Para usar o Fiddler para criar uma sessão HTTP do aplicativo Web monitorado:
 
 Para obter mais informações, consulte [introdução ao Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais ajuda para solução de problemas, Experimente estes recursos:
 

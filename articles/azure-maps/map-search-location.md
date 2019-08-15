@@ -1,6 +1,6 @@
 ---
 title: Mostrar resultados da pesquisa com o Azure Maps | Microsoft Docs
-description: Como executar uma solicitação de pesquisa com o Azure Maps, em seguida, exibir os resultados em um mapa JavaScript
+description: Como executar uma solicitação de pesquisa com o Azure Maps, em seguida, exibir os resultados no SDK da Web do Azure Maps.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 22b677ef4b21d3869e39d600910c271c935934ca
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7c4c78e1d21754d42391a3762e9f7ed199a7376b
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638652"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975970"
 ---
 # <a name="show-search-results-on-the-map"></a>Mostrar resultados da pesquisa no mapa
 
@@ -57,7 +57,7 @@ O último bloco de código cria um objeto [BoundingBox](https://docs.microsoft.c
 
 A solicitação de pesquisa, a fonte de dados e a camada de símbolo e os limites da câmera são definidos dentro do ouvinte de [eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) do mapa para garantir que os resultados sejam exibidos depois que o mapa for totalmente carregado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a **pesquisa difusa**:
 

@@ -1,154 +1,154 @@
 ---
-title: Conceber aplicações de elevada disponibilidade com armazenamento georredundante com acesso de leitura (RA-GRS) | Documentos da Microsoft
-description: Como utilizar o armazenamento do Azure. o RA-GRS para arquitetar uma aplicação de elevada disponibilidade flexível o bastante para lidar com falhas.
+title: Criando aplicativos altamente disponíveis usando o armazenamento com redundância geográfica com acesso de leitura (RA-GZRS ou RA-GRS) | Microsoft Docs
+description: Como usar o armazenamento RA-GZRS ou RA-GRS do Azure para arquitetar um aplicativo altamente disponível e flexível o suficiente para lidar com interrupções.
 services: storage
 author: tamram
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 16f38f6aae11f7bf806b7bad76db8f739fb2823d
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 79d00d39903b6fb3891ee7c0ccc4743763043568
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357085"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015622"
 ---
-# <a name="designing-highly-available-applications-using-ra-grs"></a>Conceber aplicações de elevada disponibilidade com RA-GRS
+# <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Criando aplicativos altamente disponíveis usando o armazenamento com redundância geográfica com acesso de leitura
 
-Uma funcionalidade comum de infraestruturas na cloud, como o armazenamento do Azure é que eles fornecem uma plataforma de elevada disponibilidade para alojar aplicações. Os desenvolvedores de aplicativos baseados na nuvem tem de considerar cuidadosamente como tirar partido desta plataforma para fornecer aplicações de elevada disponibilidade aos respetivos utilizadores. Este artigo se concentra em como os programadores podem utilizar armazenamento Georredundante com acesso de leitura (RA-GRS) para garantir que seus aplicativos de armazenamento do Azure são de elevada disponibilidade.
+Um recurso comum de infraestruturas baseadas em nuvem como o armazenamento do Azure é que eles fornecem uma plataforma altamente disponível para hospedagem de aplicativos. Os desenvolvedores de aplicativos baseados em nuvem devem considerar cuidadosamente como aproveitar essa plataforma para fornecer aplicativos altamente disponíveis aos seus usuários. Este artigo se concentra em como os desenvolvedores podem usar uma das opções de replicação com redundância geográfica do Azure para garantir que seus aplicativos de armazenamento do Azure estejam altamente disponíveis.
 
-[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
+As contas de armazenamento configuradas para replicação com redundância geográfica são replicadas de forma síncrona na região primária e, em seguida, replicadas assincronamente para uma região secundária que está a centenas de quilômetros de distância. O armazenamento do Azure oferece dois tipos de replicação com redundância geográfica:
 
-Este artigo se concentra em GRS e RA-GRS. Com a GRS, três cópias dos seus dados são mantidas na região primária que selecionou ao configurar a conta de armazenamento. Três cópias adicionais são mantidas de forma assíncrona numa região secundária, especificado pelo Azure. RA-GRS oferece armazenamento georredundante com acesso de leitura para a cópia secundária.
+* O [armazenamento com redundância de zona geográfica (GZRS) (visualização)](storage-redundancy-gzrs.md) fornece replicação para cenários que exigem alta disponibilidade e máxima durabilidade. Os dados são replicados de forma síncrona em três zonas de disponibilidade do Azure na região primária usando o ZRS (armazenamento com redundância de zona) e, em seguida, replicados assincronamente para a região secundária. Para acesso de leitura aos dados na região secundária, habilite o armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS).
+* O [grs (armazenamento com redundância geográfica)](storage-redundancy-grs.md) fornece replicação entre regiões para proteger contra interrupções regionais. Os dados são replicados de forma síncrona três vezes na região primária usando o LRS (armazenamento com redundância local) e, em seguida, replicados assincronamente para a região secundária. Para acesso de leitura aos dados na região secundária, habilite o armazenamento com redundância geográfica com acesso de leitura (RA-GRS).
 
-Para obter informações sobre os quais regiões primárias são emparelhados com quais são as regiões secundárias, consulte [Business continuidade e recuperação após desastre (BCDR): Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Este artigo mostra como projetar seu aplicativo para lidar com uma interrupção na região primária. Se a região primária ficar indisponível, seu aplicativo poderá se adaptar para executar operações de leitura em vez da região secundária. Verifique se sua conta de armazenamento está configurada para RA-GRS ou RA-GZRS antes de começar.
 
-Existem trechos de código incluídos neste artigo e uma ligação para um exemplo completo no final que pode transferir e executar.
+Para obter informações sobre quais regiões primárias são emparelhadas com quais regiões secundárias, consulte [continuidade de negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+Há trechos de código incluídos neste artigo e um link para um exemplo completo no final que você pode baixar e executar.
+
+## <a name="application-design-considerations-when-reading-from-the-secondary"></a>Considerações de design de aplicativo ao ler do secundário
+
+A finalidade deste artigo é mostrar como projetar um aplicativo que continuará a funcionar (embora em uma capacidade limitada), mesmo no caso de um grande desastre no data center primário. Você pode projetar seu aplicativo para lidar com problemas transitórios ou de longa execução lendo a partir da região secundária quando houver um problema que interfira na leitura da região primária. Quando a região primária estiver disponível novamente, seu aplicativo poderá retornar à leitura da região primária.
+
+Tenha em mente estes pontos-chave ao projetar seu aplicativo para RA-GRS ou RA-GZRS:
+
+* O armazenamento do Azure mantém uma cópia somente leitura dos dados que você armazena em sua região primária em uma região secundária. Conforme observado acima, o serviço de armazenamento determina o local da região secundária.
+
+* A cópia somente leitura é [eventualmente consistente](https://en.wikipedia.org/wiki/Eventual_consistency) com os dados na região primária.
+
+* Para BLOBs, tabelas e filas, você pode consultar a região secundária para obter um valor de *hora da última sincronização* que informa quando a última replicação da região primária para a secundária ocorreu. (Não há suporte para isso em arquivos do Azure, que não tem redundância de RA-GRS no momento.)
+
+* Você pode usar a biblioteca de cliente de armazenamento para ler e gravar dados na região primária ou secundária. Você também pode redirecionar solicitações de leitura automaticamente para a região secundária se uma solicitação de leitura para a região primária atingir o tempo limite.
+
+* Se a região primária ficar indisponível, você poderá iniciar um failover de conta. Quando você faz failover para a região secundária, as entradas DNS que apontam para a região primária são alteradas para apontar para a região secundária. Após a conclusão do failover, o acesso de gravação é restaurado para contas GRS e RA-GRS. Para obter mais informações, consulte [recuperação de desastre e failover da conta de armazenamento (versão prévia) no armazenamento do Azure](storage-disaster-recovery-guidance.md).
 
 > [!NOTE]
-> O armazenamento do Azure suporta agora o armazenamento com redundância de zona (ZRS) para a criação de aplicações de elevada disponibilidade. O ZRS oferece uma solução simple para as necessidades de redundância de muitos aplicativos. O ZRS fornece proteção contra falhas de hardware ou desastres catastróficas que afetam um único datacenter. Para obter mais informações, consulte [armazenamentoredundância de zona (ZRS): Aplicações de armazenamento do Azure de elevada disponibilidade](storage-redundancy-zrs.md).
+> O failover de conta gerenciada pelo cliente (versão prévia) ainda não está disponível em regiões com suporte para GZRS/RA-GZRS, para que os clientes não possam gerenciar eventos de failover de conta no momento com contas GZRS e RA-GZRS. Durante a versão prévia, a Microsoft gerenciará qualquer evento de failover que afete contas GZRS/RA-GZRS.
 
-## <a name="key-features-of-ra-grs"></a>Principais recursos do RA-GRS
+### <a name="using-eventually-consistent-data"></a>Usando dados eventualmente consistentes
 
-Tenha em mente esses pontos-chave ao conceber a sua aplicação para o RA-GRS:
+A solução proposta pressupõe que é aceitável retornar dados potencialmente obsoletos para o aplicativo de chamada. Como os dados na região secundária são eventualmente consistentes, é possível que a região primária possa se tornar inacessível antes que uma atualização para a região secundária tenha terminado a replicação.
 
-* O armazenamento do Azure mantém uma cópia só de leitura dos dados que armazenamos na sua região principal numa região secundária. Conforme observado anteriormente, o serviço de armazenamento determina a localização da região secundária.
+Por exemplo, suponha que o cliente envie uma atualização com êxito, mas a região primária falhe antes que a atualização seja propagada para a região secundária. Quando o cliente pede para ler os dados de volta, eles recebem os dados obsoletos da região secundária em vez dos dados atualizados. Ao criar seu aplicativo, você deve decidir se isso é aceitável e, em caso afirmativo, como você enviará uma mensagem ao cliente. 
 
-* A cópia só de leitura estiver [eventualmente consistente](https://en.wikipedia.org/wiki/Eventual_consistency) com os dados na região primária.
+Posteriormente neste artigo, mostraremos como verificar a hora da última sincronização dos dados secundários para verificar se o secundário está atualizado.
 
-* Para blobs, tabelas e filas, pode consultar a região secundária para uma *hora da última sincronização* valor que indica quando ocorreu a última replicação dos principais para a região secundária. (Isto não é suportado para ficheiros do Azure, que não têm redundância de RA-GRS neste momento.)
+### <a name="handling-services-separately-or-all-together"></a>Tratamento de serviços separadamente ou todos juntos
 
-* Pode utilizar a biblioteca de cliente de armazenamento para interagir com os dados na região primária ou secundária. Também pode redirecionar pedidos automaticamente para a região secundária de leitura, se uma solicitação de leitura para a região primária exceder o tempo limite.
+Embora seja improvável, é possível que um serviço fique indisponível enquanto os outros serviços ainda estão totalmente funcionais. Você pode manipular as repetições e o modo somente leitura para cada serviço separadamente (BLOBs, filas, tabelas) ou pode lidar com as novas tentativas genericamente para todos os serviços de armazenamento juntos.
 
-* Se a região primária ficar indisponível, pode iniciar uma ativação pós-falha de conta. Quando efetuar a ativação pós-falha para a região secundária, as entradas de DNS que aponte para a região primária são alteradas para apontar para a região secundária. Depois de concluída a ativação pós-falha, o acesso de escrita é restaurado para contas GRS e RA-GRS. Para obter mais informações, consulte [desastre recuperação e o armazenamento de conta ativação pós-falha (pré-visualização) no armazenamento do Azure](storage-disaster-recovery-guidance.md).
+Por exemplo, se você usar filas e blobs em seu aplicativo, poderá decidir colocar um código separado para manipular erros com nova tentativa para cada um deles. Em seguida, se você receber uma nova tentativa do serviço BLOB, mas o serviço fila ainda estiver funcionando, somente a parte do aplicativo que manipula os BLOBs será afetada. Se você decidir manipular todas as repetições de serviço de armazenamento genericamente e uma chamada para o serviço blob retornar um erro com nova tentativa, as solicitações para o serviço BLOB e o serviço fila serão afetadas.
 
-## <a name="application-design-considerations-when-using-ra-grs"></a>Considerações de design de aplicativo ao utilizar o RA-GRS
-
-O objetivo deste artigo é mostrar-lhe como criar uma aplicação que continuará a funcionar (embora numa capacidade limitada), mesmo em caso de um desastre grave no Datacenter primário. É possível projetar seu aplicativo para lidar com problemas transitórios ou de execução longa ao ler a partir da região secundária quando existe um problema que interfere com a leitura da região primária. Quando a região primária estiver novamente disponível, seu aplicativo pode retornar a leitura da região primária.
-
-### <a name="using-eventually-consistent-data"></a>Utilizar os dados eventualmente consistentes
-
-A solução proposta parte do princípio de que é aceitável para retornar dados potencialmente obsoletos ao aplicativo de chamada. Como dados na região secundária são eventualmente consistentes, é possível que a região primária poderão ficar inacessível antes de concluir uma atualização para a região secundária a replicar.
-
-Por exemplo, suponha que seu cliente submete uma atualização com êxito, mas a região primária falha antes da atualização é propagada para a região secundária. Quando o cliente pede ler os dados de volta, eles recebem os dados obsoletos da região secundária, em vez dos dados atualizados. Ao conceber a sua aplicação, tem de decidir se isso é aceitável e, se assim for, como será a mensagem do cliente. 
-
-Mais tarde neste artigo, vamos mostrar como verificar a hora da última sincronização de dados secundários para verificar se o elemento secundário for atualizado.
-
-### <a name="handling-services-separately-or-all-together"></a>Lidar com os serviços separadamente ou todas as ferramentas
-
-Embora seja pouco provável, é possível que um serviço fiquem indisponíveis enquanto os outros serviços ainda são totalmente funcionais. Pode manipular as repetições e o modo só de leitura para cada serviço separadamente (blobs, filas, tabelas), ou pode manipular as repetições genericamente para todos os serviços de armazenamento em conjunto.
-
-Por exemplo, se usar filas e blobs na sua aplicação, pode decidir colocar no código separado para manipular erros de repetição para cada um deles. Em seguida, se obtém uma repetição do serviço blob, mas o serviço de fila ainda está a funcionar, apenas a parte do seu aplicativo que lida com blobs será afetada. Se optar por genericamente a lidar com todas as tentativas de serviço de armazenamento e uma chamada para o serviço blob devolve um erro recuperável, em seguida, pedidos para o serviço de blob e o serviço de fila serão afetados.
-
-Por fim, isso depende da complexidade do seu aplicativo. Pode decidir não processar as falhas pelo serviço, mas em vez disso, para redirecionar pedidos para todos os serviços de armazenamento para a região secundária de leitura e executar o aplicativo no modo só de leitura quando detetar um problema com qualquer serviço de armazenamento na região primária.
+Por fim, isso depende da complexidade do seu aplicativo. Você pode decidir não lidar com as falhas por serviço, mas em vez de redirecionar solicitações de leitura para todos os serviços de armazenamento para a região secundária e executar o aplicativo no modo somente leitura ao detectar um problema com qualquer serviço de armazenamento na região primária.
 
 ### <a name="other-considerations"></a>Outras considerações
 
-Estas são as outras considerações, discutiremos no restante deste artigo.
+Essas são as outras considerações que discutiremos no restante deste artigo.
 
-*   A processar as repetições de pedidos de leitura com o padrão de disjuntor automático
+* Tratamento de novas tentativas de solicitações de leitura usando o padrão de disjuntor
 
-*   Dados eventualmente consistente e a hora da última sincronização
+* Dados consistentes eventualmente e a hora da última sincronização
 
-*   Testes
+* Testes
 
-## <a name="running-your-application-in-read-only-mode"></a>Execução da sua aplicação no modo só de leitura
+## <a name="running-your-application-in-read-only-mode"></a>Executando seu aplicativo no modo somente leitura
 
-Para utilizar o armazenamento RA-GRS, tem de ser capaz de lidar com ambos os pedidos falhados de leitura e de atualização pedidos falhados (com a atualização em vez disso, que significa que inserções, atualizações e eliminações). Se os dados primários falha do Datacenter, leia pedidos podem ser redirecionados para o Centro de dados secundária. No entanto, pedidos de atualização não podem ser redirecionados para o secundário porque o elemento secundário for só de leitura. Por esse motivo, terá de criar seu aplicativo para executar no modo só de leitura.
+Para se preparar efetivamente para uma interrupção na região primária, você deve ser capaz de lidar com solicitações de leitura com falha e solicitações de atualização com falha (com Update neste caso, significa inserções, atualizações e exclusões). Se a região primária falhar, as solicitações de leitura poderão ser redirecionadas para a região secundária. No entanto, as solicitações de atualização não podem ser redirecionadas para o secundário porque o secundário é somente leitura. Por esse motivo, você precisa projetar seu aplicativo para ser executado no modo somente leitura.
 
-Por exemplo, pode definir um sinalizador que é verificado antes de quaisquer pedidos de atualização são submetidos ao armazenamento do Azure. Quando uma das solicitações de atualização vinda, pode ignorá-la e retornar uma resposta adequada para o cliente. Pode até mesmo desabilitar determinados recursos totalmente até que o problema é resolvido e notificar os utilizadores que essas funcionalidades estão temporariamente indisponíveis.
+Por exemplo, você pode definir um sinalizador que é verificado antes que qualquer solicitação de atualização seja enviada ao armazenamento do Azure. Quando uma das solicitações de atualização chega, você pode ignorá-la e retornar uma resposta apropriada para o cliente. Talvez você queira até mesmo desabilitar determinados recursos até que o problema seja resolvido e notificar os usuários de que esses recursos estão temporariamente indisponíveis.
 
-Se optar por tratar os erros para cada serviço separadamente, também terá de lidar com a capacidade de executar a sua aplicação no modo só de leitura pelo serviço. Por exemplo, pode ter os sinalizadores de só de leitura para cada serviço que pode ser ativado e desativado. Em seguida, pode manipular o sinalizador nos lugares apropriados no seu código.
+Se você decidir tratar erros para cada serviço separadamente, também precisará lidar com a capacidade de executar seu aplicativo no modo somente leitura por serviço. Por exemplo, você pode ter sinalizadores somente leitura para cada serviço que pode ser habilitado e desabilitado. Em seguida, você pode manipular o sinalizador nos locais apropriados em seu código.
 
-A capacidade de executar a sua aplicação no modo só de leitura tem outra vantagem de lado – dá-lhe a capacidade para garantir que a funcionalidade limitada durante uma atualização principal da aplicação. Pode acionar a sua aplicação para ser executado no modo só de leitura e aponte para o Centro de dados secundária, garantir que ninguém está acessando os dados na região primária, quer garantir atualizações.
+Ser capaz de executar seu aplicativo no modo somente leitura tem outro benefício adicional – ele oferece a capacidade de garantir uma funcionalidade limitada durante uma atualização de aplicativo importante. Você pode disparar seu aplicativo para ser executado no modo somente leitura e apontar para o data center secundário, garantindo que ninguém esteja acessando os dados na região primária enquanto você estiver fazendo atualizações.
 
-## <a name="handling-updates-when-running-in-read-only-mode"></a>Atualizações de manipulação quando em execução no modo só de leitura
+## <a name="handling-updates-when-running-in-read-only-mode"></a>Tratamento de atualizações durante a execução no modo somente leitura
 
-Existem várias formas para processar pedidos de atualização quando em execução no modo só de leitura. Não Abordaremos isso forma abrangente, mas em geral, existem alguns padrões que considerar.
+Há várias maneiras de lidar com solicitações de atualização durante a execução no modo somente leitura. Não abordaremos isso de forma abrangente, mas, em geral, há alguns padrões que você considera.
 
-1.  Pode responder ao seu utilizador e peça-lhes que não atualmente a aceitar as atualizações. Por exemplo, um sistema de gerenciamento de contatos poderia permitir aos clientes aceder a informações de contacto, mas não fazer atualizações.
+1. Você pode responder ao seu usuário e informar a eles que você não está aceitando atualizações no momento. Por exemplo, um sistema de gerenciamento de contatos pode permitir que os clientes acessem informações de contato, mas não façam atualizações.
 
-2.  Pode colocar as atualizações noutra região. Neste caso, seria escrever seus pedidos de atualização pendente a uma fila numa região diferente e, em seguida, tem uma forma para processar essas solicitações, depois do Datacenter primário fica online novamente. Neste cenário, deve permitir que o cliente sabe que a atualização solicitada é colocada na fila para processamento posterior.
+2. Você pode enfileirar suas atualizações em outra região. Nesse caso, você escreveria suas solicitações de atualização pendentes para uma fila em uma região diferente e, em seguida, terá uma maneira de processar essas solicitações depois que o data center primário ficar online novamente. Nesse cenário, você deve permitir que o cliente saiba que a atualização solicitada está na fila para processamento posterior.
 
-3.  Pode escrever as suas atualizações para uma conta de armazenamento noutra região. Em seguida, quando o Datacenter primário fica online novamente, pode ter uma forma de unir essas atualizações para os dados primários, consoante a estrutura dos dados. Por exemplo, se estiver a criar arquivos separados com um carimbo de data/hora no nome, pode copiar esses arquivos de volta para a região primária. Isto funciona para algumas cargas de trabalho como dados de registo e iOT.
+3. Você pode gravar suas atualizações em uma conta de armazenamento em outra região. Em seguida, quando o data center primário voltar a ficar online, você poderá ter uma maneira de mesclar essas atualizações nos dados primários, dependendo da estrutura dos dados. Por exemplo, se estiver criando arquivos separados com um carimbo de data/hora no nome, você poderá copiar esses arquivos de volta para a região primária. Isso funciona para algumas cargas de trabalho, como registro em log e dados de iOT.
 
-## <a name="handling-retries"></a>A processar as repetições
+## <a name="handling-retries"></a>Manipulando repetições
 
-Como sabe quais erros estão repetição? Tal é determinado através da biblioteca de clientes de armazenamento. Por exemplo, um erro 404 (recurso não encontrado) não é repetição porque não é provável que resultará na êxito repeti-lo. Por outro lado, um erro de 500 é repetição porque é um erro no servidor, e apenas pode ser um problema transitório. Para obter mais detalhes, consulte a [abrir o código-fonte para a classe ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) na biblioteca de cliente de armazenamento do .NET. (Procure o método ShouldRetry).
+A biblioteca de cliente de armazenamento do Azure ajuda a determinar quais erros podem ser repetidos. Por exemplo, um erro 404 (recurso não encontrado) pode ser repetido porque repetir não é provável que ele resulte em sucesso. Por outro lado, um erro 500 não pode ser repetido porque é um erro de servidor e pode ser simplesmente um problema transitório. Para obter mais detalhes, confira o [código-fonte aberto para a classe ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) na biblioteca de cliente de armazenamento do .net. (Procure o método ShouldRetry.)
 
 ### <a name="read-requests"></a>Pedidos de leitura
 
-Os pedidos de leitura podem ser redirecionados para o armazenamento secundário, se houver um problema com o armazenamento primário. Como mencionado acima na [usando, eventualmente, os dados consistentes](#using-eventually-consistent-data), tem de ser aceitável para a sua aplicação potencialmente ler dados obsoletos. Se estiver a utilizar a biblioteca de cliente de armazenamento para aceder aos dados de RA-GRS, pode especificar o comportamento de repetição de uma solicitação de leitura ao definir um valor para o **LocationMode** propriedade para um dos seguintes:
+As solicitações de leitura podem ser redirecionadas para o armazenamento secundário se houver um problema com o armazenamento primário. Conforme observado acima no [uso de dados eventualmente consistentes](#using-eventually-consistent-data), deve ser aceitável que seu aplicativo leia dados obsoletos potencialmente. Se você estiver usando a biblioteca de cliente de armazenamento para acessar dados do secundário, poderá especificar o comportamento de repetição de uma solicitação de leitura definindo um valor para a propriedade locationmode como um dos seguintes:
 
-*   **PrimaryOnly** (predefinição)
+* **PrimaryOnly** (o padrão)
 
-*   **PrimaryThenSecondary**
+* **PrimaryThenSecondary**
 
-*   **SecondaryOnly**
+* **SecondaryOnly**
 
-*   **SecondaryThenPrimary**
+* **SecondaryThenPrimary**
 
-Ao definir o **LocationMode** ao **PrimaryThenSecondary**, se a solicitação de leitura inicial para a falha de ponto final primário com um erro de repetição, o cliente torna a outro pedido de leitura para o ponto final secundário. Se o erro é um tempo limite do servidor, o cliente terá de aguardar que o tempo limite expirar antes de receber um erro de repetição do serviço.
+Quando você define o **locationmode** como **PrimaryThenSecondary**, se a solicitação de leitura inicial para o ponto de extremidade primário falhar com um erro que pode ser repetido, o cliente fará automaticamente outra solicitação de leitura para o ponto de extremidade secundário. Se o erro for um tempo limite do servidor, o cliente precisará aguardar até que o tempo limite expire antes de receber um erro com nova tentativa do serviço.
 
-Basicamente, existem dois cenários a considerar quando decidir como responder a um erro de repetição:
+Há basicamente dois cenários a serem considerados quando você está decidindo como responder a um erro com nova tentativa:
 
-*   Este é um problema isolado e os pedidos subsequentes para o ponto final primário não retornará um erro de repetição. Um exemplo de onde isto pode acontecer é quando existe um erro de rede transitórios.
+* Esse é um problema isolado e as solicitações subsequentes para o ponto de extremidade primário não retornarão um erro com nova tentativa. Um exemplo de onde isso pode acontecer é quando há um erro de rede transitório.
 
-    Neste cenário, não há nenhuma penalidade de desempenho significativo que **LocationMode** definida como **PrimaryThenSecondary** como isto só acontece com pouca frequência.
+    Nesse cenário, não há nenhuma penalidade de desempenho significativa em ter **locationmode** definido como **PrimaryThenSecondary** , pois isso ocorre apenas com pouca frequência.
 
-*   Este é um problema com, pelo menos, um dos serviços de armazenamento na região primária e todas as solicitações subseqüentes para esse serviço na região primária são provável que a devolver erros de repetição para um período de tempo. Um exemplo disso é se a região primária não está totalmente acessível.
+* Esse é um problema com pelo menos um dos serviços de armazenamento na região primária e todas as solicitações subsequentes para esse serviço na região primária provavelmente retornarão erros com nova tentativa por um período de tempo. Um exemplo disso é se a região primária está totalmente inacessível.
 
-    Neste cenário, há uma penalidade de desempenho porque todas as solicitações de leitura irão tente primeiro o ponto final primário, aguarde o tempo limite expirar, em seguida, mude para o ponto final secundário.
+    Nesse cenário, há uma penalidade de desempenho, pois todas as suas solicitações de leitura tentarão primeiro o ponto de extremidade primário, aguardarão o tempo limite expirar e alternarão para o ponto de extremidade secundário.
 
-Nestes cenários, deve identificar que há um problema em curso com o ponto final primário e enviar todos os pedidos diretamente para o ponto final secundário de leitura, definindo a **LocationMode** propriedade **SecondaryOnly** . Neste momento, também deve alterar o aplicativo seja executado no modo só de leitura. Essa abordagem é conhecida como o [padrão de disjuntor automático](/azure/architecture/patterns/circuit-breaker).
+Para esses cenários, você deve identificar que há um problema em andamento com o ponto de extremidade primário e enviar todas as solicitações de leitura diretamente para o ponto de extremidade secundário, definindo a propriedade locationmode como **SecondaryOnly**. Neste momento, você também deve alterar o aplicativo para ser executado no modo somente leitura. Essa abordagem é conhecida como [padrão de disjuntor](/azure/architecture/patterns/circuit-breaker).
 
-### <a name="update-requests"></a>Pedidos de atualização
+### <a name="update-requests"></a>Solicitações de atualização
 
-O padrão de disjuntor automático também pode ser aplicado para pedidos de atualização. No entanto, pedidos de atualização não podem ser redirecionados para o armazenamento secundário, o que é só de leitura. Essas solicitações, deve deixar a **LocationMode** definida como **PrimaryOnly** (predefinição). Para tratar esses erros, pode aplicar uma métrica a essas solicitações – como 10 falhas numa linha – e quando o limiar for cumprido, mudar o aplicativo em modo só de leitura. Pode utilizar os mesmos métodos para retornar ao atualizar o modo como as descritas abaixo na próxima seção sobre o padrão de disjuntor automático.
+O padrão de disjuntor também pode ser aplicado a solicitações de atualização. No entanto, as solicitações de atualização não podem ser redirecionadas para o armazenamento secundário, que é somente leitura. Para essas solicitações, você deve deixar a Propriedade locationmode definida como **PrimaryOnly** (o padrão). Para lidar com esses erros, você pode aplicar uma métrica a essas solicitações – como 10 falhas em uma linha – e quando o limite for atingido, alterne o aplicativo para o modo somente leitura. Você pode usar os mesmos métodos para retornar ao modo de atualização como os descritos abaixo na próxima seção sobre o padrão de disjuntor.
 
 ## <a name="circuit-breaker-pattern"></a>Padrão de Disjuntor Automático
 
-Usando o padrão de disjuntor automático em seu aplicativo pode impedir que ele repetir uma operação que é provável que falham repetidamente. Ele permite que o aplicativo continua a ser executado, em vez de reduzir o tempo, enquanto a operação será repetida exponencialmente. Também Deteta quando a falha foi corrigido, nesse momento, o aplicativo pode tentar a operação de novo.
+Usar o padrão de disjuntor em seu aplicativo pode impedi-lo de repetir uma operação que provavelmente falhará repetidamente. Ele permite que o aplicativo continue a ser executado em vez de levar tempo enquanto a operação é repetida exponencialmente. Ele também detecta quando a falha foi corrigida e, nesse momento, o aplicativo pode tentar a operação novamente.
 
-### <a name="how-to-implement-the-circuit-breaker-pattern"></a>Como implementar o padrão de disjuntor automático
+### <a name="how-to-implement-the-circuit-breaker-pattern"></a>Como implementar o padrão de disjuntor
 
-Para identificar-se de que existe um problema em curso com um ponto final primário, pode monitorizar a frequência com que o cliente encontra erros de repetição. Uma vez que cada caso é diferente, terá de decidir qual o limiar que pretende utilizar para a decisão de mudar para o ponto final secundário e executar o aplicativo no modo só de leitura. Por exemplo, poderia optar por executar o comutador se existirem 10 falhas numa linha com nenhuma êxitos. Outro exemplo consiste em alterná se falhar de 90% das solicitações num período de 2 minutos.
+Para identificar se há um problema contínuo com um ponto de extremidade primário, você pode monitorar a frequência com que o cliente encontra erros com nova tentativa. Como cada caso é diferente, você precisa decidir o limite que deseja usar para a decisão de alternar para o ponto de extremidade secundário e executar o aplicativo no modo somente leitura. Por exemplo, você pode optar por executar a opção se houver 10 falhas em uma linha sem sucessos. Outro exemplo é mudar se 90% das solicitações em um período de 2 minutos falharem.
 
-Para o primeiro cenário, pode simplesmente manter uma contagem das falhas e se existe um êxito antes de atingir o máximo, defina a contagem de volta a zero. Para o segundo cenário, uma forma de implementá-lo é utilizar o objeto de MemoryCache (no .NET). Para cada solicitação, adicione um CacheItem para a cache, defina o valor para o sucesso (1) ou falhar (0) e defina a hora de expiração para 2 minutos na agora (ou o que quer que esteja a restrição de tempo). Quando for atingida a hora de expiração de uma entrada, a entrada é removida automaticamente. Isso lhe fornecerá uma janela de 2 minutos sem interrupção. Sempre que fizer um pedido para o serviço de armazenamento, primeiro usar uma consulta Linq entre o objeto de MemoryCache para calcular a percentagem de êxito somando os valores e dividir pela contagem. Quando a percentagem de êxito cai abaixo de algum limite (por exemplo, 10%), defina o **LocationMode** pedidos de propriedade de leitura para **SecondaryOnly** e alternar o aplicativo em modo só de leitura antes de continuar.
+Para o primeiro cenário, você pode simplesmente manter uma contagem das falhas e, se houver um êxito, antes de atingir o máximo, defina a contagem de volta como zero. Para o segundo cenário, uma maneira de implementá-lo é usar o objeto MemoryCache (no .NET). Para cada solicitação, adicione um CacheItem ao cache, defina o valor como Success (1) ou Fail (0) e defina o tempo de expiração como 2 minutos a partir de Now (ou qualquer que seja a sua restrição de tempo). Quando o tempo de expiração de uma entrada é atingido, a entrada é automaticamente removida. Isso dará a você uma janela de 2 minutos sem interrupção. Cada vez que você faz uma solicitação para o serviço de armazenamento, primeiro usa uma consulta LINQ no objeto MemoryCache para calcular o percentual de sucesso somando os valores e dividindo pela contagem. Quando o percentual de sucesso cai abaixo de um limite (como 10%), defina a propriedade locationmode para solicitações de leitura como **SecondaryOnly** e alterne o aplicativo para o modo somente leitura antes de continuar.
 
-O limiar de erros utilizado para determinar quando deve fazer a transição pode variar de serviço a serviço na sua aplicação, pelo que deve considerar tornando-os parâmetros configuráveis. Isso também é onde decidir manipular erros de repetição de cada serviço em separado ou como uma única, como discutido anteriormente.
+O limite de erros usados para determinar quando fazer a comutação pode variar de serviço para serviço em seu aplicativo, portanto, você deve considerar torná-los parâmetros configuráveis. Isso também é onde você decide tratar erros com nova tentativa de cada serviço separadamente ou como um, conforme discutido anteriormente.
 
-Outra consideração é como lidar com várias instâncias de um aplicativo e o que fazer quando detectar erros de repetição em cada instância. Por exemplo, pode ter 20 VMs em execução com a mesma aplicação carregada. Deve lidar com cada instância separadamente? Se uma instância começa a ter problemas, quer limitar a resposta para apenas que uma instância ou you want to tentamos respondem todas as instâncias da mesma forma, quando uma instância tem um problema? Lidar com as instâncias em separado é muito mais simples do que tentar coordenar a resposta em eles, mas como fazer isso depende de arquitetura de seu aplicativo.
+Outra consideração é como lidar com várias instâncias de um aplicativo e o que fazer quando você detecta erros com nova tentativa em cada instância. Por exemplo, você pode ter 20 VMs em execução com o mesmo aplicativo carregado. Você manipula cada instância separadamente? Se uma instância começar a ter problemas, você deseja limitar a resposta a apenas uma instância ou deseja tentar fazer com que todas as instâncias respondam da mesma maneira quando uma instância tem um problema? Manipular as instâncias separadamente é muito mais simples do que tentar coordenar a resposta entre elas, mas como fazer isso depende da arquitetura do seu aplicativo.
 
-### <a name="options-for-monitoring-the-error-frequency"></a>Opções de monitorização a frequência de erro
+### <a name="options-for-monitoring-the-error-frequency"></a>Opções para monitorar a frequência de erro
 
-Tem três opções principais para a monitorização a frequência de repetições na região primária para determinar quando mudar para a região secundária e altere o aplicativo seja executado no modo só de leitura.
+Você tem três opções principais para monitorar a frequência de repetições na região primária a fim de determinar quando alternar para a região secundária e alterar o aplicativo para execução no modo somente leitura.
 
-*   Adicionar um manipulador para o [ **repetir** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) eventos no [ **OperationContext** ](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) solicita que passar para o armazenamento de objeto – este é o método apresentado neste artigo e utilizado no exemplo que acompanha este artigo. Esses eventos são disparados sempre que o cliente tenta repetir um pedido, permitindo-lhe controlar a frequência com que o cliente encontra erros não permanente de um ponto final primário.
+* Adicione um manipulador para o evento de [**repetição**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) no objeto [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) que você passa para suas solicitações de armazenamento – esse é o método exibido neste artigo e usado no exemplo que o acompanha. Esses eventos são acionados sempre que o cliente tenta uma solicitação novamente, permitindo que você acompanhe a frequência com que o cliente encontra erros com nova tentativa em um ponto de extremidade primário.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -159,7 +159,7 @@ Tem três opções principais para a monitorização a frequência de repetiçõ
     };
     ```
 
-*   Na [ **Evaluate** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) método uma política de repetição personalizada, pode executar código personalizado sempre que uma nova tentativa ocorre. Para além de gravação quando uma nova tentativa ocorre, isso também lhe dá a oportunidade de modificar seu comportamento de repetição.
+* No método [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) em uma política de repetição personalizada, você pode executar o código personalizado sempre que ocorrer uma nova tentativa. Além de gravar quando ocorre uma nova tentativa, isso também lhe dá a oportunidade de modificar seu comportamento de repetição.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -187,39 +187,39 @@ Tem três opções principais para a monitorização a frequência de repetiçõ
     }
     ```
 
-*   A terceira abordagem é implementar um componente de monitorização personalizado em seu aplicativo que continuamente ping para o ponto final de armazenamento primário com dummy pedidos (como ler um blob de pequenos) de leitura para determinar o respetivo estado de funcionamento. Isso poderia demorar até alguns recursos, mas não uma quantidade significativa. Quando um problema é descoberto que atinge o limite, poderia, em seguida, executar o comutador **SecondaryOnly** e o modo só de leitura.
+* A terceira abordagem é implementar um componente de monitoramento personalizado em seu aplicativo que execute ping continuamente no ponto de extremidade de armazenamento primário com solicitações de leitura fictícias (como a leitura de um blob pequeno) para determinar sua integridade. Isso ocuparia alguns recursos, mas não um valor significativo. Quando for descoberto um problema que atinge seu limite, você executaria a mudança para **SecondaryOnly** e para o modo somente leitura.
 
-Em algum momento, desejará mudar para utilizar o ponto final primário e permitindo que as atualizações. Se utilizar um dos dois primeiros métodos listados acima, pode simplesmente voltar a mudar para o ponto final primário e ative o modo de atualização após um período selecionado de forma arbitrária de tempo ou o número de operações foi realizado. Em seguida, pode deixá-los a percorrer a lógica de repetição novamente. Se o problema foi resolvido, irá continuar a utilizar o ponto final primário e permitir que as atualizações. Se ainda há um problema, mais uma vez será mude novamente para o ponto final secundário e o modo só de leitura não passar os critérios que definiu.
+Em algum momento, convém voltar a usar o ponto de extremidade primário e permitir atualizações. Se estiver usando um dos dois primeiros métodos listados acima, você poderá simplesmente alternar de volta para o ponto de extremidade primário e habilitar o modo de atualização após a execução de um período de tempo ou o número de operações selecionado arbitrariamente. Em seguida, você pode deixar que ele passe pela lógica de repetição novamente. Se o problema tiver sido corrigido, ele continuará a usar o ponto de extremidade primário e permitirá atualizações. Se ainda houver um problema, ele será mais alternado para o ponto de extremidade secundário e o modo somente leitura após a falha dos critérios que você definiu.
 
-Para o cenário de terceiro, ao enviar pings para o ponto final de armazenamento primário torna-se com êxito novamente, pode acionar a opção para **PrimaryOnly** e continuar permitindo atualizações.
+Para o terceiro cenário, ao executar o ping no ponto de extremidade de armazenamento primário se tornar bem-sucedido novamente, você poderá disparar o comutador de volta para **PrimaryOnly** e continuar a permitir atualizações.
 
-## <a name="handling-eventually-consistent-data"></a>Manipular dados eventualmente consistentes
+## <a name="handling-eventually-consistent-data"></a>Manipulando dados eventualmente consistentes
 
-O RA-GRS funciona ao replicar as transações da região primária para a secundária. Este processo de replicação garante que os dados na região secundária são *eventualmente consistente*. Isto significa que todas as transações na região primária, eventualmente, são apresentados na região secundária, mas que pode haver um atraso antes de serem apresentados e que não há nenhuma garantia chegam, as transações na região secundária na mesma ordem em que eles original de aplicação na região primária. Se suas transações chegarem na região secundária fora de ordem, *poderá* considere seus dados na região secundária para estar num estado inconsistente, até que o serviço captura a cópia de segurança.
+O armazenamento com redundância geográfica funciona replicando as transações da região primária para a secundária. Esse processo de replicação garante que os dados na região secundária sejam *eventualmente consistentes*. Isso significa que todas as transações na região primária serão eventualmente exibidas na região secundária, mas que pode haver um atraso antes que elas apareçam e que não há nenhuma garantia de que as transações cheguem na região secundária na mesma ordem em que elas foram originalmente aplicadas na região primária. Se suas transações chegarem na região secundária fora de ordem, você *poderá* considerar que os dados na região secundária estarão em um estado inconsistente até que o serviço seja atualizado.
 
-A tabela seguinte mostra um exemplo de como o que pode acontecer quando atualizar os detalhes de um empregado para torná-los um membro do *administradores* função. Para efeitos deste exemplo, isto requer que Atualize o **funcionário** entidade e atualizar uma **função de administrador** entidade com uma contagem do número total de administradores. Observe como as atualizações são aplicadas fora de ordem na região secundária.
+A tabela a seguir mostra um exemplo do que pode acontecer quando você atualiza os detalhes de um funcionário para torná-los membros da função *Administradores* . Para fins deste exemplo, isso exige que você atualize a entidade **Employee** e atualize uma entidade de **função de administrador** com uma contagem do número total de administradores. Observe como as atualizações são aplicadas fora de ordem na região secundária.
 
-| **tempo** | **Transação**                                            | **Replicação**                       | **Hora da última sincronização** | **Resultado** |
+| **Momento** | **Aciona**                                            | **Replicação**                       | **Hora da última sincronização** | **Disso** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
-| T0       | Transação r: <br> Inserir o funcionário <br> entidade no principal |                                   |                    | Transação A inserido para o primário,<br> não replicadas ainda. |
-| T1       |                                                            | Transação A <br> replicar para<br> Secundário | T1 | R de transações replicada para o secundário. <br>Hora da última sincronização atualizada.    |
-| T2       | Transação b:<br>Atualizar<br> Entidade Employee<br> no principal  |                                | T1                 | Transação B escrito para o servidor primário,<br> não replicadas ainda.  |
-| T3       | Transação c:<br> Atualizar <br>Administrador<br>entidade de função no<br>Primário |                    | T1                 | Transação C escrito para o servidor primário,<br> não replicadas ainda.  |
-| *T4*     |                                                       | Transação C <br>replicar para<br> Secundário | T1         | Transação C replicado para o secundário.<br>LastSyncTime não atualizada porque <br>transação B não tem sido replicada ainda.|
-| *T5*     | Entidades de leitura <br>partir do secundário                           |                                  | T1                 | Obtém o valor obsoleto de funcionário <br> entidade porque ainda não a transação B <br> replicadas ainda. Obtém o novo valor<br> entidade de função de administrador porque tem de C<br> replicadas. Hora da última sincronização ainda não<br> foi atualizado porque a transação B<br> ainda não replicadas. Pode dizer o<br>entidade de função de administrador é inconsistente <br>uma vez que a entidade data/hora é após <br>a hora da última sincronização. |
-| *T6*     |                                                      | Transação B<br> replicar para<br> Secundário | T6                 | *T6* – tem todas as transações por meio da C <br>foram replicados, a hora da última sincronização<br> é atualizado. |
+| T0       | Transação A: <br> Inserir funcionário <br> entidade no primário |                                   |                    | Transação A inserida no primário,<br> Ainda não replicado. |
+| T1       |                                                            | Transação A <br> replicado para<br> secundária | T1 | Transação A replicada para secundária. <br>Hora da última sincronização atualizada.    |
+| T2       | Transação B:<br>Atualizar<br> entidade de funcionário<br> no primário  |                                | T1                 | Transação B gravada no primário,<br> Ainda não replicado.  |
+| T3       | Transação C:<br> Atualizar <br>administrador<br>entidade de função em<br>principal |                    | T1                 | Transação C gravada no primário,<br> Ainda não replicado.  |
+| *T4*     |                                                       | Transação C <br>replicado para<br> secundária | T1         | Transação C replicada para secundário.<br>LastSyncTime não atualizado porque <br>a transação B ainda não foi replicada.|
+| *T5*     | Ler entidades <br>do secundário                           |                                  | T1                 | Você Obtém o valor obsoleto para o funcionário <br> entidade porque a transação B não <br> replicado ainda. Você Obtém o novo valor para<br> entidade de função de administrador porque C tem<br> replicados. A hora da última sincronização ainda não<br> atualizado porque a transação B<br> Não foi replicado. Você pode informar ao<br>a entidade da função de administrador está inconsistente <br>Porque a data/hora da entidade é posterior <br>a hora da última sincronização. |
+| *T6*     |                                                      | Transação B<br> replicado para<br> secundária | T6                 | *T6* – todas as transações por meio de C têm <br>replicado, hora da última sincronização<br> é atualizado. |
 
-Neste exemplo, suponha que o cliente muda para leitura da região secundária em T5. Pode lido com êxito a **função de administrador** entidade neste momento, mas a entidade contém um valor para a contagem de administradores que não é consistente com o número de **funcionário** entidades que são marcado como administradores na região secundária neste momento. O cliente simplesmente foi possível apresentar este valor, com o risco que chegou a informações inconsistentes. Em alternativa, o cliente poderia tentar determinar que o **função de administrador** está num estado potencialmente inconsistente porque as atualizações ocorreram fora de ordem e, em seguida, informam o utilizador desse fato.
+Neste exemplo, suponha que o cliente alterne para a leitura da região secundária em T5. Ele pode ler com êxito a entidade de **função de administrador** neste momento, mas a entidade contém um valor para a contagem de administradores que não são consistentes com o número de entidades de **funcionário** marcadas como administradores no secundário região neste momento. O cliente poderia simplesmente exibir esse valor, com o risco de que ele seja informações inconsistentes. Como alternativa, o cliente pode tentar determinar se a **função de administrador** está em um estado potencialmente inconsistente porque as atualizações ocorreram fora de ordem e, em seguida, informar o usuário desse fato.
 
-Reconhecer que tem dados potencialmente inconsistentes, o cliente pode utilizar o valor do *hora da última sincronização* que pode obter a qualquer momento, consultando um serviço de armazenamento. Isso informa ao tempo quando os dados na região secundária eram último consistente e quando o serviço fosse aplicada a todas as transações antes desse ponto no tempo. No exemplo mostrado acima, depois do serviço insere a **funcionário** entidade na região secundária, a hora da última sincronização estiver definida como *T1*. Ele continua a é *T1* até as atualizações de serviço a **funcionário** entidade na região secundária quando é definido como *T6*. Se o cliente obtém a hora da última sincronização quando ele lê a entidade na *T5*, ele pode compará-lo com o carimbo de hora na entidade. Se o carimbo de hora na entidade é posterior à hora da última sincronização, em seguida, a entidade está num estado inconsistente potencialmente e pode levar a que quer que esteja a ação adequada para a sua aplicação. Utilizar este campo exige que saiba quando a última atualização para o primário foi concluída.
+Para reconhecer que ele tem dados potencialmente inconsistentes, o cliente pode usar o valor da *hora da última sincronização* que você pode obter a qualquer momento consultando um serviço de armazenamento. Isso informa a hora em que os dados na região secundária eram consistentes pela última vez e quando o serviço aplicou todas as transações antes desse ponto no tempo. No exemplo mostrado acima, depois que o serviço insere a entidade **Employee** na região secundária, a hora da última sincronização é definida como *T1*. Ele permanece em *T1* até que o serviço atualize a entidade **Employee** na região secundária quando ela estiver definida como *T6*. Se o cliente recuperar a hora da última sincronização quando ler a entidade em *T5*, ela poderá compará-la com o carimbo de data/hora na entidade. Se o carimbo de data/hora na entidade for posterior à hora da última sincronização, a entidade estará em um estado potencialmente inconsistente e você poderá tomar a ação apropriada para seu aplicativo. O uso deste campo exige que você saiba quando a última atualização para a primária foi concluída.
 
-## <a name="getting-the-last-sync-time"></a>Obter a hora da última sincronização
+## <a name="getting-the-last-sync-time"></a>Obtendo a hora da última sincronização
 
-Pode utilizar o PowerShell ou CLI do Azure para obter a hora da última sincronização para determinar quando dados pela última vez foi escritos para o secundário.
+Você pode usar o PowerShell ou CLI do Azure para recuperar a hora da última sincronização para determinar quando os dados foram gravados pela última vez no secundário.
 
 ### <a name="powershell"></a>PowerShell
 
-Para obter a hora da última sincronização para a conta de armazenamento com o PowerShell, verifique a conta de armazenamento **GeoReplicationStats.LastSyncTime** propriedade. Não se esqueça de substituir os valores de marcador de posição pelos seus próprios valores:
+Para obter a hora da última sincronização para a conta de armazenamento usando o PowerShell, verifique a propriedade **GeoReplicationStats. LastSyncTime** da conta de armazenamento. Lembre-se de substituir os valores de espaço reservado pelos seus próprios valores:
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -229,7 +229,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para obter a hora da última sincronização para a conta de armazenamento ao utilizar a CLI do Azure, verifique a conta de armazenamento **geoReplicationStats.lastSyncTime** propriedade. Utilize o `--expand` parâmetro para retornar valores para as propriedades aninhado **geoReplicationStats**. Não se esqueça de substituir os valores de marcador de posição pelos seus próprios valores:
+Para obter a hora da última sincronização para a conta de armazenamento usando CLI do Azure, verifique a propriedade **geoReplicationStats. lastSyncTime** da conta de armazenamento. Use o `--expand` parâmetro para retornar valores para as propriedades aninhadas em **geoReplicationStats**. Lembre-se de substituir os valores de espaço reservado pelos seus próprios valores:
 
 ```azurecli
 $lastSyncTime=$(az storage account show \
@@ -242,9 +242,9 @@ $lastSyncTime=$(az storage account show \
 
 ## <a name="testing"></a>Testes
 
-É importante testar seu aplicativo se comporta conforme o esperado quando encontrar erros de repetição. Por exemplo, precisa testar que o aplicativo alterna para o secundário e no modo só de leitura quando Deteta um problema e muda uma quando a região primária fique disponível novamente. Para tal, precisa de uma forma para simular erros de repetição e controle a frequência com que eles ocorrem.
+É importante testar se o aplicativo se comporta conforme o esperado quando encontra erros com nova tentativa. Por exemplo, você precisa testar se o aplicativo alterna para o secundário e para o modo somente leitura quando detecta um problema e alterna de volta quando a região primária fica disponível novamente. Para fazer isso, você precisa de uma maneira de simular erros com nova tentativa e controlar com que frequência eles ocorrem.
 
-Pode usar [Fiddler](https://www.telerik.com/fiddler) para interceptar e modificar as respostas HTTP num script. Este script pode identificar as respostas do seu ponto final primário e alterar o código de estado HTTP de forma que a biblioteca de cliente de armazenamento reconhece como um erro de repetição. Este fragmento de código mostra um exemplo simples de um script de Fiddler que intercepta as respostas a pedidos em relação a leitura a **employeedata** tabela rolesettings para retornar um status 502:
+Você pode usar o [Fiddler](https://www.telerik.com/fiddler) para interceptar e modificar respostas HTTP em um script. Esse script pode identificar as respostas que vêm de seu ponto de extremidade primário e alterar o código de status HTTP para um que a biblioteca de cliente de armazenamento reconhece como um erro com nova tentativa. Este trecho de código mostra um exemplo simples de um script Fiddler que intercepta respostas para solicitações de leitura na tabela **employeeData** para retornar um status 502:
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
@@ -256,12 +256,12 @@ static function OnBeforeResponse(oSession: Session) {
 }
 ```
 
-Pode estender esse exemplo para interceptar um maior número de pedidos e alterar apenas a **responseCode** em alguns para simular melhor um cenário do mundo real. Para obter mais informações sobre como personalizar os scripts de Fiddler, consulte [modificar uma solicitação ou resposta](https://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) na documentação do Fiddler.
+Você pode estender esse exemplo para interceptar um intervalo maior de solicitações e apenas alterar o **responseCode** em alguns deles para simular melhor um cenário do mundo real. Para obter mais informações sobre como personalizar scripts Fiddler, consulte [modificando uma solicitação ou resposta](https://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) na documentação do Fiddler.
 
-Se tiver efetuado os limiares para mudar a sua aplicação para o modo só de leitura configurável, será mais fácil testar o comportamento com volumes de transações de não produção.
+Se você tiver tornado os limites para alternar o aplicativo para o modo somente leitura configurável, será mais fácil testar o comportamento com volumes de transações de não produção.
 
 ## <a name="next-steps"></a>Próximos Passos
 
-* Para obter mais informações sobre o acesso de leitura redundância geográfica, incluindo outro exemplo de como o LastSyncTime estiver definido, veja [opções de redundância de armazenamento do Windows Azure e o armazenamento Georredundante com acesso de leitura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+* Para obter mais informações sobre como ler a partir da região secundária, incluindo outro exemplo de como a última propriedade de hora de sincronização está definida, consulte [Opções de redundância de armazenamento do Azure e armazenamento com redundância geográfica com acesso de leitura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
-* Para obter um exemplo completo que mostra como fazer a transição entre os pontos de extremidade principais e secundários, consulte [amostras do Azure – usando o padrão de disjuntor automático com o armazenamento RA-GRS](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).
+* Para obter um exemplo completo mostrando como fazer a alternância entre os pontos de extremidade primário e secundário, consulte [exemplos do Azure – usando o padrão de disjuntor com o armazenamento ra-grs](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).

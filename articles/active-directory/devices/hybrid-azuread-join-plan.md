@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49f8d0e418f43648665b95f5bf1f672e9f9dae28
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: cad2568702909274030d3c7c6469a7e4cbf670c4
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779462"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989264"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planejar sua implementação de junção de Azure Active Directory híbrida
 
@@ -101,7 +101,7 @@ As organizações podem querer fazer uma validação controlada do ingresso no A
 
 ## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Selecione seu cenário com base na sua infraestrutura de identidade
 
-O ingresso no Azure AD híbrido funciona com ambientes gerenciados e federados.  
+O ingresso no Azure AD híbrido funciona com ambientes gerenciados e federados dependendo se o UPN é roteável ou não roteável. Veja a parte inferior da página para ver a tabela em cenários com suporte.  
 
 ### <a name="managed-environment"></a>Ambiente gerenciado
 
@@ -150,7 +150,7 @@ A tabela a seguir fornece detalhes sobre o suporte para esses UPNs locais do AD 
 | Podem | Managed | Não suportado | |
 | Não roteável | Managed | Não suportado | |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Configurar junção de Azure Active Directory híbrida para federado ambiente](hybrid-azuread-join-federated-domains.md)

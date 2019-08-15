@@ -11,16 +11,15 @@ ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 6217fe51a0231ee1bd34f9fbe8edef47ee073209
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 480ca33f02242499bdf9fff3fa35695e7d4841a0
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609699"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945460"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para os serviços de nuvem do Azure: Perguntas frequentes (FAQs)
 
@@ -311,7 +310,7 @@ A associação SNI pode ser configurada usando o cmdlet **New-webbind** do Power
     
 Conforme descrito [aqui](https://technet.microsoft.com/library/ee790567.aspx), o $SSLFlags pode ser um dos valores como o seguinte:
 
-|Valor|Significado|
+|Value|Significado|
 ------|------
 |0|Sem SNI|
 |1|SNI habilitado |

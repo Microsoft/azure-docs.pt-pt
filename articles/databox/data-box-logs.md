@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 309dc8e1fd15ae4088ed6ee87bdbb8aa4d636951
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8fecc00a970f0e706dc6240eaec593fd54968ff8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848576"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934199"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Rastreamento e log de eventos para seu Azure Data Box e Azure Data Box Heavy
 
@@ -197,7 +197,7 @@ Os arquivos de BOM ou de manifesto também são copiados para a conta de armazen
 
 Durante o carregamento de dados no Azure, um log de cópia é criado.
 
-### <a name="copylog"></a>Copylog
+### <a name="copy-log"></a>Copiar log
 
 Para cada pedido que é processado, o serviço de Data Box cria o log de cópia na conta de armazenamento associada. O log de cópia tem o número total de arquivos que foram carregados e o número de arquivos que tiveram um erro durante a cópia de dados do Data Box para sua conta de armazenamento do Azure.
 
@@ -252,6 +252,8 @@ Aqui está um exemplo de um log de cópia em que o upload foi concluído com err
 ### <a name="upload-completed-with-warnings"></a>Carregamento concluído com avisos
 
 O upload para o Azure é concluído com avisos se seus dados tivessem nomes de contêiner/blob/arquivo que não estavam em conformidade com as convenções de nomenclatura do Azure e os nomes foram modificados para carregar os dados no Azure.
+
+![Caminho para copiar o log na folha de visão geral quando concluído com avisos](media/data-box-logs/copy-log-path-3.png)
 
 Aqui está um exemplo de um log de cópia em que os contêineres que não estavam em conformidade com as convenções de nomenclatura do Azure foram renomeados durante o carregamento de dados para o Azure.
 

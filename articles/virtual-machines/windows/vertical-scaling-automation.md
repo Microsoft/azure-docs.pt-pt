@@ -1,6 +1,6 @@
 ---
-title: Utilizar a automatização do Azure para aumentar verticalmente as máquinas virtuais do Windows | Documentos da Microsoft
-description: Aumentar verticalmente uma Máquina Virtual do Windows em resposta a alertas com a automatização do Azure de monitorização
+title: Usar a automação do Azure para dimensionar verticalmente as máquinas virtuais do Windows | Microsoft Docs
+description: Dimensionar verticalmente uma máquina virtual do Windows em resposta a alertas de monitoramento com a automação do Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
@@ -16,47 +16,48 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7cccd36c619e58b8dedb9a52e70c478dc7b857c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5d255662f7db12537365f57eb71355ca2e11cc51
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707927"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947259"
 ---
-# <a name="vertically-scale-windows-vms-with-azure-automation"></a>Aumentar verticalmente as VMs do Windows com a automatização do Azure
+# <a name="vertically-scale-windows-vms-with-azure-automation"></a>Dimensionar verticalmente as VMs do Windows com a automação do Azure
 
-Dimensionamento vertical é o processo de aumentar ou diminuir os recursos de uma máquina em resposta à carga de trabalho. No Azure pode fazê-lo ao alterar o tamanho da Máquina Virtual. Isto pode ajudar a nos seguintes cenários
+O dimensionamento vertical é o processo de aumentar ou diminuir os recursos de um computador em resposta à carga de trabalho. No Azure, isso pode ser feito alterando o tamanho da máquina virtual. Isso pode ajudar nos seguintes cenários
 
-* Se a Máquina Virtual não está a ser utilizado com freqüência, pode redimensioná-la para baixo para um tamanho mais pequeno para reduzir os custos mensais
-* Se a Máquina Virtual está a ver um pico de carga, podem ser redimensionado para um tamanho maior para aumentar sua capacidade
+* Se a máquina virtual não estiver sendo usada com frequência, você poderá redimensioná-la para um tamanho menor para reduzir os custos mensais
+* Se a máquina virtual estiver vendo uma carga de pico, ela poderá ser redimensionada para um tamanho maior para aumentar sua capacidade
 
-A estrutura de tópicos para obter os passos realizar isso é como abaixo
+O contorno das etapas para fazer isso é o seguinte
 
-1. Configurar a automatização do Azure para aceder às suas máquinas virtuais
-2. Importar os runbooks do dimensionamento Vertical de automatização do Azure para a sua subscrição
-3. Adicionar um webhook ao runbook
-4. Adicionar um alerta à máquina Virtual
+1. Configurar a automação do Azure para acessar suas máquinas virtuais
+2. Importar os runbooks de escala vertical da automação do Azure para sua assinatura
+3. Adicionar um webhook ao seu runbook
+4. Adicionar um alerta à sua máquina virtual
 
-## <a name="scale-limitations"></a>Limitações de dimensionamento
 
-Devido ao tamanho da primeira Máquina Virtual, os tamanhos podem ser dimensionado, poderá ser limitado devido à disponibilidade, os outros tamanhos no cluster de que Máquina Virtual atual for implementado num. Os runbooks de automatização publicados usados neste artigo vamos lidar com esse caso e só pode reduzir dentro do abaixo pares de tamanho VM. Isso significa que uma máquina de Virtual Standard_D1v2 será não, de repente, aumentar verticalmente até Standard_G5 ou reduzidos verticalmente para Basic_A0. Também restrita máquina de Virtual tamanhos aumentar/reduzir verticalmente não é suportada. 
+## <a name="scale-limitations"></a>Limitações de escala
 
-Pode optar por dimensionar entre os seguintes pares de tamanhos:
+Devido ao tamanho da primeira máquina virtual, os tamanhos que podem ser dimensionados podem ser limitados devido à disponibilidade dos outros tamanhos no cluster em que a máquina virtual atual está implantada. Nos runbooks de automação publicados usados neste artigo, cuidamos desse caso e só dimensionamos nos pares de tamanho de VM abaixo. Isso significa que uma máquina virtual Standard_D1v2 não será expandida repentinamente para Standard_G5 ou reduzida para Basic_A0. Também não há suporte para expansão/redução de tamanhos de máquina virtual restritos. 
 
-* [Série A](#a-series)
+Você pode optar por dimensionar entre os seguintes pares de tamanhos:
+
+* [Série a](#a-series)
 * [Série B](#b-series)
 * [Série D](#d-series)
 * [Série E](#e-series)
 * [Série F](#f-series)
-* [G-Series](#g-series)
+* [Série G](#g-series)
 * [Série H](#h-series)
-* [L-Series](#l-series)
+* [Série L](#l-series)
 * [Série M](#m-series)
 * [Série N](#n-series)
 
 ### <a name="a-series"></a>Série A
 
-| Tamanho inicial | Aumentar verticalmente o tamanho | 
+| Tamanho inicial | Dimensionar tamanho | 
 | --- | --- |
 | Basic_A0 | Basic_A1 |
 | Basic_A1 | Basic_A2 |
@@ -78,7 +79,7 @@ Pode optar por dimensionar entre os seguintes pares de tamanhos:
 
 ### <a name="b-series"></a>Série B
 
-| Tamanho inicial | Aumentar verticalmente o tamanho | 
+| Tamanho inicial | Dimensionar tamanho | 
 | --- | --- |
 | Standard_B1s | Standard_B2s |
 | Standard_B1ms | Standard_B2ms |
@@ -87,7 +88,7 @@ Pode optar por dimensionar entre os seguintes pares de tamanhos:
 
 ### <a name="d-series"></a>Série D
 
-| Tamanho inicial | Aumentar verticalmente o tamanho | 
+| Tamanho inicial | Dimensionar tamanho | 
 | --- | --- |
 | Standard_D1 | Standard_D2 |
 | Standard_D2 | Standard_D3 |
@@ -129,7 +130,7 @@ Pode optar por dimensionar entre os seguintes pares de tamanhos:
 
 ### <a name="e-series"></a>Série E
 
-| Tamanho inicial | Aumentar verticalmente o tamanho | 
+| Tamanho inicial | Dimensionar tamanho | 
 | --- | --- |
 | Standard_E2_v3 | Standard_E4_v3 |
 | Standard_E4_v3 | Standard_E8_v3 |
@@ -146,7 +147,7 @@ Pode optar por dimensionar entre os seguintes pares de tamanhos:
 
 ### <a name="f-series"></a>Série F
 
-| Tamanho inicial | Aumentar verticalmente o tamanho | 
+| Tamanho inicial | Dimensionar tamanho | 
 | --- | --- |
 | Standard_F1 | Standard_F2 |
 | Standard_F2 | Standard_F4 |
@@ -165,7 +166,7 @@ Pode optar por dimensionar entre os seguintes pares de tamanhos:
 
 ### <a name="g-series"></a>Série G
 
-| Tamanho inicial | Aumentar verticalmente o tamanho | 
+| Tamanho inicial | Dimensionar tamanho | 
 | --- | --- |
 | Standard_G1 | Standard_G2 |
 | Standard_G2 | Standard_G3 |
@@ -178,14 +179,14 @@ Pode optar por dimensionar entre os seguintes pares de tamanhos:
 
 ### <a name="h-series"></a>Série H
 
-| Tamanho inicial | Aumentar verticalmente o tamanho | 
+| Tamanho inicial | Dimensionar tamanho | 
 | --- | --- |
 | Standard_H8 | Standard_H16 |
 | Standard_H8m | Standard_H16m |
 
 ### <a name="l-series"></a>Série L
 
-| Tamanho inicial | Aumentar verticalmente o tamanho | 
+| Tamanho inicial | Dimensionar tamanho | 
 | --- | --- |
 | Standard_L4s | Standard_L8s |
 | Standard_L8s | Standard_L16s |
@@ -197,7 +198,7 @@ Pode optar por dimensionar entre os seguintes pares de tamanhos:
 
 ### <a name="m-series"></a>Série M
 
-| Tamanho inicial | Aumentar verticalmente o tamanho | 
+| Tamanho inicial | Dimensionar tamanho | 
 | --- | --- |
 | Standard_M8ms | Standard_M16ms |
 | Standard_M16ms | Standard_M32ms |
@@ -210,7 +211,7 @@ Pode optar por dimensionar entre os seguintes pares de tamanhos:
 
 ### <a name="n-series"></a>Série N
 
-| Tamanho inicial | Aumentar verticalmente o tamanho | 
+| Tamanho inicial | Dimensionar tamanho | 
 | --- | --- |
 | Standard_NC6 | Standard_NC12 |
 | Standard_NC12 | Standard_NC24 |
@@ -224,39 +225,40 @@ Pode optar por dimensionar entre os seguintes pares de tamanhos:
 | Standard_NV12 | Standard_NV24 |
 | Standard_NV6s_v2 | Standard_NV12s_v2 |
 | Standard_NV12s_v2 | Standard_NV24s_v2 |
+| Standard_NV12s_v3 |Standard_NV48s_v3 |
 
-## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Configurar a automatização do Azure para aceder às suas máquinas virtuais
-A primeira coisa que precisa fazer é criar uma conta de automatização do Azure que irá alojar os runbooks utilizados para aumentar uma Máquina Virtual. Recentemente, o serviço de automatização introduziu a funcionalidade de "Conta Run As" que torna a definição de cópia de segurança Principal de serviço para executar automaticamente os runbooks em nome do usuário muito fácil. Pode ler mais sobre isso no artigo abaixo:
+## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Configurar a automação do Azure para acessar suas máquinas virtuais
+A primeira coisa que você precisa fazer é criar uma conta de automação do Azure que hospedará os runbooks usados para dimensionar uma máquina virtual. Recentemente, o serviço de automação introduziu o recurso "conta Executar como", que torna a configuração da entidade de serviço para executar automaticamente os runbooks em nome do usuário. Você pode ler mais sobre isso no artigo abaixo:
 
 * [Autenticar Runbooks com a conta Run As do Azure](../../automation/automation-sec-configure-azure-runas-account.md)
 
-## <a name="import-the-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importar os runbooks do dimensionamento Vertical de automatização do Azure para a sua subscrição
-Os runbooks que são necessários para aumentar verticalmente a sua máquina Virtual já estão a ser publicados na Galeria de Runbook da automatização do Azure. Terá de importá-los na sua subscrição. Pode aprender a importar runbooks ao ler o artigo seguinte.
+## <a name="import-the-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importar os runbooks de escala vertical da automação do Azure para sua assinatura
+Os runbooks que são necessários para dimensionar verticalmente sua máquina virtual já estão publicados na Galeria de runbook da automação do Azure. Você precisará importá-los para sua assinatura. Você pode aprender a importar runbooks lendo o artigo a seguir.
 
 * [Runbook and module galleries for Azure Automation](../../automation/automation-runbook-gallery.md) (Galerias de runbooks e módulos para a Automatização do Azure)
 
-Os runbooks que precisavam ser importados são apresentados na imagem abaixo
+Os runbooks que precisam ser importados são mostrados na imagem abaixo
 
 ![Importar runbooks](./media/vertical-scaling-automation/scale-runbooks.png)
 
-## <a name="add-a-webhook-to-your-runbook"></a>Adicionar um webhook ao runbook
-Depois de ter importado os runbooks que precisará adicionar um webhook para o runbook para que ele pode ser acionado por um alerta a partir de uma Máquina Virtual. Os detalhes da criação de um webhook para o Runbook podem ser lido aqui
+## <a name="add-a-webhook-to-your-runbook"></a>Adicionar um webhook ao seu runbook
+Depois de importar os runbooks, você precisará adicionar um webhook ao runbook para que ele possa ser disparado por um alerta de uma máquina virtual. Os detalhes da criação de um webhook para seu runbook podem ser lidos aqui
 
-* [Webhooks de automatização do Azure](../../automation/automation-webhooks.md)
+* [WebHooks de automação do Azure](../../automation/automation-webhooks.md)
 
-Certifique-se de que copiar o webhook antes de fechar a caixa de diálogo do webhook, pois irá precisar na próxima seção.
+Certifique-se de copiar o webhook antes de fechar a caixa de diálogo do webhook, pois você precisará dela na próxima seção.
 
-## <a name="add-an-alert-to-your-virtual-machine"></a>Adicionar um alerta à máquina Virtual
-1. Selecionar definições da Máquina Virtual
-2. Selecione "Regras de alerta"
-3. Selecione "Adicionar alerta de"
-4. Selecione uma métrica para disparar o alerta no
-5. Selecione uma condição, que, quando concluído irá fazer com que o alerta seja acionado
-6. Selecione um limite para a condição no passo 5. para ser concluído
-7. Selecione um período durante o qual irá verificar o serviço de monitoramento para a condição e o limiar em passos 5 e 6
-8. Cole o webhook que copiou na secção anterior.
+## <a name="add-an-alert-to-your-virtual-machine"></a>Adicionar um alerta à sua máquina virtual
+1. Selecionar configurações de máquina virtual
+2. Selecione "regras de alerta"
+3. Selecione "adicionar alerta"
+4. Selecione uma métrica na qual o alerta será acionado
+5. Selecione uma condição que, quando atendida, fará com que o alerta seja acionado
+6. Selecione um limite para a condição na etapa 5. para ser atendido
+7. Selecione um período no qual o serviço de monitoramento verificará a condição e o limite nas etapas 5 & 6
+8. Cole o webhook que você copiou da seção anterior.
 
-![Adicionar alerta da Máquina Virtual 1](./media/vertical-scaling-automation/add-alert-webhook-1.png)
+![Adicionar alerta à máquina virtual 1](./media/vertical-scaling-automation/add-alert-webhook-1.png)
 
-![Adicionar alerta para a Máquina Virtual 2](./media/vertical-scaling-automation/add-alert-webhook-2.png)
+![Adicionar alerta à máquina virtual 2](./media/vertical-scaling-automation/add-alert-webhook-2.png)
 

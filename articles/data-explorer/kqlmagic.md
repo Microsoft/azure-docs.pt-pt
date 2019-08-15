@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 312e39ff1b699bb3c7f2baea3c66cbf8999ee44b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: ba21ec6ba82ac4984d3c51fc46f88de2cd56b2b2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814513"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933699"
 ---
 # <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Usar uma extensão Jupyter Notebook e Kqlmagic para analisar dados no Azure Data Explorer
 
@@ -39,7 +39,9 @@ O [Jupyter Notebook](https://jupyter.org/) dá suporte a funções mágicas que 
     ```python
     %reload_ext Kqlmagic
     ```
-
+    > [!NOTE]
+    > Altere a versão do kernel para Python 3,6 clicando em kernel > Alterar kernel > Python 3,6
+    
 ## <a name="connect-to-the-azure-data-explorer-help-cluster"></a>Conectar-se ao cluster de ajuda do Data Explorer do Azure
 
 Use o comando a seguir para se conectar ao banco de dados de *exemplos* hospedado no cluster de *ajuda* . Para usuários não Microsoft AAD, substitua o nome `Microsoft.com` do locatário pelo seu locatário do AAD.
@@ -168,7 +170,7 @@ Em muitos cenários de análise, talvez você queira criar blocos de anotações
 > [!TIP]
 > Para receber informações sobre todas as configurações disponíveis `%config KQLmagic`, use. Para solucionar problemas e capturar erros do Kusto, como problemas de conexão e consultas incorretas, use`%config Kqlmagic.short_errors=False`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Execute o comando de ajuda para explorar os seguintes blocos de anotações de exemplo que contêm todos os recursos com suporte:
 - [Introdução ao KQL Magic para Azure Data Explorer](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 

@@ -6,15 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 708c62971a20a7071accf7591a4e2914f7dbd9f3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: c1e022591ce1aee073330055744fbd78d97c0b1d
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736361"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950250"
 ---
-# <a name="how-to-annotate-data-sources"></a>Como anotar origens de dados
+# <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Como anotar fontes de dados no catálogo de dados do Azure
+
 ## <a name="introduction"></a>Introdução
+
 **Microsoft Azure catálogo de dados** é um serviço de nuvem totalmente gerenciado que serve como um sistema de registro e sistema de descoberta para fontes de dados empresariais. Em outras palavras, o catálogo de dados é responsável por ajudar as pessoas a descobrir, compreender e usar fontes de dados e ajudar as organizações a obter mais valor de seus dados existentes. Quando uma fonte de dados é registrada no catálogo de dados, seus metadados são copiados e indexados pelo serviço, mas a história não termina lá. O catálogo de dados permite que os usuários forneçam seus próprios metadados descritivos – como descrições e marcas – para complementar os metadados extraídos da fonte de dados e tornar a fonte de dados mais compreensível para mais pessoas.
 
 ## <a name="annotation-and-crowdsourcing"></a>Anotação e crowdsourcing

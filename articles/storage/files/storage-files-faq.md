@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: e14fcbd81a562b8d6451bb89a479c6675569403a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0fe893ae95b31b1b676a982a60166041a0ad964d
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854540"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015913"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre os arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do [protocolo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)padrão do setor. Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, Linux e macOS. Você também pode armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -68,7 +68,7 @@ Este artigo responde a perguntas comuns sobre recursos e funcionalidades dos arq
 
 * <a id="redundancy-options"></a>
   **Quais opções de redundância de armazenamento têm suporte nos arquivos do Azure?**  
-    Atualmente, os arquivos do Azure dão suporte a LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona) e GRS (armazenamento com redundância geográfica). Planejamos oferecer suporte ao armazenamento com redundância geográfica (RA-GRS) de acesso de leitura no futuro, mas não temos linhas de tempo para compartilhar neste momento.
+    Atualmente, os arquivos do Azure dão suporte a LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) e GZRS (armazenamento com redundância de zona geográfica) (visualização). Planejamos oferecer suporte ao armazenamento com redundância geográfica (RA-GRS) de acesso de leitura no futuro, mas não temos linhas de tempo para compartilhar neste momento.
 
 * <a id="tier-options"></a>
   **Quais camadas de armazenamento têm suporte nos arquivos do Azure?**  

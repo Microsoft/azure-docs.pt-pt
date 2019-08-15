@@ -1,6 +1,6 @@
 ---
-title: Conceitos - acesso e identidade dos serviços de Kubernetes no Azure (AKS)
-description: Saiba mais sobre o acesso e identidade no Azure Kubernetes Service (AKS), incluindo a integração do Active Directory do Azure, Kubernetes controlo de acesso baseado em funções (RBAC) e funções e associações.
+title: Conceitos-acesso e identidade nos serviços Kubernetess do Azure (AKS)
+description: Saiba mais sobre o acesso e a identidade no AKS (serviço de kubernetes do Azure), incluindo integração Azure Active Directory, controle de acesso baseado em função (RBAC) e funções e associações.
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,82 +8,82 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
 ms.openlocfilehash: a1ed1eccd7a10d78cd503559469654e5562cde0c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67615867"
 ---
-# <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opções de acesso e identidade para o Azure Kubernetes Service (AKS)
+# <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opções de acesso e identidade para o serviço kubernetes do Azure (AKS)
 
-Existem diferentes formas de autenticar com e proteger clusters de Kubernetes. Utilizar controlos de acesso baseado em funções (RBAC), pode conceder a utilizadores ou o acesso de grupos para apenas os recursos que necessitam. Com o Azure Kubernetes Service (AKS), pode melhorar ainda mais a estrutura de segurança e permissões ao utilizar o Azure Active Directory. Essas abordagens ajudam a proteger as cargas de trabalho de aplicação e os dados dos clientes.
+Há diferentes maneiras de se autenticar com o e proteger os clusters kubernetes. Usando o RBAC (controles de acesso baseado em função), você pode conceder a usuários ou grupos acesso apenas aos recursos de que precisam. Com o AKS (serviço kubernetes do Azure), você pode aprimorar ainda mais a estrutura de segurança e permissões usando Azure Active Directory. Essas abordagens ajudam a proteger as cargas de trabalho do aplicativo e os dados do cliente.
 
-Este artigo apresenta as principais conceitos que o ajudam a autenticar e atribuir permissões no AKS:
+Este artigo apresenta os principais conceitos que ajudam você a autenticar e atribuir permissões no AKS:
 
-- [Contas de serviço do Kubernetes](#kubernetes-service-accounts)
-- [Integração do Active Directory do Azure](#azure-active-directory-integration)
-- [Controlos de acesso baseado em funções (RBAC)](#role-based-access-controls-rbac)
+- [Contas de serviço kubernetes](#kubernetes-service-accounts)
+- [Integração do Azure Active Directory](#azure-active-directory-integration)
+- [RBAC (controles de acesso baseado em função)](#role-based-access-controls-rbac)
 - [Funções e ClusterRoles](#roles-and-clusterroles)
 - [RoleBindings e ClusterRoleBindings](#rolebindings-and-clusterrolebindings)
 
-## <a name="kubernetes-service-accounts"></a>Contas de serviço do Kubernetes
+## <a name="kubernetes-service-accounts"></a>Contas de serviço kubernetes
 
-Um dos tipos de utilizador primário no Kubernetes é uma *conta de serviço*. Uma conta de serviço existe no e é gerenciada pelo, a API do Kubernetes. As credenciais para contas de serviço são armazenadas como segredos do Kubernetes, que permite que eles sejam utilizados pelo pods autorizados para comunicar com o servidor de API. A maioria dos pedidos de API fornecem um token de autenticação para uma conta de serviço ou uma conta de utilizador normal.
+Um dos tipos de usuário primários no kubernetes é uma *conta de serviço*. Uma conta de serviço existe no e é gerenciada pelo, a API do kubernetes. As credenciais para contas de serviço são armazenadas como segredos kubernetes, o que permite que elas sejam usadas por pods autorizados para se comunicar com o servidor de API. A maioria das solicitações de API fornece um token de autenticação para uma conta de serviço ou uma conta de usuário normal.
 
-Contas de usuários normais permitem o acesso mais tradicional para administradores humanos ou programadores, não apenas serviços e processos. Kubernetes em si não fornece uma solução de gerenciamento de identidades em que as contas de utilizador normal e as palavras-passe são armazenadas. Em vez disso, as soluções de identidade externo podem ser integradas no Kubernetes. Para os clusters do AKS, essa solução de identidades integrada é o Azure Active Directory.
+As contas de usuário normais permitem acesso mais tradicional a administradores ou desenvolvedores humanos, não apenas a serviços e processos. O kubernetes em si não fornece uma solução de gerenciamento de identidades onde contas de usuário e senhas regulares são armazenadas. Em vez disso, as soluções de identidade externa podem ser integradas ao kubernetes. Para clusters AKS, essa solução de identidade integrada é Azure Active Directory.
 
-Para obter mais informações sobre as opções de identidade no Kubernetes, consulte [autenticação de Kubernetes][kubernetes-authentication].
+Para obter mais informações sobre as opções de identidade no kubernetes, consulte [autenticação do kubernetes][kubernetes-authentication].
 
 ## <a name="azure-active-directory-integration"></a>Integração do Azure Active Directory
 
-Pode ser aprimorada a segurança dos clusters do AKS com a integração do Azure Active Directory (AD). Baseia-se em décadas de gestão de identidades da empresa, o Azure AD é um diretório de multi-inquilino, com base na cloud e o serviço de gestão de identidades que combina serviços de diretório centrais, gestão de acesso de aplicações e proteção de identidade. Com o Azure AD, pode integrar identidades no local em clusters do AKS para fornecer uma única origem para gestão de contas e segurança.
+A segurança dos clusters AKS pode ser aprimorada com a integração do Azure Active Directory (AD). Criado com base em décadas de gerenciamento de identidades corporativas, o Azure AD é um serviço de gerenciamento de identidade e diretório baseado em nuvem multilocatário que combina os principais serviços de diretório, gerenciamento de acesso a aplicativos e proteção de identidade. Com o Azure AD, você pode integrar identidades locais em clusters AKS para fornecer uma única fonte de gerenciamento de conta e segurança.
 
-![Integração do Active Directory do Azure com clusters do AKS](media/concepts-identity/aad-integration.png)
+![Integração de Azure Active Directory com clusters AKS](media/concepts-identity/aad-integration.png)
 
-Com os clusters do AKS integrada no AD do Azure, pode conceder a utilizadores ou o acesso de grupos de recursos dentro de um espaço de nomes ou entre o cluster do Kubernetes. Para obter um `kubectl` contexto de configuração, um usuário pode executar o [az aks get-credentials][az-aks-get-credentials] comando. Quando um utilizador, em seguida, interage com o cluster do AKS com `kubectl`, são-lhes pedido que inicie sessão com as credenciais do Azure AD. Esta abordagem fornece uma única origem para gestão de contas de utilizador e as credenciais de palavra-passe. O utilizador só pode aceder os recursos, conforme definido pelo administrador do cluster.
+Com os clusters AKS integrados do Azure AD, você pode conceder aos usuários ou grupos acesso aos recursos do kubernetes em um namespace ou através do cluster. Para obter um `kubectl` contexto de configuração, um usuário pode executar o comando [AZ AKs Get-Credentials][az-aks-get-credentials] . Quando um usuário interage com o cluster AKs com `kubectl`, ele é solicitado a entrar com suas credenciais do Azure AD. Essa abordagem fornece uma única fonte para as credenciais de senha e gerenciamento de conta de usuário. O usuário só pode acessar os recursos conforme definido pelo administrador do cluster.
 
-Autenticação do Azure AD em clusters do AKS usa o OpenID Connect, uma camada de identidade criada com base no protocolo de OAuth 2.0. OAuth 2.0 define os mecanismos de obter e utilizar tokens de acesso para aceder a recursos protegidos e OpenID Connect implementa a autenticação como uma extensão para o processo de autorização de OAuth 2.0. Para obter mais informações sobre o OpenID Connect, consulte a [documentação abrir ID Connect][openid-connect]. To verify the authentication tokens obtained from Azure AD through OpenID Connect, AKS clusters use Kubernetes Webhook Token Authentication. For more information, see the [Webhook Token Authentication documentation][webhook-token-docs].
+A autenticação do Azure AD em clusters AKS usa o OpenID Connect, uma camada de identidade criada sobre o protocolo OAuth 2,0. O OAuth 2,0 define mecanismos para obter e usar tokens de acesso para acessar recursos protegidos, e o OpenID Connect implementa a autenticação como uma extensão para o processo de autorização do OAuth 2,0. Para obter mais informações sobre o OpenID Connect, consulte a [documentação do Open ID Connect][openid-connect]. Para verificar os tokens de autenticação obtidos do Azure AD por meio do OpenID Connect, os clusters AKS usam a autenticação de token do webhook kubernetes. Para obter mais informações, consulte a [documentação de autenticação de token][webhook-token-docs]do webhook.
 
-## <a name="role-based-access-controls-rbac"></a>Controlos de acesso baseado em funções (RBAC)
+## <a name="role-based-access-controls-rbac"></a>RBAC (controles de acesso baseado em função)
 
-Para fornecer a filtragem granular das ações que os utilizadores podem executar, o Kubernetes utiliza controlos de acesso baseado em funções (RBAC). Esse mecanismo de controlo permite-lhe atribuir utilizadores ou grupos de utilizadores, permissão para fazer coisas como criar ou modificar os recursos ou ver registos de executar cargas de trabalho de aplicação. Estas permissões podem ser confinadas a um único espaço de nomes ou concedidas em todo o cluster do AKS. Com o RBAC do Kubernetes, crie *funções* para definir as permissões e, em seguida, atribuir essas funções a utilizadores com *enlaces de função*.
+Para fornecer filtragem granular das ações que os usuários podem executar, o kubernetes usa controles de acesso baseado em função (RBAC). Esse mecanismo de controle permite atribuir usuários ou grupos de usuários, permissão para tarefas como criar ou modificar recursos ou exibir logs da execução de cargas de trabalho de aplicativo. Essas permissões podem ser delimitadas para um único namespace ou concedidas em todo o cluster AKS. Com o RBAC kubernetes, você cria *funções* para definir permissões e, em seguida, atribui essas funções a usuários com *associações de função*.
 
-Para obter mais informações, consulte [autorização RBAC usando][kubernetes-rbac].
+Para obter mais informações, consulte [usando a autorização do RBAC][kubernetes-rbac].
 
-### <a name="azure-role-based-access-controls-rbac"></a>Controlos de acesso baseado em função do Azure (RBAC)
-Um mecanismo adicional para controlar o acesso aos recursos é controles de acesso baseado em função do Azure (RBAC). RBAC do Kubernetes foi concebida para funcionar em recursos no seu cluster do AKS e RBAC do Azure foi concebida para funcionar em recursos na sua subscrição do Azure. Com o Azure RBAC, pode criar uma *definição de função* que descreve as permissões sejam aplicadas. Um utilizador ou grupo, em seguida, é atribuído esta definição de função para um determinado *âmbito*, que pode ser um recurso individual, um recurso, grupo, ou entre a subscrição.
+### <a name="azure-role-based-access-controls-rbac"></a>RBAC (controles de acesso baseado em função) do Azure
+Um mecanismo adicional para controlar o acesso a recursos é o RBAC (controle de acesso baseado em função) do Azure. O RBAC kubernetes foi projetado para trabalhar em recursos no cluster do AKS e o RBAC do Azure foi projetado para trabalhar em recursos em sua assinatura do Azure. Com o RBAC do Azure, você cria uma *definição de função* que descreve as permissões a serem aplicadas. Um usuário ou grupo recebe essa definição de função para um *escopo*específico, que pode ser um recurso individual, um grupo de recursos ou pela assinatura.
 
 Para obter mais informações, consulte [o que é o RBAC do Azure?][azure-rbac]
 
 ## <a name="roles-and-clusterroles"></a>Funções e ClusterRoles
 
-Antes de atribuir permissões a utilizadores com RBAC do Kubernetes, primeiro defina essas permissões como uma *função*. Funções de Kubernetes *conceder* permissões. Não há nenhum conceito de um *negar* permissão.
+Antes de atribuir permissões a usuários com o RBAC kubernetes, você primeiro define essas permissões como uma *função*. As funções kubernetes concedem permissões. Não há nenhum conceito de permissão *Deny* .
 
-Funções são utilizadas para conceder permissões num namespace. Se tem de conceder permissões em todo o cluster, ou a recursos de cluster fora do espaço de nomes especificado, em vez disso, pode utilizar *ClusterRoles*.
+As funções são usadas para conceder permissões em um namespace. Se precisar conceder permissões em todo o cluster ou em recursos de cluster fora de um namespace específico, você poderá usar *ClusterRoles*.
 
-Um ClusterRole funciona da mesma forma para conceder permissões para recursos, mas pode ser aplicada a recursos no cluster inteiro, não um espaço de nomes específico.
+Um ClusterRole funciona da mesma maneira para conceder permissões a recursos, mas pode ser aplicado a recursos em todo o cluster, não em um namespace específico.
 
 ## <a name="rolebindings-and-clusterrolebindings"></a>RoleBindings e ClusterRoleBindings
 
-Depois das funções são definidas para conceder permissões para recursos, atribuir essas permissões RBAC do Kubernetes com um *RoleBinding*. Se o seu cluster do AKS integra-se com o Azure Active Directory, enlaces são como os utilizadores do Azure AD são concedidos permissões para efetuar ações dentro do cluster.
+Depois que as funções são definidas para conceder permissões a recursos, você atribui essas permissões de RBACkubernetes com uma rolebinding. Se o cluster AKS se integrar com o Azure Active Directory, as associações serão como esses usuários do Azure AD recebem permissões para executar ações no cluster.
 
-Os enlaces de função são utilizados para atribuir funções para um espaço de nomes especificado. Esta abordagem permite-lhe separar logicamente um único cluster do AKS, com os utilizadores só possam acessar os recursos de aplicação no seu espaço de nomes atribuído. Se precisa vincular funções no cluster inteiro ou aos recursos do cluster fora do espaço de nomes especificado, em vez disso, pode utilizar *ClusterRoleBindings*.
+Associações de função são usadas para atribuir funções para um namespace específico. Essa abordagem permite separar logicamente um único cluster AKS, com os usuários capazes de acessar somente os recursos do aplicativo em seu namespace atribuído. Se você precisar associar funções em todo o cluster ou para recursos de cluster fora de um namespace específico, você pode usar *ClusterRoleBindings*.
 
-Um ClusterRoleBinding funciona da mesma forma para vincular funções a utilizadores, mas pode ser aplicada a recursos no cluster inteiro, não um espaço de nomes específico. Esta abordagem permite-lhe conceder aos administradores ou suportar o acesso a engenheiros a todos os recursos do cluster do AKS.
+Um ClusterRoleBinding funciona da mesma maneira para associar funções a usuários, mas pode ser aplicado a recursos em todo o cluster, não em um namespace específico. Essa abordagem permite conceder aos administradores ou engenheiros de suporte acesso a todos os recursos no cluster AKS.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para começar a utilizar com o Azure AD e RBAC do Kubernetes, veja [integrar o Azure Active Directory com o AKS][aks-aad].
+Para começar a usar o Azure AD e o kubernetes RBAC, consulte [integrar Azure Active Directory com AKs][aks-aad].
 
-Para as práticas recomendadas associadas, consulte [melhores práticas para autenticação e autorização no AKS][operator-best-practices-identity].
+Para obter as práticas recomendadas associadas, consulte [práticas recomendadas para autenticação e autorização no AKs][operator-best-practices-identity].
 
-Para obter mais informações sobre principais Kubernetes e conceitos do AKS, consulte os artigos seguintes:
+Para obter informações adicionais sobre os principais conceitos de kubernetes e AKS, consulte os seguintes artigos:
 
-- [Kubernetes / clusters do AKS e cargas de trabalho][aks-concepts-clusters-workloads]
-- [Kubernetes / segurança AKS][aks-concepts-security]
-- [Kubernetes / redes virtuais do AKS][aks-concepts-network]
-- [Kubernetes / armazenamento AKS][aks-concepts-storage]
-- [Kubernetes / aumentar do AKS][aks-concepts-scale]
+- [Clusters e cargas de trabalho do kubernetes/AKS][aks-concepts-clusters-workloads]
+- [Segurança do kubernetes/AKS][aks-concepts-security]
+- [Redes virtuais kubernetes/AKS][aks-concepts-network]
+- [Armazenamento kubernetes/AKS][aks-concepts-storage]
+- [Escala de kubernetes/AKS][aks-concepts-scale]
 
 <!-- LINKS - External -->
 [kubernetes-authentication]: https://kubernetes.io/docs/reference/access-authn-authz/authentication
