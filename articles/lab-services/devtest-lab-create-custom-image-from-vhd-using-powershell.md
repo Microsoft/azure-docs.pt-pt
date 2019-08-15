@@ -1,6 +1,6 @@
 ---
-title: Criar uma imagem personalizada do Azure DevTest Labs de um ficheiro VHD com o PowerShell | Documentos da Microsoft
-description: Automatizar a criação de uma imagem personalizada no Azure DevTest Labs, de um ficheiro VHD com o PowerShell
+title: Criar um Azure DevTest Labs imagem personalizada de um arquivo VHD usando o PowerShell | Microsoft Docs
+description: Automatizar a criação de uma imagem personalizada no Azure DevTest Labs de um arquivo VHD usando o PowerShell
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: c1cdb64e4c8c99eeca4cc66c0d0ad2b755144917
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b43dc668af74f532838dad3baf1d6e11d51ac69d
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201966"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68964088"
 ---
-# <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Criar uma imagem personalizada a partir de um ficheiro VHD com o PowerShell
+# <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Criar uma imagem personalizada de um arquivo VHD usando o PowerShell
 
 [!INCLUDE [devtest-lab-create-custom-image-from-vhd-selector](../../includes/devtest-lab-create-custom-image-from-vhd-selector.md)]
 
@@ -31,24 +31,24 @@ ms.locfileid: "60201966"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="step-by-step-instructions"></a>Instruções passo a passo
+## <a name="step-by-step-instructions"></a>Informações passo a passo
 
-Os seguintes passos guiá-lo através da criação de uma imagem personalizada de um ficheiro VHD com o PowerShell:
+As etapas a seguir orientarão você na criação de uma imagem personalizada de um arquivo VHD usando o PowerShell:
 
-1. Na linha de comandos do PowerShell, inicie sessão na sua conta do Azure com a chamada seguinte para o **Connect-AzAccount** cmdlet.
+1. Em um prompt do PowerShell, faça logon em sua conta do Azure com a seguinte chamada para o cmdlet **Connect-AzAccount** .
 
     ```powershell
     Connect-AzAccount
     ```
 
-1.  Selecione a subscrição do Azure pretendida ao chamar o **AzSubscription selecione** cmdlet. Substitua o marcador de posição seguinte para o **$subscriptionId** variável com um ID de subscrição do Azure válida.
+1.  Selecione a assinatura do Azure desejada chamando o cmdlet **Select-AzSubscription** . Substitua o espaço reservado a seguir para a variável **$SubscriptionId** com uma ID de assinatura do Azure válida.
 
     ```powershell
     $subscriptionId = '<Specify your subscription ID here>'
     Select-AzSubscription -SubscriptionId $subscriptionId
     ```
 
-1.  Obtenha o objeto de laboratório ao chamar o **Get-AzResource** cmdlet. Substitua os marcadores de posição seguintes para o **$labRg** e **$labName** variáveis com os valores adequados para o seu ambiente.
+1.  Obtenha o objeto de laboratório chamando o cmdlet **Get-AzResource** . Substitua os espaços reservados a seguir para as variáveis **$labRg** e **$labName** com os valores apropriados para o seu ambiente.
 
     ```powershell
     $labRg = '<Specify your lab resource group name here>'
@@ -56,20 +56,13 @@ Os seguintes passos guiá-lo através da criação de uma imagem personalizada d
     $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
     ```
 
-1.  Obtenha o laboratório de armazenamento conta e laboratório armazenamento conta valores de chave do objeto de laboratório.
-
-    ```powershell
-    $labStorageAccount = Get-AzResource -ResourceId $lab.Properties.defaultStorageAccount
-    $labStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
-    ```
-
-1.  Substitua o marcador de posição seguinte para o **$vhdUri** variável com o URI para o ficheiro VHD carregado. Pode obter o URI do ficheiro VHD do painel de blob da conta de armazenamento no portal do Azure.
+1.  Substitua o espaço reservado a seguir para a variável **$vhdUri** com o URI para o arquivo VHD carregado. Você pode obter o URI do arquivo VHD na folha BLOB da conta de armazenamento no portal do Azure.
 
     ```powershell
     $vhdUri = '<Specify the VHD URI here>'
     ```
 
-1.  Crie a imagem personalizada com o **New-AzResourceGroupDeployment** cmdlet. Substitua os marcadores de posição seguintes para o **$customImageName** e **$customImageDescription** variáveis para nomes significativos para o seu ambiente.
+1.  Crie a imagem personalizada usando o cmdlet **New-AzResourceGroupDeployment** . Substitua os espaços reservados a seguir para o **$customImageName** e **$customImageDescription** variáveis para nomes significativos para o seu ambiente.
 
     ```powershell
     $customImageName = '<Specify the custom image name>'
@@ -80,9 +73,9 @@ Os seguintes passos guiá-lo através da criação de uma imagem personalizada d
     New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/samples/DevTestLabs/QuickStartTemplates/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
     ```
 
-## <a name="powershell-script-to-create-a-custom-image-from-a-vhd-file"></a>Script do PowerShell para criar uma imagem personalizada a partir de um ficheiro VHD
+## <a name="powershell-script-to-create-a-custom-image-from-a-vhd-file"></a>Script do PowerShell para criar uma imagem personalizada de um arquivo VHD
 
-O seguinte script do PowerShell pode ser utilizado para criar uma imagem personalizada de um ficheiro VHD. Substitua os marcadores de posição (começando e terminando com colchetes angulares) com os valores adequados para as suas necessidades.
+O script do PowerShell a seguir pode ser usado para criar uma imagem personalizada de um arquivo VHD. Substitua os espaços reservados (iniciando e terminando por colchetes angulares) pelos valores apropriados para suas necessidades.
 
 ```powershell
 # Log in to your Azure account.
@@ -96,10 +89,6 @@ Select-AzSubscription -SubscriptionId $subscriptionId
 $labRg = '<Specify your lab resource group name here>'
 $labName = '<Specify your lab name here>'
 $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
-
-# Get the lab storage account and lab storage account key values.
-$labStorageAccount = Get-AzResource -ResourceId $lab.Properties.defaultStorageAccount
-$labStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
 
 # Set the URI of the VHD file.
 $vhdUri = '<Specify the VHD URI here>'
@@ -115,11 +104,11 @@ $parameters = @{existingLabName="$($lab.Name)"; existingVhdUri=$vhdUri; imageOsT
 New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/samples/DevTestLabs/QuickStartTemplates/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
 ```
 
-## <a name="related-blog-posts"></a>Postagens de blogs relacionados
+## <a name="related-blog-posts"></a>Postagens de blog relacionadas
 
-- [Imagens personalizadas ou fórmulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Copiar imagens personalizadas entre o Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Imagens ou fórmulas personalizadas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Copiando imagens personalizadas entre Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Adicionar uma VM para o laboratório](devtest-lab-add-vm.md)
+- [Adicionar uma VM ao seu laboratório](devtest-lab-add-vm.md)

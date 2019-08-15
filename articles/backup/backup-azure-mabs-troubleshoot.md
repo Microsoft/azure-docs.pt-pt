@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: c08acaf65cd42abd9db97fab1267ce5628595b78
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0f9c2d1d2081ec22898ed3a4fbc73305ff0995e3
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689277"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954670"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Resolução de problemas do Azure Backup Server
 
@@ -148,4 +148,4 @@ Falha no instantâneo do volume de origem devido à réplica de DataSource incon
 
 Mensagem de erro | Ação recomendada |
 -- | --
-O backup falhou porque a réplica de backup de disco não pôde ser clonada.| Verifique se todos os arquivos de réplica de backup de disco anteriores (. vhdx) estão desmontados e se não há backup de disco para disco em andamento durante os backups online
+A cópia de segurança falhou porque não foi possível clonar a réplica da cópia de segurança do disco.| Verifique se todos os arquivos de réplica de backup de disco anteriores (. vhdx) estão desmontados e se não há backup de disco para disco em andamento durante os backups online

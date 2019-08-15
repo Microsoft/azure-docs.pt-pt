@@ -11,21 +11,21 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 7e88b99cf0ecede64d75b36eafdcc88798e2e4a4
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: a92cb0f3da5058e7ffeee6f47e8cfa26ae291005
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840457"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990567"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
-Saiba como implantar o modelo de aprendizado de máquina como um serviço Web na nuvem do Azure ou para IoT Edge dispositivos. 
+Saiba como implantar o modelo de aprendizado de máquina como um serviço Web na nuvem do Azure ou para IoT Edge dispositivos.
 
 O fluxo de trabalho é semelhante [, independentemente de onde você implanta](#target) seu modelo:
 
 1. Registe o modelo.
-1. Preparar para implantar (especificar ativos, uso, destino de computação)
+1. Prepare-se para implantar (especificar ativos, uso, destino de computação).
 1. Implante o modelo no destino de computação.
 1. Teste o modelo implantado, também chamado de serviço Web.
 
@@ -33,26 +33,57 @@ Para obter mais informações sobre os conceitos envolvidos no fluxo de trabalho
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+- Uma área de trabalho de serviço do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho de serviço](how-to-manage-workspace.md).
+
 - Um modelo. Se você não tiver um modelo treinado, poderá usar o modelo & arquivos de dependência fornecidos neste [tutorial](https://aka.ms/azml-deploy-cloud).
 
 - A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](https://aka.ms/aml-sdk)ou a [extensão Azure Machine Learning Visual Studio Code](how-to-vscode-tools.md).
 
+## <a name="connect-to-your-workspace"></a>Conectar-se ao seu espaço de trabalho
+
+O código a seguir demonstra como se conectar a um espaço de trabalho de serviço do Azure Machine Learning usando informações armazenadas em cache para o ambiente de desenvolvimento local:
+
+**Usando o SDK**
+
+```python
+from azureml.core import Workspace
+ws = Workspace.from_config(path=".file-path/ws_config.json")
+```
+
+Para obter mais informações sobre como usar o SDK para se conectar a um espaço de trabalho, consulte o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace).
+
+**Usando a CLI**
+
+Ao usar a CLI, use o `-w` parâmetro `--workspace-name` ou para especificar o espaço de trabalho para o comando.
+
+**Usando VS Code**
+
+Ao usar VS Code, o espaço de trabalho é selecionado usando uma interface gráfica. Para obter mais informações, consulte [implantar e gerenciar modelos](how-to-vscode-tools.md#deploy-and-manage-models) na documentação de extensão de vs Code.
+
 ## <a id="registermodel"></a>Registrar seu modelo
 
-Um contêiner lógico de modelo registrado para um ou mais arquivos que compõem seu modelo. Por exemplo, se você tiver um modelo armazenado em vários arquivos, poderá registrá-los como um único modelo no espaço de trabalho. Após o registro, você pode baixar ou implantar o modelo registrado e receber todos os arquivos que foram registrados.
+Um modelo registrado é um contêiner lógico para um ou mais arquivos que compõem seu modelo. Por exemplo, se você tiver um modelo armazenado em vários arquivos, poderá registrá-los como um único modelo no espaço de trabalho. Após o registro, você pode baixar ou implantar o modelo registrado e receber todos os arquivos que foram registrados.
 
-Os modelos de aprendizado de máquina são registrados em seu espaço de trabalho do Azure Machine Learning. O modelo pode vir de Azure Machine Learning ou pode vir de outro lugar. Os exemplos a seguir demonstram como registrar um modelo do arquivo:
+> [!TIP]
+> Ao registrar um modelo, você fornece um caminho para um local de nuvem (de uma execução de treinamento) ou um diretório local. Esse caminho é apenas para localizar os arquivos para upload como parte do processo de registro; Ele não precisa corresponder ao caminho usado no script de entrada. Para obter mais informações, consulte [o que é get_model_path](#what-is-get_model_path).
+
+Os modelos de aprendizado de máquina são registrados em seu espaço de trabalho do Azure Machine Learning. O modelo pode vir de Azure Machine Learning ou pode vir de outro lugar. Os exemplos a seguir demonstram como registrar um modelo:
 
 ### <a name="register-a-model-from-an-experiment-run"></a>Registrar um modelo de uma execução de experimento
 
-+ **Scikit-Aprenda o exemplo usando o SDK**
+Os trechos de código nesta seção demonstram o registro de um modelo de uma execução de treinamento:
+
+> [!IMPORTANT]
+> Esses trechos pressupõem que você executou anteriormente uma execução de treinamento e tem acesso `run` ao objeto (exemplo de SDK) ou ao valor de ID de execução (exemplo de CLI). Para obter mais informações sobre modelos de treinamento, consulte [criar e usar destinos de computação para treinamento de modelo](how-to-set-up-training-targets.md).
+
++ **Usando o SDK**
+
   ```python
   model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
   print(model.name, model.id, model.version, sep='\t')
   ```
 
-  > [!TIP]
-  > Para incluir vários arquivos no registro do modelo, defina `model_path` para o diretório que contém os arquivos.
+  O `model_path` refere-se ao local da nuvem do modelo. Neste exemplo, o caminho para um único arquivo é usado. Para incluir vários arquivos no registro do modelo, defina `model_path` para o diretório que contém os arquivos.
 
 + **Usando a CLI**
 
@@ -60,42 +91,47 @@ Os modelos de aprendizado de máquina são registrados em seu espaço de trabalh
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid
   ```
 
-  > [!TIP]
-  > Para incluir vários arquivos no registro do modelo, defina `--asset-path` para o diretório que contém os arquivos.
+  [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
+
+  O `--asset-path` refere-se ao local da nuvem do modelo. Neste exemplo, o caminho para um único arquivo é usado. Para incluir vários arquivos no registro do modelo, defina `--asset-path` para o diretório que contém os arquivos.
 
 + **Usando VS Code**
 
   Registre modelos usando qualquer arquivo ou pasta de modelo com a extensão [vs Code](how-to-vscode-tools.md#deploy-and-manage-models) .
 
-### <a name="register-an-externally-created-model"></a>Registrar um modelo criado externamente
+### <a name="register-a-model-from-a-local-file"></a>Registrar um modelo de um arquivo local
+
+Você pode registrar um modelo fornecendo um **caminho local** para o modelo. Você pode fornecer uma pasta ou um único arquivo. Você pode usar esse método para registrar os dois modelos treinados com Azure Machine Learning serviço e, em seguida, baixados ou modelos treinados fora Azure Machine Learning.
 
 [!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
 
-Você pode registrar um modelo criado externamente fornecendo um **caminho local** para o modelo. Você pode fornecer uma pasta ou um único arquivo.
-
 + **Exemplo de ONNX com o SDK do Python:**
-  ```python
-  onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
-  urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
-  !tar xvzf mnist.tar.gz
-  
-  model = Model.register(workspace = ws,
-                         model_path ="mnist/model.onnx",
-                         model_name = "onnx_mnist",
-                         tags = {"onnx": "demo"},
-                         description = "MNIST image classification CNN from ONNX Model Zoo",)
-  ```
 
-  > [!TIP]
-  > Para incluir vários arquivos no registro do modelo, defina `model_path` para o diretório que contém os arquivos.
+    ```python
+    import os
+    import urllib.request
+    from azureml.core import Model
+    # Download model
+    onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
+    urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
+    os.system('tar xvzf mnist.tar.gz')
+    # Register model
+    model = Model.register(workspace = ws,
+                            model_path ="mnist/model.onnx",
+                            model_name = "onnx_mnist",
+                            tags = {"onnx": "demo"},
+                            description = "MNIST image classification CNN from ONNX Model Zoo",)
+    ```
+
+  Para incluir vários arquivos no registro do modelo, defina `model_path` para o diretório que contém os arquivos.
 
 + **Usando a CLI**
+
   ```azurecli-interactive
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
 
-  > [!TIP]
-  > Para incluir vários arquivos no registro do modelo, defina `-p` para o diretório que contém os arquivos.
+  Para incluir vários arquivos no registro do modelo, defina `-p` para o diretório que contém os arquivos.
 
 **Tempo estimado**: Aproximadamente 10 segundos.
 
@@ -157,7 +193,7 @@ Para usar a geração de esquema, `inference-schema` inclua o pacote em seu arqu
 
 ##### <a name="example-dependencies-file"></a>Arquivo de dependências de exemplo
 
-O YAML a seguir é um exemplo de um arquivo de dependências Conda para inferência.
+O YAML a seguir é um exemplo de um arquivo de dependências Conda para inferência:
 
 ```YAML
 name: project_environment
@@ -269,7 +305,97 @@ Para obter mais scripts de exemplo, consulte os exemplos a seguir:
 * TensorFlow[https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 * Keras[https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
 * ONNX: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
-* Pontuação em relação a dados binários: [Como consumir um serviço Web](how-to-consume-web-service.md)
+
+<a id="binary"></a>
+
+#### <a name="binary-data"></a>Dados binários
+
+Se o seu modelo aceita dados binários, como uma imagem, tem de modificar o `score.py` ficheiro utilizado para a sua implementação para aceitar pedidos HTTP não processados. Para aceitar dados brutos, use `AMLRequest` a classe em seu script de entrada e `@rawhttp` adicione o decorador à `run()` função.
+
+Aqui está um exemplo de um `score.py` que aceita dados binários:
+
+```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+
+def init():
+    print("This is init()")
+
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        # For this example, just return the URL for GETs
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        # For a real world solution, you would load the data from reqBody
+        # and send to the model. Then return the response.
+
+        # For demonstration purposes, this example just returns the posted data as the response.
+        return AMLResponse(reqBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> A `AMLRequest` classe está `azureml.contrib` no namespace. As coisas nesse namespace são alteradas com frequência enquanto trabalhamos para melhorar o serviço. Assim, qualquer coisa neste namespace deve ser considerada como uma versão prévia e não tem suporte total da Microsoft.
+>
+> Se precisar testar isso em seu ambiente de desenvolvimento local, você poderá instalar os componentes usando o seguinte comando:
+>
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
+<a id="cors"></a>
+
+#### <a name="cross-origin-resource-sharing-cors"></a>CORS (compartilhamento de recursos entre origens)
+
+O compartilhamento de recursos entre origens é uma maneira de permitir que recursos em uma página da Web sejam solicitados de outro domínio. O CORS funciona com base em cabeçalhos HTTP enviados com a solicitação do cliente e retornado com a resposta do serviço. Para obter mais informações sobre CORS e cabeçalhos válidos, consulte [compartilhamento de recursos entre origens](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) na Wikipédia.
+
+Para configurar sua implantação de modelo para dar suporte a CORS `AMLResponse` , use a classe em seu script de entrada. Essa classe permite que você defina os cabeçalhos no objeto de resposta.
+
+O exemplo a seguir define `Access-Control-Allow-Origin` o cabeçalho para a resposta do script de entrada:
+
+```python
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        # For this example, just return the URL for GETs
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        # For a real world solution, you would load the data from reqBody
+        # and send to the model. Then return the response.
+
+        # For demonstration purposes, this example
+        # adds a header and returns the request body
+        resp = AMLResponse(reqBody, 200)
+        resp.headers['Access-Control-Allow-Origin'] = "http://www.example.com"
+        return resp
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> A `AMLResponse` classe está `azureml.contrib` no namespace. As coisas nesse namespace são alteradas com frequência enquanto trabalhamos para melhorar o serviço. Assim, qualquer coisa neste namespace deve ser considerada como uma versão prévia e não tem suporte total da Microsoft.
+>
+> Se precisar testar isso em seu ambiente de desenvolvimento local, você poderá instalar os componentes usando o seguinte comando:
+>
+> ```shell
+> pip install azureml-contrib-services
+> ```
 
 ### <a name="2-define-your-inferenceconfig"></a>2. Definir seu InferenceConfig
 
@@ -328,7 +454,7 @@ A implantação usa a configuração de implantação de configuração de infer
 
 ### <a id="local"></a>Implantação local
 
-Para implantar localmente, você precisa ter o **Docker instalado** no computador local.
+Para implantar localmente, você precisa ter o Docker instalado no computador local.
 
 #### <a name="using-the-sdk"></a>Utilizar o SDK
 
@@ -352,6 +478,10 @@ az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.js
 [!INCLUDE [aml-local-deploy-config](../../../includes/machine-learning-service-local-deploy-config.md)]
 
 Para obter mais informações, consulte a referência de [implantação do modelo AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
+
+### <a id="notebookvm"></a>Serviço Web NotebookVM (DEVTEST)
+
+Consulte [implantar um modelo para VMs de notebook](how-to-deploy-local-container-notebook-vm.md).
 
 ### <a id="aci"></a>DEVTEST (instâncias de contêiner do Azure)
 
@@ -580,7 +710,10 @@ Você pode implantar modelos continuamente usando a extensão Machine Learning p
 
     ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
 
-Para projetos de exemplo e exemplos, confira [o repositório MLOps](https://github.com/Microsoft/MLOps)
+Para obter mais exemplos e projetos de exemplo, consulte o seguinte exemplo de repositórios:
+
+* [https://github.com/Microsoft/MLOps](https://github.com/Microsoft/MLOps)
+* [https://github.com/Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Para eliminar um serviço web implementado, utilize `service.delete()`.

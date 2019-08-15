@@ -1,6 +1,6 @@
 ---
-title: Instalar o dispositivo do Microsoft Azure StorSimple 8100 | Documentos da Microsoft
-description: Descreve como descompactar, montar em bastidor e instalar o seu dispositivo StorSimple 8100 antes de implementar e configurar o software.
+title: Instalar o dispositivo Microsoft Azure StorSimple 8100 | Microsoft Docs
+description: Descreve como desempacotar, montar em rack e cabear o dispositivo StorSimple 8100 antes de implantar e configurar o software.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,194 +14,197 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: b367b6e7126a442dc68646ff52a29c955f50b798
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0b2301c1c9b846e2ea005f049c5aadb3d4634a81
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631231"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963589"
 ---
-# <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Descompactar,-montar, em bastidor e instalar os cabos do dispositivo StorSimple 8100
+# <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desembalar, montar em rack e cabear seu dispositivo StorSimple 8100
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>Descrição geral
-O Microsoft Azure StorSimple 8100 é um bastidor único, o dispositivo montado em bastidor. Este tutorial explica como descompactar, montar em bastidor e hardware do dispositivo de cabo o StorSimple 8100 antes de configurar e implementar o dispositivo StorSimple.
+Seu Microsoft Azure StorSimple 8100 é um único compartimento, dispositivo montado em rack. Este tutorial explica como desempacotar, montar em rack e conectar o hardware do dispositivo StorSimple 8100 antes de configurar e implantar o dispositivo StorSimple.
 
-## <a name="unpack-your-storsimple-8100-device"></a>Descompactar o seu dispositivo StorSimple 8100
-Os passos seguintes fornecem instruções claras e detalhadas sobre como descompactar o seu dispositivo de armazenamento StorSimple 8100. Este dispositivo é enviado numa única caixa.
+## <a name="unpack-your-storsimple-8100-device"></a>Desempacotar seu dispositivo StorSimple 8100
+As etapas a seguir fornecem instruções claras e detalhadas sobre como desempacotar seu dispositivo de armazenamento StorSimple 8100. Este dispositivo é enviado numa única caixa.
 
-### <a name="prepare-to-unpack-your-device"></a>Preparar para descompactar o seu dispositivo
-Antes de descompactar o seu dispositivo, reveja as informações seguintes.
+### <a name="prepare-to-unpack-your-device"></a>Preparar para desempacotar seu dispositivo
+Antes de desempacotar o dispositivo, examine as informações a seguir.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesada](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **aviso!**
+![Ícone](./media/storsimple-safety/IC740879.png)![de aviso ícone](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) de peso pesado **aviso!**
 
-1. Certifique-se de que tem duas pessoas disponíveis para gerir o peso do bastidor, se estiver lidando com-lo manualmente. Um bastidor totalmente configurado pode avaliar até 32 kg (70 lbs.).
+1. Verifique se você tem duas pessoas disponíveis para gerenciar o peso do compartimento se você o estiver manipulando manualmente. Um compartimento totalmente configurado pode pesar até 32 kg (70 lb.).
 2. Coloque a caixa numa superfície plana e uniforme.
 
-Em seguida, conclua os seguintes passos para descompactar o seu dispositivo.
+Em seguida, conclua as etapas a seguir para desempacotar seu dispositivo.
 
-#### <a name="to-unpack-your-device"></a>Para desempacotar o dispositivo
-1. Inspecione a caixa e a espuma de empacotamento para verificar se existem partes esmagadas, cortes, danos causados por água ou quaisquer outros danos óbvios. Se a caixa ou embalagem estiver gravemente danificada, não abra a caixa. Volte [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para o ajudar a avaliar se o dispositivo está em boa ordem funcional.
-2. Desembale a caixa. A imagem seguinte mostra a vista descompactada do dispositivo StorSimple.
+#### <a name="to-unpack-your-device"></a>Para desempacotar seu dispositivo
+1. Inspecione a caixa e a espuma de empacotamento para verificar se existem partes esmagadas, cortes, danos causados por água ou quaisquer outros danos óbvios. Se a caixa ou embalagem estiver gravemente danificada, não abra a caixa. [Entre em contato com suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) para ajudá-lo a avaliar se o dispositivo está em boas condições de funcionamento.
+2. Desembale a caixa. A imagem a seguir mostra a exibição desempacotada do seu dispositivo StorSimple.
    
-     ![Descompactar o dispositivo de armazenamento](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
+     ![Desempacotar seu dispositivo de armazenamento](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
    
-    **Vista descompactada do seu dispositivo de armazenamento**
+    **Exibição desempacotada do seu dispositivo de armazenamento**
    
    | Etiqueta | Descrição |
    | --- | --- |
-   |   1 |Caixa de remessa |
-   |   2 |Espuma na parte inferior |
+   |   1 |Caixa de embalagem |
+   |   2 |Espuma inferior |
    |   3 |Dispositivo |
    |   4 |Espuma superior |
-   |   5 |Caixa de acessórios |
+   |   5 |Caixa de acessório |
 3. Depois de desembalar a caixa, certifique-se de que tem:
    
-   * 1 dispositivo único bastidor
-   * 2 de energia de cabos
-   * 1 crossover cabo Ethernet
-   * 2 cabos de consola de série
-   * 1 conversor de USB de série para o acesso de série
-   * 1 screwdriver de T10 de prova de adulteração
-   * 4 QSFP-para-SFP + adaptadores para utilização com interfaces de rede de 10 GbE
-   * 1-montar em Bastidor kit (2 rails de lado com o hardware de montagem)
-   * Obter documentação de introdução
+   * 1 dispositivo de compartimento único
+   * 2 cabos de alimentação
+   * 1 cabo Ethernet cruzado
+   * 2 cabos de console serial
+   * 1 conversor serial USB para acesso serial
+   * 1 chave de fenda T10 à prova de adulteração
+   * 4 adaptadores QSFP-to-SFP + para uso com interfaces de rede de 10 GbE
+   * 1 kit de montagem em rack (2 trilhos laterais com hardware de montagem)
+   * Documentação do Introdução
      
-     Se não recebeu qualquer um dos itens listados acima, [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+     Se você não recebeu nenhum dos itens listados acima, [entre em contato com suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 O passo seguinte é montar o dispositivo em bastidor.
 
-## <a name="rack-mount-your-storsimple-8100-device"></a>Montar em Bastidor seu dispositivo StorSimple 8100
-Siga os passos seguintes para instalar o dispositivo de armazenamento StorSimple 8100 num bastidor 19 polegadas padrão com o front-end e postagens rear. O dispositivo StorSimple 8100 tem um único compartimento primário.
+## <a name="rack-mount-your-storsimple-8100-device"></a>Montar em rack seu dispositivo StorSimple 8100
+Siga as próximas etapas para instalar o dispositivo de armazenamento StorSimple 8100 em um rack padrão de 19 polegadas com postagens dianteiras e traseiras. O dispositivo StorSimple 8100 tem um único compartimento primário.
 
-A instalação é composta por vários passos, cada um dos quais é abordada nos seguintes procedimentos.
+A instalação consiste em várias etapas, cada uma das quais é discutida nos procedimentos a seguir.
 
 > [!IMPORTANT]
-> Dispositivos do StorSimple tem de ser montado rack para a operação apropriada.
+> Os dispositivos StorSimple devem ser montados em rack para uma operação adequada.
 > 
 > 
 
 ### <a name="prepare-the-site"></a>Preparar o site
-O dispositivo tem de ser instalado num bastidor 19 polegadas padrão que tenha o front-end e postagens rear. Utilize o procedimento seguinte para se preparar para a instalação de rack.
+O dispositivo deve ser instalado em um rack padrão de 19 polegadas que tem as postagens frontal e traseira. Use o procedimento a seguir para preparar a instalação do rack.
 
-#### <a name="to-prepare-the-site-for-rack-installation"></a>Para preparar o site para a instalação de bastidor
+#### <a name="to-prepare-the-site-for-rack-installation"></a>Para preparar o site para instalação em rack
 1. Certifique-se de que o dispositivo fica apoiado de forma segura numa superfície de trabalho plana, estável e uniforme (ou semelhante).
-2. Certifique-se de que o site onde pretende configurar tem alternada padrão de uma origem de independente ou uma unidade de distribuição de energia (PDU) de rack com uma alimentação ininterrupta (UPS).
-3. Certifique-se de que a ranhura 2U um está disponível no rack no qual pretende montar o dispositivo.
+2. Verifique se o site onde você pretende configurar tem energia CA padrão de uma fonte independente ou uma unidade de distribuição de energia (PDU) de rack com uma fonte de alimentação ininterrupta (UPS).
+3. Verifique se um slot 2U está disponível no rack no qual você pretende montar o dispositivo.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesada](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **aviso!**
+![Ícone](./media/storsimple-safety/IC740879.png)![de aviso ícone](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) de peso pesado **aviso!**
 
-Certifique-se de que tem duas pessoas disponíveis para gerir o peso, se estiver lidando com a configuração do dispositivo manualmente. Um bastidor totalmente configurado pode avaliar até 32 kg (70 lbs.).
+Verifique se você tem duas pessoas disponíveis para gerenciar o peso se estiver manipulando a configuração do dispositivo manualmente. Um compartimento totalmente configurado pode pesar até 32 kg (70 lb.).
 
-### <a name="rack-prerequisites"></a>Pré-requisitos de bastidor
-O bastidor 8100 destina-se a instalação num bastidor 19 polegadas padrão cab com:
+### <a name="rack-prerequisites"></a>Pré-requisitos do rack
+O compartimento 8100 foi projetado para instalação em um gabinete de rack padrão de 19 polegadas com:
 
-* Profundidade mínima de 27.84 polegadas a partir de rack post para publicação.
+* Profundidade mínima de 27,84 polegadas da postagem do rack para a postagem.
 * Peso máximo de 32 kg para o dispositivo
-* Máximo ter pressão contrária proveniente do Pascal 5 (medidor de água de 0,5 mm).
+* Pressão de retorno máxima de 5 Pascal (medidor de água de 0,5 mm).
 
-### <a name="rack-mounting-rail-kit"></a>Kit do rail de montagem de bastidor
-Um conjunto de montar rails é fornecido para utilização com o CAB de bastidor de 19 polegadas. Os rails foram testados para lidar com o peso de bastidor máximo. Estes rails também irão permitir a instalação de múltiplas inclusões sem nenhuma perda de espaço no rack.
+### <a name="rack-mounting-rail-kit"></a>Kit de trilhos de montagem de rack
+Um conjunto de trilhos de montagem é fornecido para uso com o gabinete de rack de 19 polegadas. Os trilhos foram testados para lidar com o peso máximo do compartimento. Esses trilhos também permitirão a instalação de vários compartimentos sem qualquer perda de espaço no rack.
 
-#### <a name="to-install-the-device-on-the-rails"></a>Para instalar o dispositivo nos rails
-1. Efetue este passo apenas se rails internas não estão instalados no seu dispositivo. Normalmente, as internas rails são instalados na fábrica. Se não estiverem instalados rails, em seguida, instale os slides do rail do esquerda e direita para os lados do chassi bastidor. Eles anexar utilizando seis screws métrica em cada lado. Para ajudar com a orientação, os slides do rail são marcados **LH-Front** e **RH – Front**, e o end que está a afixação para trás do bastidor tem um end tapered.<br/>
+#### <a name="to-install-the-device-on-the-rails"></a>Para instalar o dispositivo nos trilhos
+1. Execute esta etapa somente se os trilhos internos não estiverem instalados no seu dispositivo. Normalmente, os trilhos internos são instalados na fábrica. Se os trilhos não estiverem instalados, instale os slides do trilho esquerdo e do trilho direito nos lados do chassi do compartimento. Eles são anexados usando seis parafusos de métricas em cada lado. Para ajudar com a orientação, os slides do trilho são marcados como **LH – front** e **RH – front**, e o final fixado em direção à parte posterior do compartimento tem um fim cônico.<br/>
    
-    ![Anexar o slides do rail chassis de bastidor](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+    ![Anexando slides do trilho ao chassi do compartimento](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-    **Anexar slides do rail interna para os lados do bastidor**
+    **Anexando slides do trilho interno aos lados do compartimento**
    
     Etiqueta | Descrição
     ----- | -----------
-    1     | M 3 x 4 screws de cabeça de botão
-    2     | Slides de chassis
+    1     | Botão M 3x4-parafusos de cabeça
+    2     | Slides do chassi
 
-2. Anexe o lado esquerdo externo e os assemblies de rail certo externa para os membros de vertical cab rack. Os colchetes são marcados **LH**, **RH**, e **nesse lado até** para orientá-lo a orientação correta.
-3. Localize os pinos na parte frontal e posterior da montagem das calhas. Expanda o rail ajustar entre as postagens de rack e inseri os pins em frente e no rear rack post membro vertical buracos. Certifique-se de que o assembly do rail é o nível.
-4. Utilize dois dos screws métrica fornecidos para proteger o assembly do rail para rack membros verticais. Utilize um screw em frente e um no traseiro.
-5. Repita estes passos para o assembly de grade.<br/>
+2. Anexe os assemblies do trilho esquerdo externo e do trilho direito externo aos membros verticais do gabinete do rack. Os colchetes estão marcados como **LH**, **RH**e **este lado** para orientá-lo na orientação correta.
+3. Localize os pinos na parte frontal e posterior da montagem das calhas. Estenda o trilho para ajustá-lo entre as postagens do rack e insira os pinos nos orifícios do membro vertical da postagem do rack frontal e traseiro. Certifique-se de que o assembly do trilho seja nível.
+4. Use dois dos parafusos de métrica fornecidos para proteger o assembly do trilho para os membros verticais do rack. Use um parafuso na frente e outro na parte traseira.
+5. Repita essas etapas para o outro assembly de trilho.<br/>
    
-     ![Anexar o slides do rail rack Cab](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+     ![Anexando slides do trilho ao gabinete do rack](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
    
-    **Anexar assemblies do rail externa para o bastidor**
+    **Anexando assemblies do trilho externo ao rack**
    
    | Etiqueta | Descrição |
    | --- | --- |
-   |   1 |Afixação screw |
-   |   2 |Bastidor de front-quadrado buraco post screw |
-   |   3 |Pins de localização de front-rail à esquerda |
-   |   4 |Afixação screw |
-   |   5 |Pins de localização rear rail à esquerda |
+   |   1 |Parafuso fixação MSS |
+   |   2 |Parafuso do rack frontal do buraco quadrado |
+   |   3 |Pins do local frontal do trilho esquerdo |
+   |   4 |Parafuso fixação MSS |
+   |   5 |Pins do local traseiro do trilho esquerdo |
 
-### <a name="mounting-the-device-in-the-rack"></a>Montar o dispositivo no rack
-Utilizar os rails rack que apenas foram instalados, execute os seguintes passos para montar o dispositivo no rack.
+### <a name="mounting-the-device-in-the-rack"></a>Montando o dispositivo no rack
+Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a seguir para montar o dispositivo no rack.
 
 #### <a name="to-mount-the-device"></a>Para montar o dispositivo
-1. Com um assistente, o bastidor de comparação de precisão e alinhá-lo com os rails rack.
-2. Cuidadosamente, insira o dispositivo para os rails e, em seguida, enviar por push o dispositivo completamente para o bastidor Cab.<br/>
+1. Com um assistente, levante o compartimento e alinhe-o com os trilhos do rack.
+2. Insira cuidadosamente o dispositivo nos trilhos e, em seguida, envie o dispositivo completamente para o gabinete do rack.<br/>
    
-    ![Inserir o dispositivo no rack](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
+    ![Inserindo dispositivo no rack](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
    
-    **Montar o dispositivo no rack**
-3. Remova os limites esquerdo e direito front-flange ao extrair os limites gratuitos. Os limites de flange simplesmente ajustar para os flanges.
-4. Proteja o bastidor no rack, instalando um screw de cabeça Phillips fornecido por meio de cada flange, esquerda e direita.
-5. Instale os limites de flange ao premi-los para a posição pretendida e ajuste-os no local.<br/>
+    **Montando o dispositivo no rack**
+3. Remova as tampas do flange frontal esquerda e direita puxando as tampas gratuitas. Os limites do flange simplesmente se encaixam nos flanges.
+4. Proteja o compartimento no rack instalando um parafuso de cabeça Phillips fornecido por cada flange, à esquerda e à direita.
+5. Instale as tampas do flange pressionando-as na posição e encaixando-as no lugar.<br/>
    
-     ![Instalação de caps de flange](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
+     ![Instalando as tampas do flange](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
    
-    **Instalar os limites de flange**
+    **Instalando as tampas do flange**
    
    | Etiqueta | Descrição |
    | --- | --- |
-   |   1 |Screw fastening de bastidor |
+   |   1 |Parafuso de fixação do compartimento |
 
-A próxima etapa é instalar os cabos do dispositivo de alimentação, rede e acesso de série.
+A próxima etapa é conectar o dispositivo a energia, rede e acesso serial.
 
-## <a name="cable-your-storsimple-8100-device"></a>Instalar os cabos do dispositivo StorSimple 8100
-Os procedimentos seguintes explicam como instalar os cabos do dispositivo StorSimple 8100 de alimentação, rede e ligações seriais.
+## <a name="cable-your-storsimple-8100-device"></a>Cabear o dispositivo StorSimple 8100
+Os procedimentos a seguir explicam como conectar o dispositivo StorSimple 8100 para conexões de energia, rede e série.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar a cablagem do dispositivo, é necessário:
 
-* Montar o seu dispositivo de armazenamento, completamente descompactado e rack.
-* 2 cabos de energia com o seu dispositivo
+* Seu dispositivo de armazenamento, completamente desempacotado e montado em rack.
+* 2 cabos de energia que vieram com seu dispositivo
 * Acesso a 2 unidades de distribuição de energia (recomendado).
 * Cabos de rede
-* Fornecido seriais cabos
-* Conversor USB Serial com o driver adequado instalado no seu PC (se necessário)
-* Fornecido 4 QSFP-para-SFP + adaptadores para utilização com interfaces de rede de 10 GbE
-* [Hardware suportado para as interfaces de rede 10 GbE no dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+* Cabos de série fornecidos
+* Conversor serial USB com o driver apropriado instalado no seu PC (se necessário)
+* Fornecidos 4 adaptadores QSFP-to-SFP + para uso com interfaces de rede de 10 GbE
+* [Hardware com suporte para as interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### <a name="power-cabling"></a>Cablagem de energia
-O dispositivo inclui com redundância de energia e refrigeração módulos (PCMs). Ambos os PCMs tem de estar instalados e ligados a diferentes origens de dados para garantir a elevada disponibilidade.
+### <a name="power-cabling"></a>Cabeamento de energia
+Seu dispositivo inclui módulos de energia e resfriamento redundantes (PCMs). Ambos os PCMs devem ser instalados e conectados a diferentes fontes de alimentação para garantir a alta disponibilidade.
 
-Execute os seguintes passos para instalar os cabos do dispositivo para poder.
+Execute as etapas a seguir para conectar o dispositivo à energia.
 
 [!INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
-### <a name="network-cabling"></a>Cabos de rede
-O dispositivo é uma configuração de ativo-em espera: em qualquer momento, um módulo de controlador está ativo e todas as operações de disco e rede enquanto o outro módulo do controlador de processamento está no modo de espera. Se um controlador de falhar, o controlador em modo de espera é ativado imediatamente e continua a todas as operações de rede e disco.
+### <a name="network-cabling"></a>Cabeamento de rede
+Seu dispositivo é uma configuração ativa-em espera: a qualquer momento, um módulo do controlador está ativo e processando todas as operações de disco e rede enquanto o outro módulo do controlador está em espera. Se um controlador falhar, o controlador em espera será ativado imediatamente e continuará todas as operações de disco e de rede.
 
-Para suportar esta ativação pós-falha de controlador redundantes, terá de instalar sua rede de dispositivos, conforme descrito nos passos seguintes.
+Para dar suporte a esse failover de controlador redundante, você precisará conectar a rede do dispositivo conforme descrito nas etapas a seguir.
 
-#### <a name="to-cable-for-network-connection"></a>Para instalar os cabos de ligação de rede
-1. O dispositivo tem seis interfaces de rede em cada controlador: quatro 1 Gbps, e Gbps Ethernet de 10 de duas portas. Identifica as várias portas de dados no backplane do seu dispositivo.
+#### <a name="to-cable-for-network-connection"></a>Para cabo para conexão de rede
+1. Seu dispositivo tem seis interfaces de rede em cada controlador: quatro portas Ethernet de 1 Gbps e 2 10 Gbps. Identifique as várias portas de dados no plano posterior do seu dispositivo.
    
-    ![Backplane do dispositivo 8100](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
+    ![Plano posterior do dispositivo 8100](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
    
-    **Atrás do dispositivo que mostra as portas de dados**
+    **Parte traseira do dispositivo mostrando portas de dados**
    
    | Etiqueta | Descrição |
    | --- | --- |
-   |   0,1,4,5 |Interfaces de rede 1 GbE |
-   |   2,3 |Interfaces de rede de 10 GbE |
+   |   0,1,4,5 |interfaces de rede de 1 GbE |
+   |   2,3 |interfaces de rede de 10 GbE |
    |   6 |Portas seriais |
-2. Consulte o diagrama seguinte para cabos de rede. (A configuração de rede mínima é mostrada por linhas azuis sólidas. Configuração adicional necessária para elevada disponibilidade e desempenho é mostrada por linhas pontilhadas.)
+2. Consulte o diagrama a seguir para o cabeamento de rede. (A configuração mínima de rede é mostrada por linhas azuis sólidas. A configuração adicional necessária para alta disponibilidade e desempenho é mostrada por linhas pontilhadas.)
 
-    ![Instalar os cabos do dispositivo 2U para a rede](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
+    ![Cabear seu dispositivo 2U para rede](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
-    **Cablagem para o seu dispositivo de rede**
+    **Cabeamento de rede para seu dispositivo**
 
    |Etiqueta | Descrição |
    |----- | ----------- |
-   | A    | Rede local com acesso à Internet |
+   | A    | LAN com acesso à Internet |
    | B    | Controlador 0 |
    | C    | PCM 0 |
    | D    | Controlador 1 |
@@ -211,41 +214,41 @@ Para suportar esta ativação pós-falha de controlador redundantes, terá de in
 
 
 
-Quando os cabos do dispositivo, requer a configuração mínima:
+Ao cabear o dispositivo, a configuração mínima requer:
 
-* Pelo menos duas interfaces de rede ligado em cada controlador com um para acesso à nuvem e outro para iSCSI. Os dados 0 porta é automaticamente ativada e configurada através da consola de série do dispositivo. Para além dos dados 0, outra porta de dados também tem de ser configurado através do portal clássico do Azure. Neste caso, ligue os dados 0 porta como a principal LAN (rede com acesso à Internet). As outras portas de dados podem ser ligadas ao segmento de LAN (VLAN) em SAN/iSCSI da rede, de acordo com a função pretendida.
-* Interfaces idênticos em cada controlador ligado à mesma rede para garantir a disponibilidade, se ocorrer uma ativação pós-falha de controlador. Por exemplo, se optar por ligar dados 0 e 3 de dados para um dos controladores, terá de ligar os dados correspondentes 0 e 3 de dados no outro controlador.
+* Pelo menos duas interfaces de rede conectadas em cada controlador com uma para acesso à nuvem e outra para iSCSI. A porta DATA 0 é automaticamente habilitada e configurada por meio do console serial do dispositivo. Além do DATA 0, outra porta de dados também precisa ser configurada por meio do portal clássico do Azure. Nesse caso, conecte a porta DATA 0 à LAN primária (rede com acesso à Internet). As outras portas de dados podem ser conectadas ao segmento de rede de área de LAN (VLAN) SAN/iSCSI, dependendo da função pretendida.
+* Interfaces idênticas em cada controlador conectado à mesma rede para garantir a disponibilidade se ocorrer um failover do controlador. Por exemplo, se você optar por conectar DATA 0 e DATA 3 para um dos controladores, será necessário conectar os dados correspondentes 0 e 3 no outro controlador.
 
-Tenha em consideração a alta disponibilidade e desempenho:
+Tenha em mente para alta disponibilidade e desempenho:
 
-* Sempre que possível, configure um par de interface de rede para acesso à nuvem (de 1 GbE) e outro par de iSCSI (10 GbE recomendado) em cada controlador.
-* Sempre que possível, ligar a interfaces de rede de cada controlador para duas opções diferentes para garantir a disponibilidade em relação a uma falha de comutador. A figura ilustra as duas 10 GbE interfaces de rede, dados 2 e 3 de dados, de cada controlador ligada a comutadores diferentes dois.
+* Quando possível, configure um par de interface de rede para acesso à nuvem (1 GbE) e outro par para iSCSI (10 GbE recomendado) em cada controlador.
+* Quando possível, conecte as interfaces de rede de cada controlador a dois comutadores diferentes para garantir a disponibilidade contra uma falha de comutador. A figura ilustra as interfaces de rede 2 10 GbE, DATA 2 e DATA 3, de cada controlador conectado a dois comutadores diferentes.
 
-Para obter mais informações, consulte a **interfaces de rede** sob a [requisitos de alta disponibilidade para o dispositivo StorSimple](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
-
-> [!NOTE]
-> Se estiver a utilizar SFP + transcetores com suas interfaces de rede de 10 GbE, utilize o QSFP fornecido-SFP + adaptadores. Para obter mais informações, aceda a [hardware suportado para as interfaces de rede 10 GbE no dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
-> 
-> 
-
-### <a name="serial-port-cabling"></a>Cablagem de porta série
-Execute os seguintes passos para instalar os cabos sua porta serial.
-
-#### <a name="to-cable-for-serial-connection"></a>Para instalar os cabos para conexão serial
-1. O dispositivo tem uma porta serial em cada controlador de que é identificado por um ícone de chave inglesa. Consulte a ilustração na [cabos de rede](#network-cabling) secção para localizar as portas seriais no backplane do seu dispositivo.
-2. Identifica o controlador ativo no backplane seu dispositivo. Um piscando LED azul indica que o controlador está ativo.
-3. Utilize os cabos seriais fornecidos (se necessário, o conversor de USB de série para o seu computador portátil) e ligue a sua consola ou o computador (com a emulação do terminal para o dispositivo) para a porta serial do controlador ativo.
-4. Instale os controladores de USB de série (foi fornecidos com o dispositivo) no seu computador.
-5. Configure a conexão serial da seguinte forma: 115.200 bauds, bits de dados de 8, os bits de paragem de 1, não paridade e fluxo de controlam definido como None.
-6. Certifique-se de que a ligação está a funcionar, premindo Enter no console. Um menu da consola de série deve aparecer.
+Para obter mais informações, consulte as **interfaces de rede** sob os [requisitos de alta disponibilidade para seu dispositivo StorSimple](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
-> **Gestão de Lights-out**: Quando o dispositivo é instalado num datacenter remoto ou numa sala de computadores com acesso limitado, certifique-se de que as ligações seriais para os dois controladores sempre estão ligadas a um comutador de consola de série ou equipamento semelhante. Isto permite controlo remoto de fora de banda e as operações de suporte se existem interrupções de rede ou falhas inesperadas.
+> Se você estiver usando transceptores SFP + com suas interfaces de rede de 10 GbE, use os adaptadores QSFP-SFP + fornecidos. Para obter mais informações, acesse [hardware com suporte para as interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 > 
 > 
 
-O dispositivo está agora instalou os cabos de alimentação, acesso à rede e conectividade serial. A próxima etapa é configurar o software e implementar o dispositivo.
+### <a name="serial-port-cabling"></a>Cabeamento de porta serial
+Execute as etapas a seguir para cabear a porta serial.
 
-## <a name="next-steps"></a>Passos Seguintes
-Saiba como [implementar e configurar o dispositivo do StorSimple no local](storsimple-8000-deployment-walkthrough-u2.md).
+#### <a name="to-cable-for-serial-connection"></a>Para cabo para conexão serial
+1. Seu dispositivo tem uma porta serial em cada controlador que é identificado por um ícone de chave inglesa. Consulte a ilustração na seção cabeamento de [rede](#network-cabling) para localizar as portas seriais no plano posterior do seu dispositivo.
+2. Identifique o controlador ativo no backplane do seu dispositivo. Um LED azul piscando indica que o controlador está ativo.
+3. Use os cabos de série fornecidos (se necessário, o conversor serial USB para seu laptop) e conecte seu console ou computador (com emulação de terminal ao dispositivo) à porta serial do controlador ativo.
+4. Instale os drivers Serial USB (fornecidos com o dispositivo) em seu computador.
+5. Configure a conexão serial da seguinte maneira: 115.200 baud, 8 bits de dados, 1 bit de parada, sem paridade e controle de fluxo definidos como nenhum.
+6. Verifique se a conexão está funcionando pressionando Enter no console. Um menu do console serial deve aparecer.
+
+> [!NOTE]
+> **Gerenciamento de luzes**: Quando o dispositivo for instalado em um datacenter remoto ou em uma sala de computadores com acesso limitado, verifique se as conexões de série para ambos os controladores estão sempre conectadas a um comutador de console serial ou equipamento semelhante. Isso permite operações de suporte e controle remoto fora de banda se houver interrupções de rede ou falhas inesperadas.
+> 
+> 
+
+Seu dispositivo agora está cabeado por energia, acesso à rede e conectividade serial. A próxima etapa é configurar o software e implantar seu dispositivo.
+
+## <a name="next-steps"></a>Passos seguintes
+Saiba como [implantar e configurar seu dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 

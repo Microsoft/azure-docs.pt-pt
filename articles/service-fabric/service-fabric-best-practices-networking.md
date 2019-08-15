@@ -1,6 +1,6 @@
 ---
-title: O Azure Service Fabric, melhores práticas de rede | Documentos da Microsoft
-description: Melhores práticas para o gerenciamento de sistema de rede do Service Fabric.
+title: Práticas recomendadas de rede Service Fabric do Azure | Microsoft Docs
+description: Práticas recomendadas para gerenciar Service Fabric rede.
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
@@ -15,20 +15,20 @@ ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "66237327"
 ---
 # <a name="networking"></a>Redes
 
-Como criar e gerir clusters do Azure Service Fabric, está a fornecer conectividade de rede para os nós e as aplicações. Os recursos de rede incluem intervalos de endereços IP, redes virtuais, balanceadores de carga e grupos de segurança de rede. Neste artigo, aprenderá as práticas recomendadas para estes recursos.
+Conforme você cria e gerencia clusters do Azure Service Fabric, você está fornecendo conectividade de rede para seus nós e aplicativos. Os recursos de rede incluem intervalos de endereços IP, redes virtuais, balanceadores de carga e grupos de segurança de rede. Neste artigo, você aprenderá as práticas recomendadas para esses recursos.
 
-Reveja as do Azure [padrões de redes de recursos de infraestrutura do serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) para saber como criar clusters que utilizam as seguintes funcionalidades: Balanceador de carga de rede virtual existente ou sub-rede, endereço IP público estático, Balanceador de carga interno só, ou interno e externo.
+Examine os [padrões de rede Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) do Azure para saber como criar clusters que usam os seguintes recursos: Rede virtual ou sub-rede existente, endereço IP público estático, balanceador de carga somente interno ou balanceador de carga interno e externo.
 
-## <a name="infrastructure-networking"></a>Redes de infraestrutura
-Maximizar o desempenho da sua máquina Virtual com redes aceleradas, ao declarar enableAcceleratedNetworking propriedade no modelo do Resource Manager, o trecho a seguir é de um NetworkInterfaceConfigurations de definir de dimensionamento da Máquina Virtual que permite que o Accelerated Networking:
+## <a name="infrastructure-networking"></a>Rede de infraestrutura
+Maximize o desempenho da sua máquina virtual com rede acelerada, declarando a propriedade enableAcceleratedNetworking em seu modelo do Resource Manager, o trecho a seguir é de um NetworkInterfaceConfigurations do conjunto de dimensionamento de máquinas virtuais que habilita a rede acelerada:
 
 ```json
 "networkInterfaceConfigurations": [
@@ -46,38 +46,38 @@ Maximizar o desempenho da sua máquina Virtual com redes aceleradas, ao declarar
   }
 ]
 ```
-Cluster do Service Fabric pode ser provisionado em [Linux com redes aceleradas](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli), e [Windows com redes aceleradas](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
+Service Fabric cluster pode ser provisionado no [Linux com rede acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)e [Windows com rede acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
 
-Funcionamento em rede acelerado é suportado para SKUs de série de Máquina Virtual do Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e Ms/Mms. Funcionamento em rede acelerado foi testado com êxito com o SKU de Standard_DS8_v3 1/23/2019 para um Cluster Windows do Service Fabric e o uso Standard_DS12_v2 01/29/2019 para um Linux Cluster do Service Fabric.
+A rede acelerada tem suporte para SKUs da série de máquinas virtuais do Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e MS/MMS. A rede acelerada foi testada com êxito usando o SKU Standard_DS8_v3 em 1/23/2019 para um Cluster Service Fabric Windows e usando Standard_DS12_v2 em 01/29/2019 para um Cluster Service Fabric Linux.
 
-Para ativar o Accelerated Networking num cluster do Service Fabric existente, precisa primeiro [dimensionar um cluster do Service Fabric out ao adicionar um conjunto de dimensionamento de Máquina Virtual](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), para efetuar o seguinte:
-1. Aprovisionar um NodeType com redes aceleradas ativada
-2. Migrar seus serviços e o respetivo estado para o NodeType aprovisionado com redes aceleradas ativada
+Para habilitar a rede acelerada em um cluster existente do Service Fabric, você precisa primeiro [dimensionar um cluster de Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), para executar o seguinte:
+1. Provisionar um NodeType com rede acelerada habilitada
+2. Migre seus serviços e seu estado para o NodeType provisionado com rede acelerada habilitada
 
-Ampliar a infraestrutura é necessária para ativar o Accelerated Networking num cluster existente, uma vez que ativar redes aceleradas em vigor faria com que o tempo de inatividade, à medida que ele necessita de ser de todas as máquinas virtuais num conjunto de disponibilidade [parar e desalocar antes de ativar redes aceleradas em qualquer NIC existente](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+A infraestrutura de expansão é necessária para habilitar a rede acelerada em um cluster existente, pois a habilitação da rede acelerada em vigor causaria tempo de inatividade, pois requer que todas as máquinas virtuais em um conjunto de disponibilidade sejam [interrompidas e desalocadas antes Habilitando a rede acelerada em qualquer NIC existente](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
-## <a name="cluster-networking"></a>Redes do cluster
+## <a name="cluster-networking"></a>Rede de cluster
 
-* Clusters do Service Fabric podem ser implementados numa rede virtual existente ao seguir os passos descritos em [padrões de rede do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
+* Service Fabric clusters podem ser implantados em uma rede virtual existente seguindo as etapas descritas em [Service Fabric padrões de rede](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
 
-* Grupos de segurança de rede (NSGs) são recomendados para tipos de nós que restringem o tráfego de entrada e saído para o seu cluster. Certifique-se de que as portas necessárias estão abertas no NSG. Por exemplo: ![Regras NSG do Service Fabric][NSGSetup]
+* NSGs (grupos de segurança de rede) são recomendados para tipos de nós que restringem o tráfego de entrada e de saída para seu cluster. Verifique se as portas necessárias estão abertas no NSG. Por exemplo: ![Service Fabric regras NSG][NSGSetup]
 
-* O tipo de nó principal, que contém os serviços de sistema do Service Fabric não precisa de ser exposto através do Balanceador de carga externo e pode ser exposto por um [Balanceador de carga interno](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
+* O tipo de nó primário, que contém os serviços do sistema Service Fabric não precisa ser exposto por meio do balanceador de carga externo e pode ser exposto por um balanceador de [carga interno](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
 
-* Utilize um [endereço IP público estático](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#static-public-ip-address-1) para o seu cluster.
+* Use um [endereço IP público estático](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#static-public-ip-address-1) para o cluster.
 
-## <a name="application-networking"></a>Rede de aplicação
+## <a name="application-networking"></a>Rede de aplicativos
 
-* Para executar cargas de trabalho do Windows contentor, utilize [abrir o modo de funcionamento em rede](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) para facilitar a comunicação de serviço para serviço.
+* Para executar cargas de trabalho de contêiner do Windows, use o [modo de rede aberto](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) para facilitar a comunicação entre serviços.
 
-* Utilizar como um proxy inverso [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) ou o [proxy inverso do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) para expor portas de aplicação comuns, como 80 ou 443.
+* Use um proxy reverso, como [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) , ou o [Service Fabric proxy reverso](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) para expor portas de aplicativo comuns, como 80 ou 443.
 
-* Para contentores do Windows alojadas em máquinas gapped por ondas eletromagnéticas, que não é possível extrair bases camadas de armazenamento na cloud do Azure, substituir o comportamento de camada externa, utilizando o [– permitir-nondistributable-artefactos](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) sinalizador no daemon do Docker.
+* Para contêineres do Windows hospedados em computadores gapped que não podem efetuar pull de camadas base do armazenamento em nuvem do Azure, substitua o comportamento da camada estrangeira usando o sinalizador [--Allow-unredistributable-artefatos](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) no daemon do Docker.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Crie um cluster em VMs ou computadores que executam o Windows Server: [Criação do cluster do Service Fabric para o Windows Server](service-fabric-cluster-creation-for-windows-server.md)
-* Crie um cluster em VMs ou computadores que executam o Linux: [Criar um cluster do Linux](service-fabric-cluster-creation-via-portal.md)
+* Criar um cluster em VMs ou computadores que executam o Windows Server: [Service Fabric a criação do cluster para Windows Server](service-fabric-cluster-creation-for-windows-server.md)
+* Criar um cluster em VMs ou computadores que executam o Linux: [Criar um cluster do Linux](service-fabric-cluster-creation-via-portal.md)
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
 
 [NSGSetup]: ./media/service-fabric-best-practices/service-fabric-nsg-rules.png

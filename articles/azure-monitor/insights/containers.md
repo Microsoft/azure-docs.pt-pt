@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 98b7e99e5e9d25c6708b92b02e609ad38a971054
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 5f48b1b1c8568c4f60d012797634b844a276b1bb
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381574"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951967"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solução de monitoramento de contêiner no Azure Monitor
 
@@ -202,11 +202,11 @@ Nesta secção, vamos abordar os passos necessários para instalar o agente Log 
 2. Execute os comandos a seguir para criar um projeto para Azure Monitor e definir a conta de usuário.
 
     ```
-    oadm new-project omslogging --node-selector='zone=default'
+    oc adm new-project omslogging --node-selector='zone=default'
     oc project omslogging  
     oc create serviceaccount omsagent  
-    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
-    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
 3. Para implementar o conjunto de daemon, execute o seguinte:
@@ -241,11 +241,11 @@ Se pretender utilizar segredos para proteger o seu ID de área de trabalho do Lo
 2. Execute os comandos a seguir para criar um projeto para Azure Monitor e definir a conta de usuário. O segredo de gerar o script pede-lhe para o seu ID de área de trabalho do Log Analytics `<WSID>` e a chave primária `<KEY>` e após a conclusão, ele cria o ficheiro de ocp-secret.yaml.  
 
     ```
-    oadm new-project omslogging --node-selector='zone=default'  
+    oc adm new-project omslogging --node-selector='zone=default'  
     oc project omslogging  
     oc create serviceaccount omsagent  
-    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
-    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
 3. Implemente o ficheiro de segredo executando o seguinte:
@@ -557,7 +557,7 @@ A tabela seguinte mostra exemplos de registos recolhidos pela solução de monit
 Etiquetas anexado ao *PodLabel* tipos de dados são suas próprias etiquetas personalizadas. As etiquetas de PodLabel anexadas, mostradas na tabela são exemplos. Por isso, `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` irá ser diferente no conjunto de dados do seu ambiente e genericamente assemelhar-se `PodLabel_yourlabel_s`.
 
 ## <a name="monitor-containers"></a>Contentores de monitor
-Depois que a solução estiver habilitada no portal do Azure, o  bloco contêineres mostrará informações resumidas sobre os hosts de contêiner e os contêineres em execução nos hosts.
+Depois que a solução estiver habilitada no portal do Azure, o bloco contêineres mostrará informações resumidas sobre os hosts de contêiner e os contêineres em execução nos hosts.
 
 ![Mosaico de contentores](./media/containers/containers-title.png)
 
@@ -645,6 +645,6 @@ Salvar consultas é um recurso padrão no Azure Monitor. Salvando-los, terá que
 
 Depois de criar uma consulta que ser úteis, guarde-o clicando **Favoritos** na parte superior da página pesquisa de registos. Em seguida, pode aceder facilmente mais tarde a partir da **meu painel** página.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Logs de consulta](../log-query/log-query-overview.md) para exibir registros de dados de contêiner detalhados.

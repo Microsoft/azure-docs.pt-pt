@@ -4,14 +4,14 @@ description: Saiba como definir a taxa de transferência provisionada para seus 
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: rimman
-ms.openlocfilehash: 2bcd428e2de90251d4d64111b1c3e6b6f812ac4c
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 146cc9e89959035ca211a036be4730b59cae8c0b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467611"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987381"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar débito em contentores e bases de dados
 
@@ -40,7 +40,7 @@ A imagem a seguir mostra como uma partição física hospeda uma ou mais partiç
 
 ## <a name="set-throughput-on-a-database"></a>Definir a taxa de transferência em um banco de dados
 
-Quando você provisiona a taxa de transferência em um banco de dados Cosmos do Azure, a taxa de transferência é compartilhada entre todos os contêineres no banco de dados. Uma exceção é se você especificou uma taxa de transferência provisionada em contêineres específicos no banco de dados. O compartilhamento da taxa de transferência provisionada no nível de banco de dados entre seus contêineres é análogo à Hospedagem de um banco de dados em um cluster de máquinas. Como todos os contêineres em um banco de dados compartilham os recursos disponíveis em um computador, naturalmente, você não obtém um desempenho previsível em nenhum contêiner específico. Para saber como configurar a taxa de transferência provisionada em um banco de dados, consulte [Configurar a taxa de transferência provisionada em um banco de dados Cosmos do Azure](how-to-provision-database-throughput.md).
+Quando você provisiona a produtividade em um banco de dados Cosmos do Azure, a taxa de transferência é compartilhada entre todos os contêineres (chamados de contêineres de banco de dados compartilhados) no banco de dados. Uma exceção é se você especificou uma taxa de transferência provisionada em contêineres específicos no banco de dados. O compartilhamento da taxa de transferência provisionada no nível de banco de dados entre seus contêineres é análogo à Hospedagem de um banco de dados em um cluster de máquinas. Como todos os contêineres em um banco de dados compartilham os recursos disponíveis em um computador, naturalmente, você não obtém um desempenho previsível em nenhum contêiner específico. Para saber como configurar a taxa de transferência provisionada em um banco de dados, consulte [Configurar a taxa de transferência provisionada em um banco de dados Cosmos do Azure](how-to-provision-database-throughput.md).
 
 Definir a taxa de transferência em um banco de dados Cosmos do Azure garante que você receba a taxa de transferência provisionada para esse banco de dados o tempo todo. Como todos os contêineres no banco de dados compartilham a taxa de transferência provisionada, Azure Cosmos DB não fornece nenhuma garantia de taxa de transferência previsível para um contêiner específico nesse banco de dados. A parte da taxa de transferência que pode receber um contentor específico está dependente:
 
@@ -60,7 +60,9 @@ Todos os contêineres criados dentro de um banco de dados com taxa de transferê
 
 Se a carga de trabalho em uma partição lógica consumir mais do que a taxa de transferência alocada para uma partição lógica específica, suas operações serão limitadas por taxa. Quando a limitação de taxa ocorre, você pode aumentar a taxa de transferência do banco de dados inteiro ou tentar novamente as operações. Para obter mais informações sobre a criação de partições, consulte [partições lógicas](partition-data.md).
 
-Várias partições lógicas que pertencem a contêineres diferentes que compartilham a taxa de transferência provisionada para um banco de dados podem ser hospedadas em uma única partição física. Embora uma única partição lógica de um contêiner sempre esteja no escopo de uma partição física, *"L"* partições lógicas entre os contêineres *"C"* que compartilham a taxa de transferência provisionada de um banco de dados podem ser mapeadas e hospedadas em *"R"* físicas Elas. 
+A taxa de transferência provisionada em um banco de dados pode ser compartilhada pelos contêineres dentro desse banco de dados. Um máximo de 25 contêineres pode compartilhar a taxa de transferência provisionada no banco de dados. Além de 25 contêineres, para cada novo contêiner criado nesse banco de dados, é possível compartilhar uma parte da taxa de transferência do banco de dados com outras coleções já disponíveis no banco de dados. A quantidade de taxa de transferência que pode ser compartilhada depende do número de contêineres provisionados no banco de dados. 
+
+Se suas cargas de trabalho envolvem excluir e recriar todas as coleções em um banco de dados, é recomendável descartar o banco de dados vazio e recriar um novo banco de dados antes da criação da coleção.
 
 A imagem a seguir mostra como uma partição física pode hospedar uma ou mais partições lógicas que pertencem a contêineres diferentes em um banco de dados:
 
@@ -71,12 +73,15 @@ A imagem a seguir mostra como uma partição física pode hospedar uma ou mais p
 Você pode combinar os dois modelos. O provisionamento de taxa de transferência no banco de dados e no contêiner é permitido. O exemplo seguinte mostra como aprovisionar o débito numa base de dados do Cosmos do Azure e um contentor:
 
 * Você pode criar um banco de dados Cosmos do Azure chamado *Z* com taxa de transferência provisionada de *"K"* RUs. 
-* Em seguida, crie cinco contêineres chamados *a*, *B*, *C*, *D*e *e no banco* de dados. Ao criar o contêiner B, certifique-se de habilitar provisionar **taxa de transferência dedicada para essa** opção de contêiner e configurar explicitamente *"P"* RUs de taxa de transferência provisionada neste contêiner. Observe que você pode configurar a taxa de transferência compartilhada e dedicada somente ao criar o banco de dados e o contêiner. 
+* Em seguida, crie cinco contêineres chamados *a*, *B*, *C*, *D*e e no banco de dados. Ao criar o contêiner B, certifique-se de habilitar provisionar **taxa de transferência dedicada para essa** opção de contêiner e configurar explicitamente *"P"* RUs de taxa de transferência provisionada neste contêiner. Observe que você pode configurar a taxa de transferência compartilhada e dedicada somente ao criar o banco de dados e o contêiner. 
 
    ![Definindo a taxa de transferência no nível do contêiner](./media/set-throughput/coll-level-throughput.png)
 
 * A taxa de transferência de RUs *"K"* é compartilhada entre os quatro contêineres *a*, *C*, *D*e *e*. A quantidade exata de taxa de transferência disponível para *a*, *C*, *D*ou *E E* varia. Não há SLAs para a taxa de transferência de cada contêiner individual.
 * O contêiner chamado *B* tem a garantia de obter a taxa de transferência de RUs *"P"* o tempo todo. Ele é apoiado por SLAs.
+
+> [!NOTE]
+> Um contêiner com taxa de transferência provisionada não pode ser convertido para o contêiner de banco de dados compartilhado. Por outro lado, um contêiner de banco de dados compartilhado não pode ser convertido para ter uma taxa de transferência dedicada.
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Atualizar a taxa de transferência em um banco de dados ou em um contêiner
 

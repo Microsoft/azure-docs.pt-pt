@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 4ce6ef67c24bd623a4162329442693ed1628dae2
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7e7312f942103125217c1f61ae8fe8007a49529b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639875"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954768"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorizar e gerir cofres dos Serviços de Recuperação
 
@@ -175,7 +175,7 @@ A lista de máquinas virtuais tem dados úteis: o grupo de recursos associado, [
 
 O bloco **trabalhos de backup** no painel do cofre mostra o número de trabalhos que estão em andamento ou que falharam nas últimas 24 horas. O bloco fornece uma visão do menu de trabalhos de backup.
 
-![Itens de backup de configurações](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
+![Fazer backup de itens de configurações](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
 Para ver detalhes adicionais sobre os trabalhos, clique **em em andamento** ou **falha** ao abrir o menu trabalhos de backup filtrado para esse estado.
 
@@ -185,11 +185,11 @@ O menu **trabalhos de backup** exibe informações sobre o tipo de item, a opera
 
 Para abrir o menu trabalhos de backup, no menu principal do cofre, clique em **trabalhos de backup**.
 
-![Itens de backup de configurações](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
+![Fazer backup de itens de configurações](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
 A lista de trabalhos de backup é aberta.
 
-![Itens de backup de configurações](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+![Fazer backup de itens de configurações](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
 
 O menu trabalhos de backup mostra o status de todas as operações, em todos os tipos de backup, nas últimas 24 horas. Use **Filtrar** para alterar os filtros. Os filtros são explicados nas seções a seguir.
 
@@ -197,11 +197,11 @@ Para alterar os filtros:
 
 1. No menu trabalhos de backup do cofre, clique em **Filtrar**.
 
-   ![Itens de backup de configurações](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+   ![Fazer backup de itens de configurações](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
 
     O menu Filtrar é aberto.
 
-   ![Itens de backup de configurações](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+   ![Fazer backup de itens de configurações](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
 
 2. Escolha as configurações de filtro e clique em **concluído**. A lista filtrada é atualizada com base nas novas configurações.
 
@@ -274,7 +274,7 @@ O bloco armazenamento de backup no painel mostra o armazenamento consumido no Az
    `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`Por exemplo:<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
 * Para saber mais sobre o backup do Azure, consulte [visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
 * Visite o [Fórum do backup do Azure](https://go.microsoft.com/fwlink/p/?LinkId=290933)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6812ad879427a814206ef1400fcff5f3c4af0e75
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: e0197d59cdadd5e9462daf879d915ac2520bc149
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68235031"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985644"
 ---
 # <a name="list-blob-containers-with-net"></a>Listar contêineres de blob com .NET
 
@@ -42,7 +42,7 @@ Para filtrar a lista de contêineres, especifique uma cadeia de `prefix` caracte
 
 ### <a name="return-container-metadata"></a>Retornar metadados do contêiner
 
-Para retornar metadados de contêiner com os resultados, especifique o valor de **metadados** para a enumeração [ContainerListDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) . O armazenamento do Azure inclui metadados com cada contêiner retornado, portanto, você também não precisa chamar um dos  métodos fetchattributes para recuperar os metadados do contêiner.
+Para retornar metadados de contêiner com os resultados, especifique o valor de **metadados** para a enumeração [ContainerListDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) . O armazenamento do Azure inclui metadados com cada contêiner retornado, portanto, você também não precisa chamar um dos métodos fetchattributes para recuperar os metadados do contêiner.
 
 ## <a name="example-list-containers"></a>Exemplo: Listar contentores
 
@@ -95,7 +95,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 }
 ```
 
-[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources.md)]
+[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
 ## <a name="see-also"></a>Consulte também
 

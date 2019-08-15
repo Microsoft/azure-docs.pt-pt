@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4d002a82e3968e0462e5f6e775ec147669c01b0d
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 448d416ce4915aeae048639f6021197ed8c1d334
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147941"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967877"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos de sistema de importação/exportação do Azure
 
@@ -41,9 +41,9 @@ Para preparar as unidades de disco rígido usando a ferramenta de WAImportExport
 
 O serviço importar/exportar do Azure suporta os seguintes tipos de contas de armazenamento:
 
-- Contas de armazenamento de v2 de fins gerais padrão (recomendadas para a maioria dos cenários)
+- Contas de armazenamento Standard Uso Geral v2 (recomendado para a maioria dos cenários)
 - Contas de Armazenamento de blobs
-- Contas de armazenamento gerais v1 de fins (implementações clássicas ou do Azure Resource Manager), 
+- Uso Geral contas de armazenamento V1 (implantações clássicas ou Azure Resource Manager), 
 
 Para obter mais informações sobre contas de armazenamento, consulte [descrição geral de contas de armazenamento do Azure](storage-account-overview.md).
 
@@ -72,11 +72,15 @@ Para o serviço importar/exportar do Azure, terá de discos suportados para copi
 A seguinte lista de discos é suportada para utilização com o serviço de importação/exportação.
 
 
-|Tipo de disco  |Tamanho  |Suportadas |Não suportado  |
-|---------|---------|---------|---------|
-|SSD    |   2,5"      |SATA III          |  USB       |
-|HDD     |  2,5"<br>3.5"       |SATA II, SATA III         |HDD externo com o adaptador interno de USB <br> Disco dentro as maiúsculas e minúsculas de um HDD externo         |
+|Tipo de disco  |Tamanho  |Suportadas |
+|---------|---------|---------|
+|SSD    |   2,5"      |SATA III          | 
+|HDD     |  2,5"<br>3.5"       |SATA II, SATA III         |
 
+Não há suporte para os seguintes tipos de disco:
+- USBs.
+- HDD externo com adaptador USB interno.
+- Discos que estão dentro dos compartimentos de uma HDD externa.
 
 Uma tarefa de importação/exportação única pode ter:
 - Um máximo de 10 HDD/SSDs.

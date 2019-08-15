@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 6e425eba3159f8840e1a7960f6a6c3171b1ba163
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 9409beea3f22fd7ff09fe49838a37d9ff0b485f6
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850421"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975919"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -56,13 +56,13 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
     |    Nome NetBIOS       |    138       |    UDP           |
     |    SAM/LSA            |    445       |    TCP           |
     |    SAM/LSA            |    445       |    UDP           |
-    |    LDAP Seguro        |    636       |    TCP           |
-    |    LDAP Seguro        |    3269      |    TCP           |
+    |    Secure LDAP        |    636       |    TCP           |
+    |    Secure LDAP        |    3269      |    TCP           |
     |    W32Time            |    123       |    UDP           |
 
 ## <a name="create-an-active-directory-connection"></a>Criar uma conexão Active Directory
 
-1. Em sua conta do NetApp, clique em **Active Directory conexões**e clique em ingressar.  
+1. Em sua conta do NetApp, clique em **Active Directory conexões**eclique em ingressar.  
 
     ![Conexões Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
 
@@ -148,4 +148,6 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
 
 * [Montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)
+* [Perguntas frequentes sobre o SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs)
 * [Saiba mais sobre a integração de rede virtual para serviços do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Instalar uma nova floresta Active Directory usando CLI do Azure](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

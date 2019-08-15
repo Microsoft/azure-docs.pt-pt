@@ -1,6 +1,6 @@
 ---
-title: Vista kubelet regista no Azure Kubernetes Service (AKS)
-description: Saiba como ver informações de resolução de problemas nos registos kubelet de nós do Azure Kubernetes Service (AKS)
+title: Exibir logs do kubelet no serviço kubernetes do Azure (AKS)
+description: Saiba como exibir informações de solução de problemas nos logs do kubelet dos nós do AKS (serviço kubernetes do Azure)
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,35 +8,35 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: mlearned
 ms.openlocfilehash: 65b16b3ddc209ef5d2f6287a04cfe402c3b205c6
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67615187"
 ---
-# <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Obter registos kubelet de nós de cluster do Azure Kubernetes Service (AKS)
+# <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Obter logs do kubelet de nós de cluster do AKS (serviço kubernetes do Azure)
 
-Como parte de um cluster do AKS a funcionar, terá de rever os registos para resolver um problema. Incorporado no portal do Azure é a capacidade de ver os registos para o [AKS dominar componentes][aks-master-logs] or [containers in an AKS cluster][azure-container-logs]. Ocasionalmente, poderá ter de obter *kubelet* registos a partir de um nó AKS para fins de resolução de problemas.
+Como parte da operação de um cluster AKS, talvez seja necessário examinar os logs para solucionar um problema. Interno ao portal do Azure é a capacidade de exibir logs para os componentes ou contêineres [mestres][aks-master-logs] do AKS [em um cluster AKs][azure-container-logs]. Ocasionalmente, talvez seja necessário obter logs do *kubelet* de um nó AKs para fins de solução de problemas.
 
-Este artigo mostra-lhe como pode utilizar `journalctl` para ver o *kubelet* faz logon num nó AKS.
+Este artigo mostra como você pode usar `journalctl` o para exibir os logs do *kubelet* em um nó AKs.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo pressupõe que tem um cluster do AKS existente. Se precisar de um cluster do AKS, consulte o guia de introdução do AKS [com a CLI do Azure][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+Este artigo pressupõe que você tenha um cluster AKS existente. Se você precisar de um cluster AKS, consulte o guia de início rápido do AKS [usando o CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
 
-## <a name="create-an-ssh-connection"></a>Crie uma ligação SSH
+## <a name="create-an-ssh-connection"></a>Criar uma conexão SSH
 
-Em primeiro lugar, crie uma ligação SSH com o nó no qual precisa exibir *kubelet* registos. Esta operação está detalhada na [SSH em nós de cluster do Azure Kubernetes Service (AKS)][aks-ssh] documento.
+Primeiro, crie uma conexão SSH com o nó no qual você precisa exibir logs do *kubelet* . Essa operação é detalhada no documento [SSH para nós de cluster do AKS (serviço kubernetes do Azure)][aks-ssh] .
 
 ## <a name="get-kubelet-logs"></a>Obter registos kubelet
 
-Depois de ter ligado ao nó, execute o seguinte comando para extrair os *kubelet* registos:
+Depois de se conectar ao nó, execute o seguinte comando para efetuar pull dos logs do *kubelet* :
 
 ```console
 sudo journalctl -u kubelet -o cat
 ```
 
-Saída de exemplo a seguir mostra a *kubelet* registos de dados:
+A saída de exemplo a seguir mostra os dados de log do *kubelet* :
 
 ```
 I0508 12:26:17.905042    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
@@ -62,9 +62,9 @@ I0508 12:28:48.321952    8672 kubelet_node_status.go:497] Using Node Hostname fr
 I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se precisar de informações adicionais de resolução de problemas do mestre de Kubernetes, veja [ver o Kubernetes no AKS registos do nó principal][aks-master-logs].
+Se você precisar de informações adicionais de solução de problemas do mestre do kubernetes, consulte [Exibir logs do nó mestre do kubernetes em AKs][aks-master-logs].
 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md

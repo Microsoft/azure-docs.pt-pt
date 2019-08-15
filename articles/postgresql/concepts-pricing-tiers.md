@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 376620459a0ab2f0f170b0743c0ab51a51bca9c4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2f6be256801983924cc794d6c8b8fa31e39959e1
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698940"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967862"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Tipos de preço no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -108,7 +108,10 @@ O serviço automaticamente faz backups de seu servidor. O período de retenção
 
 Depois de criar o servidor, você pode alterar independentemente o vCores, a geração de hardware, o tipo de preço (exceto para e do básico), a quantidade de armazenamento e o período de retenção de backup. Você não pode alterar o tipo de armazenamento de backup depois que um servidor é criado. O número de vCores pode ser aumentado ou reduzido verticalmente. O período de retenção de backup pode ser reduzido ou reduzido de 7 a 35 dias. O tamanho do armazenamento só pode ser aumentado. O dimensionamento dos recursos pode ser feito por meio do portal ou CLI do Azure. Para obter um exemplo de dimensionamento usando CLI do Azure, consulte [monitorar e dimensionar um banco de dados do Azure para o servidor PostgreSQL usando CLI do Azure](scripts/sample-scale-server-up-or-down.md).
 
-Quando você altera o número de vCores, a geração de hardware ou o tipo de preço, uma cópia do servidor original é criada com a nova alocação de computação. Depois de o novo servidor estiver a funcionar em pleno, as ligações são passadas para o novo servidor. Durante o momento em que o sistema muda para o novo servidor, não se pode estabelecer nenhuma nova ligação e todas as transações não confirmadas são revertidas. Esta janela varia mas, na maioria dos casos, é inferior a um minuto.
+> [!NOTE] 
+> O tamanho do armazenamento só pode ser aumentado. Não é possível voltar para um tamanho de armazenamento menor após o aumento.
+
+Quando você altera o número de vCores, a geração de hardware ou o tipo de preço, uma cópia do servidor original é criada com a nova alocação de computação. Depois de o novo servidor estar a funcionar em pleno, as ligações são passadas para o novo servidor. Durante o período em que o sistema muda para o novo servidor, não se pode estabelecer nenhuma nova ligação e todas as transações não confirmadas são revertidas. Esta janela varia mas, na maioria dos casos, é inferior a um minuto.
 
 O dimensionamento do armazenamento e a alteração do período de retenção do backup são operações reais online. Não há nenhum tempo de inatividade e seu aplicativo não é afetado. Conforme o IOPS é dimensionado com o tamanho do armazenamento provisionado, você pode aumentar o IOPS disponível para o servidor ao escalar verticalmente o armazenamento.
 

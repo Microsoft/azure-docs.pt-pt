@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: gwallace
 ms.openlocfilehash: d6b16b859b29ef835bca75c5fca0ea1a9d35a306
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68358948"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Coletar contadores de desempenho para seu serviço de nuvem do Azure
@@ -115,7 +115,7 @@ Para obter mais informações, consulte [contadores de desempenho do sistema em 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 
 > [!IMPORTANT]
-> Embora todos esses dados sejam agregados na conta de armazenamento, o portal não **fornece uma** maneira nativa de gráfico dos dados. É altamente recomendável que você integre outro serviço de diagnóstico, como Application Insights, em seu aplicativo.
+> Embora todos esses dados sejam agregados na conta de armazenamento, o portal não fornece uma maneira nativa de gráfico dos dados. É altamente recomendável que você integre outro serviço de diagnóstico, como Application Insights, em seu aplicativo.
 
 A extensão de Diagnóstico do Azure para serviços de nuvem permite especificar quais contadores de desempenho você deseja coletar. Para configurar Diagnóstico do Azure, consulte [visão geral do monitoramento do serviço de nuvem](cloud-services-how-to-monitor.md#setup-diagnostics-extension).
 

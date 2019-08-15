@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/08/2019
-ms.openlocfilehash: bc9b6053e6e2f920b826b3c14c6820b71e129aef
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 7c6b85bd1f5935fb3722f82efcdfc921fc9cb2ec
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882825"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990546"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regenerar chaves de acesso da conta de armazenamento
 
@@ -84,17 +84,13 @@ Para atualizar Azure Machine Learning serviço para usar a nova chave, use as se
         az login
         ```
 
-    1. Para instalar a extensão de Azure Machine Learning, use o seguinte comando:
-
-        ```azurecli-interactive
-        az extension add -n azure-cli-ml 
-        ```
-
     1. Para atualizar o espaço de trabalho para usar a nova chave, use o comando a seguir. Substitua `myworkspace` pelo nome do espaço de trabalho Azure Machine Learning e `myresourcegroup` substitua pelo nome do grupo de recursos do Azure que contém o espaço de trabalho.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
         ```
+
+        [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
         Esse comando sincroniza automaticamente as novas chaves para a conta de armazenamento do Azure usada pelo espaço de trabalho.
 
@@ -111,6 +107,6 @@ Para atualizar Azure Machine Learning serviço para usar a nova chave, use as se
 
     Como `overwrite=True` é especificado, esse código substitui o registro existente e o atualiza para usar a nova chave.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como registrar armazenamentos de dados, [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) consulte a referência de classe.

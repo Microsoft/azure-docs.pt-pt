@@ -2,7 +2,7 @@
 title: Relatório de inícios de sessão de risco no portal do Azure Active Directory | Microsoft Docs
 description: Saiba mais sobre o relatório de inícios de sessão de risco no portal do Azure Active Directory
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
@@ -12,23 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e125f8e1e7909c5866a03c0571f49ec42d690a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 629e7bf8ee7100b5927483ecfd4efa1d9223c151
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60287527"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989926"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Relatório de inícios de sessão de risco no portal do Azure Active Directory
 
-Azure Active Directory (Azure AD) Deteta as ações suspeitas relacionadas com as contas de utilizador. Para cada ação detetada, um registo denominado um **evento de risco** é criado. Para obter mais detalhes, consulte [eventos de risco do Azure AD](concept-risk-events.md). 
+O Azure Active Directory (AD do Azure) detecta ações suspeitas relacionadas às suas contas de usuário. Para cada ação detectada, um registro chamado **evento de risco** é criado. Para obter mais detalhes, consulte [eventos de risco do Azure ad](concept-risk-events.md). 
 
-Pode acessar os relatórios de segurança do [portal do Azure](https://portal.azure.com) ao selecionar o **Azure Active Directory** painel e, em seguida, ao navegar para o **segurança** secção. 
+Você pode acessar os relatórios de segurança do [portal do Azure](https://portal.azure.com) selecionando a folha **Azure Active Directory** e, em seguida, navegando até a seção **segurança** . 
 
-Existem dois relatórios de segurança diferentes que são calculados com base nos eventos de risco:
+Há dois relatórios de segurança diferentes que são calculados com base nos eventos de risco:
 
 - **Inícios de sessão de risco** – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador.
 
@@ -36,41 +36,41 @@ Existem dois relatórios de segurança diferentes que são calculados com base n
 
 ![Inícios de Sessão de Risco](./media/concept-risky-sign-ins/10.png)
 
-Para saber como configurar as políticas que acionam esses eventos de risco, veja [como configurar a política de risco do utilizador](../identity-protection/howto-user-risk-policy.md).  
+Para saber como configurar as políticas que disparam esses eventos de risco, consulte [como configurar a política de risco do usuário](../identity-protection/howto-user-risk-policy.md).  
 
-## <a name="who-can-access-the-risky-sign-ins-report"></a>Quem pode aceder o relatório de inícios de sessão de risco?
+## <a name="who-can-access-the-risky-sign-ins-report"></a>Quem pode acessar o relatório de entradas arriscadas?
 
-Os relatórios de inícios de sessão arriscados estão disponíveis para utilizadores as seguintes funções:
+Os relatórios de entradas arriscadas estão disponíveis para os usuários nas seguintes funções:
 
 - Administrador de Segurança
 - Administrador Global
-- Leitor de segurança
+- Leitor de Segurança
 
-Para saber como atribuir funções administrativas a um utilizador no Azure Active Directory, veja [modo de exibição e atribuir funções de administrador no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
+Para saber como atribuir funções administrativas a um usuário no Azure Active Directory, consulte [Exibir e atribuir funções de administrador no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
 
 ## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>De que licença do Azure AD precisa para aceder a um relatório de segurança?  
 
-Todas as edições do Azure AD fornecem relatórios de inícios de sessão de risco. No entanto, o nível de granularidade dos relatórios varia entre as edições: 
+Todas as edições do Azure AD fornecem relatórios de entradas arriscadas. No entanto, o nível de granularidade dos relatórios varia entre as edições: 
 
-- Na **edições do Azure Active Directory gratuito e Basic**, obtém uma lista de inícios de sessão de risco. 
+- Nas **edições Azure Active Directory gratuito e Basic**, você obtém uma lista de entradas arriscadas. 
 
-- Além disso, o **do Azure Active Directory Premium 1** edition permite que examine alguns dos eventos de risco subjacentes que foram detetados para cada relatório. 
+- Além disso, a edição **Azure Active Directory Premium 1** permite que você examine alguns dos eventos de risco subjacentes que foram detectados para cada relatório. 
 
 - A edição **do Azure Active Directory Premium 2** proporciona-lhe as informações mais detalhadas sobre todos os eventos de risco subjacentes e também lhe permite configurar políticas de segurança que respondam automaticamente aos níveis de risco configurados.
 
-## <a name="risky-sign-ins-report-for-azure-ad-free-and-basic-edition"></a>Relatório de inícios de sessão de risco para o Azure AD gratuito e a edição básica
+## <a name="risky-sign-ins-report-for-azure-ad-free-and-basic-edition"></a>Relatório de entradas arriscadas para o Azure AD Free e Basic Edition
 
-As edições gratuita e básica do Azure AD fornecem uma lista de risco inícios de sessão que foram detetados para os seus utilizadores. Cada registro contém os seguintes atributos:
+As edições gratuita e básica do Azure AD fornecem uma lista de entradas arriscadas que foram detectadas para seus usuários. Cada registro contém os seguintes atributos:
 
-- **Utilizador** -o nome do utilizador que foi utilizado durante a operação de início de sessão.
-- **IP** -o endereço IP do dispositivo que foi utilizado para ligar ao Azure Active Directory.
-- **Localização** -a localização utilizada para ligar ao Azure Active Directory. Esta é uma aproximação de esforço melhor, com base em rastreamentos, os dados de registo, pesquisas inversa e outras informações.
+- **User** -o nome do usuário que foi usado durante a operação de entrada.
+- **IP** -o endereço IP do dispositivo que foi usado para se conectar ao Azure Active Directory.
+- **Local** -o local usado para se conectar ao Azure Active Directory. Essa é uma aproximação de melhor esforço com base em rastreamentos, dados de registro, pesquisas inversas e outras informações.
 - **Hora de início de sessão** – A hora quando o início de sessão foi efetuado
 - **Estado** – O estado do início de sessão
 
 ![Inícios de Sessão de Risco](./media/concept-risky-sign-ins/01.png)
 
-Com base na sua investigação do início de sessão-in risco, pode fornecer seus comentários para o Azure AD, efetuando as seguintes ações:
+Com base na investigação da entrada arriscada, você pode fornecer comentários ao Azure AD executando as seguintes ações:
 
 - Resolver
 - Marcar como falso positivo
@@ -79,18 +79,18 @@ Com base na sua investigação do início de sessão-in risco, pode fornecer seu
 
 ![Inícios de Sessão de Risco](./media/concept-risky-sign-ins/21.png)
 
-Este relatório também fornece uma opção para:
+Esse relatório também fornece uma opção para:
 
 - Procurar recursos
 - Transferir os dados do relatório
 
 ![Inícios de Sessão de Risco](./media/concept-risky-sign-ins/93.png)
 
-## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Relatório de inícios de sessão de risco para as edições premium do Azure AD
+## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Relatório de entradas arriscadas para edições do Azure AD Premium
 
-O relatório de inícios de sessão de risco nas edições premium do Azure AD fornece-lhe:
+O relatório de entradas arriscadas nas edições do Azure AD Premium fornece:
 
-- Informações adicionais sobre o [tipos de eventos de risco](concept-risk-events.md) que foram detetados. Com o **do Azure AD Premium P1 edition**, deteções de Trojans não são cobertas pela sua licença aparecem como o evento de risco **início de sessão com risco adicional detetado**. Com o **edição Azure AD Premium P2**, obtém as informações mais detalhadas sobre todas as detecções subjacentes.
+- Informações agregadas sobre os [tipos de evento de risco](concept-risk-events.md) que foram detectados. Com a **edição P1 do Azure ad Premium**, as detecções que não são cobertas pela sua licença são exibidas como a entrada do evento de risco **com risco adicional detectado**. Com a **edição do Azure ad Premium P2**, você obtém as informações mais detalhadas sobre todas as detecções subjacentes.
 
 - Uma opção para transferir o relatório
 
@@ -104,12 +104,12 @@ Ao selecionar um evento de risco, obtém uma vista de relatório detalhado para 
 
 - Reveja uma lista de utilizadores para os quais foi detetado este evento de risco
 
-- Feche manualmente eventos de risco. 
+- Fechar manualmente os eventos de risco. 
 
 ![Inícios de Sessão de Risco](./media/concept-risky-sign-ins/457.png)
 
 > [!IMPORTANT]
-> Às vezes, pode encontrar um evento de risco sem uma entrada correspondente início de sessão no [relatório de inícios de sessão](concept-sign-ins.md). Isto acontece porque o Identity Protection avalia o risco para ambos **interativo** e **não interativa** inícios de sessão, ao passo que o relatório de inícios de sessão mostra apenas os interativos inícios de sessão.
+> Às vezes, você pode encontrar um evento de risco sem uma entrada de logon correspondente no [relatório](concept-sign-ins.md)de entradas. Isso ocorre porque a proteção de identidade avalia o risco de entradas interativas e **não** interativas, enquanto o relatório de entradas mostra apenas as entradas interativas.
 
 Ao selecionar um utilizador, obtém uma vista de relatório detalhado para este utilizador que lhe permite:
 
@@ -128,8 +128,8 @@ Esta ação abre o painel **Detalhes** para este evento de risco. No painel **De
 
 ![Inícios de Sessão de Risco](./media/concept-risky-sign-ins/325.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Como configurar a política de risco do utilizador](../identity-protection/howto-user-risk-policy.md)
-- [Como configurar a política de remediação do risco](../identity-protection/howto-user-risk-policy.md)
+- [Como configurar a política de risco do usuário](../identity-protection/howto-user-risk-policy.md)
+- [Como configurar a política de correção de risco](../identity-protection/howto-user-risk-policy.md)
 - [Tipos de eventos de risco](concept-risk-events.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Connect FAQ - | Documentos da Microsoft
-description: Este artigo responde às perguntas mais frequentes sobre o Azure AD Connect.
+title: Perguntas frequentes sobre Azure Active Directory Connect-| Microsoft Docs
+description: Este artigo responde a perguntas frequentes sobre Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -15,252 +15,258 @@ ms.date: 05/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6b551ee9a0a9c7ef9a8f5ff1bd7452a24dc04b7
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65137793"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014184"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ do Azure Active Directory Connect
 
 ## <a name="general-installation"></a>Instalação geral
 
-**P: Como posso proteger meu servidor do Azure AD Connect para diminuir a superfície de ataque de segurança?**
+**P: Como posso proteger meu servidor de Azure AD Connect para diminuir a superfície de ataque de segurança?**
 
-A Microsoft recomenda proteger o seu servidor do Azure AD Connect para diminuir a superfície de ataque de segurança para este componente crítico de seu ambiente de TI.  Seguir as recomendações abaixo irá diminuir os riscos de segurança para a sua organização.
+A Microsoft recomenda proteger o servidor de Azure AD Connect para diminuir a superfície de ataque de segurança para esse componente crítico de seu ambiente de ti.  Seguir as recomendações abaixo diminuirá os riscos de segurança para sua organização.
 
-* Implementar o Azure AD Connect num servidor associado a um domínio e restringir o acesso administrativo para os administradores do domínio ou outros grupos de segurança controladas de perto
+* Implantar Azure AD Connect em um servidor ingressado no domínio e restringir o acesso administrativo a administradores de domínio ou a outros grupos de segurança rigidamente controlados
 
 Para saber mais, consulte: 
 
-* [Proteger grupos de administradores](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+* [Protegendo grupos de administradores](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
-* [Protegendo contas de administrador incorporada](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+* [Protegendo contas de administrador internas](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
 
-* [Aprimoramento de segurança e sustainment, reduzindo a superfícies de ataque](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+* [Melhoria e manutenção da segurança ao reduzir as superfícies de ataque](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
 
-* [Reduzir a superfície de ataque do Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+* [Reduzindo a superfície de ataque de Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
-**P: Instalação funcionará se o Administrador Global do Azure Active Directory (Azure AD) tem a autenticação de dois fatores (2FA) ativada?**  
-No momento da elaboração as compilações de Fevereiro de 2016, este cenário é suportado.
+**P: A instalação funcionará se o administrador global do Azure Active Directory (Azure AD) tiver a autenticação de dois fatores (2FA) habilitada?**  
+A partir das compilações de fevereiro de 2016, há suporte para esse cenário.
 
-**P: Existe uma forma de instalar o Azure AD Connect automático?**  
-Instalação do Azure AD Connect só é suportada quando utiliza o Assistente de instalação. Não é suportada uma instalação automática e silenciosa.
+**P: Há uma maneira de instalar Azure AD Connect autônomos?**  
+Só há suporte para a instalação Azure AD Connect quando você usa o assistente de instalação. Não há suporte para instalações autônomas e silenciosas.
 
-**P: Tenho uma floresta em que um domínio não pode ser contactado. Como posso instalar o Azure AD Connect?**  
-No momento da elaboração as compilações de Fevereiro de 2016, este cenário é suportado.
+**P: Tenho uma floresta em que um domínio não pode ser contatado. Como fazer instalar Azure AD Connect?**  
+A partir das compilações de fevereiro de 2016, há suporte para esse cenário.
 
-**P: O agente de estado de funcionamento do Azure Active Directory Domain Services (Azure AD DS) funciona no server core?**  
-Sim. Depois de instalar o agente, pode concluir o processo de registo utilizando o cmdlet PowerShell seguinte: 
+**P: O agente de integridade do Azure Active Directory Domain Services (AD DS do Azure) funciona no Server Core?**  
+Sim. Depois de instalar o agente, você pode concluir o processo de registro usando o seguinte cmdlet do PowerShell: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
-**P: O Azure AD Connect suporta sincronizados a partir de dois domínios no Azure AD?**  
-Sim, este cenário é suportado. Consulte a [vários domínios](how-to-connect-install-multiple-domains.md).
+**P: Azure AD Connect dá suporte à sincronização de dois domínios para no Azure AD?**  
+Sim, há suporte para esse cenário. Consulte [vários domínios](how-to-connect-install-multiple-domains.md).
  
-**P: Pode ter vários conectores para o mesmo domínio do Active Directory no Azure AD Connect?**  
-Não, vários conectores para o mesmo domínio do AD não são suportadas. 
+**P: Você pode ter vários conectores para o mesmo domínio de Active Directory no Azure AD Connect?**  
+Não, não há suporte para vários conectores para o mesmo domínio do AD. 
 
-**P: Posso mover a base de dados do Azure AD Connect da base de dados local para uma instância remota do SQL Server?**    
-Sim, os passos seguintes fornecem orientações gerais sobre como fazer isso. Estamos atualmente a trabalhar num documento mais detalhado.
-1. Criar cópias de segurança da base de dados LocalDB ADSync.
-A forma mais simples de fazer isso é usar o SQL Server Management Studio instalado no mesmo computador que o Azure AD Connect. Ligar à *(LocalDb). \ADSync*e, em seguida, criar cópias de segurança da base de dados do ADSync.
+**P: Posso mover o banco de dados Azure AD Connect do banco de dados local para uma instância de SQL Server remota?**    
+Sim, as etapas a seguir fornecem diretrizes gerais sobre como fazer isso. No momento, estamos trabalhando em um documento mais detalhado.
+1. Faça backup do banco de dados ADSync LocalDB.
+A maneira mais simples de fazer isso é usar SQL Server Management Studio instalado no mesmo computador que Azure AD Connect. Conecte-se a *(LocalDb) .\ADSync*e, em seguida, faça backup do banco de dados AdSync.
 
-2. Restaure a base de dados ADSync à sua instância do SQL Server remota.
+2. Restaure o banco de dados ADSync para sua instância de SQL Server remota.
 
-3. Instalar o Azure AD Connect contra existente [banco de dados do SQL remoto](how-to-connect-install-existing-database.md).
-   O artigo demonstra como migrar para utilizar uma base de dados local do SQL. Se estiver a migrar para a utilização de uma base de dados do SQL remoto, no passo 5 do processo de também tem de introduzir uma conta de serviço que o serviço de sincronização do Windows será executado como. Esta conta de serviço de motor de sincronização é descrita aqui:
+3. Instale Azure AD Connect no banco de [dados SQL remoto](how-to-connect-install-existing-database.md)existente.
+   O artigo demonstra como migrar para o usando um banco de dados SQL local. Se você estiver migrando para o usando um banco de dados SQL remoto, na etapa 5 do processo, você também deverá inserir uma conta de serviço existente na qual o serviço de sincronização do Windows será executado. Essa conta de serviço do mecanismo de sincronização é descrita aqui:
    
-      **Utilizar uma conta de serviço existente**: Por predefinição, o Azure AD Connect utiliza uma conta de serviço virtual para os serviços de sincronização para utilizar. Se utilizar uma instância remota do SQL Server ou utilizar um proxy que exija a autenticação, utilizar uma conta de serviço gerida ou uma conta de serviço no domínio e conhecer a palavra-passe. Nesses casos, introduza a conta a utilizar. Certifique-se de que os utilizadores que estejam a executar a instalação são os administradores de sistema no SQL, para que as credenciais de início de sessão para a conta de serviço podem ser criadas. Para obter mais informações, consulte [contas e permissões do Azure AD Connect](reference-connect-accounts-permissions.md#adsync-service-account). 
+      **Usar uma conta de serviço existente**: Por padrão, o Azure AD Connect usa uma conta de serviço virtual para que os serviços de sincronização usem. Se você usar uma instância de SQL Server remota ou usar um proxy que exija autenticação, use uma conta de serviço gerenciado ou uma conta de serviço no domínio e saiba a senha. Nesses casos, introduza a conta a utilizar. Verifique se os usuários que estão executando a instalação são administradores do sistema no SQL para que as credenciais de logon da conta de serviço possam ser criadas. Para obter mais informações, consulte [contas e permissões do Azure ad Connect](reference-connect-accounts-permissions.md#adsync-service-account). 
    
-      Com a compilação mais recente, o aprovisionamento da base de dados pode agora ser realizado fora de banda pelo administrador SQL e, em seguida, instalado pelo administrador do Azure AD Connect com direitos de proprietário da base de dados. Para obter mais informações, consulte [instalar o Azure AD Connect utilizando as permissões de administrador do SQL delegado](how-to-connect-install-sql-delegation.md).
+      Com a compilação mais recente, o aprovisionamento da base de dados pode agora ser realizado fora de banda pelo administrador SQL e, em seguida, instalado pelo administrador do Azure AD Connect com direitos de proprietário da base de dados. Para obter mais informações, consulte [instalar Azure ad Connect usando permissões de administrador do SQL delegado](how-to-connect-install-sql-delegation.md).
 
-Para simplificar as coisas, é recomendável que os utilizadores que instalar o Azure AD Connect ser os administradores de sistema no SQL. No entanto, com compilações recentes pode agora utilizar delegada administradores do SQL, conforme descrito em [instalar o Azure AD Connect utilizando as permissões de administrador do SQL delegado](how-to-connect-install-sql-delegation.md).
+Para simplificar as coisas, recomendamos que os usuários que instalam Azure AD Connect sejam administradores do sistema no SQL. No entanto, com as compilações recentes, agora você pode usar os administradores do SQL delegados, conforme descrito em [instalar Azure ad Connect usando permissões de administrador do SQL delegado](how-to-connect-install-sql-delegation.md).
 
 **P: Quais são algumas das práticas recomendadas do campo?**  
 
-Segue-se um documento informativo que apresenta algumas das práticas recomendadas que suportam a engenharia, e os nossos consultores desenvolveram ao longo dos anos.  Isso é apresentado numa lista com marcas que pode ser referenciada rapidamente.  Embora esta lista tenta ser abrangente, pode haver melhores práticas adicionais que poderão não tornou na lista ainda.
+Este é um documento informativo que apresenta algumas das práticas recomendadas que a engenharia, o suporte e os nossos consultores desenvolveram ao longo dos anos.  Isso é apresentado em uma lista com marcadores que pode ser referenciada rapidamente.  Embora essa lista tente ser abrangente, pode haver mais práticas recomendadas que talvez ainda não tenham sido feitas na lista.
 
-- Se utilizar o SQL completo, em seguida, deve permanecer local vs. remoto
-    - Saltos menos
-    - Mais fácil de resolver problemas
+- Se estiver usando o SQL completo, ele deverá permanecer local versus remoto
+    - Menos saltos
+    - Mais fácil de solucionar problemas
     - Menos complexidade
-    - Tem de designar recursos para SQL e permitir que a sobrecarga para o Azure AD Connect e SO
-- Ignorar o Proxy se for possível, se não for possível ignorar o proxy, em seguida, certifique-se de que o valor de tempo limite é superior a 5 minutos.
-- Se o proxy for necessário, em seguida, tem de adicionar o proxy para o arquivo Machine Config
-- Lembre-se de tarefas locais do SQL e manutenção e como elas afetarão o Azure AD Connect - particularmente reindexação
-- Certifique-se de que o DNS pode resolver externamente
-- Certifique-se de que [especificações de servidor](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect) são, por recomendação, se estiver a utilizar servidores físicos ou virtuais
-- Certifique-se de que se estiver a utilizar um servidor virtual que os recursos necessários são dedicados
-- Certifique-se de que tem o disco e a configuração do disco cumprir as melhores práticas para o SQL Server
-- Instalar e configurar o Azure AD Connect Health para a monitorização
-- Utilize o limiar de eliminar de mensagens em fila que está incorporada no Azure AD Connect.
-- Atualizações de versões de revisão cuidadosamente para estar preparado para todas as alterações e novos atributos que podem ser adicionados
-- Criar cópias de segurança tudo
-    - Chaves de cópia de segurança
-    - Regras de sincronização de cópia de segurança
-    - Configuração do servidor de cópia de segurança
-    - Base de dados SQL de cópia de segurança
-- Certifique-se de que não há nenhum 3º agentes de cópia de segurança de terceiros que estão fazendo backup SQL sem o escritor VSS do SQL (comum em servidores virtuais com o 3º instantâneos de terceiros)
-- Limitar a quantidade de regras de sincronização personalizados que são utilizadas à medida que adicionam complexidade
-- Tratar do Azure AD ligar servidores como 0 servidores da camada
-- Ser leery de modificar as regras de sincronização na cloud sem grande compreensão sobre o impacto e os controladores de negócio certo
-- Certifique-se de que o URL correto e as portas de Firewall estão abertas para o suporte do Azure AD Connect e Azure AD Connect Health
-- Tire partido do cloud filtrado de atributos para resolver problemas e impedir que os objetos fantasma
-- Com o servidor de teste Certifique-se de que está a utilizar o Documenter de configuração de ligação de AD do Azure para manter a consistência entre servidores
-- Servidores de teste devem estar em data Centers separados (localizações físicas
-- Servidores de teste não se destinam a ser uma solução de elevada disponibilidade, mas pode ter vários servidores de testes
-- Apresentando um servidores de teste "Lag" possa atenuar alguns potenciais períodos de inatividade em caso de erro
-- Testar e validar todas as atualizações no servidor de teste pela primeira vez
-- Validar sempre exportações antes de alternar para o teste serverLeverage do servidor de preparação para a importação completa e as sincronizações completas reduzir o impacto comercial
-- Manter a consistência de versão entre servidores de ligar o Azure AD tanto quanto possível 
+    - É necessário designar recursos para o SQL e permitir a sobrecarga para Azure AD Connect e o sistema operacional
+- Ignorar proxy se possível, se não for possível ignorar o proxy, você precisará garantir que o valor de tempo limite seja maior que 5 minutos.
+- Se o proxy for necessário, você deverá adicionar o proxy ao arquivo Machine. config
+- Esteja atento aos trabalhos e à manutenção locais do SQL e como eles terão impacto Azure AD Connect-especialmente a reindexação
+- Verifique se o DNS pode ser resolvido externamente
+- Verifique se as [especificações do servidor](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect) são por recomendação se você está usando servidores físicos ou virtuais
+- Verifique se você está usando um servidor virtual que os recursos necessários são dedicados
+- Verifique se você tem a configuração de disco e disco que atende às práticas recomendadas para SQL Server
+- Instalar e configurar Azure AD Connect Health para monitoramento
+- Use o limite de exclusão interno do Azure AD Connect.
+- Revise cuidadosamente as atualizações de versão a serem preparadas para todas as alterações e novos atributos que possam ser adicionados
+- Fazer backup de tudo
+    - Chaves de backup
+    - Regras de sincronização de backup
+    - Configuração do servidor de backup
+    - Fazer backup do banco de dados SQL
+- Verifique se não há agentes de backup de terceiros que estejam fazendo backup do SQL sem o gravador VSS do SQL (comum em servidores virtuais com instantâneos de terceiros)
+- Limitar a quantidade de regras de sincronização personalizadas que são usadas à medida que adicionam complexidade
+- Tratar servidores Azure AD Connect como servidores de camada 0
+- Seja Leery de modificar regras de sincronização de nuvem sem grande compreensão do impacto e dos drivers de negócios certos
+- Verifique se as portas da URL e do firewall corretas estão abertas para suporte de Azure AD Connect e Azure AD Connect Health
+- Aproveite o atributo de nuvem filtrado para solucionar problemas e impedir objetos fantasmas
+- Com o servidor de preparo, verifique se você está usando o Azure AD Connect o Documentador de configuração quanto à consistência entre os servidores
+- Os servidores de preparo devem estar em data centers separados (locais físicos
+- Os servidores de preparo não devem ser uma solução de alta disponibilidade, mas você pode ter vários servidores de preparo
+- A introdução de um servidor de preparo de "retardo" pode mitigar algum tempo de inatividade em potencial em caso de erro
+- Testar e validar todas as atualizações no servidor de preparo primeiro
+- Sempre valide as exportações antes de passar para o serverLeverage de preparo para o servidor de preparo para importações completas e Sincronizações completas para reduzir o impacto nos negócios
+- Mantenha a consistência da versão entre Azure AD Connect servidores o máximo possível 
 
-**P: Posso permitir que o Azure AD Connect criar a conta de conector do Azure AD no computador de grupo de trabalho?**
-Não.  Para permitir que o Azure AD Connect para a criação da conta do conector do Azure AD, a máquina deve estar associado a um domínio.  
+**P: Posso permitir que Azure AD Connect crie a conta do conector do Azure AD no computador do grupo de trabalho?**
+Não.  Para permitir que Azure AD Connect crie automaticamente a conta do conector do Azure AD, o computador deve estar ingressado no domínio.  
 
 ## <a name="network"></a>Rede
-**P: Tenho uma firewall, o dispositivo de rede ou outra coisa que limita a hora em que as ligações podem permanecer abertas na minha rede. O que deve meu limite de tempo limite do lado do cliente ser ao utilizar o Azure AD Connect?**  
-Todos os softwares de sistema de rede, dispositivos físicos ou qualquer outra coisa que limita o tempo máximo que ligações podem permanecer abertas deve utilizar um limiar de, pelo menos, cinco minutos (300 segundos) para conectividade entre o servidor onde está instalado o cliente do Azure AD Connect e o Azure Active Directory. Esta recomendação aplica-se também de todas as ferramentas de sincronização do Microsoft Identity lançadas anteriormente.
+**P: Tenho um firewall, um dispositivo de rede ou algo que limita o tempo que as conexões podem permanecer abertas na minha rede. Qual deve ser o limite de tempo limite do lado do cliente quando eu usar Azure AD Connect?**  
+Todos os softwares de rede, dispositivos físicos ou qualquer outra coisa que limita o tempo máximo que as conexões podem permanecer abertas devem usar um limite de pelo menos cinco minutos (300 segundos) para a conectividade entre o servidor em que o cliente do Azure AD Connect está instalado e Azure Active Directory. Essa recomendação também se aplica a todas as ferramentas de Sincronização de Identidades do Microsoft lançadas anteriormente.
 
-**P: Domínios de etiqueta única (SLDs) são suportados?**  
-Enquanto é altamente recomendável em relação a esta configuração de rede ([consulte o artigo](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)), através do Azure AD Connect com um domínio de etiqueta única for suportada, enquanto a configuração de rede para o domínio de nível único está a funcionar corretamente.
+**P: Há suporte para SLDs (domínios de rótulo único)?**  
+Embora seja altamente recomendável em relação a essa configuração de rede ([consulte o artigo](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)), o uso de Azure ad Connect sincronização com um único domínio de rótulo tem suporte, desde que a configuração de rede para o domínio de nível único esteja funcionando corretamente.
 
-**P: São florestas com domínios de AD não contíguos suportados?**  
-Não, do Azure AD Connect não suporta florestas no local que contêm espaços de nomes não contíguos.
+**P: Há suporte para florestas com domínios não contíguos do AD?**  
+Não, Azure AD Connect não dá suporte a florestas locais que contêm namespaces não contíguos.
 
-**P: São "pontuada" nomes de NetBIOS suportados?**  
-Não, do Azure AD Connect não suporta florestas no local ou em domínios em que o nome NetBIOS contém um ponto (.).
+**P: Há suporte para nomes de NetBIOS "pontilhados"?**  
+Não, Azure AD Connect não dá suporte a florestas ou domínios locais em que o nome NetBIOS contém um ponto (.).
 
-**P: Ambiente de IPv6 pura é suportada?**  
-Não, do Azure AD Connect não suporta um ambiente IPv6 puro.
+**P: Há suporte para o ambiente puro de IPv6?**  
+Não, Azure AD Connect não dá suporte a um ambiente IPv6 puro.
 
-**P: Tenho um ambiente de várias florestas e de rede entre as duas florestas está a utilizar o NAT (tradução de endereços de rede). Está a utilizar o Azure AD Connect entre estas duas florestas suportadas?**</br>
- Não, a utilização do Azure AD Connect através de NAT não é suportada. 
+**P: ter um ambiente de várias florestas e a rede entre as duas florestas está usando NAT (conversão de endereços de rede). Está usando Azure AD Connect entre essas duas florestas com suporte?**</br>
+Não, não há suporte para o uso de Azure AD Connect sobre NAT. 
 
-## <a name="federation"></a>de Federação
-**P: O que devo fazer se eu recebo uma mensagem de e-mail que lhe pede-me para renovar o meu certificado do Office 365?**  
-Para obter orientações sobre como renovar o certificado, veja [renovar certificados](how-to-connect-fed-o365-certs.md).
+## <a name="federation"></a>Federação
+**P: O que devo fazer se eu receber um email que me peça para renovar meu certificado do Office 365?**  
+Para obter orientação sobre como renovar o certificado, consulte renovar [certificados](how-to-connect-fed-o365-certs.md).
 
-**P: Tenho de "Atualizar automaticamente a terceira parte confiável" definido para a entidade confiadora do Office 365. É necessário efetuar qualquer ação quando o meu token automaticamente o certificado de assinatura é agregado ao longo do?**  
-Utilize as orientações que é descrita no artigo [renovar certificados](how-to-connect-fed-o365-certs.md).
+**P: Tenho "atualizar automaticamente a terceira parte confiável" definida para a terceira parte confiável do Office 365. É necessário realizar qualquer ação quando meu certificado de autenticação de tokens passa automaticamente?**  
+Use as diretrizes descritas no artigo renovar [certificados](how-to-connect-fed-o365-certs.md).
 
 ## <a name="environment"></a>Ambiente
-**P: É possível mudar o nome do servidor após a instalação do Azure AD Connect?**  
-Não. Alterar o nome do servidor renderiza o motor de sincronização não é possível ligar à instância de base de dados do SQL, e não é possível iniciar o serviço.
+**P: Há suporte para renomear o servidor após a instalação do Azure AD Connect?**  
+Não. A alteração do nome do servidor renderiza o mecanismo de sincronização não é possível conectar-se à instância do banco de dados SQL e o serviço não pode ser iniciado.
 
-**P: Regras de sincronização de próxima geração criptográfica (NGC) são suportadas numa máquina FIPS ativada?**  
-Não.  Não são suportadas.
+**P: Há suporte para regras de sincronização do NGC (criptografia de próxima geração) em uma máquina habilitada para FIPS?**  
+Não.  Eles não têm suporte.
+
+**P. Se eu desabilitar um dispositivo sincronizado (por exemplo: HAADJ) na portal do Azure, por que ele é habilitado novamente?**<br>
+Dispositivos sincronizados podem ser criados ou mastermente no local. Se um dispositivo sincronizado estiver habilitado localmente, ele poderá ser habilitado novamente no portal do Azure mesmo que tenha sido desabilitado anteriormente por um administrador. Para desabilitar um dispositivo sincronizado, use o Active Directory local para desabilitar a conta do computador.
+
+**P. Se eu bloquear a entrada do usuário no portal do Office 365 ou do AD do Azure para usuários sincronizados, por que ele será desbloqueado após entrar novamente?**<br>
+Os usuários sincronizados podem ser criados ou mastermente no local. Se a conta estiver habilitada localmente, ela poderá desbloquear o bloco de entrada colocado pelo administrador.
 
 ## <a name="identity-data"></a>Dados de identidade
-**P: Por que o atributo userPrincipalName (UPN) no Azure AD não corresponde ao UPN no local?**  
-Para obter informações, veja estes artigos:
+**P: Por que não o atributo userPrincipalName (UPN) no Azure AD corresponde ao UPN local?**  
+Para obter informações, consulte estes artigos:
 
-* [Nomes de utilizador no Office 365, o Azure ou o Intune não correspondem o UPN no local ou o ID de início de sessão alternativo](https://support.microsoft.com/kb/2523192)
-* [As alterações não são sincronizadas pela ferramenta de sincronização do Azure Active Directory depois de alterar o UPN de uma conta de utilizador para utilizar um domínio federado diferente](https://support.microsoft.com/kb/2669550)
+* [Nomes de acessados no Office 365, no Azure ou no Intune não correspondem ao UPN local ou à ID de logon alternativa](https://support.microsoft.com/kb/2523192)
+* [As alterações não são sincronizadas pela ferramenta de sincronização Azure Active Directory depois que você altera o UPN de uma conta de usuário para usar um domínio federado diferente](https://support.microsoft.com/kb/2669550)
 
-Também pode configurar o Azure AD para permitir que o mecanismo de sincronização atualizar o UPN, conforme descrito em [funcionalidades de serviço de sincronização do Azure AD Connect](how-to-connect-syncservice-features.md).
+Você também pode configurar o Azure AD para permitir que o mecanismo de sincronização atualize o UPN, conforme descrito em [Azure ad Connect recursos do serviço de sincronização](how-to-connect-syncservice-features.md).
 
-**P: É suportado para a configuração soft-correspondência de um grupo do Azure AD no local ou o objeto de contato com um grupo do Azure AD existente ou contacte o objeto?**  
-Sim, essa correspondência de forma recuperável se baseia o proxyAddress. Correspondência de forma recuperável não é suportada para os grupos que não estão ativadas para correio.
+**P: Há suporte para a correspondência flexível de um grupo ou objeto de contato do Azure AD local com um grupo ou objeto de contato do Azure AD existente?**  
+Sim, essa correspondência flexível se baseia no proxyAddress. Não há suporte para a correspondência flexível para grupos que não são habilitados para email.
 
-**P: É possível definir o atributo de ImmutableId num grupo do Azure AD existente ou contactar o objeto para o disco rígido-match-lo a um grupo do Azure AD no local ou contacte o objeto manualmente?**  
-Não, manualmente, definindo o atributo de ImmutableId num grupo existente do Azure AD ou o objeto de contacto para o disco rígido correspondência-lo atualmente não é suportada.
+**P: É possível definir manualmente o atributo imutávelid em um grupo ou objeto de contato do Azure AD existente para fazer a correspondência física com um grupo ou objeto de contato do Azure AD local?**  
+Não, definir manualmente o atributo imutávelid em um grupo ou objeto de contato existente do Azure AD para a correspondência fixa não tem suporte no momento.
 
 ## <a name="custom-configuration"></a>Configuração personalizada
-**P: Onde estão documentados os cmdlets do PowerShell do Azure AD Connect?**  
-Com exceção dos cmdlets que estão documentados neste site, os outros cmdlets do PowerShell encontrados no Azure AD Connect não são suportados para uso do cliente.
+**P: Onde estão os cmdlets do PowerShell para Azure AD Connect documentados?**  
+Com exceção dos cmdlets documentados neste site, outros cmdlets do PowerShell encontrados no Azure AD Connect não têm suporte para uso do cliente.
 
-**P: Pode utilizar a opção "Importação do servidor de exportação/servidor" que se encontra no Synchronization Service Manager para mover a configuração entre servidores?**  
-Não. Esta opção não recupera todas as definições de configuração e não deve ser utilizado. Em vez disso, utilize o Assistente para criar a configuração de base num segundo servidor e utilize o editor de regra de sincronização para gerar scripts do PowerShell para mover qualquer regra personalizada entre servidores. Para obter mais informações, consulte [migração rotativa](how-to-upgrade-previous-version.md#swing-migration).
+**P: Posso usar a opção "servidor de exportação/importação de servidor" encontrada em Synchronization Service Manager para mover a configuração entre servidores?**  
+Não. Essa opção não recupera todas as definições de configuração e não deve ser usada. Em vez disso, use o assistente para criar a configuração de base no segundo servidor e use o editor de regra de sincronização para gerar scripts do PowerShell para mover qualquer regra personalizada entre servidores. Para obter mais informações, consulte [migração Swing](how-to-upgrade-previous-version.md#swing-migration).
 
-**P: Podem palavras-passe ser colocados em cache para a página de início de sessão do Azure, e esta colocação em cache não consiga porque contém um elemento de entrada de palavra-passe com o *preenchimento automático = "false"* atributo?**  
-Atualmente, modificar os atributos HTML do **palavra-passe** campo, incluindo a marca de preenchimento automático, não é suportado. Estamos atualmente a trabalhar num recurso que permite para JavaScript personalizada, que lhe permite adicionar qualquer atributo para o **palavra-passe** campo.
+**P: As senhas podem ser armazenadas em cache para a página de entrada do Azure e esse cache pode ser impedido porque contém um elemento de entrada de senha com o atributo *AutoComplete = "false"* ?**  
+No momento, não há suporte para modificar os atributos HTML do campo de **senha** , incluindo a marca de preenchimento automático. No momento, estamos trabalhando em um recurso que permite o JavaScript personalizado, que permite adicionar qualquer atributo ao campo de **senha** .
 
-**P: A página de início de sessão do Azure apresenta os nomes de utilizador de utilizadores que se anteriormente tem iniciado sessão com êxito. Esse comportamento pode ser seja desativado?**  
-Atualmente, modificar os atributos HTML do **palavra-passe** campo de entrada, incluindo a marca de preenchimento automático, não é suportado. Estamos atualmente a trabalhar num recurso que permite para JavaScript personalizada, que lhe permite adicionar qualquer atributo para o **palavra-passe** campo.
+**P: A página de entrada do Azure exibe os nomes de usuários que se conectaram anteriormente com êxito. Esse comportamento pode ser desativado?**  
+No momento, não há suporte para modificar os atributos HTML do campo de entrada de **senha** , incluindo a marca de preenchimento automático. No momento, estamos trabalhando em um recurso que permite o JavaScript personalizado, que permite adicionar qualquer atributo ao campo de **senha** .
 
-**P: Existe alguma forma de impedir sessões simultâneas?**  
+**P: Há uma maneira de evitar sessões simultâneas?**  
 Não.
 
 ## <a name="auto-upgrade"></a>Atualização automática
 
-**P: Quais são as vantagens e as conseqüências de usar automaticamente a atualização?**  
-Podemos são aconselhá todos os clientes a ativar a atualização automática para a sua instalação do Azure AD Connect. A vantagem é que sempre recebem os patches mais recentes, incluindo atualizações de segurança a vulnerabilidades que foram encontrados no Azure AD Connect. O processo de atualização é tranqüila e ocorre automaticamente assim que uma nova versão estiver disponível. Vários milhares de clientes do Azure AD Connect utilizam a atualização automática com cada nova versão.
+**P: Quais são as vantagens e consequências de usar a atualização automática?**  
+Estamos aconselhando todos os clientes a habilitarem a atualização automática para a instalação Azure AD Connect. O benefício é que você sempre recebe os patches mais recentes, incluindo atualizações de segurança para vulnerabilidades encontradas no Azure AD Connect. O processo de atualização é simples e ocorre automaticamente assim que uma nova versão está disponível. Muitos milhares de Azure AD Connect clientes usam a atualização automática com cada nova versão.
 
-O processo de atualização automática sempre primeiro estabelece se uma instalação é elegível para atualização automática. Se for elegível, a atualização é executada e testada. O processo inclui também à procura de alterações personalizadas a regras e fatores ambientais específicos. Se os testes mostrarem que uma atualização é concluída com êxito, a versão anterior é automaticamente restaurada.
+O processo de atualização automática sempre estabelece primeiro se uma instalação está qualificada para atualização automática. Se ele estiver qualificado, a atualização será executada e testada. O processo também inclui a procura de alterações personalizadas em regras e fatores ambientais específicos. Se os testes mostrarem que uma atualização não foi bem-sucedida, a versão anterior será restaurada automaticamente.
 
-Dependendo do tamanho do ambiente, o processo pode demorar algumas horas. Enquanto a atualização está em curso, acontece sem sincronização entre o Windows Server Active Directory e o Azure AD.
+Dependendo do tamanho do ambiente, o processo pode levar algumas horas. Enquanto a atualização está em andamento, nenhuma sincronização entre o Windows Server Active Directory e o Azure AD acontece.
 
-**P: Recebi uma mensagem de e-mail informando-me que meu atualização automática já não funciona e preciso de instalar uma nova versão. Por que motivo é necessário fazer isso?**  
-No ano passado, lançámos uma versão do Azure AD Connect, que, em determinadas circunstâncias, poderá ter desativado a funcionalidade de atualização automática no seu servidor. Podemos corrigir o problema no Azure AD Connect versão 1.1.750.0. Se tiver sido afetados pelo problema, pode mitigá-lo ao executar um script do PowerShell para o reparar ou atualizando manualmente para a versão mais recente do Azure AD Connect. 
+**P: Recebi um email dizendo que minha atualização automática não funciona mais e preciso instalar uma nova versão. Por que preciso fazer isso?**  
+No ano passado, lançamos uma versão do Azure AD Connect que, em determinadas circunstâncias, pode ter desabilitado o recurso de atualização automática em seu servidor. Corrigimos o problema na versão Azure AD Connect 1.1.750.0. Se tiver sido afetado pelo problema, você poderá atenuá-lo executando um script do PowerShell para repará-lo ou atualizar manualmente para a versão mais recente do Azure AD Connect. 
 
-Para executar o script do PowerShell [transferir o script](https://aka.ms/repairaadconnect) e executá-lo no seu servidor do Azure AD Connect numa janela do PowerShell administrativa. Para saber como executar o script [visualizar este vídeo breve](https://aka.ms/repairaadcau).
+Para executar o script do PowerShell, [Baixe o script](https://aka.ms/repairaadconnect) e execute-o em seu servidor de Azure ad Connect em uma janela administrativa do PowerShell. Para saber como executar o script, [Veja este breve vídeo](https://aka.ms/repairaadcau).
 
-Para atualizar manualmente, tem de transferir e executar a versão mais recente do ficheiro AADConnect.msi.
+Para atualizar manualmente, você deve baixar e executar a versão mais recente do arquivo AADConnect. msi.
  
--  Se a sua versão atual é anterior 1.1.750.0, [transferir e atualizar para a versão mais recente](https://www.microsoft.com/download/details.aspx?id=47594).
-- Se a sua versão do Azure AD Connect é 1.1.750.0 ou posterior, não é necessária nenhuma ação adicional. Já está a utilizar a versão que contém a correção de atualização automática. 
+-  Se sua versão atual for mais antiga do que 1.1.750.0, [Baixe e atualize para a versão mais recente](https://www.microsoft.com/download/details.aspx?id=47594).
+- Se sua versão de Azure AD Connect for 1.1.750.0 ou posterior, nenhuma ação adicional será necessária. Você já está usando a versão que contém a correção de atualização automática. 
 
-**P: Recebi uma mensagem de e-mail informando-me para atualizar para a versão mais recente para voltar a ativar atualização automática. Estou usando a versão 1.1.654.0. É necessário atualizar?**  
-Sim, terá de atualizar para versão 1.1.750.0 ou posterior para ativar novamente a atualização automática. [Transferir e atualizar para a versão mais recente](https://www.microsoft.com/download/details.aspx?id=47594).
+**P: Recebi um email informando-me para atualizar para a versão mais recente para reabilitar a atualização automática. Estou usando a versão 1.1.654.0. É necessário atualizar?**  
+Sim, você precisa atualizar para a versão 1.1.750.0 ou posterior para reabilitar a atualização automática. [Baixe e atualize para a versão mais recente](https://www.microsoft.com/download/details.aspx?id=47594).
 
-**P: Recebi uma mensagem de e-mail informando-me para atualizar para a versão mais recente para voltar a ativar atualização automática. Se o ter utilizado o PowerShell para ativar a atualização automática, é ainda necessário instalar a versão mais recente?**  
-Sim, ainda terá de atualizar para versão 1.1.750.0 ou posterior. Ativar o serviço de atualização automática com o PowerShell não mitigar o problema de atualização automática encontrado nas versões antes 1.1.750.0.
+**P: Recebi um email informando-me para atualizar para a versão mais recente para reabilitar a atualização automática. Se eu tiver usado o PowerShell para habilitar a atualização automática, ainda precisarei instalar a versão mais recente?**  
+Sim, você ainda precisa atualizar para a versão 1.1.750.0 ou posterior. Habilitar o serviço de atualização automática com o PowerShell não atenua o problema de atualização automática encontrado em versões anteriores ao 1.1.750.0.
 
-**P: Quero fazer atualização para uma versão mais recente, mas não tenho a certeza de quem instalado do Azure AD Connect e não temos o nome de utilizador e palavra-passe. Precisamos isso?**
-Não precisa de saber o nome de utilizador e palavra-passe que foi primeiramente usada para atualizar o Azure AD Connect. Utilize qualquer conta do Azure AD que tenha a função de Administrador Global.
+**P: Quero atualizar para uma versão mais recente, mas não tenho certeza de quem instalou o Azure AD Connect e não temos o nome de usuário e a senha. Precisamos disso?**
+Você não precisa saber o nome de usuário e a senha que foram usados inicialmente para atualizar Azure AD Connect. Use qualquer conta do Azure AD que tenha a função de administrador global.
 
-**P: Como posso saber qual é a versão do Azure AD Connect, estou usando?**  
-Para verificar a versão do Azure AD Connect está instalada no seu servidor, vá para Painel de controle e procurar a versão instalada do Microsoft Azure AD Connect, selecionando **programas** > **programas e funcionalidades** , como mostrado aqui:
+**P: Como posso encontrar qual versão do Azure AD Connect estou usando?**  
+Para verificar qual versão do Azure ad Connect está instalada no servidor, vá para o painel de controle e procure a versão instalada do Microsoft Azure ad conectar selecionando **programas** > **programas e recursos**, conforme mostrado aqui:
 
-![Versão do Azure AD Connect no painel de controlo](./media/reference-connect-faq/faq1.png)
+![Azure AD Connect versão no painel de controle](./media/reference-connect-faq/faq1.png)
 
-**P: Como posso atualizar para a versão mais recente do Azure AD Connect?**  
-Para saber como atualizar para a versão mais recente, veja [do Azure AD Connect: Upgrade from a previous version to the latest](how-to-upgrade-previous-version.md) (Sincronização do Azure AD Connect: Atualizar de uma versão anterior para a mais recente). 
+**P: Como fazer atualizar para a versão mais recente do Azure AD Connect?**  
+Para saber como atualizar para a versão mais recente, consulte [Azure ad Connect: Upgrade from a previous version to the latest](how-to-upgrade-previous-version.md) (Sincronização do Azure AD Connect: Atualizar de uma versão anterior para a mais recente). 
 
-**P: Nós já atualizado para a versão mais recente do Azure AD Connect no ano passado. Precisamos atualizar novamente?**  
-A equipa do Azure AD Connect torna as atualizações frequentes para o serviço. Para se beneficiar de correções de erros e atualizações de segurança, bem como novas funcionalidades, é importante manter o seu servidor atualizados com a versão mais recente. Se ativar a atualização automática, a sua versão de software é atualizado automaticamente. Para obter o histórico de versões do Azure AD Connect, consulte [do Azure AD Connect: Version release history](reference-connect-version-history.md) (Azure AD Connect: Histórico de versões).
+**P: Já atualizamos para a versão mais recente do Azure AD Connect no ano passado. Precisamos atualizar novamente?**  
+A equipe de Azure AD Connect faz atualizações frequentes no serviço. Para se beneficiar de correções de bugs e atualizações de segurança, bem como novos recursos, é importante manter seu servidor atualizado com a versão mais recente. Se você habilitar a atualização automática, a versão do software será atualizada automaticamente. Para localizar o histórico de lançamento de versão do Azure ad Connect [, consulte Azure ad Connect: Version release history](reference-connect-version-history.md) (Azure AD Connect: Histórico de versões).
 
-**P: Quanto tempo demora para fazer a atualização e o que é o impacto sobre os meus utilizadores?**  
-O tempo necessário para atualizar depende do tamanho do seu inquilino. Para organizações maiores, será melhor efetuar a atualização na noite ou ao fim de semana. Durante a atualização, nenhuma atividade de sincronização ocorre.
+**P: Quanto tempo leva para realizar a atualização e qual é o impacto nos meus usuários?**  
+O tempo necessário para a atualização depende do tamanho do locatário. Para organizações maiores, pode ser melhor executar a atualização na noite ou no fim de semana. Durante a atualização, nenhuma atividade de sincronização ocorre.
 
-**P: Eu acredito que eu atualizado para o Azure AD Connect, mas o Office menções ainda portais DirSync. Por que é isto?**  
-A equipe do Office está trabalhando para obter as atualizações de portais do Office para refletir o nome do produto atual. Não reflete qual ferramenta de sincronização estiver a utilizar.
+**P: Acredito que eu tenha atualizado para Azure AD Connect, mas o portal do Office ainda menciona o DirSync. Por que isso?**  
+A equipe do Office está trabalhando para obter as atualizações do portal do Office para refletir o nome do produto atual. Ele não reflete qual ferramenta de sincronização você está usando.
 
-**P: Meu status de atualização automática diz, "Suspenso". Por que é esta suspensa? Deve habilitá-lo?**  
-Um bug foi introduzido numa versão anterior que, em determinadas circunstâncias, deixa o estado de atualização automática definido como "Suspenso". Manualmente permitindo que ele é tecnicamente possível, mas requer vários passos complexos. A melhor coisa que pode fazer é instalar a versão mais recente do Azure AD Connect.
+**P: Meu status de atualização automática diz "suspenso". Por que ele está suspenso? Devo habilitá-lo?**  
+Um bug foi introduzido em uma versão anterior que, em determinadas circunstâncias, deixa o status de atualização automática definido como "suspenso". Habilitar manualmente é tecnicamente possível, mas exigiria várias etapas complexas. A melhor coisa que você pode fazer é instalar a versão mais recente do Azure AD Connect.
 
-**P: A minha empresa tem requisitos de gerenciamento de alterações strict, e quero controlar quando ela é enviada por push. Posso controlar quando é iniciada a atualização automática?**  
-Não, não existe nenhum desses recursos hoje mesmo. O recurso está sendo avaliado para uma versão futura.
+**P: Minha empresa tem requisitos estritos de gerenciamento de alterações e quero controlar quando ele é enviado por push. Posso controlar quando a atualização automática é iniciada?**  
+Não, atualmente não existe um recurso desse tipo. O recurso está sendo avaliado para uma versão futura.
 
-**P: Receberei um e-mail se a atualização automática falhou? Como posso saber se foi bem-sucedida?**  
-Não será notificado do resultado da atualização. O recurso está sendo avaliado para uma versão futura.
+**P: Receberei um email se a atualização automática falhar? Como saber que foi bem-sucedida?**  
+Você não será notificado do resultado da atualização. O recurso está sendo avaliado para uma versão futura.
 
-**P: Publica uma linha cronológica para quando planeia lançar das atualizações automáticas?**  
-Atualização automática é a primeira etapa no processo de liberação de uma versão mais recente. Sempre que houver uma nova versão, as atualizações são enviadas automaticamente. As versões mais recentes do Azure AD Connect são previamente anunciadas no [plano do Azure AD](../fundamentals/whats-new.md).
+**P: Você publica uma linha do tempo para quando planeja enviar atualizações automáticas?**  
+A atualização automática é a primeira etapa no processo de liberação de uma versão mais recente. Sempre que houver uma nova versão, as atualizações serão enviadas automaticamente. As versões mais recentes do Azure AD Connect são anunciadas previamente no [roteiro do Azure ad](../fundamentals/whats-new.md).
 
-**P: Atualização automática também atualizar o Azure AD Connect Health?**  
-Sim, a atualização automática também atualiza o Azure AD Connect Health.
+**P: A atualização automática também atualiza Azure AD Connect Health?**  
+Sim, a atualização automática também atualiza Azure AD Connect Health.
 
-**P: Também atualização automática servidores Azure AD Connect no modo de teste?**  
-Sim, pode atualização automática um servidor do Azure AD Connect que está no modo de teste.
+**P: Você também atualiza automaticamente Azure AD Connect servidores no modo de preparo?**  
+Sim, você pode atualizar automaticamente um servidor de Azure AD Connect que está no modo de preparo.
 
-**P: Se a falha de atualização automática e meu servidor do Azure AD Connect não for iniciado, o que devo fazer?**  
-Em casos raros, o serviço do Azure AD Connect não iniciar depois de efetuar a atualização. Nestes casos, o reinício do servidor normalmente corrige o problema. Se o serviço do Azure AD Connect ainda não iniciar, abra um pedido de suporte. Para obter mais informações, consulte [criar um pedido de serviço para contactar o suporte do Office 365](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/). 
+**P: Se a atualização automática falhar e meu servidor de Azure AD Connect não for iniciado, o que devo fazer?**  
+Em casos raros, o serviço de Azure AD Connect não é iniciado depois que você executa a atualização. Nesses casos, a reinicialização do servidor geralmente corrige o problema. Se o serviço de Azure AD Connect ainda não for iniciado, abra um tíquete de suporte. Para obter mais informações, consulte [criar uma solicitação de serviço para contatar o suporte do Office 365](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/). 
 
-**P: Não sei quais são os riscos quando atualizar para uma versão mais recente do Azure AD Connect. Pode ligar-me para me ajudar com a atualização?**  
-Se precisar de ajuda a atualizar para uma versão mais recente do Azure AD Connect, abra um pedido de suporte em [criar um pedido de serviço para contactar o suporte do Office 365](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/).
+**P: Não tenho certeza de quais são os riscos quando atualizo para uma versão mais recente do Azure AD Connect. Você pode ligar para mim para me ajudar com a atualização?**  
+Se precisar de ajuda para atualizar para uma versão mais recente do Azure AD Connect, abra um tíquete de suporte em [criar uma solicitação de serviço para entrar em contato com o suporte do Office 365](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-**P: Como posso obter ajuda com o Azure AD Connect?**
+**P: Como posso obter ajuda com Azure AD Connect?**
 
-[Pesquise na Base de dados de Conhecimento Microsoft (KB)](https://www.microsoft.com/en-us/search/result.aspx?q=azure+active+directory+connect)
+[Pesquisar na base de dados de conhecimento Microsoft (KB)](https://www.microsoft.com/en-us/search/result.aspx?q=azure+active+directory+connect)
 
-* Procure o KB para soluções técnicas para questões de break-fix comuns sobre o suporte do Azure AD Connect.
+* Pesquise as soluções técnicas na base de conhecimento para problemas comuns de conserto para Azure AD Connect.
 
-[Fóruns do Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+[Fóruns de Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 
-* Pesquise para perguntas e respostas técnicas ou faça suas próprias perguntas, acedendo a [a Comunidade do Azure AD](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
+* Pesquise perguntas e respostas técnicas ou faça suas próprias perguntas acessando [a Comunidade do Azure ad](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
 [Obter suporte para o Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
