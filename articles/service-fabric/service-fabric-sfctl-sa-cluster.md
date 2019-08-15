@@ -1,6 +1,6 @@
 ---
-title: Cluster do Azure Service Fabric CLI - sfctl sa-| Documentos da Microsoft
-description: Descreve os comandos de cluster do Service Fabric CLI sfctl autónomo.
+title: CLI do Azure Service Fabric-sfctl SA-cluster | Microsoft Docs
+description: Descreve os comandos de Cluster Service Fabric CLI sfctl autônomos.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,83 +8,82 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: a652439729e538b3ce2545ab3b09284e6645ce9d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 902ebab5dc12d7649edd0ed6e594e663e5332ce3
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556394"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035232"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
-Gerir clusters autónomos do Service Fabric.
+Gerenciar clusters Service Fabric autônomos.
 
 ## <a name="commands"></a>Comandos
 
 |Comando|Descrição|
 | --- | --- |
-| config | Obter a configuração de cluster autónomo do Service Fabric. |
-| config-upgrade | Começar a atualizar a configuração de um cluster autónomo do Service Fabric. |
-| upgrade-status | Obter o estado de atualização de configuração de cluster de um cluster autónomo do Service Fabric. |
+| configuração | Obtenha a configuração de Cluster Service Fabric autônomo. |
+| config-upgrade | Comece a atualizar a configuração de um Cluster Service Fabric autônomo. |
+| atualização-status | Obtenha o status de atualização da configuração do cluster de um Cluster Service Fabric autônomo. |
 
-## <a name="sfctl-sa-cluster-config"></a>configuração de cluster de sa de sfctl
-Obter a configuração de cluster autónomo do Service Fabric.
+## <a name="sfctl-sa-cluster-config"></a>sfctl SA – configuração de cluster
+Obtenha a configuração de Cluster Service Fabric autônomo.
 
-A configuração de cluster contém as propriedades do cluster, que incluem os tipos de nó diferente no cluster, configurações de segurança, falhas e topologias de domínio de atualização, etc.
-
-### <a name="arguments"></a>Argumentos
-
-|Argumento|Descrição|
-| --- | --- |
-| – versão de api de configuração [necessário] | A versão de API de configuração do json de cluster autónomo. |
-| – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
-
-### <a name="global-arguments"></a>Argumentos global
-
-|Argumento|Descrição|
-| --- | --- |
-| – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
-| – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
-
-## <a name="sfctl-sa-cluster-config-upgrade"></a>atualização de configuração do sa-cluster sfctl
-Começar a atualizar a configuração de um cluster autónomo do Service Fabric.
-
-Valide os parâmetros de atualização de configuração fornecidos e começar a atualizar a configuração do cluster, se os parâmetros são válidos.
+A configuração de cluster contém as propriedades do cluster que incluem diferentes tipos de nó no cluster, configurações de segurança, topologias de domínio de atualização e de falha, etc.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --cluster-config            [Required] | A configuração do cluster. |
-| – políticas de estado de funcionamento de aplicações | JSON com a codificação de dicionário de pares de nome de tipo de aplicação e a percentagem máxima em mau estado de funcionamento antes de gerar o erro. |
-| --delta-unhealthy-nodes | O máximo permitido de percentagem de degradação de estado de funcionamento de delta durante a atualização. Valores permitidos são valores de número inteiro entre zero e 100. |
-| --health-check-retry | O período de tempo entre tentativas para realizar verificações de estado de funcionamento se o aplicativo ou o cluster não está em bom estado.  Default\: PT0H0M0S. |
-| --health-check-stable | A quantidade de tempo que a aplicação ou o cluster deve permanecer em bom estado antes que a atualização prossiga para o domínio de atualização seguinte.  Default\: PT0H0M0S. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
-| --health-check-wait | O período de tempo de espera após a conclusão de um domínio de atualização antes de iniciar o estado de funcionamento verifica o processo.  Default\: PT0H0M0S. |
-| – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
-| --unhealthy-applications | O máximo permitido porcentagem de aplicativos com problemas durante a atualização. Valores permitidos são valores de número inteiro entre zero e 100. |
-| --unhealthy-nodes | O máximo permitido de percentagem de nós de mau estado de funcionamento durante a atualização. Valores permitidos são valores de número inteiro entre zero e 100. |
-| --upgrade-domain-delta-unhealthy-nodes | O máximo permitido de percentagem de degradação de estado de funcionamento de delta do domínio de atualização durante a atualização. Valores permitidos são valores de número inteiro entre zero e 100. |
-| --upgrade-domain-timeout | A quantidade de tempo de cada domínio de atualização tem de concluir antes de ser executada FailureAction.  Default\: PT0H0M0S. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
-| --upgrade-timeout | A quantidade de tempo a atualização global tem de concluir antes de ser executada FailureAction.  Default\: PT0H0M0S. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
+| --configuração-API-Version [obrigatório] | A versão da API da configuração JSON do cluster autônomo. |
+| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos global
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
-| – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
+| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
+| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
+| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+
+## <a name="sfctl-sa-cluster-config-upgrade"></a>sfctl SA – configuração do cluster-atualização
+Comece a atualizar a configuração de um Cluster Service Fabric autônomo.
+
+Valide os parâmetros de atualização de configuração fornecidos e comece a atualizar a configuração do cluster se os parâmetros forem válidos.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|Descrição|
+| --- | --- |
+| --cluster-config [obrigatório] | A configuração do cluster. |
+| --Application-Health-Policies | Dicionário codificado em JSON de pares de nome do tipo de aplicativo e percentual máximo não íntegro antes de gerar erro. |
+| --delta-unhealthy-nodes | A porcentagem máxima permitida de degradação da integridade Delta durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
+| --health-check-retry | O período de tempo entre as tentativas de realizar verificações de integridade se o aplicativo ou o cluster não estiver íntegro.  PT0H0M0S\: padrão. |
+| --health-check-stable | A quantidade de tempo que o aplicativo ou o cluster deve permanecer íntegro antes que a atualização prossiga para o próximo domínio de atualização.  PT0H0M0S\: padrão. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
+| --health-check-wait | O período de tempo de espera após a conclusão de um domínio de atualização antes de iniciar o processo de verificações de integridade.  PT0H0M0S\: padrão. |
+| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+| --aplicativos não íntegros | A porcentagem máxima permitida de aplicativos não íntegros durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
+| --Nós não íntegros | A porcentagem máxima permitida de nós não íntegros durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
+| --upgrade-domain-delta-unhealthy-nodes | A porcentagem máxima permitida da degradação da integridade Delta do domínio de atualização durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
+| --tempo limite do domínio de atualização | A quantidade de tempo que cada domínio de atualização precisa concluir antes que a falha seja executada.  PT0H0M0S\: padrão. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
+| --upgrade-timeout | O tempo durante o qual a atualização geral deve ser concluída antes de FailureAction ser executada.  PT0H0M0S\: padrão. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
+
+### <a name="global-arguments"></a>Argumentos globais
+
+|Argumento|Descrição|
+| --- | --- |
+| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
+| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
+| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
+| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
 ### <a name="examples"></a>Exemplos
 
@@ -95,28 +94,28 @@ sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --applica
 policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
 ```
 
-## <a name="sfctl-sa-cluster-upgrade-status"></a>Estado de atualização do cluster de sa sfctl
-Obter o estado de atualização de configuração de cluster de um cluster autónomo do Service Fabric.
+## <a name="sfctl-sa-cluster-upgrade-status"></a>sfctl SA – atualização do cluster-status
+Obtenha o status de atualização da configuração do cluster de um Cluster Service Fabric autônomo.
 
-Obter a configuração de cluster detalhes de estado de atualização de um cluster autónomo do Service Fabric.
+Obtenha os detalhes do status de atualização da configuração de cluster de um Cluster Service Fabric autônomo.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
+| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos global
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
-| – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
+| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
+| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
+| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
-- Saiba como utilizar a CLI do Service Fabric utilizando o [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+## <a name="next-steps"></a>Passos seguintes
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
+- Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

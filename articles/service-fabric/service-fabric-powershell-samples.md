@@ -9,19 +9,18 @@ editor: ''
 tags: ''
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.service: service-fabric
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
 ms.date: 11/29/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 8a3a80fb6ae20eddc3237d986ecda1d4cb5b65a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73e88e692b68d73c90176a6f5b8fce06bdf8b8c7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773253"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035803"
 ---
 # <a name="azure-powershell-samples"></a>Exemplos do Azure PowerShell
 

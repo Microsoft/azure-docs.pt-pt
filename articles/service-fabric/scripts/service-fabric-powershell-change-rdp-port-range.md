@@ -10,17 +10,16 @@ tags: azure-service-management
 ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/19/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 4470cf8898f1d174f8ec2bb6860e2e30aeff9fe2
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 4ca7b4085a3978dc3218480c5c8a42679d80de23
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592324"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035655"
 ---
 # <a name="update-the-rdp-port-range-values"></a>Atualizar os valores de intervalos de portas RDP
 

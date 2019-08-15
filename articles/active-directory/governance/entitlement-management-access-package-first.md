@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1688651466ba6748e1254c9d33bb24435602868b
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 76ba284ec1a30322a24c762a1829b399f2583c6c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489171"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032922"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management-preview"></a>Tutorial: Criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -44,7 +44,9 @@ Neste tutorial, ficará a saber como:
 > * Demonstrar como um usuário interno pode solicitar o pacote de acesso
 > * Aprovar a solicitação de acesso
 
-Se você não tiver uma licença Azure AD Premium P2 ou Enterprise Mobility + Security e5, crie uma [avaliação gratuita Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1).
+Para obter uma demonstração passo a passo do processo de implantação de Azure Active Directory gerenciamento de direitos, incluindo a criação de seu primeiro pacote de acesso, veja o vídeo a seguir:
+
+>[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,6 +54,8 @@ Para usar o gerenciamento de direitos do Azure AD (versão prévia), você deve 
 
 - Azure AD Premium P2
 - Licença do Enterprise Mobility + Security (EMS) e5
+
+Se você não tiver uma licença Azure AD Premium P2 ou Enterprise Mobility + Security e5, crie uma [avaliação gratuita Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1).
 
 ## <a name="step-1-set-up-users-and-group"></a>Passo 1: Configurar usuários e grupo
 
@@ -67,7 +71,7 @@ Um diretório de recursos tem um ou mais recursos para compartilhar. Nesta etapa
 
 1. Crie ou configure os dois usuários a seguir. Você pode usar esses nomes ou nomes diferentes. **Admin1** pode ser o usuário no qual você está conectado no momento.
 
-    | Nome | Função de diretório | Descrição |
+    | Name | Função de diretório | Descrição |
     | --- | --- | --- |
     | **Admin1** | Administrador Global<br/>-ou-<br/>Administrador limitado (administrador do usuário) | Administrador e aprovador |
     | **Requestor1** | Utilizador | Solicitante interno |
@@ -80,7 +84,7 @@ Um diretório de recursos tem um ou mais recursos para compartilhar. Nesta etapa
 
 ## <a name="step-2-create-an-access-package"></a>Passo 2: Criar um pacote de acesso
 
-Um *pacote do Access* é um grupo de todos os recursos que um usuário precisa para trabalhar em um projeto ou executar seu trabalho. Os pacotes de acesso são definidos em contêineres chamados catálogos. Nesta etapa, você cria um **pacote de acesso do projeto Web** no catálogo **geral** .
+Um *pacote do Access* é um grupo de todos os recursos que um usuário precisa para trabalhar em um projeto ou executar seu trabalho. Os pacotes de acesso são definidos emcontêineres chamados catálogos. Nesta etapa, você cria um **pacote de acesso do projeto Web** no catálogo **geral** .
 
 **Função de pré-requisito:** Administrador global ou administrador de usuários
 
@@ -236,7 +240,7 @@ Nesta etapa, você entra como o usuário **Aprovador** e aprova a solicitação 
 
 1. Entre no [portal meu acesso](https://myaccess.microsoft.com) como **admin1**.
 
-1. No menu à esquerda, clique em aprovações.
+1. No menu à esquerda, cliqueem aprovações.
 
 1. Na guia **pendente** , localize **Requestor1**.
 
@@ -298,7 +302,7 @@ Nesta etapa, você remove as alterações feitas e exclui o pacote de acesso do 
 
 1. Abra o **pacote de acesso ao projeto Web**.
 
-1. Clique em atribuições.
+1. Cliqueem atribuições.
 
 1. Para **Requestor1**, clique nas reticências ( **...** ) e, em seguida, clique em **Remover acesso**.
 

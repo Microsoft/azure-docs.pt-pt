@@ -1,21 +1,21 @@
 ---
-title: Provisionar o pool do lote do Azure de uma imagem personalizada | Microsoft Docs
-description: Crie um pool do lote de uma imagem personalizada para provisionar nós de computação que contêm o software e os dados de que você precisa para seu aplicativo. Imagens personalizadas são uma maneira eficiente de configurar nós de computação para executar suas cargas de trabalho do lote.
+title: Use a Galeria de imagens compartilhadas para criar um pool – lote do Azure | Microsoft Docs
+description: Crie um pool do lote com a Galeria de imagens compartilhadas para provisionar imagens personalizadas para nós de computação que contêm o software e os dados de que você precisa para seu aplicativo. Imagens personalizadas são uma maneira eficiente de configurar nós de computação para executar suas cargas de trabalho do lote.
 services: batch
 author: laurenhughes
 manager: gwallace
 ms.service: batch
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 08/14/2019
 ms.author: lahugh
-ms.openlocfilehash: d8bda817231ec0a5a733d5e586e49639c62ea177
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 00da17512cbc2e713955ea83c7d9fa7517958169
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882829"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036697"
 ---
-# <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Usar uma imagem personalizada para criar um pool de máquinas virtuais
+# <a name="use-the-shared-image-gallery-to-create-a-pool"></a>Usar a Galeria de imagens compartilhadas para criar um pool
 
 Ao criar um pool do lote do Azure usando a configuração de máquina virtual, você especifica uma imagem de VM que fornece o sistema operacional para cada nó de computação no pool. Você pode criar um pool de máquinas virtuais com uma imagem do Azure Marketplace com suporte ou criar uma imagem personalizada com a [Galeria de imagens](../virtual-machines/windows/shared-image-galleries.md)compartilhadas.
 
@@ -100,6 +100,6 @@ Se você planeja criar um pool com centenas ou milhares de VMs ou mais usando um
 
 * **Redimensionar tempo limite** Se o pool contiver um número fixo de nós (se não autoescala), aumente `resizeTimeout` a propriedade do pool dependendo do tamanho do pool. Para cada 1000 VMs, o tempo limite de redimensionamento recomendado é de pelo menos 15 minutos. Por exemplo, o tempo limite de redimensionamento recomendado para um pool com 2000 VMs é de pelo menos 30 minutos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma visão geral detalhada do lote, consulte [desenvolver soluções de computação paralela em larga escala com o lote](batch-api-basics.md).

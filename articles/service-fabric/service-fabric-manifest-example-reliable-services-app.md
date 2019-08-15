@@ -1,6 +1,6 @@
 ---
-title: Exemplos de manifesto de aplicativo de serviços do Azure Service Fabric reliable | Documentos da Microsoft
-description: Saiba como configurar a aplicação e serviço manifestos definições para uma aplicação de Service Fabric reliable services.
+title: Exemplos de manifesto de aplicativo dos Reliable Services do Azure Service Fabric | Microsoft Docs
+description: Saiba como definir configurações de manifesto de aplicativo e serviço para um aplicativo de Service Fabric de serviços confiáveis.
 services: service-fabric
 documentationcenter: na
 author: peterpogorski
@@ -8,31 +8,30 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: xml
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: 6c4c8f0ee6aa12c58e02f71b42312cd6872076aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5678b4c4c0f7a9d8d3f3cf6e838580de2059a8f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719169"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035636"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exemplos de manifesto e aplicação e serviço do Reliable Services
-Seguem-se exemplos de manifestos de aplicações e serviços para uma aplicação do Service Fabric com um front-end de web de ASP.NET Core e um back-end com monitorização de estado. O objetivo destes exemplos é mostrar quais configurações estão disponíveis e como utilizá-los. Esses manifestos de aplicações e serviços são baseiam o [início rápido de .NET do Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) manifestos.
+Veja a seguir exemplos de manifestos de aplicativo e serviço para um aplicativo Service Fabric com um front-end da Web ASP.NET Core e um back-end com estado. A finalidade desses exemplos é mostrar quais configurações estão disponíveis e como usá-las. Esses manifestos de aplicativo e serviço são baseados nos manifestos de [início rápido Service Fabric .net](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) .
 
-São apresentadas as seguintes funcionalidades:
+Os seguintes recursos são mostrados:
 
 |Manifesto|Funcionalidades|
 |---|---|
-|[Manifesto da aplicação](#application-manifest)| [governação de recursos](service-fabric-resource-governance.md), [executar um serviço como uma conta de administrador local](service-fabric-application-runas-security.md), [aplicar uma política predefinida para todos os pacotes de código de serviço](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [criar principais de utilizador e grupo](service-fabric-application-runas-security.md), partilhar um pacote de dados entre instâncias de serviço, [substituir pontos finais de serviço](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
-|Manifesto do serviço de FrontEndService| [Executar um script na inicialização](service-fabric-run-script-at-service-startup.md), [definir um ponto de final HTTPS](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
-|Manifesto do serviço de BackEndService| [Declarar um pacote de configuração](service-fabric-application-and-service-manifests.md), [declarar um pacote de dados](service-fabric-application-and-service-manifests.md), [configurar um ponto final](service-fabric-service-manifest-resources.md)| 
+|[Manifesto da aplicação](#application-manifest)| [governança de recursos](service-fabric-resource-governance.md), [executar um serviço como uma conta de administrador local](service-fabric-application-runas-security.md), [aplicar uma política padrão a todos os pacotes de código de serviço](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [criar entidades de usuário e de grupo](service-fabric-application-runas-security.md), compartilhar um pacote de dados entre instâncias de serviço, [substituir serviço pontos de extremidade](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
+|Manifesto do serviço FrontEndService| [Executar um script na inicialização do serviço](service-fabric-run-script-at-service-startup.md), [definir um ponto de extremidade https](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
+|Manifesto do serviço BackEndService| [Declarar um pacote de configuração](service-fabric-application-and-service-manifests.md), [declarar um pacote de dados](service-fabric-application-and-service-manifests.md), [configurar um ponto de extremidade](service-fabric-service-manifest-resources.md)| 
 
-Ver [elementos de manifestos de aplicativo](#application-manifest-elements), [elementos de manifestos de serviço VotingWeb](#votingweb-service-manifest-elements), e [elementos de manifestos do serviço de VotingData](#votingdata-service-manifest-elements) para obter mais informações sobre XML específico elementos.
+Consulte [elementos de manifesto do aplicativo](#application-manifest-elements), [elementos de manifesto do serviço VotingWeb](#votingweb-service-manifest-elements)e [elementos de manifesto do serviço VotingData](#votingdata-service-manifest-elements) para obter mais informações sobre elementos XML específicos.
 
 ## <a name="application-manifest"></a>Manifesto de aplicação
 
@@ -232,7 +231,7 @@ Ver [elementos de manifestos de aplicativo](#application-manifest-elements), [el
 
 ```
 
-## <a name="votingdata-service-manifest"></a>Manifesto do serviço de VotingData
+## <a name="votingdata-service-manifest"></a>Manifesto do serviço VotingData
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -280,190 +279,190 @@ Ver [elementos de manifestos de aplicativo](#application-manifest-elements), [el
 
 ```
 
-## <a name="application-manifest-elements"></a>Elementos de manifestos de aplicação
-### <a name="applicationmanifest-element"></a>Elemento de ApplicationManifest
-Descreve de maneira declarativa o tipo de aplicação e a versão. Manifestos de serviço de um ou mais dos serviços constituintes são referenciados para compor um tipo de aplicação. Definições de configuração dos serviços que constituem podem ser substituídas com as definições da aplicação parametrizadas. Padrão de serviços, modelos de serviço, entidades de segurança, políticas, configuração de diagnósticos e certificados pode também declarado no nível do aplicativo. Para obter mais informações, consulte [ApplicationManifest elemento](service-fabric-service-model-schema-elements.md#ApplicationManifestElementApplicationManifestTypeComplexType)
+## <a name="application-manifest-elements"></a>Elementos do manifesto do aplicativo
+### <a name="applicationmanifest-element"></a>Elemento ApplicationManifest
+Descreve declarativamente o tipo e a versão do aplicativo. Um ou mais manifestos de serviço dos serviços constituintes são referenciados para compor um tipo de aplicativo. As definições de configuração dos serviços constituintes podem ser substituídas usando configurações de aplicativo com parâmetros. Serviços padrão, modelos de serviço, entidades, políticas, configuração de diagnóstico e certificados também podem ser declarados no nível do aplicativo. Para obter mais informações, consulte [elemento ApplicationManifest](service-fabric-service-model-schema-elements.md#ApplicationManifestElementApplicationManifestTypeComplexType)
 
-### <a name="parameters-element"></a>Elemento de parâmetros
-Declara os parâmetros que são utilizados no manifesto do aplicativo. O valor desses parâmetros pode ser fornecido quando o aplicativo é instanciado e pode ser utilizado para substituir a aplicação ou definições de configuração do serviço. Para obter mais informações, consulte [elemento de parâmetros](service-fabric-service-model-schema-elements.md#ParametersElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)
+### <a name="parameters-element"></a>Elemento Parameters
+Declara os parâmetros que são usados neste manifesto do aplicativo. O valor desses parâmetros pode ser fornecido quando o aplicativo é instanciado e pode ser usado para substituir as definições de configuração do aplicativo ou do serviço. Para obter mais informações, consulte [elemento](service-fabric-service-model-schema-elements.md#ParametersElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType) Parameters
 
-### <a name="parameter-element"></a>Elemento de parâmetro
-Um parâmetro de aplicativo a ser utilizado nesse manifesto. O valor do parâmetro pode ser alterado durante a instanciação do aplicativo, ou, não se for fornecido nenhum valor é utilizado o valor predefinido. Para obter mais informações, consulte [elemento de parâmetro](service-fabric-service-model-schema-elements.md#ParameterElementanonymouscomplexTypeComplexTypeDefinedInParameterselement)
+### <a name="parameter-element"></a>Elemento Parameter
+Um parâmetro de aplicativo a ser usado neste manifesto. O valor do parâmetro pode ser alterado durante a instanciação do aplicativo ou, se nenhum valor for fornecido, o valor padrão será usado. Para obter mais informações, consulte [elemento Parameter](service-fabric-service-model-schema-elements.md#ParameterElementanonymouscomplexTypeComplexTypeDefinedInParameterselement)
 
-### <a name="servicemanifestimport-element"></a>Elemento de ServiceManifestImport
-Importa um manifesto de serviço criado pelo desenvolvedor de serviço. Um manifesto de serviço tem de ser importado para cada serviço constituinte no aplicativo. Substituições de configuração e políticas podem ser declaradas para o manifesto do serviço. Para obter mais informações, consulte [ServiceManifestImport elemento](service-fabric-service-model-schema-elements.md#ServiceManifestImportElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)
+### <a name="servicemanifestimport-element"></a>Elemento ServiceManifestImport
+Importa um manifesto de serviço criado pelo desenvolvedor do serviço. Um manifesto de serviço deve ser importado para cada serviço de constituintes no aplicativo. As políticas e substituições de configuração podem ser declaradas para o manifesto do serviço. Para obter mais informações, consulte [elemento ServiceManifestImport](service-fabric-service-model-schema-elements.md#ServiceManifestImportElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)
 
-### <a name="servicemanifestref-element"></a>Elemento de ServiceManifestRef
-Importa o manifesto do serviço por referência. Atualmente o arquivo de manifesto do serviço (servicemanifest. xml) tem de estar presente no pacote de compilação. Para obter mais informações, consulte [ServiceManifestRef elemento](service-fabric-service-model-schema-elements.md#ServiceManifestRefElementServiceManifestRefTypeComplexTypeDefinedInServiceManifestImportelement)
+### <a name="servicemanifestref-element"></a>Elemento ServiceManifestRef
+Importa o manifesto do serviço por referência. Atualmente, o arquivo de manifesto do serviço (Service manifest. xml) deve estar presente no pacote de compilação. Para obter mais informações, consulte [elemento ServiceManifestRef](service-fabric-service-model-schema-elements.md#ServiceManifestRefElementServiceManifestRefTypeComplexTypeDefinedInServiceManifestImportelement)
 
-### <a name="resourceoverrides-element"></a>Elemento de ResourceOverrides
-Especifica as substituições de recurso para pontos de extremidade declarados em recursos do manifesto do serviço. Para obter mais informações, consulte [ResourceOverrides elemento](service-fabric-service-model-schema-elements.md#ResourceOverridesElementResourceOverridesTypeComplexTypeDefinedInServiceManifestImportelement)
+### <a name="resourceoverrides-element"></a>Elemento ResourceOverrides
+Especifica substituições de recurso para pontos de extremidade declarados em recursos de manifesto do serviço. Para obter mais informações, consulte [elemento ResourceOverrides](service-fabric-service-model-schema-elements.md#ResourceOverridesElementResourceOverridesTypeComplexTypeDefinedInServiceManifestImportelement)
 
-### <a name="endpoints-element"></a>Elemento de pontos finais
-O ais para substituir. Para obter mais informações, consulte [pontos finais de elemento](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourceOverridesTypecomplexType)
+### <a name="endpoints-element"></a>Elemento de pontos de extremidade
+Os pontos de extremidade a serem substituídos. Para obter mais informações, consulte [elemento de pontos de extremidade](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourceOverridesTypecomplexType)
 
-### <a name="endpoint-element"></a>Elemento de ponto final
-O ponto final, declarados no manifesto do serviço, para substituir. Para obter mais informações, consulte [elemento de ponto final](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
+### <a name="endpoint-element"></a>Elemento de ponto de extremidade
+O ponto de extremidade, declarado no manifesto do serviço, para substituir. Para obter mais informações, consulte [elemento de ponto de extremidade](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
 
-### <a name="policies-element"></a>Elemento de políticas
-Descreve as políticas (ponto de extremidade vinculação de pacote de partilha, Run, acesso e segurança) a serem aplicadas no manifesto do serviço importado. Para obter mais informações, consulte [elemento de políticas](service-fabric-service-model-schema-elements.md#PoliciesElementServiceManifestImportPoliciesTypeComplexTypeDefinedInServiceManifestImportelement)
+### <a name="policies-element"></a>Elemento policies
+Descreve as políticas (Associação de ponto de extremidade, compartilhamento de pacotes, executar como e acesso de segurança) a serem aplicadas no manifesto do serviço importado. Para obter mais informações, consulte [elemento policies](service-fabric-service-model-schema-elements.md#PoliciesElementServiceManifestImportPoliciesTypeComplexTypeDefinedInServiceManifestImportelement)
 
 ### <a name="servicepackageresourcegovernancepolicy-element"></a>ServicePackageResourceGovernancePolicy Element
-Define a política de governação de recursos que é aplicada no nível do pacote todo o serviço. Para obter mais informações, consulte [ServicePackageResourceGovernancePolicy elemento](service-fabric-service-model-schema-elements.md#ServicePackageResourceGovernancePolicyElementServicePackageResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInServicePackageTypecomplexType)
+Define a política de governança de recursos que é aplicada no nível do pacote de serviço inteiro. Para obter mais informações, consulte [elemento ServicePackageResourceGovernancePolicy](service-fabric-service-model-schema-elements.md#ServicePackageResourceGovernancePolicyElementServicePackageResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInServicePackageTypecomplexType)
 
-### <a name="resourcegovernancepolicy-element"></a>Elemento de ResourceGovernancePolicy
-Especifica os limites de recursos para um codepackage. Para obter mais informações, consulte [ResourceGovernancePolicy elemento](service-fabric-service-model-schema-elements.md#ResourceGovernancePolicyElementResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelementDefinedInDigestedEndpointelement)
+### <a name="resourcegovernancepolicy-element"></a>Elemento ResourceGovernancePolicy
+Especifica os limites de recurso para um CodePackage. Para obter mais informações, consulte [elemento ResourceGovernancePolicy](service-fabric-service-model-schema-elements.md#ResourceGovernancePolicyElementResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelementDefinedInDigestedEndpointelement)
 
-### <a name="packagesharingpolicy-element"></a>PackageSharingPolicy elemento
-Indica se um pacote de código, configuração ou dados deve ser partilhado entre instâncias de serviço do mesmo tipo de serviço. Para obter mais informações, consulte [PackageSharingPolicy elemento](service-fabric-service-model-schema-elements.md#PackageSharingPolicyElementPackageSharingPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexType)
+### <a name="packagesharingpolicy-element"></a>Elemento PackageSharingPolicy
+Indica se um código, configuração ou pacote de dados deve ser compartilhado entre instâncias de serviço do mesmo tipo de serviço. Para obter mais informações, consulte [elemento PackageSharingPolicy](service-fabric-service-model-schema-elements.md#PackageSharingPolicyElementPackageSharingPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexType)
 
-### <a name="securityaccesspolicy-element"></a>Elemento de SecurityAccessPolicy
-Concede permissões de acesso a um principal de um recurso (por exemplo, um ponto de extremidade) definidas no manifesto do serviço. Normalmente, é muito útil controlar e restringir o acesso dos serviços em recursos diferentes para minimizar os riscos de segurança. Isto é especialmente importante quando o aplicativo é criado a partir de uma coleção de serviços a partir de um mercado que são desenvolvidas pelos programadores diferentes. Para obter mais informações, consulte [SecurityAccessPolicy elemento](service-fabric-service-model-schema-elements.md#SecurityAccessPolicyElementSecurityAccessPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInSecurityAccessPolicieselementDefinedInDigestedEndpointelement)
+### <a name="securityaccesspolicy-element"></a>Elemento SecurityAccessPolicy
+Concede permissões de acesso a uma entidade de segurança em um recurso (como um ponto de extremidade) definido em um manifesto do serviço. Normalmente, é muito útil controlar e restringir o acesso de serviços a diferentes recursos, a fim de minimizar os riscos de segurança. Isso é especialmente importante quando o aplicativo é criado a partir de uma coleção de serviços de um Marketplace que são desenvolvidos por diferentes desenvolvedores. Para obter mais informações, consulte [elemento SecurityAccessPolicy](service-fabric-service-model-schema-elements.md#SecurityAccessPolicyElementSecurityAccessPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInSecurityAccessPolicieselementDefinedInDigestedEndpointelement)
 
-### <a name="runaspolicy-element"></a>Elemento de RunAsPolicy
-Especifica o utilizador local ou a conta de sistema local que um pacote de código do serviço será executado como. Contas de domínio são suportadas em implementações do Windows Server onde o Azure Active Directory está disponível. Por predefinição, os aplicativos são executados sob a conta que o processo de Fabric.exe é executado. Aplicativos também podem ser executados como outras contas, que tem de ser declaradas na secção de entidades de segurança. Se aplicar uma política de RunAs para um serviço e o manifesto do serviço declara os recursos de ponto final com o protocolo HTTP, também tem de especificar um SecurityAccessPolicy para garantir que as portas alocadas para estes pontos finais estão corretamente listado para os RunAs de controlo de acesso conta de utilizador que o serviço é executado. Para um ponto final HTTPS, também tem de definir um EndpointBindingPolicy para indicar o nome do certificado para devolver ao cliente. Para obter mais informações, consulte [RunAsPolicy elemento](service-fabric-service-model-schema-elements.md#RunAsPolicyElementRunAsPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement)
+### <a name="runaspolicy-element"></a>Elemento RunAsPolicy
+Especifica o usuário local ou a conta do sistema local em que um pacote de código de serviço será executado. As contas de domínio têm suporte em implantações do Windows Server em que Azure Active Directory está disponível. Por padrão, os aplicativos são executados sob a conta sob a qual o processo Fabric. exe é executado. Os aplicativos também podem ser executados como outras contas, que devem ser declarados na seção de entidades. Se você aplicar uma política RunAs a um serviço e o manifesto do serviço declarar recursos de ponto de extremidade com o protocolo HTTP, você também deverá especificar um SecurityAccessPolicy para garantir que as portas alocadas a esses pontos de extremidades sejam corretamente controladas pelo controle de acesso para o RunAs conta de usuário sob a qual o serviço é executado. Para um ponto de extremidade HTTPS, você também precisa definir um EndpointBindingPolicy para indicar o nome do certificado a ser retornado ao cliente. Para obter mais informações, consulte [elemento RunAsPolicy](service-fabric-service-model-schema-elements.md#RunAsPolicyElementRunAsPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement)
 
-### <a name="defaultservices-element"></a>Elemento de DefaultServices
-Declara as instâncias de serviço que são criadas automaticamente sempre que um aplicativo é instanciado em relação a este tipo de aplicação. Para obter mais informações, consulte [DefaultServices elemento](service-fabric-service-model-schema-elements.md#DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType)
+### <a name="defaultservices-element"></a>Elemento DefaultServices
+Declara as instâncias de serviço que são criadas automaticamente sempre que um aplicativo é instanciado em relação a esse tipo de aplicativo. Para obter mais informações, consulte [elemento DefaultServices](service-fabric-service-model-schema-elements.md#DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType)
 
 ### <a name="service-element"></a>Elemento de serviço
-Declara um serviço a ser criada automaticamente quando o aplicativo é instanciado. Para obter mais informações, consulte [elemento Service](service-fabric-service-model-schema-elements.md#ServiceElementanonymouscomplexTypeComplexTypeDefinedInDefaultServicesTypecomplexType)
+Declara um serviço a ser criado automaticamente quando o aplicativo é instanciado. Para obter mais informações, consulte [elemento de serviço](service-fabric-service-model-schema-elements.md#ServiceElementanonymouscomplexTypeComplexTypeDefinedInDefaultServicesTypecomplexType)
 
-### <a name="statefulservice-element"></a>Elemento de StatefulService
-Define um serviço com estado. Para obter mais informações, consulte [StatefulService elemento](service-fabric-service-model-schema-elements.md#StatefulServiceElementStatefulServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement)
+### <a name="statefulservice-element"></a>Elemento StatefulService
+Define um serviço com estado. Para obter mais informações, consulte [elemento StatefulService](service-fabric-service-model-schema-elements.md#StatefulServiceElementStatefulServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement)
 
-### <a name="statelessservice-element"></a>Elemento de StatelessService
-Define um serviço sem estado. Para obter mais informações, consulte [StatelessService elemento](service-fabric-service-model-schema-elements.md#StatelessServiceElementStatelessServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement)
+### <a name="statelessservice-element"></a>Elemento StatelessService
+Define um serviço sem estado. Para obter mais informações, consulte [elemento StatelessService](service-fabric-service-model-schema-elements.md#StatelessServiceElementStatelessServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement)
 
-### <a name="principals-element"></a>Elemento de entidades de segurança
-Descreve os princípios de segurança (utilizadores, grupos) necessários para esta aplicação executar serviços e recursos seguros. Principais são referenciados nas secções de políticas. Para obter mais informações, consulte [principais de elemento](service-fabric-service-model-schema-elements.md#PrincipalsElementSecurityPrincipalsTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType)
+### <a name="principals-element"></a>Elemento de entidades
+Descreve as entidades de segurança (usuários, grupos) necessárias para que esse aplicativo execute serviços e proteja os recursos. As entidades de segurança são referenciadas nas seções de políticas. Para obter mais informações, consulte [elemento de entidades de segurança](service-fabric-service-model-schema-elements.md#PrincipalsElementSecurityPrincipalsTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType)
 
-### <a name="groups-element"></a>Elemento de grupos
-Declara um conjunto de grupos como segurança principais, que podem ser referenciados nas políticas. Os grupos são úteis se existirem vários utilizadores para os pontos de entrada de serviço diferentes e que precisam para tem determinados privilégios comuns que estão disponíveis no nível de grupo. Para obter mais informações, consulte [elemento de grupos](service-fabric-service-model-schema-elements.md#GroupsElementanonymouscomplexTypeComplexTypeDefinedInSecurityPrincipalsTypecomplexType)
+### <a name="groups-element"></a>Elemento groups
+Declara um conjunto de grupos como entidades de segurança, que podem ser referenciadas em políticas. Os grupos são úteis se houver vários usuários para diferentes pontos de entrada de serviço e eles precisarem ter determinados privilégios comuns disponíveis no nível de grupo. Para obter mais informações, consulte [elemento groups](service-fabric-service-model-schema-elements.md#GroupsElementanonymouscomplexTypeComplexTypeDefinedInSecurityPrincipalsTypecomplexType)
 
-### <a name="group-element"></a>Elemento de grupo
-Declara um grupo como uma entidade de segurança, que pode ser referenciado nas políticas. Para obter mais informações, consulte [elemento de grupo](service-fabric-service-model-schema-elements.md#GroupElementanonymouscomplexTypeComplexTypeDefinedInGroupselement)
+### <a name="group-element"></a>Elemento Group
+Declara um grupo como uma entidade de segurança, que pode ser referenciada em políticas. Para obter mais informações, consulte [elemento Group](service-fabric-service-model-schema-elements.md#GroupElementanonymouscomplexTypeComplexTypeDefinedInGroupselement)
 
-### <a name="membership-element"></a>Elemento de associação
- Para obter mais informações, consulte [elemento de associação](service-fabric-service-model-schema-elements.md#MembershipElementanonymouscomplexTypeComplexTypeDefinedInGroupelement)
+### <a name="membership-element"></a>Elemento membership
+ Para obter mais informações, consulte [elemento membership](service-fabric-service-model-schema-elements.md#MembershipElementanonymouscomplexTypeComplexTypeDefinedInGroupelement)
 
-### <a name="systemgroup-element"></a>Elemento de SystemGroup
- Para obter mais informações, consulte [SystemGroup elemento](service-fabric-service-model-schema-elements.md#SystemGroupElementanonymouscomplexTypeComplexTypeDefinedInMembershipelement)
+### <a name="systemgroup-element"></a>Elemento System
+ Para obter mais informações, consulte [elemento systemproperty](service-fabric-service-model-schema-elements.md#SystemGroupElementanonymouscomplexTypeComplexTypeDefinedInMembershipelement)
 
-### <a name="users-element"></a>Elemento de utilizadores
-Declara um conjunto de utilizadores como segurança principais, que podem ser referenciados nas políticas. Para obter mais informações, consulte [elemento de utilizadores](service-fabric-service-model-schema-elements.md#UsersElementanonymouscomplexTypeComplexTypeDefinedInSecurityPrincipalsTypecomplexType)
+### <a name="users-element"></a>Elemento Users
+Declara um conjunto de usuários como entidades de segurança, que podem ser referenciadas em políticas. Para obter mais informações, consulte [elemento Users](service-fabric-service-model-schema-elements.md#UsersElementanonymouscomplexTypeComplexTypeDefinedInSecurityPrincipalsTypecomplexType)
 
-### <a name="user-element"></a>Elemento de utilizador
-Declara um utilizador como uma entidade de segurança, que pode ser referenciado nas políticas. Para obter mais informações, consulte [elemento de utilizador](service-fabric-service-model-schema-elements.md#UserElementanonymouscomplexTypeComplexTypeDefinedInUserselement)
+### <a name="user-element"></a>Elemento user
+Declara um usuário como uma entidade de segurança, que pode ser referenciada em políticas. Para obter mais informações, consulte [elemento user](service-fabric-service-model-schema-elements.md#UserElementanonymouscomplexTypeComplexTypeDefinedInUserselement)
 
-### <a name="memberof-element"></a>Elemento de MemberOf
-Os utilizadores podem ser adicionados a qualquer grupo de associação existente, pelo que pode herdar todas as propriedades e definições de segurança desse grupo de associação. O grupo de associação pode ser utilizado para proteger os recursos externos que têm de ser acedido por diferentes serviços ou o mesmo serviço (num computador diferente). Para obter mais informações, consulte [MemberOf elemento](service-fabric-service-model-schema-elements.md#MemberOfElementanonymouscomplexTypeComplexTypeDefinedInUserelement)
+### <a name="memberof-element"></a>Elemento MemberOf
+Os usuários podem ser adicionados a qualquer grupo de associação existente, para que ele possa herdar todas as propriedades e configurações de segurança desse grupo de associação. O grupo de associação pode ser usado para proteger recursos externos que precisam ser acessados por diferentes serviços ou pelo mesmo serviço (em um computador diferente). Para obter mais informações, consulte [elemento memberOf](service-fabric-service-model-schema-elements.md#MemberOfElementanonymouscomplexTypeComplexTypeDefinedInUserelement)
 
-### <a name="systemgroup-element"></a>Elemento de SystemGroup
-O grupo de sistema para adicionar o utilizador.  O grupo de sistema tem de ser definido na secção de grupos. Para obter mais informações, consulte [SystemGroup elemento](service-fabric-service-model-schema-elements.md#SystemGroupElementanonymouscomplexTypeComplexTypeDefinedInMemberOfelement)
+### <a name="systemgroup-element"></a>Elemento System
+O grupo do sistema ao qual adicionar o usuário.  O grupo do sistema deve ser definido na seção grupos. Para obter mais informações, consulte [elemento systemproperty](service-fabric-service-model-schema-elements.md#SystemGroupElementanonymouscomplexTypeComplexTypeDefinedInMemberOfelement)
 
-### <a name="group-element"></a>Elemento de grupo
-O grupo para adicionar o utilizador.  O grupo tem de ser definido na secção de grupos. Para obter mais informações, consulte [elemento de grupo](service-fabric-service-model-schema-elements.md#GroupElementanonymouscomplexTypeComplexTypeDefinedInMemberOfelement)
+### <a name="group-element"></a>Elemento Group
+O grupo ao qual adicionar o usuário.  O grupo deve ser definido na seção grupos. Para obter mais informações, consulte [elemento Group](service-fabric-service-model-schema-elements.md#GroupElementanonymouscomplexTypeComplexTypeDefinedInMemberOfelement)
 
-### <a name="policies-element"></a>Elemento de políticas
-Descreve as políticas (recolha de registos, predefinição Run, estado de funcionamento e acesso de segurança) a ser aplicado ao nível da aplicação. Para obter mais informações, consulte [elemento de políticas](service-fabric-service-model-schema-elements.md#PoliciesElementApplicationPoliciesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType)
+### <a name="policies-element"></a>Elemento policies
+Descreve as políticas (coleta de log, execução padrão, integridade e acesso de segurança) a serem aplicadas no nível do aplicativo. Para obter mais informações, consulte [elemento policies](service-fabric-service-model-schema-elements.md#PoliciesElementApplicationPoliciesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType)
 
-### <a name="defaultrunaspolicy-element"></a>Elemento de DefaultRunAsPolicy
-Especifique uma conta de usuário padrão para todos os pacotes de código de serviço que não têm um RunAsPolicy específico definido na secção ServiceManifestImport. Para obter mais informações, consulte [DefaultRunAsPolicy elemento](service-fabric-service-model-schema-elements.md#DefaultRunAsPolicyElementanonymouscomplexTypeComplexTypeDefinedInApplicationPoliciesTypecomplexType)
-
-
+### <a name="defaultrunaspolicy-element"></a>Elemento DefaultRunAsPolicy
+Especifique uma conta de usuário padrão para todos os pacotes de código de serviço que não têm um RunAsPolicy específico definido na seção ServiceManifestImport. Para obter mais informações, consulte [elemento DefaultRunAsPolicy](service-fabric-service-model-schema-elements.md#DefaultRunAsPolicyElementanonymouscomplexTypeComplexTypeDefinedInApplicationPoliciesTypecomplexType)
 
 
-## <a name="votingweb-service-manifest-elements"></a>Elementos de manifestos de serviço VotingWeb
-### <a name="servicemanifest-element"></a>Elemento de ServiceManifest
-Descreve de maneira declarativa o tipo de serviço e a versão. Lista os pacotes de código, configuração e dados de forma independente é atualizável que juntos compõem um pacote de serviço para dar suporte a um ou mais tipos de serviço. Recursos, as definições de diagnóstico e os metadados de serviço, como o tipo de serviço, as propriedades de estado de funcionamento e métricas de balanceamento de carga, também são especificados. Para obter mais informações, consulte [ServiceManifest elemento](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType)
 
-### <a name="servicetypes-element"></a>Elemento de ServiceTypes
-Define os tipos de serviço são suportados por um CodePackage nesse manifesto. Quando um serviço é instanciado em relação a um dos seguintes tipos de serviço, todos os pacotes do código declarados nesse manifesto são ativados através da execução de seus pontos de entrada. Tipos de serviço são declarados em nível de manifesto e não no nível de pacote de código. Para obter mais informações, consulte [ServiceTypes elemento](service-fabric-service-model-schema-elements.md#ServiceTypesElementServiceAndServiceGroupTypesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
 
-### <a name="statelessservicetype-element"></a>Elemento de StatelessServiceType
-Descreve um tipo de serviço sem estado. Para obter mais informações, consulte [StatelessServiceType elemento](service-fabric-service-model-schema-elements.md#StatelessServiceTypeElementStatelessServiceTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexTypeDefinedInServiceTypesTypecomplexType)
+## <a name="votingweb-service-manifest-elements"></a>Elementos do manifesto do serviço VotingWeb
+### <a name="servicemanifest-element"></a>Elemento do inmanifest
+Descreve declarativamente o tipo de serviço e a versão. Ele lista o código, a configuração e os pacotes de dados atualizáveis independentemente que compõem um pacote de serviço para dar suporte a um ou mais tipos de serviço. Os recursos, as configurações de diagnóstico e os metadados de serviço, como o tipo de serviço, as propriedades de integridade e as métricas de balanceamento de carga, também são especificados. Para obter mais informações, consulte [elemento](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType) do inmanifest
 
-### <a name="codepackage-element"></a>Elemento de CodePackage
-Descreve um pacote de código que dá suporte a um tipo de serviço definido. Quando um serviço é instanciado em relação a um dos seguintes tipos de serviço, todos os pacotes do código declarados nesse manifesto são ativados através da execução de seus pontos de entrada. Os processos resultantes devem registrar os tipos de serviço com suporte em tempo de execução. Quando há vários pacotes de código, eles são todas ativados sempre que o sistema procura por qualquer um dos tipos de serviço declarado. Para obter mais informações, consulte [CodePackage elemento](service-fabric-service-model-schema-elements.md#CodePackageElementCodePackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedCodePackageelement)
+### <a name="servicetypes-element"></a>Elemento de tipo
+Define quais tipos de serviço são compatíveis com um CodePackage neste manifesto. Quando um serviço é instanciado em relação a um desses tipos de serviço, todos os pacotes de código declarados nesse manifesto são ativados executando seus pontos de entrada. Os tipos de serviço são declarados no nível do manifesto e não no nível do pacote de código. Para obter mais informações, consulte [elemento do tipo](service-fabric-service-model-schema-elements.md#ServiceTypesElementServiceAndServiceGroupTypesTypeComplexTypeDefinedInServiceManifestTypecomplexType) de dados
 
-### <a name="setupentrypoint-element"></a>Elemento de SetupEntryPoint
-Um ponto de entrada com privilégios que, por predefinição, é executado com as mesmas credenciais do Service Fabric (normalmente, a conta NETWORKSERVICE) antes de qualquer outro ponto de entrada. O executável especificado pelo ponto de entrada é, normalmente, o anfitrião do serviço de execução longa. A presença de um ponto de entrada de configuração individual evita ter de executar o host de serviço com privilégios elevados por longos períodos de tempo. Para obter mais informações, consulte [SetupEntryPoint elemento](service-fabric-service-model-schema-elements.md#SetupEntryPointElementanonymouscomplexTypeComplexTypeDefinedInCodePackageTypecomplexType)
+### <a name="statelessservicetype-element"></a>Elemento StatelessServiceType
+Descreve um tipo de serviço sem estado. Para obter mais informações, consulte [elemento StatelessServiceType](service-fabric-service-model-schema-elements.md#StatelessServiceTypeElementStatelessServiceTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexTypeDefinedInServiceTypesTypecomplexType)
 
-### <a name="exehost-element"></a>Elemento de ExeHost
- Para obter mais informações, consulte [ExeHost elemento](service-fabric-service-model-schema-elements.md#ExeHostElementExeHostEntryPointTypeComplexTypeDefinedInSetupEntryPointelement)
+### <a name="codepackage-element"></a>Elemento CodePackage
+Descreve um pacote de códigos que dá suporte a um tipo de serviço definido. Quando um serviço é instanciado em relação a um desses tipos de serviço, todos os pacotes de código declarados nesse manifesto são ativados executando seus pontos de entrada. Os processos resultantes são esperados para registrar os tipos de serviço com suporte em tempo de execução. Quando há vários pacotes de código, eles são todos ativados sempre que o sistema procura qualquer um dos tipos de serviço declarados. Para obter mais informações, consulte [elemento CodePackage](service-fabric-service-model-schema-elements.md#CodePackageElementCodePackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedCodePackageelement)
 
-### <a name="program-element"></a>Elemento de programa
-O nome executável.  Por exemplo, "MySetup.bat" ou "MyServiceHost.exe". Para obter mais informações, consulte [elemento do programa](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+### <a name="setupentrypoint-element"></a>Elemento SetupEntryPoint
+Um ponto de entrada privilegiado que, por padrão, é executado com as mesmas credenciais que Service Fabric (normalmente a conta NETWORKSERVICE) antes de qualquer outro ponto de entrada. O executável especificado pelo EntryPoint normalmente é o host de serviço de longa execução. A presença de um ponto de entrada de instalação separado evita a execução do host de serviço com altos privilégios por longos períodos de tempo. Para obter mais informações, consulte [elemento SetupEntryPoint](service-fabric-service-model-schema-elements.md#SetupEntryPointElementanonymouscomplexTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
-### <a name="arguments-element"></a>Elemento de argumentos
- Para obter mais informações, consulte [argumentos elemento](service-fabric-service-model-schema-elements.md#ArgumentsElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+### <a name="exehost-element"></a>Elemento ExeHost
+ Para obter mais informações, consulte [elemento ExeHost](service-fabric-service-model-schema-elements.md#ExeHostElementExeHostEntryPointTypeComplexTypeDefinedInSetupEntryPointelement)
 
-### <a name="workingfolder-element"></a>Elemento de WorkingFolder
-O diretório de trabalho para o processo do pacote de código no nó de cluster onde a aplicação é implementada. Pode especificar três valores: O trabalho (predefinição), CodePackage ou base de código. Base de código especifica que o diretório de trabalho está definido para o diretório no qual o EXE é definido no pacote de código. CodePackage define o diretório de trabalho para ser a raiz do pacote de código, independentemente de onde o EXE está definido no diretório do pacote de código. Trabalho define o diretório de trabalho para uma pasta exclusiva criada no nó.  Esta pasta é o mesmo para a instância de todo o aplicativo. Por predefinição, o diretório de trabalho de todos os processos do aplicativo está definido para a pasta de trabalho de aplicação. Isso é onde os processos podem escrever os dados. Não é recomendada a escrita de dados no pacote do código ou na base de código, essas pastas poderão ser compartilhadas entre diferentes instâncias da aplicação e podem obter eliminadas. Para obter mais informações, consulte [WorkingFolder elemento](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+### <a name="program-element"></a>Elemento Program
+O nome do executável.  Por exemplo, "mySetup. bat" ou "myservicehost. exe". Para obter mais informações, consulte [elemento Program](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
-### <a name="consoleredirection-element"></a>Elemento de ConsoleRedirection
+### <a name="arguments-element"></a>Elemento Arguments
+ Para obter mais informações, consulte [elemento Arguments](service-fabric-service-model-schema-elements.md#ArgumentsElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+
+### <a name="workingfolder-element"></a>Elemento WorkingFolder
+O diretório de trabalho para o processo no pacote de códigos no nó do cluster em que o aplicativo é implantado. Você pode especificar três valores: Trabalho (o padrão), CodePackage ou CodeBase. CodeBase especifica que o diretório de trabalho é definido como o diretório no qual o EXE é definido no pacote de códigos. CodePackage define o diretório de trabalho como a raiz do pacote de códigos, independentemente de onde o EXE está definido no diretório do pacote de códigos. O trabalho define o diretório de trabalho para uma pasta exclusiva criada no nó.  Essa pasta é a mesma para toda a instância do aplicativo. Por padrão, o diretório de trabalho de todos os processos no aplicativo é definido como a pasta de trabalho do aplicativo. É aí que os processos podem gravar os dados. Não é recomendável gravar dados no pacote de códigos ou na base de código, pois essas pastas podem ser compartilhadas entre diferentes instâncias de aplicativo e podem ser excluídas. Para obter mais informações, consulte [elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+
+### <a name="consoleredirection-element"></a>Elemento ConsoleRedirection
 
 > [!WARNING]
-> Não utilizar o redirecionamento de consola num aplicativo de produção, utilize apenas para desenvolvimento local e depuração. Redireciona saída da consola do script de arranque para um ficheiro de saída na pasta denominada "log" no nó de cluster em que a aplicação é implementada e executar. Para obter mais informações, consulte [ConsoleRedirection elemento](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+> Não use o redirecionamento de console em um aplicativo de produção, use-o apenas para desenvolvimento e depuração locais. Redireciona a saída do console do script de inicialização para um arquivo de saída na pasta do aplicativo chamada "log" no nó do cluster em que o aplicativo é implantado e executado. Para obter mais informações, consulte [elemento ConsoleRedirection](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
-### <a name="entrypoint-element"></a>Elemento de ponto de entrada
-O executável especificado pelo ponto de entrada é, normalmente, o anfitrião do serviço de execução longa. A presença de um ponto de entrada de configuração individual evita ter de executar o host de serviço com privilégios elevados por longos períodos de tempo. O executável especificado pelo ponto de entrada é executado após SetupEntryPoint será encerrada com êxito. O processo resultante é monitorizado e reiniciado (início com SetupEntryPoint), se alguma vez terminar ou falhar. Para obter mais informações, consulte [elemento de ponto de entrada](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
+### <a name="entrypoint-element"></a>Elemento EntryPoint
+O executável especificado pelo EntryPoint normalmente é o host de serviço de longa execução. A presença de um ponto de entrada de instalação separado evita a execução do host de serviço com altos privilégios por longos períodos de tempo. O executável especificado pelo EntryPoint é executado depois que SetupEntryPoint é encerrado com êxito. O processo resultante é monitorado e reiniciado (começando novamente com SetupEntryPoint) se ele for encerrado ou falhar. Para obter mais informações, consulte [elemento entryPoint](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
-### <a name="exehost-element"></a>Elemento de ExeHost
- Para obter mais informações, consulte [ExeHost elemento](service-fabric-service-model-schema-elements.md#ExeHostElementanonymouscomplexTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
+### <a name="exehost-element"></a>Elemento ExeHost
+ Para obter mais informações, consulte [elemento ExeHost](service-fabric-service-model-schema-elements.md#ExeHostElementanonymouscomplexTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
-### <a name="configpackage-element"></a>Elemento de ConfigPackage
-Declara uma pasta, com o nome o atributo de nome, em PackageRoot que contém um arquivo Settings XML. Este ficheiro contém seções de definições de par chave-valor, de definidas pelo utilizador que o processo pode ler voltar no tempo de execução. Durante uma atualização, se apenas a versão de ConfigPackage foi alterada, em seguida, o processo em execução não for reiniciado. Em vez disso, um retorno de chamada notifica o processo que as definições de configuração foram alterados para que possa ser recarregadas dinamicamente. Para obter mais informações, consulte [ConfigPackage elemento](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
+### <a name="configpackage-element"></a>Elemento ConfigPackage
+Declara uma pasta, nomeada pelo atributo Name, em PackageRoot que contém um arquivo Settings. xml. Esse arquivo contém seções de configurações de par chave-valor definidas pelo usuário que o processo pode ler de volta em tempo de execução. Durante uma atualização, se apenas a versão do ConfigPackage tiver sido alterada, o processo em execução não será reiniciado. Em vez disso, um retorno de chamada notifica o processo de que as definições de configuração foram alteradas para que possam ser recarregadas dinamicamente. Para obter mais informações, consulte [elemento ConfigPackage](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
 
-### <a name="resources-element"></a>Elemento de recursos
-Descreve os recursos utilizados por este serviço, que pode ser declarado sem modificar o código compilado e alterado quando o serviço é implementado. Acesso a estes recursos é controlado as seções de entidades e as políticas de manifesto do aplicativo. Para obter mais informações, consulte [elemento de recursos](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
+### <a name="resources-element"></a>Elemento resources
+Descreve os recursos usados por esse serviço, que podem ser declarados sem modificar o código compilado e alterados quando o serviço é implantado. O acesso a esses recursos é controlado por meio das seções de entidades e políticas do manifesto do aplicativo. Para obter mais informações, consulte [elemento](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType) Resources
 
-### <a name="endpoints-element"></a>Elemento de pontos finais
-Define os pontos finais para o serviço. Para obter mais informações, consulte [pontos finais de elemento](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)
+### <a name="endpoints-element"></a>Elemento de pontos de extremidade
+Define pontos de extremidade para o serviço. Para obter mais informações, consulte [elemento de pontos de extremidade](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)
 
-### <a name="endpoint-element"></a>Elemento de ponto final
-O ponto final, declarados no manifesto do serviço, para substituir. Para obter mais informações, consulte [elemento de ponto final](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
+### <a name="endpoint-element"></a>Elemento de ponto de extremidade
+O ponto de extremidade, declarado no manifesto do serviço, para substituir. Para obter mais informações, consulte [elemento de ponto de extremidade](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
 
 
 
-## <a name="votingdata-service-manifest-elements"></a>Elementos de manifestos do serviço de VotingData
-### <a name="servicemanifest-element"></a>Elemento de ServiceManifest
-Descreve de maneira declarativa o tipo de serviço e a versão. Lista os pacotes de código, configuração e dados de forma independente é atualizável que juntos compõem um pacote de serviço para dar suporte a um ou mais tipos de serviço. Recursos, as definições de diagnóstico e os metadados de serviço, como o tipo de serviço, as propriedades de estado de funcionamento e métricas de balanceamento de carga, também são especificados. Para obter mais informações, consulte [ServiceManifest elemento](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType)
+## <a name="votingdata-service-manifest-elements"></a>Elementos do manifesto do serviço VotingData
+### <a name="servicemanifest-element"></a>Elemento do inmanifest
+Descreve declarativamente o tipo de serviço e a versão. Ele lista o código, a configuração e os pacotes de dados atualizáveis independentemente que compõem um pacote de serviço para dar suporte a um ou mais tipos de serviço. Os recursos, as configurações de diagnóstico e os metadados de serviço, como o tipo de serviço, as propriedades de integridade e as métricas de balanceamento de carga, também são especificados. Para obter mais informações, consulte [elemento](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType) do inmanifest
 
-### <a name="servicetypes-element"></a>Elemento de ServiceTypes
-Define os tipos de serviço são suportados por um CodePackage nesse manifesto. Quando um serviço é instanciado em relação a um dos seguintes tipos de serviço, todos os pacotes do código declarados nesse manifesto são ativados através da execução de seus pontos de entrada. Tipos de serviço são declarados em nível de manifesto e não no nível de pacote de código. Para obter mais informações, consulte [ServiceTypes elemento](service-fabric-service-model-schema-elements.md#ServiceTypesElementServiceAndServiceGroupTypesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
+### <a name="servicetypes-element"></a>Elemento de tipo
+Define quais tipos de serviço são compatíveis com um CodePackage neste manifesto. Quando um serviço é instanciado em relação a um desses tipos de serviço, todos os pacotes de código declarados nesse manifesto são ativados executando seus pontos de entrada. Os tipos de serviço são declarados no nível do manifesto e não no nível do pacote de código. Para obter mais informações, consulte [elemento do tipo](service-fabric-service-model-schema-elements.md#ServiceTypesElementServiceAndServiceGroupTypesTypeComplexTypeDefinedInServiceManifestTypecomplexType) de dados
 
-### <a name="statefulservicetype-element"></a>Elemento de StatefulServiceType
-Descreve um tipo de serviço com estado. Para obter mais informações, consulte [StatefulServiceType elemento](service-fabric-service-model-schema-elements.md#StatefulServiceTypeElementStatefulServiceTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexTypeDefinedInServiceTypesTypecomplexType)
+### <a name="statefulservicetype-element"></a>Elemento StatefulServiceType
+Descreve um tipo de serviço com estado. Para obter mais informações, consulte [elemento StatefulServiceType](service-fabric-service-model-schema-elements.md#StatefulServiceTypeElementStatefulServiceTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexTypeDefinedInServiceTypesTypecomplexType)
 
-### <a name="codepackage-element"></a>Elemento de CodePackage
-Descreve um pacote de código que dá suporte a um tipo de serviço definido. Quando um serviço é instanciado em relação a um dos seguintes tipos de serviço, todos os pacotes do código declarados nesse manifesto são ativados através da execução de seus pontos de entrada. Os processos resultantes devem registrar os tipos de serviço com suporte em tempo de execução. Quando há vários pacotes de código, eles são todas ativados sempre que o sistema procura por qualquer um dos tipos de serviço declarado. Para obter mais informações, consulte [CodePackage elemento](service-fabric-service-model-schema-elements.md#CodePackageElementCodePackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedCodePackageelement)
+### <a name="codepackage-element"></a>Elemento CodePackage
+Descreve um pacote de códigos que dá suporte a um tipo de serviço definido. Quando um serviço é instanciado em relação a um desses tipos de serviço, todos os pacotes de código declarados nesse manifesto são ativados executando seus pontos de entrada. Os processos resultantes são esperados para registrar os tipos de serviço com suporte em tempo de execução. Quando há vários pacotes de código, eles são todos ativados sempre que o sistema procura qualquer um dos tipos de serviço declarados. Para obter mais informações, consulte [elemento CodePackage](service-fabric-service-model-schema-elements.md#CodePackageElementCodePackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedCodePackageelement)
 
-### <a name="entrypoint-element"></a>Elemento de ponto de entrada
-O executável especificado pelo ponto de entrada é, normalmente, o anfitrião do serviço de execução longa. A presença de um ponto de entrada de configuração individual evita ter de executar o host de serviço com privilégios elevados por longos períodos de tempo. O executável especificado pelo ponto de entrada é executado após SetupEntryPoint será encerrada com êxito. O processo resultante é monitorizado e reiniciado (início com SetupEntryPoint), se alguma vez terminar ou falhar. Para obter mais informações, consulte [elemento de ponto de entrada](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
+### <a name="entrypoint-element"></a>Elemento EntryPoint
+O executável especificado pelo EntryPoint normalmente é o host de serviço de longa execução. A presença de um ponto de entrada de instalação separado evita a execução do host de serviço com altos privilégios por longos períodos de tempo. O executável especificado pelo EntryPoint é executado depois que SetupEntryPoint é encerrado com êxito. O processo resultante é monitorado e reiniciado (começando novamente com SetupEntryPoint) se ele for encerrado ou falhar. Para obter mais informações, consulte [elemento entryPoint](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
-### <a name="exehost-element"></a>Elemento de ExeHost
- Para obter mais informações, consulte [ExeHost elemento](service-fabric-service-model-schema-elements.md#ExeHostElementanonymouscomplexTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
+### <a name="exehost-element"></a>Elemento ExeHost
+ Para obter mais informações, consulte [elemento ExeHost](service-fabric-service-model-schema-elements.md#ExeHostElementanonymouscomplexTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
-### <a name="program-element"></a>Elemento de programa
-O nome executável.  Por exemplo, "MySetup.bat" ou "MyServiceHost.exe". Para obter mais informações, consulte [elemento do programa](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+### <a name="program-element"></a>Elemento Program
+O nome do executável.  Por exemplo, "mySetup. bat" ou "myservicehost. exe". Para obter mais informações, consulte [elemento Program](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
-### <a name="workingfolder-element"></a>Elemento de WorkingFolder
-O diretório de trabalho para o processo do pacote de código no nó de cluster onde a aplicação é implementada. Pode especificar três valores: O trabalho (predefinição), CodePackage ou base de código. Base de código especifica que o diretório de trabalho está definido para o diretório no qual o EXE é definido no pacote de código. CodePackage define o diretório de trabalho para ser a raiz do pacote de código, independentemente de onde o EXE está definido no diretório do pacote de código. Trabalho define o diretório de trabalho para uma pasta exclusiva criada no nó.  Esta pasta é o mesmo para a instância de todo o aplicativo. Por predefinição, o diretório de trabalho de todos os processos do aplicativo está definido para a pasta de trabalho de aplicação. Isso é onde os processos podem escrever os dados. Não é recomendada a escrita de dados no pacote do código ou na base de código, essas pastas poderão ser compartilhadas entre diferentes instâncias da aplicação e podem obter eliminadas. Para obter mais informações, consulte [WorkingFolder elemento](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+### <a name="workingfolder-element"></a>Elemento WorkingFolder
+O diretório de trabalho para o processo no pacote de códigos no nó do cluster em que o aplicativo é implantado. Você pode especificar três valores: Trabalho (o padrão), CodePackage ou CodeBase. CodeBase especifica que o diretório de trabalho é definido como o diretório no qual o EXE é definido no pacote de códigos. CodePackage define o diretório de trabalho como a raiz do pacote de códigos, independentemente de onde o EXE está definido no diretório do pacote de códigos. O trabalho define o diretório de trabalho para uma pasta exclusiva criada no nó.  Essa pasta é a mesma para toda a instância do aplicativo. Por padrão, o diretório de trabalho de todos os processos no aplicativo é definido como a pasta de trabalho do aplicativo. É aí que os processos podem gravar os dados. Não é recomendável gravar dados no pacote de códigos ou na base de código, pois essas pastas podem ser compartilhadas entre diferentes instâncias de aplicativo e podem ser excluídas. Para obter mais informações, consulte [elemento WorkingFolder](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
-### <a name="configpackage-element"></a>Elemento de ConfigPackage
-Declara uma pasta, com o nome o atributo de nome, em PackageRoot que contém um arquivo Settings XML. Este ficheiro contém seções de definições de par chave-valor, de definidas pelo utilizador que o processo pode ler voltar no tempo de execução. Durante uma atualização, se apenas a versão de ConfigPackage foi alterada, em seguida, o processo em execução não for reiniciado. Em vez disso, um retorno de chamada notifica o processo que as definições de configuração foram alterados para que possa ser recarregadas dinamicamente. Para obter mais informações, consulte [ConfigPackage elemento](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
+### <a name="configpackage-element"></a>Elemento ConfigPackage
+Declara uma pasta, nomeada pelo atributo Name, em PackageRoot que contém um arquivo Settings. xml. Esse arquivo contém seções de configurações de par chave-valor definidas pelo usuário que o processo pode ler de volta em tempo de execução. Durante uma atualização, se apenas a versão do ConfigPackage tiver sido alterada, o processo em execução não será reiniciado. Em vez disso, um retorno de chamada notifica o processo de que as definições de configuração foram alteradas para que possam ser recarregadas dinamicamente. Para obter mais informações, consulte [elemento ConfigPackage](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
 
-### <a name="datapackage-element"></a>Elemento de DataPackage
-Declara uma pasta, com o nome do atributo de nome, em PackageRoot que contém ficheiros de dados estáticos para ser consumida pelo processo de tempo de execução. Service Fabric serão reciclar todos os EXEs e DLLHOSTs especificados nos pacotes de anfitrião e suporte quando nenhum dos pacotes de dados listados no manifesto do serviço sejam atualizados. Para obter mais informações, consulte [DataPackage elemento](service-fabric-service-model-schema-elements.md#DataPackageElementDataPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedDataPackageelement)
+### <a name="datapackage-element"></a>Elemento DataPackage
+Declara uma pasta, nomeada pelo atributo Name, em PackageRoot que contém arquivos de dados estáticos a serem consumidos pelo processo em tempo de execução. Service Fabric reciclará todos os EXEs e DLLHOSTs especificados no host e os pacotes de suporte quando qualquer um dos pacotes de dados listados no manifesto do serviço for atualizado. Para obter mais informações, consulte [elemento DataPackage](service-fabric-service-model-schema-elements.md#DataPackageElementDataPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedDataPackageelement)
 
-### <a name="resources-element"></a>Elemento de recursos
-Descreve os recursos utilizados por este serviço, que pode ser declarado sem modificar o código compilado e alterado quando o serviço é implementado. Acesso a estes recursos é controlado as seções de entidades e as políticas de manifesto do aplicativo. Para obter mais informações, consulte [elemento de recursos](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
+### <a name="resources-element"></a>Elemento resources
+Descreve os recursos usados por esse serviço, que podem ser declarados sem modificar o código compilado e alterados quando o serviço é implantado. O acesso a esses recursos é controlado por meio das seções de entidades e políticas do manifesto do aplicativo. Para obter mais informações, consulte [elemento](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType) Resources
 
-### <a name="endpoints-element"></a>Elemento de pontos finais
-Define os pontos finais para o serviço. Para obter mais informações, consulte [pontos finais de elemento](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)
+### <a name="endpoints-element"></a>Elemento de pontos de extremidade
+Define pontos de extremidade para o serviço. Para obter mais informações, consulte [elemento de pontos de extremidade](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)
 
-### <a name="endpoint-element"></a>Elemento de ponto final
-O ponto final, declarados no manifesto do serviço, para substituir. Para obter mais informações, consulte [elemento de ponto final](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
+### <a name="endpoint-element"></a>Elemento de ponto de extremidade
+O ponto de extremidade, declarado no manifesto do serviço, para substituir. Para obter mais informações, consulte [elemento de ponto de extremidade](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
 
