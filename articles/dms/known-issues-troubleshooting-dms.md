@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/18/2019
-ms.openlocfilehash: a35e0496c7e36d42e28a64fef438fe56713d3c78
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a72a0e26c2af34942faaa6a7e62feef86082e196
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855003"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034824"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Solucionar problemas e erros comuns do serviço de migração de banco de dados do Azure
 
@@ -98,9 +98,9 @@ Quando tenta ligar à origem no assistente de projeto do serviço de Migração 
 | ------------- | ------------- |
 | Ao usar o [ExpressRoute](https://azure.microsoft.com/services/expressroute/), o serviço de migração de banco de dados do Azure [requer](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) o provisionamento de três pontos de extremidade de serviço na sub-rede da rede virtual associada ao serviço:<br> --Ponto de extremidade do barramento de serviço<br> --Ponto de extremidade de armazenamento<br> --Ponto de extremidade do banco de dados de destino (por exemplo, ponto Cosmos DB de extremidade SQL, ponto de extremidade<br><br><br><br><br> | [Habilite](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) os pontos de extremidade de serviço necessários para conectividade de ExpressRoute entre o serviço de migração de banco de dados de origem e do Azure. <br><br><br><br><br><br><br><br> |
 
-## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Erro de tempo limite ao migrar um banco de dados MySQL para o BD do Azure para MySQL
+## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Erro de tempo limite de espera de bloqueio ao migrar um banco de dados MySQL para o BD do Azure para MySQL
 
-Ao migrar um banco de dados MySQL para uma instância do banco de dados do Azure para MySQL por meio do serviço de migração de banco de dados do Azure, a migração falhará com o seguinte erro
+Quando você migra um banco de dados MySQL para uma instância do banco de dados do Azure para MySQL por meio do serviço de migração de banco de dados do Azure, a migração falha com o erro de tempo limite de espera
 
 * **Erro**: Erro de migração de banco de dados-falha ao carregar o arquivo-falha ao iniciar o processo de carregamento para o arquivo ' n' RetCode: SQL_ERROR SqlState: NativeError HY000: 1205 mensagem: [MySQL] [driver ODBC] [mysqld] tempo limite de espera de bloqueio excedido; Tente reiniciar a transação
 

@@ -8,52 +8,27 @@ ms.topic: include
 ms.date: 01/16/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c6f9065786879749eee6187e93283f4c026b7fff
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 98172c2c487488a72bbfdd3a8205ac7d8668db60
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184132"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035751"
 ---
-A seguinte configuração de computador foi usada para obter os passos abaixo:
-
-  | | |
-  |---|---|
-  |Computador| Ubuntu Server 16.04<br>ID_LIKE=debian<br>PRETTY_NAME="Ubuntu 16.04.4 LTS"<br>VERSION_ID="16.04" |
-  |Dependências| strongSwan |
-
-#### <a name="1-install-strongswan"></a>1. Instalar strongSwan
-
-Utilize os seguintes comandos para instalar a configuração de strongSwan necessário:
-
-```
-apt-get install strongswan-ikev2 strongswan-plugin-eap-tls
-```
-
-```
-apt-get install libstrongswan-standard-plugins
-```
-
-```
-apt-get install strongswan-pki
-```
-
-#### <a name="2-generate-keys-and-certificate"></a>2. Gerar chaves e certificados
-
-Gere o certificado da AC.
+Gere o certificado de autoridade de certificação.
 
   ```
   ipsec pki --gen --outform pem > caKey.pem
   ipsec pki --self --in caKey.pem --dn "CN=VPN CA" --ca --outform pem > caCert.pem
   ```
 
-Imprima o certificado da AC no formato base64. Este é o formato que seja suportado pelo Azure. Será mais tarde carregá-lo para o Azure como parte da sua configuração de P2S.
+Imprima o certificado de autoridade de certificação no formato base64. Esse é o formato com suporte do Azure. Posteriormente, você carregará isso no Azure como parte da configuração do P2S.
 
   ```
   openssl x509 -in caCert.pem -outform der | base64 -w0 ; echo
   ```
 
-Gere o certificado de utilizador.
+Gere o certificado do usuário.
 
   ```
   export PASSWORD="password"
@@ -63,7 +38,7 @@ Gere o certificado de utilizador.
   ipsec pki --pub --in "${USERNAME}Key.pem" | ipsec pki --issue --cacert caCert.pem --cakey caKey.pem --dn "CN=${USERNAME}" --san "${USERNAME}" --flag clientAuth --outform pem > "${USERNAME}Cert.pem"
   ```
 
-Gere um pacote de p12 que contém o certificado de utilizador. Este pacote será utilizado nos passos seguintes ao trabalhar com os ficheiros de configuração do cliente.
+Gere um pacote P12 contendo o certificado do usuário. Esse pacote será usado nas próximas etapas ao trabalhar com os arquivos de configuração do cliente.
 
   ```
   openssl pkcs12 -in "${USERNAME}Cert.pem" -inkey "${USERNAME}Key.pem" -certfile caCert.pem -export -out "${USERNAME}.p12" -password "pass:${PASSWORD}"

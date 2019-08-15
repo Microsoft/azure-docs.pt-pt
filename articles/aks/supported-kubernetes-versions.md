@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: a4726444e2103228cd26be3d3a6d516b31e315ee
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: bf86af16ce330be7119ecbeb24cedbcd31282735
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304317"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034037"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do kubernetes com suporte no serviço kubernetes do Azure (AKS)
 
@@ -100,7 +100,7 @@ New Supported Version List
 
 ### <a name="communications"></a>Comunicações
 
-* Para novas  versões secundárias do kubernetes
+* Para novas versões secundárias do kubernetes
   * Todos os usuários são notificados publicamente sobre a nova versão e qual versão será removida.
   * Quando uma nova versão de patch é lançada, a versão mais antiga do patch é removida ao mesmo tempo.
   * Os clientes têm **60 dias** a partir da data de notificação pública para atualizar para uma versão de versão secundária com suporte.
@@ -133,7 +133,7 @@ O padrão AKS é N-1 (Minor. latestPatch, ex 1.12. b) para fornecer aos clientes
 
 ## <a name="list-currently-supported-versions"></a>Listar versões com suporte no momento
 
-Para descobrir quais versões estão disponíveis no momento para sua assinatura e região, use o comando [AZ AKs Get-Versions][az-aks-get-versions] . O exemplo a seguir lista as versões de kubernetes disponíveis  para a região eastus:
+Para descobrir quais versões estão disponíveis no momento para sua assinatura e região, use o comando [AZ AKs Get-Versions][az-aks-get-versions] . O exemplo a seguir lista as versões de kubernetes disponíveis para a região eastus:
 
 ```azurecli-interactive
 az aks get-versions --location eastus --output table
@@ -144,13 +144,14 @@ A saída é semelhante ao exemplo a seguir, que mostra que a versão do kubernet
 ```
 KubernetesVersion    Upgrades
 -------------------  ------------------------
-1.13.5               None available
-1.12.7               1.13.5
-1.12.6               1.12.7, 1.13.5
-1.11.9               1.12.6, 1.12.7
-1.11.8               1.11.9, 1.12.6, 1.12.7
-1.10.13              1.11.8, 1.11.9
-1.10.12              1.10.13, 1.11.8, 1.11.9
+1.14.5               None available
+1.13.9               1.14.5
+1.12.8               1.13.9
+1.12.7               1.12.8, 1.13.9
+1.11.10              1.12.7, 1.12.8
+1.11.9               1.11.10, 1.12.7, 1.12.8
+1.10.13              1.11.9, 1.11.10
+1.10.12              1.10.13, 1.11.9, 1.11.10
 ```
 
 ## <a name="faq"></a>FAQ
@@ -180,7 +181,7 @@ Sim. No entanto, se o cluster não estiver em uma das versões com suporte do AK
 
 O mestre é atualizado automaticamente para a versão mais recente com suporte.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter informações sobre como atualizar o cluster, consulte [atualizar um cluster do AKS (serviço kubernetes do Azure)][aks-upgrade].
 

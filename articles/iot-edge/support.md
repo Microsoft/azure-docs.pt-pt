@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: fdecc34b49b853c34624cabf4688e0387c303a16
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 81d19552b56de540f235960c498c64e7b276320c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985807"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030972"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas de suporte do Azure IoT Edge
 
@@ -70,7 +70,7 @@ Os sistemas listados na tabela a seguir têm suporte da Microsoft, seja geralmen
 | Windows 10 IoT Core, Build 17763 | ![Windows IoT Core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 
 
-Os sistemas operacionais Windows listados acima são os requisitos para dispositivos que executam contêineres do Windows no Windows. Essa configuração é a única configuração com suporte para produção. Os pacotes de instalação do Azure IoT Edge para Windows permitem o uso de contêineres do Linux no Windows; no entanto, essa configuração é apenas para desenvolvimento e teste. O uso de contêineres do Linux no Windows não é uma configuração com suporte para produção. Qualquer versão do Windows 10 Build 14393 ou mais recente e Windows Server 2016 ou mais recente pode ser usada para este cenário de desenvolvimento.
+Os sistemas operacionais Windows listados acima são os requisitos para dispositivos que executam contêineres do Windows no Windows, que é a única configuração com suporte para produção. Os pacotes de instalação do Azure IoT Edge para Windows permitem o uso de contêineres do Linux no Windows; no entanto, essa configuração é apenas para desenvolvimento e teste. Para obter mais informações, consulte [usar IOT Edge no Windows para executar contêineres do Linux](how-to-install-iot-edge-windows-with-linux.md).
 
 ### <a name="tier-2"></a>Escalão 2
 

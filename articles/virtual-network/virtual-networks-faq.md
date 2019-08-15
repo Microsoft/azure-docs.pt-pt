@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: b088b4d0e21819411c7329f3cb1e6ca9761665fd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: ebb9028aab8626554d0f5fede15129c141d441cb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610201"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035339"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure
 
@@ -67,9 +67,11 @@ Sim. Para obter mais informações sobre intervalos de endereços IP públicos, 
 Sim. Consulte [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para obter detalhes. Espaços de endereço de sub-rede não podem se sobrepor um ao outro.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Há alguma restrição sobre o uso de endereços IP dentro dessas sub-redes?
-Sim. O Azure reserva cinco endereços IP em cada sub-rede. Esses são x. x. x. 0-x. x. x. 3 e o último endereço da sub-rede.    
-- x. x. x. 0 e o último endereço da sub-rede são reservados para a conformidade do protocolo.
-- x. x. x. 1-x. x. 3 é reservado em cada sub-rede para os serviços do Azure.
+Sim. O Azure reserva cinco endereços IP em cada sub-rede. Esses são x. x. x. 0-x. x. x. 3 e o último endereço da sub-rede. x. x. x. 1-x. x. 3 é reservado em cada sub-rede para os serviços do Azure.   
+- x. x. x. 0: Endereço de rede
+- x. x. x. 1: Reservado pelo Azure para o gateway padrão
+- x. x. x. 2, x. x. x. 3: Reservado pelo Azure para mapear os IPs de DNS do Azure para o espaço VNet
+- x. x. x. 255: Endereço de difusão de rede
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Qual é o tamanho e o tamanho de VNets e sub-redes?
 A menor sub-rede com suporte é/29 e a maior é/8 (usando definições de sub-rede CIDR).

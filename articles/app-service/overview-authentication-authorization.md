@@ -16,12 +16,12 @@ ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 12ad82b0dda628c3a8cef7712322500c7a33517c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d01994dc4d01baed71bb3de56e069fac5597dc77
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68953807"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030841"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações do Azure
 
@@ -136,6 +136,9 @@ Essa opção fornece mais flexibilidade no tratamento de solicitações anônima
 A opção é **fazer logon com \<o provedor >** . O serviço de aplicativo redireciona todas as solicitações anônimas para `/.auth/login/<provider>` o provedor que você escolher. Se a solicitação anônima vier de um aplicativo móvel nativo, a resposta retornada será um `HTTP 401 Unauthorized`.
 
 Com essa opção, você não precisa escrever nenhum código de autenticação em seu aplicativo. Uma autorização mais refinada, como autorização específica de função, pode ser manipulada inspecionando as declarações do usuário (consulte [acessar declarações de usuário](app-service-authentication-how-to.md#access-user-claims)).
+
+> [!CAUTION]
+> Restringir o acesso dessa maneira se aplica a todas as chamadas para seu aplicativo, o que pode não ser desejável para aplicativos que querem um home page publicamente disponível, como em muitos aplicativos de página única.
 
 ## <a name="more-resources"></a>Mais recursos
 

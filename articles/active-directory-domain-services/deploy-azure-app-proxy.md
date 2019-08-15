@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: b3fb5d665380bc15b61d3b4b7913a992915f9afb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 35211d6f832033a2bb16c495ebab839b7f740445
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853846"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69031029"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Implantar Proxy de Aplicativo do AD do Azure em um domínio Azure AD Domain Services gerenciado
 O proxy de aplicativo Azure Active Directory (AD) ajuda você a dar suporte a funcionários remotos Publicando aplicativos locais para serem acessados pela Internet. Com o Azure AD Domain Services, agora você pode migrar e deslocar aplicativos herdados executados localmente para os serviços de infraestrutura do Azure. Em seguida, você pode publicar esses aplicativos usando o Proxy de Aplicativo do AD do Azure, para fornecer acesso remoto seguro aos usuários em sua organização.
@@ -34,7 +34,7 @@ Para executar as tarefas listadas neste artigo, você precisará de:
 
 1. Uma **assinatura válida do Azure**.
 2. Um **diretório do Azure ad** -seja sincronizado com um diretório local ou um diretório somente na nuvem.
-3. Uma **licença Azure ad Basic ou Premium** é necessária para usar o proxy de aplicativo do AD do Azure.
+3. Uma **licença de Azure ad Premium** é necessária para usar o proxy de aplicativo do AD do Azure.
 4. **Azure AD Domain Services** deve ser habilitado para o diretório do Azure AD. Se você ainda não fez isso, siga todas as tarefas descritas no [Guia de introdução](create-instance.md).
 
 <br>

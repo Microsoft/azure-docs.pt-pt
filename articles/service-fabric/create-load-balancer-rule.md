@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: atsenthi
-ms.openlocfilehash: 440d5e37e03e58a39275e715ebce4fa07961cc84
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 2c96c421d768b1e75169615d81a03387602a83ac
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598574"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036072"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir portas para um Cluster Service Fabric
 

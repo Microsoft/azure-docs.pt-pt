@@ -1,6 +1,6 @@
 ---
-title: Contentor do Azure Service Fabric CLI - sfctl | Documentos da Microsoft
-description: Descreve os comandos de contentor do Service Fabric CLI sfctl.
+title: CLI do Azure Service Fabric-contêiner sfctl | Microsoft Docs
+description: Descreve os comandos de contêiner do Service Fabric CLI sfctl.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,83 +8,82 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: a5037c535737946a50d8af6fa60d0815120276d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ce6cf7c627657cf757b0c1ef9aa22428c17a7e7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837327"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036469"
 ---
 # <a name="sfctl-container"></a>sfctl container
-Contentor de execução relacionados com os comandos num nó de cluster.
+Execute comandos relacionados ao contêiner em um nó de cluster.
 
 ## <a name="commands"></a>Comandos
 
 |Comando|Descrição|
 | --- | --- |
-| invoke-api | Invoca a API de contentor num contêiner implementado num nó do Service Fabric para o pacote de código específico. |
-| logs | Obtém os registos de contentor para contentor implementado num nó do Service Fabric para o pacote de código específico. |
+| Invoke-API | Invocar a API do contêiner em um contêiner implantado em um Service Fabric nó para o pacote de códigos fornecido. |
+| logs | Obtém os logs de contêiner para o contêiner implantado em um Service Fabric nó para o pacote de códigos fornecido. |
 
-## <a name="sfctl-container-invoke-api"></a>contentor de sfctl invocar-api
-Invoca a API de contentor num contêiner implementado num nó do Service Fabric para o pacote de código específico.
-
-### <a name="arguments"></a>Argumentos
-
-|Argumento|Descrição|
-| --- | --- |
-| – id de aplicação [necessário] | A identidade da aplicação. <br><br> Isso normalmente é o nome completo do aplicativo sem que o "recursos de infraestrutura\:" esquema de URI. A partir da versão 6.0, são delimitados nomes hierárquicos com o "\~" caráter. Por exemplo, se o nome da aplicação é "recursos de infraestrutura\:app1/myapp /", a identidade da aplicação seria "myapp\~app1" em 6.0 + e "myapp/app1" nas versões anteriores. |
-| – código-pacote--id de instância [necessário] | ID identifica exclusivamente uma instância de pacote de código implementada num nó do service fabric. <br><br> Podem ser obtidos por "serviço código--lista de pacotes". |
-| -nome de pacote de código [necessário] | O nome do pacote de código especificado no manifesto de serviço registado como parte de um tipo de aplicação no cluster do Service Fabric. |
-| --api-uri-caminho do contentor [necessário] | Caminho de URI da API REST do contentor, utilize "{id}" em vez de nome/id de contentor. |
-| --nome do nó [necessário] | O nome do nó. |
-| --service-manifest-name    [Required] | O nome de um manifesto de serviço registado como parte de um tipo de aplicação no cluster do Service Fabric. |
-| – contentores-api-corpo | Corpo do pedido HTTP para o contentor REST API. |
-| --container-api-content-type | Tipo de conteúdo para o contentor REST API, a predefinição é "application/json". |
-| --container-api-http-verb | Verbo HTTP para o contentor REST API, o padrão é GET. |
-| – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
-
-### <a name="global-arguments"></a>Argumentos global
-
-|Argumento|Descrição|
-| --- | --- |
-| – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
-| – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
-
-## <a name="sfctl-container-logs"></a>registos de contentor sfctl
-Obtém os registos de contentor para contentor implementado num nó do Service Fabric para o pacote de código específico.
+## <a name="sfctl-container-invoke-api"></a>invocação de contêiner sfctl-API
+Invocar a API do contêiner em um contêiner implantado em um Service Fabric nó para o pacote de códigos fornecido.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| – id de aplicação [necessário] | A identidade da aplicação. <br><br> Isso normalmente é o nome completo do aplicativo sem que o "recursos de infraestrutura\:" esquema de URI. A partir da versão 6.0, são delimitados nomes hierárquicos com o "\~" caráter. Por exemplo, se o nome da aplicação é "recursos de infraestrutura\:app1/myapp /", a identidade da aplicação seria "myapp\~app1" em 6.0 + e "myapp/app1" nas versões anteriores. |
-| – código-pacote--id de instância [necessário] | ID de instância de pacote do código, que pode ser obtido por "serviço código--lista de pacotes". |
-| -nome de pacote de código [necessário] | O nome do pacote de código especificado no manifesto de serviço registado como parte de um tipo de aplicação no cluster do Service Fabric. |
-| --nome do nó [necessário] | O nome do nó. |
-| --service-manifest-name    [Required] | O nome de um manifesto de serviço registado como parte de um tipo de aplicação no cluster do Service Fabric. |
-| – Cauda | Número de linhas para mostrar a partir do final dos registos. A predefinição é 100. 'tudo' para mostrar os registos completos. |
-| – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
+| --Application-ID [obrigatório] | A identidade do aplicativo. <br><br> Normalmente, é o nome completo do aplicativo sem o esquema de URI\:' Fabric '. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "\:Fabric/MyApp/App1", a identidade do aplicativo será "\~MyApp App1" em 6.0 + e "MyApp/App1" nas versões anteriores. |
+| --código-pacote-instância-ID [obrigatório] | ID que identifica exclusivamente uma instância do pacote de códigos implantada em um nó do Service Fabric. <br><br> Pode ser recuperado por ' Service Code-pacote-List '. |
+| --Code-Package-Name [obrigatório] | O nome do pacote de códigos especificado no manifesto do serviço registrado como parte de um tipo de aplicativo em um Cluster Service Fabric. |
+| --Container-API-URI-caminho [obrigatório] | Caminho do URI da API REST do contêiner, use ' {ID} ' no lugar do nome/ID do contêiner. |
+| --node-Name [obrigatório] | O nome do nó. |
+| --Service-manifest-Name [obrigatório] | O nome de um manifesto de serviço registrado como parte de um tipo de aplicativo em um Cluster Service Fabric. |
+| --contêiner-API-corpo | Corpo da solicitação HTTP para a API REST do contêiner. |
+| --contêiner-API-tipo de conteúdo | Tipo de conteúdo para a API REST do contêiner, o padrão é ' Application/JSON '. |
+| --container-api-http-verb | Verbo HTTP para API REST de contêiner, o padrão a ser obtido. |
+| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos global
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
-| – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
+| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
+| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
+| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+
+## <a name="sfctl-container-logs"></a>logs de contêiner do sfctl
+Obtém os logs de contêiner para o contêiner implantado em um Service Fabric nó para o pacote de códigos fornecido.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|Descrição|
+| --- | --- |
+| --Application-ID [obrigatório] | A identidade do aplicativo. <br><br> Normalmente, é o nome completo do aplicativo sem o esquema de URI\:' Fabric '. A partir da versão 6,0, os nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "\:Fabric/MyApp/App1", a identidade do aplicativo será "\~MyApp App1" em 6.0 + e "MyApp/App1" nas versões anteriores. |
+| --código-pacote-instância-ID [obrigatório] | ID da instância do pacote de códigos, que pode ser recuperada por ' Service Code-Package-List '. |
+| --Code-Package-Name [obrigatório] | O nome do pacote de códigos especificado no manifesto do serviço registrado como parte de um tipo de aplicativo em um Cluster Service Fabric. |
+| --node-Name [obrigatório] | O nome do nó. |
+| --Service-manifest-Name [obrigatório] | O nome de um manifesto de serviço registrado como parte de um tipo de aplicativo em um Cluster Service Fabric. |
+| --cauda | Número de linhas a serem mostradas do final dos logs. O padrão é 100. ' todos ' para mostrar os logs completos. |
+| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+
+### <a name="global-arguments"></a>Argumentos globais
+
+|Argumento|Descrição|
+| --- | --- |
+| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
+| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
+| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
+| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
-- Saiba como utilizar a CLI do Service Fabric utilizando o [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+## <a name="next-steps"></a>Passos seguintes
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
+- Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 45089c77ff2fed7ea5903333514f4d4edbad7cb3
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 5ab4a6b96df964497e20b2b93c59febb0e24393c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "69015551"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035890"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Visão geral da transmissão ao vivo usando os serviços de mídia
 
@@ -118,7 +118,7 @@ Ao criar um canal, você pode especificar endereços IP permitidos em um dos seg
 Um [programa](https://docs.microsoft.com/rest/api/media/operations/program) permite que você controle a publicação e o armazenamento de segmentos em uma transmissão ao vivo. Canais gerem Programas. A relação entre o Canal e o Programa é muito semelhante à multimédia tradicional onde um canal tem uma transmissão em fluxo constante de conteúdo e um programa está confinado a alguns eventos temporizados nesse canal.
 Você pode especificar o número de horas que deseja manter o conteúdo registrado para o programa, definindo a propriedade **ArchiveWindowLength** . Este valor pode ser definido a partir de um mínimo de 5 minutos até um máximo de 25 horas.
 
-O ArchiveWindowLength também determina a quantidade máxima de tempo que os clientes podem buscar de volta no tempo a partir da posição atual ao vivo. Os programas podem ser executados durante o período de tempo especificado, mas o conteúdo que se situe atrás da duração da janela é continuamente descartado. O valor desta propriedade também determina durante quanto tempo os manifestos dos clientes podem aumentar.
+O ArchiveWindowLength também determina a quantidade máxima de tempo que os clientes podem buscar de volta no tempo a partir da posição atual ao vivo. Os programas podem ser executados durante o período de tempo especificado, mas o conteúdo que se situe atrás da duração da janela é continuamente descartado. O valor dessa propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
 
 Cada programa está associado um Elemento. Para publicar o programa, você deve criar um localizador para o ativo associado. Ter este localizador irá permitir compilar um URL de transmissão em fluxo que pode fornecer aos seus clientes.
 

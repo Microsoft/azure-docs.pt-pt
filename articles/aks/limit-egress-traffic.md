@@ -1,116 +1,116 @@
 ---
-title: Restringir o tráfego de saída no Azure Kubernetes Service (AKS)
-description: Saiba quais portas e endereços são necessários para controlar o tráfego de saída no Azure Kubernetes Service (AKS)
+title: Restringir o tráfego de saída no serviço kubernetes do Azure (AKS)
+description: Saiba quais portas e endereços são necessários para controlar o tráfego de saída no serviço de kubernetes do Azure (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 12922496bc97ad51d1cc96f7ffe8df05c1fd66ea
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: cf9dc304efea8874d16953f74bf88a4317760819
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614968"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69031835"
 ---
-# <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Pré-visualização - o tráfego de saída de limite de nós de cluster e controlar o acesso a portas necessárias e serviços no Azure Kubernetes Service (AKS)
+# <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Visualização-limite o tráfego de saída para nós de cluster e controle o acesso a portas e serviços necessários no AKS (serviço kubernetes do Azure)
 
-Por predefinição, os clusters do AKS têm irrestrito acesso à internet de saída (saída). Este nível de acesso à rede permite que nós e os serviços que executar para aceder a recursos externos, conforme necessário. Se pretender restringir o tráfego de saída, um número limitado de portas e endereços tem de ser acessível para manter as tarefas de manutenção de bom estado de funcionamento do cluster. O cluster, em seguida, está configurado para utilizar apenas imagens de contentor do sistema de base do registo de contentor da Microsoft (MCR) ou Azure Container Registry (ACR), não externos repositórios públicos. Tem de configurar as regras de firewall e segurança preferenciais para permitir que estes endereços e portas necessárias.
+Por padrão, os clusters AKS têm acesso irrestrito à Internet (saída). Esse nível de acesso à rede permite que os nós e serviços que você executa acessem recursos externos, conforme necessário. Se você quiser restringir o tráfego de saída, um número limitado de portas e endereços deve ser acessível para manter tarefas de manutenção de cluster íntegras. Em seguida, o cluster é configurado para usar apenas as imagens de contêiner do sistema base do MCR (registro de contêiner da Microsoft) ou do ACR (registro de contêiner do Azure), não de repositórios públicos externos. Você deve configurar o firewall e as regras de segurança preferenciais para permitir essas portas e endereços necessários.
 
-Este artigo detalha quais portas de rede e os nomes de domínio completamente qualificado (FQDN) são obrigatórios e opcionais se restringir o tráfego de saída num cluster do AKS.  Esta funcionalidade encontra-se em pré-visualização.
+Este artigo detalha quais portas de rede e FQDNs (nomes de domínio totalmente qualificados) são necessários e opcionais se você restringir o tráfego de saída em um cluster AKS.  Esta funcionalidade encontra-se em pré-visualização.
 
 > [!IMPORTANT]
-> Funcionalidades de pré-visualização do AKS são self-service, participar. Eles são fornecidos para recolher comentários e bugs de nossa Comunidade. Em pré-visualização, esses recursos não se destinam a utilização de produção. Funcionalidades em pré-visualização pública enquadram-se em suporte "melhor esforço". Assistência das equipas de suporte técnico do AKS está disponível durante o horário do Pacífico fuso horário (PST) apenas. Para obter mais informações, consulte os seguintes artigos de suporte:
+> Os recursos de visualização do AKS são consentimento de autoatendimento. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente com base no melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter outras incompatibilidades, consulte os seguintes artigos de suporte:
 >
 > * [Políticas de suporte do AKS][aks-support-policies]
-> * [FAQ de suporte do Azure][aks-faq]
+> * [Perguntas frequentes do suporte do Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Precisa da versão 2.0.66 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][install-azure-cli].
+Você precisa do CLI do Azure versão 2.0.66 ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][install-azure-cli].
 
-Para criar um cluster do AKS que pode limitar o tráfego de saída, ative primeiro um sinalizador de funcionalidade na sua subscrição. Esse registro de recurso configura quaisquer clusters do AKS que criar para utilizar imagens de contentor do sistema de base de MCR ou ACR. Para registar o *AKSLockingDownEgressPreview* sinalizador de funcionalidade, utilize o [Registre-se de funcionalidade de az][az-feature-register] comando conforme mostrado no exemplo a seguir:
+Para criar um cluster AKS que possa limitar o tráfego de saída, primeiro habilite um sinalizador de recurso em sua assinatura. Esse registro de recurso configura todos os clusters AKS que você criar para usar as imagens de contêiner do sistema base de MCR ou ACR. Para registrar o sinalizador de recurso *AKSLockingDownEgressPreview* , use o comando [AZ Feature Register][az-feature-register] , conforme mostrado no exemplo a seguir:
 
 > [!CAUTION]
-> Quando registra um recurso numa assinatura, não pode atualmente anular o registo essa funcionalidade. Depois de ativar a algumas funcionalidades de pré-visualização, as predefinições podem ser utilizadas para todos os clusters do AKS, em seguida, criados na subscrição. Não a ativar funcionalidades de pré-visualização em subscrições de produção. Utilize uma subscrição separada para testar as funcionalidades de pré-visualização e colher comentários baseados em.
+> Quando você registra um recurso em uma assinatura, não é possível cancelar o registro desse recurso no momento. Depois de habilitar alguns recursos de visualização, os padrões podem ser usados para todos os clusters AKS, em seguida, criados na assinatura. Não habilite os recursos de visualização em assinaturas de produção. Use uma assinatura separada para testar recursos de visualização e coletar comentários.
 
 ```azurecli-interactive
 az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
 ```
 
-Demora alguns minutos para que o estado a mostrar *registado*. Pode verificar o estado de registo utilizando o [lista de funcionalidades de az][az-feature-list] comando:
+Leva alguns minutos para que o status seja mostrado *registrado*. Você pode verificar o status do registro usando o comando [AZ Feature List][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSLockingDownEgressPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando estiver pronto, atualize o registo do *containerservice* fornecedor de recursos, utilizando o [Registre-se fornecedor de az][az-provider-register] comando:
+Quando estiver pronto, atualize o registro do provedor de recursos *Microsoft. ContainerService* usando o comando [AZ Provider Register][az-provider-register] :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## <a name="egress-traffic-overview"></a>Descrição geral do tráfego de saída
+## <a name="egress-traffic-overview"></a>Visão geral do tráfego de saída
 
-Para fins operacionais e de gestão, nós num cluster do AKS têm de aceder a determinadas portas e os nomes de domínio completamente qualificado (FQDN). Essas ações poderiam ser para comunicar com o servidor de API, ou transferir e, em seguida, instalar componentes principais do cluster de Kubernetes e atualizações de segurança de nó. Por predefinição, o tráfego de internet de saída (saída) não é restrito para nós num cluster do AKS. O cluster pode extrair as sistema base imagens de contentor de repositórios externos.
+Para fins operacionais e de gerenciamento, os nós em um cluster AKS precisam acessar determinadas portas e FQDNs (nomes de domínio totalmente qualificados). Essas ações podem ser comunicadas com o servidor de API ou para baixar e instalar os componentes principais do cluster kubernetes e as atualizações de segurança do nó. Por padrão, o tráfego de saída da Internet (saída) não é restrito para nós em um cluster AKS. O cluster pode extrair imagens de contêiner do sistema base de repositórios externos.
 
-Para aumentar a segurança do cluster do AKS, pode pretender restringir o tráfego de saída. O cluster está configurado para solicitar imagens de contentor do MCR ou ACR de base do sistema. Se bloquear o tráfego de saída dessa maneira, deve definir portas específicas e FQDNs para permitir que os nós do AKS comunicar corretamente com serviços externos necessários. Sem essas portas autorizadas e FQDNs, os nós do AKS não é possível comunicar com o servidor de API ou instalar os componentes principais.
+Para aumentar a segurança do cluster AKS, talvez você queira restringir o tráfego de saída. O cluster está configurado para extrair imagens de contêiner do sistema base de MCR ou ACR. Se você bloquear o tráfego de saída dessa maneira, deverá definir portas e FQDNs específicos para permitir que os nós AKS se comuniquem corretamente com os serviços externos necessários. Sem essas portas autorizadas e FQDNs, seus nós AKS não podem se comunicar com o servidor de API nem instalar componentes principais.
 
-Pode usar [Firewall do Azure][azure-firewall] ou uma aplicação de firewall de terceiros 3rd para proteger o tráfego de saída e defini-los necessárias portas e endereços. AKS não cria automaticamente estas regras. As seguintes portas e endereços são para referência à medida que cria as regras adequadas na sua firewall de rede.
+Você pode usar o [Firewall do Azure][azure-firewall] ou um dispositivo de firewall de terceiros para proteger o tráfego de saída e definir as portas e os endereços necessários. O AKS não cria essas regras automaticamente para você. As portas e os endereços a seguir são para referência à medida que você cria as regras apropriadas no firewall de rede.
 
-No AKS, existem dois conjuntos de endereços e portas:
+No AKS, há dois conjuntos de portas e endereços:
 
-* O [portas e endereços de necessários para os clusters do AKS](#required-ports-and-addresses-for-aks-clusters) fornece detalhes sobre os requisitos mínimos para o tráfego de saída autorizados.
-* O [recomendado opcional endereços e portas para os clusters do AKS](#optional-recommended-addresses-and-ports-for-aks-clusters) não são necessários para todos os cenários, mas a integração com outros serviços, como o Azure Monitor não funcionará corretamente. Reveja esta lista de portas opcionais e FQDNs e autorizar qualquer um dos serviços e componentes utilizados no seu cluster do AKS.
+* As [portas e o endereço necessários para clusters AKs](#required-ports-and-addresses-for-aks-clusters) detalham os requisitos mínimos para o tráfego de saída autorizado.
+* Os [endereços e portas recomendados opcionais para clusters AKs](#optional-recommended-addresses-and-ports-for-aks-clusters) não são necessários para todos os cenários, mas a integração com outros serviços, como o Azure monitor, não funcionará corretamente. Examine esta lista de portas opcionais e FQDNs e autorize qualquer um dos serviços e componentes usados em seu cluster AKS.
 
 > [!NOTE]
-> Limitar o tráfego de saída só funciona em clusters do AKS nova criados depois de ativar o registo do sinalizador de funcionalidade. Para clusters existentes, [efetuar uma operação de atualização do cluster][aks-upgrade] usando o `az aks upgrade` antes de limitar o tráfego de saída de comando.
+> Limitar o tráfego de saída só funciona em novos clusters AKS criados depois que você habilita o registro do sinalizador de recurso. Para clusters existentes, [Execute uma operação de atualização][aks-upgrade] de cluster `az aks upgrade` usando o comando antes de limitar o tráfego de saída.
 
-## <a name="required-ports-and-addresses-for-aks-clusters"></a>As portas necessárias e os endereços para os clusters do AKS
+## <a name="required-ports-and-addresses-for-aks-clusters"></a>Portas e endereços necessários para clusters AKS
 
-As seguintes portas de saída / regras de rede são necessárias para um cluster do AKS:
+As seguintes regras de rede/portas de saída são necessárias para um cluster AKS:
 
-* A porta TCP *443*
-* A porta TCP *9000* e a porta TCP *22* para o pod frontal de túnel comunicar com o fim do túnel no servidor de API.
-    * Para obter mais específicas, consulte o * *.hcp.\< localização\>. azmk8s.io* e * *. tun.\< localização\>. azmk8s.io* endereços na tabela seguinte.
+* Porta TCP *443*
+* A porta TCP *9000* e a porta TCP *22* para o Pod frontal do túnel se comunicam com a extremidade do túnel no servidor de API.
+    * Para obter mais especificações, consulte o * *. HCP.\< Location\>. azmk8s.Io* e * *. Execute.\< endereços\>Location. azmk8s.Io* na tabela a seguir.
 
-O seguinte FQDN / regras de aplicações são necessárias:
+As seguintes regras de FQDN/aplicativo são necessárias:
 
 | FQDN                       | Port      | Utilizar      |
 |----------------------------|-----------|----------|
-| *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Este endereço é o ponto de final do servidor de API. Substitua *\<localização\>* com a região em que o seu cluster do AKS é implementada. |
-| *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Este endereço é o ponto de final do servidor de API. Substitua *\<localização\>* com a região em que o seu cluster do AKS é implementada. |
-| aksrepos.azurecr.io        | HTTPS:443 | Este endereço é necessário para imagens de acesso no Azure Container Registry (ACR). |
-| *.blob.core.windows.net    | HTTPS:443 | Este endereço é o armazenamento de back-end para imagens armazenadas no ACR. |
-| mcr.microsoft.com          | HTTPS:443 | Este endereço é necessário para acesso de imagens no registo de contentor da Microsoft (MCR). |
-| *.cdn.mscr.io              | HTTPS:443 | Este endereço é necessário para armazenamento MCR suportado através da rede de entrega de conteúdos do Azure (CDN). |
-| management.azure.com       | HTTPS:443 | Este endereço é necessário para operações do Kubernetes GET/PUT. |
-| login.microsoftonline.com  | HTTPS:443 | Este endereço é necessário para a autenticação do Azure Active Directory. |
-| api.snapcraft.io           | HTTPS:443, HTTP:80 | Este endereço é necessário para instalar os pacotes de Snap em nós do Linux. |
-| ntp.ubuntu.com             | UDP:123   | Este endereço é necessário para sincronização de hora NTP em nós do Linux. |
-| *. docker.io                | HTTPS:443 | Este endereço é necessária para solicitar imagens de contentor necessária para a frente de túnel. |
+| *. HCP. \<local\>. azmk8s.Io | HTTPS:443, TCP:22, TCP:9000 | Esse endereço é o ponto de extremidade do servidor de API. *Substitua\<olocal\>* pela região onde o cluster AKs está implantado. |
+| *. Execute. \<local\>. azmk8s.Io | HTTPS:443, TCP:22, TCP:9000 | Esse endereço é o ponto de extremidade do servidor de API. *Substitua\<olocal\>* pela região onde o cluster AKs está implantado. |
+| aksrepos.azurecr.io        | HTTPS:443 | Esse endereço é necessário para acessar imagens no ACR (registro de contêiner do Azure). |
+| *.blob.core.windows.net    | HTTPS:443 | Esse endereço é o armazenamento de back-end para imagens armazenadas no ACR. |
+| mcr.microsoft.com          | HTTPS:443 | Esse endereço é necessário para acessar imagens no registro de contêiner da Microsoft (MCR). |
+| *.cdn.mscr.io              | HTTPS:443 | Esse endereço é necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
+| management.azure.com       | HTTPS:443 | Esse endereço é necessário para operações GET/PUT do kubernetes. |
+| login.microsoftonline.com  | HTTPS:443 | Esse endereço é necessário para Azure Active Directory autenticação. |
+| api.snapcraft.io           | HTTPS:443, HTTP:80 | Esse endereço é necessário para instalar pacotes snap em nós do Linux. |
+| ntp.ubuntu.com             | UDP:123   | Esse endereço é necessário para a sincronização de horário do NTP em nós do Linux. |
+| *. docker.io                | HTTPS:443 | Esse endereço é necessário para efetuar pull das imagens de contêiner necessárias para a frente do túnel. |
 
-## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>Opcional recomendado endereços e portas para os clusters do AKS
+## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>Portas e endereços recomendados opcionais para clusters AKS
 
-* A porta UDP *53* para DNS
+* Porta UDP *53* para DNS
 
-O seguinte FQDN / regras de aplicações são recomendadas para clusters do AKS funcionar corretamente:
+As seguintes regras de FQDN/aplicativo são recomendadas para que os clusters AKS funcionem corretamente:
 
 | FQDN                                    | Port      | Utilizar      |
 |-----------------------------------------|-----------|----------|
-| *.ubuntu.com                            | HTTP:80   | Este endereço permite que os nós de cluster do Linux transferir as atualizações e patches de segurança necessário. |
-| packages.microsoft.com                  | HTTPS:443 | Este endereço é o repositório de pacotes do Microsoft utilizado para armazenados em cache *apt-get* operações. |
-| dc.services.visualstudio.com            | HTTPS:443 | Recomendado para métricas corretas e monitorização com o Azure Monitor. |
-| *.opinsights.azure.com                  | HTTPS:443 | Recomendado para métricas corretas e monitorização com o Azure Monitor. |
-| *.monitoring.azure.com                  | HTTPS:443 | Recomendado para métricas corretas e monitorização com o Azure Monitor. |
-| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Este endereço é utilizado para o correto funcionamento de política do Azure (atualmente em pré-visualização no AKS). |
-| apt.dockerproject.org                   | HTTPS:443 | Este endereço é utilizado para a instalação de driver correto e de operação em nós baseada em GPU. |
-| nvidia.github.io                        | HTTPS:443 | Este endereço é utilizado para a instalação de driver correto e de operação em nós baseada em GPU. |
+| *.ubuntu.com                            | HTTP:80   | Esse endereço permite que os nós de cluster do Linux baixem as atualizações e os patches de segurança necessários. |
+| packages.microsoft.com                  | HTTPS:443 | Esse endereço é o repositório de pacotes da Microsoft usado para operações *apt-get* em cache. |
+| dc.services.visualstudio.com            | HTTPS:443 | Recomendado para métricas e monitoramentos corretos usando Azure Monitor. |
+| *.opinsights.azure.com                  | HTTPS:443 | Recomendado para métricas e monitoramentos corretos usando Azure Monitor. |
+| *.monitoring.azure.com                  | HTTPS:443 | Recomendado para métricas e monitoramentos corretos usando Azure Monitor. |
+| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Esse endereço é usado para a operação correta do Azure Policy (atualmente em visualização no AKS). |
+| apt.dockerproject.org                   | HTTPS:443 | Esse endereço é usado para a instalação e operação corretas do driver em nós baseados em GPU. |
+| nvidia.github.io                        | HTTPS:443 | Esse endereço é usado para a instalação e operação corretas do driver em nós baseados em GPU. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, aprendeu quais portas e endereços para permitir que se restringir o tráfego de saída para o cluster. Também pode definir como os pods próprios podem comunicar e que restrições eles têm dentro do cluster. Para obter mais informações, consulte [proteger o tráfego entre pods através de políticas de rede no AKS][network-policy].
+Neste artigo, você aprendeu quais portas e endereços permitir se você restringir o tráfego de saída para o cluster. Você também pode definir como o próprio pods pode se comunicar e quais restrições eles têm dentro do cluster. Para obter mais informações, consulte [proteger o tráfego entre pods usando as políticas de rede no AKs][network-policy].
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md

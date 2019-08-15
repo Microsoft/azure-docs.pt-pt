@@ -1,6 +1,6 @@
 ---
-title: Aplicação de página única (entrar) – plataforma de identidade da Microsoft
-description: Saiba como criar uma aplicação de página única (início de sessão)
+title: Aplicativo de página única (entrar)-plataforma de identidade da Microsoft
+description: Saiba como criar um aplicativo de página única (entrar)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -17,42 +17,42 @@ ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc9c46ae28960387e6f8efc1ade20afa1c77ef55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7bf614a5523e78fc72918db973ef8d738a171fff
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138789"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69031783"
 ---
-# <a name="single-page-application---sign-in"></a>Aplicação de página única - início de sessão
+# <a name="single-page-application---sign-in"></a>Aplicativo de página única-entrar
 
-Saiba como adicionar o início de sessão para o código para a sua aplicação de página única.
+Saiba como adicionar entrada ao código para seu aplicativo de página única.
 
-Antes de poder obter tokens para aceder a APIs na sua aplicação, terá um contexto de usuário autenticado. Pode iniciar sessão de utilizadores ao seu aplicativo no msal de duas formas:
+Antes que você possa obter tokens para acessar APIs em seu aplicativo, você precisará de um contexto de usuário autenticado. Você pode conectar usuários ao seu aplicativo no MSAL. js de duas maneiras:
 
-* [Inicie sessão com uma janela de pop-up](#sign-in-with-a-pop-up-window) usando `loginPopup` método
-* [Inicie sessão com o redirecionamento](#sign-in-with-redirect) usando `loginRedirect` método
+* [Entrar com uma janela pop-up](#sign-in-with-a-pop-up-window) usando `loginPopup` o método
+* [Entrar com](#sign-in-with-redirect) redirecionar `loginRedirect` usando o método
 
-Opcionalmente, também pode passar os âmbitos de APIs para que precisa de consentimento no momento de início de sessão ao utilizador.
+Opcionalmente, você também pode passar os escopos das APIs para as quais você precisa que o usuário consenti no momento da entrada.
 
 > [!NOTE]
-> Se a aplicação já tiver acesso a um contexto de utilizador autenticado ou o id de token, pode ignorar o passo de início de sessão e adquirir diretamente tokens. Para obter mais detalhes, consulte [sso sem início de sessão de msal](msal-js-sso.md#sso-without-msaljs-login).
+> Se o seu aplicativo já tiver acesso a um contexto de usuário autenticado ou a um token de ID, você poderá ignorar a etapa de logon e adquirir tokens diretamente. Para obter mais detalhes, consulte [SSO sem logon do MSAL. js](msal-js-sso.md#sso-without-msaljs-login).
 
-## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>Escolha entre uma experiência de pop-up ou de redirecionamento
+## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>Escolhendo entre uma experiência de pop-up ou de redirecionamento
 
-Não é possível utilizar uma combinação dos métodos de pop-up e o redirecionamento em seu aplicativo. A escolha entre uma experiência de pop-up ou redirecionamento depende do fluxo do aplicativo.
+Você não pode usar uma combinação dos métodos pop-up e Redirect em seu aplicativo. A escolha entre uma experiência de pop-up ou de redirecionamento depende do seu fluxo de aplicativo.
 
-* Se não pretender que o utilizador a sair de sua página principal do aplicativo durante a autenticação, é recomendado para utilizar os métodos de pop-up. Uma vez que o redirecionamento de autenticação acontece numa janela de pop-up, o estado do aplicativo principal é preservado.
+* Se você não quiser que o usuário navegue para fora da página principal do aplicativo durante a autenticação, é recomendável usar os métodos pop-up. Como o redirecionamento de autenticação ocorre em uma janela pop-up, o estado do aplicativo principal é preservado.
 
-* Há determinados casos em que poderá ter de utilizar os métodos de redirecionamento. Se os utilizadores da sua aplicação tiverem restrições do navegador ou políticas em que o windows de pop-ups estão desativadas, pode usar os métodos de redirecionamento. Utilizar os métodos de redirecionamento com o navegador Internet Explorer, uma vez que existem determinadas [problemas conhecidos com o Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) ao manipular janelas pop-up.
+* Há certos casos em que talvez seja necessário usar os métodos de redirecionamento. Se os usuários do seu aplicativo tiverem restrições de navegador ou políticas em que janelas pop-up estiverem desabilitadas, você poderá usar os métodos de redirecionamento. Use os métodos de redirecionamento com o navegador Internet Explorer, pois há certos [problemas conhecidos com o Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) ao lidar com janelas pop-up.
 
-## <a name="sign-in-with-a-pop-up-window"></a>Inicie sessão com uma janela de pop-up
+## <a name="sign-in-with-a-pop-up-window"></a>Entrar com uma janela pop-up
 
 ### <a name="javascript"></a>JavaScript
 
 ```javascript
 const loginRequest = {
-    scopes: ["user.read", "user.write"]
+    scopes: ["https://graph.microsoft.com/User.ReadWrite"]
 }
 
 userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
@@ -66,7 +66,7 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 
 ### <a name="angular"></a>Angular
 
-O wrapper de MSAL Angular permite-lhe assegurar rotas específicas em seu aplicativo adicionando apenas o `MsalGuard` para a definição de rota. Este guard invocará o método de iniciar sessão quando esse caminho é acessado.
+O wrapper angular MSAL permite que você proteja rotas específicas em seu aplicativo adicionando apenas a `MsalGuard` à definição de rota. Essa proteção invocará o método para entrar quando a rota for acessada.
 
 ```javascript
 // In app.routes.ts
@@ -78,7 +78,7 @@ O wrapper de MSAL Angular permite-lhe assegurar rotas específicas em seu aplica
   { path: 'myProfile' ,component: MsGraphComponent, canActivate : [MsalGuard] },
 ```
 
-Para uma experiência de janela pop-up, ativar o `popUp` opção de configuração. Também pode passar os âmbitos que requerem o consentimento da seguinte forma:
+Para uma experiência de janela pop-up, habilite a opção de `popUp` configuração. Você também pode passar os escopos que exigem consentimento da seguinte maneira:
 
 ```javascript
 //In app.module.ts
@@ -86,16 +86,16 @@ Para uma experiência de janela pop-up, ativar o `popUp` opção de configuraç�
   imports: [ MsalModule.forRoot({
                 clientID: 'your_app_id',
                 popUp: true,
-                consentScopes: ["user.read", "user.write"]
+                consentScopes: ["https://graph.microsoft.com/User.ReadWrite"]
             })]
          })
 ```
 
-## <a name="sign-in-with-redirect"></a>Inicie sessão com o redirecionamento
+## <a name="sign-in-with-redirect"></a>Entrar com redirecionamento
 
 ### <a name="javascript"></a>JavaScript
 
-Os métodos de redirecionamento não devolverem uma promessa devido a navegação para fora do aplicativo principal. Para processar e os retornado tokens de acesso, terá de registar os retornos de chamada de êxito e erro antes de chamar os métodos de redirecionamento.
+Os métodos de redirecionamento não retornam uma promessa devido à navegação fora do aplicativo principal. Para processar e acessar os tokens retornados, será necessário registrar os retornos de chamada de êxito e erro antes de chamar os métodos de redirecionamento.
 
 ```javascript
 function authCallback(error, response) {
@@ -105,7 +105,7 @@ function authCallback(error, response) {
 userAgentApplication.handleRedirectCallback(authCallback);
 
 const loginRequest = {
-    scopes: ["user.read", "user.write"]
+    scopes: ["https://graph.microsoft.com/User.ReadWrite"]
 }
 
 userAgentApplication.loginRedirect(loginRequest);
@@ -113,16 +113,16 @@ userAgentApplication.loginRedirect(loginRequest);
 
 ### <a name="angular"></a>Angular
 
-O código aqui é igual à descrita acima, sob a iniciar sessão com uma seção de janela pop-up. O fluxo de padrão é o redirecionamento.
+O código aqui é o mesmo descrito acima na seção entrar com uma janela pop-up. O fluxo padrão é redirecionar.
 
 > [!NOTE]
-> O token de ID não contém os âmbitos autorizados e apenas representa o usuário autenticado. Os âmbitos autorizados são devolvidos no token de acesso que vão adquirir no próximo passo.
+> O token de ID não contém os escopos consentido e representa apenas o usuário autenticado. Os escopos consentidos são retornados no token de acesso que será adquirido na próxima etapa.
 
 ## <a name="sign-out"></a>Terminar sessão
 
-A biblioteca MSAL fornece um `logout` método que irá limpar a cache no armazenamento do navegador e envia um pedido de sessão para o Azure AD. Depois de terminar, será redirecionado novamente para a página de início do aplicativo por predefinição.
+A biblioteca MSAL fornece um `logout` método que limpará o cache no armazenamento do navegador e enviará uma solicitação de saída para o Azure AD. Depois de sair, ele redireciona de volta para a página inicial do aplicativo por padrão.
 
-Pode configurar o URI para o qual este deve redirecioná-após o início de sessão para fora, definindo o `postLogoutRedirectUri`. Este URI também deve ser registado como o URI de fim de sessão no seu registo de aplicação.
+Você pode configurar o URI para o qual ele deve ser redirecionado após a `postLogoutRedirectUri`saída definindo o. Esse URI também deve ser registrado como o URI de logout no registro do aplicativo.
 
 ### <a name="javascript"></a>JavaScript
 
@@ -156,7 +156,7 @@ userAgentApplication.logout();
 this.authService.logout();
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Obter um token para a aplicação](scenario-spa-acquire-token.md)
+> [Adquirindo um token para o aplicativo](scenario-spa-acquire-token.md)

@@ -8,16 +8,16 @@ ms.service: search
 ms.topic: overview
 ms.date: 08/13/2019
 ms.author: heidist
-ms.openlocfilehash: a48e4026ee3d7108f3b8e77dcb482d9904891cd4
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: eefa0eb5d1e15df34089d7baa3241cbbed4724c2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014473"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034840"
 ---
 # <a name="what-is-azure-search"></a>O que é o Azure Search?
 
-O Azure Search é uma solução de pesquisa como serviço na cloud que oferece aos programadores APIs e ferramentas para apresentarem uma experiência de pesquisa avançada para os seus conteúdos privados e heterogéneos nas aplicações Web, móveis e empresariais. O código personalizado invoca a ingestão de dados (indexação), emite solicitações de consulta e processa respostas. A experiência de pesquisa é definida no código do cliente usando a funcionalidade do Azure Search, com a execução da consulta em um índice persistente que você cria e possui. 
+O Azure Search é uma solução de pesquisa como serviço na cloud que oferece aos programadores APIs e ferramentas para apresentarem uma experiência de pesquisa avançada para os seus conteúdos privados e heterogéneos nas aplicações Web, móveis e empresariais. O código personalizado invoca a ingestão de dados (indexação), emite solicitações de consulta e processa respostas. A experiência de pesquisa é definida no código do cliente usando a funcionalidade do Azure Search, com a execução da consulta em um índice persistente que você cria, tem e armazena em Azure Search.
 
 ![Arquitetura de Azure Search](media/search-what-is-azure-search/azure-search-diagram.png "Arquitetura de Azure Search")
 

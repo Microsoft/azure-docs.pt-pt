@@ -1,6 +1,6 @@
 ---
-title: O Azure Service Fabric CLI sfctl malha volume | Documentos da Microsoft
-description: Descreve os comandos de volume de malha do CLI do Service Fabric sfctl.
+title: CLI do Azure Service Fabric-volume de malha sfctl | Microsoft Docs
+description: Descreve os comandos de volume de malha do Service Fabric CLI sfctl.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,88 +8,87 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 740aec6ccb9b20cbcb8f55b2518c2b2539ef82ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e2413a152048e08d6218783891c20b66ac2e618
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836914"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035002"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
-Obter e eliminar recursos de volume.
+Obter e excluir recursos de volume.
 
 ## <a name="commands"></a>Comandos
 
 |Comando|Descrição|
 | --- | --- |
-| delete | Elimina o recurso de Volume. |
-| list | Apresenta uma lista de todos os recursos de volume. |
-| mostrar | Obtém o recurso de Volume com o nome fornecido. |
+| eliminar | Exclui o recurso de volume. |
+| list | Lista todos os recursos de volume. |
+| mostrar | Obtém o recurso de volume com o nome fornecido. |
 
-## <a name="sfctl-mesh-volume-delete"></a>o sfctl malha volume delete
-Elimina o recurso de Volume.
+## <a name="sfctl-mesh-volume-delete"></a>exclusão de volume de malha sfctl
+Exclui o recurso de volume.
 
-Elimina o recurso de Volume identificado pelo nome.
+Exclui o recurso de volume identificado pelo nome.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| -nome -n [necessário] | O nome do volume. |
+| --Name-n [obrigatório] | O nome do volume. |
 
-### <a name="global-arguments"></a>Argumentos global
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
-| – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
+| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
+| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
+| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
 ## <a name="sfctl-mesh-volume-list"></a>lista de volumes de malha sfctl
-Apresenta uma lista de todos os recursos de volume.
+Lista todos os recursos de volume.
 
-Obtém as informações sobre todos os recursos de volume num grupo de recursos específico. As informações incluem a descrição e outras propriedades do Volume.
+Obtém as informações sobre todos os recursos de volume em um determinado grupo de recursos. As informações incluem a descrição e outras propriedades do volume.
 
-### <a name="global-arguments"></a>Argumentos global
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
-| – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
+| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
+| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
+| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
-## <a name="sfctl-mesh-volume-show"></a>o sfctl malha volume show
-Obtém o recurso de Volume com o nome fornecido.
+## <a name="sfctl-mesh-volume-show"></a>Mostrar volume de malha sfctl
+Obtém o recurso de volume com o nome fornecido.
 
-Obtém as informações sobre o recurso de Volume com o nome fornecido. As informações incluem a descrição e outras propriedades do Volume.
+Obtém as informações sobre o recurso de volume com o nome fornecido. As informações incluem a descrição e outras propriedades do volume.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| -nome -n [necessário] | O nome do volume. |
+| --Name-n [obrigatório] | O nome do volume. |
 
-### <a name="global-arguments"></a>Argumentos global
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
-| – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
+| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
+| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
+| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
-- Saiba como utilizar a CLI do Service Fabric utilizando o [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+## <a name="next-steps"></a>Passos seguintes
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
+- Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

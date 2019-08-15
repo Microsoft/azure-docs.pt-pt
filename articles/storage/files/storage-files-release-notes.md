@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 7/24/2019
+ms.date: 8/14/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ad0927c551f331a3a6f719797dae7598961d78c1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 45f383691a52d841f35ed9b67d4658341de18afc
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721660"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036252"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente de Sincronização de Arquivos do Azure
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -25,7 +25,7 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 
 | Principais | Número de versão do agente | Data de lançamento | Estado |
 |----|----------------------|--------------|------------------|
-| Pacote cumulativo de atualizações de julho de 2019- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 de julho de 2019 | Com suporte [](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) -comprovante |
+| Pacote cumulativo de atualizações de julho de 2019- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 de julho de 2019 | Suportadas |
 | Pacote cumulativo de atualizações de julho de 2019- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 de julho de 2019 | Suportadas |
 | Versão v7- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 de junho de 2019 | Suportadas |
 | Pacote cumulativo de atualizações de junho de 2019- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 de junho de 2019 | Suportadas |
@@ -39,9 +39,9 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 | Pacote cumulativo de atualizações de dezembro de 2018 – [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 de dezembro de 2018 | Suportadas |
 | Pacote cumulativo de atualizações de dezembro de 2018 | 4.1.0.0 | 4 de Dezembro de 2018 | Suportadas |
 | Versão v4 | 4.0.1.0 | 13 de novembro de 2018 | Suportadas |
-| Pacote cumulativo de atualizações de setembro de 2018 | 3.3.0.0 | 24 de setembro de 2018 | Com suporte-a versão do agente irá expirar em 19 de julho de 2019 |
-| Pacote cumulativo de atualizações de agosto de 2018 | 3.2.0.0 | 15 de agosto de 2018 | Com suporte-a versão do agente irá expirar em 19 de julho de 2019 |
-| Disponibilidade geral | 3.1.0.0 | 19 de julho de 2018 | Com suporte-a versão do agente irá expirar em 19 de julho de 2019 |
+| Pacote cumulativo de atualizações de setembro de 2018 | 3.3.0.0 | 24 de setembro de 2018 | Com suporte-a versão do agente irá expirar em 19 de agosto de 2019 |
+| Pacote cumulativo de atualizações de agosto de 2018 | 3.2.0.0 | 15 de agosto de 2018 | Com suporte-a versão do agente irá expirar em 19 de agosto de 2019 |
+| Disponibilidade geral | 3.1.0.0 | 19 de julho de 2018 | Com suporte-a versão do agente irá expirar em 19 de agosto de 2019 |
 | Agentes expirados | 1.1.0.0-3.0.13.0 | N/A | Sem suporte-as versões do agente expiraram em 1º de outubro de 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync

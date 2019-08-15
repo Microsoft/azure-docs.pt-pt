@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 8/14/2019
 ms.author: rkarlin
-ms.openlocfilehash: b5aae5f8e7195cfea7817b9e40e6f28d47fc3eff
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 138efd7cba80e288c4f8831b45272f4e46c8ee3f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780411"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036232"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Recursos úteis para trabalhar com a visualização do Azure Sentinel
 
@@ -41,8 +41,12 @@ Conectores de aplicativos lógicos do Azure:<https://docs.microsoft.com/connecto
 | PaloAlto| Configurar CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
 | PluralSight | Curso de linguagem de consulta Kusto| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 
+## <a name="blogs-and-forums"></a>Blogs e fóruns
 
-## <a name="next-steps"></a>Passos Seguintes
-Neste documento, você tem uma lista de recursos que são úteis quando você está trabalhando com o Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte o seguinte:
+Poste suas perguntas no [espaço do TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) para o Azure Sentinel.
 
-* [Blogue de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/). Encontre mensagens do blogue acerca da segurança e conformidade do Azure.
+Veja as postagens no blog do Azure Sentinel do [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) e [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/).
+
+
+## <a name="next-steps"></a>Passos seguintes
+Neste documento, você tem uma lista de recursos que são úteis quando você está trabalhando com o Azure Sentinel. Você encontrará informações adicionais sobre a segurança e a conformidade do Azure no [blog Microsoft Azure segurança e conformidade](https://blogs.msdn.com/b/azuresecurity/).

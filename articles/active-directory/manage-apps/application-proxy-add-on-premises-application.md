@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2019
+ms.date: 08/14/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c890288539a8abebe688ca4571ffa6c152e992ee
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: aefa6d21488b617b26ddefe5fa4fc61cdd203f96
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694046"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032530"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory
 
@@ -96,7 +96,7 @@ Permitir acesso às seguintes URLs:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O Azure usa essas URLs para verificar os certificados. |
 | login.windows.net<br>login.microsoftonline.com<br>secure.aadcdn.microsoftonline-p.com  | O conector usa essas URLs durante o processo de registro. |
 
-Você pode permitir conexões com \*. msappproxy.net e \*. ServiceBus.Windows.net se o firewall ou o proxy permitir que você configure listas de permissões de DNS. Caso contrário, você precisará permitir o acesso aos [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Os intervalos de IP são atualizados a cada semana.
+Você pode permitir conexões com \*. msappproxy.net e \*. ServiceBus.Windows.net se o firewall ou o proxy permitir que você configure listas de permissões de DNS. Caso contrário, você precisará permitir o acesso aos [intervalos de IP e marcas de serviço do Azure-nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). Os intervalos de IP são atualizados a cada semana.
 
 ## <a name="install-and-register-a-connector"></a>Instalar e registrar um conector
 
@@ -213,7 +213,7 @@ Para testar o logon no aplicativo:
 
 Para solucionar problemas, consulte solucionar problemas [de proxy de aplicativo e mensagens de erro](application-proxy-troubleshoot.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você preparou seu ambiente local para trabalhar com o proxy de aplicativo e, em seguida, instalou e registrou o conector de proxy de aplicativo. Em seguida, você adicionou um aplicativo ao seu locatário do Azure AD. Você verificou que um usuário pode fazer logon no aplicativo usando uma conta do Azure AD.
 

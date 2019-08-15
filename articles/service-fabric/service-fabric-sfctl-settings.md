@@ -1,6 +1,6 @@
 ---
-title: Definições do Azure Service Fabric CLI - sfctl | Documentos da Microsoft
-description: Descreve os comandos do CLI do Service Fabric sfctl definições.
+title: CLI do Azure Service Fabric-configurações de sfctl | Microsoft Docs
+description: Descreve os comandos de configurações de sfctl da CLI do Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,28 +8,27 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 144476fb11b7049d835e8ebd07742bf9be21eed9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 215011403d8cc5979daeb84db501af30a2944d60
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60544726"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035846"
 ---
 # <a name="sfctl-settings"></a>sfctl settings
-Configure as definições locais para esta instância de sfctl.
+Defina as configurações local para essa instância do sfctl.
 
 ## <a name="subgroups"></a>Subgrupos
 |Subgrupo|Descrição|
 | --- | --- |
-| [telemetry](service-fabric-sfctl-settings-telemetry.md) | Configure definições de telemetria locais para esta instância de sfctl. |
+| [métrico](service-fabric-sfctl-settings-telemetry.md) | Defina as configurações de telemetria locais para esta instância do sfctl. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
-- Saiba como utilizar a CLI do Service Fabric utilizando o [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
+- Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

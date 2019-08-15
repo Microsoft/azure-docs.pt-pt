@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: cbab92c85e5791e43e9d7f60de975c27a77c62d3
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: aa9752cdc2148036b3edff8a6002dc81ebff6312
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013806"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036309"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET da tabela Azure Cosmos DB: Download e notas de versão
 
@@ -27,7 +27,6 @@ ms.locfileid: "69013806"
 |   |   |
 |---|---|
 |**Transferência de SDK**|[NuGet](https://aka.ms/acdbtablenuget)|
-|**Documentação da API**|[Documentação de referência da .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table?view=azure-dotnet)|
 |**Início rápido**|[Azure Cosmos DB: Crie um aplicativo com o .NET e o API de Tabela](create-table-dotnet.md)|
 |**Tutorial**|[Azure Cosmos DB: Desenvolva com o API de Tabela no .NET](tutorial-develop-table-dotnet.md)|
 |**Estrutura de suporte atual**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|

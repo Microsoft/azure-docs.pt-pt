@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
 ms.author: chackdan
-ms.openlocfilehash: df25c52e7a3f35355eb52bd95a39f55852adfcae
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 826e7e953bd713bb623ec469b45c56012601490b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876584"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030819"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Configurar e configurar o proxy reverso no Azure Service Fabric
 O proxy reverso é um serviço de Service Fabric do Azure opcional que ajuda os microserviços em execução em uma descoberta de Cluster Service Fabric e se comunicam com outros serviços que têm pontos de extremidade http. Para saber mais, confira [proxy reverso no Azure Service Fabric](service-fabric-reverseproxy.md). Este artigo mostra como configurar e configurar o proxy reverso no cluster. 

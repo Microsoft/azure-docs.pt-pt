@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: b96d933385c67600c9d553cc8755c4e734427a67
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 6c4d143bdaee0818d32b846a38a63eb48f69f717
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018859"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034025"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Visualização-criar um contêiner do Windows Server em um cluster do AKS (serviço kubernetes do Azure) usando o CLI do Azure
 
@@ -35,7 +35,7 @@ Se você optar por instalar e usar a CLI localmente, este artigo exigirá que vo
 Você deve adicionar um pool de nós adicional depois de criar o cluster que pode executar contêineres do Windows Server. Adicionar um pool de nós adicional é abordado em uma etapa posterior, mas primeiro você precisa habilitar alguns recursos de visualização.
 
 > [!IMPORTANT]
-> Os recursos de visualização do AKS são de autoatendimento e aceitação. Eles são fornecidos para reunir comentários e bugs de nossa comunidade. Na versão prévia, esses recursos não são destinados ao uso em produção. Os recursos na visualização pública se enquadram no suporte "melhor esforço". A assistência das equipes de suporte técnico do AKS está disponível durante o horário comercial do fuso horário do Pacífico (PST). Para obter informações adicionais, consulte os seguintes artigos de suporte:
+> Os recursos de visualização do AKS são consentimento de autoatendimento. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente com base no melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter outras incompatibilidades, consulte os seguintes artigos de suporte:
 >
 > * [Políticas de suporte do AKS][aks-support-policies]
 > * [Perguntas frequentes do suporte do Azure][aks-faq]

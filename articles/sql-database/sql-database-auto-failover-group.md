@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/18/2019
-ms.openlocfilehash: 5d79edc4db07a2c5916725efc312d9f94fe985dc
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 05e16a67e6b01ce3bd1f03f0649baa1358414ea7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640100"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035065"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 
@@ -133,9 +133,13 @@ Para fazer failover de um grupo de failover, você precisa de acesso de gravaç�
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Práticas recomendadas de uso de grupos de failover com bancos de dados individuais e pools elásticos
 
-O grupo de failover automático deve ser configurado no servidor do banco de dados SQL primário e o conectará ao servidor do banco de dados SQL secundário em uma região do Azure diferente.  Os grupos podem incluir todos ou alguns bancos de dados nesses servidores. O diagrama a seguir ilustra uma configuração típica de um aplicativo de nuvem com redundância geográfica usando vários bancos de dados e o grupo de failover automático.
+O grupo de failover automático deve ser configurado no servidor do banco de dados SQL primário e o conectará ao servidor do banco de dados SQL secundário em uma região do Azure diferente. Os grupos podem incluir todos ou alguns bancos de dados nesses servidores. O diagrama a seguir ilustra uma configuração típica de um aplicativo de nuvem com redundância geográfica usando vários bancos de dados e o grupo de failover automático.
 
 ![failover automático](./media/sql-database-auto-failover-group/auto-failover-group.png)
+
+> [!NOTE]
+> Consulte [Adicionar um único banco de dados a um grupo de failover](sql-database-single-database-failover-group-tutorial.md) para obter um tutorial passo a passo detalhado adicionando um banco de dados individual a um grupo de failover. 
+
 
 Ao projetar um serviço com a continuidade dos negócios em mente, siga estas diretrizes gerais:
 
@@ -167,12 +171,17 @@ Ao projetar um serviço com a continuidade dos negócios em mente, siga estas di
 
 ## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Práticas recomendadas de uso de grupos de failover com instâncias gerenciadas
 
-O grupo de failover automático deve ser configurado na instância primária e será conectado à instância secundária em uma região do Azure diferente.  Todos os bancos de dados na instância serão replicados para a instância secundária. O diagrama a seguir ilustra uma configuração típica de um aplicativo de nuvem com redundância geográfica usando a instância gerenciada e o grupo de failover automático.
+> [!IMPORTANT]
+> Grupos de failover automático para Instância Gerenciada está em visualização pública.
+
+O grupo de failover automático deve ser configurado na instância primária e será conectado à instância secundária em uma região do Azure diferente.  Todos os bancos de dados na instância serão replicados para a instância secundária. 
+
+O diagrama a seguir ilustra uma configuração típica de um aplicativo de nuvem com redundância geográfica usando a instância gerenciada e o grupo de failover automático.
 
 ![failover automático](./media/sql-database-auto-failover-group/auto-failover-group-mi.png)
 
-> [!IMPORTANT]
-> Grupos de failover automático para Instância Gerenciada está em visualização pública.
+> [!NOTE]
+> Consulte [Adicionar instância gerenciada a um grupo de failover](sql-database-managed-instance-failover-group-tutorial.md) para obter um tutorial passo a passo detalhado adicionando uma instância gerenciada para usar o grupo de failover. 
 
 Se seu aplicativo usar a instância gerenciada como a camada de dados, siga estas diretrizes gerais ao projetar para continuidade dos negócios:
 
@@ -367,6 +376,10 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+- Para obter tutoriais detalhados, consulte
+    - [Adicionar um banco de dados individual a um grupo de failover](sql-database-single-database-failover-group-tutorial.md)
+    - [Adicionar pool elástico a um grupo de failover](sql-database-elastic-pool-failover-group-tutorial.md)
+    - [Adicionar uma instância gerenciada a um grupo de failover](sql-database-managed-instance-failover-group-tutorial.md)
 - Para scripts de exemplo, consulte:
   - [Usar o PowerShell para configurar a replicação geográfica ativa para um banco de dados individual no banco de dados SQL do Azure](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [Usar o PowerShell para configurar a replicação geográfica ativa para um banco de dados em pool no banco de dados SQL do Azure](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)

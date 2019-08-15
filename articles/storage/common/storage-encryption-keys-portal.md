@@ -1,6 +1,6 @@
 ---
-title: Configurar chaves geridas pelo cliente para a encriptação de armazenamento do Azure no portal do Azure
-description: Saiba como utilizar o portal do Azure para configurar chaves geridas pelo cliente para a encriptação de armazenamento do Azure. Chaves geridas pelo cliente permitem-lhe criar, girar, desativar e revogar os controlos de acesso.
+title: Configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure do portal do Azure
+description: Saiba como usar o portal do Azure para configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure. As chaves gerenciadas pelo cliente permitem criar, girar, desabilitar e revogar controles de acesso.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,67 +9,68 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: baabc5a8e1d063cb51a3edea3a7218591e85aa1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8ec6b1e90eb6638c99ca43715c5e8bea6e48c22
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154158"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030956"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Configurar chaves geridas pelo cliente para a encriptação de armazenamento do Azure no portal do Azure
+# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure do portal do Azure
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Este artigo mostra como configurar um cofre de chaves com chaves geridas pelo cliente, utilizando o [portal do Azure](https://portal.azure.com/). Para saber como criar um cofre de chaves com o portal do Azure, veja [início rápido: Definir e obter um segredo no Azure Key Vault com o portal do Azure](../../key-vault/quick-create-portal.md). 
+Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o [portal do Azure](https://portal.azure.com/). Para saber como criar um cofre de chaves usando o portal do Azure, consulte [início rápido: Defina e recupere um segredo de Azure Key Vault usando o portal do Azure](../../key-vault/quick-create-portal.md). 
 
 
 > [!IMPORTANT]
-> Utilizar chaves geridas pelo cliente com encriptação de armazenamento do Azure requer que o Cofre de chaves têm duas propriedades necessárias configuradas, **eliminação de forma recuperável** e **fazer não remover**. Estas propriedades estão ativadas por predefinição, quando cria um novo cofre de chaves no portal do Azure. No entanto, se precisar de ativar estas propriedades no Cofre de chaves existente, tem de utilizar o PowerShell ou a CLI do Azure.
+> O uso de chaves gerenciadas pelo cliente com a criptografia de armazenamento do Azure exige que o cofre de chaves tenha duas propriedades obrigatórias configuradas, **exclusão reversível** e **não limpar**. Essas propriedades são habilitadas por padrão quando você cria um novo cofre de chaves no portal do Azure. No entanto, se você precisar habilitar essas propriedades em um cofre de chaves existente, deverá usar o PowerShell ou CLI do Azure.
+> Somente chaves RSA e tamanho de chave 2048 têm suporte.
 
-## <a name="enable-customer-managed-keys"></a>Ativar as chaves geridas pelo cliente
+## <a name="enable-customer-managed-keys"></a>Habilitar chaves gerenciadas pelo cliente
 
-Para ativar as chaves geridas pelo cliente no portal do Azure, siga estes passos:
+Para habilitar as chaves gerenciadas pelo cliente no portal do Azure, siga estas etapas:
 
 1. Navegue até à sua conta de armazenamento.
-1. Sobre o **definições** painel para a conta de armazenamento, clique em **encriptação**. Selecione o **sua própria chave** opção, conforme mostrado na figura a seguir.
+1. Na folha **configurações** da conta de armazenamento, clique em **criptografia**. Selecione a opção **usar sua própria chave** , conforme mostrado na figura a seguir.
 
-    ![Opção de encriptação do portal de captura de ecrã a mostrar](./media/storage-encryption-keys-portal/ssecmk1.png)
+    ![Captura de tela do portal mostrando a opção de criptografia](./media/storage-encryption-keys-portal/ssecmk1.png)
 
-## <a name="specify-a-key"></a>Especifique uma chave
+## <a name="specify-a-key"></a>Especificar uma chave
 
-Depois de ativar as chaves geridas pelo cliente, terá a oportunidade de especificar uma chave para associar a conta de armazenamento.
+Depois de habilitar as chaves gerenciadas pelo cliente, você terá a oportunidade de especificar uma chave a ser associada à conta de armazenamento.
 
 ### <a name="specify-a-key-as-a-uri"></a>Especifique uma chave como um URI
 
-Para especificar uma chave como um URI, siga estes passos:
+Para especificar uma chave como um URI, siga estas etapas:
 
-1. Para localizar o URI da chave no portal do Azure, navegue para o seu Cofre de chaves e selecione o **chaves** definição. Selecione a chave pretendida e, em seguida, clicar na tecla para ver as respetivas definições. Copie o valor do **identificador de chave** campo, que fornece o URI.
+1. Para localizar o URI de chave no portal do Azure, navegue até o cofre de chaves e selecione a configuração **chaves** . Selecione a chave desejada e clique na chave para exibir suas configurações. Copie o valor do campo **identificador de chave** , que fornece o URI.
 
-    ![URI da chave captura de ecrã que mostra Cofre de chaves](media/storage-encryption-keys-portal/key-uri-portal.png)
+    ![Captura de tela mostrando o URI da chave do Key Vault](media/storage-encryption-keys-portal/key-uri-portal.png)
 
-1. Na **encriptação** definições da sua conta de armazenamento, escolha a **URI da chave de Enter** opção.
-1. Na **URI da chave** campo, especifique o URI.
+1. Nas configurações de **criptografia** para sua conta de armazenamento, escolha a opção **inserir URI de chave** .
+1. No campo **URI da chave** , ESPECIFIQUE o URI.
 
-   ![Captura de ecrã que mostra como inserir o URI da chave](./media/storage-encryption-keys-portal/ssecmk2.png)
+   ![Captura de tela mostrando como inserir o URI da chave](./media/storage-encryption-keys-portal/ssecmk2.png)
 
-### <a name="specify-a-key-from-a-key-vault"></a>Especifique uma chave de um cofre de chaves
+### <a name="specify-a-key-from-a-key-vault"></a>Especificar uma chave de um cofre de chaves
 
-Para especificar uma chave de um cofre de chaves, certifique-se de que tem um cofre de chaves que contém uma chave. Para especificar uma chave de um cofre de chaves, siga estes passos:
+Para especificar uma chave de um cofre de chaves, primeiro verifique se você tem um cofre de chaves que contém uma chave. Para especificar uma chave de um cofre de chaves, siga estas etapas:
 
-1. Escolha o **selecione do Key Vault** opção.
-2. Escolha o Cofre de chaves que contém a chave que pretende utilizar.
-3. Escolha a chave de Cofre de chaves.
+1. Escolha a opção **selecionar de Key Vault** .
+2. Escolha o cofre de chaves que contém a chave que você deseja usar.
+3. Escolha a chave no cofre de chaves.
 
-   ![Captura de ecrã que mostra a opção de chave gerida pelo cliente](./media/storage-encryption-keys-portal/ssecmk3.png)
+   ![Captura de tela mostrando a opção de chave gerenciada pelo cliente](./media/storage-encryption-keys-portal/ssecmk3.png)
 
-## <a name="update-the-key-version"></a>Atualizar a versão da chave
+## <a name="update-the-key-version"></a>Atualizar a versão de chave
 
-Quando cria uma nova versão de uma chave, terá de atualizar a conta de armazenamento a utilizar a nova versão. Siga estes passos.
+Ao criar uma nova versão de uma chave, você precisará atualizar a conta de armazenamento para usar a nova versão. Siga estes passos.
 
-1. Navegue até à sua conta de armazenamento e exibir o **Encryption** definições.
-1. Especifique o URI para a nova versão da chave. Em alternativa, pode selecionar o Cofre de chaves e a chave novamente para atualizar a versão.
+1. Navegue até sua conta de armazenamento e exiba as configurações de **criptografia** .
+1. Especifique o URI para a nova versão de chave. Como alternativa, você pode selecionar o cofre de chaves e a chave novamente para atualizar a versão.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Encriptação de armazenamento do Azure para dados Inativos](storage-service-encryption.md)
-- [O que é o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
+- [Criptografia de armazenamento do Azure para dados em repouso](storage-service-encryption.md)
+- [O que é Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?

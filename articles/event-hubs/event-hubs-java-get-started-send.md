@@ -1,5 +1,5 @@
 ---
-title: Enviar e receber eventos usando Java – hubs de eventos do Azure | Microsoft Docs
+title: Usar o Java para enviar dados de e para os hubs de eventos do Azure
 description: Este artigo fornece uma explicação da criação de um aplicativo Java que envia eventos para os hubs de eventos do Azure.
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -7,15 +7,15 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.custom: seodec18
+ms.custom: seodec18, seo-java-august2019
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 00107d99f69fcec086f9692a5ba31a9d9970d089
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c85d69b823956a5cf5e7f9d6dfa3c39b918cd465
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848520"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034803"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-java"></a>Enviar eventos para ou receber eventos de hubs de eventos do Azure usando Java
 

@@ -1,6 +1,6 @@
 ---
-title: Processar mensagens grandes - Azure Logic Apps | Documentos da Microsoft
-description: Saber como lidar com tamanhos de mensagem grande com a segmentação no Azure Logic Apps
+title: Manipular mensagens grandes-aplicativos lógicos do Azure | Microsoft Docs
+description: Saiba como lidar com tamanhos de mensagens grandes com agrupamento em aplicativos lógicos do Azure
 services: logic-apps
 documentationcenter: ''
 author: shae-hurst
@@ -14,82 +14,82 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4a37345cf33cbb02a6bd9a70b0253a55ee4c9478
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303795"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035585"
 ---
-# <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Processar mensagens grandes com a segmentação no Azure Logic Apps
+# <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Manipular mensagens grandes com agrupamento em aplicativos lógicos do Azure
 
-Quando o tratamento de mensagens, o Logic Apps limita conteúdo da mensagem para um tamanho máximo. Este limite ajuda a reduzir a sobrecarga criada ao armazenar e processar mensagens grandes. Para lidar com mensagens maiores do que este limite, o Logic Apps podem *segmentos* uma mensagem grande em mensagens menores. Dessa forma, pode ainda transferir ficheiros grandes utilizando o Logic Apps em condições específicas. Ao se comunicar com outros serviços através de conectores ou HTTP, o Logic Apps podem consumir mensagens grandes, mas *apenas* em blocos. Esta condição significa conectores também tem de suportar segmentação ou a troca de mensagens HTTP subjacente entre estes serviços e aplicações lógicas têm de utilizar o agrupamento.
+Ao lidar com mensagens, os aplicativos lógicos limitam o conteúdo da mensagem a um tamanho máximo. Esse limite ajuda a reduzir a sobrecarga criada armazenando e processando mensagens grandes. Para lidar com mensagens maiores que esse limite, os aplicativos lógicos podem *dividir* uma mensagem grande em mensagens menores. Dessa forma, você ainda pode transferir arquivos grandes usando aplicativos lógicos sob condições específicas. Ao se comunicar com outros serviços por meio de conectores ou HTTP, os aplicativos lógicos podem consumir mensagens grandes, mas *apenas* em partes. Essa condição significa que os conectores também devem oferecer suporte a agrupamento ou a troca de mensagens HTTP subjacente entre aplicativos lógicos e esses serviços devem usar agrupamento.
 
-Este artigo mostra como pode configurar a segmentação para manipulação de mensagens que são maiores do que o limite de ações. Acionadores da aplicação lógica não suportam a segmentação devido a maior sobrecarga de troca de várias mensagens. 
+Este artigo mostra como você pode configurar o agrupamento de ações que manipulam mensagens que são maiores que o limite. Os gatilhos de aplicativo lógico não dão suporte ao agrupamento devido à sobrecarga maior de troca de várias mensagens. 
 
 ## <a name="what-makes-messages-large"></a>O que torna as mensagens "grandes"?
 
-As mensagens são "grandes" com base no serviço de lidar com essas mensagens. O limite do tamanho exato mensagens grandes difere em Logic Apps e conectores. Logic Apps e conectores diretamente não é possível consumir mensagens grandes, que devem ser segmentadas. Para o limite de tamanho de mensagem do Logic Apps, consulte [Logic Apps limites e configuração](../logic-apps/logic-apps-limits-and-config.md).
-Para o limite de tamanho de mensagem de cada conector, consulte a [detalhes técnicos de específico do conector](../connectors/apis-list.md).
+As mensagens são "grandes" com base no serviço que manipula essas mensagens. O limite de tamanho exato em mensagens grandes difere entre aplicativos lógicos e conectores. Os aplicativos lógicos e os conectores não podem consumir diretamente mensagens grandes, que devem ser fragmentadas. Para o limite de tamanho de mensagem dos aplicativos lógicos, consulte [limites e configuração de aplicativos lógicos](../logic-apps/logic-apps-limits-and-config.md).
+Para obter o limite de tamanho de mensagem de cada conector, consulte os [detalhes técnicos específicos do conector](../connectors/apis-list.md).
 
-### <a name="chunked-message-handling-for-logic-apps"></a>Manipulação para o Logic Apps de mensagens em partes
+### <a name="chunked-message-handling-for-logic-apps"></a>Manipulação de mensagens em partes para aplicativos lógicos
 
-O Logic Apps diretamente não é possível utilizar saídas de mensagens em partes que são maiores do que o limite de tamanho de mensagem. Apenas as ações que suportam a segmentação podem acessar o conteúdo da mensagem nessas saídas. Por isso, tem de corresponder a uma ação que trata de mensagens grandes *qualquer um dos* estes critérios:
+Os aplicativos lógicos não podem usar diretamente saídas de mensagens em partes que sejam maiores que o limite de tamanho da mensagem. Somente as ações que dão suporte a Agrupamento podem acessar o conteúdo da mensagem nessas saídas. Portanto, uma ação que manipula mensagens grandes deve atender *a* esses critérios:
 
-* Suporta nativamente a segmentação quando essa ação pertence a um conector. 
-* Tenha suporte habilitado na configuração de tempo de execução da ação de segmentação. 
+* Dá suporte nativo ao agrupamento quando essa ação pertence a um conector. 
+* Ter suporte de agrupamento habilitado na configuração de tempo de execução da ação. 
 
-Caso contrário, receberá um erro de tempo de execução quando tenta acessar o conteúdo de saída grande. Para ativar a segmentação, consulte [configurar o suporte de segmentação](#set-up-chunking).
+Caso contrário, você obterá um erro de tempo de execução quando tentar acessar a saída de conteúdo grande. Para habilitar o agrupamento, consulte [Configurar o suporte de agrupamento](#set-up-chunking).
 
-### <a name="chunked-message-handling-for-connectors"></a>Manipulação de conectores de mensagens em partes
+### <a name="chunked-message-handling-for-connectors"></a>Manipulação de mensagens em partes para conectores
 
-Os serviços que comunicam com o Logic Apps podem ter seus próprios limites de tamanho de mensagem. Estes limites são, muitas vezes, menores do que o limite de Logic Apps. Por exemplo, supondo que um conector suporta o agrupamento, um conector pode considerar uma mensagem de 30 MB como grande, enquanto o Logic Apps não faz. Para estar em conformidade com o limite deste conector, Logic Apps divide qualquer mensagem mais de 30 MB em segmentos mais pequenos.
+Serviços que se comunicam com aplicativos lógicos podem ter seus próprios limites de tamanho de mensagem. Esses limites geralmente são menores do que o limite dos aplicativos lógicos. Por exemplo, supondo que um conector ofereça suporte a agrupamento, um conector pode considerar uma mensagem de 30 MB como grande, enquanto os aplicativos lógicos não. Para obedecer ao limite deste conector, os aplicativos lógicos dividem qualquer mensagem maior que 30 MB em partes menores.
 
-Para os conectores que suportam a segmentação, o protocolo de criação de blocos subjacente é invisível para os utilizadores finais. No entanto, nem todos os conectores suportam segmentação, pelo que estes conectores geram erros de runtime, quando mensagens de entrada excederem os limites de tamanho dos conectores.
+Para conectores que dão suporte a agrupamento, o protocolo subjacente é invisível para os usuários finais. No entanto, nem todos os conectores dão suporte a agrupamento, portanto, esses conectores geram erros de tempo de execução quando as mensagens de entrada excedem os limites de tamanho
 
 <a name="set-up-chunking"></a>
 
-## <a name="set-up-chunking-over-http"></a>Configurar o agrupamento através de HTTP
+## <a name="set-up-chunking-over-http"></a>Configurar o agrupamento sobre HTTP
 
-Em cenários HTTP genéricos, pode dividir grandes transferências de conteúdos e carrega através de HTTP, para que a aplicação lógica e um ponto de extremidade podem trocar mensagens grandes. No entanto, deve colocar partes de mensagens da forma que espera de Logic Apps. 
+Em cenários HTTP genéricos, você pode dividir downloads de conteúdo grandes e carregamentos via HTTP, para que seu aplicativo lógico e um ponto de extremidade possam trocar mensagens grandes. No entanto, você deve dividir as mensagens da maneira esperada pelos aplicativos lógicos. 
 
-Se um ponto final tiver ativado a segmentação para downloads ou carregamentos, as ações de HTTP na sua aplicação lógica automaticamente colocar partes de mensagens grandes. Caso contrário, tem de configurar suporte no ponto final de segmentação. Se não detém ou controla o ponto final ou o conector, não pode ter a opção para configurar a segmentação.
+Se um ponto de extremidade tiver habilitado o agrupamento para downloads ou carregamentos, as ações HTTP em seu aplicativo lógico farão partes de mensagens grandes automaticamente. Caso contrário, você deve configurar o suporte de agrupamento no ponto de extremidade. Se você não possuir ou controlar o ponto de extremidade ou conector, talvez não tenha a opção de configurar o agrupamento.
 
-Além disso, se uma ação de HTTP já não habilitar a segmentação, tem também de configurar divisão na ação `runTimeConfiguration` propriedade. Pode definir esta propriedade dentro da ação, diretamente no editor de vista de código, conforme descrito mais tarde ou no estruturador de aplicações lógicas, conforme descrito aqui:
+Além disso, se uma ação http ainda não habilitar o agrupamento, você também deverá configurar o agrupamento na propriedade da `runTimeConfiguration` ação. Você pode definir essa propriedade dentro da ação, seja diretamente no editor de modo de exibição de código, conforme descrito posteriormente, ou no designer de aplicativos lógicos, conforme descrito aqui:
 
-1. No canto superior direito da ação de HTTP, selecione o botão de reticências ( **...** ) e, em seguida, escolha **definições**.
+1. No canto superior direito da ação http, escolha o botão de reticências ( **...** ) e, em seguida, escolha **configurações**.
 
-   ![Em ação, abra o menu de definições](./media/logic-apps-handle-large-messages/http-settings.png)
+   ![Na ação, abra o menu configurações](./media/logic-apps-handle-large-messages/http-settings.png)
 
-2. Sob **transferência de conteúdo**, defina **permitir segmentação** para **no**.
+2. Em **transferência de conteúdo**, defina **permitir agrupamento** como **ativado**.
 
-   ![Ativar o agrupamento](./media/logic-apps-handle-large-messages/set-up-chunking.png)
+   ![Ativar agrupamento](./media/logic-apps-handle-large-messages/set-up-chunking.png)
 
-3. Para continuar a configuração de segmentação para downloads ou carregamentos, avance para as secções seguintes.
+3. Para continuar a configurar o agrupamento de downloads ou carregamentos, continue com as seções a seguir.
 
 <a name="download-chunks"></a>
 
-## <a name="download-content-in-chunks"></a>Transferir o conteúdo em partes
+## <a name="download-content-in-chunks"></a>Baixar conteúdo em partes
 
-Muitos pontos de extremidade enviam automaticamente mensagens grandes em segmentos quando transferidos através de um pedido HTTP GET. Para transferir mensagens em partes de um ponto de extremidade através de HTTP, o ponto final tem de suportar pedidos de conteúdo parciais, ou *segmentado downloads*. Quando a aplicação lógica envia um pedido HTTP GET para um ponto final para baixar conteúdo e o ponto final responde com um código de estado "206", a resposta contém conteúdo em partes. O Logic Apps não é possível controlar se um ponto de extremidade suporta pedidos parciais. No entanto, quando a aplicação lógica recebe a resposta em primeiro lugar "206", a sua aplicação lógica envia automaticamente vários pedidos para transferir todo o conteúdo.
+Muitos pontos de extremidade enviam mensagens grandes em partes automaticamente quando baixados por meio de uma solicitação HTTP GET. Para baixar mensagens em partes de um ponto de extremidade sobre HTTP, o ponto de extremidade deve dar suporte a solicitações de conteúdo parcial ou *downloads em partes*. Quando seu aplicativo lógico envia uma solicitação HTTP GET para um ponto de extremidade para baixar conteúdo e o ponto de extremidade responde com um código de status "206", a resposta contém o conteúdo em partes. Os aplicativos lógicos não podem controlar se um ponto de extremidade dá suporte a solicitações parciais. No entanto, quando seu aplicativo lógico Obtém a primeira resposta "206", seu aplicativo lógico envia automaticamente várias solicitações para baixar todo o conteúdo.
 
-Para verificar se um ponto de extremidade pode suportar conteúdo parcial, envie um pedido HEAD. Este pedido ajuda-o a determinar se a resposta contém o `Accept-Ranges` cabeçalho. Dessa forma, se o ponto final oferece suporte a downloads em partes, mas não envia o conteúdo em partes, pode *sugerir* esta opção, definindo o `Range` cabeçalho no seu pedido de HTTP GET. 
+Para verificar se um ponto de extremidade pode dar suporte a conteúdo parcial, envie uma solicitação HEAD. Essa solicitação ajuda a determinar se a resposta contém o `Accept-Ranges` cabeçalho. Dessa forma, se o ponto de extremidade oferecer suporte a downloads em bloco, mas não enviar conteúdo em partes, você poderá sugerir `Range` essa opção definindo o cabeçalho na sua solicitação HTTP Get. 
 
-Estes passos descrevem o processo detalhado que Logic Apps utiliza para o download de conteúdo em partes de um ponto final à sua aplicação lógica:
+Estas etapas descrevem os aplicativos lógicos de processo detalhados usados para baixar conteúdo em partes de um ponto de extremidade para seu aplicativo lógico:
 
-1. A aplicação lógica envia um pedido HTTP GET para o ponto final.
+1. Seu aplicativo lógico envia uma solicitação HTTP GET para o ponto de extremidade.
 
-   O cabeçalho do pedido, opcionalmente, pode incluir um `Range` campo que descreve um intervalo de bytes que partes de conteúdo.
+   Opcionalmente, o cabeçalho da solicitação pode `Range` incluir um campo que descreve um intervalo de bytes para a solicitação de partes de conteúdo.
 
-2. O ponto final responde com o código de estado "206" e um corpo de mensagem HTTP.
+2. O ponto de extremidade responde com o código de status "206" e um corpo de mensagem HTTP.
 
-    Detalhes sobre os conteúdos dessa porção, são apresentados na resposta da `Content-Range` cabeçalho, incluindo informações que ajuda a Logic Apps determinar o início e de fim para o segmento, mais o tamanho total de todo o conteúdo antes de segmentação.
+    Os detalhes sobre o conteúdo nessa parte aparecem no cabeçalho da `Content-Range` resposta, incluindo informações que ajudam os aplicativos lógicos a determinar o início e o término da parte, além do tamanho total do conteúdo inteiro antes do agrupamento.
 
-3. A aplicação lógica envia automaticamente pedidos HTTP GET acompanhamento.
+3. Seu aplicativo lógico envia automaticamente solicitações HTTP GET de acompanhamento.
 
-    A aplicação lógica envia pedidos de seguimento GET até que todo o conteúdo é recuperado.
+    Seu aplicativo lógico envia solicitações GET-up até que todo o conteúdo seja recuperado.
 
-Por exemplo, esta definição de ação mostra um pedido HTTP GET que define o `Range` cabeçalho. O cabeçalho *sugere* que o ponto final deverá responder com segmentado conteúdo:
+Por exemplo, essa definição de ação mostra uma solicitação HTTP Get que define `Range` o cabeçalho. O cabeçalho *sugere* que o ponto de extremidade deve responder com conteúdo em partes:
 
 ```json
 "getAction": {
@@ -105,48 +105,54 @@ Por exemplo, esta definição de ação mostra um pedido HTTP GET que define o `
 }
 ```
 
-O pedido GET define o cabeçalho de "Range" "bytes = 0-1023", que é o intervalo de bytes. Se o ponto final suporta pedidos de conteúdo parcial, o ponto final responde com um segmento de conteúdo de intervalo pedido. Com base no ponto final, o formato exato para o campo de cabeçalho de "Range" pode ser diferente.
+A solicitação GET define o cabeçalho "Range" como "bytes = 0-1023", que é o intervalo de bytes. Se o ponto de extremidade der suporte a solicitações de conteúdo parcial, o ponto de extremidade responderá com uma parte de conteúdo do intervalo solicitado. Com base no ponto de extremidade, o formato exato do campo de cabeçalho "Range" pode ser diferente.
 
 <a name="upload-chunks"></a>
 
 ## <a name="upload-content-in-chunks"></a>Carregar conteúdo em partes
 
-Para carregar conteúdo em partes de uma ação de HTTP, a ação tem de ter ativado suporte segmentação através da ação `runtimeConfiguration` propriedade. Esta definição permite a ação para iniciar o protocolo de criação de blocos. A aplicação lógica, em seguida, pode enviar uma mensagem inicial de POST ou PUT para o ponto de extremidade de destino. Depois do ponto final responde com um tamanho de segmentos sugeridas, a aplicação lógica segue através do envio de pedidos de HTTP de PATCHES de mensagens em fila que contêm os segmentos de conteúdo.
+Para carregar o conteúdo em partes de uma ação http, a ação deve ter o suporte de agrupamento habilitado por meio `runtimeConfiguration` da propriedade da ação. Essa configuração permite que a ação inicie o protocolo de agrupamento. Seu aplicativo lógico pode enviar uma mensagem de POSTAgem inicial ou PUT para o ponto de extremidade de destino. Depois que o ponto de extremidade responde com um tamanho de parte sugerido, seu aplicativo lógico segue o envio de solicitações de PATCH HTTP que contêm as partes de conteúdo.
 
-Estes passos descrevem o processo detalhado que Logic Apps utiliza para carregar conteúdo em partes da sua aplicação lógica para um ponto final:
+Estas etapas descrevem os aplicativos lógicos de processo detalhados usados para carregar conteúdo em partes do seu aplicativo lógico para um ponto de extremidade:
 
-1. A aplicação lógica envia um pedido de HTTP POST ou PUT inicial com um corpo de mensagem vazio. O cabeçalho do pedido, inclui estas informações sobre o conteúdo que quer que a aplicação lógica para carregar em blocos:
+1. Seu aplicativo lógico envia uma solicitação HTTP POST ou PUT inicial com um corpo de mensagem vazio. O cabeçalho da solicitação, inclui essas informações sobre o conteúdo que seu aplicativo lógico deseja carregar em partes:
 
-   | Campo de cabeçalho do pedido de aplicações lógicas | Value | Type | Descrição |
+   | Campo de cabeçalho de solicitação de aplicativos lógicos | Value | Type | Descrição |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | chunked | String | Indica que o conteúdo é carregado em blocos |
-   | **x-ms-content-length** | <*content-length*> | Integer | O tamanho do conteúdo todo em bytes antes de segmentação |
+   | **x-ms-transfer-mode** | em bloco | Cadeia | Indica que o conteúdo é carregado em partes |
+   | **x-ms-content-length** | <*content-length*> | Integer | O tamanho do conteúdo inteiro em bytes antes do agrupamento |
    ||||
 
-2. O ponto final responde com o código de estado de sucesso "200" e estas informações opcionais:
+2. O ponto de extremidade responde com o código de status de êxito "200" e essas informações opcionais:
 
-   | Campo de cabeçalho de resposta do ponto final | Type | Necessário | Descrição |
+   | Campo de cabeçalho de resposta do ponto de extremidade | Type | Necessário | Descrição |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Integer | Não | O tamanho do segmento sugerido em bytes |
-   | **Location** | String | Não | A localização de URL para onde enviar as mensagens HTTP PATCH |
+   | **x-ms-chunk-size** | Integer | Não | O tamanho de parte sugerido em bytes |
+   | **Location** | Cadeia | Não | O local da URL para onde enviar as mensagens de PATCH HTTP |
    ||||
 
-3. A aplicação lógica cria e envia mensagens de HTTP PATCH seguimento - cada um com estas informações:
+3. Seu aplicativo lógico cria e envia mensagens de PATCH HTTP de acompanhamento, cada uma com essas informações:
 
-   * Um segmento de conteúdo com base na **x-ms--tamanho do segmento** ou tamanho internamente calculado até que todo o conteúdo totalizando **x-ms-content-length** sequencialmente é carregado
+   * Uma parte de conteúdo com base no **tamanho x-MS-Chunk** ou em algum tamanho calculado internamente até que todo o conteúdo total de **x-MS-Content-Length** seja carregado sequencialmente
 
-   * Estes detalhes de cabeçalho sobre o conteúdo segmentos enviados em cada mensagem de PATCH:
+   * Estes detalhes de cabeçalho sobre a parte de conteúdo enviada em cada mensagem de PATCH:
 
-     | Campo de cabeçalho do pedido de aplicações lógicas | Value | Type | Descrição |
+     | Campo de cabeçalho de solicitação de aplicativos lógicos | Value | Type | Descrição |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*range*> | String | O intervalo de bytes para o segmento atual do conteúdo, incluindo o valor inicial, terminando o valor e o tamanho total do conteúdo, por exemplo: "bytes = 0-1023/10100" |
-     | **Content-Type** | <*content-type*> | String | O tipo de conteúdo em partes |
-     | **Content-Length** | <*content-length*> | String | O comprimento do tamanho em bytes do segmento atual |
+     | **Intervalo de conteúdo** | <*range*> | Cadeia | O intervalo de bytes para a parte de conteúdo atual, incluindo o valor inicial, o valor final e o tamanho total do conteúdo, por exemplo: "bytes = 0-1023/10100" |
+     | **Content-Type** | <*content-type*> | Cadeia | O tipo de conteúdo em partes |
+     | **Content-Length** | <*content-length*> | Cadeia | O comprimento do tamanho em bytes da parte atual |
      |||||
 
-4. Depois de cada pedido de PATCH, o ponto final confirma o recebimento para cada bloco de responder com o código de estado "200".
+4. Após cada solicitação de PATCH, o ponto de extremidade confirma o recebimento de cada parte respondendo com o código de status "200" e os seguintes cabeçalhos de resposta:
 
-Por exemplo, esta definição de ação mostra um pedido de HTTP POST para carregar conteúdo em partes para um ponto de extremidade. Na ação de `runTimeConfiguration` propriedade, o `contentTransfer` conjuntos de propriedades `transferMode` para `chunked`:
+   | Campo de cabeçalho de resposta do ponto de extremidade | Type | Necessário | Descrição |
+   |--------------------------------|------|----------|-------------|
+   | **Amplitude** | Cadeia | Sim | O intervalo de bytes para o conteúdo recebido pelo ponto de extremidade, por exemplo: "bytes = 0-1023" |   
+   | **x-ms-chunk-size** | Integer | Não | O tamanho de parte sugerido em bytes |
+   ||||
+
+Por exemplo, essa definição de ação mostra uma solicitação HTTP POST para carregar conteúdo em partes para um ponto de extremidade. Na propriedade da ação `runTimeConfiguration` , a `contentTransfer` propriedade é definida `transferMode` como `chunked`:
 
 ```json
 "postAction": {

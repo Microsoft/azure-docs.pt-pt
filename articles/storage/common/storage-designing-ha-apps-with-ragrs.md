@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/28/2019
+ms.date: 08/14/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 79d00d39903b6fb3891ee7c0ccc4743763043568
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 1a5d80d6cd31621f8c3931b1845050f0a212ef08
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015622"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036604"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Criando aplicativos altamente disponíveis usando o armazenamento com redundância geográfica com acesso de leitura
 
@@ -150,7 +150,7 @@ Você tem três opções principais para monitorar a frequência de repetições
 
 * Adicione um manipulador para o evento de [**repetição**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) no objeto [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) que você passa para suas solicitações de armazenamento – esse é o método exibido neste artigo e usado no exemplo que o acompanha. Esses eventos são acionados sempre que o cliente tenta uma solicitação novamente, permitindo que você acompanhe a frequência com que o cliente encontra erros com nova tentativa em um ponto de extremidade primário.
 
-    ```csharp 
+    ```csharp
     operationContext.Retrying += (sender, arguments) =>
     {
         // Retrying in the primary region
@@ -219,7 +219,13 @@ Você pode usar o PowerShell ou CLI do Azure para recuperar a hora da última si
 
 ### <a name="powershell"></a>PowerShell
 
-Para obter a hora da última sincronização para a conta de armazenamento usando o PowerShell, verifique a propriedade **GeoReplicationStats. LastSyncTime** da conta de armazenamento. Lembre-se de substituir os valores de espaço reservado pelos seus próprios valores:
+Para obter a hora da última sincronização para a conta de armazenamento usando o PowerShell, instale um módulo de visualização do armazenamento do Azure que dá suporte à obtenção de estatísticas de replicação geográfica. Por exemplo:
+
+```powershell
+Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
+```
+
+Em seguida, verifique a propriedade **GeoReplicationStats. LastSyncTime** da conta de armazenamento. Lembre-se de substituir os valores de espaço reservado pelos seus próprios valores:
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `

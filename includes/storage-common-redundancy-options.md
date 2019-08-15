@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 03/26/2018
+ms.date: 06/28/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 60912adbecbfdb4e6bebd7ddfea59eafa09b985e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5df0fe23183b53f13d6c6545e248724324434cde
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184482"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69029844"
 ---
 As opções de replicação para uma conta de armazenamento incluem:
 
-* [Armazenamento localmente redundante (LRS)](../articles/storage/common/storage-redundancy-lrs.md): Uma estratégia de replicação simples e económica. Os dados são replicados dentro de uma única unidade de escala de armazenamento.
-* [Armazenamento com redundância de zona (ZRS)](../articles/storage/common/storage-redundancy-zrs.md): Replicação para elevada disponibilidade e durabilidade. Os dados são replicados de forma síncrona em três zonas de disponibilidade. 
-* [Armazenamento georredundante (GRS)](../articles/storage/common/storage-redundancy-grs.md): Replicação de inter-regional para proteção contra indisponibilidade de toda a região.
-* [Armazenamento georredundante com acesso de leitura (RA-GRS)](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage): Replicação entre regiões com acesso de leitura à réplica.
+* [LRS (armazenamento com redundância local)](../articles/storage/common/storage-redundancy-lrs.md): Uma estratégia de replicação simples e de baixo custo. Os dados são replicados de forma síncrona três vezes dentro da região primária.
+* [Armazenamento com redundância de zona (ZRS)](../articles/storage/common/storage-redundancy-zrs.md): Replicação para cenários que exigem alta disponibilidade. Os dados são replicados de forma síncrona em três zonas de disponibilidade do Azure na região primária.
+* [Armazenamento com redundância geográfica (GRS)](../articles/storage/common/storage-redundancy-grs.md): Replicação entre regiões para proteger contra interrupções regionais. Os dados são replicados de forma síncrona três vezes na região primária e, em seguida, replicados assincronamente para a região secundária. Para acesso de leitura aos dados na região secundária, habilite o armazenamento com redundância geográfica com acesso de leitura (RA-GRS).
+* [Armazenamento com redundância de zona geográfica (GZRS) (visualização)](../articles/storage/common/storage-redundancy-gzrs.md): Replicação para cenários que exigem alta disponibilidade e durabilidade máxima. Os dados são replicados de forma síncrona em três zonas de disponibilidade do Azure na região primária e, em seguida, replicados assincronamente para a região secundária. Para acesso de leitura aos dados na região secundária, habilite o armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS).

@@ -1,6 +1,6 @@
 ---
-title: Serviço do Azure Service Fabric CLI sfctl malha | Documentos da Microsoft
-description: Descreve os comandos de serviço do Service Fabric CLI sfctl malha.
+title: CLI do Azure Service Fabric-serviço de malha sfctl | Microsoft Docs
+description: Descreve os comandos do serviço de malha do Service Fabric CLI sfctl.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,51 +8,50 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e8b735780f4ed3402845d9d401f8e37701b9a1a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6afcb891de763f156705bc9825ab7575a272c1db
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836931"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035024"
 ---
 # <a name="sfctl-mesh-service"></a>sfctl mesh service
-Obtenha detalhes do serviço e os serviços de lista de um recurso de aplicação.
+Obter detalhes do serviço e listar serviços de um recurso de aplicativo.
 
 ## <a name="commands"></a>Comandos
 
 |Comando|Descrição|
 | --- | --- |
-| list | Apresenta uma lista de todos os recursos de serviço. |
+| list | Lista todos os recursos de serviço. |
 | mostrar | Obtém o recurso de serviço com o nome fornecido. |
 
 ## <a name="sfctl-mesh-service-list"></a>lista de serviços de malha sfctl
-Apresenta uma lista de todos os recursos de serviço.
+Lista todos os recursos de serviço.
 
-Obtém as informações sobre todos os serviços de um recurso de aplicação. As informações incluem a descrição e outras propriedades do serviço.
+Obtém as informações sobre todos os serviços de um recurso de aplicativo. As informações incluem a descrição e outras propriedades do serviço.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --nome da aplicação – nome da aplicação [necessário] | O nome da aplicação. |
+| --App-Name--nome-do-aplicativo [obrigatório] | O nome do aplicativo. |
 
-### <a name="global-arguments"></a>Argumentos global
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
-| – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
+| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
+| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
+| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
-## <a name="sfctl-mesh-service-show"></a>o sfctl malha serviço show
+## <a name="sfctl-mesh-service-show"></a>exibição do serviço de malha sfctl
 Obtém o recurso de serviço com o nome fornecido.
 
 Obtém as informações sobre o recurso de serviço com o nome fornecido. As informações incluem a descrição e outras propriedades do serviço.
@@ -61,20 +60,20 @@ Obtém as informações sobre o recurso de serviço com o nome fornecido. As inf
 
 |Argumento|Descrição|
 | --- | --- |
-| --nome da aplicação – nome da aplicação [necessário] | O nome da aplicação. |
-| -nome -n [necessário] | O nome do serviço. |
+| --App-Name--nome-do-aplicativo [obrigatório] | O nome do aplicativo. |
+| --Name-n [obrigatório] | O nome do serviço. |
 
-### <a name="global-arguments"></a>Argumentos global
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
-| – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
+| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
+| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
+| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
-- Saiba como utilizar a CLI do Service Fabric utilizando o [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
+- Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5a1e487b52cb6f146ccc7fd3208ecc90de9aa080
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: eb2a6933b711804f957056353d7d609dbdbbe5d5
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840153"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036461"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um C# módulo IOT Edge para dispositivos Windows
 
@@ -51,7 +51,7 @@ Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior pa
 * Um [dispositivo Windows executando o Azure IOT Edge](quickstart.md).
 * Um registro de contêiner, como o [registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/).
 * [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configurado com a extensão de [ferramentas de Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) .
-* [Docker CE](https://docs.docker.com/install/) configurado para executar contêineres do Windows.
+* [Área de trabalho](https://docs.docker.com/docker-for-windows/install/) do Docker configurada para executar contêineres do Windows.
 
 > [!TIP]
 > Se você estiver usando o Visual Studio 2017 (versão 15,7 ou superior), plrease baixar e instalar o [Azure IOT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) para vs 2017 no Visual Studio Marketplace
@@ -76,7 +76,7 @@ As ferramentas de Azure IoT Edge fornecem modelos de projeto para todas as lingu
 
 4. Na janela IoT Edge aplicativo e módulo, configure o projeto com os seguintes valores: 
 
-   | Campo | Valor |
+   | Campo | Value |
    | ----- | ----- |
    | Seleccionar um modelo | Selecione  **C# módulo**. | 
    | Nome do projeto de módulo | Atribua o nome **CSharpModule** ao módulo. | 
@@ -355,7 +355,7 @@ Caso contrário, você pode excluir as configurações locais e os recursos do A
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma função do módulo do IoT Edge com código para filtrar os dados não processados que são gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar seus próprios módulos, você pode aprender mais sobre como desenvolver [seus próprios módulos IOT Edge](module-development.md) ou como [desenvolver módulos com o Visual Studio](how-to-visual-studio-develop-module.md). Você pode continuar nos próximos tutoriais para saber como Azure IoT Edge pode ajudá-lo a implantar os serviços de nuvem do Azure para processar e analisar dados na borda.
 

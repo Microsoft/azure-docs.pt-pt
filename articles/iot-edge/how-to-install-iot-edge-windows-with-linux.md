@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 7d3586c571c2d70034f10cb3e1efd9242d6a1023
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9e9028d0c9aeff19dc221b81defa5e2057927fa6
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986964"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034196"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Usar IoT Edge no Windows para executar contêineres do Linux
 
@@ -30,9 +30,7 @@ Use esta seção para examinar se o dispositivo Windows pode dar suporte a IoT E
 
 ### <a name="supported-windows-versions"></a>Versões suportadas do Windows
 
-Azure IoT Edge com contêineres do Linux podem ser executados nas seguintes versões do Windows: 
-* Atualização de aniversário do Windows 10 (Build 14393) ou mais recente
-* Windows Server 2016 ou mais recente
+Azure IoT Edge com contêineres do Linux podem ser executados em qualquer versão do Windows que atenda aos [requisitos do Docker desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)
 
 Para obter mais informações sobre o que está incluído na versão mais recente do IoT Edge, consulte [Azure IOT Edge versões](https://github.com/Azure/azure-iotedge/releases).
 
@@ -113,7 +111,7 @@ Lista de módulos em execução. Após uma nova instalação, o único módulo q
 iotedge list
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tiver um dispositivo IoT Edge aprovisionado com o tempo de execução instalado, pode [implementar módulos IoT Edge](how-to-deploy-modules-portal.md).
 

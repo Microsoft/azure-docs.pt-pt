@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 2efda0e506cf0525b1a8ea868acca48a929f8f41
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b63b68b7721dd848e6a72b3b7d9cfa38bf031b23
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848291"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035074"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use Visual Studio Code para desenvolver e depurar módulos para Azure IoT Edge
 
@@ -30,7 +30,7 @@ Este artigo fornece instruções para o desenvolvimento e a depuração de módu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você pode usar um computador ou uma máquina virtual que executa o Windows, o macOS ou o Linux como seu computador de desenvolvimento. Um dispositivo de IoT Edge pode ser outro dispositivo físico.
+Você pode usar um computador ou uma máquina virtual que executa o Windows, o macOS ou o Linux como seu computador de desenvolvimento. Em computadores com Windows, você pode desenvolver módulos do Windows ou Linux. Para desenvolver módulos do Windows, use um computador Windows executando a versão 1809/Build 17763 ou mais recente. Para desenvolver módulos do Linux, use um computador Windows que atenda aos [requisitos do Docker desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
 
 Instale [Visual Studio Code](https://code.visualstudio.com/) primeiro e, em seguida, adicione as seguintes extensões:
 
@@ -358,7 +358,7 @@ Com as alterações recentes nos mecanismos Docker e Moby para dar suporte a con
 
 Consulte esta [entrada no blog do desenvolvedor IOT](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) para obter mais informações e instruções passo a passo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar seu módulo, saiba como [implantar Azure IOT Edge módulos do Visual Studio Code](how-to-deploy-modules-vscode.md).
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2019
+ms.date: 08/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: fe426d5dcfb549f5adf9bea463ab8d5897fbf46f
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 09d15702d61d9ef6204ce8e48f6a1d9d108995a3
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018931"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036265"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute
 
@@ -132,7 +132,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |Suportadas |Suportadas |Tóquio |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |Suportado |Suportado |Osaka |
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link)** |Suportado |Suportado |Melbourne, Sydney |
-| **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Suportado |Suportadas |Amsterdã, Frankfurt, RAE de Hong Kong, Londres, Paris, são Paulo, vale do silício, Cingapura, Sydney, Tóquio, Washington, D.c. |
+| **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Suportado |Suportadas |Amsterdã, Frankfurt, Hong Kong SAR, Joanesburgo, Londres, Paris, são Paulo, vale do silício, Cingapura, Sydney, Tóquio, Washington, D.c. |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Suportadas | Suportadas | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |Suportado |Suportado |Chicago, Silicon Valley, Washington D.C. |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Suportadas |Suportadas |Chicago, RAE de Hong Kong, Londres |

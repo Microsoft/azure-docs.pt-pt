@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 08/13/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 545906af882be6e53297bf7a9ff2cd12e86d55f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab378fe1e06de49df0fe6481a1aa475d426648dc
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65859631"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032562"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para início de sessão único às suas aplicações com o Proxy de aplicações
 
@@ -30,15 +30,15 @@ Pode fornecer início de sessão único para on-premises aplicações publicadas
 Pode ativar o início de sessão único para as aplicações com autenticação integrada do Windows (IWA) ao dar permissão dos conectores do Proxy de aplicações no Active Directory para representar os utilizadores. Os conectores de utilizam esta permissão para enviar e receber tokens em seu nome.
 
 ## <a name="how-single-sign-on-with-kcd-works"></a>Como início de sessão único com KCD funciona
-Este diagrama explica o fluxo quando um utilizador tenta aceder a uma aplicação de local em que utiliza o IWA.
+Este diagrama explica o fluxo quando um usuário tenta acessar um aplicativo local que usa IWA.
 
 ![Diagrama de fluxo de autenticação do Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. O utilizador introduz o URL para aceder à aplicação de local no através do Proxy de aplicações.
+1. O usuário insere a URL para acessar o aplicativo local por meio do proxy de aplicativo.
 2. Proxy da aplicação redireciona o pedido para serviços de autenticação do Azure AD para preauthenticate. Neste momento, aplica-se do Azure AD qualquer autenticação aplicável e políticas de autorização, como a autenticação multifator. Se o utilizador for validado, o Azure AD cria um token e envia-os para o utilizador.
 3. O utilizador passa o token para o Proxy de aplicações.
-4. Valida o token de Proxy de aplicações e obtém o nome Principal de utilizador (UPN) do mesmo e, em seguida, o conector extrai o UPN e a Service Principal Name (SPN) através de um canal seguro dually autenticado.
-5. O conector efetua a negociação de Kerberos Constrained Delegation (KCD) com o AD, representar o utilizador para obter um token de Kerberos para o aplicativo de no local.
+4. O proxy de aplicativo valida o token e recupera o UPN (nome principal do usuário) dele e, em seguida, o conector recebe o UPN e o SPN (nome da entidade de serviço) por meio de um canal seguro com autenticação dupla.
+5. O conector executa a negociação de KCD (delegação restrita de Kerberos) com o AD local, representando o usuário para obter um token Kerberos para o aplicativo.
 6. Do Active Directory envia o token de Kerberos para a aplicação para o conector.
 7. O conector envia a solicitação original para o servidor de aplicações, com o token Kerberos que recebeu do AD.
 8. A aplicação envia a resposta para o conector, que, em seguida, é devolvido para o serviço de Proxy da aplicação e, finalmente, para o usuário.
@@ -59,7 +59,7 @@ A configuração do Active Directory varia, dependendo se o servidor de aplicaç
 2. Selecione o servidor que executa o conector.
 3. Com o botão direito e selecione **propriedades** > **delegação**.
 4. Selecione **confiar no computador para delegação apenas aos serviços especificados**. 
-5. Selecione **utilizar qualquer protocolo de autenticação**.
+5. Selecione **usar qualquer protocolo de autenticação**.
 6. Sob **serviços aos quais esta conta pode apresentar credenciais delegadas** adicionar o valor para a identidade SPN do servidor de aplicativos. Isto permite que o conector do Proxy de aplicações representar os utilizadores no AD contra os aplicativos definidos na lista.
 
    ![Captura de ecrã de janela de propriedades do conector-Server](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
@@ -76,7 +76,7 @@ Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateTo
 Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
 ```
 
-`sharepointserviceaccount` pode ser a conta de computador do SPS ou uma conta de serviço sob a qual está a executar o conjunto de aplicações do SPS.
+`sharepointserviceaccount`pode ser a conta da máquina do SPS ou uma conta de serviço sob a qual o pool de aplicativos do SPS está em execução.
 
 ## <a name="configure-single-sign-on"></a>Configurar o início de sessão único 
 1. Publicar a sua aplicação, de acordo com as instruções descritas [publicar aplicações com o Proxy de aplicações](application-proxy-add-on-premises-application.md). Verifique se seleciona **do Azure Active Directory** como o **método de pré-autenticação**.
@@ -112,14 +112,14 @@ Para obter mais informações sobre Kerberos, consulte [tudo que precisa saber s
 Aplicações de não-Windows, normalmente, nomes de utilizador do utilizador ou nomes de conta SAM em vez do domínio endereços de e-mail. Se essa situação aplica-se às suas aplicações, tem de configurar o campo de identidade delegada de início de sessão para ligar as identidades de cloud para as identidades de aplicação. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>Trabalhando com diferentes no local e de identidades de nuvem
-Proxy de aplicações parte do princípio de que os utilizadores têm exatamente a mesma identidade na cloud e no local. Se não for esse o caso, pode continuar a utilizar KCD para início de sessão único. Configurar uma **delegado a identidade de início de sessão** para cada aplicação para especificar que identidade a utilizar quando efetuar o início de sessão único.  
+Proxy de aplicações parte do princípio de que os utilizadores têm exatamente a mesma identidade na cloud e no local. Mas, em alguns ambientes, devido a políticas corporativas ou dependências de aplicativos, as organizações podem precisar usar IDs alternativas para entrar. Nesses casos, você ainda pode usar o KCD para logon único. Configurar uma **delegado a identidade de início de sessão** para cada aplicação para especificar que identidade a utilizar quando efetuar o início de sessão único.  
 
 Esta capacidade permite que muitas organizações que têm diferentes no local e de identidades de nuvem para terem SSO a partir da cloud para aplicações no local sem a necessidade dos usuários insiram diferentes nomes de utilizador e palavras-passe. Isto inclui as organizações que:
 
 * Ter vários domínios internamente (joe@us.contoso.com, joe@eu.contoso.com) e um único domínio na cloud (joe@contoso.com).
 * Tem o nome de domínio não encaminháveis internos internamente (joe@contoso.usa) e uma legal na cloud.
 * Não utilize nomes de domínio internamente (joe)
-* Utilize aliases diferentes no local e na cloud. Por exemplo, joe-johns@contoso.com vs. joej@contoso.com  
+* Use aliases diferentes no local e na nuvem. Por exemplo, joe-johns@contoso.com vs. joej@contoso.com  
 
 Com o Proxy de aplicações, pode selecionar que identidade para utilizar para obter a permissão de Kerberos. Esta definição é por aplicação. Algumas dessas opções são adequadas para sistemas que não aceitamos o formato de endereço de e-mail, outras pessoas foram concebidas para início de sessão alternativo.
 

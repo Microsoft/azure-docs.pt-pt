@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 4a0aab2ca2f0bbcee07f09124e68c3623d16004d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6949f46345a5520ec3e09508b6d81994f9a7deb5
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848154"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036200"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implantar um modelo em um cluster do serviço kubernetes do Azure
 
@@ -212,12 +212,56 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 Para obter mais informações, consulte a referência de [implantação do modelo AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) . 
 
-## <a name="using-vs-code"></a>Usando VS Code
+### <a name="using-vs-code"></a>Usando VS Code
 
 Para obter informações sobre como usar VS Code, consulte [implantar no AKs por meio da extensão vs Code](how-to-vscode-tools.md#deploy-and-manage-models).
 
 > [!IMPORTANT] 
 > A implantação por meio do VS Code requer que o cluster AKS seja criado ou anexado ao seu espaço de trabalho com antecedência.
+
+## <a name="web-service-authentication"></a>Autenticação do serviço Web
+
+Ao implantar no serviço kubernetes do Azure, a autenticação __baseada em chave__ é habilitada por padrão. Você também pode habilitar a autenticação de __token__ . A autenticação de token exige que os clientes usem uma conta de Azure Active Directory para solicitar um token de autenticação, que é usado para fazer solicitações para o serviço implantado.
+
+Para __desabilitar__ a autenticação, defina `auth_enabled=False` o parâmetro ao criar a configuração de implantação. O exemplo a seguir desabilita a autenticação usando o SDK:
+
+```python
+deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
+```
+
+Para obter informações sobre como autenticar de um aplicativo cliente, consulte o [modelo consumir um Azure Machine Learning implantado como um serviço Web](how-to-consume-web-service.md).
+
+### <a name="authentication-with-keys"></a>Autenticação com chaves
+
+Se a autenticação de chave estiver habilitada, você `get_keys` poderá usar o método para recuperar uma chave de autenticação primária e secundária:
+
+```python
+primary, secondary = service.get_keys()
+print(primary)
+```
+
+> [!IMPORTANT]
+> Se você precisar regenerar uma chave, use[`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
+
+### <a name="authentication-with-tokens"></a>Autenticação com tokens
+
+Para habilitar a autenticação de token, `token_auth_enabled=True` defina o parâmetro ao criar ou atualizar uma implantação. O exemplo a seguir habilita a autenticação de token usando o SDK:
+
+```python
+deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, token_auth_enabled=True)
+```
+
+Se a autenticação de token estiver habilitada, você `get_token` poderá usar o método para recuperar um token JWT e o tempo de expiração desse token:
+
+```python
+token, refresh_by = service.get_token()
+print(token)
+```
+
+> [!IMPORTANT]
+> Será necessário solicitar um novo token após a hora do `refresh_by` token.
+>
+> A Microsoft recomenda enfaticamente que você crie seu espaço de trabalho Azure Machine Learning na mesma região que o cluster do serviço kubernetes do Azure. Para autenticar com um token, o serviço Web fará uma chamada para a região em que seu espaço de trabalho Azure Machine Learning é criado. Se a região do seu espaço de trabalho estiver indisponível, você não poderá buscar um token para o serviço Web mesmo que o cluster esteja em uma região diferente do seu espaço de trabalho. Isso efetivamente resulta na indisponibilidade da autenticação do Azure AD até que a região do seu espaço de trabalho esteja disponível novamente. Além disso, quanto maior a distância entre a região do cluster e a região do seu espaço de trabalho, mais tempo será levado para buscar um token.
 
 ## <a name="update-the-web-service"></a>Atualizar o serviço web
 

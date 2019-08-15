@@ -1,6 +1,6 @@
 ---
-title: Registo de pacote de código de malha do Azure Service Fabric CLI - sfctl | Documentos da Microsoft
-description: Descreve os comandos de log de pacote de código de malha do CLI do Service Fabric sfctl.
+title: CLI do Azure Service Fabric-sfctl de malha código-pacote-log | Microsoft Docs
+description: Descreve os comandos do Service Fabric interface de código de malha sfctl da CLI.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,54 +8,53 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e7bc8491071946eaa2e322517e5d36d681a49130
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1949f87dcdb1e3d9fe8e7fd08d8d8ba3b8203a0
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837645"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036435"
 ---
 # <a name="sfctl-mesh-code-package-log"></a>sfctl mesh code-package-log
-Obter os registos do contentor do pacote de código especificada para a réplica de determinado serviço.
+Obtenha os logs do contêiner do pacote de códigos especificado para a réplica de serviço fornecida.
 
 ## <a name="commands"></a>Comandos
 
 |Comando|Descrição|
 | --- | --- |
-| Get | Obtém os registos do contentor. |
+| Get | Obtém os logs do contêiner. |
 
-## <a name="sfctl-mesh-code-package-log-get"></a>get de log de pacote de código de malha sfctl
-Obtém os registos do contentor.
+## <a name="sfctl-mesh-code-package-log-get"></a>código de malha sfctl-pacote-obter log
+Obtém os logs do contêiner.
 
-Obtém os registos para o contentor do pacote de código especificada da réplica de serviço.
+Obtém os logs do contêiner do pacote de códigos especificado da réplica de serviço.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --nome da aplicação – nome da aplicação [necessário] | O nome da aplicação. |
-| -nome de pacote de código [necessário] | O nome do pacote do código do serviço. |
-| -nome-réplica [necessário] | Nome da réplica de Service Fabric. |
-| --nome do serviço [necessário] | O nome do serviço. |
-| – Cauda | Número de linhas para mostrar a partir do final dos registos. A predefinição é 100. 'tudo' para mostrar os registos completos. |
+| --App-Name--nome-do-aplicativo [obrigatório] | O nome do aplicativo. |
+| --Code-Package-Name [obrigatório] | O nome do pacote de códigos do serviço. |
+| --nome da réplica [obrigatório] | Nome da réplica de Service Fabric. |
+| --Service-Name [obrigatório] | O nome do serviço. |
+| --cauda | Número de linhas a serem mostradas do final dos logs. O padrão é 100. ' todos ' para mostrar os logs completos. |
 
-### <a name="global-arguments"></a>Argumentos global
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
-| – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
+| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
+| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
+| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
-- Saiba como utilizar a CLI do Service Fabric utilizando o [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+## <a name="next-steps"></a>Passos seguintes
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
+- Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

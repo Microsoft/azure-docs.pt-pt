@@ -2,17 +2,17 @@
 title: Usar Zonas de Disponibilidade no AKS (serviço kubernetes do Azure)
 description: Saiba como criar um cluster que distribui nós entre zonas de disponibilidade no serviço de kubernetes do Azure (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: iainfou
-ms.openlocfilehash: 52df1438913983a80ece487b49d0d6bd7821b636
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.author: mlearned
+ms.openlocfilehash: 4c2058072df4fcb068257c3e265dfe365c6d7e65
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019442"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033139"
 ---
 # <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Visualização-criar um cluster AKS (serviço de kubernetes do Azure) que usa Zonas de Disponibilidade
 
@@ -23,7 +23,7 @@ Para fornecer um nível mais alto de disponibilidade para seus aplicativos, os c
 Este artigo mostra como criar um cluster AKS e distribuir os componentes do nó entre zonas de disponibilidade. Esta funcionalidade encontra-se em pré-visualização.
 
 > [!IMPORTANT]
-> Os recursos de visualização do AKS são de autoatendimento e aceitação. Eles são fornecidos para reunir comentários e bugs de nossa comunidade. Na versão prévia, esses recursos não são destinados ao uso em produção. Os recursos na visualização pública se enquadram no suporte "melhor esforço". A assistência das equipes de suporte técnico do AKS está disponível durante o horário comercial do fuso horário do Pacífico (PST). Para obter informações adicionais, consulte os seguintes artigos de suporte:
+> Os recursos de visualização do AKS são consentimento de autoatendimento. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente com base no melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter outras incompatibilidades, consulte os seguintes artigos de suporte:
 >
 > * [Políticas de suporte do AKS][aks-support-policies]
 > * [Perguntas frequentes do suporte do Azure][aks-faq]

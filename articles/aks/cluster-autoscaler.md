@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: ef3e9a9c68ca524b7f7f86c92130a10952a9f065
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: dc5e862109a766f708338ebddb91a75ffc550306
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949611"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69031921"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Visualização – dimensionar automaticamente um cluster para atender às demandas do aplicativo no serviço de kubernetes do Azure (AKS)
 
@@ -21,7 +21,7 @@ Para acompanhar as demandas de aplicativos no AKS (serviço kubernetes do Azure)
 Este artigo mostra como habilitar e gerenciar o dimensionamento do cluster em um cluster AKS. O autoescalar do cluster só deve ser testado na visualização em clusters AKS.
 
 > [!IMPORTANT]
-> Os recursos de visualização do AKS são de autoatendimento e aceitação. Eles são fornecidos para reunir comentários e bugs de nossa comunidade. Na versão prévia, esses recursos não são destinados ao uso em produção. Os recursos na visualização pública se enquadram no suporte "melhor esforço". A assistência das equipes de suporte técnico do AKS está disponível durante o horário comercial do fuso horário do Pacífico (PST). Para obter informações adicionais, consulte os seguintes artigos de suporte:
+> Os recursos de visualização do AKS são consentimento de autoatendimento. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente com base no melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter outras incompatibilidades, consulte os seguintes artigos de suporte:
 >
 > * [Políticas de suporte do AKS][aks-support-policies]
 > * [Perguntas frequentes do suporte do Azure][aks-faq]
@@ -192,7 +192,7 @@ az aks nodepool update \
 
 Você pode dimensionar manualmente o cluster usando o comando [AZ AKs Scale][az-aks-scale] . Se você usar a escalabilidade horizontal Pod, esse recurso continuará a ser executado com o cluster de dimensionamento em escalabilidade desabilitado, mas o pods poderá não ser agendado se os recursos do nó estiverem todos em uso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este artigo mostrou como dimensionar automaticamente o número de nós AKS. Você também pode usar a escala automática de Pod horizontal para ajustar automaticamente o número de pods que executam o aplicativo. Para obter as etapas sobre como usar a escalabilidade horizontal Pod, consulte [dimensionar aplicativos em AKs][aks-scale-apps].
 

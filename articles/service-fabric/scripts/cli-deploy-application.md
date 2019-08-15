@@ -10,17 +10,16 @@ tags: azure-service-management
 ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 04/16/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: d25ed8d27c13e20641d1495c47fdcf6ce2edeb75
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7417eaecddad60c940bf01535b8fb24b8cbef80c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592221"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034776"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Implementar uma aplicação num cluster do Service Fabric
 
@@ -36,7 +35,7 @@ Se necessário, instale a [CLI do Service Fabric](../service-fabric-cli.md).
 
 Quando terminar, o script [remover](cli-remove-application.md) pode ser utilizado para remover a aplicação. O script remover elimina a instância de aplicação, anula o registo do tipo de aplicação e elimina o pacote de aplicações do arquivo de imagens.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações, veja a [documentação da CLI do Service Fabric](../service-fabric-cli.md).
 

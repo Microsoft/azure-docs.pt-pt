@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI sfctl loja | Documentos da Microsoft
-description: Descreve os comandos do CLI do Service Fabric sfctl store.
+title: CLI do Azure Service Fabric-sfctl Store | Microsoft Docs
+description: Descreve os comandos da Store sfctl da CLI do Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,96 +8,95 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 65dcceb2e55ec0927630b32670d2f915a01903bf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ccd9e8323f6e0de7b81c7600e7828e4858c51201
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303168"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035854"
 ---
 # <a name="sfctl-store"></a>sfctl store
-Efetue operações de nível de arquivo básico no armazenamento de imagens do cluster.
+Execute operações básicas de nível de arquivo no repositório de imagens do cluster.
 
 ## <a name="commands"></a>Comandos
 
 |Comando|Descrição|
 | --- | --- |
-| delete | Elimina o conteúdo do arquivo de imagem de existente. |
-| root-info | Obtém as informações dos conteúdos na raiz do arquivo de imagem. |
-| stat | Obtém as informações de conteúdo de arquivo de imagem. |
+| eliminar | Exclui o conteúdo do repositório de imagens existente. |
+| raiz-informações | Obtém as informações de conteúdo na raiz do repositório de imagens. |
+| stat | Obtém as informações de conteúdo do repositório de imagens. |
 
-## <a name="sfctl-store-delete"></a>o sfctl store delete
-Elimina o conteúdo do arquivo de imagem de existente.
+## <a name="sfctl-store-delete"></a>exclusão da loja sfctl
+Exclui o conteúdo do repositório de imagens existente.
 
-Eliminações existente conteúdo de arquivo de imagem que está a ser encontrado dentro da imagem de determinado armazenam o caminho relativo. Este comando pode ser utilizado para eliminar pacotes de aplicações carregadas depois de terem sido aprovisionados.
-
-### <a name="arguments"></a>Argumentos
-
-|Argumento|Descrição|
-| --- | --- |
-| – caminho de conteúdo [necessário] | Caminho relativo para o ficheiro ou pasta no arquivo de imagem de sua raiz. |
-| – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
-
-### <a name="global-arguments"></a>Argumentos global
-
-|Argumento|Descrição|
-| --- | --- |
-| – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
-| – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
-
-## <a name="sfctl-store-root-info"></a>informações de raiz do arquivo sfctl
-Obtém as informações dos conteúdos na raiz do arquivo de imagem.
-
-Devolve as informações sobre armazenamento de imagens do conteúdo na raiz do arquivo de imagem.
+Exclui o conteúdo do repositório de imagens existente que está sendo encontrado no caminho relativo do repositório de imagens fornecido. Esse comando pode ser usado para excluir pacotes de aplicativos carregados depois que eles são provisionados.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
+| --content-Path [obrigatório] | Caminho relativo para o arquivo ou a pasta no repositório de imagens de sua raiz. |
+| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos global
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
-| – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
+| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
+| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
+| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
-## <a name="sfctl-store-stat"></a>o sfctl store stat
-Obtém as informações de conteúdo de arquivo de imagem.
+## <a name="sfctl-store-root-info"></a>raiz da sfctl Store-informações
+Obtém as informações de conteúdo na raiz do repositório de imagens.
 
-Devolve as informações sobre o conteúdo do arquivo de imagem no contentPath especificado. O contentPath é relativo à raiz do arquivo de imagem.
+Retorna as informações sobre o conteúdo do repositório de imagens na raiz do repositório de imagens.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| – caminho de conteúdo [necessário] | Caminho relativo para o ficheiro ou pasta no arquivo de imagem de sua raiz. |
-| – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
+| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 
-### <a name="global-arguments"></a>Argumentos global
+### <a name="global-arguments"></a>Argumentos globais
 
 |Argumento|Descrição|
 | --- | --- |
-| – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
-| – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
+| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
+| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
+| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+
+## <a name="sfctl-store-stat"></a>stat da sfctl Store
+Obtém as informações de conteúdo do repositório de imagens.
+
+Retorna as informações sobre o conteúdo do repositório de imagens no contentPath especificado. O contentPath é relativo à raiz do repositório de imagens.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|Descrição|
+| --- | --- |
+| --content-Path [obrigatório] | Caminho relativo para o arquivo ou a pasta no repositório de imagens de sua raiz. |
+| --Timeout-t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+
+### <a name="global-arguments"></a>Argumentos globais
+
+|Argumento|Descrição|
+| --- | --- |
+| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
+| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
+| --saída-o | Formato de saída.  Valores\: permitidos JSON, jsonc, Table, TSV.  JSON\: padrão. |
+| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
+| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Configuração](service-fabric-cli.md) a CLI do Service Fabric.
-- Saiba como utilizar a CLI do Service Fabric utilizando o [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
+- Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

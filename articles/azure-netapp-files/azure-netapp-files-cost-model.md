@@ -1,6 +1,6 @@
 ---
-title: Modelo de custo para ficheiros de NetApp do Azure | Documentos da Microsoft
-description: Descreve o modelo de custos para ficheiros de NetApp do Azure para a gestão de despesas do serviço.
+title: Modelo de custo para Azure NetApp Files | Microsoft Docs
+description: Descreve o modelo de custo para Azure NetApp Files para gerenciar as despesas do serviço.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,81 +14,81 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: b-juche
-ms.openlocfilehash: b06e3366224b90899dd3f9f9439edf897de82794
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 563416418b3f387f103fddc88b3ba9ad4c93fdd4
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65524224"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030791"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modelo de custo para os Azure NetApp Files 
 
-Compreender o modelo de custo para ficheiros de NetApp do Azure ajuda-o a gerir as suas despesas do serviço.
+Entender o modelo de custo do Azure NetApp Files ajuda você a gerenciar suas despesas do serviço.
 
-## <a name="calculation-of-capacity-consumption"></a>Cálculo de consumo de capacidade
+## <a name="calculation-of-capacity-consumption"></a>Cálculo do consumo de capacidade
 
-Os ficheiros NetApp do Azure é cobrado numa capacidade de armazenamento aprovisionado.  Capacidade aprovisionada é alocada ao criar conjuntos de capacidade.  Agrupamentos de capacidade são faturados com base em $/ aprovisionado-GiB/mês em incrementos de hora a hora. O tamanho mínimo para um conjunto único de capacidade é 4 TiB e conjuntos de capacidade podem ser expandidos, em seguida, em incrementos de 1 TiB. Volumes são criados dentro de agrupamentos de capacidade.  Cada volume é atribuída uma quota que decrementa partir da capacidade aprovisionada de conjuntos. A quota que pode ser atribuída a volumes intervalos de um mínimo de 100 GiB até um máximo de 92 TiB.  
+Azure NetApp Files é cobrado na capacidade de armazenamento provisionada.  A capacidade provisionada é alocada pela criação de pools de capacidade.  Os pools de capacidade são cobrados com base em $/provisioned-GiB/month em incrementos por hora. O tamanho mínimo para um único pool de capacidade é 4 TiB, e os pools de capacidade podem ser subsequentemente expandidos em incrementos de 1 TiB. Os volumes são criados nos pools de capacidade.  Cada volume recebe uma cota que diminui da capacidade provisionada por pools. A cota que pode ser atribuída a volumes varia de um mínimo de 100 GiB a um máximo de 100 TiB.  
 
-Para um volume de Active Directory, o consumo de capacidade para a quota baseia-se na lógica capacidade (em vigor).
+Para um volume ativo, o consumo de capacidade em relação à cota é baseado na capacidade lógica (efetiva).
 
-Se o consumo de capacidade real de um volume exceder a quota de armazenamento, o volume pode continuar a crescer. Escritas ainda terão permissão, desde que o tamanho do volume real é menor que o limite do sistema (100 TiB).  
+Se o consumo de capacidade real de um volume exceder sua cota de armazenamento, o volume poderá continuar crescendo. As gravações ainda serão permitidas desde que o tamanho real do volume seja menor que o limite do sistema (100 TiB).  
 
-A capacidade total utilizada num conjunto capacidade em relação a quantidade aprovisionado é a soma de maior da quota atribuída ou real consumo de todos os volumes dentro do conjunto: 
+A capacidade total usada em um pool de capacidade em relação ao valor provisionado é a soma do maior da cota atribuída ou do consumo real de todos os volumes no pool: 
 
-   ![Cálculo da capacidade total utilizada](../media/azure-netapp-files/azure-netapp-files-total-used-capacity.png)
+   ![Total de cálculo da capacidade usada](../media/azure-netapp-files/azure-netapp-files-total-used-capacity.png)
 
-O diagrama abaixo ilustra esses conceitos.  
-* Temos um conjunto de capacidade com 4 TiB de capacidade aprovisionada.  O conjunto contém três volumes.  
-    * Volume 1 é atribuído uma quota de 2 TiB e tem 800 GiB de consumo.  
-    * Volume 2 está atribuído uma quota de 1 TiB e tem 100 GiB de consumo.  
-    * Volume 3 é atribuído uma quota de 500 GiB, mas tem 800 GiB de consumo (excesso).  
-* O conjunto de capacidade limitado para 4 TiB de capacidade (a quantidade de aprovisionamento).  
-    3,8 TiB de capacidade é consumido (2 TiB e 1 TiB de quota de Volumes 1 e 2 e 800 GiB de consumo real para o Volume 3). E 200 GiB de capacidade restante.
+O diagrama a seguir ilustra esses conceitos.  
+* Temos um pool de capacidade com 4 TiB de capacidade provisionada.  O pool contém três volumes.  
+    * O volume 1 recebe uma cota de 2 TiB e tem 800 GiB de consumo.  
+    * O volume 2 recebe uma cota de 1 TiB e tem 100 GiB de consumo.  
+    * O volume 3 recebe uma cota de 500 GiB, mas tem 800 GiB de consumo (excedente).  
+* O pool de capacidade é medido por 4 TiB de capacidade (o valor provisionado).  
+    3,8 TiB de capacidade é consumido (2 TiB e 1 TiB de cota dos volumes 1 e 2, e 800 GiB de consumo real para o volume 3). E 200 GiB de capacidade estão restantes.
 
-   ![Conjunto de capacidade com três volumes](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
+   ![Pool de capacidade com três volumes](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
 
-## <a name="overage-in-capacity-consumption"></a>Utilização excedida no consumo de capacidade  
+## <a name="overage-in-capacity-consumption"></a>Excedente no consumo de capacidade  
 
-Quando o total utilizado a capacidade de um conjunto excede o limite da sua capacidade aprovisionada, escritas de dados continuam a ser permitidas.  Após o período de tolerância (uma hora), se a capacidade utilizada do conjunto ainda excede a sua capacidade aprovisionada, em seguida, o tamanho do conjunto automaticamente aumenta em incrementos de 1 TiB até que a capacidade aprovisionada é maior do que a capacidade total utilizada.  Por exemplo, na ilustração acima, se Volume 3 continua a crescer e consumo real atinge TiB de 1,2, em seguida, após o período de tolerância, o agrupamento será automaticamente redimensionado para 5 TiB.  O resultado é que a capacidade de agrupamento aprovisionado (5 TiB) excede a capacidade utilizada (4.2 TiB).  
+Quando a capacidade total usada de um pool excede sua capacidade provisionada, as gravações de dados ainda são permitidas.  Após o período de carência (uma hora), se a capacidade usada do pool ainda exceder sua capacidade provisionada, o tamanho do pool será aumentado automaticamente em incrementos de 1 TiB até que a capacidade provisionada seja maior que a capacidade total usada.  Por exemplo, na ilustração acima, se o volume 3 continuar crescendo e o consumo real atingir 1,2 TiB, depois do período de carência, o pool será automaticamente redimensionado para 5 TiB.  O resultado é que a capacidade do pool provisionado (5 TiB) excede a capacidade usada (4,2 TiB).  
 
-## <a name="manual-changes-of-the-pool-size"></a>Alterações manuais do tamanho do conjunto  
+## <a name="manual-changes-of-the-pool-size"></a>Alterações manuais do tamanho do pool  
 
-Pode aumentar ou diminuir manualmente o tamanho do conjunto. No entanto, as seguintes restrições aplicam-se:
-* Limites mínimos e máximo do serviço  
-    Consulte o artigo [limites de recursos](azure-netapp-files-resource-limits.md).
-* Um incremento de 1 TiB após a compra mínimo de 4-TiB inicial
-* Um incremento de faturação mínimo de uma hora
-* O tamanho do conjunto de aprovisionamento não pode ser diminuído para menor do que o total utilizado capacidade do conjunto.
+Você pode aumentar ou diminuir o tamanho do pool manualmente. No entanto, as seguintes restrições se aplicam:
+* Limites mínimo e máximo de serviço  
+    Consulte o artigo sobre [limites de recursos](azure-netapp-files-resource-limits.md).
+* Um incremento de 1 TiB após a compra mínima de 4-TiB inicial
+* Um incremento de cobrança mínimo de uma hora
+* O tamanho do pool provisionado não pode ser reduzido para menos que a capacidade total usada no pool.
 
-## <a name="behavior-of-maximum-size-pool-overage"></a>Comportamento de utilização excedida do conjunto de tamanho máximo   
+## <a name="behavior-of-maximum-size-pool-overage"></a>Comportamento do excedente do pool de tamanho máximo   
 
-O tamanho máximo de um conjunto de capacidade que pode criar ou redimensionar para é 500 TiB.  Quando o total utilizado a capacidade de um conjunto de capacidade excede 500 TiB, ocorrerão as seguintes situações:
-* Escritas de dados ainda serão permitidas (se o volume é inferior ao máximo de sistema de 100 TiB).
-* Após o período de cortesia de uma hora, o agrupamento será automaticamente redimensionado em incrementos de 1 TiB, até que a capacidade de agrupamento aprovisionado excede a capacidade total utilizada.
-* Adicional aprovisionado e são faturadas a capacidade de agrupamento que tib de 500 exceder não pode ser utilizado para atribuir a quota de volume. Ele também não pode ser usado para expandir os limites de QoS de desempenho.  
-    Ver [níveis de serviço](azure-netapp-files-service-levels.md) sobre limites de desempenho e dimensionamento de QoS.
+O tamanho máximo de um pool de capacidade que pode ser criado ou redimensionado é 500 TiB.  Quando a capacidade total usada em um pool de capacidade exceder 500 TiB, ocorrerão as seguintes situações:
+* As gravações de dados ainda serão permitidas (se o volume estiver abaixo do máximo do sistema de 100 TiB).
+* Após o período de carência de uma hora, o pool será redimensionado automaticamente em incrementos de 1 TiB, até que a capacidade provisionada do pool exceda a capacidade total utilizada.
+* A capacidade de pool provisionada e cobrada adicional que excede 500 TiB não pode ser usada para atribuir cota de volume. Ele também não pode ser usado para expandir os limites de QoS de desempenho.  
+    Consulte [níveis de serviço](azure-netapp-files-service-levels.md) sobre limites de desempenho e dimensionamento de QoS.
 
-O diagrama abaixo ilustra esses conceitos:
-* Temos um conjunto de capacidade com uma camada de armazenamento Premium e uma capacidade de TiB de 500. O conjunto contém nove volumes.
-    * Volumes de 1 a 8 são atribuídos uma quota de 60 TiB.  A capacidade total utilizada é 480 TiB.  
-        Cada volume tem um limite de QoS de 3,75 GiB/s de débito (60 TiB * 64 MiB/s).  
-    * Volume 9 é atribuído uma quota de TiB de 20.  
-        Volume 9 tem um limite de QoS de 1.25 GiB/s de débito (60 TiB * 64 MiB/s).
-* O volume 9 é um cenário de utilização excedido. Ela tem 25 TiB de consumo real.  
-    * Após o período de cortesia de uma hora, o conjunto de capacidade será redimensionado para 505 TiB.  
-        Ou seja, o total utilizado capacidade = 8 * 60-TiB quota para Volumes de 1 a 8 e 25 TiB de consumo real para o Volume 9.
-    * A capacidade de faturação é 505 TiB.
-    * Não é possível aumentar a quota de volume para o Volume 9 (porque a quota atribuída total para o conjunto não pode exceder os 500 TiB).
-    * Não pode ser atribuída a taxa de transferência de QoS adicional (porque o QoS total para o conjunto ainda é baseado em 500 TiB).
+O diagrama a seguir ilustra esses conceitos:
+* Temos um pool de capacidade com uma camada de armazenamento Premium e uma capacidade de 500-TiB. O pool contém nove volumes.
+    * Os volumes de 1 a 8 recebem uma cota de 60 TiB cada.  A capacidade total usada é de 480 TiB.  
+        Cada volume tem um limite de QoS de 3,75 GiB/s de taxa de transferência (60 TiB * 64 MiB/s).  
+    * O volume 9 recebe uma cota de 20 TiB.  
+        O volume 9 tem um limite de QoS de 1,25 GiB/s de taxa de transferência (60 TiB * 64 MiB/s).
+* O volume 9 é um cenário excedente. Ele tem 25 TiB de consumo real.  
+    * Após o período de carência de uma hora, o pool de capacidade será redimensionado para 505 TiB.  
+        Ou seja, a capacidade total usada = 8 * 60-cota de TiB para os volumes de 1 a 8 e 25 TiB de consumo real para o volume 9.
+    * A capacidade cobrada é 505 TiB.
+    * A cota de volume do volume 9 não pode ser aumentada (porque a cota total atribuída para o pool não pode exceder 500 TiB).
+    * A taxa de transferência de QoS adicional pode não ser atribuída (porque a QoS total para o pool ainda se baseia em 500 TiB).
 
-   ![Conjunto de capacidade com nove volumes](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-nine-vols.png)
+   ![Pool de capacidade com nove volumes](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-nine-vols.png)
 
 ## <a name="capacity-consumption-of-snapshots"></a>Consumo de capacidade de instantâneos 
 
-O consumo de capacidade de instantâneos nos ficheiros de NetApp do Azure é cobrado para a quota do volume principal.  Como resultado, ele compartilha a mesma tarifa de faturação que o conjunto de capacidade à qual pertence o volume.  No entanto, ao contrário do volume do Active Directory, o consumo de instantâneo é medido com base na capacidade incremental consumida.  Os instantâneos de ficheiros NetApp do Azure são diferenciais por natureza. Consoante a taxa de alteração dos dados, os instantâneos costumam consumam muito menos capacidade do que a capacidade de lógica do volume ativo. Por exemplo, suponha que tenha um instantâneo de um volume de 500 GiB que contém apenas 10 GiB de dados diferenciais. A capacidade de que é cobrada para a quota de volume para esse instantâneo seria GiB 10, não 500 GiB. 
+O consumo de capacidade de instantâneos no Azure NetApp Files é cobrado em relação à cota do volume pai.  Como resultado, ele compartilha a mesma taxa de cobrança que o pool de capacidade ao qual o volume pertence.  No entanto, ao contrário do volume ativo, o consumo de instantâneo é medido com base na capacidade incremental consumida.  Os instantâneos de Azure NetApp Files são diferenciais por natureza. Dependendo da taxa de alteração dos dados, os instantâneos geralmente consomem muito menos capacidade do que a capacidade lógica do volume ativo. Por exemplo, suponha que você tenha um instantâneo de um volume 500-GiB que contém apenas 10 GiB de dados diferenciais. A capacidade cobrada em relação à cota de volume para esse instantâneo seria 10 GiB, e não 500 GiB. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Ficheiros NetApp do Azure, página de preços](https://azure.microsoft.com/pricing/details/storage/netapp/)
-* [Níveis de serviço para os ficheiros do Azure NetApp](azure-netapp-files-service-levels.md)
+* [Página de preços do Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
+* [Níveis de serviço para Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)

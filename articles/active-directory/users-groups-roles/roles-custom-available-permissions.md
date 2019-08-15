@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5ff6755f1391ff19e65df669fb51967a904f4f
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 99f31c5928273973a9089ae9ef1fd184cdb78bbb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707568"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033390"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Subtipos de registro de aplicativo e permissões no Azure Active Directory
 
@@ -46,12 +46,12 @@ Os detalhes das seguintes permissões para a visualização de funções persona
 
 ### <a name="create-and-delete"></a>Criar e excluir
 
-Há duas permissões disponíveis para conceder a capacidade de criar registros de aplicativo:
+Há duas permissões disponíveis para conceder a capacidade de criar registros de aplicativo, cada um com comportamento diferente:
 
-- **Microsoft. Directory/Applications/createAsOwner**
-- **Microsoft. Directory/Applications/Create**
+- **Microsoft. Directory/Applications/createAsOwner**: A atribuição dessa permissão faz com que o criador seja adicionado como o primeiro proprietário do registro do aplicativo criado, e o registro do aplicativo criado será contabilizado na cota de objetos criados do 250 do criador.
+- **Microsoft. Directory/applicationPolicies/Create**: A atribuição dessa permissão faz com que o criador não seja adicionado como o primeiro proprietário do registro do aplicativo criado, e o registro do aplicativo criado não será contabilizado na cota de objetos criados do 250 do criador. Use essa permissão com cuidado, pois não há nada impedindo que o destinatário crie registros de aplicativo até que a cota de nível de diretório seja atingida. Se ambas as permissões forem atribuídas, essa permissão terá precedência.
 
-Se ambas as permissões forem atribuídas, a permissão CREATE terá precedência. Embora a permissão createAsOwner não adicione automaticamente o criador como o primeiro proprietário, os proprietários podem ser especificados durante a criação do registro do aplicativo ao usar as APIs do Graph ou os cmdlets do PowerShell.
+Se ambas as permissões forem atribuídas, a permissão/CREATE terá precedência. Embora a permissão/createAsOwner não adicione automaticamente o criador como o primeiro proprietário, os proprietários podem ser especificados durante a criação do registro do aplicativo ao usar as APIs do Graph ou os cmdlets do PowerShell.
 
 Criar permissões concedem acesso ao **novo** comando de registro.
 

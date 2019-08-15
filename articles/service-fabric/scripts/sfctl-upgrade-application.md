@@ -10,17 +10,16 @@ tags: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 12/06/2017
 ms.author: atsenthi
 ms.custom: ''
-ms.openlocfilehash: 72195a3a127e33ffa6118f77c4fa58ba5f60ee17
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: e925f4f7b4a3da2d298413feccc94ea742e47f6b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600085"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034703"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Adicionar um certificado de aplicação a um cluster do Service Fabric
 

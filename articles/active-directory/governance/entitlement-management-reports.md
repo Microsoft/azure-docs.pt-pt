@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d33b4751b421f5af1536af9a88d15e060ab59bdb
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 2420fc25795ec74939649fb8a17ead7c8cfdd1df
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489063"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032441"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management-preview"></a>Exibir relatórios e logs no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -29,6 +29,12 @@ ms.locfileid: "68489063"
 > O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+O relatório de atribuições de usuário e Azure Active Directory log de auditoria fornecem detalhes adicionais sobre os usuários em seu diretório. Como administrador, você pode exibir os recursos aos quais um usuário tem acesso e exibir os logs de solicitação para fins de auditoria ou para determinar o status da solicitação de um usuário. Este artigo descreve como usar o relatório de atribuições de usuário e os logs de auditoria do Azure AD.
+
+Assista ao vídeo a seguir para saber como usar o gerenciamento de direitos para gerenciar o acesso para usuários no Azure Active Directory:
+
+>[!VIDEO https://www.youtube.com/embed/omtNJ7ySjS0]
 
 ## <a name="view-resources-a-user-has-access-to"></a>Exibir recursos aos quais um usuário tem acesso
 
@@ -58,7 +64,7 @@ Para obter detalhes adicionais sobre como um usuário solicitou e recebeu acesso
 
 1. Para baixar os logs, clique em **baixar**.
 
-Quando o Azure ad recebe uma nova solicitação, ele grava um registro de auditoria, no  qual a `EntitlementManagement` categoria é  e a atividade `User requests access package assignment`normalmente é.  No caso de uma atribuição direta criada no portal do Azure, o campo **atividade** do registro de auditoria é `Administrator directly assigns user to access package`e o usuário que executa a atribuição é identificado pelo **ActorUserPrincipalName**.
+Quando o Azure ad recebe uma nova solicitação, ele grava um registro de auditoria, no qual a `EntitlementManagement` categoria é e a atividade `User requests access package assignment`normalmente é.  No caso de uma atribuição direta criada no portal do Azure, o campo **atividade** do registro de auditoria é `Administrator directly assigns user to access package`e o usuário que executa a atribuição é identificado pelo **ActorUserPrincipalName**.
 
 O AD do Azure gravará registros de auditoria adicionais enquanto a solicitação estiver em andamento, incluindo:
 

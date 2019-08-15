@@ -10,20 +10,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/23/2019
+ms.date: 08/13/2019
 ms.author: lahugh
-ms.openlocfilehash: 2b9d6832422b98c1064a4e9e99774c4788e801e5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4770c0bfd9c6fe6effa9cdf200d89ca7ff6eb768
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68323657"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036661"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variáveis de ambiente de tempo de execução do lote do Azure
 
 O [serviço de lote do Azure](https://azure.microsoft.com/services/batch/) define as seguintes variáveis de ambiente em nós de computação. Você pode fazer referência a essas variáveis de ambiente nas linhas de comando da tarefa e nos programas e scripts executados pelas linhas de comando.
 
-Para obter informações adicionais sobre como usar variáveis de ambiente com o lote, consulte [configurações de ambiente para tarefas](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks).
+Para obter mais informações sobre como usar variáveis de ambiente com o lote, consulte [configurações de ambiente para tarefas](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks).
 
 ## <a name="environment-variable-visibility"></a>Visibilidade da variável de ambiente
 
@@ -51,7 +51,7 @@ As linhas de comando executadas por tarefas em nós de computação não são ex
 | AZ_BATCH_ACCOUNT_URL            | A URL da conta do lote. | Todas as tarefas. | `https://myaccount.westus.batch.azure.com` |
 | AZ_BATCH_APP_PACKAGE            | Um prefixo de todas as variáveis de ambiente do pacote de aplicativo. Por exemplo, se a versão "1" do aplicativo "foo" for instalada em um pool, a variável de ambiente será AZ_BATCH_APP_PACKAGE_FOO_1. AZ_BATCH_APP_PACKAGE_FOO_1 aponta para o local em que o pacote foi baixado (uma pasta). | Qualquer tarefa com um pacote de aplicativo associado. Também estará disponível para todas as tarefas se o próprio nó tiver pacotes de aplicativos. | AZ_BATCH_APP_PACKAGE_FOO_1 |
 | AZ_BATCH_AUTHENTICATION_TOKEN   | Um token de autenticação que concede acesso a um conjunto limitado de operações de serviço de lote. Essa variável de ambiente só estará presente se [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) for definido quando a [tarefa for adicionada](/rest/api/batchservice/task/add#request-body). O valor do token é usado nas APIs do lote como credenciais para criar um cliente do lote, como na [API do .net BatchClient. Open ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Todas as tarefas. | Token de acesso do OAuth2 |
-| AZ_BATCH_CERTIFICATES_DIR       | Um diretório dentro do [diretório de trabalho de tarefa][files_dirs] no qual os certificados são armazenados para nós de computação do Linux. Observe que essa variável de ambiente não se aplica a nós de computação do Windows.                                                  | Todas as tarefas.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
+| AZ_BATCH_CERTIFICATES_DIR       | Um diretório dentro do [diretório de trabalho de tarefa][files_dirs] no qual os certificados são armazenados para nós de computação do Linux. Essa variável de ambiente não se aplica a nós de computação do Windows.                                                  | Todas as tarefas.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | A lista de nós que são alocados para uma [tarefa de várias instâncias][multi_instance] no formato `nodeIP,nodeIP`. | Subtarefas e primárias de várias instâncias. | `10.0.0.4,10.0.0.5` |
 | AZ_BATCH_IS_CURRENT_NODE_MASTER | Especifica se o nó atual é o nó mestre para uma [tarefa de várias instâncias][multi_instance]. Os valores possíveis `true` são `false`e.| Subtarefas e primárias de várias instâncias. | `true` |
 | AZ_BATCH_JOB_ID                 | O ID do trabalho ao qual a tarefa pertence. | Todas as tarefas, exceto a tarefa de início. | batchjob001 |
@@ -61,6 +61,7 @@ As linhas de comando executadas por tarefas em nós de computação não são ex
 | AZ_BATCH_NODE_ID                | A ID do nó ao qual a tarefa é atribuída. | Todas as tarefas. | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | Se `true`, o nó atual é um nó dedicado. Se `false`for, é um [nó de baixa prioridade](batch-low-pri-vms.md). | Todas as tarefas. | `true` |
 | AZ_BATCH_NODE_LIST              | A lista de nós que são alocados para uma [tarefa de várias instâncias][multi_instance] no formato `nodeIP;nodeIP`. | Subtarefas e primárias de várias instâncias. | `10.0.0.4;10.0.0.5` |
+| AZ_BATCH_NODE_MOUNTS_DIR        | O caminho completo do local de [montagem do sistema de arquivos](virtual-file-mount.md) em nível de nó onde residem todos os diretórios de montagem. Os compartilhamentos de arquivos do Windows usam uma letra de unidade, portanto, para o Windows, a unidade de montagem faz parte de dispositivos e unidades.  |  Todas as tarefas, incluindo a tarefa inicial, têm acesso ao usuário, dado que o usuário está ciente das permissões de montagem para o diretório montado. | No Ubuntu, por exemplo, o local é:`/mnt/batch/tasks/fsmounts` |
 | AZ_BATCH_NODE_ROOT_DIR          | O caminho completo da raiz de todos os [diretórios de lote][files_dirs] no nó. | Todas as tarefas. | C:\user\tasks |
 | AZ_BATCH_NODE_SHARED_DIR        | O caminho completo do [diretório compartilhado][files_dirs] no nó. Todas as tarefas que são executadas em um nó têm acesso de leitura/gravação a esse diretório. As tarefas executadas em outros nós não têm acesso remoto a esse diretório (não é um diretório de rede "compartilhado"). | Todas as tarefas. | C:\user\tasks\shared |
 | AZ_BATCH_NODE_STARTUP_DIR       | O caminho completo do [diretório da tarefa inicial][files_dirs] no nó. | Todas as tarefas. | C:\user\tasks\startup |
