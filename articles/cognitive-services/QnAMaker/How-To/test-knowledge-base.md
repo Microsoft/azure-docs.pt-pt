@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6a512098d5dfda47b7755e24b286aabf83aa7e69
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2b9c6f96cc351831bb784bb89db1bce76b01190b
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563071"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966657"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Testar a sua base de dados de conhecimento interativamente em QnA Maker
 
@@ -31,7 +31,7 @@ Teste a sua base de dados de conhecimento do QnA Maker é uma parte importante d
 
 ## <a name="clear-test-panel"></a>Painel de teste clara
 
-Para limpar todas as consultas de teste inseridas e seus resultados do console de teste  , selecione recomeçar no canto superior esquerdo do painel de teste.
+Para limpar todas as consultas de teste inseridas e seus resultados do console de teste , selecione recomeçar no canto superior esquerdo do painel de teste.
 
 ## <a name="close-test-panel"></a>Painel de teste fechar
 

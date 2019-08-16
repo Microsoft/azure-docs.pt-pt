@@ -74,10 +74,6 @@ sections:
             text: Node.js
             href: /azure/application-insights/app-insights-nodejs-quick-start
           - image:
-              src: 'https://docs.microsoft.com/media/common/java.svg'
-            text: Java
-            href: /azure/application-insights/app-insights-java-quick-start
-          - image:
               src: /azure/application-insights/media/index/mobile-center.png
             text: Telemóvel
             href: /azure/application-insights/app-insights-mobile-center-quickstart
@@ -125,7 +121,7 @@ sections:
         style: unordered
         className: spaced noBullet
         items:
-          - html: <a href="/azure/log-analytics/powershell-samples">Azure PowerShell</a>
+          - html: <a href="/azure/log-analytics/powershell-samples">O Azure PowerShell</a>
   - title: Referência
     items:
       - type: list
@@ -133,6 +129,6 @@ sections:
         className: cardsD
         items:
           - title: Linha de Comandos
-            html: <p><a href="/powershell/module/az.operationalinsights">Azure PowerShell</a></p>
+            html: <p><a href="/powershell/module/az.operationalinsights">O Azure PowerShell</a></p>
           - title: REST
             html: <p><a href="/rest/api/loganalytics">Referência da API REST</a></p>
