@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 77bf284734428e9257b46d85296796e4051ace26
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 44bf3171f9da73dac17b29e86c80fc8f0d011498
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494831"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557929"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -72,7 +72,7 @@ Todos os exemplos de Azure Policy estão em [exemplos de Azure Policy](../sample
 
 ## <a name="mode"></a>Modo
 
-O **modo** será configurado dependendo se a política estiver direcionando para uma propriedade Azure Resource Manager ou uma propriedade de provedor de recursos.
+O **modo** é configurado dependendo de se a política tem como alvo uma propriedade Azure Resource Manager ou uma propriedade de provedor de recursos.
 
 ### <a name="resource-manager-modes"></a>Modos do Resource Manager
 
@@ -370,7 +370,7 @@ O uso de _funções de modelo_ em **valor** permite muitas funções aninhadas c
 }
 ```
 
-A regra de política de exemplo acima usa [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) para comparar os três primeiros caracteres de **nome** para **ABC**. Se **Name** for menor que três caracteres, a `substring()` função resultará em um erro. Esse erro faz com que a política se  torne um efeito de negação.
+A regra de política de exemplo acima usa [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) para comparar os três primeiros caracteres de **nome** para **ABC**. Se **Name** for menor que três caracteres, a `substring()` função resultará em um erro. Esse erro faz com que a política se torne um efeito de negação.
 
 Em vez disso, use a função [If ()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) para verificar se os três primeiros caracteres de **nome** são iguais a **ABC** sem permitir que um **nome** com menos de três caracteres cause um erro:
 
@@ -619,7 +619,7 @@ O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas etiquet
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Veja [Compreender os efeitos do Policy](effects.md).

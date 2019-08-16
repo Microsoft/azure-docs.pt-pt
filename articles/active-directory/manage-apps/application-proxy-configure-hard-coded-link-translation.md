@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 08/15/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d85fc7ed16f397cb91232e9648df4e8741b37a
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705789"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533697"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecionar links codificados para aplicativos publicados com o Azure Proxy de Aplicativo do AD
 
@@ -30,13 +30,16 @@ O Azure Proxy de Aplicativo do AD torna seus aplicativos locais disponíveis par
 A melhor maneira de garantir que os links funcionem da mesma forma dentro e fora de sua rede corporativa é configurar as URLs externas de seus aplicativos para serem as mesmas que suas URLs internas. Use [domínios personalizados](application-proxy-configure-custom-domain.md) para configurar suas URLs externas para ter seu nome de domínio corporativo em vez do domínio de proxy de aplicativo padrão.
 
 
-Se você não puder usar domínios personalizados em seu locatário, há várias outras opções para fornecer essa funcionalidade. Todos eles também são compatíveis com domínios personalizados e outros, para que você possa configurar domínios personalizados e outras soluções, se necessário. 
+Se você não puder usar domínios personalizados em seu locatário, há várias outras opções para fornecer essa funcionalidade. Todos eles também são compatíveis com domínios personalizados e outros, para que você possa configurar domínios personalizados e outras soluções, se necessário.
+
+> [!NOTE]
+> A conversão de link não tem suporte para URLs internas embutidas em código geradas por meio de JavaScript.
 
 **Opção 1: Use o Managed browser ou o Microsoft** Edge – essa solução só será aplicável se você planeja recomendar ou exigir que os usuários acessem o aplicativo por meio do navegador Intune Managed browser ou Microsoft Edge. Ele tratará todas as URLs publicadas. 
 
 **Opção 2: Usar a extensão** myapps – essa solução exige que os usuários instalem uma extensão de navegador do lado do cliente, mas ele manipulará todas as URLs publicadas e funcionará com os navegadores mais populares. 
 
-**Opção 3: Use a configuração** de conversão de link – essa é uma configuração do lado do administrador que é invisível para os usuários. No entanto, ele só tratará URLs em HTML e CSS. As URLs internas embutidas em código geradas por meio do JavaScript (por exemplo) não funcionarão.  
+**Opção 3: Use a configuração** de conversão de link – essa é uma configuração do lado do administrador que é invisível para os usuários. No entanto, ele só tratará URLs em HTML e CSS.   
 
 Esses três recursos mantêm seus links funcionando independentemente de onde estão os usuários. Quando você tem aplicativos que apontam diretamente para pontos de extremidade internos ou portas, você pode mapear essas URLs internas para as URLs de proxy de aplicativo externo publicadas. 
 
@@ -146,7 +149,7 @@ Agora, quando os usuários acessarem esse aplicativo, o proxy verificará automa
 
 Queremos que sua ajuda faça com que esse recurso funcione para todos os seus aplicativos. Pesquisamos mais de 30 marcas em HTML e CSS. Se você tiver um exemplo de links gerados que não estão sendo traduzidos, envie um trecho de código para os [comentários do proxy de aplicativo](mailto:aadapfeedback@microsoft.com). 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Usar domínios personalizados com o Azure proxy de aplicativo do AD](application-proxy-configure-custom-domain.md) para ter a mesma URL interna e externa
 
 [Configurar mapeamentos de acesso alternativos para o SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)

@@ -7,14 +7,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/15/2019
 ms.author: diberry
-ms.openlocfilehash: d7049c729140591717782b191f970f4295140cb8
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 570429a2d5332e7d951271b36b79d9d16df174c0
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697931"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535213"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Serviços Cognitivos e aprendizagem automática
 
@@ -131,6 +131,10 @@ Serviços cognitivas que fornecem modelos exportados para outras ferramentas de 
 |--|--|
 |[Visão Personalizada](./custom-vision-service/home.md)|[Exportar](./Custom-Vision-Service/export-model-python.md) para Tensorflow para Android, do coreml para IOS11, ONNX para Windows ml|
 
+## <a name="learn-more"></a>Saber mais
+
+* [Guia de arquitetura – quais são os produtos de Machine Learning da Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [Machine Learning-introdução ao aprendizado profundo versus aprendizado de máquina](../machine-learning/service/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.date: 08/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 12010aaa7bc90bd200264549ad3efb79f46576c6
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 2b601825a58fe5739a43df607067acc8d629c5f4
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867659"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558893"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurar a coleta de dados do agente para Azure Monitor para contêineres
 
@@ -30,14 +30,14 @@ Este artigo demonstra como criar ConfigMap e configurar a coleta de dados com ba
 >O suporte para Prometheus é um recurso em visualização pública no momento.
 >
 
-## <a name="configure-your-cluster-with-custom-data-collection-settings"></a>Configurar o cluster com configurações personalizadas de coleta de dados
+## <a name="configmap-file-settings-overview"></a>Visão geral das configurações do arquivo ConfigMap
 
 Um arquivo de modelo ConfigMap é fornecido para que você possa editá-lo facilmente com suas personalizações sem precisar criá-lo do zero. Antes de começar, você deve examinar a documentação do kubernetes sobre [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) e se familiarizar com como criar, configurar e implantar o ConfigMaps. Isso permitirá que você filtre stderr e stdout por namespace ou por todo o cluster e variáveis de ambiente para qualquer contêiner em execução em todos os pods/nós no cluster.
 
 >[!IMPORTANT]
 >A versão mínima do agente com suporte para coletar variáveis stdout, stderr e ambientais de cargas de trabalho de contêiner é ciprod06142019 ou posterior. A versão mínima do agente com suporte para métricas de Prometheus de sucata é ciprod07092019 ou posterior. Para verificar a versão do agente, na guia **nó** , selecione um nó e, no painel Propriedades, observe o valor da propriedade **marca da imagem do agente** .  
 
-### <a name="overview-of-configurable-data-collection-settings"></a>Visão geral das configurações de coleta de dados configuráveis
+### <a name="data-collection-settings"></a>Configurações de coleta de dados
 
 A seguir estão as configurações que podem ser definidas para controlar a coleta de dados.
 
@@ -45,26 +45,38 @@ A seguir estão as configurações que podem ser definidas para controlar a cole
 |----|----------|------|------------|
 |`schema-version` |Cadeia de caracteres (diferencia maiúsculas de minúsculas) |v1 |Esta é a versão do esquema usada pelo agente ao analisar este ConfigMap. A versão de esquema com suporte atualmente é v1. Não há suporte para a modificação desse valor e ele será rejeitado quando ConfigMap for avaliado.|
 |`config-version` |Cadeia | | Dá suporte à capacidade de controlar a versão deste arquivo de configuração no sistema/repositório do controle do código-fonte. Os caracteres máximos permitidos são 10 e todos os outros caracteres são truncados. |
-|`[log_collection_settings.stdout] enabled =` |Booleano | verdadeiro ou falso | Isso controla se a coleta de log de contêiner stdout está habilitada. Quando definido como `true` e nenhum namespace é excluído para coleta de log de stdout`log_collection_settings.stdout.exclude_namespaces` (configuração abaixo), os logs de stdout serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps, o valor padrão `enabled = true`será. |
+|`[log_collection_settings.stdout] enabled =` |Boolean | verdadeiro ou falso | Isso controla se a coleta de log de contêiner stdout está habilitada. Quando definido como `true` e nenhum namespace é excluído para coleta de log de stdout`log_collection_settings.stdout.exclude_namespaces` (configuração abaixo), os logs de stdout serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps, o valor padrão `enabled = true`será. |
 |`[log_collection_settings.stdout] exclude_namespaces =`|Cadeia | Matriz separada por vírgulas |Matriz de namespaces kubernetes para os quais os logs de stdout não serão coletados. Essa configuração só será eficaz se `log_collection_settings.stdout.enabled` o for definido `true`como. Se não for especificado em ConfigMap, o valor padrão `exclude_namespaces = ["kube-system"]`será.|
-|`[log_collection_settings.stderr] enabled =` |Booleano | verdadeiro ou falso |Isso controla se a coleta de log de contêiner stderr está habilitada. Quando definido como `true` e nenhum namespace é excluído para coleta de log de stdout`log_collection_settings.stderr.exclude_namespaces` (configuração), os logs de stderr serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps, o valor padrão `enabled = true`será. |
+|`[log_collection_settings.stderr] enabled =` |Boolean | verdadeiro ou falso |Isso controla se a coleta de log de contêiner stderr está habilitada. Quando definido como `true` e nenhum namespace é excluído para coleta de log de stdout`log_collection_settings.stderr.exclude_namespaces` (configuração), os logs de stderr serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps, o valor padrão `enabled = true`será. |
 |`[log_collection_settings.stderr] exclude_namespaces =` |Cadeia |Matriz separada por vírgulas |Matriz de namespaces kubernetes para os quais os logs de stderr não serão coletados. Essa configuração só será eficaz se `log_collection_settings.stdout.enabled` o for definido `true`como. Se não for especificado em ConfigMap, o valor padrão `exclude_namespaces = ["kube-system"]`será. |
-| `[log_collection_settings.env_var] enabled =` |Booleano | verdadeiro ou falso | Isso controla se a coleção de variáveis de ambiente está habilitada. Quando definido como `false`, nenhuma variável de ambiente é coletada para qualquer contêiner em execução em todos os pods/nós no cluster. Se não for especificado em ConfigMap, o valor padrão `enabled = true`será. |
+| `[log_collection_settings.env_var] enabled =` |Boolean | verdadeiro ou falso | Isso controla se a coleção de variáveis de ambiente está habilitada. Quando definido como `false`, nenhuma variável de ambiente é coletada para qualquer contêiner em execução em todos os pods/nós no cluster. Se não for especificado em ConfigMap, o valor padrão `enabled = true`será. |
 
-## <a name="overview-of-configurable-prometheus-scraping-settings"></a>Visão geral das configurações de recorte de Prometheus configuráveis
+### <a name="prometheus-scraping-settings"></a>Configurações de recorte de Prometheus
 
-A recorte ativa de métricas de Prometheus são executadas de uma das duas perspectivas:
+![Arquitetura de monitoramento de contêiner para Prometheus](./media/container-insights-agent-config/monitoring-kubernetes-architecture.png)
+
+O Azure Monitor para contêineres fornece uma experiência simples para habilitar a coleta de métricas Prometheus por meio de vários recortes por meio dos mecanismos a seguir, conforme mostrado na tabela a seguir. As métricas são coletadas por meio de um conjunto de configurações especificado em um único arquivo ConfigMap, que é o mesmo arquivo usado para configurar a coleta de variáveis stdout, stderr e ambientais de cargas de trabalho de contêiner. 
+
+A recorte ativa de métricas de Prometheus é executada de uma das duas perspectivas:
 
 * URL de todo o cluster-HTTP e descobrir destinos de pontos de extremidade listados de um serviço, serviços k8ss como Kube-DNS e Kube-State-métricas e anotações de Pod específicas para um aplicativo. As métricas coletadas neste contexto serão definidas na seção ConfigMap *[Prometheus data_collection_settings. cluster]* .
 * URL em todo o nó-HTTP e descobrir destinos de pontos de extremidade listados de um serviço. As métricas coletadas neste contexto serão definidas na seção ConfigMap *[Prometheus_data_collection_settings. Node]* .
 
-|Scope | Chave | Tipo de dados | Valor | Descrição |
+| Ponto Final | Scope | Exemplo |
+|----------|-------|---------|
+| Anotação de Pod | Em todo o cluster | anotações <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000" <br>prometheus.io/scheme: "http"` |
+| Serviço do Kubernetes | Em todo o cluster | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
+| URL/ponto de extremidade | Por nó e/ou em todo o cluster | `http://myurl:9101/metrics` |
+
+Quando uma URL é especificada, Azure Monitor para contêineres apenas captura o ponto de extremidade. Quando o serviço kubernetes é especificado, o nome do serviço é resolvido com o servidor DNS do cluster para obter o endereço IP e, em seguida, o serviço resolvido é recapturado.
+
+|Scope | Chave | Tipo de dados | Value | Descrição |
 |------|-----|-----------|-------|-------------|
 | Em todo o cluster | | | | Especifique qualquer um dos três métodos a seguir para recorte de pontos de extremidade para métricas. |
 | | `urls` | Cadeia | Matriz separada por vírgulas | Ponto de extremidade HTTP (endereço IP ou caminho de URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE _IP é um Azure Monitor específico para o parâmetro containers e pode ser usado em vez do endereço IP do nó. Deve estar tudo em maiúsculas.) |
 | | `kubernetes_services` | Cadeia | Matriz separada por vírgulas | Uma matriz de serviços Kubernetess para recorte de métricas de métricas de Kube-State. Por exemplo,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
 | | `monitor_kubernetes_pods` | Booleano | verdadeiro ou falso | Quando definido como `true` nas configurações de todo o cluster, Azure monitor para o agente de contêineres irá recriar o pods kubernetes em todo o cluster para as seguintes anotações Prometheus:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Booleano | verdadeiro ou falso | Habilita a recorte do pod. |
+| | `prometheus.io/scrape` | Boolean | verdadeiro ou falso | Habilita a recorte do pod. `monitor_kubernetes_pods`deve ser definido como `true`. |
 | | `prometheus.io/scheme` | Cadeia | http ou https | O padrão é a sucateação sobre HTTP. Se necessário, defina como `https`. | 
 | | `prometheus.io/path` | Cadeia | Matriz separada por vírgulas | O caminho do recurso HTTP para o qual buscar métricas. Se o caminho de métrica não `/metrics`for, defina-o com esta anotação. |
 | | `prometheus.io/port` | Cadeia | 9102 | Especifique uma porta para escuta. Se a porta não estiver definida, o padrão será 9102. |
@@ -74,7 +86,7 @@ A recorte ativa de métricas de Prometheus são executadas de uma das duas persp
 
 ConfigMap é uma lista global e pode haver apenas um ConfigMap aplicado ao agente. Você não pode ter outro ConfigMap que se refaça com as coleções.
 
-### <a name="configure-and-deploy-configmaps"></a>Configurar e implantar ConfigMaps
+## <a name="configure-and-deploy-configmaps"></a>Configurar e implantar ConfigMaps
 
 Execute as etapas a seguir para configurar e implantar o arquivo de configuração do ConfigMap no cluster.
 
@@ -82,8 +94,51 @@ Execute as etapas a seguir para configurar e implantar o arquivo de configuraç�
 1. Edite o arquivo ConfigMap YAML com suas personalizações.
 
     - Para excluir namespaces específicos para coleta de log de stdout, configure a chave/valor usando o exemplo a `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`seguir:.
+    
     - Para desabilitar a coleção de variáveis de ambiente para um contêiner específico, defina a `[log_collection_settings.env_var] enabled = true` chave/o valor para habilitar a coleção de variáveis globalmente e siga as etapas [aqui](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) para concluir a configuração do contêiner específico.
+    
     - Para desabilitar a coleção de logs stderr em todo o cluster, configure a chave/valor usando o exemplo `[log_collection_settings.stderr] enabled = false`a seguir:.
+    
+    - Os exemplos a seguir demonstram como configurar as métricas de arquivo ConfigMap de uma URL em todo o cluster, do DameonSet de todo o nó do agente e especificando uma anotação de Pod
+
+        - Recorte as métricas de Prometheus de uma URL específica pelo cluster.
+
+        ```
+         prometheus-data-collection-settings: |- 
+         # Custom Prometheus metrics data collection settings
+         [prometheus_data_collection_settings.cluster] 
+         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h.
+         fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through 
+         fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+         urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
+        ```
+
+        - Recorte as métricas de Prometheus do Daemonset de um agente em execução em cada nó no cluster.
+
+        ```
+         prometheus-data-collection-settings: |- 
+         # Custom Prometheus metrics data collection settings 
+         [prometheus_data_collection_settings.node] 
+         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. 
+         # Node level scrape endpoint(s). These metrics will be scraped from agent's DaemonSet running in every node in the cluster 
+         urls = ["http://$NODE_IP:9103/metrics"] 
+         fieldpass = ["metric_to_pass1", "metric_to_pass2"] 
+         fielddrop = ["metric_to_drop"] 
+        ```
+
+        - Recorte as métricas do Prometheus especificando uma anotação de Pod.
+
+        ```
+         prometheus-data-collection-settings: |- 
+         # Custom Prometheus metrics data collection settings
+         [prometheus_data_collection_settings.cluster] 
+         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h
+         monitor_kubernetes_pods = true #replicaset will scrape Kubernetes pods for the following prometheus annotations: 
+          - prometheus.io/scrape:"true" #Enable scraping for this pod 
+          - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
+          - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
+          - prometheus.io/port:"8000" #If port is not 9102 use this annotation
+        ```
 
 1. Crie ConfigMap executando o seguinte comando kubectl: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
@@ -108,7 +163,7 @@ Os erros impedem que o omsagent analise o arquivo, fazendo com que ele seja rein
 
 ## <a name="applying-updated-configmap"></a>Aplicando ConfigMap atualizado
 
-Se você já tiver implantado um ConfigMap em seu cluster e quiser atualizá-lo com uma configuração mais recente, poderá simplesmente editar o arquivo ConfigMap que você usou anteriormente e, em seguida, aplicar usando o `kubectl apply -f <configmap_yaml_file.yaml`mesmo comando que antes,.
+Se você já tiver implantado um ConfigMap em seu cluster e quiser atualizá-lo com uma configuração mais recente, poderá editar o arquivo ConfigMap que você usou anteriormente e, em seguida, aplicar usando o `kubectl apply -f <configmap_yaml_file.yaml`mesmo comando que antes,.
 
 A alteração de configuração pode levar alguns minutos para ser concluída antes de entrar em vigor, e todos os pods de omsagent no cluster serão reiniciados. A reinicialização é uma reinicialização sem interrupção para todos os pods omsagent, nem todas as reinicializações ao mesmo tempo. Quando as reinicializações forem concluídas, será exibida uma mensagem semelhante à seguinte e inclui o resultado: `configmap "container-azm-ms-agentconfig" updated`.
 
@@ -164,7 +219,7 @@ A saída mostrará resultados semelhantes ao seguinte:
 
 Mais informações sobre como monitorar o uso de dados e analisar o custo estão disponíveis em [gerenciar o uso e os custos com os logs de Azure monitor](../platform/manage-cost-storage.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Azure Monitor para contêineres não inclui um conjunto predefinido de alertas. Examine [criar alertas de desempenho com Azure monitor para contêineres](container-insights-alerts.md) para saber como criar alertas recomendados para alta utilização de CPU e memória para dar suporte aos processos e procedimentos operacionais ou DevOps.
 

@@ -1,26 +1,19 @@
 ---
 title: Guia de introdução para operadores de ti do Azure | Microsoft Docs
 description: Guia de introdução para operadores de ti do Azure
-services: ''
-documentationcenter: ''
-author: themichaelbender-ms
-manager: timlt
-editor: tysonn
+author: RicksterCDN
+ms.author: rclaus
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: azure
-ms.devlang: ''
 ms.topic: overview
-ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.author: mibender
-ms.openlocfilehash: b6f5534bc4127e11d7be4b1a52b92a22b75cbb5a
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: b225052daa61932f3b8b868789cfb3c204eca88f
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828086"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543420"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introdução aos operadores de ti do Azure
 

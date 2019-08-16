@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 51ef55247d3262d8707403ed09cc8643403dda23
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 393c66f57cd4a7621ad660774a95502c0f5ad8c4
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952974"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534721"
 ---
 # <a name="update-management-solution-in-azure"></a>Gerenciamento de Atualizações solução no Azure
 
@@ -238,7 +238,7 @@ Para criar uma nova implantação de atualização, selecione **agendar implanta
 
 | Propriedade | Description |
 | --- | --- |
-| Nome |O nome exclusivo para identificar a implementação de atualizações. |
+| Name |O nome exclusivo para identificar a implementação de atualizações. |
 |Sistema operativo| Linux ou Windows|
 | Grupos a serem atualizados |Para computadores do Azure, defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e marcas para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. </br></br>Para computadores não Azure, selecione uma pesquisa salva existente para selecionar um grupo de computadores não Azure a serem incluídos na implantação. </br></br>Para saber mais, confira [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)|
 | Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou escolha a máquina na lista suspensa e selecione computadores individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores em logs de Azure Monitor, consulte [grupos de computadores em logs de Azure monitor](../azure-monitor/platform/computer-groups.md) |
@@ -250,6 +250,15 @@ Para criar uma nova implantação de atualização, selecione **agendar implanta
 | Controle de reinicialização| Determina como as reinicializações devem ser tratadas. As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
 
 As implantações de atualização também podem ser criadas programaticamente. Para saber como criar uma implantação de atualização com a API REST, consulte [Software Update Configurations-Create](/rest/api/automation/softwareupdateconfigurations/create). Também há um runbook de exemplo que pode ser usado para criar uma implantação semanal de atualização. Para saber mais sobre esse runbook, confira [criar uma implantação de atualização semanal para uma ou mais VMs em um grupo de recursos](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+
+### <a name="maintenance-windows"></a>Janelas de manutenção
+
+As janelas de manutenção controlam a quantidade de tempo permitida para a instalação das atualizações. Considere os detalhes a seguir ao especificar uma janela de manutenção.
+
+* As janelas de manutenção controlam quantas atualizações foram tentadas para serem instaladas.
+* Gerenciamento de Atualizações não interromperá a instalação de novas atualizações se o final de uma janela de manutenção estiver se aproximando.
+* Gerenciamento de Atualizações não terminará as atualizações em andamento se a janela de manutenção for excedida.
+* Se a janela de manutenção for excedida no Windows, isso geralmente ocorre devido a uma atualização service pack demorando muito para ser instalada.
 
 ### <a name="multi-tenant"></a>Implantações de atualização entre locatários
 

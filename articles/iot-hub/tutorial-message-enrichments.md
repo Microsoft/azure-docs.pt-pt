@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 2c115bf0ad21e905e998692fbbc175f5aa52b86d
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 77d900844705bb86ce4bcfeda31d6ee765cb8d45
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014253"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535004"
 ---
 # <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>Tutorial: Usando aprimoramentos de mensagens do Hub IoT do Azure (versão prévia)
 
@@ -69,7 +69,7 @@ Se você ainda não tiver feito isso, abra uma [janela de Cloud Shell para Bash.
 
 Aqui estão os recursos criados pelo script. **Aprimorado** significa que o recurso é para mensagens com aprimoramentos. **Original** significa que o recurso é para mensagens que não são aprimoradas.
 
-| Nome | Value |
+| Name | Value |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | nome do contêiner | Original  |
@@ -84,7 +84,7 @@ Aqui estão os recursos criados pelo script. **Aprimorado** significa que o recu
 
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account.
-# This field is used when setting up the routing rules.
+# This field is used when setting up the routing queries.
 subscriptionID=$(az account show --query id -o tsv)
 
 # Concatenate this number onto the resources that have to be globally unique.
@@ -250,7 +250,7 @@ Neste ponto, os recursos estão todos configurados e o roteamento é configurado
 
 2. Adicione esses valores à lista para o ponto de extremidade ContosoStorageEndpointEnriched.
 
-   | Nome | Value | Ponto de extremidade (lista suspensa) |
+   | Name | Value | Ponto de extremidade (lista suspensa) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | DeviceLocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
@@ -269,7 +269,7 @@ Neste ponto, os recursos estão todos configurados e o roteamento é configurado
 
 ## <a name="send-messages-to-the-iot-hub"></a>Enviar mensagens para o Hub IoT
 
-Agora que os aprimoramentos de mensagem estão configurados para o ponto de extremidade, execute o aplicativo de dispositivo simulado para enviar mensagens para o Hub IoT. O Hub foi configurado com regras que realizam o seguinte:
+Agora que os aprimoramentos de mensagem estão configurados para o ponto de extremidade, execute o aplicativo de dispositivo simulado para enviar mensagens para o Hub IoT. O Hub foi configurado com configurações que realizam o seguinte:
 
 * As mensagens roteadas para o ponto de extremidade de armazenamento ContosoStorageEndpointOriginal não serão enriquecedas e serão armazenadas no contêiner `original`de armazenamento.
 
@@ -333,7 +333,7 @@ Para remover o grupo de recursos, utilize o comando [az group delete](https://do
 az group delete --name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você configurou e testou a adição de aprimoramentos de mensagens às mensagens do Hub IoT usando as seguintes etapas:
 

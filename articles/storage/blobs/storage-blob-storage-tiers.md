@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 8f180308133ffba12cc3bffb19130aa7a129da9f
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 48c6d6ed60045d906fcb711bd07ab492b6bbf488
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952904"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543679"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo
 
@@ -80,6 +80,7 @@ Os cenários de uso de exemplo para a camada de acesso de arquivamento incluem:
 ### <a name="blob-rehydration"></a>Reidratação de blobs
 
 [!INCLUDE [storage-blob-rehydrate-include](../../../includes/storage-blob-rehydrate-include.md)]
+Consulte [dados de blob reidratar da camada de arquivo](storage-blob-rehydration.md) para saber mais.  
 
 ## <a name="account-level-tiering"></a>Camadas em nível de conta
 
@@ -164,11 +165,13 @@ Nesta secção, são demonstrados os seguintes cenários através do portal do A
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Para navegar até o blob em sua conta de armazenamento, selecione **todos os recursos**, selecione sua conta de armazenamento, selecione o contêiner e, em seguida, selecione o blob.
+1. Para navegar para o blob na conta de armazenamento, selecione Todos os Recursos, selecione a conta de armazenamento, selecione o contentor e, em seguida, selecione o blob.
 
-1. Na folha **Propriedades do blob** , selecione o menu suspenso **camada de acesso** para selecionar a camada de acesso **quente**, **fria**ou de **arquivamento** .
+1. Na folha **Propriedades do blob** , selecione o botão **alterar camada** para abrir a folha da camada.
 
-1. Clique em **Guardar**, na parte superior do painel.
+1. Selecione a camada de acesso **quente**, **fria**ou de **arquivamento** . Se o blob estiver atualmente no arquivo morto e você quiser reidratar-lo em uma camada online, você também poderá selecionar uma prioridade reidratar de **padrão** ou **alta**.
+
+1. Clique em **OK** na parte inferior do painel.
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 
@@ -238,13 +241,15 @@ O portal, o PowerShell e as ferramentas da CLI do Azure e as bibliotecas de.NET,
 
 O armazenamento de dados junto com outros limites é definido no nível da conta e não por camada de acesso. Portanto, você pode optar por usar todo o limite em uma camada ou em todas as três camadas. Para obter mais informações, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 ### <a name="evaluate-hot-cool-and-archive-in-gpv2-and-blob-storage-accounts"></a>Avaliar a quente, a frio e o arquivo em contas de armazenamento de BLOBs e GPv2
 
 [Verificar a disponibilidade das camadas frequente, esporádica e de arquivo por região](https://azure.microsoft.com/regions/#services)
 
 [Gerenciar o ciclo de vida do armazenamento de BLOBs do Azure](storage-lifecycle-management-concepts.md)
+
+[Saiba mais sobre os dados de blob reidratar da camada de arquivo](storage-blob-rehydration.md)
 
 [Avaliar a utilização das suas contas de armazenamento atuais ao ativar as métricas do Armazenamento do Azure](../common/storage-enable-and-view-metrics.md)
 

@@ -1,9 +1,9 @@
 ---
-title: Passar o estado personalizado em pedidos de autenticação (biblioteca de autenticação da Microsoft para JavaScript) | Azure
-description: Saiba como passar um valor de parâmetro de estado personalizado no pedido de autenticação usando a biblioteca de autenticação da Microsoft para JavaScript (msal).
+title: Passar o estado personalizado em solicitações de autenticação (biblioteca de autenticação da Microsoft para JavaScript) | Azure
+description: Saiba como passar um valor de parâmetro de estado personalizado na solicitação de autenticação usando a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/29/2019
-ms.author: nacanuma
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f29d84838ddb11ac359d7a04dbce8e39dd05ac01
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2ae12624b3d897f05437f7795d1a1eee32ca37a
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66420502"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532743"
 ---
-# <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Passar o estado personalizado em pedidos de autenticação com msal
-O *estado* parâmetro, conforme definido pela OAuth 2.0, que está incluído numa solicitação de autenticação e também é devolvido na resposta de token para impedir ataques de falsificação de solicitação entre sites. Por predefinição, a biblioteca de autenticação da Microsoft para JavaScript (msal) passa um gerada aleatoriamente exclusivo *estado* valor de parâmetro nos pedidos de autenticação.
+# <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Passar o estado personalizado em solicitações de autenticação usando MSAL. js
+O parâmetro *State* , conforme definido pelo OAuth 2,0, está incluído em uma solicitação de autenticação e também é retornado na resposta do token para impedir ataques de solicitação entre sites forjado. Por padrão, a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) passa um valor de parâmetro de *estado* exclusivo gerado aleatoriamente nas solicitações de autenticação.
 
-O parâmetro de estado também pode ser utilizado para codificar as informações do Estado da aplicação antes de redirecionamento. Pode passar o estado do utilizador na aplicação, como a página ou a vista que se encontrava, como entrada para este parâmetro. A biblioteca de msal permite que passe o seu estado personalizado como parâmetro de estado no `Request` objeto:
+O parâmetro State também pode ser usado para codificar informações do estado do aplicativo antes do redirecionamento. Você pode passar o estado do usuário no aplicativo, como a página ou a exibição em que eles estavam, como entrada para esse parâmetro. A biblioteca MSAL. js permite que você passe seu estado personalizado como parâmetro de estado no `Request` objeto:
 
 ```javascript
 // Request type
@@ -57,7 +57,7 @@ let loginRequest = {
 myMSALObj.loginPopup(loginRequest);
 ```
 
-O estado com êxito no é acrescentado ao GUID exclusivo definido pelo msal ao enviar o pedido. Quando a resposta é devolvida, msal verifica a existência de uma correspondência de estado e, em seguida, devolve o personalizado passado no Estado no `Response` objeto como `accountState`.
+O estado transmitido é acrescentado ao GUID exclusivo definido por MSAL. js ao enviar a solicitação. Quando a resposta é retornada, o MSAL. js verifica uma correspondência de estado e retorna o estado `Response` personalizado passado no objeto como. `accountState`
 
 ```javascript
 export type AuthResponse = {
@@ -73,4 +73,4 @@ export type AuthResponse = {
 };
 ```
 
-Para saber mais, leia sobre [criando um aplicativo de página única (SPA)](scenario-spa-overview.md) através de msal.
+Para saber mais, leia sobre como [criar um aplicativo de página única (Spa) usando o](scenario-spa-overview.md) MSAL. js.

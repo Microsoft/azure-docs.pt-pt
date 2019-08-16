@@ -3,7 +3,7 @@ title: Considerações sobre Plataforma Universal do Windows (biblioteca de aute
 description: Saiba mais sobre considerações específicas ao usar Plataforma Universal do Windows com a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d78a64ee41e37fe53eba20eab6753c0b6eb8389
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 263264742088a0012ea844946e13cffbab634b29
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277908"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532491"
 ---
 # <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Considerações específicas de Plataforma Universal do Windows com MSAL.NET
 No UWP, há várias considerações que você deve levar em conta ao usar o MSAL.NET.
@@ -32,7 +32,7 @@ Na plataforma WinRT, `PublicClientApplication` tem a seguinte propriedade ``UseC
 
 > [!IMPORTANT]
 > Definir essa propriedade como true pressupõe que o desenvolvedor do aplicativo habilitou a autenticação integrada do Windows (IWA) no aplicativo. Para isso:
-> - No para seu aplicativo UWP, na guia recursos, habilite os seguintes recursos:  ``Package.appxmanifest``
+> - No para seu aplicativo UWP, na guia recursos, habilite os seguintes recursos: ``Package.appxmanifest``
 >   - Autenticação corporativa
 >   - Redes privadas (servidor de & cliente)
 >   - Certificado de usuário compartilhado
@@ -64,10 +64,10 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execu
 
 Para obter detalhes, consulte [agente de autenticação da Web-Fiddler](https://docs.microsoft.com/windows/uwp/security/web-authentication-broker#fiddler).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Mais detalhes são fornecidos nos seguintes exemplos:
 
-Sample | Plataforma | Descrição 
+Exemplo | Plataforma | Descrição 
 |------ | -------- | -----------|
 |[active-directory-dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Um aplicativo cliente Plataforma Universal do Windows usando o msal.net, acessando o Microsoft Graph para uma autenticação de usuário com o ponto de extremidade v 2.0 do Azure AD. <br>![Topologia](media/msal-net-uwp-considerations/topology-native-uwp.png)|
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | Um aplicativo Xamarin Forms simples mostrando como usar o MSAL para autenticar o MSA e o Azure AD por meio do ponto de extremidade do AAD v 2.0 e acessar o Microsoft Graph com o token resultante. <br>![Topologia](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

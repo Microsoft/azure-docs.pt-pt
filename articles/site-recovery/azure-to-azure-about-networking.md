@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 844563e03529e472624b35d2b545c3e432e4ea17
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: c642640d590e1f568fb6f6c5072decd75575ab2d
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876286"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543647"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Sobre a rede na replicação do Azure para o Azure
 
@@ -93,22 +93,27 @@ Os intervalos de endereços IP Site Recovery são os seguintes:
    EUA Oeste 2 | 52.183.45.166 | 13.66.228.204
    Reino Unido Oeste | 51.141.3.203 | 51.141.14.113
    Reino Unido Sul | 51.140.43.158 | 51.140.189.52
-   Sul do Reino Unido 2 | 13.87.37.4| 13.87.34.139
-   Norte do Reino Unido | 51.142.209.167 | 13.87.102.68
+   Sul do R.U. 2 | 13.87.37.4| 13.87.34.139
+   Norte do R.U. | 51.142.209.167 | 13.87.102.68
    Coreia do Sul Central | 52.231.28.253 | 52.231.32.85
    Coreia do Sul | 52.231.198.185 | 52.231.200.144
    França Central | 52.143.138.106 | 52.143.136.55
    Sul de França | 52.136.139.227 |52.136.136.62
    Austrália Central| 20.36.34.70 | 20.36.46.142
    Austrália Central 2| 20.36.69.62 | 20.36.74.130
-   África do Sul, Oeste | 102.133.72.51 | 102.133.26.128
-   África do Sul, Norte | 102.133.160.44 | 102.133.154.128
+   Oeste da África do Sul | 102.133.72.51 | 102.133.26.128
+   Norte da África do Sul | 102.133.160.44 | 102.133.154.128
    Gov (US) - Virginia | 52.227.178.114 | 23.97.0.197
    US Gov - Iowa | 13.72.184.23 | 23.97.16.186
    Gov (US) - Arizona | 52.244.205.45 | 52.244.48.85
    Gov (US) - Texas | 52.238.119.218 | 52.238.116.60
    US DoD Leste | 52.181.164.103 | 52.181.162.129
    US DoD Centro | 52.182.95.237 | 52.182.90.133
+   Norte da China | 40.125.202.254 | 42.159.4.151
+   Norte da China 2 | 40.73.35.193 | 40.73.33.230
+   Leste da China | 42.159.205.45 | 42.159.132.40
+   Leste da China 2 | 40.73.118.52| 40.73.100.125
+  
 ## <a name="example-nsg-configuration"></a>Exemplo de configuração de NSG
 
 Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
@@ -167,7 +172,7 @@ Você pode criar um ponto de extremidade de serviço de rede em sua rede virtual
 
 Você pode substituir a rota do sistema padrão do Azure para o prefixo de endereço 0.0.0.0/0 por uma [rota personalizada](../virtual-network/virtual-networks-udr-overview.md#custom-routes) e desviar o tráfego da VM para uma NVA (solução de virtualização de rede) local, mas essa configuração não é recomendada para replicação de site Recovery. Se você estiver usando rotas personalizadas, deverá [criar um ponto de extremidade de serviço de rede virtual](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) em sua rede virtual para "armazenamento" para que o tráfego de replicação não deixe o limite do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Comece a proteger suas cargas de trabalho replicando as [máquinas virtuais do Azure](site-recovery-azure-to-azure.md).
 - Saiba mais sobre a [retenção de endereço IP](site-recovery-retain-ip-azure-vm-failover.md) para o failover de máquina virtual do Azure.
 - Saiba mais sobre a recuperação de desastre de [máquinas virtuais do Azure com o ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

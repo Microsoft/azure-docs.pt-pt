@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 2ea17a4363218351eb6e5ba0678435f3707e4ab9
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: a559fe86850ee9c1378876bc5ed8f2d0ddfb2d99
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663725"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543042"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conectar Operations Manager ao Azure Monitor
 
@@ -65,12 +65,12 @@ Antes de iniciar, examine os requisitos a seguir.
 >[!NOTE]
 >As alterações recentes nas APIs do Azure impedirão que os clientes consigam configurar a integração com êxito entre o grupo de gerenciamento e Azure Monitor pela primeira vez. Para os clientes que já tiverem integrado o grupo de gerenciamento com o serviço, você não será afetado, a menos que precise reconfigurar a conexão existente.  
 >Um novo pacote de gerenciamento foi lançado para as seguintes versões do Operations Manager:
->  
->* Para System Center Operations Manager 1801, baixe o pacote de gerenciamento [aqui](https://www.microsoft.com/download/details.aspx?id=57173)  
->* Para o System Center 2016-Operations Manager, baixe o pacote de gerenciamento [aqui](https://www.microsoft.com/download/details.aspx?id=57172)  
->* Para System Center Operations Manager 2012 R2, baixe o pacote de gerenciamento [aqui](https://www.microsoft.com/download/details.aspx?id=57171)  
->
->Esta atualização do pacote de gerenciamento não é aplicável ao System Center Operations Manager 1807, que é uma versão de atualização da versão 1801 e não uma compilação completa do produto.   
+> - Para System Center Operations Manager 2019, o pacote de gerenciamento é fornecido com o Operations Manager Build.
+>- Operations Manager pacote de gerenciamento 1801 também é aplicável para Operations Manager 1807.
+>- Para System Center Operations Manager 1801, baixe o pacote de gerenciamento [aqui](https://www.microsoft.com/download/details.aspx?id=57173).
+>- Para o System Center 2016-Operations Manager, baixe o pacote de gerenciamento [aqui](https://www.microsoft.com/download/details.aspx?id=57172).  
+>- Para System Center Operations Manager 2012 R2, baixe o pacote de gerenciamento [aqui](https://www.microsoft.com/download/details.aspx?id=57171).  
+
 
 ### <a name="network"></a>Rede
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 7dcf962345a2453fca52825c4be33a439d25df54
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: fe0c9d7e870b56bf83b70845af9159ea0703c4ab
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68740938"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533624"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Visualização-acesso seguro ao servidor de API usando intervalos de endereços IP autorizados no serviço de kubernetes do Azure (AKS)
 
@@ -21,7 +21,7 @@ No kubernetes, o servidor de API recebe solicitações para executar ações no 
 Este artigo mostra como usar intervalos de endereços IP autorizados do servidor de API para limitar solicitações ao plano de controle. Esta funcionalidade encontra-se em pré-visualização.
 
 > [!IMPORTANT]
-> Os recursos de visualização do AKS são de autoatendimento e aceitação. Eles são fornecidos para reunir comentários e bugs de nossa comunidade. Na versão prévia, esses recursos não são destinados ao uso em produção. Os recursos na visualização pública se enquadram no suporte "melhor esforço". A assistência das equipes de suporte técnico do AKS está disponível durante o horário comercial do fuso horário do Pacífico (PST). Para obter informações adicionais, consulte os seguintes artigos de suporte:
+> Os recursos de visualização do AKS são consentimento de autoatendimento. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente com base no melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter outras incompatibilidades, consulte os seguintes artigos de suporte:
 >
 > * [Políticas de suporte do AKS][aks-support-policies]
 > * [Perguntas frequentes do suporte do Azure][aks-faq]
@@ -108,6 +108,14 @@ Para garantir que os nós em um cluster possam se comunicar de forma confiável 
 
 > [!WARNING]
 > O uso do firewall do Azure pode incorrer em custos significativos em um ciclo de cobrança mensal. O requisito para usar o Firewall do Azure só deve ser necessário neste período inicial de visualização. Para obter mais informações e planejamento de custos, consulte [preços do firewall do Azure][azure-firewall-costs].
+>
+> Como alternativa, se o cluster usar o [balanceador de carga SKU padrão][standard-sku-lb], você não precisará configurar o Firewall do Azure como o gateway de saída. Use [AZ Network Public-IP List][az-network-public-ip-list] e especifique o grupo de recursos do seu cluster AKs, que geralmente começa com *MC_* . Isso exibe o IP público para o cluster, que pode ser exibido na lista de permissões. Por exemplo:
+>
+> ```azurecli-interactive
+> RG=$(az aks show --resource-group myResourceGroup --name myAKSClusterSLB --query nodeResourceGroup -o tsv)
+> SLB_PublicIP=$(az network public-ip list --resource-group $RG --query [].ipAddress -o tsv)
+> az aks update --api-server-authorized-ip-ranges $SLB_PublicIP --resource-group myResourceGroup --name myAKSClusterSLB
+> ```
 
 Primeiro, obtenha o nome do grupo de recursos *MC_* para o cluster AKs e a rede virtual. Em seguida, crie uma sub-rede usando o comando [AZ Network vnet subnet Create][az-network-vnet-subnet-create] . O exemplo a seguir cria uma sub-rede chamada *AzureFirewallSubnet* com o intervalo CIDR de *10.200.0.0/16*:
 
@@ -238,7 +246,7 @@ az aks update \
     --api-server-authorized-ip-ranges ""
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você habilitou intervalos de IP autorizados do servidor de API. Essa abordagem é uma parte de como você pode executar um cluster AKS seguro.
 
@@ -259,11 +267,13 @@ Para obter mais informações, consulte [conceitos de segurança para aplicativo
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [create-aks-sp]: kubernetes-service-principal.md#manually-create-a-service-principal
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az-aks-show
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-network-firewall-create]: /cli/azure/ext/azure-firewall/network/firewall#ext-azure-firewall-az-network-firewall-create
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [az-network-firewall-ip-config-create]: /cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-create
 [az-network-firewall-network-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/network-rule#ext-azure-firewall-az-network-firewall-network-rule-create
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
@@ -271,3 +281,4 @@ Para obter mais informações, consulte [conceitos de segurança para aplicativo
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[standard-sku-lb]: load-balancer-standard.md

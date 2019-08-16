@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/05/2019
+ms.date: 08/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4af30a24c5913abec1c2c2287e1b0f145470f42c
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 4ecf3ec6ba9c71f3d7624b541ba0618645ab14f4
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828372"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535082"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -122,6 +122,7 @@ Para obter informações sobre a integração dos serviços do Azure em componen
 
 ## <a name="change-log"></a>Registo de Alterações
 
+- 08/15/2019: Alterações em [SAP Hana configurações de armazenamento de máquina virtual do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) para refletir a disponibilidade geral do ultra Disk (anteriormente SSD ultra)
 - 08/01/2019: Alterações na [configuração de pacemaker no SUSE Linux Enterprise Server no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) para integrar alterações especificamente para SLES 15 
 - 07/23/2019: Alterações no [cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um compartilhamento de arquivos no Azure](sap-high-availability-guide-wsfc-file-share.md) para refletir o suporte ao espaço de armazenamento direto por serviços de Azure site Recovery
 - 07/14/2019: Lançamento de [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md)

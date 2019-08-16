@@ -7,16 +7,18 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7dd053e3a9824ac0817db528b8b053666e1ded04
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 131d6865c47a32bbefbfbd397a5f0f88dedc9c35
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881821"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543506"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Como criar políticas de configuração de convidado
 
 A configuração de convidado usa um módulo de recurso de [configuração de estado desejado](/powershell/dsc) (DSC) para criar a configuração para auditoria das máquinas virtuais do Azure. A configuração DSC define a condição em que a máquina virtual deve estar. Se a avaliação da configuração falhar, a **auditoria** de efeito de política será disparada e a máquina virtual será considerada **não compatível**.
+
+[Azure Policy configuração de convidado](/azure/governance/policy/concepts/guest-configuration) só pode ser usada para auditar configurações dentro de máquinas virtuais. A correção das configurações dentro das máquinas virtuais ainda não está disponível.
 
 Use as ações a seguir para criar sua própria configuração para validar o estado de uma máquina virtual do Azure.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2c66da6717018237aebaf5fdaf803a8ac98f82be
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 028f289092a0183072ab0ba0be29f9d1f79781bc
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344687"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534318"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Configurar ambientes de ciência de dados para utilizar no Team Data Science Process
 O processo de ciência de dados de equipa utiliza vários ambientes de ciência de dados para o armazenamento, processamento e análise de dados. Eles incluem o armazenamento de Blobs do Azure, vários tipos de máquinas virtuais do Azure, clusters de HDInsight (Hadoop) e áreas de trabalho do Azure Machine Learning. A decisão sobre o ambiente no qual pretende utilizar depende do tipo e a quantidade de dados a ser modelada e o destino de destino para que os dados na cloud. 
@@ -37,4 +37,3 @@ Saiba como criar:
 - [Windows DSVM](../data-science-virtual-machine/provision-vm.md)
 - [DSVM do Ubuntu](../data-science-virtual-machine/dsvm-ubuntu-intro.md)
 - [CentOS DSVM](../data-science-virtual-machine/linux-dsvm-intro.md)
-- [VM de aprendizagem profunda](../data-science-virtual-machine/provision-deep-learning-dsvm.md)

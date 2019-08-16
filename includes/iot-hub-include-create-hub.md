@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 795e805e4629a4f4674c296e555ece6230cf66f1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: bf63a9fb552b2a41ce7b9945faeda362592d8efb
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883117"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558770"
 ---
 Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://portal.azure.com).
 
@@ -48,7 +48,7 @@ Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://p
     - **Unidades do Hub IOT**: O número de mensagens permitidas por unidade por dia depende do tipo de preço do seu hub. Por exemplo, se você quiser que o Hub dê suporte à entrada de 700.000 mensagens, escolha duas unidades de camada S1.
     Para obter detalhes sobre as outras opções de camada, consulte [escolhendo a camada certa do Hub IOT](../articles/iot-hub/iot-hub-scaling.md).
 
-    - **Partições avançadas** > de**dispositivo para nuvem**: Essa propriedade relaciona as mensagens do dispositivo para a nuvem com o número de leitores simultâneos das mensagens. A maioria dos hubs só precisa de quatro partições.
+    - Configurações > avançadas**partições de dispositivo para nuvem**: Essa propriedade relaciona as mensagens do dispositivo para a nuvem com o número de leitores simultâneos das mensagens. A maioria dos hubs só precisa de quatro partições.
 
 1. Para este tutorial, aceite as opções padrão e, em seguida, selecione revisar **+ criar** para revisar suas escolhas. Você verá algo semelhante a esta tela.
 

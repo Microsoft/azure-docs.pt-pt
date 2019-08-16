@@ -7,16 +7,16 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: banders
-ms.openlocfilehash: 2e595fbee90b710ec6b8090a770d93e688a04818
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2122b6bd5fbd6b15bd5a2e411898d957708bf4c9
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839990"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558866"
 ---
 # <a name="what-are-azure-reservations"></a>O que é o Azure Reservations?
 
-As reservas do Azure ajudam você a economizar dinheiro ao pagar por um ou três anos de máquinas virtuais, capacidade de computação do banco de dados SQL, taxa de transferência de Azure Cosmos DB ou outros recursos do Azure. O pagamento antecipado permite que você obtenha um desconto sobre os recursos que usa. As reservas podem reduzir significativamente sua máquina virtual, computação do banco de dados SQL, Azure Cosmos DB ou outros custos de recursos de até 72% em preços pagos conforme o uso. As reservas fornecem um desconto de cobrança e não afetam o estado de tempo de execução de seus recursos.
+As reservas do Azure ajudam você a economizar dinheiro ao pagar por um ou três anos de máquinas virtuais, capacidade de computação do banco de dados SQL, taxa de transferência de Azure Cosmos DB ou outros recursos do Azure. O pagamento prévio permite-lhe obter um desconto nos recursos que utiliza. As reservas podem reduzir significativamente sua máquina virtual, computação do banco de dados SQL, Azure Cosmos DB ou outros custos de recursos de até 72% em preços pagos conforme o uso. As reservas fornecem um desconto de cobrança e não afetam o estado de tempo de execução de seus recursos.
 
 Você pode comprar uma reserva no [portal do Azure](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
@@ -36,7 +36,7 @@ Para máquinas virtuais do Windows e banco de dados SQL, você pode cobrir os cu
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Quem está qualificado para comprar uma reserva?
 
-Para comprar um plano, você deve ter uma função de proprietário de assinatura em uma assinatura Enterprise (MS-AZR-0017P ou MS-AZR-0148P) ou de pagamento conforme o uso (MS-AZR-003P ou MS-AZR-0023P). Os provedores de soluções de nuvem podem usar o portal do Azure ou o [Partner Center](/partner-center/azure-reservations) para comprar reservas do Azure.
+Para comprar um plano, você deve ter uma função de proprietário de assinatura em uma assinatura Enterprise (MS-AZR-0017P ou MS-AZR-0148P) ou de pagamento conforme o uso (MS-AZR-0003P ou MS-AZR-0023P). Os provedores de soluções de nuvem podem usar o portal do Azure ou o [Partner Center](/partner-center/azure-reservations) para comprar reservas do Azure.
 
 Os clientes Enterprise Agreement (EA) podem limitar as compras a administradores de EA desabilitando a opção **adicionar instâncias reservadas** no portal de ea. Os administradores de EA devem ser um proprietário de assinatura para pelo menos uma assinatura de EA para comprar uma reserva. A opção é útil para empresas que desejam que uma equipe centralizada compre reservas para diferentes centros de custo. Após a compra, as equipes centralizadas podem adicionar proprietários de centro de custo às reservas. Os proprietários podem então fazer o escopo da reserva para suas assinaturas. A equipe central não precisa ter acesso de proprietário de assinatura onde a reserva é comprada.
 

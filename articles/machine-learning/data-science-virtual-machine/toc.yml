@@ -19,9 +19,7 @@
       href: dsvm-ubuntu-intro.md
     - name: Criar uma DSVM do CentOS
       href: linux-dsvm-intro.md
-    - name: Criar uma VM de Aprendizagem Profunda
-      href: provision-deep-learning-dsvm.md
-    - name: Criar uma DSVM de IA Geo
+    - name: Criar uma VM de Ciência de Dados de IA Geográfica
       href: provision-geo-ai-dsvm.md
 - name: Conceitos
   items:

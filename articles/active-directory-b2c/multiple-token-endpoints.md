@@ -1,6 +1,6 @@
 ---
-title: Suporte a vários emissores de token em um aplicativo Web baseado em OWIN-Azure Active Directory B2C
-description: Saiba como habilitar um aplicativo Web .NET para dar suporte a tokens emitidos por vários domínios.
+title: Migrar APIs Web baseadas em OWIN para b2clogin.com-Azure Active Directory B2C
+description: Saiba como habilitar uma API Web .NET para dar suporte a tokens emitidos por vários emissores de token enquanto você migra seus aplicativos para o b2clogin.com.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,21 +10,23 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 31ab19b8b3adbef1f0ea573af13b98750d278db8
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: a8a6b4f90fe3f1e60341cc59e7d81870c82e843b
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716729"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533760"
 ---
-# <a name="support-multiple-token-issuers-in-an-owin-based-web-application"></a>Suporte a vários emissores de token em um aplicativo Web baseado em OWIN
+# <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrar uma API Web baseada em OWIN para b2clogin.com
 
-Este artigo descreve uma técnica para habilitar o suporte a vários emissores de token em aplicativos Web e APIs que implementam a [interface da Web aberta para .net (OWIN)](http://owin.org/). O suporte a vários pontos de extremidade de token é útil quando você está migrando aplicativos do Azure Active Directory (Azure AD) B2C de *login.microsoftonline.com* para *b2clogin.com*.
+Este artigo descreve uma técnica para habilitar o suporte a vários emissores de token em APIs Web que implementam a [interface da Web aberta para .net (OWIN)](http://owin.org/). O suporte a vários pontos de extremidade de token é útil quando você está migrando APIs de Azure Active Directory B2C (Azure AD B2C) e seus aplicativos de *login.microsoftonline.com* para *b2clogin.com*.
 
-As seções a seguir apresentam um exemplo de como habilitar vários emissores em um aplicativo Web e a API Web correspondente que usam os componentes de middleware do [Microsoft OWIN][katana] (Katana). Embora os exemplos de código sejam específicos para o middleware Microsoft OWIN, a técnica geral deve ser aplicável a outras bibliotecas OWIN.
+Ao adicionar suporte em sua API para aceitar tokens emitidos por b2clogin.com e login.microsoftonline.com, você pode migrar seus aplicativos Web de uma maneira preparada antes de remover o suporte para tokens emitidos por login.microsoftonline.com da API.
+
+As seções a seguir apresentam um exemplo de como habilitar vários emissores em uma API Web que usa os componentes do [Microsoft OWIN][katana] middleware (Katana). Embora os exemplos de código sejam específicos para o middleware Microsoft OWIN, a técnica geral deve ser aplicável a outras bibliotecas OWIN.
 
 > [!NOTE]
-> Este artigo destina-se a Azure ad B2C clientes com aplicativos atualmente implantados que fazem referência `login.microsoftonline.com` e que desejam migrar para o ponto de extremidade recomendado. `b2clogin.com` Se você estiver configurando um novo aplicativo, use [b2clogin.com](b2clogin.md) como indicado.
+> Este artigo destina-se a Azure ad B2C clientes com APIs e aplicativos atualmente implantados que fazem referência `login.microsoftonline.com` e que desejam migrar para o ponto de extremidade recomendado. `b2clogin.com` Se você estiver configurando um novo aplicativo, use [b2clogin.com](b2clogin.md) como indicado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +36,7 @@ Você precisa dos seguintes recursos de Azure AD B2C em vigor antes de continuar
 
 ## <a name="get-token-issuer-endpoints"></a>Obter pontos de extremidade do emissor do token
 
-Primeiro, você precisa obter os URIs do ponto de extremidade do emissor do token para cada emissor ao qual deseja dar suporte em seu aplicativo. Para obter os pontos de extremidade *b2clogin.com* e *login.microsoftonline.com* com suporte pelo seu locatário Azure ad B2C, use o procedimento a seguir no portal do Azure.
+Primeiro, você precisa obter os URIs do ponto de extremidade do emissor do token para cada emissor para o qual você deseja dar suporte em sua API. Para obter os pontos de extremidade *b2clogin.com* e *login.microsoftonline.com* com suporte pelo seu locatário Azure ad B2C, use o procedimento a seguir no portal do Azure.
 
 Comece selecionando um dos fluxos de usuário existentes:
 

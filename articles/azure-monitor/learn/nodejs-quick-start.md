@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: d92a96f928c859fba056f1d98c07ee4852aad0f1
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: f7c8e4e240d4278257da9df5cea67a7e55eb1019
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68002757"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543066"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Iniciar a Monitorização de uma Aplicação Web Node.js
 
@@ -50,13 +50,13 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    Uma página de configuração é exibida; Use a tabela a seguir para preencher os campos de entrada. 
 
-    | Definições        | Valor           | Descrição  |
+    | Definições        | Value           | Descrição  |
    | ------------- |:-------------|:-----|
    | **Name**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
    | **Tipo de Aplicação** | Aplicação Node.js | Tipo de aplicação que está a monitorizar |
    | **Location** | East US | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
 
-2. Clique em **Criar**.
+2. Selecione **Criar**.
 
 ## <a name="configure-app-insights-sdk"></a>Configurar o SDK do Application Insights
 
@@ -88,11 +88,11 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Menu de Descrição Geral do Application Insights](./media/nodejs-quick-start/4overview.png)
 
-2. Clique em **Mapa da aplicação** para obter um esquema visual das relações de dependência entre os componentes da aplicação. Cada componente mostra KPIs, tais como carga, desempenho, falhas e alertas.
+2. Selecione **mapa do aplicativo** para obter um layout visual das relações de dependência entre os componentes do aplicativo. Cada componente mostra KPIs, tais como carga, desempenho, falhas e alertas.
 
    ![Mapeamento de Aplicações](./media/nodejs-quick-start/5appmap.png)
 
-3. Clique no ícone de **análise** de ![aplicativo ícones mapa](./media/nodejs-quick-start/006.png) **de aplicativo exibir no Analytics**.  Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
+3. Selecione o ícone ![do **app Analytics** exibição do](./media/nodejs-quick-start/006.png) ícone **do mapa do aplicativo na análise**.  Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
    ![Gráfico de análise de pedidos de utilizador durante um período de tempo](./media/nodejs-quick-start/6analytics.png)
 
@@ -122,7 +122,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
    </script>
    ```
 
-5. No lado esquerdo, clique em métricas. Use o Metrics Explorer para investigar a integridade e a utilização do recurso. Pode clicar em **Adicionar novo gráfico** criar vistas personalizadas adicionais ou selecionar **Editar** para modificar os tipos de gráficos existentes, a altura, a paleta de cores, os agrupamentos e as métricas. Por exemplo, você pode criar um gráfico que exibe o tempo médio de carregamento da página do navegador selecionando "tempo de carregamento de página do navegador" no menu suspenso métricas e "Méd" da agregação. Para saber mais sobre o Azure Metrics Explorer visite [a introdução ao azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+5. À esquerda, selecione **métricas**. Use o Metrics Explorer para investigar a integridade e a utilização do recurso. Você pode selecionar **Adicionar novo gráfico** para criar exibições personalizadas adicionais ou selecionar **Editar** para modificar os tipos de gráfico, a altura, a paleta de cores, os agrupamentos e as métricas existentes. Por exemplo, você pode criar um gráfico que exibe o tempo médio de carregamento da página do navegador selecionando "tempo de carregamento de página do navegador" no menu suspenso métricas e "Méd" da agregação. Para saber mais sobre o Azure Metrics Explorer visite [a introdução ao azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
    ![Gráficos de métricas de servidor](./media/nodejs-quick-start/8metrics.png)
 
@@ -132,10 +132,10 @@ Para saber mais sobre a monitorização de Node.js, veja a [Documentação adici
 
 Quando terminar o teste, você poderá excluir o grupo de recursos e todos os recursos relacionados. Para fazer isso, siga as etapas abaixo.
 
-1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
-2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.
+1. No menu à esquerda na portal do Azure, selecione **grupos de recursos** e, em seguida, selecione grupo de **recursos**.
+2. Na página do grupo de recursos, selecione **excluir**, digite MyResource Group na caixa de texto e, em seguida, selecione **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Encontrar e diagnosticar problemas de desempenho](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

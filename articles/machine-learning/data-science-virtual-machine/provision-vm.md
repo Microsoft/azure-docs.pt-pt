@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: vijetaj
-ms.openlocfilehash: dfb3e9f6390d4c80b8f3c37b87f2659c671fa823
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 488dc7db01bd865268e143b68cdaccd989010912
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68591817"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534931"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Ciência de Dados do Windows no Azure
 
@@ -48,6 +48,7 @@ As seguintes ferramentas estão incluídas em um DSVM:
   * [Apache Drill](https://drill.apache.org/) -um mecanismo de consulta SQL sem esquema para Apache Hadoop, NoSQL e armazenamento em nuvem. Ele oferece suporte a interfaces ODBC e JDBC para consultar o NoSQL e de ficheiros a partir de ferramentas de BI padrão, como o Power BI, o Microsoft Excel e o Tableau.
 * Bibliotecas em R e Python para utilizam no Azure Machine Learning e outros serviços do Azure
 * Git, incluindo o Git Bash, trabalhar com repositórios de código de origem que incluem o GitHub e do Azure DevOps. Git fornece várias Linux da linha de comandos utilitários populares que são acessíveis no Git Bash e de um prompt de comando. Os exemplos são awk, PO, perl, grep, find, wget e curl.
+* Ferramentas e editores de desenvolvimento (RStudio, PyCharm)
 
 ### <a name="about-data-science"></a>Sobre a ciência de dados
 
@@ -224,7 +225,7 @@ Você pode usar o [Microsoft Web Platform Installer](https://www.microsoft.com/w
 > [!NOTE]
 > A edição do Windows Server 2012 da edição DSVM e Windows Server 2016 antes de Março de 2018, o ambiente de Anaconda predefinido é Python 2.7. O ambiente secundário é Python 3,5, localizado em **C:\Anaconda\envs\py35**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Explore as ferramentas na VM de ciência de dados ao selecionar o **iniciar** menu.
 * Saiba mais sobre o serviço Azure Machine Learning lendo [o que é o serviço Azure Machine Learning?](../service/overview-what-is-azure-ml.md) e experimentar o [inícios rápidos e tutoriais](../service/index.yml) que estão disponíveis.

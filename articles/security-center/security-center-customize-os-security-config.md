@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
-ms.author: rkarlin
-ms.openlocfilehash: 8216aee1c27fd5bcb722648aa6380044e1431452
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.date: 08/15/2019
+ms.author: v-mohabe
+ms.openlocfilehash: df4f51f97798048b28c0193dbc61e07fc55c9adc
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662479"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535067"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-retired"></a>Personalizar as configurações de segurança do sistema operacional na central de segurança do Azure (desativado)
 
@@ -312,9 +312,9 @@ Se você não tiver permissões suficientes, poderá obter um erro geral de falh
 
 ![Mensagem de erro "falha ao salvar ação"](media/security-center-customize-os-security-config/general-failure-error.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Este artigo abordou como personalizar as avaliações de configuração de segurança do sistema operacional na central de segurança. Para saber mais sobre as regras de configuração e a correção, consulte:
 
 - [Identificadores de configuração comuns da central de segurança e regras de linha de base](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
 - A central de segurança usa a CCE (Enumeração de configuração comum) para atribuir identificadores exclusivos às regras de configuração. Para obter mais informações, consulte [CCE](https://nvd.nist.gov/config/cce/index).
-- Para resolver vulnerabilidades quando a configuração do sistema operacional não corresponde às regras de configuração de segurança recomendadas, consulte [corrigir as configurações de segurança](security-center-remediate-os-vulnerabilities.md).
+- Para resolver vulnerabilidades quando a configuração do sistema operacional não corresponde às regras de configuração de segurança recomendadas, consulte [corrigir as configurações de segurança](security-center-virtual-machine-protection.md).

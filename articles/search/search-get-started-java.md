@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018, seo-java-july2019
-ms.openlocfilehash: 7172cd01ca881ec3027854444107b0744b65feb3
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 7deb9d2cf16aa82de7ce4ea163652c2936819063
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489794"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533233"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-java"></a>Início rápido: Criar um índice de Azure Search em Java
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ A lista seguinte descreve os ficheiros relevantes para este exemplo.
 Todas as chamadas à API REST em Azure Search exigem que você forneça a URL do `api-key`serviço e um. 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Na barra de índice, clique em **Serviço de pesquisa** para listar todos os serviços Azure Search aprovisionados para a sua subscrição.
+2. Na barra de atalhos, selecione **serviço de pesquisa** para listar todos os serviços de Azure Search provisionados para sua assinatura.
 3. Selecione o serviço que pretende utilizar.
 4. No dashboard do serviço, verá os mosaicos com informações essenciais, bem como o ícone da chave para aceder às chaves de administração.
    
@@ -69,20 +69,20 @@ Todas as chamadas à API REST em Azure Search exigem que você forneça a URL do
 
 ## <a name="download-the-sample-files"></a>Transferir os ficheiros de exemplo
 1. Aceda a [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) no GitHub.
-2. Clique em **Transferir ZIP**, guarde o ficheiro .zip no disco e, em seguida, extraia todos os ficheiros nele contidos. Considere extrair os ficheiros para a sua área de trabalho Java para tornar mais fácil localizar o projeto mais tarde.
+2. Selecione **baixar zip**, salve o arquivo. zip em disco e Extraia todos os arquivos que ele contém. Considere extrair os ficheiros para a sua área de trabalho Java para tornar mais fácil localizar o projeto mais tarde.
 3. Os ficheiros de exemplo são só de leitura. Clique com o botão direito nas propriedades da pasta e desmarque o atributo só de leitura.
 
 Todas as modificações do ficheiro e instruções de execução subsequentes serão realizadas em ficheiros nesta pasta.  
 
 ## <a name="import-project"></a>Importar projeto
-1. No Eclipse, selecione **Ficheiro** > **Importar** > **Geral** > **Projetos Existentes na Área de Trabalho**.
+1. No Eclipse, selecione **arquivo** > **importar** > **projetos existentes** **gerais** > para o espaço de trabalho.
    
     ![Captura de tela mostrando como importar um projeto existente][4]
 2. Em **Selecionar diretório de raiz**, navegue para a pasta que contém ficheiros de exemplo. Selecione a pasta que contém a pasta projeto. O projeto deve aparecer na lista **Projetos** como um item selecionado.
    
     ![Captura de tela mostrando a lista de projetos na janela importar projetos][12]
-3. Clique em **Concluir**.
-4. Utilize o **Explorador de Projeto** para ver e editar os ficheiros. Se ainda não estiver aberto, clique em **Janela** > **Mostrar Vista** > **Explorador do Projeto** ou utilize o atalho para abri-lo.
+3. Selecione **Concluir**.
+4. Utilize o **Explorador de Projeto** para ver e editar os ficheiros. Se ainda não estiver aberto, selecione **janela** > **mostrar exibir** > **Gerenciador de projeto** ou use o atalho para abri-lo.
 
 ## <a name="configure-the-service-url-and-api-key"></a>Configurar a URL do serviço e`api-key`
 1. No **Gerenciador de projetos**, clique duas vezes em **config. Properties** para editar as definições de configuração que contêm `api-key`o nome do servidor e.
@@ -96,19 +96,19 @@ Todas as modificações do ficheiro e instruções de execução subsequentes se
 2. Selecione **Módulo Dinâmico Web**, **Java** e **JavaScript**.
    
     ![Captura de tela mostrando como selecionar as facetas do projeto para seu projeto][6]
-3. Clique em **Aplicar**.
+3. Selecione **Aplicar**.
 4. Selecione **Janela** > **Preferências** > **Servidor** > **Ambientes do Tempo de Execução** > **Adicionar..** .
 5. Expanda o Apache e selecione a versão do servidor Apache Tomcat que instalou anteriormente. No nosso sistema está instalada a versão 8.
    
     ![Captura de tela mostrando onde na janela ambiente de tempo de execução você pode selecionar sua versão do Apache Tomcat][7]
 6. Na página seguinte, especifique o diretório de instalação Tomcat. Num computador Windows, é muito provável que seja C:\Programas\Apache Software Foundation\Tomcat *versão*.
-7. Clique em **Concluir**.
+7. Selecione **Concluir**.
 8. Selecione **Janela** > **Preferências** > **Java** > **JREs Instalados** > **Adicionar**.
 9. Em **Adicionar JRE**, selecione **VM Standard**.
-10. Clique em **Seguinte**.
-11. Em Definição de JRE, na página inicial do JRE, clique em **Diretório**.
+10. Selecione **Seguinte**.
+11. Na definição do JRE, no JRE página inicial, selecione **diretório**.
 12. Navegue até **Programas** > **Java** e selecione o JDK anteriormente instalado. É importante selecionar o JDK assim como o JRE.
-13. Em JREs Instalados, selecione o **JDK**. As suas definições devem ter um aspeto semelhante à captura de ecrã seguinte.
+13. Em JREs instalado, selecione o **JDK**. As suas definições devem ter um aspeto semelhante à captura de ecrã seguinte.
     
     ![Captura de tela mostrando como selecionar o JDK como o JRE instalado][9]
 14. Opcionalmente, selecione **Janela** > **Browser** > **Internet Explorer** para abrir a aplicação numa janela de browser externo. Utilizar um browser externo dá-lhe uma melhor experiência de aplicação Web.
@@ -118,10 +118,10 @@ Todas as modificações do ficheiro e instruções de execução subsequentes se
 Agora concluiu as tarefas de configuração. Em seguida, terá de compilar e executar o projeto.
 
 ## <a name="build-the-project"></a>Compilar o projeto
-1. No Explorador de Projeto, clique com o botão direito no nome do projeto e selecione **Executar Como** > **Compilação Maven…** para configurar o projeto.
+1. No Gerenciador de projetos, clique com o botão direito do mouse no nome do projeto e selecione **Executar como** > **Build do Maven** para configurar o projeto.
    
-    ![Captura de tela mostrando como escolher a compilação do Maven na janela Explorador de projeto][10]
-2. Em Editar Configuração, em Objetivos, digite "instalação de raiz" e, em seguida, clique em **Executar**.
+    ![Captura de tela mostrando como selecionar o Build do Maven na janela Explorador de projeto][10]
+2. Em Editar configuração, em metas, insira "instalação limpa" e, em seguida, selecione **executar**.
 
 As mensagens de estado são enviadas para a janela da consola. Deverá ver COMPILAÇÃO COM ÊXITO, o que indica que o projeto foi compilado sem erros.
 
@@ -131,19 +131,19 @@ Neste último passo, irá executar a aplicação num ambiente de tempo de execu�
 Se ainda não especificou um ambiente de tempo de tempo de execução de servidor no Eclipse, terá de fazer isso primeiro.
 
 1. No Explorador de Projeto, expanda **WebContent**.
-2. Clique com o botão direito em **Search.jsp** > **Executar Como** > **Executar no Servidor**. Selecione o servidor Apache Tomcat e, em seguida, clique em **Executar**.
+2. Clique com o botão direito em **Search.jsp** > **Executar Como** > **Executar no Servidor**. Selecione o servidor Apache Tomcat e, em seguida, selecione **executar**.
 
 > [!TIP]
-> Caso tenha utilizado uma área de trabalho não predefinida para armazenar o projeto, terá de modificar **Executar Configuração** para apontar para a localização do projeto para evitar um erro de arranque do servidor. No Explorador de Projeto, clique com o botão direito em **Search.jsp** > **Executar Como** > **Executar Configurações**. Selecione o servidor Apache Tomcat. Clique em **Argumentos**. Clique em **Área de Trabalho** ou **Sistema de Ficheiros** para definir a pasta que contém o projeto.
+> Caso tenha utilizado uma área de trabalho não predefinida para armazenar o projeto, terá de modificar **Executar Configuração** para apontar para a localização do projeto para evitar um erro de arranque do servidor. No Explorador de Projeto, clique com o botão direito em **Search.jsp** > **Executar Como** > **Executar Configurações**. Selecione o servidor Apache Tomcat. Selecione **argumentos**. Selecione **espaço de trabalho** ou **sistema de arquivos** para definir a pasta que contém o projeto.
 > 
 > 
 
 Quando executa a aplicação, deverá ver uma janela do browser com uma caixa de pesquisa para introduzir termos.
 
-Aguarde cerca de um minuto antes de clicar em **Pesquisar** para dar tempo ao serviço para criar e carregar o índice. Se obtiver um erro HTTP 404, apenas terá de aguardar um pouco mais antes de tentar novamente.
+Aguarde cerca de um minuto antes de selecionar **Pesquisar** para dar ao serviço tempo para criar e carregar o índice. Se obtiver um erro HTTP 404, apenas terá de aguardar um pouco mais antes de tentar novamente.
 
 ## <a name="search-on-usgs-data"></a>Pesquisar nos dados USGS
-O conjunto de dados USGS inclui registos relevantes para o Estado da Rhode Island. Se clicar em **Pesquisar** numa caixa de pesquisa em branco, irá obter as 50 entradas principais, o valor predefinido.
+O conjunto de dados USGS inclui registos relevantes para o Estado da Rhode Island. Se você selecionar **Pesquisar** em uma caixa de pesquisa vazia, obterá as 50 principais entradas, que é o padrão.
 
 Ao introduzir um termo de pesquisa, o motor de busca terá algo concreto para procurar. Tente introduzir um nome regional. "Roger Williams" foi o primeiro governador de Rhode Island. Existem vários parques, edifícios e escolas com o seu nome.
 
@@ -155,7 +155,7 @@ Também pode tentar qualquer um destes termos:
 * Pembroke
 * ganso +cabo
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Este é o primeiro tutorial da Azure Search com base em Java e o conjunto de dados USGS. Ao longo do tempo, iremos irá expandir este tutorial para demonstrar funcionalidades adicionais de pesquisa que pode querer utilizar nas suas soluções personalizadas.
 
 Se já tiver algum conhecimento sobre a Azure Search, pode utilizar este exemplo como ponto de partida para uma experimentação adicional, talvez aumentar a [página de pesquisa](search-pagination-page-layout.md) ou implementar a [navegação por facetas](search-faceted-navigation.md). Também pode melhorar a página de resultados da pesquisa ao adicionar contagens e criação de batches de documentos para que os utilizadores possam percorrer os resultados.

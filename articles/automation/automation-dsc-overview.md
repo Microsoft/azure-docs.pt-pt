@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c192a994ac5398d41e28a35267b922ba98b721cc
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: dd898397b4aaec2e62558d12a3547f7b61d6d3fd
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69513611"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533462"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Visão geral da configuração do estado de automação do Azure
 
@@ -126,15 +126,6 @@ Para obter uma lista de endereços IP de região em vez de nomes de região, bai
 >Um arquivo atualizado é lançado semanalmente. O arquivo reflete os intervalos atualmente implantados e as alterações futuras nos intervalos de IP. Novos intervalos que aparecem no arquivo não são usados nos data centers por pelo menos uma semana.
 >
 > É uma boa ideia baixar o novo arquivo XML a cada semana. Em seguida, atualize seu site para identificar corretamente os serviços em execução no Azure. Os usuários do Azure ExpressRoute devem observar que esse arquivo é usado para atualizar o anúncio de Border Gateway Protocol (BGP) do espaço do Azure na primeira semana de cada mês.
-
-## <a name="introduction-video"></a>Vídeo de introdução
-
-Prefere ver do que ler? Observe o vídeo a seguir de maio de 2015, quando a configuração de estado da automação do Azure foi anunciada pela primeira vez.
-
-> [!NOTE]
-> Embora os conceitos e o ciclo de vida discutidos neste vídeo estejam corretos, a configuração de estado da automação do Azure progrediu muito desde que este vídeo foi gravado. Agora ele está disponível para o público geral, tem uma interface do usuário muito mais abrangente na portal do Azure e dá suporte a muitos recursos adicionais.
-
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## <a name="next-steps"></a>Passos seguintes
 

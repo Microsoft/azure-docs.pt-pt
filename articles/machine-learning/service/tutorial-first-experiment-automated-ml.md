@@ -5,23 +5,23 @@ description: Saiba como treinar e implantar um modelo de classificação com o a
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 07/23/2019
-ms.openlocfilehash: 7ef19db472b30d82f14a5dd650cb8f4cb1f3ed3a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.date: 08/14/2019
+ms.openlocfilehash: e53cd92a9dfd8f823918fb38e14c2b73c2ce071f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990083"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534414"
 ---
-# <a name="tutorial-use-automated-machine-learning-to-train-and-deploy-your-first-classification-model-preview"></a>Tutorial: Usar o Machine Learning automatizado para treinar e implantar seu primeiro modelo de classificação (versão prévia)
+# <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: Crie seu primeiro modelo de classificação com o Machine Learning automatizado
 
-Neste tutorial, você aprenderá a criar seu primeiro experimento de aprendizado de máquina automatizado no portal do Azure. Este exemplo cria um modelo de classificação para prever se um cliente vai assinar um depósito de termo com o banco.
+Neste tutorial, você aprenderá a criar seu primeiro experimento de aprendizado de máquina automatizado no portal do Azure (versão prévia) sem escrever uma única linha de código. Este exemplo cria um modelo de classificação para prever se um cliente assinará um depósito de termo fixo com uma instituição financeira.
 
-Usando os recursos de aprendizado de máquina automatizados do serviço e o portal do Azure, você começa o processo de aprendizado de máquina automatizado. A seleção de algoritmos e o ajuste de hiperparâmetro são feitos para você. A técnica de aprendizado de máquina automatizada itera em várias combinações de algoritmos e hiperparâmetros até encontrar o melhor modelo com base em seu critério, tudo sem escrever uma única linha de código.
+Usando os recursos de aprendizado de máquina automatizados do serviço de Azure Machine Learning e o portal do Azure, você começa o processo de aprendizado de máquina automatizado. A seleção de algoritmos e o ajuste de hiperparâmetro são feitos para você. A técnica de Machine Learning automatizada itera em várias combinações de algoritmos e hiperparâmetros até encontrar o melhor modelo com base no seu critério.
 
 Neste tutorial, você aprende as seguintes tarefas:
 
@@ -36,7 +36,7 @@ Neste tutorial, você aprende as seguintes tarefas:
 
 * Uma subscrição do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree).
 
-* O arquivo de dados **bankmarketing_train. csv** . [Baixe-](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv)o.
+* Baixe o arquivo de dados [ **bankmarketing_train. csv** ](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) . A coluna **y** indica se um cliente assinou um depósito de termo fixo, que é posteriormente identificado como a coluna de destino para previsões neste tutorial. 
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
@@ -44,11 +44,14 @@ Neste tutorial, você aprende as seguintes tarefas:
 
 ## <a name="create-an-experiment"></a>Criar uma experimentação
 
+Essas etapas o orientarão durante a configuração do experimento a partir da seleção de dados para escolher a métrica primária e o tipo de modelo. 
+
 1. Vá para o painel esquerdo do espaço de trabalho. Selecione **Machine Learning automatizado** na seção **criação (visualização)** .
+Você verá a tela **Bem-vindo ao Machine Learning automatizado** , pois este é seu primeiro experimento com Machine Learning automatizado.
 
     ![Painel de navegação portal do Azure](media/tutorial-1st-experiment-automated-ml/nav-pane.png)
 
-    Como este é seu primeiro experimento com o Machine Learning automatizado, você verá a tela **Bem-vindo à Machine Learning automatizada** . 
+
 
 1. Selecione **criar experimento**. Em seguida, insira **My-1º-automl-experimento** como o nome do experimento.
 
@@ -64,7 +67,8 @@ Neste tutorial, você aprende as seguintes tarefas:
 
     Quando a criação for concluída, selecione a nova computação na lista suspensa e, em seguida, selecione **Avançar**.
 
-1. Para este tutorial, usamos a conta de armazenamento padrão e o contêiner criado com sua nova computação. Eles são preenchidos automaticamente no formulário.
+    >[!NOTE]
+    >Para este tutorial, usamos a conta de armazenamento padrão e o contêiner criado com sua nova computação. Eles são preenchidos automaticamente no formulário.
 
 1. Selecione **carregar** e escolha o arquivo **bankmarketing_train. csv** do computador local para carregá-lo no contêiner padrão. A visualização pública dá suporte apenas a carregamentos de arquivos locais e contas de armazenamento de BLOBs do Azure. Quando o upload for concluído, selecione o arquivo na lista. 
 
@@ -116,7 +120,9 @@ O processo de preparação do experimento leva alguns minutos. Quando o processo
 
 ## <a name="deploy-the-model"></a>Implementar o modelo
 
-Para esse experimento, o **VotingEnsemble** é considerado o melhor modelo, com base na métrica **AUC_weighted** . Ao usar o Machine Learning automatizado no portal do Azure, podemos implantar esse modelo como um serviço Web para prever novos dados. 
+Ao usar o Machine Learning automatizado no portal do Azure, podemos implantar o melhor modelo como um serviço Web para prever novos dados e identificar possíveis áreas de oportunidade. Para este experimento, a implantação significa que a instituição financeira agora tem uma solução iterativa e escalonável para identificar clientes potenciais de depósito fixo.
+
+Nesse contexto de experimento, **VotingEnsemble** é considerado o melhor modelo, com base na métrica **AUC_weighted** .  Implantamos esse modelo, mas é recomendável que a implantação demore cerca de 20 minutos para ser concluída.
 
 1. Na página **executar detalhe** , selecione o botão **implantar melhor modelo** .
 
@@ -129,13 +135,13 @@ Para esse experimento, o **VotingEnsemble** é considerado o melhor modelo, com 
     Script de Pontuação| AutoGenerate
     Script de ambiente| AutoGenerate
     
-1. Selecione **Implementar**. A implantação leva cerca de 20 minutos para ser concluída.
+1. Selecione **Implementar**.
 
     A seguinte mensagem aparece quando a implantação é concluída com êxito:
 
     ![Implantação concluída](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png)
     
-    Já está! Você tem um serviço Web operacional para gerar previsões.
+    Agora você tem um serviço Web operacional para gerar previsões.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -155,11 +161,14 @@ Exclua apenas a instância de implantação do portal do Azure, se você quiser 
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial de aprendizado de máquina automatizado, você usou o portal do Azure para criar e implantar um modelo de classificação. Consulte estes artigos para obter mais informações e as próximas etapas:
 
-+ Saiba como [consumir um serviço Web](how-to-consume-web-service.md).
+> [!div class="nextstepaction"]
+> [Consumir um serviço Web](how-to-consume-web-service.md)
+
+
 + Saiba mais sobre o [pré-processamento](how-to-create-portal-experiments.md#preprocess).
 + Saiba mais sobre a [criação de perfil de dados](how-to-create-portal-experiments.md#profile).
 + Saiba mais sobre o [aprendizado de máquina automatizado](concept-automated-ml.md).

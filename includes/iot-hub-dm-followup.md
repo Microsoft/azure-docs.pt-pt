@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 69fdc6cf678107ef64ea1fe7b819738fd4a4ff4f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2514325c93f0f72aa979f871e86e465093479402
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184361"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558746"
 ---
-## <a name="customize-and-extend-the-device-management-actions"></a>Personalizar e estender o dispositivo ações de gestão
+## <a name="customize-and-extend-the-device-management-actions"></a>Personalizar e estender as ações de gerenciamento de dispositivo
 
-Suas soluções de IoT podem expandir o conjunto definido de padrões de gestão de dispositivos ou ativar padrões personalizados com o dispositivo duplo e primitivos de método de cloud-para-dispositivo. Outros exemplos de ações de gestão do dispositivo incluem a reposição de fábrica, atualização de firmware, atualização de software, gerenciamento de energia, gestão de rede e a conectividade e encriptação de dados.
+Suas soluções de IoT podem expandir o conjunto definido de padrões de gerenciamento de dispositivos ou habilitar padrões personalizados usando os primitivos do método "e da nuvem para o dispositivo". Outros exemplos de ações de gerenciamento de dispositivos incluem redefinição de fábrica, atualização de firmware, atualização de software, gerenciamento de energia, gerenciamento de rede e conectividade e criptografia de dados.
 
 ## <a name="device-maintenance-windows"></a>Janelas de manutenção do dispositivo
 
-Normalmente, pode configurar dispositivos para realizar ações ao mesmo tempo que minimiza as interrupções e tempo de inatividade. Janelas de manutenção do dispositivo são um padrão usado para definir a hora quando um dispositivo deve atualizar a respetiva configuração. Suas soluções de back-end podem utilizar as propriedades pretendidas do dispositivo duplo para definir e ativar uma política no seu dispositivo, que permite uma janela de manutenção. Quando um dispositivo recebe a política de janela de manutenção, pode utilizar a propriedade comunicada do dispositivo duplo para comunicar o estado da política. A aplicação de back-end, em seguida, pode utilizar consultas twin do dispositivo para confirmar a conformidade de dispositivos e de cada política.
+Normalmente, você configura dispositivos para executar ações de cada vez, o que minimiza as interrupções e o tempo de inatividade. As janelas de manutenção do dispositivo são um padrão comumente usado para definir a hora em que um dispositivo deve atualizar sua configuração. Suas soluções de back-end podem usar as propriedades desejadas do dispositivo de cópia para definir e ativar uma política no seu dispositivo que habilita uma janela de manutenção. Quando um dispositivo recebe a política de janela de manutenção, ele pode usar a propriedade relatada do dispositivo "r" para relatar o status da política. O aplicativo de back-end pode usar consultas de dispositivo de backup para atestar a conformidade dos dispositivos e de cada política.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, utilizou um método direto para acionar a reinicialização remota num dispositivo. Utilizou as propriedades reportadas para reportar a última vez que o reinício do dispositivo e consultado o dispositivo duplo para detetar a última vez que o reinício do dispositivo a partir da cloud.
+Neste tutorial, você usou um método direto para disparar uma reinicialização remota em um dispositivo. Você usou as propriedades relatadas para reportar a hora da última reinicialização do dispositivo e consultou o dispositivo "to" para descobrir a hora da última reinicialização do dispositivo da nuvem.
 
-Para continuar a introdução ao IoT Hub e padrões de gestão de dispositivos como remota sobre a atualização de firmware do ar, veja [como fazer uma atualização de firmware](../articles/iot-hub/tutorial-firmware-update.md)
+Para continuar a introdução aos padrões do Hub IoT e do gerenciamento de dispositivos, como remoto pela atualização do firmware do ar, consulte [como fazer uma atualização de firmware](../articles/iot-hub/tutorial-firmware-update.md).
 
-Para saber como expandir o seu IoT chama o método de solução e a agenda em vários dispositivos, veja [agendar e transmitir tarefas](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).
+Para saber como estender sua solução de IoT e agendar chamadas de método em vários dispositivos, consulte [agendar e difundir trabalhos](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

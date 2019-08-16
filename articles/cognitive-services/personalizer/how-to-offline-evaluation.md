@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f14403422e2c783d75634bb929d8c2130bd505b6
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: a8a75601daf36ca21ea56a5930219d7d467f0c85
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663881"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557815"
 ---
 # <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>Como analisar seu loop de aprendizagem com uma avaliação offline
 
@@ -30,7 +30,7 @@ Leia sobre [avaliações offline](concepts-offline-evaluation.md) para saber mai
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1. Você deve ter um loop personalizado configurado
-1. O loop personalizador deve ter pelo menos 50.000 eventos em seus logs para resultados de avaliação significativos.
+1. O loop personalizador deve ter uma quantidade representativa de dados – como um aproximada, recommmend pelo menos 50.000 eventos em seus logs para obter resultados significativos de avaliação.
 
 Opcionalmente, você também pode ter exportado anteriormente arquivos de _política de aprendizado_ que você pode comparar e testar na mesma avaliação.
 

@@ -3,17 +3,17 @@ title: Provisionar nós para solução VMware por CloudSimple-Azure
 description: Saiba como adicionar nós ao seu VMWare com a implantação do CloudSimple
 author: dikamath
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 898b07d05abf3bfad644fb590d90c7a90c5a1c0d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 2d5b2847109149701cb6453753e52fb671ba69d0
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883230"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533348"
 ---
 # <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Provisionar nós para solução VMware por CloudSimple-Azure
 
@@ -22,7 +22,6 @@ Provisionar nós no portal do Azure. Em seguida, você pode configurar a capacid
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-
 
 ## <a name="add-a-node-to-your-cloudsimple-private-cloud"></a>Adicionar um nó à sua nuvem privada do CloudSimple
 

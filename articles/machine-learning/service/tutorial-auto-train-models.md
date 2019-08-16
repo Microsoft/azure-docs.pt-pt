@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 08/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 060257ef144309e37208db80c7731ed96b995b2c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 49f46c09cfcfef2ab1e74ae7c08d9a54289293ac
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990481"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534837"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Use o Machine Learning automatizado para criar seu modelo de regressão
 
@@ -42,36 +42,11 @@ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de co
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Pule para [configurar seu ambiente de desenvolvimento](#start) para ler as etapas do bloco de anotações ou use as instruções abaixo para obter o bloco de anotações e executá-lo em Azure notebooks ou em seu próprio servidor de notebook. Para executar o bloco de anotações, você precisará de:
+* Conclua a parte um, o [tutorial de preparação de dados](tutorial-data-prep.md).
 
-* [Executar o tutorial de preparação de dados](tutorial-data-prep.md).
-* Um servidor de notebook Python 3,6 com o seguinte instalado:
-    * O SDK do Azure Machine Learning para Python `automl` com `notebooks` e extras
-    * `matplotlib`
-* O bloco de notas do tutorial
-* Um espaço de trabalho do Machine Learning
-* O arquivo de configuração do espaço de trabalho no mesmo diretório que o bloco de anotações
+* Depois de concluir a parte um, abra o bloco de anotações **tutoriais/regression-part2-Automated-ml. ipynb** usando o mesmo servidor de bloco de anotações.
 
-Obtenha todos esses pré-requisitos de qualquer uma das seções a seguir.
-
-* Usar um [servidor de bloco de anotações de nuvem em seu espaço de trabalho](#azure)
-* Use [seu próprio servidor de notebook](#server)
-
-### <a name="azure"></a>Usar um servidor de bloco de anotações de nuvem em seu espaço de trabalho
-
-É fácil começar com seu próprio servidor de notebook baseado em nuvem. O [SDK do Azure Machine Learning para Python](https://aka.ms/aml-sdk) já está instalado e configurado para você depois de criar esse recurso de nuvem.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* Depois de iniciar a página da Web do bloco de anotações, execute o bloco de anotações **tutoriais/regression-part2-Automated-ml. ipynb** .
-
-### <a name="server"></a>Use seu próprio servidor do Jupyter Notebook
-
-Utilize estes passos para criar um servidor de bloco de notas Jupyter local no seu computador.  Certifique-se de instalar `matplotlib` o e `automl` o `notebooks` e os extras em seu ambiente.
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
-Depois de concluir as etapas, execute o bloco de anotações **tutoriais/regression-part2-Automated-ml. ipynb** .
+Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se você quiser usá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local).  Verifique se você instalou `matplotlib` o e o e `notebooks` os `automl` extras do SDK do Azure Machine Learning.
 
 ## <a name="start"></a>Configurar seu ambiente de desenvolvimento
 
@@ -1211,7 +1186,7 @@ Das métricas de precisão final da previsão, você verá que o modelo é muito
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial de aprendizado de máquina automatizado, você fez as seguintes tarefas:
 

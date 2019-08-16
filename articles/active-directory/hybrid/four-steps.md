@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0630e62a08314612cb08b5cb26b5a1563de4f40b
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 8d4eb5b4c634fe495a0ed149016d862defc2eb45
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779687"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532456"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quatro etapas para uma base de identidade forte com Azure Active Directory
 
@@ -265,7 +265,7 @@ Recomendamos que você imprima a seguinte lista de verificação para referênci
 ||Monitorar o uso de aplicativos para orientar o insights|
 ||Entenda seus drivers de chamada de suporte|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como você pode aumentar sua postura segura usando os recursos de Azure Active Directory e esta lista de verificação de cinco [etapas – cinco passos para proteger sua infraestrutura de identidade](https://aka.ms/securitysteps).
 

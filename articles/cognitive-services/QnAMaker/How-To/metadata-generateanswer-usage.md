@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: diberry
-ms.openlocfilehash: dbfa7aaccd513ffcf8ba3907911d8c49275b2ea6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 18b901b429ee675726ef0e36535f1f97f4cdd076
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967645"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542993"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API e os metadados do GenerateAnswer
 
@@ -228,6 +228,18 @@ Você pode pesquisar os KB publicados, usando `isTest=false`ou na KB de teste us
   "RankerType":"QuestionOnly"
 }
 ```
+
+## <a name="common-http-errors"></a>Erros comuns de HTTP
+
+|Código|Explicação|
+|:--|--|
+|2xx|Êxito|
+|400|parâmetros do pedido estão incorretos, que significa que os parâmetros necessários estão em falta, com formato incorreto ou é demasiado grande|
+|400|corpo do pedido está incorreto, que significa que o JSON é demasiado grande, com formato incorreto ou em falta|
+|401|Chave inválida|
+|403|Proibido - não tem permissões corretas|
+|404|Não existe KB|
+|410|Esta API foi preterida e não está mais disponível|
 
 ## <a name="next-steps"></a>Passos seguintes
 

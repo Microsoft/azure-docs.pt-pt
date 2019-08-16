@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 025e45b86fa3a6020652ae9756ceace5b51daa55
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: d2d52d2faf9122b7dc87f71ac7b1be53eaa99878
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516196"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534978"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Configurar uma regra de restrição de IP com um firewall do aplicativo Web para o serviço de porta frontal do Azure
 Este artigo mostra como configurar regras de restrição de IP em um WAF (firewall do aplicativo Web) para o serviço de porta frontal do Azure usando o CLI do Azure, Azure PowerShell ou um modelo de Azure Resource Manager.
@@ -56,7 +56,7 @@ Nos exemplos a seguir:
 -  Substitua *IPAllowPolicyExampleCLI* pela sua política exclusiva criada anteriormente.
 -  Substitua *IP-address-Range-1*, *IP-address-Range-2* por seu próprio intervalo.
 
-Primeiro, crie uma regra de permissão de IP para a política criada na etapa anterior. Observação **--adiar** é necessário porque uma regra deve ter uma condição de correspondência a ser adicionada na próxima etapa.
+Primeiro, crie uma regra de permissão de IP para a política criada na etapa anterior. Observação **--adiar** é necessário porque uma regra deve incluir pelo menos uma condição de correspondência. 
 
 ```azurecli
 az network front-door waf-policy rule create \

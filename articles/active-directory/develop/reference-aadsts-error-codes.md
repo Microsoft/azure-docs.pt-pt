@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: ryanwi
-ms.reviewer: hirsin, justhu
+ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d6ed5c80d5c3241a9a328a2427ed8b920790635
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e62a0c1363acfedc1f059ac0e56fce0df68298f8
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67482477"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532375"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização
 

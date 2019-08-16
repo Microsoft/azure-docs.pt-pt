@@ -3,7 +3,7 @@ title: Suporte AD FS na biblioteca de autenticação da Microsoft para .NET | Az
 description: Saiba mais sobre o suporte a Serviços de Federação do Active Directory (AD FS) (AD FS) na MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: jmprieur
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13e1f80f3a0a10466ead60d828d28aa9916fe26b
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: beb1bcc4599a891b8748b63c5e7c5c09f5acdac7
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302696"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532681"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>Suporte a Serviços de Federação do Active Directory (AD FS) no MSAL.NET
 O Serviços de Federação do Active Directory (AD FS) (AD FS) no Windows Server permite adicionar o OpenID Connect e a autenticação e autorização baseadas em OAuth 2,0 a aplicativos que você está desenvolvendo. Esses aplicativos podem, então, autenticar os usuários diretamente no AD FS. Para obter mais informações, leia [AD FS cenários para desenvolvedores](/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).

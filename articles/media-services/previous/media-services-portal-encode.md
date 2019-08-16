@@ -1,6 +1,6 @@
 ---
-title: Codificar um recurso com o Media Encoder Standard no portal do Azure | Documentos da Microsoft
-description: Este tutorial explica-lhe os passos da codificação de um recurso com o Media Encoder Standard no portal do Azure.
+title: Codificar um ativo usando Media Encoder Standard no portal do Azure | Microsoft Docs
+description: Este tutorial orienta você pelas etapas de codificação de um ativo usando Media Encoder Standard no portal do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 90190f426419e65bd580b9004ae76a2c6b0c12e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c147d99eaabee70316521d1f2bdc41933162ab1
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463165"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542601"
 ---
-# <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Codificar um recurso com o Media Encoder Standard no portal do Azure
+# <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Codificar um ativo usando Media Encoder Standard no portal do Azure
 
 > [!NOTE]
 > Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, veja [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-Um dos cenários mais comuns ao trabalhar com os serviços de multimédia do Azure é a entrega de velocidade de transmissão adaptável, transmissão em fluxo para os seus clientes. Os Media Services suportam a velocidade de transmissão adaptável seguinte tecnologias de transmissão em fluxo: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming e Dynamic Adaptive Streaming através de HTTP (DASH, também chamado de MPEG-DASH). Para preparar os seus vídeos para transmissão em fluxo de velocidade de transmissão adaptável, primeiro a codificar o seu vídeo de origem como arquivos de velocidade de transmissão. Pode utilizar o Azure Media Encoder Standard para codificar seus vídeos.  
+Um dos cenários mais comuns no trabalho com os serviços de mídia do Azure é fornecer streaming de taxa de bits adaptável para seus clientes. Os serviços de mídia oferecem suporte às seguintes tecnologias de streaming de taxa de bits adaptável: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming e streaming adaptável dinâmico sobre HTTP (DASH, também chamado de MPEG-DASH). Para preparar seus vídeos para streaming de taxa de bits adaptável, primeiro Codifique o vídeo de origem como arquivos de múltiplas taxas de bits. Você pode usar Media Encoder Standard para codificar seus vídeos.  
 
-Os Serviços de Multimédia proporcionam-lhe empacotamento dinâmico. Com o empacotamento dinâmico, pode fornecer dos seus MP4s de velocidade de transmissão em HLS, Smooth Streaming e MPEG-DASH, sem reempacotamento estes formatos de transmissão em fluxo. Quando utiliza o empacotamento dinâmico, pode armazenar e pagar pelos ficheiros num formato de armazenamento única. Serviços de multimédia criam e entregam a resposta adequada com base na solicitação de um cliente.
+Os Serviços de Multimédia proporcionam-lhe empacotamento dinâmico. Com o empacotamento dinâmico, você pode entregar suas MP4s de múltiplas taxas de bits em HLS, Smooth Streaming e MPEG-DASH, sem reempacotar nesses formatos de streaming. Ao usar o empacotamento dinâmico, você pode armazenar e pagar pelos arquivos no formato de armazenamento único. Os serviços de mídia criam e servem a resposta apropriada com base na solicitação de um cliente.
 
-Para tirar partido do empacotamento dinâmico, tem de codificar o ficheiro de origem num conjunto de ficheiros MP4 de velocidade de transmissão múltipla. Os passos da codificação são demonstrados mais à frente neste artigo.
+Para tirar partido do empacotamento dinâmico, tem de codificar o ficheiro de origem num conjunto de ficheiros MP4 de velocidade de transmissão múltipla. As etapas de codificação são demonstradas posteriormente neste artigo.
 
-Para saber como dimensionar o processamento de multimédia, veja [dimensionar com o portal do Azure de processamento de multimédia](media-services-portal-scale-media-processing.md).
+Para saber como dimensionar o processamento de mídia, confira [escala de processamento de mídia usando o portal do Azure](media-services-portal-scale-media-processing.md).
 
-## <a name="encode-in-the-azure-portal"></a>Codificar no portal do Azure
+## <a name="encode-in-the-azure-portal"></a>Codificar na portal do Azure
 
-Para codificar o conteúdo com o Media Encoder Standard:
+Para codificar seu conteúdo usando Media Encoder Standard:
 
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
 2. Selecione **Definições** > **Elementos**. Selecione o elemento que pretende codificar.
@@ -57,5 +57,5 @@ Para codificar o conteúdo com o Media Encoder Standard:
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Monitorizar o progresso da tarefa de codificação](media-services-portal-check-job-progress.md) no portal do Azure.  
+* [Monitore o progresso do seu trabalho de codificação](media-services-portal-check-job-progress.md) no portal do Azure.  
 

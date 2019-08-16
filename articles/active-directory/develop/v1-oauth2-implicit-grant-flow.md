@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 08/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e30bd940d3312a16f2dd30b175deb6622cb8c01
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: eb751d4cad036135865af9f97e159da104749388
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834741"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532399"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Noções básicas sobre o fluxo de concessão implícita OAuth2 no Azure Active Directory (AD)
 
@@ -35,7 +35,7 @@ A concessão implícita OAuth2 é evidente para ser a concessão com a lista mai
 
 A [concessão de código de autorização OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.1) então é a concessão de autorização que usa dois pontos de extremidade separados. O ponto de extremidade de autorização é usado para a fase de interação do usuário, o que resulta em um código de autorização. O ponto de extremidade do token é usado pelo cliente para trocar o código para um token de acesso e, geralmente, um token de atualização também. Os aplicativos Web são necessários para apresentar suas próprias credenciais de aplicativo para o ponto de extremidade do token, para que o servidor de autorização possa autenticar o cliente.
 
-A [concessão implícita OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) é uma variante de outras concessões de autorização. Ele permite que um cliente obtenha um token de acesso (e id_token, ao usar o [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)) diretamente do ponto de extremidade de autorização, sem entrar em contato com o ponto de extremidade do token nem autenticar o cliente. Essa variante foi criada para aplicativos baseados em JavaScript em execução em um navegador da Web: na especificação OAuth2 original, os tokens são retornados em um fragmento de URI. Isso torna os bits de token disponíveis para o código JavaScript no cliente, mas garante que eles não serão incluídos em redirecionamentos para o servidor. Retornando tokens por meio de redirecionamentos de navegador diretamente do ponto de extremidade de autorização. Ele também tem a vantagem de eliminar quaisquer requisitos para chamadas entre origens, que são necessárias se o aplicativo JavaScript for necessário para entrar em contato com o ponto de extremidade do token.
+A [concessão implícita OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) é uma variante de outras concessões de autorização. Ele permite que um cliente obtenha um token de acesso (e id_token, ao usar o [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)) diretamente do ponto de extremidade de autorização, sem entrar em contato com o ponto de extremidade do token nem autenticar o cliente. Essa variante foi criada para aplicativos baseados em JavaScript em execução em um navegador da Web: na especificação OAuth2 original, os tokens são retornados em um fragmento de URI. Isso torna os bits de token disponíveis para o código JavaScript no cliente, mas garante que eles não serão incluídos em redirecionamentos para o servidor. Na concessão implícita OAuth2, o ponto de extremidade de autorização emite tokens de acesso diretamente ao cliente usando um URI de redirecionamento fornecido anteriormente. Ele também tem a vantagem de eliminar quaisquer requisitos para chamadas entre origens, que são necessárias se o aplicativo JavaScript for necessário para entrar em contato com o ponto de extremidade do token.
 
 Uma característica importante da concessão implícita OAuth2 é o fato de que esses fluxos nunca retornam tokens de atualização para o cliente. A próxima seção mostra como isso não é necessário e, na verdade, seria um problema de segurança.
 
@@ -68,7 +68,7 @@ Se seu aplicativo for um cliente nativo, o fluxo implícito não será uma ótim
 
 Se você estiver desenvolvendo um aplicativo Web que inclui um back-end e consumindo uma API de seu código de back-end, o fluxo implícito também não é uma boa opção. Outras concessões oferecem muito mais energia. Por exemplo, a concessão de credenciais de cliente OAuth2 fornece a capacidade de obter tokens que refletem as permissões atribuídas ao próprio aplicativo, em oposição às delegações de usuário. Isso significa que o cliente tem a capacidade de manter o acesso programático a recursos mesmo quando um usuário não está ativamente envolvido em uma sessão e assim por diante. Não só isso, mas tais concessões oferecem garantias de segurança mais altas. Por exemplo, os tokens de acesso nunca passam pelo navegador do usuário, eles não têm o risco de serem salvos no histórico do navegador e assim por diante. O aplicativo cliente também pode executar uma autenticação forte ao solicitar um token.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma lista completa de recursos de desenvolvedor, incluindo informações de referência para os protocolos e suporte a fluxos de concessão de autorização OAuth2 pelo Azure AD, consulte o [Guia do desenvolvedor do Azure ad][AAD-Developers-Guide]
 * Consulte [como integrar um aplicativo com o Azure ad][ACOM-How-To-Integrate] para obter mais detalhes sobre o processo de integração de aplicativos.

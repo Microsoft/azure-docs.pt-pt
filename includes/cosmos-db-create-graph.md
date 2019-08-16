@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: a24159a482c55496bb1e6031be951196258a6796
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 837231ca07abcfdbd6ce932bb24bd890d91506a8
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565504"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541528"
 ---
 Agora, pode utilizar a ferramenta Data Explorer no portal do Azure para criar uma base de dados de gráfico. 
 
-1. Clique em **Data Explorer** > **Novo Gráfico**.
+1. Selecione **Data Explorer** > **novo grafo**.
 
     A área **Adicionar Gráfico** é apresentada na extremidade direita, pelo que poderá ter de se deslocar para a direita para vê-la.
 
@@ -32,4 +32,4 @@ Agora, pode utilizar a ferramenta Data Explorer no portal do Azure para criar um
     ID do Graph|gráfico de exemplo|Denomine a nova coleção como *sample-graph*. Os nomes dos gráficos têm os mesmos requisitos de carateres que os IDs das bases de dados.
     Chave de partição| /pk |Todas as contas de Cosmos DB precisam de uma chave de partição para dimensionar horizontalmente. Saiba como selecionar uma chave de partição apropriada no [artigo particionamento de dados de grafo](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
 
-3. Assim que o formulário estiver preenchido, clique em **OK**.
+3. Depois que o formulário for preenchido, selecione **OK**.

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
-ms.date: 04/24/2019
+ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 10c47c5dbae0ffb204a78ff510e457cce9a25ff0
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 1d97e2d2698c482b75f037dbd8cde1027c472125
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361100"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534877"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX e Azure Machine Learning: Criar e acelerar modelos de ML
 

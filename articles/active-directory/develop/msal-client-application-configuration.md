@@ -3,7 +3,7 @@ title: Configuração de aplicativo cliente (biblioteca de autenticação da Mic
 description: Saiba mais sobre as opções de configuração para clientes públicos e aplicativos cliente confidenciais na MSAL (biblioteca de autenticação da Microsoft).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 767f7362a6c46d864ba17f23f6506bf6cdb71414
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 6fedca8dfb60d976723508bb89cab7d5b6dda1b9
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304737"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532911"
 ---
 # <a name="application-configuration-options"></a>Opções de configuração de aplicativo
 
@@ -35,7 +35,7 @@ No seu código, você inicializa um novo aplicativo cliente público ou confiden
     - [Segredo do cliente](#client-secret) (para aplicativos cliente confidenciais).
 - [Opções de log](#logging), incluindo nível de log, controle de dados pessoais e o nome do componente usando a biblioteca.
 
-## <a name="authority"></a>Autoridades
+## <a name="authority"></a>Autoridade
 A autoridade é uma URL que indica um diretório do qual MSAL pode solicitar tokens. As autoridades comuns são:
 
 - https\://login.microsoftonline.com/\<locatário\>/, em &lt;que&gt; Tenant é a ID do locatário do locatário do Azure Active Directory (Azure AD) ou um domínio associado a este locatário do Azure AD. Usado somente para conectar usuários de uma organização específica.
@@ -98,14 +98,14 @@ Atualmente, a única maneira de obter um aplicativo para conectar usuários com 
 ## <a name="client-id"></a>ID de Cliente
 A ID do cliente é a ID exclusiva do aplicativo (cliente) atribuída ao seu aplicativo pelo Azure AD quando o aplicativo foi registrado.
 
-## <a name="redirect-uri"></a>URI de redirecionamento
+## <a name="redirect-uri"></a>URI de Redirecionamento
 O URI de redirecionamento é o URI para o qual o provedor de identidade enviará os tokens de segurança.
 
 ### <a name="redirect-uri-for-public-client-apps"></a>URI de redirecionamento para aplicativos cliente públicos
 Se você for um desenvolvedor de aplicativo cliente público que está usando o MSAL:
 - Você desejaria usar `.WithDefaultRedirectUri()` em aplicativos da área de trabalho ou UWP (MSAL.NET 4.1 +). Esse método definirá a propriedade URI de redirecionamento do aplicativo cliente público para o URI de redirecionamento recomendado padrão para aplicativos cliente públicos. 
 
-  Plataforma  | URI de redirecionamento  
+  Plataforma  | URI de Redirecionamento  
   ---------  | --------------
   Aplicativo de desktop (FW .NET) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
   UWP | valor de `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. Isso habilita o SSO com o navegador definindo o valor como o resultado de WebAuthenticationBroker. GetCurrentApplicationCallbackUri () que você precisa registrar
@@ -135,7 +135,7 @@ Esta opção especifica o segredo do cliente para o aplicativo cliente confidenc
 ## <a name="logging"></a>Registo
 As outras opções de configuração habilitam o registro em log e a solução de problemas. Consulte o artigo sobre [registro em log](msal-logging.md) para obter detalhes sobre como usá-los.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [criar uma instância de aplicativos cliente usando o MSAL.net](msal-net-initializing-client-applications.md).
 
 Saiba mais sobre como [criar uma instância de aplicativos cliente usando o MSAL. js](msal-js-initializing-client-applications.md).

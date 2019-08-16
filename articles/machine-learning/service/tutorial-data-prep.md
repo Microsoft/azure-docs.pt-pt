@@ -11,12 +11,12 @@ ms.author: sihhu
 ms.reviewer: trbye
 ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 241c84212132ee90e71291758e094cb4a115f2e2
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: cc243fea67c479879f25e4f39e3cd1c5e0237869
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018087"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534357"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparar dados para modelagem de regressão
 
@@ -35,40 +35,15 @@ Neste tutorial:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Pule para [configurar seu ambiente de desenvolvimento](#start) para ler as etapas do bloco de anotações ou use as instruções abaixo para obter o bloco de anotações e executá-lo em Azure notebooks ou em seu próprio servidor de notebook. Para executar o bloco de anotações, você precisará de:
+* Conclua [o tutorial: Comece a criar seu primeiro experimento](tutorial-1st-experiment-sdk-setup.md) de ml para:
+    * Criar uma área de trabalho
+    * Criar um servidor de notebook de nuvem
+    * Iniciar o painel do bloco de anotações do Jupyter
 
-* Um servidor de notebook Python 3,6 com o seguinte instalado:
-    * O `azureml-dataprep` pacote do SDK do Azure Machine Learning
-* O bloco de notas do tutorial
+* Depois de iniciar o painel do notebook Jupyter, abra o bloco de anotações **tutoriais/regression-part1-data-Prep. ipynb** .
 
-* Usar um [servidor de bloco de anotações de nuvem em seu espaço de trabalho](#azure) 
-* Use [seu próprio servidor de notebook](#server)
+Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se você quiser usá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local).  Verifique se você instalou o `azureml-dataprep` pacote do SDK do Azure Machine Learning.
 
-### <a name="azure"></a>Usar um servidor de bloco de anotações de nuvem em seu espaço de trabalho
-
-É fácil começar com seu próprio servidor de notebook baseado em nuvem. O SDK do Azure Machine Learning para Python já está instalado e configurado para você depois de criar esse recurso de nuvem.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* Depois de iniciar a página da Web do bloco de anotações, execute o bloco de anotações **tutoriais/regression-part1-data-Prep. ipynb** .
-
-### <a name="server"></a>Use seu próprio servidor do Jupyter Notebook
-
-Utilize estes passos para criar um servidor de bloco de notas Jupyter local no seu computador.  Depois de concluir as etapas, execute o bloco de anotações **tutoriais/regression-part1-data-Prep. ipynb** .
-
-1. Conclua as etapas de instalação no [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-1. O `azureml-dataprep` pacote é instalado automaticamente quando você instala o SDK do.
-1. Clone o [repositório do GitHub](https://aka.ms/aml-notebooks).
-
-    ```
-    git clone https://github.com/Azure/MachineLearningNotebooks.git
-    ```
-
-1. Inicie o servidor de blocos de notas a partir do diretório clonado.
-
-    ```shell
-    jupyter notebook
-    ```
 
 ## <a name="start"></a>Configurar seu ambiente de desenvolvimento
 

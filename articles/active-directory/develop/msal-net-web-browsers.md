@@ -3,7 +3,7 @@ title: Navegadores da Web na biblioteca de autenticação da Microsoft para .NET
 description: Saiba mais sobre considerações específicas ao usar o Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: jmprieur
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abb04a30719f7603610b323a4bb271666371ba97
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: e1285c5c61cee25e387ca5fb598f0e062088e549
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276859"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532493"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Usando navegadores da Web no MSAL.NET
 Os navegadores da Web são necessários para a autenticação interativa. Por padrão, o MSAL.NET dá suporte ao [navegador da Web do sistema](#system-web-browser-on-xamarinios-xamarinandroid) em Xamarin. Ios e Xamarin. Android. Mas [você também pode habilitar o navegador da Web incorporado](#enable-embedded-webviews-on-ios-and-android) dependendo de seus requisitos (UX, necessidade de logon único (SSO), segurança) em aplicativos [xamarin. Ios](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) e [xamarin. Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) . E você pode até mesmo [escolher dinamicamente](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) qual navegador da Web usar com base na presença do Chrome ou em um navegador com suporte a guias personalizadas do Chrome no Android. O MSAL.NET só dá suporte ao navegador do sistema em aplicativos de área de trabalho do .NET Core.
@@ -46,17 +46,17 @@ MSAL.NET é uma biblioteca de várias estruturas e tem código específico da es
 
 Em geral, é recomendável que você use o padrão de plataforma, e isso normalmente é o navegador do sistema. O navegador do sistema é melhor para lembrar os usuários que fizeram logon antes. Se você precisar alterar esse comportamento, use`WithUseEmbeddedWebView(bool)`
 
-### <a name="at-a-glance"></a>Síntese
+### <a name="at-a-glance"></a>De relance
 
-| Framework        | caractere | Sistema | Predefinição |
+| Framework        | Caractere | Sistema | Predefinição |
 | ------------- |-------------| -----| ----- |
-| Clássico do .NET     | Sim | Sim ^ | caractere |
+| Clássico do .NET     | Sim | Sim ^ | Caractere |
 | .NET Core     | Não | Sim ^ | Sistema |
 | .NET Standard | Não | Sim ^ | Sistema |
-| UWP | Sim | Não | caractere |
+| UWP | Sim | Não | Caractere |
 | Xamarin.Android | Sim | Sim  | Sistema |
 | Xamarin.iOS | Sim | Sim  | Sistema |
-| Xamarin. Mac| Sim | Não | caractere |
+| Xamarin. Mac| Sim | Não | Caractere |
 
 ^ Requer URI http://localhost de redirecionamento ""
 
@@ -141,7 +141,7 @@ No entanto, para aplicativos de área de trabalho, iniciar um sistema WebView le
 
 ## <a name="enable-embedded-webviews-on-ios-and-android"></a>Habilitar webviews inseridos no iOS e no Android
 
-Você também pode habilitar webviews incorporados em aplicativos Xamarin. iOS e Xamarin. Android. A partir do MSAL.NET 2.0.0-Preview, o MSAL.NET também dá  suporte ao uso da opção de WebView inserida. Para ADAL.NET, o WebView incorporado é a única opção com suporte.
+Você também pode habilitar webviews incorporados em aplicativos Xamarin. iOS e Xamarin. Android. A partir do MSAL.NET 2.0.0-Preview, o MSAL.NET também dá suporte ao uso da opção de WebView inserida. Para ADAL.NET, o WebView incorporado é a única opção com suporte.
 
 Como desenvolvedor que usa o MSAL.NET para o Xamarin, você pode optar por usar as exibições ou os navegadores de sistema incorporados. Essa é sua opção, dependendo da experiência do usuário e das questões de segurança que você deseja direcionar.
 

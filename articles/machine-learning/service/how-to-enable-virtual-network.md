@@ -1,7 +1,7 @@
 ---
-title: Executar experimentos e inferência em uma rede virtual
+title: Proteger experimentos e inferência em uma rede virtual
 titleSuffix: Azure Machine Learning service
-description: Execute experimentos de aprendizado de máquina e inferência de segurança em uma rede virtual do Azure. Saiba como criar destinos de computação para treinamento de modelo e como executar a inferência em uma rede virtual. Saiba mais sobre os requisitos para redes virtuais protegidas, como exigir portas de entrada e saída.
+description: Saiba como proteger trabalhos de experimentação/treinamento e trabalhos de inferência/pontuação no Azure Machine Learning em uma rede virtual do Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,29 +10,30 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: bd70957671c11137465225aa3bbb046b12a2c650
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 1b5e3777109b13baa7d774a524664551798ba4ca
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966910"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558109"
 ---
-# <a name="run-experiments-and-inference-securely-within-an-azure-virtual-network"></a>Executar experimentos e inferência com segurança em uma rede virtual do Azure
+# <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteger trabalhos de experimentação e de inferência do Azure ML em uma rede virtual do Azure
 
-Neste artigo, você aprenderá a executar experimentos e inferência ou pontuação de modelo em uma rede virtual. Uma rede virtual age como um limite de segurança, isolando os recursos do Azure da Internet pública. Você também pode unir uma rede virtual do Azure à sua rede local. Ao ingressar em redes, você pode treinar seus modelos com segurança e acessar seus modelos implantados para inferência. A inferência, ou a Pontuação do modelo, é a fase durante a qual o modelo implantado é usado para previsão, mais comumente em dados de produção.
+Neste artigo, você aprenderá a proteger trabalhos de experimentação/treinamento e trabalhos de inferência/pontuação no Azure Machine Learning em uma vnet (rede virtual) do Azure. 
 
-O serviço de Azure Machine Learning depende de outros serviços do Azure para recursos de computação. Os recursos de computação ou os destinos de computação são usados para treinar e implantar modelos. Os destinos podem ser criados em uma rede virtual. Por exemplo, você pode usar o Microsoft Máquina Virtual de Ciência de Dados para treinar um modelo e, em seguida, implantar o modelo no AKS (serviço kubernetes do Azure). Para obter mais informações sobre redes virtuais, consulte [visão geral da rede virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Uma **rede virtual** age como um limite de segurança, isolando os recursos do Azure da Internet pública. Você também pode unir uma rede virtual do Azure à sua rede local. Ao ingressar em redes, você pode treinar seus modelos com segurança e acessar seus modelos implantados para inferência.
 
-Este artigo fornece informações detalhadas sobre *configurações de segurança avançadas*, informações que não são necessárias para casos de uso básico ou experimental. Determinadas seções deste artigo fornecem informações de configuração para uma variedade de cenários. Você não precisa concluir as instruções em ordem ou em sua totalidade.
+O serviço de Azure Machine Learning depende de outros serviços do Azure para recursos de computação. Os recursos de computação ou os [destinos de computação](concept-compute-target.md)são usados para treinar e implantar modelos. Os destinos podem ser criados em uma rede virtual. Por exemplo, você pode usar o Microsoft Máquina Virtual de Ciência de Dados para treinar um modelo e, em seguida, implantar o modelo no AKS (serviço kubernetes do Azure). Para obter mais informações sobre redes virtuais, consulte [visão geral da rede virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+
+Este artigo também fornece informações detalhadas sobre *configurações de segurança avançadas*, informações que não são necessárias para casos de uso básico ou experimental. Determinadas seções deste artigo fornecem informações de configuração para uma variedade de cenários. Você não precisa concluir as instruções em ordem ou em sua totalidade.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Crie um espaço de [trabalho](how-to-manage-workspace.md) de serviço do Azure Machine Learning se você ainda não tiver um. Este artigo pressupõe que você esteja familiarizado com o serviço de rede virtual do Azure e a rede IP em geral. O artigo também pressupõe que você criou uma rede virtual e uma sub-rede para usar com seus recursos de computação. Se você não estiver familiarizado com o serviço de rede virtual do Azure, você pode aprender sobre ele nos seguintes artigos:
++ Um espaço de [trabalho](how-to-manage-workspace.md)de serviço do Azure Machine Learning. 
 
-* [Endereçamento IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
-* [Grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview)
-* [Quickstart: Criar uma rede virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
-* [Filtrar tráfego de rede](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
++ Conhecimento geral de trabalho do [serviço de rede virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) e da [rede IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
+
++ Uma rede virtual e sub-rede pré-existentes para usar com seus recursos de computação. 
 
 ## <a name="use-a-storage-account-for-your-workspace"></a>Usar uma conta de armazenamento para seu espaço de trabalho
 
@@ -232,6 +233,9 @@ Quando o processo de criação for concluído, você treinará seu modelo usando
 
 ## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>Usar uma máquina virtual ou um cluster HDInsight
 
+> [!IMPORTANT]
+> O serviço de Azure Machine Learning dá suporte apenas a máquinas virtuais que executam o Ubuntu.
+
 Para usar uma máquina virtual ou um cluster do Azure HDInsight em uma rede virtual com seu espaço de trabalho, faça o seguinte:
 
 1. Crie uma VM ou um cluster HDInsight usando o portal do Azure ou o CLI do Azure e coloque o cluster em uma rede virtual do Azure. Para obter mais informações, veja os artigos seguintes:
@@ -263,17 +267,12 @@ Para usar uma máquina virtual ou um cluster do Azure HDInsight em uma rede virt
 
 1. Anexe a VM ou o cluster HDInsight ao seu espaço de trabalho do Azure Machine Learning Service. Para obter mais informações, consulte [Configurar destinos de computação para treinamento de modelo](how-to-set-up-training-targets.md).
 
-> [!IMPORTANT]
-> O serviço de Azure Machine Learning dá suporte apenas a máquinas virtuais que executam o Ubuntu.
-
 ## <a name="use-azure-kubernetes-service-aks"></a>Usar o AKS (serviço kubernetes do Azure)
 
 Para adicionar o AKS em uma rede virtual ao seu espaço de trabalho, faça o seguinte:
 
 > [!IMPORTANT]
 > Antes de iniciar o procedimento a seguir, verifique os pré-requisitos e planeje o endereçamento IP para o cluster. Para obter mais informações, consulte [Configure Advanced Networking in Azure kubernetes Service (AKs)](https://docs.microsoft.com/azure/aks/configure-advanced-networking).
->
-> Mantenha as regras de saída padrão para o NSG. Para obter mais informações, consulte as regras de segurança padrão em [grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 >
 > A instância AKS e a rede virtual do Azure devem estar na mesma região.
 
@@ -304,13 +303,12 @@ Para adicionar o AKS em uma rede virtual ao seu espaço de trabalho, faça o seg
    ![Serviço de Azure Machine Learning: Computação do Machine Learning configurações de rede virtual](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
 1. Verifique se o grupo NSG que controla a rede virtual tem uma regra de segurança de entrada habilitada para o ponto de extremidade de Pontuação para que ela possa ser chamada de fora da rede virtual.
+   > [!IMPORTANT]
+   > Mantenha as regras de saída padrão para o NSG. Para obter mais informações, consulte as regras de segurança padrão em [grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+  
+   ![Uma regra de segurança de entrada](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)
 
-    ![Uma regra de segurança de entrada](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)
-
-    > [!TIP]
-    > Se você já tiver um cluster AKS em uma rede virtual, poderá anexá-lo ao espaço de trabalho. Para obter mais informações, consulte [como implantar no AKs](how-to-deploy-to-aks.md).
-
-Você também pode usar o SDK do Azure Machine Learning para adicionar o AKS em uma rede virtual. O código a seguir cria uma nova instância AKs na `default` sub-rede de uma rede virtual chamada `mynetwork`:
+Você também pode usar o SDK do Azure Machine Learning para adicionar o serviço kubernetes do Azure em uma rede virtual. Se você já tiver um cluster AKS em uma rede virtual, anexe-o ao espaço de trabalho conforme descrito em [como implantar no AKs](how-to-deploy-to-aks.md). O código a seguir cria uma nova instância AKs na `default` sub-rede de uma rede virtual chamada `mynetwork`:
 
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
@@ -332,7 +330,7 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 Quando o processo de criação for concluído, você poderá executar a inferência ou a pontuação de modelo em um cluster AKS por trás de uma rede virtual. Para obter mais informações, consulte [como implantar no AKs](how-to-deploy-to-aks.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar ambientes de treinamento](how-to-set-up-training-targets.md)
 * [Onde pretende implementar modelos](how-to-deploy-and-where.md)

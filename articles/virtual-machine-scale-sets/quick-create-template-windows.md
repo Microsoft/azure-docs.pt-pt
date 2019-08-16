@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: a91bbceb3cb55cf3e7f8e0f84581af07f1ffb80d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 388583b42d36a21ceb53a59e7c37392bf0eb8333
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728917"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534313"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Início rápido: Criar um conjunto de dimensionamento de máquinas virtuais Windows com um modelo do Azure
 
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="define-a-scale-set-in-a-template"></a>Definir um conjunto de dimensionamento num modelo
 Os modelos do Azure Resource Manager permitem implementar grupos de recursos relacionados. Os modelos são escritos em JavaScript Object Notation (JSON) e definem o ambiente de toda a infraestrutura do Azure para a sua aplicação. Num único modelo, pode criar o conjunto de dimensionamento de máquinas virtuais, instalar aplicações e configurar regras de dimensionamento automático. Com a utilização de parâmetros e variáveis, este modelo pode ser reutilizado para atualizar conjuntos de dimensionamento existentes ou criar conjuntos de dimensionamento adicionais. Pode implementar modelos através do portal do Azure, da CLI do Azure ou do Azure PowerShell ou a partir de pipelines de integração contínua/entrega contínua (CI/CD).
 
-Para obter mais informações sobre modelos, consulte [descrição geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment). Para a sintaxe JSON e propriedades, consulte [Compute/virtualmachinescalesets](/azure/templates/microsoft.compute/virtualmachinescalesets) referência de modelo.
+Para obter mais informações sobre modelos, consulte [Azure Resource Manager visão geral](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment). Para sintaxe e propriedades JSON, consulte referência de modelo [Microsoft. Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets) .
 
 Um modelo define a configuração para cada tipo de recurso. Um tipo de recurso de conjunto de dimensionamento de máquinas virtuais é semelhante a uma VM individual. As partes principais do tipo de recurso de conjunto de dimensionamento de máquinas virtuais são:
 
@@ -43,7 +43,7 @@ Um modelo define a configuração para cada tipo de recurso. Um tipo de recurso 
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
 | type                         | Tipo de recurso do Azure a criar                            | Microsoft.Compute/virtualMachineScaleSets |
 | name                         | O nome do conjunto de dimensionamento                                       | myScaleSet                                |
-| location                     | A localização para criar o conjunto de dimensionamento                     | EUA Leste                                   |
+| location                     | A localização para criar o conjunto de dimensionamento                     | East US                                   |
 | sku.name                     | O tamanho da VM para cada instância do conjunto de dimensionamento                  | Standard_A1                               |
 | sku.capacity                 | O número de instâncias de VM a criar inicialmente           | 2                                         |
 | upgradePolicy.mode           | Modo de atualização de instâncias de VM quando ocorrem alterações              | Automático                                 |
@@ -140,7 +140,7 @@ Pode implementar o modelo [aplicação ASP.NET MVC no Windows](https://github.co
 
 [![Implementar o modelo no Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-windows-webapp-dsc-autoscale%2Fazuredeploy.json)
 
-Também pode utilizar o Azure PowerShell para instalar a aplicação ASP.NET em Windows com [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) da seguinte forma:
+Você também pode usar Azure PowerShell para instalar o aplicativo ASP.NET no Windows com [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) da seguinte maneira:
 
 ```azurepowershell-interactive
 # Create a resource group
@@ -149,7 +149,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 # Deploy template into resource group
 New-AzResourceGroupDeployment `
     -ResourceGroupName myResourceGroup `
-    -TemplateFile https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json
+    -TemplateURI https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json
 
 # Update the scale set and apply the extension
 Update-AzVmss `
@@ -162,19 +162,19 @@ Responda aos pedidos para fornecer um nome do conjunto de dimensionamento e as c
 
 
 ## <a name="test-your-scale-set"></a>Testar o seu conjunto de dimensionamento
-Para ver o conjunto de dimensionamento em ação, aceda à aplicação Web de exemplo num browser. Obtenha o endereço IP público do seu Balanceador de carga com [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) da seguinte forma:
+Para ver o conjunto de dimensionamento em ação, aceda à aplicação Web de exemplo num browser. Obtenha o endereço IP público do balanceador de carga com [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) da seguinte maneira:
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Introduza o endereço IP público do Balanceador de carga num navegador da web no formato *http:\//publicIpAddress/MyApp*. O balanceador de carga distribui o tráfego para uma das suas instâncias de VM, conforme mostra o exemplo seguinte:
+Insira o endereço IP público do balanceador de carga em um navegador da Web no formato *\/http:/publicIpAddress/MyApp*. O balanceador de carga distribui o tráfego para uma das suas instâncias de VM, conforme mostra o exemplo seguinte:
 
 ![Site do IIS em execução](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não for necessário, pode utilizar o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, o conjunto de dimensionamento. O parâmetro `-Force` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo. O parâmetro `-AsJob` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação.
+Quando não for mais necessário, você poderá usar o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, o conjunto de dimensionamento. O parâmetro `-Force` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo. O parâmetro `-AsJob` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob

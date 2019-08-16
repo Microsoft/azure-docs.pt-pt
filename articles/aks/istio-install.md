@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: 9d973cb2ac210e912d93941a2f81889557379f43
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 032a907e45e007cb51357300e4bbf3c7afb40dde
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67625981"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542875"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalar e usar o İSTİO no serviço kubernetes do Azure (AKS)
 
@@ -41,6 +41,8 @@ Neste artigo, vai aprender a:
 As etapas detalhadas neste artigo pressupõem que você criou um cluster AKs (kubernetes `1.11` e superior, com o RBAC habilitado) e estabeleceu uma `kubectl` conexão com o cluster. Se precisar de ajuda com qualquer um desses itens, consulte o guia de [início rápido do AKS][aks-quickstart].
 
 Você precisará de [Helm][helm] para seguir estas instruções e instalar o İSTİO. É recomendável que você tenha a `2.12.2` versão ou posterior instalada e configurada corretamente no cluster. Se precisar de ajuda com a instalação do Helm, consulte as [diretrizes de instalação do AKS Helm][helm-install]. Todos os pods de İSTİO também devem ser agendados para serem executados em nós do Linux.
+
+Verifique se você leu a documentação de [desempenho e escalabilidade do İSTİO](https://istio.io/docs/concepts/performance-and-scalability/) para entender os requisitos de recursos adicionais para executar o İSTİO em seu cluster AKs. Os requisitos de núcleo e memória variam de acordo com sua carga de trabalho específica. Escolha um número apropriado de nós e o tamanho da VM para atender à sua configuração.
 
 Este artigo separa as diretrizes de instalação do İSTİO em várias etapas discretas. O resultado final é o mesmo na estrutura que as [diretrizes][istio-install-helm]de instalação oficial do İSTİO.
 

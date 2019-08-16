@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a334b19fe4dd819a6e4c391e49d934bf5955a567
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c3201ec64ee7a3471b7d93b83664c62c2e7e0435
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516055"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541522"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos Premium gerenciados e não gerenciados
 
@@ -172,7 +172,7 @@ Talvez sua VM tenha que estar em um par de regiões e de zona de disponibilidade
 Não, ultra discos só têm suporte como discos de dados e só têm suporte como discos nativos de 4K.
 
 **Posso converter um disco existente em um ultra Disk?**
-Não, mas você pode migrar a data de um disco existente para um ultra Disk. Para migrar um disco existente para um ultra Disk, anexe ambos os discos à mesma VM e copie os dados do disco de um disco para outro ou aproveite uma solução de terceiros para a migração de dados.
+Não, mas você pode migrar os dados de um disco existente para um ultra Disk. Para migrar um disco existente para um ultra Disk, anexe ambos os discos à mesma VM e copie os dados do disco de um disco para outro ou aproveite uma solução de terceiros para a migração de dados.
 
 **Posso criar instantâneos para ultra disks?**
 Não, os instantâneos ainda não estão disponíveis.

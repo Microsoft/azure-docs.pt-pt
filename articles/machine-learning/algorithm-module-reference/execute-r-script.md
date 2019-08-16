@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3594d9670e8fb94b053479352fb88997caa16db6
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 7de3dd016700d10ef5fac97fada5cd23c2f4e1cb
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016483"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558308"
 ---
 # <a name="execute-r-script"></a>Executar Script R
 
@@ -65,6 +65,8 @@ azureml_main <- function(dataframe1, dataframe2){
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
 ```
+ > [!NOTE]
+    > Verifique se o pacote já existe antes de instalá-lo para evitar a repetição da instalação. Como `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` no código de exemplo acima. Repetir a instalação pode causar tempo limite de solicitação de serviço Web.     
 
 ## <a name="how-to-configure-execute-r-script"></a>Como configurar o executar script R
 
@@ -399,6 +401,6 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | zeallot      | 0.1.0      | 
 | Zoo          | 1.8-6      | 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

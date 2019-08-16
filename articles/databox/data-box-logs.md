@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 8fecc00a970f0e706dc6240eaec593fd54968ff8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934199"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535168"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Rastreamento e log de eventos para seu Azure Data Box e Azure Data Box Heavy
 
@@ -64,7 +64,7 @@ Você pode acompanhar o seu pedido por meio do portal do Azure e do site da tran
 
 - Seu Data Box chega em seu local em um estado bloqueado. Você pode usar as credenciais de dispositivo disponíveis no portal do Azure para seu pedido.  
 
-    Quando um Data Box é configurado, talvez seja necessário saber quem todos acessaram as credenciais do dispositivo. Para descobrir quem acessou a folha **credenciais do dispositivo** , você pode consultar os logs de atividade.  Qualquer ação que envolva o acesso aos **detalhes do dispositivo > folha credenciais** será registrada nos `ListCredentials` logs de atividade como ação.
+    Quando um Data Box é configurado, talvez seja necessário saber quem todos acessaram as credenciais do dispositivo. Para descobrir quem acessou a folha **credenciais do dispositivo** , você pode consultar os logs de atividade.  Qualquer ação que envolva o acesso aos **detalhes do dispositivo > folha credenciais** será registrada nos `ListCredentials` logs de atividade como ação.
 
     ![Registos de Atividades de Consulta](media/data-box-logs/query-activity-log-1.png)
 
@@ -76,7 +76,7 @@ Durante a cópia de dados para Data Box ou Data Box Heavy, um arquivo de erro se
 
 ### <a name="errorxml-file"></a>Arquivo error. xml
 
-Certifique-se de que os trabalhos de cópia foram concluídos sem erros. Se houver erros durante o processo de cópia, baixe os logs da página **conectar e copiar** .
+Certifique-se de que os trabalhos de cópia foram concluídos sem erros. Se houver erros durante o processo de cópia, baixe os logs da página **conectar e copiar** .
 
 - Se você copiou um arquivo que não é 512 bytes alinhado a uma pasta de disco gerenciado no seu Data Box, o arquivo não será carregado como blob de páginas para sua conta de armazenamento de preparo. Você verá um erro nos logs. Remova o arquivo e copie um arquivo que tenha 512 bytes alinhados.
 - Se você copiou um VHDX, ou um VHD dinâmico, ou um VHD diferencial (não há suporte para esses arquivos), verá um erro nos logs.
@@ -203,7 +203,7 @@ Para cada pedido que é processado, o serviço de Data Box cria o log de cópia 
 
 Uma computação de CRC (verificação de redundância cíclica) é feita durante o carregamento no Azure. O CRCs da cópia de dados e depois do carregamento de dados são comparados. Uma incompatibilidade de CRC indica que os arquivos correspondentes não puderam ser carregados.
 
-Por padrão, os logs são gravados em um `copylog`contêiner chamado. Os logs são armazenados com a seguinte convenção de nomenclatura:
+Por padrão, os logs são gravados em um `copylog`contêiner chamado. Os logs são armazenados com a seguinte convenção de nomenclatura:
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
@@ -354,7 +354,7 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>Transferir histórico de pedidos
 
-O histórico de pedidos está disponível em portal do Azure. Se o pedido estiver concluído e a limpeza do dispositivo (eliminação de dados dos discos) estiver concluída, vá para a ordem do dispositivo e navegue até **detalhes do pedido**.  **Baixar histórico de pedidos**  opção está disponível. Para obter mais informações, consulte [baixar histórico de pedidos](data-box-portal-admin.md#download-order-history).
+O histórico de pedidos está disponível em portal do Azure. Se o pedido estiver concluído e a limpeza do dispositivo (eliminação de dados dos discos) estiver concluída, vá para a ordem do dispositivo e navegue até **detalhes do pedido**. A opção **Transferir histórico de encomendas** está disponível. Para obter mais informações, consulte [baixar histórico de pedidos](data-box-portal-admin.md#download-order-history).
 
 Se você rolar o histórico do pedido, verá:
 

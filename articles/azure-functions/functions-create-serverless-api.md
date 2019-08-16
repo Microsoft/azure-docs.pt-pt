@@ -1,31 +1,30 @@
 ---
-title: Criar uma API sem servidor com as Funções do Azure | Microsoft Docs
-description: Como criar uma API sem servidor com as Funções do Azure
-services: functions
+title: Personalizar um ponto de extremidade HTTP no Azure Functions
+description: Saiba como personalizar um ponto de extremidade de gatilho HTTP no Azure Functions
 author: mattchenderson
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: f6a678e03818f1e1f2182b3b0dfab221d415dc72
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 00aa55fe9f92358fd3a0e6f3065e5e2e69e405e1
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107284"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534624"
 ---
-# <a name="create-a-serverless-api-using-azure-functions"></a>Criar uma API sem servidor com as Funções do Azure
+# <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizar um ponto de extremidade HTTP no Azure Functions
 
-Neste tutorial, vai ficar a saber como as Funções do Azure permitem criar APIs altamente dimensionáveis. As Funções do Azure incluem uma coleção de enlaces e acionadores HTTP incorporados, que facilitam a criação de um ponto final em várias linguagens, incluindo Node.JS, C# e muitas mais. Neste tutorial, vai personalizar um acionador HTTP para processar ações específicas na sua estrutura de API. Também vai preparar-se para aumentar a sua API ao integrá-la com os Proxies de Funções do Azure e ao configurar APIs fictícias. Tudo isto é feito sobre o ambiente de computação sem servidor das Funções, para que não tenha de se preocupar com o dimensionamento de recursos – pode concentrar-se apenas na lógica da API.
+Neste artigo, você aprende como Azure Functions permite que você crie APIs altamente escalonáveis. As Funções do Azure incluem uma coleção de enlaces e acionadores HTTP incorporados, que facilitam a criação de um ponto final em várias linguagens, incluindo Node.JS, C# e muitas mais. Neste artigo, você personalizará um gatilho HTTP para manipular ações específicas em seu design de API. Também vai preparar-se para aumentar a sua API ao integrá-la com os Proxies de Funções do Azure e ao configurar APIs fictícias. Tudo isto é feito sobre o ambiente de computação sem servidor das Funções, para que não tenha de se preocupar com o dimensionamento de recursos – pode concentrar-se apenas na lógica da API.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
-A função resultante será utilizada ao longo do resto deste tutorial.
+A função resultante será usada para o restante deste artigo.
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -39,14 +38,14 @@ Por predefinição, a sua função acionada por HTTP está configurada para acei
 
     ![Personalizar uma função HTTP](./media/functions-create-serverless-api/customizing-http.png)
 
-1. Utilize as definições de Acionador HTTP conforme especificado na tabela.
+1. Use as configurações de gatilho HTTP conforme especificado na tabela.
 
     | Campo | Valor da amostra | Descrição |
     |---|---|---|
     | Métodos HTTP permitidos | Métodos selecionados | Determina que métodos HTTP podem ser utilizados para invocar esta função |
     | Métodos HTTP selecionados | GET | Permite apenas a utilização dos métodos HTTP selecionados para invocar esta função |
     | Modelo de rota | /hello | Determina qual a rota utilizada para invocar esta função |
-    | Nível de Autorização | Anónimo | Opcional: Disponibilizar a sua função sem uma chave de API |
+    | Nível de Autorização | Anónimo | Opcional: Torna sua função acessível sem uma chave de API |
 
     > [!NOTE] 
     > Note que não incluiu o prefixo do caminho de base `/api` no modelo de rota, uma vez que é processado por uma definição global.
@@ -180,9 +179,9 @@ Esta ação adiciona um novo proxy, "GetUserByName", sem a propriedade backendUr
 
 Teste a sua API fictícia, chamando o ponto final `<YourProxyApp>.azurewebsites.net/api/users/{username}` com um browser ou com o seu cliente REST favorito. Não se esqueça de substituir _{username}_ por um valor de cadeia que represente um nome de utilizador.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a criar e personalizar uma API nas Funções do Azure. Também aprendeu a reunir várias APIs, incluindo as fictícias, como uma superfície de API unificada. Pode utilizar estas técnicas para criar APIs com qualquer nível de complexidade, tudo isto enquanto as executa no modelo de computação sem servidor fornecido pelas Funções do Azure.
+Neste artigo, você aprendeu como criar e personalizar uma API no Azure Functions. Também aprendeu a reunir várias APIs, incluindo as fictícias, como uma superfície de API unificada. Pode utilizar estas técnicas para criar APIs com qualquer nível de complexidade, tudo isto enquanto as executa no modelo de computação sem servidor fornecido pelas Funções do Azure.
 
 As referências seguintes podem ser úteis à medida que desenvolve ainda mais a sua API:
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/08/2019
-ms.openlocfilehash: 7c6b85bd1f5935fb3722f82efcdfc921fc9cb2ec
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.date: 08/16/2019
+ms.openlocfilehash: e386e34a8326a51753631ee9ea4215d01ba7ceb3
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990546"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558221"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regenerar chaves de acesso da conta de armazenamento
 
@@ -50,12 +50,15 @@ ws = Workspace.from_config()
 
 default_ds = ws.get_default_datastore()
 print("Default datstore: " + default_ds.name + ", storage account name: " +
-      default_ds.account_name + ", container name: " + ds.container_name)
+      default_ds.account_name + ", container name: " + default_ds.container_name)
 
 datastores = ws.datastores
 for name, ds in datastores.items():
-    if ds.datastore_type == "AzureBlob" or ds.datastore_type == "AzureFile":
-        print("datastore name: " + name + ", storage account name: " +
+    if ds.datastore_type == "AzureBlob":
+        print("Blob store - datastore name: " + name + ", storage account name: " +
+              ds.account_name + ", container name: " + ds.container_name)
+    if ds.datastore_type == "AzureFile":
+        print("File share - datastore name: " + name + ", storage account name: " +
               ds.account_name + ", container name: " + ds.container_name)
 ```
 
@@ -64,6 +67,8 @@ Esse código procura por todos os armazenamentos de dados registrados que usam o
 * Nome do repositório de armazenamento: O nome do armazenamento de datastore no qual a conta de armazenamento está registrada.
 * Nome da conta de armazenamento: O nome da conta de armazenamento do Azure.
 * Container O contêiner na conta de armazenamento que é usado por esse registro.
+
+Ele também indica se o repositório de armazenamento é para um blob do Azure ou um compartilhamento de arquivos do Azure, já que há métodos diferentes para registrar novamente cada tipo de repositório de armazenamento.
 
 Se existir uma entrada para a conta de armazenamento para a qual você planeja regenerar chaves de acesso, salve o nome do repositório de armazenamento, o nome da conta e o nome do contêiner.
 
@@ -97,16 +102,25 @@ Para atualizar Azure Machine Learning serviço para usar a nova chave, use as se
 1. Para registrar novamente os repositórios de os que usam a conta de armazenamento, use os valores da seção [o que precisa ser atualizado](#whattoupdate) e a chave da etapa 1 com o seguinte código:
 
     ```python
-    ds = Datastore.register_azure_blob_container(workspace=ws, 
-                                              datastore_name='your datastore name', 
+    # Re-register the blob container
+    ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+                                              datastore_name='your datastore name',
                                               container_name='your container name',
-                                              account_name='your storage account name', 
+                                              account_name='your storage account name',
                                               account_key='new storage account key',
                                               overwrite=True)
+    # Re-register file shares
+    ds_file = Datastore.register_azure_file_share(workspace=ws,
+                                          datastore_name='your datastore name',
+                                          file_share_name='your container name',
+                                          account_name='your storage account name',
+                                          account_key='new storage account key',
+                                          overwrite=True)
+    
     ```
 
     Como `overwrite=True` é especificado, esse código substitui o registro existente e o atualiza para usar a nova chave.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre como registrar armazenamentos de dados, [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) consulte a referência de classe.

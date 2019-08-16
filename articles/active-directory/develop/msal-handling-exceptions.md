@@ -3,7 +3,7 @@ title: Erros e exceções (MSAL) | Azure
 description: Saiba como lidar com erros e exceções, o acesso condicional e o desafio de declarações em aplicativos MSAL.
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c294e3bd8ac04454c2d715c665e0da4f9a4f4535
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c37a52ee939e6144b98e6a1369f94beabc5fc1d9
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835036"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532861"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Tratamento de exceções e erros usando MSAL
 Exceções na MSAL (biblioteca de autenticação da Microsoft) são destinadas para os desenvolvedores de aplicativos solucionarem problemas e não para exibição para os usuários finais. As mensagens de exceção não são localizadas.

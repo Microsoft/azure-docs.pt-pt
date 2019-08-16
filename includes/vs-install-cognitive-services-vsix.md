@@ -9,31 +9,31 @@ ms.topic: include
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: include file
-manager: douge
-ms.openlocfilehash: 892db95a3d8ebaf4d9d3339d4965ce96b1084537
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+manager: jillfra
+ms.openlocfilehash: 295716d6e1d36d84ca78770109ccc1087b5e6303
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184526"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69520872"
 ---
-## <a name="install-the-cognitive-services-vsix-extension"></a>Instalar a extensão VSIX de serviços cognitivos
+## <a name="install-the-cognitive-services-vsix-extension"></a>Instalar a extensão VSIX dos serviços cognitivas
 
-1. Com o seu projeto de web aberto no Visual Studio, escolha o **serviços ligados** separador. A guia está disponível na página de boas-vindas que aparece quando abre um novo projeto. Se não vir o separador, selecione **serviços ligados** no seu projeto no Explorador de soluções.
+1. Com o projeto Web aberto no Visual Studio, escolha a guia **Serviços conectados** . A guia está disponível na página de boas-vindas que aparece quando você abre um novo projeto. Se você não vir a guia, selecione **Serviços conectados** em seu projeto no Gerenciador de soluções.
 
-   ![Separador de captura de ecrã de serviços ligados](./media/vs-install-cognitive-services-vsix/Connected-Services-Tab.PNG)
+   ![Captura de tela da guia serviços conectados](./media/vs-install-cognitive-services-vsix/Connected-Services-Tab.PNG)
 
-1. Desloque para baixo para a parte inferior da lista de serviços e selecione **encontrar mais serviços**.
+1. Role para baixo até a parte inferior da lista de serviços e selecione **localizar mais serviços**.
 
-    ![Captura de ecrã de encontrar mais serviços de ligação](./media/vs-install-cognitive-services-vsix/Find-More-Services.PNG)
+    ![Captura de tela do link localizar mais serviços](./media/vs-install-cognitive-services-vsix/Find-More-Services.PNG)
  
-    O **extensões e atualizações** é apresentada a caixa de diálogo.
+    A caixa de diálogo **extensões e atualizações** é exibida.
 
-1. Na **extensões e atualizações** caixa de diálogo, procure **dos serviços cognitivos**e, em seguida, transferir e instalar o pacote do VSIX de serviços cognitivos.
+1. Na caixa de diálogo **extensões e atualizações** , procure **Serviços cognitivas**e, em seguida, baixe e instale o pacote VSIX dos serviços cognitivas.
 
-   ![Caixa de diálogo de captura de ecrã das extensões e atualizações](./media/vs-install-cognitive-services-vsix/install-cognitive-services-vsix.PNG)
+   ![Captura de tela da caixa de diálogo extensões e atualizações](./media/vs-install-cognitive-services-vsix/install-cognitive-services-vsix.PNG)
 
-   Instalar uma extensão exige a reinicialização do ambiente de desenvolvimento integrado (IDE).
+   A instalação de uma extensão requer uma reinicialização do ambiente de desenvolvimento integrado (IDE).
 
-2. Reinicie o Visual Studio. A extensão é instalada quando fechar o Visual Studio e está disponível a próxima vez que iniciar o IDE.
+2. Reinicie o Visual Studio. A extensão é instalada quando você fecha o Visual Studio e está disponível na próxima vez que iniciar o IDE.
 

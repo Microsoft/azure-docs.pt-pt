@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 6cbddfc5e529bc48e08407796024e5232d1a22e8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 134302bffdadc27cf202a43e7dc4cc94704bb5b3
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966374"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557877"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Copiar dados do Teradata usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -142,8 +142,8 @@ Para copiar dados do Teradata, há suporte para as seguintes propriedades:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida `TeradataTable`como. | Sim |
-| database | O nome do banco de dados Teradata. | Não (se for especificada "query" na origem de atividade) |
-| table | O nome da tabela no banco de dados Teradata. | Não (se for especificada "query" na origem de atividade) |
+| database | O nome do banco de dados Teradata. | Não (se for especificada "consulta" na origem de atividade) |
+| table | O nome da tabela no banco de dados Teradata. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Example:**
 
@@ -299,7 +299,7 @@ Quando você copia dados do Teradata, os mapeamentos a seguir se aplicam. Para s
 | Decimal |Decimal |
 | Double |Double |
 | Graphic |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Número inteiro |Int32 |
+| Integer |Int32 |
 | Interval Day |Não suportado. Aplicar conversão explícita na consulta de origem. |
 | Interval Day To Hour |Não suportado. Aplicar conversão explícita na consulta de origem. |
 | Interval Day To Minute |Não suportado. Aplicar conversão explícita na consulta de origem. |

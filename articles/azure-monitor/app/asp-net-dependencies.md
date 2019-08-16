@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: c2f115564c81f38dd437f1d3ff1e33d7d162a42f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 858508e949f8a880498e1a3d983dc76224010c31
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326452"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534612"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rastreamento de dependência no insights Aplicativo Azure 
 
@@ -90,7 +90,7 @@ Se você quiser desativar o módulo de rastreamento de dependência padrão, rem
 
 ## <a name="tracking-ajax-calls-from-web-pages"></a>Controlando chamadas AJAX de páginas da Web
 
-Para páginas da Web, Application Insights SDK do JavaScript coleta automaticamente chamadas AJAX como dependências, conforme descrito [aqui](javascript.md#ajax-performance). Este documento se concentra em dependências de componentes de servidor.
+Para páginas da Web, Application Insights SDK do JavaScript coleta automaticamente chamadas AJAX como dependências.
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>Acompanhamento de SQL avançado para obter a consulta SQL completa
 
@@ -113,7 +113,7 @@ Nos casos acima, a maneira correta de validar esse mecanismo de instrumentação
 
 * [Mapa da aplicação](app-map.md) visualiza as dependências entre as suas aplicações e componentes vizinhos.
 * O [diagnóstico de transação](transaction-diagnostics.md) mostra dados unificados e correlacionados do servidor.
-* [Guia navegadores](javascript.md#ajax-performance) mostra chamadas AJAX dos navegadores dos seus usuários.
+* [Guia navegadores](javascript.md) mostra chamadas AJAX dos navegadores dos seus usuários.
 * Clique em solicitações lentas ou com falha para verificar suas chamadas de dependência.
 * [Análise](#logs-analytics) pode ser usado para consultar dados de dependência.
 
@@ -141,7 +141,7 @@ Não sabe onde o tempo passa? O [criador de perfil Application insights](../../a
 
 Também podem ser associados a chamadas falhadas para dependências de pedidos falhados.
 
-Podemos ir até a guia **falhas** à esquerda e, em seguida, clicar na  guia dependências na parte superior.
+Podemos ir até a guia **falhas** à esquerda e, em seguida, clicar na guia dependências na parte superior.
 
 ![Clique no gráfico de pedidos falhados](./media/asp-net-dependencies/4-fail.png)
 

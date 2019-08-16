@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: 1dcf08f4fefb53ed46038c82e0ce8f9d3dd94de2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 68968c1f846a1052600a8ed108f4d40fd9d8f2cb
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032245"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534724"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Visualização-usar um balanceador de carga de SKU padrão no serviço de kubernetes do Azure (AKS)
 
@@ -92,11 +92,11 @@ As seguintes limitações se aplicam quando você cria e gerencia clusters AKS q
 
 * Ao usar o SKU *Standard* para um balanceador de carga, você deve permitir endereços públicos e evitar a criação de qualquer Azure Policy que banimentos a criação de IP. O cluster AKS cria automaticamente um IP público de SKU *padrão* no mesmo grupo de recursos criado para o cluster AKs, que geralmente é nomeado com *MC_* no início. AKS atribui o IP público ao balanceador de carga SKU *padrão* . O IP público é necessário para permitir o tráfego de saída do cluster AKS. Esse IP público também é necessário para manter a conectividade entre o plano de controle e os nós de agente, bem como para manter a compatibilidade com as versões anteriores do AKS.
 * Ao usar o SKU *Standard* para um balanceador de carga, você deve usar o kubernetes versão 1.13.5 ou superior.
-* Se estiver usando o [recurso de IP público do nó](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool) com balanceadores de carga padrão, você poderá definir uma regra de saída SLB ou um IP público para o nó. Você deve selecionar um ou outro porque uma VM não pode ser anexada a uma regra de saída SLB e a um IP público simultaneamente.
 
 Embora esse recurso esteja em versão prévia, as seguintes limitações adicionais se aplicam:
 
 * Ao usar o SKU *Standard* para um balanceador de carga no AKs, você não pode definir seu próprio endereço IP público para saída para o balanceador de carga. Você deve usar o endereço IP AKS atribui ao balanceador de carga.
+* Isso não pode ser usado com o [recurso de IP público do nó](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -318,7 +318,7 @@ kubectl delete -f sample.yaml
 kubectl delete -f standard-lb.yaml
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os serviços Kubernetess na [documentação dos serviços Kubernetess][kubernetes-services].
 

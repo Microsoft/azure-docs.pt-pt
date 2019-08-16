@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 1668e0b3b155804496b190f2ba66d220ba0dd219
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 00fadd8a98ec4f58783ed8b407e2621a7c107149
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381960"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533533"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -86,10 +86,12 @@ Esse erro ocorre quando os clusters entram em um estado de falha por vários mot
 
 *Esta assistência para solução de problemas é direcionada de https://aka.ms/aks-pending-upgrade*
 
-As operações de cluster são limitadas quando as operações de atualização ativa estão ocorrendo ou uma tentativa de atualização foi tentada, mas subsequentemente falhou. Para diagnosticar a execução `az aks show -g myResourceGroup -n myAKSCluster -o table` do problema para recuperar o status detalhado no cluster. Com base no resultado:
+As operações de atualização e dimensionamento em um cluster com um único pool de nós ou um cluster com [vários pools de nós](use-multiple-node-pools.md) são mutuamente exclusivas. Você não pode ter um cluster ou pool de nós simultaneamente para atualizar e dimensionar. Em vez disso, cada tipo de operação deve ser concluído no recurso de destino antes da próxima solicitação no mesmo recurso. Como resultado, as operações são limitadas quando as operações de atualização ativa ou de escala estão ocorrendo ou tentadas e subsequentemente falharam. 
 
-* Se o cluster estiver sendo atualizado ativamente, aguarde até que a operação seja encerrada. Se tiver êxito, tente a operação anteriormente com falha novamente.
-* Se o cluster tiver falhado na atualização, siga as etapas descritas acima
+Para ajudar a diagnosticar a `az aks show -g myResourceGroup -n myAKSCluster -o table` execução do problema para recuperar o status detalhado no cluster. Com base no resultado:
+
+* Se o cluster estiver sendo atualizado ativamente, aguarde até que a operação seja encerrada. Se tiver êxito, repita a operação anterior com falha novamente.
+* Se o cluster tiver falhado na atualização, siga as etapas descritas na seção anterior.
 
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Posso mover meu cluster para uma assinatura diferente ou minha assinatura com meu cluster para um novo locatário?
 

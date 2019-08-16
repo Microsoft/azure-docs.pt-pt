@@ -16,10 +16,10 @@ ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b4b381ff1f68935084e3dd30865cf539d4abbd16
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 08/16/2019
 ms.locfileid: "68323516"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provisionar nós de computação do Linux em pools do lote
@@ -324,7 +324,7 @@ O lote do Azure foi criado nos serviços de nuvem do Azure e na tecnologia de m�
 
 Se você implantar aplicativos em seus nós do lote usando [pacotes de aplicativos](batch-application-packages.md), também será cobrado pelos recursos de armazenamento do Azure consumidos por seus pacotes de aplicativos. Em geral, os custos de armazenamento do Azure são mínimos. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Os [exemplos de código do Python][github_samples_py] no repositório [Azure-batch-Samples][github_samples] no GitHub contêm scripts que mostram como executar operações comuns em lote, como pool, trabalho e criação de tarefas. O [Leiame][github_py_readme] que acompanha os exemplos do Python tem detalhes sobre como instalar os pacotes necessários.
 

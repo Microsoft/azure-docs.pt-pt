@@ -1,40 +1,40 @@
 ---
-title: Políticas de Marketplace e termos do Azure | Azure
-description: Termos e as políticas do Microsoft Azure Marketplace aplicam-se a todos os publicadores e ofertas no Microsoft Azure Marketplace.
-services: Azure, Marketplace, AppSource
+title: Políticas e termos do Marketplace comercial | Azure
+description: As políticas e os termos do Microsoft Commercial Marketplace se aplicam a todos os Publicadores e ofertas no Microsoft Azure Marketplace.
+services: Azure, Marketplace, AppSource, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 08/09/2019
 ms.author: v-qiwe
-ms.openlocfilehash: c5041e9f7b19508480ff27311ba61d180f4a5a01
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: edee3224e32fd853ca2de836f5c4dc0e5e87a100
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937639"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543590"
 ---
-# <a name="azure-marketplace-policies-and-terms"></a>Políticas e termos do Azure Marketplace
+# <a name="commercial-marketplace-policies-and-terms"></a>Termos e políticas do Marketplace comercial
 
 >[!Note]
->"Marketplace" ou "Azure Marketplace" significa uma Microsoft pertencentes à empresa ou operada plataforma, com o nome no entanto, por meio do qual ofertas podem ser apresentadas ao ou adquiridas por parte dos clientes. Salvo especificação em contrário, o Marketplace inclui o Azure Marketplace, AppSource e o Portal do Azure Marketplace.
+>"Microsoft Commercial Marketplace" quer dizer uma plataforma de propriedade da Microsoft ou operada, no entanto, nomeada, por meio da qual as ofertas podem ser apresentadas ou adquiridas pelos clientes. A menos que especificado de outra forma, o Marketplace comercial inclui o Microsoft Azure Marketplace e Microsoft AppSource.
 
-Obrigado por seu interesse na publicação de ofertas no Azure Marketplace. Estamos empenhados em parceria com a criação de uma fonte avançada de soluções na cloud e uma linha de ofertas de negócios, que deleitar os clientes em todo o mundo e podem ajudar a criar o seu negócio.
+Agradecemos seu interesse em publicar ofertas no Marketplace comercial. Estamos comprometidos em fazer uma parceria com você para criar uma fonte avançada de soluções de nuvem e uma linha de ofertas de negócios, que fascinam os clientes em todo o mundo e o ajudarão a criar seus negócios.
 
-Ofertas no Marketplace, devem estar em conformidade com as políticas e os termos. Iremos atualizar essas diretivas e os termos de tempos em tempos para ajudar a garantir uma boa experiência ao usuário e fornecer uma oportunidade de sucesso de parceiros. Se tiver comentários sobre as nossas políticas ou os termos, faça contato por comentários no [fórum do Azure Marketplace e AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
+As ofertas do Marketplace devem estar em conformidade com nossas políticas e termos. Atualizamos essas políticas e termos de tempos em tempos para ajudar a garantir uma boa experiência do cliente e fornecer aos parceiros uma oportunidade de sucesso. Se você tiver comentários sobre nossas políticas ou termos, informe-nos comentando no [Azure Marketplace e no fórum do AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 
-## <a name="policies-and-terms"></a>As políticas e os termos
+## <a name="policies-and-terms"></a>Políticas e termos
 
-* [Políticas de certificação do Azure Marketplace](https://docs.microsoft.com/legal/marketplace/certification-policies)
+* [Políticas de certificação do Marketplace comercial](https://docs.microsoft.com/legal/marketplace/certification-policies)
 
 * [Políticas de participação](https://docs.microsoft.com/legal/marketplace/participation-policy)
 
 * [Políticas de classificação e revisão](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
 
-* [Termos do Marketplace do Azure](https://docs.microsoft.com/legal/marketplace/terms)
+* [Termos do Azure Marketplace](https://docs.microsoft.com/legal/marketplace/terms)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Visite o [guia de publicação do Azure Marketplace e AppSource](./marketplace-publishers-guide.md) página.
+Visite a página do [Guia de publicação do Azure Marketplace e do AppSource](./marketplace-publishers-guide.md) .
 
 ---

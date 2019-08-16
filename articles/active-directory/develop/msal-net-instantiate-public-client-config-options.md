@@ -1,9 +1,9 @@
 ---
-title: Criar uma instância de uma aplicação cliente pública com opções (biblioteca de autenticação da Microsoft para .NET) | Azure
-description: Saiba como criar uma instância de uma aplicação cliente pública com opções de configuração com a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
+title: Criar uma instância de um aplicativo cliente público com opções (biblioteca de autenticação da Microsoft para .NET) | Azure
+description: Saiba como criar uma instância de um aplicativo cliente público com opções de configuração usando a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,30 +13,30 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/30/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 125bbf9aed54fb00f039aeffddd5cc1aad3360a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1311e047b63cc9b5cccc785fbcd118db29f7c4bd
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544407"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532611"
 ---
-# <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Criar uma instância de uma aplicação cliente pública com opções de configuração com MSAL.NET
+# <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Criar uma instância de um aplicativo cliente público com opções de configuração usando MSAL.NET
 
-Este artigo descreve como criar uma instância de um [aplicação de cliente público](msal-client-applications.md) com biblioteca de autenticação da Microsoft para .NET (MSAL.NET).  O aplicativo é instanciado com as opções de configuração definidas no ficheiro de definições.
+Este artigo descreve como criar uma instância de um [aplicativo cliente público](msal-client-applications.md) usando a MSAL.net (biblioteca de autenticação da Microsoft para .net).  O aplicativo é instanciado com as opções de configuração definidas em um arquivo de configurações.
 
-Antes de inicializar uma aplicação, primeiro tem de [registar](quickstart-register-app.md) -lo para que a sua aplicação pode ser integrada com a plataforma de identidade da Microsoft. Após o registo, poderá ter as seguintes informações (que podem ser encontradas no portal do Azure):
+Antes de inicializar um aplicativo, primeiro você precisa [registrá](quickstart-register-app.md) -lo para que seu aplicativo possa ser integrado à plataforma de identidade da Microsoft. Após o registro, talvez você precise das seguintes informações (que podem ser encontradas no portal do Azure):
 
-- O ID de cliente (uma cadeia que representa um GUID)
-- URL do fornecedor de identidade (com o nome da instância) e o início de sessão público-alvo para a sua aplicação. Esses dois parâmetros são coletivamente conhecidos como a autoridade.
-- O ID de inquilino se estiver escrevendo um aplicativo de linha de negócio unicamente para a sua organização (também denominada aplicação inquilino único).
-- Para aplicações web e, às vezes, para aplicações de cliente público (em especial quando a aplicação tem de utilizar um mediador), tem também definirá o redirectUri onde o fornecedor de identidade irá contactar back seu aplicativo com os tokens de segurança.
+- A ID do cliente (uma cadeia de caracteres que representa um GUID)
+- A URL do provedor de identidade (chamada de instância) e o público-alvo de entrada para seu aplicativo. Esses dois parâmetros são coletivamente conhecidos como autoridade.
+- A ID do locatário se você estiver escrevendo um aplicativo de linha de negócios somente para sua organização (também chamado de aplicativo de locatário único).
+- Para aplicativos Web e, às vezes, para aplicativos cliente públicos (em particular quando seu aplicativo precisa usar um agente), você também terá definido o redirectUri em que o provedor de identidade entrará em contato com o seu aplicativo com os tokens de segurança.
 
 
-Uma aplicação de consola .NET Core pode ter o seguinte procedimento *appSettings* ficheiro de configuração:
+Um aplicativo de console do .NET Core pode ter o seguinte arquivo de configuração *appSettings. JSON* :
 
 ```json
 {
@@ -52,7 +52,7 @@ Uma aplicação de consola .NET Core pode ter o seguinte procedimento *appSettin
 }
 ```
 
-O código seguinte lê este ficheiro com a configuração do .NET framework:
+O código a seguir lê esse arquivo usando a estrutura de configuração do .NET:
 
 ```csharp
 public class SampleConfiguration
@@ -94,7 +94,7 @@ public class SampleConfiguration
 }
 ```
 
-O código seguinte cria a sua aplicação, utilizando a configuração do arquivo de configurações:
+O código a seguir cria seu aplicativo usando a configuração do arquivo de configurações:
 
 ```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");

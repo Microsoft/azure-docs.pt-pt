@@ -8,15 +8,15 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8c17bd203b7843de64734a74e7e41a22e42e3501
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ddb3741c987e839fafb8bc222231547988d72f01
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991004"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543741"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Monitorar a solução VMware por atividade de CloudSimple
- 
+
 Os logs de atividade do CloudSimple fornecem uma percepção das operações realizadas no portal do CloudSimple.  A lista inclui alertas, eventos, tarefas e auditoria.  Use os logs de atividade para determinar quem, quando e quais operações foram executadas.  Os logs de atividades não incluem nenhuma operação de leitura feita por um usuário.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -38,19 +38,19 @@ Para exibir detalhes sobre qualquer uma das atividades na página atividade, sel
 Clique em um cabeçalho de coluna para classificar a exibição.  Você pode filtrar colunas para ver valores específicos.  Baixe o relatório de atividades clicando no ícone **baixar como CSV** .
 
 ## <a name="alerts"></a>Alertas
- 
+
 Alertas são notificações de qualquer atividade significativa em seu ambiente CloudSimple.  Os alertas incluem eventos que afetam a cobrança ou o acesso do usuário.
 
-Para confirmar os alertas e removê-los da lista, selecione um ou mais na lista e clique em **reconhecer**. 
+Para confirmar os alertas e removê-los da lista, selecione um ou mais na lista e clique em **reconhecer**.
 
 As colunas de informações a seguir estão disponíveis para alertas. Clique em **Editar colunas** e selecione as colunas que você deseja exibir.
 
-| Coluna | Descrição | 
------------- | ------------- | 
+| Coluna | Descrição |
+------------ | ------------- |
 | Tipo de alerta | Categoria do alerta.|
 | Time | Hora em que o alerta ocorreu. |
 | Severity | Significância do alerta.|
-| Nome do Recurso | Nome atribuído ao recurso, como o nome da nuvem privada. | 
+| Nome do Recurso | Nome atribuído ao recurso, como o nome da nuvem privada. |
 | Tipo de Recurso | Categoria do recurso: Nuvem privada, rack em nuvem. |
 | ID de recurso | Identificador do recurso. |
 | Descrição | Descrição do que disparou o alerta. |
@@ -58,27 +58,27 @@ As colunas de informações a seguir estão disponíveis para alertas. Clique em
 
 ## <a name="events"></a>Events
 
-Eventos mostram a atividade de usuário e sistema no portal do CloudSimple. A página eventos lista a atividade associada a um recurso específico e a gravidade do impacto. 
+Eventos mostram a atividade de usuário e sistema no portal do CloudSimple. A página eventos lista a atividade associada a um recurso específico e a gravidade do impacto.
 
 As colunas de informações a seguir estão disponíveis para alertas. Clique em **Editar colunas** e selecione as colunas que você deseja exibir.
 
-| Coluna | Descrição | 
------------- | ------------- | 
+| Coluna | Descrição |
+------------ | ------------- |
 | Time | Data e hora em que o evento ocorreu. |
 | Tipo de evento | Código numérico que identifica o evento. |
 | Severity | Severidade do evento.|
-| Nome do Recurso | Nome atribuído ao recurso, como o nome da nuvem privada. | 
+| Nome do Recurso | Nome atribuído ao recurso, como o nome da nuvem privada. |
 | Tipo de Recurso | Categoria do recurso: Nuvem privada, rack em nuvem. |
 | Descrição | Descrição do que disparou o alerta. |
 
 ## <a name="tasks"></a>Tarefas
 
-As tarefas são atividades de nuvem privada que devem levar 30 segundos ou mais para serem concluídas. (As atividades que devem levar menos de 30 segundos são relatadas apenas como eventos.) Abra as páginas tarefas para acompanhar o progresso das tarefas de sua nuvem privada. 
+As tarefas são atividades de nuvem privada que devem levar 30 segundos ou mais para serem concluídas. (As atividades que devem levar menos de 30 segundos são relatadas apenas como eventos.) Abra as páginas tarefas para acompanhar o progresso das tarefas de sua nuvem privada.
 
 As colunas de informações a seguir estão disponíveis para alertas. Clique em **Editar colunas** e selecione as colunas que você deseja exibir.
 
-| Coluna | Descrição | 
------------- | ------------- | 
+| Coluna | Descrição |
+------------ | ------------- |
 | ID da tarefa | Identificador exclusivo da tarefa. |
 | Operação | Ação executada pela tarefa. |
 | Utilizador | Usuário atribuído para concluir a tarefa. |
@@ -93,12 +93,12 @@ As colunas de informações a seguir estão disponíveis para alertas. Clique em
 
 ## <a name="audit"></a>Auditoria
 
-Os logs de auditoria controlam a atividade do usuário. Você pode usar os logs de auditoria para monitorar a atividade do usuário para todos os usuários. 
+Os logs de auditoria controlam a atividade do usuário. Você pode usar os logs de auditoria para monitorar a atividade do usuário para todos os usuários.
 
 As colunas de informações a seguir estão disponíveis para alertas. Clique em **Editar colunas** e selecione as colunas que você deseja exibir.
 
-| Coluna | Descrição | 
------------- | ------------- | 
+| Coluna | Descrição |
+------------ | ------------- |
 | Time | Hora da entrada de auditoria. |
 | Operação | Ação executada pela tarefa. |
 | Utilizador | Usuário atribuído à tarefa. |
@@ -109,7 +109,7 @@ As colunas de informações a seguir estão disponíveis para alertas. Clique em
 | Tempo decorrido | Tempo para concluir a tarefa. |
 | Descrição | Descrição da ação. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Consumir VMs VMware no Azure](quickstart-create-vmware-virtual-machine.md)
 * Saiba mais sobre [nuvens privadas](cloudsimple-private-cloud.md)

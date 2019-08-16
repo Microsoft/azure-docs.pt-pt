@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1581a62f0999cf502feaad31d2c884f4d171e770
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 44b98b55bfa2d0424831f6cf612f66dbcdc8a6d9
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019664"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543689"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL de instância gerenciada do banco de dados SQL do Azure de SQL Server
 
@@ -339,9 +339,9 @@ Uma instância gerenciada não pode acessar compartilhamentos de arquivos e past
 
 As instruções DBCC não documentadas que estão habilitadas no SQL Server não têm suporte em instâncias gerenciadas.
 
-- `Trace flags`Não tem suporte. Consulte [sinalizadores de rastreamento](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
-- `DBCC TRACEOFF`Não tem suporte. Consulte [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
-- `DBCC TRACEON`Não tem suporte. Consulte [rastreamento de DBCC](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
+- Há suporte apenas para um número `Trace flags` limitado de global. Não há suporte `Trace flags` para o nível de sessão. Consulte [sinalizadores de rastreamento](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) e [DBCC tracen](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) funcionam com o número limitado de sinalizadores de rastreamento globais.
+- Não é possível usar [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) com opções REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST e REPAIR_REBUILD porque o banco de dados não `SINGLE_USER` pode ser definido no modo-consulte [diferenças de ALTER DATABASE](#alter-database-statement). As possíveis corrupções de banco de dados são tratadas pela equipe de suporte do Azure. Contate o suporte do Azure se você estiver percebendo corrupção de banco de dados que deve ser corrigido.
 
 ### <a name="distributed-transactions"></a>Transações distribuídas
 
@@ -399,7 +399,7 @@ Não há suporte para tabelas externas que fazem referência aos arquivos no HDF
 
 ### <a name="replication"></a>Replicação
 
-- Os tipos de replicação de instantâneo e bidirecional têm suporte. Não há suporte para replicação de mesclagem, replicação ponto a ponto e assinaturas atualizáveis.
+- Há suporte para os tipos de replicação de instantâneo e bidirecional. Não há suporte para replicação de mesclagem, replicação ponto a ponto e assinaturas atualizáveis.
 - A [replicação](sql-database-managed-instance-transactional-replication.md) transacional está disponível para visualização pública na instância gerenciada com algumas restrições:
     - Todos os tipos de participantes de replicação (Publicador, distribuidor, assinante de pull e assinante push) podem ser colocados em instâncias gerenciadas, mas o Publicador e o distribuidor não podem ser colocados em instâncias diferentes.
     - As instâncias gerenciadas podem se comunicar com as versões recentes do SQL Server. Consulte as versões com suporte [aqui](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).

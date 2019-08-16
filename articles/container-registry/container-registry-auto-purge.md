@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/14/2019
 ms.author: danlep
-ms.openlocfilehash: cd0860d5f830607d6514dbc7edab71f33c27255b
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3e65718a51f80d9c90a5579a2b1dd5be3bd9239a
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036920"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543095"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Limpar automaticamente as imagens de um registro de contêiner do Azure
 
@@ -162,7 +162,7 @@ Depois de verificar a execução seca, crie uma tarefa agendada para automatizar
 PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
   --registry {{.Run.Registry}} \
   --filter 'samples/devimage1:.*' --filter 'samples/devimage2:.*' \
-  --ago 0d --untagged --dry-run"
+  --ago 0d --untagged"
 
 az acr task create --name weeklyPurgeTask \
   --cmd "$PURGE_CMD" \

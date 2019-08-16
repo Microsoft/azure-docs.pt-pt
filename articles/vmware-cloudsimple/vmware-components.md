@@ -3,17 +3,17 @@ title: Solução do Azure VMware por CloudSimple – componentes da nuvem privad
 description: Descreve como os componentes do VMware são instalados na nuvem privada
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 89bc9c07ae74da1a4269a505627a7626e478ef99
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 26f58a38ac3abe9c6e2a3c6254190dffc4a51eb9
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812193"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543720"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes de nuvem privada do VMware
 
@@ -47,7 +47,7 @@ o dispositivo vCenter Server (VCSA) fornece as funções de autenticação, gere
 
 ### <a name="vcenter-single-sign-on"></a>logon único do vCenter
 
-O controlador de serviços de plataforma inserido no VCSA está associado a um **domínio de logon único do vCenter**.  O nome de domínio é **cloudsimple. local**.  Um usuário **CloudOwner@cloudsimple.com** padrão é criado para que você acesse o vCenter.  Você pode adicionar suas fontes de identidade locais/do Azure Active Directory [para o vCenter](https://docs.azure.cloudsimple.com/set-vcenter-identity/).
+O controlador de serviços de plataforma inserido no VCSA está associado a um **domínio de logon único do vCenter**.  O nome de domínio é **cloudsimple. local**.  Um usuário **CloudOwner@cloudsimple.com** padrão é criado para que você acesse o vCenter.  Você pode adicionar suas fontes de identidade locais/do Azure Active Directory [para o vCenter](set-vcenter-identity.md).
 
 ## <a name="vsan-storage"></a>armazenamento vSAN
 

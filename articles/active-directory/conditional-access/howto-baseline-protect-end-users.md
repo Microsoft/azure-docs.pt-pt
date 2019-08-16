@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afcd9c9d3191caeabe182f499b5fd80cd8e1d8dd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 131d38f6154e7a6e2f3175838b084e47e17ec582
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608150"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532942"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Política de linha de base: Proteção do usuário final (versão prévia)
 
@@ -64,11 +64,11 @@ A política **de linha de base de política: A proteção do usuário final (** 
 
 Para habilitar essa política e proteger seus usuários:
 
-1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Navegue até **Azure Active Directory** > **acesso condicional**.
 1. Na lista de políticas, selecione **política de linha de base: Proteção do usuário final (versão**prévia).
 1. Defina **habilitar política** para **usar a política imediatamente**.
-1. Clique em **salvar**.
+1. Clique em **Guardar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

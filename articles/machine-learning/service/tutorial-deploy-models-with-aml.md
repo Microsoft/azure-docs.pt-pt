@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: c673fd43abe6808256eb74f435aad48ed8d41539
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a4395105c66756c4743373707309a88e2afa96b7
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359837"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534810"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implantar um modelo de classificação de imagem em instâncias de contêiner do Azure
 
@@ -38,10 +38,10 @@ As instâncias de contêiner são uma ótima solução para testar e compreender
 > O código deste artigo foi testado com Azure Machine Learning SDK versão 1.0.41.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Pule para [definir o ambiente de desenvolvimento](#start) para ler as etapas do bloco de anotações.  
 
-Para executar o bloco de anotações, primeiro conclua o [treinamento do modelo no tutorial (parte 1): Treine um modelo de classificação de imagem com](tutorial-train-models-with-aml.md)o serviço Azure Machine Learning.   Em seguida, execute o bloco de anotações **tutoriais/img-Classification-part2-Deploy. ipynb** usando o mesmo servidor de bloco de anotações.
+Para executar o bloco de anotações, primeiro conclua o [treinamento do modelo no tutorial (parte 1): Treinar um modelo](tutorial-train-models-with-aml.md)de classificação de imagem.   Em seguida, abra o bloco de anotações **tutoriais/img-Classification-part2-Deploy. ipynb** usando o mesmo servidor de bloco de anotações.
 
+Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se você quiser usá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local).  Verifique se você instalou `matplotlib` o e `scikit-learn` o em seu ambiente. 
 
 ## <a name="start"></a>Configurar o ambiente
 
@@ -377,7 +377,7 @@ service.delete()
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 + Saiba mais sobre todas as [Opções de implantação para Azure Machine Learning serviço](how-to-deploy-and-where.md).
 + Saiba como [criar clientes para o serviço Web](how-to-consume-web-service.md).

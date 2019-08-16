@@ -1,61 +1,60 @@
 ---
-title: Criar uma definição de OpenAPI para uma função de API Management do Azure
+title: Criar uma definição de OpenAPI para uma API sem servidor usando o gerenciamento de API do Azure
 description: Crie uma definição de OpenAPI que permite que outras aplicações e serviços chamem a sua função no Azure.
-services: functions
 keywords: OpenAPI, Swagger, aplicações na nuvem, serviços cloud,
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: fc724e241849f4519a0e353cb6789d3f83eaf4b9
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 54a4c6eba094231e8e73cdef87b911dfba20f657
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510453"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533537"
 ---
-# <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Criar uma definição de OpenAPI para uma função de API Management do Azure
+# <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Criar uma definição de OpenAPI para uma API sem servidor usando o gerenciamento de API do Azure
 
-REST APIs são muitas vezes descritas com uma definição de OpenAPI. Esta definição contém informações sobre as operações que estão disponíveis numa API e a forma como os dados de pedido e resposta para a API devem ser estruturados.
+As APIs REST geralmente são descritas usando uma definição de OpenAPI. Esta definição contém informações sobre as operações que estão disponíveis numa API e a forma como os dados de pedido e resposta para a API devem ser estruturados.
 
-Neste tutorial, vai criar uma função que determina se uma reparação de emergência numa turbina eólica é rentável. Em seguida, criar uma definição de OpenAPI para a aplicação de função com [gestão de API do Azure](../api-management/api-management-key-concepts.md) para que a função pode ser chamada a partir de outras aplicações e serviços.
+Neste tutorial, vai criar uma função que determina se uma reparação de emergência numa turbina eólica é rentável. Em seguida, você cria uma definição de OpenAPI para o aplicativo de funções usando o [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md) para que a função possa ser chamada de outros aplicativos e serviços.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma função no Azure
-> * Gerar uma definição de OpenAPI com a API Management do Azure
+> * Gerar uma definição de OpenAPI usando o gerenciamento de API do Azure
 > * Testar a definição, chamando a função
-> * Transferir a definição de OpenAPI
+> * Baixar a definição de OpenAPI
 
 ## <a name="create-a-function-app"></a>Criar uma aplicação de função
 
-Precisa de uma aplicação Function App para alojar a execução das suas funções. Uma aplicação function app permite agrupar funções como uma unidade lógica para facilitar a gestão, implementação, dimensionamento e a partilha de recursos.
+Precisa de uma aplicação Function App para alojar a execução das suas funções. Um aplicativo de funções permite que você agrupe funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos.
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
 ## <a name="create-the-function"></a>Criar a função
 
-Este tutorial utiliza uma função acionada por HTTP, que usa dois parâmetros:
+Este tutorial usa uma função disparada por HTTP que utiliza dois parâmetros:
 
-* O tempo estimado para fazer uma turbina reparação, em horas.
+* O tempo estimado para fazer um reparo de turbina, em horas.
 * A capacidade da turbina, em quilowatts. 
 
-Em seguida, a função calcula o custo da reparação e a receita que a turbina poderá gerar num período de 24 horas. Para criar o HTTP função acionada por no [portal do Azure](https://portal.azure.com).
+Em seguida, a função calcula o custo da reparação e a receita que a turbina poderá gerar num período de 24 horas. PARA criar a função disparada por HTTP no [portal do Azure](https://portal.azure.com).
 
-1. Expanda a aplicação de funções e selecione o botão **+** junto a **Funções**. Selecione **-portal** > **continuar**.
+1. Expanda a aplicação de funções e selecione o botão **+** junto a **Funções**. Selecione**continuar** **no portal** > .
 
-1. Selecione **mais modelos...** , em seguida, selecione **Finish e vista de modelos**
+1. Selecione **mais modelos...** e, em seguida, selecione **concluir e exibir modelos**
 
-1. Selecionar acionador HTTP, escreva `TurbineRepair` para a função **Name**, escolha `Function` para  **[nível de autenticação](functions-bindings-http-webhook.md#http-auth)** e, em seguida, selecione  **Criar**.  
+1. Selecione gatilho http, digite `TurbineRepair` para o **nome**da função, `Function` escolha para **[nível de autenticação](functions-bindings-http-webhook.md#http-auth)** e, em seguida, selecione **criar**.  
 
-    ![Criar função HTTP para o OpenAPI](media/functions-openapi-definition/select-http-trigger-openapi.png)
+    ![Criar função HTTP para OpenAPI](media/functions-openapi-definition/select-http-trigger-openapi.png)
 
-1. Substitua os conteúdos do csx C# ficheiro pelo seguinte código de script, em seguida, escolha **salvar**:
+1. Substitua o conteúdo do arquivo de script Run C# . CSX pelo código a seguir e escolha **salvar**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -127,51 +126,51 @@ Em seguida, a função calcula o custo da reparação e a receita que a turbina 
     {"message":"Yes","revenueOpportunity":"$7200","costToFix":"$1600"}
     ```
 
-Agora, tem uma função que determina a rentabilidade das reparações de emergência. Em seguida, gerar uma definição de OpenAPI para a aplicação de funções.
+Agora, tem uma função que determina a rentabilidade das reparações de emergência. Em seguida, você gera uma definição de OpenAPI para o aplicativo de funções.
 
 ## <a name="generate-the-openapi-definition"></a>Gerar a definição de OpenAPI
 
 Agora, está pronto para gerar a definição de OpenAPI.
 
-1. Selecione a aplicação de função, em seguida, na **funcionalidades de plataforma**, escolha **gestão de API** e selecione **criar novo** sob **gestão de API**.
+1. Selecione o aplicativo de funções, em **recursos de plataforma**, escolha **Gerenciamento de API** e selecione **criar novo** em **Gerenciamento de API**.
 
-    ![Escolha a gestão de API em recursos da plataforma](media/functions-openapi-definition/select-all-settings-openapi.png)
+    ![Escolha o gerenciamento de API nos recursos da plataforma](media/functions-openapi-definition/select-all-settings-openapi.png)
 
-1. Utilize as definições de gestão de API conforme especificado na tabela abaixo da imagem.
+1. Use as configurações de gerenciamento de API conforme especificado na tabela abaixo da imagem.
 
-    ![Criar novo serviço de gestão de API](media/functions-openapi-definition/new-apim-service-openapi.png)
+    ![Criar novo serviço de gerenciamento de API](media/functions-openapi-definition/new-apim-service-openapi.png)
 
     | Definição      | Valor sugerido  | Descrição                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Nome** | Nome globalmente exclusivo | É gerado um nome com base no nome da sua aplicação de funções. |
-    | **Subscrição** | A sua subscrição | A subscrição sob a qual este novo recurso é criado. |  
-    | **[Grupo de Recursos](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | O mesmo recurso que a sua aplicação de função, o que deve obter definido por si. |
-    | **Localização** | EUA Oeste | Escolha a localização E.U.A. oeste. |
-    | **Nome da organização** | Contoso | O nome da organização utilizada no portal do programador e para notificações por e-mail. |
-    | **E-mail do administrador** | o seu e-mail | Mensagem de correio eletrónico recebido notificações do sistema de gestão de API. |
-    | **Escalão de preço** | Consumo (pré-visualização) | Escalão de consumo está em pré-visualização e não está disponível em todas as regiões. Para obter os detalhes de preços completos, veja o [página de preços de gestão de API](https://azure.microsoft.com/pricing/details/api-management/) |
+    | **Name** | Nome globalmente exclusivo | Um nome é gerado com base no nome do seu aplicativo de funções. |
+    | **Subscrição** | A sua subscrição | A assinatura sob a qual esse novo recurso é criado. |  
+    | **[Grupo de Recursos](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | O mesmo recurso que seu aplicativo de funções, que deve ser definido para você. |
+    | **Location** | EUA Oeste | Escolha o local oeste dos EUA. |
+    | **Nome da organização** | Contoso | O nome da organização usada no portal do desenvolvedor e para notificações por email. |
+    | **E-mail do administrador** | seu email | Email que recebeu notificações do sistema do gerenciamento de API. |
+    | **Escalão de preço** | Consumo (visualização) | A camada de consumo está em visualização e não está disponível em todas as regiões. Para obter detalhes completos de preços, consulte a [página de preços do gerenciamento de API](https://azure.microsoft.com/pricing/details/api-management/) |
 
-1. Escolher **criar** para criar a instância de gestão de API, que poderá demorar vários minutos.
+1. Escolha **criar** para criar a instância de gerenciamento de API, que pode levar vários minutos.
 
-1. Selecione **ativar o Application Insights** para enviar registos ao mesmo local que a aplicação de função, em seguida, aceite as restantes predefinições e selecione **ligação API**.
+1. Selecione **habilitar Application insights** para enviar logs para o mesmo local que o aplicativo de funções, em seguida, aceite os padrões restantes e selecione **vincular API**.
 
-1. O **as funções do Azure de importação** abre-se com o **TurbineRepair** função realçada. Escolher **selecione** para continuar.
+1. O **Azure Functions de importação** é aberto com a função **TurbineRepair** realçada. Escolha **selecionar** para continuar.
 
-    ![Importar as funções do Azure para gestão de API](media/functions-openapi-definition/import-function-openapi.png)
+    ![Importar Azure Functions para o gerenciamento de API](media/functions-openapi-definition/import-function-openapi.png)
 
-1. Na **criar da aplicação de função** página, aceite as predefinições e selecione **Create**
+1. Na página **criar de aplicativo de funções** , aceite os padrões e selecione **criar**
 
     ![Criar a partir da Aplicação de Função](media/functions-openapi-definition/create-function-openapi.png)
 
-A API está agora criada para a função.
+Agora, a API é criada para a função.
 
 ## <a name="test-the-api"></a>Testar a API
 
-Antes de utilizar a definição OpenAPI, deve verificar que a API funciona.
+Antes de usar a definição de OpenAPI, você deve verificar se a API funciona.
 
-1. Sobre o **teste** separador da sua função, selecione **POST** operação.
+1. Na guia **teste** da sua função, selecione **post** Operation.
 
-1. Introduza os valores para **horas** e **capacidade**
+1. Insira valores para **horas** e **capacidade**
 
     ```json
     {
@@ -180,25 +179,25 @@ Antes de utilizar a definição OpenAPI, deve verificar que a API funciona.
     }
     ```
 
-1. Clique em **enviar**, em seguida, ver a resposta HTTP.
+1. Clique em **Enviar**e exiba a resposta http.
 
-    ![Testar a função de API](media/functions-openapi-definition/test-function-api-openapi.png)
+    ![API de função de teste](media/functions-openapi-definition/test-function-api-openapi.png)
 
-## <a name="download-the-openapi-definition"></a>Transferir a definição de OpenAPI
+## <a name="download-the-openapi-definition"></a>Baixar a definição de OpenAPI
 
-Se a sua API funciona conforme esperado, pode baixar a definição de OpenAPI.
+Se sua API funcionar conforme o esperado, você poderá baixar a definição de OpenAPI.
 
-1. Selecione **definição de OpenAPI transferir** na parte superior da página.
+1. Selecione **baixar definição de openapi** na parte superior da página.
    
    ![Transferir a definição OpenAPI](media/functions-openapi-definition/download-definition.png)
 
-2. Abra o ficheiro transferido do JSON e reveja a definição.
+2. Abra o arquivo JSON baixado e examine a definição.
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Utilizou a integração da gestão de API para gerar uma definição de OpenAPI das suas funções. Agora pode editar a definição na gestão de API no portal. Também pode [Saiba mais sobre a gestão de API](../api-management/api-management-key-concepts.md).
+Você usou a integração do gerenciamento de API para gerar uma definição de OpenAPI de suas funções. Agora você pode editar a definição no gerenciamento de API no Portal. Você também pode [aprender mais sobre o gerenciamento de API](../api-management/api-management-key-concepts.md).
 
 > [!div class="nextstepaction"]
-> [Editar a definição de OpenAPI na gestão de API](../api-management/edit-api.md)
+> [Editar a definição de OpenAPI no gerenciamento de API](../api-management/edit-api.md)

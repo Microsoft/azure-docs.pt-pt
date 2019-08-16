@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 62859dde7cd4f2335b696eedb2cdfbd1daad9456
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: daf31c382f2b6d6e164092d587eb65afa25323f1
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934955"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534771"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferir dados com o armazenamento de BLOBs e AzCopy
 
@@ -148,10 +148,14 @@ Você pode baixar o conteúdo de um diretório sem copiar o próprio diretório 
 
 Você pode usar AzCopy para copiar BLOBs para outras contas de armazenamento. A operação de cópia é síncrona, portanto, quando o comando retorna, isso indica que todos os arquivos foram copiados.
 
-> [!NOTE]
-> Atualmente, esse cenário tem suporte apenas para contas que não têm um namespace hierárquico. 
+O AzCopy usa [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)de [servidor para servidor](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) , portanto, os dados são copiados diretamente entre os servidores de armazenamento. Essas operações de cópia não usam a largura de banda de rede do seu computador. Você pode aumentar a taxa de transferência dessas operações definindo o valor da `AZCOPY_CONCURRENCY_VALUE` variável de ambiente. Para saber mais, consulte [otimizar a taxa de transferência](storage-use-azcopy-configure.md#optimize-throughput).
 
-O AzCopy usa [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)de [servidor para servidor](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) , portanto, os dados são copiados diretamente entre os servidores de armazenamento. Essas operações de cópia não usam a largura de banda de rede do seu computador.
+> [!NOTE]
+> Esse cenário tem as seguintes limitações na versão atual.
+>
+> - Somente as contas que não têm um namespace hierárquico têm suporte.
+> - Você precisa acrescentar um token SAS a cada URL de origem. Se você fornecer credenciais de autorização usando o Azure Active Directory (AD), poderá omitir o token SAS somente da URL de destino.
+>-  As contas de armazenamento de blob de blocos Premium não dão suporte a camadas de acesso. Omita a camada de acesso de um blob da operação de cópia definindo o `s2s-preserve-access-tier` como `false` (por exemplo: `--s2s-preserve-access-tier=false`).
 
 Esta secção contém os exemplos seguintes:
 
@@ -160,9 +164,6 @@ Esta secção contém os exemplos seguintes:
 > * Copiar um diretório para outra conta de armazenamento
 > * Copiar um contêiner para outra conta de armazenamento
 > * Copiar todos os contêineres, diretórios e arquivos para outra conta de armazenamento
-
-> [!NOTE]
-> Na versão atual, você precisa acrescentar um token SAS a cada URL de origem. Se você fornecer credenciais de autorização usando o Azure Active Directory (AD), poderá omitir o token SAS somente da URL de destino. 
 
 ### <a name="copy-a-blob-to-another-storage-account"></a>Copiar um blob para outra conta de armazenamento
 
@@ -185,7 +186,7 @@ Esta secção contém os exemplos seguintes:
 | **Sintaxe** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>" --recursive` |
 | **Exemplo** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D" "https://mydestinationaccount.blob.core.windows.net/mycontainer" --recursive` |
 
-### <a name="copy-all-containers-directories-and-files-to-another-storage-account"></a>Copiar todos os contêineres, diretórios e arquivos para outra conta de armazenamento
+### <a name="copy-all-containers-directories-and-blobs-to-another-storage-account"></a>Copiar todos os contêineres, diretórios e BLOBs para outra conta de armazenamento
 
 |    |     |
 |--------|-----------|
