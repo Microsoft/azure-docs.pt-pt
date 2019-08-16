@@ -10,7 +10,7 @@
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Atribuir licenças a utilizadores
       href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Atribuir uma função com âmbito de recurso
+    - name: Conceder permissão para registos ilimitados de aplicações
       href: roles-quickstart-app-registration-limits.md
     - name: Definir expiração de grupos
       href: groups-quickstart-expiration.md

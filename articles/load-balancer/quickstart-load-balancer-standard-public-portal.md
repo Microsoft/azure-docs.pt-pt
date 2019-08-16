@@ -106,7 +106,7 @@ Pode utilizar uma regra de Balanceador de Carga para definir a forma como o trá
 Nesta seção, você criará uma rede virtual, criará três máquinas virtuais para o pool de back-end do Load Balancer e, em seguida, instalará o IIS nas máquinas virtuais para ajudar a testar o Load Balancer.
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
-1. No lado superior esquerdo da tela, selecione **criar um recurso** >  ****  > rede redes**virtuais**.
+1. No lado superior esquerdo da tela, selecione **criar um recurso** >  > rede redes**virtuais**.
 
 1. Em **criar rede virtual**, insira ou selecione estas informações:
 
@@ -127,11 +127,11 @@ Standard Load Balancer só dá suporte a VMs com endereços IP padrão no pool d
 1. No lado superior esquerdo do portal, selecione **criar um recurso** > **computação** > **Windows Server 2019 datacenter**. 
    
 1. Na **criar uma máquina virtual**, escreva ou selecione os seguintes valores no **Noções básicas** separador:
-   - ****  > **Grupo de recursos**de assinatura: Selecione **myResourceGroupSLB**.
+   -  > **Grupo de recursos**de assinatura: Selecione **myResourceGroupSLB**.
    - **Detalhes da instância** **nome da máquina virtual:**  >  Digite *myVM1*.
-   - ****  > A**região** detalhes da instância > selecione **Europa Ocidental**.
-   - ****  > **Opções de disponibilidade** de detalhes da instância > Selecionar **zonas de disponibilidade**. 
-   - **** Detalhes > da instância >**zona de disponibilidade** selecione **1**.
+   -  > A**região** detalhes da instância > selecione **Europa Ocidental**.
+   -  > **Opções de disponibilidade** de detalhes da instância > Selecionar **zonas de disponibilidade**. 
+   - Detalhes > da instância >**zona de disponibilidade** selecione **1**.
    - **Conta de administrador**> Insira as informações de **nome de usuário**, **senha** e **Confirmar senha** .
    - Selecione a guia **rede** ou selecione **avançar: Discos**e, **em seguida: Rede**.
   

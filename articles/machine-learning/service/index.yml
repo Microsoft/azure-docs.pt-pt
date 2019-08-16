@@ -44,9 +44,9 @@ sections:
         style: unordered
         items:
           - html: <a href="tutorial-1st-experiment-sdk-setup">Configure o seu ambiente e prepare a sua primeira experiência de ML.</a>
-          - html: <a href="tutorial-train-models-with-aml">Prepare e implemente modelos de classificação de imagens</a>.
-          - html: <a href="tutorial-data-prep">Prepare dados e utilize ML automatizado para prever tarifas de táxi</b>.</a>
-          - html: <a href="how-to-run-batch-predictions">Execute predições de lote em grandes conjuntos de dados com pipelines de ML</b>.</a>
+          - html: <a href="tutorial-train-models-with-aml">Prepare e implemente modelos de classificação de imagens.</a>
+          - html: <a href="tutorial-data-prep">Prepare dados e utilize ML automatizado para prever tarifas de táxi.</b></a>
+          - html: <a href="how-to-run-batch-predictions">Execute predições de lote em grandes conjuntos de dados com pipelines de ML.</b></a>
   - title: Amostras
     items:
       - type: paragraph
@@ -56,10 +56,10 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://aka.ms/aml-sdk">SDK Python Principal</a>: funcionalidade principal, aprendizagem automática, pipelines e muito mais'
-          - html: 'SDK Python de <a href="https://aka.ms/aml-monitoring-sdk">Monitorização</a>: recolha dados sobre serviços Web implementados'
-          - html: <a href="../algorithm-module-reference/module-reference.md">Referência de algoritmos e módulos</a> para a interface visual
-          - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">CLI do Azure ML</a>: uma extensão de interface de linha de comandos de aprendizagem automática'
+          - html: 'Documentação do <a href="https://aka.ms/aml-sdk">SDK Python Principal</a>: saiba mais sobre a funcionalidade principal, ML automatizado, pipelines e muito mais.'
+          - html: 'Documentação do SDK Python de <a href="https://aka.ms/aml-monitoring-sdk">Monitorização</a>: saiba como recolher dados sobre serviços Web implementados'
+          - html: Documentação da <a href="../algorithm-module-reference/module-reference.md">Referência de algoritmos e módulos</a> para os módulos da interface visual.
+          - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">CLI do Azure ML</a>: saiba mais sobre a extensão de interface de linha de comandos de ML.'
   - title: Outras tecnologias do Azure Machine Learning
     items:
       - type: list

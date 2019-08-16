@@ -66,7 +66,11 @@
         - name: Bloquear imagens de contentor
           href: container-registry-image-lock.md
         - name: Eliminar imagens de contentor
-          href: container-registry-delete.md
+          items:
+            - name: Eliminar dados de imagem - CLI
+              href: container-registry-delete.md
+            - name: Remover automaticamente etiquetas e manifestos (pré-visualização)
+              href: container-registry-auto-purge.md
         - name: Atualizar para um registo Clássico
           href: container-registry-upgrade.md
         - name: Utilizar webhooks do ACR

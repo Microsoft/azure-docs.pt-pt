@@ -478,7 +478,7 @@
           items:
             - name: Utilizar o acelerador de escrita
               href: how-to-enable-write-accelerator.md
-            - name: Ativar o SSD Ultra
+            - name: Utilizar os discos ultra
               href: disks-enable-ultra-ssd.md
             - name: Criar um disco de referência
               href: disks-benchmarks.md

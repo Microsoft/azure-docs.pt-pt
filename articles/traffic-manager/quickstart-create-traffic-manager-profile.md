@@ -35,18 +35,18 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 Para este guia de início rápido, você precisará de duas instâncias de um aplicativo Web implantado em duas regiões diferentes do Azure (*leste dos EUA* e *Europa Ocidental*). Cada um servirá como pontos de extremidade primários e de failover para o Gerenciador de tráfego.
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso** >  ****  > **aplicativo Web**.
+1. No lado superior esquerdo da tela, selecione **criar um recurso** >  > **aplicativo Web**.
 
 1. Em **criar um aplicativo Web**, digite ou selecione os seguintes valores na guia **noções básicas** :
 
-   - ****  > **Grupo de recursos**de assinatura: Selecione **criar novo** e digite **myResourceGroupTM1**.
-   - ****  > **Nome**dos detalhes da instância: Digite *myWebAppEastUS*.
-   - ****  > **Publicação**de detalhes da instância: Selecione **código**.
-   - ****  > Pilha de detalhes da instância em**tempo de execução**: Selecione **ASP.NET v 4.7**
-   - ****  > **Sistema operacional**de detalhes da instância: Selecione **Windows**.
-   - ****  > **Região**de detalhes da instância:  Selecione **E.U.A. Leste**.
-   - ****  > Plano**do Windows do plano do serviço de aplicativo (leste dos EUA)** : Selecione **criar novo** e digite **myAppServicePlanEastUS**
-   - ****  > **SKU e tamanho**do plano do serviço de aplicativo: Selecione **Standard S1**.
+   -  > **Grupo de recursos**de assinatura: Selecione **criar novo** e digite **myResourceGroupTM1**.
+   -  > **Nome**dos detalhes da instância: Digite *myWebAppEastUS*.
+   -  > **Publicação**de detalhes da instância: Selecione **código**.
+   -  > Pilha de detalhes da instância em**tempo de execução**: Selecione **ASP.NET v 4.7**
+   -  > **Sistema operacional**de detalhes da instância: Selecione **Windows**.
+   -  > **Região**de detalhes da instância:  Selecione **E.U.A. Leste**.
+   -  > Plano**do Windows do plano do serviço de aplicativo (leste dos EUA)** : Selecione **criar novo** e digite **myAppServicePlanEastUS**
+   -  > **SKU e tamanho**do plano do serviço de aplicativo: Selecione **Standard S1**.
    
 3. Selecione a guia **monitoramento** ou selecione **Avançar: monitoramento**.  Em **monitoramento**, defina **Application insights** > **habilitar Application insights** como **não**.
 

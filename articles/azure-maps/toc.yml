@@ -25,6 +25,8 @@
       items:
         - name: Configurar um perímetro geográfico
           href: tutorial-geofence.md
+        - name: Análise espacial
+          href: tutorial-iot-hub-maps.md
 - name: Conceitos
   items:
     - name: Autenticação com o Azure Maps

@@ -85,5 +85,7 @@
           href: how-to/dev-spaces-business-continuity.md
         - name: Interagir com os contentores do Windows
           href: how-to/run-dev-spaces-windows-containers.md
+        - name: Utilizar o Traefik para entrada personalizada e HTTPS
+          href: how-to/ingress-https-traefik.md
     - name: Resolução de problemas
       href: troubleshooting.md
