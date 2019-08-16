@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 6237b8056262abe1f8cea28bebd6b3bad97e0f7e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a4a1099d90b619be383d440067a692c51a2430ac
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967590"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509075"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Executar uma tarefa ACR em um agendamento definido
 
@@ -48,9 +48,9 @@ Como um exemplo simples, o comando a seguir dispara a `hello-world` execução d
 az acr task create \
   --name mytask \
   --registry myregistry \
-  --context /dev/null \
   --cmd hello-world \
-  --schedule "0 21 * * *"
+  --schedule "0 21 * * *" \
+  --context /dev/null
 ```
 
 Execute o comando [AZ ACR Task show][az-acr-task-show] para ver que o gatilho do temporizador está configurado. Por padrão, o gatilho de atualização da imagem base também está habilitado.
@@ -176,11 +176,11 @@ Cada campo pode ter um dos seguintes tipos de valores:
 
 |Type  |Exemplo  |Quando disparado  |
 |---------|---------|---------|
-|Um valor específico |<nobr>"5 * * * *"</nobr>|a cada hora às 5 minutos após a hora|
-|Todos os valores`*`()|<nobr>"* 5 * * *"</nobr>|a cada minuto da hora começando em 5:00 UTC (60 vezes por dia)|
-|Um intervalo (`-` operador)|<nobr>"0 1-3 * * *"</nobr>|3 vezes por dia, às 1:00, 2:00 e 3:00 UTC|
-|Um conjunto de valores (`,` operador)|<nobr>"20, 30, 40 * * * *"</nobr>|3 vezes por hora, a 20 minutos, 30 minutos e 40 minutos após a hora|
-|Um valor de intervalo`/` (operador)|<nobr>"*/10 * * * *"</nobr>|6 vezes por hora, em 10 minutos, 20 minutos e assim por diante, após a hora
+|Um valor específico |<nobr>`"5 * * * *"`</nobr>|a cada hora às 5 minutos após a hora|
+|Todos os valores`*`()|<nobr>`"* 5 * * *"`</nobr>|a cada minuto da hora começando em 5:00 UTC (60 vezes por dia)|
+|Um intervalo (`-` operador)|<nobr>`"0 1-3 * * *"`</nobr>|3 vezes por dia, às 1:00, 2:00 e 3:00 UTC|
+|Um conjunto de valores (`,` operador)|<nobr>`"20,30,40 * * * *"`</nobr>|3 vezes por hora, a 20 minutos, 30 minutos e 40 minutos após a hora|
+|Um valor de intervalo`/` (operador)|<nobr>`"*/10 * * * *"`</nobr>|6 vezes por hora, em 10 minutos, 20 minutos e assim por diante, após a hora
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -198,6 +198,8 @@ Cada campo pode ter um dos seguintes tipos de valores:
 
 
 ## <a name="next-steps"></a>Passos Seguintes
+
+Para obter um exemplo de como usar uma tarefa agendada para limpar repositórios em um registro, consulte [limpar automaticamente as imagens de um registro de contêiner do Azure](container-registry-auto-purge.md).
 
 Para obter exemplos de tarefas disparadas por confirmações de código-fonte ou atualizações de imagem de base, confira a [série de tutoriais de tarefas de ACR](container-registry-tutorial-quick-task.md).
 

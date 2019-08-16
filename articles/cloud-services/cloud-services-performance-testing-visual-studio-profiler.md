@@ -1,10 +1,10 @@
 ---
-title: A criação de perfis de um serviço em nuvem localmente no emulador de computação | Documentos da Microsoft
+title: Criando o perfil de um serviço de nuvem localmente no emulador de computação | Microsoft Docs
 services: cloud-services
-description: Investigar problemas de desempenho nos serviços cloud com o criador de perfil do Visual Studio
+description: Investigar problemas de desempenho em serviços de nuvem com o criador de perfil do Visual Studio
 documentationcenter: ''
 author: mikejo
-manager: douge
+manager: jillfra
 editor: ''
 tags: ''
 ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
@@ -15,35 +15,35 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 40ba5814bce08037b9e4d0787defbab4d02e58df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4844e07b83f7e529d7e3de2c5bac1dadb5414391
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128571"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515946"
 ---
-# <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testar o desempenho de um serviço Cloud localmente no emulador de computação do Azure com o Visual Studio Profiler
-Uma variedade de ferramentas e técnicas estão disponíveis para testar o desempenho dos serviços cloud.
-Quando publica um serviço em nuvem para o Azure, pode ter o Visual Studio, recolher dados de criação de perfis e, em seguida, analisá-lo localmente, conforme descrito em [uma aplicação do Azure de criação de perfis][1].
-Também pode utilizar diagnósticos para controlar uma variedade de contadores de desempenho, conforme descrito em [com os contadores de desempenho no Azure][2].
-Pode também querer analisar seu aplicativo localmente no emulador de computação antes de o implementar para a cloud.
+# <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testando o desempenho de um serviço de nuvem localmente no emulador de computação do Azure usando o criador de perfil do Visual Studio
+Uma variedade de ferramentas e técnicas estão disponíveis para testar o desempenho dos serviços de nuvem.
+Quando você publica um serviço de nuvem no Azure, pode fazer com que o Visual Studio colete dados de criação de perfil e, em seguida, analise-os localmente, conforme descrito em [criação de perfil de um aplicativo Azure][1].
+Você também pode usar o diagnóstico para acompanhar uma variedade de contadores de desempenho, conforme descrito em [usando contadores de desempenho no Azure][2].
+Você também pode querer criar o perfil do seu aplicativo localmente no emulador de computação antes de implantá-lo na nuvem.
 
-Este artigo aborda o método de criação de perfis da Amostragem de CPU, que pode ser levada a cabo localmente no emulador. Amostragem de CPU é um método de criação de perfis que não é muito INVASIVO. Num intervalo de amostragem designado, o criador de perfil tira um instantâneo de pilha de chamadas. Os dados são recolhidos ao longo de um período de tempo e apresentados num relatório. Este método de criação de perfis tende a indicar onde num aplicativo intensivo a nível computacional maior parte do trabalho de CPU está a ser feito.  Isso lhe dá a oportunidade de se concentrar em "hot path" em que seu aplicativo está gastando mais tempo.
+Este artigo aborda o método de criação de perfis da Amostragem de CPU, que pode ser levada a cabo localmente no emulador. A amostragem de CPU é um método de criação de perfil que não é muito invasivo. Em um intervalo de amostragem designado, o criador de perfil tira um instantâneo da pilha de chamadas. Os dados são coletados durante um período de tempo e mostrados em um relatório. Esse método de criação de perfil tende a indicar onde em um aplicativo de computação intensiva a maior parte do trabalho de CPU está sendo feito.  Isso lhe dá a oportunidade de se concentrar no "Hot Path" onde seu aplicativo está gastando mais tempo.
 
-## <a name="1-configure-visual-studio-for-profiling"></a>1: Configurar o Visual Studio para criação de perfis
-Em primeiro lugar, existem algumas opções de configuração do Visual Studio que podem ser útil durante a criação de perfis. Dar sentido os relatórios de criação de perfis, precisará símbolos (arquivos. pdb) para a aplicação e também os símbolos para bibliotecas do sistema. Vai querer Certifique-se de que mencione o servidor de símbolos disponíveis. Para tal, no **ferramentas** menu no Visual Studio, escolha **opções**, em seguida, escolha **Debugging**, em seguida, **símbolos**. Certifique-se de que o servidor de símbolos da Microsoft está listado em **símbolo localizações de ficheiros (. pdb)** .  Também pode fazer referência https://referencesource.microsoft.com/symbols, que poderá ter os arquivos de símbolo adicionais.
+## <a name="1-configure-visual-studio-for-profiling"></a>1: Configurar o Visual Studio para criação de perfil
+Primeiro, há algumas opções de configuração do Visual Studio que podem ser úteis durante a criação de perfil. Para fazer sentido dos relatórios de criação de perfil, você precisará de símbolos (arquivos. pdb) para seu aplicativo e também de símbolos para bibliotecas do sistema. Você deve se certificar de fazer referência aos servidores de símbolo disponíveis. Para fazer isso, no menu **ferramentas** no Visual Studio, escolha **Opções**e, em seguida, escolha **depuração**e **símbolos**. Verifique se os servidores de símbolos da Microsoft estão listados em **locais de arquivo de símbolo (. pdb)** .  Você também pode referenciar https://referencesource.microsoft.com/symbols, que pode ter arquivos de símbolo adicionais.
 
 ![Opções de símbolo][4]
 
-Se assim o desejar, pode simplificar os relatórios que o criador de perfil gera definindo o Just My Code. Com o Just My Code ativada, as pilhas de chamadas de função são simplificadas para que as chamadas inteiramente internas para o .NET Framework e bibliotecas estão ocultos dos relatórios. Sobre o **ferramentas** menu, escolha **opções**. Em seguida, expanda o **ferramentas de desempenho** nó e escolha **geral**. Selecione a caixa de verificação **habilitar Just My Code para relatórios do criador de perfil**.
+Se desejar, você pode simplificar os relatórios que o criador de perfil gera Configurando Apenas Meu Código. Com o Apenas Meu Código habilitado, as pilhas de chamadas de função são simplificadas para que as chamadas totalmente internas às bibliotecas e as .NET Framework fiquem ocultas dos relatórios. No menu **ferramentas** , escolha **Opções**. Em seguida, expanda o nó **ferramentas de desempenho** e escolha **geral**. Marque a caixa de seleção **habilitar apenas meu código para relatórios do**Profiler.
 
-![Apenas as opções de meu código][17]
+![Opções de Apenas Meu Código][17]
 
-Pode utilizar estas instruções com um projeto existente ou com um novo projeto.  Se criar um novo projeto para experimentar as técnicas descritas abaixo, escolha uma linguagem c# **serviço Cloud do Azure** do projeto e selecione um **função da Web** e um **função de trabalho**.
+Você pode usar essas instruções com um projeto existente ou com um novo projeto.  Se você criar um novo projeto para experimentar as técnicas descritas abaixo, escolha C# um projeto de **serviço de nuvem do Azure** e selecione uma **função Web** e uma **função de trabalho**.
 
-![Funções do projeto de serviço em nuvem do Azure][5]
+![Funções de projeto de serviço de nuvem do Azure][5]
 
-Por exemplo fins, adicionar algum código ao seu projeto que demora muito tempo e demonstra a algum problema de desempenho óbvia. Por exemplo, adicione o seguinte código para um projeto de função de trabalho:
+Para fins de exemplo, adicione um código ao seu projeto que demore muito tempo e demonstre algum problema de desempenho óbvio. Por exemplo, adicione o seguinte código a um projeto de função de trabalho:
 
 ```csharp
 public class Concatenator
@@ -61,7 +61,7 @@ public class Concatenator
 }
 ```
 
-Chame esse código do método RunAsync na classe derivada de RoleEntryPoint da função de trabalho. (Ignorar o aviso sobre o método de execução de forma síncrona).
+Chame esse código do método RunAsync na classe derivada de RoleEntryPoint da função de trabalho. (Ignore o aviso sobre o método executado de forma síncrona.)
 
 ```csharp
 private async Task RunAsync(CancellationToken cancellationToken)
@@ -75,23 +75,23 @@ private async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
-Criar e executar seu serviço cloud localmente sem depuração (CTRL+F5), com a configuração da solução definida como **versão**. Isto garante que todos os ficheiros e pastas são criadas para executar a aplicação localmente e garante que todos os emuladores são iniciados. Inicie a IU do emulador de computação da barra de tarefas para verificar que a função de trabalho está em execução.
+Crie e execute seu serviço de nuvem localmente sem depuração (Ctrl + F5), com a configuração da solução definida como **liberar**. Isso garante que todos os arquivos e pastas sejam criados para executar o aplicativo localmente e garante que todos os emuladores sejam iniciados. Inicie a interface do usuário do emulador de computação na barra de tarefas para verificar se sua função de trabalho está em execução.
 
 ## <a name="2-attach-to-a-process"></a>2: Anexar a um processo
-Em vez de criação de perfis da aplicação ao iniciá-la a partir do IDE do Visual Studio 2010, tem de anexar o criador de perfil um processo em execução. 
+Em vez de fazer o perfil do aplicativo iniciando-o no IDE do Visual Studio 2010, você deve anexar o criador de perfil a um processo em execução. 
 
-Para anexar o criador de perfil para um processo, sobre o **Analyze** menu, escolha **Profiler** e **anexar/desanexar**.
+Para anexar o criador de perfil a um processo, no menu **analisar** , escolha Profiler e **anexar/desanexar**.
 
-![Anexar a opção de perfil][6]
+![Opção anexar perfil][6]
 
-Para uma função de trabalho, encontre o processo de WaWorkerHost.exe.
+Para uma função de trabalho, localize o processo WaWorkerHost. exe.
 
 ![Processo de WaWorkerHost][7]
 
-Se a pasta do projeto é numa unidade de rede, o criador de perfil irá pedir-lhe para fornecer outra localização para guardar os relatórios de criação de perfis.
+Se a pasta do projeto estiver em uma unidade de rede, o criador de perfil solicitará que você forneça outro local para salvar os relatórios de criação de perfil.
 
- Também pode anexar a uma função da web ao anexar a WaIISHost.exe.
-Se existirem vários processos de função de trabalho na sua aplicação, terá de utilizar o processID para distingui-los. Pode consultar o processID programaticamente acessando o objeto de processo. Por exemplo, se adicionar este código para o método Run da classe derivada de RoleEntryPoint numa função, pode ver o registo na IU do emulador de computação de saber que processo para ligar a.
+ Você também pode anexar a uma função Web anexando a WaIISHost. exe.
+Se houver vários processos de função de trabalho em seu aplicativo, você precisará usar o processID para distingui-los. Você pode consultar o processID programaticamente acessando o objeto de processo. Por exemplo, se você adicionar esse código ao método Run da classe derivada de RoleEntryPoint em uma função, poderá examinar o log na interface do usuário do emulador de computação para saber a qual processo se conectar.
 
 ```csharp
 var process = System.Diagnostics.Process.GetCurrentProcess();
@@ -99,39 +99,39 @@ var message = String.Format("Process ID: {0}", process.Id);
 Trace.WriteLine(message, "Information");
 ```
 
-Para ver o registo, inicie o IU do emulador de computação.
+Para exibir o log, inicie a interface do usuário do emulador de computação.
 
-![Inicie o emulador de computação da interface do Usuário][8]
+![Iniciar a interface do usuário do emulador de computação][8]
 
-Abra a janela de consola de registo de função de trabalho na IU do emulador de computação ao clicar na barra de título da janela de consola. Pode ver o ID de processo no registo.
+Abra a janela do console de log de função de trabalho na interface do usuário do emulador de computação clicando na barra de título da janela do console. Você pode ver a ID do processo no log.
 
-![ID de processo do Vista][9]
+![Exibir ID do processo][9]
 
-Um que tenha ligado, execute os passos na interface do Usuário de seu aplicativo (se necessário) para reproduzir o cenário.
+Uma que você tenha anexado, execute as etapas na interface do usuário do aplicativo (se necessário) para reproduzir o cenário.
 
-Quando deseja parar a criação de perfis, escolha o **Stop Profiling** ligação.
+Quando você quiser parar a criação de perfil, escolha o link **parar criação de perfil** .
 
-![Parar a opção de criação de perfis][10]
+![Opção parar criação de perfil][10]
 
-## <a name="3-view-performance-reports"></a>3: Ver relatórios de desempenho
-O relatório de desempenho para a sua aplicação é apresentado.
+## <a name="3-view-performance-reports"></a>3: Exibir relatórios de desempenho
+O relatório de desempenho para seu aplicativo é exibido.
 
-Neste momento, o criador de perfil interrompe a execução, guarda dados num arquivo de Vsp e exibe um relatório que mostra uma análise de dados.
+Neste ponto, o criador de perfil interrompe a execução, salva dados em um arquivo. vsp e exibe um relatório que mostra uma análise desses dados.
 
-![Relatório do Profiler][11]
+![Relatório do criador de perfil][11]
 
-Se vir String.wstrcpy no caminho de acesso frequente, clique em Just My Code para alterar a vista para mostrar apenas o código de utilizador.  Se vir concat, tente pressionar o botão Mostrar todo o código.
+Se você vir String. wstrcpy no Hot Path, clique em Apenas Meu Código para alterar a exibição para mostrar apenas o código do usuário.  Se você vir String. Concat, tente pressionar o botão Mostrar todo o código.
 
-Deverá ver o método Concatenate e concat ocupando uma grande parte do tempo de execução.
+Você deve ver o método concatenar e String. Concat que ocupa uma grande parte do tempo de execução.
 
-![Análise do relatório][12]
+![Análise de relatório][12]
 
-Se tiver adicionado o código de concatenação de cadeia de caracteres neste artigo, deverá ver um aviso na lista de tarefas para isso. Também poderá ver um aviso de que existe uma quantidade excessiva de coleta de lixo, que é devido ao número de cadeias de caracteres que são criados e descartado.
+Se você adicionou o código de concatenação de cadeia de caracteres neste artigo, você deverá ver um aviso na Lista de Tarefas para isso. Você também pode ver um aviso de que há uma quantidade excessiva de coleta de lixo, que é devido ao número de cadeias de caracteres que são criadas e descartadas.
 
-![Aviso de desempenho][14]
+![Avisos de desempenho][14]
 
 ## <a name="4-make-changes-and-compare-performance"></a>4: Fazer alterações e comparar o desempenho
-Também pode comparar o desempenho antes e depois uma alteração de código.  Parar o processo em execução e editar o código para substituir a operação de concatenação de cadeia de caracteres com o uso de StringBuilder:
+Você também pode comparar o desempenho antes e depois de uma alteração de código.  Pare o processo em execução e edite o código para substituir a operação de concatenação de cadeia de caracteres pelo uso de StringBuilder:
 
 ```csharp
 public static string Concatenate(int number)
@@ -146,26 +146,26 @@ public static string Concatenate(int number)
 }
 ```
 
-Fazer outra execução de desempenho e, em seguida, compare o desempenho. No Explorador de desempenho, se as execuções são na mesma sessão, pode simplesmente selecionar ambos os relatórios, abrir o menu de atalho e escolha **Compare relatórios de desempenho**. Se deseja comparar com uma execução em outra sessão de desempenho, abra a **Analyze** menu e escolha **comparar relatórios de desempenho**. Especifique ambos os ficheiros na caixa de diálogo que aparece.
+Execute outra execução de desempenho e compare o desempenho. No Gerenciador de Desempenho, se as execuções estiverem na mesma sessão, basta selecionar ambos os relatórios, abrir o menu de atalho e escolher **comparar relatórios de desempenho**. Se você quiser comparar com uma execução em outra sessão de desempenho, abra o menu **analisar** e escolha **comparar relatórios de desempenho**. Especifique os dois arquivos na caixa de diálogo que aparece.
 
-![Comparar a opção de relatórios de desempenho][15]
+![Opção comparar relatórios de desempenho][15]
 
-Os relatórios de destacam as diferenças entre as duas execuções.
+Os relatórios realçam as diferenças entre as duas execuções.
 
 ![Relatório de comparação][16]
 
-Parabéns! Que tiver iniciado com o criador de perfil.
+Parabéns! Você começou com o criador de perfil.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-* Certifique-se de que está criando uma compilação de versão e iniciar sem depuração.
-* Se a opção de anexar/desanexar não estiver ativada no menu do Profiler, execute o Assistente de desempenho.
-* Utilize a IU de emulador de computação para ver o estado da sua aplicação. 
-* Se tiver problemas a partir de aplicativos no emulador, ou anexar o criador de perfil, encerrar pendente o emulador de computação e reiniciá-lo. Se o que não resolve o problema, tente reiniciar. Este problema pode ocorrer se usar o emulador de computação para suspender e remover implementações em execução.
-* Se tiver utilizado qualquer um dos comandos da linha de comando, especialmente as definições globais, criação de perfis, certifique-se de que foi chamado VSPerfClrEnv /globaloff e que VsPerfMon.exe foi encerrado.
-* Se quando a amostragem, verá a mensagem "PRF0025: Não existem dados coletados,"Verifique se o processo que anexou à tem atividade de CPU. Aplicativos que não estão a fazer qualquer trabalho computacional podem não produzir qualquer dado de amostragem.  Também é possível que o processo foi encerrado antes de qualquer amostragem foi feita. Certifique-se de que o método Run para uma função que se está criando não encerra.
+* Verifique se você está criando o perfil de uma compilação de versão e inicie sem depuração.
+* Se a opção anexar/desanexar não estiver habilitada no menu criador de perfil, execute o assistente de desempenho.
+* Use a interface do usuário do emulador de computação para exibir o status do seu aplicativo. 
+* Se você tiver problemas para iniciar aplicativos no emulador ou anexar o criador de perfil, desligue o emulador de computação e reinicie-o. Se isso não resolver o problema, tente reinicializar. Esse problema pode ocorrer se você usar o emulador de computação para suspender e remover implantações em execução.
+* Se você tiver usado qualquer um dos comandos de criação de perfil da linha de comando, especialmente as configurações globais, certifique-se de que VSPerfClrEnv/globaloff foi chamado e que VsPerfMon. exe foi desligado.
+* Se, durante a amostragem, você vir a mensagem "PRF0025: Nenhum dado foi coletado "Verifique se o processo que você anexou tem atividade de CPU. Os aplicativos que não estão fazendo nenhum trabalho computacional podem não produzir nenhum dado de amostragem.  Também é possível que o processo tenha sido encerrado antes de qualquer amostragem ser feita. Verifique se o método Run de uma função para a qual você está criando a criação de perfil não é encerrado.
 
 ## <a name="next-steps"></a>Próximos Passos
-Instrumentar binários do Azure no emulador não é suportada no Criador de perfil do Visual Studio, mas se quiser testar a alocação de memória, pode escolher essa opção quando a criação de perfis. Também é possível criação de perfis de simultaneidade, que ajuda a determinar se os threads são desperdiçar tempo competindo por bloqueios ou criação de perfil de interação, de camada que ajuda a rastrear problemas de desempenho ao interagir entre camadas de um aplicativo, mais com frequência entre a camada de dados e uma função de trabalho.  Pode ver as consultas de base de dados que gera a sua aplicação e utilizar os dados de criação de perfis para melhorar a utilização da base de dados. Para obter informações sobre a criação de perfil de interação de camada, consulte a mensagem de blogue [passo a passo: Usando o Profiler de interação de camada no Visual Studio Team System 2010][3].
+A instrumentação de binários do Azure no emulador não tem suporte no criador de perfil do Visual Studio, mas se você quiser testar a alocação de memória, poderá escolher essa opção ao fazer a criação de perfil. Você também pode escolher a criação de perfil de simultaneidade, que ajuda a determinar se os threads estão desperdiçando tempo competindo por bloqueios ou criação de perfil de interação de camada, o que ajuda a rastrear problemas de desempenho ao interagir entre as camadas de um aplicativo, a maioria frequentemente entre a camada de dados e uma função de trabalho.  Você pode exibir as consultas de banco de dados geradas por seu aplicativo e usar a criação de perfis para melhorar o uso do banco de dado. Para obter informações sobre a criação de perfil de interação de camada [, consulte a postagem do blog passo a passos: Usando o criador de perfil de interação de camada no Visual][3]Studio Team System 2010.
 
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
 [2]: https://msdn.microsoft.com/library/azure/hh411542.aspx

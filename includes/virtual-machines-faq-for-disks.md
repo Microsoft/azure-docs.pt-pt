@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 21fe92bf4a33dc44545f1bd54c718db6c0a38532
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a334b19fe4dd819a6e4c391e49d934bf5955a567
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843296"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516055"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos Premium gerenciados e não gerenciados
 
@@ -143,7 +143,48 @@ O particionamento GPT pode ser usado somente em discos de dados, não em discos 
 
 **Quais tipos de disco dão suporte a instantâneos?**
 
-Os instantâneos de suporte a SSD Premium, SSD padrão e HDD padrão. Para esses três tipos de disco, os instantâneos têm suporte para todos os tamanhos de disco (incluindo discos de até 32 TiB de tamanho). O ultra SSDs não oferece suporte a instantâneos.
+Os instantâneos de suporte a SSD Premium, SSD padrão e HDD padrão. Para esses três tipos de disco, os instantâneos têm suporte para todos os tamanhos de disco (incluindo discos de até 32 TiB de tamanho). Ultra discos não oferecem suporte a instantâneos.
+
+## <a name="ultra-disks"></a>Ultra discos
+
+**Quais regiões suportam ultra disks no momento?**
+- EUA Leste 2
+- Sudeste da Ásia
+- Europa do Norte
+
+**Qual série de VMs oferece suporte a ultra discos atualmente?**
+- ESv3
+- DSv3
+
+**Para que devo definir a taxa de transferência de ultra Disk?**
+Se você não tiver certeza sobre o que definir a taxa de transferência do disco como, recomendamos que comece supondo um tamanho de e/s de 16 KiB e ajuste o desempenho a partir daí, enquanto monitora seu aplicativo. A fórmula é: Taxa de transferência em MBps = n º de IOPS * 16/1000.
+
+**Configurei meu disco para 40000 IOPS, mas estou vendo apenas 12800 IOPS, por que não estou vendo o desempenho do disco?**
+Além do acelerador de disco, há um acelerador de e/s que é imposto no nível da VM. Verifique se o tamanho da VM que você está usando pode dar suporte aos níveis que estão configurados em seus discos. Para obter detalhes sobre os limites de e/s impostos pela sua VM, consulte [tamanhos de máquinas virtuais do Windows no Azure](../articles/virtual-machines/windows/sizes.md).
+
+**Posso usar níveis de cache com um ultra Disk?**
+Não, ultra discos não dão suporte aos diferentes métodos de cache que têm suporte em outros tipos de disco. Defina o cache de disco como nenhum.
+
+**Posso anexar um ultra Disk à minha VM existente?**
+Talvez sua VM tenha que estar em um par de regiões e de zona de disponibilidade que dá suporte a ultra discos. Consulte [introdução aos ultra discos](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) para obter detalhes.
+
+**Posso usar um ultra Disk como o disco do sistema operacional para minha VM?**
+Não, ultra discos só têm suporte como discos de dados e só têm suporte como discos nativos de 4K.
+
+**Posso converter um disco existente em um ultra Disk?**
+Não, mas você pode migrar a data de um disco existente para um ultra Disk. Para migrar um disco existente para um ultra Disk, anexe ambos os discos à mesma VM e copie os dados do disco de um disco para outro ou aproveite uma solução de terceiros para a migração de dados.
+
+**Posso criar instantâneos para ultra disks?**
+Não, os instantâneos ainda não estão disponíveis.
+
+**O backup do Azure está disponível para ultra discos?**
+Não, o suporte do backup do Azure ainda não está disponível.
+
+**Posso anexar um ultra Disk a uma VM em execução em um conjunto de disponibilidade?**
+Não, ainda não há suporte para isso.
+
+**Posso habilitar a Azure Site Recovery (ASR) para VMs usando ultra discos?**
+Não, o ASR ainda não tem suporte para ultra discos.
 
 ## <a name="standard-ssd-disks"></a>Discos SSD Standard
 

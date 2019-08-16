@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 268467796e67caf2d20fedb44d83fd455a09b83e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6f6d373d6dd21f3fd04ca434678ec798146a0ffa
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184246"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512699"
 ---
-**Transferências de dados de saída**: [Transferências de dados de saída](https://azure.microsoft.com/pricing/details/bandwidth/) faturação para utilização de largura de banda de incorrer em (dados que saem de datacenters do Azure).
+**Transferências de dados de saída**: [Transferências de dados de saída](https://azure.microsoft.com/pricing/details/bandwidth/) (os dados que saem dos data centers do Azure) incorrem na cobrança do uso de largura de banda.
 
-**Transações**: A faturação para o número de transações que executar num disco gerido standard. Para os SSDs padrão, cada operação e/s inferior ou igual a 256 KiB de débito é considerada uma única operação de e/s. Operações de e/s superiores a 256 KiB de débito são consideradas várias e/SS de tamanho 256 KiB. Para HDDs padrão, cada operação de e/s é considerada como uma única transação, independentemente do tamanho de e/s.
+**Transações**: Você será cobrado pelo número de transações executadas em um disco gerenciado padrão. Para SSDs padrão, cada operação de e/s menor ou igual a 256 KiB de taxa de transferência é considerada uma única operação de e/s. Operações de e/s maiores que 256 KiB de taxa de transferência são consideradas várias e/SS de tamanho de 256 KiB. Para HDDs padrão, cada operação de e/s é considerada como uma única transação, independentemente do tamanho de e/s.
 
-Para obter informações detalhadas sobre os preços do Managed Disks, incluindo os custos de transação, consulte [preços de discos geridos](https://azure.microsoft.com/pricing/details/managed-disks).
+Para obter informações detalhadas sobre os preços de Managed Disks, incluindo os custos de transação, consulte [Managed disks preços](https://azure.microsoft.com/pricing/details/managed-disks).
 
-### <a name="ultra-ssd-vm-reservation-fee"></a>Taxa de reserva de VM de SSD Ultra
+### <a name="ultra-disk-vm-reservation-fee"></a>Taxa de reserva de VM de ultra Disk
 
-VMs do Azure tem a capacidade para indicar se eles são compatíveis com o ultra SSD. Capacidade de largura de banda entre a instância VM de computação e a unidade de escala de armazenamento de bloco para otimizar o desempenho e reduzir a latência de dedicado de um disco de ultra aloca VM compatível. Adicionar esse recurso nos resultados VM numa cobrança de reserva que é imposta apenas se tiver ativado a capacidade de disco ultra na VM sem anexar um disco de ultra a ele. Quando está ligado um disco ultra para o ultra disco VM compatível, não seria possível aplicar esta cobrança. É cobrado por vCPU aprovisionado na VM.
+As VMs do Azure têm a capacidade de indicar se são compatíveis com ultra discos. Uma VM de ultra disco compatível aloca a capacidade de largura de banda dedicada entre a instância de VM de computação e a unidade de escala de armazenamento em bloco para otimizar o desempenho e reduzir a latência. Adicionar esse recurso na VM resultará em um encargo de reserva que só será imposto se você tiver habilitado a capacidade de ultra Disk na VM sem anexar um ultra Disk a ele. Quando um ultra Disk é anexado à VM ultra compatível com disco, esse encargo não seria aplicado. Essa cobrança é por vCPU provisionada na VM.
 
-Consulte a [discos do Azure, página de preços](https://azure.microsoft.com/pricing/details/managed-disks/) para ultra discos os detalhes dos preços de disco.
+Consulte a [página de preços dos discos do Azure](https://azure.microsoft.com/pricing/details/managed-disks/) para obter detalhes de preços do ultra Disk.

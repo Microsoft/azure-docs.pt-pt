@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
-ms.openlocfilehash: c738b2d44c5faca1ef95b2da8fd1f90a1b3af919
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: a7950d80bd5aa21b26a7724845f10515a65c033d
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371026"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512702"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Início rápido: Criar um aplicativo de console .NET para gerenciar Azure Cosmos DB recursos da API do SQL
 
@@ -165,6 +165,8 @@ Para saber mais sobre a hierarquia de entidades diferentes, consulte o artigo [t
 * [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet)--esse método cria (se ele não existir) ou obtém (se já existir) um contêiner como uma operação assíncrona. Você pode verificar o código de status da resposta para determinar se o contêiner foi criado recentemente (201) ou se um contêiner existente foi retornado (200). 
 * [CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet) -esse método cria um item dentro do contêiner. 
 
+* [UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync?view=azure-dotnet) -esse método cria um item dentro do contêiner se ele ainda não existir ou substituirá o item se ele já existir. 
+
 * [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet
 ) -esse método cria uma consulta para itens em um contêiner em um banco de dados Cosmos do Azure usando uma instrução SQL com valores com parâmetros. 
 
@@ -294,7 +296,7 @@ public class Program
 
 ### <a name="create-a-database"></a>Criar uma base de dados 
 
-Defina o `CreateDatabaseAsync` método dentro da `program.cs` classe. Esse método criará `FamilyDatabase` o se ele ainda não existir. 
+Defina o `CreateDatabaseAsync` método dentro da `program.cs` classe. Esse método criará `FamilyDatabase` o se ele ainda não existir.
 
 ```csharp
 private async Task CreateDatabaseAsync()
@@ -322,7 +324,7 @@ private async Task CreateContainerAsync()
 
 ### <a name="create-an-item"></a>Criar um item
 
-Crie um item de família adicionando o `AddItemsToContainerAsync` método com o seguinte código:
+Crie um item de família adicionando o `AddItemsToContainerAsync` método com o código a seguir. Você pode usar os `CreateItemAsync` métodos `UpsertItemAsync` ou para criar um item:
 
 ```csharp
 private async Task AddItemsToContainerAsync()

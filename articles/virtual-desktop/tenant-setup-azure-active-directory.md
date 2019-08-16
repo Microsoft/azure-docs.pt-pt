@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 062b815315d7bcdd5d55a86c2447a0b21295e8b6
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: cd80ed3c3db2453a333c87ed706dd358ba248b47
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014098"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516195"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Tutorial: Criar um locatário na visualização da área de trabalho virtual do Windows
 
@@ -34,7 +34,7 @@ Veja o que você precisa para configurar seu locatário de área de trabalho vir
    * A conta de administrador deve ser uma conta corporativa ou de estudante.
 * Uma subscrição do Azure.
 
-## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Conceder permissões de Azure Active Directory para o serviço de visualização de área de trabalho virtual do Windows
+## <a name="grant-permissions-to-windows-virtual-desktop"></a>Conceder permissões para área de trabalho virtual do Windows
 
 Se você já tiver concedido permissões à área de trabalho virtual do Windows para esta Azure Active Directory instância, ignore esta seção.
 
@@ -62,7 +62,7 @@ Para conceder as permissões de serviço:
 6. Entre na página de consentimento da área de trabalho virtual do Windows como administrador global, como fez na etapa 2.
 7. Selecione **Aceitar**.
 
-## <a name="assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant"></a>Atribuir a função de aplicativo TenantCreator a um usuário em seu locatário Azure Active Directory
+## <a name="assign-the-tenantcreator-application-role"></a>Atribuir a função de aplicativo TenantCreator
 
 Atribuir um usuário Azure Active Directory a função de aplicativo TenantCreator permite que o usuário crie um locatário de área de trabalho virtual do Windows associado à instância de Azure Active Directory. Você precisará usar sua conta de administrador global para atribuir a função TenantCreator.
 
@@ -130,7 +130,7 @@ Substitua os valores entre colchetes por valores relevantes para sua organizaç�
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar seu locatário, você precisará criar uma entidade de serviço em Azure Active Directory e atribuir a ela uma função na área de trabalho virtual do Windows. A entidade de serviço permitirá que você implante com êxito a oferta do Azure Marketplace da área de trabalho virtual do Windows para criar um pool de hosts. Para saber mais sobre pools de hosts, continue no tutorial para criar um pool de hosts na área de trabalho virtual do Windows.
 

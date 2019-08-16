@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 07/27/2019
-ms.openlocfilehash: 30123e03a686eed8df0595c8562f2f9d9351bbde
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: c6fd20a2e1766a8bc9abfc92c6fc11d10dbe1bf2
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706455"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516082"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Referência de funções para linguagem de definição de fluxo de trabalho em aplicativos lógicos do Azure e Microsoft Flow
 
@@ -521,7 +521,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | Cadeia | A cadeia de caracteres que contém o carimbo de data/hora |
-| <*dias*> | Sim | Número inteiro | O número positivo ou negativo de dias para adicionar |
+| <*dias*> | Sim | Integer | O número positivo ou negativo de dias para adicionar |
 | <*format*> | Não | Cadeia | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um padrão de [formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
@@ -563,7 +563,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | Cadeia | A cadeia de caracteres que contém o carimbo de data/hora |
-| <*duração*> | Sim | Número inteiro | O número positivo ou negativo de horas para adicionar |
+| <*duração*> | Sim | Integer | O número positivo ou negativo de horas para adicionar |
 | <*format*> | Não | Cadeia | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um padrão de [formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
@@ -605,7 +605,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | Cadeia | A cadeia de caracteres que contém o carimbo de data/hora |
-| <*alguns*> | Sim | Número inteiro | O número positivo ou negativo de minutos a serem adicionados |
+| <*alguns*> | Sim | Integer | O número positivo ou negativo de minutos a serem adicionados |
 | <*format*> | Não | Cadeia | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um padrão de [formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
@@ -678,7 +678,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | Cadeia | A cadeia de caracteres que contém o carimbo de data/hora |
-| <*seg*> | Sim | Número inteiro | O número positivo ou negativo de segundos a serem adicionados |
+| <*seg*> | Sim | Integer | O número positivo ou negativo de segundos a serem adicionados |
 | <*format*> | Não | Cadeia | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um padrão de [formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
@@ -721,7 +721,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | Cadeia | A cadeia de caracteres que contém o carimbo de data/hora |
-| <*interval*> | Sim | Número inteiro | O número de unidades de tempo especificadas a serem adicionadas |
+| <*interval*> | Sim | Integer | O número de unidades de tempo especificadas a serem adicionadas |
 | <*timeUnit*> | Sim | Cadeia | A unidade de tempo a ser usada com o *intervalo*: "Segundo", "minuto", "hora", "dia", "semana", "mês", "ano" |
 | <*format*> | Não | Cadeia | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um padrão de [formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
@@ -1025,7 +1025,7 @@ bool(<value>)
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Booleano | A versão booliana para o valor especificado |
+| verdadeiro ou falso | Boolean | A versão booliana para o valor especificado |
 ||||
 
 *Exemplo*
@@ -1136,7 +1136,7 @@ Especificamente, essa função funciona nesses tipos de coleção:
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Booleano | Retornar true quando o item for encontrado. Retorna falso quando não encontrado. |
+| verdadeiro ou falso | Boolean | Retornar true quando o item for encontrado. Retorna falso quando não encontrado. |
 ||||
 
 *Exemplo 1*
@@ -1168,7 +1168,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | Cadeia | A cadeia de caracteres que contém o carimbo de data/hora |
-| <*destinationTimeZone*> | Sim | Cadeia | O nome do fuso horário de destino. Para obter mais informações, consulte [IDs de fuso horário](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
+| <*destinationTimeZone*> | Sim | Cadeia | O nome do fuso horário de destino. Para obter mais informações sobre nomes de fuso horário, consulte [valores de índice de fuso horário da Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
 | <*format*> | Não | Cadeia | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um padrão de [formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
@@ -1210,8 +1210,8 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | Cadeia | A cadeia de caracteres que contém o carimbo de data/hora |
-| <*sourceTimeZone*> | Sim | Cadeia | O nome do fuso horário de origem. Para obter mais informações, consulte [IDs de fuso horário](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
-| <*destinationTimeZone*> | Sim | Cadeia | O nome do fuso horário de destino. Para obter mais informações, consulte [IDs de fuso horário](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
+| <*sourceTimeZone*> | Sim | Cadeia | O nome do fuso horário de origem. Para obter mais informações sobre nomes de fuso horário, consulte [valores de índice de fuso horário da Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
+| <*destinationTimeZone*> | Sim | Cadeia | O nome do fuso horário de destino. Para obter mais informações sobre nomes de fuso horário, consulte [valores de índice de fuso horário da Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
 | <*format*> | Não | Cadeia | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um padrão de [formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
@@ -1253,7 +1253,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | Cadeia | A cadeia de caracteres que contém o carimbo de data/hora |
-| <*sourceTimeZone*> | Sim | Cadeia | O nome do fuso horário de origem. Para obter mais informações, consulte [IDs de fuso horário](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
+| <*sourceTimeZone*> | Sim | Cadeia | O nome do fuso horário de origem. Para obter mais informações sobre nomes de fuso horário, consulte [valores de índice de fuso horário da Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
 | <*format*> | Não | Cadeia | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um padrão de [formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
@@ -1427,7 +1427,7 @@ dayOfMonth('<timestamp>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*day-of-month*> | Número inteiro | O dia do mês do carimbo de data/hora especificado |
+| <*day-of-month*> | Integer | O dia do mês do carimbo de data/hora especificado |
 ||||
 
 *Exemplo*
@@ -1457,7 +1457,7 @@ dayOfWeek('<timestamp>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*dia da semana*> | Número inteiro | O dia da semana do carimbo de data/hora especificado em que domingo é 0, segunda-feira é 1 e assim por diante |
+| <*dia da semana*> | Integer | O dia da semana do carimbo de data/hora especificado em que domingo é 0, segunda-feira é 1 e assim por diante |
 ||||
 
 *Exemplo*
@@ -1487,7 +1487,7 @@ dayOfYear('<timestamp>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*day-of-year*> | Número inteiro | O dia do ano a partir do carimbo de data/hora especificado |
+| <*day-of-year*> | Integer | O dia do ano a partir do carimbo de data/hora especificado |
 ||||
 
 *Exemplo*
@@ -1618,7 +1618,7 @@ div(<dividend>, <divisor>)
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Número inteiro | O resultado inteiro da divisão do primeiro número pelo segundo número |
+| <*quotient-result*> | Integer | O resultado inteiro da divisão do primeiro número pelo segundo número |
 ||||
 
 *Exemplo*
@@ -1720,7 +1720,7 @@ endsWith('<text>', '<searchText>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso  | Booleano | Retorna verdadeiro quando a subcadeia de caracteres final é encontrada. Retorna falso quando não encontrado. |
+| verdadeiro ou falso  | Boolean | Retorna verdadeiro quando a subcadeia de caracteres final é encontrada. Retorna falso quando não encontrado. |
 ||||
 
 *Exemplo 1*
@@ -1761,7 +1761,7 @@ equals('<object1>', '<object2>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Booleano | Retornar true quando ambos forem equivalentes. Retornar false quando não for equivalente. |
+| verdadeiro ou falso | Boolean | Retornar true quando ambos forem equivalentes. Retornar false quando não for equivalente. |
 ||||
 
 *Exemplo*
@@ -1950,7 +1950,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | Sim | Número inteiro | O número de unidades de tempo especificadas para subtrair |
+| <*interval*> | Sim | Integer | O número de unidades de tempo especificadas para subtrair |
 | <*timeUnit*> | Sim | Cadeia | A unidade de tempo a ser usada com o *intervalo*: "Segundo", "minuto", "hora", "dia", "semana", "mês", "ano" |
 | <*format*> | Não | Cadeia | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um padrão de [formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
@@ -1994,7 +1994,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | Sim | Número inteiro | O número de unidades de tempo especificadas para subtrair |
+| <*interval*> | Sim | Integer | O número de unidades de tempo especificadas para subtrair |
 | <*timeUnit*> | Sim | Cadeia | A unidade de tempo a ser usada com o *intervalo*: "Segundo", "minuto", "hora", "dia", "semana", "mês", "ano" |
 | <*format*> | Não | Cadeia | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um padrão de [formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
@@ -2187,7 +2187,7 @@ indexOf('<text>', '<searchText>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*valor do índice*>| Número inteiro | A posição inicial ou o valor do índice para a subcadeia de caracteres especificada. <p>Se a cadeia de caracteres não for encontrada, retorne o número-1. |
+| <*valor do índice*>| Integer | A posição inicial ou o valor do índice para a subcadeia de caracteres especificada. <p>Se a cadeia de caracteres não for encontrada, retorne o número-1. |
 ||||
 
 *Exemplo*
@@ -2217,7 +2217,7 @@ int('<value>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*integer-result*> | Número inteiro | A versão de inteiro para a cadeia de caracteres especificada |
+| <*integer-result*> | Integer | A versão de inteiro para a cadeia de caracteres especificada |
 ||||
 
 *Exemplo*
@@ -2300,7 +2300,7 @@ iterationIndexes('<loopName>')
 
 | Valor de retorno | Type | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*index*> | Número inteiro | O valor de índice para a iteração atual dentro do loop Until especificado | 
+| <*index*> | Integer | O valor de índice para a iteração atual dentro do loop Until especificado | 
 |||| 
 
 *Exemplo* 
@@ -2560,7 +2560,7 @@ lastIndexOf('<text>', '<searchText>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*ending-index-value*> | Número inteiro | A posição inicial ou o valor do índice para a última ocorrência da subcadeia de caracteres especificada. <p>Se a cadeia de caracteres não for encontrada, retorne o número-1. |
+| <*ending-index-value*> | Integer | A posição inicial ou o valor do índice para a última ocorrência da subcadeia de caracteres especificada. <p>Se a cadeia de caracteres não for encontrada, retorne o número-1. |
 ||||
 
 *Exemplo*
@@ -2591,7 +2591,7 @@ length([<collection>])
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*length-or-count*> | Número inteiro | O número de itens na coleção |
+| <*length-or-count*> | Integer | O número de itens na coleção |
 ||||
 
 *Exemplo*
@@ -2625,7 +2625,7 @@ less('<value>', '<compareTo>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Booleano | Retorna true quando o primeiro valor é menor que o segundo valor. Retorna false quando o primeiro valor é igual ou maior que o segundo valor. |
+| verdadeiro ou falso | Boolean | Retorna true quando o primeiro valor é menor que o segundo valor. Retorna false quando o primeiro valor é igual ou maior que o segundo valor. |
 ||||
 
 *Exemplo*
@@ -2662,7 +2662,7 @@ lessOrEquals('<value>', '<compareTo>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso  | Booleano | Retorna true quando o primeiro valor é menor ou igual ao segundo valor. Retorna false quando o primeiro valor é maior que o segundo valor. |
+| verdadeiro ou falso  | Boolean | Retorna true quando o primeiro valor é menor ou igual ao segundo valor. Retorna false quando o primeiro valor é maior que o segundo valor. |
 ||||
 
 *Exemplo*
@@ -2847,7 +2847,7 @@ multipartBody('<actionName>', <index>)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Sim | Cadeia | O nome da ação que tem a saída com várias partes |
-| <*index*> | Sim | Número inteiro | O valor de índice para a parte que você deseja |
+| <*index*> | Sim | Integer | O valor de índice para a parte que você deseja |
 |||||
 
 | Valor de retorno | Type | Descrição |
@@ -2868,7 +2868,7 @@ not(<expression>)
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*expressão*> | Sim | Booleano | A expressão a ser verificada |
+| <*expressão*> | Sim | Boolean | A expressão a ser verificada |
 |||||
 
 | Valor de retorno | Type | Descrição |
@@ -2917,12 +2917,12 @@ or(<expression1>, <expression2>, ...)
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*expressão1*>, <*expression2*>,... | Sim | Booleano | As expressões a serem verificadas |
+| <*expressão1*>, <*expression2*>,... | Sim | Boolean | As expressões a serem verificadas |
 |||||
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Booleano | Retorna true quando pelo menos uma expressão for true. Retorna false quando todas as expressões são false. |
+| verdadeiro ou falso | Boolean | Retorna true quando pelo menos uma expressão for true. Retorna false quando todas as expressões são false. |
 ||||
 
 *Exemplo 1*
@@ -3066,13 +3066,13 @@ rand(<minValue>, <maxValue>)
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*minValue*> | Sim | Número inteiro | O menor número inteiro no intervalo |
-| <*maxValue*> | Sim | Número inteiro | O inteiro que segue o número inteiro mais alto no intervalo que a função pode retornar |
+| <*minValue*> | Sim | Integer | O menor número inteiro no intervalo |
+| <*maxValue*> | Sim | Integer | O inteiro que segue o número inteiro mais alto no intervalo que a função pode retornar |
 |||||
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*resultado aleatório*> | Número inteiro | O inteiro aleatório retornado do intervalo especificado |
+| <*resultado aleatório*> | Integer | O inteiro aleatório retornado do intervalo especificado |
 ||||
 
 *Exemplo*
@@ -3097,8 +3097,8 @@ range(<startIndex>, <count>)
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*startIndex*> | Sim | Número inteiro | Um valor inteiro que inicia a matriz como o primeiro item |
-| <*count*> | Sim | Número inteiro | O número de inteiros na matriz |
+| <*startIndex*> | Sim | Integer | Um valor inteiro que inicia a matriz como o primeiro item |
+| <*count*> | Sim | Integer | O número de inteiros na matriz |
 |||||
 
 | Valor de retorno | Type | Descrição |
@@ -3222,7 +3222,7 @@ skip([<collection>], <count>)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*Cole*> | Sim | Array | A coleção cujos itens você deseja remover |
-| <*count*> | Sim | Número inteiro | Um inteiro positivo para o número de itens a serem removidos na frente |
+| <*count*> | Sim | Integer | Um inteiro positivo para o número de itens a serem removidos na frente |
 |||||
 
 | Valor de retorno | Type | Descrição |
@@ -3384,7 +3384,7 @@ startsWith('<text>', '<searchText>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso  | Booleano | Retorna true quando a subcadeia de caracteres inicial é encontrada. Retorna falso quando não encontrado. |
+| verdadeiro ou falso  | Boolean | Retorna true quando a subcadeia de caracteres inicial é encontrada. Retorna falso quando não encontrado. |
 ||||
 
 *Exemplo 1*
@@ -3492,8 +3492,8 @@ substring('<text>', <startIndex>, <length>)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | Cadeia | A cadeia cujos caracteres você deseja |
-| <*startIndex*> | Sim | Número inteiro | Um número positivo igual ou maior que 0 que você deseja usar como a posição inicial ou o valor do índice |
-| <*muito*> | Sim | Número inteiro | Um número positivo de caracteres que você deseja na Subcadeia |
+| <*startIndex*> | Sim | Integer | Um número positivo igual ou maior que 0 que você deseja usar como a posição inicial ou o valor do índice |
+| <*muito*> | Sim | Integer | Um número positivo de caracteres que você deseja na Subcadeia |
 |||||
 
 | Valor de retorno | Type | Descrição |
@@ -3525,7 +3525,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sim | Cadeia | A cadeia de caracteres que contém o carimbo de data/hora |
-| <*interval*> | Sim | Número inteiro | O número de unidades de tempo especificadas para subtrair |
+| <*interval*> | Sim | Integer | O número de unidades de tempo especificadas para subtrair |
 | <*timeUnit*> | Sim | Cadeia | A unidade de tempo a ser usada com o *intervalo*: "Segundo", "minuto", "hora", "dia", "semana", "mês", "ano" |
 | <*format*> | Não | Cadeia | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um padrão de [formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
@@ -3569,7 +3569,7 @@ take([<collection>], <count>)
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*Cole*> | Sim | Cadeia de caracteres ou matriz | A coleção cujos itens você deseja |
-| <*count*> | Sim | Número inteiro | Um inteiro positivo para o número de itens que você deseja da frente |
+| <*count*> | Sim | Integer | Um inteiro positivo para o número de itens que você deseja da frente |
 |||||
 
 | Valor de retorno | Type | Descrição |
@@ -3609,7 +3609,7 @@ ticks('<timestamp>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*ticks-number*> | Número inteiro | O número de tiques desde o carimbo de data/hora especificado |
+| <*ticks-number*> | Integer | O número de tiques desde o carimbo de data/hora especificado |
 ||||
 
 <a name="toLower"></a>
@@ -3784,7 +3784,7 @@ triggerMultipartBody(<index>)
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*index*> | Sim | Número inteiro | O valor de índice para a parte que você deseja |
+| <*index*> | Sim | Integer | O valor de índice para a parte que você deseja |
 |||||
 
 | Valor de retorno | Type | Descrição |
@@ -4075,7 +4075,7 @@ uriPort('<uri>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*porta-valor*> | Número inteiro | O `port` valor para o URI especificado. Se `port` o não especificar um valor, retorne a porta padrão para o protocolo. |
+| <*porta-valor*> | Integer | O `port` valor para o URI especificado. Se `port` o não especificar um valor, retorne a porta padrão para o protocolo. |
 ||||
 
 *Exemplo*

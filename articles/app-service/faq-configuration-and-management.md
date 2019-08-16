@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 6f86a8465bcbd3d88ffb7909cac53c3fd38c3af6
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: f7fbfbe5ae5d2ba4148d94768a1109f566151170
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489442"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69513788"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes de configuração e gerenciamento para aplicativos Web no Azure
 
@@ -167,7 +167,7 @@ Se você usar Ambiente do Serviço de Aplicativo, poderá usar o [Firewall do Ba
 
 ## <a name="how-do-i-block-ports-in-an-app-service-web-app"></a>Como fazer bloquear portas em um aplicativo Web do serviço de aplicativo?
 
-No ambiente de locatário compartilhado do serviço de aplicativo, não é possível bloquear portas específicas devido à natureza da infraestrutura. As portas TCP 4016, 4018 e 4020 também podem estar abertas para depuração remota do Visual Studio.
+No ambiente de locatário compartilhado do serviço de aplicativo, não é possível bloquear portas específicas devido à natureza da infraestrutura. As portas TCP 4020, 4022 e 4024 também podem estar abertas para depuração remota do Visual Studio.
 
 No Ambiente do Serviço de Aplicativo, você tem controle total sobre o tráfego de entrada e de saída. Você pode usar grupos de segurança de rede para restringir ou bloquear portas específicas. Para obter mais informações sobre Ambiente do Serviço de Aplicativo, consulte [introdução a ambiente do serviço de aplicativo](https://azure.microsoft.com/blog/introducing-app-service-environment/).
 
@@ -251,7 +251,7 @@ Para obter mais informações sobre trabalhos Web agendados, consulte [criar um 
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Como fazer executar testes de penetração para meu aplicativo do serviço de aplicativo?
 
-Para executar o teste de penetração, [envie uma solicitação](https://portal.msrc.microsoft.com/en-us/engage/pentest).
+Para executar o teste de penetração, [envie uma solicitação](https://portal.msrc.microsoft.com/engage/pentest).
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Como fazer configurar um nome de domínio personalizado para um aplicativo Web do serviço de aplicativo que usa o Gerenciador de tráfego?
 

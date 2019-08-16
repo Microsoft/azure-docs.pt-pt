@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 1e85cb5c06f36e0f8c105ece2c012cfe7cb77bf4
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: c2dbfa5f6c9d679582a1834f2ff645c5ff79c51e
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226033"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515699"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapeamento de controle do exemplo de especificação técnica PCI-DSS v 3.2.1
 
@@ -25,7 +25,7 @@ Os seguintes mapeamentos são para os controles **PCI-DSS v 3.2.1:2018** . Use a
 
 Este projeto ajuda você a gerenciar e controlar redes atribuindo [Azure Policy](../../../policy/overview.md) definições que monitoram grupos de segurança de rede com regras permissivas. As regras que são muito permissivas podem permitir o acesso à rede indesejado e devem ser examinadas. Este projeto atribui uma Azure Policy definições que monitoram pontos de extremidade, aplicativos e contas de armazenamento desprotegidos. Pontos de extremidade e aplicativos que não são protegidos por um firewall e contas de armazenamento com acesso irrestrito podem permitir o acesso não intencional às informações contidas no sistema de informações.
 
-- Auditar o acesso irrestrito à rede para contas de armazenamento
+- Auditar o acesso sem restrições à rede para as contas de armazenamento
 - O acesso pelo ponto de extremidade voltado para a Internet deve ser restrito
 
 ## <a name="34a-41-41g-41h-and-653-cryptographic-protection"></a>3.4. a, 4,1, 4.1. g, 4.1. h e proteção criptográfica 6.5.3
@@ -34,22 +34,22 @@ Este projeto ajuda a reforçar a política com o uso de controles de cryptograph
 
 - Função de aplicação só deve estar acessível através de HTTPS
 - Aplicação Web só deve estar acessível através de HTTPS
-- O aplicativo de API só deve ser acessível via HTTPS
-- Monitorar banco de dados SQL não criptografado na central de segurança do Azure
+- A Aplicação API deve ser acessível apenas através de HTTPS
+- Transparent Data Encryption em bancos de dados SQL devem ser habilitadas
 - A criptografia de disco deve ser aplicada em máquinas virtuais
-- As variáveis da conta de automação devem ser criptografadas
+- As variáveis de conta de automatização devem ser encriptadas
 - Somente conexões seguras para o cache Redis devem ser habilitadas
 - A transferência segura para contas de armazenamento deve ser habilitada
 - Service Fabric clusters devem ter a propriedade ClusterProtectionLevel definida como EncryptAndSign
 - Transparent Data Encryption em bancos de dados SQL devem ser habilitadas
-- Implantar a Transparent Data Encryption do banco de dados SQL
+- Implementar a encriptação de dados transparente de BD SQL
 
 ## <a name="51-62-66-and-1121-vulnerability-scanning-and-system-updates"></a>5,1, 6,2, 6,6 e 11.2.1 de verificação de vulnerabilidade e atualizações do sistema
 
 Este projeto ajuda a gerenciar as vulnerabilidades do sistema de informações atribuindo [Azure Policy](../../../policy/overview.md) definições que monitoram atualizações de sistema ausentes, vulnerabilidades do sistema operacional, vulnerabilidades de SQL e vulnerabilidades de máquina virtual no Azure Central de segurança. A central de segurança do Azure fornece recursos de relatório que permitem que você tenha informações em tempo real sobre o estado de segurança dos recursos do Azure implantados.
 
 - Monitorar Endpoint Protection ausentes na central de segurança do Azure
-- Implantar a extensão padrão do Microsoft Iaasantimalware da para Windows Server
+- Implementar a extensão Microsoft IaaSAntimalware predefinida para o Windows Server
 - Implantar a detecção de ameaças em servidores SQL
 - As atualizações do sistema devem ser instaladas em seus computadores
 - Vulnerabilidades na configuração de segurança em seus computadores devem ser corrigidas
@@ -75,7 +75,7 @@ serviços.
 - A MFA deve ser habilitada para contas com permissões de gravação em sua assinatura
 - A MFA deve ser habilitada em contas com permissões de leitura em sua assinatura
 - Um administrador de Azure Active Directory deve ser provisionado para servidores SQL
-- Auditar o uso de regras personalizadas de RBAC
+- Auditar utilização das regras RBAC personalizadas
 
 ## <a name="812-and-815-least-privilege-and-review-of-user-access-rights"></a>8.1.2 e 8.1.5 privilégios mínimos e revisão dos direitos de acesso do usuário
 
@@ -110,10 +110,10 @@ Este projeto ajuda a impor senhas fortes atribuindo definições de [Azure Polic
 Este projeto ajuda a garantir que os eventos do sistema sejam registrados por meio da atribuição de definições de [Azure Policy](../../../policy/overview.md) que auditam as configurações de log nos recursos do Azure.
 Os logs de diagnóstico fornecem informações sobre as operações que foram executadas nos recursos do Azure. Os logs do Azure dependem de relógios internos sincronizados para criar um registro de eventos correlacionado ao tempo entre recursos.
 
-- Monitorar servidores SQL não auditados na central de segurança do Azure
+- A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
 - Definição de diagnóstico de auditoria
-- Auditar configurações de auditoria no nível do SQL Server
-- Implantar a auditoria em servidores SQL
+- Auditar as Definições de auditoria ao nível do servidor SQL
+- Implementar a Auditoria em servidores SQL
 - As contas de armazenamento devem ser migradas para novos recursos de Azure Resource Manager
 - As máquinas virtuais devem ser migradas para novos recursos de Azure Resource Manager
 
@@ -122,7 +122,7 @@ Os logs de diagnóstico fornecem informações sobre as operações que foram ex
 Este projeto ajuda você a gerenciar e controlar sua rede atribuindo definições de [Azure Policy](../../../policy/overview.md) que auditam os locais de rede aceitáveis e os produtos da empresa aprovados permitidos para o ambiente. Elas são personalizáveis por cada empresa por meio dos parâmetros de política em cada uma dessas políticas.
 
 - Localizações permitidas
-- Locais permitidos para grupos de recursos
+- Localizações permitidas para os grupos de recursos
 
 ## <a name="next-steps"></a>Passos Seguintes
 

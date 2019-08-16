@@ -3,7 +3,7 @@ title: Introdução ao armazenamento de BLOBs do Azure e aos serviços conectado
 description: Como começar a usar o armazenamento de BLOBs do Azure em um projeto ASP.NET no Visual Studio, depois de se conectar a uma conta de armazenamento usando os serviços conectados do Visual Studio
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.custom: vs-azure
@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 229522d16db0571c7dbe50e05fceaca9491c4c58
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
-ms.translationtype: HT
+ms.openlocfilehash: 7fede4a554fc2fd97b5b786a483f6da4f4336248
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034158"
+ms.locfileid: "69512376"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao armazenamento de BLOBs do Azure e aos serviços conectados do Visual Studio (ASP.NET)
 
@@ -495,7 +495,7 @@ As etapas a seguir ilustram como excluir um blob:
 
 1. Execute o aplicativo e selecione **excluir blob** para excluir o blob especificado na chamada do `CloudBlobContainer.GetBlockBlobReference` método. O texto *sucesso!* deve aparecer no navegador. Selecione o botão **voltar** do navegador e, em seguida, selecione **listar BLOBs** para verificar se o BLOB não está mais no contêiner.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você aprendeu a armazenar, listar e recuperar blobs no armazenamento do Azure usando o ASP.NET. Ver mais guias de funcionalidades para saber mais sobre as opções adicionais para armazenar dados no Azure.
 

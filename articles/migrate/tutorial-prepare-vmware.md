@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 993b0249bdcc8e0e54dbe0c222aa2335c3bf8d4a
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 16c0354466d5c2a1207873a1e83e209da9339705
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679149"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509997"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparar VMs VMware para avaliação e migração para o Azure
 
@@ -123,7 +123,7 @@ Certifique-se de que o proxy resolva todos os registros CNAME recebidos ao pesqu
 
 Antes de configurar o dispositivo migrações para Azure e iniciar a avaliação no próximo tutorial, prepare-se para a implantação do dispositivo.
 
-1. Verifique os requisitos de [verificação](migrate-support-matrix-vmware.md#assessment-appliance-requirements) para configurar o dispositivo de migrações para Azure no VMware.
+1. [Verifique](migrate-support-matrix-vmware.md#assessment-appliance-requirements) os requisitos para configurar o dispositivo de migrações para Azure no VMware.
 2. [Examine](migrate-support-matrix-vmware.md#assessment-url-access-requirements) as URLs do Azure que o dispositivo precisará acessar.
 3. Examine os dados que o dispositivo coletará durante a descoberta e a avaliação.
 4. [Anote](migrate-support-matrix-vmware.md#assessment-port-requirements) os requisitos de acesso da porta para o dispositivo.
@@ -137,7 +137,7 @@ Examine os requisitos para a migração sem agente de VMs VMware.
 1. [Examinar](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) Requisitos do servidor VMware para migração sem agente.
 2. Configure uma conta para acessar o vCenter Server com as [permissões necessárias](migrate-support-matrix-vmware.md#agentless-migration-vcenter-server-permissions) para a migração sem agente.
 3. [Observe](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements) os requisitos para VMs do VMware que você deseja migrar para o Azure usando a migração sem agente.
-4. [Examine](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements) os requisitos do dispositivo para a migração sem agente.]
+4. [Examine](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements) os requisitos do dispositivo para a migração sem agente.
 5. Observe o [acesso à URL](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) do dispositivo e os requisitos de [acesso à porta](migrate-support-matrix-vmware.md#agentless-migration-port-requirements) para a migração sem agente.
 
 

@@ -8,12 +8,12 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 945898105aab7261ee494a86aeff10337599feb3
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 7da31e09157b8877db4d36d0f061f29433d02d11
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226016"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515623"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapeamento de controle dos exemplos do plano gráfico do Reino Unido e do Reino Unido NHS
 
@@ -33,13 +33,13 @@ O plano gráfico ajuda a garantir que a transferência de informações com os s
 Este projeto ajuda a reforçar a política sobre o uso de controles cryptograph atribuindo definições de [Azure Policy](../../../policy/overview.md) que impõem controles cryptograph específicos e auditam o uso de configurações de criptografia fracas.
 Entender onde os recursos do Azure podem ter configurações criptográficas não ideais pode ajudá-lo a tomar medidas corretivas para garantir que os recursos sejam configurados de acordo com sua política de segurança de informações. Especificamente, as políticas atribuídas por este projeto exigem criptografia para contas de armazenamento do data Lake; exigir Transparent Data Encryption em bancos de dados SQL; auditar criptografia ausente em contas de armazenamento, bancos de dados SQL, discos de máquina virtual e variáveis de conta de automação; auditar conexões inseguras para contas de armazenamento e cache Redis; auditar a criptografia de senha de máquina virtual fraca; e auditar a comunicação de Service Fabric não criptografada.
 
-- Monitorar bancos de dados SQL não criptografados na central de segurança do Azure
+- Transparent Data Encryption em bancos de dados SQL devem ser habilitadas
 - A criptografia de disco deve ser aplicada em máquinas virtuais
-- As variáveis da conta de automação devem ser criptografadas
+- As variáveis de conta de automatização devem ser encriptadas
 - A transferência segura para contas de armazenamento deve ser habilitada
 - Service Fabric clusters devem ter a propriedade ClusterProtectionLevel definida como EncryptAndSign
 - Transparent Data Encryption em bancos de dados SQL devem ser habilitadas
-- Implantar a Transparent Data Encryption do banco de dados SQL
+- Implementar a encriptação de dados transparente de BD SQL
 - Exigir criptografia em contas de Data Lake Store
 - Locais permitidos (foram embutidos em código para "sul do Reino Unido" e "oeste do Reino Unido")
 - Locais permitidos para grupos de recursos (foi embutido no código "sul do Reino Unido" e "oeste do Reino Unido")
@@ -58,9 +58,9 @@ Este projeto ajuda você a gerenciar as vulnerabilidades do sistema de informaç
 
 Este projeto ajuda a proteger os ativos do sistema de informações atribuindo definições de [Azure Policy](../../../policy/overview.md) que fornecem monitoramento de proteção de acesso irrestrito, atividade de lista de permissões e ameaças.
 
-- Auditar o acesso irrestrito à rede para contas de armazenamento
+- Auditar o acesso sem restrições à rede para as contas de armazenamento
 - Os controles de aplicativo adaptáveis devem ser habilitados em máquinas virtuais
-- Implantar a detecção de ameaças em servidores SQL
+- Implementar a Deteção de Ameaças em servidores SQL
 - Implantar a extensão antimalware do Microsoft IaaS padrão para o Windows Server
 
 ## <a name="9-secure-user-management--10-identity-and-authentication"></a>9 gerenciamento seguro de usuários/10 identidade e autenticação
@@ -111,13 +111,13 @@ Este projeto também ajuda a controlar o acesso aos recursos do Azure atribuindo
 - \[Versão\]prévia: Auditar VMs do Linux que permitem conexões remotas de contas sem senhas
 - As contas de armazenamento devem ser migradas para novos recursos de Azure Resource Manager
 - As máquinas virtuais devem ser migradas para novos recursos de Azure Resource Manager
-- Auditar VMs que não usam discos gerenciados
+- Auditar VMs que não utilizem discos geridos
 
 ## <a name="11-external-interface-protection"></a>11 proteção de interface externa
 
 Além de usar mais de 25 políticas para o gerenciamento de usuários seguro apropriado, este projeto ajuda a proteger interfaces de serviço contra acesso não autorizado, atribuindo uma definição de [Azure Policy](../../../policy/overview.md) que monitora contas de armazenamento irrestritas. As contas de armazenamento com acesso irrestrito podem permitir o acesso não intencional às informações contidas no sistema de informações. Esse projeto também atribui uma política que habilita controles de aplicativo adaptáveis em máquinas virtuais.
 
-- Auditar o acesso irrestrito à rede para contas de armazenamento
+- Auditar o acesso sem restrições à rede para as contas de armazenamento
 - Os controles de aplicativo adaptáveis devem ser habilitados em máquinas virtuais
 
 ## <a name="12-secure-service-administration"></a>12 administração segura de serviços
@@ -151,14 +151,14 @@ Esse plano gráfico também atribui uma definição de Azure Policy que audita a
 
 Este projeto ajuda a garantir que os eventos do sistema sejam registrados por meio da atribuição de definições de [Azure Policy](../../../policy/overview.md) que auditam as configurações de log nos recursos do Azure. Uma política atribuída também audita se as máquinas virtuais não estão enviando logs para um espaço de trabalho do log Analytics especificado.
 
-- Monitorar servidores SQL não auditados na central de segurança do Azure
+- A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
 - Definição de diagnóstico de auditoria
-- Auditar configurações de auditoria no nível do SQL Server
+- Auditar as Definições de auditoria ao nível do servidor SQL
 - \[Versão\]prévia: Implantar o agente de Log Analytics para VMs Linux
 - \[Versão\]prévia: Implantar o agente de Log Analytics para VMs do Windows
-- Implantar o observador de rede quando redes virtuais forem criadas
+- Implementar o observador de rede quando forem criadas redes virtuais
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou o mapeamento de controle dos planos gráficos do Reino Unido e do Reino Unido NHS, visite os artigos a seguir para saber mais sobre a visão geral e como implantar este exemplo:
 

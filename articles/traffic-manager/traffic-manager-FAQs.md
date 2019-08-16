@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 37f1a0d9c70afc0a3a86ac76b682ee7b2adb253d
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 86376983f98abd241783f456cb9b41ab5d93ae51
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335808"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69511014"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Traffic Manager
 
@@ -322,9 +322,9 @@ O Gerenciador de tráfego responde com o nome DNS ou o endereço IP do ponto de 
 
 Normalmente, o Gerenciador de tráfego é usado para direcionar o tráfego para aplicativos implantados em regiões diferentes. No entanto, ele também pode ser usado onde um aplicativo tem mais de uma implantação na mesma região. Os pontos de extremidade do Azure do Gerenciador de tráfego não permitem que mais de um ponto final do aplicativo Web da mesma região do Azure seja adicionado ao mesmo perfil do Gerenciador de tráfego.
 
-### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>Como fazer mover os pontos de extremidade do Azure do meu perfil do Gerenciador de tráfego para um grupo de recursos diferente?
+### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription"></a>Como fazer mover os pontos de extremidade do Azure do meu perfil do Gerenciador de tráfego para um grupo de recursos ou assinatura diferente?
 
-Os pontos de extremidade do Azure associados a um perfil do Gerenciador de tráfego são controlados usando suas IDs de recurso. Quando um recurso do Azure que está sendo usado como um ponto de extremidade (por exemplo, IP público, serviço de nuvem clássico, WebApp ou outro perfil do Gerenciador de tráfego usado de maneira aninhada) é movido para um grupo de recursos diferente, sua ID de recurso é alterada. Nesse cenário, no momento, você deve atualizar o perfil do Gerenciador de tráfego primeiro excluindo e depois adicionando novamente os pontos de extremidade ao perfil.
+Os pontos de extremidade do Azure associados a um perfil do Gerenciador de tráfego são controlados usando suas IDs de recurso. Quando um recurso do Azure que está sendo usado como um ponto de extremidade (por exemplo, IP público, serviço de nuvem clássico, WebApp ou outro perfil do Gerenciador de tráfego usado de maneira aninhada) é movido para um grupo de recursos ou assinatura diferente, sua ID de recurso é alterada. Nesse cenário, no momento, você deve atualizar o perfil do Gerenciador de tráfego primeiro excluindo e depois adicionando novamente os pontos de extremidade ao perfil.
 
 ## <a name="traffic-manager-endpoint-monitoring"></a>Monitoramento de ponto de extremidade do Gerenciador de tráfego
 

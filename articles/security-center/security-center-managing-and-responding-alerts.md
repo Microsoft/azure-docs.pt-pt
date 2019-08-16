@@ -13,13 +13,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
-ms.author: rkarlin
-ms.openlocfilehash: 582912160c8ed514401be3522e52dcc6eb45d263
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: 39849514d772f128434daad590de22f941245af7
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235756"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516105"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gerir e responder a alertas de segurança no Centro de Segurança do Azure
 Este documento ajuda-o a utilizar o Centro de Segurança do Azure para gerir e responder a alertas de segurança.
@@ -52,13 +52,13 @@ Pode rever os alertas atuais ao observar o mosaico **Alertas de segurança**. Si
 Na parte inferior desta página encontram-se os detalhes de cada alerta. Para ordenar, clique na coluna pela qual pretende ordenar. A definição para cada coluna é indicada abaixo:
 
 * **Descrição**: Uma breve explicação do alerta.
-* **Contagem de**: Uma lista de todos os alertas deste tipo específico que foram detetados num dia específico.
-* **Detetado por**: O serviço que foi responsável por ter acionado o alerta.
-* **Data**: A data em que ocorreu o evento.
-* **estado**: O estado atual para esse alerta. Existem dois tipos de estados:
-  * **Active Directory**: Foi detetado o alerta de segurança.
-  * **Dispensado**: O alerta de segurança foi dispensado pelo utilizador. Este estado é normalmente utilizado para os alertas que foram investigadas e mitigado ou considerado como não sendo um ataque real.
-* **Gravidade**: O nível de gravidade, que pode ser alta, média ou baixa.
+* **Contagem**: Uma lista de todos os alertas desse tipo específico que foram detectados em um dia específico.
+* **Detectado por**: O serviço que foi responsável por disparar o alerta.
+* **Data**: A data em que o evento ocorreu.
+* **Estado**: O estado atual para esse alerta. Existem dois tipos de estados:
+  * **Ativo**: O alerta de segurança foi detectado.
+  * **Ignorado**: O alerta de segurança foi Descartado pelo usuário. Esse status é normalmente usado para alertas que foram investigados e que foram mitigados ou não foram um ataque real.
+* **Gravidade**: O nível de severidade, que pode ser alto, médio ou baixo.
 
 > [!NOTE]
 > Os alertas de segurança gerados pelo Centro de Segurança também serão apresentado no Registo de Atividades do Azure. Para obter mais informações sobre como aceder ao Registo de Atividades do Azure, leia [Ver registos de atividades para auditar as ações em recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
@@ -67,16 +67,16 @@ Na parte inferior desta página encontram-se os detalhes de cada alerta. Para or
 
 ### <a name="alert-severity"></a>Gravidade do alerta
 
--   **Alta**: Há uma grande probabilidade de que o recurso é comprometido. Deve analisar o problema imediatamente. Centro de segurança tem alta confiança as más intenções e as descobertas utilizadas para emitir o alerta. Por exemplo, um alerta que Deteta a execução de uma ferramenta maliciosa conhecida, como o Mimikatz, uma ferramenta de comum usada para roubo de credenciais. 
--   **Médio**: Isto é, provavelmente, uma atividade suspeita que possam indicar que um recurso é comprometido.
-Confiança do Centro de segurança na análise ou finding é médio e a confiança de más intenções é médio a alto. Normalmente, seriam o machine learning ou deteções de anomalias com base. Por exemplo, um tentativa de uma localização anómala de início de sessão.
--   **Baixa**: Pode ser um positivo benigno ou um ataque de bloqueado. 
-    - Centro de segurança não é suficientemente seguro que a intenção é maliciosa e a atividade pode ser inofensiva. Por exemplo, o log claro é uma ação que pode ocorrer quando um atacante tenta ocultar os ataques, mas em muitos casos é uma operação de rotina realizada por administradores.
-    - Centro de segurança não normalmente indicam quando foram bloqueados ataques, a menos que seja um caso interessante que sugerimos que examinar. 
--   **Informativa**: Apenas verá alertas informativos quando desagregar para um incidente de segurança, ou se usar a API de REST com um ID de alerta específico. Um incidente é geralmente constituído por um número de alertas, alguns dos quais podem aparecer na sua própria conta para ser apenas informativa, mas no contexto dos outros alertas podem ser digna de uma análise detalhada.  
+-   **Alta**: Há uma alta probabilidade de o recurso ser comprometido. Você deve vê-lo imediatamente. A central de segurança tem alta confiança tanto na intenção mal-intencionada quanto nas conclusões usadas para emitir o alerta. Por exemplo, um alerta que detecta a execução de uma ferramenta mal-intencionada conhecida, como Mimikatz, uma ferramenta comum usada para roubo de credenciais. 
+-   **Médio**: Essa é provavelmente uma atividade suspeita que pode indicar que um recurso está comprometido.
+A confiança da central de segurança na análise ou na localização é média e a confiança da intenção mal-intencionada é média a alta. Normalmente, elas seriam aprendizado de máquina ou detecções baseadas em anomalias. Por exemplo, uma tentativa de entrada de um local anormal.
+-   **Baixo**: Isso pode ser um ataque benigno positivo ou bloqueado. 
+    - A central de segurança não tem confiança suficiente de que a intenção é mal-intencionada e a atividade pode ser inocente. Por exemplo, a limpeza de log é uma ação que pode ocorrer quando um invasor tenta ocultar suas faixas, mas em muitos casos é uma operação de rotina executada pelos administradores.
+    - A central de segurança normalmente não informa quando os ataques foram bloqueados, a menos que seja um caso interessante que sugerimos que você examine. 
+-   **Informação**: Você só verá alertas informativos quando fizer uma busca detalhada em um incidente de segurança ou se usar a API REST com uma ID de alerta específica. Um incidente normalmente é composto por vários alertas, alguns dos quais podem aparecer por conta própria para que sejam apenas informativos, mas no contexto dos outros alertas podem ser mais valiosos.  
 
 > [!NOTE]
-> Se estiver a utilizar o **2015-06-01-pré-visualização** versão de API, em seguida, existem diferenças no qual alarme tipos de gravidade são aplicados aos quais cenários, de que está listado acima.  
+> Se você estiver usando a versão da API **2015-06-01-Preview** , haverá diferenças em quais tipos de severidade de alarme são aplicados a quais cenários, do que está listado acima.  
 
 ### <a name="filtering-alerts"></a>Filtragem de alertas
 Pode filtrar os alertas com base na data, no estado e na gravidade. A filtragem de alertas pode ser útil para cenários onde necessita de limitar o âmbito dos alertas de segurança mostrados. Por exemplo, pode pretender resolver alertas de segurança que ocorreram nas últimas 24 horas, porque está a investigar uma potencial violação no sistema.
@@ -94,9 +94,9 @@ Neste caso, os alertas que foram acionados referem-se a atividade suspeita do pr
 
 ![Sugestões para o que fazer sobre alertas de segurança no Centro de Segurança do Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
 
-No campo **Descrição** irá encontrar mais detalhes sobre este evento. Estes detalhes adicionais facultam informações aprofundadas sobre o que acionou o alerta de segurança, o recurso de destino, quando aplicável, o endereço IP de origem e as recomendações sobre como remediar.  Em certos casos, o endereço IP de origem está vazio (não disponível) porque nem todos os registos de eventos de segurança do Windows incluem o endereço IP.
+No campo **Descrição** , você encontrará mais detalhes sobre esse evento. Estes detalhes adicionais facultam informações aprofundadas sobre o que acionou o alerta de segurança, o recurso de destino, quando aplicável, o endereço IP de origem e as recomendações sobre como remediar.  Em certos casos, o endereço IP de origem está vazio (não disponível) porque nem todos os registos de eventos de segurança do Windows incluem o endereço IP.
 
-A remediação sugerida pelo Centro de Segurança varia de acordo com o alerta de segurança. Em certos casos, poderá ter de utilizar outras capacidades do Azure para implementar a remediação recomendada. Por exemplo, a remediação para este ataque é colocar na lista de proibições o endereço IP que está a gerar este ataque ao utilizar um [ACL de rede](../virtual-network/virtual-networks-acl.md) ou uma regra de [grupo de segurança de rede](../virtual-network/security-overview.md#security-rules). Para obter mais informações sobre os diferentes tipos de alertas, leia [Alertas de Segurança por Tipo no Centro de Segurança do Azure](security-center-alerts-type.md).
+A remediação sugerida pelo Centro de Segurança varia de acordo com o alerta de segurança. Em certos casos, poderá ter de utilizar outras capacidades do Azure para implementar a remediação recomendada. Por exemplo, a correção para esse ataque é não permitir o endereço IP que está gerando esse ataque usando uma [ACL de rede](../virtual-network/virtual-networks-acl.md) ou uma regra de grupo de [segurança de rede](../virtual-network/security-overview.md#security-rules) . Para obter mais informações sobre os diferentes tipos de alertas, leia [tipos de alertas de segurança](security-center-alerts-overview.md#security-alert-types).
 
 > [!NOTE]
 > O Centro de Segurança lançou uma pré-visualização limitada de um novo conjunto de deteções que tiram partido dos registos de auditoria, um framework de auditoria comum, para detetar comportamentos maliciosos em computadores Linux. [Envie-nos](mailto:ASC_linuxdetections@microsoft.com) um e-mail com os seus IDs de subscrição para aderir à pré-visualização.

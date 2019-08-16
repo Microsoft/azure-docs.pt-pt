@@ -8,16 +8,16 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 2e97a734a4730e4341614019e3ca1ecaa81420a7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
-ms.translationtype: HT
+ms.openlocfilehash: c6c070012db0857759c63603072b8321896398b4
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035976"
+ms.locfileid: "69516129"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Crie aplicativos de armazenamento do Azure altamente disponíveis com GZRS (armazenamento com redundância de zona geográfica) (visualização)
 
-Armazenamento com redundância de zona geográfica (GZRS) (visualização) casasse a alta disponibilidade de [armazenamento com redundância de zona (ZRS)](storage-redundancy-zrs.md) com proteção contra interrupções regionais, conforme fornecido pelo [armazenamento com REDUNDÂNCIA geográfica (GRS)](storage-redundancy-grs.md). Os dados em uma conta de armazenamento GZRS são replicados em três [zonas de disponibilidade do Azure](../../availability-zones/az-overview.md) na região primária e também são replicados para uma região geográfica secundária para proteção contra desastres regionais.
+Armazenamento com redundância de zona geográfica (GZRS) (visualização) casasse a alta disponibilidade de [armazenamento com redundância de zona (ZRS)](storage-redundancy-zrs.md) com proteção contra interrupções regionais, conforme fornecido pelo [armazenamento com REDUNDÂNCIA geográfica (GRS)](storage-redundancy-grs.md). Os dados em uma conta de armazenamento GZRS são replicados em três [zonas de disponibilidade do Azure](../../availability-zones/az-overview.md) na região primária e também são replicados para uma região geográfica secundária para proteção contra desastres regionais. Cada região do Azure é emparelhada com outra região na mesma geografia, juntos criando um par regional. Para obter mais detalhes e exceções, consulte a [documentação](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 Com uma conta de armazenamento GZRS, você pode continuar lendo e gravando dados se uma zona de disponibilidade ficar indisponível ou não puder ser recuperada. Além disso, seus dados também são duráveis no caso de uma interrupção regional completa ou um desastre no qual a região primária não seja recuperável. O GZRS foi projetado para fornecer pelo menos a durabilidade de objetos de 99.99999999999999% (16 9) em um determinado ano. O GZRS também oferece as mesmas [metas](storage-scalability-targets.md) de escalabilidade que lRS, ZRS, grs ou ra-grs. Opcionalmente, você pode habilitar o acesso de leitura aos dados na região secundária com armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS) se seus aplicativos precisarem ser capazes de ler dados no caso de um desastre na região primária.
 

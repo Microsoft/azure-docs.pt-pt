@@ -9,10 +9,10 @@ ms.date: 11/19/2018
 ms.author: dech
 ms.custom: include file
 ms.openlocfilehash: 331886f01345aba576cd8f96f95077f9bbdae704
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "68002678"
 ---
 Agora você pode usar a ferramenta Data Explorer no portal do Azure para criar um banco de dados e um contêiner. 

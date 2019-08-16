@@ -1,41 +1,44 @@
 ---
-title: Colaboração B2B do Azure Active Directory - documentação de orientação de licenciamento | Documentos da Microsoft
-description: O Azure Active Directory B2B não necessita de colaboração pago licenças do Azure AD, mas pode também obter funcionalidades pagas para utilizadores convidados B2B
+title: Diretrizes de licenciamento de colaboração B2B-Azure Active Directory | Microsoft Docs
+description: Azure Active Directory colaboração B2B não exige licenças pagas do Azure AD, mas você também pode obter recursos pagos para usuários convidados B2B
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 08/15/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2df98966b69250d31f2a741411aea6e5554f9ed6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 081061eae07fa3765d032ad155e59ebf5aa3cbc9
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112853"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512557"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Orientação de licenciamento de colaboração do Azure Active Directory B2B
 
-Com a colaboração de empresa-empresa (B2B) do Azure Active Directory (Azure AD), pode convidar utilizadores externos (ou "utilizadores") para utilizar seu paga serviços do Azure AD. Para cada pagas licença do Azure AD que são atribuídas a um utilizador, pode convidar até cinco utilizadores convidados sob a permissão de utilizador externo.
+Com a colaboração B2B (Business-to-Business) do Azure Active Directory (Azure AD), você pode convidar usuários externos (ou "usuários convidados") para usar seus serviços pagos do Azure AD. Alguns recursos são gratuitos, mas para todos os recursos pagos do Azure AD, você pode convidar até cinco usuários convidados para cada licença de edição do Azure AD que você possui para um funcionário ou um usuário não convidado em seu locatário.
 
-Licenciamento de utilizadores de convidados B2B é automaticamente calculada e reportada com base no rácio de 1:5. Atualmente, não é possível atribuir B2B licenças de utilizador convidado diretamente para os utilizadores convidados.
+> [!NOTE]
+> Consulte [Azure Active Directory preços](https://azure.microsoft.com/pricing/details/active-directory/) para obter detalhes sobre os preços do Azure AD e recursos de colaboração B2B.
 
-Além disso, o convidado, os utilizadores podem utilizar gratuito funcionalidades do Azure AD sem necessidade de licenciamento adicionais. Os utilizadores convidados têm acesso gratuito a funcionalidades do Azure AD, mesmo se não tiver nenhum pago licenças do Azure AD. 
+O licenciamento de usuário convidado B2B é calculado e relatado automaticamente com base na proporção de 1:5. Atualmente, não é possível atribuir licenças de usuário convidado B2B diretamente aos usuários convidados.
 
-## <a name="examples-calculating-guest-user-licenses"></a>Exemplos: Cálculo de licenças de utilizador convidado
-Depois de determinar o número de utilizadores convidados precisa acessar seu paga serviços do Azure AD, verifique se tem suficiente paga do Azure AD licenças para abranger os utilizadores convidados na proporção de 1:5 necessária. Eis alguns exemplos:
+Além disso, os usuários convidados podem usar recursos gratuitos do Azure AD sem requisitos de licenciamento adicionais. Os usuários convidados têm acesso aos recursos gratuitos do Azure AD, mesmo que você não tenha nenhuma licença paga do Azure AD. 
 
-- Pretende convidar 100 utilizadores para as suas aplicações do Azure AD ou serviços, e que pretende atribuir a gestão de acesso e aprovisionamento para todos os utilizadores convidados. Também queira exigir a MFA e o acesso condicional para 50 desses usuários de convidado. Para cobrir essa combinação, precisará 10 licenças do Azure AD básico e 10 licenças do Azure AD Premium P1. Se planeia utilizar funcionalidades de proteção de identidade com os seus utilizadores convidados, terá de licenças do Azure AD Premium P2 na mesma proporção de 1:5 para abranger todos os utilizadores convidados.
-- Deseja convidar 60 utilizadores que exigem a MFA, pelo que tem de ter, pelo menos, 12 licenças do Azure AD Premium P1. Tem 10 funcionários com licenças do Azure AD Premium P1, que permitiria que o máximo de 50 utilizadores convidados em 1:5 rácio de licenciamento. Terá de comprar licenças de Premium P1 adicionais duas para cobrir a 10 utilizadores adicionais.
+## <a name="examples-calculating-guest-user-licenses"></a>Exemplos: Calculando licenças de usuário convidado
+Depois de determinar quantos usuários convidados precisam acessar seus serviços pagos do Azure AD, verifique se você tem licenças pagas do Azure AD suficientes para cobrir os usuários convidados na proporção 1:5 necessária. Eis alguns exemplos:
 
-## <a name="next-steps"></a>Passos Seguintes
+- Você deseja convidar usuários convidados 100 para seus aplicativos ou serviços do Azure AD e deseja atribuir gerenciamento e provisionamento de acesso a todos os usuários convidados. Você também deseja exigir MFA e acesso condicional para 50 desses usuários convidados. Para abordar essa combinação, você precisará de 10 licenças de Azure AD Basic e 10 Azure AD Premium licenças P1. Se você planeja usar recursos de proteção de identidade com seus usuários convidados, precisará de Azure AD Premium licenças P2 na mesma proporção de 1:5 para cobrir os usuários convidados.
+- Você deseja convidar os usuários convidados 60 que precisam de MFA, portanto, você deve ter pelo menos 12 licenças do P1 Azure AD Premium. Você tem 10 funcionários com licenças Azure AD Premium P1, que permitiriam até 50 usuários convidados sob a proporção de licenciamento 1:5. Você precisará comprar duas licenças Premium P1 adicionais para cobrir 10 usuários convidados adicionais.
 
-Consulte os seguintes recursos sobre a colaboração B2B do Azure AD:
+## <a name="next-steps"></a>Passos seguintes
 
-* [Os preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
+Consulte os seguintes recursos na colaboração B2B do Azure AD:
+
+* [Preços de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 * [Perguntas mais frequentes (FAQ) sobre a colaboração B2B do Azure Active Directory](faq.md)

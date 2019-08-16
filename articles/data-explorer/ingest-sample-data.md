@@ -1,25 +1,25 @@
 ---
-title: Ingerir dados de exemplo no Explorador de dados do Azure
-description: Saiba mais sobre como ingerir dados de exemplo relacionados com Meteorologia (carga) no Explorador de dados do Azure.
+title: Ingerir dados de exemplo no Azure Data Explorer
+description: Saiba mais sobre como ingerir (carregar) dados de exemplo relacionados ao clima no Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e80322cda671e2145cf3e65aa1457f1fa1827737
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: quickstart
+ms.date: 08/12/2019
+ms.openlocfilehash: c803de599f6be98512b15e927c6d15f1c7d95ff1
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759288"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515752"
 ---
-# <a name="ingest-sample-data-into-azure-data-explorer"></a>Ingerir dados de exemplo no Explorador de dados do Azure
+# <a name="quickstart-ingest-sample-data-into-azure-data-explorer"></a>Início rápido: Ingerir dados de exemplo no Azure Data Explorer
 
-Este artigo mostra-lhe como ingerir dados de exemplo (carga) para uma base de dados do Explorador de dados do Azure. Existem [várias formas de ingerir dados](ingest-data-overview.md); este artigo se concentra numa abordagem básica, que é adequada para fins de teste.
+Este artigo mostra como ingerir (carregar) os dados de exemplo em um Azure Data Explorer Database. Há [várias maneiras de ingerir dados](ingest-data-overview.md); Este artigo se concentra em uma abordagem básica que é adequada para fins de teste.
 
 > [!NOTE]
-> Já tem esses dados se concluiu [início rápido: Ingestão de dados usando a biblioteca de Python de Explorador de dados do Azure](python-ingest-data.md).
+> Você já terá esses dados se tiver concluído [a ingestão de dados usando a biblioteca do Azure data Explorer Python](python-ingest-data.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,9 +33,9 @@ O conjunto de dados de exemplo **StormEvents** contém dados relacionados com Me
 
 1. Na parte superior esquerda da aplicação, selecione **Adicionar cluster**.
 
-1. Na **adicionar cluster** caixa de diálogo, introduza o URL do seu cluster no formulário `https://<ClusterName>.<Region>.kusto.windows.net/`, em seguida, selecione **Add**.
+1. Na caixa de diálogo **Adicionar cluster** , insira a URL do cluster no formulário `https://<ClusterName>.<Region>.kusto.windows.net/`e, em seguida, selecione **Adicionar**.
 
-1. Cole o seguinte comando e selecione **executar**.
+1. Cole o comando a seguir e selecione **executar**.
 
     ```Kusto
     .create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)
@@ -43,24 +43,19 @@ O conjunto de dados de exemplo **StormEvents** contém dados relacionados com Me
     .ingest into table StormEvents h'https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (ignoreFirstRecord=true)
     ```
 
-1. Depois de concluída a ingestão, cole a seguinte consulta, selecione a consulta na janela e selecione **executar**.
+1. Após a conclusão da ingestão, Cole a consulta a seguir, selecione a consulta na janela e selecione **executar**.
 
     ```Kusto
     StormEvents
     | sort by StartTime desc
     | take 10
     ```
-    A consulta devolve os seguintes resultados dos dados de exemplo ingeridos.
+    A consulta retorna os seguintes resultados dos dados de exemplo ingeridos.
 
     ![Resultados da consulta](media/ingest-sample-data/query-results.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-> [!div class="nextstepaction"]
-> [Quickstart: Consultar dados no Explorador de dados do Azure](web-query-data.md)
-
-> [!div class="nextstepaction"]
-> [Escrever consultas](write-queries.md)
-
-> [!div class="nextstepaction"]
-> [Ingestão de dados do Azure Data Explorer](ingest-data-overview.md)
+* O [Azure data Explorer ingestão de dados](ingest-data-overview.md) para saber mais sobre os métodos de ingestão.
+* [Quickstart: Consultar dados no Azure data Explorer](web-query-data.md) interface do usuário da Web.
+* [Escreva consultas](write-queries.md) com linguagem de consulta Kusto.

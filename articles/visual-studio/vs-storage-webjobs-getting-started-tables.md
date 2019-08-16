@@ -3,7 +3,7 @@ title: Introdução com o armazenamento do Azure e os serviços conectados do Vi
 description: Como começar a usar o armazenamento de tabelas do Azure em um projeto Azure WebJobs no Visual Studio depois de se conectar a uma conta de armazenamento usando os serviços conectados do Visual Studio
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 061a6c46-0592-4e5d-aced-ab7498481cde
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 481c2f1eaf20e317c8efa4f21f337f4073af898f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 8875f680c8bb83c2375d6fe767f376cbb35d5a0a
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260748"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510679"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introdução com o armazenamento do Azure (projetos do Azure WebJob)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -32,7 +32,7 @@ Alguns dos trechos de código mostram o atributo **Table** usado em funções qu
 ## <a name="how-to-add-entities-to-a-table"></a>Como adicionar entidades a uma tabela
 Para adicionar entidades a uma tabela, use o atributo **Table** com um **parâmetro\<ICollector t >** ou **\<IAsyncCollector t >** em que **t** especifica o esquema das entidades que você deseja adicionar. O construtor de atributo usa um parâmetro de cadeia de caracteres que especifica o nome da tabela.
 
-O exemplo de código a seguir adiciona entidades **Person** a uma tabela chamada ingress.
+O exemplo de código a seguir adiciona entidades **Person** a umatabela chamada ingress.
 
         [NoAutomaticTrigger]
         public static void IngressDemo(
@@ -123,7 +123,7 @@ A classe **Person** neste exemplo não precisa implementar **ITableEntity**.
 ## <a name="how-to-use-the-net-storage-api-directly-to-work-with-a-table"></a>Como usar a API de armazenamento do .NET diretamente para trabalhar com uma tabela
 Você também pode usar o atributo **Table** com um objeto **cloudtable** para obter mais flexibilidade ao trabalhar com uma tabela.
 
-O exemplo de código a seguir  usa um objeto cloudtable para adicionar uma única entidade à tabela de *entrada* .
+O exemplo de código a seguir usa um objeto cloudtable para adicionar uma única entidade à tabela de *entrada* .
 
         public static void UseStorageAPI(
             [Table("Ingress")] CloudTable tableBinding,
@@ -139,7 +139,7 @@ O exemplo de código a seguir  usa um objeto cloudtable para adicionar uma únic
             tableBinding.Execute(insertOperation);
         }
 
-Para obter mais informações sobre como usar o  objeto cloudtable, consulte Introdução [ao armazenamento de tabelas do Azure usando o .net](../storage/storage-dotnet-how-to-use-tables.md).
+Para obter mais informações sobre como usar o objeto cloudtable, consulte Introdução [ao armazenamento de tabelas do Azure usando o .net](../storage/storage-dotnet-how-to-use-tables.md).
 
 ## <a name="related-topics-covered-by-the-queues-how-to-article"></a>Tópicos relacionados abordados no artigo de instruções sobre filas
 Para obter informações sobre como tratar o processamento de tabela disparado por uma mensagem da fila ou para cenários do SDK de trabalhos Web não específicos do processamento de tabelas, consulte [introdução ao armazenamento de filas do Azure e aos serviços conectados do Visual Studio (projetos de trabalho Web)](../storage/vs-storage-webjobs-getting-started-queues.md).

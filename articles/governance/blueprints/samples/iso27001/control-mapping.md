@@ -7,12 +7,12 @@ ms.date: 07/22/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d49ef19d763ea3ae643a9c7bbbbb620ae414c664
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 7be9a208f82dd9a487c1794a7996f9bb11bb09d8
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816819"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515435"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapeamento de controle da amostra do plano gráfico ISO 27001
 
@@ -118,13 +118,13 @@ Entender onde os recursos do Azure podem ter configurações criptográficas nã
 - \[Versão\]prévia: Auditoria de criptografia de blob ausente para contas de armazenamento
 - \[Versão\]prévia: Implantar a extensão de VM para auditar a VM do Windows não deve armazenar senhas usando criptografia reversível
 - \[Versão\]prévia: Auditar a VM do Windows não deve armazenar senhas usando criptografia reversível
-- \[Versão\]prévia: Monitorar banco de dados SQL não criptografado na central de segurança do Azure
 - \[Versão\]prévia: Monitorar discos de VM não criptografados na central de segurança do Azure
 - Auditoria de ativação da encriptação de variáveis de conta de Automatização
 - Auditoria de ativação apenas de ligações seguras à Cache de Redis
 - Auditoria de transferência segura para contas de armazenamento
 - Auditar a definição da propriedade ClusterProtectionLevel para EncryptAndSign no Service Fabric
 - Estado de encriptação de dados transparentes de auditoria
+- Transparent Data Encryption em bancos de dados SQL devem ser habilitadas
 
 ## <a name="a1241-event-logging"></a>Um log de eventos. 12.4.1
 
@@ -135,9 +135,9 @@ Os logs de diagnóstico fornecem informações sobre as operações que foram ex
 - \[Versão\]prévia: Auditoria de Dependency Agent implantação no VMSS – imagem da VM (SO) não listada
 - \[Versão\]prévia: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
 - \[Versão\]prévia: Auditoria de implantação de agente de Log Analytics em VMSS-imagem de VM (SO) não listada
-- \[Versão\]prévia: Monitorar banco de dados SQL não auditado na central de segurança do Azure
 - Definição de diagnóstico de auditoria
 - Auditar as Definições de auditoria ao nível do servidor SQL
+- A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
 
 ## <a name="a1243-administrator-and-operator-logs"></a>Um administrador. 12.4.3 e logs de operador
 
@@ -147,9 +147,9 @@ Este projeto ajuda a garantir que os eventos do sistema sejam registrados, atrib
 - \[Versão\]prévia: Auditoria de Dependency Agent implantação no VMSS – imagem da VM (SO) não listada
 - \[Versão\]prévia: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
 - \[Versão\]prévia: Auditoria de implantação de agente de Log Analytics em VMSS-imagem de VM (SO) não listada
-- \[Versão\]prévia: Monitorar banco de dados SQL não auditado na central de segurança do Azure
 - Definição de diagnóstico de auditoria
 - Auditar as Definições de auditoria ao nível do servidor SQL
+- A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
 
 ## <a name="a1244-clock-synchronization"></a>Uma sincronização de relógio. 12.4.4
 
@@ -159,9 +159,9 @@ Este projeto ajuda a garantir que os eventos do sistema sejam registrados, atrib
 - \[Versão\]prévia: Auditoria de Dependency Agent implantação no VMSS – imagem da VM (SO) não listada
 - \[Versão\]prévia: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
 - \[Versão\]prévia: Auditoria de implantação de agente de Log Analytics em VMSS-imagem de VM (SO) não listada
-- \[Versão\]prévia: Monitorar banco de dados SQL não auditado na central de segurança do Azure
 - Definição de diagnóstico de auditoria
 - Auditar as Definições de auditoria ao nível do servidor SQL
+- A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
 
 ## <a name="a1251-installation-of-software-on-operational-systems"></a>Uma instalação do. 12.5.1 do software em sistemas operacionais
 
@@ -201,7 +201,7 @@ O plano gráfico ajuda a garantir que a transferência de informações com os s
 - Auditoria de ativação apenas de ligações seguras à Cache de Redis
 - Auditoria de transferência segura para contas de armazenamento
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você analisou o mapeamento de controle do plano gráfico ISO 27001, visite os artigos a seguir para saber mais sobre a arquitetura e como implantar esse exemplo:
 

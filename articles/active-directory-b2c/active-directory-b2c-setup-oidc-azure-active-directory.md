@@ -7,20 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 08/06/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 58c6d1b032f5b492c5641ff51da80426124069b1
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 46755cb8d0383d166b10d50854eb476b676a6ee4
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716769"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509730"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurar a entrada para uma organização de Azure Active Directory específica no Azure Active Directory B2C
-
->[!NOTE]
-> Esta funcionalidade está em pré-visualização pública. Não use o recurso em ambientes de produção.
 
 Para usar um Azure Active Directory (AD do Azure) como um [provedor de identidade](active-directory-b2c-reference-oauth-code.md) no Azure ad B2C, você precisa criar um aplicativo que o represente. Este artigo mostra como habilitar a entrada para usuários de uma organização específica do Azure AD usando um fluxo de usuário no Azure AD B2C.
 
@@ -54,7 +51,7 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
 2. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 3. Selecione **fornecedores de identidade**e, em seguida, selecione **Add**.
 4. Insira um **nome**. Por exemplo, introduza `Contoso Azure AD`.
-5. Selecione **tipo de provedor de identidade**, selecione **OpenID Connect (versão prévia)** e clique em **OK**.
+5. Selecione **tipo de provedor de identidade**, selecione **OpenID Connect**e clique em **OK**.
 6. Selecione **configurar este provedor de identidade**
 7. Para a **URL de metadados**, insira a seguinte `your-AD-tenant-domain` URL substituindo pelo nome de domínio do seu locatário do Azure AD. Por exemplo `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
 

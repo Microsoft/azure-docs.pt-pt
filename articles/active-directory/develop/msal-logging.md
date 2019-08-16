@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09590fbd340ac3945f05346f99254ec0b76dcd76
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 475b692a29edf5cdd05552e7b5c3dc5fde210275
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834994"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512521"
 ---
 # <a name="logging"></a>Registo
 Aplicativos da MSAL (biblioteca de autenticação da Microsoft) para gerar mensagens de log que podem ajudar a diagnosticar problemas e fornecer detalhes. Um aplicativo pode configurar o registro em log com algumas linhas de código e ter controle personalizado sobre o nível de detalhes e se os dados pessoais e organizacionais serão ou não registrados. É recomendável que você defina um retorno de chamada de log MSAL e forneça uma maneira para os usuários enviarem logs quando estiverem tendo problemas de autenticação.
@@ -40,6 +40,10 @@ O agente de log do MSAL permite que vários níveis de detalhes sejam capturados
 Por padrão, o agente de log do MSAL não captura dados pessoais ou organizacionais altamente confidenciais. A biblioteca fornece a opção de habilitar o registro em log de dados pessoais e organizacionais se você decidir fazer isso.
 
 ## <a name="logging-in-msalnet"></a>Registrando em MSAL.NET
+
+ > [!NOTE]
+ > Para obter mais informações sobre MSAL.NET, confira o [wiki do MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki). Obtenha exemplos de registro em log do MSAL.NET e muito mais. 
+ 
 No MSAL 3. x, o registro em log é definido por aplicativo na criação `.WithLogging` do aplicativo usando o modificador de construtor. Esse método usa parâmetros opcionais:
 
 - O *nível* permite que você decida qual nível de log deseja. Configurá-lo como erros só receberá erros

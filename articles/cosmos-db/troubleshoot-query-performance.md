@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a713ed69dc9c35e16b1cc5d9ad9819d53e2e1efe
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d0dd9a371c4912cae0e74b214c673c629fc1ff55
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986159"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515812"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Solucionar problemas de desempenho de consulta para Azure Cosmos DB
 Este artigo aborda como identificar, diagnosticar e solucionar problemas Azure Cosmos DB problemas de consulta SQL. Para obter o desempenho ideal para consultas de Azure Cosmos DB, siga as etapas de solução de problemas abaixo. 
@@ -24,11 +24,12 @@ A menor latência possível é obtida garantindo que o aplicativo de chamada est
 ## <a name="check-consistency-level"></a>Verificar nível de consistência
 O [nível de consistência](consistency-levels.md) pode afetar o desempenho e os encargos. Verifique se o nível de consistência é apropriado para o cenário fornecido. Para obter mais detalhes, consulte [escolher o nível de consistência](consistency-levels-choosing.md).
 
-## <a name="log-sql-query-in-storage-account"></a>Consulta SQL de log na conta de armazenamento
-[Os logs de consulta da API do SQL por meio de logs de diagnóstico](logging.md#turn-on-logging-in-the-azure-portal) permitem registrar em log a consulta ofuscada em uma conta de armazenamento de sua escolha. Isso permite que você examine os logs de diagnóstico e encontre a consulta usando mais RUs e use a ID da atividade para corresponder ao QueryRuntimeStatistics. 
+## <a name="log-the-executed-sql-query"></a>Registrar a consulta SQL executada 
 
+Você pode registrar a consulta SQL executada em uma conta de armazenamento ou na tabela de log de diagnóstico. [Os logs de consulta SQL por meio de logs de diagnóstico](logging.md#turn-on-logging-in-the-azure-portal) permitem registrar em log a consulta ofuscada em uma conta de armazenamento de sua escolha. Isso permite que você examine os logs e localize a consulta que está usando RUs maior. Posteriormente, você pode usar a ID da atividade para corresponder à consulta real no QueryRuntimeStatistics. A consulta é ofuscada para fins de segurança e nomes de parâmetro de consulta, e seus valores em cláusulas WHERE são diferentes dos nomes e valores reais. Você pode usar o registro em log na conta de armazenamento para manter a retenção de longo prazo das consultas executadas.  
 
 ## <a name="log-query-metrics"></a>Métricas de consulta de log
+
 Use `QueryMetrics` para solucionar problemas de consultas lentas ou dispendiosas. 
 
   * Defina `FeedOptions.PopulateQueryMetrics = true` para ter `QueryMetrics` na resposta.
@@ -170,7 +171,7 @@ Garanta que a produtividade provisionada possa lidar com a carga de trabalho. Au
 ## <a name="try-upgrading-to-the-latest-sdk-version"></a>Tente atualizar para a versão mais recente do SDK
 Para determinar o SDK mais recente, consulte o artigo [download do SDK e notas de versão](sql-api-sdk-dotnet.md) .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os documentos abaixo sobre como medir o RUs por consulta, obter estatísticas de execução para ajustar suas consultas e muito mais:
 
 * [Get SQL query execution metrics using .NET SDK](profile-sql-api-query.md) (Obter métricas de execução de consultas SQL através do SDK do .NET)

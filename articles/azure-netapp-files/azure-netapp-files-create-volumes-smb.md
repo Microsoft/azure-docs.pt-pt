@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 9409beea3f22fd7ff09fe49838a37d9ff0b485f6
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 3cd60f390f0233e2923660fc39675b5a307d8d8f
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975919"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515429"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -59,6 +59,18 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
     |    Secure LDAP        |    636       |    TCP           |
     |    Secure LDAP        |    3269      |    TCP           |
     |    W32Time            |    123       |    UDP           |
+
+* A topologia do site para o Active Directory Domain Services de destino deve aderir às práticas recomendadas, em particular a VNet do Azure onde Azure NetApp Files é implantado.  
+
+    O espaço de endereço para a rede virtual em que Azure NetApp Files está implantado deve ser adicionado a um site de Active Directory novo ou existente (no qual um controlador de domínio acessível pelo Azure NetApp Files reside). 
+
+* Os servidores DNS especificados devem estar acessíveis a partir da [sub-rede delegada](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) do Azure NetApp files.  
+
+    Consulte as [diretrizes para Azure NetApp files planejamento de rede](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) para topologias de rede com suporte.
+
+    Os NSGs (grupos de segurança de rede) e os firewalls devem ter regras configuradas adequadamente para permitir solicitações de tráfego de Active Directory e DNS.
+
+    Consulte [projetando a topologia do site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) sobre serviços e sites do AD. 
 
 ## <a name="create-an-active-directory-connection"></a>Criar uma conexão Active Directory
 
@@ -117,15 +129,15 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
         O campo **Quota disponível** mostra a quantidade de espaço não utilizado no conjunto de capacidade escolhido que pode usar para criar um novo volume. O tamanho do novo volume não pode exceder a quota disponível.  
 
     * **Rede virtual**  
-        Especifique a rede virtual do Azure (Vnet) a partir da qual pretende aceder ao volume.  
+        Especifique a rede virtual do Azure (VNet) da qual você deseja acessar o volume.  
 
-        A vnet que você especificar deve ter uma sub-rede delegada para Azure NetApp Files. O serviço de Azure NetApp Files pode ser acessado somente da mesma vnet ou de uma vnet que está na mesma região que o volume por meio de emparelhamento vnet. Você também pode acessar o volume de sua rede local por meio da rota expressa.   
+        A VNet que você especificar deve ter uma sub-rede delegada para Azure NetApp Files. O serviço de Azure NetApp Files pode ser acessado somente da mesma VNet ou de uma VNet que está na mesma região que o volume por meio de emparelhamento VNet. Você também pode acessar o volume de sua rede local por meio da rota expressa.   
 
     * **Sub-rede**  
         Especifique a sub-rede que você deseja usar para o volume.  
         A sub-rede que você especificar deve ser delegada para Azure NetApp Files. 
         
-        Se você não tiver delegado uma sub-rede, poderá clicar em **criar nova** na página criar um volume. Em seguida, na página criar sub-rede, especifique as informações de sub-rede e selecione **Microsoft. NetApp/volumes** para delegar a sub-rede para Azure NetApp files. Em cada vnet, somente uma sub-rede pode ser delegada para Azure NetApp Files.   
+        Se você não tiver delegado uma sub-rede, poderá clicar em **criar nova** na página criar um volume. Em seguida, na página criar sub-rede, especifique as informações de sub-rede e selecione **Microsoft. NetApp/volumes** para delegar a sub-rede para Azure NetApp files. Em cada VNet, somente uma sub-rede pode ser delegada para Azure NetApp Files.   
  
         ![Criar um volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     

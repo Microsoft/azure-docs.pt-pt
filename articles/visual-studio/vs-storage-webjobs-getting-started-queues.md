@@ -3,7 +3,7 @@ title: Introdução ao armazenamento de filas e aos serviços conectados do Visu
 description: Como começar a usar o armazenamento de filas do Azure em um projeto do WebJob depois de se conectar a uma conta de armazenamento usando os serviços conectados do Visual Studio.
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 5c3ef267-2a67-44e9-ab4a-1edd7015034f
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 44206f1826fc25407d9dec3f832b70881091e187
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0afed158f5a19f3d82a3953f828f2b5566a6d5ff
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248965"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510803"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao armazenamento de filas do Azure e aos serviços conectados do Visual Studio (projetos de trabalho Web)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -44,8 +44,8 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 Além da **cadeia de caracteres**, o parâmetro pode ser uma matriz de bytes, um objeto **CLOUDQUEUEMESSAGE** ou um poco que você define.
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Mensagens [de fila poco (objeto antigo CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
-No exemplo a seguir, a mensagem da fila contém JSON para um objeto **BlobInformation** que inclui **** uma propriedade blobname. O SDK desserializa automaticamente o objeto.
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>Mensagens [de fila poco (objeto antigo CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+No exemplo a seguir, a mensagem da fila contém JSON para um objeto **BlobInformation** que inclui uma propriedade blobname. O SDK desserializa automaticamente o objeto.
 
 ```csharp
 public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
@@ -201,7 +201,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Mensagens [de fila poco (objeto antigo CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>Mensagens [de fila poco (objeto antigo CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Para criar uma mensagem de fila que contenha um POCO em vez de uma cadeia de caracteres, passe o tipo POCO como um parâmetro de saída para o construtor de atributo **Queue** .
 
 ```csharp
@@ -296,7 +296,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Mensagens [de fila poco (objeto antigo CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>Mensagens [de fila poco (objeto antigo CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Para um POCO armazenado como JSON na mensagem da fila, você pode usar espaços reservados que renomeam as propriedades do objeto no parâmetro **blobPath** do atributo **Queue** . Você também pode usar nomes de propriedade de metadados de fila como espaços reservados. Consulte [obter fila ou metadados de mensagem de fila](#get-queue-or-queue-message-metadata).
 
 O exemplo a seguir copia um blob para um novo BLOB com uma extensão diferente. A mensagem da fila é um objeto **BlobInformation** que inclui as propriedades **blobname** e **BlobNameWithoutExtension** . Os nomes de propriedade são usados como espaços reservados no caminho de BLOB para os atributos de **blob** .
@@ -444,7 +444,7 @@ static void Main(string[] args)
 
 Você pode fazer isso passando um objeto **NameResolver** para o tipo **JobHostConfiguration** . Você inclui espaços reservados especiais circundados por porcentagem (%) os sinais dos parâmetros do construtor de atributo do SDK de trabalhos Web e o código **NameResolver** especificam os valores reais a serem usados no lugar desses espaços reservados.
 
-Por exemplo, suponha que você queira usar uma fila chamada logqueuetest no ambiente de teste e outra chamada logqueueprod na produção. Em vez de um nome de fila embutido em código, você deseja especificar o nome de uma entrada na **** coleção appSettings que teria o nome real da fila. Se a **** chave appSettings for logqueue, sua função poderá ser semelhante ao exemplo a seguir.
+Por exemplo, suponha que você queira usar uma fila chamada logqueuetest no ambiente de teste e outra chamada logqueueprod na produção. Em vez de um nome de fila embutido em código, você deseja especificar o nome de uma entrada na coleção appSettings que teria o nome real da fila. Se a chave appSettings for logqueue, sua função poderá ser semelhante ao exemplo a seguir.
 
 ```csharp
 public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
@@ -558,6 +558,6 @@ E, em uma tabela do Azure, os logs **console. out** e **console. Error** têm a 
 
 ![Log de erros na tabela](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Este artigo forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com filas do Azure. Para obter mais informações sobre como usar Azure WebJobs e o SDK de trabalhos Web, consulte [Azure WebJobs recursos de documentação](https://go.microsoft.com/fwlink/?linkid=390226).
 

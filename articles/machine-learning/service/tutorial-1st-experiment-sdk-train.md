@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Treine seu primeiro modelo.'
+title: 'Tutorial: Treinar seu primeiro modelo de ML'
 titleSuffix: Azure Machine Learning service
 description: Neste tutorial, você aprende os padrões de design básico no serviço Azure Machine Learning e treina um modelo scikit simples com base no conjunto de dados diabetes.
 services: machine-learning
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: a3db70925d59f9d0e2793b04824b2e8606719dd4
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 17fee1f01bf883aa2a9845fe4f2817fb806056dd
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934241"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516237"
 ---
-# <a name="tutorial-train-your-first-model"></a>Tutorial: Treinar seu primeiro modelo
+# <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treinar seu primeiro modelo de ML
 
 Este tutorial é a **segunda parte de uma série composta por duas partes**. No tutorial anterior, você [criou um espaço de trabalho e escolheu um ambiente de desenvolvimento](tutorial-1st-experiment-sdk-setup.md). Neste tutorial, você aprende os padrões de design básico no serviço Azure Machine Learning e treina um modelo scikit simples com base no conjunto de dados diabetes. Depois de concluir este tutorial, você terá o conhecimento prático do SDK para escalar verticalmente para o desenvolvimento de experimentos e fluxos de trabalho mais complexos.
 
@@ -112,7 +112,7 @@ Após a conclusão do treinamento, chame a `experiment` variável para buscar um
 experiment
 ```
 
-<table style="width:100%"><tr><th>Nome</th><th>Área de trabalho</th><th>Página de relatório</th><th>Página de documentos</th></tr><tr><td>diabetes-experimento</td><td>Your-Workspace-Name</td><td>Link para o portal do Azure</td><td>Link para a documentação</td></tr></table>
+<table style="width:100%"><tr><th>Name</th><th>Área de trabalho</th><th>Página de relatório</th><th>Página de documentos</th></tr><tr><td>diabetes-experimento</td><td>Your-Workspace-Name</td><td>Link para o portal do Azure</td><td>Link para a documentação</td></tr></table>
 
 ## <a name="view-training-results-in-portal"></a>Exibir resultados de treinamento no portal
 
@@ -196,7 +196,7 @@ Se você usou um servidor de bloco de anotações de nuvem, pare a VM quando nã
 
 Você também pode manter o grupo de recursos, mas excluir um único espaço de trabalho. Exiba as propriedades do espaço de trabalho e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você fez as seguintes tarefas:
 

@@ -5,76 +5,69 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/22/2019
+ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4abf50e11070f2060309ae9b9cd045c874a2c52e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7385888c54d46e706621f781a64d12d3ae7aa5fb
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133807"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512682"
 ---
-# <a name="what-disk-types-are-available-in-azure"></a>Que tipos de disco estão disponíveis no Azure?
+# <a name="what-disk-types-are-available-in-azure"></a>Quais tipos de disco estão disponíveis no Azure?
 
-Atualmente, o managed disks do Azure oferece quatro tipos de disco, três dos quais estão em disponibilidade geral (GA) e outro que está atualmente em pré-visualização. Esses tipos de quatro disco, de cada têm seus próprios cenários de clientes de destino apropriado.
+Atualmente, o Azure Managed disks oferece quatro tipos de disco, cada tipo destina-se a cenários de clientes específicos.
 
 ## <a name="disk-comparison"></a>Comparação de discos
 
-A tabela seguinte fornece uma comparação de ultra solid-state unidades (SSD) (pré-visualização), premium SSD, standard SSD e unidades de disco rígido standard (HDD) para discos geridos para o ajudar a decidir o que utilizar.
+A tabela a seguir fornece uma comparação de ultra discos, unidades de estado sólido (SSD) Premium, SSD padrão e unidades de disco rígido padrão (HDD) para discos gerenciados para ajudá-lo a decidir o que usar.
 
-|   | SSD Ultra (pré-visualização)   | SSD Premium   | SSD Standard   | HDD Standard   |
+|   | Ultra Disk   | Premium SSD   | SSD Standard   | HDD Standard   |
 |---------|---------|---------|---------|---------|
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
-|Cenário   |Cargas de trabalho de e/s intensiva, como SAP HANA, bases de dados de camada superior (por exemplo, SQL, Oracle) e outras cargas de trabalho pesado de transação.   |Cargas de trabalho confidenciais de produção e de desempenho   |Servidores Web, aplicações empresariais pouco usada e desenvolvimento/teste   |Acesso de cópia de segurança, não críticas, pouco frequente   |
-|Tamanho do disco   |gibibyte 65.536 (GiB) (pré-visualização)   |32\.767 giB    |32\.767 giB   |32\.767 giB   |
-|Débito máximo   |2\.000 MiB/s (pré-visualização)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
-|IOPS máx   |160,000 (pré-visualização)   |20,000   |6,000   |2\.000   |
+|Cenário   |Cargas de trabalho com uso intensivo de e/s, como SAP HANA, bancos de dados de camada superior (por exemplo, SQL, Oracle) e outras cargas de trabalho de transações pesadas.   |Cargas de trabalho confidenciais de produção e de desempenho   |Servidores Web, aplicativos empresariais com pouco uso e desenvolvimento/teste   |Backup, não crítico, acesso infrequente   |
+|Tamanho do disco   |65.536 Gibibyte (GiB)    |32.767 GiB    |32.767 GiB   |32.767 GiB   |
+|Taxa de transferência máxima   |2\.000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|IOPS Máx.   |160.000    |20,000   |6,000   |2\.000   |
 
-## <a name="ultra-ssd-preview"></a>SSD Ultra (pré-visualização)
+## <a name="ultra-disk"></a>Ultra Disk
 
-SSD ultra do Azure (pré-visualização) fornece débito elevado, o IOPS elevado e o armazenamento de disco de baixa latência consistente para VMs IaaS do Azure. Alguns dos benefícios adicionais de ultra SSD incluem a capacidade de alterar dinamicamente o desempenho do disco, juntamente com as suas cargas de trabalho, sem a necessidade de reiniciar as máquinas virtuais. Ultra SSDs são adequados para cargas de trabalho com uso intensivo de dados, como SAP HANA, bases de dados de escalão superior e cargas de trabalho pesado de transação. Ultra SSD só pode ser utilizado como discos de dados. Recomendamos que utilize premium SSDs como discos de SO.
+Os ultra discos do Azure fornecem alta taxa de transferência, IOPS alta e armazenamento de disco consistente de baixa latência para VMs IaaS do Azure. Alguns benefícios adicionais de ultra discos incluem a capacidade de alterar dinamicamente o desempenho do disco, juntamente com suas cargas de trabalho, sem a necessidade de reiniciar as máquinas virtuais. Ultra discos são adequados para cargas de trabalho com uso intensivo de dados, como SAP HANA, bancos de dados de camada superior e cargas de trabalho com transações pesadas. Ultra discos só podem ser usados como discos de dados. É recomendável usar o SSDs Premium como discos do sistema operacional.
 
 ### <a name="performance"></a>Desempenho
 
-Quando aprovisiona um disco ultra, pode configurar a forma independente a capacidade e o desempenho do disco. Ultra SSD são fornecidos em vários tamanhos fixos, que vão desde GiB 4 até 64 TiB e um modelo de configuração de desempenho flexível que permite que configure independentemente o IOPS e débito de funcionalidade.
+Ao provisionar um ultra Disk, você pode configurar independentemente a capacidade e o desempenho do disco. Ultra discos vêm em vários tamanhos fixos, variando de 4 GiB até 64 TiB e apresentam um modelo de configuração de desempenho flexível que permite configurar de forma independente a IOPS e a taxa de transferência.
 
-Alguns recursos principais do Ultra SSD são:
+Alguns dos principais recursos dos ultra discos são:
 
-- Capacidade do disco: Ultra intervalos de capacidade SSD de 4 GiB até 64 TiB.
-- IOPS de disco: Ultra SSD suporta limites de IOPS de 300 IOPS/GiB até um máximo de mil 160 IOPS por disco. Para atingir o IOPS aprovisionado, certifique-se de que o IOPS de disco selecionado são menos do que o IOPS de VM. O IOPS mínimo do disco são 100 IOPS.
-- Débito de disco: Com o ultra SSD, o limite de taxa de transferência de um único disco é 256 KiB/s para cada aprovisionado IOPS, até um máximo de 2000 MBps por disco (em que MBps = 10 ^ 6 Bytes por segundo). O débito de disco mínimo é 1 MiB.
-- Ultra SSDs oferecer suporte a ajustar os atributos de desempenho de disco (IOPS e débito) em tempo de execução sem desligar o disco da máquina virtual. Assim que tiver sido emitida uma operação de redimensionamento de desempenho de disco num disco, pode demorar até uma hora para que a alteração, na verdade, entre em vigor.
+- Capacidade do disco: O ultra disks Capacity varia de 4 GiB até 64 TiB.
+- IOPS de disco: Ultra disks dão suporte a limites de IOPS de 300 IOPS/GiB, até um máximo de 160 K IOPS por disco. Para obter o IOPS que você provisionou, verifique se os IOPS de disco selecionados são menores do que o limite de IOPS de VM. O mínimo de IOPS por disco é 2 IOPS/GiB, com um mínimo de linha de base geral de 100 IOPS. Por exemplo, se você tivesse um ultra GiB de 4 discos, terá um mínimo de 100 IOPS, em vez de 8 IOPS.
+- Taxa de transferência do disco: Com ultra discos, o limite de taxa de transferência de um único disco é de 256 KiB/s para cada IOPS provisionado, até um máximo de 2000 MBps por disco (em que MBps = 10 ^ 6 bytes por segundo). A taxa de transferência mínima por disco é 4KiB/s para cada IOPS provisionado, com um mínimo de linha de base geral de 1 MBps.
+- Ultra discos dão suporte ao ajuste dos atributos de desempenho de disco (IOPS e taxa de transferência) em tempo de execução sem desanexar o disco da máquina virtual. Depois que uma operação de redimensionamento de desempenho do disco tiver sido emitida em um disco, poderá levar até uma hora para que a alteração realmente entre em vigor.
 
 ### <a name="disk-size"></a>Tamanho do disco
 
-|Tamanho do disco (GiB)  |Limites IOPS  |Limite de débito (MBps)  |
+|Tamanho do disco (GiB)  |Limite de IOPS  |Limite de taxa de transferência (MBps)  |
 |---------|---------|---------|
 |4     |1,200         |300         |
 |8     |2,400         |600         |
 |16     |4,800         |1,200         |
-|32     |9,600         |2\.000         |
-|64     |19,200         |2\.000         |
-|128     |38,400         |2\.000         |
-|256     |76,800         |2\.000         |
+|32     |9\.600         |2\.000         |
+|64     |19.200         |2\.000         |
+|128     |38.400         |2\.000         |
+|256     |76.800         |2\.000         |
 |512     |80,000         |2\.000         |
-|1\.024-65,536 (tamanhos neste intervalo de aumento em incrementos de 1 TiB)     |160,000         |2\.000         |
+|1024-65536 (tamanhos neste intervalo aumentando em incrementos de 1 TiB)     |160.000         |2\.000         |
 
-### <a name="transactions"></a>Transações
+### <a name="ga-scope-and-limitations"></a>Limitações e escopo de GA
 
-Para os ultra SSDs, cada operação e/s inferior ou igual a 256 KiB de débito é considerada uma única operação de e/s. Operações de e/s superiores a 256 KiB de débito são consideradas várias e/SS de tamanho 256 KiB.
+Por enquanto, ultra discos têm limitações adicionais, como a seguir:
 
-### <a name="preview-scope-and-limitations"></a>Âmbito de pré-visualização e limitações
-
-Durante a pré-visualização, ultra SSD:
-
-- São suportadas na região E.U.A. Leste 2 numa zona de disponibilidade única  
-- Só pode ser utilizado com zonas de disponibilidade (conjuntos de disponibilidade e únicas implementações de VM fora da vontade de zonas não têm a capacidade de anexar um disco de ultra)
-- Só são suportadas em VMs de v3 de ES/DS
-- Só estão disponíveis como discos de dados e tamanho de setor físico apenas suporte de 4K  
+- Têm suporte no leste dos EUA 2, Sudeste Asiático e Europa Setentrional, em duas zonas de disponibilidade por região  
+- Só pode ser usado com zonas de disponibilidade (conjuntos de disponibilidade e implantações de VM única fora das zonas não terão a capacidade de anexar um ultra Disk)
+- Há suporte apenas em VMs ES/DS v3
+- Estão disponíveis somente como discos de dados e só dão suporte ao tamanho de setor físico de 4K  
 - Só pode ser criado como discos vazios  
-- Atualmente só pode ser implementada com modelos do Azure Resource Manager, CLI, PowerShell e o SDK de Python.
-- Não é possível implementar com o portal do Azure (ainda).
-- Ainda não suporta instantâneos de disco, imagens VM, conjuntos de disponibilidade, conjuntos de dimensionamento de máquina virtual e encriptação de disco do Azure.
-- Ainda não suporta a integração com a cópia de segurança do Azure ou Azure Site Recovery.
-- Tal como acontece com [a maioria das pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), esta funcionalidade não deve ser utilizada para cargas de trabalho de produção até disponibilidade geral (GA).
+- Ainda não há suporte para instantâneos de disco, imagens de VM, conjuntos de disponibilidade, conjuntos de dimensionamento de máquinas virtuais e Azure Disk Encryption
+- Ainda não há suporte para integração com o backup do Azure ou Azure Site Recovery
