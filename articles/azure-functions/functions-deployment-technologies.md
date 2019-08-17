@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 7f931a72eab534bc2856e9e545b684d2b8ae7a60
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 88b6fbbd68f1f98e50ec0f04336a022dc1580a73
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444029"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562910"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação no Azure Functions
 
@@ -31,13 +31,13 @@ O Azure Functions dá suporte ao desenvolvimento local de plataforma cruzada e �
 
 Cada plano tem comportamentos diferentes. Nem todas as tecnologias de implantação estão disponíveis para cada tipo de Azure Functions. O gráfico a seguir mostra quais tecnologias de implantação têm suporte para cada combinação de sistema operacional e plano de hospedagem:
 
-| Tecnologia de implantação | Consumo do Windows | Windows Premium (versão prévia) | Windows dedicado  | Consumo do Linux (versão prévia) | Linux dedicado |
+| Tecnologia de implantação | Consumo do Windows | Windows Premium (versão prévia) | Windows dedicado  | Consumo do Linux | Linux dedicado |
 |-----------------------|:-------------------:|:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
 | URL do pacote externo<sup>1</sup> |✔|✔|✔|✔|✔|
 | Implantação de zip |✔|✔|✔| |✔|
 | Contentor de Docker | | | | |✔|
 | Implantação da Web |✔|✔|✔| | |
-| Controle do código-fonte |✔|✔|✔| |✔|
+| Controlo de código fonte |✔|✔|✔| |✔|
 | Git local<sup>1</sup> |✔|✔|✔| |✔|
 | Sincronização de nuvem<sup>1</sup> |✔|✔|✔| |✔|
 | FTP<sup>1</sup> |✔|✔|✔| |✔|
@@ -70,7 +70,7 @@ Você pode usar uma URL de pacote externo para fazer referência a um arquivo de
 >
 >Se você usar o armazenamento de BLOBs do Azure, use um contêiner privado com uma [assinatura de acesso compartilhado (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para dar acesso às funções ao pacote. Sempre que o aplicativo for reiniciado, ele buscará uma cópia do conteúdo. Sua referência deve ser válida durante o tempo de vida do aplicativo.
 
->__Quando usá-lo:__ A URL do pacote externo é o único método de implantação com suporte para Azure Functions em execução no Linux no plano de consumo (versão prévia). Ao atualizar o arquivo de pacote que um aplicativo de funções referencia, você deve [sincronizar os gatilhos manualmente](#trigger-syncing) para informar ao Azure que seu aplicativo foi alterado.
+>__Quando usá-lo:__ A URL do pacote externo é o único método de implantação com suporte para Azure Functions em execução no Linux no plano de consumo. Ao atualizar o arquivo de pacote que um aplicativo de funções referencia, você deve [sincronizar os gatilhos manualmente](#trigger-syncing) para informar ao Azure que seu aplicativo foi alterado.
 
 ### <a name="zip-deploy"></a>Implantação de zip
 
@@ -105,7 +105,7 @@ Implantação da Web pacotes e implanta seus aplicativos do Windows em qualquer 
 
 >__Quando usá-lo:__ Implantação da Web tem suporte e não tem problemas, mas o mecanismo preferencial é a [implantação de zip com a execução do pacote habilitado](#zip-deploy). Para saber mais, consulte o [Guia de desenvolvimento do Visual Studio](functions-develop-vs.md#publish-to-azure).
 
-### <a name="source-control"></a>Controle do código-fonte
+### <a name="source-control"></a>Controlo de código fonte
 
 Use o controle do código-fonte para conectar seu aplicativo de funções a um repositório git. Uma atualização de código nesse repositório dispara a implantação. Para obter mais informações, consulte o [wiki do kudu](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
 
@@ -151,7 +151,7 @@ No editor baseado em portal, você pode editar diretamente os arquivos que estã
 
 A tabela a seguir mostra os sistemas operacionais e idiomas que dão suporte à edição do portal:
 
-| | Consumo do Windows | Windows Premium (versão prévia) | Windows dedicado | Consumo do Linux (versão prévia) | Linux Premium (versão prévia)| Linux dedicado |
+| | Consumo do Windows | Windows Premium (versão prévia) | Windows dedicado | Consumo do Linux | Linux Premium (versão prévia)| Linux dedicado |
 |-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
 | C# | | | | | |
 | C#Prescritiva |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|

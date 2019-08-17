@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64a81a871d811c68f5e92822ca88446966be4d5c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7b5be74b0734a27b02030e2c6995b43ef0c02162
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678120"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562155"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Solicitar acesso a um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -29,6 +29,10 @@ ms.locfileid: "68678120"
 > O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Com o gerenciamento de direitos do Azure AD, os pacotes do Access permitem uma configuração única de recursos e políticas que administram automaticamente o acesso para a vida útil do pacote de acesso. 
+
+Um Gerenciador de pacotes de acesso pode configurar políticas para exigir aprovação para que os usuários tenham acesso aos pacotes do Access. Um usuário que precisa acessar um pacote do Access pode enviar uma solicitação para obter acesso. Este artigo descreve como enviar uma solicitação de acesso.
 
 ## <a name="sign-in-to-the-my-access-portal"></a>Entrar no meu portal de acesso
 

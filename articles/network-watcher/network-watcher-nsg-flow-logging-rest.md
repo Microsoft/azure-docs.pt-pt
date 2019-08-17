@@ -1,6 +1,6 @@
 ---
-title: Os registos de fluxo de gerir o grupo de segurança de rede com o observador de rede do Azure - REST API | Documentos da Microsoft
-description: Esta página explica como gerir os registos de fluxo do grupo de segurança de rede no observador de rede do Azure com a REST API
+title: Gerenciar logs de fluxo do grupo de segurança de rede com o observador de rede do Azure – API REST | Microsoft Docs
+description: Esta página explica como gerenciar logs de fluxo do grupo de segurança de rede no observador de rede do Azure com a API REST
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: ab4b283449ec6c0174f380b0231dd2e78dea419d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88173b24ecfca72e05d6f930b45d732aefad0e56
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64688049"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563411"
 ---
-# <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Registos de fluxo de configurar o grupo de segurança de rede com a REST API
+# <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configurando logs de fluxo do grupo de segurança de rede usando a API REST
 
 > [!div class="op_single_selector"]
-> - [Portal do Azure](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI do Azure](network-watcher-nsg-flow-logging-cli.md)
-> - [API REST](network-watcher-nsg-flow-logging-rest.md)
+> - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
-Os registos de fluxo do grupo de segurança de rede são uma funcionalidade do observador de rede permite-lhe ver informações sobre o tráfego IP de entrada e de saída através de um grupo de segurança de rede. Estes registos de fluxo são escritos no formato json e Mostrar fluxos de saída e entrados numa base por regra, o NIC que o fluxo de mensagens em fila aplica-se a informações de 5 cadeias de identificação sobre o fluxo (IP de origem/destino, porta de origem/destino, protocolo), e se o tráfego foi permitido ou negado.
+Os logs de fluxo do grupo de segurança de rede são um recurso do observador de rede que permite exibir informações sobre o tráfego IP de entrada e saída por meio de um grupo de segurança de rede. Esses logs de fluxo são gravados no formato JSON e mostram os fluxos de entrada e saída por regra, a NIC à qual o fluxo se aplica, informações de 5 tuplas sobre o fluxo (IP de origem/destino, porta de origem/destino, protocolo) e se o tráfego foi permitido ou negado.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-ARMclient é utilizada para chamar a API de REST com o PowerShell. ARMClient encontra-se no chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
+ARMclient é usado para chamar a API REST usando o PowerShell. ARMClient é encontrado no Chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-Este cenário pressupõe que já tiver seguido os passos em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
+Este cenário pressupõe que você já seguiu as etapas em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
 
 > [!Important]
-> Para chamadas de API de REST do observador de rede, que o nome do grupo de recursos no URI do pedido é o grupo de recursos que contém o observador de rede, não os recursos está a efetuar as ações de diagnóstico no.
+> Para a API REST do observador de rede chama o nome do grupo de recursos no URI de solicitação é o grupo de recursos que contém o observador de rede, não os recursos em que você está executando as ações de diagnóstico.
 
 ## <a name="scenario"></a>Cenário
 
-O cenário abordado neste artigo mostra como ativar, desativar e consultar os registos de fluxo com a API REST. Para saber mais sobre loggings de fluxo do grupo de segurança de rede, visite [registo de fluxo do grupo de segurança de rede - descrição geral](network-watcher-nsg-flow-logging-overview.md).
+O cenário abordado neste artigo mostra como habilitar, desabilitar e consultar logs de fluxo usando a API REST. Para saber mais sobre os logs de fluxo do grupo de segurança de rede, visite [log de fluxo do grupo de segurança de rede-visão geral](network-watcher-nsg-flow-logging-overview.md).
 
-Neste cenário, irá:
+Nesse cenário, você irá:
 
-* Ativar registos de fluxo (versão 2)
-* Desativar os registos de fluxo
-* Estado de registos de fluxo de consulta
+* Habilitar logs de fluxo (versão 2)
+* Desabilitar logs de fluxo
+* Status dos logs de fluxo de consulta
 
-## <a name="log-in-with-armclient"></a>Inicie sessão com ARMClient
+## <a name="log-in-with-armclient"></a>Fazer logon com ARMClient
 
-Inicie sessão no armclient com as suas credenciais do Azure.
+Faça logon no armclient com suas credenciais do Azure.
 
 ```powershell
 armclient login
@@ -60,16 +60,16 @@ armclient login
 
 ## <a name="register-insights-provider"></a>Registar o fornecedor do Insights
 
-Para que o fluxo de registo para trabalhar com êxito, o **Microsoft. insights** fornecedor tem de estar registado. Se não tiver a certeza se o **Microsoft. insights** fornecedor está registado, execute o seguinte script.
+Para que o log de fluxo funcione com êxito, o provedor **Microsoft.** insights deve ser registrado. Se você não tiver certeza se o provedor **Microsoft.** insights está registrado, execute o script a seguir.
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
 armclient post "https://management.azure.com//subscriptions/${subscriptionId}/providers/Microsoft.Insights/register?api-version=2016-09-01"
 ```
 
-## <a name="enable-network-security-group-flow-logs"></a>Registos de fluxo de ativar o grupo de segurança de rede
+## <a name="enable-network-security-group-flow-logs"></a>Habilitar logs de fluxo do grupo de segurança de rede
 
-O comando para ativar a versão de registos de fluxo 2 é mostrado no exemplo a seguir. Para a versão 1 substitua o campo 'versão' '1':
+O comando para habilitar os logs de fluxo versão 2 é mostrado no exemplo a seguir. Para a versão 1, substitua o campo ' version ' por ' 1 ':
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -98,7 +98,7 @@ $requestBody = @"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/configureFlowLog?api-version=2016-12-01" $requestBody
 ```
 
-A resposta devolvida pelo exemplo anterior é o seguinte:
+A resposta retornada do exemplo anterior é a seguinte:
 
 ```json
 {
@@ -118,9 +118,9 @@ A resposta devolvida pelo exemplo anterior é o seguinte:
 }
 ```
 
-## <a name="disable-network-security-group-flow-logs"></a>Registos de fluxo de desativar o grupo de segurança de rede
+## <a name="disable-network-security-group-flow-logs"></a>Desabilitar logs de fluxo do grupo de segurança de rede
 
-Utilize o exemplo seguinte para desativar os registos de fluxo. A chamada é o mesmo que ativar registos de fluxo, exceto **false** está definida para a propriedade enabled.
+Use o exemplo a seguir para desabilitar os logs de fluxo. A chamada é a mesma que Habilitar logs de fluxo, exceto que **false** é definido para a propriedade Enabled.
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -149,7 +149,7 @@ $requestBody = @"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/configureFlowLog?api-version=2016-12-01" $requestBody
 ```
 
-A resposta devolvida pelo exemplo anterior é o seguinte:
+A resposta retornada do exemplo anterior é a seguinte:
 
 ```json
 {
@@ -169,9 +169,9 @@ A resposta devolvida pelo exemplo anterior é o seguinte:
 }
 ```
 
-## <a name="query-flow-logs"></a>Registos de fluxo de consulta
+## <a name="query-flow-logs"></a>Logs de fluxo de consulta
 
-As seguintes consultas de chamada REST o estado do fluxo de registos num grupo de segurança de rede.
+A chamada REST a seguir consulta o status dos logs de fluxo em um grupo de segurança de rede.
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -187,7 +187,7 @@ $requestBody = @"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/queryFlowLogStatus?api-version=2016-12-01" $requestBody
 ```
 
-Segue-se um exemplo da resposta devolvida:
+Veja a seguir um exemplo da resposta retornada:
 
 ```json
 {
@@ -207,18 +207,21 @@ Segue-se um exemplo da resposta devolvida:
 }
 ```
 
-## <a name="download-a-flow-log"></a>Transferir o registo de um fluxo
+## <a name="download-a-flow-log"></a>Baixar um log de fluxo
 
-A localização de armazenamento de um registo de fluxo é definida durante a criação. Uma ferramenta conveniente para aceder a estes registos de fluxo guardados para uma conta de armazenamento é o Explorador de armazenamento do Microsoft Azure, que pode ser baixado aqui:  https://storageexplorer.com/
+O local de armazenamento de um log de fluxo é definido na criação. Uma ferramenta conveniente para acessar esses logs de fluxo salvos em uma conta de armazenamento é Gerenciador de Armazenamento do Microsoft Azure, que pode ser baixada aqui: https://storageexplorer.com/
 
-Se for especificada uma conta de armazenamento, os arquivos de captura de pacotes são guardados para uma conta de armazenamento na seguinte localização:
+Se uma conta de armazenamento for especificada, os arquivos de captura de pacote serão salvos em uma conta de armazenamento no seguinte local:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
+> [!IMPORTANT]
+> Atualmente, há um problema em que [os logs de fluxo do NSG (grupo de segurança de rede)](network-watcher-nsg-flow-logging-overview.md) para o observador de rede não são automaticamente excluídos do armazenamento de BLOBs com base nas configurações da política de retenção. Se você tiver uma política de retenção diferente de zero, recomendamos que você exclua periodicamente os blobs de armazenamento que ultrapassaram seu período de retenção para evitar qualquer cobrança incorrida. Para obter mais informações sobre como excluir o blog de armazenamento de log de fluxo do NSG, consulte [excluir blobs de armazenamento de log de fluxo NSG](network-watcher-delete-nsg-flow-log-blobs.md).
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como [Visualize os seus registos de fluxo NSG com o PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Saiba como [Visualizar seus logs de fluxo do NSG com o PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
-Saiba como [Visualize os seus registos de fluxo NSG com ferramentas de código aberto](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+Saiba como [Visualizar seus logs de fluxo do NSG com ferramentas de](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) software livre

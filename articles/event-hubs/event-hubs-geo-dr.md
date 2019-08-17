@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 460ea15b0827ea307d64d1bd92d9bd14d5919d73
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 8dca94f0200f6bd41dfdc199b41bf69981a960da
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704384"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562710"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de eventos do Azure - recuperação após desastre geográfico 
 
@@ -37,7 +37,7 @@ O recurso de recuperação após desastre geográfico dos Hubs de eventos do Azu
 
 ## <a name="basic-concepts-and-terms"></a>Conceitos e termos básicos
 
-O recurso de recuperação de desastres implementa a recuperação após desastre de metadados e baseia-se nos espaços de nomes de recuperação de desastres primário e secundário. Tenha em atenção que o recurso de recuperação após desastre geográfico está disponível para o [Standard SKU](https://azure.microsoft.com/pricing/details/event-hubs/) apenas. Não é necessário efetuar quaisquer alterações de cadeia de ligação, como a conexão é feita por meio de um alias.
+O recurso de recuperação de desastres implementa a recuperação após desastre de metadados e baseia-se nos espaços de nomes de recuperação de desastres primário e secundário. Observe que o recurso de recuperação de desastres geograficamente está disponível apenas para os [SKUs padrão e dedicados](https://azure.microsoft.com/pricing/details/event-hubs/) . Não é necessário efetuar quaisquer alterações de cadeia de ligação, como a conexão é feita por meio de um alias.
 
 Os termos seguintes são utilizados neste artigo:
 

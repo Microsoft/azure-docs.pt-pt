@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: a0da13e82811d500dee50c2231500245c7e011a6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 3b242ff8ee3e635493cd501cf37ffc7c78a57d91
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383445"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563315"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 
@@ -270,6 +270,9 @@ O Azure Stream Analytics invoca funções do Azure através de acionadores HTTP.
 | Contagem máxima de lotes  |Uma propriedade que permite especificar o número máximo de eventos em cada lote enviado para Azure Functions. O valor predefinido é 100. |
 
 Quando Azure Stream Analytics recebe uma exceção de 413 ("entidade de solicitação HTTP muito grande") de uma função do Azure, ela reduz o tamanho dos lotes que ele envia para Azure Functions. No código da função do Azure, utilize esta exceção para se certificar de que o Azure Stream Analytics não envia lotes demasiado grandes. Além disso, certifique-se de que a contagem máxima de lotes e os valores de tamanho usados na função sejam consistentes com os valores inseridos no portal de Stream Analytics.
+
+> [!NOTE]
+> Durante a conexão de teste, Stream Analytics envia um lote vazio para Azure Functions para testar se a conexão entre os dois funciona. Certifique-se de que seu aplicativo de funções manipule solicitações em lote vazias para garantir que os testes de conexão sejam aprovados.
 
 Além disso, em uma situação em que não há nenhuma aterrissagem de evento em uma janela de tempo, nenhuma saída é gerada. Como resultado, a função **computeResult** não é chamada. Este comportamento é consistente com as funções de agregação em janela internas.
 

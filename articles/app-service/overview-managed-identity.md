@@ -9,20 +9,17 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 08/15/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 8bc30d50772dffddca32d9f6e22c3d7cec566c70
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: a2b8a4e496094c6275710328e70a09376ce0e5fc
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297158"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563021"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como usar identidades gerenciadas para o serviço de aplicativo e Azure Functions
-
-> [!NOTE] 
-> O suporte de identidade gerenciada para o serviço de aplicativo no Linux e no Aplicativo Web para Contêineres está atualmente em versão prévia.
 
 > [!Important] 
 > As identidades gerenciadas para o serviço de aplicativo e o Azure Functions não se comportarão conforme o esperado se seu aplicativo for migrado entre assinaturas/locatários. O aplicativo precisará obter uma nova identidade, o que pode ser feito desabilitando e reabilitando o recurso. Consulte [removendo uma identidade](#remove) abaixo. Os recursos downstream também precisarão ter políticas de acesso atualizadas para usar a nova identidade.
@@ -30,8 +27,8 @@ ms.locfileid: "68297158"
 Este tópico mostra como criar uma identidade gerenciada para aplicativos de Azure Functions e serviço de aplicativo e como usá-lo para acessar outros recursos. Uma identidade gerenciada do Azure Active Directory permite que seu aplicativo acesse facilmente outros recursos protegidos por AAD, como Azure Key Vault. A identidade é gerenciada pela plataforma do Azure e não exige que você provisione ou gire segredos. Para obter mais informações sobre identidades gerenciadas no AAD, consulte [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 Seu aplicativo pode receber dois tipos de identidades: 
-- Uma **identidade atribuída pelo sistema** é vinculada ao seu aplicativo e é excluída se seu aplicativo for excluído. Um aplicativo pode ter apenas uma identidade atribuída pelo sistema. O suporte à identidade atribuída pelo sistema está geralmente disponível para aplicativos do Windows. 
-- Uma **identidade atribuída pelo usuário** é um recurso autônomo do Azure que pode ser atribuído ao seu aplicativo. Um aplicativo pode ter várias identidades atribuídas pelo usuário. O suporte à identidade atribuída pelo usuário está em versão prévia para todos os tipos de aplicativo.
+- Uma **identidade atribuída pelo sistema** é vinculada ao seu aplicativo e é excluída se seu aplicativo for excluído. Um aplicativo pode ter apenas uma identidade atribuída pelo sistema.
+- Uma **identidade atribuída pelo usuário** é um recurso autônomo do Azure que pode ser atribuído ao seu aplicativo. Um aplicativo pode ter várias identidades atribuídas pelo usuário.
 
 ## <a name="adding-a-system-assigned-identity"></a>Adicionando uma identidade atribuída pelo sistema
 
@@ -158,17 +155,11 @@ Quando o site é criado, ele tem as seguintes propriedades adicionais:
 Onde `<TENANTID>` e`<PRINCIPALID>` são substituídos por GUIDs. A propriedade tenantid identifica a qual locatário do AAD a identidade pertence. O PrincipalId é um identificador exclusivo para a nova identidade do aplicativo. No AAD, a entidade de serviço tem o mesmo nome que você atribuiu ao serviço de aplicativo ou à instância de Azure Functions.
 
 
-## <a name="adding-a-user-assigned-identity-preview"></a>Adicionando uma identidade atribuída pelo usuário (versão prévia)
-
-> [!NOTE] 
-> Atualmente, as identidades atribuídas ao usuário estão em versão prévia. Ainda não há suporte para nuvens soberanas.
+## <a name="adding-a-user-assigned-identity"></a>Adicionando uma identidade atribuída pelo usuário
 
 A criação de um aplicativo com uma identidade atribuída pelo usuário requer que você crie a identidade e, em seguida, adicione seu identificador de recurso à configuração do aplicativo.
 
 ### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
-
-> [!NOTE] 
-> Essa experiência do portal está sendo implantada e talvez ainda não esteja disponível em todas as regiões.
 
 Primeiro, você precisará criar um recurso de identidade atribuído pelo usuário.
 
@@ -180,7 +171,7 @@ Primeiro, você precisará criar um recurso de identidade atribuído pelo usuár
 
 4. Selecione **identidade gerenciada**.
 
-5. Na guia **atribuído pelo usuário (visualização)** , clique em **Adicionar**.
+5. Na guia **atribuído pelo usuário** , clique em **Adicionar**.
 
 6. Pesquise a identidade que você criou anteriormente e selecione-a. Clique em **Adicionar**.
 
@@ -390,6 +381,25 @@ const getToken = function(resource, apiver, cb) {
 }
 ```
 
+<a name="token-python"></a>Em Python:
+
+```python
+import os
+import requests
+
+msi_endpoint = os.environ["MSI_ENDPOINT"]
+msi_secret = os.environ["MSI_SECRET"]
+
+def get_bearer_token(resource_uri, token_api_version):
+    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version={token_api_version}"
+    head_msi = {'Secret':msi_secret}
+
+    resp = requests.get(token_auth_uri, headers=head_msi)
+    access_token = resp.json()['access_token']
+
+    return access_token
+```
+
 <a name="token-powershell"></a>No PowerShell:
 
 ```powershell
@@ -415,7 +425,7 @@ A remoção de uma identidade atribuída pelo sistema dessa maneira também a ex
 > [!NOTE]
 > Também há uma configuração de aplicativo que pode ser definida, WEBSITE_DISABLE_MSI, que apenas desabilita o serviço de token local. No entanto, ele deixa a identidade em vigor e as ferramentas ainda mostrarão a identidade gerenciada como "ativada" ou "habilitada". Como resultado, o uso dessa configuração não é recomendado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Acessar o banco de dados SQL com segurança usando uma identidade gerenciada](app-service-web-tutorial-connect-msi.md)

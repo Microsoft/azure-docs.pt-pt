@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 6ddd8922f1830b2f57c8ecb4ff62871961b09fec
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a1c4575ec2ecc65d863ad80f73e64b7a4efdf96f
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228315"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563245"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -39,10 +39,10 @@ O serviço está disponível em regiões do Azure geralmente disponíveis. Nem t
 
 Regiões                                        | Ininterrupta?                                 | Versões Suportadas
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Todas as regiões globais do Azure geralmente disponíveis](https://azure.microsoft.com/regions/)     | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11 
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11
-[Azure China](https://www.azure.cn/)                                                     | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11
-[Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11
+[Todas as regiões globais do Azure geralmente disponíveis](https://azure.microsoft.com/regions/)     | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
+[Azure China](https://www.azure.cn/)                                                     | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
+[Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
 
 Essa tabela é atualizada quando há atualizações de serviço e ou novas versões com suporte estão disponíveis.
 
@@ -105,8 +105,8 @@ A tabela a seguir é uma referência de outras APIs de formatos de dados que pod
 API | Formato de dados padrão | Outros formatos
 --------|---------------------|--------------
 /instance | json | text
-/scheduledevents | json | None
-/attested | json | None
+/scheduledevents | json | nenhum
+/attested | json | nenhum
 
 Para acessar um formato de resposta não padrão, especifique o formato solicitado como um parâmetro de cadeia de caracteres de consulta na solicitação. Por exemplo:
 
@@ -361,20 +361,21 @@ azEnvironment | Ambiente do Azure em que a VM está sendo executada | 2018-10-01
 customData | Ver [dados personalizados](#custom-data) | 2019-02-01
 location | Região do Azure em que a VM está sendo executada | 2017-04-02
 name | Nome da VM | 2017-04-02
-Proporcionar | Informações da oferta para a imagem da VM e estão presentes apenas para imagens implantadas na Galeria de imagens do Azure | 2017-04-02
+proporcionar | Informações da oferta para a imagem da VM e estão presentes apenas para imagens implantadas na Galeria de imagens do Azure | 2017-04-02
 osType | Linux ou Windows | 2017-04-02
 placementGroupId | [Grupo de posicionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) do conjunto de dimensionamento de máquinas virtuais | 2017-08-01
 intenção | [Plano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) contendo nome, produto e publicador para uma VM se sua imagem do Azure Marketplace | 2018-04-02
 platformUpdateDomain |  [Atualizar domínio](manage-availability.md) no qual a VM está sendo executada | 2017-04-02
 platformFaultDomain | [Domínio de falha](manage-availability.md) em que a VM está sendo executada | 2017-04-02
-Operador | Provedor da VM | 2018-10-01
+fornecedor | Provedor da VM | 2018-10-01
 publicKeys | [Coleção de chaves públicas](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) atribuídas à VM e aos caminhos | 2018-04-02
 publisher | Editor da imagem da VM | 2017-04-02
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para sua máquina virtual | 2017-08-01
 resourceId | A ID [totalmente qualificada](https://docs.microsoft.com/rest/api/resources/resources/getbyid) do recurso | 2019-03-11
-SKU | SKU específico para a imagem da VM | 2017-04-02
+sku | SKU específico para a imagem da VM | 2017-04-02
 subscriptionId | Assinatura do Azure para a máquina virtual | 2017-08-01
-etiquetas | [Marcas](../../azure-resource-manager/resource-group-using-tags.md) para sua máquina virtual  | 2017-08-01
+tags | [Marcas](../../azure-resource-manager/resource-group-using-tags.md) para sua máquina virtual  | 2017-08-01
+marcações | Marcas formatadas como uma matriz JSON para facilitar a análise programática  | 2019-06-04
 version | Versão da imagem da VM | 2017-04-02
 vmId | [Identificador exclusivo](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para a VM | 2017-04-02
 vmScaleSetName | Nome do conjunto de dimensionamento de [máquinas virtuais](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de sua definição de escala de máquina virtual | 2017-12-01
@@ -425,7 +426,7 @@ Nonce é uma cadeia de caracteres de 10 dígitos opcional fornecida. O nonce pod
 }
 ```
 
-> O blob de assinatura é uma versão do documento assinada [PKCS7](https://aka.ms/pkcs7) . Ele contém o certificado usado para assinar junto com os detalhes da VM, como vmId, nonce, timeStamp para a criação e a expiração do documento e as informações do plano sobre a imagem. As informações do plano só são populadas para imagens do Azure Market Place. O certificado pode ser extraído da resposta e usado para validar que a resposta é válida e proveniente do Azure.
+> O blob de assinatura é uma versão do documento assinada [PKCS7](https://aka.ms/pkcs7) . Ele contém o certificado usado para assinar junto com os detalhes da VM, como vmId, nonce, SubscriptionId, carimbo de data/hora para a criação e a expiração do documento e as informações do plano sobre a imagem. As informações do plano só são populadas para imagens do Azure Market Place. O certificado pode ser extraído da resposta e usado para validar que a resposta é válida e proveniente do Azure.
 
 #### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>Recuperando metadados atestados na máquina virtual do Windows
 
@@ -457,7 +458,7 @@ Nonce é uma cadeia de caracteres de 10 dígitos opcional fornecida. O nonce pod
 }
 ```
 
-> O blob de assinatura é uma versão do documento assinada [PKCS7](https://aka.ms/pkcs7) . Ele contém o certificado usado para assinar junto com os detalhes da VM, como vmId, nonce, timeStamp para a criação e a expiração do documento e as informações do plano sobre a imagem. As informações do plano só são populadas para imagens do Azure Market Place. O certificado pode ser extraído da resposta e usado para validar que a resposta é válida e proveniente do Azure.
+> O blob de assinatura é uma versão do documento assinada [PKCS7](https://aka.ms/pkcs7) . Ele contém o certificado usado para assinar junto com os detalhes da VM, como vmId, nonce, SubscriptionId, carimbo de data/hora para a criação e a expiração do documento e as informações do plano sobre a imagem. As informações do plano só são populadas para imagens do Azure Market Place. O certificado pode ser extraído da resposta e usado para validar que a resposta é válida e proveniente do Azure.
 
 
 ## <a name="example-scenarios-for-usage"></a>Cenários de exemplo de uso  
@@ -568,8 +569,32 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api
 Department:IT;Environment:Test;Role:WebRole
 ```
 
-> [!NOTE]
-> As marcas são separadas por ponto e vírgula. Se um analisador for gravado para extrair as marcas programaticamente, os nomes e valores de marca não deverão conter ponto e vírgula para que o analisador funcione corretamente.
+O `tags` campo é uma cadeia de caracteres com marcas delimitadas por ponto e vírgula. Isso pode ser um problema se o ponto e vírgulas forem usados nas próprias marcas. Se um analisador for escrito para extrair as marcas programaticamente, você deverá contar `tagsList` com o campo que é uma matriz JSON sem delimitadores e, consequentemente, mais fácil de analisar.
+
+**Pedido**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=text"
+```
+
+**Resposta**
+
+```json
+[
+  {
+    "name": "Department",
+    "value": "IT"
+  },
+  {
+    "name": "Environment",
+    "value": "Test"
+  },
+  {
+    "name": "Role",
+    "value": "WebRole"
+  }
+]
+```
 
 ### <a name="validating-that-the-vm-is-running-in-azure"></a>Confirmar se a VM está a ser executada no Azure
 
@@ -612,7 +637,8 @@ Verification successful
     "createdOn":"11/28/18 00:16:17 -0000",
     "expiresOn":"11/28/18 06:16:17 -0000"
   },
-"vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34"
+"vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34",
+"subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
 }
 ```
 
@@ -623,10 +649,11 @@ intenção | [Planejar](https://docs.microsoft.com/rest/api/compute/virtualmachi
 timestamp/createdOn | O carimbo de data/hora em que o primeiro documento assinado foi criado
 timestamp/expiresOn | O carimbo de data/hora em que o documento assinado expira
 vmId |  [Identificador exclusivo](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para a VM
+subscriptionId | Assinatura do Azure para a máquina virtual, introduzida em`2019-04-30`
 
 #### <a name="verifying-the-signature"></a>Verificando a assinatura
 
-Depois de obter a assinatura acima, você pode verificar se a assinatura é da Microsoft. Além disso, você pode verificar o certificado intermediário e a cadeia de certificados.
+Depois de obter a assinatura acima, você pode verificar se a assinatura é da Microsoft. Além disso, você pode verificar o certificado intermediário e a cadeia de certificados. Por fim, você pode verificar se a ID da assinatura está correta.
 
 > [!NOTE]
 > O certificado para nuvem pública e soberanas Cloud será diferente.
@@ -699,7 +726,7 @@ Network Destination        Netmask          Gateway       Interface  Metric
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
-### <a name="custom-data"></a>Dados personalizados
+### <a name="custom-data"></a>Dados Personalizados
 O serviço de metadados de instância fornece a capacidade para a VM ter acesso aos seus dados personalizados. Os dados binários devem ter menos de 64 KB e são fornecidos para a VM na forma codificada em base64.
 
 Os dados personalizados do Azure podem ser inseridos na VM por meio de APIs REST, de cmdlets do PowerShell, da CLI (interface de linha de comando) do Azure ou de um modelo do ARM.
@@ -735,7 +762,7 @@ My custom data.
 Idioma | Exemplo
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Ir  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Ir Para  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs

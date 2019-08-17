@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22c25c0a2b2f48baa3b57a8ad39ed4514c884826
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: d18c74e908f6d5c4c3d2eefb0518add380fa1324
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533135"
+ms.locfileid: "69561318"
 ---
 # <a name="what-are-authentication-methods"></a>O que são métodos de autenticação?
 
@@ -31,7 +31,7 @@ A Microsoft recomenda aos administradores que permitam que os usuários selecion
 | Palavra-passe | MFA e SSPR |
 | Perguntas de segurança | Somente SSPR |
 | Endereço de e-mail | Somente SSPR |
-| Aplicação do Microsoft Authenticator | MFA e visualização pública para SSPR |
+| Aplicação do Microsoft Authenticator | MFA e SSPR |
 | Token de hardware OATH | Visualização pública para MFA e SSPR |
 | SMS | MFA e SSPR |
 | Chamada de voz | MFA e SSPR |
@@ -41,7 +41,7 @@ A Microsoft recomenda aos administradores que permitam que os usuários selecion
 
 |     |
 | --- |
-| Tokens de hardware OATH para MFA e SSPR e notificação de aplicativo móvel ou código de aplicativo móvel como métodos para redefinição de senha de autoatendimento do Azure AD são recursos de visualização pública de Azure Active Directory. Para obter mais informações sobre visualizações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Os tokens de hardware OATH para MFA e SSPR são recursos de visualização pública de Azure Active Directory. Para obter mais informações sobre visualizações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="password"></a>Palavra-passe

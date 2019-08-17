@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8ba2d2fd9c943fe55e82956d022f6ba9840a550f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 00d49d763dedc5d86557dadd10f5d727e7893dbe
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69536602"
+ms.locfileid: "69563070"
 ---
 # <a name="connect-azure-virtual-network-to-cloudsimple-using-expressroute"></a>Conectar a rede virtual do Azure ao CloudSimple usando o ExpressRoute
 
@@ -24,7 +24,7 @@ Você pode estender sua rede de nuvem privada para sua rede virtual do Azure e r
 Uma chave de autorização é necessária para a conexão de ExpressRoute entre sua nuvem privada e a rede virtual do Azure. Para obter uma chave, arquivo de um tíquete com <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">suporte</a>.  Use as seguintes informações na solicitação:
 
 * Tipo de problema: **Technical**
-* Subscrição: Selecione a assinatura na qual o serviço CloudSimple está implantado * *
+* Subscrição: **Selecione a assinatura na qual o serviço CloudSimple está implantado**
 * Serviço: **Solução VMware por CloudSimple**
 * Tipo de problema: **Solicitação de serviço**
 * Subtipo de problema: **Chave de autorização para conexão de VNET do Azure**

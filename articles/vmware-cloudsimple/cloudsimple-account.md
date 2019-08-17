@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d9fc39edfad18c756c2816f9eb0b3774d8bf882c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a180e2ba6c1a610116271d5a9b6e3fdf562cecdf
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812675"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563190"
 ---
 # <a name="account-management-overview"></a>Visão geral do gerenciamento de contas
 
-Quando você cria o serviço CloudSimple, ele cria uma conta no CloudSimple.  A conta está associada à sua assinatura do Azure onde o serviço está localizado.  Todos os usuários com funções de **proprietário** e **colaborador** na assinatura têm acesso ao portal do CloudSimple.  A ID de assinatura do Azure e a ID de locatário associada ao serviço CloudSimple são encontradas na [página contas](https://docs.azure.cloudsimple.com/account/).
+Quando você cria o serviço CloudSimple, ele cria uma conta no CloudSimple.  A conta está associada à sua assinatura do Azure onde o serviço está localizado.  Todos os usuários com funções de **proprietário** e **colaborador** na assinatura têm acesso ao portal do CloudSimple.  A ID de assinatura do Azure e a ID de locatário associada ao serviço CloudSimple são encontradas na [página contas](account.md).
 
 ## <a name="additional-alert-emails"></a>Emails de alerta adicionais
 
@@ -36,5 +36,5 @@ Todos os usuários que têm a função de **proprietário** e **colaborador** na
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Exibir Resumo da conta](https://docs.azure.cloudsimple.com/account/)
-* [Exibir lista de usuários](https://docs.azure.cloudsimple.com/users/)
+* [Exibir Resumo da conta](account.md)
+* [Exibir lista de usuários](users.md)

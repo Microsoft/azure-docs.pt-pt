@@ -8,22 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5bb1a4dd9d652481dfe1a2727ee0e5fe7601e96a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 95d27bab243f6805436465f5027e519d33e20f6f
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812771"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563234"
 ---
-# <a name="accessing-the-vmware-solution-by-cloudsimple-portal-from-azure-portal"></a>Acessando a solução VMware pelo portal CloudSimple da portal do Azure
+# <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Acesse a solução VMware pelo portal do CloudSimple da portal do Azure
 
 O logon único tem suporte para acesso ao portal do CloudSimple. Depois de entrar no portal do Azure, você poderá acessar o portal do CloudSimple sem entrar novamente. Na primeira vez que você acessar o portal do CloudSimple, você será solicitado a autorizar o aplicativo de [autorização de serviço do CloudSimple](#consent-to-cloudsimple-service-authorization-application) .  A autorização é uma ação única.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Usuários com funções de **colaborador** e **proprietário** interno podem acessar o portal do CloudSimple.  As funções devem ser configuradas no grupo de recursos em que o serviço CloudSimple está implantado.  As funções também podem ser configuradas no objeto de serviço CloudSimple.  Para obter mais informações sobre como verificar sua função, consulte o artigo [exibir atribuições de função](https://docs.microsoft.com/azure/role-based-access-control/check-access) .
+Usuários com funções de **colaborador** e **proprietário** interno podem acessar o portal do CloudSimple.  As funções devem ser configuradas no grupo de recursos em que o serviço CloudSimple está implantado.  As funções também podem ser configuradas no objeto de serviço CloudSimple.  Para obter mais informações sobre como verificar sua função, consulte o artigo [exibir atribuições de função](https://docs.microsoft.com/azure/role-based-access-control/check-access) . Somente os usuários com funções de **proprietário** e **colaborador** internas podem acessar o portal do CloudSimple.  As funções devem ser configuradas na assinatura.  Para obter mais informações sobre como verificar sua função, consulte o artigo [exibir atribuições de função](https://docs.microsoft.com/azure/role-based-access-control/check-access) .
 
-Se você estiver usando funções personalizadas, a função deverá ter qualquer uma das operações a seguir ```Actions```em.  Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  Se qualquer uma das operações fizer parte do, ```NotActions```o usuário não poderá acessar o portal do CloudSimple. 
+Se você estiver usando funções personalizadas, a função deverá ter qualquer uma das operações a seguir ```Actions```em.  Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  Se qualquer uma das operações fizer parte do, ```NotActions```o usuário não poderá acessar o portal do CloudSimple.
 
 ```
 Microsoft.VMwareCloudSimple/*
@@ -48,7 +48,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
     ![Iniciar o portal do CloudSimple](media/launch-cloudsimple-portal.png)
 
-> [!TIP]
+> [!NOTE]
 > Se você selecionar uma operação de nuvem privada (como criar ou expandir uma nuvem privada) diretamente da portal do Azure, o portal do CloudSimple será aberto na página indicada.
 
 No portal do CloudSimple, selecione **página inicial** no menu lateral para exibir informações de resumo sobre suas nuvens privadas. Os recursos e a capacidade de suas nuvens privadas são mostrados, juntamente com alertas e tarefas que exigem atenção. Para tarefas comuns, clique nos ícones nomeados na parte superior da página.
@@ -57,7 +57,7 @@ No portal do CloudSimple, selecione **página inicial** no menu lateral para exi
 
 ## <a name="consent-to-cloudsimple-service-authorization-application"></a>Consentimento para o aplicativo de autorização do serviço CloudSimple
 
-Iniciar o portal do CloudSimple da portal do Azure pela primeira vez requer seu consentimento para o aplicativo de autorização do serviço CloudSimple.  Selecione **aceitar** para conceder permissões solicitadas e acessar o portal do CloudSimple. 
+Iniciar o portal do CloudSimple da portal do Azure pela primeira vez requer seu consentimento para o aplicativo de autorização do serviço CloudSimple.  Selecione **aceitar** para conceder permissões solicitadas e acessar o portal do CloudSimple.
 
 ![Consentimento para a autorização do serviço CloudSimple-administradores](media/cloudsimple-azure-consent.png)
 
@@ -69,7 +69,7 @@ Se suas permissões não permitirem acesso ao portal do CloudSimple, entre em co
 
 ![Consentimento para a autorização do serviço CloudSimple-requer administradores](media/cloudsimple-azure-consent-requires-administrator.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [criar uma nuvem privada](https://docs.azure.cloudsimple.com/create-private-cloud/)
 * Saiba como [configurar um ambiente de nuvem privada](quickstart-create-private-cloud.md)

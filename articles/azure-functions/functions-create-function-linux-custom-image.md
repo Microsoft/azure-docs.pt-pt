@@ -11,18 +11,18 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 66effb095edf7927a38fca53b2ff317e9bad468e
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 525cb444ad7b1b78de867f83539ac338ddd144e9
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619606"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562926"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Criar uma função no Linux usando uma imagem personalizada
 
 As Funções do Azure permitem-lhe alojar as suas funções no Linux no seu próprio contentor personalizado. Também pode [alojar num contentor predefinido do Serviço de Aplicações do Azure](functions-create-first-azure-function-azure-cli-linux.md). Essa funcionalidade requer [o tempo de execução do Functions 2. x](functions-versions.md).
 
-Neste tutorial, irá aprender a implementar as suas funções no Azure como uma imagem personalizada do Docker. Esse padrão é útil quando você precisa personalizar a imagem de contêiner interna. Pode querer utilizar uma imagem personalizada quando as suas funções precisarem de uma versão de idioma ou dependência específicas, ou de uma configuração não fornecida na imagem incorporada. As imagens base com suporte para Azure Functions são encontradas no [repositório de imagens base Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base). No momento, o [suporte do Python](functions-reference-python.md) está em versão prévia.
+Neste tutorial, irá aprender a implementar as suas funções no Azure como uma imagem personalizada do Docker. Esse padrão é útil quando você precisa personalizar a imagem de contêiner interna. Pode querer utilizar uma imagem personalizada quando as suas funções precisarem de uma versão de idioma ou dependência específicas, ou de uma configuração não fornecida na imagem incorporada. As imagens base com suporte para Azure Functions são encontradas no [repositório de imagens base Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base). 
 
 Este tutorial explica como utilizar o Azure Functions Core Tools para criar uma função numa imagem do Linux personalizada. Publique esta imagem numa aplicação de funções no Azure, que foi criada com a CLI do Azure. Posteriormente, você atualiza sua função para se conectar ao armazenamento de filas do Azure. Você também habilita o.  
 
@@ -69,8 +69,6 @@ Quando lhe for pedido, escolha um runtime do trabalho entre os seguintes idiomas
 * `dotnet`: cria um projeto de biblioteca de classes do .NET Core (. csproj).
 * `node`: cria um projeto do JavaScript.
 * `python`: cria um projeto Python.
-
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 Quando o comando for executado, verá algo parecido com o seguinte resultado:
 
@@ -252,7 +250,7 @@ az functionapp deployment container config --enable-cd \
 
 Esse comando retorna a URL de webhook de implantação após a implantação contínua ser habilitada. Você também pode usar o comando [AZ functionapp Deployment contêiner show-CD-URL](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) para retornar essa URL. 
 
-Copie a URL de implantação e navegue até o repositório DockerHub, escolha  a guia WebHooks, digite um **nome** de webhook para o webhook, Cole a URL na **URL**do webhook e, em seguida, **+** escolha o sinal de adição ().
+Copie a URL de implantação e navegue até o repositório DockerHub, escolha a guia WebHooks, digite um **nome** de webhook para o webhook, Cole a URL na **URL**do webhook e, em seguida, **+** escolha o sinal de adição ().
 
 ![Adicionar o webhook em seu repositório DockerHub](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 

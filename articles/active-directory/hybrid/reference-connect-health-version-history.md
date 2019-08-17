@@ -1,6 +1,6 @@
 ---
 title: Histórico das Versões do Azure AD Connect Health
-description: Este documento descreve as versões para o Azure AD Connect Health e o que está incluído nessas versões.
+description: Este documento descreve as versões para Azure AD Connect Health e o que foi incluído nessas versões.
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
@@ -15,226 +15,241 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58de8de9a9fab67d743d4560ccda037d8f41301b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27c0d3055512145396f204fdb17e9375f65a0db3
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66298993"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562329"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Histórico de Versões
-A equipa do Azure Active Directory atualiza regularmente o Azure AD Connect Health com novos recursos e funcionalidades. Este artigo lista as versões e funcionalidades que foram lançadas.  
+A equipe de Azure Active Directory atualiza regularmente Azure AD Connect Health com novos recursos e funcionalidades. Este artigo lista as versões e os recursos que foram lançados.  
 
 > [!NOTE]
-> Ligar agentes são atualizados automaticamente quando é lançada a nova versão do Estado de funcionamento. Certifique-se de que as definições de atualização automática está ativada no portal do Azure. 
+> Os agentes do Connect Health são atualizados automaticamente quando a nova versão é liberada. Verifique se as configurações de atualização automática estão habilitadas em portal do Azure. 
 >
 
-O Azure AD Connect Health para sincronização está integrado com a instalação do Azure AD Connect. Leia mais sobre [histórico de lançamento do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) para comentários sobre as funcionalidades, votar em [canal de ligar o estado de funcionamento User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
+O Azure AD Connect Health para sincronização é integrado à instalação do Azure AD Connect. Leia mais sobre [Azure ad Connect histórico de lançamento](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) para obter comentários sobre o recurso, vote no [canal de voz do usuário do Connect Health](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
+## <a name="july-2019"></a>Julho de 2019
+**Atualização do agente**
+* Agente de Azure AD Connect Health para AD FS (versão 3.1.59.0) 
+   1. Alteração de texto em TestWindowsTransport
+   2. Alterações para o carregamento AD FS RP
+   
+* Agente de Azure AD Connect Health para AD FS (versão 3.1.56.0) 
+   1. Adicionar teste TestWindowsTransport e remover verificações de pontos de extremidade WsTrust no teste CheckOffice365Endpoints
+   2. Informações do sistema operacional de log e do .NET
+   3. Aumente o tamanho de carregamento da mensagem de configuração do RP para 1MB.
+   4. Correções de erros
+   
+* Agente de Azure AD Connect Health para AD DS (versão 3.1.56.0) 
+   1. Informações do sistema operacional de log e do .NET 
+   2. Correções de erros
 
 ## <a name="may-2019"></a>Maio de 2019
 **Atualização do agente:** 
-* Agente do Azure AD Connect Health para AD FS (versão 3.1.51.0) 
-   1. Correção de erros para distinguir entre vários inícios de sessão que partilham o mesmo client-request-id.
-   2. Correção de erro ao analisar erros de nome de utilizador/palavra-passe incorretos no idioma localizado servidores.   
+* Agente de Azure AD Connect Health para AD FS (versão 3.1.51.0) 
+   1. Correção de bug para distinguir entre várias entradas que compartilham a mesma ID de solicitação de cliente.
+   2. Correção de bug para analisar erros de nome de usuário/senha inválidos em servidores localizados no idioma.   
 
 ## <a name="april-2019"></a>Abril de 2019
 **Atualização do agente:** 
-* Agente do Azure AD Connect Health para AD FS (versão 3.1.46.0) 
-   1. Corrigir o processo de alerta de verificar SPN duplicado para ADFS
+* Agente de Azure AD Connect Health para AD FS (versão 3.1.46.0) 
+   1. Corrigir verificação do processo de alerta de SPN duplicado para ADFS
 
 ## <a name="march-2019"></a>Março de 2019
 **Atualização do agente:** 
-* Agente do Azure AD Connect Health para AD DS (versão 3.1.41.0)  
-   1. Coleção de versão do .NET
-   2. Melhoria de recolha do contador de desempenho quando determinadas categorias de tem em falta
-   3. Correção de erros de impedir a geração de várias instâncias de agente de monitorização
+* Agente de Azure AD Connect Health para AD DS (versão 3.1.41.0)  
+   1. Coleção de versões do .NET
+   2. Melhoria da coleta do contador de desempenho quando faltam determinadas categorias
+   3. Correção de bug ao impedir a geração de várias instâncias do agente de monitoramento
 
-* Agente do Azure AD Connect Health para AD FS (versão 3.1.41.0) 
-   1. Integrar e atualização de scripts de teste do AD FS com ADFSToolBox
-   2. Implementar a coleção de versão do .NET
-   3. Melhoria de recolha do contador de desempenho quando determinadas categorias de tem em falta
-   4. Correção de erros de impedir a geração de várias instâncias de agente de monitorização
+* Agente de Azure AD Connect Health para AD FS (versão 3.1.41.0) 
+   1. Integrar e atualizar scripts de teste do AD FS usando o ADFSToolBox
+   2. Implementar coleção de versões do .NET
+   3. Melhoria da coleta do contador de desempenho quando faltam determinadas categorias
+   4. Correção de bug ao impedir a geração de várias instâncias do agente de monitoramento
 
 
 ## <a name="november-2018"></a>Novembro de 2018
-**Novos recursos de disponibilidade geral:** 
-* O Azure AD Connect Health para sincronização - diagnosticar e resolver erros de sincronização de atributo duplicado do portal
+**Novos recursos de GA:** 
+* Azure AD Connect Health para sincronizar-diagnosticar e corrigir erros de sincronização de atributos duplicados do portal
 
 **Atualização do agente:** 
-* Agente do Azure AD Connect Health para AD DS (versão 3.1.24.0) 
-   1. Conformidade de versão 1.2 do protocolo TLS (Transport Layer Security) e imposição de transporte
-   2. Reduzir o ruído de alerta de Catálogo Global
-   3. Correções de erros de registo de agente de estado de funcionamento
+* Agente de Azure AD Connect Health para AD DS (versão 3.1.24.0) 
+   1. Protocolo TLS versão 1,2 de conformidade e imposição de camada
+   2. Reduzir o ruído de alerta do catálogo global
+   3. Correções de bugs de registro do agente de integridade
 
-* Agente do Azure AD Connect Health para AD FS (versão 3.1.24.0)  
-   1. Conformidade de versão 1.2 do protocolo TLS (Transport Layer Security) e imposição de transporte
-   2. Suporte de ADFSRequestToken de teste para o sistema operacional localizado
-   3. Resolvido o problema de bloqueio de EventHandler do agente de diagnóstico
-   4. Correções de erros de registo de agente de estado de funcionamento
+* Agente de Azure AD Connect Health para AD FS (versão 3.1.24.0)  
+   1. Protocolo TLS versão 1,2 de conformidade e imposição de camada
+   2. Suporte do Test-ADFSRequestToken para o sistema operacional localizado
+   3. Problema de bloqueio EventHandler do agente de diagnóstico resolvido
+   4. Correções de bugs de registro do agente de integridade
 
 ## <a name="august-2018"></a>Agosto de 2018 
-*  Agente do Azure AD Connect Health para sincronização (versão 3.1.7.0), lançado com o Azure AD Connect versão 1.1.880.0    
-   1. Correção para [libera o problema de CPU elevado do agente com o .NET Framework KB de monitorização](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
+*  Azure AD Connect Health agente para sincronização (versão 3.1.7.0) lançado com Azure AD Connect versão 1.1.880.0    
+   1. Hotfix para [alto problema de CPU do agente de monitoramento com versões do .NET Framework KB](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
 
 ## <a name="june-2018"></a>junho de 2018 
-**Novas funcionalidades de pré-visualização:** 
-* O Azure AD Connect Health para sincronização - diagnosticar e resolver erros de sincronização de atributo duplicado do portal 
+**Novos recursos de visualização:** 
+* Azure AD Connect Health para sincronizar-diagnosticar e corrigir erros de sincronização de atributos duplicados do portal 
 
 **Atualização do agente:** 
-* Agente do Azure AD Connect Health para AD DS (versão 3.1.7.0)    
-  1. Correção para [libera o problema de CPU elevado do agente com o .NET Framework KB de monitorização](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
+* Agente de Azure AD Connect Health para AD DS (versão 3.1.7.0)    
+  1. Hotfix para [alto problema de CPU do agente de monitoramento com versões do .NET Framework KB](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
    
-* Agente do Azure AD Connect Health para AD FS (versão 3.1.7.0)  
-  1. Correção para [libera o problema de CPU elevado do agente com o .NET Framework KB de monitorização](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
-  2. Correções de resultados de teste no servidor secundário do AD FS Server 2016
+* Agente de Azure AD Connect Health para AD FS (versão 3.1.7.0)  
+  1. Hotfix para [alto problema de CPU do agente de monitoramento com versões do .NET Framework KB](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
+  2. Correções de resultados de teste no servidor ADFS 2016 secundário
    
-* Agente do Azure AD Connect Health para AD FS (versão 3.1.2.0)  
-  1. Correção para o gerenciamento de memória de agente e alertas relacionados especificamente para a versão 3.0.244.0
+* Agente de Azure AD Connect Health para AD FS (versão 3.1.2.0)  
+  1. Hotfix para gerenciamento de memória do agente e alertas relacionados especificamente para a versão 3.0.244.0
 
 
 ## <a name="may-2018"></a>Maio de 2018
 **Atualização do agente:**
-* Agente do Azure AD Connect Health para AD DS (versão 3.0.244.0)
-  1. Melhoria de privacidade do agente  
-  2. Correções de bugs e melhoramentos gerais
+* Agente de Azure AD Connect Health para AD DS (versão 3.0.244.0)
+  1. Melhoria da privacidade do agente  
+  2. Correções de bugs e aprimoramentos gerais
 
-* Agente do Azure AD Connect Health para AD FS (versão 3.0.244.0)
-  1. Serviço de diagnóstico de agente e melhorias de módulo do PowerShell relacionadas
-  2. Melhoria de privacidade do agente  
-  3. Correções de bugs e melhoramentos gerais
+* Agente de Azure AD Connect Health para AD FS (versão 3.0.244.0)
+  1. Melhorias do serviço de diagnóstico de agente e do módulo do PowerShell relacionado
+  2. Melhoria da privacidade do agente  
+  3. Correções de bugs e aprimoramentos gerais
 
-* Agente do Azure AD Connect Health para sincronização (versão 3.0.164.0), lançado com o Azure AD Connect versão 1.1.819.0 
-  1. Melhoria de privacidade do agente  
-  2. Correções de bugs e melhoramentos gerais
+* Azure AD Connect Health agente para sincronização (versão 3.0.164.0) lançado com Azure AD Connect versão 1.1.819.0 
+  1. Melhoria da privacidade do agente  
+  2. Correções de bugs e aprimoramentos gerais
 
 
 ## <a name="march-2018"></a>Março de 2018
-**Novas funcionalidades de pré-visualização:**
-* O Azure AD Connect Health para AD FS - relatório de IP em risco e o alerta.
+**Novos recursos de visualização:**
+* Azure AD Connect Health para relatório e alerta de IP de AD FS arriscados.
 
 **Atualização do agente:**
 
-* Agente do Azure AD Connect Health para AD DS (versão 3.0.176.0)
-  1. Aprimoramentos de disponibilidade do agente 
-  2. Correções de bugs e melhoramentos gerais
-* Agente do Azure AD Connect Health para AD FS (versão 3.0.176.0)
-  1. Aprimoramentos de disponibilidade do agente 
-  2. Correções de bugs e melhoramentos gerais
-* Agente do Azure AD Connect Health para sincronização (versão 3.0.129.0), lançado com o Azure AD Connect versão 1.1.750.0  
-  1. Aprimoramentos de disponibilidade do agente 
-  2. Correções de bugs e melhoramentos gerais
+* Agente de Azure AD Connect Health para AD DS (versão 3.0.176.0)
+  1. Melhorias de disponibilidade do agente 
+  2. Correções de bugs e aprimoramentos gerais
+* Agente de Azure AD Connect Health para AD FS (versão 3.0.176.0)
+  1. Melhorias de disponibilidade do agente 
+  2. Correções de bugs e aprimoramentos gerais
+* Azure AD Connect Health agente para sincronização (versão 3.0.129.0) lançado com Azure AD Connect versão 1.1.750.0  
+  1. Melhorias de disponibilidade do agente 
+  2. Correções de bugs e aprimoramentos gerais
 
 ## <a name="december-2017"></a>Dezembro de 2017
 **Atualização do agente:**
 
-* Agente do Azure AD Connect Health para AD DS (versão 3.0.145.0)
-  1. Aprimoramentos de disponibilidade do agente 
-  2. Foram adicionados comandos de resolução de problemas de agente novo
-  3. Correções de bugs e melhoramentos gerais
-* Agente do Azure AD Connect Health para AD FS (versão 3.0.145.0)
-  1. Foram adicionados comandos de resolução de problemas de agente novo
-  2. Aprimoramentos de disponibilidade do agente 
-  3. Correções de bugs e melhoramentos gerais
+* Agente de Azure AD Connect Health para AD DS (versão 3.0.145.0)
+  1. Melhorias de disponibilidade do agente 
+  2. Novos comandos de solução de problemas do agente adicionados
+  3. Correções de bugs e aprimoramentos gerais
+* Agente de Azure AD Connect Health para AD FS (versão 3.0.145.0)
+  1. Novos comandos de solução de problemas do agente adicionados
+  2. Melhorias de disponibilidade do agente 
+  3. Correções de bugs e aprimoramentos gerais
   
 ## <a name="october-2017"></a>Outubro de 2017
 **Atualização do agente:**
 
- * Agente do Azure AD Connect Health para sincronização (versão 3.0.129.0), lançado com o Azure AD Connect versão 1.1.649.0
-<br></br> Foi corrigido um problema de compatibilidade de versão entre o Azure AD Connect e o agente do Azure AD Connect Health para sincronização. Este problema afeta os clientes que estejam a executar o Azure AD Connect no local atualizar para versão 1.1.647.0, mas atualmente tem o agente de estado de funcionamento da versão 3.0.127.0. Após a atualização, o agente de estado de funcionamento não podem mais enviar dados de estado de funcionamento sobre o serviço do Azure AD Connect sincronização ao serviço de estado de funcionamento do Azure AD. Com essa correção, o agente de estado de funcionamento da versão 3.0.129.0 é instalado durante a atualização do Azure AD Connect no local. Agente de estado de funcionamento versão 3.0.129.0 não tem problema de compatibilidade com o Azure AD Connect versão 1.1.649.0.
+ * Azure AD Connect Health agente para sincronização (versão 3.0.129.0) lançado com Azure AD Connect versão 1.1.649.0
+<br></br> Correção de um problema de compatibilidade de versão entre Azure AD Connect e Azure AD Connect Health Agent para sincronização. Esse problema afeta os clientes que estão executando Azure AD Connect atualização in-loco para a versão 1.1.647.0, mas atualmente tem o agente de integridade versão 3.0.127.0. Após a atualização, o agente de integridade não poderá mais enviar dados de integridade sobre Azure AD Connect serviço de sincronização ao Azure AD Serviço de Integridade. Com essa correção, a versão do agente de integridade 3.0.129.0 é instalada durante Azure AD Connect atualização in-loco. A versão do agente de integridade 3.0.129.0 não tem problema de compatibilidade com Azure AD Connect versão 1.1.649.0.
 
 ## <a name="july-2017"></a>Julho de 2017
 **Atualização do agente:**
 
-* Agente do Azure AD Connect Health para AD DS (versão 3.0.68.0)
-  1. Correções de bugs e melhoramentos gerais
-  2. Suporte de Clouds soberanas
-* Agente do Azure AD Connect Health para AD FS (versão 3.0.68.0)
-  1. Correções de bugs e melhoramentos gerais
-  2. Suporte de Clouds soberanas
-* Agente do Azure AD Connect Health para sincronização (versão 3.0.68.0), lançado com o Azure AD Connect versão 1.1.614.0
-  1. Suporte para a Cloud do Microsoft Azure Government e do Microsoft Cloud Alemanha
+* Agente de Azure AD Connect Health para AD DS (versão 3.0.68.0)
+  1. Correções de bugs e aprimoramentos gerais
+  2. Suporte de nuvem soberanas
+* Agente de Azure AD Connect Health para AD FS (versão 3.0.68.0)
+  1. Correções de bugs e aprimoramentos gerais
+  2. Suporte de nuvem soberanas
+* Azure AD Connect Health agente para sincronização (versão 3.0.68.0) lançado com Azure AD Connect versão 1.1.614.0
+  1. Suporte para Microsoft Azure Governamental Cloud e Microsoft Cloud Alemanha
 
 ## <a name="april-2017"></a>Abril de 2017      
 **Atualização do agente:**
 
-* Agente do Azure AD Connect Health para AD FS (versão 3.0.12.0)
-  1. Correções de bugs e melhoramentos gerais
-* Agente do Azure AD Connect Health para AD DS (versão 3.0.12.0)
-  1. Melhorias de carregar de contadores de desempenho
-  2. Correções de bugs e melhoramentos gerais
+* Agente de Azure AD Connect Health para AD FS (versão 3.0.12.0)
+  1. Correções de bugs e aprimoramentos gerais
+* Agente de Azure AD Connect Health para AD DS (versão 3.0.12.0)
+  1. Aprimoramentos de upload de contadores de desempenho
+  2. Correções de bugs e aprimoramentos gerais
 
 ## <a name="october-2016"></a>Outubro de 2016
 **Atualização do agente:**
 
-* Agente do Azure AD Connect Health para AD FS (versão 2.6.408.0)
-* Melhorias na detecção de endereços IP do cliente em pedidos de autenticação
-* Correções de erros relacionados com alertas
-* Agente do Azure AD Connect Health para AD DS (versão 2.6.408.0)
-* Correções de erros relacionados com alertas.
-* Agente do Azure AD Connect Health para sincronização (versão 2.6.353.0), lançado com o Azure AD Connect versão 1.1.281.0
-* Fornecer os dados necessários para os relatórios de erros de sincronização
-* Correções de erros relacionados com alertas
+* Agente de Azure AD Connect Health para AD FS (versão 2.6.408.0)
+* Melhorias na detecção de endereços IP de cliente em solicitações de autenticação
+* Correções de bugs relacionadas a alertas
+* Agente de Azure AD Connect Health para AD DS (versão 2.6.408.0)
+* Correções de bugs relacionadas a alertas.
+* Azure AD Connect Health agente para sincronização (versão 2.6.353.0) lançado com Azure AD Connect versão 1.1.281.0
+* Forneça os dados necessários para os relatórios de erros de sincronização
+* Correções de bugs relacionadas a alertas
 
-**Novas funcionalidades de pré-visualização:**
+**Novos recursos de visualização:**
 
-* Relatórios de erros de sincronização para o Azure AD Connect
+* Relatórios de erros de sincronização para Azure AD Connect
 
 **Novas funcionalidades:**
 
-* Azure AD Connect Health para AD FS - o campo de endereço IP está disponível no relatório sobre os principais 50 utilizadores com o nome de utilizador/palavra-passe incorreta.
+* Azure AD Connect Health para AD FS-o campo endereço IP está disponível no relatório sobre os principais usuários do 50 com nome de usuário/senha inválidos.
 
 ## <a name="july-2016"></a>Julho de 2016
-**Novas funcionalidades de pré-visualização:**
+**Novos recursos de visualização:**
 
-* [Azure AD Connect Health para AD DS](how-to-connect-health-adds.md).
+* [Azure ad Connect Health para AD DS](how-to-connect-health-adds.md).
 
 ## <a name="january-2016"></a>Janeiro de 2016
 **Atualização do agente:**
 
-* Agente do Azure AD Connect Health para AD FS (versão 2.6.91.1512)
+* Agente de Azure AD Connect Health para AD FS (versão 2.6.91.1512)
 
 **Novas funcionalidades:**
 
-* [Ferramenta de teste de conectividade para o Azure AD ligar os agentes de estado de funcionamento](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service)
+* [Ferramenta de conectividade de teste para agentes de Azure AD Connect Health](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service)
 
 ## <a name="november-2015"></a>Novembro de 2015
 **Novas funcionalidades:**
 
-* Suporte para [controlo de acesso baseado em funções](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
+* Suporte para [controle de acesso baseado em função](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
 
-**Novas funcionalidades de pré-visualização:**
+**Novos recursos de visualização:**
 
-* [O Azure AD Connect Health para sincronização](how-to-connect-health-sync.md).
+* [Azure ad Connect Health para sincronização](how-to-connect-health-sync.md).
 
-**Problemas fixos:**
+**Problemas corrigidos:**
 
-* Correções de erros para erros vistos durante os registos de agente.
+* Correções de bugs para erros vistos durante os registros do agente.
 
 ## <a name="september-2015"></a>Setembro de 2015
 **Novas funcionalidades:**
 
-* Relatório de palavra-passe de nome de utilizador de errado para o AD FS
-* Suporte para configurar o Proxy de HTTP não autenticados
-* Suporte para configurar o agente no Server core
-* Melhorias aos alertas para o AD FS
-* Carregar a melhorias no agente do Azure AD Connect Health para AD FS para conectividade e dados.
+* Relatório de senha de nome de usuário incorreto para AD FS
+* Suporte para configurar o proxy HTTP não autenticado
+* Suporte para configurar o agente no Server Core
+* Melhorias nos alertas para AD FS
+* Melhorias no agente Azure AD Connect Health para AD FS para conectividade e carregamento de dados.
 
-**Problemas fixos:**
+**Problemas corrigidos:**
 
-* Correções de bugs em informações de utilização para tipos de erros do AD FS.
+* Correções de bugs em informações de uso para AD FS tipos de erro.
 
 ## <a name="june-2015"></a>Junho de 2015
-**Versão inicial do Azure AD Connect Health para AD FS e Proxy do AD FS.**
+**Versão inicial do Azure AD Connect Health para AD FS e AD FS proxy.**
 
 **Novas funcionalidades:**
 
-* Alertas de monitorização de servidores do AD FS e Proxy do AD FS com notificações por e-mail.
-* Obter acesso fácil a topologia do AD FS e padrões nos contadores de desempenho do AD FS.
-* Tendência em pedidos de token com êxito nos servidores do AD FS, agrupados por aplicativos, métodos de autenticação, pedir etc de localização de rede.
-* Tendências de pedido falhado em servidores do AD FS, agrupados por aplicativos, etc de tipos de erro.
-* Implementação mais simples do agente com as credenciais de Administrador Global do Azure AD.  
+* Alertas para monitorar AD FS e AD FS servidores proxy com notificações por email.
+* Acesso fácil a AD FS topologia e padrões em AD FS contadores de desempenho.
+* Tendência em solicitações de token bem-sucedidas em servidores AD FS agrupados por aplicativos, métodos de autenticação, local de rede de solicitação, etc.
+* Tendências na solicitação com falha em servidores AD FS agrupados por aplicativos, tipos de erro etc.
+* Implantação de agente mais simples usando credenciais de administrador global do Azure AD.  
 
-## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre [monitorizar os serviços de infraestrutura e a sincronização de identidade de no local na cloud](whatis-hybrid-identity-health.md).
+## <a name="next-steps"></a>Passos seguintes
+Saiba mais sobre como [monitorar sua infraestrutura de identidade local e os serviços de sincronização na nuvem](whatis-hybrid-identity-health.md).
 
