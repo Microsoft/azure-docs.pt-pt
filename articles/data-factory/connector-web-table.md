@@ -56,7 +56,7 @@ As propriedades a seguir têm suporte para o serviço vinculado de tabela da Web
 |:--- |:--- |:--- |
 | type | A propriedade Type deve ser definida como: **Web** |Sim |
 | url | URL para a origem da Web |Sim |
-| authenticationType | O valor permitido é: **Anônimo**. |Sim |
+| authenticationType | O valor permitido é: **Anonymous**. |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Integration Runtime auto-hospedado é necessário conforme mencionado em [pré-requisitos](#prerequisites). |Sim |
 
 **Example:**
