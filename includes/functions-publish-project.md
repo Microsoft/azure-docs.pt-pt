@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 9fefba9c79e9c58956243de8db67ca4cf316251c
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: e2d63ab38bad341400538c5079fee22737cf0b8e
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949936"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562939"
 ---
 ## <a name="deploy-the-function-app-project-to-azure"></a>Implementar o projeto da aplicação de funções no Azure
 
@@ -23,6 +23,12 @@ Depois que o aplicativo de funções é criado no Azure, você pode [`func azure
 
 ```command
 func azure functionapp publish <APP_NAME>
+```
+
+### <a name="python"></a>Python
+
+```command
+func azure functionapp publish <APP_NAME> --build remote
 ```
 
 ### <a name="typescript"></a>TypeScript

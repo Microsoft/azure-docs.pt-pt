@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed57f581db593a288e62d25a2f0b8ee42c28114
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b6685783d7ade59796af8fbf466124353a897cb9
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852960"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562086"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar entrada com a Microsoft a um aplicativo Web ASP.NET
 
@@ -55,8 +55,10 @@ Neste início rápido, vai ficar a saber como uma aplicação Web ASP.NET pode i
 > 1. Selecione **novo registro**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 >      - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `ASPNET-Quickstart`.
->      - Adicione `https://localhost:44368/` no **URI**de redirecionamento e clique em **registrar**.
-Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão Implícita** e, em seguida, selecione **Guardar**.
+>      - Adicione `http://localhost:44368/` no **URI**de redirecionamento e clique em **registrar**.
+>      - No painel de navegação à esquerda, na seção Gerenciar, selecione **autenticação**
+>          - Na subseção **concessão implícita** , selecione tokens de **ID**.
+>          - E, em seguida, selecione **salvar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar seu aplicativo no portal do Azure
@@ -96,7 +98,8 @@ Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão 
 >   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft**, substitua este valor por `common`
 >
 > > [!TIP]
-> > Para encontrar os valores do *ID da Aplicação*, o *ID de Diretório (inquilino)* , e os *Tipos de conta suportados*, vá para a página **Descrição geral**
+> > - Para encontrar os valores do *ID da Aplicação*, o *ID de Diretório (inquilino)* , e os *Tipos de conta suportados*, vá para a página **Descrição geral**
+> > - Verifique se o valor `redirectUri` de no **Web. config** corresponde ao **URI** de redirecionamento definido para o registro do aplicativo no Azure AD (caso contrário, navegue até o menu de **autenticação** para o registro do aplicativo e atualize o URI de redirecionamentopara corresponder)
 
 ## <a name="more-information"></a>Mais informações
 

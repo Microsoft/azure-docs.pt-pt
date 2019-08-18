@@ -11,16 +11,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 58f5cfd3718720cafc922bbd7b974a353e0d9d02
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 47de61db96b0f8f9b338f135d4f32eecc4a64efe
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722788"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562937"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Criar uma função disparada por HTTP no Azure
-
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 Este artigo mostra como usar as ferramentas de linha de comando para criar um projeto Python que é executado no Azure Functions. A função que você cria é disparada por solicitações HTTP. Por fim, você publica seu projeto para executar como uma [função sem servidor](functions-scale.md#consumption-plan) no Azure.
 
@@ -40,9 +38,9 @@ Antes de começar, você deve ter o seguinte:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-and-activate-a-virtual-environment"></a>Criar e ativar um ambiente virtual
+## <a name="create-and-activate-a-virtual-environment-optional"></a>Criar e ativar um ambiente virtual (opcional)
 
-Para desenvolver e testar localmente funções Python, você deve trabalhar em um ambiente Python 3,6. Execute os seguintes comandos para criar e ativar um ambiente virtual com o nome `.venv`.
+Para desenvolver e testar localmente funções Python, é recomendável usar um ambiente Python 3,6. Execute os seguintes comandos para criar e ativar um ambiente virtual com o nome `.venv`.
 
 ### <a name="bash"></a>Raso
 
@@ -165,15 +163,19 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 --consumption-plan-location westeurope  --runtime python \
 --name <APP_NAME> --storage-account  <STORAGE_NAME>
 ```
-
 > [!NOTE]
-> Azure Functions, o plano de consumo para Linux está atualmente em visualização e disponível somente nas seguintes regiões: Oeste dos EUA, leste dos EUA, Europa Ocidental, Ásia Oriental. Além disso, os aplicativos do Linux e do Windows não podem ser hospedados no mesmo grupo de recursos. Se você tiver um grupo de recursos existente `myResourceGroup` chamado com um aplicativo de funções do Windows ou aplicativo Web, deverá usar um grupo de recursos diferente.
+> Os aplicativos do Linux e do Windows não podem ser hospedados no mesmo grupo de recursos. Se você tiver um grupo de recursos existente `myResourceGroup` chamado com um aplicativo de funções do Windows ou aplicativo Web, deverá usar um grupo de recursos diferente.
+
+Esse comando também provisionará uma instância do Aplicativo Azure insights associada no mesmo grupo de recursos que pode ser usada para monitorar e exibir logs.
 
 Agora você está pronto para publicar seu projeto do Functions local no aplicativo de funções no Azure.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+
+> [!NOTE]
+> Para exibir logs quase em tempo real para um aplicativo Python publicado, é recomendável usar o [Application Insights Live Metrics Stream](functions-monitoring.md#streaming-logs)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
