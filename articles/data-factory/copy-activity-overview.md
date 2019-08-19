@@ -130,7 +130,7 @@ O modelo seguinte de uma atividade de cópia contém uma lista completa de propr
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type de uma atividade de cópia deve ser definida como: **CopiarObjeto** | Sim |
+| type | A propriedade Type de uma atividade de cópia deve ser definida como: **Copy** | Sim |
 | inputs | Especifique o conjunto de dados que criou que aponta para a origem de dados. Atividade de cópia suporta apenas uma única entrada. | Sim |
 | outputs | Especifique o conjunto de dados que criou que aponta para os dados de sink. Atividade de cópia suporta apenas uma única saída. | Sim |
 | typeProperties | Um grupo de propriedades para configurar a atividade de cópia. | Sim |
