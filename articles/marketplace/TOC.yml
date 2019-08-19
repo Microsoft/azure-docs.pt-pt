@@ -471,14 +471,6 @@
                   href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: FAQ - SaaS fulfillment APIs
                   href: ./partner-center-portal/saas-fulfillment-apis-faq.md
-            - name: Registar uma aplicação SaaS
-              href: ./partner-center-portal/pc-saas-registration.md
-            - name: SaaS Fulfillment APIs v2
-              href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
-            - name: SaaS Fulfillment APIs v1 (preterido)
-              href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
-            - name: FAQ - SaaS fulfillment APIs
-              href: ./partner-center-portal/saas-fulfillment-apis-faq.md
         - name: Experimente a Versão de Teste da sua oferta
           href: ./partner-center-portal/test-drive.md
     - name: Estado de publicação
