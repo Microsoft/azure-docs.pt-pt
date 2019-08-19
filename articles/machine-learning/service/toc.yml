@@ -213,29 +213,29 @@
         - name: Onde e como implementar
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
-        - name: VMs de Blocos de Notas
-          href: how-to-deploy-local-container-notebook-vm.md
-        - name: Azure Container Instances
-          displayName: aci
-          href: how-to-deploy-azure-container-instance.md
-        - name: Azure Kubernetes Service
+        - name: Implementar no Azure Kubernetes Service
           displayName: 'aks, aad, authentication, azure active directory'
           href: how-to-deploy-azure-kubernetes-service.md
-        - name: Inferência de GPU
+        - name: Implementar para inferência de GPU
           href: how-to-deploy-inferencing-gpus.md
-        - name: Inferência de FPGA
-          href: how-to-deploy-fpga-web-service.md
-        - name: IoT Edge
-          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
-        - name: Serviço de Aplicações do Azure
+        - name: Implementar no Serviço de Aplicações do Azure
           displayName: web app
           href: how-to-deploy-app-service.md
-        - name: Imagem Personalizada do Docker
+        - name: Implementar no Azure Container Instances
+          displayName: aci
+          href: how-to-deploy-azure-container-instance.md
+        - name: Implementar nas VMs de Bloco de Notas
+          href: how-to-deploy-local-container-notebook-vm.md
+        - name: Utilizar uma imagem personalizada do Docker
           href: how-to-deploy-custom-docker-image.md
         - name: Implementar modelos existentes
           displayName: publish existing model
           href: how-to-deploy-existing-model.md
-        - name: Resolução de Problemas e Depuração
+        - name: Implementar para o IoT Edge
+          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: Implementar para inferência de FPGAs
+          href: how-to-deploy-fpga-web-service.md
+        - name: Resolver problemas e depurar implementações
           href: how-to-troubleshoot-deployment.md
     - name: Consumir os serviços web
       items:

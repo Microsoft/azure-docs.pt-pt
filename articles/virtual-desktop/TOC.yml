@@ -32,6 +32,8 @@
       href: create-host-pools-arm-template.md
     - name: Criar um conjunto de anfitriões com o PowerShell
       href: create-host-pools-powershell.md
+    - name: Aplicar a licença do Windows a anfitriões de sessões do Windows Virtual Desktop
+      href: apply-windows-license.md
     - name: Configurar uma partilha do perfil de utilizador para um conjunto de anfitriões
       href: create-host-pools-user-profile.md
     - name: Configurar o método de balanceamento de carga do Windows Virtual Desktop
@@ -48,6 +50,8 @@
       href: customize-feed-for-virtual-desktop-users.md
     - name: Personalizar as Propriedades RDP
       href: customize-rdp-properties.md
+    - name: Implementar a ferramenta de diagnóstico
+      href: deploy-diagnostics.md
 - name: Conceitos
   items:
     - name: Ambiente do Windows Virtual Desktop

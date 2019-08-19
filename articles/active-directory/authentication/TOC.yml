@@ -25,7 +25,7 @@
       href: concept-authentication-methods.md
     - name: Autenticação sem palavra-passe
       href: concept-authentication-passwordless.md
-    - name: Registo combinado
+    - name: Registo de informações de segurança
       href: concept-registration-mfa-sspr-combined.md
     - name: Reposição de palavras-passe
       items:
@@ -103,7 +103,7 @@
               href: howto-mfa-nps-extension-rdg.md
             - name: VPN
               href: howto-mfa-nps-extension-vpn.md
-    - name: Registo combinado
+    - name: Registo de informações de segurança
       items:
         - name: Permitir o registo combinado
           href: howto-registration-mfa-sspr-combined.md

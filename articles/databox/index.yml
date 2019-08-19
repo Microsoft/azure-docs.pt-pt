@@ -1,46 +1,127 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentação do Azure Data Box - Transferência Offline
+### YamlMime:Landing
+title: Documentação do Azure Data Box - Transferência offline
+summary: Utilize os dispositivos do Azure Data Box para fazer a transferência de dados offline quando existirem limitações de tempo, rede ou custos. Conforme o tamanho dos dados, escolha entre Data Box Disk, Data Box ou Data Box Heavy.
 metadata:
   title: Documentação do Azure Data Box - Transferência Offline
-  description: 'Utilize os dispositivos do Data Box para transferência de dados offline para o Azure quando existirem limitações de tempo, de rede ou de custos.'
+  description: Utilize os dispositivos do Data Box para fazer a transferência de dados offline para o Azure quando existirem limitações de tempo, rede ou custos.
   services: databox
-  author: alkohli
-  manager: twooley
   ms.service: databox
   ms.subservice: pod
   ms.topic: landing-page
-  ms.date: 07/03/2019
+  ms.collection: collection
+  author: alkohli
   ms.author: alkohli
-abstract:
-  description: 'A família Azure Data Box permite-lhe transferir centenas de terabytes de dados para o Azure de forma rápida, económica e fiável. Utilize os dispositivos do Data Box para transferência de dados offline quando existirem limitações de tempo, de rede ou de custos.<p>Conforme o tamanho dos dados, escolha entre Data Box Disk, Data Box ou Data Box Heavy. Para cada dispositivo, a transferência para o Azure ocorre em 4 passos simples – pedido, receção, cópia dos dados para o dispositivo e devolução do dispositivo de para o Azure. No centro de dados do Azure, os dados são carregados e, em seguida, apagados.</p><p>Saiba como tirar partido do Data Box para a transferência de dados offline com os nossos guias de início rápido e tutoriais.</p>'
-sections:
-  - title: Início Rápido
-    items:
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
-            text: Configurar o Data Box no portal do Azure
-            href: /azure/databox/data-box-quickstart-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
-            text: Configurar o Data Box Disk no portal do Azure
-            href: /azure/databox/data-box-disk-quickstart-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
-            text: Configurar o Data Box Heavy no portal do Azure
-            href: /azure/databox/data-box-heavy-quickstart-portal
-  - title: Tutoriais
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Para o Data Box
-            html: <p><a href="/azure/databox/data-box-deploy-ordered">Encomendar o Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-set-up">Instalar e ligar os cabos do Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">Copiar dados para o Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">Devolver o Azure Data Box e verificar o carregamento</a></p>
-          - title: Para o Data Box Disk
-            html: '<p><a href="/azure/databox/data-box-disk-deploy-ordered">Encomendar o Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">Desembalar, ligar e bloquear o Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">Copiar dados para o Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">Devolver o Azure Data Box Disk e verificar o carregamento</a></p>'
-          - title: Para Data Box Heavy
-            html: <p><a href="/azure/databox/data-box-heavy-deploy-ordered">Pedir Azure Data Box Heavy</a></p><p><a href="/azure/databox/data-box-heavy-deploy-set-up">Instalar e ligar o Azure Data Box Heavy</a></p><p><a href="/azure/databox/data-box-heavy-deploy-copy-data">Copiar dados para o Azure Data Box Heavy</a></p><p><a href="/azure/databox/data-box-heavy-deploy-picked-up">Devolver o Azure Data Box Heavy e verificar o carregamento</a></p>
+  ms.date: 08/14/2019
+  ms.openlocfilehash: 03de9ceffe4495b1c3a39dad6617cc72d022fbbd
+  ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 08/16/2019
+  ms.locfileid: "69557830"
+landingContent:
+- title: Acerca da família do Data Box
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Data Box?
+      url: data-box-overview.md
+    - text: O que é o Disco do Data Box?
+      url: data-box-disk-overview.md
+    - text: O que é o Data Box Heavy?
+      url: data-box-heavy-overview.md
+  - linkListType: architecture
+    links:
+    - text: Escolher as opções de transferência de dados do Azure
+      url: /azure/storage/common/storage-choose-data-transfer-solution
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Configurar o Data Box
+      url: data-box-quickstart-portal.md
+    - text: Configurar o Data Box Disk
+      url: data-box-disk-quickstart-portal.md
+    - text: Configurar o Data Box Heavy
+      url: data-box-heavy-quickstart-portal.md
+  - linkListType: learn
+    links:
+    - text: Importar dados offline com o Data Box
+      url: https://docs.microsoft.com/learn/modules/move-data-with-azure-data-box/
+- title: Ver requisitos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Para o Data Box
+      url: data-box-system-requirements.md
+    - text: Para o Armazenamento de blobs do Data Box
+      url: data-box-system-requirements-rest.md
+    - text: Para o Data Box Disk
+      url: data-box-disk-system-requirements.md
+    - text: Para Data Box Heavy
+      url: data-box-heavy-system-requirements.md
+- title: Implementar o Data Box
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Encomenda
+      url: data-box-deploy-ordered.md
+    - text: Instalar os cabos
+      url: data-box-deploy-set-up.md
+    - text: Ligar e copiar dados através de SMB
+      url: data-box-deploy-copy-data.md
+    - text: Devolver, carregar e verificar dados do Azure
+      url: data-box-deploy-picked-up.md
+- title: Implementar o Data Box Disk
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Encomenda
+      url: data-box-disk-deploy-ordered.md
+    - text: Desbloquear e ligar
+      url: data-box-disk-deploy-set-up.md
+    - text: Copiar e validar dados
+      url: data-box-disk-deploy-copy-data.md
+    - text: Devolver, carregar e verificar dados do Azure
+      url: data-box-disk-deploy-picked-up.md
+- title: Implementar o Data Box Heavy
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Encomenda
+      url: data-box-heavy-deploy-ordered.md
+    - text: Instalar os cabos
+      url: data-box-heavy-deploy-set-up.md
+    - text: Ligar e copiar dados através de SMB
+      url: data-box-heavy-deploy-copy-data.md
+    - text: Devolver, carregar e verificar dados do Azure
+      url: data-box-heavy-deploy-picked-up.md
+- title: Gerir dispositivo
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Data Box e Data Box Heavy no Azure
+      url: data-box-portal-admin.md
+    - text: Data Box e Data Box Heavy através da IU local
+      url: data-box-local-web-ui-admin.md
+    - text: Data Box Disk no Azure
+      url: data-box-portal-ui-admin.md
+- title: FAQs
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: FAQ - Data Box
+      url: data-box-faq.md
+    - text: FAQ - Data Box Disk
+      url: data-box-disk-faq.md
+- title: Resolução de problemas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Data Box e Data Box Heavy
+      url: data-box-troubleshoot.md
+    - text: Armazenamento de blobs do Data Box
+      url: data-box-troubleshoot-rest.md
+    - text: Data Box Disk
+      url: data-box-disk-troubleshoot.md
+    - text: Abrir Pedido de suporte
+      url: data-box-disk-contact-microsoft-support.md

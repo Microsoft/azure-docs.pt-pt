@@ -116,6 +116,8 @@
         - name: Eliminar um cluster do AKS
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
+        - name: Criar um ACR com um cluster do AKS (pré-visualização)
+          href: cluster-container-registry-integration.md
         - name: Criar nós virtuais
           items:
             - name: Utilizar a CLI do Azure

@@ -53,11 +53,9 @@
   items:
     - name: Funções com Aplicações Lógicas
       href: functions-twitter-email.md
-    - name: Criar uma API sem servidor
-      href: functions-create-serverless-api.md
     - name: Criar funções Python com programação VS
       href: tutorial-vs-code-serverless-python.md
-    - name: Criar uma definição de OpenAPI
+    - name: Definição de OpenAPI para APIs sem servidor
       href: functions-openapi-definition.md
     - name: Ligar a uma Rede Virtual
       href: functions-create-vnet.md
@@ -236,12 +234,10 @@
           href: functions-api-definition-getting-started.md
         - name: Exportar para as PowerApps e Microsoft Flow
           href: app-service-export-api-to-powerapps-and-flow.md
-        - name: Chamar uma função a partir do PowerApps
-          href: functions-powerapps-scenario.md
-        - name: Chamar uma função a partir do Microsoft Flow
-          href: functions-flow-scenario.md
         - name: Utilizar uma identidade gerida
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Personalizar o ponto final da função HTTP
+          href: functions-create-serverless-api.md
     - name: Resolução de problemas
       items:
         - name: Resolução de problemas de armazenamento
