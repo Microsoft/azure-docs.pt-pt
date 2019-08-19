@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 5e38684500520d4565835456b94200aea399c938
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 828bc3784a118a81adc4391b1bf222c00ee2025a
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814112"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543015"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos de autoatendimento para reservas do Azure
 
@@ -60,11 +60,6 @@ A nota fiscal original é cancelada e uma nova nota fiscal é criada. O dinheiro
 
 O Azure tem as seguintes políticas para cancelamentos, trocas e reembolsos.
 
-**Políticas de cancelamento**
-
-- Se você cancelar uma reserva, poderá haver uma taxa de rescisão de 12% no início.
-- O reembolso que você recebe para um cancelamento é o saldo proporcional restante menos a taxa de rescisão inicial de 12%. Para cancelar, vá para a reserva no portal do Azure e selecione **reembolso**.
-
 **Políticas do Exchange**
 
 - Você pode retornar várias reservas existentes para comprar uma nova reserva do mesmo tipo. Não é possível trocar reservas de um tipo para outro. Por exemplo, você não pode retornar uma reserva de VM para comprar uma reserva SQL.
@@ -77,10 +72,12 @@ O Azure tem as seguintes políticas para cancelamentos, trocas e reembolsos.
 - Não há nenhuma penalidade ou limites anuais para trocas.
 
 **Políticas de reembolso**
+- Se você cancelar uma reserva, poderá haver uma taxa de rescisão de 12% no início.
+- O reembolso que você recebe para um cancelamento é o saldo proporcional restante menos a taxa de rescisão inicial de 12%. Para cancelar, vá para a reserva no portal do Azure e selecione **reembolso**.
 - O valor total de reembolso não pode exceder $50000 USD em uma janela sem interrupção de 12 meses.
 - Os reembolsos são calculados com base no preço mais baixo de seu preço de compra ou no preço atual da reserva.
 - Somente proprietários de reserva podem processar um reembolso. [Saiba como adicionar ou alterar usuários que podem gerenciar uma reserva](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- A Microsoft se reserva o direito de cobrar uma penalidade de 12% por qualquer retorno, embora a penalidade não seja cobrada no momento.
+- A Microsoft se reserva o direito de cobrar uma penalidade de 12% para qualquer retorno. A penalidade não é cobrada no momento, mas será cobrada no futuro.
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Armazenamento não Premium do Exchange para armazenamento Premium
 
@@ -90,7 +87,7 @@ Você pode trocar uma reserva adquirida para um tamanho de VM que não dá supor
 
 Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber como gerenciar uma reserva, consulte [gerenciar reservas do Azure](billing-manage-reserved-vm-instance.md).
 - Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:

@@ -8,14 +8,14 @@ editor: tysonn
 ms.service: azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 08/02/2019
+ms.date: 08/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 3644b40311c037df800eb89ca26d1285fbf1e082
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: f8d763f8bb228a0d4d83a3776f818d59939b942d
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741512"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69559075"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Azure Monitor de perguntas frequentes sobre contêineres
 
@@ -33,7 +33,7 @@ Se não for possível ver dados no espaço de trabalho Log Analytics em um deter
 
 A tabela ContainerInventory contém informações sobre contêineres interrompidos e em execução. A tabela é populada por um fluxo de trabalho dentro do agente que consulta o Docker para todos os contêineres (em execução e parado) e encaminha esses dados para o espaço de trabalho Log Analytics.
  
-## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>Como fazer resolver erro de **registro de assinatura ausente** ?
+## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>Como fazer resolver erro de *registro de assinatura ausente* ?
 
 Se você receber o erro **registro de assinatura ausente para Microsoft. OperationsManagement**, você poderá resolvê-lo registrando o provedor de recursos **Microsoft. OperationsManagement** na assinatura em que o espaço de trabalho está definido. A documentação sobre como fazer isso pode ser encontrada [aqui](../../azure-resource-manager/resource-manager-register-provider-errors.md).
 
@@ -86,7 +86,10 @@ Se, depois de habilitar Azure Monitor para contêineres para um cluster AKS, voc
 - *. oms.opinsights.azure.com 443
 - *.blob.core.windows.net      443
 - dc.services.visualstudio.com 443
+- *. microsoftonline.com 443
+- *. monitoring.azure.com 443
+- login.microsoftonline.com 443
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a monitorizar o seu cluster do AKS, reveja [como para integrar o Azure Monitor para contentores](container-insights-onboard.md) para compreender os requisitos e os métodos disponíveis para ativar a monitorização. 

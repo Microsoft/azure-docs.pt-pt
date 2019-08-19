@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: 77f04b9688be2a7b7343bac05b24a3fcd4e0fcde
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: b869841818e49ced0c2ef1f3d06b44871da504ac
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019690"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542598"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros MSP de rede do Azure
 
@@ -49,6 +49,8 @@ Use os links nesta seção para obter mais informações sobre os serviços de r
 [Serviços de nuvem Oncore]( https://www.oncore.cloud/services/ue-for-expressroute/)
 
 [Tata Communications](https://www.tatacommunications.com/)
+
+[Vandis](https://www.vandis.com/)
 
 ## <a name="expressroute"></a>Parceiros do ExpressRoute
 

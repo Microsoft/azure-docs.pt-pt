@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 8d6cc131c0c2baf7cc0a6600946870615d99e030
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: a6fa08596f5778b2c188fe3402801cf487b32ae4
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839797"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966992"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade HTTP usando Azure Data Factory
 
@@ -46,6 +46,10 @@ Você pode usar este conector HTTP para:
 > [!TIP]
 > Para testar uma solicitação HTTP para recuperação de dados antes de configurar o conector HTTP no Data Factory, saiba mais sobre a especificação de API para requisitos de cabeçalho e corpo. Você pode usar ferramentas como o postmaster ou um navegador da Web para validar.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -62,7 +66,7 @@ As propriedades a seguir têm suporte para o serviço vinculado de HTTP:
 | url | A URL base para o servidor Web. | Sim |
 | enableServerCertificateValidation | Especifique se a validação de certificado SSL do servidor deve ser habilitada quando você se conectar a um ponto de extremidade HTTP. Se o servidor HTTPS usar um certificado autoassinado, defina essa propriedade como **false**. | Não<br /> (o padrão é **true**) |
 | authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anonymous**, **Basic**, **Digest**, **Windows**e **ClientCertificate**. <br><br> Consulte as seções que seguem esta tabela para obter mais propriedades e exemplos de JSON para esses tipos de autenticação. | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a utilizar para ligar ao arquivo de dados. Você pode usar o Azure Integration Runtime ou um Integration Runtime de hospedagem interna (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, essa propriedade usará o Azure Integration Runtime padrão. |Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a utilizar para ligar ao arquivo de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, é utilizada a predefinição de Runtime de integração do Azure. |Não |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Usando a autenticação básica, Digest ou Windows
 
@@ -71,7 +75,7 @@ Defina a propriedade **authenticationType** como **Basic**, **Digest**ou **Windo
 | Propriedade | Descrição | Requerido |
 |:--- |:--- |:--- |
 | userName | O nome de usuário a ser usado para acessar o ponto de extremidade HTTP. | Sim |
-| password | A senha do usuário (o valor de **nome de usuário** ). Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| password | A palavra-passe para o utilizador (o **userName** valor). Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 
 **Exemplo**
 

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 21b7c4e17d976a0a4099a926823f51eab1dba98d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 80adc98255cfc9145d583ac775bbc490d599234e
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879066"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976835"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Conceitos de desenvolvedor do catálogo de dados do Azure
 O **Catálogo de dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que fornece recursos para a descoberta de fonte de dados e para os metadados de fonte de dados crowdsourcing. Os desenvolvedores podem usar o serviço por meio de suas APIs REST. Entender os conceitos implementados no serviço é importante para os desenvolvedores se integrarem com êxito ao **Catálogo de dados do Azure**.
@@ -19,7 +19,7 @@ O **Catálogo de dados do Microsoft Azure** é um serviço de nuvem totalmente g
 ## <a name="key-concepts"></a>Conceitos-chave
 O modelo conceitual do **Catálogo de dados do Azure** baseia-se em quatro conceitos principais: O **Catálogo**, **os usuários, os** **ativos**e as **anotações**.
 
-![Conceitos do catálogo de dados](./media/data-catalog-developer-concepts/concept2.png)
+![Ilustração do modelo conceitual do catálogo de dados do Azure](./media/data-catalog-developer-concepts/concept2.png)
 
 *Figura 1-modelo conceitual simplificado do catálogo de dados do Azure*
 
@@ -139,13 +139,13 @@ Os tipos de anotação representam tipos de metadados que podem ser atribuídos 
 <tr><td></td><td>pré-visualização</td><td>object[]</td><td>Matriz de objetos que representam uma coluna.  Cada objeto tem um mapeamento de propriedade para uma coluna com um valor para essa coluna para a linha.</td></tr>
 
 <tr><td>AccessInstruction ("accessInstructions")</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>MIME</td><td>cadeia</td><td>O tipo MIME do conteúdo.</td></tr>
+<tr><td></td><td>MIME</td><td>Cadeia de caracteres</td><td>O tipo MIME do conteúdo.</td></tr>
 <tr><td></td><td>conteúdo</td><td>Cadeia de caracteres</td><td>As instruções sobre como obter acesso a esse ativo de dados. O conteúdo pode ser uma URL, um endereço de email ou um conjunto de instruções.</td></tr>
 
 <tr><td>TableDataProfile ("tableDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>numberOfRows</td></td><td>int</td><td>O número de linhas no conjunto de dados</td></tr>
 <tr><td></td><td>size</td><td>long</td><td>O tamanho em bytes do conjunto de dados.  </td></tr>
-<tr><td></td><td>schemaModifiedTime</td><td>cadeia</td><td>A última vez em que o esquema foi modificado</td></tr>
+<tr><td></td><td>schemaModifiedTime</td><td>Cadeia de caracteres</td><td>A última vez em que o esquema foi modificado</td></tr>
 <tr><td></td><td>dataModifiedTime</td><td>Cadeia de caracteres</td><td>A última vez em que o conjunto de dados foi modificado (dados foram adicionados, modificados ou excluídos)</td></tr>
 
 <tr><td>ColumnsDataProfile ("columnsDataProfiles")</td><td></td><td></td><td></td></tr>
@@ -156,7 +156,7 @@ Os tipos de anotação representam tipos de metadados que podem ser atribuídos 
 <tr><td></td><td>Classificação</td><td>Cadeia</td><td>A classificação dos dados nesta coluna.</td></tr>
 
 <tr><td>Documentação ("documentação")</td><td></td><td></td><td>Um determinado ativo pode ter apenas uma documentação associada a ele.</td></tr>
-<tr><td></td><td>MIME</td><td>cadeia</td><td>O tipo MIME do conteúdo.</td></tr>
+<tr><td></td><td>MIME</td><td>Cadeia de caracteres</td><td>O tipo MIME do conteúdo.</td></tr>
 <tr><td></td><td>conteúdo</td><td>Cadeia de caracteres</td><td>O conteúdo da documentação.</td></tr>
 
 </table>
@@ -167,13 +167,13 @@ Tipos comuns podem ser usados como os tipos de propriedades, mas não são itens
 <table>
 <tr><td><b>Tipo comum</b></td><td><b>Properties</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr>
 <tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>sourceType</td><td>cadeia</td><td>Descreve o tipo de fonte de dados.  Por exemplo: SQL Server, Oracle Database, etc.  </td></tr>
-<tr><td></td><td>objectType</td><td>cadeia</td><td>Descreve o tipo de objeto na fonte de dados. Por exemplo: Tabela, exibição para SQL Server.</td></tr>
+<tr><td></td><td>sourceType</td><td>Cadeia de caracteres</td><td>Descreve o tipo de fonte de dados.  Por exemplo: SQL Server, Oracle Database, etc.  </td></tr>
+<tr><td></td><td>objectType</td><td>Cadeia de caracteres</td><td>Descreve o tipo de objeto na fonte de dados. Por exemplo: Tabela, exibição para SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>protocol</td><td>Cadeia de caracteres</td><td>Necessário. Descreve um protocolo usado para se comunicar com a fonte de dados. Por exemplo: "TDS" para SQl Server, "Oracle" para Oracle, etc. Consulte <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">especificação de referência da fonte de dados – estrutura de DSL</a> para obter a lista de protocolos com suporte no momento.</td></tr>
 <tr><td></td><td>endereço</td><td>Cadeia&lt;de caracteres do dicionário, objeto&gt;</td><td>Necessário. Address é um conjunto de dados específicos para o protocolo que é usado para identificar a fonte de dados que está sendo referenciada. Os dados de endereço com escopo para um protocolo específico, o que significa que ele é inútil sem saber o protocolo.</td></tr>
-<tr><td></td><td>autenticação</td><td>cadeia</td><td>Opcional. O esquema de autenticação usado para se comunicar com a fonte de dados. Por exemplo: Windows, OAuth, etc.</td></tr>
+<tr><td></td><td>autenticação</td><td>Cadeia de caracteres</td><td>Opcional. O esquema de autenticação usado para se comunicar com a fonte de dados. Por exemplo: Windows, OAuth, etc.</td></tr>
 <tr><td></td><td>connectionProperties</td><td>Cadeia&lt;de caracteres do dicionário, objeto&gt;</td><td>Opcional. Informações adicionais sobre como se conectar a uma fonte de dados.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>O back-end não executa nenhuma validação das propriedades fornecidas no AAD durante a publicação.</td></tr>
@@ -183,8 +183,8 @@ Tipos comuns podem ser usados como os tipos de propriedades, mas não são itens
 <tr><td></td><td>lastName</td><td>Cadeia de caracteres</td><td>Último nome do usuário (para fins de exibição). Opcional. Válido somente no contexto da propriedade "lastRegisteredBy". Não pode ser especificado ao fornecer a entidade de segurança para "funções", "permissões" e "especialistas".</td></tr>
 
 <tr><td>Coluna</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>name</td><td>cadeia</td><td>Nome da coluna ou do atributo.</td></tr>
-<tr><td></td><td>type</td><td>cadeia</td><td>tipo de dados da coluna ou do atributo. Os tipos permitidos dependem do sourceType de dados do ativo.  Há suporte apenas para um subconjunto de tipos.</td></tr>
+<tr><td></td><td>name</td><td>Cadeia de caracteres</td><td>Nome da coluna ou do atributo.</td></tr>
+<tr><td></td><td>type</td><td>Cadeia de caracteres</td><td>tipo de dados da coluna ou do atributo. Os tipos permitidos dependem do sourceType de dados do ativo.  Há suporte apenas para um subconjunto de tipos.</td></tr>
 <tr><td></td><td>maxLength</td><td>int</td><td>O comprimento máximo permitido para a coluna ou o atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de origem.</td></tr>
 <tr><td></td><td>precisão</td><td>byte</td><td>A precisão da coluna ou do atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de origem.</td></tr>
 <tr><td></td><td>isNullable</td><td>Booleano</td><td>Se a coluna tem permissão para ter um valor nulo ou não. Derivado da fonte de dados. Aplicável somente a alguns tipos de origem.</td></tr>
@@ -193,7 +193,7 @@ Tipos comuns podem ser usados como os tipos de propriedades, mas não são itens
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columnName </td><td>Cadeia de caracteres</td><td>O nome da coluna</td></tr>
 <tr><td></td><td>type </td><td>Cadeia de caracteres</td><td>O tipo da coluna</td></tr>
-<tr><td></td><td>mín. </td><td>cadeia</td><td>O valor mínimo no conjunto de dados</td></tr>
+<tr><td></td><td>mín. </td><td>Cadeia de caracteres</td><td>O valor mínimo no conjunto de dados</td></tr>
 <tr><td></td><td>máx. </td><td>Cadeia de caracteres</td><td>O valor máximo no conjunto de dados</td></tr>
 <tr><td></td><td>média </td><td>double</td><td>O valor médio no conjunto de dados</td></tr>
 <tr><td></td><td>STDEV </td><td>double</td><td>O desvio padrão para o conjunto de dados</td></tr>

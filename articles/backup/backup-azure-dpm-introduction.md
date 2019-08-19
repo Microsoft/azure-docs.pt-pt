@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0c762054ed0df3a3781dda7057ff8793dbf82565
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 71070a778e54e51cdb528041f746489bb64e979c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689308"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954716"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar para fazer backup de cargas de trabalho no Azure com o System Center DPM
 
@@ -97,7 +97,7 @@ Para obter as credenciais, baixe o arquivo de credencial do cofre por meio de um
 - É sua responsabilidade garantir que o arquivo de credenciais do cofre seja seguro e não seja comprometido.
     - Se o controle das credenciais for perdido, as credenciais do cofre poderão ser usadas para registrar outros computadores no cofre.
     - No entanto, os dados de backup são criptografados usando uma frase secreta que pertence ao cliente, portanto, os dados de backup existentes não podem ser comprometidos.
-- Verifique se o arquivo foi salvo em um local que pode ser acessado pelo servidor DPM. Se ele estiver armazenado em um compartilhamento de arquivos/SMB, verifique as permissões de acesso.
+- Certifique-se de que o arquivo seja salvo em um local que possa ser acessado pelo servidor DPM. Se ele estiver armazenado em um compartilhamento de arquivos/SMB, verifique as permissões de acesso.
 - As credenciais do cofre expiram após 48 h. Você pode baixar novas credenciais do cofre quantas vezes forem necessárias. No entanto, somente o arquivo de credencial mais recente do cofre pode ser usado durante o fluxo de trabalho de registro.
 - O serviço de backup do Azure não reconhece a chave privada do certificado e a chave privada não está disponível no portal ou no serviço.
 

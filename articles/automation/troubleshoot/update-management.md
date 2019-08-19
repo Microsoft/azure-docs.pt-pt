@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 884ded67c25aca78225baef2d7e4c5de1cc94fd0
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: c6a76f4188ecbf6ca778fdbcd23ac9fed2f60dde
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782278"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534657"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solucionando problemas com Gerenciamento de Atualizações
 
@@ -22,6 +22,42 @@ Este artigo aborda soluções para resolver problemas que você pode encontrar a
 Há um solucionador de problemas de agente para Hybrid Worker Agent para determinar o problema subjacente. Para saber mais sobre a solução de problemas, consulte [solucionar problemas do agente de atualização](update-agent-issues.md). Para todos os outros problemas, consulte as informações detalhadas abaixo sobre possíveis problemas.
 
 ## <a name="general"></a>Geral
+
+### <a name="rp-register"></a>Cenário Não é possível registrar o provedor de recursos de automação para assinaturas
+
+#### <a name="issue"></a>Problema
+
+Você pode receber o seguinte erro ao trabalhar com soluções em sua conta de automação.
+
+```error
+Error details: Unable to register Automation Resource Provider for subscriptions:
+```
+
+#### <a name="cause"></a>Causa
+
+O provedor de recursos de automação não está registrado na assinatura.
+
+#### <a name="resolution"></a>Resolução
+
+Você pode registrar os provedores de recursos de automação concluindo as seguintes etapas no portal do Azure:
+
+1. Clique em **todos os serviços** na lista inferior de serviços do Azure e, em seguida, selecione **assinaturas** no grupo de serviços _geral_ .
+2. Selecione a sua subscrição.
+3. Clique em **provedores de recursos** em _configurações_.
+4. Na lista de provedores de recursos, verifique se o provedor de recursos **Microsoft. Automation** está registrado.
+5. Se o provedor não estiver listado, registre o provedor **Microsoft. Automation** com as etapas listadas [ ](/azure/azure-resource-manager/resource-manager-register-provider-errors)em.
+
+### <a name="mw-exceeded"></a>Cenário Falha no agendamento do gerenciamento de atualizações com o erro MaintenanceWindowExceeded
+
+#### <a name="issue"></a>Problema
+
+A janela de manutenção padrão para atualizações é de 120 minutos. Você pode aumentar a janela de manutenção para um máximo de seis (6) horas ou 360 minutos.
+
+#### <a name="resolution"></a>Resolução
+
+Edite todas as implantações de atualização agendadas com falha e aumente a janela de manutenção.
+
+Para obter mais informações sobre janelas de manutenção, consulte [instalar atualizações](../automation-update-management.md#install-updates).
 
 ### <a name="components-enabled-not-working"></a>Cenário Os componentes da solução ' Gerenciamento de Atualizações ' foram habilitados e agora esta máquina virtual está sendo configurada
 
@@ -298,7 +334,31 @@ Se você não puder resolver um problema de aplicação de patch, faça uma cóp
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
 ```
 
-### <a name="other"></a>Cenário Meu problema não está listado acima
+## <a name="patches-are-not-installed"></a>Os patches não estão instalados
+
+### <a name="machines-do-not-install-updates"></a>Os computadores não instalam atualizações
+
+* Experimente executar as atualizações diretamente na máquina. Se a máquina não se conseguir atualizar, veja a [lista de potenciais erros no guia de resolução de problemas](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
+* Se as atualizações forem executadas localmente, experimente remover e reinstalar o agente na máquina com as instruções em ["Remove a VM from Update Management"](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-for-update-management) (“Remover VMs da Gestão de Atualizações”).
+
+### <a name="i-know-updates-are-available-but-they-dont-show-as-needed-on-my-machines"></a>Sei que as atualizações estão disponíveis, mas elas não são mostradas conforme necessário em meus computadores
+
+* Isto acontece muitas vezes se as máquinas estiverem configuradas para obterem as atualizações a partir do WSUS/SCCM, mas o WSUS/SCCM não aprovou as atualizações.
+* Para verificar se as máquinas estão configuradas para o WSUS/SCCM, pode [cruzar as referências da chave do registo "UseWUServer" com as chaves do registo na secção "Configurar as Atualizações Automáticas ao Editar o Registo" deste documento](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s)
+
+### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>**As atualizações aparecem como tendo sido instaladas, mas não as encontro na minha máquina**
+
+* Muitas vezes, as atualizações são substituídas por outras. Para obter mais informações, veja ["Update is superseded" ("A atualização foi substituída"), no guia de Resolução de Problemas do Windows Update](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)
+
+### <a name="installing-updates-by-classification-on-linux"></a>**Instalar atualizações por classificação no Linux**
+
+* A implementação de atualizações no Linux por classificação ("atualizações críticas e de segurança") tem limitações importantes, sobretudo para o CentOS. Estas [limitações estão documentadas na página de descrição geral Gestão de Atualizações](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2)
+
+### <a name="kb2267602-is-consistently--missing"></a>**KB2267602 está constantemente em falta**
+
+* KB2267602 é a [atualização de definições do Windows Defender](https://www.microsoft.com/wdsi/definitions). Esta é atualizada diariamente.
+
+## <a name="other"></a>Cenário Meu problema não está listado acima
 
 ### <a name="issue"></a>Problema
 
@@ -319,7 +379,7 @@ Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force
 Restart-Service healthservice
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 08/01/2019
 ms.author: t-meroa
-ms.openlocfilehash: 47c2d772a3428594c84d3fe5e18262b5e5ab86f4
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: acdaaf0bf08644053e86343ae4b002002fee6a84
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951015"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966603"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Referência do SDK do leitor de imersão
 
@@ -102,5 +102,5 @@ O SDK do iOS do leitor de imersão tem suporte para iOS 9,0 ou superior, no iPad
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Explore o [SDK do IOS do leitor de imersão no GitHub](https://github.com/microsoft/immersive-reader-sdk/iOS)
+* Explore o [SDK do IOS do leitor de imersão no GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS)
 * [Quickstart: Criar um aplicativo iOS que inicie o leitor de imersão (Swift)](./ios-quickstart.md)

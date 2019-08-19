@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f0ccf0e480fa57e0ffdfc94ca35cfaceded37a0b
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: cd67f435ff390267e01acd99594b9063db4c4ee1
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663903"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69559100"
 ---
 # <a name="personalizer-settings"></a>Configurações do personalizador
 
@@ -86,6 +86,7 @@ Na seção do gerenciamento de recursos para **modelo e política**, examine a c
 ## <a name="import-and-export-learning-policy"></a>Importar e exportar política de aprendizagem
 
 Na seção do gerenciamento de recursos para **modelo e política**, importe uma nova política de aprendizado ou exporte a política de aprendizado atual.
+Você pode obter arquivos de política de aprendizado de exportações anteriores ou baixar as políticas otimizadas descobertas durante as avaliações offline. Fazer alterações manuais nesses arquivos afetará o desempenho do aprendizado de máquina e a precisão das avaliações offline, e a Microsoft não conseguirá comprovar a precisão do aprendizado e das avaliações de máquina, ou exceções de serviço resultantes de políticas editadas manualmente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

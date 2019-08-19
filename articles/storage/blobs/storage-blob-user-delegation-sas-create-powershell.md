@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 5412b83d8dfe92c6a24e717fb371c8963b808566
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 86b5e4b6bcf65c2174fa3d3743551813ce2f8b1b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990796"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034744"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com o PowerShell (versão prévia)
 
@@ -32,11 +32,6 @@ Para usar o PowerShell para criar uma SAS de delegação de usuário, você deve
 
     - Remova todas as instalações anteriores do Azure PowerShell do Windows usando a configuração **aplicativos & recursos** em **configurações**.
     - Remova todos os módulos do `%Program Files%\WindowsPowerShell\Modules`Azure de.
-    - Como o PowerShell carrega o módulo AZ. Storage mais recente por padrão, talvez seja necessário carregar explicitamente o módulo 1.3.1-Preview ao iniciar o console. Para carregar explicitamente o módulo de visualização, execute o comando [Import-Module](/powershell/module/microsoft.powershell.core/import-module) :
-
-        ```powershell
-        Import-Module Az.Storage -RequiredVersion 1.3.1
-        ```
 
 1. Verifique se você tem a versão mais recente do PowerShellGet instalada. Abra uma janela do Windows PowerShell e execute o seguinte comando para instalar a versão mais recente:
 
@@ -55,10 +50,21 @@ Para usar o PowerShell para criar uma SAS de delegação de usuário, você deve
 1. Instalar um módulo de visualização do armazenamento do Azure que dá suporte à SAS de delegação de usuário:
 
     ```powershell
-    Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.3.1-preview –AllowPrerelease –AllowClobber –Force
+    Install-Module Az.Storage `
+        –Repository PSGallery `
+        -RequiredVersion 1.3.1-preview `
+        –AllowPrerelease `
+        –AllowClobber `
+        –Force
     ```
 
 1. Feche e reabra a janela do PowerShell.
+
+Como o PowerShell carrega o módulo AZ. Storage mais recente por padrão, talvez seja necessário carregar explicitamente o módulo 1.3.1-Preview ao iniciar o console. Para carregar explicitamente o módulo de visualização, execute o comando [Import-Module](/powershell/module/microsoft.powershell.core/import-module) :
+
+```powershell
+Import-Module Az.Storage -RequiredVersion 1.3.1
+```
 
 Para obter mais informações sobre como instalar Azure PowerShell, consulte [instalar Azure PowerShell com PowerShellGet](/powershell/azure/install-az-ps).
 
@@ -142,8 +148,7 @@ New-AzStorageBlobSASToken -Context $ctx `
 O URI de SAS de delegação de usuário retornado será semelhante a:
 
 ```
-https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?sv=2018-11-09&sr=b&sig=4f6QzTteEZmrEMXWn7iEeI27vHrX13zVmL6rk2MbiyA%3D&skoid=e5981635-dcf0-4279-ab7b-ca1cbdf4a5c7&sktid=72f988bf-86f1-41af-91ab
--2d7cd011db47&skt=2019-08-06T21%3A16%3A54Z&ske=2019-08-07T07%3A00%3A00Z&sks=b&skv=2018-11-09&se=2019-08-07T07%3A00%3A00Z&sp=racwd
+https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?sv=2018-11-09&sr=b&sig=<sig>&skoid=<skoid>&sktid=<sktid>&skt=2019-08-06T21%3A16%3A54Z&ske=2019-08-07T07%3A00%3A00Z&sks=b&skv=2018-11-09&se=2019-08-07T07%3A00%3A00Z&sp=racwd
 ```
 
 > [!NOTE]
@@ -160,7 +165,7 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account>
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma SAS de delegação de usuário (API REST)](/rest/api/storageservices/create-a-user-delegation-sas)
 - [Operação de obtenção de chave de delegação de usuário](/rest/api/storageservices/get-user-delegation-key)

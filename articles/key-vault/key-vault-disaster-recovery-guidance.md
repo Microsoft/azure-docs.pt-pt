@@ -1,49 +1,48 @@
 ---
-title: O que fazer em caso de um Azure service interrupção que afeta o Azure Key Vault, Azure Key Vault | Documentos da Microsoft
-description: Saiba o que fazer em caso de interrupção de serviço do Azure que afeta o Azure Key Vault.
+title: O que fazer no caso de uma interrupção de serviço do Azure afetar o Azure Key Vault Azure Key Vault | Microsoft Docs
+description: Saiba o que fazer no caso de uma interrupção de serviço do Azure afetar Azure Key Vault.
 services: key-vault
-author: barclayn
-manager: barbkess
-editor: ''
+author: msmbaldwin
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 05/24/2019
-ms.author: barclayn
-ms.openlocfilehash: dba1fe91a635f467f4a3aeeaa048897065822869
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: tutorial
+ms.date: 08/12/2019
+ms.author: mbaldwin
+ms.openlocfilehash: c0fed80f4ba9815cee49bc9968d542f168570986
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236646"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976375"
 ---
-# <a name="azure-key-vault-availability-and-redundancy"></a>Redundância e disponibilidade de Cofre de chaves do Azure
+# <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilidade e redundância de Azure Key Vault
 
-O Azure Key Vault apresenta várias camadas de redundância para se certificar de que as suas chaves e segredos permanecem disponíveis para a sua aplicação, mesmo se falharam de componentes individuais do serviço.
+O Azure Key Vault apresenta várias camadas de redundância para garantir que suas chaves e segredos permaneçam disponíveis para seu aplicativo, mesmo se os componentes individuais do serviço falharem.
 
-O conteúdo do seu Cofre de chaves é replicado dentro da região e para uma região secundária, pelo menos, 150 quilómetros de distância, mas dentro da mesma geografia. Isso mantém uma elevada durabilidade das chaves e segredos. Consulte a [regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) documento para obter detalhes sobre os pares de região específica.
+O conteúdo do cofre de chaves é replicado dentro da região e para uma região secundária com pelo menos 150 milhas de distância, mas na mesma geografia. Isso mantém a alta durabilidade de suas chaves e segredos. Consulte o documento [regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md) para obter detalhes sobre pares de regiões específicas.
 
-Caso de falham de componentes individuais no serviço Cofre de chaves, componentes alternativos dentro da região entrar para atender sua solicitação para se certificar de que não existe nenhuma degradação de funcionalidade. Não é necessário efetuar qualquer ação para acionar esta. Ele ocorre automaticamente e será transparente para.
+Se os componentes individuais dentro do serviço de cofre de chaves falharem, os componentes alternativos dentro da região entrarão em para atender à sua solicitação para garantir que não haja degradação da funcionalidade. Você não precisa realizar nenhuma ação para disparar isso. Ele ocorre automaticamente e será transparente para você.
 
-No evento raro que toda uma região do Azure não está disponível, os pedidos que fazem do Azure Key Vault nessa região são automaticamente encaminhados (*a ativação pós-falha*) para uma região secundária. Quando a região primária estiver novamente disponível, os pedidos são encaminhados novamente (*realizarão a reativação pós-falha*) para a região primária. Novamente, não é necessário efetuar qualquer ação porque isto ocorre automaticamente.
+No caso raro em que uma região inteira do Azure não esteja disponível, as solicitações que você faz de Azure Key Vault nessa região são automaticamente roteadas (*failover*) para uma região secundária. Quando a região primária estiver disponível novamente, as solicitações serão roteadas de volta (*failback*) para a região primária. Novamente, você não precisa realizar nenhuma ação porque isso ocorre automaticamente.
 
-Através deste design de elevada disponibilidade, o Azure Key Vault requer sem períodos de indisponibilidade para atividades de manutenção.
+Por meio desse design de alta disponibilidade, Azure Key Vault não requer nenhum tempo de inatividade para atividades de manutenção.
 
-Existem algumas limitações a ter em consideração:
+Há algumas limitações a serem consideradas:
 
-* Em caso de uma ativação pós-falha de região, poderá demorar alguns minutos para que o serviço para efetuar a ativação pós-falha. Pedidos que são feitos durante este período poderão falhar até que conclua a ativação pós-falha.
-* Após uma ativação pós-falha estiver concluída, o seu Cofre de chaves está em modo só de leitura. São pedidos que são suportados neste modo:
-  * Cofres de chaves da lista
+* No caso de um failover de região, pode levar alguns minutos para que o serviço faça failover. As solicitações feitas durante esse tempo podem falhar até que o failover seja concluído.
+* Depois que um failover for concluído, o cofre de chaves estará no modo somente leitura. As solicitações com suporte neste modo são:
+  * Listar cofres de chaves
   * Obter propriedades de cofres de chaves
-  * Lista os segredos
+  * Listar segredos
   * Obter segredos
   * Listar chaves
-  * Obter chaves de (propriedades de)
+  * Obter (Propriedades de) chaves
   * Encriptar
   * Desencriptar
-  * Encapsular
-  * Anular a moldagem
-  * Verificar
-  * Início de sessão
-  * Cópia de segurança
-* Após uma ativação pós-falha é realizarão a reativação, todos os tipos de pedido (incluindo leitura *e* pedidos de escrita) estão disponíveis.
+  * Haja
+  * Unwrap
+  * Validar
+  * Assinar
+  * Criar cópia de segurança
+* Após o failback do failover, todos os tipos de solicitação (incluindo solicitações *de leitura e* gravação) estarão disponíveis.
 
