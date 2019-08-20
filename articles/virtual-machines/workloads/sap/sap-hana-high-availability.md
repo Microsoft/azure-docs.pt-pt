@@ -1,6 +1,6 @@
 ---
-title: Elevada disponibilidade do SAP HANA em VMs do Azure no SUSE Linux Enterprise Server | Documentos da Microsoft
-description: Elevada disponibilidade do SAP HANA em VMs do Azure no SUSE Linux Enterprise Server
+title: Alta disponibilidade de SAP HANA em VMs do Azure no SUSE Linux Enterprise Server | Microsoft Docs
+description: Alta disponibilidade de SAP HANA em VMs do Azure no SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
@@ -14,13 +14,13 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 78d14add09a89b7ec4d4844a12ffa0434d714b3a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "67709089"
 ---
-# <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Elevada disponibilidade do SAP HANA em VMs do Azure no SUSE Linux Enterprise Server
+# <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade de SAP HANA em VMs do Azure no SUSE Linux Enterprise Server
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -47,78 +47,78 @@ ms.locfileid: "67709089"
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
 
-Para o desenvolvimento no local, pode utilizar qualquer um dos HANA System Replication ou utilizar o armazenamento partilhado para estabelecer a elevada disponibilidade para SAP HANA.
-Nas máquinas virtuais do Azure (VMs), HANA System Replication no Azure está atualmente que a única função de elevada disponibilidade de suporte. SAP HANA replicação consiste num nó primário e pelo menos um nó secundário. As alterações dos dados no nó principal são replicadas para o nó secundário de forma síncrona ou assíncrona.
+Para o desenvolvimento local, você pode usar a replicação de sistema do HANA ou usar o armazenamento compartilhado para estabelecer alta disponibilidade para SAP HANA.
+Em VMs (máquinas virtuais) do Azure, a replicação de sistema do HANA no Azure é a única função de alta disponibilidade com suporte no momento. SAP HANA replicação consiste em um nó primário e pelo menos um nó secundário. As alterações nos dados no nó primário são replicadas para o nó secundário de forma síncrona ou assíncrona.
 
-Este artigo descreve como implementar e configurar as máquinas virtuais, instalar o framework de cluster e instalar e configurar a replicação de sistema do SAP HANA.
-As configurações de exemplo, comandos de instalação, o número de instâncias **03**e o ID de sistema HANA **HN1** são utilizados.
+Este artigo descreve como implantar e configurar as máquinas virtuais, instalar a estrutura do cluster e instalar e configurar SAP HANA replicação do sistema.
+No exemplo configurações, comandos de instalação, número de instância **03**e **HN1** de ID do sistema Hana são usados.
 
-Leia primeiro o SAP Notes e os documentos seguintes:
+Leia as seguintes notas e documentos SAP primeiro:
 
-* A nota SAP [1928533], que tem:
-  * A lista de tamanhos de VM do Azure que são suportados para a implementação de software da SAP.
-  * Informações de capacidade importante para os tamanhos de VM do Azure.
-  * O software suportado do SAP e sistema operativo (SO) e combinações de base de dados.
-  * A versão de kernel SAP necessária para Windows e Linux no Microsoft Azure.
-* A nota SAP [2015553] lista os pré-requisitos para implementações de software SAP suportadas para SAP no Azure.
-* A nota SAP [2205917] recomendado configurações de SO para o SUSE Linux Enterprise Server para aplicações SAP.
-* A nota SAP [1944799] tem diretrizes do SAP HANA para SUSE Linux Enterprise Server para aplicações SAP.
-* A nota SAP [2178632] tem informações detalhadas sobre todas as métricas de monitorização que são enviadas para o SAP no Azure.
-* A nota SAP [2191498] tem a versão necessária do agente de anfitrião do SAP para o Linux no Azure.
-* A nota SAP [2243692] tem informações sobre o licenciamento de SAP no Linux no Azure.
-* A nota SAP [1984787] tem informações gerais sobre o SUSE Linux Enterprise Server 12.
-* A nota SAP [1999351] tem informações adicionais de resolução de problemas avançada de monitorização a extensão do Azure para SAP.
-* A nota SAP [401162] tem informações sobre como evitar "endereço já está em utilização" ao configurar o HANA System Replication.
-* [WIKI de Comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as notas de SAP necessária para Linux.
-* [SAP HANA certificadas plataformas IaaS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
-* [Máquinas de virtuais de planeamento e implementação para o SAP no Linux do Azure][planning-guide] guia.
-* [Implementação de máquinas virtuais do Azure para SAP no Linux][deployment-guide] (Este artigo).
-* [Implementação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide] guia.
-* [SUSE Linux Enterprise Server para o SAP aplicativos 12 SP3 melhores práticas guias][sles-for-sap-bp]
-  * Configurando um SAP HANA SR desempenho com otimização de infraestrutura (SLES para SAP aplicativos 12 SP1). O guia contém todas as informações necessárias para configurar a replicação do sistema do SAP HANA para desenvolvimento no local. Utilize este guia como uma linha de base.
-  * Configurando um SAP HANA SR custo com otimização de infraestrutura (SLES para SAP aplicativos 12 SP1)
+* Nota SAP [1928533], que tem:
+  * A lista de tamanhos de VM do Azure com suporte para a implantação do software SAP.
+  * Informações de capacidade importantes para tamanhos de VM do Azure.
+  * O software SAP com suporte e as combinações de sistema operacional e banco de dados.
+  * A versão de kernel do SAP necessária para Windows e Linux em Microsoft Azure.
+* Observação do SAP [2015553] lista os pré-requisitos para implantações de software SAP com suporte no SAP no Azure.
+* A observação do SAP [2205917] tem as configurações do sistema operacional recomendadas para SuSE Linux Enterprise Server para aplicativos SAP.
+* O SAP Note [1944799] tem diretrizes SAP HANA para SuSE Linux Enterprise Server para aplicativos SAP.
+* O SAP Note [2178632] tem informações detalhadas sobre todas as métricas de monitoramento que são relatadas para SAP no Azure.
+* A nota SAP [2191498] tem a versão do agente de host do SAP necessária para Linux no Azure.
+* A nota SAP [2243692] tem informações sobre o licenciamento SAP no Linux no Azure.
+* A nota SAP [1984787] tem informações gerais sobre o SuSE Linux Enterprise Server 12.
+* A nota SAP [1999351] tem informações adicionais para solução de problemas para a extensão de monitoramento avançado do Azure para SAP.
+* A observação do SAP [401162] tem informações sobre como evitar "endereço já em uso" ao configurar a replicação do sistema Hana.
+* O [SAP Community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as notas SAP necessárias para o Linux.
+* [SAP HANA plataformas IaaS certificadas](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+* [Planejamento e implementação de máquinas virtuais do Azure para SAP no][planning-guide] guia do Linux.
+* [Implantação de máquinas virtuais do Azure para SAP no Linux][deployment-guide] (este artigo).
+* [Implantação de DBMS de máquinas virtuais do Azure para SAP no][dbms-guide] guia do Linux.
+* [Guias de práticas recomendadas do SUSE Linux Enterprise Server para aplicativos SAP 12 SP3][sles-for-sap-bp]
+  * Configuração de uma infraestrutura otimizada de desempenho do SR SAP HANA (SLES for SAP Applications 12 SP1). O guia contém todas as informações necessárias para configurar a replicação do sistema SAP HANA para o desenvolvimento local. Use este guia como uma linha de base.
+  * Configurando uma infraestrutura de SAP HANA SR-Optimized (SLES for SAP Applications 12 SP1)
 
 ## <a name="overview"></a>Descrição geral
 
-Para assegurar elevada disponibilidade, o SAP HANA está instalado em duas máquinas virtuais. Os dados são replicados através do HANA System Replication.
+Para obter alta disponibilidade, o SAP HANA é instalado em duas máquinas virtuais. Os dados são replicados usando a replicação de sistema do HANA.
 
-![Descrição geral de elevada disponibilidade do SAP HANA](./media/sap-hana-high-availability/ha-suse-hana.png)
+![Visão geral de SAP HANA alta disponibilidade](./media/sap-hana-high-availability/ha-suse-hana.png)
 
-Utiliza a configuração do SAP HANA System Replication endereços um nome de anfitrião virtual dedicado e virtual IP. No Azure, um balanceador de carga é necessário utilizar um endereço IP virtual. A lista seguinte mostra a configuração de Balanceador de carga:
+SAP HANA configuração de replicação do sistema usa um nome de host virtual dedicado e endereços IP virtuais. No Azure, um balanceador de carga é necessário para usar um endereço IP virtual. A lista a seguir mostra a configuração do balanceador de carga:
 
-* Configuração de front-end: Endereço IP 10.0.0.13 para hn1-db
-* Configuração de back-end: Ligado a interfaces de rede primário de todas as máquinas virtuais que devem fazer parte do HANA System Replication
-* Porta de pesquisa: Port 62503
+* Configuração de front-end: Endereço IP 10.0.0.13 para hn1-DB
+* Configuração de back-end: Conectado a interfaces de rede primárias de todas as máquinas virtuais que devem fazer parte da replicação do sistema HANA
+* Porta de investigação: Porta 62503
 * Regras de balanceamento de carga: 30313 TCP, 30315 TCP, 30317 TCP
 
-## <a name="deploy-for-linux"></a>Implementar para Linux
+## <a name="deploy-for-linux"></a>Implantar para Linux
 
-O agente de recursos para o SAP HANA está incluído no SUSE Linux Enterprise Server para aplicações SAP.
-O Azure Marketplace contém uma imagem para o SUSE Linux Enterprise Server para 12 de aplicações SAP que pode utilizar para implementar novas máquinas virtuais.
+O agente de recurso para SAP HANA está incluído no SUSE Linux Enterprise Server para aplicativos SAP.
+O Azure Marketplace contém uma imagem para SUSE Linux Enterprise Server para aplicativos SAP 12 que você pode usar para implantar novas máquinas virtuais.
 
-### <a name="deploy-with-a-template"></a>Implementar com um modelo
+### <a name="deploy-with-a-template"></a>Implantar com um modelo
 
-Pode utilizar um dos modelos de início rápido estão disponíveis no GitHub para implementar todos os recursos necessários. O modelo implementa as máquinas virtuais, o Balanceador de carga, o conjunto de disponibilidade e assim por diante.
-Para implementar o modelo, siga estes passos:
+Você pode usar um dos modelos de início rápido que estão no GitHub para implantar todos os recursos necessários. O modelo implanta as máquinas virtuais, o balanceador de carga, o conjunto de disponibilidade e assim por diante.
+Para implantar o modelo, siga estas etapas:
 
-1. Abra o [modelo de base de dados][template-multisid-db] or the [converged template][template-converged] on the Azure portal. 
-    The database template creates the load-balancing rules for a database only. The converged template also creates the load-balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
+1. Abra o [modelo de banco de dados][template-multisid-db] ou o [modelo convergido][template-converged] no portal do Azure. 
+    O modelo de banco de dados cria as regras de balanceamento de carga somente para um banco de dados. O modelo convergido também cria as regras de balanceamento de carga para uma instância do ASCS/SCS e ERS (somente Linux). Se você planeja instalar um sistema baseado no SAP NetWeaver e deseja instalar a instância do ASCS/SCS nos mesmos computadores, use o [modelo convergido][template-converged].
 
-1. Introduza os seguintes parâmetros:
-    - **ID de sistema de SAP**: Introduza o ID de sistema SAP do sistema SAP que pretende instalar. O ID é utilizado como um prefixo para os recursos que são implementados.
-    - **Tipo de pilha**: (Este parâmetro só é aplicável se utilizar o modelo convergido.) Selecione o tipo de pilha do SAP NetWeaver.
-    - **Tipo de SO**: Selecione uma das distribuições de Linux. Para este exemplo, selecione **SLES 12**.
-    - **Tipo de BD**: Selecione **HANA**.
-    - **Tamanho do sistema de SAP**: Introduza o número de SAPS que irá fornecer o novo sistema. Se não tiver certeza SAPS quantos requer que o sistema, peça ao seu parceiro de tecnologia de SAP ou integrador de sistemas.
-    - **Disponibilidade do sistema**: Selecione **HA**.
-    - **Nome de utilizador administrador e a palavra-passe de administrador**: Um novo utilizador é criado que pode ser utilizado para iniciar sessão máquina.
-    - **Sub-rede nova ou existente**: Determina se devem ser criadas uma nova rede virtual e uma sub-rede ou uma sub-rede existente utilizado. Se já tiver uma rede virtual que está ligada à sua rede no local, selecione **existentes**.
-    - **ID de sub-rede**: Se pretender implementar a VM para uma VNet já existente em que tem uma sub-rede definida a VM deve ser atribuída para nomear o ID dessa sub-rede. O ID, normalmente, é semelhante **/subscriptions/\<ID da subscrição > /resourceGroups/\<nome do grupo de recursos > /providers/Microsoft.Network/virtualNetworks/\<nome da rede virtual > /subnets/ \<nome da sub-rede >** .
+1. Insira os seguintes parâmetros:
+    - **ID do sistema SAP**: Insira a ID do sistema SAP do sistema SAP que você deseja instalar. A ID é usada como um prefixo para os recursos que são implantados.
+    - **Tipo de pilha**: (Esse parâmetro será aplicável somente se você usar o modelo convergido.) Selecione o tipo de pilha do SAP NetWeaver.
+    - **Tipo de so**: Selecione uma das distribuições do Linux. Para este exemplo, selecione **SLES 12**.
+    - **Tipo de BD**: Selecione **Hana**.
+    - **Tamanho do sistema SAP**: Insira o número de SAPS que o novo sistema vai fornecer. Se você não tiver certeza de quantos SAPS o sistema precisará, pergunte ao seu parceiro de tecnologia SAP ou ao integrador de sistemas.
+    - **Disponibilidade do sistema**: Selecione **ha**.
+    - **Nome de usuário do administrador e senha do administrador**: Um novo usuário é criado e pode ser usado para entrar no computador.
+    - **Sub-rede nova ou existente**: Determina se uma nova rede virtual e sub-rede devem ser criadas ou uma sub-rede existente usada. Se você já tiver uma rede virtual conectada à sua rede local, selecione **existente**.
+    - **ID da sub-rede**: Se você deseja implantar a VM em uma VNet existente em que você tem uma sub-rede definida, a VM deve ser atribuída, nomear a ID dessa sub-rede específica. A ID geralmente se parece com a **ID de\<assinatura/subscriptions/> nome do grupo\<de recursos/resourceGroups/\<>/Providers/Microsoft.Network/virtualNetworks/nome da rede virtual >/Subnets/\<nome da sub-rede >** .
 
-### <a name="manual-deployment"></a>Implementação manual
+### <a name="manual-deployment"></a>Implantação manual
 
 > [!IMPORTANT]
-> Certifique-se de que o sistema operacional seleciona é SAP certificado para SAP HANA em determinados tipos VM que está a utilizar. A lista de SAP HANA certificadas de tipos de VM e o sistema operacional libera para aqueles podem ser pesquisados [plataformas de IaaS com certificação do SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Certifique-se de clicar em detalhes sobre o tipo de VM listados para obter a lista completa de SAP HANA suportada versões do SO para o tipo VM específico
+> Certifique-se de que o sistema operacional selecionado é certificado pelo SAP para SAP HANA nos tipos específicos de VM que você está usando. A lista de tipos de VM certificados SAP HANA e as versões do sistema operacional para aqueles podem ser pesquisadas em [plataformas IaaS SAP Hana certificados](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Certifique-se de clicar nos detalhes do tipo de VM listado para obter a lista completa de SAP HANA versões de sistema operacional com suporte para o tipo de VM específico
 >  
 
 1. Crie um grupo de recursos.
@@ -126,93 +126,93 @@ Para implementar o modelo, siga estes passos:
 1. Crie um conjunto de disponibilidade.
    - Defina o domínio de atualização máx.
 1. Crie um balanceador de carga (interno).
-   - Selecione a rede virtual criada no passo 2.
-1. Crie máquina virtual 1.
-   - Utilize uma imagem de SLES4SAP na galeria do Azure é suportada para o SAP HANA no tipo de VM que selecionou.
+   - Selecione a rede virtual criada na etapa 2.
+1. Crie a máquina virtual 1.
+   - Use uma imagem SLES4SAP na galeria do Azure com suporte para SAP HANA no tipo de VM selecionado.
    - Selecione o conjunto de disponibilidade criado na etapa 3.
 1. Crie a máquina virtual 2.
-   - Utilize uma imagem de SLES4SAP na galeria do Azure é suportada para o SAP HANA no tipo de VM que selecionou.
+   - Use uma imagem SLES4SAP na galeria do Azure com suporte para SAP HANA no tipo de VM selecionado.
    - Selecione o conjunto de disponibilidade criado na etapa 3. 
-1. Adicione discos de dados.
-1. Configure o Balanceador de carga. Primeiro, crie um conjunto IP de front-end:
+1. Adicionar discos de dados.
+1. Configure o balanceador de carga. Primeiro, crie um pool de IPS de front-end:
 
-   1. Abra o Balanceador de carga, selecione **conjunto IP de front-end**e selecione **Add**.
-   1. Introduza o nome do novo conjunto IP Front-end (por exemplo, **hana-front-end**).
-   1. Definir o **atribuição** ao **estático** e introduza o endereço IP (por exemplo, **10.0.0.13**).
+   1. Abra o balanceador de carga, selecione **pool de IPS de front-end**e selecione **Adicionar**.
+   1. Insira o nome do novo pool de IPS de front-end (por exemplo, **Hana-frontend**).
+   1. Defina a **atribuição** como **estática** e insira o endereço IP (por exemplo, **10.0.0.13**).
    1. Selecione **OK**.
-   1. Depois de criar o novo conjunto IP Front-end, tome nota do endereço IP do conjunto.
+   1. Depois que o novo pool de IPS de front-end for criado, observe o endereço IP do pool.
 
-1. Em seguida, crie um conjunto de back-end:
+1. Em seguida, crie um pool de back-ends:
 
-   1. Abra o Balanceador de carga, selecione **conjuntos de back-end**e selecione **Add**.
-   1. Introduza o nome do novo conjunto de back-end (por exemplo, **hana-back-end**).
-   1. Selecione **adicionar uma máquina virtual**.
+   1. Abra o balanceador de carga, selecione pools de **back-end**e selecione **Adicionar**.
+   1. Insira o nome do novo pool de back-end (por exemplo, **Hana-backend**).
+   1. Selecione **Adicionar uma máquina virtual**.
    1. Selecione o conjunto de disponibilidade criado na etapa 3.
    1. Selecione as máquinas virtuais do cluster de SAP HANA.
    1. Selecione **OK**.
 
-1. Em seguida, crie uma sonda de estado de funcionamento:
+1. Em seguida, crie uma investigação de integridade:
 
-   1. Abra o Balanceador de carga, selecione **sondas de estado de funcionamento**e selecione **Add**.
-   1. Introduza o nome da sonda de estado de funcionamento novo (por exemplo, **hana hp**).
-   1. Selecione **TCP** como o protocolo e porta 625**03**. Manter o **intervalo** valor definido para 5 e o **limiar de mau estado de funcionamento** valor definido como 2.
+   1. Abra o balanceador de carga, selecione **investigações de integridade**e selecione **Adicionar**.
+   1. Insira o nome da nova investigação de integridade (por exemplo, **Hana-HP**).
+   1. Selecione **TCP** como o protocolo e a porta 625**03**. Mantenha o valor de **intervalo** definido como 5 e o valor de **limite não íntegro** definido como 2.
    1. Selecione **OK**.
 
-1. Do SAP HANA 1.0, crie as regras de balanceamento de carga:
+1. Para SAP HANA 1,0, crie as regras de balanceamento de carga:
 
-   1. Abra o Balanceador de carga, selecione **regras de balanceamento de carga**e selecione **Add**.
-   1. Introduza o nome da nova regra de Balanceador de carga (por exemplo, hana-lb-3**03**15).
-   1. Selecione o endereço IP Front-end, o conjunto de back-end e a sonda de estado de funcionamento que criou anteriormente (por exemplo, **hana-front-end**).
-   1. Manter o **protocolo** definida como **TCP**e introduza a porta 3**03**15.
-   1. Aumentar a **tempo limite de inatividade** como 30 minutos.
-   1. Certifique-se de que **ativar o IP flutuante**.
+   1. Abra o balanceador de carga, selecione **regras de balanceamento de carga**e selecione **Adicionar**.
+   1. Insira o nome da nova regra do balanceador de carga (por exemplo, Hana-lb-3**03**15).
+   1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade que você criou anteriormente (por exemplo, **Hana-frontend**).
+   1. Mantenha o **protocolo** definido como **TCP**e insira a porta 3**03**15.
+   1. Aumente o **tempo limite de ociosidade** para 30 minutos.
+   1. Certifique-se de **habilitar o IP flutuante**.
    1. Selecione **OK**.
-   1. Repita estes passos para a porta 3**03**17.
+   1. Repita essas etapas para a porta 3**03**17.
 
-1. Para o SAP HANA 2.0, crie as regras de balanceamento de carga para a base de dados do sistema:
+1. Para SAP HANA 2,0, crie as regras de balanceamento de carga para o banco de dados do sistema:
 
-   1. Abra o Balanceador de carga, selecione **regras de balanceamento de carga**e selecione **Add**.
-   1. Introduza o nome da nova regra de Balanceador de carga (por exemplo, hana-lb-3**03**13).
-   1. Selecione o endereço IP Front-end, o conjunto de back-end e a sonda de estado de funcionamento que criou anteriormente (por exemplo, **hana-front-end**).
-   1. Manter o **protocolo** definida como **TCP**e introduza a porta 3**03**13.
-   1. Aumentar a **tempo limite de inatividade** como 30 minutos.
-   1. Certifique-se de que **ativar o IP flutuante**.
+   1. Abra o balanceador de carga, selecione **regras de balanceamento de carga**e selecione **Adicionar**.
+   1. Insira o nome da nova regra do balanceador de carga (por exemplo, Hana-lb-3**03**13).
+   1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade que você criou anteriormente (por exemplo, **Hana-frontend**).
+   1. Mantenha o **protocolo** definido como **TCP**e insira a porta 3**03**13.
+   1. Aumente o **tempo limite de ociosidade** para 30 minutos.
+   1. Certifique-se de **habilitar o IP flutuante**.
    1. Selecione **OK**.
-   1. Repita estes passos para a porta 3**03**14.
+   1. Repita essas etapas para a porta 3**03**14.
 
-1. Para o SAP HANA 2.0, primeiro crie as regras de balanceamento de carga para a base de dados do inquilino:
+1. Para SAP HANA 2,0, primeiro crie as regras de balanceamento de carga para o banco de dados de locatário:
 
-   1. Abra o Balanceador de carga, selecione **regras de balanceamento de carga**e selecione **Add**.
-   1. Introduza o nome da nova regra de Balanceador de carga (por exemplo, hana-lb-3**03**40).
-   1. Selecione o endereço IP de front-end, o conjunto de back-end e a sonda de estado de funcionamento que criou anteriormente (por exemplo, **hana-front-end**).
-   1. Manter o **protocolo** definida como **TCP**e introduza a porta 3**03**40.
-   1. Aumentar a **tempo limite de inatividade** como 30 minutos.
-   1. Certifique-se de que **ativar o IP flutuante**.
+   1. Abra o balanceador de carga, selecione **regras de balanceamento de carga**e selecione **Adicionar**.
+   1. Insira o nome da nova regra do balanceador de carga (por exemplo, Hana-lb-3**03**40).
+   1. Selecione o endereço IP de front-end, o pool de back-ends e a investigação de integridade que você criou anteriormente (por exemplo, **Hana-frontend**).
+   1. Mantenha o **protocolo** definido como **TCP**e insira a porta 3**03**40.
+   1. Aumente o **tempo limite de ociosidade** para 30 minutos.
+   1. Certifique-se de **habilitar o IP flutuante**.
    1. Selecione **OK**.
-   1. Repita estes passos para portas 3**03**41 e 3**03**42.
+   1. Repita essas etapas para as portas 3**03**41 e 3**03**42.
 
-Para obter mais informações sobre as portas necessárias para o SAP HANA, leia o capítulo [ligações às bases de dados do inquilino](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) no [bases de dados do SAP HANA inquilinos](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guia ou [2388694 de nota SAP][2388694].
+Para obter mais informações sobre as portas necessárias para SAP HANA, leia o capítulo [conexões a bancos de dados de locatário](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) no guia [SAP Hana bancos de dados](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) de locatários ou [SAP Note 2388694][2388694].
 
 > [!IMPORTANT]
-> Não ative carimbos de data / TCP em VMs do Azure colocadas atrás do Balanceador de carga do Azure. Ativar TCP carimbos fará com que as sondas de estado de funcionamento efetuar a ativação. Defina o parâmetro **net.ipv4.tcp_timestamps** ao **0**. Para obter detalhes, consulte [sondas de estado de funcionamento do Balanceador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
-> Consulte também a SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
+> Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. TCP _timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Consulte também SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
-## <a name="create-a-pacemaker-cluster"></a>Criar um cluster de Pacemaker
+## <a name="create-a-pacemaker-cluster"></a>Criar um cluster pacemaker
 
-Siga os passos em [Pacemaker no SUSE Linux Enterprise Server no Azure a configurar](high-availability-guide-suse-pacemaker.md) para criar um cluster de Pacemaker básico para este servidor do HANA. Pode utilizar o mesmo cluster Pacemaker para SAP HANA e SAP NetWeaver (A) SCS.
+Siga as etapas em [Configurando pacemaker em SuSE Linux Enterprise Server no Azure](high-availability-guide-suse-pacemaker.md) para criar um cluster pacemaker básico para esse servidor Hana. Você pode usar o mesmo cluster pacemaker para o SAP HANA e o SAP NetWeaver (A) SCS.
 
 ## <a name="install-sap-hana"></a>Instalar o SAP HANA
 
-Os passos nesta secção, utilize os prefixos seguintes:
+As etapas nesta seção usam os seguintes prefixos:
 - **[A]** : A etapa se aplica a todos os nós.
-- **[1]** : A etapa se aplica ao nó 1 apenas.
-- **[2]** : A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
+- **[1]** : A etapa se aplica somente ao nó 1.
+- **[2]** : A etapa se aplica somente ao nó 2 do cluster pacemaker.
 
-1. **[A]**  Configurar o layout de disco: **Gestor de volumes lógicos (LVM)** .
+1. **[A]** configurar o layout do disco: **LVM (Gerenciador de volumes lógicos)** .
 
-   Recomendamos que utilize LVM para volumes que armazenam dados e ficheiros de registo. O exemplo seguinte parte do princípio de que as máquinas virtuais tem quatro discos de dados que ligados, que são utilizados para criar dois volumes.
+   Recomendamos que você use LVM para volumes que armazenam dados e arquivos de log. O exemplo a seguir pressupõe que as máquinas virtuais têm quatro discos de dados anexados que são usados para criar dois volumes.
 
-   Liste todos os discos disponíveis:
+   Listar todos os discos disponíveis:
 
    <pre><code>ls /dev/disk/azure/scsi1/lun*
    </code></pre>
@@ -223,7 +223,7 @@ Os passos nesta secção, utilize os prefixos seguintes:
    /dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2  /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Crie volumes físicos para todos os discos que pretende utilizar:
+   Crie volumes físicos para todos os discos que você deseja usar:
 
    <pre><code>sudo pvcreate /dev/disk/azure/scsi1/lun0
    sudo pvcreate /dev/disk/azure/scsi1/lun1
@@ -231,14 +231,14 @@ Os passos nesta secção, utilize os prefixos seguintes:
    sudo pvcreate /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Crie um grupo de volume para os ficheiros de dados. Utilize um grupo de volumes para os ficheiros de registo e outro para o diretório partilhado do SAP HANA:
+   Crie um grupo de volumes para os arquivos de dados. Use um grupo de volumes para os arquivos de log e um para o diretório compartilhado do SAP HANA:
 
    <pre><code>sudo vgcreate vg_hana_data_<b>HN1</b> /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
    sudo vgcreate vg_hana_log_<b>HN1</b> /dev/disk/azure/scsi1/lun2
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Crie os volumes lógicos. Um volume linear é criado quando utiliza `lvcreate` sem o `-i` mudar. Sugerimos que crie um volume repartido para melhorar o desempenho de e/s, onde o `-i` argumento deve ser o número do volume físico subjacente. Neste documento, os dois volumes físicos são utilizados para o volume de dados, pelo que a `-i` argumento de comutador é definido como **2**. Um volume físico é utilizado para o volume de registo, por isso, não `-i` explicitamente é utilizado o comutador. Utilizar o `-i` mudar e defini-lo para o número do volume físico subjacente, quando usa mais de um volume físico para cada um dos dados, registo ou volumes partilhados.
+   Crie os volumes lógicos. Um volume linear é criado quando você usa `lvcreate` o sem `-i` a opção. Sugerimos que você crie um volume distribuído para melhorar o desempenho de e/s, em `-i` que o argumento deve ser o número do volume físico subjacente. Neste documento, dois volumes físicos são usados para o volume de dados, portanto, `-i` o argumento switch é definido como **2**. Um volume físico é usado para o volume de log, portanto `-i` , nenhuma opção é usada explicitamente. Use a `-i` opção e defina-a como o número do volume físico subjacente quando você usar mais de um volume físico para cada dados, log ou volumes compartilhados.
 
    <pre><code>sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
@@ -248,7 +248,7 @@ Os passos nesta secção, utilize os prefixos seguintes:
    sudo mkfs.xfs /dev/vg_hana_shared_<b>HN1</b>/hana_shared
    </code></pre>
 
-   Criar os diretórios de montagem e copie o UUID de todos os volumes de lógicos:
+   Crie os diretórios de montagem e copie o UUID de todos os volumes lógicos:
 
    <pre><code>sudo mkdir -p /hana/data/<b>HN1</b>
    sudo mkdir -p /hana/log/<b>HN1</b>
@@ -257,26 +257,26 @@ Os passos nesta secção, utilize os prefixos seguintes:
    sudo blkid
    </code></pre>
 
-   Criar `fstab` entradas para os volumes de lógicas de três:       
+   Crie `fstab` entradas para os três volumes lógicos:       
 
    <pre><code>sudo vi /etc/fstab
    </code></pre>
 
-   Insira a seguinte linha no `/etc/fstab` ficheiro:      
+   Insira a seguinte linha no `/etc/fstab` arquivo:      
 
    <pre><code>/dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_data_<b>HN1</b>-hana_data&gt;</b> /hana/data/<b>HN1</b> xfs  defaults,nofail  0  2
    /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_log_<b>HN1</b>-hana_log&gt;</b> /hana/log/<b>HN1</b> xfs  defaults,nofail  0  2
    /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_shared_<b>HN1</b>-hana_shared&gt;</b> /hana/shared/<b>HN1</b> xfs  defaults,nofail  0  2
    </code></pre>
 
-   Os novos volumes de montagem:
+   Monte os novos volumes:
 
    <pre><code>sudo mount -a
    </code></pre>
 
-1. **[A]**  Configurar o layout de disco: **Discos simples**.
+1. **[A]** configurar o layout do disco: **Discos simples**.
 
-   Para sistemas de demonstração, pode colocar os ficheiros de dados e de registo HANA num disco. Cria uma partição em /dev/disk/azure/scsi1/lun0 e formatá-lo com xfs:
+   Para sistemas de demonstração, você pode posicionar os arquivos de log e dados do HANA em um disco. Crie uma partição em/dev/disk/Azure/scsi1/lun0 e formate-a com xfs:
 
    <pre><code>sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
    sudo mkfs.xfs /dev/disk/azure/scsi1/lun0-part1
@@ -286,128 +286,128 @@ Os passos nesta secção, utilize os prefixos seguintes:
    sudo vi /etc/fstab
    </code></pre>
 
-   Insira esta linha no ficheiro /etc/fstab.:
+   Insira esta linha no arquivo/etc/fstab:
 
    <pre><code>/dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
    </code></pre>
 
-   Criar o diretório de destino e Monte o disco:
+   Crie o diretório de destino e monte o disco:
 
    <pre><code>sudo mkdir /hana
    sudo mount -a
    </code></pre>
 
-1. **[A]**  Configurar a resolução de nomes de anfitrião para todos os anfitriões.
+1. **[A]** configurar a resolução de nomes de host para todos os hosts.
 
-   Pode utilizar um servidor DNS ou modificar o ficheiro /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
-   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos:
+   Você pode usar um servidor DNS ou modificar o arquivo/etc/hosts em todos os nós. Este exemplo mostra como usar o arquivo/etc/hosts.
+   Substitua o endereço IP e o nome do host nos seguintes comandos:
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Inserir as linhas seguintes no ficheiro /etc/hosts. Altere o endereço IP e o nome de anfitrião para corresponder ao seu ambiente:
+   Insira as linhas a seguir no arquivo/etc/hosts. Altere o endereço IP e o nome do host para corresponder ao seu ambiente:
 
    <pre><code><b>10.0.0.5 hn1-db-0</b>
    <b>10.0.0.6 hn1-db-1</b>
    </code></pre>
 
-1. **[A]**  Instalar os pacotes de elevada disponibilidade do SAP HANA:
+1. **[A]** instale o SAP Hana pacotes de alta disponibilidade:
 
    <pre><code>sudo zypper install SAPHanaSR
    </code></pre>
 
-Para instalar o SAP HANA System Replication, siga o capítulo 4 o [Guia do cenário de otimização de desempenho do SAP HANA SR](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/).
+Para instalar SAP HANA replicação do sistema, siga o capítulo 4 do [Guia de cenário otimizado para desempenho do SAP Hana Sr](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/).
 
-1. **[A]**  Executar o **hdblcm** programa a partir do DVD do HANA. Introduza os seguintes valores na linha de comandos:
-   * Escolha a instalação: Enter **1**.
-   * Selecione os componentes adicionais para a instalação: Enter **1**.
-   * Introduza o caminho de instalação [/ hana/partilhado]: Selecione introduzir.
-   * Introduza o nome de anfitrião Local [.]: Selecione introduzir.
-   * Deseja adicionar anfitriões adicionais no sistema? (y/n) [n]: Selecione introduzir.
-   * Introduza o ID de sistema do SAP HANA: Introduza o SID do HANA, por exemplo: **HN1**.
-   * Introduza o número de instância [00]: Introduza o número de instância HANA. Introduza **03** se utilizar o modelo do Azure ou seguido a secção de implementação manual deste artigo.
-   * Selecione o modo de base de dados / introduza índice [1]: Selecione introduzir.
-   * Selecionar a utilização do sistema / introduza índice [4]: Selecione o valor de utilização do sistema.
-   * Introduza a localização de Volumes de dados [/ hana/dados/HN1]: Selecione introduzir.
-   * Introduza a localização de Volumes de registo [/ hana/registo/HN1]: Selecione introduzir.
-   * Restringir a alocação de memória máxima? [n]: Selecione introduzir.
-   * Introduza o nome de anfitrião do certificado para o anfitrião "..." [...]: Selecione introduzir.
-   * Introduza a palavra-passe (sapadm) de utilizador do agente do anfitrião do SAP: Introduza a palavra-passe de utilizador do agente de anfitrião.
-   * Confirme palavra-passe (sapadm) de utilizador do agente do anfitrião do SAP: Digite a senha de usuário do agente de anfitrião novamente para confirmar.
-   * Introduza o administrador de sistema (hdbadm) palavra-passe: Introduza a palavra-passe de administrador do sistema.
-   * Confirme (hdbadm) palavra-passe de administrador de sistema: Introduza a palavra-passe de administrador do sistema novamente para confirmar.
-   * Introduza o diretório de raiz de administrador de sistema [/ usr/sap/HN1/home]: Selecione introduzir.
-   * Introduza o Shell de início de sessão de administrador de sistema [/ bin/sh]: Selecione introduzir.
-   * Introduza o ID de utilizador de administrador de sistema [1001]: Selecione introduzir.
-   * Introduza o ID do grupo de utilizadores (sapsys) [79]: Selecione introduzir.
-   * Introduza a palavra-passe de utilizador (sistema) de base de dados: Introduza a palavra-passe de utilizador de base de dados.
-   * Confirme palavra-passe de utilizador (sistema) de base de dados: Introduza a palavra-passe de utilizador de base de dados, novamente para confirmar.
-   * Reiniciar o sistema após o reinício do computador? [n]: Selecione introduzir.
-   * Pretende continuar? (y/n): Valide o resumo. Introduza **y** para continuar.
+1. **[A]** executar o programa **hdblcm** do DVD do Hana. Insira os seguintes valores no prompt:
+   * Escolha a instalação: Insira **1**.
+   * Selecione componentes adicionais para instalação: Insira **1**.
+   * Insira o caminho de instalação [/Hana/Shared]: Selecione Enter.
+   * Insira o nome do host local [..]: Selecione Enter.
+   * Deseja adicionar hosts adicionais ao sistema? (s/n) [n]: Selecione Enter.
+   * Insira SAP HANA ID do sistema: Insira o SID do HANA, por exemplo: **HN1**.
+   * Insira o número da instância [00]: Insira o número da instância do HANA. Insira **03** se você usou o modelo do Azure ou seguiu a seção implantação manual deste artigo.
+   * Selecione o modo de banco de dados/insira o índice [1]: Selecione Enter.
+   * Selecione uso do sistema/inserir índice [4]: Selecione o valor uso do sistema.
+   * Insira o local dos volumes de dados [/hana/data/HN1]: Selecione Enter.
+   * Insira o local dos volumes de log [/hana/log/HN1]: Selecione Enter.
+   * Restringir a alocação máxima de memória? [n]: Selecione Enter.
+   * Insira o nome do host do certificado para o host '... ' [...]: Selecione Enter.
+   * Insira a senha do usuário do agente de host SAP (sapadm): Insira a senha de usuário do agente do host.
+   * Confirmar senha do usuário do agente de host SAP (sapadm): Insira a senha de usuário do agente de host novamente para confirmar.
+   * Insira a senha do administrador do sistema (hdbadm): Insira a senha de administrador do sistema.
+   * Confirmar senha do administrador do sistema (hdbadm): Digite a senha do administrador do sistema novamente para confirmar.
+   * Insira o diretório base do administrador do sistema [/usr/sap/HN1/home]: Selecione Enter.
+   * Insira o Shell de logon do administrador do sistema [/bin/sh]: Selecione Enter.
+   * Insira a ID de usuário do administrador do sistema [1001]: Selecione Enter.
+   * Inserir ID do grupo de usuários (SAPs) [79]: Selecione Enter.
+   * Insira a senha do usuário do banco de dados (sistema): Insira a senha de usuário do banco de dados.
+   * Confirmar senha do usuário do banco de dados (sistema): Insira a senha de usuário do banco de dados novamente para confirmar.
+   * Reiniciar o sistema após a reinicialização do computador? [n]: Selecione Enter.
+   * Pretende continuar? (s/n): Valide o resumo. Digite **y** para continuar.
 
-1. **[A]**  Atualize o agente de anfitrião do SAP.
+1. **[A]** atualizar o agente de host do SAP.
 
-   Baixe o arquivo de agente de anfitrião do SAP mais recentes a partir da [Centro de Software SAP][sap-swcenter] e execute o seguinte comando para atualizar o agente. Substitua o caminho para o arquivo para apontar para o ficheiro transferido:
+   Baixe o arquivo mais recente do agente de host do SAP no [centro de software SAP][sap-swcenter] e execute o comando a seguir para atualizar o agente. Substitua o caminho do arquivo morto para apontar para o arquivo que você baixou:
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
 
-## <a name="configure-sap-hana-20-system-replication"></a>Configurar a replicação de sistema 2.0 do SAP HANA
+## <a name="configure-sap-hana-20-system-replication"></a>Configurar a replicação do sistema SAP HANA 2,0
 
-Os passos nesta secção, utilize os prefixos seguintes:
+As etapas nesta seção usam os seguintes prefixos:
 
 * **[A]** : A etapa se aplica a todos os nós.
-* **[1]** : A etapa se aplica ao nó 1 apenas.
-* **[2]** : A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
+* **[1]** : A etapa se aplica somente ao nó 1.
+* **[2]** : A etapa se aplica somente ao nó 2 do cluster pacemaker.
 
-1. **[1]**  Criar a base de dados do inquilino.
+1. **[1]** criar o banco de dados de locatário.
 
-   Se estiver a utilizar o SAP HANA 2.0 ou MDC, crie uma base de dados do inquilino para o seu sistema SAP NetWeaver. Substitua **NW1** com o SID do seu sistema SAP.
+   Se você estiver usando SAP HANA 2,0 ou MDC, crie um banco de dados de locatário para seu sistema SAP NetWeaver. Substitua **NW1** pelo SID do seu sistema SAP.
 
-   Execute o seguinte comando como < hanasid\>adm:
+   Execute o seguinte comando como < hanasid\>ADM:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
-1. **[1]**  Configurar replicação do sistema no primeiro nó:
+1. **[1]** configurar a replicação do sistema no primeiro nó:
 
-   Cópia de segurança de bases de dados como < hanasid\>adm:
+   Faça backup dos bancos de dados como < ADM\>hanasid:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
    hdbsql -d <b>NW1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupNW1</b>')"
    </code></pre>
 
-   Copie os ficheiros PKI do sistema para o site secundário:
+   Copie os arquivos de PKI do sistema para o site secundário:
 
    <pre><code>scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/SSFS_<b>HN1</b>.DAT   <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/
    scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/SSFS_<b>HN1</b>.KEY  <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/
    </code></pre>
 
-   Crie o site primário:
+   Criar o site primário:
 
    <pre><code>hdbnsutil -sr_enable --name=<b>SITE1</b>
    </code></pre>
 
-1. **[2]**  Configurar replicação do sistema no segundo nó:
+1. **[2]** configurar a replicação do sistema no segundo nó:
     
-   Registre-se o segundo nó para iniciar a replicação de sistema. Execute o seguinte comando como < hanasid\>adm:
+   Registre o segundo nó para iniciar a replicação do sistema. Execute o seguinte comando como < hanasid\>ADM:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
    </code></pre>
 
-## <a name="configure-sap-hana-10-system-replication"></a>Configurar a replicação de sistema 1.0 do SAP HANA
+## <a name="configure-sap-hana-10-system-replication"></a>Configurar a replicação do sistema SAP HANA 1,0
 
-Os passos nesta secção, utilize os prefixos seguintes:
+As etapas nesta seção usam os seguintes prefixos:
 
 * **[A]** : A etapa se aplica a todos os nós.
-* **[1]** : A etapa se aplica ao nó 1 apenas.
-* **[2]** : A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
+* **[1]** : A etapa se aplica somente ao nó 1.
+* **[2]** : A etapa se aplica somente ao nó 2 do cluster pacemaker.
 
-1. **[1]**  Criar usuários necessários.
+1. **[1]** crie os usuários necessários.
 
-   Execute o seguinte comando como raiz. Certifique-se substituir as cadeias de caracteres em negrito (ID de sistema HANA **HN1** e o número de instâncias **03**) com os valores da sua instalação do SAP HANA:
+   Execute o comando a seguir como raiz. Certifique-se de substituir cadeias de caracteres em negrito (ID do sistema HANA **HN1** e número de instância **03**) pelos valores de sua instalação do SAP Hana:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -415,7 +415,7 @@ Os passos nesta secção, utilize os prefixos seguintes:
    hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME'
    </code></pre>
 
-1. **[A]**  Criar a entrada de keystore.
+1. **[A]** criar a entrada do repositório de chaves.
 
    Execute o seguinte comando como raiz para criar uma nova entrada de keystore:
 
@@ -423,38 +423,38 @@ Os passos nesta secção, utilize os prefixos seguintes:
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
    </code></pre>
 
-1. **[1]**  Cópia de segurança da base de dados.
+1. **[1]** fazer backup do banco de dados.
 
-   Cópia de segurança de bases de dados como raiz:
+   Fazer backup dos bancos de dados como raiz:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
    </code></pre>
 
-   Se utilizar uma instalação multi-inquilino, também fazer cópias de segurança da base de dados do inquilino:
+   Se você usar uma instalação multilocatário, também faça backup do banco de dados de locatário:
 
    <pre><code>hdbsql -d <b>HN1</b> -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
    </code></pre>
 
-1. **[1]**  Configurar replicação do sistema no primeiro nó.
+1. **[1]** configurar a replicação do sistema no primeiro nó.
 
-   Criar o site primário como < hanasid\>adm:
+   Crie o site primário como < ADM\>hanasid:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
    </code></pre>
 
-1. **[2]**  Configurar replicação do sistema no nó secundário.
+1. **[2]** configurar a replicação do sistema no nó secundário.
 
-   Registe o site secundário como < hanasid\>adm:
+   Registre o site secundário como < ADM\>hanasid:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
    </code></pre>
 
-## <a name="create-sap-hana-cluster-resources"></a>Criar recursos de cluster do SAP HANA
+## <a name="create-sap-hana-cluster-resources"></a>Criar SAP HANA recursos de cluster
 
-Primeiro, crie a topologia do HANA. Execute os seguintes comandos em um de nós do cluster Pacemaker:
+Primeiro, crie a topologia do HANA. Execute os seguintes comandos em um dos nós de cluster pacemaker:
 
 <pre><code>sudo crm configure property maintenance-mode=true
 
@@ -515,7 +515,7 @@ sudo crm configure rsc_defaults resource-stickiness=1000
 sudo crm configure rsc_defaults migration-threshold=5000
 </code></pre>
 
-Certifique-se de que o estado do cluster está ok e que todos os recursos são iniciados. Não é importante no nó que os recursos estão em execução.
+Verifique se o status do cluster é OK e se todos os recursos foram iniciados. Não é importante em qual nó os recursos estão em execução.
 
 <pre><code>sudo crm_mon -r
 
@@ -535,13 +535,13 @@ Certifique-se de que o estado do cluster está ok e que todos os recursos são i
 #     rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
 </code></pre>
 
-## <a name="test-the-cluster-setup"></a>Teste a configuração de cluster
+## <a name="test-the-cluster-setup"></a>Testar a configuração do cluster
 
-Esta secção descreve como pode testar a configuração. Cada teste pressupõe que está raiz e o mestre de SAP HANA está a ser executada a **hn1-db-0** máquina virtual.
+Esta seção descreve como você pode testar sua configuração. Cada teste pressupõe que você é raiz e o SAP HANA mestre está em execução na máquina virtual **hn1-dB-0** .
 
-### <a name="test-the-migration"></a>A migração de teste
+### <a name="test-the-migration"></a>Testar a migração
 
-Antes de começar o teste, certifique-se de que Pacemaker não tem qualquer ação com falhas (via crm_mon - r), não há nenhuma restrição de localização inesperados (por exemplo sobras de um teste de migração) e que HANA é o estado de sincronização, por exemplo, com SAPHanaSR showAttr:
+Antes de iniciar o teste, certifique-se de que pacemaker não tenha nenhuma ação com falha (via crm_mon-r), não há restrições de local inesperadas (por exemplo, sobras de um teste de migração) e que o HANA é o estado de sincronização, por exemplo, com SAPHanaSR-showAttr:
 
 <pre><code>hn1-db-0:~ # SAPHanaSR-showAttr
 
@@ -555,14 +555,14 @@ hn1-db-0 PROMOTED    1534159564  online     logreplay nws-hana-vm-1 4:P:master1:
 hn1-db-1 DEMOTED     30          online     logreplay nws-hana-vm-0 4:S:master1:master:worker:master 100   SITE2 sync   SOK        2.00.030.00.1522209842 nws-hana-vm-1
 </code></pre>
 
-Pode migrar do nó principal do SAP HANA, executando o seguinte comando:
+Você pode migrar o nó mestre do SAP HANA executando o seguinte comando:
 
 <pre><code>crm resource migrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
 </code></pre>
 
-Se definir `AUTOMATED_REGISTER="false"`, esta sequência de comandos deve migrar do nó principal do SAP HANA e o grupo que contém o endereço IP virtual para hn1-db-1.
+Se você definir `AUTOMATED_REGISTER="false"`, essa sequência de comandos deverá migrar o nó mestre de SAP Hana e o grupo que contém o endereço IP virtual para hn1-DB-1.
 
-Depois de fazer a migração, a saída de - r crm_mon fica assim
+Quando a migração for concluída, a saída do crm_mon-r terá esta aparência
 
 <pre><code>Online: [ hn1-db-0 hn1-db-1 ]
 
@@ -583,7 +583,7 @@ Failed Actions:
     last-rc-change='Mon Aug 13 11:31:37 2018', queued=0ms, exec=2095ms
 </code></pre>
 
-O recurso de SAP HANA no hn1-db-0 não consegue iniciar como secundária. Neste caso, configure a instância HANA como secundário ao executar este comando:
+O recurso SAP HANA em hn1-dB-0 falha ao iniciar como secundário. Nesse caso, configure a instância do HANA como secundária executando este comando:
 
 <pre><code>su - <b>hn1</b>adm
 
@@ -592,19 +592,19 @@ hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> sapcontrol -nr <b>03</b> -function StopWait 
 hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b>
 </code></pre>
 
-A migração cria as restrições de localização têm de ser eliminadas novamente:
+A migração cria restrições de local que precisam ser excluídas novamente:
 
 <pre><code># Switch back to root and clean up the failed state
 exit
 hn1-db-0:~ # crm resource unmigrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
 </code></pre>
 
-Também terá de limpar o estado do recurso de nó secundário:
+Você também precisa limpar o estado do recurso de nó secundário:
 
 <pre><code>hn1-db-0:~ # crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
-Monitorize o estado do recurso HANA usando crm_mon - r. Depois de HANA é iniciado em hn1-db-0, o resultado deverá ser semelhante a esta
+Monitore o estado do recurso do HANA usando crm_mon-r. Depois que o HANA é iniciado em hn1-dB-0, a saída deve ser parecida com esta
 
 <pre><code>Online: [ hn1-db-0 hn1-db-1 ]
 
@@ -621,17 +621,17 @@ stonith-sbd     (stonith:external/sbd): Started hn1-db-1
      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
 </code></pre>
 
-### <a name="test-the-azure-fencing-agent-not-sbd"></a>Testar o agente de delimitação por barreiras do Azure (não SBD)
+### <a name="test-the-azure-fencing-agent-not-sbd"></a>Testar o agente de isolamento do Azure (não SBD)
 
-Pode testar a configuração do agente do Azure de delimitação por barreiras, desativando a interface de rede no nó hn1-db-0:
+Você pode testar a configuração do agente de isolamento do Azure desabilitando a interface de rede no nó hn1-dB-0:
 
 <pre><code>sudo ifdown eth0
 </code></pre>
 
-Agora, a máquina virtual deve reiniciar ou parar consoante a configuração de cluster.
-Se definir o `stonith-action` definir como desativado, a máquina virtual é parada e os recursos são migrados para a máquina virtual em execução.
+A máquina virtual agora deve ser reiniciada ou interrompida dependendo da configuração do cluster.
+Se você definir a `stonith-action` configuração como off, a máquina virtual será interrompida e os recursos serão migrados para a máquina virtual em execução.
 
-Depois de iniciar a máquina virtual novamente, o recurso de SAP HANA não for possível iniciar como secundária se definir `AUTOMATED_REGISTER="false"`. Neste caso, configure a instância HANA como secundário ao executar este comando:
+Depois de iniciar a máquina virtual novamente, o recurso SAP HANA falhará ao iniciar como secundário, se `AUTOMATED_REGISTER="false"`você definir. Nesse caso, configure a instância do HANA como secundária executando este comando:
 
 <pre><code>su - <b>hn1</b>adm
 
@@ -644,9 +644,9 @@ exit
 crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
-### <a name="test-sbd-fencing"></a>A delimitação por barreiras SBD teste
+### <a name="test-sbd-fencing"></a>Testar isolamento SBD
 
-Pode testar a configuração do SBD ao eliminar o processo de inquisitor.
+Você pode testar a configuração do SBD finalizando o processo Inquisitor.
 
 <pre><code>hn1-db-0:~ # ps aux | grep sbd
 root       1912  0.0  0.0  85420 11740 ?        SL   12:25   0:00 sbd: inquisitor
@@ -660,16 +660,16 @@ root      13877  0.0  0.0   9292  1572 pts/0    S+   12:27   0:00 grep sbd
 hn1-db-0:~ # kill -9 1912
 </code></pre>
 
-Nó de cluster hn1-db-0 deve ser reiniciado. O serviço de Pacemaker poderá não comece a utilizar, posteriormente. Certifique-se para iniciá-lo novamente.
+O nó de cluster hn1-dB-0 deve ser reinicializado. O serviço pacemaker pode não ser iniciado posteriormente. Certifique-se de iniciá-lo novamente.
 
-### <a name="test-a-manual-failover"></a>Testar uma ativação pós-falha manual
+### <a name="test-a-manual-failover"></a>Testar um failover manual
 
-Pode testar uma ativação pós-falha manual, parando o `pacemaker` serviço no nó hn1-db-0:
+Você pode testar um failover manual interrompendo `pacemaker` o serviço no nó hn1-dB-0:
 
 <pre><code>service pacemaker stop
 </code></pre>
 
-Após a ativação pós-falha, pode iniciar o serviço novamente. Se definir `AUTOMATED_REGISTER="false"`, o recurso de SAP HANA no nó hn1-db-0 não consegue iniciar como secundária. Neste caso, configure a instância HANA como secundário ao executar este comando:
+Após o failover, você pode iniciar o serviço novamente. Se você definir `AUTOMATED_REGISTER="false"`, o recurso SAP Hana no nó hn1-dB-0 falhará ao iniciar como secundário. Nesse caso, configure a instância do HANA como secundária executando este comando:
 
 <pre><code>service pacemaker start
 su - <b>hn1</b>adm
@@ -683,19 +683,19 @@ exit
 crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
-### <a name="suse-tests"></a>Testes SUSE
+### <a name="suse-tests"></a>Testes do SUSE
 
 > [!IMPORTANT]
-> Certifique-se de que o sistema operacional seleciona é SAP certificado para SAP HANA em determinados tipos VM que está a utilizar. A lista de SAP HANA certificadas de tipos de VM e o sistema operacional libera para aqueles podem ser pesquisados [plataformas de IaaS com certificação do SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Certifique-se de clicar em detalhes sobre o tipo de VM listados para obter a lista completa de SAP HANA suportada versões do SO para o tipo VM específico
+> Certifique-se de que o sistema operacional selecionado é certificado pelo SAP para SAP HANA nos tipos específicos de VM que você está usando. A lista de tipos de VM certificados SAP HANA e as versões do sistema operacional para aqueles podem ser pesquisadas em [plataformas IaaS SAP Hana certificados](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Certifique-se de clicar nos detalhes do tipo de VM listado para obter a lista completa de SAP HANA versões de sistema operacional com suporte para o tipo de VM específico
 
-Executa todos os casos de teste que estão listados no guia de cenário de otimização de desempenho do SAP HANA SR ou cenário de otimização de custos do SAP HANA SR, dependendo do seu caso de utilização. Pode encontrar os guias sobre o [SLES para SAP melhores página práticas][sles-for-sap-bp].
+Execute todos os casos de teste listados no cenário otimizado para desempenho SAP HANA SR ou SAP HANA guia de cenário com otimização de custo do SR, dependendo do caso de uso. Você pode encontrar os guias na [página de práticas recomendadas do SLES for SAP][sles-for-sap-bp].
 
-Os seguintes testes são uma cópia das descrições de teste do SAP HANA SR desempenho otimizado cenário SUSE Linux Enterprise Server para a guia SP1 de 12 de aplicações SAP. Para uma versão atualizada, leia sempre também o Guia em si. Sempre Certifique-se de que está em sincronização HANA antes de iniciar o teste e também certificar-se de que a configuração de Pacemaker está correta.
+Os testes a seguir são uma cópia das descrições do teste do SAP HANA o cenário otimizado para desempenho do SR SUSE Linux Enterprise Server para o guia do SAP Applications 12 SP1. Para uma versão atualizada, sempre Leia o guia em si. Sempre verifique se o HANA está em sincronia antes de iniciar o teste e verifique se a configuração do pacemaker está correta.
 
-As seguintes descrições de teste partimos do pressuposto PREFER_SITE_TAKEOVER = "true" e AUTOMATED_REGISTER = "false".
-NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e depende do Estado de saída dos testes anteriores.
+Nas descrições de teste a seguir, presumimos PREFER_SITE_TAKEOVER = "true" e AUTOMATED_REGISTER = "false".
+NOTA: Os testes a seguir são projetados para serem executados em sequência e dependem do estado de saída dos testes anteriores.
 
-1. TESTE 1: PARAR PRINCIPAL DA BASE DE DADOS NO NÓ 1
+1. TESTE 1: PARAR O BANCO DE DADOS PRIMÁRIO NO NÓ 1
 
    Estado do recurso antes de iniciar o teste:
 
@@ -709,14 +709,14 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Execute os seguintes comandos como < hanasid\>adm no nó hn1-db-0:
+   Execute os comandos a seguir como <\>hanasid ADM no nó hn1-dB-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
 
-   Pacemaker deve detetar a instância HANA de parada e a ativação pós-falha no outro nó. Depois de fazer a ativação pós-falha, a instância do HANA no nó hn1-db-0 está parada porque Pacemaker não registra automaticamente o nó como secundário do HANA.
+   Pacemaker deve detectar a instância do HANA interrompida e o failover para o outro nó. Depois que o failover for concluído, a instância do HANA no nó hn1-dB-0 será interrompida porque o pacemaker não registra automaticamente o nó como um secundário do HANA.
 
-   Execute os seguintes comandos para registar o nó hn1-db-0, como secundário e a limpeza do recurso falhou.
+   Execute os comandos a seguir para registrar o nó hn1-dB-0 como secundário e limpar o recurso com falha.
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1
    
@@ -724,7 +724,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
    hn1-db-0:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-0
    </code></pre>
 
-   Estado do recurso depois do teste:
+   Estado do recurso após o teste:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -736,7 +736,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-1. TESTE 2: PARAR PRINCIPAL DA BASE DE DADOS NO NÓ 2
+1. TESTE 2: PARAR O BANCO DE DADOS PRIMÁRIO NO NÓ 2
 
    Estado do recurso antes de iniciar o teste:
 
@@ -750,14 +750,14 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-   Execute os seguintes comandos como < hanasid\>adm no nó hn1-db-1:
+   Execute os comandos a seguir como <\>hanasid ADM no nó hn1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
 
-   Pacemaker deve detetar a instância HANA de parada e a ativação pós-falha no outro nó. Depois de fazer a ativação pós-falha, a instância do HANA no nó hn1-db-1 está parada porque Pacemaker não registra automaticamente o nó como secundário do HANA.
+   Pacemaker deve detectar a instância do HANA interrompida e o failover para o outro nó. Depois que o failover for concluído, a instância do HANA no nó hn1-DB-1 será interrompida porque o pacemaker não registra automaticamente o nó como um secundário do HANA.
 
-   Execute os seguintes comandos para registar o nó hn1-db-1, como secundário e a limpeza do recurso falhou.
+   Execute os comandos a seguir para registrar o nó hn1-DB-1 como secundário e limpar o recurso com falha.
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2
    
@@ -765,7 +765,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
    </code></pre>
 
-   Estado do recurso depois do teste:
+   Estado do recurso após o teste:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -777,7 +777,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TESTE 3: PRIMÁRIO FALHA NO NÓ DE BASE DE DADOS
+1. TESTE 3: BANCO DE DADOS PRIMÁRIO DE PANE NO NÓ
 
    Estado do recurso antes de iniciar o teste:
 
@@ -791,14 +791,14 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Execute os seguintes comandos como < hanasid\>adm no nó hn1-db-0:
+   Execute os comandos a seguir como <\>hanasid ADM no nó hn1-dB-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
    
-   Pacemaker deve detetar a instância HANA e ativação pós-falha para outro nó cancelado. Depois de fazer a ativação pós-falha, a instância do HANA no nó hn1-db-0 está parada porque Pacemaker não registra automaticamente o nó como secundário do HANA.
+   Pacemaker deve detectar a instância do HANA eliminada e o failover para o outro nó. Depois que o failover for concluído, a instância do HANA no nó hn1-dB-0 será interrompida porque o pacemaker não registra automaticamente o nó como um secundário do HANA.
 
-   Execute os seguintes comandos para registar o nó hn1-db-0, como secundário e a limpeza do recurso falhou.
+   Execute os comandos a seguir para registrar o nó hn1-dB-0 como secundário e limpar o recurso com falha.
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1
    
@@ -806,7 +806,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
    hn1-db-0:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-0
    </code></pre>
 
-   Estado do recurso depois do teste:
+   Estado do recurso após o teste:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -818,7 +818,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-1. TESTE 4: FALHA PRINCIPAL DA BASE DE DADOS NO NÓ 2
+1. TESTE 4: BANCO DE DADOS PRIMÁRIO DE PANE NO NÓ 2
 
    Estado do recurso antes de iniciar o teste:
 
@@ -832,14 +832,14 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-   Execute os seguintes comandos como < hanasid\>adm no nó hn1-db-1:
+   Execute os comandos a seguir como <\>hanasid ADM no nó hn1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
 
-   Pacemaker deve detetar a instância HANA e ativação pós-falha para outro nó cancelado. Depois de fazer a ativação pós-falha, a instância do HANA no nó hn1-db-1 está parada porque Pacemaker não registra automaticamente o nó como secundário do HANA.
+   Pacemaker deve detectar a instância do HANA eliminada e o failover para o outro nó. Depois que o failover for concluído, a instância do HANA no nó hn1-DB-1 será interrompida porque o pacemaker não registra automaticamente o nó como um secundário do HANA.
 
-   Execute os seguintes comandos para registar o nó hn1-db-1, como secundário e a limpeza do recurso falhou.
+   Execute os comandos a seguir para registrar o nó hn1-DB-1 como secundário e limpar o recurso com falha.
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2
    
@@ -847,7 +847,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
    </code></pre>
 
-   Estado do recurso depois do teste:
+   Estado do recurso após o teste:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -859,7 +859,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TESTE 5: FALHA DE NÓ DE SITE PRIMÁRIO (NÓ 1)
+1. TESTE 5: NÓ DO SITE PRIMÁRIO DE FALHA (NÓ 1)
 
    Estado do recurso antes de iniciar o teste:
 
@@ -873,14 +873,14 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Execute os seguintes comandos como raiz no nó hn1-db-0:
+   Execute os seguintes comandos como root no nó hn1-dB-0:
 
    <pre><code>hn1-db-0:~ #  echo 'b' > /proc/sysrq-trigger
    </code></pre>
 
-   Pacemaker deve detetar o nó de cluster cancelado e fence o nó. Assim que o nó for bloqueado, Pacemaker irá disparar uma obtenção de controlo da instância do HANA. Quando o nó vedado for reinicializado, Pacemaker não será iniciada automaticamente.
+   Pacemaker deve detectar o nó de cluster eliminado e cercar o nó. Depois que o nó estiver isolado, pacemaker disparará um tomada da instância do HANA. Quando o nó isolado for reinicializado, o pacemaker não será iniciado automaticamente.
 
-   Execute os seguintes comandos para iniciar Pacemaker, limpeza as mensagens SBD para nó hn1-db-0, registe-se nó hn1-db-0 como secundário e a limpeza do recurso falhou.
+   Execute os seguintes comandos para iniciar o pacemaker, limpe as mensagens SBD para o nó hn1-dB-0, registre o nó hn1-dB-0 como secundário e limpe o recurso com falha.
 
    <pre><code># run as root
    # list the SBD device(s)
@@ -898,7 +898,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
    hn1-db-0:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-0
    </code></pre>
 
-   Estado do recurso depois do teste:
+   Estado do recurso após o teste:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -910,7 +910,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-1. 6 DE TESTE: FALHA DE NÓ DE SITE SECUNDÁRIO (NÓ 2)
+1. TESTE 6: NÓ DE SITE SECUNDÁRIO DE FALHA (NÓ 2)
 
    Estado do recurso antes de iniciar o teste:
 
@@ -924,14 +924,14 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-   Execute os seguintes comandos como raiz no nó hn1-db-1:
+   Execute os seguintes comandos como root no nó hn1-DB-1:
 
    <pre><code>hn1-db-1:~ #  echo 'b' > /proc/sysrq-trigger
    </code></pre>
 
-   Pacemaker deve detetar o nó de cluster cancelado e fence o nó. Assim que o nó for bloqueado, Pacemaker irá disparar uma obtenção de controlo da instância do HANA. Quando o nó vedado for reinicializado, Pacemaker não será iniciada automaticamente.
+   Pacemaker deve detectar o nó de cluster eliminado e cercar o nó. Depois que o nó estiver isolado, pacemaker disparará um tomada da instância do HANA. Quando o nó isolado for reinicializado, o pacemaker não será iniciado automaticamente.
 
-   Execute os seguintes comandos para iniciar Pacemaker, limpeza as mensagens SBD para nó hn1-db-1, registe-se nó hn1-db-1 como secundário e a limpeza do recurso falhou.
+   Execute os seguintes comandos para iniciar o pacemaker, limpe as mensagens SBD para o nó hn1-DB-1, registre o nó hn1-DB-1 como secundário e limpe o recurso com falha.
 
    <pre><code># run as root
    # list the SBD device(s)
@@ -949,7 +949,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
    </code></pre>
 
-   Estado do recurso depois do teste:
+   Estado do recurso após o teste:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -961,7 +961,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. 7 DE TESTE: PARAR A SECUNDÁRIA DA BASE DE DADOS NO NÓ 2
+1. TESTE 7: PARAR O BANCO DE DADOS SECUNDÁRIO NO NÓ 2
 
    Estado do recurso antes de iniciar o teste:
 
@@ -975,18 +975,18 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Execute os seguintes comandos como < hanasid\>adm no nó hn1-db-1:
+   Execute os comandos a seguir como <\>hanasid ADM no nó hn1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
 
-   Pacemaker detectará a instância HANA parada e marcar o recurso como falhado no nó hn1-db-1. Pacemaker automaticamente deve reiniciar a instância do HANA. Execute o seguinte comando para limpar o estado de falha.
+   O pacemaker detectará a instância do HANA interrompida e marcará o recurso como com falha no nó hn1-DB-1. Pacemaker deve reiniciar automaticamente a instância do HANA. Execute o comando a seguir para limpar o estado de falha.
 
    <pre><code># run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
    </code></pre>
 
-   Estado do recurso depois do teste:
+   Estado do recurso após o teste:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -998,7 +998,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. 8 DE TESTE: FALHA SECUNDÁRIO DA BASE DE DADOS NO NÓ 2
+1. TESTE 8: FALHAR O BANCO DE DADOS SECUNDÁRIO NO NÓ 2
 
    Estado do recurso antes de iniciar o teste:
 
@@ -1012,18 +1012,18 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Execute os seguintes comandos como < hanasid\>adm no nó hn1-db-1:
+   Execute os comandos a seguir como <\>hanasid ADM no nó hn1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
 
-   Pacemaker detectará a instância HANA cancelada e marcar o recurso como falhado no nó hn1-db-1. Execute o seguinte comando para limpar o estado de falha. Pacemaker automaticamente deve, em seguida, reinicie a instância do HANA.
+   Pacemaker detectará a instância do HANA eliminada e marcará o recurso como com falha no nó hn1-DB-1. Execute o comando a seguir para limpar o estado de falha. Pacemaker deve reiniciar a instância do HANA automaticamente.
 
    <pre><code># run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
    </code></pre>
 
-   Estado do recurso depois do teste:
+   Estado do recurso após o teste:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -1035,7 +1035,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. 9 DE TESTE: BASE DE DADOS DO SITE SECUNDÁRIO EM EXECUÇÃO DE NÓ (NÓ 2) HANA SECUNDÁRIO DE FALHAS
+1. TESTE 9: NÓ DO SITE SECUNDÁRIO DE FALHA (NÓ 2) EXECUTANDO BANCO DE DADOS HANA SECUNDÁRIO
 
    Estado do recurso antes de iniciar o teste:
 
@@ -1049,14 +1049,14 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   Execute os seguintes comandos como raiz no nó hn1-db-1:
+   Execute os seguintes comandos como root no nó hn1-DB-1:
 
    <pre><code>hn1-db-1:~ # echo b > /proc/sysrq-trigger
    </code></pre>
 
-   Pacemaker deve detetar o nó de cluster cancelado e fence o nó. Quando o nó vedado for reinicializado, Pacemaker não será iniciada automaticamente.
+   Pacemaker deve detectar o nó de cluster eliminado e cercar o nó. Quando o nó isolado for reinicializado, o pacemaker não será iniciado automaticamente.
 
-   Execute os seguintes comandos para iniciar Pacemaker, limpar as mensagens SBD para nó hn1-db-1 e limpeza do recurso falhou.
+   Execute os seguintes comandos para iniciar o pacemaker, limpe as mensagens SBD para o nó hn1-DB-1 e limpe o recurso com falha.
 
    <pre><code># run as root
    # list the SBD device(s)
@@ -1070,7 +1070,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
    </code></pre>
 
-   Estado do recurso depois do teste:
+   Estado do recurso após o teste:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -1084,7 +1084,7 @@ NOTA: Os seguintes testes foram concebidos para ser executadas em seqüência e 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Máquinas de virtuais de planeamento e implementação de SAP do Azure][planning-guide]
-* [Implementação de máquinas virtuais do Azure para SAP][deployment-guide]
-* [Implementação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
-* Para saber como estabelecer a elevada disponibilidade e o plano de recuperação após desastre do SAP HANA no Azure (instâncias grandes), veja [SAP HANA (instâncias grandes) elevada disponibilidade e recuperação após desastre no Azure](hana-overview-high-availability-disaster-recovery.md)
+* [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
+* [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
+* [Implantação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
+* Para saber como estabelecer alta disponibilidade e planejar a recuperação de desastre de SAP HANA no Azure (instâncias grandes), consulte [alta disponibilidade e recuperação de desastre do SAP Hana (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md)
