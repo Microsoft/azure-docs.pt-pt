@@ -8,20 +8,20 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eca3e316d866814f6727dd8ef2c3fa490a551383
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 90e3121c3f036d1abc8ca372ee349aef3485d07b
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563160"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69625002"
 ---
 # <a name="azure-network-connections-overview"></a>Visão geral das conexões de rede do Azure
 
-Quando você cria um serviço CloudSimple em uma região, ele:
+Ao criar um serviço CloudSimple em uma região e criar nós, você pode:
 
-* Cria um circuito do Azure ExpressRoute e o anexa ao serviço nessa região.
-* Conecta sua rede de região do CloudSimple à sua rede virtual do Azure ou à sua rede local usando o Azure ExpressRoute.
-* Fornece acesso a serviços em execução na sua assinatura do Azure ou sua rede local de seu ambiente de nuvem privada.
+* Solicite um circuito do Azure ExpressRoute e anexe-o à rede CloudSimple nessa região.
+* Conecte sua rede de região do CloudSimple à sua rede virtual do Azure ou à sua rede local usando o Azure ExpressRoute.
+* Forneça acesso aos serviços em execução na sua assinatura do Azure ou na rede local de seu ambiente de nuvem privada.
 
 A conexão do ExpressRoute é de alta largura de banda com baixa latência.
 
@@ -35,15 +35,32 @@ A conexão de rede do Azure permite que você:
 
 ## <a name="azure-virtual-network-connection"></a>Conexão de rede virtual do Azure
 
-Nuvens privadas podem ser conectadas aos recursos do Azure usando o ExpressRoute.  A conexão do ExpressRoute permite que você acesse recursos em execução na sua assinatura do Azure de sua nuvem privada.  Essa conexão permite que você estenda sua rede de nuvem privada para sua rede virtual do Azure.
+Nuvens privadas podem ser conectadas aos recursos do Azure usando o ExpressRoute.  A conexão do ExpressRoute permite que você acesse recursos em execução na sua assinatura do Azure de sua nuvem privada.  Essa conexão permite que você estenda sua rede de nuvem privada para sua rede virtual do Azure.  As rotas da rede CloudSimple serão trocadas com sua rede virtual do Azure via BGP.  Se você tiver configurado o emparelhamento de rede virtual, todas as redes virtuais emparelhadas poderão ser acessadas da sua rede CloudSimple.
 
-[![Conexão do Azure ExpressRoute com a rede virtual](media/cloudsimple-azure-network-connection.png)
+![Conexão do Azure ExpressRoute com a rede virtual](media/cloudsimple-azure-network-connection.png)
 
 ## <a name="expressroute-connection-to-on-premises-network"></a>Conexão do ExpressRoute à rede local
 
-Você pode conectar seu circuito do Azure ExpressRoute existente à sua região do CloudSimple. O recurso de Alcance Global ExpressRoute é usado para conectar os dois circuitos entre si.  Uma conexão é estabelecida entre os circuitos do ExpressRoute local e CloudSimple.  Essa conexão permite que você estenda suas redes locais para a rede de nuvem privada.
+Você pode conectar seu circuito do Azure ExpressRoute existente à sua região do CloudSimple. O recurso de Alcance Global ExpressRoute é usado para conectar os dois circuitos entre si.  Uma conexão é estabelecida entre os circuitos do ExpressRoute local e CloudSimple.  Essa conexão permite que você estenda suas redes locais para a rede de nuvem privada. As rotas de sua rede CloudSimple serão trocadas por meio de BGP com sua rede local.
 
 ![Conexão do ExpressRoute local-Alcance Global](media/cloudsimple-global-reach-connection.png)
+
+
+## <a name="connection-to-on-premises-network-and-azure-virtual-network"></a>Conexão à rede local e à rede virtual do Azure
+
+As conexões com a rede local e a rede virtual do Azure podem coexistir de sua rede CloudSimple.  A conexão usa BGP para trocar rotas entre a rede local, a rede virtual do Azure e a rede CloudSimple.  Quando você conecta sua rede CloudSimple à rede virtual do Azure em presença de Alcance Global conexão, as rotas de rede virtual do Azure ficarão visíveis em sua rede local.  A troca de rota ocorre no Azure entre os roteadores de borda.
+
+![Conexão do ExpressRoute local com a conexão de rede virtual do Azure](media/cloudsimple-global-reach-and-vnet-connection.png)
+
+### <a name="important-considerations"></a>Considerações importantes
+
+Conectar-se à rede CloudSimple da rede local e da rede virtual do Azure permite a troca de rotas entre todas as redes.
+
+* A rede virtual do Azure ficará visível na rede local e na rede CloudSimple.
+* Se você se conectou à rede virtual do Azure da rede local, a conexão à rede CloudSimple usando Alcance Global permitirá o acesso a redes virtuais da rede CloudSimple.
+* Os endereços de sub-rede **não devem** se sobrepor entre as redes conectadas.
+* CloudSimple **não** anunciará a rota padrão para as conexões do ExpressRoute
+* Se o roteador local anunciar a rota padrão, o tráfego da rede CloudSimple e da rede virtual do Azure usará a rota padrão anunciada.  Como resultado, as máquinas virtuais no Azure não podem ser acessadas usando endereços IP públicos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

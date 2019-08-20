@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 08/13/2019
+ms.date: 08/19/2019
 ms.author: dalek
-ms.openlocfilehash: 4029a9e46b9c9bb7cbd677deff4a172d8fc982f8
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: c3da37d89da8c70f6acdfb1b5ab9c5b10edb86f0
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534588"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624404"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos de Application Insights
 
@@ -103,7 +103,7 @@ Você pode usar o limite de volume diário para limitar os dados coletados. No e
 
 Em vez de usar o limite de volume diário, use a [amostragem](../../azure-monitor/app/sampling.md) para ajustar o volume de dados para o nível desejado. Em seguida, use o limite diário apenas como um "último recurso", caso seu aplicativo comece a enviar volumes de telemetria muito mais altos.
 
-Para alterar o limite diário, na seção **Configurar** do recurso de Application insights, no painel **uso e custos estimados** , selecione **limite diário**.
+Para alterar o limite diário, na seção **Configurar** do recurso de Application insights, na página **uso e custos estimados** , selecione **limite diário**.
 
 ![Ajustar o limite de volume de telemetria diário](./media/pricing/pricing-003.png)
 
@@ -135,11 +135,13 @@ Em cada registro retido, `itemCount` indica o número de registros originais que
 
 ## <a name="change-the-data-retention-period"></a>Alterar o período de retenção de dados
 
-Agora, Application Insights está integrando um número limitado de clientes Application Insights à nossa visualização de retenção de variável. Informações sobre como participar deste programa de visualização estão disponíveis [aqui](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031).
+A retenção padrão para recursos de Application Insights é de 90 dias. Diferentes períodos de retenção podem ser selecionados para cada recurso de Application Insights. O conjunto completo de períodos de retenção disponíveis é 30, 60, 90, 120, 180, 270, 365, 550 ou 730 dias. 
 
-A retenção padrão para recursos de Application Insights é de 90 dias. Diferentes períodos de retenção podem ser selecionados para cada recurso de Application Insights. O conjunto completo de períodos de retenção disponíveis é 30, 60, 120, 180, 270, 365, 550 ou 730 dias. 
+Para alterar a retenção, de seu Application Insights recurso, vá para a página **uso e custos estimados** e selecione a opção de **retenção de dados** :
 
-Quando a cobrança está habilitada para maior retenção, os dados mantidos por mais de 90 dias serão cobrados como a mesma taxa que é cobrada no momento para a retenção de dados do Azure Log Analytics. Saiba mais na [página de preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).  Mantenha-se atualizado sobre o progresso da retenção de variáveis [votando essa sugestão](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
+![Ajustar o limite de volume de telemetria diário](./media/pricing/pricing-005.png)
+
+Quando a cobrança está habilitada para maior retenção, os dados mantidos por mais de 90 dias serão cobrados como a mesma taxa que é cobrada no momento para a retenção de dados do Azure Log Analytics. Saiba mais na [página de preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/). Mantenha-se atualizado sobre o progresso da retenção de variáveis [votando essa sugestão](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 
 ## <a name="limits-summary"></a>Resumo de limites
 
@@ -206,7 +208,7 @@ Como essa camada é aplicável somente a clientes com uma assinatura do Operatio
 Você pode escrever um script para definir o tipo de preço usando o gerenciamento de recursos do Azure. [Saiba como](powershell.md#price).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Amostragem](../../azure-monitor/app/sampling.md)
 

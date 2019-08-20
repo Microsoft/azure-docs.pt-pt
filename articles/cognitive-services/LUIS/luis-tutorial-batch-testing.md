@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 08/19/2019
 ms.author: diberry
-ms.openlocfilehash: 0a3a9330eaa977f72cdbaba4e11aaa706b437fad
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 60cd87b6cecfb30ebc90f445c79e25c241980a86
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945911"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623340"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: Conjuntos de dados de teste em lotes
 
@@ -95,7 +95,7 @@ Utilize os passos seguintes:
 
 ## <a name="review-batch-results"></a>Rever os resultados de batch
 
-O gráfico de batch apresenta quatro quadrantes de resultados. À direita do gráfico é um filtro. Por predefinição, o filtro é definido para o primeiro objetivo na lista. O filtro contém todas as intenções e apenas entidades simples e compostas. Quando seleciona uma [secção do gráfico](luis-concept-batch-test.md#batch-test-results) ou um ponto no gráfico, a utterance(s) associado apresenta abaixo do gráfico. 
+O gráfico de batch apresenta quatro quadrantes de resultados. À direita do gráfico é um filtro. O filtro contém intenções e entidades. Quando seleciona uma [secção do gráfico](luis-concept-batch-test.md#batch-test-results) ou um ponto no gráfico, a utterance(s) associado apresenta abaixo do gráfico. 
 
 Ao passar o rato sobre o gráfico, a roda do rato pode aumentar ou reduzir a apresentar no gráfico. Isto é útil quando há muitos pontos no gráfico rigidamente agrupado. 
 
@@ -103,27 +103,27 @@ O gráfico está em quatro quadrantes, com duas das seções apresentadas a verm
 
 ### <a name="getjobinformation-test-results"></a>Resultados do teste GetJobInformation
 
-O **GetJobInformation** resultados de teste apresentados no filtro de mostrarem que 2 das predições a quatro foram bem-sucedidas. Selecione o nome **positivo falso** acima Quadrante de superior direito para ver as expressões abaixo do gráfico. 
+O **GetJobInformation** resultados de teste apresentados no filtro de mostrarem que 2 das predições a quatro foram bem-sucedidas. Selecione o nome **falso negativo** no quadrante inferior esquerdo para ver o declarações abaixo do gráfico. 
 
-![Expressões de teste de batch de LUIS](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
+Use o teclado, CTRL + E, para alternar para o modo de exibição de rótulo para ver o texto exato do usuário expressão. 
 
-Por que razão são duas das expressões previstas como **ApplyForJob**, em vez da intenção correta **GetJobInformation**? Dos dois objetivos estão intimamente em termos de escolha do word e a disposição do word. Além disso, há quase três vezes como muitos exemplos para **ApplyForJob** que **GetJobInformation**. Este irregularidade de expressões de exemplo avalia **ApplyForJob** favor da intenção. 
+O expressão `Is there a database position open in Los Colinas?` é rotulado como _GetJobInformation_ , mas o modelo atual prevê o expressão como _ApplyForJob_. 
+
+Há quase três vezes o número de exemplos para **ApplyForJob** do que **GetJobInformation**. Essa irregularidade do declarações pesa no favor da intenção de **ApplyForJob** , causando a previsão incorreta. 
 
 Tenha em atenção que ambos os objetivos tem a mesma contagem de erros. Uma previsão incorreta na um intenção afeta a outra intenção também. Ambos têm erros, porque as expressões foram previstas incorretamente para um objetivo e também não previstas incorretamente para outro objetivo. 
 
-![Erros de filtro de teste de lote de LUIS](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
+<a name="fix-the-app"></a>
 
-As expressões correspondente a parte superior do ponto na **falso positivo** secção são `Can I apply for any database jobs with this resume?` e `Can I apply for any database jobs with this resume?`. Para a primeira expressão, a palavra `resume` só foi utilizado na **ApplyForJob**. Para a segunda expressão, a palavra `apply` só foi utilizado na **ApplyForJob** intenção.
-
-## <a name="fix-the-app"></a>Corrigir a aplicação
+## <a name="how-to-fix-the-app"></a>Como corrigir o aplicativo
 
 O objetivo desta seção é fazer com que todas as expressões previstas corretamente para **GetJobInformation** corrigindo a aplicação. 
 
-Uma correção rápida aparentemente seria adicionar estas expressões de ficheiro de batch para a intenção correta. Isso é que não o que deseja fazer, no entanto. Pretende que o LUIS para prever corretamente estas expressões sem adicionar-os como exemplos. 
+Uma correção rápida aparentemente seria adicionar estas expressões de ficheiro de batch para a intenção correta. Isso não é o que você deseja fazer. Pretende que o LUIS para prever corretamente estas expressões sem adicionar-os como exemplos. 
 
 Também deve estar imaginando sobre a remoção de expressões a partir **ApplyForJob** até que a quantidade de expressão é igual a **GetJobInformation**. Isso pode corrigir os resultados do teste, mas seria atrapalham LUIS dessa intenção prever com precisão próxima vez. 
 
-A primeira correção é adicionar expressões com mais **GetJobInformation**. A segunda correção é reduzir o peso de palavras, como `resume` e `apply` em direção a **ApplyForJob** intenção. 
+A correção é adicionar mais declarações ao **GetJobInformation**. Lembre-se de variar o comprimento do expressão, a opção de palavra e a organização e, ao mesmo tempo, direcionar a intenção de localizar informações sobre o trabalho, _não_ a aplicação do trabalho.
 
 ### <a name="add-more-utterances"></a>Adicionar mais expressões
 
@@ -161,15 +161,13 @@ Para verificar que as expressões no teste de batch estão previstas corretament
 
 1. Selecione **teste** na barra de navegação superior. Se os resultados do batch são ainda abertos, selecione **voltar à lista**.  
 
-2. Selecione as reticências (***...*** ) à direita do nome do batch e selecione **executar o conjunto de dados**. Aguarde até que o teste de batch é concluído. Tenha em atenção que o **ver resultados** botão agora está verde. Isso significa que o lote inteiro foi executado com êxito.
+1. Selecione o botão de reticências (***...***) à direita do nome do lote e selecione **executar**. Aguarde até que o teste de batch é concluído. Tenha em atenção que o **ver resultados** botão agora está verde. Isso significa que o lote inteiro foi executado com êxito.
 
-3. Selecione **ver resultados**. Os objetivos devem todos ter ícones verde à esquerda dos nomes de intenção. 
-
-    ![Captura de ecrã do LUIS, com o botão de resultados de batch realçado](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
+1. Selecione **ver resultados**. Os objetivos devem todos ter ícones verde à esquerda dos nomes de intenção. 
 
 ## <a name="create-batch-file-with-entities"></a>Criar o arquivo em lotes com entidades 
 
-Para verificar as entidades num teste de lote, as entidades tem de ser o nome do arquivo em lotes JSON. Somente as entidades aprendidas por máquina são usadas: entidades simples e compostas. Não adicione entidades não aprendidas máquina porque elas sempre são encontradas por meio de expressões regulares ou corresponde a texto explícito.
+Para verificar as entidades num teste de lote, as entidades tem de ser o nome do arquivo em lotes JSON. 
 
 A variação de entidades para o total word ([token](luis-glossary.md#token)) contagem pode afetar a qualidade de previsão. Certifique-se de que os dados de treinamento fornecidos para a intenção com expressões etiquetados com incluem uma variedade de tamanhos de entidade. 
 
@@ -178,7 +176,6 @@ Quando o primeiro escrever e testar arquivos em lote, é melhor começar com alg
 O valor de um **tarefa** entidade, fornecida nas expressões de teste, é normalmente uma ou duas palavras, com alguns exemplos que está a ser mais palavras. Se _suas próprias_ aplicação de recursos humanos normalmente tem os nomes das tarefas de várias palavras, as expressões de exemplo com o nome com **tarefa** entidade nesta aplicação não funcionaria bem.
 
 1. Crie `HumanResources-entities-batch.json` num editor de texto, como [VSCode](https://code.visualstudio.com/) ou [transferir](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json) -lo.
-
 
 2. No ficheiro batch formatada em JSON, adicione uma matriz de objetos que incluem expressões com o **intenção** desejar prevista no teste, bem como localizações de qualquer entidades na expressão. Uma vez que uma entidade é baseada em tokens, certifique-se iniciar e parar a cada entidade num caractere. Não começar ou terminar a expressão num espaço. Isso faz com que um erro durante a importação de ficheiros do batch.  
 

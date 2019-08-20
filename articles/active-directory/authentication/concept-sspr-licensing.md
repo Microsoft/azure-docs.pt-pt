@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 08/19/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7463b86ea20a712937b8ccba7997c2551aae5be6
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4d7a23ed0a84ebd671c69744dfec145763ef6897
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879112"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622724"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Requisitos de licenciamento para redefinição de senha de autoatendimento do Azure AD
 
@@ -34,7 +34,7 @@ A redefinição de senha de autoatendimento do Azure AD é licenciada por usuár
 * Reposição Personalizada de Palavra-passe para utilizadores em cloud
    * Sou um **usuário somente em nuvem** e esqueci minha senha.
       * Eu gostaria de **Redefinir** minha senha para algo que eu sei.
-   * Essa funcionalidade está incluída no Azure AD Premium P1 ou P2 ou Microsoft 365 Business.
+   * Essa funcionalidade está incluída em Azure AD Premium P1 ou P2, Microsoft 365 Business ou Office 365.
 
 * Redefinição/alteração/desbloqueio de senha de autoatendimento **com write-back local**
    * Sou um **usuário híbrido** meu local Active Directory conta de usuário está sincronizada com minha conta do Azure AD usando Azure ad Connect. Gostaria de alterar minha senha, esqueci minha senha ou foi bloqueada.
@@ -59,7 +59,7 @@ O Azure AD agora dá suporte ao licenciamento baseado em grupo. Os administrador
 
 Alguns serviços Microsoft não estão disponíveis em todas as localizações. Para que uma licença possa ser atribuída a um usuário, o administrador deve especificar a propriedade **local de uso** no usuário. A atribuição de licenças pode ser feita na seção**configurações** de**perfil** > do **usuário** > no portal do Azure. *Quando você usa a atribuição de licença de grupo, todos os usuários sem um local de uso especificado herdam o local do diretório.*
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)
 * [Repor ou alterar a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)

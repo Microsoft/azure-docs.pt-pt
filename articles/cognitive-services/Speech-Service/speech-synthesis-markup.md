@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 89b8b5f8c574de033fabf6861e24fc7d2b31e171
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 12d556fd9c37b83a919b830d155250e9eaa64128
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855106"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624246"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -31,6 +31,10 @@ A implementação dos serviços de fala do SSML é baseada na [linguagem de marc
 Escolha entre as vozes padrão e neural ou crie sua própria voz personalizada exclusiva para seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, e 5 vozes neurais estão disponíveis em 4 idiomas e localidades. Para obter uma lista completa de idiomas, localidades e vozes com suporte (neural e Standard), consulte [suporte a idiomas](language-support.md).
 
 Para saber mais sobre as vozes padrão, neural e personalizada, consulte [visão geral de conversão de texto em fala](text-to-speech.md).
+
+## <a name="special-characters"></a>Caracteres especiais
+
+Ao usar o SSML para converter a fala de texto em sintetizado, tenha em mente que, assim como acontece com XML, caracteres especiais, como aspas, apóstrofos e colchetes devem ser ignorados. Para obter mais informações, [consulte linguagem XML (XML) 1,0: Apêndice D](https://www.w3.org/TR/xml/#sec-entexpand).
 
 ## <a name="supported-ssml-elements"></a>Elementos SSML com suporte
 
@@ -142,6 +146,7 @@ Use esta tabela para determinar quais estilos de fala têm suporte para cada voz
 |-------|------|-------------|
 | `en-US-JessaNeural` | type=`cheerful` | Expressa uma emoção positiva e feliz |
 | | type=`empathy` | Expressa uma noção de preocupar e compreensão |
+| | type=`chat` | Fale em um tom casual e relaxado |
 | `zh-CN-XiaoxiaoNeural` | type=`newscast` | Expressa um tom formal, semelhante a difusões de notícias |
 | | type=`sentiment` | Transmite uma mensagem ou uma história ao toque |
 
@@ -427,6 +432,6 @@ Somente um arquivo de áudio de segundo plano é permitido por documento SSML. N
 </speak>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Suporte a idiomas: vozes, localidades, idiomas](language-support.md)

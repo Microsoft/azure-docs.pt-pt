@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: e85f9a90af778a7e68bf761d8d2159e808cf122d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 829054064a21b2fb8da2bd975501bfcd0840e7eb
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639206"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624577"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Recursos da lista de frases em seu aplicativo LUIS
 
@@ -69,7 +69,7 @@ Como as palavras ou frases do corpo de água são sinônimos e podem ser usadas 
 
 ### <a name="non-interchangeable-lists"></a>Listas não intercambiáveis
 
-Uma lista de frases não intercambiáveis é um sinal que aumenta a detecção para LUIS. A lista de frases indica palavras ou frases que são mais significativas que outras palavras. Isso ajuda a determinar a detecção de intenção e entidade. Por exemplo, digamos que você tenha um domínio de assunto como viagem que seja global (o que significa entre culturas, mas ainda em uma única linguagem). Há palavras e frases que são importantes para o aplicativo, mas não são sinônimos. 
+Uma lista de frases não intercambiáveis é um sinal que aumenta a detecção para LUIS. A lista de frases indica palavras ou frases que são mais significativas do que outras palavras. Isso ajuda a determinar a detecção de intenção e entidade. Por exemplo, digamos que você tenha um domínio de assunto como viagem que seja global (o que significa entre culturas, mas ainda em uma única linguagem). Há palavras e frases que são importantes para o aplicativo, mas não são sinônimos. 
 
 Para outro exemplo, use uma lista de frases não intercambiáveis para palavras raras, proprietárias e estrangeiras. LUIS pode não ser possível reconhecer palavras raras e proprietárias, como palavras estrangeiras (fora da cultura da aplicação). A definição não intercambiáveis indica que o conjunto de palavras raro constitui uma classe que deve aprender a reconhecer o LUIS, mas não são sinónimos ou intercambiáveis entre si.
 

@@ -1,26 +1,33 @@
 ---
-title: Utilizar o registo de aplicações AAD herdado duplos Digital do Azure | Documentos da Microsoft
-description: Este artigo mostra como usar o método herdado de criar o registo de aplicações no Azure Active Directory para a configuração de duplos Digital do Azure.
+title: Usar o registro de aplicativo do AAD herdado para o gêmeos digital do Azure | Microsoft Docs
+description: Este artigo mostra como usar o método herdado de criação de registro de aplicativo com Azure Active Directory para a configuração do gêmeos digital do Azure.
 author: alinamstanciu
 manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 08/16/2019
 ms.author: alinast
-ms.openlocfilehash: ed6c540cedd21bb5154f8746050d5eaa9444b818
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: e9689c71c881c7f5f29ac05fea53bb2c27f75591
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484730"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624739"
 ---
-# <a name="register-your-azure-digital-twins-app-with-azure-active-directory-legacy"></a>Registar a sua aplicação de duplos Digital do Azure com o Azure Active Directory legado
+# <a name="register-your-azure-digital-twins-app-with-azure-active-directory-legacy"></a>Registrar seu aplicativo gêmeos digital do Azure com Azure Active Directory herdado
 
-Este artigo mostra que pode usar a forma de antiga ou herdada para registar a aplicação de exemplo para o Azure Active Directory (Azure AD) para que ele pode aceder à sua instância de duplos Digital. Talvez queira experimentar este método de caso do Azure novo registo de aplicação do AD não funciona para a sua configuração.
+Este artigo descreve como usar a folha Registros de aplicativo preterida **(herdada)** para registrar seu aplicativo de exemplo.
+
+> [!IMPORTANT]
+> * A nova folha **Azure Active Directory** > **registros de aplicativo** substitui a folha registros de aplicativo herdada **Azure Active Directory** >  **(herdada)** pode ser 2019.
+> * Registros de aplicativo criados ou exibidos na folha herdada serão exibidos automaticamente na folha novo.
+> * Para obter informações abrangentes sobre como migrar para a nova experiência de registro de Azure App, leia o [Guia de treinamento de registros de Azure app](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide) e [Azure Active Directory início rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 [!INCLUDE [Digital Twins legacy AAD](../../includes/digital-twins-permissions-legacy.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Assim que a sua aplicação for registada com o AAD, em seguida, pode ligar com a sua instância de duplos Digital e ajuda a que avançar no seu cenário. Consulte uma a [início rápido](quickstart-view-occupancy-dotnet.md#build-application) ou o [tutorial](tutorial-facilities-setup.md#configure-the-digital-twins-sample) para obter mais informações sobre os passos seguintes. 
+Continue o [início rápido](quickstart-view-occupancy-dotnet.md#build-application) ou [tutorial](tutorial-facilities-setup.md#configure-the-digital-twins-sample).
+
+Saiba [como registrar seu aplicativo usando a nova folha **registros de aplicativo** ](tutorial-facilities-setup.md#grant-permissions-to-your-app).

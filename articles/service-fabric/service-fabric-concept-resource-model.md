@@ -7,15 +7,15 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: atsenthi
-ms.openlocfilehash: 7795612d8aa4974bc640571d49ad1520e2a0f94c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 8e39318dcaa31a111908c6be1ae7a51d73eb7478
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963849"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623817"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>O que é o modelo de recurso de aplicativo Service Fabric?
-É recomendável que Service Fabric aplicativos sejam implantados no Cluster Service Fabric por meio do Azure Resource Manager. Esse método possibilita descrever aplicativos e serviços em JSON e implantá-los no mesmo modelo do Resource Manager que o cluster. Em oposição à implantação e ao gerenciamento de aplicativos por meio do PowerShell ou CLI do Azure, não há necessidade de esperar que o cluster esteja pronto. O processo de registro, provisionamento e implantação de aplicativos pode acontecer em uma única etapa. Esta é a prática recomendada para gerenciar o ciclo de vida do aplicativo em seu cluster. Para obter mais informações, consulte [as práticas recomendadas](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
+É recomendável que Service Fabric aplicativos sejam implantados no Cluster Service Fabric por meio do Azure Resource Manager. Esse método possibilita descrever aplicativos e serviços em JSON e implantá-los no mesmo modelo do Resource Manager que o cluster. Em oposição à implantação e ao gerenciamento de aplicativos por meio do PowerShell ou CLI do Azure, não há necessidade de esperar que o cluster esteja pronto. Pode realizar o processo de registo, aprovisionamento e implementação de aplicações com um único passo. Esta é a melhor prática para gerir o ciclo de vida das aplicações no seu cluster. Para obter mais informações, consulte [as práticas recomendadas](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
 
 Quando aplicável, gerencie seus aplicativos como recursos do Resource Manager para melhorar:
 * Trilha de auditoria: O Resource Manager audita cada operação e mantém um *log de atividades* detalhado que pode ajudá-lo a rastrear todas as alterações feitas nesses aplicativos e no cluster.
@@ -33,7 +33,7 @@ Neste documento, você aprenderá a:
 ## <a name="deploy-application-resources-using-azure-resource-manager"></a>Implantar recursos do aplicativo usando o Azure Resource Manager  
 Para implantar um aplicativo e seus serviços usando o modelo de recurso de aplicativo Azure Resource Manager, você precisa empacotar o código do aplicativo, carregar o pacote e, em seguida, fazer referência ao local do pacote em um modelo de Azure Resource Manager como um aplicativo Kit. Para obter mais informações, veja [empacotar um aplicativo](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg).
           
-Em seguida, crie um modelo de Azure Resource Manager, atualize o arquivo de parâmetros com os detalhes do aplicativo e implante-o no Cluster Service Fabric. Consulte os exemplos aqui
+Em seguida, crie um modelo de Azure Resource Manager, atualize o arquivo de parâmetros com os detalhes do aplicativo e implante-o no Cluster Service Fabric. Consulte os exemplos [aqui](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM).
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de Armazenamento 
 A implantação de um aplicativo de um modelo do Resource Manager requer uma conta de armazenamento para preparar a imagem do aplicativo. Você pode usar novamente uma conta de armazenamento existente ou criar uma nova conta de armazenamento para preparar seus aplicativos. Se você quiser usar uma conta de armazenamento existente, poderá ignorar esta etapa. 
@@ -149,7 +149,7 @@ Os aplicativos implantados usando o modelo de recurso de aplicativo no Azure Res
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Obter informações sobre o modelo de recurso de aplicativo:
 
 * [Modelar um aplicativo no Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model)

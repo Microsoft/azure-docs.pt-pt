@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3d1a8afdbad1878f4ce134edeeb95dad79e98a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dedb60a2a5d3681198fbc8a21af1dce1778e43eb
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784822"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622659"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 
@@ -33,23 +33,23 @@ A tabela seguinte é uma lista de requisitos para utilizar o Azure AD Connect He
 | Requisito | Descrição |
 | --- | --- |
 | Azure AD Premium |O Azure AD Connect Health é uma funcionalidade do Azure AD Premium e requer o Azure AD Premium. <br /><br />Para obter mais informações, veja [ Introdução ao Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) <br />Para iniciar uma versão de avaliação gratuita de 30 dias, veja [Iniciar uma versão de avaliação.](https://azure.microsoft.com/trial/get-started-active-directory/) |
-| Tem de ser um administrador global do seu Azure AD para começar a utilizar o Azure AD Connect Health |Por predefinição, apenas os administradores globais podem instalar e configurar os agentes de estado de funcionamento para iniciar, aceder ao portal e executar operações no Azure AD Connect Health. Para obter mais informações, veja [Administrar o diretório do Azure AD](../fundamentals/active-directory-administer.md). <br /><br /> Utilizando um Controlo de Acesso Baseado em Funções, pode permitir o acesso ao Azure AD Connect Health a outros utilizadores na sua organização. Para obter mais informações, veja [Role Based Access Control for Azure AD Connect Health (Controlo de Acesso Baseado em Funções para o Azure AD Connect Health).](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) <br /><br />**Importante:** A conta utilizada ao instalar os agentes tem de ser uma conta escolar ou profissional. Não pode ser uma conta Microsoft. Para obter mais informações, veja [Sign up for Azure as an organization (Inscrever-se no Azure como uma organização)](../fundamentals/sign-up-organization.md) |
+| Tem de ser um administrador global do seu Azure AD para começar a utilizar o Azure AD Connect Health |Por predefinição, apenas os administradores globais podem instalar e configurar os agentes de estado de funcionamento para iniciar, aceder ao portal e executar operações no Azure AD Connect Health. Para obter mais informações, veja [Administrar o diretório do Azure AD](../fundamentals/active-directory-administer.md). <br /><br /> Utilizando um Controlo de Acesso Baseado em Funções, pode permitir o acesso ao Azure AD Connect Health a outros utilizadores na sua organização. Para obter mais informações, veja [Role Based Access Control for Azure AD Connect Health (Controlo de Acesso Baseado em Funções para o Azure AD Connect Health).](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) <br /><br />**Importante:** A conta usada ao instalar os agentes deve ser uma conta corporativa ou de estudante. Não pode ser uma conta Microsoft. Para obter mais informações, veja [Sign up for Azure as an organization (Inscrever-se no Azure como uma organização)](../fundamentals/sign-up-organization.md) |
 | O Agente do Azure AD Connect Health é instalado em cada servidor de destino | O Azure AD Connect Health exige que os Agentes de Estado de Funcionamento sejam instalados e configurados em servidores de destino para receber os dados e oferecer as funcionalidades Monitorização e Análise. <br /><br />Por exemplo, para obter dados da sua infraestrutura do AD FS, o agente tem de estar instalado nos servidores do AD FS e nos servidores Proxy de Aplicações Web. Do mesmo modo, para obter os dados na sua infraestrutura local do AD DS, o agente tem de ser instalado nos controladores de domínio. <br /><br /> |
 | Conectividade de saída para os pontos finais de serviço do Azure | Durante a instalação e o tempo de execução, o agente requer conectividade aos pontos finais do serviço do Azure AD Connect Health. Se a conectividade de saída for bloqueada com Firewalls, certifique-se de que os pontos finais seguintes são adicionados à lista de permissões. Veja [Pontos finais de conectividade de saída](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |Conectividade de saída com base em Endereços IP | Para filtragem baseada em endereço IP nas firewalls, consulte [Azure IP Ranges (Intervalos IP do Azure IP)](https://www.microsoft.com/download/details.aspx?id=41653).|
 | A inspeção do SSL para o tráfego de saída é filtrada ou está desativada | As operações de carregamento de dados ou o passo de registo do agente poderá falhar se existir inspeção ou terminação SSL para tráfego de saída na camada de rede. Saiba mais sobre [como configurar a inspeção SSL](https://technet.microsoft.com/library/ee796230.aspx) |
-| Portas da firewall no servidor onde o agente é executado |O agente requer que as seguintes portas de firewall estejam abertas para que possa comunicar com os pontos finais de serviço do Azure AD Health.<br /><br /><li>Porta TCP 443</li><li>Porta TCP 5671</li> <br />Observe que a porta 5671 já não é necessária para a versão mais recente do agente. Atualizar para a versão mais recente, pelo que apenas a porta 443 é necessária. Leia mais sobre como [ativar as portas da firewall](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
+| Portas da firewall no servidor onde o agente é executado |O agente requer que as seguintes portas de firewall estejam abertas para que possa comunicar com os pontos finais de serviço do Azure AD Health.<br /><br /><li>Porta TCP 443</li><li>Porta TCP 5671</li> <br />Observe que a porta 5671 não é mais necessária para a versão mais recente do agente. Atualize para a versão mais recente para que apenas a porta 443 seja necessária. Leia mais sobre como [ativar as portas da firewall](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
 | Permitir os seguintes Web sites, caso esteja ativada a Segurança Avançada do IE |Se a Segurança Avançada do IE estiver ativada, os Web sites seguintes têm de ser permitidos no servidor no qual o agente vai ser instalado.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>O servidor de federação para a sua organização considerado fidedigno pelo o Azure Active Directory. Por exemplo: https:\//sts.contoso.com</li> Leia mais sobre [como configurar o IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
 | Certifique-se de que o PowerShell v4.0 ou mais recente está instalado | <li>O Windows Server 2008 R2 inclui o PowerShell v2.0, que é insuficiente para o agente. Atualize o PowerShell, conforme explicado abaixo em [Agent installation on Windows Server 2008 R2 Servers (Instalação do agente em Servidores do Windows Server 2008 R2)](#agent-installation-on-windows-server-2008-r2-servers).</li><li>O Windows Server 2012 inclui o PowerShell v3.0, que é insuficiente para o agente.  [Atualize](https://www.microsoft.com/download/details.aspx?id=40855) o Windows Management Framework.</li><li>O Windows Server 2012 R2 e versão posterior incluem uma versão suficientemente recente do PowerShell.</li>|
 |Desativar FIPS|O FIPS não é suportado por agentes do Azure AD Connect Health.|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Conectividade de saída para os pontos finais de serviço do Azure
 
- Durante a instalação e o tempo de execução, o agente requer conectividade aos pontos finais do serviço do Azure AD Connect Health. Se a conectividade de saída for bloqueada com Firewalls, certifique-se de que os seguintes URLs não estão bloqueados por predefinição. Não desative a monitorização de segurança ou de inspeção de URLs, mas permitir que os mesmos como faria com outro tráfego de internet. Eles permitem a comunicação com pontos finais de serviço do Azure AD Connect Health. Saiba como [Verifique a conectividade de saída com o Test-AzureADConnectHealthConnectivity](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
+ Durante a instalação e o tempo de execução, o agente requer conectividade aos pontos finais do serviço do Azure AD Connect Health. Se a conectividade de saída for bloqueada usando firewalls, verifique se as URLs a seguir não estão bloqueadas por padrão. Não desabilite o monitoramento de segurança ou a inspeção dessas URLs, mas permita que você tenha outro tráfego de Internet. Eles permitem a comunicação com pontos de extremidade de serviço Azure AD Connect Health. Saiba como [verificar a conectividade de saída com Test-AzureADConnectHealthConnectivity](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
 
 | Ambiente de Domínio | Pontos finais do serviço do Azure necessários |
 | --- | --- |
-| Público Geral | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;.servicebus.windows.net - Port: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *este ponto final serve apenas para efeitos de deteção durante o registo.</li> |
+| Público Geral | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;. servicebus.windows.net-porta: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *este ponto final serve apenas para efeitos de deteção durante o registo.</li> |
 | Azure Alemanha | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li> <li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https:\//www.office.de *este ponto final serve apenas para efeitos de deteção durante o registo.</li> |
 | Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *este ponto final serve apenas para efeitos de deteção durante o registo.</li> |
 
@@ -178,7 +178,7 @@ Tenha em atenção que o nível de auditoria "básico" está ativado por predefi
 ![Registos de auditoria do AD FS](./media/how-to-connect-health-agent-install/adfsaudit.png)
 
 > [!WARNING]
-> Uma política de grupo pode desativar a auditoria do AD FS. Se a auditoria do AD FS estiver desativada, a análise de utilização sobre as atividades de início de sessão não estará disponível. Certifique-se de que não tem uma política de grupo que desativa a auditoria do AD FS. >
+> Uma política de grupo pode desativar a auditoria do AD FS. Se a auditoria do AD FS estiver desativada, a análise de utilização sobre as atividades de início de sessão não estará disponível. Certifique-se de que você não tenha uma política de grupo que desabilite AD FS auditoria. >
 >
 
 
@@ -249,12 +249,12 @@ Se concluiu a configuração, estes serviços já devem estar a ser executados. 
 
 ![Verificar o Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
-### <a name="quick-agent-installation-in-multiple-servers"></a>Instalação do agente rápida em vários servidores
+### <a name="quick-agent-installation-in-multiple-servers"></a>Instalação rápida de agente em vários servidores
 
-1. Crie uma conta de utilizador no Azure AD com uma palavra-passe.
-2. Atribuir a **proprietário** função para esta conta AAD local no Azure AD Connect Health através do portal. Siga os passos [aqui](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Atribua a função para todas as instâncias de serviço. 
-3. Transfira o ficheiro MSI do .exe, no controlador de domínio local para a instalação.
-4. Execute o seguinte script para registo. Substitua os parâmetros com a nova conta de utilizador que criou e respetiva palavra-passe. 
+1. Crie uma conta de usuário no Azure AD com uma senha.
+2. Atribua a função de **proprietário** para esta conta local do AAD em Azure ad Connect Health por meio do Portal. Siga as etapas [aqui](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Atribua a função a todas as instâncias de serviço. 
+3. Baixe o arquivo MSI. exe no controlador de domínio local para instalação.
+4. Execute o script a seguir no registro. Substitua os parâmetros pela nova conta de usuário criada e sua senha. 
 
 ```powershell
 AdHealthAddsAgentSetup.exe /quiet
@@ -268,11 +268,11 @@ Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential 
 
 ```
 
-1. Quando tiver terminado, pode remover o acesso para a conta local, fazendo uma ou mais dos seguintes procedimentos: 
+1. Quando terminar, você poderá remover o acesso à conta local seguindo um ou mais destes procedimentos: 
     * Remover a atribuição de função para a conta local para o AAD Connect Health
-    * Roda a palavra-passe para a conta local. 
-    * Desativar a conta local do AAD
-    * Eliminar a conta local do AAD  
+    * Gire a senha da conta local. 
+    * Desabilitar a conta local do AAD
+    * Excluir a conta local do AAD  
 
 ## <a name="agent-registration-using-powershell"></a>Registo do Agente com o PowerShell
 
@@ -313,7 +313,7 @@ Tem as seguintes opções para configurar o Agente do Azure AD Connect Health pa
 
 > [!NOTE]
 > Para que as definições de proxy sejam atualizadas, têm de ser reiniciados todos os serviços do Agente do Azure AD Connect Health. Execute o seguinte comando:<br />
-> Restart-Service AdHealth*
+> Restart-Service AzureADConnectHealth *
 >
 >
 
@@ -337,7 +337,7 @@ Pode especificar manualmente um servidor proxy em cada servidor que executa o Ag
 
     Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
 
-Exemplo: *Set-AzureAdConnectHealthProxySettings - HttpsProxyAddress myproxyserver: 443*
+Exemplo: *Set-AzureAdConnectHealthProxySettings-HttpsProxyAddress myproxyserver: 443*
 
 * “address” pode ser um nome de servidor DNS resolvível ou um endereço IPv4
 * pode ser omitida a “porta”. Se for omitida, então 443 é escolhida como porta predefinida.
@@ -360,7 +360,7 @@ Pode ler as definições de proxy atualmente configuradas ao executar o seguinte
 
 É possível que possam surgir problemas que levem o agente do Azure AD Connect Health a perder a conectividade ao serviço do Azure AD Connect Health. Incluem problemas de rede, problemas de permissão ou vários outros motivos.
 
-Se o agente não conseguir enviar dados para o serviço do Azure AD Connect Health durante mais de duas horas, é apresentado o alerta no portal do: "Dados de estado de funcionamento do serviço não estão atualizados." Pode confirmar se o agente do Azure AD Connect Health consegue carregar dados para este serviço ao executar o seguinte comando do PowerShell:
+Se o agente não puder enviar dados para o serviço de Azure AD Connect Health por mais de duas horas, ele será indicado com o seguinte alerta no Portal: "Os dados do Serviço de Integridade não estão atualizados." Pode confirmar se o agente do Azure AD Connect Health consegue carregar dados para este serviço ao executar o seguinte comando do PowerShell:
 
     Test-AzureADConnectHealthConnectivity -Role ADFS
 

@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 5bf2ee68ff2cfde2846dff2d94f7478920a18760
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: e4b7de3931c0d3508e5af6aa6bf85dfa18641aee
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69037115"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624974"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutorial: Adicionar uma instância gerenciada do banco de dados SQL a um grupo de failover
 
@@ -151,7 +151,7 @@ Para que duas instâncias gerenciadas participem de um grupo de failover, deve h
     | **Tipo de gateway** | Selecione **VPN**. |
     | **Tipo de VPN** | Selecionar **baseado em rota** |
     | **SKU**| Mantenha o padrão `VpnGw1`de. |
-    | **Location**| O local onde a instância gerenciada secundária e a rede virtual secundária são.   |
+    | **Location**| O local onde a instância gerenciada primária e a rede virtual primária é.   |
     | **Rede virtual**| Selecione a rede virtual que foi criada na seção 2, `vnet-sql-mi-primary`como. |
     | **Endereço IP público**| Selecione **Criar novo**. |
     | **Nome do endereço IP público**| Insira um nome para seu endereço IP, `primary-gateway-IP`como. |

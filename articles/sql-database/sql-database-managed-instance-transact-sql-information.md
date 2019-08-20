@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 44b98b55bfa2d0424831f6cf612f66dbcdc8a6d9
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 5e9972c5fea7aaa2e6b5270aff87343437b1963e
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543689"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624016"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL de instância gerenciada do banco de dados SQL do Azure de SQL Server
 
@@ -62,6 +62,7 @@ Instâncias gerenciadas têm backups automáticos, para que os `COPY_ONLY` usuá
 Limitações 
 
 - Com uma instância gerenciada, você pode fazer backup de um banco de dados de instância em um backup com até 32 faixas, o que é suficiente para bancos de dados de até 4 TB se a compactação de backup for usada.
+- Não é possível `BACKUP DATABASE ... WITH COPY_ONLY` executar o em um banco de dados criptografado com o TDE (Transparent Data Encryption gerenciamento de serviços gerenciados). O TDE gerenciado por serviço força os backups a serem criptografados com uma chave TDE interna. A chave não pode ser exportada, portanto, não é possível restaurar o backup. Use backups automáticos e restauração pontual ou use o [TDE (BYOK) gerenciado pelo cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) em vez disso. Você também pode desabilitar a criptografia no banco de dados.
 - O tamanho máximo de distribuição de backup usando o `BACKUP` comando em uma instância gerenciada é 195 GB, que é o tamanho máximo do blob. Aumente o número de faixas no comando backup para reduzir o tamanho individual da distribuição e permanecer dentro desse limite.
 
     > [!TIP]
@@ -512,6 +513,10 @@ Não há suporte para o Service Broker de instância cruzada:
 - Depois que uma instância gerenciada é criada, não há suporte para a movimentação da instância gerenciada ou da VNet para outro grupo de recursos ou assinatura.
 - Alguns serviços, como ambientes de serviço de aplicativo, aplicativos lógicos e instâncias gerenciadas (usados para replicação geográfica, replicação transacional ou por meio de servidores vinculados) não podem acessar instâncias gerenciadas em regiões diferentes se seus VNets estiverem conectados usando [global emparelhamento](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Você pode se conectar a esses recursos via ExpressRoute ou VNet a VNet por meio de gateways de VNet.
 
+### <a name="tempdb-size"></a>Tamanho do TEMPDB
+
+O tamanho máximo de arquivo `tempdb` de não pode ser maior que 24 GB por núcleo em uma camada de uso geral. O tamanho `tempdb` máximo em uma camada de comercialmente crítico é limitado pelo tamanho do armazenamento da instância. `Tempdb`o tamanho do arquivo de log é limitado a 120 GB em Uso Geral e Comercialmente Crítico camadas. Algumas consultas podem retornar um erro se precisarem de mais de 24 GB por núcleo `tempdb` no ou se produzirem mais de 120 GB de dados de log.
+
 ## <a name="Changes"></a>Alterações de comportamento
 
 As seguintes variáveis, funções e exibições retornam resultados diferentes:
@@ -526,13 +531,39 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 
 ## <a name="Issues"></a>Limitações e problemas conhecidos
 
-### <a name="tempdb-size"></a>Tamanho do TEMPDB
+### <a name="cross-database-service-broker-dialogs-dont-work-after-service-tier-upgrade"></a>As caixas de diálogo de Service Broker entre bancos de dados não funcionam após a atualização da camada de serviço
 
-O tamanho máximo de arquivo `tempdb` de não pode ser maior que 24 GB por núcleo em uma camada de uso geral. O tamanho `tempdb` máximo em uma camada de comercialmente crítico é limitado pelo tamanho do armazenamento da instância. `Tempdb`o tamanho do arquivo de log é limitado a 120 GB em Uso Geral e Comercialmente Crítico camadas. O `tempdb` banco de dados sempre é dividido em 12 arquivos de data. Esse tamanho máximo por arquivo não pode ser alterado e novos arquivos não podem ser adicionados `tempdb`ao. Algumas consultas podem retornar um erro se precisarem de mais de 24 GB por núcleo `tempdb` no ou se produzirem mais de 120 GB de dados de log. `Tempdb`é sempre recriado como um banco de dados vazio quando a instância inicia ou faz failover, e quaisquer alterações feitas `tempdb` no não serão preservadas. 
+**Date** 2019 de agosto
 
-### <a name="cant-restore-contained-database"></a>Não é possível restaurar o banco de dados independente
+As caixas de diálogo de Service Broker entre bancos de dados falham ao entregar as mensagens após a operação de alteração da camada de serviço. Qualquer alteração de tamanho de armazenamento de instância ou vCores em instância gerenciada, `service_broke_guid` fará com que o valor na exibição [Sys.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) databases seja alterado para todos os bancos de dados. Qualquer `DIALOG` criado usando a instrução [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) que referencie os agentes de serviço em outro banco de dados por GUID, não será capaz de entregar mensagens.
 
-A instância gerenciada não pode restaurar [bancos de dados independentes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). A restauração pontual dos bancos de dados independentes existentes não funciona na instância gerenciada. Enquanto isso, recomendamos que você remova a opção de confinamento de seus bancos de dados que são colocados na instância gerenciada. Não use a opção de confinamento para os bancos de dados de produção. 
+**Resolução** Pare qualquer atividade que use conversas de caixa de diálogo Service Broker de banco de dados antes de atualizar a camada de serviço e reinicializá-la após.
+
+### <a name="some-aad-login-types-cannot-be-impersonated"></a>Alguns tipos de logon do AAD não podem ser representados
+
+**Date** Julho de 2019
+
+Não há `EXECUTE AS USER` suporte `EXECUTE AS LOGIN` para a representação usando ou das seguintes entidades de segurança do AAD:
+-   Usuários com alias do AAD. O erro a seguir é retornado nesse caso `15517`.
+- Logons e usuários do AAD com base em aplicativos do AAD ou entidades de serviço. Os erros a seguir são retornados nesse caso `15517` e `15406`.
+
+### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryparâmetro sem suporte em sp_send_db_mail
+
+**Date** Abril de 2019
+
+O `@query` parâmetro no procedimento [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) não funciona.
+
+### <a name="aad-logins-and-users-are-not-supported-in-tools"></a>Não há suporte para logons e usuários do AAD em ferramentas
+
+**Date** Jan 2019
+
+SQL Server Management Studio e SQL Server Data Tools não fuly dão suporte a usuários e logons de diretório de conta do Azure.
+- Usar entidades de segurança do servidor do Azure AD (logons) e usuários (visualização pública) com SQL Server Data Tools atualmente não tem suporte.
+- Não há suporte para scripts para entidades de segurança de servidor do Azure AD (logons) e usuários (visualização pública) no SQL Server Management Studio.
+
+### <a name="tempdb-structure-and-content-is-re-created"></a>A estrutura TEMPDB e o conteúdo são recriados
+
+O `tempdb` banco de dados sempre é dividido em 12 arquivos de data e a estrutura do arquivo não pode ser alterada. O tamanho máximo por arquivo não pode ser alterado e novos arquivos não podem ser adicionados `tempdb`ao. `Tempdb`é sempre recriado como um banco de dados vazio quando a instância inicia ou faz failover, e quaisquer alterações feitas `tempdb` no não serão preservadas.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Excedendo o espaço de armazenamento com arquivos de banco de dados pequenos
 
@@ -551,24 +582,9 @@ Neste exemplo, os bancos de dados existentes continuam funcionando e podem cresc
 
 Você pode [identificar o número de arquivos restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) usando exibições do sistema. Se você atingir esse limite, tente esvaziar [e excluir alguns dos arquivos menores usando a instrução DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou alterne para a [camada comercialmente crítico, que não tem esse limite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
-### <a name="tooling"></a>Ferramentas
-
-SQL Server Management Studio e SQL Server Data Tools podem ter alguns problemas enquanto acessam uma instância gerenciada.
-
-- Usar entidades de segurança do servidor do Azure AD (logons) e usuários (visualização pública) com SQL Server Data Tools atualmente não tem suporte.
-- Não há suporte para scripts para entidades de segurança de servidor do Azure AD (logons) e usuários (visualização pública) no SQL Server Management Studio.
-
-### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Nomes de banco de dados incorretos em alguns modos de exibição, logs e mensagens
+### <a name="guid-values-shown-instead-of-database-names"></a>Valores de GUID mostrados em vez de nomes de banco de dados
 
 Várias exibições do sistema, contadores de desempenho, mensagens de erro, XEvents e entradas de log de erros exibem identificadores de banco de dados GUID em vez dos nomes de banco de dados reais. Não confie nesses identificadores GUID porque eles são substituídos por nomes de banco de dados reais no futuro.
-
-### <a name="database-mail"></a>Correio de base de dados
-
-O `@query` parâmetro no procedimento [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) não funciona.
-
-### <a name="database-mail-profile"></a>Perfil de Database Mail
-
-O perfil de Database Mail usado pelo SQL Server Agent deve ser chamado `AzureManagedInstance_dbmail_profile`. Não há restrições para outros nomes de perfil de Database Mail.
 
 ### <a name="error-logs-arent-persisted"></a>Os logs de erros não são persistentes
 
@@ -616,12 +632,6 @@ Embora esse código funcione com dados dentro da mesma instância, ele exigia o 
 Os módulos CLR colocados em uma instância gerenciada e servidores vinculados ou consultas distribuídas que referenciam uma instância atual às vezes não podem resolver o IP de uma instância local. Esse erro é um problema transitório.
 
 **Resolução** Use conexões de contexto em um módulo CLR, se possível.
-
-### <a name="tde-encrypted-databases-with-a-service-managed-key-dont-support-user-initiated-backups"></a>Os bancos de dados criptografados por TDE com uma chave gerenciada por serviço não dão suporte a backups iniciados pelo usuário
-
-Não é possível `BACKUP DATABASE ... WITH COPY_ONLY` executar o em um banco de dados criptografado com o TDE (Transparent Data Encryption gerenciamento de serviços gerenciados). O TDE gerenciado por serviço força os backups a serem criptografados com uma chave TDE interna. A chave não pode ser exportada, portanto, não é possível restaurar o backup.
-
-**Resolução** Use backups automáticos e restauração pontual ou use o [TDE (BYOK) gerenciado pelo cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) em vez disso. Você também pode desabilitar a criptografia no banco de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

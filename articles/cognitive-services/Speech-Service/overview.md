@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 4ea6f04dbfd18a6e561a255988ba0465b9e017be
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: da88c6d0195236a6f93f81d3296e4624228125f2
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967616"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624266"
 ---
 # <a name="what-are-the-speech-services"></a>O que são os Serviços de Voz?
 
@@ -42,7 +42,8 @@ Esses recursos compõem os serviços de fala do Azure. Use os links nesta tabela
 Saiba o que há de novo nos serviços de fala do Azure.
 
 * Agosto de 2019
-  * **Novo tutorial**: [Voz habilite seu bot com o SDK de fala,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+  * **Novo tutorial**: [Dê voz ao seu bot com o SDK de Voz, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+  * Foi adicionado um novo estilo de [`chat`](speech-synthesis-markup.md#adjust-speaking-styles)fala,, `en-US-JessaNeural` para a voz. 
 * Junho de 2019
   * Lançada a 1.6.0 do SDK de fala. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
 * 2019 de maio-a documentação agora está disponível para [transcrição de conversa](conversation-transcription-service.md), [transcrição do Call Center](call-center-transcription.md)e [assistentes virtuais da primeira voz](voice-first-virtual-assistants.md).

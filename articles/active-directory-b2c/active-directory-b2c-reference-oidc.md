@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 08/20/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f6188f5c5bdd256ee84c5e7dc8632e5c067ceca5
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 36efdb7db57d3acfa7384d904e9be8faad4c6534
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541717"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622082"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Entrada na Web com o OpenID Connect no Azure Active Directory B2C
 
@@ -32,11 +32,10 @@ Azure AD B2C estende o protocolo OpenID Connect padrão para fazer mais do que a
 
 Quando seu aplicativo Web precisa autenticar o usuário e executar um fluxo de usuário, ele pode direcionar o usuário `/authorize` para o ponto de extremidade. O usuário executa a ação dependendo do fluxo do usuário.
 
-Nessa solicitação, o cliente indica as permissões que precisa adquirir do usuário no `scope` parâmetro e o fluxo do usuário para ser executado `p` no parâmetro. Três exemplos são fornecidos nas seções a seguir (com quebras de linha para facilitar a leitura), cada um usando um fluxo de usuário diferente. Para ter uma ideia de como cada solicitação funciona, tente colar a solicitação em um navegador e executá-la. Você pode substituir `fabrikamb2c` pelo nome do seu locatário se tiver um e tiver criado um fluxo de usuário. Você também precisará substituir `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`. Substitua essa ID do cliente pela ID do aplicativo que você criou. Além disso, altere o `b2c_1_sign_in` nome da política para o nome da política que você tem em seu locatário.
+Nessa solicitação, o cliente indica as permissões que precisa adquirir do usuário no `scope` parâmetro e especifica o fluxo de usuário a ser executado. Três exemplos são fornecidos nas seções a seguir (com quebras de linha para facilitar a leitura), cada um usando um fluxo de usuário diferente. Para ter uma ideia de como cada solicitação funciona, tente colar a solicitação em um navegador e executá-la. Você pode substituir `fabrikamb2c` pelo nome do seu locatário se tiver um e tiver criado um fluxo de usuário. Você também precisará substituir `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`. Substitua essa ID do cliente pela ID do aplicativo que você criou. Além disso, altere o nome`{policy}`da política () para o nome da política que você tem em seu `b2c_1_sign_in`locatário, por exemplo.
 
-#### <a name="use-a-sign-in-user-flow"></a>Usar um fluxo de usuário de entrada
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+```HTTP
+GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -44,40 +43,14 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &scope=openid%20offline_access
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
-&p=b2c_1_sign_in
-```
-
-#### <a name="use-a-sign-up-user-flow"></a>Usar um fluxo de usuário de inscrição
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&response_type=code+id_token
-&redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
-&response_mode=form_post
-&scope=openid%20offline_access
-&state=arbitrary_data_you_can_receive_in_the_response
-&nonce=12345
-&p=b2c_1_sign_up
-```
-
-#### <a name="use-an-edit-profile-user-flow"></a>Usar um fluxo de usuário do perfil de edição
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&response_type=code+id_token
-&redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
-&response_mode=form_post
-&scope=openid%20offline_access
-&state=arbitrary_data_you_can_receive_in_the_response
-&nonce=12345
-&p=b2c_1_edit_profile
 ```
 
 | Parâmetro | Requerido | Descrição |
 | --------- | -------- | ----------- |
+| vários | Sim | Nome do seu locatário de Azure AD B2C |
+| regras | Sim | O fluxo do usuário que é executado. É o nome de um fluxo de usuário que é criado em seu locatário Azure AD B2C. O nome do fluxo do usuário deve começar com `b2c_1_`. Por exemplo: `b2c_1_sign_in`, `b2c_1_sign_up`ou `b2c_1_edit_profile`. |
 | client_id | Sim | A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuído ao seu aplicativo. |
 | nonce | Sim | Um valor incluído na solicitação (gerado pelo aplicativo) que é incluído no token de ID resultante como uma declaração. O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. O valor normalmente é uma cadeia de caracteres exclusiva aleatória que pode ser usada para identificar a origem da solicitação. |
-| p | Sim | O fluxo do usuário que é executado. É o nome de um fluxo de usuário que é criado em seu locatário Azure AD B2C. O nome do fluxo do usuário deve começar com `b2c\_1\_`. |
 | response_type | Sim | Deve incluir um token de ID para o OpenID Connect. Se o aplicativo Web também precisar de tokens para chamar uma API da Web, `code+id_token`você poderá usar o. |
 | scope | Sim | Uma lista de escopos separados por espaços. O `openid` escopo indica uma permissão para conectar o usuário e obter dados sobre o usuário na forma de tokens de ID. O `offline_access` escopo é opcional para aplicativos Web. Isso indica que seu aplicativo precisará de um *token de atualização* para acesso estendido aos recursos. |
 | aviso | Não | O tipo de interação do usuário que é necessário. O único valor válido no momento é `login`, o que força o usuário a inserir suas credenciais nessa solicitação. |
@@ -91,7 +64,7 @@ Depois que o usuário conclui o fluxo do usuário, uma resposta é retornada ao 
 
 Uma resposta bem-sucedida usando `response_mode=fragment` seria semelhante A:
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
@@ -106,7 +79,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 
 As respostas de erro também podem ser enviadas `redirect_uri` ao parâmetro para que o aplicativo possa tratá-las adequadamente:
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -125,11 +98,15 @@ Apenas receber um token de ID não é suficiente para autenticar o usuário. Val
 
 Azure AD B2C tem um ponto de extremidade de metadados do OpenID Connect, que permite que um aplicativo Obtenha informações sobre Azure AD B2C em tempo de execução. Essas informações incluem pontos de extremidade, conteúdos de token e chaves de assinatura de token. Há um documento de metadados JSON para cada fluxo de usuário em seu locatário B2C. Por exemplo, o documento de metadados para `b2c_1_sign_in` o fluxo de `fabrikamb2c.onmicrosoft.com` usuário no está localizado em:
 
-`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+```HTTP
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/v2.0/.well-known/openid-configuration
+```
 
 Uma das propriedades deste documento de configuração é `jwks_uri`, cujo valor para o mesmo fluxo de usuário seria:
 
-`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`.
+```HTTP
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
+```
 
 Para determinar qual fluxo de usuário foi usado na assinatura de um token de ID (e de onde obter os metadados), você tem duas opções. Primeiro, o nome do fluxo de usuário é incluído `acr` na declaração no token de ID. Sua outra opção é codificar o fluxo do usuário no valor do `state` parâmetro ao emitir a solicitação e, em seguida, decodificá-lo para determinar qual fluxo de usuário foi usado. O método é válido.
 
@@ -159,9 +136,9 @@ Você pode resgatar o código de autorização adquirido (usando `response_type=
 
 Você também pode solicitar um token de acesso para a própria API Web de back-end do seu aplicativo por convenção de usar a ID do cliente do aplicativo como o escopo solicitado (o que resultará em um token de acesso com essa ID de cliente como o "público"):
 
-```
-POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://fabrikamb2c.b2clogin.com
+```HTTP
+POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
@@ -169,17 +146,18 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | Parâmetro | Requerido | Descrição |
 | --------- | -------- | ----------- |
+| vários | Sim | Nome do seu locatário de Azure AD B2C |
+| regras | Sim | O fluxo do usuário que foi usado para adquirir o código de autorização. Você não pode usar um fluxo de usuário diferente nesta solicitação. Adicione esse parâmetro à cadeia de caracteres de consulta, não ao corpo da POSTAgem. |
 | client_id | Sim | A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuído ao seu aplicativo. |
 | client_secret | Sim | O segredo do aplicativo que foi gerado no [portal do Azure](https://portal.azure.com/). Esse segredo de aplicativo é um importante artefato de segurança. Você deve armazená-lo com segurança em seu servidor. Altere esse segredo do cliente periodicamente. |
 | code | Sim | O código de autorização que você adquiriu no início do fluxo do usuário. |
 | grant_type | Sim | O tipo de concessão, que deve ser `authorization_code` para o fluxo do código de autorização. |
-| p | Sim | O fluxo do usuário que foi usado para adquirir o código de autorização. Você não pode usar um fluxo de usuário diferente nesta solicitação. Adicione esse parâmetro à cadeia de caracteres de consulta, não ao corpo da POSTAgem. |
 | redirect_uri | Sim | O `redirect_uri` parâmetro do aplicativo em que você recebeu o código de autorização. |
 | scope | Não | Uma lista de escopos separados por espaços. O `openid` escopo indica uma permissão para conectar o usuário e obter dados sobre o usuário na forma de parâmetros id_token. Ele pode ser usado para obter tokens para a própria API Web de back-end do seu aplicativo, que é representada pela mesma ID do aplicativo que o cliente. O `offline_access` escopo indica que seu aplicativo precisa de um token de atualização para acesso estendido aos recursos. |
 
 Uma resposta de token bem-sucedida é semelhante A:
 
-```
+```JSON
 {
     "not_before": "1442340812",
     "token_type": "Bearer",
@@ -189,6 +167,7 @@ Uma resposta de token bem-sucedida é semelhante A:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
+
 | Parâmetro | Descrição |
 | --------- | ----------- |
 | not_before | A hora em que o token é considerado válido, no momento da época. |
@@ -200,7 +179,7 @@ Uma resposta de token bem-sucedida é semelhante A:
 
 As respostas de erro são semelhantes a:
 
-```
+```JSON
 {
     "error": "access_denied",
     "error_description": "The user revoked access to the app.",
@@ -216,9 +195,9 @@ As respostas de erro são semelhantes a:
 
 Agora que você adquiriu com êxito um token de acesso, você pode usar o token em solicitações para suas APIs Web de back-end, incluindo- `Authorization` o no cabeçalho:
 
-```
+```HTTP
 GET /tasks
-Host: https://mytaskwebapi.com
+Host: mytaskwebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
@@ -226,9 +205,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 Tokens de ID expiram em um curto período de tempo. Atualize os tokens depois que eles expirarem para continuar a ser capaz de acessar recursos. Você pode atualizar um token enviando outra `POST` solicitação ao ponto de `/token` extremidade. Desta vez, forneça o `refresh_token` parâmetro em vez `code` do parâmetro:
 
-```
-POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://fabrikamb2c.b2clogin.com
+```HTTP
+POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
@@ -236,17 +215,18 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 | Parâmetro | Requerido | Descrição |
 | --------- | -------- | ----------- |
+| vários | Sim | Nome do seu locatário de Azure AD B2C |
+| regras | Sim | O fluxo do usuário que foi usado para adquirir o token de atualização original. Você não pode usar um fluxo de usuário diferente nesta solicitação. Adicione esse parâmetro à cadeia de caracteres de consulta, não ao corpo da POSTAgem. |
 | client_id | Sim | A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuído ao seu aplicativo. |
 | client_secret | Sim | O segredo do aplicativo que foi gerado no [portal do Azure](https://portal.azure.com/). Esse segredo de aplicativo é um importante artefato de segurança. Você deve armazená-lo com segurança em seu servidor. Altere esse segredo do cliente periodicamente. |
 | grant_type | Sim | O tipo de concessão, que deve ser um token de atualização para esta parte do fluxo do código de autorização. |
 | refresh_token | Sim | O token de atualização original que foi adquirido na segunda parte do fluxo. O `offline_access` escopo deve ser usado tanto na autorização quanto nas solicitações de token para receber um token de atualização. |
-| p | Sim | O fluxo do usuário que foi usado para adquirir o token de atualização original. Você não pode usar um fluxo de usuário diferente nesta solicitação. Adicione esse parâmetro à cadeia de caracteres de consulta, não ao corpo da POSTAgem. |
 | redirect_uri | Não | O `redirect_uri` parâmetro do aplicativo em que você recebeu o código de autorização. |
 | scope | Não | Uma lista de escopos separados por espaços. O `openid` escopo indica uma permissão para conectar o usuário e obter dados sobre o usuário na forma de tokens de ID. Ele pode ser usado para enviar tokens para a própria API Web de back-end do seu aplicativo, que é representada pela mesma ID do aplicativo que o cliente. O `offline_access` escopo indica que seu aplicativo precisa de um token de atualização para acesso estendido aos recursos. |
 
 Uma resposta de token bem-sucedida é semelhante A:
 
-```
+```JSON
 {
     "not_before": "1442340812",
     "token_type": "Bearer",
@@ -256,6 +236,7 @@ Uma resposta de token bem-sucedida é semelhante A:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
+
 | Parâmetro | Descrição |
 | --------- | ----------- |
 | not_before | A hora em que o token é considerado válido, no momento da época. |
@@ -267,7 +248,7 @@ Uma resposta de token bem-sucedida é semelhante A:
 
 As respostas de erro são semelhantes a:
 
-```
+```JSON
 {
     "error": "access_denied",
     "error_description": "The user revoked access to the app.",
@@ -285,7 +266,7 @@ Quando você deseja desconectar o usuário do aplicativo, não é suficiente lim
 
 Para desconectar o usuário, redirecione o usuário para `end_session` o ponto de extremidade listado no documento de metadados do OpenID Connect descrito anteriormente:
 
-```
+```HTTP
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 

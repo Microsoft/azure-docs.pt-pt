@@ -1,52 +1,52 @@
 ---
-title: Configurar a inscrição e início de sessão com uma conta do Facebook - Azure Active Directory B2C | Documentos da Microsoft
-description: Forneça a inscrição e início de sessão para clientes com contas do Facebook nas suas aplicações com o Azure Active Directory B2C.
+title: Configurar a inscrição e a entrada com uma conta do Facebook-Azure Active Directory B2C
+description: Forneça inscrição e entrada para clientes com contas do Facebook em seus aplicativos usando Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6b90ba89f17b42f4d92c666c3f539fcad3e3227c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 524e1e5f877fcb03d4252d79635ef855b9811f09
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66733531"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622083"
 ---
-# <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e início de sessão com uma conta do Facebook com o Azure Active Directory B2C
+# <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com uma conta do Facebook usando Azure Active Directory B2C
 
 ## <a name="create-a-facebook-application"></a>Criar um aplicativo do Facebook
 
-Para utilizar uma conta do Facebook como um [fornecedor de identidade](active-directory-b2c-reference-oauth-code.md) no Azure Active Directory (Azure AD) B2C, terá de criar uma aplicação no seu inquilino que a representa. Se ainda não tiver uma conta do Facebook, pode obtê-la em [ https://www.facebook.com/ ](https://www.facebook.com/).
+Para usar uma conta do Facebook como um [provedor de identidade](active-directory-b2c-reference-oauth-code.md) no Azure Active Directory (Azure AD) B2C, você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do Facebook, poderá se inscrever [https://www.facebook.com/](https://www.facebook.com/)em.
 
-1. Inicie sessão no [Facebook para os desenvolvedores](https://developers.facebook.com/) com as suas credenciais de conta do Facebook.
-2. Se ainda não o fez, terá de se registrar como um desenvolvedor do Facebook. Para tal, selecione **começar** no canto canto superior direito da página, aceite as políticas do Facebook e conclua os passos de registo.
-3. Selecione **meus aplicativos** e, em seguida **Adicionar nova aplicação**.
-4. Introduza um **nome a apresentar** e válido **E-Mail de contacto**.
-5. Clique em **criar ID de aplicação**. Isso pode exigir a aceitar as políticas de plataforma do Facebook e concluir uma verificação de segurança online.
-6. Selecione **configurações** > **básica**.
-7. Escolher uma **categoria**por exemplo, `Business and Pages`. Este valor é necessária pelo Facebook, mas não é utilizado para o Azure AD B2C.
-8. Na parte inferior da página, selecione **adicionar plataforma**e, em seguida, selecione **site**.
-9. Na **URL do Site**, introduza `https://your-tenant-name.b2clogin.com/` substituindo `your-tenant-name` com o nome do seu inquilino. Introduza um URL para o **URL de política de privacidade**por exemplo, `http://www.contoso.com`. O URL de política é uma página que manter para fornecer informações de privacidade para a sua aplicação.
-10. Selecione **guardar alterações**.
-11. Na parte superior da página, copie o valor da **ID da aplicação**.
-12. Clique em **mostrar** e copie o valor de **segredo da aplicação**. Utilizar ambos para configurar o Facebook como um fornecedor de identidade no seu inquilino. **Segredo da aplicação** é uma credencial de segurança importantes.
-13. Selecione o sinal de adição junto a **produtos**e, em seguida, selecione **configurar** sob **início de sessão do Facebook**.
-14. Sob **início de sessão do Facebook**, selecione **definições**.
-15. Na **URIs de redirecionamento OAuth válido**, introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Substitua `your-tenant-name` com o nome do seu inquilino. Clique em **guardar alterações** na parte inferior da página.
-16. Para disponibilizar a aplicação do Facebook para o Azure AD B2C, clique no Seletor de estado na parte superior direita da página e ativá-la **nos** para tornar a aplicação pública e, em seguida, clique em **confirmar**.  Neste momento o estado deve ser alterado de **desenvolvimento** ao **Live**.
+1. Entre no [Facebook para desenvolvedores](https://developers.facebook.com/) com suas credenciais de conta do Facebook.
+1. Se ainda não tiver feito isso, você precisará se registrar como um desenvolvedor do Facebook. Para fazer isso, selecione introdução no canto superior direito da página, aceite as políticas do Facebook e conclua as etapas de registro.
+1. Selecione **meus aplicativos** e **Adicionar novo aplicativo**.
+1. Insira um **nome de exibição** e um **email de contato**válido.
+1. Clique em **criar ID do aplicativo**. Isso pode exigir que você aceite as políticas da plataforma do Facebook e conclua uma verificação de segurança online.
+1. Selecione **configurações** > **básico**.
+1. Escolha uma **categoria**, por exemplo `Business and Pages`. Esse valor é exigido pelo Facebook, mas não é usado para Azure AD B2C.
+1. Na parte inferior da página, selecione **Adicionar plataforma**e, em seguida, selecione **site**.
+1. Em **URL do site**, `https://your-tenant-name.b2clogin.com/` digite `your-tenant-name` substituindo pelo nome do seu locatário. Insira uma URL para a **URL da política de privacidade**, `http://www.contoso.com`por exemplo. A URL da política é uma página que você mantém para fornecer informações de privacidade para seu aplicativo.
+1. Selecione **salvar alterações**.
+1. Na parte superior da página, copie o valor da **ID do aplicativo**.
+1. Clique em **Mostrar** e copie o valor do **segredo do aplicativo**. Você usa ambos para configurar o Facebook como um provedor de identidade em seu locatário. O **segredo do aplicativo** é uma credencial de segurança importante.
+1. Selecione o sinal de adição ao lado de **produtos**e, em seguida, selecione **Configurar** em **logon do Facebook**.
+1. Em **logon do Facebook**, selecione **configurações**.
+1. Em **URIs**de redirecionamento OAuth `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`válidos, insira. Substitua `your-tenant-name` pelo nome do seu locatário. Clique em **salvar alterações** na parte inferior da página.
+1. Para disponibilizar seu aplicativo do Facebook para Azure AD B2C, clique no seletor de status na parte superior direita da página e ative-o para tornar o aplicativo público e, em seguida, clique em **confirmar**.  Neste ponto, o status deve mudar de **desenvolvimento** para **ativo**.
 
-## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configurar uma conta do Facebook como um fornecedor de identidade
+## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configurar uma conta do Facebook como um provedor de identidade
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
-2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
-3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
-4. Selecione **fornecedores de identidade**e, em seguida, selecione **Add**.
-5. Introduza um **nome**. Por exemplo, introduza *Facebook*.
-6. Selecione **tipo de fornecedor de identidade**, selecione **Facebook**e clique em **OK**.
-7. Selecione **configurar este fornecedor de identidade** e introduza o ID da aplicação que registou anteriormente como a **ID de cliente** e introduza o segredo de aplicação que registou como o **segredo do cliente** de o aplicativo para Facebook que criou anteriormente.
-8. Clique em **OK** e, em seguida, clique em **criar** para guardar a configuração do Facebook.
+1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
+1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
+1. Selecione **provedores de identidade**e, em seguida, selecione **Facebook**.
+1. Insira um **nome**. Por exemplo, *Facebook*.
+1. Para a **ID do cliente**, insira a ID do aplicativo do Facebook que você criou anteriormente.
+1. Para o **segredo do cliente**, insira o segredo do aplicativo que você registrou.
+1. Selecione **Guardar**.

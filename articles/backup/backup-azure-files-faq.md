@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 35a41abb156326612c2d60829980f73457cde881
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: 05b591137a53e60b3197feb7f57564a8d4af7a44
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68601761"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624287"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 Este artigo responde a questões comuns sobre a cópia de segurança de Ficheiros do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -83,10 +83,8 @@ O backup do Azure atualmente dá suporte à configuração de backups agendados 
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>Quantas cópias de segurança A Pedido posso fazer por partilha de ficheiros? <br/>
 Pode ter até 200 Instantâneos para uma partilha de ficheiros em qualquer altura. O limite inclui instantâneos tirados pelo Azure Backup, conforme definido pela sua política. Se as cópias de segurança começarem a falhar depois de atingirem o limite, elimine os pontos de restauro A Pedido para obter futuras cópias de segurança com êxito.
 
-### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>Depois de ativar as Redes Virtuais na minha Conta de Armazenamento, a Cópia de Segurança das partilhas de ficheiros na conta começou a falhar. Porquê?
-A cópia de segurança de partilhas de ficheiros do Azure não suporta Contas de Armazenamento que tenham Redes Virtuais ativadas. Desative as Redes Virtuais nas Contas de Armazenamento para permitir cópias de segurança bem-sucedidas.
 
-## <a name="restore"></a>Restauro
+## <a name="restore"></a>Restaurar
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share-br"></a>Posso recuperar uma partilha de ficheiros do Azure eliminada? <br/>
 Quando uma partilha de ficheiros do Azure é eliminada, é-lhe apresentada a lista de cópias de segurança que serão eliminadas e é-lhe pedida confirmação. Não é possível restaurar uma partilha de ficheiros do Azure eliminada.

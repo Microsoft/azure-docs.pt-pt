@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cedfead26bd2a82792729853a2b8d038278b75f6
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 79f462b8903033784f186032c715cc966dfae7b4
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853305"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622711"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
 
@@ -53,7 +53,7 @@ Eis o que precisa de saber sobre os vários componentes mostrados no diagrama:
   * Para criar rapidamente uma aplicação e adicionar funcionalidades como obter tokens, atualizar tokens, iniciar a sessão de um utilizador, apresentar algumas informações de utilizador e muito mais, veja a secção **Inícios Rápidos** da documentação.
   * Para obter procedimentos detalhados baseados em cenários para tarefas de programador de autenticação, como obter tokens de acesso e utilizá-los em chamadas à Microsoft Graph API e outras APIs, implementar o início de sessão Microsoft com uma aplicação Web tradicional baseada no browser com o OpenID Connect e muito mais, veja a secção **Tutoriais** da documentação.
   * Para transferir exemplos de código, aceda ao [GitHub](https://github.com/Azure-Samples?q=active-directory).
-* O fluxo de pedidos e respostas do processo de autenticação é determinado pelo protocolo de autenticação utilizado, como OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Para obter mais informações sobre protocolos, veja a secção **Conceitos > Protocolos** da documentação.
+* O fluxo de pedidos e respostas do processo de autenticação é determinado pelo protocolo de autenticação utilizado, como OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Para obter mais informações sobre protocolos, consulte a seção **conceitos > Protocolo de autenticação** da documentação do.
 
 No cenário de exemplo acima, pode classificar as aplicações de acordo com estas duas funções:
 
@@ -119,7 +119,7 @@ Uma breve descrição de cada tipo de declaração emitida pela plataforma de id
 | Emitido às | Regista a hora a que o token foi emitido, muitas vezes utilizado para atualização do token. |
 | Emissor | Identifica o STS que emitiu o token, bem como o inquilino do Azure AD. |
 | Apelido | Fornece o apelido do utilizador conforme definido no Azure AD. |
-| Nome | Fornece um valor legível por humanos que identifica o requerente do token. |
+| Name | Fornece um valor legível por humanos que identifica o requerente do token. |
 | ID de objeto | Contém um identificador exclusivo imutável do requerente no Azure AD. |
 | Funções | Contém os nomes amigáveis das Funções de Aplicação do Azure AD concedidas ao utilizador. |
 | Scope | Indica as permissões concedidas à aplicação cliente. |
@@ -129,6 +129,6 @@ Uma breve descrição de cada tipo de declaração emitida pela plataforma de id
 | Nome Principal de Utilizador | Contém o nome principal de utilizador do requerente. |
 | Version | Contém o número de versão do token. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre os [tipos de aplicativos e os cenários com suporte na plataforma de identidade da Microsoft](app-types.md)

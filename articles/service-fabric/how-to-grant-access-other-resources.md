@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: atsenthi
-ms.openlocfilehash: b6e1108ffee13f1583d920947404963a69616788
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 1facd85563a54de2b703bbc8c192976db92c30f7
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68958424"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624896"
 ---
-# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>Concedendo um acesso de identidade gerenciada de Service Fabric aplicativo aos recursos do Azure
+# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Concedendo um acesso de identidade gerenciada de Service Fabric aplicativo aos recursos do Azure (versão prévia)
 
 Antes que o aplicativo possa usar sua identidade gerenciada para acessar outros recursos, as permissões devem ser concedidas a essa identidade no recurso protegido do Azure que está sendo acessado. A concessão de permissões é normalmente uma ação de gerenciamento no ' plano de controle ' do serviço do Azure que possui o recurso protegido roteado via Azure Resource Manager, o que irá impor qualquer verificação de acesso baseada em função aplicável.
 
@@ -68,7 +68,7 @@ O exemplo a seguir ilustra a concessão de acesso a um cofre por meio de uma imp
 
 Para obter mais detalhes, consulte [cofres – atualizar política de acesso](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 

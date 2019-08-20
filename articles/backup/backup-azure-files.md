@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 03b65c71201ba125cb3924a52e8760a088374aa6
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d5702576b3353bbc779601c7a5fe91417d73c7a1
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954726"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624360"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Criar cópias de segurança e restaurar partilhas de ficheiros do Azure
 Este artigo explica como utilizar o Portal do Azure para fazer a cópia de segurança e restauro das [partilhas de ficheiros do Azure](../storage/files/storage-files-introduction.md).
@@ -32,7 +32,6 @@ Antes de fazer uma cópia de segurança de uma partilha de ficheiros do Azure, g
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitações da cópia de segurança da partilha de ficheiros do Azure durante a Pré-visualização
 O backup para compartilhamentos de arquivos do Azure está em versão prévia. Há suporte para compartilhamentos de arquivos do Azure em contas de armazenamento de uso geral v1 e de finalidade geral v2. Os seguintes cenários de cópia de segurança não são suportados nas partilhas de ficheiros do Azure:
 - O suporte para backup de compartilhamentos de arquivos do Azure em contas de armazenamento com replicação ZRS ( [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) ) está atualmente limitado a [essas regiões](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-).
-- Não pode proteger partilhas de ficheiros do Azure em contas de armazenamento que têm Redes Virtuais ou Firewall ativadas.
 - Não há uma CLI disponível para proteger os arquivos do Azure usando o backup do Azure.
 - O backup do Azure atualmente dá suporte à configuração de backups agendados uma vez por dia de compartilhamentos de arquivos
 - O número máximo de cópias de segurança agendadas por dia é de um.

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 7e5c33577a2d926266ae45057509b112dc27ce7b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: c4ba2269003c9d401982b83f4e66c8caf45a0073
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985726"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624707"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de recursos: Banco de dados SQL do Azure versus SQL Server
 
@@ -53,7 +53,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | [Agrupamento-servidor/instância](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Não, o agrupamento `SQL_Latin1_General_CP1_CI_AS` de servidor lógico padrão sempre é usado. | Sim, pode ser definido quando a [instância é criada](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) e não pode ser atualizada mais tarde. |
 | [Índices Columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sim- [camada Premium, camada Standard-S3 e superior, camada de uso geral e camadas de comercialmente crítico](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sim |
 | [Common Language Runtime-CLR](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Não | Sim, mas sem acesso ao sistema de arquivos `CREATE ASSEMBLY` na instrução-consulte [diferenças de CLR](sql-database-managed-instance-transact-sql-information.md#clr) |
-| [Bancos de dados independentes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Sim | No momento, não [devido a defeito na restauração, incluindo a restauração pontual](sql-database-managed-instance-transact-sql-information.md#cant-restore-contained-database). Esse é um defeito que será corrigido em breve. |
+| [Bancos de dados independentes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Sim | Sim |
 | [Usuários independentes](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Sim | Sim |
 | [Controle de palavras-chave de linguagem de fluxo](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Sim | Sim |
 | [Credenciais](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/credentials-database-engine) | Sim, mas apenas [as credenciais no escopo do banco de dados](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Sim, mas há suporte apenas `SHARED ACCESS SIGNATURE` para Azure Key Vault e para ver os [detalhes](sql-database-managed-instance-transact-sql-information.md#credential) |
@@ -132,7 +132,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | [Tabelas temporais](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [Sim](sql-database-temporal-tables.md) | [Sim](sql-database-temporal-tables.md) |
 | Opção de fuso horário | Não | [Sim](sql-database-managed-instance-timezone.md), e ele deve ser configurado quando o instância gerenciada é criado. |
 | Deteção de ameaças|  [Sim](sql-database-threat-detection.md)|[Sim](sql-database-managed-instance-threat-detection.md)|
-| [Sinalizadores de rastreamento](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Não | Não |
+| [Sinalizadores de rastreamento](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Não | Sim, mas apenas um conjunto limitado de sinalizadores de rastreamento global. Consulte [diferenças de DBCC](sql-database-managed-instance-transact-sql-information.md#dbcc) |
 | [Replicação Transacional](sql-database-managed-instance-transactional-replication.md) | Sim, [somente assinante de replicação transacional e de instantâneo](sql-database-single-database-migrate.md) | Sim, em [Visualização pública](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance). Consulte as restrições [aqui](sql-database-managed-instance-transact-sql-information.md#replication). |
 | [Variáveis](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Sim | Sim |
 | [TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Sim-somente Uso Geral e Comercialmente Crítico camadas de serviço| [Sim](transparent-data-encryption-azure-sql.md) |
