@@ -325,7 +325,7 @@ Quando você copia dados do Salesforce, os seguintes mapeamentos são usados de 
 | ID |String |
 | Lookup Relationship |String |
 | Multi-Select Picklist |String |
-| Número |Decimal |
+| Number |Decimal |
 | Percent |Decimal |
 | Phone |String |
 | Picklist |String |
