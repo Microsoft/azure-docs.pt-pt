@@ -1,93 +1,80 @@
 - name: Documentação dos Azure AD Domain Services
   href: index.yml
 - name: Descrição geral
-  expanded: true
   items:
     - name: O que são os Serviços de Domínio do Azure AD?
       href: overview.md
-    - name: Comparar com o Windows Server AD
-      href: comparison.md
-    - name: Comparar com a associação do Azure AD
-      href: active-directory-ds-compare-with-azure-ad-join.md
-    - name: Funcionalidades
-      href: active-directory-ds-features.md
+    - name: Comparar serviços de identidade
+      href: compare-identity-solutions.md
+- name: Tutoriais
+  expanded: true
+  items:
+    - name: Criar um domínio gerido
+      href: tutorial-create-instance.md
+    - name: Associar uma VM do Windows Server a um domínio
+      href: join-windows-vm.md
+    - name: Instalar ferramentas de gestão
+      href: tutorial-create-management-vm.md
+    - name: Configurar o Secure LDAP
+      href: tutorial-configure-ldaps.md
 - name: Amostras
   items:
     - name: Criar uma instância do Azure AD DS com o Azure PowerShell
       href: powershell-create-instance.md
 - name: Conceitos
   items:
-    - name: Como funciona a sincronização
+    - name: Como funciona a sincronização do Azure AD DS
       href: synchronization.md
+    - name: Como funciona a sincronização de hash de palavra-passe
+      href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: O que é o Azure Active Directory?
+      href: ../active-directory/fundamentals/active-directory-whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Arquitetura do Azure Active Directory
+      href: ../active-directory/fundamentals/active-directory-architecture.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Implementar modelos administrativos de privilégio mínimo
+      href: /windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
 - name: Procedimento
   items:
-    - name: Criar uma instância do Azure AD DS
+    - name: Configurar definições comuns
       items:
-        - name: 'Tarefa 1: configurar as definições básicas'
-          href: create-instance.md
-        - name: 'Tarefa 2: configurar as definições de rede'
-          href: active-directory-ds-getting-started-network.md
-        - name: 'Tarefa 3: configurar o grupo de administrador e ativar o Azure AD Domain Services'
-          href: active-directory-ds-getting-started-admingroup.md
-        - name: 'Tarefa 4: atualizar as definições de DNS da rede virtual'
-          href: active-directory-ds-getting-started-dns.md
-        - name: 'Tarefa 5: ativar a sincronização de hash de palavras-passe'
-          href: active-directory-ds-getting-started-password-sync.md
+        - name: Ativar a sincronização de palavras-passe de hash
+          href: active-directory-ds-getting-started-password-sync-synced-tenant.md
+        - name: Configurar a sincronização de âmbito no Azure AD
+          href: scoped-synchronization.md
+        - name: Criar uma unidade organizacional (UO)
+          href: create-ou.md
+        - name: Criar uma conta de serviço gerida de grupo (gMSA)
+          href: create-gmsa.md
     - name: Planear para o Azure AD DS
       items:
-        - name: Cenários
+        - name: Cenários comuns
           href: scenarios.md
-        - name: Planear uma rede virtual
+        - name: Considerações de rede virtual
           href: network-considerations.md
     - name: Gerir o Azure AD DS
       items:
-        - name: Ativar eventos de auditoria de segurança (pré-visualização)
-          href: security-audit-events.md
-        - name: Verificar o estado de funcionamento de um domínio gerido
-          href: check-health.md
-        - name: Configurar a sincronização de âmbito do Azure AD para um domínio gerido
-          href: scoped-synchronization.md
-        - name: Proteja o seu domínio gerido
-          href: secure-your-domain.md
-        - name: Criar um UO num domínio gerido
-          href: create-ou.md
-        - name: Criar uma conta de serviço gerida num domínio gerido
-          href: create-gmsa.md
-        - name: Gerir a Política de Grupo para o Azure AD Domain Services
+        - name: Administrar Política de Grupo
           href: manage-group-policy.md
-        - name: Configurar políticas de palavras-passe num domínio gerido
-          href: password-policy.md
+        - name: Gerir DNS
+          href: manage-dns.md
+        - name: Verificar o estado de funcionamento
+          href: check-health.md
+        - name: Configurar as notificações por e-mail
+          href: notifications.md
         - name: Eliminar um domínio gerido
           href: delete-aadds.md
-        - name: Criar uma máquina virtual administrativa do Azure AD DS
-          href: manage-domain.md
-        - name: Gerir o DNS para o Azure AD Domain Services
-          href: manage-dns.md
-        - name: Atualizar notificações por e-mail
-          href: notifications.md
-        - name: Configurar o Secure LDAP (LDAPS) num domínio do Azure AD Domain Services
-          href: configure-ldaps.md
-          items:
-            - name: 'Tarefa 2: exportar o certificado do Secure LDAP'
-              href: active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md
-            - name: 'Tarefa 3: ativar o Secure LDAP para o domínio gerido com o portal do Azure'
-              href: active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md
-            - name: 'Tarefa 4: configurar o DNS para aceder ao domínio gerido a partir da Internet'
-              href: active-directory-ds-ldaps-configure-dns.md
-            - name: 'Tarefa 5: vincular ao domínio gerido e bloquear o acesso do Secure LDAP'
-              href: active-directory-ds-ldaps-bind-lockdown.md
-    - name: Implementar aplicações no Azure AD DS
+    - name: Proteger o Azure AD DS
       items:
-        - name: Configurar o suporte de sincronização de perfis do SharePoint Server
-          href: deploy-sp-profile-sync.md
+        - name: Proteja o seu domínio gerido
+          href: secure-your-domain.md
         - name: Configurar Delegação Restrita de Kerberos
           href: deploy-kcd.md
-        - name: Implementar o Proxy de Aplicações do Azure AD
-          href: deploy-azure-app-proxy.md
-    - name: Associar máquinas virtuais ao Azure AD DS
+        - name: Configurar políticas de palavras-passe e bloqueio de conta
+          href: password-policy.md
+        - name: Ativar eventos de auditoria de segurança (pré-visualização)
+          href: security-audit-events.md
+    - name: Associar VMs a um domínio
       items:
-        - name: VM do Windows Server
-          href: join-windows-vm.md
         - name: VM do Windows Server a partir do modelo
           href: join-windows-vm-template.md
         - name: CentOS
@@ -98,24 +85,31 @@
           href: join-rhel-linux-vm.md
         - name: Ubuntu Server
           href: join-ubuntu-linux-vm.md
-    - name: Resolução de problemas do Azure AD DS
+    - name: Implementar aplicações no Azure AD DS
       items:
-        - name: Guia de resolução de problemas
+        - name: Implementar o Proxy de Aplicações do Azure AD
+          href: deploy-azure-app-proxy.md
+        - name: Configurar o suporte de sincronização de perfis do SharePoint Server
+          href: deploy-sp-profile-sync.md
+    - name: Resolução de problemas
+      items:
+        - name: Erros comuns
           href: troubleshoot.md
-        - name: Alertas de resolução de problemas
-          href: troubleshoot-alerts.md
+        - name: Alertas comuns
           items:
-            - name: Corrigir uma configuração de NSG quebrada
+            - name: Alertas comuns
+              href: troubleshoot-alerts.md
+            - name: Corrigir uma configuração de rede danificada
               href: alert-nsg.md
             - name: Restaurar principais de serviço em falta
               href: alert-service-principal.md
-            - name: Erros de Secure LDAP
+            - name: Alertas do Secure LDAP
               href: alert-ldaps.md
-        - name: Resolva os erros de inquilino não correspondentes
+        - name: Erros de inquilino não correspondentes
           href: mismatched-tenant-error.md
         - name: Domínios suspensos
           href: suspension.md
-        - name: Resolver problemas do Secure LDAP
+        - name: Secure LDAP
           href: tshoot-ldaps.md
 - name: Recursos
   items:

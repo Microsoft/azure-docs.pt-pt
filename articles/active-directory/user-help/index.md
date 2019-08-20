@@ -11,12 +11,12 @@ ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a6908a26e1d513261094be28620c3c9a2d86b48
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: a065f275321d16b9eaf82a02cb7da45c15aa82cc
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383105"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616320"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Ajuda do utilizador para autenticação, aplicações e gestão de dispositivos
 
@@ -92,8 +92,11 @@ Criámos este conteúdo para ajudá-lo a configurar e utilizar as informações 
                     <div class="cardText">
                         <h3>Ajuda de verificação em dois passos</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time">Configurar a verificação em dois passos</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-auth-app">Configurar uma aplicação de autenticação</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-phone-number">Configurar um dispositivo móvel</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-office-phone">Configurar um telefone do escritório</a><br/>
                         <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-manage-settings">Gerir as suas definições</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-troubleshoot">Obter ajuda para problemas comuns</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-sign-in">Como iniciar sessão</a>
                         </p>
                     </div>
