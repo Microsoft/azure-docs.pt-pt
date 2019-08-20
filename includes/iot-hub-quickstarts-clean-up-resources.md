@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/19/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 94cd178b925b0b55f0ed6ed38ed821820bb1e072
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 49fbfe116a2fe554abb3a3ca4d1dcd6cab2b746d
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184370"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69626381"
 ---
 Se avançar para o próximo artigo recomendado, pode manter os recursos que já criou e reutilizá-los.
 
@@ -25,12 +25,12 @@ Caso contrário, pode eliminar os recursos do Azure criados neste artigo para ev
 
 Para eliminar um grupo de recursos por nome:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 
-2. Na caixa de texto **Filtrar por nome...** , escreva o nome do grupo de recursos que contém o seu Hub IoT. 
+2. Na caixa de texto **Filtrar por nome** , digite o nome do grupo de recursos que contém o Hub IOT. 
 
-3. À direita do seu grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
+3. À direita do grupo de recursos na lista de resultados, selecione **...** em seguida, **excluir grupo de recursos**.
 
     ![Eliminar](./media/iot-hub-quickstarts-clean-up-resources/iot-hub-delete-resource-group.png)
 
-4. É-lhe pedido que confirme a eliminação do grupo de recursos. Escreva o nome do grupo de recursos novamente para confirmar e, em seguida, clique em **Eliminar**. Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
+4. É-lhe pedido que confirme a eliminação do grupo de recursos. Digite o nome do seu grupo de recursos novamente para confirmar e, em seguida, selecione **excluir**. Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.

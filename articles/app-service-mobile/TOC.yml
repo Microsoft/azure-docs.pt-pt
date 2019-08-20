@@ -145,7 +145,7 @@
     - name: Escala
       items:
         - name: Aumentar verticalmente uma aplicação
-          href: ../app-service/web-sites-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+          href: ../app-service/manage-scale-up.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
         - name: Ambiente do Serviço de Aplicações
           href: ../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
           items:

@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3d45defa9ff8e7b2e03d550b76c0e18192c58c4a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: dce7cc2cd8e97eef81023eb803cace3f6d011171
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881596"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69626385"
 ---
 Os tamanhos de VM com otimização de memória oferecem uma alta taxa de memória para CPU que são excelentes para servidores de banco de dados relacionais, caches médios a grandes e análise na memória. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e a largura de banda de rede para cada tamanho neste agrupamento.
 
 * A série Ev3 apresenta o processador E5-2673 v4 2,3 GHz (Broadwell) em uma configuração de hiperthread, fornecendo uma proposta de valor melhor para a maioria das cargas de trabalho de uso geral e trazendo o Ev3 para o alinhamento com as VMs de uso geral da maioria das outras nuvens.  A memória foi expandida (de 7 GiB/vCPU para 8 GiB/vCPU) enquanto os limites de disco e rede foram ajustados por núcleo para ficarem alinhados com a mudança para o hyperthreading.  O Ev3 é o acompanhamento dos tamanhos de VM de alta memória das famílias D/Dv2.
 
-* A série Eav3 e a Easv3 utilizam o processador 2.35 GHz EPYC<sup>TM</sup> 7452V em uma configuração multi-threaded com cache L3 de até 256 GB, aumentando opções para executar a maioria das cargas de trabalho com otimização de memória.  As séries Eav3 e Easv3 têm as mesmas configurações de memória e disco que o Ev3 & série Esv3.
+* As séries Eav3 e Easv3 utilizam o processador 2.35 GHz EPYC<sup>TM</sup> 7452V da AMD em uma configuração multi-threaded com até 256 MB de cache L3, aumentando as opções para executar a maioria das cargas de trabalho com otimização de memória.  As séries Eav3 e Easv3 têm as mesmas configurações de memória e disco que o Ev3 & série Esv3.
 
 * A série Mv2 oferece a contagem de vCPU mais alta (até 208 vCPUs) e a maior memória (até 5,7 TiB) de qualquer VM na nuvem. É ideal para bases de dados muito grandes ou outras aplicações que tiram partido de contagens altas de vCPU e grandes quantidades de memória.
 

@@ -2,14 +2,14 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 07/30/2019
+ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: f027f5b295d75c105e81360a10718239e5b08e4d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 25928ef35da1ce4b3824303a5d46749c32aa701f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698276"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69626384"
 ---
 | Resource | Limite predefinido | Limite máximo |
 | --- | --- | --- |
@@ -17,7 +17,7 @@ ms.locfileid: "68698276"
 | Implantações por grupo de recursos no histórico de implantação |800<sup>1</sup> |800 |
 | Recursos por implantação |800 |800 |
 | Bloqueios de gerenciamento por escopo exclusivo |20 |20 |
-| Número de marcas por recurso ou grupo de recursos |15 |15 |
+| Número de marcas por recurso ou grupo de recursos |50 |50 |
 | Comprimento da chave de marca |512 |512 |
 | Comprimento do valor da marca |256 |256 |
 
@@ -25,7 +25,7 @@ ms.locfileid: "68698276"
 
 #### <a name="template-limits"></a>Limites de modelo
 
-| Valor | Limite predefinido | Limite máximo |
+| Value | Limite predefinido | Limite máximo |
 | --- | --- | --- |
 | Parâmetros |256 |256 |
 | Variáveis |256 |256 |

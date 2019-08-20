@@ -41,7 +41,7 @@ O recurso de computação para um runtime de integração do Azure totalmente ge
 ### <a name="properties"></a>Propriedades
 A tabela seguinte fornece descrições das propriedades devolvidas pelo cmdlet para um runtime de integração do Azure:
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 -------- | ------------- | 
 | Name | Nome do runtime de integração do Azure. |  
 | State | Estado do runtime de integração do Azure. | 
@@ -50,10 +50,10 @@ A tabela seguinte fornece descrições das propriedades devolvidas pelo cmdlet p
 | ResourceGroupName | Nome do grupo de recursos que a fábrica de dados pertence.  |
 | Description | Descrição do integration runtime.  |
 
-### <a name="status"></a>Estado
+### <a name="status"></a>State
 A tabela seguinte fornece os Estados possíveis de um runtime de integração do Azure:
 
-| Estado | Comentários/cenários | 
+| State | Comentários/cenários | 
 | ------ | ------------------ |
 | Online | O runtime de integração do Azure está online e pronta para ser utilizada. | 
 | Offline | O runtime de integração do Azure está offline devido a um erro interno. |
@@ -68,10 +68,10 @@ Esta secção fornece descrições para propriedades devolvidas pelo cmdlet Get-
 
 A tabela seguinte fornece descrições das propriedades de monitorização **cada nó**:
 
-| Propriedade | Descrição | 
+| Propriedade | Description | 
 | -------- | ----------- | 
 | Name | Nome do integration runtime autoalojado e nós associados a ele. Nó é uma máquina com Windows no local que tenha o runtime de integração autoalojado instalado no mesmo. |  
-| Estado | O estado de cada nó e o runtime de integração autoalojado geral. Exemplo: Online/Offline/limitado/etc. Para obter informações sobre estes Estados terem, consulte a secção seguinte. | 
+| State | O estado de cada nó e o runtime de integração autoalojado geral. Exemplo: Online/Offline/limitado/etc. Para obter informações sobre estes Estados terem, consulte a secção seguinte. | 
 | Version | A versão do integration runtime autoalojado e cada nó. A versão do runtime de integração autoalojado é determinada com base na versão da maioria de nós no grupo. Se existirem nós com versões diferentes na configuração do runtime de integração autoalojado, apenas os nós com o mesmo número de versão e a lógica autoalojado função do runtime de integração corretamente. Outras pessoas estão no modo de limitada e têm de ser atualizados manualmente (apenas no caso de falha de atualização automática). | 
 | Memória disponível | Memória disponível num nó do runtime de integração autoalojado. Este valor é um instantâneo de quase em tempo real. | 
 | Utilização da CPU | Utilização da CPU de um nó do runtime de integração autoalojado. Este valor é um instantâneo de quase em tempo real. |
@@ -92,7 +92,7 @@ Aumentar horizontalmente, aumentando o número de nós. Quando aumenta o número
 ### <a name="status-per-node"></a>Estado (por nó)
 A tabela seguinte fornece os Estados possíveis de um nó do runtime de integração autoalojado:
 
-| Estado | Descrição |
+| State | Description |
 | ------ | ------------------ | 
 | Online | Nó for ligado ao serviço Data Factory. |
 | Offline | O nó está offline. |
@@ -105,7 +105,7 @@ Um nó pode ficar inativo, quando ele não é possível ligar a outros nós.
 ### <a name="status-overall-self-hosted-integration-runtime"></a>Estado (runtime de integração autoalojado geral)
 A tabela seguinte fornece os Estados possíveis de um runtime de integração autoalojado. Este estado depende de Estados de todos os nós que pertencem ao tempo de execução. 
 
-| Estado | Descrição |
+| State | Description |
 | ------ | ----------- | 
 | Tem de registo | Nenhum nó ainda está registada para este integration runtime autoalojado. |
 | Online | Todos os nós estão online. |
@@ -157,13 +157,13 @@ Runtime de integração Azure-SSIS é um cluster totalmente gerido do Azure máq
 
 ### <a name="properties"></a>Propriedades
 
-| Propriedade/Estado | Descrição |
+| Propriedade/Estado | Description |
 | --------------- | ----------- |
 | CreateTime | A hora UTC quando foi criado o runtime de integração Azure-SSIS. |
 | Nós | Os nós alocados/disponíveis do Azure-SSIS integration runtime com Estados de nó específico (Iniciar/disponíveis/Reciclagem/indisponível) e erros acionáveis. |
 | OtherErrors | Os erros acionáveis não nó específico no seu Azure-SSIS integration runtime. |
 | LastOperation | O resultado da última operação de iniciar/parar no seu Azure-SSIS integration runtime com erros acionáveis caso de falha. |
-| Estado | O estado geral (inicial/iniciar/iniciada/parar/interrompida) do Azure-SSIS integration runtime. |
+| State | O estado geral (inicial/iniciar/iniciada/parar/interrompida) do Azure-SSIS integration runtime. |
 | Location | A localização do Azure-SSIS integration runtime. |
 | NodeSize | O tamanho de cada nó do integration runtime Azure-SSIS. |
 | NodeCount | O número de nós no seu runtime de integração Azure-SSIS. |
@@ -179,12 +179,12 @@ Runtime de integração Azure-SSIS é um cluster totalmente gerido do Azure máq
 | ResourceGroupName | O nome do seu grupo de recursos do Azure, em que foram criados sua fábrica de dados e o runtime de integração Azure-SSIS. |
 | DataFactoryName | O nome da sua fábrica de dados do Azure. |
 | Name | O nome do Azure-SSIS integration runtime. |
-| Descrição | A descrição do Azure-SSIS integration runtime. |
+| Description | A descrição do Azure-SSIS integration runtime. |
 
   
 ### <a name="status-per-node"></a>Estado (por nó)
 
-| Estado | Descrição |
+| State | Description |
 | ------ | ----------- | 
 | A iniciar | Este nó está a ser preparado. |
 | Disponível | Este nó está pronto para implementar/executar pacotes SSIS. |
@@ -193,7 +193,7 @@ Runtime de integração Azure-SSIS é um cluster totalmente gerido do Azure máq
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>Estado (runtime de integração Azure-SSIS geral)
 
-| Estado geral | Descrição | 
+| Estado geral | Description | 
 | -------------- | ----------- | 
 | Inicial | Os nós do Azure-SSIS integration runtime não foram alocados/preparado. | 
 | A iniciar | Os nós do Azure-SSIS integration runtime estão a ser atribuída/preparado e faturação foi iniciado. |

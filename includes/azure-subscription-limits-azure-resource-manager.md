@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 4d13779317793b5edd971dd457a77e0bc5cae1c8
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: f85605610727ef2c1e1987b7ef93a41ce2417a25
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68426938"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69626382"
 ---
 | Resource | Limite predefinido | Limite máximo |
 | --- | --- | --- |
@@ -33,7 +33,7 @@ ms.locfileid: "68426938"
 
 <sup>1</sup> Os limites padrão variam de acordo com o tipo de categoria de oferta, como avaliação gratuita e pago conforme o uso, e por série, como Dv2, F e G. Por exemplo, o padrão para assinaturas de Enterprise Agreement é 350.
 
-<sup>2</sup> Você pode aplicar um número ilimitado de marcas por assinatura. O número de etiquetas por recurso ou grupo de recursos está limitado a 15. O Resource Manager retorna uma [lista de nomes de marca exclusivos e valores](/rest/api/resources/tags) na assinatura somente quando o número de marcas é de 10.000 ou menos. Você ainda pode encontrar um recurso por marca quando o número excede 10.000.  
+<sup>2</sup> Você pode aplicar um número ilimitado de marcas por assinatura. O número de marcas por recurso ou grupo de recursos é limitado a 50. O Resource Manager retorna uma [lista de nomes de marca exclusivos e valores](/rest/api/resources/tags) na assinatura somente quando o número de marcas é de 10.000 ou menos. Você ainda pode encontrar um recurso por marca quando o número excede 10.000.  
 
 <sup>3</sup> Esses recursos não são mais necessários com os grupos de recursos do Azure e o Resource Manager.
 

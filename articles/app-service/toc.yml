@@ -170,7 +170,7 @@
     - name: Dimensionar aplicação
       items:
         - name: Aumentar verticalmente a capacidade do servidor
-          href: web-sites-scale.md
+          href: manage-scale-up.md
         - name: Configurar o escalão PremiumV2
           href: app-service-configure-premium-tier.md
         - name: Aumentar horizontalmente para várias instâncias

@@ -127,7 +127,7 @@
     - name: Escala
       items:
         - name: Aplicações Web e móveis
-          href: 'https://docs.microsoft.com/azure/app-service/web-sites-scale'
+          href: 'https://docs.microsoft.com/azure/app-service/manage-scale-up'
         - name: Máquinas virtuais
           href: 'https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview'
         - name: Aplicações de microsserviços
