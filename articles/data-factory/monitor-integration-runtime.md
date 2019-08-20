@@ -44,11 +44,11 @@ A tabela seguinte fornece descrições das propriedades devolvidas pelo cmdlet p
 | Propriedade | Descrição |
 -------- | ------------- | 
 | Name | Nome do runtime de integração do Azure. |  
-| Estado | Estado do runtime de integração do Azure. | 
+| State | Estado do runtime de integração do Azure. | 
 | Location | Localização do runtime de integração do Azure. Para obter detalhes sobre a localização de um runtime de integração do Azure, consulte [introdução ao runtime de integração](concepts-integration-runtime.md). |
 | DataFactoryName | Nome da fábrica de dados que pertence o runtime de integração do Azure. | 
 | ResourceGroupName | Nome do grupo de recursos que a fábrica de dados pertence.  |
-| Descrição | Descrição do integration runtime.  |
+| Description | Descrição do integration runtime.  |
 
 ### <a name="status"></a>Estado
 A tabela seguinte fornece os Estados possíveis de um runtime de integração do Azure:
