@@ -12,6 +12,18 @@
 - name: Inícios rápidos
   expanded: true
   items:
+    - name: Cliente
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: Python
+          href: quickstarts/python-sdk.md
+        - name: Ir
+          href: quickstarts/go-sdk.md
+        - name: Ruby
+          href: quickstarts/ruby-sdk.md
+        - name: Node.js
+          href: quickstarts/nodejs-sdk.md
     - name: API REST
       items:
         - name: Ir
@@ -26,18 +38,6 @@
           href: quickstarts/python.md
         - name: Ruby
           href: quickstarts/ruby.md
-    - name: Cliente
-      items:
-        - name: 'C#'
-          href: quickstarts/csharp.md
-        - name: Python
-          href: quickstarts/python-sdk.md
-        - name: Ir
-          href: quickstarts/go-sdk.md
-        - name: Ruby
-          href: quickstarts/ruby-sdk.md
-        - name: Node.js
-          href: quickstarts/nodejs-sdk.md
 - name: Tutoriais
   items:
     - name: Integre o Power BI para analisar os comentários dos clientes
