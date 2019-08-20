@@ -11,16 +11,16 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: sqlfreshmay19
-ms.openlocfilehash: 2864acca443e3135ea0023070da95accf97fe2e9
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: b7b7d4cfe699ffdef3a8f736f5656d0b0067453a
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479440"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575191"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: Criar e consultar um armazém de dados SQL do Azure no portal do Azure
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: Criar e consultar uma SQL Data Warehouse do Azure no portal do Azure
 
-Crie e consulte rapidamente um data warehouse de SQL do Azure usando o portal do Azure.
+Crie e consulte rapidamente uma SQL Data Warehouse do Azure usando o portal do Azure.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -37,9 +37,9 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Criar um armazém de dados
 
-É criado um armazém de dados SQL do Azure com um conjunto definido de [recursos de computação](memory-and-concurrency-limits.md). A base de dados é criada num [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e num [servidor lógico SQL do Azure](../sql-database/sql-database-logical-servers.md). 
+Uma SQL Data Warehouse do Azure é criada com um conjunto definido de [recursos de computação](memory-and-concurrency-limits.md). A base de dados é criada num [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e num [servidor lógico SQL do Azure](../sql-database/sql-database-logical-servers.md). 
 
-Siga estes passos para criar um armazém de dados SQL que contenha os dados de exemplo AdventureWorksDW. 
+Siga estas etapas para criar um SQL Data Warehouse que contém os dados de exemplo AdventureWorksDW. 
 
 1. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 
@@ -194,7 +194,7 @@ Siga estas etapas para limpar os recursos que você não precisa mais.
 
     ![Limpar recursos](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Para interromper a computação, clique no botão **Pausar**. Quando o data warehouse estiver em pausa, você verá um  botão retomar. Para retomar a computação , clique em retomar.
+2. Para interromper a computação, clique no botão **Pausar**. Quando o data warehouse estiver em pausa, você verá um botão retomar. Para retomar a computação, clique em retomar.
 
 3. Para remover o data warehouse para que você não seja cobrado pela computação ou pelo armazenamento, clique em **excluir**.
 
@@ -202,9 +202,9 @@ Siga estas etapas para limpar os recursos que você não precisa mais.
 
 5. Para remover o grupo de recursos, clique em **myResourceGroup** e, em seguida, clique em **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora você criou um data warehouse, criou uma regra de firewall, conectou-se à sua data warehouse e executou algumas consultas. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
 
 > [!div class="nextstepaction"]
-> [Carregar dados para o SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Carregar dados em um SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

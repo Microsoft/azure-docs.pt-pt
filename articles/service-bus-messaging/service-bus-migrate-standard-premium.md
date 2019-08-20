@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 57ab281e8d07537c22bd3cf60306dfb1c7e81541
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f7cbee13416c090e59c82c928946b512af1c620b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67566070"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611916"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrar namespaces padrão do barramento de serviço do Azure para a camada Premium
 Anteriormente, o barramento de serviço do Azure ofereceu namespaces apenas na camada Standard. Os namespaces são configurações de vários locatários que são otimizadas para baixo rendimento e ambientes de desenvolvimento. A camada Premium oferece recursos dedicados por namespace para latência previsível e maior taxa de transferência a um preço fixo. A camada Premium é otimizada para ambientes de produção e alta taxa de transferência que exigem recursos empresariais adicionais.
@@ -115,7 +115,8 @@ A migração usando o portal do Azure tem o mesmo fluxo lógico que a migração
    1. Depois que a sincronização for concluída, selecione **Avançar** na parte inferior da página.
 
 1. Examine as alterações na página Resumo. Selecione **concluir migração** para alternar os namespaces e concluir a migração.
-    ![Alternar namespace – menu][] alternar a página de confirmação aparece quando a migração é concluída.
+    ![Alternar namespace – menu alternar][]  
+    A página confirmação é exibida quando a migração é concluída.
     ![Alternar namespace-êxito][]
 
 ## <a name="caveats"></a>ADVERTÊNCIAS
@@ -208,7 +209,7 @@ No entanto, se você puder migrar durante uma janela de manutenção planejada/m
     >
     > Depois que a migração for concluída, os aplicativos receptores serão desconectados do namespace padrão e se conectarão automaticamente ao namespace Premium.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre as [diferenças entre as mensagens Standard e Premium](./service-bus-premium-messaging.md).
 * Saiba mais sobre os [aspectos de alta disponibilidade e recuperação de desastres geográficos para o barramento de serviço Premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).

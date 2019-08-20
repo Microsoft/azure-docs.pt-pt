@@ -1,71 +1,71 @@
 ---
-title: Otimizar o custo de débito no Azure Cosmos DB
-description: Este artigo explica como otimizar os custos de débito para os dados armazenados no Azure Cosmos DB.
+title: Otimizando o custo da taxa de transferência no Azure Cosmos DB
+description: Este artigo explica como otimizar os custos de taxa de transferência para os dados armazenados no Azure Cosmos DB.
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: ddbec882675dba4724406ad1ea8079df377c34fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8829c2534184bc14e82dfbf30d2170a7a1b8add0
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967297"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614986"
 ---
-# <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o débito aprovisionado de custo no Azure Cosmos DB
+# <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o custo de taxa de transferência provisionada no Azure Cosmos DB
 
-Ao fornecer o modelo de débito aprovisionado, o Azure Cosmos DB oferece um desempenho previsível em qualquer escala. Reservar ou débito antes do tempo de aprovisionamento elimina o "efeito de vizinhos ruidosos" no seu desempenho. Especifique a quantidade exata de débito de que precisa e Azure Cosmos DB garante o débito configurado, apoiado por um SLA.
+Ao oferecer o modelo de taxa de transferência provisionada, Azure Cosmos DB oferece desempenho previsível em qualquer escala. Reservar ou provisionar a taxa de transferência antecipadamente elimina o "efeito de vizinho ruidosa" em seu desempenho. Você especifica a quantidade exata de produtividade de que precisa e Azure Cosmos DB garante a taxa de transferência configurada, apoiada por SLA.
 
-Pode começar com um débito mínimo de 400 RU/seg e dimensionar até dezenas de milhões de pedidos por segundo ou ainda mais. Cada solicitação, emitir contra o seu contentor do Cosmos do Azure ou a base de dados, como uma solicitação de leitura, a solicitação de gravação, a pedido de consulta, procedimentos armazenados têm um custo correspondente, que é deduzido da débito aprovisionado. Se aprovisionar 400 RU/s e emite uma consulta que custa 40 RUs, será capaz de emitir 10 essas consultas por segundo. Qualquer pedido além do que irá obter a taxa limitado e deverá repetir o pedido. Se estiver a utilizar controladores de cliente, eles oferecem suporte a lógica de repetição automática.
+Você pode começar com uma taxa de transferência mínima de 400 RU/s e escalar verticalmente até dezenas de milhões de solicitações por segundo ou ainda mais. Cada solicitação que você emite em seu contêiner ou banco de dados Cosmos do Azure, como uma solicitação de leitura, solicitação de gravação, solicitação de consulta, procedimentos armazenados têm um custo correspondente que é deduzido de sua taxa de transferência provisionada. Se você provisionar 400 RU/s e emitir uma consulta que custa 40 RUs, você poderá emitir 10 consultas por segundo. Qualquer solicitação além disso terá uma taxa limitada e você deverá repetir a solicitação. Se você estiver usando drivers de cliente, eles dão suporte à lógica de repetição automática.
 
-Pode aprovisionar o débito em bases de dados ou contentores e cada estratégia podem ajudar a poupar nos custos, dependendo do cenário.
+Você pode provisionar a taxa de transferência em bancos de dados ou contêineres e cada estratégia pode ajudá-lo a economizar em custos dependendo do cenário.
 
-## <a name="optimize-by-provisioning-throughput-at-different-levels"></a>Otimizar o débito em diferentes níveis de aprovisionamento
+## <a name="optimize-by-provisioning-throughput-at-different-levels"></a>Otimizar pela taxa de transferência de provisionamento em diferentes níveis
 
-* Se aprovisionar o débito, numa base de dados, todos os contentores, por exemplo coleções/tabelas/gráficos nesse banco de dados pode partilhar o débito com base na carga. Débito reservado ao nível da base de dados é compartilhado de forma desigual, dependendo da carga de trabalho num conjunto específico de contentores.
+* Se você provisionar a taxa de transferência em um banco de dados, todos os contêineres, por exemplo coleções/tabelas/grafos dentro desse banco de dados, poderão compartilhar a taxa de transferência com base na carga. A taxa de transferência reservada no nível do banco de dados é compartilhada de maneira desigual, dependendo da carga de trabalho em um conjunto específico de contêineres.
 
-* Se aprovisionar o débito num contentor, o débito é garantido para esse contentor, apoiado pelo SLA. A escolha de uma chave de partição lógica é crucial para igualar distribuição de carga em todas as partições de um contentor lógicas. Ver [Partitioning](partitioning-overview.md) e [dimensionamento horizontal](partition-data.md) artigos para obter mais detalhes.
+* Se você provisionar a taxa de transferência em um contêiner, a taxa de transferência será garantida para esse contêiner, apoiada pelo SLA. A escolha de uma chave de partição lógica é crucial para a distribuição uniforme da carga em todas as partições lógicas de um contêiner. Consulte os artigos [particionamento](partitioning-overview.md) e [dimensionamento horizontal](partition-data.md) para obter mais detalhes.
 
-Seguem-se algumas diretrizes para decidir qual uma estratégia de débito aprovisionado:
+Veja a seguir algumas diretrizes para decidir sobre uma estratégia de produtividade provisionada:
 
-**Considere o aprovisionamento de débito, numa base de dados do Azure Cosmos DB (que contém um conjunto de contentores) se**:
+**Considere provisionar a taxa de transferência em um banco de dados Cosmos do Azure (que contém um conjunto de contêineres) se**:
 
-1. Tem alguns contentores do Azure Cosmos doze e pretende partilhar a taxa de transferência entre alguns ou todos eles. 
+1. Você tem algumas dúzias de contêineres de Cosmos do Azure e deseja compartilhar a taxa de transferência em algumas ou em todas elas. 
 
-2. Está a migrar de uma base de dados de inquilino único, concebido para ser executado em VMs de IaaS alojado ou no local, por exemplo, NoSQL ou bases de dados relacionais para o Azure Cosmos DB. E se tem muitas coleções/tabelas/gráficos e não quero fazer quaisquer alterações ao seu modelo de dados. Tenha em atenção de que poderá ter de comprometer alguns dos benefícios oferecidos pelo Azure Cosmos DB, se não estiver a atualizar o modelo de dados ao migrar de uma base de dados no local. Recomenda-se que sempre acessar novamente o modelo de dados para tirar o máximo em termos de desempenho e também para otimizar os custos. 
+2. Você está migrando de um banco de dados de locatário único projetado para ser executado em VMs hospedadas em IaaS ou no local, por exemplo, NoSQL ou bancos de dados relacionais para Azure Cosmos DB. E se você tiver muitas coleções/tabelas/grafos e não quiser fazer alterações no modelo de dados. Observe que talvez você precise comprometer alguns dos benefícios oferecidos pelo Azure Cosmos DB se não estiver atualizando seu modelo de dados ao migrar de um banco de dado local. É recomendável que você sempre acesse o modelo de dados para obter o máximo em termos de desempenho e também para otimizar os custos. 
 
-3. Quer absorver picos não planeados de cargas de trabalho devido à taxa de transferência agrupada ao nível da base de dados sujeito a pico inesperado na carga de trabalho. 
+3. Você deseja absorver picos não planejados em cargas de trabalho em virtude da taxa de transferência em pool no nível do banco de dados sujeito a um pico inesperado na carga de trabalho. 
 
-4. Em vez de débito de definição específico em contentores individuais, que mais lhe interessa a obter o débito agregado num conjunto de contentores na base de dados.
+4. Em vez de definir uma taxa de transferência específica em contêineres individuais, você se preocupa em obter a taxa de transferência agregada em um conjunto de contêineres no banco de dados.
 
-**Considere o aprovisionamento de débito num contentor individual se:**
+**Considere provisionar a taxa de transferência em um contêiner individual se:**
 
-1. Tem alguns contentores do Azure Cosmos. Como o Azure Cosmos DB é independente de esquema, um contentor pode conter itens que têm esquemas heterogêneas e requer que possam criar vários tipos de contentor, um para cada entidade. É sempre uma opção a considerar se disser que separado de agrupamento contentores de 10 a 20 num único contentor faz sentido. Com um 400 RUs mínimo para contentores, agrupamento de todos os contentores de 10 a 20 em um possível custo-eficiência. 
+1. Você tem alguns contêineres de Cosmos do Azure. Como Azure Cosmos DB não é independente de esquema, um contêiner pode conter itens que têm esquemas heterogêneos e não exige que os clientes criem vários tipos de contêineres, um para cada entidade. É sempre uma opção a ser considerada se o agrupamento separado de dizer 10-20 contêineres em um único contêiner faz sentido. Com um mínimo de 400 RUs para contêineres, o pool de todos os contêineres 10-20 em um pode ser mais econômico. 
 
-2. Pretende controlar o débito num contentor específico e obter a taxa de transferência garantida num contentor especificado apoiado pelo SLA.
+2. Você deseja controlar a taxa de transferência em um contêiner específico e obter a taxa de transferência garantida em um determinado contêiner apoiado pelo SLA.
 
 **Considere um híbrido das duas estratégias acima:**
 
-1. Como mencionado anteriormente, o Azure Cosmos DB permite que misturar e combinar duas estratégias acima, agora pode ter alguns contentores dentro do banco de dados do Cosmos do Azure, que pode partilhar o débito aprovisionado no banco de dados, bem como, alguns contentores no mesmo banco de dados , que pode ter dedicados quantidades de débito aprovisionado. 
+1. Como mencionado anteriormente, Azure Cosmos DB permite misturar e corresponder as duas estratégias acima, de modo que agora você pode ter alguns contêineres no banco de dados Cosmos do Azure, o que pode compartilhar a taxa de transferência provisionada no banco de dados, bem como alguns contêineres no mesmo banco de dados , que pode ter quantidades dedicadas de taxa de transferência provisionada. 
 
-2. É possível aplicar as estratégias acima propor configuração híbrida, em que tem o nível débito aprovisionado ambas as bases de dados com alguns contentores dedicada de débito.
+2. Você pode aplicar as estratégias acima para surgir com uma configuração híbrida, em que você tem a taxa de transferência provisionada no nível do banco de dados com alguns contêineres com taxa de transferência dedicada.
 
-Conforme mostrado na tabela a seguir, consoante a opção da API, pode aprovisionar o débito em granularidades diferentes.
+Conforme mostrado na tabela a seguir, dependendo da escolha da API, você pode provisionar a taxa de transferência em diferentes granularidades.
 
-|API|Para **partilhado** débito, configurar |Para **dedicado** débito, configurar |
+|API|Para a taxa de transferência **compartilhada** , configure |Para taxa de transferência **dedicada** , configure |
 |----|----|----|
 |SQL API|Base de Dados|Contentor|
-|API do Azure Cosmos DB para MongoDB|Base de Dados|Coleção|
+|API do Azure Cosmos DB para MongoDB|Base de Dados|Collection|
 |API de Cassandra|Espaço de chaves|Tabela|
 |API do Gremlin|Conta de base de dados|Graph|
 |API de Tabela|Conta de base de dados|Tabela|
 
-Ao débito de aprovisionamento em níveis diferentes, é possível otimizar os custos com base nas características da carga de trabalho. Como mencionado anteriormente, pode por meio de programação e em qualquer aumento do tempo ou diminuir o débito aprovisionado para qualquer um dos contentores individuais ou coletivamente num conjunto de contentores. Ao dimensionar elasticamente o débito como as alterações de carga de trabalho, paga apenas o débito que configurou. Se o seu contentor ou um conjunto de contentores é distribuído por várias regiões, em seguida, o débito configura no contentor ou um conjunto de contentores é garantido que estejam disponíveis em todas as regiões.
+Ao provisionar a taxa de transferência em diferentes níveis, você pode otimizar seus custos com base nas características da sua carga de trabalho. Conforme mencionado anteriormente, você pode programaticamente e a qualquer momento aumentar ou diminuir sua taxa de transferência provisionada para contêineres individuais ou coletivamente em um conjunto de contêineres. Ao dimensionar de forma elástica a taxa de transferência conforme a carga de trabalho é alterada, você paga apenas pela taxa de transferência que configurou. Se o contêiner ou um conjunto de contêineres for distribuído entre várias regiões, a taxa de transferência configurada no contêiner ou em um conjunto de contêineres será garantida para ser disponibilizada em todas as regiões.
 
-## <a name="optimize-with-rate-limiting-your-requests"></a>Otimize com os pedidos de limitação de velocidade
+## <a name="optimize-with-rate-limiting-your-requests"></a>Otimizar com limitação de taxa de suas solicitações
 
-Para cargas de trabalho que não são sensíveis à latência, pode aprovisionar o menos débito e permitir que o aplicativo processe a limitação de velocidade quando o débito real excede o débito aprovisionado. O servidor preventivamente irá terminar o pedido com RequestRateTooLarge (código de estado HTTP 429) e retornar o `x-ms-retry-after-ms` cabeçalho que indica a quantidade de tempo, em milissegundos, que o utilizador tem de aguardar antes de repetir o pedido. 
+Para cargas de trabalho que não são sensíveis à latência, você pode provisionar menos produtividade e permitir que o aplicativo manipule a limitação de taxa quando a taxa de transferência real excede a taxa de transferência provisionada. O servidor encerrará de forma preventiva a solicitação com RequestRateTooLarge (código de status http 429) e `x-ms-retry-after-ms` retornará o cabeçalho indicando o tempo, em milissegundos, que o usuário deve aguardar antes de tentar novamente a solicitação. 
 
 ```html
 HTTP Status 429, 
@@ -73,13 +73,13 @@ HTTP Status 429,
  x-ms-retry-after-ms :100
 ```
 
-### <a name="retry-logic-in-sdks"></a>Lógica de repetição no SDKs 
+### <a name="retry-logic-in-sdks"></a>Lógica de repetição em SDKs 
 
-Os SDKs nativos (.NET/.NET Core, Java, node. js e Python) implicitamente capturar essa resposta, respeitem o servidor especificado cabeçalho retry-after e repetir o pedido. A menos que a sua conta é acessada em simultâneo por vários clientes, a próxima repetição será concluída com êxito.
+Os SDKs nativos (.NET/.NET Core, Java, Node. js e Python) capturam implicitamente essa resposta, respeitam o cabeçalho Retry-After especificado pelo servidor e tentam a solicitação novamente. A menos que sua conta seja acessada simultaneamente por vários clientes, a próxima tentativa terá sucesso.
 
-Se tiver mais do que um cliente cumulativamente e a funcionar consistentemente acima a taxa de pedidos, a predefinição contagem de repetições atualmente que está definida para 9 pode não ser suficiente. Nesse caso, o cliente gera um `DocumentClientException` com o estado de código 429 à aplicação. A contagem de repetições padrão pode ser alterada ao definir o `RetryOptions` na instância ConnectionPolicy. Por predefinição, o DocumentClientException com código de estado 429 é devolvido após um tempo cumulativo de espera de 30 segundos se o pedido continuar a operar acima a taxa de pedidos. Isto ocorre mesmo quando o número atual de tentativas é menor que o número máximo de tentativas, seja ele o padrão de 9 ou de um valor definido pelo utilizador. 
+Se você tiver mais de um cliente operando de forma cumulativa consistentemente acima da taxa de solicitação, a contagem de repetição padrão atualmente definida como 9 pode não ser suficiente. Nesse caso, o cliente gera um `DocumentClientException` com código de status 429 para o aplicativo. A contagem de repetição padrão pode ser alterada definindo o `RetryOptions` na instância ConnectionPolicy. Por padrão, o DocumentClientException com o código de status 429 é retornado após um tempo de espera cumulativo de 30 segundos se a solicitação continuar a operar acima da taxa de solicitação. Isso ocorre mesmo quando a contagem de repetições atual é menor que a contagem máxima de tentativas, seja o padrão de 9 ou um valor definido pelo usuário. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) está definido para 3, então, neste caso, se uma operação de pedido tem velocidade limitada por ter excedido o débito reservado para a coleção, a operação de pedido tentará novamente três vezes antes que ocorra a exceção ao aplicativo.  [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) está definida como 60, então, nesse caso se a repetição cumulativa aguarda o tempo em segundos desde o primeiro pedido excede 60 segundos, a exceção é lançada.
+[MaxRetryAttemptsOnThrottledRequests é definido](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet)como 3; Portanto, nesse caso, se uma operação de solicitação tiver uma taxa limitada excedendo a taxa de transferência reservada para a coleção, a operação de solicitação tentará novamente três vezes antes de lançar a exceção para o  aplicativo.  [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds)  é definido como 60, portanto, nesse caso, se a repetição cumulativa esperar o tempo em segundos desde que a primeira solicitação exceda 60 segundos, a exceção será lançada.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
@@ -89,100 +89,100 @@ connectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 3;
 connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 ```
 
-## <a name="partitioning-strategy-and-provisioned-throughput-costs"></a>Estratégia de particionamento e os custos de débito aprovisionado
+## <a name="partitioning-strategy-and-provisioned-throughput-costs"></a>Estratégia de particionamento e custos de taxa de transferência provisionados
 
-Boa estratégia de criação de partições é importante para otimizar os custos no Azure Cosmos DB. Certifique-se de que existe não distorção de partições, que são expostas por meio de métricas de armazenamento. Certifique-se de que existe não distorção de débito para uma partição, que é exposta com métricas de débito. Certifique-se de que existe não distorção para chaves de partição específica. Chaves dominantes no armazenamento são expostas por meio de métricas, mas a chave será dependente de seu padrão de acesso da aplicação. É ideal pensar sobre a chave de partição lógica à direita. Espera-se que uma chave de partição boa têm as seguintes características:
+Boa estratégia de particionamento é importante para otimizar os custos em Azure Cosmos DB. Verifique se não há nenhuma distorção de partições, que são expostas por meio de métricas de armazenamento. Verifique se não há nenhuma distorção de taxa de transferência para uma partição, que é exposta com métricas de taxa de transferência. Verifique se não há distorção em direção a chaves de partição específicas. As chaves dominantes no armazenamento são expostas por meio de métricas, mas a chave será dependente do padrão de acesso do aplicativo. É melhor pensar na chave de partição lógica correta. Espera-se que uma boa chave de partição tenha as seguintes características:
 
-* Escolha uma chave de partição que propaga uniformemente a carga de trabalho de todas as partições e de forma uniforme ao longo do tempo. Em outras palavras, não deve ter algumas chaves para com a maioria dos dados e algumas chaves com dados menos ou não. 
+* Escolha uma chave de partição que espalha a carga de trabalho uniformemente em todas as partições e uniformemente ao longo do tempo. Em outras palavras, você não deve ter algumas chaves para a maioria dos dados e algumas chaves com menos ou nenhum dado. 
 
-* Escolha uma chave de partição que permite aceder aos padrões para ser distribuídos uniformemente por partições lógicas. A carga de trabalho é razoavelmente mesmo entre todas as chaves. Em outras palavras, a maioria da carga de trabalho não deve ser focada em algumas chaves específicas. 
+* Escolha uma chave de partição que permita que os padrões de acesso sejam distribuídos uniformemente entre partições lógicas. A carga de trabalho é razoavelmente uniforme em todas as chaves. Em outras palavras, a maior parte da carga de trabalho não deve ser focada em algumas chaves específicas. 
 
-* Escolha uma chave de partição que tenha uma vasta gama de valores. 
+* Escolha uma chave de partição que tenha uma ampla gama de valores. 
 
-A idéia básica é distribuir os dados e a atividade no seu contentor entre o conjunto de partições lógicas, para que os recursos de armazenamento e débito de dados podem ser distribuídos por partições lógicas. Candidatos para as chaves de partição podem incluir as propriedades que são apresentados frequentemente como um filtro em suas consultas. Consultas podem ser encaminhadas com eficiência, incluindo a chave de partição no predicado de filtro. Com esse uma estratégia de particionamento, otimizar o débito aprovisionado será muito mais fácil. 
+A ideia básica é distribuir os dados e a atividade em seu contêiner pelo conjunto de partições lógicas, para que os recursos de armazenamento e taxa de transferência de dados possam ser distribuídos entre as partições lógicas. Os candidatos às chaves de partição podem incluir as propriedades que aparecem com frequência como um filtro em suas consultas. As consultas podem ser roteadas com eficiência, incluindo a chave de partição no predicado de filtro. Com essa estratégia de particionamento, otimizar a taxa de transferência provisionada será muito mais fácil. 
 
-### <a name="design-smaller-items-for-higher-throughput"></a>Itens de menores de design para um débito mais elevado 
+### <a name="design-smaller-items-for-higher-throughput"></a>Criar itens menores para maior taxa de transferência 
 
-O custo de pedido ou o custo de processamento de solicitação de uma determinada operação diretamente é correlacionado com o tamanho do item. Operações nos itens grandes custará mais do que operações nos itens mais pequenos. 
+O encargo da solicitação ou o custo de processamento da solicitação de uma determinada operação está correlacionado diretamente com o tamanho do item. As operações em itens grandes custarão mais do que as operações em itens menores. 
 
-## <a name="data-access-patterns"></a>Padrões de acesso de dados 
+## <a name="data-access-patterns"></a>Padrões de acesso a dados 
 
-É sempre uma boa prática separar logicamente os dados em categorias lógicas com base na frequência com a qual acessar os dados. Categorizando-lo como dados de acesso frequente, médios ou frios pode ajustar o armazenamento consumido e débito necessário. Dependendo da frequência de acesso, pode colocar os dados em separado contentores (por exemplo, tabelas, gráficos e coleções) e otimizar o débito aprovisionado neles para acomodar as necessidades do segmento de dados. 
+É sempre uma boa prática separar logicamente os dados em categorias lógicas com base na frequência com que você acessa os dados. Categorizando-o como dados quentes, médios ou frios, você pode ajustar o armazenamento consumido e a taxa de transferência necessária. Dependendo da frequência de acesso, você pode colocá-los em contêineres separados (por exemplo, tabelas, gráficos e coleções) e ajustar a taxa de transferência provisionada neles para acomodar as necessidades desse segmento de dados. 
 
-Além disso, se estiver a utilizar o Azure Cosmos DB, e sabe, não vai procurar por certos valores de dados ou raramente será acessá-los, deve armazenar os valores comprimidos desses atributos. Com esse método guardar no espaço de armazenamento, o espaço de índice e o débito aprovisionado e resultar em custos mais baixos.
+Além disso, se você estiver usando Azure Cosmos DB e souber que não vai Pesquisar por determinados valores de dados ou raramente os acessará, armazene os valores compactados desses atributos. Com esse método, você economiza espaço de armazenamento, espaço de índice e taxa de transferência provisionada e resulta em custos mais baixos.
 
-## <a name="optimize-by-changing-indexing-policy"></a>Otimizar ao alterar a política de indexação 
+## <a name="optimize-by-changing-indexing-policy"></a>Otimizar alterando a política de indexação 
 
-Por predefinição, o Azure Cosmos DB indexa automaticamente todas as propriedades de cada registo. Isso se destina a facilitar o desenvolvimento e certifique-se excelente desempenho em muitos tipos diferentes de consultas ad hoc. Se tiver registos grandes com milhares de propriedades, prestar o custo de débito para todas as propriedades de indexação pode não ser útil, especialmente se apenas uma consulta em relação a 10 ou 20 dessas propriedades. À medida que se aproximar-se para obter um identificador de sua carga de trabalho específica, a nossa documentação de orientação é otimizar a sua política de índice. Todos os detalhes sobre a política de indexação do Azure Cosmos DB podem ser encontrados [aqui](indexing-policies.md). 
+Por padrão, Azure Cosmos DB indexa automaticamente cada propriedade de cada registro. Isso destina-se a facilitar o desenvolvimento e garantir um desempenho excelente entre vários tipos diferentes de consultas ad hoc. Se você tiver grandes registros com milhares de propriedades, pagar o custo da taxa de transferência para indexação de todas as propriedades poderá não ser útil, especialmente se você consultar apenas 10 ou 20 dessas propriedades. À medida que você se aproximar da obtenção de um identificador em sua carga de trabalho específica, nossa orientação é ajustar sua política de índice. Detalhes completos sobre a política de indexação de Azure Cosmos DB podem ser encontrados [aqui](indexing-policies.md). 
 
-## <a name="monitoring-provisioned-and-consumed-throughput"></a>Monitorização aprovisionado e consumidos débito 
+## <a name="monitoring-provisioned-and-consumed-throughput"></a>Monitorando a produtividade provisionada e consumida 
 
-Pode monitorizar o número total de RUs aprovisionadas, o número de pedidos de taxa limitado, bem como o número de RUs consumiu no portal do Azure. A imagem seguinte mostra uma métrica de utilização de exemplo:
+Você pode monitorar o número total de RUs provisionadas, o número de solicitações limitadas por taxa, bem como o número de RUs que você consumiu na portal do Azure. A imagem a seguir mostra uma métrica de uso de exemplo:
 
-![Monitor de unidades de pedido no portal do Azure](./media/optimize-cost-throughput/monitoring.png)
+![Monitorar unidades de solicitação no portal do Azure](./media/optimize-cost-throughput/monitoring.png)
 
-Também pode definir alertas para verificar se o número de pedidos de taxa limitado excede um limiar específico. Ver [como monitorizar o Azure Cosmos DB](use-metrics.md) artigo para obter mais detalhes. Estes alertas, podem enviar um e-mail para os administradores de conta ou chamar um Webhook de HTTP personalizado ou uma função do Azure para aumentar automaticamente o débito aprovisionado. 
+Você também pode definir alertas para verificar se o número de solicitações limitadas por taxa excede um limite específico. Consulte [como monitorar Azure Cosmos DB](use-metrics.md) artigo para obter mais detalhes. Esses alertas podem enviar um email aos administradores da conta ou chamar um webhook HTTP personalizado ou uma função do Azure para aumentar automaticamente a taxa de transferência provisionada. 
 
-## <a name="scale-your-throughput-elastically-and-on-demand"></a>Dimensionar o débito de forma elástica e a pedido 
+## <a name="scale-your-throughput-elastically-and-on-demand"></a>Dimensione sua taxa de transferência de forma elástica e sob demanda 
 
-Uma vez que é faturado pelo débito aprovisionado, o débito aprovisionado às suas necessidades de correspondência pode ajudar a evitar os custos para o débito não utilizado. Pode dimensionar o débito aprovisionado ou reduzir verticalmente a qualquer momento, conforme necessário.  
+Como você é cobrado pela taxa de transferência provisionada, corresponder à taxa de transferência provisionada às suas necessidades pode ajudá-lo a evitar os encargos para a taxa de transferência não utilizada. Você pode dimensionar sua taxa de transferência provisionada para cima ou para baixo a qualquer momento, conforme necessário.  
 
-* Monitorizar o consumo de sua RUs e a taxa de pedidos de taxa limitado pode revelar que não é necessário manter aprovisionado em toda a constante em todo o dia ou semana. Poderá receber menos tráfego durante a noite ou durante o fim de semana. Ao utilizar o portal do Azure ou SDKs nativos do Azure Cosmos DB ou REST API, pode dimensionar o débito aprovisionado em qualquer altura. API de REST do Azure Cosmos DB fornece os pontos de extremidade por meio de programação atualizar o nível de desempenho de seus contentores torna simples ajustar a taxa de transferência a partir do código consoante a hora do dia ou dia da semana. A operação é executada sem qualquer período de inatividade e normalmente tem efeito em menos de um minuto. 
+* Monitorar o consumo de seu RUs e a taxa de solicitações limitadas por taxa pode revelar que não é necessário manter o provisionamento em toda a constante ao longo do dia ou da semana. Você pode receber menos tráfego à noite ou durante o fim de semana. Usando portal do Azure ou Azure Cosmos DB SDKs nativos ou a API REST, você pode dimensionar sua taxa de transferência provisionada a qualquer momento. A API REST de Azure Cosmos DB fornece pontos de extremidade para atualizar programaticamente o nível de desempenho de seus contêineres, tornando-o simples de ajustar a taxa de transferência do seu código, dependendo da hora do dia ou do dia da semana. A operação é executada sem nenhum tempo de inatividade e normalmente entra em vigor em menos de um minuto. 
 
-* Uma das áreas deve aumentar o débito é quando ingerir dados no Azure Cosmos DB, por exemplo, durante a migração de dados. Depois de concluir a migração, pode dimensionar o débito aprovisionado para baixo para processar o estado de repouso da solução.  
+* Uma das áreas que você deve dimensionar a taxa de transferência é quando você está ingerindo dados em Azure Cosmos DB, por exemplo, durante a migração de dados. Depois de concluir a migração, você pode dimensionar a taxa de transferência provisionada para lidar com o estado estável da solução.  
 
-* Lembre-se de que a faturação é com a granularidade de uma hora, para que isso não economize dinheiro se alterar o débito aprovisionado com mais frequência do que uma hora cada vez.
+* Lembre-se de que a cobrança está na granularidade de uma hora, portanto, você não economizará nenhum dinheiro se alterar sua taxa de transferência provisionada com mais frequência de uma hora por vez.
 
-## <a name="determine-the-throughput-needed-for-a-new-workload"></a>Determinar o débito necessário para novas cargas de trabalho 
+## <a name="determine-the-throughput-needed-for-a-new-workload"></a>Determinar a taxa de transferência necessária para uma nova carga de trabalho 
 
-Para determinar o débito aprovisionado para novas cargas de trabalho, pode utilizar os seguintes passos: 
+Para determinar a taxa de transferência provisionada para uma nova carga de trabalho, você pode usar as seguintes etapas: 
 
-1. Realizar uma avaliação inicial, aproximada, usando o planeador de capacidade e ajuste suas estimativas com a ajuda do Explorador do Cosmos do Azure no portal do Azure. 
+1. Execute uma avaliação inicial e aproximada usando o planejador de capacidade e ajuste suas estimativas com a ajuda do Azure Cosmos Explorer no portal do Azure. 
 
-2. É recomendado para criar os contentores com um débito mais elevado do que o esperado e, em seguida, reduzir verticalmente, conforme necessário. 
+2. É recomendável criar os contêineres com maior taxa de transferência do que o esperado e, em seguida, reduzir verticalmente conforme necessário. 
 
-3. É recomendado utilizar uma das nativo SDKs do Azure Cosmos DB para beneficiar de tentativas automáticas, quando limitado de taxa de pedidos. Se estiver trabalhando numa plataforma que não é suportada e utiliza a API de REST do Cosmos DB, implementar sua própria política de repetição usando o `x-ms-retry-after-ms` cabeçalho. 
+3. É recomendável usar um dos SDKs de Azure Cosmos DB nativos para se beneficiar de repetições automáticas quando as solicitações obtiverem a taxa limitada. Se você estiver trabalhando em uma plataforma sem suporte e usar a API REST de Cosmos DB, implemente sua própria política de repetição usando `x-ms-retry-after-ms` o cabeçalho. 
 
-4. Certifique-se de que o código da aplicação suporta normalmente o caso quando falham todas as tentativas. 
+4. Certifique-se de que o código do aplicativo é normalmente compatível com o caso em que todas as tentativas falham. 
 
-5. Pode configurar alertas do portal do Azure para obter notificações para a limitação de velocidade. Pode começar com limites conservadoras, como 10 limitado de taxa de pedidos durante os últimos 15 minutos e comutador regras mais ansiosos depois que o consumo real. Limites de velocidade ocasionais são muito bem, mostram que estiver brincando com os limites que definiu e é exatamente o que deseja fazer. 
+5. Você pode configurar alertas do portal do Azure para obter notificações de limitação de taxa. Você pode começar com limites conservadores como 10 solicitações limitadas de taxa nos últimos 15 minutos e mudar para mais regras adiantadas depois de descobrir seu consumo real. Os limites de taxa ocasionais são bons, eles mostram que você está jogando com os limites que você definiu e que é exatamente o que você deseja fazer. 
 
-6. Utilizar a monitorização para compreender o seu padrão de tráfego, pelo que pode considerar a necessidade de ajuste dinamicamente o aprovisionamento de débito ao longo do dia ou de uma semana. 
+6. Use o monitoramento para entender seu padrão de tráfego, para que você possa considerar a necessidade de ajustar dinamicamente seu provisionamento de taxa de transferência durante o dia ou uma semana. 
 
-7. Monitorize a sua aprovisionado vs. a taxa de débito consumida regularmente para se certificar de que não aprovisionado mais do que o número necessário de contentores e bases de dados. Ter um pouco sobre o débito aprovisionado é uma verificação de segurança de bom.  
+7. Monitore sua taxa de produtividade provisionada e consumida regularmente para certificar-se de que você não provisionou mais do que o número necessário de contêineres e bancos de dados. Ter um pouco sobre a taxa de transferência provisionada é uma boa verificação de segurança.  
 
-### <a name="best-practices-to-optimize-provisioned-throughput"></a>Melhores práticas para otimizar o débito aprovisionado 
+### <a name="best-practices-to-optimize-provisioned-throughput"></a>Práticas recomendadas para otimizar a taxa de transferência provisionada 
 
-Os seguintes passos ajudá-lo a tornar as suas soluções altamente escalável e acessível ao utilizar o Azure Cosmos DB.  
+As etapas a seguir ajudam você a tornar suas soluções altamente escalonáveis e econômicas ao usar o Azure Cosmos DB.  
 
-1. Se tiver significativamente ao longo do débito aprovisionado em contentores e bases de dados, deve rever o RUs Vs consumidas RUs aprovisionadas e ajustar as cargas de trabalho.  
+1. Se você tiver uma taxa de transferência provisionada significativamente em contêineres e bancos de dados, você deverá examinar RUS provisionadas vs consumidas e ajustar as cargas de trabalho.  
 
-2. Um método para estimar a quantidade de débito reservado exigida pela sua aplicação é registrar o custo da unidade RU de pedido associado à execução de operações típicas em relação a um contentor do Cosmos do Azure ou da base de dados utilizado pela sua aplicação representativos e em seguida, estime o número de operações que prevê para executar a cada segundo. Certifique-se de que medir e incluem consultas típicas e também seu uso. Para saber como estimar os custos de RU de consultas através de programação ou através de ver portal [otimizar o custo de consultas](online-backup-and-restore.md). 
+2. Um método para estimar a quantidade de taxa de transferência reservada exigida pelo seu aplicativo é registrar a carga de RU da unidade de solicitação associada à execução de operações típicas em um contêiner ou banco de dados do Azure Cosmos representativo usado pelo seu aplicativo e em seguida, estime o número de operações que você prevê para executar a cada segundo. Certifique-se de medir e incluir consultas típicas e seu uso também. Para saber como estimar os custos de RU de consultas de forma programática ou usando o portal, consulte [otimizando o custo de consultas](online-backup-and-restore.md). 
 
-3. Outra forma de obter operações e os custos no RUs é, permitindo que os registos do Azure Monitor, que lhe dará a divisão de operação/duração e o custo de pedido. O Azure Cosmos DB fornece encargos de pedidos para cada operação, para que todos os custos de operação podem ser armazenados volta da resposta e, em seguida, utilizado para análise. 
+3. Outra maneira de obter operações e seus custos no RUs é habilitar os logs de Azure Monitor, o que lhe dará a divisão de operação/duração e o encargo da solicitação. Azure Cosmos DB fornece a cobrança de solicitação para cada operação, de modo que cada encargo de operação pode ser armazenado de volta da resposta e, em seguida, usado para análise. 
 
-4. Pode dimensionar verticalmente o débito aprovisionado, precisa acomodar suas necessidades de carga de trabalho. 
+4. É possível escalar e reduzir de forma elástica a taxa de transferência provisionada conforme necessário para acomodar suas necessidades de carga de trabalho. 
 
-5. Pode adicionar e remover regiões à sua conta do Cosmos do Azure à medida que precisa e controla os custos. 
+5. Você pode adicionar e remover regiões associadas à sua conta do Azure Cosmos conforme necessário e controlar os custos. 
 
-6. Certificar-se de que tem uma distribuição uniforme de cargas de trabalho e dados em partições lógicas de seus contentores. Se tiver uma distribuição desigual de partição, isso pode causar para Aprovisionar uma quantidade maior de débito que o valor que é necessária. Se identificar que tenha uma distribuição distorcida, é recomendável redistribuir a carga de trabalho uniformemente pelas partições ou criar novas partições de dados. 
+6. Verifique se você tem até mesmo a distribuição de dados e cargas de trabalho em partições lógicas de seus contêineres. Se você tiver uma distribuição de partição desigual, isso poderá fazer com que o Provisione uma maior quantidade de taxa de transferência do que o valor necessário. Se você identificar que tem uma distribuição distorcida, é recomendável redistribuir a carga de trabalho uniformemente entre as partições ou reparticionar os dados. 
 
-7. Se tiver o número de contentores e estes contentores não necessitam de SLAs, pode utilizar a oferta com base na base de dados para os casos em que o débito de contentores por SLAs não se aplicam. Deve identificar quais os contentores do Cosmos do Azure que pretende migrar para o débito de nível de base de dados oferecem e, em seguida, migração-los através de uma solução baseada no feed de alterações. 
+7. Se você tiver muitos contêineres e esses contêineres não exigirem SLAs, você poderá usar a oferta baseada em banco de dados para os casos em que os SLAs de taxa de transferência por contêiner não se aplicam. Você deve identificar quais dos contêineres de Cosmos do Azure você deseja migrar para a oferta de taxa de transferência no nível do banco de dados e migrá-los usando uma solução baseada em feed de alteração. 
 
-8. Considere utilizar o "Cosmos DB escalão gratuito" (gratuito durante um ano), do Cosmos DB (até três regiões) ou o emulador do Cosmos DB que pode ser baixado para cenários de desenvolvimento/teste. Ao utilizar estas opções para desenvolvimento de teste, pode reduzir consideravelmente os custos.  
+8. Considere usar a "Cosmos DB camada gratuita" (gratuita por um ano), experimente Cosmos DB (até três regiões) ou o emulador de Cosmos DB baixável para cenários de desenvolvimento/teste. Ao usar essas opções para desenvolvimento de teste, você pode reduzir consideravelmente os custos.  
 
-9. Pode efetuar ainda mais carga de trabalho específica, otimizar custos – por exemplo, aumentando a leituras de tamanho de lote, o balanceamento de carga em várias regiões e anular a duplicação de dados, se aplicável.
+9. Você pode executar ainda mais otimizações de custo específicas de carga de trabalho – por exemplo, aumentar o tamanho do lote, leituras de balanceamento de carga em várias regiões e eliminação de duplicação de dados, se aplicável.
 
-10. Com capacidade de reservada do Azure Cosmos DB, pode obter descontos significativos para até 65% para três anos. Modelo de capacidade de reserva do Azure Cosmos DB é um compromisso inicial no necessário ao longo do tempo de unidades de pedido. Os descontos são dispostos em camadas de forma a que mais unidades de pedido que utilizar por um período mais longo, mais seu desconto será. Estes descontos são aplicados de imediato. O custo de capacidade não reservados são cobradas qualquer RUs utilizados acima seus valores aprovisionados. Ver [capacidade de reserva do Cosmos DB](cosmos-db-reserved-capacity.md)) para obter mais detalhes. Considere a aquisição de capacidade de reserva para reduzir os custos de débito aprovisionado.  
+10. Com Azure Cosmos DB capacidade reservada, você pode obter descontos significativos por até 65% por três anos. Azure Cosmos DB modelo de capacidade reservada é um compromisso antecipado em unidades de solicitações necessárias ao longo do tempo. Os descontos são em camadas, de forma que quanto mais unidades de solicitação você usar em um período mais longo, mais seu desconto será. Esses descontos são aplicados imediatamente. Qualquer RUs usado acima de seus valores provisionados é cobrado com base no custo de capacidade não reservada. Consulte [Cosmos DB capacidade reservada](cosmos-db-reserved-capacity.md)) para obter mais detalhes. Considere a possibilidade de comprar capacidade reservada para reduzir ainda mais os custos de taxa de transferência provisionados.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Em seguida, pode avançar para obter mais informações sobre a otimização de custos no Azure Cosmos DB com os seguintes artigos:
+Em seguida, você pode prosseguir para saber mais sobre a otimização de custos no Azure Cosmos DB com os seguintes artigos:
 
-* Saiba mais sobre [otimizar para desenvolvimento e teste](optimize-dev-test.md)
-* Saiba mais sobre [entender a sua fatura do Azure Cosmos DB](understand-your-bill.md)
-* Saiba mais sobre [otimizar o custo de armazenamento](optimize-cost-storage.md)
-* Saiba mais sobre [otimizar o custo de leituras e gravações](optimize-cost-reads-writes.md)
-* Saiba mais sobre [otimizar o custo de consultas](optimize-cost-queries.md)
-* Saiba mais sobre [otimizar o custo de contas do Cosmos do Azure de várias regiões](optimize-cost-regions.md)
+* Saiba mais sobre como [otimizar para desenvolvimento e teste](optimize-dev-test.md)
+* Saiba mais sobre como [entender sua fatura de Azure Cosmos DB](understand-your-bill.md)
+* Saiba mais sobre como [otimizar o custo de armazenamento](optimize-cost-storage.md)
+* Saiba mais sobre como [otimizar o custo de leituras e gravações](optimize-cost-reads-writes.md)
+* Saiba mais sobre como [otimizar o custo de consultas](optimize-cost-queries.md)
+* Saiba mais sobre como [otimizar o custo de contas do Azure Cosmos de várias regiões](optimize-cost-regions.md)
 

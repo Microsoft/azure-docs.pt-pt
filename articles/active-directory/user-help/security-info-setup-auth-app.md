@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5fff27094881ffbada2bda7937fa714ffc07133
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 0e1be41c854e212a7b673d8c2dff42d7b9981fb4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954358"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616134"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Configurar informações de segurança (versão prévia) para usar um aplicativo autenticador
 
@@ -145,6 +145,8 @@ Você tem opções adicionais de como sua organização entra em contato com voc
     >Se algumas dessas opções estiverem ausentes, isso provavelmente ocorrerá porque sua organização não permite esses métodos. Se esse for o caso, você precisará escolher um método disponível ou entrar em contato com o administrador para obter mais ajuda.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
+- Entre usando o aplicativo Microsoft Authenticator, as etapas a seguir no artigo [entrar usando a verificação em duas etapas ou informações de segurança](security-info-setup-signin.md) .
 
 - Redefina sua senha se você a tiver perdido ou esquecido, no [portal](https://passwordreset.microsoftonline.com/) de redefinição de senha ou siga as etapas no artigo [redefinir sua senha corporativa ou de estudante](user-help-reset-password.md) .
 

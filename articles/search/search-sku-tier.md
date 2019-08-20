@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: heidist
-ms.openlocfilehash: d93f8c61511dd1d3fc2bfd253fa7a21857f67ed6
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: a874c8a1fe2e8a81e2f42b2c88447fd52b47f3ad
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563364"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611960"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um tipo de preço para Azure Search
 
@@ -62,7 +62,7 @@ Uma solução criada em Azure Search pode incorrer em custos das seguintes manei
 
 Ao contrário de máquinas virtuais ou outros recursos que podem ser "pausados" para evitar cobranças, um serviço de Azure Search está sempre disponível em hardware dedicado para seu uso exclusivo. Dessa forma, a criação de um serviço é um evento cobrável que começa quando você cria o serviço e termina quando você exclui o serviço. 
 
-O encargo mínimo é a primeira unidade de pesquisa (uma réplica x uma partição). Esse mínimo é fixo durante o tempo de vida do serviço, pois o serviço não pode ser executado em nada menor que essa configuração. Além do mínimo, você pode adicionar réplicas e partições independentemente umas das outras. Aumentos incrementais na capacidade por meio de réplicas e partições aumentarão sua fatura com base na fórmula a seguir: [(réplicas x partições x taxa)](#search-units), em que a taxa cobrada depende do tipo de preço selecionado.
+O encargo mínimo é a primeira unidade de pesquisa (uma réplica x uma partição) na taxa faturável. Esse mínimo é fixo durante o tempo de vida do serviço, pois o serviço não pode ser executado em nada menor que essa configuração. Além do mínimo, você pode adicionar réplicas e partições independentemente umas das outras. Aumentos incrementais na capacidade por meio de réplicas e partições aumentarão sua fatura com base na fórmula a seguir: [(réplicas x partições x taxa)](#search-units), em que a taxa cobrada depende do tipo de preço selecionado.
 
 Quando estiver estimando o custo de uma solução de pesquisa, tenha em mente que os preços e a capacidade não são lineares. (Dobrar a capacidade mais do que o dobro do custo.) Para obter um exemplo de como a fórmula funciona, consulte [como alocar réplicas e partições](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
@@ -157,7 +157,7 @@ L2 offers twice the overall storage capacity of L1.  Choose your tier based on t
 
 ### <a name="evaluating-capacity"></a>Avaliando a capacidade
 
-A capacidade e os custos de execução do serviço estão diretamente relacionados. As camadas impõem limites em dois níveis: armazenamento e recursos. Você deve pensar em ambos porque qualquer limite que atingir primeiro é o limite efetivo.
+A capacidade e os custos de executar o serviço são disponibilizados em mãos. As camadas impõem limites em dois níveis: armazenamento e recursos. Você deve pensar em ambos porque qualquer limite que atingir primeiro é o limite efetivo.
 
 Os requisitos de negócios normalmente ditam o número de índices que você precisará. Por exemplo, você pode precisar de um índice global para um repositório de documentos grande. Ou talvez você precise de vários índices com base na região, no aplicativo ou no nicho de negócios.
 
@@ -167,25 +167,25 @@ Para determinar o tamanho de um índice, você precisa [criar um](search-create-
 > Mesmo que a estimativa de necessidades futuras de índices e armazenamento possa parecer uma tarefa de adivinhação, vale a pena fazer isso. Se a capacidade de uma camada for muito baixa, você precisará provisionar um novo serviço em uma camada mais alta e, em seguida, [recarregar os índices](search-howto-reindex.md). Não há nenhuma atualização in-loco de um serviço de uma SKU para outra.
 >
 
-### <a name="step-1-develop-rough-estimates-by-using-the-free-tier"></a>Passo 1: Desenvolver estimativas aproximadas usando a camada gratuita
+### <a name="estimate-with-the-free-tier"></a>Estimar com a camada gratuita
 
-Uma abordagem para estimar a capacidade é começar com a camada gratuita. Lembre-se de que o serviço gratuito oferece até três índices, 50 MB de armazenamento e 2 minutos de tempo de indexação. Pode ser desafiador estimar um tamanho de índice projetado com essas restrições. Aqui está uma abordagem que você pode adotar:
+Uma abordagem para estimar a capacidade é começar com a camada gratuita. Lembre-se de que o serviço gratuito oferece até três índices, 50 MB de armazenamento e 2 minutos de tempo de indexação. Pode ser desafiador estimar um tamanho de índice projetado com essas restrições, mas estas são as etapas:
 
 + [Crie um serviço gratuito](search-create-service-portal.md).
-+ Prepare um pequeno conjunto de datas representativos (por exemplo, 5.000 documentos e 10% de tamanho de amostra).
-+ [Crie um índice inicial](search-create-index-portal.md) e anote seu tamanho no portal (por exemplo, 30 MB).
++ Prepare um DataSet pequeno e representativo.
++ [Crie um índice inicial no portal](search-create-index-portal.md) e anote seu tamanho. Os recursos e atributos têm um impacto no armazenamento. Por exemplo, adicionar sugestores (typeahead) aumentará os requisitos de armazenamento. Usando o mesmo conjunto de dados, você pode tentar criar várias versões de um índice, com atributos diferentes em cada campo, para ver como os requisitos de armazenamento variam. Para obter mais informações, consulte ["implicações de armazenamento" em criar um índice básico](search-what-is-an-index.md#storage-implications).
 
-Se o exemplo for representativo e 10 por cento de toda a fonte de dados, um índice de 30 MB se tornará aproximadamente 300 MB se todos os documentos forem indexados. Munido desse número preliminar, você pode dobrar esse valor para o orçamento de dois índices (desenvolvimento e produção). Isso oferece um total de 600 MB de requisitos de armazenamento. Esse requisito é facilmente atendido pela camada básica, portanto, você começa lá.
+Com uma estimativa aproximada em mãos, você pode dobrar esse valor para o orçamento de dois índices (desenvolvimento e produção) e, em seguida, escolher a camada adequadamente.
 
-### <a name="step-2-develop-refined-estimates-by-using-a-billable-tier"></a>Passo 2: Desenvolver estimativas refinadas usando uma camada Faturável
+### <a name="estimate-with-a-billable-tier"></a>Estimar com uma camada Faturável
 
-Alguns clientes preferem iniciar com recursos dedicados que podem acomodar grandes períodos de amostragem e processamento e, em seguida, desenvolver estimativas realísticas de volumes de quantidade, tamanho e consulta de índice durante o desenvolvimento. Inicialmente, um serviço é provisionado com base em uma estimativa de melhor estimativa. Em seguida, à medida que o projeto de desenvolvimento amadurece, as equipes geralmente sabem se o serviço existente está acima ou abaixo da capacidade para cargas de trabalho de produção projetadas.
+Os recursos dedicados podem acomodar grandes períodos de amostragem e processamento para estimativas mais realistas de quantidade de índice, tamanho e volumes de consulta durante o desenvolvimento. Alguns clientes saltam diretamente com uma camada Faturável e, em seguida, reavaliam à medida que o projeto de desenvolvimento amadurece.
 
 1. [Examine os limites de serviço em cada camada](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) para determinar se as camadas inferiores podem dar suporte ao número de índices de que você precisa. Nas camadas básica, S1 e S2, os limites de índice são 15, 50 e 200, respectivamente. A camada de armazenamento otimizado tem um limite de 10 índices porque ele foi projetado para dar suporte a um número baixo de índices muito grandes.
 
 1. [Criar um serviço em uma camada Faturável](search-create-service-portal.md):
 
-    + Comece de baixo, em básico ou S1, se você estiver no início da sua curva de aprendizado.
+    + Comece de baixo, em básico ou S1, se você não tiver certeza sobre a carga projetada.
     + Comece de alto, em S2 ou mesmo S3, se você souber que vai ter carregamentos de consulta e indexação em larga escala.
     + Comece com o armazenamento otimizado, em L1 ou L2, se você estiver indexando uma grande quantidade de dados e a carga de consulta for relativamente baixa, assim como com um aplicativo de negócios interno.
 

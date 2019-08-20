@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: vijetaj
-ms.openlocfilehash: df05b2605f3553ce26447a4f8e2440002b75ec3a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 95d128a7af60a1504d05fb5316969fccc49c397f
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68557339"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574975"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Data Science Máquina Virtual do Linux no Azure
 Estas instruções mostram como realizar várias tarefas de ciência de dados comuns com a VM de ciência de dados do Linux. A Máquina Virtual de ciência de dados de Linux (DSVM) é uma imagem de máquina virtual disponível no Azure que está pré-instalado com uma coleção de ferramentas utilizadas para análise de dados e machine learning. Os componentes de software importantes estão descritos a [aprovisionar a máquina de Virtual de ciência de dados do Linux](linux-dsvm-intro.md) tópico. A imagem de VM torna mais fácil começar a fazer ciência de dados em minutos, sem ter de instalar e configurar cada uma das ferramentas individualmente. Pode facilmente aumentar verticalmente a VM, se necessário e pará-la quando não está em utilização. Portanto, este recurso é económico e flexível.
@@ -229,6 +229,20 @@ Para experimentá-lo no primeiro conjunto de 10 linhas do teste:
 
     consume(ep, smallTestSet[1:10, ])
 
+<a name="deep-learning"></a>
+
+## <a name="deep-learning-tutorials-and-walkthroughs"></a>Aprendizagem profunda tutoriais e orientações passo a passo
+
+Além de exemplos baseados em framework, um conjunto de instruções passo a passo abrangente também é disponibilizado que foram validadas no DLVM. Esta instruções passo a passo ajudam a promover seu desenvolvimento de aplicativos de aprendizagem profunda em domínios, como a imagem e compreensão de idiomas de texto /. Mais tutoriais de ponto a ponto entre domínios diferentes e tecnologia continuará a ser adicionado.   
+
+
+- [Executando redes neurais em diferentes estruturas](https://github.com/ilkarman/DeepLearningFrameworks): Uma explicação abrangente que mostra como migrar o código de uma estrutura para outra. Ele também demonstra como comparar o modelo e executar o desempenho de tempo em estruturas. 
+
+- [Um guia de instruções para criar uma solução de ponta a ponta para detectar produtos em imagens](https://github.com/Azure/cortana-intelligence-product-detection-from-images): Detecção de imagem é uma técnica que pode localizar e classificar objetos dentro de imagens. Esta tecnologia tem o potencial para trazer enormes remunerações em muitos domínios de negócio da vida real. Por exemplo, os varejistas podem usar essa técnica para determinar o produto que um cliente tenha escolhido do prateleira. Estas informações ajudam, por sua vez, arquivos de gerir o inventário de produtos. 
+
+- [Aprendizagem para áudio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) este tutorial mostra como preparar um modelo de aprendizagem profunda para deteção de evento de áudio no [conjunto de dados de sons urbanos](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) e fornecer uma visão geral de como trabalhar com dados de áudio.
+
+- [Classificação de documentos de texto](https://github.com/anargyri/lstm_han): Este tutorial demonstra como criar e treinar duas arquiteturas de rede neural diferentes: Rede de atenção hierárquica e rede de LSTM (memória de longo prazo). Estas redes neurais utilizam a API Keras para aprendizagem profunda para classificar documentos de texto. O Keras é um front-end para três das estruturas mais populares de aprendizado profundo: Microsoft Cognitive Toolkit, TensorFlow e Theano.
 
 ## <a name="use-other-tools-available"></a>Utilizar outras ferramentas disponíveis
 As seções restantes mostram como usar algumas das ferramentas instaladas na VM de ciência de dados do Linux. Eis a lista de ferramentas mencionadas:

@@ -1,5 +1,5 @@
 ---
-title: Replicação de Script-Multi-região da CLI do Azure para o Azure Cosmos DB
+title: CLI do Azure script – replicação de várias regiões para Azure Cosmos DB
 description: Exemplo do Script da CLI do Azure - Replicação de várias regiões para o Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
@@ -8,16 +8,16 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/26/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 268b15fb0f3e185be4c06c5c0ba20668d1635f04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c957aff49e3428fec4b7ac7f2db19eeed9d7a40
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66154675"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614754"
 ---
-# <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>Replicar uma conta de base de dados do Azure Cosmos DB em várias regiões e configurar prioridades de ativação pós-falha com a CLI do Azure
+# <a name="replicate-an-azure-cosmos-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>Replicar uma conta do banco de dados Cosmos do Azure em várias regiões e configurar as prioridades de failover usando o CLI do Azure
 
-Este exemplo replica qualquer tipo de conta de base de dados do Azure Cosmos DB em várias regiões e configura prioridades de ativação pós-falha com a CLI do Azure.
+Este exemplo Replica qualquer tipo de conta de banco de dados Cosmos do Azure em várias regiões e configura as prioridades de failover usando o CLI do Azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

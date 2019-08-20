@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7acfa31434534eb3618b8a279ea6cff543fae076
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 9ed7d812a9c1cba356277a4454234531ce8d41ef
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949815"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616150"
 ---
 # <a name="manage-your-two-factor-verification-method-settings"></a>Gerenciar as configurações do método de verificação de dois fatores
 
@@ -135,6 +135,10 @@ Dependendo das configurações da sua organização, você poderá ver uma caixa
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Obtenha dicas de solução de problemas e ajude a [ter problemas com a verificação de dois fatores](multi-factor-authentication-end-user-troubleshoot.md)
+Depois de adicionar ou atualizar suas configurações de verificação de dois fatores, você pode gerenciar suas senhas de aplicativo, entrar ou obter ajuda com alguns problemas comuns relacionados à verificação de dois fatores.
 
 - [Gerencie senhas de aplicativo para verificação de dois fatores](multi-factor-authentication-end-user-app-passwords.md) para qualquer aplicativo que não ofereça suporte à verificação de dois fatores.
+
+- [Entrar usando a verificação de dois fatores](multi-factor-authentication-end-user-signin.md)
+
+- [Obter ajuda com a verificação de dois fatores](multi-factor-authentication-end-user-troubleshoot.md)

@@ -1,5 +1,5 @@
 ---
-title: Script do Azure CLI-criar uma conta API SQL do Azure Cosmos DB, base de dados e contentores
+title: CLI do Azure script – criar uma conta, um banco de dados e um contêiner do Azure Cosmos DB API do SQL
 description: Exemplo do Script da CLI do Azure - Criar uma conta, base de dados e contentor da API SQL do Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/26/2018
 ms.reviewer: sngun
-ms.openlocfilehash: c139ff60ef36b87d9ac16bfd16ad319cd9e17d10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ff6d0ea2701eab8f7cc98f2aeead7492b231f77
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66154734"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616748"
 ---
-# <a name="azure-cosmos-db-create-a-sql-api-account-using-cli"></a>o Azure Cosmos DB: Criar uma conta SQL API com a CLI
+# <a name="azure-cosmos-db-create-a-sql-api-account-using-cli"></a>o Azure Cosmos DB: Criar uma conta da API do SQL usando a CLI
 
 Este script da CLI de exemplo cria uma conta, base de dados e contentor da API SQL do Azure Cosmos DB.  
 
@@ -43,8 +43,8 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Azure Cosmos DB. |
-| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Cria uma base de dados do Azure Cosmos DB. |
-| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Cria um contentor do Azure Cosmos DB. |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Cria um banco de dados Cosmos do Azure. |
+| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Cria um contêiner Cosmos do Azure. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos Seguintes

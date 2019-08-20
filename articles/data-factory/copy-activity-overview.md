@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: a8265496c475566ec7a87a19eab6d975838e9da4
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 23ae7b5cfec26fb2483a3e4ac13a1220888d76ee
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966393"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614263"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia numa fábrica de dados do Azure
 
@@ -130,7 +130,7 @@ O modelo seguinte de uma atividade de cópia contém uma lista completa de propr
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type de uma atividade de cópia deve ser definida como: **Copy** | Sim |
+| type | A propriedade Type de uma atividade de cópia deve ser definida como: **CopiarObjeto** | Sim |
 | inputs | Especifique o conjunto de dados que criou que aponta para a origem de dados. Atividade de cópia suporta apenas uma única entrada. | Sim |
 | outputs | Especifique o conjunto de dados que criou que aponta para os dados de sink. Atividade de cópia suporta apenas uma única saída. | Sim |
 | typeProperties | Um grupo de propriedades para configurar a atividade de cópia. | Sim |
@@ -144,7 +144,7 @@ O modelo seguinte de uma atividade de cópia contém uma lista completa de propr
 
 ## <a name="monitoring"></a>Monitorização
 
-Pode monitorizar a atividade de cópia em execução no Azure Data Factory "Criar e monitorizar" IU ou programaticamente. Em seguida, pode comparar o desempenho e a configuração do seu cenário para a atividade de cópia [referência de desempenho](copy-activity-performance.md#performance-reference) de testes internos.
+Pode monitorizar a atividade de cópia em execução no Azure Data Factory "Criar e monitorizar" IU ou programaticamente.
 
 ### <a name="monitor-visually"></a>Monitorizar visualmente
 

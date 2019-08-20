@@ -1,6 +1,6 @@
 ---
-title: Como gerir palavras-passe de aplicação - Azure Active Directory | Documentos da Microsoft
-description: Saiba mais sobre as palavras-passe de aplicação e o que são utilizados para em relação à verificação de dois passos.
+title: Como gerenciar senhas de aplicativo-Azure Active Directory | Microsoft Docs
+description: Saiba mais sobre as senhas de aplicativo e para que elas são usadas em relação à verificação em duas etapas.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -10,117 +10,123 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 08/13/2019
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6790fa1cbb10999a751b31bcb27db2edcb67b4a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1a9d997f9ced0fbd921abfb13cda5a4845eb3763
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60334989"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616208"
 ---
-# <a name="manage-app-passwords-for-two-step-verification"></a>Gerir palavras-passe de aplicação para a verificação de dois passos
+# <a name="manage-app-passwords-for-two-step-verification"></a>Gerenciar senhas de aplicativo para verificação em duas etapas
 
-Determinadas aplicações não baseadas no browser, tais como o Outlook 2010, não suporta a verificação de dois passos. Essa falta de suporte significa que, se estiver usando a verificação de dois passos, a aplicação não funcionará. Para resolver este problema, pode criar uma palavra-passe gerada automaticamente para utilizar com cada aplicação de fora do browser separada da sua palavra-passe normal.
+>[!Important]
+>O administrador pode não permitir que você use senhas de aplicativo. Se você não vir **as senhas de aplicativo** como uma opção, elas não estão disponíveis em sua organização.
 
-Ao utilizar as palavras-passe de aplicação, é importante lembrar-se:
+Ao usar senhas de aplicativo, é importante lembrar:
 
-- As palavras-passe de aplicação são gerados automaticamente e apenas introduziu uma vez por aplicação.
+- As senhas de aplicativo são geradas automaticamente e inseridas apenas uma vez por aplicativo.
 
-- Existe um limite de 40 palavras-passe por utilizador. Se tentar criar uma após esse limite, será solicitado para eliminar uma palavra-passe existente antes de poder criar novo.
+- Há um limite de 40 senhas por usuário. Se você tentar criar uma após esse limite, será solicitado que você exclua uma senha existente antes de ter permissão para criar a nova.
 
-- Utilize uma palavra-passe aplicação por dispositivo, não por aplicação. Por exemplo, crie uma única palavra-passe para todas as aplicações no computador portátil e, em seguida, outra palavra-passe única para todas as aplicações no ambiente de trabalho.
+- Use uma senha de aplicativo por dispositivo, não por aplicativo. Por exemplo, crie uma única senha para todos os aplicativos em seu laptop e, em seguida, outra senha única para todos os aplicativos na área de trabalho.
 
     >[!Note]
-    >Novos protocolos de autenticação de suporte de clientes do Office 2013 (incluindo Outlook) e pode ser utilizado com verificação de dois passos. Esse suporte significa que após a verificação de dois passos está ativada, já não terá de palavras-passe de aplicação para clientes do Office 2013. Para obter mais informações, consulte a [como a autenticação moderna funciona para aplicações de cliente do Office 2013 e Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) artigo.
+    >Os clientes do Office 2013 (incluindo o Outlook) dão suporte a novos protocolos de autenticação e podem ser usados com a verificação em duas etapas. Esse suporte significa que, após a verificação em duas etapas ser ativada, você não precisará mais de senhas de aplicativo para clientes do Office 2013. Para obter mais informações, consulte o artigo [como funciona a autenticação moderna para aplicativos cliente do office 2013 e do office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) .
 
-## <a name="where-to-create-and-delete-your-app-passwords"></a>Onde pretende criar e eliminar as palavras-passe de aplicação
+## <a name="create-new-app-passwords"></a>Criar novas senhas de aplicativo
 
-É-lhe fornecido uma palavra-passe de aplicação durante o registo de verificação inicial de dois passos. Se precisar de mais do que uma senha, pode criar palavras-passe adicionais, com base na forma como utiliza a verificação de dois passos:
+Durante o processo inicial de registro de verificação de dois fatores, você receberá uma única senha de aplicativo. Se você precisar de mais de um, precisará criá-los por conta própria. Você pode criar senhas de aplicativo de várias áreas, dependendo de como a verificação de dois fatores é configurada em sua organização. Para obter mais informações sobre como registrar-se para usar a verificação de dois fatores com sua conta corporativa ou de estudante, consulte [visão geral para a verificação de dois fatores e sua conta corporativa ou de estudante](multi-factor-authentication-end-user-first-time.md) e seus artigos relacionados.
 
-- **Verificação de dois passos é usar com seu trabalho ou conta da instituição de ensino e o portal MyApps.** Crie e elimine as palavras-passe de aplicação com as instruções no criar e eliminar as palavras-passe de aplicação utilizando a secção de portal MyApps deste artigo. Para obter mais informações sobre o portal MyApps e como usá-lo, consulte [o que é o portal MyApps no Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
+### <a name="where-to-create-and-delete-your-app-passwords"></a>Onde criar e excluir suas senhas de aplicativo
 
-- **Verificação de dois passos é usar com seu trabalho ou conta da instituição de ensino e o portal do Office 365.** Criar e eliminar as palavras-passe de aplicação com as instruções no [criar e eliminar aplicações palavras-passe através do portal do Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) seção deste artigo.
+Você pode criar e excluir senhas de aplicativo com base em como usar a verificação de dois fatores:
 
-- **Verificação de dois passos é usar com sua conta Microsoft pessoal.** Criar e eliminar as palavras-passe de aplicação com o [Noções básicas de segurança](https://account.microsoft.com/account/) página com a sua conta Microsoft pessoal. Para obter mais informações, consulte a [palavras-passe de aplicação e verificação de dois passos](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artigo.
+- **Sua organização usa a verificação de dois fatores e a página de verificação de segurança adicional.** Se você estiver usando sua conta corporativa ou de estudante (como, alain@contoso.com) com a verificação de dois fatores em sua organização, você poderá gerenciar suas senhas de aplicativo na [página de verificação de segurança adicional](https://account.activedirectory.windowsazure.com/Proofup.aspx). Para obter instruções detalhadas, consulte [criar e excluir senhas de aplicativo usando a página de verificação de segurança adicional](#create-and-delete-app-passwords-from-the-additional-security-verification-page) neste artigo.
 
-## <a name="create-and-delete-app-passwords-using-the-myapps-portal"></a>Criar e eliminar as palavras-passe de aplicação com o portal MyApps
-Pode criar e eliminar as palavras-passe de aplicação através do portal MyApps.
+- **Sua organização usa a verificação de dois fatores e o portal do Office 365.** Se você estiver usando sua conta corporativa ou de estudante (como, alain@contoso.com), verificação de dois fatores e aplicativos do Office 365 em sua organização, você poderá gerenciar suas senhas de aplicativo na [página do portal do Office 365](https://office.portal.com). Para obter instruções detalhadas, consulte [criar e excluir senhas de aplicativo usando o portal do Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) neste artigo.
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Para criar uma palavra-passe de aplicação com o portal MyApps
+- **Você está usando a verificação de dois fatores com um conta Microsoft pessoal.** Se você estiver usando um conta Microsoft pessoal (como, alain@outlook.com) com a verificação de dois fatores, poderá gerenciar suas senhas de aplicativo na [página noções básicas de segurança](https://account.microsoft.com/security/). Para obter instruções detalhadas, consulte [usando senhas de aplicativo com aplicativos que não dão suporte à verificação em duas etapas](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
 
-1. Inicie sessão em [https://myapps.microsoft.com](https://myapps.microsoft.com).
+## <a name="create-and-delete-app-passwords-from-the-additional-security-verification-page"></a>Criar e excluir senhas de aplicativo da página de verificação de segurança adicional
 
-2. Selecione o nome no canto superior direito e escolher **perfil**.
+Você pode criar e excluir senhas de aplicativo da página de **verificação de segurança adicional** para sua conta corporativa ou de estudante.
 
-3. Selecione **verificação adicional de segurança**.
+1. Entre na [página verificação de segurança adicional](https://account.activedirectory.windowsazure.com/Proofup.aspx)e, em seguida, selecione **senhas de aplicativo**.
 
-   ![Selecione a verificação de segurança adicional - captura de ecrã](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
+    ![Página senhas de aplicativo, com a guia senhas de aplicativo realçada](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page.png)
 
-4. Selecione **palavras-passe de aplicação**.
+2. Selecione **criar**, digite o nome do aplicativo que requer a senha do aplicativo e, em seguida, selecione **Avançar**.
 
-   ![Selecione palavras-passe de aplicação - captura de ecrã](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
+    ![Página criar senhas de aplicativo, com o nome do aplicativo que precisa de senha](media/multi-factor-authentication-end-user-app-passwords/mfa-create-app-password-page.png)
 
-5. Clique em **Criar**.
+3. Copie a senha da página **sua senha de aplicativo** e selecione **fechar**.
 
-6. Escreva um nome para a palavra-passe de aplicação e, em seguida, selecione **seguinte**.
+    ![Sua página de senha de aplicativo com a senha para seu aplicativo especificado](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
 
-7. Copie a palavra-passe de aplicação para a área de transferência e cole-o na sua aplicação.
-   
-    ![Criar uma palavra-passe de aplicação](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+4. Na página **senhas de aplicativo** , verifique se seu aplicativo está listado.
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Para eliminar uma palavra-passe de aplicação com o portal MyApps
+     ![Página senhas de aplicativo, com o novo aplicativo mostrado na lista](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
 
-1. Aceda ao seu perfil e, em seguida, selecione **verificação de segurança adicional**.
+5. Abra o aplicativo para o qual você criou a senha de aplicativo (por exemplo, Outlook 2010) e cole a senha do aplicativo quando solicitado. Você só deve fazer isso uma vez por aplicativo.
 
-2. Selecione **palavras-passe de aplicação**e, em seguida, selecione **eliminar** junto a palavra-passe de aplicação que pretende eliminar.
+### <a name="to-delete-an-app-password-using-the-app-passwords-page"></a>Para excluir uma senha de aplicativo usando a página senhas de aplicativo
 
-   ![Eliminar uma palavra-passe de aplicação](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
+1. Na página **senhas de aplicativo** , selecione **excluir** ao lado da senha de aplicativo que você deseja excluir.
 
-3. Selecione **Sim** para confirmar que pretende eliminar a palavra-passe e, em seguida, selecione **fechar**.
+   ![Excluir uma senha de aplicativo](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
 
-## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Criar e eliminar as palavras-passe de aplicação com o portal do Office 365
+2. Selecione **Sim** para confirmar que deseja excluir a senha e, em seguida, selecione **fechar**.
 
-Se utilizar a verificação de dois passos com o seu trabalho ou a conta escolar e a aplicações do Office 365, pode criar e eliminar as palavras-passe de aplicação com o portal do Office 365. Pode ter um máximo de 40 palavras-passe de aplicação ao mesmo tempo. Se precisar de outra palavra-passe de aplicações após esse limite, terá de eliminar uma das suas palavras-passe de aplicação existentes.
+    A senha do aplicativo foi excluída com êxito.
 
-### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Para criar palavras-passe de aplicação com o portal do Office 365
+## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Criar e excluir senhas de aplicativo usando o portal do Office 365
 
-1. Inicie sessão na sua conta escolar ou profissional.
+Se você usar a verificação em duas etapas com sua conta corporativa ou de estudante e seus aplicativos do Office 365, você poderá criar e excluir suas senhas de aplicativo usando o portal do Office 365.
 
-2. Aceda a [ https://portal.office.com ](https://portal.office.com), selecione o **definições** ícone no canto superior direito do **portal do Office 365** página e, em seguida, expanda **adicional de segurança verificação**.
+### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Para criar senhas de aplicativo usando o portal do Office 365
 
-    ![Mostrar portal do Office expandido a área de verificação de segurança adicionais](media/security-info/security-info-o365password.png)
+1. Entre no Office 365 e vá para a [página minha conta](https://portal.office.com), selecione **segurança & privacidade**e, em seguida, expanda **verificação de segurança adicional**.
 
-3. Selecione o texto que indica **criar e gerir palavras-passe de aplicação** para abrir o **palavras-passe de aplicação** página.
+    ![Portal do Office mostrando área de verificação de segurança adicional expandida](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-o365-my-account-page.png)
 
-4. Selecione **Create**, escreva um nome amigável para a aplicação que tem da palavra-passe de aplicação e, em seguida, selecione **próxima**.
+2. Selecione o texto que diz, **crie e gerencie senhas de aplicativo** para abrir a página **senhas de aplicativo** .
 
-5. Selecione **copiar palavra-passe para a área de transferência**e, em seguida, selecione **fechar**.
+    ![Página senhas de aplicativo, com a guia senhas de aplicativo realçada](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page.png)
 
-6. Utilize a palavra-passe de aplicação copiado para iniciar sessão na sua aplicação não baseadas no browser. Só tem de introduzir esta palavra-passe de uma vez e ele é memorizado para o futuro.
+3. Selecione **criar**, digite o nome do aplicativo que requer a senha do aplicativo e, em seguida, selecione **Avançar**.
 
-### <a name="to-delete-app-passwords-using-the-office-365-portal"></a>Para eliminar as palavras-passe de aplicação com o portal do Office 365
+    ![Página criar senhas de aplicativo, com o nome do aplicativo que precisa de senha](media/multi-factor-authentication-end-user-app-passwords/mfa-create-app-password-page.png)
 
-1. Inicie sessão na sua conta escolar ou profissional.
+4. Copie a senha da página **sua senha de aplicativo** e selecione **fechar**.
 
-2. Aceda a [ https://portal.office.com ](https://portal.office.com), selecione o **definições** ícone no canto superior direito do **portal do Office 365** página e, em seguida, selecione **adicional de segurança verificação**.
+    ![Sua página de senha de aplicativo com a senha para seu aplicativo especificado](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
 
-3. Selecione o texto que indica **criar e gerir palavras-passe de aplicação** para abrir o **palavras-passe de aplicação** página.
+5. Na página **senhas de aplicativo** , verifique se seu aplicativo está listado.
 
-4. Selecione **elimine** a palavra-passe de aplicação eliminar, selecione **Sim** na caixa de confirmação e, em seguida, selecione **fechar**.
+     ![Página senhas de aplicativo, com o novo aplicativo mostrado na lista](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
 
-    A palavra-passe de aplicação foi eliminada com êxito.
+6. Abra o aplicativo para o qual você criou a senha de aplicativo (por exemplo, Outlook 2010) e cole a senha do aplicativo quando solicitado. Você só deve fazer isso uma vez por aplicativo.
 
-5. Siga os passos para criar uma palavra-passe de aplicação para criar a sua nova palavra-passe de aplicação.
+### <a name="to-delete-app-passwords-using-the-app-passwords-page"></a>Para excluir senhas de aplicativo usando a página senhas de aplicativo
 
-## <a name="if-your-app-passwords-arent-working-properly"></a>Se as palavras-passe de aplicação não estão funcionando corretamente
+1. Na página **senhas de aplicativo** , selecione **excluir** ao lado da senha de aplicativo que você deseja excluir.
 
-Certifique-se de que escreveu corretamente a palavra-passe. Se tiver a certeza de que introduziu corretamente a palavra-passe, pode tentar iniciar sessão novamente e criar uma nova palavra-passe de aplicação. Se nenhuma dessas opções corrigir o problema, contacte o suporte da empresa, de modo que podem eliminar a sua aplicação palavras-passe existentes, permitindo-lhe criar, de novo em folha. 
+   ![Excluir uma senha de aplicativo](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+2. Selecione **Sim** na caixa de confirmação e, em seguida, selecione **fechar**.
 
-- [Gerir as definições da verificação de dois passos](multi-factor-authentication-end-user-manage-settings.md)
+    A senha do aplicativo foi excluída com êxito.
 
-- Experimente o [aplicação Microsoft Authenticator](user-help-auth-app-download-install.md) para verificar os inícios de sessão com as notificações de aplicações, em vez de textos ou chamadas a receber.
+## <a name="if-your-app-passwords-arent-working-properly"></a>Se suas senhas de aplicativo não estiverem funcionando corretamente
+
+Certifique-se de que você digitou sua senha corretamente. Se tiver certeza de que digitou sua senha corretamente, você poderá tentar entrar novamente e criar uma nova senha de aplicativo. Se nenhuma dessas opções corrigir o problema, entre em contato com o suporte técnico de sua organização para que ele possa excluir suas senhas de aplicativo existentes, permitindo que você crie as novas marcas.
+
+## <a name="next-steps"></a>Passos seguintes
+
+- [Gerenciar suas configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md)
+
+- Experimente o [aplicativo Microsoft Authenticator](user-help-auth-app-download-install.md) para verificar suas entradas com notificações de aplicativo, em vez de receber textos ou chamadas.

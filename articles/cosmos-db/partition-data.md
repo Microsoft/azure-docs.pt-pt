@@ -6,12 +6,12 @@ author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 67ad37491f71ac82ff52331d19ea92a646c80a52
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 8f83c40aeecdbf9ca30adc20286712850882ee41
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716987"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616802"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Particionamento e dimensionamento horizontal no Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Uma partição lógica também define o escopo das transações de banco de dado
 
 ## <a name="physical-partitions"></a>Partições físicas
 
-Um contêiner Cosmos do Azure é dimensionado pela distribuição de dados e taxa de transferência em um grande número de partições lógicas. Internamente, uma ou mais partições lógicas são mapeadas para uma partição física que consiste em um conjunto de réplicas, também conhecido como um [*conjunto*](global-dist-under-the-hood.md)de réplicas. Cada conjunto de réplicas hospeda uma instância do mecanismo de banco de dados Azure Cosmos DB. Um conjunto de réplicas torna os dados armazenados na partição física durável, altamente disponível e consistente. Uma partição física dá suporte à quantidade máxima de armazenamento e de unidades de solicitação (RUs). Cada réplica que compõe a partição física herda a cota de armazenamento da partição. Todas as réplicas de uma partição física dão suporte coletiva à taxa de transferência alocada para a partição física. 
+Um contêiner Cosmos do Azure é dimensionado pela distribuição de dados e taxa de transferência em um grande número de partições lógicas. Internamente, uma ou mais partições lógicas são mapeadas para uma partição física que consiste em um conjunto de réplicas, também conhecido como um [*conjunto*](global-dist-under-the-hood.md)de réplicas. Cada conjunto de réplicas hospeda uma instância do mecanismo de banco de dados Cosmos do Azure. Um conjunto de réplicas torna os dados armazenados na partição física durável, altamente disponível e consistente. Uma partição física dá suporte à quantidade máxima de armazenamento e de unidades de solicitação (RUs). Cada réplica que compõe a partição física herda a cota de armazenamento da partição. Todas as réplicas de uma partição física dão suporte coletiva à taxa de transferência alocada para a partição física. 
 
 A imagem a seguir mostra como as partições lógicas são mapeadas para as partições físicas que são distribuídas globalmente:
 
@@ -37,7 +37,7 @@ A taxa de transferência provisionada para um contêiner é dividida uniformemen
 
 Ao contrário das partições lógicas, as partições físicas são uma implementação interna do sistema. Você não pode controlar o tamanho, o posicionamento ou a contagem de partições físicas e não pode controlar o mapeamento entre partições lógicas e partições físicas. No entanto, você pode controlar o número de partições lógicas e a distribuição de dados, carga de trabalho e taxa de transferência [escolhendo a chave de partição lógica correta](partitioning-overview.md#choose-partitionkey).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre como [escolher uma chave de partição](partitioning-overview.md#choose-partitionkey).
 * Saiba mais sobre a [taxa de transferência provisionada no Azure Cosmos DB](request-units.md).

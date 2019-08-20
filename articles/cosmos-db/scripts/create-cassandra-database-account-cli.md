@@ -1,5 +1,5 @@
 ---
-title: Script do Azure CLI-criar uma conta de API de Cassandra do Azure Cosmos DB, base de dados e tabela
+title: CLI do Azure script – criar um Azure Cosmos DB API do Cassandra conta, banco de dados e tabela
 description: Exemplo do Script da CLI do Azure - Criar uma conta, base de dados e tabela da API Cassandra do Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 10/26/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 89d43d8fc956d747de885f69017ed79f49670858
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dfb661ef4e33ee69692d1b7f7fa2c5869507741f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66154745"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614882"
 ---
-# <a name="azure-cosmos-db-create-a-cassandra-api-account-using-azure-cli"></a>o Azure Cosmos DB: Criar uma conta de API de Cassandra através da CLI do Azure
+# <a name="azure-cosmos-db-create-a-cassandra-api-account-using-azure-cli"></a>o Azure Cosmos DB: Criar uma conta de API do Cassandra usando CLI do Azure
 
 Este script da CLI de exemplo cria uma conta, base de dados e tabela da API Cassandra do Azure Cosmos DB.
 
@@ -46,10 +46,10 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Azure Cosmos DB. |
-| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Cria uma base de dados do Azure Cosmos DB. |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Cria um banco de dados Cosmos do Azure. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

@@ -1,28 +1,28 @@
 ---
-title: Como escrever procedimentos armazenados e acionadores com a API de consulta JavaScript no Azure Cosmos DB
-description: Saiba como escrever procedimentos armazenados e acionadores com a API de consulta JavaScript no Azure Cosmos DB
+title: Como escrever procedimentos armazenados e gatilhos usando a API de consulta JavaScript no Azure Cosmos DB
+description: Saiba como escrever procedimentos armazenados e gatilhos usando a API de consulta JavaScript no Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: f465ac91936b766d2c19ea8efd67b3acc8df6d75
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 20a9ca8e28961a6dc49947a22f745424961b4a3f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243935"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615261"
 ---
-# <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Como escrever procedimentos armazenados e acionadores no Azure Cosmos DB utilizando a API de consulta do JavaScript
+# <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Como escrever procedimentos armazenados e gatilhos em Azure Cosmos DB usando a API de consulta JavaScript
 
-O Azure Cosmos DB permite-lhe executar consultas otimizadas utilizando uma interface Fluente do JavaScript sem qualquer conhecimento da linguagem SQL que pode ser usada para gravar procedimentos armazenados ou disparadores. Para saber mais sobre o suporte de API de consulta do JavaScript no Azure Cosmos DB, veja [trabalhar com a linguagem JavaScript integrada a API de consulta no Azure Cosmos DB](javascript-query-api.md) artigo.
+Azure Cosmos DB permite que você execute consultas otimizadas usando uma interface JavaScript fluente sem qualquer conhecimento da linguagem SQL que possa ser usada para gravar procedimentos armazenados ou gatilhos. Para saber mais sobre o suporte à API de consulta JavaScript no Azure Cosmos DB, consulte [trabalhando com API de consulta integrada à linguagem JavaScript no artigo Azure Cosmos DB](javascript-query-api.md) .
 
-## <a id="stored-procedures"></a>Com a API de consulta de JavaScript do procedimento armazenado
+## <a id="stored-procedures"></a>Procedimento armazenado usando a API de consulta JavaScript
 
-O exemplo de código a seguir é um exemplo de como a consulta de JavaScript API é utilizada no contexto de um procedimento armazenado. O procedimento armazenado insere um item do Azure Cosmos DB, que é especificado por um parâmetro de entrada e um documento de metadados de atualizações utilizando o `__.filter()` método, com minSize, maxSize e totalSize com base na propriedade size do item de entrada.
+O exemplo de código a seguir é um exemplo de como a API de consulta JavaScript é usada no contexto de um procedimento armazenado. O procedimento armazenado insere um item Cosmos do Azure que é especificado por um parâmetro de entrada e atualiza um documento de metadados usando `__.filter()` o método, com minSize, MaxSize e totalSize com base na propriedade Size do item de entrada.
 
 > [!NOTE]
-> `__` (valor de duplo sublinhado) é um alias para `getContext().getCollection()` ao utilizar a API de consulta do JavaScript.
+> `__`(sublinhado duplo) é um alias para `getContext().getCollection()` quando usar a API de consulta JavaScript.
 
 ```javascript
 /**
@@ -80,14 +80,14 @@ function insertDocumentAndUpdateMetadata(item) {
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte os seguintes artigos para saber mais sobre os procedimentos armazenados, acionadores e funções definidas pelo utilizador no Azure Cosmos DB:
+Consulte os artigos a seguir para saber mais sobre procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB:
 
-* [Como trabalhar com procedimentos armazenados, disparadores, funções definidas pelo utilizador no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
+* [Como trabalhar com procedimentos armazenados, gatilhos, funções definidas pelo usuário no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 
-* [Como registar e utilizar os procedimentos armazenados no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#stored-procedures)
+* [Como registrar e usar procedimentos armazenados no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#stored-procedures)
 
-* Como registar e utilizar [pré-acionadores](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) e [pós-acionadores](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) no Azure Cosmos DB
+* Como registrar e usar [pré-gatilhos](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) e [pós-gatilhos](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) em Azure Cosmos DB
 
-* [Como registar e utilizar as funções definidas pelo utilizador no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs)
+* [Como registrar e usar funções definidas pelo usuário no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs)
 
 * [Chaves de partição sintéticas no Azure Cosmos DB](synthetic-partition-keys.md)

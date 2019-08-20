@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: aea2b3229dd793bc31adc0038763e09340a5f85a
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: e6c3de1714d363eb1481bcea5f470d04125b96b9
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534789"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575308"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Ligar ao SQL Data Warehouse com o Visual Studio e o SSDT
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ Agora que foi estabelecida uma ligação à base de dados, vamos escrever uma co
    
     ![Resultados da consulta][7]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora que pode ligar e efetuar consultas, experimente [visualizar os dados com o PowerBI][visualizing the data with PowerBI].
 
 Para configurar o ambiente para a autenticação do Azure Active Directory, veja [Authenticate to SQL Data Warehouse (Autenticação no SQL Data Warehouse)][Authenticate to SQL Data Warehouse].

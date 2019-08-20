@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: f2485786f323bc6d19d39f4da6ffa7cab14bbb4c
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: aad3ca34ab9db5ec910e70e70ba5a31afa94e417
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951845"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611976"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obtenha melhor desempenho de backup e restauração com o recurso de restauração instantânea do backup do Azure
 
@@ -24,7 +24,7 @@ O novo modelo para restauração instantânea fornece os seguintes aprimoramento
 
 * Capacidade de usar instantâneos tirados como parte de um trabalho de backup que está disponível para recuperação sem aguardar a conclusão da transferência de dados para o cofre. Ele reduz o tempo de espera para que os instantâneos sejam copiados para o cofre antes de disparar a restauração.
 * Reduz os tempos de backup e restauração mantendo instantâneos localmente, por padrão, por dois dias. Esse valor de retenção de instantâneo padrão é configurável para qualquer valor entre 1 e 5 dias.
-* Oferece suporte a tamanhos de disco de até 4 TB. O redimensionamento de discos não é recomendado pelo backup do Azure. Para se inscrever em uma visualização pública limitada de suporte de disco grande do backup do Azure para discos com mais de 4 TB e até 30 TB de tamanho, consulte [uma visão geral do backup de VM do Azure](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+* Oferece suporte a tamanhos de disco de até 4 TB. O redimensionamento de discos não é recomendado pelo backup do Azure. Para se inscrever em uma visualização pública limitada de suporte de disco grande do backup do Azure para discos com mais de 4 TB e até 30 TB de tamanho, consulte [backup de VM com tamanhos de disco de até 30 TB](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 * Dá suporte a discos SSD Standard juntamente com discos HDD Standard e SSD Premium discos.
 * Capacidade de usar uma conta de armazenamento original de VMs não gerenciadas (por disco) ao restaurar. Essa capacidade existe mesmo quando a VM tem discos que são distribuídos entre contas de armazenamento. Ele acelera as operações de restauração para uma ampla variedade de configurações de VM.
 * Para o backup de VMs que estão usando o armazenamento Premium, com a restauração instantânea, é recomendável alocar *50%* de espaço livre do espaço de armazenamento total alocado, que é necessário **apenas** para o primeiro backup. O espaço livre de 50% não é um requisito para backups após a conclusão do primeiro backup.

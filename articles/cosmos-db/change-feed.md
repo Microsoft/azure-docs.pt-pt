@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 40caea40637c57aedb6315ff6fc032898ff07af7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 20ca823f60ced4260c2e61ca15ae04e158b7d952
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467936"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615674"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Alterar feed em Azure Cosmos DB-visão geral
 
-Altere feed de suporte no Azure Cosmos DB funciona através da escuta de um contentor do Azure Cosmos DB para efetuar quaisquer alterações. Em seguida, gera a saída de lista classificada de documentos que foram alteradas pela ordem em que foram modificadas. As alterações são preservadas, podem ser processadas de forma assíncrona e incremental, e o resultado pode ser distribuído por um ou mais consumidores para processamento paralelo. 
+O suporte ao feed de alterações no Azure Cosmos DB funciona ouvindo um contêiner Cosmos do Azure para qualquer alteração. Em seguida, gera a saída de lista classificada de documentos que foram alteradas pela ordem em que foram modificadas. As alterações são preservadas, podem ser processadas de forma assíncrona e incremental, e o resultado pode ser distribuído por um ou mais consumidores para processamento paralelo. 
 
 O Azure Cosmos DB é bem adequado para IoT, varejo, jogos e aplicações de Registro em log operacional. Um padrão de design comum nesses aplicativos é usar as alterações dos dados para acionar ações adicionais. Exemplos de ações adicionais incluem:
 
@@ -56,7 +56,7 @@ Uma conta do Cosmos do Azure de várias regiões, se uma região de escrita falh
 
 Se uma propriedade de valor de TTL (Time TTL) é definida num item como -1, o feed de alterações serão mantidos para sempre. Se os dados não for eliminados, irá permanecer no feed de alterações.  
 
-### <a name="change-feed-and-etag-lsn-or-ts"></a>Feed de alterações e _etag, _lsn ou TS
+### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>Feed de alterações e _etag, _lsn ou TS
 
 O formato de _etag é interno e não deve demorar dependência, porque ele pode mudar em qualquer altura. TS é uma modificação ou um carimbo de criação. Pode usar TS para comparação cronológica. _lsn é uma ID de lote que é adicionada somente para o feed de alterações; representa a ID da transação. Número de itens pode ter o mesmo _lsn. ETag no FeedResponse é diferente do _etag que vir no item. _etag é um identificador interno e é utilizado para a simultaneidade informa ao controle sobre a versão do item, ao passo que o ETag é utilizado para o feed de sequenciamento.
 

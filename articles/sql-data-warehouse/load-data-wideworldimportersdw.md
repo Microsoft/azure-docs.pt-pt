@@ -10,12 +10,12 @@ ms.subservice: load-data
 ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 30b4009b2f52f4949a380f0fc51b02f94c98d966
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: f81a19631b29954f9bd3da55a4b332e37746152e
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304284"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574931"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Tutorial: Carregar dados para o Azure SQL Data Warehouse
 
@@ -42,11 +42,11 @@ Antes de começar este tutorial, transfira e instale a versão mais recente do [
 
 Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-data-warehouse"></a>Criar um armazém de dados SQL vazio
+## <a name="create-a-blank-sql-data-warehouse"></a>Criar um SQL Data Warehouse em branco
 
-É criado um armazém de dados SQL do Azure com um conjunto definido de [recursos de computação](memory-and-concurrency-limits.md). A base de dados é criada num [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e num [servidor lógico SQL do Azure](../sql-database/sql-database-features.md). 
+Uma SQL Data Warehouse do Azure é criada com um conjunto definido de [recursos de computação](memory-and-concurrency-limits.md). A base de dados é criada num [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e num [servidor lógico SQL do Azure](../sql-database/sql-database-features.md). 
 
-Siga estes passos para criar um armazém de dados SQL vazio. 
+Siga estas etapas para criar um SQL Data Warehouse em branco. 
 
 1. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 
@@ -1106,7 +1106,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 5. Para remover o grupo de recursos, clique em **SampleRG** e, em seguida, clique em **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 Neste tutorial, aprendeu a criar um armazém de dados e a criar um utilizador para carregar dados. Criou tabelas externas para definir a estrutura dos dados armazenados no Azure Storage Blob e, em seguida, utilizou a instrução PolyBase CREATE TABLE AS SELECT para carregar dados para o armazém de dados. 
 
 Fez tudo isto:

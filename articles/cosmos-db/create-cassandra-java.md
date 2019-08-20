@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: seo-java-august2019
-ms.openlocfilehash: e8ca40ec86bc3af92fd23bb7acce3d6c39b082fb
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 7a76ed943a9c3f7312653d1ea4d714e4c02a5294
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933929"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615625"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Início rápido: Compilar um aplicativo Cassandra com o SDK do Java e Azure Cosmos DB
 
@@ -220,7 +220,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, aprendeu a criar uma conta do Azure Cosmos DB, uma base de dados Cassandra e um contentor com o Data Explorer, bem como a executar uma aplicação para fazer o mesmo programaticamente. Agora, pode importar dados adicionais para a sua coleção do Azure Cosmos DB. 
+Neste início rápido, aprendeu a criar uma conta do Azure Cosmos DB, uma base de dados Cassandra e um contentor com o Data Explorer, bem como a executar uma aplicação para fazer o mesmo programaticamente. Agora você pode importar dados adicionais para o contêiner Cosmos do Azure. 
 
 > [!div class="nextstepaction"]
 > [Importar dados do Cassandra para o Azure Cosmos DB](cassandra-import-data.md)

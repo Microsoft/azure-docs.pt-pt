@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 07/18/2019
-ms.openlocfilehash: 05e16a67e6b01ce3bd1f03f0649baa1358414ea7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 08/16/2019
+ms.openlocfilehash: 69a3b4fc966b6dd506d91e52b33967a2e001367f
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035065"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575792"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 
@@ -25,7 +25,9 @@ Os grupos de failover automático são um recurso de banco de dados SQL que perm
 > [!NOTE]
 > Ao trabalhar com bancos de dados individuais ou em pool em um servidor de banco de dados SQL e você quiser vários secundários nas mesmas ou em regiões diferentes, use a [replicação geográfica ativa](sql-database-active-geo-replication.md). 
 
-Quando você estiver usando grupos de failover automático com política de failover automático, qualquer interrupção que afete um ou vários bancos de dados no grupo resultará em failover automático. Além disso, os grupos de failover automático fornecem pontos de extremidade de ouvinte de leitura/gravação e somente leitura que permanecem inalterados durante os failovers. Se você usar a ativação manual ou automática de failover, o failover alternará todos os bancos de dados secundários no grupo para primário. Após a conclusão do failover de banco de dados, o registro DNS é atualizado automaticamente para redirecionar os pontos de extremidade para a nova região. Para obter os dados de RPO e RTO específicos, consulte [visão geral da continuidade dos negócios](sql-database-business-continuity.md).
+Quando você estiver usando grupos de failover automático com política de failover automático, qualquer interrupção que afete um ou vários bancos de dados no grupo resultará em failover automático. Normalmente, esses são incidentes que não podem ser autoatenuados pelas operações de alta disponibilidade automáticas internas. Os exemplos de gatilhos de failover incluem um incidente causado por um anel de locatário ou anel de controle do SQL que está sendo inativo devido a um vazamento de memória do kernel do sistema operacional em vários nós de computação ou a um incidente causado por um ou mais anéis de locatário sendo desativados porque um cabo de rede incorreto foi cortado durante ro descomissionamento de hardware utine.  Para obter mais informações, consulte [alta disponibilidade do banco de dados SQL](sql-database-high-availability.md).
+
+Além disso, os grupos de failover automático fornecem pontos de extremidade de ouvinte de leitura/gravação e somente leitura que permanecem inalterados durante os failovers. Se você usar a ativação manual ou automática de failover, o failover alternará todos os bancos de dados secundários no grupo para primário. Após a conclusão do failover de banco de dados, o registro DNS é atualizado automaticamente para redirecionar os pontos de extremidade para a nova região. Para obter os dados de RPO e RTO específicos, consulte [visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 
 Quando você estiver usando grupos de failover automático com a política de failover automático, qualquer interrupção que afete os bancos de dados no servidor do banco de dados SQL ou na instância gerenciada resultará em failover automático. Você pode gerenciar o grupo de failover automático usando:
 
@@ -374,7 +376,7 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 | [Obter grupo de failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Obtém um grupo de failover. |
 | [Listar grupos de failover-listar por local](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Lista os grupos de failover em um local. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter tutoriais detalhados, consulte
     - [Adicionar um banco de dados individual a um grupo de failover](sql-database-single-database-failover-group-tutorial.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 29c91f2dcff04a2d21973e79c5719c3f4d84181b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a443931b8340552251fbcbe534f009eeeaf953aa
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827368"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617312"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Diretrizes para dados pessoais armazenados em Log Analytics e Application Insights
 
@@ -98,6 +98,11 @@ Para exibir e exportar solicitações de dados, a [API de consulta log Analytics
 Disponibilizamos como parte de uma privacidade que manipula um caminho de API de *limpeza* . Esse caminho deve ser usado com moderação devido ao risco associado ao fazer isso, o impacto potencial no desempenho e o potencial de distorcer as agregações, as medições e outros aspectos de seus dados Log Analytics. Consulte a seção [estratégia para manipulação de dados pessoais](#strategy-for-personal-data-handling) para obter abordagens alternativas para lidar com dados privados.
 
 Limpar é uma operação altamente privilegiada que nenhum aplicativo ou usuário no Azure (incluindo até mesmo o proprietário do recurso) terá permissões para executar sem explicitamente receber uma função no Azure Resource Manager. Essa função é o limpador de _dados_ e deve ser cuidadosamente delegada devido ao potencial de perda de dados. 
+
+> [!IMPORTANT]
+> Para gerenciar recursos do sistema, as solicitações de limpeza são limitadas a 50 solicitações por hora. Você deve enviar em lote a execução de solicitações de limpeza enviando um único comando cujo predicado inclui todas as identidades de usuário que exigem limpeza. Use o [operador in](/azure/kusto/query/inoperator) para especificar várias identidades. Você deve executar a consulta antes de executar a solicitação de limpeza para verificar se os resultados são esperados. 
+
+
 
 Depois que a função Azure Resource Manager tiver sido atribuída, dois novos caminhos de API estarão disponíveis: 
 

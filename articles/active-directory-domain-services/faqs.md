@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 3d44937c977ba264d671f2053d387470651af68a
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 509bd472fe5f930ac830b8b4016129f8acb67324
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030890"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612877"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Perguntas Mais Frequentes (FAQs)
 Esta página responde às perguntas frequentes sobre o Azure Active Directory Domain Services. Continue verificando as atualizações.
@@ -31,6 +31,9 @@ Consulte o [Guia de solução de problemas](troubleshoot.md) para obter soluçõ
 ## <a name="configuration"></a>Configuração
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Posso criar vários domínios gerenciados para um único diretório do AD do Azure?
 Não. Você só pode criar um único domínio gerenciado pelo Azure AD Domain Services para um único diretório do Azure AD.  
+
+### <a name="can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network"></a>Posso habilitar Azure AD Domain Services em uma rede virtual clássica?
+As redes virtuais clássicas não têm suporte para novas implantações. Os domínios gerenciados existentes implantados em redes virtuais clássicas continuam com suporte.
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Posso habilitar Azure AD Domain Services em uma rede virtual Azure Resource Manager?
 Sim. Azure AD Domain Services pode ser habilitado em uma rede virtual Azure Resource Manager. As redes virtuais clássicas do Azure não têm mais suporte para a criação de novos domínios gerenciados.

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: d61d3d00de5b46f7dad44625509eabe6836ca7cf
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ae1773ec1d470b9cff2efb00c200427b7b4c2fb4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447264"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614819"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Otimização do desempenho de consulta com o Azure Cosmos DB
 
@@ -44,7 +44,7 @@ Os SDKs oferecem várias opções para a execução da consulta. Por exemplo, no
 | `EnableScanInQuery` | Deve ser definida como verdadeira se tiver optado por fora de indexação, mas pretende executar a consulta através de uma análise de qualquer forma. Apenas aplicável se a indexação para o caminho de filtro solicitado está desativada. | 
 | `MaxItemCount` | O número máximo de itens a devolver por ida e volta ao servidor. Por definição como -1, pode permitir que o servidor de gerir o número de itens. Em alternativa, pode reduzir este valor para recuperar apenas um pequeno número de itens por ida e volta. 
 | `MaxBufferedItemCount` | Esta é uma opção do lado do cliente e utilizado para limitar o consumo de memória, ao realizar entre partições ORDER BY. Um valor mais alto ajuda a reduzir a latência da classificação de entre partições. |
-| `MaxDegreeOfParallelism` | Obtém ou define o número de operações simultâneas são executados do lado do cliente durante a execução paralela da consulta no serviço de base de dados do Azure Cosmos DB. Um valor de propriedade positivo limita o número de operações simultâneas para o valor do conjunto. Se estiver definido como inferior a 0, o sistema decide automaticamente o número de operações simultâneas para executar. |
+| `MaxDegreeOfParallelism` | Obtém ou define o número de operações simultâneas executadas no lado do cliente durante a execução de consulta paralela no serviço de banco de dados Cosmos do Azure. Um valor de propriedade positivo limita o número de operações simultâneas para o valor do conjunto. Se estiver definido como inferior a 0, o sistema decide automaticamente o número de operações simultâneas para executar. |
 | `PopulateQueryMetrics` | Registo detalhado de estatísticas de tempo gasto em fases de execução da consulta, como tempo de compilação, o tempo de ciclo de índice e o documento de ativa o tempo de carga. Pode compartilhar a saída de estatísticas de consulta com suporte do Azure para diagnosticar problemas de desempenho de consulta. |
 | `RequestContinuation` | Pode retomar a execução da consulta ao passar o token de continuação opaco devolvido por qualquer consulta. O token de continuação encapsula todo o estado necessário para a execução da consulta. |
 | `ResponseContinuationTokenLimitInKb` | Pode limitar o tamanho máximo do token de continuação devolvido pelo servidor. Poderá ter de definir esta opção se o seu host de aplicativo tem limites no tamanho do cabeçalho de resposta. Definir este pode aumentar a duração e o RUs consumidas para a consulta global.  |
@@ -216,7 +216,7 @@ A seção sobre as métricas de execução de consulta explica como obter o temp
 ### <a name="indexing-policy"></a>Política de indexação
 Ver [configurar a política de indexação](index-policy.md) para indexação caminhos, tipos e modos e como elas impactam a execução da consulta. Por predefinição, a política de indexação utiliza indexação de Hash para cadeias de caracteres, que é eficiente para consultas de igualdade, mas não para consultas de intervalo/ordenar por consultas. Se precisar de consultas de intervalo para cadeias de caracteres, é recomendável especificar o tipo de índice do intervalo para todas as cadeias de caracteres. 
 
-Por predefinição, o Azure Cosmos DB será aplicada a indexação automática para todos os dados. Elevado desempenho inserir cenários, considere excluir caminhos como isto irá reduzir o custo de RU para cada operação de inserção. 
+Por padrão, Azure Cosmos DB aplicará a indexação automática a todos os dados. Para cenários de inserção de alto desempenho, considere a exclusão de caminhos, pois isso reduzirá o custo de RU para cada operação de inserção. 
 
 ## <a name="query-execution-metrics"></a>Métricas de execução de consulta
 Pode obter métricas detalhadas da execução de consulta ao transmitir o opcional `x-ms-documentdb-populatequerymetrics` cabeçalho (`FeedOptions.PopulateQueryMetrics` no SDK do .NET). O valor devolvido na `x-ms-documentdb-query-metrics` tem os seguintes pares de chave-valor destina a resolução de problemas de execução da consulta avançada. 

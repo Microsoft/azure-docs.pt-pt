@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: de91b2d681037ae67e14b16934cf72441ef9fd82
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4197d7a4724199f8c42fc09a6d1ed18af46cc4f8
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935161"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575355"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: Dimensionar a computação no Azure SQL Data Warehouse no portal do Azure
 
@@ -60,4 +60,4 @@ Para alterar as unidades do data warehouse:
 Agora você aprendeu a dimensionar a computação para seu data warehouse. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
 
 > [!div class="nextstepaction"]
->[Carregar dados para o SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Carregar dados em um SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

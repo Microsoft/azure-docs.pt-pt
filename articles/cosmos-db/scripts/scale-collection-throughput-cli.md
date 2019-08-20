@@ -1,6 +1,6 @@
 ---
-title: Script da CLI do Azure - Dimensionar Débito do contentor do Azure Cosmos DB | Microsoft Docs
-description: Exemplo do Script da CLI do Azure - Dimensionar débito do contentor do Azure Cosmos DB
+title: CLI do Azure a produtividade do contêiner do Azure Cosmos em escala de script | Microsoft Docs
+description: Exemplo de script CLI do Azure-dimensionar a taxa de transferência do contêiner Cosmos do Azure
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,16 +8,16 @@ ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 593fade731fac86e7fcda69bfe223716127de9e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a7ae4b015ba476ca1ffdb4b4510334490a6f6fee
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446657"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616686"
 ---
-# <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>Dimensionar débito do contentor do Azure Cosmos DB com a CLI do Azure
+# <a name="scale-azure-cosmos-container-throughput-using-the-azure-cli"></a>Dimensionar a taxa de transferência do contêiner Cosmos do Azure usando o CLI do Azure
 
-Este exemplo dimensiona o débito do contentor para qualquer tipo de contentor do Azure Cosmos DB.  
+Este exemplo dimensiona a taxa de transferência do contêiner para qualquer tipo de contêiner Cosmos do Azure.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -43,9 +43,9 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Azure Cosmos DB. |
-| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Cria uma base de dados do Azure Cosmos DB. |
-| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Cria um contentor do Azure Cosmos DB. |
-| [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) | Atualiza um contentor do Azure Cosmos DB. |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Cria um banco de dados Cosmos do Azure. |
+| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Cria um contêiner Cosmos do Azure. |
+| [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) | Atualiza um contêiner Cosmos do Azure. |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos Seguintes

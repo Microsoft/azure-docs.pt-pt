@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 78afec75269876c309b2c324d8a5973fd5ebf9a8
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: c782629d422eb8846b209fed7ab6b5a5c015de25
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68773040"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612291"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Adicionar uma máquina virtual Ubuntu no Azure a um domínio gerenciado
 Este artigo mostra como ingressar uma máquina virtual Ubuntu Linux em um domínio Azure AD Domain Services gerenciado.
@@ -31,9 +31,9 @@ Este artigo mostra como ingressar uma máquina virtual Ubuntu Linux em um domín
 Para executar as tarefas listadas neste artigo, você precisará de:  
 1. Uma **assinatura válida do Azure**.
 2. Um **diretório do Azure ad** -seja sincronizado com um diretório local ou um diretório somente na nuvem.
-3. **Azure AD Domain Services** deve ser habilitado para o diretório do Azure AD. Se você ainda não fez isso, siga todas as tarefas descritas no [Guia de introdução](create-instance.md).
-4. Verifique se você configurou os endereços IP do domínio gerenciado como servidores DNS para a rede virtual. Para obter mais informações, consulte [como atualizar as configurações de DNS para a rede virtual do Azure](active-directory-ds-getting-started-dns.md)
-5. Conclua as etapas necessárias para [sincronizar as senhas para seu Azure AD Domain Services domínio gerenciado](active-directory-ds-getting-started-password-sync.md).
+3. **Azure AD Domain Services** deve ser habilitado para o diretório do Azure AD. Se você ainda não fez isso, siga todas as tarefas descritas no [Guia de introdução](tutorial-create-instance.md).
+4. Verifique se você configurou os endereços IP do domínio gerenciado como servidores DNS para a rede virtual. Para obter mais informações, consulte [como atualizar as configurações de DNS para a rede virtual do Azure](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
+5. Conclua as etapas necessárias para [sincronizar as senhas para seu Azure AD Domain Services domínio gerenciado](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
 
 
 ## <a name="provision-an-ubuntu-linux-virtual-machine"></a>Provisionar uma máquina virtual Ubuntu Linux
@@ -51,7 +51,7 @@ Provisione uma máquina virtual Ubuntu Linux no Azure, usando qualquer um dos se
 ## <a name="connect-remotely-to-the-ubuntu-linux-virtual-machine"></a>Conectar-se remotamente à máquina virtual Ubuntu Linux
 A máquina virtual Ubuntu foi provisionada no Azure. A próxima tarefa é conectar-se remotamente à máquina virtual usando a conta de administrador local criada durante o provisionamento da VM.
 
-Siga as instruções no artigo [como fazer logon em uma máquina virtual que executa o Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Siga as instruções no artigo [como entrar em uma máquina virtual que executa o Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Configurar o arquivo de hosts na máquina virtual Linux
@@ -64,10 +64,10 @@ sudo vi /etc/hosts
 No arquivo de hosts, insira o seguinte valor:
 
 ```console
-127.0.0.1 contoso-ubuntu.contoso100.com contoso-ubuntu
+127.0.0.1 contoso-ubuntu.contoso.com contoso-ubuntu
 ```
 
-Aqui, ' contoso100.com ' é o nome de domínio DNS do seu domínio gerenciado. ' contoso-Ubuntu ' é o nome do host da máquina virtual Ubuntu que você está unindo ao domínio gerenciado.
+Aqui, ' contoso.com ' é o nome de domínio DNS do seu domínio gerenciado. ' contoso-Ubuntu ' é o nome do host da máquina virtual Ubuntu que você está unindo ao domínio gerenciado.
 
 
 ## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Instalar os pacotes necessários na máquina virtual Linux
@@ -88,7 +88,7 @@ Em seguida, instale os pacotes necessários para o ingresso no domínio na máqu
 3. Durante a instalação do Kerberos, você verá uma tela rosa. A instalação do pacote ' krb5-User ' solicita o nome do Realm (em letras MAIÚSCULAs). A instalação grava as seções [Realm] e [domain_realm] em/etc/krb5.conf.
 
     > [!TIP]
-    > Se o nome do domínio gerenciado for contoso100.com, insira CONTOSO100.COM como o realm. Lembre-se de que o nome do Realm deve ser especificado em letras MAIÚSCULAs.
+    > Se o nome do domínio gerenciado for contoso.com, insira contoso.COM como o realm. Lembre-se de que o nome do Realm deve ser especificado em letras MAIÚSCULAs.
 
 
 ## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>Definir as configurações de NTP (protocolo NTP) na máquina virtual Linux
@@ -101,16 +101,16 @@ sudo vi /etc/ntp.conf
 No arquivo NTP. conf, insira o seguinte valor e salve o arquivo:
 
 ```console
-server contoso100.com
+server contoso.com
 ```
 
-Aqui, ' contoso100.com ' é o nome de domínio DNS do seu domínio gerenciado.
+Aqui, ' contoso.com ' é o nome de domínio DNS do seu domínio gerenciado.
 
 Agora, sincronize a data e hora da VM Ubuntu com o servidor NTP e, em seguida, inicie o serviço NTP:
 
 ```console
 sudo systemctl stop ntp
-sudo ntpdate contoso100.com
+sudo ntpdate contoso.com
 sudo systemctl start ntp
 ```
 
@@ -121,7 +121,7 @@ Agora que os pacotes necessários estão instalados na máquina virtual Linux, a
 1. Descubra o domínio gerenciado dos serviços de domínio do AAD. No terminal SSH, digite o seguinte comando:
 
     ```console
-    sudo realm discover CONTOSO100.COM
+    sudo realm discover contoso.COM
     ```
 
    > [!NOTE]
@@ -133,12 +133,12 @@ Agora que os pacotes necessários estão instalados na máquina virtual Linux, a
 2. Inicialize o Kerberos. No terminal SSH, digite o seguinte comando:
 
     > [!TIP]
-    > * Certifique-se de especificar um usuário que pertença ao grupo ' Administradores do controlador de domínio do AAD '.
+    > * Certifique-se de especificar um usuário que pertença ao grupo ' Administradores do controlador de domínio do AAD '. Se necessário, [adicione uma conta de usuário a um grupo no Azure ad](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)
     > * Especifique o nome de domínio em letras maiúsculas, caso contrário, kinit falhará.
     >
 
     ```console
-    kinit bob@CONTOSO100.COM
+    kinit bob@contoso.COM
     ```
 
 3. Ingresse o computador no domínio. No terminal SSH, digite o seguinte comando:
@@ -149,7 +149,7 @@ Agora que os pacotes necessários estão instalados na máquina virtual Linux, a
     > Se sua VM não puder ingressar no domínio, verifique se o grupo de segurança de rede da VM permite o tráfego de saída do Kerberos na porta TCP + UDP 464 para a sub-rede da rede virtual para o domínio gerenciado do Azure AD DS.
 
     ```console
-    sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM' --install=/
+    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM' --install=/
     ```
 
 Você deverá receber uma mensagem ("computador registrado com êxito no Realm") quando o computador tiver ingressado com êxito no domínio gerenciado.
@@ -176,7 +176,7 @@ Você deverá receber uma mensagem ("computador registrado com êxito no Realm")
 
 
 ## <a name="configure-automatic-home-directory-creation"></a>Configurar a criação automática do diretório base
-Para habilitar a criação automática do diretório base após o logon dos usuários, digite os seguintes comandos em seu terminal de saída:
+Para habilitar a criação automática do diretório base após a entrada de usuários, digite os seguintes comandos em seu terminal de saída:
 
 ```console
 sudo vi /etc/pam.d/common-session
@@ -192,10 +192,10 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ## <a name="verify-domain-join"></a>Verificar ingresso no domínio
 Verifique se o computador foi ingressado com êxito no domínio gerenciado. Conecte-se à VM Ubuntu ingressada no domínio usando uma conexão SSH diferente. Use uma conta de usuário de domínio e verifique se a conta de usuário foi resolvida corretamente.
 
-1. No terminal SSH, digite o seguinte comando para se conectar à máquina virtual Ubuntu ingressada no domínio usando SSH. Use uma conta de domínio que pertença ao domínio gerenciado (por exemplo,bob@CONTOSO100.COM' ' neste caso).
+1. No terminal SSH, digite o seguinte comando para se conectar à máquina virtual Ubuntu ingressada no domínio usando SSH. Use uma conta de domínio que pertença ao domínio gerenciado (por exemplo,bob@contoso.COM' ' neste caso).
     
     ```console
-    ssh -l bob@CONTOSO100.COM contoso-ubuntu.contoso100.com
+    ssh -l bob@contoso.COM contoso-ubuntu.contoso.com
     ```
 
 2. No terminal SSH, digite o seguinte comando para ver se o diretório base foi inicializado corretamente.
@@ -227,14 +227,14 @@ Você pode conceder aos membros do grupo ' Administradores do controlador de dom
     %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
     ```
 
-3. Agora você pode fazer logon como um membro do grupo ' Administradores do controlador de domínio do AAD ' e deve ter privilégios administrativos na VM.
+3. Agora você pode entrar como um membro do grupo ' Administradores do controlador de domínio do AAD ' e deve ter privilégios administrativos na VM.
 
 
 ## <a name="troubleshooting-domain-join"></a>Solucionando problemas de ingresso no domínio
-Consulte o artigo [solução de problemas de ingresso no domínio](join-windows-vm.md#troubleshoot-joining-a-domain) .
+Consulte o artigo [solução de problemas de ingresso no domínio](join-windows-vm.md#troubleshoot-domain-join-issues) .
 
 
 ## <a name="related-content"></a>Conteúdo relacionado
-* [Guia de Introdução de Azure AD Domain Services](create-instance.md)
+* [Guia de Introdução de Azure AD Domain Services](tutorial-create-instance.md)
 * [Ingressar uma máquina virtual do Windows Server em um Azure AD Domain Services domínio gerenciado](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Como fazer logon em uma máquina virtual que executa o Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Como entrar em uma máquina virtual que executa o Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

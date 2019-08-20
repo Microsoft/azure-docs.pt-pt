@@ -13,12 +13,12 @@ ms.date: 08/05/2019
 ms.author: lizross
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6145ccc67eedfdae8e9e1aa9245ff8d34101d387
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: f10f3b272978ea24b515e39a8a8cc1fd0bea73a4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949555"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615988"
 ---
 # <a name="overview-for-two-factor-verification-and-your-work-or-school-account"></a>Visão geral para a verificação de dois fatores e sua conta corporativa ou de estudante
 
@@ -29,7 +29,15 @@ A verificação de dois fatores é mais segura do que apenas uma senha, pois dep
 >[!Important]
 >Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 >
->Esse conteúdo também destina-se apenas ao uso com sua conta corporativa ou de estudante, a conta fornecida por sua organização (por exemplo, alain@contoso.com). Se você estiver tendo problemas com a verificação de dois fatores e sua conta Microsoft pessoal, a conta que você configurou para si mesmo ( danielle@outlook.compor exemplo,), consulte [Ativar ou desativar a verificação de dois fatores para seu conta Microsoft](https://support.microsoft.com/en-us/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+>Esse conteúdo também destina-se apenas ao uso com sua conta corporativa ou de estudante, a conta fornecida por sua organização (por exemplo, alain@contoso.com). Se você estiver tendo problemas com a verificação de dois fatores e sua conta Microsoft pessoal, a conta que você configurou para si mesmo ( danielle@outlook.compor exemplo,), consulte [Ativar ou desativar a verificação de dois fatores para seu conta Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+
+## <a name="who-decides-if-you-use-this-feature"></a>Quem decide se você usa esse recurso?
+
+Dependendo de seu tipo de conta, sua organização pode decidir que você deve usar a verificação de dois fatores ou pode decidir por conta própria.
+
+- **Conta escolar ou profissional.** Se você estiver usando uma conta corporativa ou de estudante (por exemplo alain@contoso.com,), cabe à sua organização se você deve usar a verificação de dois fatores, juntamente com os métodos de verificação específicos. Como sua organização decidiu que você deve usar esse recurso, não há como desativá-lo individualmente.
+
+- **Conta Microsoft pessoais.** Você pode optar por configurar a verificação de dois fatores para suas contas pessoais da Microsoft (por exemplo alain@outlook.com,). Se você estiver tendo problemas com a verificação de dois fatores e seus conta Microsoft pessoais, consulte [Ativar ou desativar a verificação de dois fatores para seu conta Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off). Como você escolhe se deseja usar esse recurso, você pode ativá-lo e desligá-lo sempre que desejar.
 
 ## <a name="two-factor-verification-related-articles"></a>Artigos relacionados à verificação de dois fatores
 

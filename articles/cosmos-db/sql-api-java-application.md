@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/22/2018
 ms.author: ramkris
-ms.openlocfilehash: dfb4e40aeed797a55a7b2cabad32d33920547c06
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bd2894c23e206ed5f49fec8aa169d6ed852df4c6
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479504"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616659"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Criar uma aplicação Web Java com o Azure Cosmos DB e a API de SQL
 
@@ -50,16 +50,16 @@ Antes de começar este tutorial de desenvolvimento de aplicação, tem de ter o 
 * [IDE Eclipse para Programadores de Java EE.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Um site do Azure com um tempo de execução em ambiente Java (por exemplo, Tomcat ou Jetty) ativado.](../app-service/app-service-web-get-started-java.md)
 
-Se estiver a instalar estas ferramentas pela primeira vez, coreservlets.com fornece instruções do processo de instalação na seção de início rápido do respetivo [Tutorial: Instalar TomCat7 e utilizá-lo com o Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) artigo.
+Se você estiver instalando essas ferramentas pela primeira vez, o coreservlets.com fornecerá um passo a passo do processo de instalação na seção início rápido do [tutorial: Instalando o TomCat7 e usando-](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) o com o eclipse artigo.
 
-## <a id="CreateDB"></a>Passo 1: Criar uma conta do Azure Cosmos DB
-Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta ou se estiver a utilizar o emulador do Azure Cosmos DB para este tutorial, pode avançar para [passo 2: Criar a aplicação Java JSP](#CreateJSP).
+## <a id="CreateDB"></a>Etapa 1: Criar uma conta do Azure Cosmos DB
+Comecemos por criar uma conta do Azure Cosmos DB. Se você já tiver uma conta ou se estiver usando o emulador de Azure Cosmos DB para este tutorial, poderá pular para [a etapa 2: Crie o aplicativo](#CreateJSP)Java JSP.
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
-## <a id="CreateJSP"></a>Passo 2: Criar a aplicação Java JSP
+## <a id="CreateJSP"></a>Etapa 2: Criar o aplicativo Java JSP
 Para criar a aplicação JSP:
 
 1. Em primeiro lugar, iremos começar por criar um projeto de Java. Abra o Eclipse e clique em **Ficheiro**, **Novo**, e, em seguida, clique em **Dynamic Web Project**. Se não vir **Dynamic Web Project** listado como um projeto disponível, faça o seguinte: clique em **Ficheiro**, **Novo**, clique em **Projeto**..., expanda **Web**, clique em **Dynamic Web Project**, e clique em **Seguinte**.
@@ -81,7 +81,7 @@ Para criar a aplicação JSP:
    
     ![Olá, Mundo – Tutorial de Aplicações Java](./media/sql-api-java-application/image12.png)
 
-## <a id="InstallSDK"></a>Passo 3: Instalar o SQL de Java SDK
+## <a id="InstallSDK"></a>Etapa 3: Instalar o SDK do Java do SQL
 A forma mais fácil para obter o SDK do SQL Java e as respetivas dependências é através do [Apache Maven](https://maven.apache.org/).
 
 Para tal, terá de converter o seu projeto em projeto maven, realizando os seguintes passos:
@@ -109,7 +109,7 @@ Para tal, terá de converter o seu projeto em projeto maven, realizando os segui
 6. Clique em **OK** e o Maven irá instalar o SDK de SQL Java.
 7. Guarde o ficheiro pom.xml.
 
-## <a id="UseService"></a>Passo 4: Utilizar o serviço do Azure Cosmos DB numa aplicação de Java
+## <a id="UseService"></a>Etapa 4: Usando o serviço de Azure Cosmos DB em um aplicativo Java
 1. Em primeiro lugar, definamos o objeto TodoItem em TodoItem.java:
    
         @Data
@@ -250,7 +250,7 @@ Para tal, terá de converter o seu projeto em projeto maven, realizando os segui
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-5. Tal como as bases de dados do Azure Cosmos DB e coleções, os documentos também são referenciados por auto-ligações. A seguinte função do programa auxiliar permite-nos obter documentos por outro atributo (por exemplo, "id") em vez de auto-ligação:
+5. Assim como os bancos de dados e coleções do Azure Cosmos, os documentos também são referenciados por Self-links. A seguinte função do programa auxiliar permite-nos obter documentos por outro atributo (por exemplo, "id") em vez de auto-ligação:
    
         private Document getDocumentById(String id) {
             // Retrieve the document using the DocumentClient.
@@ -343,7 +343,7 @@ Para tal, terá de converter o seu projeto em projeto maven, realizando os segui
             return true;
         }
 
-## <a id="Wire"></a>Passo 5: Fazer a ligação do restante do de projeto de desenvolvimento de aplicações Java em conjunto
+## <a id="Wire"></a>Etapa 5: Conectando o resto do projeto de desenvolvimento de aplicativos Java em conjunto
 Agora que concluímos a parte divertida - apenas falta criar uma interface de utilizador rápida e associá-la ao nosso DAO.
 
 1. Em primeiro lugar, comecemos por criar um controlador para chamar o nosso DAO:
@@ -715,7 +715,7 @@ Agora que concluímos a parte divertida - apenas falta criar uma interface de ut
 5. Fantástico! Agora, só falta testar a aplicação. Execute localmente a aplicação e adicione alguns itens Todo ao indicar o nome e a categoria do item. De seguida, clique em **Adicionar Tarefa**.
 6. Assim que o item for apresentado, pode atualizar se estiver concluído desativar a caixa de verificação e ao clicar em **Atualizar Tarefas**.
 
-## <a id="Deploy"></a>Passo 6: Implementar a sua aplicação de Java para Web Sites do Azure
+## <a id="Deploy"></a>Etapa 6: Implantar seu aplicativo Java nos sites do Azure
 Os Sites do Azure tornam a implementação de aplicações Java tão simples como a exportação da sua aplicação com um ficheiro WAR e ao carregá-lo através do controlo de código fonte (por exemplo, Git) ou FTP.
 
 1. Para exportar a sua aplicação como um ficheiro WAR, clique com o botão direito do rato no seu projeto em **Explorador de Projeto**, clique em **Exportar**, e, em seguida, clique em **Ficheiro WAR**.
@@ -742,7 +742,7 @@ Todos os exemplos deste tutorial estão incluídos no projeto [todo](https://git
 8. No ecrã **Destino Local**, clique em **Procurar** para selecionar uma pasta em que o repositório pode ser copiado e, em seguida, clique em **Seguinte**.
 9. No ecrã **Selecionar um assistente a utilizar para importar projetos**, certifique-se de ter selecionado **Importar projetos existentes** e, em seguida, clique em **Seguinte**.
 10. No ecrã **Importar Projetos**, anule a seleção do projeto **DocumentDB** e, em seguida, clique em **Concluir**. O projeto do DocumentDB contém o SDK Java do Azure Cosmos DB, que iremos adicionar como uma dependência.
-11. Em **Explorador de Projeto**, navegue até azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java e substitua os valores ANFITRIÃO e MASTER_KEY pelo URI e a CHAVE PRIMÁRIA da sua conta do Azure Cosmos DB e, em seguida, guarde o ficheiro. Para obter mais informações, veja o [Passo 1. Crie uma conta de base de dados do Azure Cosmos DB](#CreateDB).
+11. Em **Explorador de Projeto**, navegue até azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java e substitua os valores ANFITRIÃO e MASTER_KEY pelo URI e a CHAVE PRIMÁRIA da sua conta do Azure Cosmos DB e, em seguida, guarde o ficheiro. Para obter mais informações, veja o [Passo 1. Crie uma conta](#CreateDB)de banco de dados Cosmos do Azure.
 12. Em **Explorador de Projeto**, clique com o botão direito do rato em **azure-documentdb-java-sample**, clique em **Criar Caminho**, e, em seguida, clique em **Configurar Criar Caminho**.
 13. No ecrã **Criar Caminho Java**, no painel da direita, selecione o separador **Bibliotecas** e, em seguida, clique em **Adicionar JARs Externos**. Navegue para a localização do ficheiro lombok.jar e clique em **Abrir**, e, em seguida, clique em **OK**.
 14. Aplique o passo 12 para abrir novamente a janela **Propriedades** e, em seguida, no painel da esquerda, clique em **Tempos de execução Visados**.

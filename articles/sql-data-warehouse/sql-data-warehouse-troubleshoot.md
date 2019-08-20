@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 7/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 04d63b2c1583228a274c0ba21c87df08886f5cdb
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: a6a6fdf6e63bf8c063f8dd6f23ae380e9ce7b98d
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619062"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575506"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Solução de problemas do Azure SQL Data Warehouse
 Este artigo lista perguntas comuns de solução de problemas.
@@ -24,7 +24,7 @@ Este artigo lista perguntas comuns de solução de problemas.
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Falha de logon do usuário ' NT AUTHORITY\ANONYMOUS LOGON '. (Microsoft SQL Server, Erro: 18456) | Esse erro ocorre quando um usuário do AAD tenta se conectar ao banco de dados mestre, mas não tem um usuário no mestre.  Para corrigir esse problema, especifique o SQL Data Warehouse ao qual você deseja se conectar no momento da conexão ou adicione o usuário ao banco de dados mestre.  Consulte o artigo [visão geral de segurança][Security overview] para obter mais detalhes. |
-| A entidade de segurança do servidor "myusername" não é capaz de acessar o banco de dados "mestre" no contexto de segurança atual. Não é possível abrir o banco de dados padrão do usuário. O início de sessão falhou. Falha de logon do usuário ' MyUserName '. (Microsoft SQL Server, Erro: 916) | Esse erro ocorre quando um usuário do AAD tenta se conectar ao banco de dados mestre, mas não tem um usuário no mestre.  Para corrigir esse problema, especifique o SQL Data Warehouse ao qual você deseja se conectar no momento da conexão ou adicione o usuário ao banco de dados mestre.  Consulte o artigo [visão geral de segurança][Security overview] para obter mais detalhes. |
+| A entidade de segurança do servidor "myusername" não é capaz de acessar o banco de dados "mestre" no contexto de segurança atual. Não é possível abrir o banco de dados padrão do usuário. Falha no logon. Falha de logon do usuário ' MyUserName '. (Microsoft SQL Server, Erro: 916) | Esse erro ocorre quando um usuário do AAD tenta se conectar ao banco de dados mestre, mas não tem um usuário no mestre.  Para corrigir esse problema, especifique o SQL Data Warehouse ao qual você deseja se conectar no momento da conexão ou adicione o usuário ao banco de dados mestre.  Consulte o artigo [visão geral de segurança][Security overview] para obter mais detalhes. |
 | Erro de CTAIP                                                  | Esse erro pode ocorrer quando um logon é criado no banco de dados mestre do SQL Server, mas não no banco de dados SQL Data Warehouse.  Se você encontrar esse erro, dê uma olhada no artigo [visão geral de segurança][Security overview] .  Este artigo explica como criar um logon e um usuário no mestre e como criar um usuário no banco de dados do SQL Data Warehouse. |
 | Bloqueado pelo firewall                                          | Os bancos de dados SQL do Azure são protegidos por firewalls de nível de servidor e de banco de dados para garantir que apenas endereços IP conhecidos tenham acesso a um banco de dados. Os firewalls são seguros por padrão, o que significa que você deve habilitar explicitamente o endereço IP ou o intervalo de endereços antes de poder se conectar.  Para configurar o firewall para acesso, siga as etapas em [Configurar o acesso de firewall do servidor para o IP do cliente][Configure server firewall access for your client IP] nas [instruções de provisionamento][Provisioning instructions]. |
 | Não é possível conectar com a ferramenta ou o driver                           | SQL Data Warehouse recomenda usar o [SSMS][SSMS], o [SSDT para Visual Studio][SSDT for Visual Studio]ou o [sqlcmd][sqlcmd] para consultar seus dados. Para obter mais informações sobre drivers e como se conectar a SQL Data Warehouse, confira [drivers do azure SQL data warehouse][Drivers for Azure SQL Data Warehouse] e [Conecte-se aos artigos do Azure SQL data warehouse][Connect to Azure SQL Data Warehouse] . |
@@ -32,9 +32,9 @@ Este artigo lista perguntas comuns de solução de problemas.
 ## <a name="tools"></a>Ferramentas
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| O pesquisador de objetos do Visual Studio está sem usuários do AAD           | Esse é um problema conhecido.  Como alternativa, exiba os usuários em [Sys. database_principals][sys.database_principals].  Consulte [autenticação no Azure SQL data warehouse][Authentication to Azure SQL Data Warehouse] para saber mais sobre como usar Azure Active Directory com SQL data warehouse. |
+| O pesquisador de objetos do Visual Studio está sem usuários do AAD           | Este é um problema conhecido.  Como alternativa, exiba os usuários em [Sys. database_principals][sys.database_principals].  Consulte [autenticação no Azure SQL data warehouse][Authentication to Azure SQL Data Warehouse] para saber mais sobre como usar Azure Active Directory com SQL data warehouse. |
 | O script manual, o uso do assistente para criação de scripts ou a conexão via SSMS são lentos, não respondem ou produzem erros | Verifique se os usuários foram criados no banco de dados mestre. Em opções de script, verifique também se a edição do mecanismo está definida como "Edição do SQL Data Warehouse do Microsoft Azure" e se o tipo de mecanismo é "Banco de Dados SQL do Microsoft Azure". |
-| Gerar scripts falha no SSMS                               | A geração de um script para o SQL data warehouse falhará se a opção "gerar script para objetos dependentes" estiver definida como "true". Como alternativa, os usuários devem ir manualmente para ferramentas-> Opções-> Pesquisador de Objetos do SQL Server-> gerar script para opções dependentes e definir como false |
+| Gerar scripts falha no SSMS                               | A geração de um script para SQL Data Warehouse falhará se a opção "gerar script para objetos dependentes" estiver definida como "true". Como alternativa, os usuários devem ir manualmente para ferramentas-> Opções-> Pesquisador de Objetos do SQL Server-> gerar script para opções dependentes e definir como false |
 
 ## <a name="performance"></a>Desempenho
 | Problema                                                        | Resolução                                                   |

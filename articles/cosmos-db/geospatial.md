@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: 1654ccabab751896fcbbab09d112080ccc2f67b6
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 1b26f78c6d44123ef1baa3c55fd16c3340d59dd4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467719"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616848"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Utilizar dados de localização Geoespacial e GeoJSON com a conta do Azure Cosmos DB SQL API
 
@@ -249,7 +249,7 @@ Essas funções também podem ser utilizadas para validar polígonos. Por exempl
 ### <a name="linq-querying-in-the-net-sdk"></a>LINQ consultar no SDK do .NET
 O SDK de .NET de SQL também provedores de stub de métodos `Distance()` e `Within()` para utilização nas expressões de LINQ. O provedor SQL LINQ traduz-se esse método chamadas para as chamadas de função incorporada de SQL equivalentes (ST_DISTANCE e ST_WITHIN respectivamente). 
 
-Eis um exemplo de uma consulta LINQ que localiza todos os documentos na coleção do Azure Cosmos DB cujo valor de "localização" é dentro de um raio de 30 km de distância de especificado apontar usando LINQ.
+Aqui está um exemplo de uma consulta LINQ que localiza todos os documentos no contêiner Cosmos do Azure cujo valor de "local" está dentro de um raio de 30 km do ponto especificado usando LINQ.
 
 **Consulta LINQ para distância**
 

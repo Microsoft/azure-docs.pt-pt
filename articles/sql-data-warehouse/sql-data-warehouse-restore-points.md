@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: bb5a267d1c7058193f1d7c8ed4087f5c0ebab267
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9dcb8b2e9c1b75aac3c195f89777ac9c6eb030d7
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68426593"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575257"
 ---
 # <a name="user-defined-restore-points"></a>Pontos de restauração definidos pelo usuário
 
@@ -61,7 +61,7 @@ Os pontos de restauração definidos pelo usuário também podem ser criados por
 
 1. Entre em sua conta do [portal do Azure][Azure portal] .
 
-2. Navegue até o data warehouse SQL para o qual você deseja criar um ponto de restauração.
+2. Navegue até o SQL Data Warehouse para o qual você deseja criar um ponto de restauração.
 
 3. Selecione **visão geral** no painel esquerdo, selecione **+ novo ponto de restauração**. Se o botão novo ponto de restauração não estiver habilitado, verifique se o data warehouse não está em pausa.
 
@@ -71,7 +71,7 @@ Os pontos de restauração definidos pelo usuário também podem ser criados por
 
     ![Nome do ponto de restauração](./media/sql-data-warehouse-restore-points/creating-restore-point-11.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Restaurar um data warehouse existente][Restore an existing data warehouse]
 - [Restaurar um data warehouse excluído][Restore a deleted data warehouse]

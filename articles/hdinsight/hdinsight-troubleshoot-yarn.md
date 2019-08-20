@@ -4,24 +4,24 @@ description: Obtenha respostas a perguntas comuns sobre como trabalhar com o Apa
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
-ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 8396f682558b71ca99af845bd51f7b2c8059f79b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.topic: troubleshooting
+ms.date: 08/15/2019
+ms.openlocfilehash: 8bfe249b0295bc860cf17a006c3787ff8afa676b
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072008"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69573705"
 ---
-# <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Resolver problemas relacionados com o Apache Hadoop YARN com o Azure HDInsight
+# <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucionar problemas Apache Hadoop YARN usando o Azure HDInsight
 
 Saiba mais sobre os principais problemas e resolução ao trabalhar com payloads de Apache Hadoop YARN no Apache Ambari.
 
 ## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Como posso criar uma nova fila YARN num cluster?
 
-### <a name="resolution-steps"></a>Passos de resolução 
+### <a name="resolution-steps"></a>Passos de resolução
 
-Utilize os seguintes passos Ambari para criar uma nova fila do YARN e, em seguida, equilibrar a alocação de capacidade entre todas as filas. 
+Utilize os seguintes passos Ambari para criar uma nova fila do YARN e, em seguida, equilibrar a alocação de capacidade entre todas as filas.
 
 Neste exemplo, dois filas existentes (**predefinição** e **thriftsvr**) ambos forem alteradas, da capacidade de 50%, a capacidade de 25%, o que lhe dá a nova capacidade de 50% da fila (spark).
 
@@ -61,19 +61,18 @@ Estas alterações são visíveis imediatamente na IU de agendador do YARN.
 
 - [Apache Hadoop YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
-
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Como transferir registos do YARN a partir de um cluster?
-
 
 ### <a name="resolution-steps"></a>Passos de resolução 
 
 1. Ligar ao cluster do HDInsight com um cliente Secure Shell (SSH). Para obter mais informações, consulte [leitura adicional](#additional-reading-2).
 
-2. Para listar todos os IDs de aplicação das aplicações do YARN que estão atualmente em execução, execute o seguinte comando:
+1. Para listar todos os IDs de aplicação das aplicações do YARN que estão atualmente em execução, execute o seguinte comando:
 
     ```apache
     yarn top
     ```
+
     As identificações são listadas na **APPLICATIONID** coluna. Pode transferir registos a partir da **APPLICATIONID** coluna.
 
     ```apache
@@ -89,51 +88,57 @@ Estas alterações são visíveis imediatamente na IU de agendador do YARN.
      application_1490377567345_0006 hive            spark  thriftsvr       1       0       1       0      1G      0G    1628430    2442645  10.00   18:20:20 Thrift JDBC/ODBC Server
     ```
 
-3. Para transferir os registos de contentor do YARN para todos os principais de aplicação, utilize o seguinte comando:
-   
+1. Para transferir os registos de contentor do YARN para todos os principais de aplicação, utilize o seguinte comando:
+
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am ALL > amlogs.txt
     ```
 
-    Este comando cria um ficheiro de registo com o nome amlogs.txt. 
+    Este comando cria um ficheiro de registo com o nome amlogs.txt.
 
-4. Para transferir os registos de contentor do YARN para apenas o mestre de aplicação mais recente, utilize o seguinte comando:
+1. Para transferir os registos de contentor do YARN para apenas o mestre de aplicação mais recente, utilize o seguinte comando:
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am -1 > latestamlogs.txt
     ```
 
-    Este comando cria um ficheiro de registo com o nome latestamlogs.txt. 
+    Este comando cria um ficheiro de registo com o nome latestamlogs.txt.
 
-4. Para transferir os registos de contentor do YARN para modelos de estrutura mestres primeiro dois aplicativos, utilize o seguinte comando:
+1. Para transferir os registos de contentor do YARN para modelos de estrutura mestres primeiro dois aplicativos, utilize o seguinte comando:
 
     ```apache
-    yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt 
+    yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt
     ```
 
-    Este comando cria um ficheiro de registo com o nome first2amlogs.txt. 
+    Este comando cria um ficheiro de registo com o nome first2amlogs.txt.
 
-5. Para transferir todos os registos de contentor do YARN, utilize o seguinte comando:
+1. Para transferir todos os registos de contentor do YARN, utilize o seguinte comando:
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> > logs.txt
     ```
 
-    Este comando cria um ficheiro de registo com o nome logs.txt. 
+    Este comando cria um ficheiro de registo com o nome logs.txt.
 
-6. Para transferir o registo de contentor do YARN para um contentor específico, utilize o seguinte comando:
+1. Para transferir o registo de contentor do YARN para um contentor específico, utilize o seguinte comando:
 
     ```apache
-    yarn logs -applicationIdn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt 
+    yarn logs -applicationIdn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt
     ```
 
     Este comando cria um ficheiro de registo com o nome containerlogs.txt.
 
 ### <a name="additional-reading-2"></a>Leitura adicional
 
-- [Ligar ao HDInsight (Apache Hadoop) através de SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Conceitos do Apache Hadoop YARN e aplicações](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
+## <a name="next-steps"></a>Passos Seguintes
 
-### <a name="see-also"></a>Consultar Também
-[Resolver problemas com o Azure HDInsight](hdinsight-troubleshoot-guide.md)
+Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+
+- Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+
+- Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+
+- Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

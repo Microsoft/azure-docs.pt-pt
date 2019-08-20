@@ -1,5 +1,5 @@
 ---
-title: Tutorial de MongoDB, React e node. js para o Azure
+title: Tutorial do MongoDB, reagir e node. js para o Azure
 description: Saiba como criar uma aplicação MongoDB com o React e o Node.js no Azure Cosmos DB mediante a utilização das mesmas APIs que são utilizadas para MongoDB nesta série de tutoriais em vídeo.
 author: johnpapa
 ms.service: cosmos-db
@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
-ms.openlocfilehash: 1bb8779db51a3fdc3af4a9169ce5123ebf6e3f50
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 4efaa90281ddcebf1b800e1016578e38c24be651
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477747"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614110"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Criar uma aplicação MongoDB com o React e o Azure Cosmos DB  
 
-Este tutorial de vídeo com várias parte demonstra como criar uma aplicação de acompanhamento de heroes com um front-end do React. A aplicação utiliza Node e Express para o servidor, liga-se à base de dados do Cosmos configurado com o [API do Azure Cosmos DB para o MongoDB](mongodb-introduction.md)e, em seguida, liga o front-end do React à parte do servidor da aplicação. O tutorial também mostra como fazer o dimensionamento de apontar e clicar do Cosmos DB no portal do Azure e como implementar a aplicação para a internet para que todos os utilizadores podem acompanhamento dos heroes preferidos. 
+Este tutorial de vídeo com várias parte demonstra como criar uma aplicação de acompanhamento de heroes com um front-end do React. O aplicativo usado node e Express para o servidor, conecta-se ao banco de dados Cosmos configurado com a [API do Azure Cosmos DB para MongoDB](mongodb-introduction.md)e, em seguida, conecta o front-end da reagem à parte do servidor do aplicativo. O tutorial também demonstra como fazer o dimensionamento de ponto e clique de Cosmos DB no portal do Azure e como implantar o aplicativo na Internet para que todos possam controlar seus Heroes favoritos. 
 
-[O Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) suporta conectar compatibilidade de protocolo com o MongoDB, permitindo aos clientes utilizar o Azure Cosmos DB em vez do MongoDB.  
+O [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) dá suporte à compatibilidade de protocolo de conexão com o MongoDB, permitindo que os clientes usem Azure Cosmos DB no lugar do MongoDB.  
 
 Este tutorial com várias parte abrange as seguintes tarefas:
 
@@ -69,7 +69,7 @@ Este vídeo mostra como criar uma conta do Azure Cosmos DB no portal do Azure, i
 
 ## <a name="read-and-create-heroes-in-the-app"></a>Ler e criar heroes na aplicação
 
-Este vídeo mostra como ler e criar heroes na base de dados do Cosmos DB, bem como testar esses métodos com o Postman e a IU do React. 
+Este vídeo mostra como ler Heroes e criar Heroes no banco de dados Cosmos, bem como testar esses métodos usando o postmaster e a interface do usuário reagir. 
 
 > [!VIDEO https://www.youtube.com/embed/AQK9n_8fsQI] 
 

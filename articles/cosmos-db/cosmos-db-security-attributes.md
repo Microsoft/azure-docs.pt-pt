@@ -9,12 +9,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 50711f8675e1b8aca6b9f90925ea921d22020ddd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: f1b578ff70e8a2795ba886e6d0c75eff521f77c3
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442560"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615533"
 ---
 # <a name="security-attributes-for-azure-cosmos-db"></a>Atributos de segurança para Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Este artigo documenta os atributos de segurança internos no Azure Cosmos DB.
 
 | Atributo de segurança | Sim/não | Notas |
 |---|---|--|
-| Criptografia em repouso (como criptografia do lado do servidor, criptografia do lado do servidor com chaves gerenciadas pelo cliente e outros recursos de criptografia) | Sim | Todos os bancos de dados e backups do Cosmos DB são criptografados por padrão; consulte [criptografia de dados em Azure Cosmos DB](database-encryption-at-rest.md). Não há suporte para a criptografia do lado do servidor com chaves gerenciadas pelo cliente. |
+| Criptografia em repouso (como criptografia do lado do servidor, criptografia do lado do servidor com chaves gerenciadas pelo cliente e outros recursos de criptografia) | Sim | Todos os bancos de dados e backups do cosmos são criptografados por padrão; consulte [criptografia de dados em Azure Cosmos DB](database-encryption-at-rest.md). Não há suporte para a criptografia do lado do servidor com chaves gerenciadas pelo cliente. |
 | Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | Todos os dados de Azure Cosmos DB são criptografados em trânsito. |
 | Tratamento de chave de criptografia (CMK, BYOK, etc.)| Não |  |
 | Criptografia em nível de coluna (serviços de dados do Azure)| Sim | Somente na API de tabelas Premium. Nem todas as APIs dão suporte a esse recurso. Consulte [introdução ao Azure Cosmos DB: API de Tabela](table-introduction.md). |

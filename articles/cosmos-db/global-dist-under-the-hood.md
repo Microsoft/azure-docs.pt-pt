@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 849c3a745de08e7cf8ff7f1b8bb237a6d0f54395
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ce943fbed0774667100f6de4c60f91c0b02de6c3
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384158"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615357"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribuição de dados global com Azure Cosmos DB-nos bastidores
 
@@ -34,7 +34,7 @@ Conforme mostrado na imagem a seguir, os dados dentro de um contêiner são dist
 
 Uma partição física é implementada por um grupo de réplicas, chamado de *conjunto*de réplicas. Cada computador hospeda centenas de réplicas que correspondem a várias partições físicas em um conjunto fixo de processos, conforme mostrado na imagem acima. Réplicas correspondente para as partições físicas são colocadas de forma dinâmica e balanceamento de carga em máquinas dentro de um cluster e datacenters dentro de uma região.  
 
-Uma réplica pertence exclusivamente a um inquilino do Azure Cosmos DB. Cada réplica aloja uma instância do Cosmos DB [motor de base de dados](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), que gere os recursos, bem como os índices associados. O motor de base de dados do Cosmos DB opera num sistema de tipo baseada em registo sequência atom (ARS). O mecanismo é independente do conceito de um esquema, desfocando o limite entre a estrutura e os valores de instância de registros. O cosmos DB alcança agnosticism de esquema completo ao indexar automaticamente tudo o que após a ingestão de uma forma eficiente, que permite aos utilizadores consultar seus dados distribuídos globalmente sem ter de lidar com a gestão de índices ou esquemas.
+Uma réplica pertence exclusivamente a um inquilino do Azure Cosmos DB. Cada réplica aloja uma instância do Cosmos DB [motor de base de dados](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), que gere os recursos, bem como os índices associados. O mecanismo de banco de dados Cosmos opera em um sistema de tipos baseado em ARS (Atom-Record-Sequence). O mecanismo é independente do conceito de um esquema, desfocando o limite entre a estrutura e os valores de instância de registros. O cosmos DB alcança agnosticism de esquema completo ao indexar automaticamente tudo o que após a ingestão de uma forma eficiente, que permite aos utilizadores consultar seus dados distribuídos globalmente sem ter de lidar com a gestão de índices ou esquemas.
 
 O mecanismo de banco de dados Cosmos consiste em componentes, incluindo a implementação de vários primitivos de coordenação, tempos de execução de linguagem, o processador de consultas e os subsistemas de armazenamento e indexação responsáveis pelo armazenamento transacional e indexação de dados, respectivos. Para fornecer durabilidade e elevada disponibilidade, o motor de base de dados persistir os dados e índice SSDs e replica-a entre as instâncias de motor de base de dados dentro da réplica-conjuntos, respetivamente. Locatários maiores correspondem a uma escala maior de taxa de transferência e armazenamento e têm maior ou maior réplicas ou ambos. Cada componente do sistema é totalmente assíncrono – nenhum thread nunca bloqueia e cada thread faz o trabalho de curta duração sem incorrer em quaisquer comutadores de thread desnecessários. Limitação de velocidade e a pressão de back são inseridas em toda a pilha de controle de admissão para todos os caminhos de e/s. O mecanismo de banco de dados Cosmos foi projetado para explorar a simultaneidade refinada e fornecer alta taxa de transferência enquanto opera em frugal quantidades de recursos do sistema.
 
@@ -79,7 +79,7 @@ A consistência de desatualização limitada garante que todas as leituras estar
 
 A semântica dos cinco modelos de consistência no Cosmos DB é descrita [aqui](consistency-levels.md)e é descrita matematicamente usando uma especificação TLA + de alto nível [aqui](https://github.com/Azure/azure-cosmos-tla).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, saiba como configurar a distribuição global utilizando os seguintes artigos:
 

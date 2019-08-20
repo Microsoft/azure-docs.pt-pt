@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 08/15/2019
 ms.author: maquaran
-ms.openlocfilehash: 582b0a586f830659bbea4dd665be938d2895de47
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: f72a3bfcfd6b4f480977510963f49f73a7207e1f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544832"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615283"
 ---
 # <a name="use-the-change-feed-estimator"></a>Usar o estimador do feed de alterações
 
@@ -23,7 +23,7 @@ O processador do feed de alterações atua como um ponteiro que avança em seu [
 
 A implantação do processador do feed de alterações pode processar alterações a uma taxa específica com base em seus recursos disponíveis, como CPU, memória, rede e assim por diante.
 
-Se essa taxa for mais lenta do que a taxa na qual as alterações ocorrem no contêiner de Azure Cosmos DB, o processador começará a ficar atrasado.
+Se essa taxa for mais lenta do que a taxa na qual as alterações ocorrem no contêiner Cosmos do Azure, o processador começará a ficar atrasado.
 
 Identificar esse cenário ajuda a entender se precisamos dimensionar nossa implantação do processador do feed de alterações.
 
@@ -58,10 +58,9 @@ Você pode enviar essa estimativa para sua solução de monitoramento e usá-la 
 * [Exemplos de uso no GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
 * [Exemplos adicionais no GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Agora, pode avançar para saber mais sobre a alteração do feed nos seguintes artigos:
+Agora você pode continuar para saber mais sobre o processador do feed de alterações nos seguintes artigos:
 
-* [Visão geral do feed de alterações](change-feed.md)
-* [Maneiras de ler o feed de alterações](read-change-feed.md)
-* [Usar o processador do feed de alterações](change-feed-processor.md)
+* [Visão geral do processador do feed de alterações](change-feed-processor.md)
+* [Hora de início do processador do feed de alterações](how-to-configure-change-feed-start-time.md)

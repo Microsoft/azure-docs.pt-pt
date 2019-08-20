@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas relacionados com o LDAP seguro (LDAPS) no Azure AD Domain Services | Documentos da Microsoft
-description: Resolver problemas de LDAP seguro (LDAPS) para um domínio gerido do Azure AD Domain Services
+title: Solucionar problemas de LDAP Seguro (LDAPs) no Azure AD Domain Services | Microsoft Docs
+description: Solucionar problemas de LDAP Seguro (LDAPs) para um domínio Azure AD Domain Services gerenciado
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,36 +15,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: a194919a488f6cb59c76315c9d8a3db1e9c1feb1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 285af0e5e5d5ab03027fc29064a5f3623ed10e2f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472207"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617053"
 ---
-# <a name="troubleshoot-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Resolver problemas de LDAP seguro (LDAPS) para um domínio gerido do Azure AD Domain Services
+# <a name="troubleshoot-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Solucionar problemas de LDAP Seguro (LDAPs) para um domínio Azure AD Domain Services gerenciado
 
 ## <a name="connection-issues"></a>Problemas de ligação
-Se tiver problemas em ligar para o domínio gerido com o secure LDAP:
+Se você tiver problemas para se conectar ao domínio gerenciado usando o LDAP seguro:
 
-* A cadeia de emissor de certificado de secure LDAP tem de ser fidedigno no cliente. Pode optar por adicionar a autoridade de certificação de raiz para o arquivo de certificados de raiz fidedigna no cliente para estabelecer a confiança.
-* Certifique-se de que o cliente LDAP (por exemplo, ldp.exe) estabelece uma ligação para o ponto de extremidade do LDAP seguro com um nome DNS, não o endereço IP.
-* Verifique o nome DNS, o cliente LDAP que se liga a. Ele deve resolver para o endereço IP público para o LDAP seguro no domínio gerido.
-* Certifique-se de que o certificado de secure LDAP para o seu domínio gerido com o nome DNS no assunto ou o atributo de nomes alternativos do requerente.
-* As definições de NSG para a rede virtual tem de permitir o tráfego para a porta 636 da internet. Este passo aplica-se apenas se ativou o acesso de secure LDAP pela internet.
+* A cadeia do emissor do certificado LDAP seguro deve ser confiável no cliente. Você pode optar por adicionar a autoridade de certificação raiz ao repositório de certificados raiz confiáveis no cliente para estabelecer a relação de confiança.
+* Verifique se o cliente LDAP (por exemplo, LDP. exe) se conecta ao ponto de extremidade LDAP seguro usando um nome DNS, não o endereço IP.
+* Verifique o nome DNS ao qual o cliente LDAP se conecta. Ele deve resolver para o endereço IP público para LDAP seguro no domínio gerenciado.
+* Verifique se o certificado LDAP seguro para seu domínio gerenciado tem o nome DNS no atributo assunto ou nomes alternativos da entidade.
+* As configurações de NSG para a rede virtual devem permitir o tráfego para a porta 636 da Internet. Esta etapa se aplica somente se você tiver habilitado o acesso LDAP seguro pela Internet.
 
 
 ## <a name="need-help"></a>Precisa de ajuda?
-Se ainda tiver problemas em ligar para o domínio gerido com o LDAP seguro, [contacte a equipa de produto](contact-us.md) para obter ajuda. Inclua as seguintes informações para ajudar a diagnosticar o problema melhor:
-* Captura de ecrã do ldp.exe estabelecer a ligação e a falhar.
-* O ID de inquilino do Azure AD e o nome de domínio DNS do seu domínio gerido.
-* Nome de utilizador exato que está a tentar ligar como.
+Se você ainda tiver problemas para se conectar ao domínio gerenciado usando o LDAP seguro, [contate a equipe do produto](contact-us.md) para obter ajuda. Inclua as seguintes informações para ajudar a diagnosticar o problema melhor:
+* Uma captura de tela do LDP. exe fazendo a conexão e falhando.
+* Sua ID de locatário do Azure AD e o nome de domínio DNS do seu domínio gerenciado.
+* Nome de usuário exato que você está tentando associar.
 
 
 ## <a name="related-content"></a>Conteúdo relacionado
-* [Azure AD Domain Services - guia de introdução](create-instance.md)
-* [Gerir um domínio do Azure AD Domain Services](manage-domain.md)
+* [Guia de Introdução de Azure AD Domain Services](tutorial-create-instance.md)
+* [Gerenciar um domínio de Azure AD Domain Services](tutorial-create-management-vm.md)
 * [Noções básicas de consulta LDAP](https://technet.microsoft.com/library/aa996205.aspx)
-* [Gerir política de grupo para o Azure AD Domain Services](manage-group-policy.md)
+* [Gerenciar Política de Grupo para Azure AD Domain Services](manage-group-policy.md)
 * [Grupos de segurança de rede](../virtual-network/security-overview.md)
 * [Criar um grupo de segurança de rede](../virtual-network/tutorial-filter-network-traffic.md)

@@ -6,12 +6,12 @@ ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 91dd661cf4900512390079751f400f6a9888c452
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 54eb2df06df56c33e1a3cd74e7a4a93c07aab682
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845917"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575660"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Testar a interface do portal para aplicativos gerenciados do Azure
 
@@ -91,7 +91,7 @@ Para a CLI do Azure, utilize:
 
 O script abre uma nova guia no navegador. Ele exibe o portal com sua interface para criar o aplicativo gerenciado.
 
-Forneça valores para os campos. Quando terminar, você verá os valores que são passados para o modelo.
+Forneça valores para os campos. Quando terminar, você verá os valores passados para o modelo que podem ser encontrados no console de ferramentas de desenvolvimento do navegador.
 
 ![Mostrar valores](./media/test-createuidefinition/show-json.png)
 
@@ -103,6 +103,6 @@ Se o portal parar na tela de resumo, poderá haver um bug na seção de saída. 
 
 Agora que você verificou que a interface do portal está funcionando conforme o esperado, é hora de validar que o arquivo createUiDefinition está adequadamente integrado ao seu arquivo MainTemplate. JSON. Você pode executar um teste de script de validação para testar o conteúdo dos seus arquivos de solução, incluindo o arquivo createUiDefinition. O script valida a sintaxe JSON, verifica expressões Regex em campos de texto e garante que os valores de saída da interface do portal correspondam aos parâmetros do seu modelo. Para obter informações sobre como executar esse script, consulte [executar verificações de validação estática para modelos](https://github.com/Azure/azure-quickstart-templates/tree/master/test/template-validation-tests).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de validar sua interface do portal, saiba como tornar seu [aplicativo gerenciado do Azure disponível no Marketplace](publish-marketplace-app.md).

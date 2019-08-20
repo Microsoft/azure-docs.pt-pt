@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 5cbbd507352471f5e093ef018de4b0c849aad442
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 93b00aec868cf947b67329934c703f5d1b774426
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68000799"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615378"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
 
@@ -123,7 +123,7 @@ Sim Azure cosmos DB suporta análise de série de tempo, aqui está um exemplo p
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Como iniciar a programação com a API de SQL?
 
-Primeiro, deve inscrever para uma subscrição do Azure. Depois de se inscrever para uma subscrição do Azure, pode adicionar um contentor de API de SQL para a sua subscrição do Azure. Para obter instruções sobre como adicionar uma conta do Azure Cosmos DB, veja [criar uma conta de base de dados do Azure Cosmos DB](create-sql-api-dotnet.md#create-account).
+Primeiro, deve inscrever para uma subscrição do Azure. Depois de se inscrever para uma subscrição do Azure, pode adicionar um contentor de API de SQL para a sua subscrição do Azure. Para obter instruções sobre como adicionar uma conta de Azure Cosmos DB, consulte [criar uma conta de banco de dados Cosmos do Azure](create-sql-api-dotnet.md#create-account).
 
 Existem [SDKs](sql-api-sdk-dotnet.md) disponíveis para .NET, Python, Node.js, JavaScript e Java. Os programadores também podem utilizar o [RESTful HTTP APIs](/rest/api/cosmos-db/) para interagir com recursos do Azure Cosmos DB a partir de várias plataformas e linguagens.
 
@@ -203,7 +203,7 @@ Criação de permissões com ResourceTokens é permitido no nível do contentor 
 
 ### <a name="what-is-the-azure-cosmos-dbs-api-for-mongodb"></a>Qual é a API do Azure Cosmos DB para MongoDB?
 
-A API do Azure Cosmos DB para MongoDB é uma camada de compatibilidade de protocolo Wire que permite que os aplicativos se comuniquem de forma fácil e transparente com o mecanismo de banco de dados nativo do Azure Cosmos DB usando SDKs e drivers existentes com suporte da Comunidade para o MongoDB. Os desenvolvedores agora podem usar cadeias e habilidades existentes do MongoDB para criar aplicativos que tiram proveito do Azure Cosmos DB. Os desenvolvedores se beneficiam dos recursos exclusivos do Azure Cosmos DB, que incluem a distribuição global com replicação de vários mestres, indexação automática, manutenção de backup, SLAs (contratos de nível de serviço) com suporte financeiro etc.
+A API do Azure Cosmos DB para MongoDB é uma camada de compatibilidade de protocolo Wire que permite que os aplicativos se comuniquem de forma fácil e transparente com o mecanismo de banco de dados nativo do Azure Cosmos usando SDKs e drivers existentes com suporte da Comunidade para o MongoDB. Os desenvolvedores agora podem usar cadeias e habilidades existentes do MongoDB para criar aplicativos que tiram proveito do Azure Cosmos DB. Os desenvolvedores se beneficiam dos recursos exclusivos do Azure Cosmos DB, que incluem a distribuição global com replicação de vários mestres, indexação automática, manutenção de backup, SLAs (contratos de nível de serviço) com suporte financeiro etc.
 
 ### <a name="how-do-i-connect-to-my-database"></a>Como fazer conectar-se ao meu banco de dados?
 
@@ -453,7 +453,7 @@ A API de tabela fornece a mesma funcionalidade de consulta como armazenamento de
 Deve alterar TableThroughput quando qualquer uma das seguintes condições se aplicar:
 
 * Estiver a efetuar uma extração, transformação e carregamento (ETL) de dados ou, se pretender carregar uma grande quantidade de dados num curto período de tempo.
-* Precisa de mais débito do contentor ou a partir de um conjunto de contentores em back-end. Por exemplo, verá que a taxa de transferência utilizada é mais do que o débito aprovisionado e está obtendo limitada. Para obter mais informações, consulte [definir débito de contentores do Azure Cosmos DB](set-throughput.md).
+* Precisa de mais débito do contentor ou a partir de um conjunto de contentores em back-end. Por exemplo, verá que a taxa de transferência utilizada é mais do que o débito aprovisionado e está obtendo limitada. Para obter mais informações, consulte [definir taxa de transferência para contêineres de Cosmos do Azure](set-throughput.md).
 
 ### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-table"></a>Pode aumentar ou reduzir verticalmente o débito da minha tabela de API de tabela?
 
@@ -720,7 +720,7 @@ Apache Cassandra API é um serviço de plataforma que facilita o planeamento de 
 
 O Azure Cosmos DB oferece distribuição global prontos a utilizar por motivos de baixa latência e de disponibilidade. Não precisa de réplicas de configuração ou outras coisas. Todas as gravações são sempre o quorum permanentemente confirmado em qualquer região em que você escreve enquanto fornece garantias de desempenho.
 
-### <a name="what-happens-with-respect-to-various-settings-for-table-metadata-like-bloom-filter-caching-read-repair-change-gcgrace-compression-memtableflushperiod-and-more"></a>O que acontece em relação a várias definições para os metadados de tabela, como o filtro de bloom, colocação em cache, leia a alteração de reparação, gc_grace, memtable_flush_period de compactação e muito mais?
+### <a name="what-happens-with-respect-to-various-settings-for-table-metadata-like-bloom-filter-caching-read-repair-change-gc_grace-compression-memtable_flush_period-and-more"></a>O que acontece em relação a várias definições para os metadados de tabela, como o filtro de bloom, colocação em cache, leia a alteração de reparação, gc_grace, memtable_flush_period de compactação e muito mais?
 
 O Azure Cosmos DB fornece desempenho para leituras e gravações e débito sem necessidade de alterar qualquer uma das definições de configuração e manipular acidentalmente.
 

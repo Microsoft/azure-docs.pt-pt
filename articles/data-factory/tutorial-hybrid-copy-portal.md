@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: abnarain
-ms.openlocfilehash: 7e09c36128c3471ce9df33b2a78eb14fab89435b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad09715f8ccbe20ec6f58d3a4543e0168e9f4cbc
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498206"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617705"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure
 Neste tutorial, vai utilizar a interface de utilizador (IU) do Azure Data Factory para criar um pipeline de fábrica de dados que copia dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure. Vai criar e utilizar um runtime de integração autoalojado, que move dados entre arquivos de dados no local e na cloud.
@@ -89,7 +89,6 @@ Utilize o nome e a chave da sua conta de armazenamento neste tutorial. Para obte
 
 1. Na janela **Conta de armazenamento**, selecione **Chaves de acesso**.
 
-    ![Chaves de acesso](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
 
 1. Nas caixas **Nome da conta de armazenamento** e **key1**, copie os valores e cole-os no Bloco de notas ou noutro editor, para utilizar mais adiante no tutorial. 
 
@@ -114,14 +113,11 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. Mantenha a janela do **contentor** de **adftutorial** aberta. Vai utilizá-la para verificar o resultado no final deste tutorial. O Data Factory cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
 
-    ![Janela do contentor](media/tutorial-hybrid-copy-powershell/container-page.png)
-
-
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para criar um pipeline na fábrica de dados. 
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. No menu da esquerda, selecione **criar um recurso** > **dados + análise** > **Data Factory**:
+1. No menu à esquerda, selecione **criar um recurso** > **dados + análise** > **Data Factory**:
    
    ![Seleção do Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -193,13 +189,13 @@ O nome da fábrica de dados tem de ser *globalmente exclusivo*. Se vir a seguint
 
 1. Introduza um nome para o runtime de integração e selecione **Seguinte**.
 
-    ![Nome do runtime de Integração](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
+    ![Nome do runtime de integração](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
 
-1. Em **opção 1: Configuração rápida**, selecione **clique aqui para iniciar a configuração rápida neste computador**. 
+1. Em **opção 1: Instalação**expressa, selecione **clique aqui para iniciar a instalação expressa para este computador**. 
 
     ![Ligação de configuração rápida](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
-1. Na janela **Configuração Rápida do Runtime de Integração (Autoalojado)**, selecione **Fechar**. 
+1. Na janela **Configuração Rápida do Runtime de Integração (Autoalojado)** , selecione **Fechar**. 
 
     ![Configuração rápida do runtime de integração (autoalojado)](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
 
@@ -231,7 +227,7 @@ O nome da fábrica de dados tem de ser *globalmente exclusivo*. Se vir a seguint
 
     a. Em **Serviço ligado**, confirme que vê **SqlServerLinkedService**.
 
-    b. Em **Tabela**, selecione **[dbo].[emp]**.
+    b. Em **Tabela**, selecione **[dbo].[emp]** .
 
     ![Informações da ligação do conjunto de dados de origem](./media/tutorial-hybrid-copy-portal/source-dataset-connection.png)
 
@@ -320,7 +316,7 @@ O pipeline cria automaticamente a pasta de saída com o nome *fromonprem* no con
 ![confirmar nome de ficheiro de saída](./media/tutorial-hybrid-copy-portal/sink-output.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 O pipeline neste exemplo copia dados de uma localização para outra localização no amazenamento de Blobs. Aprendeu a:
 
 > [!div class="checklist"]

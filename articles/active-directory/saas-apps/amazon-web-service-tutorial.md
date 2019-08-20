@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f346c995cbc8be6e609020db799959d873ce89b3
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 672a3571202b92232bd45a42254a43019f6a9796
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68944963"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617332"
 ---
 # <a name="tutorial-integrate-amazon-web-services-aws-with-azure-active-directory"></a>Tutorial: Integrar o Amazon Web Services (AWS) com Azure Active Directory
 
@@ -111,7 +111,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 7. Além dos atributos anteriores, o aplicativo AWS espera que mais alguns atributos sejam passados de volta na resposta SAML. Na seção **declarações do usuário** na caixa de diálogo **atributos de usuário** , execute as etapas a seguir para adicionar o atributo de token SAML.
 
-    | Nome  | Atributo de origem  | Espaço de Nomes |
+    | Name  | Atributo de origem  | Espaço de Nomes |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | Role            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
@@ -369,6 +369,12 @@ Ao selecionar o bloco AWS no painel de acesso, você deverá entrar automaticame
    Vários locatários AWS (representados `servicePrincipals`por) podem ser adicionados ao Azure ad da galeria para provisionamento. Há um problema conhecido, no entanto, sem ser capaz de gravar automaticamente todas as funções importadas de vários AWS `servicePrincipals` usados para provisionamento em um único `servicePrincipal` usado para sso. 
    
    Como alternativa, você pode usar a [API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) para extrair todas as importadas em cada `appRoles` AWS `servicePrincipal` em que o provisionamento está configurado. Posteriormente, você pode adicionar essas cadeias de caracteres `servicePrincipal` de função ao AWS em que o SSO está configurado.
+ 
+* As funções devem atender aos seguintes requisitos para que sejam elegíveis para serem importadas do AWS para o Azure AD:
+
+  * As funções devem ter exatamente um provedor SAML definido em AWS
+
+  * O comprimento combinado da função ARN e do ARN do provedor SAML para uma função que está sendo importada deve ter de 119 caracteres ou menos
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

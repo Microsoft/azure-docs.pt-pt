@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ee6d9332a2be5ccb22b7571b348e2e0aae78fb2
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 783c4f5b1f5a7f2be748bc7173da2d068e1425f4
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563554"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575647"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition. JSON para a experiência de criação do aplicativo gerenciado do Azure
 
@@ -52,13 +52,11 @@ O esquema da Propriedade Parameters depende da combinação do manipulador e da 
 
 Incluir `$schema` é recomendado, mas opcional. Se especificado, o valor de `version` deve corresponder à versão dentro do `$schema` URI.
 
-Você pode usar um editor de JSON para criar sua definição de interface do usuário e testá-la na [área restrita da definição da interface do usuário](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) para visualizá-la. Para obter mais informações sobre a área restrita, consulte [testar sua interface do portal para aplicativos gerenciados do Azure](test-createuidefinition.md).
+Você pode usar um editor de JSON para criar seu createUiDefinition e testá-lo na [área restrita do createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) para visualizá-lo. Para obter mais informações sobre a área restrita, consulte [testar sua interface do portal para aplicativos gerenciados do Azure](test-createuidefinition.md).
 
 ## <a name="basics"></a>Noções Básicas
 
 Noções básicas é a primeira etapa gerada quando o portal do Azure analisa o arquivo. Além de exibir os elementos especificados em `basics`, o portal injeta elementos para que os usuários escolham a assinatura, o grupo de recursos e o local para a implantação. Quando possível, os elementos que consultam parâmetros de toda a implantação, como o nome de um cluster ou credenciais de administrador, devem ir nesta etapa.
-
-Se o comportamento de um elemento depender da assinatura, do grupo de recursos ou do local do usuário, esse elemento não poderá ser usado em Noções básicas. Por exemplo, **Microsoft. COMPUTE. SizeSelector** depende da assinatura e do local do usuário para determinar a lista de tamanhos disponíveis. Portanto, **Microsoft. COMPUTE. SizeSelector** só pode ser usado em etapas. Em geral, somente elementos no namespace **Microsoft. Common** podem ser usados em Noções básicas. Embora alguns elementos em outros namespaces (como **Microsoft. COMPUTE. Credentials**) que não dependem do contexto do usuário ainda sejam permitidos.
 
 ## <a name="steps"></a>Passos
 
@@ -99,7 +97,7 @@ Para filtrar os locais disponíveis somente para os locais que dão suporte aos 
 
 O CreateUiDefinition fornece [funções](create-uidefinition-functions.md) para trabalhar com entradas e saídas de elementos e recursos como condicionais. Essas funções são semelhantes na sintaxe e na funcionalidade para Azure Resource Manager funções de modelo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 O próprio arquivo createUiDefinition. JSON tem um esquema simples. A profundidade real é proveniente de todos os elementos e funções com suporte. Esses itens são descritos mais detalhadamente em:
 

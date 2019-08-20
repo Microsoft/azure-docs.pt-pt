@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: abnarain
-ms.openlocfilehash: 49d9be9f10f0e840cfa3d027901a297de8cbf750
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87b32fdef449945b1e8facac2ac5a51b4ef67972
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328294"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617556"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure
 Neste tutorial, vai utilizar o Azure PowerShell para criar um pipeline de fábrica de dados que copia dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure. Vai criar e utilizar um runtime de integração autoalojado, que move dados entre arquivos de dados no local e na cloud. 
@@ -82,8 +82,6 @@ Utilize o nome e a chave da sua conta de armazenamento do Azure neste tutorial. 
 
 1. Na janela **Conta de armazenamento**, selecione **Chaves de acesso**.
 
-    ![Obter o nome e a chave da conta de armazenamento](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
-
 1. Nas caixas **Nome da conta de armazenamento** e **key1**, copie os valores e cole-os no Bloco de notas ou noutro editor, para utilizar mais adiante no tutorial. 
 
 #### <a name="create-the-adftutorial-container"></a>Criar o contentor adftutorial 
@@ -99,7 +97,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. Na janela **Novo Contentor**, na caixa **Nome**, introduza **adftutorial** e selecione **OK**. 
 
-    ![Introduzir o nome do contentor](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
+    ![Introduzir nome do contentor](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
 1. Na lista de contentores, clique em **adftutorial**.  
 
@@ -107,7 +105,6 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. Mantenha a janela do **contentor** de **adftutorial** aberta. Vai utilizá-la para verificar o resultado no final deste tutorial. O Data Factory cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
 
-    ![Janela do contentor](media/tutorial-hybrid-copy-powershell/container-page.png)
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 
@@ -179,7 +176,7 @@ Instale a versão mais recente do Azure PowerShell, se ainda não a tiver no seu
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
 > * Para criar instâncias de fábricas de dados, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ter atribuída a função *contribuidor* ou *proprietário* ou ser *administradora* da subscrição do Azure.
-> * Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que lhe interessam, na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (Azure HDInsight, etc.) que a fábrica de dados utiliza podem estar noutras regiões.
+> * Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam na página a seguir e expanda **análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (Azure HDInsight, etc.) que a fábrica de dados utiliza podem estar noutras regiões.
 > 
 > 
 
@@ -266,7 +263,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
 1. No assistente **Configuração do Microsoft Integration Runtime Concluída**, selecione **Concluir**.
 
-1. Na janela **Registar o Integration Runtime (Autoalojado)**, cole a chave que guardou na secção anterior e selecione **Registar**. 
+1. Na janela **Registar o Integration Runtime (Autoalojado)** , cole a chave que guardou na secção anterior e selecione **Registar**. 
 
     ![Registar o integration runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
@@ -274,7 +271,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
     ![Registado com êxito](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-1. Na janela **Novo Nó do Integration Runtime (Autoalojado)**, selecione **Seguinte**. 
+1. Na janela **Novo Nó do Integration Runtime (Autoalojado)** , selecione **Seguinte**. 
 
     ![Janela Novo Nó do Integration Runtime](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
 
@@ -283,7 +280,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
     ![Janela de canal comunicação da Intranet](media/tutorial-hybrid-copy-powershell/intranet-communication-channel-page.png)
 
-1. Na janela **Registar Integration Runtime (Autoalojado)**, selecione **Configuration Manager**. 
+1. Na janela **Registar Integration Runtime (Autoalojado)** , selecione **Configuration Manager**. 
 
 1. Quando o nó for ligado ao serviço cloud, é apresentada a página seguinte:
 
@@ -415,7 +412,7 @@ Neste passo, vai ligar a instância do SQL Server no local à fábrica de dados.
     > [!IMPORTANT]
     > - Selecione a secção que tem como base a autenticação que utiliza para se ligar à sua instância do SQL Server.
     > - Substitua **\<integration runtime name>** pelo nome do integration runtime.
-    > - Antes de guardar o ficheiro, substitua **\<servername>**, **\<databasename>**, **\<username>** e **\<password>** pelos valores da sua instância do SQL Server.
+    > - Antes de guardar o ficheiro, substitua **\<servername>** , **\<databasename>** , **\<username>** e **\<password>** pelos valores da sua instância do SQL Server.
     > - Se precisar de utilizar um caráter de barra invertida (\\) no nome da sua conta de utilizador ou no nome do seu servidor, utilize o caráter de escape (\\) como prefixo. Por exemplo, utilize *omeudominion\\\\omeuutilizador*. 
 
 1. Para encriptar os dados confidenciais (nome de utilizador, palavra-passe, etc.), execute o cmdlet `New-AzDataFactoryV2LinkedServiceEncryptedCredential`.  

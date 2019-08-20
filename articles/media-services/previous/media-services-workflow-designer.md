@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
-ms.openlocfilehash: 246a1461973dba129a5b1d12be8a09703eb99267
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: c5aa7af1ca6f4fe0768add47d2037d797e4ef99b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015981"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69613240"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Criar Fluxos de Trabalho de Codificação Avançados com o Estruturador de Fluxos de Trabalho  
 ## <a name="overview"></a>Descrição geral
@@ -87,7 +87,7 @@ Rever os percursos de aprendizagem dos Serviços de Multimédia
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-Se você precisar de suporte ou tiver dúvidas sobre a criação de fluxos de trabalho personalizados na ferramenta designer de fluxo de mepd@microsoft.comtrabalho, envie um email para.
+Se você precisar de suporte ou tiver dúvidas sobre a criação de fluxos de trabalho personalizados na ferramenta designer de fluxo de mepd@microsoft.comtrabalho, envie um email para. Use o idioma inglês ao escrever seu email.
 
 ## <a name="see-also"></a>Consultar Também
 [Vídeos de treinamento Designer de Fluxo de Trabalho o codificador Premium do Azure](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)

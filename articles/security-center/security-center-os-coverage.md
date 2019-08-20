@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 9a11af7e2875c9af5cf4b08d459bc67b55dbdcf3
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 21a42b2986b52282fbab914fa702d8c4a323ed35
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515548"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611946"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plataformas e recursos com suporte na central de segurança do Azure
 
@@ -30,8 +30,7 @@ O monitoramento e as recomendações de estado de segurança estão disponíveis
 >
 
 ## <a name="platforms-that-support-the-data-collection-agent"></a>Plataformas que dão suporte ao agente de coleta de dados 
-
-Esta seção lista as plataformas nas quais o agente da central de segurança do Azure pode ser executado e a partir da qual ele pode coletar dados.
+Esta seção lista as plataformas nas quais o agente de Log Analytics, que é usado pela central de segurança do Azure, pode ser executado.
 
 ### <a name="supported-platforms-for-windows-computers-and-vms"></a>Plataformas com suporte para computadores Windows e VMs
 Há suporte para os seguintes sistemas operacionais Windows:

@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas de armazém de dados SQL do Azure | Documentos da Microsoft
-description: Resolução de problemas do armazém de dados SQL do Azure.
+title: Solução de problemas do Azure SQL Data Warehouse | Microsoft Docs
+description: Solução de problemas do Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -10,64 +10,64 @@ ms.subservice: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 2d7f56b65db09232af4fe7e198675ea0cfd64a25
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 290753b866f15e09a52572fdd7a43a60fc2812d6
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595481"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575555"
 ---
-# <a name="troubleshooting-connectivity-issues"></a>Resolução de problemas de conectividade
+# <a name="troubleshooting-connectivity-issues"></a>Solucionando problemas de conectividade
 
-Este artigo apresenta uma lista de técnicas de resolução de problemas comuns em torno de ligar ao seu SQL Data Warehouse.
-- [Verificar a disponibilidade de serviço](./sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
-- [Verifique a existência de operação em pausa ou dimensionamento](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
-- [Verifique as definições de firewall](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
-- [Verifique as definições de ponto final de serviço/VNet](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
-- [Verificação para os controladores mais recentes](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
-- [Verifique a cadeia de ligação](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
-- [Problemas de ligação intermitentes](./sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
+Este artigo lista técnicas comuns de solução de problemas em relação à conexão ao seu SQL Data Warehouse.
+- [Verificar a disponibilidade do serviço](./sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
+- [Verificar a operação em pausa ou em escala](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
+- [Verifique as configurações do firewall](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
+- [Verifique as configurações de ponto de extremidade de serviço/VNet](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
+- [Verificar os drivers mais recentes](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
+- [Verifique a cadeia de conexão](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
+- [Problemas de conexão intermitente](./sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
 - [Mensagens de erro comuns](./sql-data-warehouse-troubleshoot-connectivity.md#common-error-messages)
 
-## <a name="check-service-availability"></a>Verificar a disponibilidade de serviço
+## <a name="check-service-availability"></a>Verificar a disponibilidade do serviço
 
-Verifique se o serviço está disponível. No portal do Azure, vá para o SQL data warehouse que está a tentar ligar. No painel de índice esquerdo, clique em **diagnosticar e resolver problemas**.
+Verifique se o serviço está disponível. Na portal do Azure, vá para o SQL Data Warehouse que você está tentando conectar. No painel de Sumário à esquerda, clique em **diagnosticar e resolver problemas**.
 
-![Selecione o estado de funcionamento do recurso](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
+![Selecionar Resource Health](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-O estado do seu armazém de dados SQL será apresentado aqui. Se o serviço não está visível como **disponível**, verifique ainda mais passos.
+O status do seu SQL Data Warehouse será mostrado aqui. Se o serviço não estiver sendo exibido como **disponível**, verifique outras etapas.
 
 ![Serviço disponível](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Se o estado de funcionamento do recurso mostra que o armazém de dados está em pausa ou dimensionar, siga as orientações para retomar o seu armazém de dados.
+Se o seu Resource Health mostrar que o data warehouse está em pausa ou em escala, siga as orientações para retomar o data warehouse.
 
-![O serviço em pausa](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) informações adicionais sobre o estado de funcionamento do recurso podem ser encontradas aqui.
+![O serviço está](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) em pausa informações adicionais sobre Resource Health podem ser encontradas aqui.
 
-## <a name="check-for-paused-or-scaling-operation"></a>Verifique a existência de operação em pausa ou dimensionamento
+## <a name="check-for-paused-or-scaling-operation"></a>Verificar a operação em pausa ou em escala
 
-Verifique o portal para ver se o SQL data warehouse está em pausa ou dimensionamento.
+Verifique o portal para ver se o SQL Data Warehouse está em pausa ou em escala.
 
-![O serviço em pausa](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![Serviço em pausa](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Se vir que o seu serviço está em pausa ou dimensionamento, certifique-se para ver não é durante a sua agenda de manutenção. No portal para o SQL data warehouse *descrição geral*, verá que a agenda de manutenção selecionados.
+Se você vir que o serviço está em pausa ou em escala, verifique se ele não está durante o agendamento de manutenção. No portal para sua *visão geral*do SQL data warehouse, você verá o agendamento de manutenção escolhido.
 
-![Agenda de manutenção de descrição geral](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
+![Agendamento de manutenção de visão geral](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Caso contrário, contacte o administrador de TI para verificar que esta manutenção não é um evento agendado. Para retomar o armazém de dados SQL, siga os passos descritos [aqui](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
+Caso contrário, verifique com seu administrador de ti para verificar se essa manutenção não é um evento agendado. Para retomar o SQL Data Warehouse, siga as etapas descritas [aqui](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
 
-## <a name="check-your-firewall-settings"></a>Verifique as definições de firewall
+## <a name="check-your-firewall-settings"></a>Verifique as configurações do firewall
 
-O SQL Data Warehouse comunica através da porta 1433.   Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Nesse caso, não é possível ligar ao seu servidor de base de dados do Azure SQL, a menos que o departamento de TI abra a porta 1433. Pode encontrar informações adicionais sobre as configurações de firewall [aqui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-the-azure-portal).
+O SQL Data Warehouse comunica através da porta 1433.   Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 pode não ser permitido pelo firewall da sua rede. Nesse caso, você não pode se conectar ao servidor do banco de dados SQL do Azure, a menos que o departamento de ti Abra a porta 1433. Informações adicionais sobre as configurações de firewall podem ser encontradas [aqui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-the-azure-portal).
 
-## <a name="check-your-vnetservice-endpoint-settings"></a>Verifique as definições de ponto final de serviço/VNet
+## <a name="check-your-vnetservice-endpoint-settings"></a>Verifique as configurações de ponto de extremidade de serviço/VNet
 
-Se estiver a receber erros 40914 e 40615, consulte [descrição do erro e resolução aqui](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
+Se você estiver recebendo os erros 40914 e 40615, consulte [Descrição e resolução do erro aqui](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
 
-## <a name="check-for-the-latest-drivers"></a>Verificação para os controladores mais recentes
+## <a name="check-for-the-latest-drivers"></a>Verificar os drivers mais recentes
 
 ### <a name="software"></a>Software
 
-Verifique se que está a utilizar as ferramentas mais recentes para ligar ao seu armazém de dados SQL:
+Verifique se você está usando as ferramentas mais recentes para se conectar ao seu SQL Data Warehouse:
 
 * SSMS
 * Azure Data Studio
@@ -75,16 +75,16 @@ Verifique se que está a utilizar as ferramentas mais recentes para ligar ao seu
 
 ### <a name="drivers"></a>Controladores
 
-Verifique para se certificar de que está a utilizar as versões mais recentes do driver.  Utilizar uma versão antiga dos controladores pode resultar em comportamentos inesperados, como os drivers mais antigos podem não suportar novos recursos.
+Verifique se você está usando as versões de driver mais recentes.  O uso de uma versão mais antiga dos drivers pode resultar em comportamentos inesperados, pois os drivers mais antigos podem não dar suporte a novos recursos.
 
 * [ODBC](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server)
 * [JDBC](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)
 * [OLE DB](https://docs.microsoft.com/sql/connect/oledb/download-oledb-driver-for-sql-server)
 * [PHP](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server)
 
-## <a name="check-your-connection-string"></a>Verifique a cadeia de ligação
+## <a name="check-your-connection-string"></a>Verifique a cadeia de conexão
 
-Verifique se que as cadeias de ligação estão definidas corretamente.  Seguem-se alguns exemplos.  Pode encontrar informações adicionais em torno [cadeias de ligação aqui](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connection-strings).
+Verifique se as cadeias de conexão estão definidas corretamente.  Veja abaixo alguns exemplos.  Você pode encontrar informações adicionais sobre [cadeias de conexão aqui](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connection-strings).
 
 Cadeia de ligação de ADO.NET
 
@@ -92,13 +92,13 @@ Cadeia de ligação de ADO.NET
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
-Cadeia de ligação de ODBC
+Cadeia de conexão ODBC
 
 ```csharp
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 
-Cadeia de ligação de PHP
+Cadeia de conexão PHP
 
 ```PHP
 Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( \"sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}\", \"{your_user_name}\", \"{your_password_here}\");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( \"Error connecting to SQL Server.\" );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array(\"UID\" => \"{your_user_name}\", \"pwd\" => \"{your_password_here}\", \"Database\" => \"{your_database}\", \"LoginTimeout\" => 30, \"Encrypt\" => 1, \"TrustServerCertificate\" => 0);\r\n$serverName = \"tcp:{your_server}.database.windows.net,1433\";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
@@ -110,13 +110,13 @@ Cadeia de ligação JDBC
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
-## <a name="intermittent-connection-issues"></a>Problemas de ligação intermitentes
+## <a name="intermittent-connection-issues"></a>Problemas de conexão intermitente
 
-Verifique se estiver com muita carga no servidor com um elevado número de pedidos em fila. Terá de aumentar verticalmente o armazém de dados para obter recursos adicionais.
+Verifique se você está com uma carga pesada no servidor com um grande número de solicitações enfileiradas. Talvez seja necessário escalar verticalmente seus data warehouse para obter recursos adicionais.
 
 ## <a name="common-error-messages"></a>Mensagens de erro comuns
 
-Erros 40914 e 40615, consulte a [descrição do erro e resolução aqui](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
+Erros 40914 e 40615, consulte a [Descrição e a resolução do erro aqui](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615).
 
-## <a name="still-having-connectivity-issues"></a>Continua a ter problemas de conectividade?
-Criar uma [pedido de suporte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) para que a equipa de engenharia pode oferecer suporte a.
+## <a name="still-having-connectivity-issues"></a>Ainda tem problemas de conectividade?
+Crie um [tíquete de suporte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) para que a equipe de engenharia possa dar suporte a você.

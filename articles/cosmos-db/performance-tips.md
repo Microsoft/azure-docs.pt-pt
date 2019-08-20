@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB dicas de desempenho para .NET
-description: Aprenda as opções de configuração do cliente para melhorar o desempenho do banco de dados Azure Cosmos DB
+description: Aprenda as opções de configuração do cliente para melhorar o desempenho do banco de dados Cosmos do Azure
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: 21886c11bea6ff09cf97362e06c6d304aaa0d8cc
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3c4dbd38edaf36461578e087010d978a25450d06
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250045"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614924"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Dicas de desempenho para Azure Cosmos DB e .NET
 
@@ -48,8 +48,8 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
      |Modo de conexão  |Protocolo com suporte  |SDKs com suporte  |Porta de API/serviço  |
      |---------|---------|---------|---------|
      |Gateway  |   HTTPS    |  Todos os SDKS    |   SQL (443), Mongo (10250, 10255, 10256), tabela (443), Cassandra (10350), grafo (443)    |
-     |Direct    |    HTTPS     |  SDK do .NET e do Java    |   Portas dentro do intervalo de 10000 a 20.000    |
-     |Direct    |     TCP    |  SDK .NET    | Portas dentro do intervalo de 10000 a 20.000 |
+     |Direto    |    HTTPS     |  SDK do .NET e do Java    |   Portas dentro do intervalo de 10000 a 20.000    |
+     |Direto    |     TCP    |  SDK .NET    | Portas dentro do intervalo de 10000 a 20.000 |
 
      O Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto por HTTPS. Além disso, ele oferece um protocolo TCP eficiente, que também é RESTful em seu modelo de comunicação e está disponível por meio do SDK do cliente .NET. O TCP direto e o HTTPS usam SSL para autenticação inicial e criptografia de tráfego. Para obter o melhor desempenho, use o protocolo TCP quando possível.
 
@@ -78,7 +78,7 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
    <a id="same-region"></a>
 3. **Colocar clientes na mesma região do Azure para desempenho**
 
-    Quando possível, coloque todos os aplicativos que chamam Azure Cosmos DB na mesma região que o banco de dados Azure Cosmos DB. Para uma comparação aproximada, as chamadas para Azure Cosmos DB na mesma região são concluídas dentro de 1-2 ms, mas a latência entre a costa oeste e a leste dos EUA é > 50 ms. Essa latência pode variar de acordo com a solicitação até a solicitação, dependendo da rota tomada pela solicitação à medida que ele passa do cliente para o limite de datacenter do Azure. A menor latência possível é obtida garantindo que o aplicativo de chamada esteja localizado na mesma região do Azure que o ponto de extremidade de Azure Cosmos DB provisionado. Para obter uma lista de regiões disponíveis, consulte [regiões do Azure](https://azure.microsoft.com/regions/#services).
+    Quando possível, coloque todos os aplicativos que chamam Azure Cosmos DB na mesma região que o banco de dados Cosmos do Azure. Para uma comparação aproximada, as chamadas para Azure Cosmos DB na mesma região são concluídas dentro de 1-2 ms, mas a latência entre a costa oeste e a leste dos EUA é > 50 ms. Essa latência pode variar de acordo com a solicitação até a solicitação, dependendo da rota tomada pela solicitação à medida que ele passa do cliente para o limite de datacenter do Azure. A menor latência possível é obtida garantindo que o aplicativo de chamada esteja localizado na mesma região do Azure que o ponto de extremidade de Azure Cosmos DB provisionado. Para obter uma lista de regiões disponíveis, consulte [regiões do Azure](https://azure.microsoft.com/regions/#services).
 
     ![Ilustração da política de conexão de Azure Cosmos DB](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
@@ -162,7 +162,7 @@ Então, se você estiver perguntando "como posso melhorar meu desempenho de banc
 
     - Para aplicativos executáveis, isso pode ser feito desmarcando a opção **preferir 32 bits** na janela **Propriedades do projeto** , na guia **Compilar** .
 
-    - Para projetos de teste baseados em VSTest, isso pode ser feito **selecionando**->testar**configurações**->**de teste arquitetura de processador padrão como x64**, na opção de menu **teste do Visual Studio** .
+    - Para projetos de teste baseados em VSTest, isso pode ser feito->selecionando testar**configurações**->**de teste arquitetura de processador padrão como x64**, na opção de menu **teste do Visual Studio** .
 
     - Para aplicativos Web ASP.net implantados localmente, isso pode ser feito verificando o **uso da versão de 64 bits do IIS Express para sites e projetos**, em **ferramentas**->**Opções**->**projetos e soluções** **Projetos da Web.** ->
 

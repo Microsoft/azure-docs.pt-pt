@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 08/05/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 45f5e21e05cf627d418cb66418cf305833a73891
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: e8f943ebaa5dfc06e0bfb04dc1097d6794ec6d05
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965097"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616835"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gerenciar Azure Cosmos DB recursos da API do SQL usando o PowerShell
 
@@ -46,7 +46,7 @@ As seções a seguir demonstram como gerenciar a conta do Azure Cosmos, incluind
 
 ### <a id="create-account"></a>Criar uma conta do Azure Cosmos
 
-Este comando cria uma conta de banco de dados Azure Cosmos DB com [várias regiões][distribute-data-globally], [política de consistência](consistency-levels.md)de desatualização limitada.
+Este comando cria uma conta de banco de dados Cosmos do Azure com [várias regiões][distribute-data-globally], política de [consistência](consistency-levels.md)de desatualização limitada.
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos Account for Core (SQL) API
@@ -112,7 +112,7 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="update-account"></a>Atualizar uma conta do Azure Cosmos
 
-Este comando permite-lhe atualizar as propriedades da conta de base de dados do Azure Cosmos DB. As propriedades que podem ser atualizadas incluem o seguinte:
+Esse comando permite que você atualize suas propriedades de conta do banco de dados Cosmos do Azure. As propriedades que podem ser atualizadas incluem o seguinte:
 
 * Adicionando ou removendo regiões
 * Alterando a política de consistência padrão
@@ -247,6 +247,7 @@ Para o exemplo a seguir, suponha que a conta tenha uma prioridade de `West US 2 
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
+# Assume existing priority is "West US 2" = 0 and "East US 2" = 1
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
@@ -658,7 +659,7 @@ Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/data
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $resourceName
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Todos os exemplos do PowerShell](powershell-samples.md)
 * [Como gerenciar a conta do Azure Cosmos](how-to-manage-database-account.md)

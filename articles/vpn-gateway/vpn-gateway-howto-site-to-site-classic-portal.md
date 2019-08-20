@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 77cfde8cc9c6556b907f1185f451c70c8c8e888d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2e6036c5f29614f2e91278b693c07dc3dc8595f2
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534003"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575478"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Criar uma ligação de Site a Site com o portal do Azure (clássico)
 
@@ -39,7 +39,7 @@ Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 * Certifique-se de que tem um dispositivo VPN compatível e alguém que o possa configurar. Para obter mais informações sobre os dispositivos VPN compatíveis e a configuração do dispositivo, consulte [About VPN Devices (Acerca dos Dispositivos VPN)](vpn-gateway-about-vpn-devices.md).
 * Verifique se tem um endereço IP IPv4 público com acesso exterior para o seu dispositivo VPN.
 * Se não estiver familiarizado com os intervalos de endereços IP localizados na configuração de rede no local, tem de se coordenar com alguém que consiga fornecer esses detalhes. Ao criar esta configuração, tem de especificar prefixos de intervalo de endereços IP que o Azure irá encaminhar para a sua localização no local. Nenhuma das sub-redes da rede local pode sobrepor as sub-redes de rede virtual a que pretende ligar.
-* Atualmente, o PowerShell é necessário para especificar a chave partilhada e criar a ligação de gateway de VPN. Instale a versão mais recente dos cmdlets do PowerShell da Gestão de Serviço (SM) do Azure. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview). Ao trabalhar com o PowerShell para esta configuração, certifique-se de que está a executar como administrador.
+* Atualmente, o PowerShell é necessário para especificar a chave partilhada e criar a ligação de gateway de VPN. Instale a versão mais recente dos cmdlets do PowerShell da Gestão de Serviço (SM) do Azure. Para instalar os cmdlets, consulte [Gerenciamento de serviços](/powershell/azure/servicemanagement/install-azure-ps). Para obter mais informações sobre as instalações do PowerShell em geral, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Ao trabalhar com o PowerShell para esta configuração, certifique-se de que está a executar como administrador.
 
 ### <a name="values"></a>Valores de configuração de exemplo para este exercício
 
@@ -159,6 +159,12 @@ Neste passo, vai definir a chave partilhada e criar a ligação. A chave que def
 
 ### <a name="step-1-connect-to-your-azure-account"></a>Passo 1. Ligar à sua conta do Azure
 
+Você deve executar esses comandos localmente usando o módulo de gerenciamento de serviços do PowerShell. Para alternar para o gerenciamento de serviços, use este comando:
+
+```powershell
+azure config mode asm
+```
+
 1. Abra a consola do PowerShell com direitos elevados e ligue-se à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
 
    ```powershell
@@ -177,18 +183,14 @@ Neste passo, vai definir a chave partilhada e criar a ligação. A chave que def
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>Passo 2. Definir a chave partilhada e criar a ligação
 
-Ao trabalhar com o PowerShell e o modelo de implementação clássica, por vezes, os nomes dos recursos no portal não são os nomes que o Azure espera ver quando utiliza o PowerShell. Os passos seguintes ajudam-no a exportar o ficheiro de configuração de rede para obter os valores exatos para os nomes. Você deve executar esses comandos localmente usando o módulo de gerenciamento de serviços do PowerShell. Para alternar para o gerenciamento de serviços, use este comando:
-
-```powershell
-azure config mode asm
-```
+Quando você cria uma VNet clássica no portal (não usando o PowerShell), o Azure adiciona o nome do grupo de recursos ao nome curto. Por exemplo, de acordo com o Azure, o nome da VNet que você criou para este exercício é "Group TestRG1 TestVNet1", não "TestVNet1". O PowerShell requer o nome completo da rede virtual, não o nome curto que aparece no Portal. O nome longo não é visível no Portal. As etapas a seguir ajudam a exportar o arquivo de configuração de rede para obter os valores exatos para o nome da rede virtual. 
 
 1. Crie um diretório no seu computador e, em seguida, exporte o ficheiro de configuração de rede para o diretório. Neste exemplo, o ficheiro de configuração de rede é exportado para C:\AzureNet.
 
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-2. Abra o ficheiro de configuração de rede com um editor de xml e verifique os valores de 'LocalNetworkSite name' e 'VirtualNetworkSite name'. Modifique o exemplo para refletir os valores de que precisa. Ao especificar um nome que contenha espaços, utilize plicas à volta do valor.
+2. Abra o ficheiro de configuração de rede com um editor de xml e verifique os valores de 'LocalNetworkSite name' e 'VirtualNetworkSite name'. Modifique o exemplo deste exercício para refletir os valores no XML. Ao especificar um nome que contenha espaços, utilize plicas à volta do valor.
 
 3. Defina a chave partilhada e crie a ligação. '-SharedKey' é um valor que gera e especifica. No exemplo, utilizámos 'abc123', mas pode gerar e (deve) utilizar algo mais complexo. O importante é que o valor que especificar aqui seja igual ao valor que especificou quando configurou o seu dispositivo VPN.
 
@@ -212,7 +214,7 @@ Repor o gateway de VPN do Azure é útil se perder a conectividade VPN em vário
 
 Para obter os passos para alterar um SKU de gateway, veja [Redimensionar um SKU de gateway](vpn-gateway-about-SKUS-legacy.md#classicresize).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/).
 * Para obter informações sobre o Túnel Forçado, veja [Acerca do Túnel Forçado](vpn-gateway-about-forced-tunneling.md).

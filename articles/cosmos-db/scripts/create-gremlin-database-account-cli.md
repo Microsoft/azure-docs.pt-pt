@@ -1,5 +1,5 @@
 ---
-title: Script do Azure CLI-criar uma conta de API do Gremlin do Azure Cosmos DB, base de dados e gráficos
+title: CLI do Azure script – criar uma conta de API do Gremlin, banco de dados e grafo do Azure Cosmos DB
 description: Exemplo do Script da CLI do Azure - Criar uma conta, base de dados e grafo da API Gremlin do Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 10/26/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 1be21c0d468a4fca9b8c5f5d734a755c413bf999
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72a0b0f1a2dfce33531c6d93f22b7774b8d17356
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66154688"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616726"
 ---
-# <a name="azure-cosmos-db-create-a-gremlin-api-account-using-azure-cli"></a>o Azure Cosmos DB: Criar uma conta de API do Gremlin com a CLI do Azure
+# <a name="azure-cosmos-db-create-a-gremlin-api-account-using-azure-cli"></a>o Azure Cosmos DB: Criar uma conta de API do Gremlin usando CLI do Azure
 
 Este script da CLI de exemplo cria uma conta, base de dados e grafo da API Gremlin do Azure Cosmos DB.
 
@@ -43,7 +43,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Azure Cosmos DB. |
-| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Cria uma base de dados do Azure Cosmos DB. |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Cria um banco de dados Cosmos do Azure. |
 | [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Cria um gráfico do Azure Cosmos DB para Gremlin. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 

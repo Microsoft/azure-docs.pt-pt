@@ -6,14 +6,14 @@ author: stevelas
 manager: gwallace
 ms.service: container-registry
 ms.topic: overview
-ms.date: 05/24/2019
+ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: 2fffa3b063969cbe68fb9a405f4198f15b3f9809
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 73d497b4784a91974fab8a94c6f9fe595770ea45
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845203"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574399"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Georreplicação no Azure Container Registry
 
@@ -105,6 +105,14 @@ O ACR começa a sincronizar imagens entre as réplicas configuradas. Após a con
 A replicação geográfica é um recurso da [SKU Premium](container-registry-skus.md) do registro de contêiner do Azure. Ao replicar um registro para as regiões desejadas, você incorre em taxas de registro Premium para cada região.
 
 No exemplo anterior, a contoso consolidou dois registros em um, adicionando réplicas ao leste dos EUA, ao Canadá central e à Europa Ocidental. A contoso pagará quatro vezes a Premium por mês, sem nenhuma configuração ou gerenciamento adicional. Cada região agora efetua pull de suas imagens localmente, melhorando o desempenho, a confiabilidade, sem tarifas de saída de rede do oeste dos EUA para o Canadá e o leste dos EUA.
+
+## <a name="troubleshoot-push-operations-with-geo-replicated-registries"></a>Solucionar problemas de operações de push com registros replicados geograficamente
+ 
+Um cliente do Docker que envia uma imagem para um registro com replicação geográfica pode não enviar por push todas as camadas de imagem e seu manifesto para uma única região replicada. Isso pode ocorrer porque o Gerenciador de tráfego do Azure roteia solicitações de registro para o registro replicado mais próximo da rede. Se o registro tiver duas regiões de replicação *próximas* , as camadas de imagem e o manifesto poderão ser distribuídos para os dois sites, e a operação de envio falhará quando o manifesto for validado. Esse problema ocorre devido à maneira como o nome DNS do registro é resolvido em alguns hosts Linux. Esse problema não ocorre no Windows, que fornece um cache DNS do lado do cliente.
+ 
+Se esse problema ocorrer, uma solução é aplicar um cache DNS do lado do cliente, `dnsmasq` como no host do Linux. Isso ajuda a garantir que o nome do registro seja resolvido de forma consistente. Se você estiver usando uma VM do Linux no Azure para enviar por push a um registro, consulte Opções em [Opções de resolução de nomes DNS para máquinas virtuais do Linux no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/azure-dns).
+
+Para otimizar a resolução DNS para a réplica mais próxima ao enviar imagens por push, configure um registro replicado geograficamente nas mesmas regiões do Azure que a origem das operações de envio por Push ou a região mais próxima ao trabalhar fora do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
