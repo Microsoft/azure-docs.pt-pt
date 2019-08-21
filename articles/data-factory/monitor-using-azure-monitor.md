@@ -105,14 +105,14 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propriedade | Tipo | Descrição |
 | --- | --- | --- |
-| storageAccountId |Cadeia | A ID de recurso da conta de armazenamento para a qual você deseja enviar os logs de diagnóstico |
-| serviceBusRuleId |Cadeia | A ID da regra de barramento de serviço do namespace do barramento de serviço no qual você gostaria que os hubs de eventos fossem criados para transmitir os logs de diagnóstico. A ID da regra é do formato: "{ID do recurso do barramento de serviço}/authorizationrules/{nome da sessão}".|
+| storageAccountId |String | A ID de recurso da conta de armazenamento para a qual você deseja enviar os logs de diagnóstico |
+| serviceBusRuleId |String | A ID da regra de barramento de serviço do namespace do barramento de serviço no qual você gostaria que os hubs de eventos fossem criados para transmitir os logs de diagnóstico. A ID da regra é do formato: "{ID do recurso do barramento de serviço}/authorizationrules/{nome da sessão}".|
 | workspaceId | Tipo complexo | Matriz de detalhamentos de tempo de métrica e suas políticas de retenção. Atualmente, essa propriedade está vazia. |
 |metrics| Valores de parâmetro da execução do pipeline a serem passados para o pipeline invocado| Um nome de parâmetro de mapeamento de objeto JSON para valores de argumento |
 | logs| Tipo complexo| Nome de uma categoria de log de diagnóstico para um tipo de recurso. Para obter a lista de categorias de log de diagnóstico para um recurso, primeiro execute uma operação obter configurações de diagnóstico. |
-| category| Cadeia| Matriz de categorias de log e suas políticas de retenção |
-| timeGrain | Cadeia | A granularidade das métricas que são capturadas no formato de duração ISO 8601. Deve ser PT1M (um minuto)|
-| Habilitado| Booleano | Especifica se a coleção dessa métrica ou categoria de log está habilitada para este recurso|
+| category| String| Matriz de categorias de log e suas políticas de retenção |
+| timeGrain | String | A granularidade das métricas que são capturadas no formato de duração ISO 8601. Deve ser PT1M (um minuto)|
+| enabled| Booleano | Especifica se a coleção dessa métrica ou categoria de log está habilitada para este recurso|
 | retentionPolicy| Tipo complexo| Descreve a política de retenção para uma métrica ou categoria de log. Usado somente para a opção de conta de armazenamento.|
 | days| Int| Número de dias para manter as métricas ou os logs. Um valor de 0 retém os logs indefinidamente. Usado somente para a opção de conta de armazenamento. |
 
