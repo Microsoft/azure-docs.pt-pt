@@ -108,7 +108,7 @@
 - name: Amostras
   items:
     - name: Exemplos de código
-      href: 'https://azure.microsoft.com/resources/samples/?service=service-fabric'
+      href: 'https://docs.microsoft.com/samples/browse/'
     - name: Azure PowerShell
       href: service-fabric-powershell-samples.md
     - name: CLI do Service Fabric
@@ -354,7 +354,7 @@
       href: service-fabric-api-management-overview.md
     - name: Modelo de Recursos de Aplicação
       href: service-fabric-concept-resource-model.md
-    - name: Identidade Gerida
+    - name: Identidade Gerida (pré-visualização)
       href: concepts-managed-identity.md
 - name: Guias de procedimentos
   items:
@@ -747,7 +747,7 @@
           href: service-fabric-reverse-proxy-diagnostics.md
         - name: Resolver problemas do seu cluster local
           href: service-fabric-troubleshoot-local-cluster-setup.md
-    - name: Utilizar a Identidade Gerida para as aplicações do Service Fabric
+    - name: Utilizar a Identidade Gerida para as aplicações do Service Fabric (pré-visualização)
       items:
         - name: Configuração do cluster
           items:
