@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: b71cf55944c1049fa2c3ddca79f02a8b75b9b2ec
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
-ms.translationtype: MT
+ms.openlocfilehash: 07d44bb54c288202d571f8e664822ecf9b4998be
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563011"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639766"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Linux para o serviço Azure App
 
@@ -440,7 +440,7 @@ Esta seção contém as seguintes subseções:
 
 O servidor de aplicativos WildFly em execução no serviço de aplicativo no Linux é executado no modo autônomo, não em uma configuração de domínio. Quando você escala horizontalmente o plano do serviço de aplicativo, cada instância de WildFly é configurada como um servidor autônomo.
 
-Dimensione seu aplicativo vertical ou horizontalmente com [as regras de escala](../../monitoring-and-diagnostics/monitoring-autoscale-get-started.md) e [aumentando sua contagem de instâncias](../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+Dimensione seu aplicativo vertical ou horizontalmente com [as regras de escala](../../monitoring-and-diagnostics/monitoring-autoscale-get-started.md) e [aumentando sua contagem de instâncias](../manage-scale-up.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ### <a name="customize-application-server-configuration"></a>Personalizar a configuração do servidor de aplicativos
 
@@ -688,7 +688,7 @@ Patches e correções para vulnerabilidades de segurança principais serão lan�
 
 Se um tempo de execução de Java com suporte for desativado, os desenvolvedores do Azure que usam o tempo de execução afetado receberão um aviso de substituição pelo menos seis meses antes de o tempo de execução ser desativado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Visite o centro [de desenvolvedores do Azure para Java](/java/azure/) para localizar guias de início rápido, tutoriais e documentação de referência de Java do Azure.
 

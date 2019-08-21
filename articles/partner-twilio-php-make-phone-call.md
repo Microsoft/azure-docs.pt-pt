@@ -1,11 +1,9 @@
 ---
-title: Como fazer uma chamada telefónica do Twilio (PHP) | Documentos da Microsoft
-description: Saiba como fazer uma chamada telefónica e enviar uma mensagem SMS com o serviço de Twilio API no Azure. Exemplos destinam-se a aplicação PHP.
+title: Como fazer uma chamada telefônica do twilio (PHP) | Microsoft Docs
+description: Saiba como fazer uma chamada telefônica e enviar uma mensagem SMS com o serviço de API do twilio no Azure. Os exemplos são para o aplicativo PHP.
 documentationcenter: php
 services: ''
-author: devinrader
-manager: twilio
-editor: mollybos
+author: georgewallace
 ms.assetid: 44e35adc-be06-4700-beee-8c9e2c20c540
 ms.service: multiple
 ms.workload: na
@@ -13,28 +11,28 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
-ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 03b74f5a931e1cfbf09433af76c250607b7fc80c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: fb1623c4a409f1c6cba94bad56d773e166d2b182
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60422326"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637312"
 ---
-# <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Como fazer uma chamada telefónica, utilizar o Twilio numa aplicação PHP no Azure
-O exemplo seguinte mostra como pode utilizar o Twilio para fazer uma chamada de uma página de web PHP no Azure. O aplicativo resultante pedirá ao utilizador para os valores de chamada telefónica, conforme mostrado na captura de ecrã seguinte.
+# <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Como fazer uma chamada telefônica usando o twilio em um aplicativo PHP no Azure
+O exemplo a seguir mostra como você pode usar twilio para fazer uma chamada de uma página da Web do PHP hospedada no Azure. O aplicativo resultante solicitará valores de chamada telefônica ao usuário, conforme mostrado na captura de tela a seguir.
 
-![Formulário de chamada do Azure com o Twilio e o PHP][twilio_php]
+![Formulário de chamada do Azure usando twilio e PHP][twilio_php]
 
-Precisará fazer o seguinte para utilizar o código neste tópico:
+Você precisará fazer o seguinte para usar o código neste tópico:
 
-1. Adquirir uma conta do Twilio e autenticação de token da sua [Twilio consola][twilio_console]. Para começar a utilizar com o Twilio, avalie a preços em [ https://www.twilio.com/pricing ] [ twilio_pricing]. Pode inscrever-se para uma conta de avaliação na [ https://www.twilio.com/try-twilio ] [ try_twilio].
-2. Obter o [biblioteca de Twilio para PHP](https://github.com/twilio/twilio-php) ou instalá-lo como um pacote PEAR. Para obter mais informações, consulte a [ficheiro Leia-me](https://github.com/twilio/twilio-php/blob/master/README.md).
-3. Instale o Azure SDK para PHP. 
+1. Adquira uma conta do twilio e um token de autenticação do seu [console do twilio][twilio_console]. Para começar a usar o twilio, avalie os [https://www.twilio.com/pricing][twilio_pricing]preços em. Você pode se inscrever para uma conta de [https://www.twilio.com/try-twilio][try_twilio]avaliação em.
+2. Obtenha a [biblioteca twilio para php](https://github.com/twilio/twilio-php) ou instale-a como um pacote do pêra. Para obter mais informações, consulte o [arquivo Leiame](https://github.com/twilio/twilio-php/blob/master/README.md).
+3. Instale o SDK do Azure para PHP. 
 <!-- For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP](app-service-web/web-sites-php-mysql-deploy-use-git.md) -->
 
-## <a name="create-a-web-form-for-making-a-call"></a>Criar um formulário da web para fazer uma chamada
-O seguinte código HTML mostra como criar uma página da web (**callform.html**) que obtém dados de utilizador para fazer uma chamada:
+## <a name="create-a-web-form-for-making-a-call"></a>Criar um formulário da Web para fazer uma chamada
+O código HTML a seguir mostra como criar uma página da Web (**callform. html**) que recupera dados do usuário para fazer uma chamada:
 
 ```html
 <!DOCTYPE html>
@@ -69,7 +67,7 @@ O seguinte código HTML mostra como criar uma página da web (**callform.html**)
 ```
 
 ## <a name="create-the-code-to-make-the-call"></a>Criar o código para fazer a chamada
-O código seguinte mostra como criar **makecall.php**, o que é chamado quando o usuário envia o formulário exibido pela **callform.html**. O código abaixo cria a mensagem de chamada e gera a chamada. Além disso, certifique-se de que utilizar a conta do Twilio e a autenticação de token do [Twilio consola] [ twilio_console] em vez dos valores de marcador de posição atribuídos a **$sid** e  **$token** no código abaixo.
+O código a seguir mostra como criar **MakeCall. php**, que é chamado quando o usuário envia o formulário exibido por **callform. html**. O código mostrado abaixo cria a mensagem de chamada e gera a chamada. Além disso, certifique-se de usar sua conta do twilio e o token de autenticação do [console do twilio][twilio_console] em vez dos valores de espaço reservado atribuídos a **$Sid** e **$token** no código a seguir.
 
 ```html
 <html>
@@ -102,24 +100,24 @@ echo "URI resource: " . $call->uri . "<br />";
 </html>
 ```
 
-Para além de tornar a chamada **makecall.php** apresenta alguns metadados de chamada, conforme é mostrado na imagem abaixo. Para obter mais informações sobre os metadados de chamada, consulte [ https://www.twilio.com/docs/api/rest/call#instance-properties ] [ twilio_call_properties].
+Além de fazer a chamada, **MakeCall. php** exibe alguns metadados de chamada, como é mostrado na imagem abaixo. Para obter mais informações sobre metadados de chamada [https://www.twilio.com/docs/api/rest/call#instance-properties][twilio_call_properties], consulte.
 
-![Resposta de chamada do Azure com o Twilio e PHP][twilio_php_response]
+![Resposta de chamada do Azure usando twilio e PHP][twilio_php_response]
 
 ## <a name="run-the-application"></a>Executar a aplicação
-A próxima etapa é [implementar a sua aplicação para aplicações Web do Azure com o Git](app-service/app-service-web-get-started-php.md) (embora não todas as informações nele são relevantes). 
+A próxima etapa é [implantar seu aplicativo em aplicativos Web do Azure com o Git](app-service/app-service-web-get-started-php.md) (embora nem todas as informações sejam relevantes). 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Esse código foi fornecido para mostrar a funcionalidade básica com o Twilio no PHP no Azure. Antes de implementar para o Azure na produção, pode querer adicionar tratamento de erros mais ou outros recursos. Por exemplo:
+Esse código foi fornecido para mostrar a funcionalidade básica usando o twilio no PHP no Azure. Antes de implantar no Azure em produção, convém adicionar mais tratamento de erro ou outros recursos. Por exemplo:
 
-* Em vez de usar um formulário da web, poderia usar os blobs de armazenamento do Azure ou a base de dados SQL para armazenar números de telefone e chamar o texto. Para obter informações sobre a utilização de blobs de armazenamento do Azure no PHP, consulte [utilizar o armazenamento do Azure com aplicações PHP][howto_blob_storage_php]. Para obter informações sobre como utilizar a base de dados SQL no PHP, consulte [utilizar base de dados SQL com aplicações PHP][howto_sql_azure_php].
-* O **makecall.php** código utiliza o URL fornecido pelo Twilio ([https://twimlets.com/message][twimlet_message_url]) para fornecer uma resposta de linguagem de marcação do Twilio (TwiML) que informa como proceder com a Twilio a chamada. Por exemplo, o que é devolvido TwiML pode conter um `<Say>` verbo que resulta num texto a ser dito ao destinatário da chamada. Em vez de utilizar o URL fornecido pelo Twilio, poderia construir seu próprio serviço para responder à solicitação do Twilio; Para obter mais informações, consulte [como utilizar Twilio para obter capacidades de SMS no PHP e de voz][howto_twilio_voice_sms_php]. Obter mais informações sobre TwiML podem ser encontradas em [ https://www.twilio.com/docs/api/twiml ] [ twiml]e obter mais informações sobre `<Say>` e outros verbos Twilio podem ser encontrados em [ https://www.twilio.com/docs/api/twiml/say ][twilio_say].
-* Leia as diretrizes de segurança do Twilio em [ https://www.twilio.com/docs/security ] [ twilio_docs_security].
+* Em vez de usar um formulário da Web, você pode usar os blobs de armazenamento do Azure ou o banco de dados SQL para armazenar números de telefone e texto de chamada. Para obter informações sobre como usar os blobs de armazenamento do Azure no PHP, consulte [usando o armazenamento do Azure com aplicativos PHP][howto_blob_storage_php]. Para obter informações sobre como usar o banco de dados SQL no PHP, consulte [usando o banco de dados SQL com aplicativos PHP][howto_sql_azure_php].
+* O código **MakeCall. php** usa a URL fornecida pelo twilio[https://twimlets.com/message][twimlet_message_url]() para fornecer uma resposta TwiML (twilio Markup Language) que informa ao twilio como proceder com a chamada. Por exemplo, o TwiML retornado pode conter um `<Say>` verbo que resulta na fala do texto para o destinatário da chamada. Em vez de usar a URL fornecida pelo twilio, você pode criar seu próprio serviço para responder à solicitação do twilio; para obter mais informações, consulte [como usar o twilio para recursos de voz e SMS no php][howto_twilio_voice_sms_php]. Mais informações sobre TwiML podem ser encontradas em [https://www.twilio.com/docs/api/twiml][twiml], e mais informações sobre `<Say>` e outros verbos twilio podem ser encontradas em [https://www.twilio.com/docs/api/twiml/say][twilio_say].
+* Leia as diretrizes de segurança do [https://www.twilio.com/docs/security][twilio_docs_security]twilio em.
 
-Para obter informações adicionais sobre o Twilio, consulte [ https://www.twilio.com/docs ] [ twilio_docs].
+Para obter informações adicionais sobre twilio, [https://www.twilio.com/docs][twilio_docs]consulte.
 
 ## <a name="see-also"></a>Consultar Também
-* [Como utilizar o Twilio para obter capacidades SMS no PHP e de voz](partner-twilio-php-how-to-use-voice-sms.md)
+* [Como usar o twilio para recursos de voz e SMS no PHP](partner-twilio-php-how-to-use-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console
 [twilio_pricing]: https://www.twilio.com/pricing

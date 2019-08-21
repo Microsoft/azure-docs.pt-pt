@@ -6,17 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.topic: overview
 ms.date: 08/15/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: c537e2671dcc266e28e5fa8a040088c83394f260
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 89c56496ed1f356ffedf4df93f1728bd4acda323
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563459"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639960"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>O que é "pesquisa cognitiva" em Azure Search?
 
@@ -116,9 +114,9 @@ Os índices são gerados de um esquema de índice que define os campos, atributo
 
 ## <a name="where-do-i-start"></a>Por onde devo começar?
 
-**Etapa 1: [Criar um recurso de Azure Search](search-create-service-portal.md)** 
+**Passo 1: [Criar um recurso de Azure Search](search-create-service-portal.md)** 
 
-**Etapa 2: Experimente alguns guias de início rápido e exemplos para experiência prática**
+**Passo 2: Experimente alguns guias de início rápido e exemplos para experiência prática**
 
 + [Início rápido (Portal)](cognitive-search-quickstart-blob.md)
 + [Tutorial (solicitações HTTP)](cognitive-search-tutorial-blob.md)
@@ -126,7 +124,7 @@ Os índices são gerados de um esquema de índice que define os campos, atributo
 
 Recomendamos o serviço gratuito para fins de aprendizado, no entanto, o número de transações gratuitas é limitado a 20 documentos por dia. Para executar o início rápido e o tutorial em um dia, use um conjunto de arquivos menor (10 documentos) para que você possa se ajustar a ambos os exercícios ou exclua o indexador que você usou no guia de início rápido ou tutorial.
 
-**Etapa 3: Examinar a API**
+**Passo 3: Examinar a API**
 
 Você pode usar REST `api-version=2019-05-06` em solicitações ou o SDK do .net. 
 

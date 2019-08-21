@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 08/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 60e1db913336cc9f9e355c2e8f8466854de20389
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: b93d9ee65850749e79714b632584f1977ca88c81
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828340"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639992"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar as VMs do Hyper-V com a avaliação do servidor de migrações para Azure
 
@@ -128,13 +128,17 @@ Verifique se o arquivo compactado é seguro, antes de implantá-lo.
 
 Importe o arquivo baixado e crie a VM.
 
-1. Extraia o arquivo VHD compactado em uma pasta no host Hyper-V que hospedará a VM do dispositivo. Três pastas são extraídas.
+1. Depois de baixar o arquivo VHD compactado para o host Hyper-V no qual a VM do dispositivo será colocada, extraia o arquivo compactado.
+    - No local extraído, o arquivo é descompactado em uma pasta chamada **AzureMigrateAppliance_VersionNumber**.
+    - Essa pasta contém uma subpasta, também chamada de **AzureMigrateAppliance_VersionNumber**.
+    - Essa subpasta contém três subpastas adicionais– instantâneos, **discos rígidos virtuais**e **máquinas virtuais**.
+
 2. Abra o Gerenciador do Hyper-V. Em **ações**, clique em **importar máquina virtual**.
 
     ![Implantar VHD](./media/tutorial-assess-hyper-v/deploy-vhd.png)
 
 2. No assistente de importação de máquina virtual > **antes de começar**, clique em **Avançar**.
-3. Em **Localizar pasta**, especifique a pasta que contém o VHD extraído. Clique depois em **Seguinte**.
+3. Em **Localizar pasta**, selecione a pasta **máquinas virtuais** . Clique depois em **Seguinte**.
 1. Em **selecionar máquina virtual**, clique em **Avançar**.
 2. Em **escolher tipo de importação**, clique em **copiar a máquina virtual (criar uma nova ID exclusiva)** . Clique depois em **Seguinte**.
 3. Em **escolher destino**, deixe a configuração padrão. Clique em **Seguinte**.
@@ -331,7 +335,7 @@ As classificações de confiança para uma avaliação são as seguintes.
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:
 

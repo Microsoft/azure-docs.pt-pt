@@ -5,19 +5,17 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: d4ac762f94f05d165eb157f4cce183055f5fe099
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: df5e33cfc19d4e91fdf4eddc50b25a2b380f0dc4
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840975"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638933"
 ---
 #   <a name="sentiment-cognitive-skill"></a>Habilidade cognitiva de sentimentos
 

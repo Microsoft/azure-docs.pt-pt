@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: c225971675557ba9bc98aafa25d17a3ef95a594a
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 9f6f3d43f80b3c69b0c1106b8e395b4d8f5d32ab
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624955"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640709"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Implantar Service Fabric aplicativo com identidade gerenciada atribuída pelo sistema (versão prévia)
 
@@ -92,7 +92,7 @@ Essa propriedade declara (para Azure Resource Manager e a identidade gerenciada 
     ```
     Esse é o mapeamento equivalente de uma identidade para um serviço, conforme descrito acima, mas da perspectiva da definição de serviço. A identidade é referenciada aqui por seu nome amigável`WebAdmin`(), conforme declarado no manifesto do aplicativo.
 
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="next-steps"></a>Próximos Passos
 
 * Examinar o [suporte de identidade gerenciada](./concepts-managed-identity.md) no Azure Service Fabric
 

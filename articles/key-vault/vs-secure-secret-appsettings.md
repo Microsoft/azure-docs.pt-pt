@@ -7,14 +7,14 @@ manager: paulyuk
 editor: ''
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 07/17/2019
 ms.author: cawa
-ms.openlocfilehash: 3f5196c81550446221a4524330e355c595b65c6a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d5662fa3cae8ba0cec0fd76965597ccac7c83889
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934376"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639472"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Salvar com segurança as configurações do aplicativo secreto para um aplicativo Web
 
@@ -45,12 +45,12 @@ Se você estiver desenvolvendo um projeto e precisar compartilhar o código-font
 
     ![Adicionar política de acesso de Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-3. Adicione seu segredo a Key Vault em portal do Azure. Para definições de configuração aninhadas, substitua ': ' por '--' para que o nome do segredo de Key Vault seja válido. ': ' não pode estar no nome de um segredo de Key Vault.
+3. Adicione seu segredo a Key Vault no portal do Azure. Para definições de configuração aninhadas, substitua ': ' por '--' para que o nome do segredo de Key Vault seja válido. ': ' não pode estar no nome de um segredo de Key Vault.
 
     ![Adicionar Key Vault segredo](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
     > [!NOTE] 
-    > Antes do Visual Studio 2017 V 15.6, nós usamos para recomendar a instalação da extensão de autenticação dos serviços do Azure para Visual Studio. Mas ele é preterido agora, já que o funcionalidade está integrado no Visual Studio. Portanto, se você estiver em uma versão mais antiga do Visual Studio 2017, sugerimos que você atualize para pelo menos VS 2017 15,6 ou superior para que você possa usar essa funcionalidade nativamente e acessar o cofre de chaves usando a própria identidade de entrada do Visual Studio.
+    > Antes do Visual Studio 2017 V 15.6, nós usamos para recomendar a instalação da extensão de autenticação dos serviços do Azure para Visual Studio. Mas ele foi preterido agora, já que a funcionalidade está integrada no Visual Studio. Portanto, se você estiver em uma versão mais antiga do Visual Studio 2017, sugerimos que você atualize para pelo menos VS 2017 15,6 ou superior para que você possa usar essa funcionalidade nativamente e acessar o cofre de chaves usando a própria identidade de entrada do Visual Studio.
     >
  
 4. Adicione os seguintes pacotes NuGet ao seu projeto:
@@ -97,7 +97,7 @@ Se você estiver escrevendo um protótipo rápido e não quiser provisionar recu
 
 1. Instalar o pacote NuGet a seguir em seu projeto
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic
+    Microsoft.Configuration.ConfigurationBuilders.Base
     ```
 
 2. Crie um arquivo semelhante ao seguinte. Salve-o em um local fora da pasta do projeto.
@@ -123,7 +123,7 @@ Se você estiver escrevendo um protótipo rápido e não quiser provisionar recu
     </configBuilders>
     ```
 
-4. A seção especificar appSettings está usando o Configuration Builder do segredo. Verifique se há alguma entrada para a configuração secreta com um valor fictício.
+4. A seção especificar appSettings está usando o Configuration Builder do segredo. Verifique se há uma entrada para a configuração secreta com um valor fictício.
 
     ```xml
         <appSettings configBuilders="Secrets">

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/14/2016
+ms.date: 08/19/2019
 ms.author: genli
-ms.openlocfilehash: 6a848717e4796e0bb35cbcf045bb50fabf543c1b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 21122847c1b417b00cfe8c69b8324a2f73bf31ea
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617664"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641119"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solucionar problemas de uma VM Linux anexando o disco do sistema operacional a uma VM de recuperação usando o portal do Azure
 Se a VM (máquina virtual) do Linux encontrar um erro de disco ou de inicialização, talvez seja necessário executar as etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma entrada inválida no `/etc/fstab` que impede que a VM seja capaz de inicializar com êxito. Este artigo fornece detalhes sobre como usar o portal do Azure para conectar seu disco rígido virtual a outra VM Linux para corrigir erros e, em seguida, recriar a VM original.
@@ -27,7 +27,7 @@ Se a VM (máquina virtual) do Linux encontrar um erro de disco ou de inicializa�
 O processo de resolução de problemas é o seguinte:
 
 1. Pare a VM afetada.
-1. Crie um instantâneo para o disco do sistema operacional da VM.
+1. Tire um instantâneo do disco do sistema operacional da VM.
 1. Crie um disco rígido virtual a partir do instantâneo.
 1. Anexe e monte o disco rígido virtual em outra VM do Windows para fins de solução de problemas.
 1. Ligue à VM da resolução de problemas. Edite arquivos ou execute qualquer ferramenta para corrigir problemas no disco rígido virtual original.
@@ -176,19 +176,7 @@ Portal do Azure agora dá suporte à alteração do disco do sistema operacional
 1. Escolha o novo disco que você reparou e digite o nome da VM para confirmar a alteração. Se você não vir o disco na lista, aguarde 10 ~ 15 minutos depois de desanexar o disco da VM de solução de problemas. Verifique também se o disco está no mesmo local que a VM.
 1. Selecione OK.
 
-## <a name="re-enable-boot-diagnostics"></a>Reabilitar o diagnóstico de inicialização
-Quando você cria sua VM a partir do disco rígido virtual existente, o diagnóstico de inicialização pode não ser habilitado automaticamente. Para verificar o status do diagnóstico de inicialização e ativá-lo, se necessário, selecione sua VM no Portal. Em **monitoramento**, clique em **configurações de diagnóstico**. Verifique se o status está **ativado**e se a marca de seleção ao lado de **diagnóstico de inicialização** está selecionada. Se você fizer alterações, clique em **salvar**:
-
-![Atualizar configurações de diagnóstico de inicialização](./media/troubleshoot-recovery-disks-portal-linux/reenable-boot-diagnostics.png)
-
-## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Solucionar problemas de uma VM de disco gerenciado anexando um novo disco do sistema operacional
-1. Pare a VM afetada.
-2. [Crie um instantâneo](../windows/snapshot-copy-managed-disk.md) do disco gerenciado do disco do sistema operacional da VM do disco gerenciado.
-3. [Crie um disco gerenciado com base no instantâneo](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Anexe o disco gerenciado como um disco de dados da VM](../windows/attach-disk-ps.md).
-5. [Altere o disco de dados da etapa 4 para o disco do sistema operacional](../windows/os-disk-swap.md).
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Se você estiver tendo problemas para se conectar à sua VM, consulte [solucionar problemas de conexões SSH para uma VM do Azure](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Para problemas com o acesso a aplicativos em execução na sua VM, consulte [solucionar problemas de conectividade do aplicativo em uma VM do Linux](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para obter mais informações sobre como usar o Gerenciador de recursos, consulte [Azure Resource Manager visão geral](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

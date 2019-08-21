@@ -1,23 +1,25 @@
 ---
-title: Resolver erros comuns de implementação do Azure | Documentos da Microsoft
-description: Descreve como resolver erros comuns ao implementar recursos no Azure com o Azure Resource Manager.
+title: Solucionar erros comuns de implantação do Azure | Microsoft Docs
+description: Descreve como resolver erros comuns ao implantar recursos no Azure usando o Azure Resource Manager.
 tags: top-support-issue
 author: tfitzmac
-keywords: Erro de implementação, a implementação do azure, implementar no azure
+keywords: erro de implantação, implantação do Azure, implantar no Azure
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 02/15/2019
+ms.date: 07/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: fea7f77b1f4bcace23ad9164354c4f42e868869f
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 639f6b3b29b7effa12de79335d44b0193f3f9932
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206328"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638548"
 ---
-# <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver erros comuns de implementação do Azure com o Azure Resource Manager
+# <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solucionar erros comuns de implantação do Azure com o Azure Resource Manager
 
-Este artigo descreve alguns erros comuns de implementação do Azure e fornece informações para resolver os erros. Se não encontrar o código de erro para o erro de implementação, consulte [encontrar o código de erro](#find-error-code).
+Este artigo descreve alguns erros comuns de implantação do Azure e fornece informações para resolver os erros. Se você não encontrar o código de erro para o erro de implantação, consulte [Localizar código de erro](#find-error-code).
+
+Se você estiver procurando informações sobre um código de erro e se essas informações não forem fornecidas neste artigo, informe-nos. Na parte inferior desta página, você pode deixar comentários. Os comentários são acompanhados com problemas do GitHub. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -25,59 +27,59 @@ Este artigo descreve alguns erros comuns de implementação do Azure e fornece i
 
 | Código de erro | Mitigação | Mais informações |
 | ---------- | ---------- | ---------------- |
-| AccountNameInvalid | Siga as restrições de nomenclatura para contas de armazenamento. | [Resolver o nome de conta de armazenamento](resource-manager-storage-account-name-errors.md) |
-| AccountPropertyCannotBeSet | Verifique as propriedades da conta de armazenamento disponível. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | O cluster ou a região não tem recursos disponíveis ou não suporta o tamanho da VM pedida. Repita o pedido mais tarde, ou peça um tamanho VM diferente. | [Problemas de aprovisionamento e de alocação para Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [problemas de aprovisionamento e de alocação para Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) e [resolver problemas de falhas de alocação](../virtual-machines/troubleshooting/allocation-failure.md)|
-| AnotherOperationInProgress | Aguarde pela conclusão da operação em simultâneo. | |
-| AuthorizationFailed | Sua conta ou o principal de serviço não tem acesso suficiente para concluir a implementação. Verifique a sua conta pertencer a função e o acesso para o escopo da implantação.<br><br>Poderá receber este erro quando não estiver registado um fornecedor de recursos necessários. | [Controlo de acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver registo](resource-manager-register-provider-errors.md) |
-| BadRequest | Enviou valores de implementação que não correspondem o que é esperado pelo Resource Manager. Consulte a mensagem de estado interna para obter ajuda na resolução de problemas. | [Referência de modelo](/azure/templates/) e [suportado localizações](resource-group-authoring-templates.md#resource-location) |
-| Conflito | Está a pedir uma operação que não é permitida no estado atual do recurso. Por exemplo, o redimensionamento do disco é permitido apenas quando criar uma VM ou quando a VM é desalocada. | |
-| DeploymentActive | Aguarde até a implantação simultânea para este grupo de recursos para concluir. | |
-| DeploymentFailed | O erro de DeploymentFailed é um erro geral que não fornece os detalhes de que necessita para resolver o erro. Consultar os detalhes do erro para um código de erro que fornece mais informações. | [Encontrar o código de erro](#find-error-code) |
-| DeploymentQuotaExceeded | Se atingir o limite de 800 implementações por grupo de recursos, elimine as implementações do histórico de que já não são necessários. Pode eliminar as entradas do histórico com [eliminar a implementação do grupo az](/cli/azure/group/deployment#az-group-deployment-delete) para a CLI do Azure, ou [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) no PowerShell. Elimina uma entrada do histórico de implementação não afeta os recursos de implementar. | |
-| DnsRecordInUse | O nome do registo DNS tem de ser exclusivo. Forneça um nome diferente, ou modificar o registo existente. | |
-| ImageNotFound | Verifique as definições de imagem VM. |  |
-| InUseSubnetCannotBeDeleted | Poderá receber este erro ao tentar atualizar um recurso, mas a solicitação é processada através da eliminação e criar o recurso. Certifique-se de especificar todos os valores inalterados. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
-| InvalidAuthenticationTokenTenant | Obter token de acesso para o inquilino adequado. Só pode obter o token do inquilino que sua conta pertencer a. | |
-| InvalidContentLink | É muito provável que foi efetuada uma tentativa ligar a um modelo aninhado que não está disponível. Verifique novamente o URI fornecido para o modelo aninhado. Se o modelo existe numa conta de armazenamento, certifique-se de que o URI é acessível. Terá de passar um token SAS. | [Modelos ligados](resource-group-linked-templates.md) |
-| InvalidParameter | Um dos valores fornecidos para um recurso não corresponde ao valor esperado. Este erro pode resultar de várias condições diferentes. Por exemplo, uma palavra-passe pode ser insuficiente ou um nome de blob poderá estar incorreto. Verifique a mensagem de erro para determinar qual o valor tem de ser corrigido. | |
-| InvalidRequestContent | Os valores de implementação que incluem um valores que não são esperadas nem estão em falta necessário valores. Certifique-se os valores para o seu tipo de recurso. | [Referência de modelo](/azure/templates/) |
-| InvalidRequestFormat | Ativar o registo de depuração quando executar a implantação e verifique se o conteúdo do pedido. | [O registo de depuração](#enable-debug-logging) |
-| InvalidResourceNamespace | Verificar o espaço de nomes de recursos que especificou no **tipo** propriedade. | [Referência de modelo](/azure/templates/) |
-| InvalidResourceReference | O recurso ainda não existe ou incorretamente é referenciado. Verifique se tem de adicionar uma dependência. Certifique-se de que a utilização dos **referência** função inclui os parâmetros necessários para o seu cenário. | [Resolver dependências](resource-manager-not-found-errors.md) |
-| InvalidResourceType | Verifique o recurso de tipo que especificou no **tipo** propriedade. | [Referência de modelo](/azure/templates/) |
-| InvalidSubscriptionRegistrationState | Registe a sua subscrição com o fornecedor de recursos. | [Resolver registo](resource-manager-register-provider-errors.md) |
-| InvalidTemplate | Verifique a sintaxe do modelo de erros. | [Resolver modelo inválido](resource-manager-invalid-template-errors.md) |
+| AccountNameInvalid | Siga as restrições de nomenclatura para contas de armazenamento. | [Resolver o nome da conta de armazenamento](resource-manager-storage-account-name-errors.md) |
+| AccountPropertyCannotBeSet | Verifique as propriedades da conta de armazenamento disponíveis. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| AllocationFailed | O cluster ou a região não tem recursos disponíveis ou não dá suporte ao tamanho de VM solicitado. Repita a solicitação mais tarde ou solicite um tamanho de VM diferente. | [Problemas de provisionamento e alocação para Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [problemas de provisionamento e alocação para o Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) e solucionar problemas de falhas de [alocação](../virtual-machines/troubleshooting/allocation-failure.md)|
+| AnotherOperationInProgress | Aguarde a conclusão da operação simultânea. | |
+| AuthorizationFailed | Sua conta ou entidade de serviço não tem acesso suficiente para concluir a implantação. Verifique a função à qual sua conta pertence e seu acesso para o escopo de implantação.<br><br>Você pode receber esse erro quando um provedor de recursos necessário não está registrado. | [Controle de acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver registro](resource-manager-register-provider-errors.md) |
+| BadRequest | Você enviou valores de implantação que não correspondem ao que é esperado pelo Resource Manager. Verifique a mensagem de status interno para obter ajuda com a solução de problemas. | [Referência de modelo](/azure/templates/) e [locais com suporte](resource-group-authoring-templates.md#resource-location) |
+| Conflito | Você está solicitando uma operação que não é permitida no estado atual do recurso. Por exemplo, o redimensionamento de disco é permitido somente ao criar uma VM ou quando a VM é desalocada. | |
+| DeploymentActive | Aguarde a conclusão da implantação simultânea para este grupo de recursos. | |
+| DeploymentFailed | O erro DeploymentFailed é um erro geral que não fornece os detalhes necessários para resolver o erro. Examine os detalhes do erro para obter um código de erro que fornece mais informações. | [Localizar código de erro](#find-error-code) |
+| DeploymentQuotaExceeded | Se você atingir o limite de 800 implantações por grupo de recursos, exclua as implantações do histórico que não são mais necessárias. Você pode excluir entradas do histórico com [AZ Group Deployment Delete](/cli/azure/group/deployment#az-group-deployment-delete) para CLI do Azure ou [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) no PowerShell. A exclusão de uma entrada do histórico de implantação não afeta os recursos de implantação. | |
+| DnsRecordInUse | O nome do registro DNS deve ser exclusivo. Insira um nome diferente. | |
+| ImageNotFound | Verifique as configurações de imagem da VM. |  |
+| InUseSubnetCannotBeDeleted | Você pode receber esse erro ao tentar atualizar um recurso, e a solicitação é processada excluindo e criando o recurso. Certifique-se de especificar todos os valores inalterados. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| InvalidAuthenticationTokenTenant | Obtenha o token de acesso para o locatário apropriado. Você só pode obter o token do locatário ao qual sua conta pertence. | |
+| InvalidContentLink | Provavelmente, você tentou vincular a um modelo aninhado que não está disponível. Verifique novamente o URI que você forneceu para o modelo aninhado. Se o modelo existir em uma conta de armazenamento, verifique se o URI está acessível. Talvez seja necessário passar um token SAS. | [Modelos vinculados](resource-group-linked-templates.md) |
+| InvalidParameter | Um dos valores que você forneceu para um recurso não corresponde ao valor esperado. Esse erro pode resultar de muitas condições diferentes. Por exemplo, uma senha pode ser insuficiente ou um nome de blob pode estar incorreto. A mensagem de erro deve indicar qual valor precisa ser corrigido. | |
+| InvalidRequestContent | Os valores de implantação incluem valores que não são reconhecidos ou valores necessários estão ausentes. Confirme os valores para o tipo de recurso. | [Referência de modelo](/azure/templates/) |
+| InvalidRequestFormat | Habilite o log de depuração ao executar a implantação e verifique o conteúdo da solicitação. | [Log de depuração](#enable-debug-logging) |
+| InvalidResourceNamespace | Verifique o namespace de recurso que você especificou na propriedade **Type** . | [Referência de modelo](/azure/templates/) |
+| InvalidResourceReference | O recurso ainda não existe ou é referenciado incorretamente. Verifique se você precisa adicionar uma dependência. Verifique se o uso da função de **referência** inclui os parâmetros necessários para seu cenário. | [Resolver dependências](resource-manager-not-found-errors.md) |
+| InvalidResourceType | Verifique o tipo de recurso especificado na propriedade **Type** . | [Referência de modelo](/azure/templates/) |
+| InvalidSubscriptionRegistrationState | Registre sua assinatura com o provedor de recursos. | [Resolver registro](resource-manager-register-provider-errors.md) |
+| InvalidTemplate | Verifique se há erros na sintaxe do modelo. | [Resolver modelo inválido](resource-manager-invalid-template-errors.md) |
 | InvalidTemplateCircularDependency | Remova dependências desnecessárias. | [Resolver dependências circulares](resource-manager-invalid-template-errors.md#circular-dependency) |
-| LinkedAuthorizationFailed | Verifique se a sua conta pertencer ao mesmo inquilino, como o grupo de recursos que está a implementar. | |
-| LinkedInvalidPropertyId | O ID de recurso para um recurso não está a resolver corretamente. Verifique que forneça valores tudo necessários para o ID de recurso, incluindo o ID de subscrição, o nome do grupo de recursos, o tipo de recurso, o nome do recurso pai (se necessário) e o nome do recurso. | |
-| LocationRequired | Forneça uma localização para o seu recurso. | [Definir localização](resource-group-authoring-templates.md#resource-location) |
-| MismatchingResourceSegments | Certifique-se de que aninhada recurso tem o número correto de segmentos no nome e tipo. | [Resolver os segmentos de recursos](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
-| MissingRegistrationForLocation | Verifique o estado de registo do fornecedor de recursos e localizações suportadas. | [Resolver registo](resource-manager-register-provider-errors.md) |
-| MissingSubscriptionRegistration | Registe a sua subscrição com o fornecedor de recursos. | [Resolver registo](resource-manager-register-provider-errors.md) |
-| NoRegisteredProviderFound | Verifique o estado de registo do fornecedor de recursos. | [Resolver registo](resource-manager-register-provider-errors.md) |
-| NotFound | Pode tentar implementar um recurso dependente em paralelo com um recurso principal. Verifique se tem de adicionar uma dependência. | [Resolver dependências](resource-manager-not-found-errors.md) |
-| OperationNotAllowed | A implementação está a tentar uma operação que excede a quota para a subscrição, grupo de recursos ou região. Se possível, rever a sua implementação para se manterem dentro as quotas. Caso contrário, considere solicitar uma alteração às suas quotas. | [Resolver quotas](resource-manager-quota-errors.md) |
-| ParentResourceNotFound | Certifique-se de que existe um recurso de principal antes de criar o filho de recursos. | [Resolver o recurso principal](resource-manager-parent-resource-errors.md) |
-| PasswordTooLong | Poderá ter selecionado uma palavra-passe com demasiados carateres, ou pode ter convertido seu valor de palavra-passe para uma cadeia segura antes de passá-lo como um parâmetro. Se o modelo inclui uma **proteger a cadeia de caracteres** parâmetro, não é necessário converter o valor numa cadeia segura. Forneça o valor de palavra-passe como texto. |  |
-| PrivateIPAddressInReservedRange | O endereço IP especificado inclui um intervalo de endereços necessário pelo Azure. Alterar o endereço IP para evitar o intervalo reservado. | [Endereços IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
-| PrivateIPAddressNotInSubnet | O endereço IP especificado está fora do intervalo de sub-rede. Alterar o endereço IP para coincidir com o intervalo de sub-rede. | [Endereços IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
-| PropertyChangeNotAllowed | Algumas propriedades não podem ser alteradas num recurso implementado. Ao atualizar um recurso, limite as alterações às propriedades permitidas. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
-| RequestDisallowedByPolicy | A sua subscrição inclui uma política de recurso que impede uma ação que está a tentar efetuar durante a implementação. Localize a política que impede a ação. Se possível, modifique a implementação de acordo com as limitações da política. | [Resolver políticas](resource-manager-policy-requestdisallowedbypolicy-error.md) |
-| ReservedResourceName | Forneça um nome de recurso que não inclui um nome reservado. | [Nomes de recursos reservados](resource-manager-reserved-resource-name.md) |
-| ResourceGroupBeingDeleted | Aguarde pela eliminação concluir. | |
-| ResourceGroupNotFound | Verifique o nome do grupo de recursos de destino para a implementação. Já devem existir na sua subscrição. Verifique o contexto de subscrição. | [CLI do Azure](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
-| ResourceNotFound | A implementação faz referência a um recurso que não pode ser resolvido. Certifique-se de que a utilização dos **referência** função inclui os parâmetros necessários para o seu cenário. | [Solucionar referências](resource-manager-not-found-errors.md) |
-| ResourceQuotaExceeded | A implementação está a tentar criar recursos excederem a quota para a subscrição, grupo de recursos ou região. Se possível, rever a sua infraestrutura para se manterem dentro as quotas. Caso contrário, considere solicitar uma alteração às suas quotas. | [Resolver quotas](resource-manager-quota-errors.md) |
-| SkuNotAvailable | Selecione o SKU (por exemplo, o tamanho da VM) que está disponível para a localização que selecionou. | [Resolver SKU](resource-manager-sku-not-available-errors.md) |
-| StorageAccountAlreadyExists | Indique um nome único para a conta de armazenamento. | [Resolver o nome de conta de armazenamento](resource-manager-storage-account-name-errors.md)  |
-| StorageAccountAlreadyTaken | Indique um nome único para a conta de armazenamento. | [Resolver o nome de conta de armazenamento](resource-manager-storage-account-name-errors.md) |
-| StorageAccountNotFound | Verifique a subscrição, o grupo de recursos e o nome da conta de armazenamento que está a tentar utilizar. | |
-| SubnetsNotInSameVnet | Uma máquina virtual só pode ter uma rede virtual. Ao implementar várias NICs, certifique-se de que pertencem à mesma rede virtual. | [Vários NICs](../virtual-machines/windows/multiple-nics.md) |
+| LinkedAuthorizationFailed | Verifique se sua conta pertence ao mesmo locatário que o grupo de recursos no qual você está implantando. | |
+| LinkedInvalidPropertyId | A ID de recurso de um recurso não está resolvendo corretamente. Verifique se você forneceu todos os valores necessários para a ID do recurso, incluindo a ID da assinatura, o nome do grupo de recursos, o tipo de recurso, o nome do recurso pai (se necessário) e o nome do recurso. | |
+| LocationRequired | Forneça um local para o recurso. | [Definir localização](resource-group-authoring-templates.md#resource-location) |
+| MismatchingResourceSegments | Verifique se o recurso aninhado tem o número correto de segmentos em nome e tipo. | [Resolver segmentos de recursos](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
+| MissingRegistrationForLocation | Verifique o status de registro do provedor de recursos e os locais com suporte. | [Resolver registro](resource-manager-register-provider-errors.md) |
+| MissingSubscriptionRegistration | Registre sua assinatura com o provedor de recursos. | [Resolver registro](resource-manager-register-provider-errors.md) |
+| NoRegisteredProviderFound | Verifique o status de registro do provedor de recursos. | [Resolver registro](resource-manager-register-provider-errors.md) |
+| NãoLocalizado | Você pode estar tentando implantar um recurso dependente em paralelo com um recurso pai. Verifique se você precisa adicionar uma dependência. | [Resolver dependências](resource-manager-not-found-errors.md) |
+| OperationNotAllowed | A implantação está tentando uma operação que excede a cota para a assinatura, o grupo de recursos ou a região. Se possível, revise sua implantação para permanecer dentro das cotas. Caso contrário, considere solicitar uma alteração em suas cotas. | [Resolver cotas](resource-manager-quota-errors.md) |
+| ParentResourceNotFound | Verifique se existe um recurso pai antes de criar os recursos filho. | [Resolver recurso pai](resource-manager-parent-resource-errors.md) |
+| PasswordTooLong | Você pode ter selecionado uma senha com muitos caracteres ou convertido o valor da senha em uma cadeia de caracteres segura antes de passá-lo como um parâmetro. Se o modelo incluir um parâmetro de **cadeia de caracteres segura** , você não precisará converter o valor em uma cadeia de caracteres segura. Forneça o valor da senha como texto. |  |
+| PrivateIPAddressInReservedRange | O endereço IP especificado inclui um intervalo de endereços exigido pelo Azure. Altere o endereço IP para evitar o intervalo reservado. | [Endereços IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
+| PrivateIPAddressNotInSubnet | O endereço IP especificado está fora do intervalo de sub-rede. Altere o endereço IP para ficar dentro do intervalo de sub-rede. | [Endereços IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
+| PropertyChangeNotAllowed | Algumas propriedades não podem ser alteradas em um recurso implantado. Ao atualizar um recurso, limite as alterações às propriedades permitidas. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| RequestDisallowedByPolicy | Sua assinatura inclui uma política de recursos que impede uma ação que você está tentando executar durante a implantação. Localize a política que bloqueia a ação. Se possível, altere a implantação para atender às limitações da política. | [Resolver políticas](resource-manager-policy-requestdisallowedbypolicy-error.md) |
+| ReservedResourceName | Forneça um nome de recurso que não inclua um nome reservado. | [Nomes de recursos reservados](resource-manager-reserved-resource-name.md) |
+| ResourceGroupBeingDeleted | Aguarde a conclusão da exclusão. | |
+| ResourceGroupNotFound | Verifique o nome do grupo de recursos de destino para a implantação. O grupo de recursos de destino já deve existir em sua assinatura. Verifique seu contexto de assinatura. | [CLI do Azure](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
+| ResourceNotFound | Sua implantação faz referência a um recurso que não pode ser resolvido. Verifique se o uso da função de **referência** inclui os parâmetros necessários para seu cenário. | [Resolver referências](resource-manager-not-found-errors.md) |
+| ResourceQuotaExceeded | A implantação está tentando criar recursos que excedem a cota para a assinatura, o grupo de recursos ou a região. Se possível, revise sua infraestrutura para permanecer dentro das cotas. Caso contrário, considere solicitar uma alteração em suas cotas. | [Resolver cotas](resource-manager-quota-errors.md) |
+| SkuNotAvailable | Selecione SKU (como o tamanho da VM) que está disponível para o local que você selecionou. | [Resolver SKU](resource-manager-sku-not-available-errors.md) |
+| StorageAccountAlreadyExists | Indique um nome único para a conta de armazenamento. | [Resolver o nome da conta de armazenamento](resource-manager-storage-account-name-errors.md)  |
+| StorageAccountAlreadyTaken | Indique um nome único para a conta de armazenamento. | [Resolver o nome da conta de armazenamento](resource-manager-storage-account-name-errors.md) |
+| StorageAccountNotFound | Verifique a assinatura, o grupo de recursos e o nome da conta de armazenamento que você está tentando usar. | |
+| SubnetsNotInSameVnet | Uma máquina virtual só pode ter uma rede virtual. Ao implantar várias NICs, verifique se elas pertencem à mesma rede virtual. | [Várias NICs](../virtual-machines/windows/multiple-nics.md) |
 | TemplateResourceCircularDependency | Remova dependências desnecessárias. | [Resolver dependências circulares](resource-manager-invalid-template-errors.md#circular-dependency) |
-| TooManyTargetResourceGroups | Reduza o número de grupos de recursos para uma implementação única. | [Implementação entre grupos de recursos](resource-manager-cross-resource-group-deployment.md) |
+| TooManyTargetResourceGroups | Reduza o número de grupos de recursos para uma única implantação. | [Implementação entre grupos de recursos](resource-manager-cross-resource-group-deployment.md) |
 
-## <a name="find-error-code"></a>Encontrar o código de erro
+## <a name="find-error-code"></a>Localizar código de erro
 
 Existem dois tipos de erros que pode receber:
 
@@ -88,17 +90,17 @@ Os erros de validação resultam de cenários que podem ser determinados antes d
 
 Ambos os tipos de erros devolvem um código de erro que deverá utilizar para resolver os problemas da implementação. Ambos os tipos de erros são apresentados no [registo de atividades](resource-group-audit.md). No entanto, os erros de validação não aparecem no histórico de implementação porque a implementação não chegou a ser iniciada.
 
-### <a name="validation-errors"></a>erros de validação
+### <a name="validation-errors"></a>Erros de validação
 
 Ao implementar através do portal, será apresentado um erro de validação depois de submeter os valores.
 
-![Mostrar Erro de validação de portal](./media/resource-manager-common-deployment-errors/validation-error.png)
+![Mostrar erro de validação do portal](./media/resource-manager-common-deployment-errors/validation-error.png)
 
-Selecione a mensagem para obter mais detalhes. Na imagem seguinte, verá uma **InvalidTemplateDeployment** erro e uma mensagem que indica uma política de implementação está bloqueado.
+Selecione a mensagem para obter mais detalhes. Na imagem a seguir, você verá um erro **InvalidTemplateDeployment** e uma mensagem que indica uma implantação bloqueada pela política.
 
-![Mostrar detalhes de validação](./media/resource-manager-common-deployment-errors/validation-details.png)
+![Mostrar detalhes da validação](./media/resource-manager-common-deployment-errors/validation-details.png)
 
-### <a name="deployment-errors"></a>erros de implementação
+### <a name="deployment-errors"></a>Erros de implantação
 
 Quando a operação passa na validação, mas falha durante a implementação, recebe um erro de implementação.
 
@@ -116,23 +118,23 @@ az group deployment operation list --name exampledeployment -g examplegroup --qu
 
 No portal, selecione a notificação.
 
-![Erro de notificação](./media/resource-manager-common-deployment-errors/notification.png)
+![erro de notificação](./media/resource-manager-common-deployment-errors/notification.png)
 
-Pode ver mais detalhes sobre a implementação. Selecione a opção para obter mais informações acerca do erro.
+Você verá mais detalhes sobre a implantação. Selecione a opção para obter mais informações acerca do erro.
 
-![Falha na implementação](./media/resource-manager-common-deployment-errors/deployment-failed.png)
+![falha na implantação](./media/resource-manager-common-deployment-errors/deployment-failed.png)
 
 Vê a mensagem de erro e os códigos de erro. Observe que existem dois códigos de erro. O primeiro código de erro (**DeploymentFailed**) é um erro geral que não fornece os detalhes necessários para resolver o erro. O segundo código de erro (**StorageAccountNotFound**) fornece os detalhes necessários. 
 
-![Detalhes do erro](./media/resource-manager-common-deployment-errors/error-details.png)
+![detalhes do erro](./media/resource-manager-common-deployment-errors/error-details.png)
 
 ## <a name="enable-debug-logging"></a>Ativar o registo de depuração
 
-Às vezes precisa obter mais informações sobre o pedido e resposta para saber o que correu mal. Durante a implementação, pode solicitar que informações adicionais são registadas durante uma implantação. 
+Às vezes, você precisa de mais informações sobre a solicitação e a resposta para saber o que deu errado. Durante a implantação, você pode solicitar que informações adicionais sejam registradas durante uma implantação. 
 
 ### <a name="powershell"></a>PowerShell
 
-No PowerShell, definir o **DeploymentDebugLogLevel** RequestContent, obsah ResponseContent ou parâmetro para todos.
+No PowerShell, defina o parâmetro **DeploymentDebugLogLevel** como All, ResponseContent ou RequestContent.
 
 ```powershell
 New-AzResourceGroupDeployment `
@@ -142,7 +144,7 @@ New-AzResourceGroupDeployment `
   -DeploymentDebugLogLevel All
 ```
 
-Examine o pedido de conteúdo com o seguinte cmdlet:
+Examine o conteúdo da solicitação com o seguinte cmdlet:
 
 ```powershell
 (Get-AzResourceGroupDeploymentOperation `
@@ -151,7 +153,7 @@ Examine o pedido de conteúdo com o seguinte cmdlet:
 | ConvertTo-Json
 ```
 
-Em alternativa, a resposta de conteúdo com:
+Ou o conteúdo da resposta com:
 
 ```powershell
 (Get-AzResourceGroupDeploymentOperation `
@@ -160,13 +162,13 @@ Em alternativa, a resposta de conteúdo com:
 | ConvertTo-Json
 ```
 
-Estas informações podem ajudar a determinar se um valor no modelo que está a ser incorretamente definido.
+Essas informações podem ajudá-lo a determinar se um valor no modelo está sendo definido incorretamente.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Atualmente, a CLI do Azure não suporta a ativar o registo de depuração, mas pode recuperar o registo de depuração.
+Atualmente, CLI do Azure não dá suporte à ativação do log de depuração, mas você pode recuperar o log de depuração.
 
-Examine as operações de implementação com o seguinte comando:
+Examine as operações de implantação com o seguinte comando:
 
 ```azurecli
 az group deployment operation list \
@@ -174,7 +176,7 @@ az group deployment operation list \
   --name exampledeployment
 ```
 
-Examine o pedido de conteúdo com o seguinte comando:
+Examine o conteúdo da solicitação com o seguinte comando:
 
 ```azurecli
 az group deployment operation list \
@@ -183,7 +185,7 @@ az group deployment operation list \
   --query [].properties.request
 ```
 
-Examine a resposta de conteúdo com o seguinte comando:
+Examine o conteúdo da resposta com o seguinte comando:
 
 ```azurecli
 az group deployment operation list \
@@ -194,7 +196,7 @@ az group deployment operation list \
 
 ### <a name="nested-template"></a>Modelo aninhado
 
-Para registar informações de depuração para um modelo aninhado, utilize o **debugSetting** elemento.
+Para registrar informações de depuração para um modelo aninhado, use o elemento **debugSetting** .
 
 ```json
 {
@@ -216,7 +218,7 @@ Para registar informações de depuração para um modelo aninhado, utilize o **
 
 ## <a name="create-a-troubleshooting-template"></a>Criar um modelo de solução de problemas
 
-Em alguns casos, a maneira mais fácil de resolver problemas relacionados com o modelo é testar partes dele. Pode criar um simplificada modelo permite-lhe concentrar-se na parte que ache que está causando o erro. Por exemplo, suponha que está a receber um erro ao fazer referência um recurso. Em vez de lidar com um modelo completo, crie um modelo que devolve a parte que possam estar causando o problema. Ele pode ajudar a determinar se está passando nos parâmetros do direito, usando as funções de modelo corretamente, e obter o recurso esperado.
+Em alguns casos, a maneira mais fácil de solucionar problemas de seu modelo é testar partes dele. Você pode criar um modelo simplificado que permite que você se concentre na parte que acredita que está causando o erro. Por exemplo, suponha que você esteja recebendo um erro ao fazer referência a um recurso. Em vez de lidar com um modelo inteiro, crie um modelo que retorne a parte que pode estar causando o problema. Ele pode ajudá-lo a determinar se você está passando os parâmetros corretos, usando funções de modelo corretamente e obtendo o recurso esperado.
 
 ```json
 {
@@ -241,11 +243,11 @@ Em alguns casos, a maneira mais fácil de resolver problemas relacionados com o 
 }
 ```
 
-Ou, suponha que tiver com erros de implementação que ache que estão relacionadas com as dependências de definir incorretamente. O modelo de teste ao dividi-lo nos modelos de simplificada. Primeiro, crie um modelo que implementa apenas um único recurso (como um SQL Server). Quando tiver a certeza de que tem esse recurso definido corretamente, adicione um recurso que depende da mesma (como uma base de dados SQL). Quando tem esses dois recursos definidos corretamente, adicione outros recursos dependentes (como políticas de auditoria). Entre cada implementação de teste, elimine o grupo de recursos para se certificar de que teste adequado das dependências.
+Ou, suponha que você esteja encontrando erros de implantação que você acredite que estão relacionados a dependências definidas incorretamente. Teste seu modelo dividindo-o em modelos simplificados. Primeiro, crie um modelo que implanta apenas um único recurso (como um SQL Server). Quando você tiver certeza de que esse recurso está definido corretamente, adicione um recurso que dependa dele (como um banco de dados SQL). Quando você tiver esses dois recursos definidos corretamente, adicione outros recursos dependentes (como políticas de auditoria). Entre cada implantação de teste, exclua o grupo de recursos para verificar se você está testando as dependências adequadamente.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para seguir um tutorial de resolução de problemas, consulte [Tutorial: Resolver problemas de implementações de modelo do Resource Manager](./resource-manager-tutorial-troubleshoot.md)
-* Para saber mais sobre a auditoria de ações, veja [auditar operações com o Resource Manager](resource-group-audit.md).
-* Para saber mais sobre as ações para determinar os erros durante a implementação, veja [ver as operações de implementação](resource-manager-deployment-operations.md).
+* Para passar por um tutorial de solução de problemas [, consulte Tutorial: Solucionar problemas de implantações de modelo do Resource Manager](./resource-manager-tutorial-troubleshoot.md)
+* Para saber mais sobre ações de auditoria, consulte [operações de auditoria com o Gerenciador de recursos](resource-group-audit.md).
+* Para saber mais sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](resource-manager-deployment-operations.md).

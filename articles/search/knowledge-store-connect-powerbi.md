@@ -5,16 +5,15 @@ author: heidisteen
 services: search
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: heidist
-ms.openlocfilehash: 518a96ae8ace5c9630d594fe70487635b6ec1d2c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1c7f297092760f2a92f524347a3c1a5e353d0965
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840836"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635557"
 ---
 # <a name="create-an-azure-search-knowledge-store-and-connect-using-power-bi"></a>Criar um Azure Search repositório de conhecimento e conectar-se usando Power BI
 
@@ -178,7 +177,7 @@ Na etapa de enriquecimento do assistente, anexe um recurso de serviços de [cogn
 
   ![Criar um recurso de serviços cognitivas](media/knowledge-store-howto-powerbi/create-cognitive-service.png "Criar um recurso de serviços cognitivas")
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você quiser repetir este exercício ou fazer outro passo a passos de reutilização de AI, exclua o indexador *Hotel-Reviews-IDX* que você acabou de criar. A exclusão do indexador redefine o contador de transação diária gratuito de volta para zero. 
 

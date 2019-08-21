@@ -11,28 +11,30 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 5e9972c5fea7aaa2e6b5270aff87343437b1963e
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
-ms.translationtype: MT
+ms.openlocfilehash: b792c0fc5d02a84d45b47ac68e0058144f31e673
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624016"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641002"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL de instância gerenciada do banco de dados SQL do Azure de SQL Server
+# <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
-Este artigo resume e explica as diferenças na sintaxe e no comportamento entre a instância gerenciada do banco de dados SQL do Azure e o SQL Server local Mecanismo de Banco de Dados. Os seguintes assuntos são discutidos:<a name="Differences"></a>
+Este artigo resume e explica as diferenças na sintaxe e no comportamento entre a instância gerenciada do banco de dados SQL do Azure e o SQL Server local Mecanismo de Banco de Dados. A opção de implantação de instância gerenciada fornece alta compatibilidade com o SQL Server local Mecanismo de Banco de Dados. A maioria dos recursos do mecanismo de banco de dados SQL Server tem suporte em uma instância gerenciada.
+
+![Migração](./media/sql-database-managed-instance/migration.png)
+
+Há algumas limitações de PaaS que são introduzidas em Instância Gerenciada e algumas alterações de comportamento em comparação com SQL Server. As diferenças são divididas nas seguintes categorias:<a name="Differences"></a>
 
 - A [disponibilidade](#availability) inclui as diferenças em [Always on](#always-on-availability) e [backups](#backup).
 - A [segurança](#security) inclui as diferenças de [auditoria](#auditing), [certificados](#certificates), [credenciais](#credential), [provedores criptográficos](#cryptographic-providers), logons [e usuários](#logins-and-users)e a [chave de serviço e a chave mestra de serviço](#service-key-and-service-master-key).
 - A [configuração](#configuration) inclui as diferenças na [extensão do pool](#buffer-pool-extension)de buffers, [agrupamento](#collation), [níveis de compatibilidade](#compatibility-levels), espelhamento de [banco de dados](#database-mirroring), opções de [banco de dados](#database-options), [SQL Server Agent](#sql-server-agent)e [Opções de tabela](#tables).
 - As [funcionalidades](#functionalities) incluem [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [transações distribuídas](#distributed-transactions), [eventos estendidos](#extended-events), [bibliotecas externas](#external-libraries), [FileStream e filetable](#filestream-and-filetable), [texto completo Pesquisa semântica](#full-text-semantic-search), [servidores vinculados](#linked-servers), [polybase](#polybase), [replicação](#replication), [restauração](#restore-statement), [Service Broker](#service-broker), [procedimentos armazenados, funções e gatilhos](#stored-procedures-functions-and-triggers).
 - [Configurações de ambiente](#Environment) , como VNets e configurações de sub-rede.
-- [Recursos que têm comportamento diferente em instâncias gerenciadas](#Changes).
-- [Limitações temporárias e problemas conhecidos](#Issues).
 
-A opção de implantação de instância gerenciada fornece alta compatibilidade com o SQL Server local Mecanismo de Banco de Dados. A maioria dos recursos do mecanismo de banco de dados SQL Server tem suporte em uma instância gerenciada.
+A maioria desses recursos são restrições de arquitetura e representam recursos de serviço.
 
-![Migração](./media/sql-database-managed-instance/migration.png)
+Esta página também explica os [problemas temporários conhecidos](#Issues) que são descobertos na instância gerenciada, que serão resolvidos no futuro.
 
 ## <a name="availability"></a>Disponibilidade
 
@@ -499,6 +501,18 @@ Não há suporte para o Service Broker de instância cruzada:
 - `Extended stored procedures`Não tem suporte, que `sp_addextendedproc`inclui `sp_dropextendedproc`  e. Consulte [procedimentos armazenados estendidos](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db` e`sp_detach_db` não têm suporte. Consulte [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql)e [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
+### <a name="system-functions-and-variables"></a>Funções e variáveis do sistema
+
+As seguintes variáveis, funções e exibições retornam resultados diferentes:
+
+- `SERVERPROPERTY('EngineEdition')`Retorna o valor 8. Essa propriedade identifica exclusivamente uma instância gerenciada. Consulte [ServerProperty](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')`Retorna NULL porque o conceito de instância existente para SQL Server não se aplica a uma instância gerenciada. Consulte [SERVERPROPERTY (' InstanceName ')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `@@SERVERNAME`Retorna um nome de DNS "conectável" completo, por exemplo, my-managed-instance.wcus17662feb9ce98.database.windows.net. Consulte [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql). 
+- `SYS.SERVERS`Retorna um nome de DNS "conectável" completo, `myinstance.domain.database.windows.net` como para as propriedades "Name" e "data_source". Consulte [Sys. SERVIDORES](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
+- `@@SERVICENAME`Retorna NULL porque o conceito de serviço existente para SQL Server não se aplica a uma instância gerenciada. Consulte [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
+- `SUSER_ID`tem suporte. Retornará NULL se o logon do Azure AD não estiver em sys. syslogins. Consulte [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql). 
+- `SUSER_SID`Não tem suporte. Os dados errados são retornados, o que é um problema temporário conhecido. Consulte [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
+
 ## <a name="Environment"></a>Restrições de ambiente
 
 ### <a name="subnet"></a>Subnet
@@ -513,33 +527,25 @@ Não há suporte para o Service Broker de instância cruzada:
 - Depois que uma instância gerenciada é criada, não há suporte para a movimentação da instância gerenciada ou da VNet para outro grupo de recursos ou assinatura.
 - Alguns serviços, como ambientes de serviço de aplicativo, aplicativos lógicos e instâncias gerenciadas (usados para replicação geográfica, replicação transacional ou por meio de servidores vinculados) não podem acessar instâncias gerenciadas em regiões diferentes se seus VNets estiverem conectados usando [global emparelhamento](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Você pode se conectar a esses recursos via ExpressRoute ou VNet a VNet por meio de gateways de VNet.
 
-### <a name="tempdb-size"></a>Tamanho do TEMPDB
+### <a name="tempdb"></a>TEMPDB
 
 O tamanho máximo de arquivo `tempdb` de não pode ser maior que 24 GB por núcleo em uma camada de uso geral. O tamanho `tempdb` máximo em uma camada de comercialmente crítico é limitado pelo tamanho do armazenamento da instância. `Tempdb`o tamanho do arquivo de log é limitado a 120 GB em Uso Geral e Comercialmente Crítico camadas. Algumas consultas podem retornar um erro se precisarem de mais de 24 GB por núcleo `tempdb` no ou se produzirem mais de 120 GB de dados de log.
 
-## <a name="Changes"></a>Alterações de comportamento
+### <a name="error-logs"></a>Registos de erros
 
-As seguintes variáveis, funções e exibições retornam resultados diferentes:
+Uma instância gerenciada coloca informações detalhadas nos logs de erros. Há muitos eventos internos do sistema que são registrados no log de erros do. Use um procedimento personalizado para ler logs de erro que filtram algumas entradas irrelevantes. Para obter mais informações, consulte [instância gerenciada – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
-- `SERVERPROPERTY('EngineEdition')`Retorna o valor 8. Essa propriedade identifica exclusivamente uma instância gerenciada. Consulte [ServerProperty](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')`Retorna NULL porque o conceito de instância existente para SQL Server não se aplica a uma instância gerenciada. Consulte [SERVERPROPERTY (' InstanceName ')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `@@SERVERNAME`Retorna um nome de DNS "conectável" completo, por exemplo, my-managed-instance.wcus17662feb9ce98.database.windows.net. Consulte [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql). 
-- `SYS.SERVERS`Retorna um nome de DNS "conectável" completo, `myinstance.domain.database.windows.net` como para as propriedades "Name" e "data_source". Consulte [Sys. SERVIDORES](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME`Retorna NULL porque o conceito de serviço existente para SQL Server não se aplica a uma instância gerenciada. Consulte [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
-- `SUSER_ID`tem suporte. Retornará NULL se o logon do Azure AD não estiver em sys. syslogins. Consulte [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql). 
-- `SUSER_SID`Não tem suporte. Os dados errados são retornados, o que é um problema temporário conhecido. Consulte [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
+## <a name="Issues"></a>Problemas conhecidos
 
-## <a name="Issues"></a>Limitações e problemas conhecidos
-
-### <a name="cross-database-service-broker-dialogs-dont-work-after-service-tier-upgrade"></a>As caixas de diálogo de Service Broker entre bancos de dados não funcionam após a atualização da camada de serviço
+### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>As caixas de diálogo de Service Broker entre bancos de dados devem ser reinicializadas após a atualização da camada de serviço
 
 **Date** 2019 de agosto
 
-As caixas de diálogo de Service Broker entre bancos de dados falham ao entregar as mensagens após a operação de alteração da camada de serviço. Qualquer alteração de tamanho de armazenamento de instância ou vCores em instância gerenciada, `service_broke_guid` fará com que o valor na exibição [Sys.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) databases seja alterado para todos os bancos de dados. Qualquer `DIALOG` criado usando a instrução [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) que referencie os agentes de serviço em outro banco de dados por GUID, não será capaz de entregar mensagens.
+As caixas de diálogo de Service Broker de banco de dados cruzado deixarão de entregar as mensagens para os serviços em outros bancos de dados após a operação de alteração da camada de serviço. As mensagens **não são perdidas** e podem ser encontradas na fila do remetente. Qualquer alteração de tamanho de armazenamento de instância ou vCores em instância gerenciada, `service_broke_guid` fará com que o valor na exibição [Sys.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) databases seja alterado para todos os bancos de dados. Qualquer `DIALOG` criado usando a instrução [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) que referencie os agentes de serviço em outro banco de dados interromperá a entrega de mensagens de mensagens ao serviço de destino.
 
-**Resolução** Pare qualquer atividade que use conversas de caixa de diálogo Service Broker de banco de dados antes de atualizar a camada de serviço e reinicializá-la após.
+**Resolução** Pare qualquer atividade que use conversas de caixa de diálogo Service Broker de banco de dados antes de atualizar a camada de serviço e reinicializá-la após. Se houver mensagens restantes que não são entregues após a alteração da camada de serviço, leia as mensagens da fila de origem e reenvie-as para a fila de destino.
 
-### <a name="some-aad-login-types-cannot-be-impersonated"></a>Alguns tipos de logon do AAD não podem ser representados
+### <a name="impresonification-of-aad-login-types-is-not-supported"></a>Não há suporte para Impresonification de tipos de logon do AAD
 
 **Date** Julho de 2019
 
@@ -547,11 +553,19 @@ Não há `EXECUTE AS USER` suporte `EXECUTE AS LOGIN` para a representação usa
 -   Usuários com alias do AAD. O erro a seguir é retornado nesse caso `15517`.
 - Logons e usuários do AAD com base em aplicativos do AAD ou entidades de serviço. Os erros a seguir são retornados nesse caso `15517` e `15406`.
 
+### <a name="database-email"></a>Email do banco de dados 
+
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryparâmetro sem suporte em sp_send_db_mail
 
 **Date** Abril de 2019
 
 O `@query` parâmetro no procedimento [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) não funciona.
+
+### <a name="transactional-replication-must-be-reconfigured-after-geo-failover"></a>A replicação transacional deve ser reconfigurada após o failover geográfico
+
+**Date** Mar de 2019
+
+Se a replicação transacional estiver habilitada em um banco de dados em um grupo de failover automático, o administrador da instância gerenciada deverá limpar todas as publicações no antigo primário e reconfigurá-las no novo primário após a ocorrência de um failover para outra região. Consulte [replicação](#replication) para obter mais detalhes.
 
 ### <a name="aad-logins-and-users-are-not-supported-in-tools"></a>Não há suporte para logons e usuários do AAD em ferramentas
 
@@ -588,13 +602,7 @@ Várias exibições do sistema, contadores de desempenho, mensagens de erro, XEv
 
 ### <a name="error-logs-arent-persisted"></a>Os logs de erros não são persistentes
 
-Os logs de erros que estão disponíveis na instância gerenciada não são mantidos e seu tamanho não é incluído no limite máximo de armazenamento. Os logs de erros poderão ser apagados automaticamente se ocorrer um failover.
-
-### <a name="error-logs-are-verbose"></a>Logs de erros são detalhados
-
-Uma instância gerenciada coloca informações detalhadas nos logs de erros e grande parte dela não é relevante. 
-
-**Resolução** Use um procedimento personalizado para ler logs de erro que filtram algumas entradas irrelevantes. Para obter mais informações, consulte [instância gerenciada – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+Os logs de erros que estão disponíveis na instância gerenciada não são mantidos e seu tamanho não é incluído no limite máximo de armazenamento. Os logs de erros poderão ser apagados automaticamente se ocorrer um failover. Pode haver lacunas no histórico do log de erros porque Instância Gerenciada foi movido várias vezes em várias máquinas virtuais.
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>O escopo da transação em dois bancos de dados na mesma instância não tem suporte
 
@@ -633,7 +641,7 @@ Os módulos CLR colocados em uma instância gerenciada e servidores vinculados o
 
 **Resolução** Use conexões de contexto em um módulo CLR, se possível.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre instâncias gerenciadas, consulte [o que é uma instância gerenciada?](sql-database-managed-instance.md)
 - Para obter uma lista de recursos e comparação, consulte comparação de recursos [do banco de dados SQL do Azure](sql-database-features.md).

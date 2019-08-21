@@ -5,18 +5,17 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: ebff47360aa78a7774be50bcce8518f6e30ca073
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 8cf72ba2fff65cf3382344fd2851c9c6027676c2
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841057"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635872"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Habilidade cognitiva de análise de imagem
 

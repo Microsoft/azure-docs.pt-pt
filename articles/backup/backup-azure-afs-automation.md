@@ -5,15 +5,15 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/05/2018
+ms.date: 08/20/2019
 ms.author: dacurwin
 ms.reviewer: pullabhk
-ms.openlocfilehash: f933b926aa0e277976416ae1b3b2eb684d9fcc85
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
-ms.translationtype: MT
+ms.openlocfilehash: f736d7f1dde8f268033d7c80322b91543672e68f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955091"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638518"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Fazer backup e restaurar arquivos do Azure com o PowerShell
 
@@ -262,6 +262,12 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 ```
 
 Os instantâneos de compartilhamento de arquivos do Azure são usados enquanto os backups são feitos, geralmente o trabalho é concluído no momento em que o comando retorna essa saída.
+
+### <a name="using-on-demand-backups-to-extend-retention"></a>Usando backups sob demanda para estender a retenção
+
+Backups sob demanda podem ser usados para manter seus instantâneos por 10 anos. Os agendadores podem ser usados para executar scripts do PowerShell sob demanda com retenção escolhida e, portanto, tirar instantâneos em intervalos regulares a cada semana, mês ou ano. Ao fazer instantâneos regulares, consulte as [limitações de backups sob demanda](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share-) usando o backup do Azure.
+
+Se você estiver procurando scripts de exemplo, poderá consultar o script de exemplo no GitHub (https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) usando o runbook de automação do Azure que permite agendar backups periodicamente e mantê-los até 10 anos.
 
 ### <a name="modify-the-protection-policy"></a>Modificar a política de proteção
 

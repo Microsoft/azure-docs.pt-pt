@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c749f090cbb0aeb036a53a01e6cd516617c3186d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 77d5e4ace14fb0071b6e01a01edbad0128382303
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68953883"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639725"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gerenciar um plano do serviço de aplicativo no Azure
 
@@ -97,7 +97,7 @@ Você pode encontrar **clonar aplicativo** na seção **ferramentas de desenvolv
 
 ## <a name="scale-an-app-service-plan"></a>Dimensionar um plano do serviço de aplicativo
 
-Para escalar verticalmente o tipo de preço do plano do serviço de aplicativo, consulte [escalar verticalmente um aplicativo no Azure](web-sites-scale.md).
+Para escalar verticalmente o tipo de preço do plano do serviço de aplicativo, consulte [escalar verticalmente um aplicativo no Azure](manage-scale-up.md).
 
 Para escalar horizontalmente a contagem de instâncias de um aplicativo, consulte [dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
@@ -110,10 +110,10 @@ Para evitar encargos inesperados, quando você exclui o último aplicativo em um
 > [!IMPORTANT]
 > Os planos do serviço de aplicativo que não têm aplicativos associados a eles ainda incorrem em encargos porque continuam a reservar as instâncias de VM configuradas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Escalar verticalmente um aplicativo no Azure](web-sites-scale.md)
+> [Escalar verticalmente um aplicativo no Azure](manage-scale-up.md)
 
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png

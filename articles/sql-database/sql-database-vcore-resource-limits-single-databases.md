@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/14/2019
-ms.openlocfilehash: f69fc89fe5634c9467cf728c7ab5c4d8ac6c5c74
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 6a29d1e001d4c647d5b975b7e746eced29962ee4
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512309"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637252"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra baseado em vCore
 
@@ -35,7 +35,7 @@ Você pode definir a camada de serviço, o tamanho da computação e a quantidad
 ## <a name="general-purpose-service-tier-for-provisioned-compute"></a>Uso Geral camada de serviço para computação provisionada
 
 > [!IMPORTANT]
-> Novos bancos de dados Gen4 não têm mais suporte na região AustraliaEast.
+> Novos bancos de dados Gen4 não têm mais suporte nas regiões leste da Austrália ou sul do Brasil.
 
 ### <a name="gen4-compute-generation-part-1"></a>Geração de computação Gen4 (parte 1)
 
@@ -184,7 +184,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está em ver
 ## <a name="business-critical-service-tier-for-provisioned-compute"></a>Comercialmente Crítico camada de serviço para computação provisionada
 
 > [!IMPORTANT]
-> Novos bancos de dados Gen4 não têm mais suporte na região AustraliaEast.
+> Novos bancos de dados Gen4 não têm mais suporte nas regiões leste da Austrália ou sul do Brasil.
 
 ### <a name="gen4-compute-generation-part-1"></a>Geração de computação Gen4 (parte 1)
 

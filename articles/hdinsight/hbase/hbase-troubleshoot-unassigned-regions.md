@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/07/2019
-ms.openlocfilehash: e75f2fdd0530b92e8c8405b74c2a364ff9e9e28e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.date: 08/16/2019
+ms.openlocfilehash: 6e734a661557b024257fcd1b9d9c2da6a3bc8f85
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935435"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640232"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Problemas com servidores de região no Azure HDInsight
 
@@ -27,7 +27,7 @@ Ao executar `hbase hbck` o comando, você verá uma mensagem de erro semelhante 
 multiple regions being unassigned or holes in the chain of regions
 ```
 
-Na interface do usuário do Apache HBase Master, pode ser visto que a contagem de regiões que estão sendo desbalanceadas em todos os servidores de região.
+Na interface do usuário do Apache HBase Master, você pode ver o número de regiões desbalanceadas em todos os servidores de região. Em seguida, você pode `hbase hbck` executar o comando para ver os buracos na cadeia de região.
 
 ### <a name="cause"></a>Causa
 
@@ -39,13 +39,13 @@ Corrija as atribuições. Siga as etapas abaixo para colocar as regiões não at
 
 1. Entre no cluster HBase do HDInsight usando SSH.
 
-1. Execute `hbase zkcli` o comando para se conectar ao shell do Zookeeper.
+1. Execute `hbase zkcli` o comando para se conectar ao shell do ZooKeeper.
 
 1. Executar `rmr /hbase/regions-in-transition` ou`rmr /hbase-unsecure/regions-in-transition` comando.
 
 1. Saia do shell do Zookeeper `exit` usando o comando.
 
-1. Abra a interface do usuário do Ambari e reinicie o Active HBase Master Service do Ambari.
+1. Abra a interface do usuário do Apache Ambari e reinicie o serviço do Active HBase Master.
 
 1. Execute `hbase hbck` o comando novamente (sem nenhuma outra opção). Verifique a saída e verifique se todas as regiões estão sendo atribuídas.
 
@@ -61,7 +61,7 @@ Falha ao iniciar os servidores de região.
 
 Vários diretórios WAL de divisão.
 
-1. Obter lista de Wals atuais: `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`.
+1. Obter lista de WALs atuais: `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`.
 
 1. Inspecione o `wals.out` arquivo. Se houver muitos diretórios de divisão (começando com *-divisão), o servidor de região provavelmente falhará devido a esses diretórios.
 

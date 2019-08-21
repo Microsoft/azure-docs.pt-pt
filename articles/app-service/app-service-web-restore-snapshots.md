@@ -1,6 +1,6 @@
 ---
-title: Restaurar a partir de cópia de segurança - serviço de aplicações do Azure
-description: Saiba como restaurar a aplicação a partir de um instantâneo.
+title: Restaurar do serviço de Azure App de backup
+description: Saiba como restaurar seu aplicativo de um instantâneo.
 services: app-service
 documentationcenter: ''
 author: ahmedelnably
@@ -15,60 +15,60 @@ ms.date: 04/04/2018
 ms.author: aelnably
 ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: ed659e95289665b6ce63ba6961e9f63650b4accf
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 4b3b10177b119c9362f807206a915d4b0b367e16
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617548"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639757"
 ---
-# <a name="restore-an-app-in-azure-from-a-snapshot"></a>Restaurar uma aplicação no Azure a partir de um instantâneo
-Este artigo mostra como restaurar uma aplicação no [App Service do Azure](../app-service/overview.md) partir de um instantâneo. Pode restaurar a sua aplicação para um estado anterior, com base em um dos instantâneos da sua aplicação. Não é necessário ativar a cópia de segurança de instantâneos, a plataforma guarda automaticamente um instantâneo de todas as aplicações para fins de recuperação de dados.
+# <a name="restore-an-app-in-azure-from-a-snapshot"></a>Restaurar um aplicativo no Azure de um instantâneo
+Este artigo mostra como restaurar um aplicativo no [serviço Azure app](../app-service/overview.md) de um instantâneo. Você pode restaurar seu aplicativo para um estado anterior, com base em um dos instantâneos do seu aplicativo. Você não precisa habilitar o backup de instantâneos, a plataforma salva automaticamente um instantâneo de todos os aplicativos para fins de recuperação de dados.
 
-Os instantâneos são cópias de sombra de incremental e oferecem algumas vantagens em relação a regular [cópias de segurança](manage-backup.md):
-- Não existem erros de cópia de ficheiros devido a bloqueios de arquivo.
-- Sem limite de tamanho de armazenamento.
-- Nenhuma configuração necessária.
+[Os](manage-backup.md)instantâneos são cópias de sombra incrementais e oferecem várias vantagens em relação aos backups regulares:
+- Nenhum erro de cópia de arquivo devido a bloqueios de arquivo.
+- Nenhuma limitação de tamanho de armazenamento.
+- Nenhuma configuração é necessária.
 
-Restaurar a partir de instantâneos está disponível para aplicações em execução no **Premium** escalão ou superior. Para obter informações sobre como aumentar verticalmente a sua aplicação, consulte [aumentar verticalmente uma aplicação no Azure](web-sites-scale.md).
+A restauração a partir de instantâneos está disponível para aplicativos em execução na camada **Premium** ou superior. Para obter informações sobre como escalar verticalmente seu aplicativo, consulte [escalar verticalmente um aplicativo no Azure](manage-scale-up.md).
 
 ## <a name="limitations"></a>Limitações
 
-- A funcionalidade está atualmente em pré-visualização.
-- Só pode restaurar para a mesma aplicação ou para um bloco que pertencem a essa aplicação.
-- Serviço de aplicação para a aplicação de destino ou a ranhura de destino durante o processo de restauro.
-- Serviço de aplicações mantém três meses que vale a pena de instantâneos para fins de recuperação de dados de plataforma.
-- Só pode restaurar instantâneos para os últimos 30 dias.
-- Serviços de aplicações em execução num ambiente de serviço de aplicações não suportam instantâneos.
+- O recurso está atualmente em visualização.
+- Você só pode restaurar para o mesmo aplicativo ou para um slot que pertença a esse aplicativo.
+- O serviço de aplicativo interrompe o aplicativo de destino ou o slot de destino durante a restauração.
+- O serviço de aplicativo mantém três meses de instantâneos para fins de recuperação de dados da plataforma.
+- Você só pode restaurar instantâneos nos últimos 30 dias.
+- Os serviços de aplicativos em execução em um Ambiente do Serviço de Aplicativo não dão suporte a instantâneos.
  
 
-## <a name="restore-an-app-from-a-snapshot"></a>Restaurar uma aplicação a partir de um instantâneo
+## <a name="restore-an-app-from-a-snapshot"></a>Restaurar um aplicativo de um instantâneo
 
-1. Na **definições** página da sua aplicação no [portal do Azure](https://portal.azure.com), clique em **cópias de segurança** para exibir o **cópias de segurança** página. Em seguida, clique em **restaurar** sob a **Snapshot(Preview)** secção.
+1. Na página **configurações** do seu aplicativo no [portal do Azure](https://portal.azure.com), clique em **backups** para exibir a página **backups** . Em seguida, clique em **restaurar** na seção **instantâneo (visualização)** .
    
     ![](./media/app-service-web-restore-snapshots/1.png)
 
-2. Na **restaurar** , selecione o instantâneo para restaurar.
+2. Na página **restaurar** , selecione o instantâneo a ser restaurado.
    
     ![](./media/app-service-web-restore-snapshots/2.png)
    
-3. Especifique o destino para o restauro de aplicação no **destino de restauro**.
+3. Especifique o destino para a restauração do aplicativo no **destino da restauração**.
    
     ![](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
-   > Se escolher **substituir**, todos os dados existentes no sistema de ficheiros atual da sua aplicação são eliminados e substituídos. Antes de clicar em **OK**, certifique-se de que é o que deseja fazer.
+   > Se você escolher **substituir**, todos os dados existentes no sistema de arquivos atual do aplicativo serão apagados e substituídos. Antes de clicar em **OK**, verifique se é o que você deseja fazer.
    > 
    > 
       
    > [!Note]
-   > Devido a limitações técnicas atuais, apenas pode restaurar para aplicações na mesma unidade de escala. Esta limitação será removida numa versão futura.
+   > Devido às limitações técnicas atuais, você só pode restaurar para aplicativos na mesma unidade de escala. Essa limitação será removida em uma versão futura.
    > 
    > 
    
-    Pode selecionar **aplicação existente** para restaurar para um bloco. Antes de utilizar esta opção, deve já tiver criado um bloco na sua aplicação.
+    Você pode selecionar o **aplicativo existente** para restaurar em um slot. Antes de usar essa opção, você já deve ter criado um slot em seu aplicativo.
 
-4. Pode optar por restaurar a configuração do seu site.
+4. Você pode optar por restaurar a configuração do site.
    
     ![](./media/app-service-web-restore-snapshots/4.png)
 

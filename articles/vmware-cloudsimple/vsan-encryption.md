@@ -3,25 +3,25 @@ title: Solução do Azure VMware por CloudSimple-configurar a criptografia vSAN 
 description: Descreve como configurar o recurso de criptografia de software vSAN para que sua nuvem privada do CloudSimple possa trabalhar com um servidor de gerenciamento de chaves em execução em sua rede virtual do Azure.
 author: sharaths-cs
 ms.author: b-shsury
-ms.date: 08/15/2019
+ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a00cce852878d65ca08927d937f5a0f1f37c1b87
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 288a05fc09e0c59a01a8d4c9940c0d51cabdd28f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544477"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640951"
 ---
-# <a name="configure-vsan-encryption-for-your-cloudsimple-private-cloud"></a>Configurar a criptografia vSAN para sua nuvem privada do CloudSimple
+# <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>Configurar a criptografia vSAN para a nuvem privada do CloudSimple
 
 Você pode configurar o recurso de criptografia de software vSAN para que sua nuvem privada do CloudSimple possa trabalhar com um servidor de gerenciamento de chaves em execução em sua rede virtual do Azure.
 
-O VMware requer o uso de uma ferramenta KMS (servidor de gerenciamento de chaves) de terceiros compatível com KMIP 1,1 ao usar a criptografia vSAN. Você pode usar qualquer KMS com suporte que seja certificado pelo VMware e esteja disponível para o Azure.
+O VMware requer o uso de uma ferramenta KMS (servidor de gerenciamento de chaves) de terceiros compatível com KMIP 1,1 ao usar a criptografia vSAN. Você pode aproveitar qualquer KMS com suporte que seja certificado pelo VMware e que esteja disponível para o Azure. 
 
-Veja aqui como usar o HyTrust keycontrol KMS em execução em uma rede virtual do Azure. Uma abordagem semelhante pode ser usada para qualquer outra solução KMS certificada de terceiros para vSAN.
+Este guia descreve como usar o HyTrust keycontrol KMS em execução em uma rede virtual do Azure. Uma abordagem semelhante pode ser usada para qualquer outra solução KMS certificada de terceiros para vSAN.
 
 Essa solução KMS exige que você:
 
@@ -33,20 +33,20 @@ Essa solução KMS exige que você:
 
 O cluster de servidor KMS é executado em sua rede virtual do Azure e pode ser acessado por IP da nuvem privada vCenter sobre a conexão do Azure ExpressRoute configurada.
 
-![Cluster KMS na rede virtual do Azure](media/vsan-kms-cluster.png)
+![.. cluster/media/KMS na rede virtual do Azure](media/vsan-kms-cluster.png)
 
 ## <a name="how-to-deploy-the-solution"></a>Como implantar a solução
 
 O processo de implantação tem as seguintes etapas:
 
-1. [Verificar se os pré-requisitos foram atendidos](#verify-that-prerequisites-are-met)
+1. [Verificar se os pré-requisitos foram atendidos](#verify-prerequisites-are-met)
 2. [Portal do CloudSimple: Obter informações de emparelhamento do ExpressRoute](#cloudsimple-portal-obtain-expressroute-peering-information)
 3. [Portal do Azure: Conectar sua rede virtual à nuvem privada](#azure-portal-connect-your-virtual-network-to-your-private-cloud)
 4. [Portal do Azure: Implantar um cluster de keycontrol do HyTrust em sua rede virtual](#azure-portal-deploy-a-hytrust-keycontrol-cluster-in-the-azure-resource-manager-in-your-virtual-network)
 5. [HyTrust WebUI: Configurar o servidor KMIP](#hytrust-webui-configure-the-kmip-server)
 6. [interface do usuário do vCenter: Configurar a criptografia vSAN para usar o cluster KMS em sua rede virtual do Azure](#vcenter-ui-configure-vsan-encryption-to-use-kms-cluster-in-your-azure-virtual-network)
 
-### <a name="verify-that-prerequisites-are-met"></a>Verificar se os pré-requisitos foram atendidos
+### <a name="verify-prerequisites-are-met"></a>Verificar se os pré-requisitos foram atendidos
 
 Verifique o seguinte antes da implantação:
 
@@ -58,7 +58,7 @@ Verifique o seguinte antes da implantação:
 
 ### <a name="cloudsimple-portal-obtain-expressroute-peering-information"></a>Portal do CloudSimple: Obter informações de emparelhamento do ExpressRoute
 
-Para continuar a instalação, você precisa da chave de autorização e do URI do circuito par para o ExpressRoute mais acesso à sua assinatura do Azure. Essas informações estão disponíveis na página conexão de rede virtual no portal do CloudSimple. Para obter instruções, consulte [Configurar uma conexão de rede virtual para a nuvem privada](virtual-network-connection.md). Se você tiver problemas para obter as informações, abra uma <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">solicitação de suporte</a>.
+Para continuar a instalação, você precisa da chave de autorização e do URI do circuito par para o ExpressRoute mais acesso à sua assinatura do Azure. Essas informações estão disponíveis na página conexão de rede virtual no portal do CloudSimple. Para obter instruções, consulte [Configurar uma conexão de rede virtual para a nuvem privada](virtual-network-connection.md). Se você tiver problemas para obter as informações, abra uma [solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ### <a name="azure-portal-connect-your-virtual-network-to-your-private-cloud"></a>Portal do Azure: Conecte sua rede virtual à sua nuvem privada
 
@@ -67,30 +67,30 @@ Para continuar a instalação, você precisa da chave de autorização e do URI 
 3. Use as informações de circuito do ExpressRoute CloudSimple recebidas no seu email de boas-vindas do CloudSimple para vincular sua rede virtual ao circuito do CloudSimple ExpressRoute no Azure.
 4. Insira a chave de autorização e o URI do circuito de par, dê um nome à conexão e clique em **OK**.
 
-![Forneça o URI do circuito de par do CS ao criar a rede virtual](media/vsan-azureportal01.png)
+![Forneça o URI do circuito de par do CS ao criar a rede virtual](media/vsan-azureportal01.png) 
 
 ### <a name="azure-portal-deploy-a-hytrust-keycontrol-cluster-in-the-azure-resource-manager-in-your-virtual-network"></a>Portal do Azure: Implantar um cluster HyTrust keycontrol no Azure Resource Manager em sua rede virtual
 
-Para implantar um cluster de keycontrol do HyTrust no Azure Resource Manager em sua rede virtual, execute as seguintes tarefas. Consulte a <a href="https://docs.hytrust.com/DataControl/Admin_Guide-4.0/Default.htm#OLH-Files/Azure.htm%3FTocPath%3DHyTrust%2520DataControl%2520and%2520Microsoft%2520Azure%7C_____0" target="_blank">documentação do HyTrust</a> para obter detalhes.
+Para implantar um cluster de keycontrol do HyTrust no Azure Resource Manager em sua rede virtual, execute as seguintes tarefas. Consulte a [documentação do HyTrust](https://docs.hytrust.com/DataControl/Admin_Guide-4.0/Default.htm#OLH-Files/Azure.htm%3FTocPath%3DHyTrust%2520DataControl%2520and%2520Microsoft%2520Azure%7C_____0) para obter detalhes.
 
 1. Crie um grupo de segurança de rede do Azure (NSG-hytrust) com as regras de entrada especificadas seguindo as instruções na documentação do HyTrust.
 2. Gere um par de chaves SSH no Azure.
 3. Implante o nó de keycontrol inicial da imagem no Azure Marketplace.  Use a chave pública do par de chaves que foi gerada e selecione **NSG-hytrust** como o grupo de segurança de rede para o nó de controle de chave.
 4. Converta o endereço IP privado do keycontrol em um endereço IP estático.
 5. SSH para a VM de controle de chave usando seu endereço IP público e a chave privada do par de chaves mencionado anteriormente.
-6. Quando solicitado no shell ssh, selecione ```No``` para definir o nó como o nó de keycontrol inicial.
-7. Adicione nós de controle de informações adicionais repetindo as etapas 3-5 deste procedimento ```Yes``` e selecionando quando for solicitado a adicionar a um cluster existente.
+6. Quando solicitado no shell ssh, selecione `No` para definir o nó como o nó de keycontrol inicial.
+7. Adicione nós de controle de informações adicionais repetindo as etapas 3-5 deste procedimento `Yes` e selecionando quando for solicitado a adicionar a um cluster existente.
 
 ### <a name="hytrust-webui-configure-the-kmip-server"></a>HyTrust WebUI: Configurar o servidor KMIP
 
-Acesse https://*Public-IP*, em que *Public-IP* é o endereço IP público da VM do nó de keycontrol. Siga estas etapas da <a href="https://docs.hytrust.com/DataControl/Admin_Guide-4.0/Default.htm#OLH-Files/Azure.htm%3FTocPath%3DHyTrust%2520DataControl%2520and%2520Microsoft%2520Azure%7C_____0" target="_blank">documentação do HyTrust</a>.
+Acesse https://*Public-IP*, em que *Public-IP* é o endereço IP público da VM do nó de keycontrol. Siga estas etapas da [documentação do HyTrust](https://docs.hytrust.com/DataControl/Admin_Guide-4.0/Default.htm#OLH-Files/Azure.htm%3FTocPath%3DHyTrust%2520DataControl%2520and%2520Microsoft%2520Azure%7C_____0).
 
-1. <a href="https://docs.hytrust.com/DataControl/4.2/Admin_Guide-4.2/index.htm#Books/VMware-vSphere-VSAN-Encryption/configuring-kmip-server.htm%3FTocPath%3DHyTrust%2520KeyControl%2520with%2520VSAN%25C2%25A0and%2520VMware%2520vSphere%2520VM%2520Encryption%7C_____2" target="_blank">Configurando um servidor KMIP</a>
-2. <a href="https://docs.hytrust.com/DataControl/4.2/Admin_Guide-4.2/index.htm#Books/VMware-vSphere-VSAN-Encryption/creating-user-for-vmcrypt.htm%3FTocPath%3DHyTrust%2520KeyControl%2520with%2520VSAN%25C2%25A0and%2520VMware%2520vSphere%2520VM%2520Encryption%7C_____3" target="_blank">Criando um pacote de certificado para criptografia do VMware</a>
+1. [Configurando um servidor KMIP](https://docs.hytrust.com/DataControl/4.2/Admin_Guide-4.2/index.htm#Books/VMware-vSphere-VSAN-Encryption/configuring-kmip-server.htm%3FTocPath%3DHyTrust%2520KeyControl%2520with%2520VSAN%25C2%25A0and%2520VMware%2520vSphere%2520VM%2520Encryption%7C_____2)
+2. [Criando um pacote de certificado para criptografia do VMware](https://docs.hytrust.com/DataControl/4.2/Admin_Guide-4.2/index.htm#Books/VMware-vSphere-VSAN-Encryption/creating-user-for-vmcrypt.htm%3FTocPath%3DHyTrust%2520KeyControl%2520with%2520VSAN%25C2%25A0and%2520VMware%2520vSphere%2520VM%2520Encryption%7C_____3)
 
 ### <a name="vcenter-ui-configure-vsan-encryption-to-use-kms-cluster-in-your-azure-virtual-network"></a>interface do usuário do vCenter: Configurar a criptografia vSAN para usar o cluster KMS em sua rede virtual do Azure
 
-Siga as instruções de HyTrust para <a href="https://docs.hytrust.com/DataControl/4.2/Admin_Guide-4.2/index.htm#Books/VMware-vSphere-VSAN-Encryption/creating-KMS-Cluster.htm%3FTocPath%3DHyTrust%2520KeyControl%2520with%2520VSAN%25C2%25A0and%2520VMware%2520vSphere%2520VM%2520Encryption%7C_____4" target="_blank">criar um cluster kms no vCenter</a>.
+Siga as instruções de HyTrust para [criar um cluster kms no vCenter](https://docs.hytrust.com/DataControl/4.2/Admin_Guide-4.2/index.htm#Books/VMware-vSphere-VSAN-Encryption/creating-KMS-Cluster.htm%3FTocPath%3DHyTrust%2520KeyControl%2520with%2520VSAN%25C2%25A0and%2520VMware%2520vSphere%2520VM%2520Encryption%7C_____4).
 
 ![Adicionar detalhes do cluster KMS no vCenter](media/vsan-config01.png)
 

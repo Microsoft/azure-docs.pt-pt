@@ -6,16 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: 8605a2c954eec2a57925557f8823a3614ebdc266
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: f4308cf0309725fc0ba3b5feb047d04af2ebbe66
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013386"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638190"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>O que é o repositório de conhecimento em Azure Search?
 
@@ -234,13 +233,13 @@ Recomendamos o serviço gratuito para fins de aprendizado, mas lembre-se de que 
 
 Ao usar vários serviços, crie todos os seus serviços na mesma região para obter o melhor desempenho e para minimizar os custos. Você não é cobrado pela largura de banda para dados de entrada ou dados de saída que vão para outro serviço na mesma região.
 
-**Etapa 1: [Criar um recurso de Azure Search](search-create-service-portal.md)** 
+**Passo 1: [Criar um recurso de Azure Search](search-create-service-portal.md)** 
 
-**Etapa 2: [Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)** 
+**Passo 2: [Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)** 
 
-**Etapa 3: [Criar um recurso de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)** 
+**Passo 3: [Criar um recurso de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)** 
 
-**Etapa 4: Introdução ao [portal](cognitive-search-quickstart-blob.md) -ou-introdução [aos dados de exemplo usando REST e postmaster](knowledge-store-howto.md)** 
+**Passo 4: Introdução ao [portal](cognitive-search-quickstart-blob.md) -ou-introdução [aos dados de exemplo usando REST e postmaster](knowledge-store-howto.md)** 
 
 Você pode usar o `api-version=2019-05-06-Preview` REST para construir um pipeline baseado em ia que inclua o repositório de conhecimento. Na API de visualização mais recente, o objeto skillset fornece `knowledgeStore` a definição.
 
@@ -248,7 +247,7 @@ Você pode usar o `api-version=2019-05-06-Preview` REST para construir um pipeli
 
 A loja de conhecimento oferece uma variedade de benefícios, incluindo, mas não limitado, a habilitação do uso de documentos aprimorados em cenários diferentes de pesquisa, controles de custo e gerenciamento de descompasso em seu processo de enriquecimento. Esses recursos estão disponíveis para uso simples, adicionando uma conta de armazenamento ao seu Skills e usando a linguagem de expressão atualizada, conforme descrito em como começar a usar a [loja de conhecimento](knowledge-store-howto.md). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 A abordagem mais simples para a criação de documentos aprimorados é por meio do assistente de **importação de dados** .
 

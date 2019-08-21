@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 21a42b2986b52282fbab914fa702d8c4a323ed35
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1f5a144728614ee13bf4f08bb594f0546d446880
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611946"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640788"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plataformas e recursos com suporte na central de segurança do Azure
 
@@ -111,7 +111,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| Não, Incorporado no SO| Sim |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (veja a observação abaixo) | Através de Extensão | Sim |
-| Trend Micro – Todas as versões | Família Windows Server  | Não | Sim |
+| Trend Micro – todas as versões * | Família Windows Server  | Não | Sim |
 | Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família de servidores Linux  | Não | Ok **\*** |
@@ -121,6 +121,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 
 > [!NOTE]
 > - A detecção do System Center Endpoint Protection (SCEP) em uma máquina virtual do Windows Server 2008 R2 requer que o SCEP seja instalado após o PowerShell 3,0 (ou uma versão superior).
+> - Há suporte para a detecção da proteção Trend Micro para agentes de segurança profundas.  Não há suporte para agentes do OfficeScan.
 
 ## <a name="supported-paas-features"></a>Recursos de PaaS com suporte
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 7/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: d5593da4f874688fa099827e418b12e41363f4bd
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
-ms.translationtype: MT
+ms.openlocfilehash: f0944e9fddc0afb28f758ba7b16232330d3bc34d
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624883"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635534"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Como aproveitar a identidade gerenciada de um aplicativo Service Fabric para acessar os serviços do Azure (versão prévia)
 
@@ -308,15 +308,7 @@ Limites de limitação se aplicam ao número de chamadas feitas ao subsistema de
 ## <a name="resource-ids-for-azure-services"></a>IDs de recurso para serviços do Azure
 Consulte [Serviços do Azure que dão suporte à autenticação do Azure ad](../active-directory/managed-identities-azure-resources/services-support-msi.md) para obter uma lista de recursos que dão suporte ao Azure AD e suas respectivas IDs de recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo usuário](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Conceder a um aplicativo de Service Fabric do Azure acesso a outros recursos do Azure](./how-to-grant-access-other-resources.md)
-
-## <a name="see-also"></a>Consulte também
-
-* Examinar o [suporte de identidade gerenciada](./concepts-managed-identity.md) no Azure Service Fabric
-
-* [Implantar um novo](./configure-new-azure-service-fabric-enable-managed-identity.md) Cluster de Service Fabric do Azure com suporte de identidade gerenciada 
-
-* [Habilitar identidade gerenciada](./configure-existing-cluster-enable-managed-identity-token-service.md) em um cluster existente do Service Fabric do Azure

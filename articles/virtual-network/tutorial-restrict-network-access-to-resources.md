@@ -16,14 +16,14 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
-ms.openlocfilehash: 4d3fd152782c65c7f63e459a1c35dee6ae764361
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 34cb2b6c5a770aa9ec38ce02a97d976fe28251ac
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708840"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638743"
 ---
-# <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: Restringir o acesso à rede a recursos de PaaS com pontos finais de serviço de rede virtual com o portal do Azure
+# <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: Restringir o acesso à rede para recursos de PaaS com pontos de extremidade de serviço de rede virtual usando o portal do Azure
 
 Os pontos finais de serviço de rede virtual permitem-lhe limitar o acesso de rede a alguns recursos de serviços do Azure a uma sub-rede de rede virtual. Também pode remover o acesso à Internet aos recursos. Os pontos finais de serviço proporcionam uma ligação direta a partir da sua rede virtual a serviços do Azure suportados, o que lhe permite utilizar o espaço de endereços privados da sua rede virtual para aceder aos serviços do Azure. O tráfego destinado aos recursos do Azure através de pontos finais de serviço permanece sempre na rede backbone do Microsoft Azure. Neste tutorial, ficará a saber como:
 
@@ -53,12 +53,14 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
    |----|----|
    |Nome| myVirtualNetwork |
    |Espaço de endereços| 10.0.0.0/16|
-   |Subscrição| Selecione a sua subscrição|
-   |Grupo de recursos | Selecione **Criar novo** e introduza *myResourceGroup*.|
+   |Subscription| Selecione a sua subscrição|
+   |Resource group | Selecione **Criar novo** e introduza *myResourceGroup*.|
    |Location| Selecione **E.U.A. Leste** |
    |Nome da sub-rede| Público|
    |Intervalo de endereços da sub-rede| 10.0.0.0/24|
+   |Proteção contra DDoS| Básica|
    |Pontos finais de serviço| Desativado|
+   |Firewall| Desativado|
 
    ![Introduza as informações básicas sobre a sua rede virtual](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 
@@ -93,8 +95,8 @@ Por predefinição, todas as VMs numa sub-rede podem comunicar com todos os recu
     |Definição|Valor|
     |----|----|
     |Name| myNsgPrivate |
-    |Subscrição| Selecione a sua subscrição|
-    |Grupo de recursos | Selecione **Utilizar existente** e selecione *myResourceGroup*.|
+    |Subscription| Selecione a sua subscrição|
+    |Resource group | Selecione **Utilizar existente** e selecione *myResourceGroup*.|
     |Location| Selecione **E.U.A. Leste** |
 
 4. Depois de criar o grupo de segurança de rede, introduza *myNsgPrivate*, na caixa **Procurar recursos, serviços e documentos**, na parte superior do portal. Quando **myNsgPrivate** aparecer nos resultados da pesquisa, selecione-os.
@@ -104,28 +106,28 @@ Por predefinição, todas as VMs numa sub-rede podem comunicar com todos os recu
 
     |Definição|Value|
     |----|----|
-    |Origem| Selecione **VirtualNetwork** |
-    |Intervalo de portas de origem| * |
+    |Source| Selecione **VirtualNetwork** |
+    |Source port ranges| * |
     |Destino | Selecione **Etiqueta do Serviço**|
     |Etiqueta do serviço de destino | Selecione **Armazenamento**.|
     |Intervalos de portas de destino| * |
-    |Protocolo|Qualquer|
-    |Ação|Permitir|
-    |Prioridade|100|
+    |Protocol|Any|
+    |Action|Allow|
+    |Priority|100|
     |Name|Allow-Storage-All|
 
 8. Crie outra regra de segurança de saída que negue a comunicação à Internet. Esta regra substitui a regra predefinida em todos os grupos de segurança de rede que permite a comunicação de saída para a Internet. Conclua os passos 5 a 7 novamente, com os seguintes valores:
 
     |Definição|Value|
     |----|----|
-    |Origem| Selecione **VirtualNetwork** |
-    |Intervalo de portas de origem| * |
+    |Source| Selecione **VirtualNetwork** |
+    |Source port ranges| * |
     |Destino | Selecione **Etiqueta do Serviço**|
     |Etiqueta do serviço de destino| Selecione **Internet**|
     |Intervalos de portas de destino| * |
-    |Protocolo|Qualquer|
-    |Ação|Negar|
-    |Prioridade|110|
+    |Protocol|Any|
+    |Action|Negar|
+    |Priority|110|
     |Name|Deny-Internet-All|
 
 9. Em **DEFINIÇÕES**, selecione **Regras de segurança de entrada**.
@@ -134,13 +136,13 @@ Por predefinição, todas as VMs numa sub-rede podem comunicar com todos os recu
 
     |Definição|Value|
     |----|----|
-    |Origem| Qualquer |
-    |Intervalo de portas de origem| * |
+    |Source| Any |
+    |Source port ranges| * |
     |Destino | Selecione **VirtualNetwork**|
     |Intervalos de portas de destino| 3389 |
-    |Protocolo|Qualquer|
-    |Ação|Permitir|
-    |Prioridade|120|
+    |Protocol|Any|
+    |Action|Allow|
+    |Priority|120|
     |Name|Allow-RDP-All|
 
 12. Em **DEFINIÇÕES**, selecione **sub-redes**.
@@ -164,8 +166,8 @@ Os passos necessários para restringir o acesso de rede a recursos criados atrav
     |Tipo de conta|StorageV2 (fins gerais v2)|
     |Location| Selecione **E.U.A. Leste** |
     |Replicação| Armazenamento localmente redundante (LRS)|
-    |Subscrição| Selecione a sua subscrição|
-    |Grupo de recursos | Selecione **Utilizar existente** e selecione *myResourceGroup*.|
+    |Subscription| Selecione a sua subscrição|
+    |Resource group | Selecione **Utilizar existente** e selecione *myResourceGroup*.|
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Criar uma partilha de ficheiros na conta de Armazenamento
 
@@ -189,7 +191,7 @@ Por predefinição, as contas de armazenamento aceitam ligações de rede de cli
 
     |Definição|Valor|
     |----|----|
-    |Subscrição| Selecione a sua subscrição.|
+    |Subscription| Selecione a sua subscrição.|
     |Redes virtuais|Selecione **myVirtualNetwork**, em **Redes virtuais**|
     |Sub-redes| Selecione **privada**, em **sub-redes**|
 
@@ -218,8 +220,8 @@ Para testar o acesso de rede a uma conta de Armazenamento, implemente uma VM em 
    |Name| myVmPublic|
    |Nome de utilizador|Introduza um nome de utilizador à sua escolha.|
    |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-   |Subscrição| Selecione a sua subscrição.|
-   |Grupo de recursos| Selecione **Utilizar existente** e selecione **myResourceGroup**.|
+   |Subscription| Selecione a sua subscrição.|
+   |Resource group| Selecione **Utilizar existente** e selecione **myResourceGroup**.|
    |Location| Selecione **E.U.A. Leste**.|
 
    ![Introduzir informações básicas de uma máquina virtual](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)

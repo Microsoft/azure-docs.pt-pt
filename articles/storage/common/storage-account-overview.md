@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2adb2928772f97c2dc14b8ebe9eb2072cbc4a36d
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 49e15964ba370cc6dc18491507b906764f1f882c
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985371"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640111"
 ---
 # <a name="azure-storage-account-overview"></a>Visão geral da conta de armazenamento do Azure
 
@@ -143,12 +143,12 @@ Você pode conceder acesso aos dados em sua conta de armazenamento usando qualqu
 
 - **Azure Active Directory:** Use as credenciais do Azure Active Directory (AD do Azure) para autenticar um usuário, grupo ou outra identidade para acesso a dados de BLOB e de fila. Se a autenticação de uma identidade for bem-sucedida, o Azure AD retornará um token a ser usado na autorização da solicitação para o armazenamento de BLOBs do Azure ou armazenamento de filas. Para obter mais informações, consulte autenticar o [acesso ao armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md).
 - **Autorização de chave compartilhada:** Use sua chave de acesso da conta de armazenamento para construir uma cadeia de conexão que seu aplicativo usa no tempo de execução para acessar o armazenamento do Azure. Os valores na cadeia de conexão são usados para construir o cabeçalho de *autorização* que é passado para o armazenamento do Azure. Para obter mais informações, consulte [Configurar cadeias de conexão de armazenamento do Azure](storage-configure-connection-string.md).
-- **Assinatura de acesso compartilhado:** Use uma assinatura de acesso compartilhado para delegar acesso a recursos em sua conta de armazenamento, se você não estiver usando a autenticação do Azure AD. Uma assinatura de acesso compartilhado é um token que encapsula todas as informações necessárias para autorizar uma solicitação para o armazenamento do Azure na URL. Você pode especificar o recurso de armazenamento, as permissões concedidas e o intervalo sobre o qual as permissões são válidas como parte da assinatura de acesso compartilhado. Para obter mais informações, consulte [usando SAS (assinaturas de acesso compartilhado)](storage-sas-overview.md).
+- **Assinatura de acesso compartilhado:** Use uma assinatura de acesso compartilhado para delegar acesso a recursos em sua conta de armazenamento, se você não estiver usando a autorização do Azure AD. Uma assinatura de acesso compartilhado é um token que encapsula todas as informações necessárias para autorizar uma solicitação para o armazenamento do Azure na URL. Você pode especificar o recurso de armazenamento, as permissões concedidas e o intervalo sobre o qual as permissões são válidas como parte da assinatura de acesso compartilhado. Para obter mais informações, consulte [usando SAS (assinaturas de acesso compartilhado)](storage-sas-overview.md).
 
 > [!NOTE]
 > Autenticar usuários ou aplicativos usando credenciais do Azure AD fornece segurança superior e facilidade de uso em relação a outros meios de autorização. Embora você possa continuar a usar a autorização de chave compartilhada com seus aplicativos, usar o Azure AD evita a necessidade de armazenar a chave de acesso da conta com seu código. Você também pode continuar a usar SAS (assinaturas de acesso compartilhado) para conceder acesso refinado aos recursos em sua conta de armazenamento, mas o Azure AD oferece recursos semelhantes sem a necessidade de gerenciar tokens SAS ou se preocupar com a revogação de uma SAS comprometida. 
 >
-> A Microsoft recomenda usar a autenticação do Azure AD para seus aplicativos de BLOB e fila de armazenamento do Azure quando possível.
+> A Microsoft recomenda usar a autorização do Azure AD para seus aplicativos de BLOB e fila de armazenamento do Azure quando possível.
 
 ## <a name="copying-data-into-a-storage-account"></a>Copiando dados em uma conta de armazenamento
 
@@ -173,7 +173,7 @@ Para obter mais informações sobre a API REST do armazenamento do Azure, consul
 > [!IMPORTANT]
 > Os blobs encriptados através de encriptação do lado do cliente armazenam os metadados relacionados com a encriptação com o blob. Se copiar um blob com encriptação do lado do cliente, certifique-se de que a operação de cópia preserva os metadados do blob e, especialmente, os metadados relacionados com a encriptação. Se copiar um blob sem os metadados de encriptação, não poderá obter novamente o conteúdo do mesmo. Para obter mais informações acerca dos metadados relacionados com a encriptação, veja [Encriptação do Lado do Cliente do Armazenamento do Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="azure-importexport-service"></a>Serviço Importar/Exportar do Azure
+### <a name="azure-importexport-service"></a>Serviço de importação/exportação do Azure
 
 Se você tiver uma grande quantidade de dados para importar para sua conta de armazenamento, considere o serviço de importação/exportação do Azure. O serviço de importação/exportação é usado para importar com segurança grandes quantidades de dados para o armazenamento de BLOBs do Azure e os arquivos do Azure enviando unidades de disco para um datacenter do Azure. 
 

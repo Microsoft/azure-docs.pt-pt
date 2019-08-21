@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Utilize o Explorador de armazenamento do Azure para criar um blob no armazenamento de objetos'
+title: 'Início rápido: Usar Gerenciador de Armazenamento do Azure para criar um blob no armazenamento de objetos'
 description: Neste início rápido, fica a saber como utilizar o Explorador de Armazenamento do Azure para criar um contentor e um blob. Em seguida, vai aprender como transferir o blob para o computador local e como visualizar todos os blobs num contentor. Também vai aprender a criar um instantâneo de um blob, gerir políticas de acesso do contentor e a criar uma assinatura de acesso partilhado.
 services: storage
 author: tamram
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: tamram
-ms.openlocfilehash: 929ba7e28bca608359e76f9eeb130c61ba3235a0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cd31d1c40f30ebc8341c2126da22f8a74cb05438
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435808"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640523"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Início rápido: Utilize o Explorador de armazenamento do Azure para criar um blob no armazenamento de objetos
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Início rápido: Usar Gerenciador de Armazenamento do Azure para criar um blob no armazenamento de objetos
 
 Neste início rápido, fica a saber como utilizar o[Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para criar um contentor e um blob. Em seguida, vai aprender como transferir o blob para o computador local e como visualizar todos os blobs num contentor. Também vai aprender a criar um instantâneo de um blob, gerir políticas de acesso do contentor e a criar uma assinatura de acesso partilhado.
 
@@ -31,7 +31,7 @@ Na primeira execução, é mostrada a janela **Explorador de Armazenamento do Mi
 
 |Tarefa|Objetivo|
 |---|---|
-|Adicionar uma Conta do Azure | Redireciona-o para a página de início de sessão de organizações para o autenticar no Azure. |
+|Adicionar uma Conta do Azure | Redireciona você para a página de entrada da sua organização para autenticar você no Azure. |
 |Utilizar uma cadeia de ligação ou um URI de assinatura de acesso partilhado | Pode ser utilizado para aceder diretamente a um contentor ou conta de armazenamento com um token SAS ou uma cadeia de ligação partilhada. |
 |Utilizar o nome e a chave de uma conta de armazenamento| Utilize o nome e a chave da conta de armazenamento para ligar ao armazenamento do Azure.|
 
@@ -47,7 +47,7 @@ Quando a ligação for concluída, o Explorador de Armazenamento do Azure é car
 
 Os Blobs são sempre carregados para um contentor. Isto permite organizar grupos de blobs, como organiza os ficheiros em pastas no seu computador.
 
-Para criar um contentor, expanda a conta de armazenamento que criou no passo seguinte. Selecione **Contentores de Blobs**, clique com o botão direito do rato e selecione **Criar Contentor de Blobs**. Introduza o nome do contentor de blobs. Consulte a [criar um contentor](storage-quickstart-blobs-dotnet.md#create-a-container) secção para obter uma lista das regras e restrições à nomenclatura dos contentores de Blobs. Quando terminar, prima **Enter** para criar o contentor de blobs. Depois de o contentor de blobs ser criado com êxito, será apresentado na pasta **Contentores de Blobs** da conta de armazenamento selecionada.
+Para criar um contentor, expanda a conta de armazenamento que criou no passo seguinte. Selecione **Contentores de Blobs**, clique com o botão direito do rato e selecione **Criar Contentor de Blobs**. Introduza o nome do contentor de blobs. Consulte a seção [criar um contêiner](storage-quickstart-blobs-dotnet.md#create-a-container) para obter uma lista de regras e restrições sobre como nomear contêineres de BLOB. Quando terminar, prima **Enter** para criar o contentor de blobs. Depois de o contentor de blobs ser criado com êxito, será apresentado na pasta **Contentores de Blobs** da conta de armazenamento selecionada.
 
 ## <a name="upload-blobs-to-the-container"></a>Carregar blobs para o contentor
 

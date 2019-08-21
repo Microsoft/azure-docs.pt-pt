@@ -1,21 +1,23 @@
 ---
-title: Criar uma solução do Azure VMware pela nuvem privada CloudSimple
+title: Solução do Azure VMware por CloudSimple-criar nuvem privada do CloudSimple
 description: Descreve como criar uma nuvem privada do CloudSimple para estender cargas de trabalho do VMware para a nuvem com flexibilidade operacional e continuidade
 author: sharaths-cs
 ms.author: b-shsury
-ms.date: 06/10/2019
+ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 02a2bd311ea1e89a49eb12ef57a167a08eea5f98
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: aacdb57c312946a9ec2b17a8d41aa9150efc277d
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812247"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640975"
 ---
 # <a name="create-a-cloudsimple-private-cloud"></a>Criar uma nuvem privada do CloudSimple
+
+Uma nuvem privada é uma pilha VMware isolada que dá suporte a hosts ESXi, vCenter, vSAN e NSX. As nuvens privadas são gerenciadas por meio do portal do CloudSimple. Eles têm seu próprio servidor vCenter em seu próprio domínio de gerenciamento. A pilha é executada em nós dedicados e nós de hardware bare-metal isolados.
 
 A criação de uma nuvem privada ajuda a lidar com uma variedade de necessidades comuns de infraestrutura de rede:
 
@@ -29,54 +31,38 @@ A criação de uma nuvem privada ajuda a lidar com uma variedade de necessidades
 
 Ao criar uma nuvem privada, você obtém um único cluster vSphere e todas as VMs de gerenciamento criadas nesse cluster.
 
-## <a name="before-you-begin"></a>Antes de começar
-
-Os nós devem ser provisionados antes que você possa criar sua nuvem privada.  Para obter mais informações sobre os nós de provisionamento, consulte o artigo provisionar [nós para solução VMware por CloudSimple-Azure](create-nodes.md) .
-
-Aloque um intervalo CIDR para sub-redes vSphere/vSAN para a nuvem privada. Uma nuvem privada é criada como um ambiente isolado do VMware Stack (hosts ESXi, vCenter, vSAN e NSX) gerenciado por um servidor vCenter. Os componentes de gerenciamento são implantados na rede selecionada para o CIDR de sub-redes vSphere/vSAN. O intervalo de CIDR de rede é dividido em sub-redes diferentes durante a implantação.  O espaço de endereço de sub-rede vSphere/vSAN deve ser exclusivo. Ele não deve se sobrepor a nenhuma rede que se comunica com o ambiente CloudSimple.  As redes que se comunicam com o CloudSimple incluem redes locais e redes virtuais do Azure.  Para obter mais informações sobre sub-redes vSphere/vSAN, consulte [visão geral de VLANs e sub-redes](cloudsimple-vlans-subnets.md).
-
-* Prefixo de intervalo CIDR de sub-redes vSphere/vSAN mínima:/24 
-* Prefixo de intervalo CIDR de sub-redes vSphere/vSAN máxima:/21
-
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-
 ## <a name="access-the-cloudsimple-portal"></a>Aceder ao portal da CloudSimple
 
 Acesse o [portal do CloudSimple](access-cloudsimple-portal.md).
 
 ## <a name="create-a-new-private-cloud"></a>Criar uma nova nuvem privada
 
-1. Na página **recursos** , clique em **Nova nuvem privada**.
+1. Selecione **Todos os serviços**.
+2. Procure **Serviços CloudSimples**.
+3. Selecione o serviço CloudSimple no qual você deseja criar sua nuvem privada.
+4. Em **visão geral**, clique em **criar nuvem privada** para abrir uma nova guia do navegador para o portal do CloudSimple. Se solicitado, entre com suas credenciais de entrada do Azure.
 
-    ![Criar uma nuvem privada-como iniciar](media/create-pc-button.png)
+    ![Criar nuvem privada do Azure](media/create-private-cloud-from-azure.png)
 
-2. Selecione o local para hospedar os recursos de nuvem privada.
+5. No portal do CloudSimple, forneça um nome para sua nuvem privada.
+6. Selecione o **local** para sua nuvem privada.
+7. Selecione o **tipo de nó**, consistente com o que você comprou no Azure.  Você pode escolher a [opção CS28 ou CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). A última opção inclui a capacidade máxima de computação e memória.
+8. Especifique a **contagem de nós**.  Pelo menos três nós são necessários para criar uma nuvem privada.
 
-3. Escolha o tipo de nó CS28 ou CS36 you'ev provisionado para a nuvem privada. A última opção inclui a capacidade máxima de computação e memória.
+    ![Criar nuvem privada-informações básicas](media/create-private-cloud-basic-info.png)
 
-4. Selecione o número de nós para a nuvem privada. Você pode selecionar no máximo o número disponível de nós que o you'ev [provisionado](create-nodes.md).
+9. Clique **em Avançar: Opções**avançadas.
+10. Insira o intervalo CIDR para sub-redes vSphere/vSAN. Certifique-se de que o intervalo CIDR não se sobreponha a nenhuma das suas sub-redes do Azure locais ou outras (redes virtuais) ou com a sub-rede de gateway.
 
-    ![Criar uma nuvem privada-configurações básicas](media/create-private-cloud-basic-info.png)
-
-5. Clique **em Avançar: Opções**avançadas.
-
-6. Insira o intervalo CIDR para sub-redes vSphere/vSAN. Certifique-se de que o intervalo CIDR não se sobreponha a nenhuma das suas sub-redes do Azure locais ou outras (redes virtuais) ou com a sub-rede de gateway.  Não use nenhum intervalo CIDR definido em redes virtuais do Azure.
-    
     **Opções de intervalo CIDR:** /24,/23,/22 ou/21. Um intervalo CIDR/24 dá suporte a até nove nós, um intervalo CIDR/23 dá suporte a até 41 nós, e um intervalo CIDR/22 e/21 dá suporte a até 64 nós (o número máximo de nós em uma nuvem privada).
 
-    > [!CAUTION]
+    > [!IMPORTANT]
     > Os endereços IP no intervalo CIDR vSphere/vSAN são reservados para uso pela infraestrutura de nuvem privada.  Não use o endereço IP nesse intervalo em qualquer máquina virtual.
 
-7. Clique **em Avançar: Revise e**crie.
+11. Clique **em Avançar: Revise e**crie.
+12. Examine as configurações. Se você precisar alterar as configurações, clique em **anterior**.
+13. Clique em **Criar**.
 
-8. Examine as configurações. Se você precisar alterar as configurações, clique em **anterior**.
+O processo de provisionamento de nuvem particular é iniciado. Pode levar até duas horas para que a nuvem privada seja provisionada.
 
-9. Clique em **Criar**.
-
-O provisionamento de nuvem particular será iniciado depois que você clicar em criar.  Você pode monitorar o progresso da página [tarefas](https://docs.azure.cloudsimple.com/activity/#tasks) no portal do CloudSimple.  O provisionamento pode levar de 30 minutos a duas horas.  Você receberá um email quando o provisionamento for concluído.
-
-## <a name="next-steps"></a>Passos Seguintes
-
-* [Expandir nuvem privada](expand-private-cloud.md)
+Para obter instruções sobre como expandir uma nuvem privada existente, consulte [expandir uma nuvem privada](expand-private-cloud.md).

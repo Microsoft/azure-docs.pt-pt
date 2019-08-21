@@ -5,18 +5,17 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 0451778d9b3bb29d06551c881b9f674ef7a74ab3
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: bd38dacd9161812032512fcb8bfdcbe90d64731c
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841218"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639863"
 ---
 # <a name="custom-web-api-skill"></a>Habilidades da API Web personalizada
 

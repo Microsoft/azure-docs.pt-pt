@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 72614a7f804f404e3e560d944db7b3d2e496c383
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: a3817b3e9f62a863f3fea9305ef169db2eb84491
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705676"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637952"
 ---
 # <a name="getting-started"> </a>Sobre Aplicações Móveis no Serviço de Aplicações do Azure
 
@@ -83,7 +83,7 @@ As seguintes funcionalidades da plataforma são úteis para sites de produção 
 
   Saiba mais sobre os [ambientes do Serviço de Aplicações].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para começar a utilizar as Aplicações Móveis no Serviço de Aplicações do Azure, conclua o tutorial [introdução] . O tutorial abrange as noções básicas da produção de um back-end móvel e cliente da sua preferência. Inclui também a integração de autenticação, sincronização offline e notificações push. Pode concluir o tutorial várias vezes, uma vez para cada aplicação de cliente.
 
@@ -104,7 +104,7 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicações do 
 [Xamarin.iOS e Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[escala automática]: ../app-service/web-sites-scale.md
+[escala automática]: ../app-service/manage-scale-up.md
 [ambientes de teste]: ../app-service/deploy-staging-slots.md
 [ligações híbridas]: ../biztalk-services/integration-hybrid-connection-overview.md
 [redes virtuais]: ../app-service/web-sites-integrate-with-vnet.md

@@ -1,6 +1,6 @@
 ---
-title: Recomendações do Centro de segurança do Azure de utilização para melhorar a segurança | Documentos da Microsoft
-description: " Saiba como utilizar políticas de segurança e recomendações no Centro de segurança do Azure para ajudar a mitigar um ataque de segurança. "
+title: Use as recomendações da central de segurança do Azure para aprimorar a segurança | Microsoft Docs
+description: " Saiba como usar as políticas de segurança e recomendações na central de segurança do Azure para ajudar a mitigar um ataque de segurança. "
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -14,67 +14,67 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/26/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 60bb1c3b81ef990993a2ce659a2b189c9d8a0eba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79a5f9a1269bdfc63d9d0b6fffd8458d011b777b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967964"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640864"
 ---
-# <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Recomendações do Centro de segurança do Azure de utilização para melhorar a segurança
-Pode reduzir as chances de um evento de segurança significativos ao configurar uma política de segurança e, em seguida, implementar as recomendações fornecidas pelo centro de segurança do Azure. Este artigo mostra-lhe como utilizar políticas de segurança e recomendações no Centro de segurança para ajudar a mitigar um ataque de segurança. 
+# <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Usar as recomendações da central de segurança do Azure para aumentar a segurança
+Você pode reduzir as chances de um evento de segurança significativo Configurando uma política de segurança e, em seguida, implementando as recomendações fornecidas pela central de segurança do Azure. Este artigo mostra como usar as políticas de segurança e recomendações na central de segurança para ajudar a mitigar um ataque de segurança. 
 
-Centro de segurança é automaticamente executado análises contínuas para analisar o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configurar os controlos de segurança necessário. Atualizações do Centro de segurança suas recomendações de dentro de 24 horas, com as seguintes exceções:
+A central de segurança executa verificações contínuas automaticamente para analisar o estado de segurança de seus recursos do Azure. Quando a central de segurança identifica possíveis vulnerabilidades de segurança, ele cria recomendações que o orientam durante o processo de configuração dos controles de segurança necessários. A central de segurança atualiza suas recomendações dentro de 24 horas, com as seguintes exceções:
 
-- Recomendações de configuração de segurança do sistema operativo são atualizadas no prazo de 48 horas
-- Recomendações de problemas do Endpoint Protection sejam atualizadas em 8 horas
+- As recomendações de configuração de segurança do sistema operacional são atualizadas dentro de 48 horas
+- As recomendações de Endpoint Protection problemas são atualizadas dentro de 8 horas
 
 ## <a name="scenario"></a>Cenário
-Este cenário mostra como utilizar o Centro de segurança para ajudar a reduzir as chances de um incidente de segurança, recomendações do Centro de segurança de monitorização e tomar medidas. O cenário utiliza a empresa fictícia, Contoso e funções apresentadas no Centro de segurança [guia de operações e planeamento](security-center-planning-and-operations-guide.md#security-roles-and-access-controls). Neste cenário, nos concentraremos nas funções das seguintes pessoas:
+Este cenário mostra como usar a central de segurança para ajudar a reduzir as chances de um incidente de segurança monitorando as recomendações da central de segurança e executando ações. O cenário usa a empresa fictícia, a Contoso e as funções apresentadas no guia de [planejamento e operações](security-center-planning-and-operations-guide.md#security-roles-and-access-controls)da central de segurança. Nesse cenário, estamos nos concentrando nas funções das seguintes pessoas:
 
 ![Funções de cenário](./media/security-center-using-recommendations/scenario-roles.png)
 
-Contoso migrou recentemente alguns dos seus recursos no local para o Azure. Contoso quer proteger os seus recursos e reduzir a vulnerabilidade de seus recursos na cloud.
+A contoso migrou recentemente alguns de seus recursos locais para o Azure. A contoso deseja proteger seus recursos e reduzir a vulnerabilidade de seus recursos na nuvem.
 
 ## <a name="use-azure-security-center"></a>Utilizar o Centro de Segurança do Azure
-David, da Contoso da segurança de TI, já tenha optado por carregar o Centro de segurança em subscrições da Contoso para o Centro de segurança do Azure para evitar e detectar vulnerabilidades de segurança. 
+David, da segurança de ti da Contoso, já escolheu a integração da central de segurança nas assinaturas da Contoso à central de segurança do Azure para evitar e detectar vulnerabilidades de segurança. 
 
-Centro de segurança analisa o estado de segurança dos recursos do Azure da Contoso e aplica políticas de segurança padrão automaticamente. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, ele cria **recomendações** com base nos controlos definidos na política de segurança. 
+A central de segurança analisa automaticamente o estado de segurança dos recursos do Azure da Contoso e aplica as políticas de segurança padrão. Quando a central de segurança identifica possíveis vulnerabilidades de segurança, ele cria **recomendações** com base nos controles definidos na política de segurança. 
 
-David é executado o escalão standard de segurança do Azure, em todas as suas subscrições para obter o conjunto completo de recomendações e recursos de segurança disponíveis. Jeff também suporte a carrega todos os seus locais existentes servidores que ainda não foram migrados para a cloud, para que ele pode tirar partido de híbrida com o Centro de segurança em seu [Windows](quick-onboard-windows-computer.md) e [Linux](quick-onboard-linux-computer.md) servidores.
+David executa a camada Standard de segurança do Azure, em todas as suas assinaturas, para obter o pacote completo de recomendações e recursos de segurança disponíveis. Jeff também integra todos os servidores locais existentes que ainda não foram migrados para a nuvem para que eles possam aproveitar o suporte híbrido da central de segurança em seus servidores [Windows](quick-onboard-windows-computer.md) e [Linux](quick-onboard-linux-computer.md) .
 
-Jeff é um proprietário de carga de trabalho na cloud. Jeff é responsável pela aplicação de controlos de segurança de acordo com as políticas de segurança da Contoso. 
+Jeff é um proprietário de carga de trabalho de nuvem. Jeff é responsável por aplicar controles de segurança de acordo com as políticas de segurança da contoso. 
 
-Jeff realiza as seguintes tarefas:
+Jeff executa as seguintes tarefas:
 
-- Recomendações de segurança de monitor fornecidas pelo centro de segurança
-- Recomendações de segurança de avaliar e decidir se ele deve aplicar ou dispensar
+- Monitorar as recomendações de segurança fornecidas pela central de segurança
+- Avalie as recomendações de segurança e decida se elas devem aplicar ou ignorar as recomendações.
 - Aplicar recomendações de segurança
 
-### <a name="remediate-threats-using-recommendations"></a>Corrigir as ameaças com as recomendações
-Como parte de suas atividades de monitorização diárias, Jeff inicia sessão no Azure e abre o Centro de segurança. 
+### <a name="remediate-threats-using-recommendations"></a>Corrigir ameaças usando recomendações
+Como parte de suas atividades diárias de monitoramento, Jeff entra no Azure e abre a central de segurança. 
 
-1. Jeff seleciona as subscrições da sua carga de trabalho.
+1. Jeff seleciona as assinaturas da carga de trabalho.
 
-2. Jeff verifica seu **secure pontuação** para obter um geral imagens de quão segura são as subscrições e vê que a sua pontuação é 548.
+2. Jeff verifica a **Pontuação segura** para obter uma visão geral de como as assinaturas são seguras e vê que a pontuação é 548.
 
-3. Jeff tem de decidir quais as recomendações para lidar com pela primeira vez. Portanto, Jeff clica pontuação segura e começa a processar recomendações com base no quanto ele melhora seu [proteger o impacto de pontuação](security-center-secure-score.md).
+3. Jeff precisa decidir quais recomendações tratar primeiro. Então Jeff clica em Pontuação segura e começa a lidar com recomendações com base em quanto isso melhora seu [impacto de Pontuação segura](security-center-secure-score.md).
 
-4. Como Jeff tem muitas VMs ligadas e de servidores, Jeff decide para se concentrar **computação e aplicações**.
+4. Como Jeff tem muitas VMs e servidores conectados, Jeff decide se concentrar na **computação e nos aplicativos**.
 
-5. Quando Jeff clica **computação e aplicações**, ele vê uma lista de recomendações e lida com eles, de acordo com a segura Pontuar o impacto.
+5. Quando Jeff clica em **computação e aplicativos**, eles veem uma lista de recomendações e manipula-os de acordo com o impacto de Pontuação segura.
 
-6. Jeff tem vários Internet voltada para as VMs e porque suas portas são expostas, ele está preocupado que um atacante pode obter controle sobre os servidores. Portanto, Jeff opta por utilizar (**o acesso à VM just-in-time**) [segurança-center-just-em-time.md].
+6. Jeff tem várias VMs voltadas para a Internet e, como suas portas são expostas, eles estão preocupados com o fato de um invasor poder ter controle sobre os servidores. Portanto, Jeff escolhe usar (**acesso de VM just-in-time**) [Security-Center-just-in-time.MD].
 
-Jeff continua a percorrer as recomendações de prioridade média e alta prioridade e toma decisões de implementação. Para cada recomendação, Jeff analisa as informações detalhadas fornecido pelo centro de segurança para compreender quais recursos são afetados, o que afeta a classificação de segura é, o que cada recomendação meios e passos de remediação para saber como atenuar cada problema.
+Jeff continua a percorrer as recomendações de alta prioridade e prioridade média e toma decisões sobre a implementação. Para cada recomendação, Jeff examina as informações detalhadas fornecidas pela central de segurança para entender quais recursos são afetados, qual é o impacto da Pontuação segura, o que cada recomendação significa e as etapas de correção para saber como atenuar cada problema.
 
 ## <a name="conclusion"></a>Conclusão
-Recomendações no Centro de segurança de monitorização ajuda a eliminar a vulnerabilidades de segurança antes de ocorre um ataque. Quando corrige recomendações, melhoram sua pontuação segura e a postura de segurança de suas cargas de trabalho. Centro de segurança Deteta automaticamente os novos recursos que implementar, avalia-los com a diretiva de segurança e fornece novas recomendações para protegê-los.
+As recomendações de monitoramento na central de segurança ajudam a eliminar vulnerabilidades de segurança antes que ocorra um ataque. Quando você corrige recomendações, sua pontuação segura e a postura de segurança de suas cargas de trabalho melhoram. A central de segurança descobre automaticamente novos recursos que você implanta, avalia-os em relação à sua política de segurança e fornece novas recomendações para protegê-los.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Certifique-se de que tem um processo de monitoramento, no qual regularmente verificar as recomendações no Centro de segurança para que pode verificar se a proteger os seus recursos ao longo do tempo.
+Certifique-se de que você tenha um processo de monitoramento em vigor, no qual você verifica regularmente as recomendações na central de segurança para que você possa garantir que seus recursos sejam protegidos ao longo do tempo.
 
-Neste cenário de mostrar como utilizar políticas de segurança e recomendações no Centro de segurança para ajudar a mitigar um ataque de segurança. Consulte a [cenário de resposta a incidentes](security-center-incident-response.md) para aprender a ter uma plano em vigor antes que ocorra um ataque de resposta a incidente.
+Este cenário mostrou como usar políticas de segurança e recomendações na central de segurança para ajudar a mitigar um ataque de segurança. Consulte o [cenário de resposta a incidentes](security-center-incident-response.md) para saber como ter um plano de resposta a incidentes em vigor antes que ocorra um ataque.
 
 Saiba como responder a ameaças com [resposta a incidentes](security-center-incident-response.md).

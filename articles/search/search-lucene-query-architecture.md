@@ -5,16 +5,15 @@ manager: jlembicz
 author: yahnoosh
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: jlembicz
-ms.openlocfilehash: 6e54bc91ff60ce4f3c2340282410923225601df4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 3ce1e0a37357f016373e1ffe5b6a7d5daf2501d9
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883897"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640571"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Como funciona a pesquisa de texto completo no Azure Search
 
@@ -380,7 +379,7 @@ Do ponto de vista técnico, a pesquisa de texto completo é altamente complexa, 
 
 Este artigo explorou a pesquisa de texto completo no contexto de Azure Search. Esperamos que ele forneça um plano de fundo suficiente para reconhecer possíveis causas e resoluções para resolver problemas comuns de consulta. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 + Crie o índice de exemplo, experimente consultas diferentes e examine os resultados. Para obter instruções, consulte [criar e consultar um índice no portal](search-get-started-portal.md#query-index).
 

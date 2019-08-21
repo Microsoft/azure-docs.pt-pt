@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4ea983255463080592181cda321ef6b6d1ff147f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: be391f2aa9ee5d94ffc36a6e03d3af8881346520
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932348"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636559"
 ---
 # <a name="azure-app-service-plan-overview"></a>Visão geral do plano de serviço Azure App
 
@@ -100,7 +100,7 @@ Por exemplo, você pode começar a testar seu aplicativo Web em um plano do serv
 
 O mesmo funciona no inverso. Quando você achar que não precisa mais dos recursos ou recursos de uma camada superior, poderá reduzir verticalmente para uma camada inferior, o que poupa dinheiro.
 
-Para obter informações sobre como escalar verticalmente o plano do serviço de aplicativo, consulte [escalar verticalmente um aplicativo no Azure](web-sites-scale.md).
+Para obter informações sobre como escalar verticalmente o plano do serviço de aplicativo, consulte [escalar verticalmente um aplicativo no Azure](manage-scale-up.md).
 
 Se seu aplicativo estiver no mesmo plano do serviço de aplicativo com outros aplicativos, talvez você queira melhorar o desempenho do aplicativo isolando os recursos de computação. Você pode fazer isso movendo o aplicativo para um plano do serviço de aplicativo separado. Para obter mais informações, consulte [mover um aplicativo para outro plano do serviço de aplicativo](app-service-plan-manage.md#move).
 

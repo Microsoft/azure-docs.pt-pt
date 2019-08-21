@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6a29117ff6e5173063bc2aced87f08f1a6aea425
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8b4b5553605042499a9a8f3343ac4e6678e7006f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559583"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640433"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparar dados para criar uma voz personalizada
 
@@ -74,7 +74,7 @@ Siga estas diretrizes ao preparar o áudio.
 
 O arquivo de transcrição é um arquivo de texto sem formatação. Use estas diretrizes para preparar suas transcrições.
 
-| Propriedade | Valor |
+| Propriedade | Value |
 | -------- | ----- |
 | Formato de arquivo | Texto sem formatação (. txt) |
 | Formato de codificação | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE ou UTF-16-is. Para as codificações zh-CN, ANSI/ASCII e UTF-8 não têm suporte. |
@@ -104,7 +104,7 @@ Em alguns casos, talvez você não tenha um áudio segmentado disponível. Forne
 
 Siga estas diretrizes ao preparar o áudio para segmentação.
 
-| Propriedade | Valor |
+| Propriedade | Value |
 | -------- | ----- |
 | Formato de arquivo | RIFF (. wav) com uma taxa de amostragem de pelo menos 16 kHz-16 bits em PCM ou. mp3 com uma taxa de bits de pelo menos 256 KBps, agrupados em um arquivo. zip |
 | Nome de ficheiro | Somente caracteres ASCII. Os caracteres Unicode no nome falharão (por exemplo, os caracteres chineses ou símbolos como "–"). Nenhum nome duplicado é permitido. |
@@ -118,13 +118,13 @@ Todos os arquivos de áudio devem ser agrupados em um arquivo zip. É OK colocar
 
 Transcrições devem estar preparados para as especificações listadas nesta tabela. Cada arquivo de áudio deve ser correspondido com uma transcrição.
 
-| Propriedade | Valor |
+| Propriedade | Value |
 | -------- | ----- |
 | Formato de arquivo | Texto sem formatação (. txt), agrupado em um. zip |
 | Nome de ficheiro | Usar o mesmo nome que o arquivo de áudio correspondente |
 | Formato de codificação | UTF-8-somente BOM |
 | N.º de expressões por linha | Sem limite |
-| Tamanho máximo do ficheiro | 50 MILHÕES |
+| Tamanho máximo do ficheiro | 50 MB |
 
 Todos os arquivos de transcrições nesse tipo de dados devem ser agrupados em um arquivo zip. Nenhuma subpasta é permitida no arquivo zip. Por exemplo, você carregou um arquivo ZIP contendo um arquivo de áudio chamado ' kingstory. wav ', 45 segundos de comprimento e outro chamado ' queenstory. mp3 ', 200 segundos de comprimento. Será necessário carregar outro arquivo ZIP contendo duas transcrições, uma denominada ' kingstory. txt ', a outra ' queenstory. txt '. Em cada arquivo de texto sem formatação, você fornecerá a transcrição correta completa para o áudio correspondente.
 
@@ -149,7 +149,7 @@ Siga estas diretrizes ao preparar o áudio.
 
 Todos os arquivos de áudio devem ser agrupados em um arquivo zip. Nenhuma subpasta é permitida no arquivo zip. Depois que o conjunto de seus conjuntos de um for carregado com êxito, ajudaremos você a segmentar o arquivo de áudio no declarações com base em nosso serviço de transcrição do lote de fala. As IDs exclusivas serão atribuídas ao declarações segmentado automaticamente. As transcrições correspondentes serão geradas por meio do reconhecimento de fala. Todos os arquivos. mp3 serão transformados no formato. wav após o processamento. Você pode verificar o declarações segmentado e as transcrições correspondentes baixando o conjunto de um.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma voz personalizada](how-to-custom-voice-create-voice.md)
 - [Orienta Registre seus exemplos de voz](record-custom-voice-samples.md)
