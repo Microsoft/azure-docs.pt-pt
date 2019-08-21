@@ -133,7 +133,7 @@ Após a conclusão da instalação, levará 30 minutos a uma hora para que os da
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>Editar configurações de monitoramento para sub-redes e nós 
 
-Todas as sub-redes com pelo menos um agente instalado são listadas na ****  guia sub-redes na página configuração. 
+Todas as sub-redes com pelo menos um agente instalado são listadas na guia  **sub-redes**  na página configuração. 
 
 
 Para habilitar ou desabilitar o monitoramento de sub-redes específicas:

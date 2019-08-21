@@ -34,7 +34,7 @@ Se estiver a utilizar um ASE externo, em seguida, as suas aplicações são cont
 Existem duas opções para configurar certificados com o ASE de ILB.  Pode configurar um certificado de padrão de caráter universal para o ASE de ILB ou defina os certificados em aplicativos web individuais no ASE.  Independentemente da escolha que fizer, os seguintes atributos de certificado tem de ser configurados corretamente:
 
 - **Assunto:** Este atributo deve ser definido como *. [your-raiz-domain-here] para um certificado de ASE de ILB com carateres universais. Se criar o certificado para a sua aplicação, em seguida, deve ser [appname]. [your-raiz-domain-here]
-- **Nome alternativo do requerente:** Este atributo tem de incluir *. [your-raiz-domain-here] e SCM.{0. [your-raiz-domain-here] para o certificado de ASE de ILB com carateres universais. Se criar o certificado para a sua aplicação, em seguida, deve ser [appname]. [your-raiz-domain-here] e [appname]. SCM a seguir. [your-raiz-domain-here].
+- **Nome alternativo do requerente:** Este atributo tem de incluir *. [your-raiz-domain-here] e *.SCM.{0. [your-raiz-domain-here] para o certificado de ASE de ILB com carateres universais. Se criar o certificado para a sua aplicação, em seguida, deve ser [appname]. [your-raiz-domain-here] e [appname]. SCM a seguir. [your-raiz-domain-here].
 
 Como uma variante de terceiro, pode criar um certificado de ASE de ILB que inclui todos os nomes de aplicações individuais na SAN do certificado em vez de usar uma referência de caráter universal. O problema com este método é que precisa saber com antecedência os nomes das aplicações que estão a colocar no ASE ou terá de continuar a atualizar o certificado do ASE de ILB.
 

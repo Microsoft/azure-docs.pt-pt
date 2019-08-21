@@ -61,9 +61,9 @@ Durante a criptografia, a biblioteca de cliente gerará um vetor de inicializaç
 > 
 > 
 
-O download de um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando os métodos de conveniência **Get***. O CEK encapsulado é desencapsulado e usado junto com o IV (armazenado como metadados de blob nesse caso) para retornar os dados descriptografados aos usuários.
+O download de um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando os métodos de conveniência **Get** *. O CEK encapsulado é desencapsulado e usado junto com o IV (armazenado como metadados de blob nesse caso) para retornar os dados descriptografados aos usuários.
 
-O download de um intervalo arbitrário (**Get*** métodos com parâmetros de intervalo passados) no blob criptografado envolve o ajuste do intervalo fornecido pelos usuários para obter uma pequena quantidade de dados adicionais que podem ser usados para descriptografar com êxito o intervalo solicitado .
+O download de um intervalo arbitrário ( **Get** * métodos com parâmetros de intervalo passados) no blob criptografado envolve o ajuste do intervalo fornecido pelos usuários para obter uma pequena quantidade de dados adicionais que podem ser usados para descriptografar com êxito o intervalo solicitado .
 
 Blobs de blocos e blobs de páginas só podem ser criptografados/descriptografados usando este esquema. Atualmente, não há suporte para a criptografia de blobs de acréscimo.
 
