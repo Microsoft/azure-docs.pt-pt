@@ -4,20 +4,20 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 4ab12a4ccb3aa4acecabd076c774558f904297a1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 21589b2a490a712ff65e09bd18802ca2bda86c9a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184831"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69657845"
 ---
-Este artigo é para o serviço de aplicações do Azure (aplicações Web, aplicações API, aplicações móveis, aplicações lógicas); para serviços em nuvem, consulte [configurar um nome de domínio personalizado para um serviço cloud do Azure](../articles/cloud-services/cloud-services-custom-domain-name.md).
+Este artigo é para Azure App serviço (aplicativos Web, aplicativos de API, aplicativos móveis, aplicativos lógicos); para serviços de nuvem, consulte Configurando [um nome de domínio personalizado para um serviço de nuvem do Azure](../articles/cloud-services/cloud-services-custom-domain-name.md).
 
 > [!NOTE]
-> Se a aplicação for com balanceamento de carga por [Gestor de tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/), clique no Seletor de na parte superior deste artigo para obter passos específicos.
+> Se seu aplicativo tiver balanceamento de carga pelo [Gerenciador de tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/), clique no seletor na parte superior deste artigo para obter etapas específicas.
 > 
-> **Domínio personalizado, os nomes não são ativadas gratuitamente escalão**. Deve [aumente verticalmente para um escalão de preço superior](../articles/app-service/web-sites-scale.md), que pode alterar o quanto é-lhe cobrada para a sua subscrição. 
-> Ver [preços do App Service](https://azure.microsoft.com/pricing/details/app-service/) para obter mais informações.
+> Os **nomes de domínio personalizados não estão habilitados para a camada gratuita**. Você deve [escalar verticalmente para um tipo de preço mais alto](../articles/app-service/manage-scale-up.md), o que pode alterar o quanto você será cobrado pela sua assinatura. 
+> Consulte [preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/) para obter mais informações.
 > 
 > 
 

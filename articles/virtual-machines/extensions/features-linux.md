@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 8227aa366c8f5149d4212e6cdd00e2745db84814
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f2397c67b71cc370a0a98d44bb02e5ee77551afb
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881960"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650649"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Recursos e extensões de máquina virtual para Linux
 
@@ -86,7 +86,7 @@ Os métodos a seguir podem ser usados para executar uma extensão em uma VM exis
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-As extensões de VM do Azure podem ser executadas em uma VM existente com o comando [AZ VM Extension Set](/cli/azure/vm/extension#az-vm-extension-set) . O exemplo a seguir executa a extensão de script personalizado em uma VM chamada *myVM* em um grupo de recursos chamado MyResource Group. Substitua o nome do grupo de recursos de exemplo, o nome da VM https://raw.githubusercontent.com/me/project/hello.sh) e o script a ser executado (com suas próprias informações. 
+As extensões de VM do Azure podem ser executadas em uma VM existente com o comando [AZ VM Extension Set](/cli/azure/vm/extension#az-vm-extension-set) . O exemplo a seguir executa a extensão de script personalizado em uma VM chamada *myVM* em um grupo de recursos chamado MyResource Group. Substitua o nome do grupo de recursos de exemplo, o nome da VM e o\/script a ser executado (https:/RAW.githubusercontent.com/me/Project/Hello.sh) com suas próprias informações. 
 
 ```azurecli
 az vm extension set `
@@ -411,6 +411,6 @@ Você também pode remover uma extensão na portal do Azure da seguinte maneira:
 | Extensão do Diagnóstico do Azure |Gerenciar Diagnóstico do Azure |[Extensão de Diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Extensão de acesso à VM do Azure |Gerenciar usuários e credenciais |[Extensão de acesso à VM para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre extensões de VM, consulte [visão geral de extensões e recursos de máquinas virtuais do Azure](overview.md).

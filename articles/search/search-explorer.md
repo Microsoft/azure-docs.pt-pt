@@ -1,7 +1,7 @@
 ---
 title: Ferramenta Search Explorer para consultar dados em portal do Azure Azure Search
 description: Use ferramentas de portal do Azure como o Search Explorer para consultar índices em Azure Search. Insira os termos de pesquisa ou cadeias de caracteres de pesquisa totalmente qualificadas com sintaxe avançada.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 87e5ec82299ef9ddc8bc8756196bb2ace3d1f6f3
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: e941e487adaac38c4ec3bd61a58b4b0c61f4c80a
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414234"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649959"
 ---
 # <a name="search-explorer-for-querying-data-in-azure-search"></a>Gerenciador de pesquisa para consultar dados em Azure Search 
 
@@ -142,7 +142,7 @@ Dicas para pesquisar no **Gerenciador de pesquisa**:
 
 + Os resultados são retornados como documentos JSON detalhados para que você possa exibir a construção e o conteúdo do documento, em sua totalidade. Você pode usar expressões de consulta, mostradas nos exemplos, para limitar quais campos são retornados.
 
-+ Os documentos são compostos de todos os campos  marcados como recuperáveis no índice. Para exibir atributos de índice no portal, clique em *realestate-US-Sample* na lista **índices** na página Visão geral da pesquisa.
++ Os documentos são compostos de todos os campos marcados como recuperáveis no índice. Para exibir atributos de índice no portal, clique em *realestate-US-Sample* na lista **índices** na página Visão geral da pesquisa.
 
 + Consultas de forma livre, semelhantes ao que você pode inserir em um navegador da Web comercial, são úteis para testar uma experiência do usuário final. Por exemplo, supondo que o índice de exemplo interno realestate, você poderia inserir "Seattle Apartments Lake Washington" e, em seguida, pode usar Ctrl-F para encontrar os termos nos resultados da pesquisa. 
 

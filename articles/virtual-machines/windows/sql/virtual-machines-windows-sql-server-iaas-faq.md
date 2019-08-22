@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 80c90ceb0e2edac47d67b99e7fb7f03c1ab82fb1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5b3c65361f45c8ad5bdf3adf89dc3002c229d0d0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882362"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650415"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Perguntas frequentes sobre SQL Server em execução em máquinas virtuais do Windows no Azure
 
@@ -87,7 +87,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
    Para ter uma licença passiva gratuita para um grupo de disponibilidade secundário em espera ou instância clusterizada de failover, você deve atender a todos os critérios a seguir, conforme descrito no [Guia de licenciamento PDF](https://download.microsoft.com/download/7/8/C/78CDF005-97C1-4129-926B-CE4A6FE92CF5/SQL_Server_2017_Licensing_guide.pdf):
 
-   1. Você tem o [License Mobility](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) por meio do [Software Assurance](https://www.microsoft.comlicensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
+   1. Você tem o [License Mobility](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) por meio do [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
    1. A instância de SQL Server passiva não atende SQL Server dados aos clientes ou executa cargas de trabalho do Active SQL Server. Ele é usado apenas para sincronizar com o servidor primário e, caso contrário, manter o banco de dados passivo em um estado de espera passiva. Se ele estiver servindo dados, como relatórios para clientes que executam cargas de trabalho do Active SQL Server, ou se executar qualquer "operação", como backups adicionais do servidor secundário, ele deverá ser uma instância paga de SQL Server licenciada. 
    1. A licença do Active SQL Server é coberta pelo Software Assurance e permite **uma** instância de SQL Server secundário passiva, com até a mesma quantidade de computação que o servidor ativo licenciado, apenas. 
    1. A VM de SQL Server secundária utiliza o [modelo de licença](virtual-machines-windows-sql-ahb.md)BYOL (traga sua própria licença) ou benefício híbrido do Azure (AHB). 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: d2d4d39cc7b330794094745851856365ef54b42f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 6ee9e334c10bd2d0f291b5fd1bb547ba3ba83ddb
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828198"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877193"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usar o roteamento de mensagens do Hub IoT para enviar mensagens do dispositivo para a nuvem para diferentes pontos de extremidade
 
@@ -39,7 +39,7 @@ Você pode usar a [integração de hubs de eventos padrão e SDKs](iot-hub-devgu
 
 ### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
-O Hub IoT dá suporte à gravação de dados no armazenamento de BLOBs do Azure no formato [Apache Avro](https://avro.apache.org/) , bem como no formato JSON. A capacidade de codificar o formato JSON está geralmente disponível em todas as regiões em que o Hub IoT está disponível. O padrão é AVRO. O formato de codificação só pode ser definido quando o ponto de extremidade do armazenamento de BLOBs é configurado. O formato não pode ser editado para um ponto de extremidade existente. Ao usar a codificação JSON, você deve definir o contentType como JSON e contentEncoding como UTF-8 nas [Propriedades do sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)de mensagens. Se isso não estiver definido, o Hub IoT gravará as mensagens no formato codificado 64 base. Você pode selecionar o formato de codificação usando o Hub IoT criar ou atualizar a API REST, especificamente o [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), o portal do Azure, o [CLI do Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)ou o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). O diagrama a seguir mostra como selecionar o formato de codificação no portal do Azure.
+O Hub IoT dá suporte à gravação de dados no armazenamento de BLOBs do Azure no formato [Apache Avro](https://avro.apache.org/) , bem como no formato JSON. A capacidade de codificar o formato JSON está geralmente disponível em todas as regiões em que o Hub IoT está disponível. O padrão é AVRO. O formato de codificação só pode ser definido quando o ponto de extremidade do armazenamento de BLOBs é configurado. O formato não pode ser editado para um ponto de extremidade existente. Ao usar a codificação JSON, você deve definir o contentType como **Application/JSON** e ContentEncoding como **UTF-8** nas [Propriedades do sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)de mensagens. Esses dois valores não diferenciam maiúsculas de minúsculas. Se a codificação de conteúdo não estiver definida, o Hub IoT gravará as mensagens no formato codificado 64 base. Você pode selecionar o formato de codificação usando o Hub IoT criar ou atualizar a API REST, especificamente o [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), o portal do Azure, o [CLI do Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)ou o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). O diagrama a seguir mostra como selecionar o formato de codificação no portal do Azure.
 
 ![Codificação de ponto de extremidade de armazenamento de BLOB](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -53,7 +53,7 @@ O Hub IoT faz o lote de mensagens e grava dados em um blob sempre que o lote ati
 
 Você pode usar qualquer Convenção de nomenclatura de arquivo, no entanto, deve usar todos os tokens listados. O Hub IoT será gravado em um blob Vazio se não houver dados a serem gravados.
 
-Ao rotear para o armazenamento de BLOBs, é recomendável inlistar os BLOBs e, em seguida, iterar sobre eles, para garantir que todos os contêineres sejam lidos sem fazer nenhuma suposição de partição. O intervalo de partição pode ser alterado durante um failover [manual](iot-hub-ha-dr.md#manual-failover-preview)ou de [failover iniciado pela Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) . Você pode usar a [API listar BLOBs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para enumerar a lista de BLOBs. Consulte o exemplo a seguir como orientação.
+Ao rotear para o armazenamento de BLOBs, é recomendável inlistar os BLOBs e, em seguida, iterar sobre eles, para garantir que todos os contêineres sejam lidos sem fazer nenhuma suposição de partição. O intervalo de partição pode ser alterado durante um failover [manual](iot-hub-ha-dr.md#manual-failover)ou de [failover iniciado pela Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) . Você pode usar a [API listar BLOBs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para enumerar a lista de BLOBs. Consulte o exemplo a seguir como orientação.
 
    ```csharp
         public void ListBlobsInContainer(string containerName, string iothub)
@@ -103,7 +103,7 @@ Você pode habilitar/desabilitar a rota de fallback na folha de roteamento de me
 
 ## <a name="non-telemetry-events"></a>Eventos de não telemetria
 
-Além da telemetria do dispositivo, o roteamento de mensagens também permite enviar eventos de alteração de dispositivo e eventos de ciclo de vida do dispositivo. Por exemplo, se uma rota for criada com a fonte de dados definida como **eventos de alteração de dispositivos de troca**, o Hub IOT enviará mensagens para o ponto de extremidade que contêm a alteração no dispositivo. Da mesma forma, se uma rota for criada com a fonte de dados definida como **eventos de ciclo de vida do dispositivo**, o Hub IOT enviará uma mensagem indicando se o dispositivo foi excluído ou criado. 
+Além da telemetria do dispositivo, o roteamento de mensagens também permite o envio de eventos de alteração de dispositivos de troca, eventos de ciclo de vida do dispositivo e eventos de alteração de mensagens digitais (em visualização pública). Por exemplo, se uma rota for criada com a fonte de dados definida como **eventos de alteração de dispositivos de troca**, o Hub IOT enviará mensagens para o ponto de extremidade que contêm a alteração no dispositivo. Da mesma forma, se uma rota for criada com a fonte de dados definida como **eventos de ciclo de vida do dispositivo**, o Hub IOT enviará uma mensagem indicando se o dispositivo foi excluído ou criado. Por fim, como parte da [Visualização pública de IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md), um desenvolvedor pode criar rotas com a fonte de dados definida para **eventos de alteração de troca digital** e o Hub IOT envia mensagens sempre que uma [Propriedade](../iot-pnp/iot-plug-and-play-glossary.md) de intercâmbio digital é definida ou alterada, uma troca [digital ](../iot-pnp/iot-plug-and-play-glossary.md)é substituído ou quando ocorre um evento de alteração para o dispositivo subjacente.
 
 O [Hub IOT também se integra à grade de eventos do Azure](iot-hub-event-grid.md) para publicar eventos de dispositivo para dar suporte a integrações em tempo real e automação de fluxos de trabalho com base nesses eventos. Consulte as principais [diferenças entre roteamento de mensagens e a grade de eventos](iot-hub-event-grid-routing-comparison.md) para saber qual funciona melhor para seu cenário.
 

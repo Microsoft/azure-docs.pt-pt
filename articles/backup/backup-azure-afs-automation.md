@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: dacurwin
 ms.reviewer: pullabhk
-ms.openlocfilehash: f736d7f1dde8f268033d7c80322b91543672e68f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: HT
+ms.openlocfilehash: 2c9ca71816d6688881de465a575a8a0eef3cde1f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638518"
+ms.locfileid: "69650448"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Fazer backup e restaurar arquivos do Azure com o PowerShell
 
@@ -152,10 +152,11 @@ Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultConte
 
 ### <a name="fetch-the-vault-id"></a>Buscar a ID do cofre
 
-Planejamos substituir a configuração de contexto do cofre de acordo com as diretrizes de Azure PowerShell. Em vez disso, você pode armazenar ou buscar a ID do cofre e passá-la para comandos relevantes, da seguinte maneira:
+Planejamos substituir a configuração de contexto do cofre de acordo com as diretrizes de Azure PowerShell. Em vez disso, você pode armazenar ou buscar a ID do cofre e passá-la para comandos relevantes. Portanto, se você não tiver definido o contexto do cofre ou desejar especificar o comando a ser executado para um determinado cofre, passe a ID do cofre como "-vaultid" para todo o comando relevante da seguinte maneira:
 
 ```powershell
 $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
+New-AzRecoveryServicesBackupProtectionPolicy -Name "NewAFSPolicy" -WorkloadType "AzureFiles" -RetentionPolicy $retPol -SchedulePolicy $schPol -VaultID $vaultID
 ```
 
 ## <a name="configure-a-backup-policy"></a>Configurar uma política de backup
@@ -166,6 +167,18 @@ Uma política de backup especifica o agendamento de backups e por quanto tempo o
 - Exiba a retenção de política de backup padrão usando [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
 - Exiba o agendamento da política de backup padrão usando [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
 -  Use o cmdlet [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) para criar uma nova política de backup. Você insere os objetos de política de retenção e agendamento.
+
+Por padrão, uma hora de início é definida no objeto de política de agenda. Use o exemplo a seguir para alterar a hora de início para a hora de início desejada. A hora de início desejada também deve estar em UTC. O exemplo abaixo pressupõe que a hora de início desejada seja 01:00 AM UTC para backups diários.
+
+```powershell
+$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"
+$UtcTime = Get-Date -Date "2019-03-20 01:30:00Z"
+$UtcTime = $UtcTime.ToUniversalTime()
+$schpol.ScheduleRunTimes[0] = $UtcTime
+```
+
+> [!IMPORTANT]
+> Você precisa fornecer a hora de início apenas em 30 minutos. No exemplo acima, ele pode ser apenas "01:00:00" ou "02:30:00". A hora de início não pode ser "01:15:00"
 
 O exemplo a seguir armazena a política de agendamento e a política de retenção em variáveis. Em seguida, ele usa essas variáveis como parâmetros para uma nova política (**NewAFSPolicy**). O **NewAFSPolicy** usa um backup diário e o retém por 30 dias.
 
@@ -180,10 +193,8 @@ A saída é semelhante à seguinte.
 ```powershell
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
 ----                 ------------       -------------------- ----------                ----------
-NewAFSPolicy           AzureFiles            AzureStorage              10/24/2017 1:30:00 AM
+NewAFSPolicy           AzureFiles            AzureStorage              10/24/2019 1:30:00 AM
 ```
-
-
 
 ## <a name="enable-backup"></a>Habilitar backup
 
@@ -208,6 +219,7 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 ----                 ------------       -------------------- ----------                ----------
 dailyafs             AzureFiles         AzureStorage         1/10/2018 12:30:00 AM
 ```
+
 > [!NOTE]
 > O fuso horário do campo **backuptime** no PowerShell é UTC (horário coordenado universal). Quando o horário do backup é mostrado na portal do Azure, a hora é ajustada para o fuso horário local.
 
@@ -409,5 +421,5 @@ $job.ErrorDetails
  --------- ------------                                          ---------------
 1073871825 Microsoft Azure Backup encountered an internal error. Wait for a few minutes and then try the operation again. If the issue persists, please contact Microsoft support.
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais sobre como](backup-azure-files.md) fazer backup de arquivos do Azure no portal do Azure.

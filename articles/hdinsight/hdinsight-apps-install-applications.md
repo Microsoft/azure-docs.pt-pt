@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 38b37b45964dd724b18f22a478be0d85a7036ce7
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 9b96294362400891113812e308ff59bd0e438b90
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946954"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873356"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicações do Apache Hadoop de terceiros no Azure HDInsight
 
@@ -37,7 +37,7 @@ A lista seguinte mostra as aplicações publicadas:
 |[Explosão de presto para o Azure HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/starburst.starburst-presto) |Hadoop |Presto é um mecanismo de consulta SQL distribuído rápido e escalonável. Criado para a separação de armazenamento e computação, Presto é perfeito para consultar dados no armazenamento do Azure Data Lake, bases de dados do armazenamento de Blobs do Azure, SQL e NoSQL e outras origens de dados. |
 |[Coletor de dados do StreamSets para nuvem do HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop, HBase, Spark, Kafka |O coletor de dados StreamSets é um mecanismo leve e poderoso que transmite dados em tempo real. Use o coletor de dados para rotear e processar dados em seus fluxos de dados. Ele vem com uma licença de avaliação de 30 dias. |
 |[Trifator Wrangler Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trifacta.tr01) |Hadoop, Spark, HBase |Trifator o Wrangler Enterprise para HDInsight dá suporte a Wrangling de dados de toda a empresa para qualquer escala de dados. O custo da execução de trifator no Azure é uma combinação dos custos de assinatura de trifator, além dos custos de infraestrutura do Azure para as máquinas virtuais. |
-|[Plataforma de dados de Unifi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unifi-software.unifi-data-catalog) |Hadoop,HBase,Storm,Spark |A plataforma de dados unificada é um pacote totalmente integrado de ferramentas de dados de autoatendimento projetadas para capacitar o usuário de negócios a lidar com os desafios de dados que impulsionam a receita incremental, reduzem os custos ou a complexidade operacional. |
+|[Plataforma de dados de Unifi](https://unifisoftware.com/platform/) |Hadoop,HBase,Storm,Spark |A plataforma de dados unificada é um pacote totalmente integrado de ferramentas de dados de autoatendimento projetadas para capacitar o usuário de negócios a lidar com os desafios de dados que impulsionam a receita incremental, reduzem os custos ou a complexidade operacional. |
 |[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |Aplicativo de dados Unravel para o cluster HDInsight Spark. |
 |[Eswater o catálogo de dados controlado por ia](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/waterline_data.waterline_data) |Spark |Preponha catálogos, organiza e rege dados usando o ia para marcar automaticamente os dados com os termos comerciais. Catálogo de alfabetizada do waterline corporativos é um componente de sucesso críticos, para análises de autoatendimento, conformidade e governação e iniciativas de gestão de TI. |
 
@@ -83,7 +83,7 @@ O portal mostra uma lista das aplicações do HDInsight instaladas relativas a u
     |Propriedade | Descrição |
     |---|---|
     |Nome da aplicação |Nome do aplicativo. |
-    |Estado |Status do aplicativo. |
+    |State |Status do aplicativo. |
     |Página Web |A URL do aplicativo Web que você implantou no nó de borda. A credencial é a mesma que as credenciais de utilizador HTTP que configurou para o cluster. |
     |Ponto final de SSH |Você pode usar o SSH para se conectar ao nó de borda. As credenciais de SSH são as mesmas que as credenciais de utilizador de SSH que configurou para o cluster. Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](hdinsight-hadoop-linux-use-ssh-unix.md). |
     |Descrição | Descrição do aplicativo. |

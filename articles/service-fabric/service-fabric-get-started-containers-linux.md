@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: atsenthi
-ms.openlocfilehash: dde124a568581c53a4168b1c84e5df8a9d55155f
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 2bb9a5e8e42901f22d9f68d691684614c7161620
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599562"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650657"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -181,28 +181,11 @@ Especifique o mapeamento de porta no formato apropriado. Para este artigo, você
 ![Gerador Yeoman do Service Fabric para contentores][sf-yeoman]
 
 ## <a name="configure-container-repository-authentication"></a>Configurar a autenticação do repositório de contêiner
- Se precisar que a autenticação do contentor seja realizada com um repositório privado, adicione `RepositoryCredentials`. Neste artigo, adicione o nome e a palavra-passe da conta do registo de contentores myregistry.azurecr.io. Certifique-se de que a política é adicionada sob a etiqueta "ServiceManifestImport" que corresponde ao pacote de serviço correto.
 
-```xml
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-   </ServiceManifestImport>
-``` 
-
-Recomendamos que você criptografe a senha do repositório. Consulte [gerenciar segredos criptografados em aplicativos Service Fabric](service-fabric-application-secret-management.md) para obter instruções.
-
-### <a name="configure-cluster-wide-credentials"></a>Configurar credenciais em todo o cluster
-Consulte a [documentação aqui](
-service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
+Consulte [autenticação de repositório de contêiner](configure-container-repository-credentials.md)para saber como configurar diferentes tipos de autenticação para download de imagem de contêiner.
 
 ## <a name="configure-isolation-mode"></a>Configurar o modo de isolamento
-Com a versão de tempo de execução 6,3, o isolamento de VM tem suporte para contêineres do Linux, dando suporte a dois modos de isolamento para contêineres: processo e HyperV. Com o modo de isolamento do HyperV, os kernels são isolados entre cada contêiner e o host do contêiner. O isolamento do HyperV é implementado [](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker)usando contêineres claros. O modo de isolamento é especificado para clusters do Linux `ServicePackageContainerPolicy` no elemento no arquivo de manifesto do aplicativo. Os modos de isolamento que pode especificar são `process`, `hyperv` e `default`. O padrão é o modo de isolamento do processo. O fragmento seguinte mostra como o modo de isolamento é especificado no ficheiro de manifesto de aplicação.
+Com a versão de tempo de execução 6,3, o isolamento de VM tem suporte para contêineres do Linux, dando suporte a dois modos de isolamento para contêineres: processo e Hyper-V. Com o modo de isolamento do Hyper-V, os kernels são isolados entre cada contêiner e o host do contêiner. O isolamento do Hyper-V é implementado [](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker)usando contêineres claros. O modo de isolamento é especificado para clusters do Linux `ServicePackageContainerPolicy` no elemento no arquivo de manifesto do aplicativo. Os modos de isolamento que pode especificar são `process`, `hyperv` e `default`. O padrão é o modo de isolamento do processo. O fragmento seguinte mostra como o modo de isolamento é especificado no ficheiro de manifesto de aplicação.
 
 ```xml
 <ServiceManifestImport>
@@ -288,7 +271,7 @@ Abra um navegador e navegue até Service Fabric Explorer em http:\//localhost: 1
 
 Ligue-se ao contentor em execução. Abra um navegador da Web apontando para o endereço IP retornado na porta 4000, por exemplo, "\/http:/localhost: 4000". Deverá ver o cabeçalho "Hello World!" apresentado no browser.
 
-![Olá Mundo!][hello-world]
+![Hello World!][hello-world]
 
 
 ## <a name="clean-up"></a>Limpeza
@@ -493,7 +476,7 @@ Com a versão e posterior 6.2 do runtime do Service Fabric, pode iniciar o daemo
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre como executar [contentores no Service Fabric](service-fabric-containers-overview.md).
 * Leia o tutorial [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) (Implementar uma aplicação .NET num contentor).
 * Saiba mais sobre o [ciclo de vida das aplicações](service-fabric-application-lifecycle.md) do Service Fabric.

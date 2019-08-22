@@ -9,14 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d6ad7631ae32f8bd04812093a0fef4fa3d575864
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d716eb761ab406b65f10898b29775327a801ac45
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067404"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875462"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Tutorial: Utilizar o Azure IoT Central para monitorizar os seus dispositivos
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Este tutorial mostra-lhe, como operador, como utilizar a aplicação Microsoft Azure IoT Central para monitorizar os seus dispositivos e alterar as definições.
 
@@ -41,7 +43,7 @@ O Azure IoT Central envia notificações sobre os dispositivos como mensagens de
 
 Abra a mensagem de e-mail que recebeu no final do tutorial [Configurar regras e ações para o seu dispositivo](tutorial-configure-rules.md). No e-mail, escolha **Clique aqui para abrir o seu dispositivo**:
 
-![E-mail de notificação de alerta](media/tutorial-monitor-devices/email.png)
+![Email de notificação de alerta](media/tutorial-monitor-devices/email.png)
 
 A página **Dispositivo** do **Dispositivo de Ar Condicionado Ligado 1** simulou o dispositivo que criou nos tutorais anteriores é aberta no browser:
 
@@ -55,13 +57,13 @@ Escolha a vista **Dashboard** para ver as informações sobre o dispositivo.
 
 ![Dashboard do dispositivo](media/tutorial-monitor-devices/initial_screen.png)
 
-O gráfico no dashboard mostra um desenho da temperatura do dispositivo. Também pode ver que a temperatura atual de destino para o dispositivo na **propriedades do dispositivo** mosaico. Decide que a temperatura ideal é demasiado elevada.
+O gráfico no dashboard mostra um desenho da temperatura do dispositivo. Você também pode ver a temperatura de destino atual para o dispositivo no bloco de **Propriedades do dispositivo** . Decide que a temperatura ideal é demasiado elevada.
 
 ## <a name="remediate-an-issue"></a>Resolver um problema
 
 Para alterar a temperatura ideal do dispositivo, utilize a página **Definições**:
 
-1. Escolha **Definições**. Altere **Definir Temperatura** para 75. Escolha **Atualizar** para enviar a nova temperatura ideal para o dispositivo. Quando o dispositivo confirma a alteração de definições, o estado da definição é alterado para **sincronizado**:
+1. Escolha **Definições**. Altere **Definir Temperatura** para 75. Escolha **Atualizar** para enviar a nova temperatura ideal para o dispositivo. Quando o dispositivo confirma a alteração das configurações, o status da configuração é alteradopara sincronizado:
 
     ![Atualizar definições](media/tutorial-monitor-devices/change_settings.png)
 
@@ -69,7 +71,7 @@ Para alterar a temperatura ideal do dispositivo, utilize a página **Definiçõe
 
     ![Dashboard do dispositivo atualizado](media/tutorial-monitor-devices/new_settings.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

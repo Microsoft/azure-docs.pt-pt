@@ -3,18 +3,18 @@ title: 'Início rápido do Python: Criar, carregar e consultar índices usando A
 description: Explica como criar um índice, carregar dados e executar consultas usando Python, notebooks Jupyter e a API REST do Azure Search.
 ms.date: 07/11/2019
 author: heidisteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.openlocfilehash: 9e12133179ca02c3474e768305feb8ae19a6178e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 308e296ba5306949e87e68f14c8c219b85825af4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840759"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656799"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Início rápido: Criar um índice de Azure Search no Python usando notebooks Jupyter
 > [!div class="op_single_selector"]

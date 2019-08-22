@@ -1,6 +1,6 @@
 ---
-title: Store credenciais no Azure Key Vault | Documentos da Microsoft
-description: Saiba como armazenar as credenciais para arquivos de dados utilizados um cofre de chaves do Azure do Azure Data Factory pode obter automaticamente no tempo de execução.
+title: Armazenar credenciais no Azure Key Vault | Microsoft Docs
+description: Saiba como armazenar credenciais para armazenamentos de dados usados em um cofre de chaves do Azure que Azure Data Factory pode recuperar automaticamente no tempo de execução.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -11,52 +11,52 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 71f78685ee5fa340ec22c63e3e7f057bef122474
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 735013046f65a9dba345c52db883df0b114ba7f2
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048514"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69892057"
 ---
-# <a name="store-credential-in-azure-key-vault"></a>Credencial de Store no Azure Key Vault
+# <a name="store-credential-in-azure-key-vault"></a>Armazenar credencial em Azure Key Vault
 
-Pode armazenar as credenciais para arquivos de dados e computações numa [do Azure Key Vault](../key-vault/key-vault-whatis.md). O Azure Data Factory obtém as credenciais ao executar uma atividade que utiliza a arquivo de dados/computação.
+Você pode armazenar credenciais para armazenamentos de dados e computações em um [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory recupera as credenciais ao executar uma atividade que usa o armazenamento de dados/computação.
 
-Atualmente, todos os tipos de atividade, exceto a atividade personalizada suportam esta funcionalidade. Para a configuração do conector especificamente, verifique a seção "Propriedades do serviço ligado" na [cada tópico de conector](copy-activity-overview.md#supported-data-stores-and-formats) para obter detalhes.
+Atualmente, todos os tipos de atividade, exceto a atividade personalizada, dão suporte a esse recurso. Para configuração de conector especificamente, marque a seção "Propriedades do serviço vinculado" em [cada tópico de conector](copy-activity-overview.md#supported-data-stores-and-formats) para obter detalhes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Esta funcionalidade baseia-se na identidade do geridos de fábrica de dados. Saiba como ele funciona da [identidade de fábrica de dados gerida](data-factory-service-identity.md) e certifique-se a fábrica de dados tem um associados.
+Esse recurso depende da identidade gerenciada data factory. Saiba como ele funciona da [identidade gerenciada para o data Factory](data-factory-service-identity.md) e certifique-se de que seu data Factory tenha um associado.
 
 ## <a name="steps"></a>Passos
 
-Para fazer referência a uma credencial armazenada no Azure Key Vault, terá de:
+Para fazer referência a uma credencial armazenada no Azure Key Vault, você precisa:
 
-1. **Obter dados fábrica gerenciada identidade** ao copiar o valor de "Geridos pelo ID da Identity Application" gerada juntamente com sua fábrica. Se usar o ADF criação da interface do Usuário, o ID da aplicação de identidade gerida será apresentado na janela de criação do serviço ligado do Azure Key Vault; Também pode recuperá-la no portal do Azure, consulte [identidade gerida de fábrica de dados de recuperação](data-factory-service-identity.md#retrieve-managed-identity).
-2. **Conceda o acesso de identidade gerida ao Cofre de chaves do Azure.** No seu Cofre de chaves -> acesso políticas -> Adicionar novo -> pesquisa isso gerenciado ID da identity application para conceder **obter** permissão na lista pendente de permissões do segredo. Ele permite que esta fábrica designada aceder ao segredo no Cofre de chaves.
-3. **Crie um serviço ligado que aponta para o seu Cofre de chaves do Azure.** Consulte a [serviço ligado do Azure Key Vault](#azure-key-vault-linked-service).
-4. **Crie serviço ligado do arquivo de dados, dentro do qual referência a correspondente chave secreta do armazenados no cofre.** Consulte a [segredo de referência armazenado no Cofre de chaves](#reference-secret-stored-in-key-vault).
+1. **Recupere data Factory identidade gerenciada** copiando o valor de "ID do aplicativo de identidade gerenciada" gerado junto com sua fábrica. Se você usar a interface do usuário de criação do ADF, a ID do aplicativo de identidade gerenciada será mostrada na janela de criação do serviço vinculado Azure Key Vault; Você também pode recuperá-lo de portal do Azure, consulte [recuperar data Factory identidade gerenciada](data-factory-service-identity.md#retrieve-managed-identity).
+2. **Conceda o acesso de identidade gerenciada à sua Azure Key Vault.** Em seu cofre de chaves-políticas de acesso de >-> Adicionar New-> Pesquise essa ID de aplicativo de identidade gerenciada para conceder permissão **Get** no menu suspenso permissões secretas. Ele permite que essa fábrica designada acesse o segredo no Key Vault.
+3. **Crie um serviço vinculado apontando para seu Azure Key Vault.** Consulte [Azure Key Vault serviço vinculado](#azure-key-vault-linked-service).
+4. **Crie um serviço vinculado do repositório de dados, dentro do qual fazer referência ao segredo correspondente armazenado no cofre de chaves.** Consulte o [segredo de referência armazenado no cofre de chaves](#reference-secret-stored-in-key-vault).
 
-## <a name="azure-key-vault-linked-service"></a>Serviço ligado de Cofre de chaves do Azure
+## <a name="azure-key-vault-linked-service"></a>Azure Key Vault serviço vinculado
 
-As seguintes propriedades são suportadas para o serviço ligado do Azure Key Vault:
+As propriedades a seguir têm suporte para Azure Key Vault serviço vinculado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo tem de ser definida como: **AzureKeyVault**. | Sim |
-| baseUrl | Especifique o URL do Cofre de chaves do Azure. | Sim |
+| type | A propriedade Type deve ser definida como: **AzureKeyVault**. | Sim |
+| baseUrl | Especifique a URL do Azure Key Vault. | Sim |
 
-**Usando a interface do Usuário de criação:**
+**Usando a interface do usuário de criação:**
 
-Clique em **conexões** -> **serviços ligados** ->  **+ novo** -> procure "Azure Key Vault":
+Clique em **conexões** -> **Serviços** -> vinculados **+ New** -> Pesquisar por "Azure Key Vault":
 
-![Pesquisa AKV](media/store-credentials-in-key-vault/search-akv.png)
+![Pesquisar AKV](media/store-credentials-in-key-vault/search-akv.png)
 
-Selecione o Cofre de chaves do Azure aprovisionado em que as suas credenciais são armazenadas. Pode fazer **Testar ligação** para se certificar de que sua AKV ligação é válida. 
+Selecione os Azure Key Vault provisionados onde suas credenciais são armazenadas. Você pode **testar a conexão** para verificar se a conexão do akv é válida. 
 
-![Configurar AKV](media/store-credentials-in-key-vault/configure-akv.png)
+![Configurar o AKV](media/store-credentials-in-key-vault/configure-akv.png)
 
-**Exemplo JSON:**
+**Exemplo de JSON:**
 
 ```json
 {
@@ -70,27 +70,27 @@ Selecione o Cofre de chaves do Azure aprovisionado em que as suas credenciais s�
 }
 ```
 
-## <a name="reference-secret-stored-in-key-vault"></a>Segredo de referência armazenado no Cofre de chaves
+## <a name="reference-secret-stored-in-key-vault"></a>Segredo de referência armazenado no cofre de chaves
 
-As seguintes propriedades são suportadas quando configura um campo no serviço ligado que referencia um segredo do Cofre de chaves:
+As propriedades a seguir têm suporte quando você configura um campo no serviço vinculado que faz referência a um segredo do cofre de chaves:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo do campo tem de ser definida: **AzureKeyVaultSecret**. | Sim |
-| secretName | O nome do segredo no Cofre de chaves do azure. | Sim |
-| secretVersion | A versão do segredo no Cofre de chaves do azure.<br/>Se não for especificado, utiliza sempre a versão mais recente do segredo do.<br/>Se for especificado, em seguida, prende para a versão especificada.| Não |
-| store | Refere-se a um serviço ligado do Azure Key Vault que utiliza para armazenar a credencial. | Sim |
+| type | A propriedade Type do campo deve ser definida como: **AzureKeyVaultSecret**. | Sim |
+| secretName | O nome do segredo no Azure Key Vault. | Sim |
+| secretVersion | A versão do segredo no Azure Key Vault.<br/>Se não for especificado, ele sempre usará a versão mais recente do segredo.<br/>Se especificado, ele se enparará com a versão fornecida.| Não |
+| store | Refere-se a um Azure Key Vault serviço vinculado que você usa para armazenar a credencial. | Sim |
 
-**Usando a interface do Usuário de criação:**
+**Usando a interface do usuário de criação:**
 
-Selecione **do Azure Key Vault** para campos secretos ao criar a ligação ao seu arquivo de dados/computação. Selecione o aprovisionado chave de Cofre de serviço ligado do Azure e forneça o **nome do segredo**. Opcionalmente, pode fornecer uma versão do segredo também. 
+Selecione **Azure Key Vault** para campos secretos ao criar a conexão com o armazenamento de dados/computação. Selecione o serviço vinculado de Azure Key Vault provisionado e forneça o **nome do segredo**. Opcionalmente, você também pode fornecer uma versão secreta. 
 
 >[!TIP]
->Para os conectores com a cadeia de ligação no serviço ligado como o SQL Server, armazenamento de BLOBs, etc., é possível armazenar apenas o campo secreto por exemplo, palavra-passe em AKV ou para armazenar a cadeia de ligação completo no AKV. Pode encontrar ambas as opções na interface do Usuário.
+>Para os conectores que usam a cadeia de conexão no serviço vinculado, como SQL Server, armazenamento de BLOBs, etc., você pode optar por armazenar apenas o campo secreto, por exemplo, senha em AKV, ou armazenar a cadeia de conexão inteira em AKV. Você pode encontrar ambas as opções na interface do usuário.
 
 ![Configurar o segredo AKV](media/store-credentials-in-key-vault/configure-akv-secret.png)
 
-**Exemplo de JSON: (consulte a seção de "palavra-passe")**
+**Exemplo de JSON: (consulte a seção "senha")**
 
 ```json
 {

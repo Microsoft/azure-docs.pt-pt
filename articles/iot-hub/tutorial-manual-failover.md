@@ -6,17 +6,17 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 07/24/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 40a7bba99068ebc2368e413199cf966bd2e4f25c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 308e452f33ded9be3b88ff370ed34326de54895c
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60650544"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876931"
 ---
-# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Tutorial: Efetuar ativação pós-falha manual para um hub IoT (pré-visualização pública)
+# <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Tutorial: Executar failover manual para um hub IoT
 
 A ativação pós-falha manual é uma funcionalidade do serviço Hub IoT que permite aos clientes executarem operações de [ativação pós-falha](https://en.wikipedia.org/wiki/Failover) no hub, de uma região primária para a região geograficamente emparelhada e correspondente no Azure. A ativação pós-falha manual pode ser feita em caso de um desastre regional ou de uma falha expandida do serviço. Também pode executar uma ativação pós-falha planeada para testar as capacidades de recuperação após desastre, embora seja recomendável a utilização de um hub IoT de teste em vez de um que esteja em execução na produção. A funcionalidade de ativação pós-falha manual é oferecida aos clientes sem custos adicionais.
 
@@ -47,7 +47,7 @@ Neste tutorial, vai realizar as seguintes tarefas:
 
     **Grupo de recursos**: clique em **Criar novo** e especifique **ManlFailRG** no nome do grupo de recursos.
 
-    **Região**: selecione uma região perto de si e que faça parte da pré-visualização. Este tutorial utiliza `westus2`. Uma ativação pós-falha só pode ser executada entre regiões do Azure geograficamente emparelhadas. A região geograficamente emparelhada com westus2 é WestCentralUS.
+    **Região**: selecione uma região perto de você. Este tutorial utiliza `West US 2`. Uma ativação pós-falha só pode ser executada entre regiões do Azure geograficamente emparelhadas. A região geograficamente emparelhada com oeste dos EUA 2 é WestCentralUS.
     
    **Nome do Hub IoT**: especifique um nome para o seu hub IoT. O nome do hub tem de ser globalmente exclusivo. 
 
@@ -65,33 +65,38 @@ Tenha em atenção que existe um limite de duas ativações pós-falha e duas re
 
 1. Clique em **Grupos de recursos** e selecione o grupo de recursos **ManlFailRG**. Clique no seu hub na lista de recursos. 
 
-2. Em **Resiliência** no painel Hub IoT, clique em **Ativação pós-falha manual (pré-visualização)**. Tenha em atenção que, se o seu hub não estiver configurado numa região válida, a opção de ativação pós-falha manual vai estar desativada.
+1. Em **configurações** no painel Hub IOT, clique em **failover**.
 
    ![Captura de ecrã que mostra o painel de propriedades do Hub IoT](./media/tutorial-manual-failover/trigger-failover-01.png)
 
-3. No painel Ativação pós-falha manual, irá ver a **Localização Primária do Hub IoT** e a **Localização Secundária do Hub IoT**. A localização primária é inicialmente definida como a localização que especificou ao criar o hub IoT e indica sempre a localização na qual o hub está atualmente ativo. A localização secundária é a [região geograficamente emparelhada do Azure](../best-practices-availability-paired-regions.md) padrão, que está emparelhada à localização primária. Não é possível alterar os valores da localização. Neste tutorial, a localização primária é `westus2` e a localização secundária é `WestCentralUS`.
+1. No painel failover manual, você vê o **local atual** e o **local de failover**. O local atual sempre indica o local no qual o Hub está ativo no momento. O local de failover é a [região emparelhada geograficamente padrão do Azure](../best-practices-availability-paired-regions.md) que é emparelhada com o local atual. Não é possível alterar os valores da localização. Para este tutorial, o local atual é `West US 2` e o local de failover `West Central US`é.
 
    ![Captura de ecrã que mostra o painel Ativação Pós-falha Manual](./media/tutorial-manual-failover/trigger-failover-02.png)
 
-3. Na parte superior do painel Ativação pós-falha manual, clique em **Iniciar ativação pós-falha**. Verá o painel **Confirmar ativação pós-falha manual**. Preencha o nome do seu hub IoT para confirmar que é nele que pretende executar a ativação pós-falha. Em seguida, para iniciar a ativação pós-falha, clique em **OK**.
+1. Na parte superior do painel failover manual, clique em **Iniciar failover**. 
+
+1. No painel de confirmação, preencha o nome do Hub IoT para confirmar que é aquele que você deseja fazer failover. Em seguida, para iniciar o failover, clique em **failover**.
 
    O período de tempo que a ativação pós-falha manual demora é proporcional ao número de dispositivos que estão registados n o seu hub. Por exemplo, se tiver 100 000 dispositivos, pode demorar 15 minutos, mas se tiver cinco milhões de dispositivos, pode demorar uma hora ou mais.
 
-4. No painel **Confirmar ativação pós-falha manual**, preencha o nome do seu hub IoT para confirmar que é nele que pretende executar a ativação pós-falha. Em seguida, para iniciar a ativação pós-falha, clique em OK. 
-
    ![Captura de ecrã que mostra o painel Ativação Pós-falha Manual](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
-   Enquanto o processo de ativação pós-falha manual estiver em execução, é apresentada uma faixa no painel Ativação Pós-falha Manual informando-o de que está em curso uma ativação pós-falha manual. 
+   Enquanto o processo de failover manual está em execução, uma faixa é exibida para informar que um failover manual está em andamento. 
 
    ![Captura de ecrã que mostra a Ativação Pós-falha Manual em curso](./media/tutorial-manual-failover/trigger-failover-04-in-progress.png)
 
-   Se fechar o painel Hub IoT e o abrir novamente ao clicar no mesmo no painel Grupo de Recursos, verá uma faixa informando-o de que o hub não está ativo. 
+   Se você fechar o painel do Hub IoT e abri-lo novamente clicando nele no painel grupo de recursos, você verá uma faixa que informa que o Hub está no meio de um failover manual. 
 
-   ![Captura de ecrã que mostra o Hub IoT inativo](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
+   ![Captura de tela mostrando o failover do Hub IoT em andamento](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
 
-   Depois de terminar, as regiões primária e secundária da página Ativação Pós-falha Manual são invertidas e o hub fica novamente ativo. Neste exemplo, a localização primária é agora `WestCentralUS` e a localização secundária é agora `westus2`. 
+   Após a conclusão, as regiões atual e de failover na página failover manual são invertidas e o Hub está ativo novamente. Neste exemplo, o local atual agora `WestCentralUS` é e o local do failover agora `West US 2`é. 
 
    ![Captura de ecrã que mostra que a ativação pós-falha está concluída](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
+
+   A página Visão geral também mostra uma faixa indicando que o failover foi concluído e que o Hub IoT `West Central US`está sendo executado no.
+
+   ![Captura de tela mostrando o failover concluído na página Visão geral](./media/tutorial-manual-failover/trigger-failover-06-finished-overview.png)
+
 
 ## <a name="perform-a-failback"></a>Executar uma reativação pós-falha 
 
@@ -101,15 +106,15 @@ Uma reativação pós-falha é executada tal como uma ativação pós-falha manu
 
 1. Para executar uma reativação pós-falha, volte ao painel Iot Hub do seu hub Iot.
 
-2. Em **Resiliência** no painel Hub IoT, clique em **Ativação pós-falha manual (pré-visualização)**. 
+2. Em **configurações** no painel Hub IOT, clique em **failover**. 
 
-3. Na parte superior do painel Ativação pós-falha manual, clique em **Iniciar ativação pós-falha**. Verá o painel **Confirmar ativação pós-falha manual**. 
+3. Na parte superior do painel failover manual, clique em **Iniciar failover**. 
 
-4. No painel **Confirmar ativação pós-falha manual**, preencha o nome do seu hub IoT para confirmar que é nele que pretende executar a reativação pós-falha. Para iniciar a reativação pós-falha, clique em OK. 
+4. No painel de confirmação, preencha o nome do Hub IoT para confirmar que é aquele que você deseja fazer failback. Para iniciar a reativação pós-falha, clique em OK. 
 
-   ![Captura de ecrã do pedido de reativação pós-falha manual](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
+   ![Captura de ecrã do pedido de reativação pós-falha manual](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
-   Faixas são apresentadas como explicado na executar uma seção de ativação pós-falha. Após a conclusão da reativação pós-falha, mostra novamente `westus2` como a localização primária e `WestCentralUS` como a localização secundária, conforme definido originalmente.
+   As faixas são exibidas conforme explicado na seção executar um failover. Depois que o failback for concluído, ele será `West US 2` exibido novamente como o local `West Central US` atual e como o local de failover, como definido originalmente.
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 

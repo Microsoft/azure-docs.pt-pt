@@ -9,16 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 56ced4f5e2fd0fbf829f72cff2413998398a7a09
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 30bfd3b119b3ae4badbda50747158e8b08a9dd08
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066002"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875528"
 ---
-# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Tutorial: Configurar regras e ações para o seu dispositivo no Azure IoT Central
+# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Tutorial: Configurar regras e ações para seu dispositivo no Azure IoT Central
 
 *Este artigo aplica-se a operadores, construtores e administradores.*
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Neste tutorial, pode criar uma regra que envia um e-mail quando a temperatura do dispositivo de ar condicionado ligado excede 90&deg; F.
 
@@ -34,15 +36,15 @@ Antes de começar, deve concluir o tutorial [Definir um novo tipo de dispositivo
 
 ## <a name="create-a-telemetry-based-rule"></a>Criar uma regra baseada em telemetria
 
-1. Para adicionar uma nova regra de acesso com base na telemetria ao seu aplicativo, no menu de navegação esquerdo, selecione **modelos de dispositivos**:
+1. Para adicionar uma nova regra baseada em telemetria ao seu aplicativo, no menu de navegação à esquerda, selecione **modelos de dispositivo**:
 
-    ![Página de modelos de dispositivo](media/tutorial-configure-rules/templatespage1.png)
+    ![Página modelos de dispositivo](media/tutorial-configure-rules/templatespage1.png)
 
-    Verá o **ligado ar-condicionado (1.0.0)** modelo de dispositivo que criou no tutorial anterior.
+    Você verá o modelo de dispositivo da **1.0.0 (ar condicionador conectado)** criado no tutorial anterior.
 
-2. Para personalizar o modelo de dispositivo, selecione o **ligado ar-condicionado** modelo que criou no tutorial anterior.
+2. Para personalizar o modelo de dispositivo, selecione o modelo **conectado do ar-condicionado** criado no tutorial anterior.
 
-3. Para adicionar uma regra baseada em telemetria no **regras** visualizar, selecione **regras**, selecione **+ nova regra**e, em seguida, selecione **telemetria**:
+3. Para adicionar uma regra baseada em telemetria na exibição **regras** , selecione **regras**, selecione **+ nova regra**e, em seguida, selecione telemetria:
 
     ![Vista de regras](media/tutorial-configure-rules/newrule.png)
 
@@ -53,7 +55,7 @@ Antes de começar, deve concluir o tutorial [Definir um novo tipo de dispositivo
     | Name                                         | Alerta de temperatura do ar condicionado |
     | Ativar regra para todos os dispositivos deste modelo | Ativado                                |
     | Condição                                    | A temperatura é superior a 90    |
-    | Agregação                                  | Nenhuma                              |
+    | Agregação                                  | Nenhum                              |
 
     ![Condição da regra de temperatura](media/tutorial-configure-rules/temperaturerule.png)
 
@@ -61,9 +63,9 @@ Antes de começar, deve concluir o tutorial [Definir um novo tipo de dispositivo
 
 ## <a name="add-an-action"></a>Adicionar uma ação
 
-Quando definir uma regra, também pode definir uma ação a executar quando são satisfeitas as condições de regra. Neste tutorial, vai criar uma regra com uma ação que envia uma notificação por e-mail.
+Quando definir uma regra, também pode definir uma ação a executar quando são satisfeitas as condições de regra. Neste tutorial, você cria uma regra com uma ação que envia uma notificação por email.
 
-1. Para adicionar um **ação**, primeiro **guardar** a regra e, em seguida, desloque-se para baixo no **configurar regra de telemetria** painel. Escolha o **+** junto a **ações**e, em seguida, escolha **E-Mail**:
+1. Para adicionar uma **ação**, primeiro **salve** a regra e, em seguida, role para baixo no painel **Configurar regra** de telemetria. Escolha o **+** próximo a **ações**e, em seguida, escolha **email**:
 
     ![Ação de regra de temperatura](media/tutorial-configure-rules/addaction.png)
 
@@ -71,7 +73,7 @@ Quando definir uma regra, também pode definir uma ação a executar quando são
 
     | Definição   | Value                          |
     | --------- | ------------------------------ |
-    | Para        | O seu endereço de e-mail             |
+    | Para        | O seu endereço de correio eletrónico             |
     | Notas     | A temperatura do ar condicionado excedeu o limite. |
 
     > [!NOTE]
@@ -79,14 +81,14 @@ Quando definir uma regra, também pode definir uma ação a executar quando são
 
     ![Ação de temperatura](media/tutorial-configure-rules/temperatureaction.png)
 
-3. Selecione **Guardar**. A regra está listada na **regras** página.
+3. Selecione **Guardar**. Sua regra está listada na página **regras** .
 
 ## <a name="test-the-rule"></a>Testar a regra
 
 Pouco tempo depois de guardar a regra, esta é ativada. Quando forem cumpridas as condições definidas na regra, a aplicação envia uma mensagem para o endereço de e-mail que especificou na ação.
 
 > [!NOTE]
-> Depois de seu teste estiver concluído, desative a regra para parar de receber alertas na pasta a receber.
+> Após a conclusão do teste, desative a regra para parar de receber alertas em sua caixa de entrada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -97,7 +99,7 @@ Neste tutorial, ficou a saber como:
 > * Criar uma regra baseada em telemetria
 > * Adicionar uma ação
 
-Agora que definiu uma regra baseada em limiar é a próxima etapa sugerida [personalizar vistas da operadora](tutorial-customize-operator.md).
+Agora que você definiu uma regra baseada em limite, a próxima etapa sugerida é [Personalizar as exibições do operador](tutorial-customize-operator.md).
 
 Para saber mais sobre os diferentes tipos de regras no Azure IoT Central e como parametrizar a definição da regra, consulte:
 * [Criar uma regra de telemetria e configurar as notificações](howto-create-telemetry-rules.md).

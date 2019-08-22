@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 305a35d1d40d94d1ce8e463b4af51eb84278bc3f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 0b0a6bec7916c056c187ed9e588dd3ac8fea8d84
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510268"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876412"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure
 
@@ -155,8 +155,14 @@ As bases de dados de conjunto suportam geralmente as mesmas [funcionalidades de 
 
 Há duas maneiras de criar um pool elástico no portal do Azure.
 
-1. Você pode criar um pool elástico pesquisando o **pool elástico do SQL** no **Marketplace** ou clicando em **+ Adicionar** na folha de procura de pools elásticos do SQL. Você pode especificar um servidor novo ou existente por meio deste fluxo de trabalho de provisionamento de pool.
-2. Ou você pode criar um pool elástico navegando até um SQL Server existente e clicando em **criar pool** para criar um pool diretamente nesse servidor. A única diferença aqui é ignorar a etapa em que você especifica o servidor durante o fluxo de trabalho de provisionamento do pool.
+1. Selecione **SQL do Azure** no menu à esquerda da portal do Azure. Se o SQL do Azure não estiver na lista, selecione **todos os serviços**e, em seguida, digite *SQL do Azure* na caixa de pesquisa.
+2. Selecione **+ Adicionar** para abrir a página **selecionar opção de implantação do SQL** . Você pode exibir informações adicionais sobre pools elásticos selecionando **Mostrar detalhes** no bloco **bancos de dados** .
+3. No bloco **bancos de dados** , selecione **pool elástico** na lista suspensa **tipo de recurso** e, em seguida, selecione **criar**:
+
+   ![Criar um conjunto elástico](./media/sql-database-elastic-pool/create-elastic-pool.png)
+
+
+1. Ou você pode criar um pool elástico navegando até um servidor SQL do Azure existente e clicando em **+ novo pool** para criar um pool diretamente nesse servidor.
 
 > [!NOTE]
 > Você pode criar vários pools em um servidor, mas não pode adicionar bancos de dados de servidores diferentes no mesmo pool.

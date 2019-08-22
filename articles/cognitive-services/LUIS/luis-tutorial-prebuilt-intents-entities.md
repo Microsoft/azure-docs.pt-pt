@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2018
+ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 8c3fa2a68018e0eb45f37b54b16b6e7797cfa7c4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4697bad15a374bed0de08b7cabc5aceaad7f1259
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560050"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876713"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Tutorial: Identificar entidades e intenções comuns
 
@@ -51,18 +51,7 @@ O LUIS oferece várias intenções pré-concebidas para ajudar com intenções c
 
 1. Procurar `Utilities`. 
 
-    [![Captura de tela da caixa de diálogo de tentativas predefinidas com utilitários na pesquisa](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
-
-1. Selecione as intenções seguintes e selecione **Concluído**: 
-
-   * Utilities.Cancel
-   * Utilities.Confirm
-   * Utilities.Help
-   * Utilities.StartOver
-   * Utilities.Stop
-
-     Essas intenções são úteis para determinar onde, na conversa, o usuário é e o que eles estão pedindo. Essas intenções incluem o uso de entidades. Essas entidades são adicionadas automaticamente ao aplicativo LUIS: Number, ordinal e Utilities. DirectionalReference. 
-
+1. Selecione todas as tentativas e selecione **concluído**. Essas intenções são úteis para determinar onde, na conversa, o usuário é e o que eles estão pedindo. 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Adicionar entidades predefinidas para ajudar com a extração de tipo de dados comum
 
@@ -77,7 +66,7 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
    * **[PersonName](luis-reference-prebuilt-person.md)** 
    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-     ![Captura de ecrã do número selecionado na caixa de diálogo de entidades pré-concebidas](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+     ![Captura de tela do número selecionado na caixa de diálogo entidades predefinidas](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
      Essas entidades ajudarão você a adicionar nome e local de reconhecimento ao seu aplicativo cliente.
 
@@ -101,35 +90,75 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
 
     ```json
     {
-      "query": "I want to cancel my trip to Seattle to see Bob Smith",
+      "query": "I want to cancel my trip to Seattle to see Bob Smith.",
       "topScoringIntent": {
-        "intent": "Utilities.Cancel",
-        "score": 0.807676256
+        "intent": "Utilities.ReadAloud",
+        "score": 0.100361854
       },
       "intents": [
         {
-          "intent": "Utilities.Cancel",
-          "score": 0.807676256
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.0487322025
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.0208660364
-        },
-        {
-          "intent": "None",
-          "score": 0.008789532
+          "intent": "Utilities.ReadAloud",
+          "score": 0.100361854
         },
         {
           "intent": "Utilities.Stop",
-          "score": 0.006929268
+          "score": 0.08102781
+        },
+        {
+          "intent": "Utilities.SelectNone",
+          "score": 0.0398852825
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.0277276486
+        },
+        {
+          "intent": "Utilities.SelectItem",
+          "score": 0.0220712926
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.0145813478
+        },
+        {
+          "intent": "None",
+          "score": 0.012434179
+        },
+        {
+          "intent": "Utilities.Escalate",
+          "score": 0.0122632384
+        },
+        {
+          "intent": "Utilities.ShowNext",
+          "score": 0.008534077
+        },
+        {
+          "intent": "Utilities.ShowPrevious",
+          "score": 0.00547111453
+        },
+        {
+          "intent": "Utilities.SelectAny",
+          "score": 0.00152912608
+        },
+        {
+          "intent": "Utilities.Repeat",
+          "score": 0.0005556819
+        },
+        {
+          "intent": "Utilities.FinishTask",
+          "score": 0.000169488427
         },
         {
           "intent": "Utilities.Confirm",
-          "score": 0.00136293867
+          "score": 0.000149565312
+        },
+        {
+          "intent": "Utilities.GoBack",
+          "score": 0.000141017343
+        },
+        {
+          "intent": "Utilities.Reject",
+          "score": 6.27324E-06
         }
       ],
       "entities": [

@@ -1,24 +1,21 @@
 ---
 title: Escala e Hospedagem de Azure Functions | Microsoft Docs
 description: Saiba como escolher entre Azure Functions plano de consumo e o plano Premium.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: Azure functions, funções, plano de consumo, plano Premium, processamento de eventos, WebHooks, computação dinâmica, arquitetura sem servidor
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdef1457254b6deb8a0b791b11c94154518b4301
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: c39ee29b9a4449000d44e44bc6feae407cf4cd38
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636442"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874941"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e Hospedagem de Azure Functions
 
@@ -143,9 +140,6 @@ Para saber mais sobre os tipos de conta de armazenamento, consulte [apresentando
 Nos planos de consumo e Premium, a infraestrutura de Azure Functions escala recursos de CPU e memória adicionando instâncias adicionais do host do functions, com base no número de eventos em que suas funções são disparadas. Cada instância do host do Functions no plano de consumo é limitada a 1,5 GB de memória e uma CPU.  Uma instância do host é o aplicativo de funções inteiro, o que significa que todas as funções em um aplicativo de funções compartilham recursos dentro de uma instância e são dimensionadas ao mesmo tempo. Os aplicativos de funções que compartilham o mesmo plano de consumo são dimensionados de forma independente.  No plano Premium, o tamanho do plano determinará a memória disponível e a CPU para todos os aplicativos nesse plano nessa instância.  
 
 Os arquivos de código de função são armazenados em compartilhamentos de arquivos do Azure na conta de armazenamento principal da função. Quando você exclui a conta de armazenamento principal do aplicativo de funções, os arquivos de código de função são excluídos e não podem ser recuperados.
-
-> [!NOTE]
-> Quando você estiver usando um gatilho de BLOB em um plano de consumo, pode haver um atraso de até 10 minutos no processamento de novos BLOBs. Esse atraso ocorre quando um aplicativo de funções esteve ocioso. Depois que o aplicativo de funções estiver em execução, os BLOBs serão processados imediatamente. Para evitar esse atraso de inicialização a frio, use o plano Premium ou use o [gatilho de grade de eventos](functions-bindings-event-grid.md). Para obter mais informações, consulte [o artigo referência de associação de gatilho de blob](functions-bindings-storage-blob.md#trigger).
 
 ### <a name="runtime-scaling"></a>Dimensionamento de tempo de execução
 

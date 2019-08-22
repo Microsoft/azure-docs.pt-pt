@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: 646a602d7e6c47454f039a5f4f1981a60b56fa56
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cacd67e26b13df8ef456ac8f1391e4396f5bdd96
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567526"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873878"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Início rápido: Criar uma instância gerenciada do banco de dados SQL do Azure
 
@@ -35,11 +35,11 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 As etapas a seguir mostram como criar uma instância gerenciada.
 
-1. Selecione **criar um recurso** no canto superior esquerdo do portal do Azure.
-2. Localize a **instância gerenciada**e, em seguida, selecione **Azure SQL instância gerenciada**.
-3. Selecione **Criar**.
+1. Selecione **SQL do Azure** no menu à esquerda da portal do Azure. Se o SQL do Azure não estiver na lista, selecione **todos os serviços**e, em seguida, digite *SQL do Azure* na caixa de pesquisa.
+2. Selecione **+ Adicionar** para abrir a página **selecionar opção de implantação do SQL** . Você pode exibir informações adicionais sobre a instância gerenciada do banco de dados SQL do Azure selecionando **Mostrar detalhes** no bloco **instâncias gerenciadas** .
+3. Selecione **criar**:
 
-   ![Criar uma instância gerida](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
+   ![Criar uma instância gerida](./media/sql-database-managed-instance-get-started/create-managed-instance.png)
 
 4. Preencha o formulário **instância gerenciada do SQL** com as informações solicitadas usando as informações na tabela a seguir.
 
@@ -108,7 +108,7 @@ Depois que a implantação for bem-sucedida, examine os recursos que foram criad
 
    O nome é semelhante a **your_machine_name. a1b2c3d4e5f6. Database. Windows. net**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber mais sobre como se conectar a uma instância gerenciada:
   - Para obter uma visão geral das opções de conexão para aplicativos, consulte [conectar seus aplicativos a uma instância gerenciada](sql-database-managed-instance-connect-app.md).

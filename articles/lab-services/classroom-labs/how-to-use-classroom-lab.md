@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/19/2019
 ms.author: spelluru
-ms.openlocfilehash: ef954f44799b1cf4103847b21ea78e0ac94a9021
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: HT
+ms.openlocfilehash: 8987a22d4546fe887d1dda9adff8f46afe667618
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640193"
+ms.locfileid: "69644993"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Como aceder a um laboratório de sala de aula no Azure Lab Services
 Este artigo descreve como se registrar em um laboratório de sala de aula, exibir todos os laboratórios que você pode acessar, iniciar/parar uma VM no laboratório e conectar-se à VM. 
@@ -37,7 +37,7 @@ Este artigo descreve como se registrar em um laboratório de sala de aula, exibi
 
         ![VM no estado parado](../media/tutorial-connect-vm-in-classroom-lab/vm-in-stopped-state.png)
 
-## <a name="start-to-stop-the-vm"></a>Começar a parar a VM
+## <a name="start-or-stop-the-vm"></a>Iniciar ou parar a VM
 1. **Inicie** a VM selecionando o primeiro botão, conforme mostrado na imagem a seguir. Esse processo leva algum tempo.  
 
     ![Iniciar a VM](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)

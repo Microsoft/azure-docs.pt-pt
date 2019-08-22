@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 04/29/2019
+ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee8af77ce8f3897fdf1cb3da9a125acca28f9419
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
-ms.translationtype: MT
+ms.openlocfilehash: e730e1b5534c4c74734816f5481247e341436b08
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358710"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656330"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Usar SSL para proteger um serviço Web por meio do Azure Machine Learning
 
@@ -66,7 +66,7 @@ Ao solicitar um certificado, você deve fornecer o FQDN do endereço que planeja
 > Se a autoridade de certificação não puder fornecer o certificado e a chave como arquivos codificados por PEM, você poderá usar um utilitário como o [OpenSSL](https://www.openssl.org/) para alterar o formato.
 
 > [!WARNING]
-> Use  certificados autoassinados somente para desenvolvimento. Não os use em ambientes de produção. Certificados autoassinados podem causar problemas no seu cliente de aplicativos. Para obter mais informações, consulte a documentação das bibliotecas de rede que seu aplicativo cliente usa.
+> Use certificados autoassinados somente para desenvolvimento. Não os use em ambientes de produção. Certificados autoassinados podem causar problemas no seu cliente de aplicativos. Para obter mais informações, consulte a documentação das bibliotecas de rede que seu aplicativo cliente usa.
 
 ## <a id="enable"></a>Habilitar SSL e implantar
 
@@ -152,6 +152,107 @@ Em seguida, tem de atualizar o DNS para apontar para o serviço web.
   Atualize o DNS na guia **configuração** do endereço IP público do cluster AKs. (Consulte a imagem a seguir.) O endereço IP público é um tipo de recurso que é criado no grupo de recursos que contém os nós do agente AKS e outros recursos de rede.
 
   ![Serviço de Azure Machine Learning: Protegendo serviços Web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+
+## <a name="update-the-ssl-certificate"></a>Atualizar o certificado SSL
+
+Os certificados SSL expiram e devem ser renovados. Normalmente, isso acontece todos os anos. Use as informações nas seções a seguir para atualizar e renovar seu certificado para modelos implantados no serviço kubernetes do Azure:
+
+### <a name="update-a-microsoft-generated-certificate"></a>Atualizar um certificado gerado pela Microsoft
+
+Se o certificado foi originalmente gerado pela Microsoft (ao usar o *leaf_domain_label* para criar o serviço), use um dos exemplos a seguir para atualizar o certificado:
+
+**Usar o SDK**
+
+```python
+from azureml.core.compute import AksCompute
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute.aks import SslConfiguration
+
+# Get the existing cluster
+aks_target = AksCompute(ws, clustername)
+
+# Update the existing certificate by referencing the leaf domain label
+ssl_configuration = SslConfiguration(leaf_domain_label="myaks", overwrite_existing_domain=True)
+update_config = AksUpdateConfiguration(ssl_configuration)
+aks_target.update(update_config)
+```
+
+**Utilizar a CLI**
+
+```azurecli
+az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-leaf-domain-label "myaks" --ssl-overwrite-domain True
+```
+
+Para obter mais informações, consulte os documentos de referência a seguir:
+
+* [SslConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?view=azure-ml-py)
+* [AksUpdateConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?view=azure-ml-py)
+
+### <a name="update-custom-certificate"></a>Atualizar certificado personalizado
+
+Se o certificado foi originalmente gerado por uma autoridade de certificação, use as seguintes etapas:
+
+1. Use a documentação fornecida pela autoridade de certificação para renovar o certificado. Esse processo cria novos arquivos de certificado.
+
+1. Use o SDK ou a CLI para atualizar o serviço com o novo certificado:
+
+    **Usar o SDK**
+
+    ```python
+    from azureml.core.compute import AksCompute
+    from azureml.core.compute.aks import AksUpdateConfiguration
+    from azureml.core.compute.aks import SslConfiguration
+    
+    # Read the certificate file
+    def get_content(file_name):
+        with open(file_name, 'r') as f:
+            return f.read()
+
+    # Get the existing cluster
+    aks_target = AksCompute(ws, clustername)
+    
+    # Update cluster with custom certificate
+    ssl_configuration = SslConfiguration(cname="myaks", cert=get_content('cert.pem'), key=get_content('key.pem'))
+    update_config = AksUpdateConfiguration(ssl_configuration)
+    aks_target.update(update_config)
+    ```
+
+    **Utilizar a CLI**
+
+    ```azurecli
+    az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-cname "myaks"--ssl-cert-file "cert.pem" --ssl-key-file "key.pem"
+    ```
+
+Para obter mais informações, consulte os documentos de referência a seguir:
+
+* [SslConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?view=azure-ml-py)
+* [AksUpdateConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?view=azure-ml-py)
+
+## <a name="disable-ssl"></a>Desabilitar SSL
+
+Para desabilitar o SSL para um modelo implantado no serviço kubernetes do Azure, você pode usar o SDK ou a CLI:
+
+**Usar o SDK**
+
+```python
+from azureml.core.compute import AksCompute
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute.aks import SslConfiguration
+
+# Get the existing cluster
+aks_target = AksCompute(ws, clustername)
+
+# Disable SSL
+ssl_configuration = SslConfiguration(status="Disabled")
+update_config = AksUpdateConfiguration(ssl_configuration)
+aks_target.update(update_config)
+```
+
+**Utilizar a CLI**
+
+```azurecli
+ az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-disable True
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 Aprenda a:

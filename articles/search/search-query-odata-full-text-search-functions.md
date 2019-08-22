@@ -1,13 +1,13 @@
 ---
-title: Referência de função de pesquisa em texto completo do OData - Azure Search
-description: Funções de pesquisa em texto completo de OData, search.ismatch e search.ismatchscoring, nas consultas de pesquisa do Azure.
+title: Referência da função de pesquisa de texto completo OData-Azure Search
+description: Funções de pesquisa de texto completo OData, Search. IsMatch e Search. ismatchscoring, em Azure Search consultas.
 ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,23 +19,23 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 158312a7afe88e7b9885376c5d28b01958acbbfb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c3b28c8799b09ddfe008df8539709c5a704ac6b4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079811"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648020"
 ---
-# <a name="odata-full-text-search-functions-in-azure-search---searchismatch-and-searchismatchscoring"></a>As funções de pesquisa em texto completo de OData no Azure Search - `search.ismatch` e `search.ismatchscoring`
+# <a name="odata-full-text-search-functions-in-azure-search---searchismatch-and-searchismatchscoring"></a>Funções de pesquisa de texto completo OData no Azure Search `search.ismatch` -e`search.ismatchscoring`
 
-O Azure Search oferece suporte a pesquisa em texto completo no contexto do [expressões de filtro de OData](query-odata-filter-orderby-syntax.md) através do `search.ismatch` e `search.ismatchscoring` funções. Estas funções permitem-lhe combinar a pesquisa em texto completo com a filtragem booleano estrita de forma a que não é possível apenas com o uso de nível superior `search` parâmetro do [API de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+O Azure Search dá suporte à pesquisa de texto completo no contexto de [expressões de filtro OData](query-odata-filter-orderby-syntax.md) por meio das `search.ismatch` funções e. `search.ismatchscoring` Essas funções permitem combinar a pesquisa de texto completo com filtragem booliana estrita de maneiras que não são possíveis apenas usando o parâmetro de nível `search` superior da API de [pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 > [!NOTE]
-> O `search.ismatch` e `search.ismatchscoring` funções só são suportadas em filtros na [API de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents). Não são suportados no [sugere](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou [preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) APIs.
+> As `search.ismatch` funções `search.ismatchscoring` e têm suporte apenas em filtros na [API de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents). Eles não têm suporte nas APIs [sugerir](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou [preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) .
 
 ## <a name="syntax"></a>Sintaxe
 
-A seguinte EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática da `search.ismatch` e `search.ismatchscoring` funções:
+O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática `search.ismatch` das `search.ismatchscoring` funções e:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -51,17 +51,17 @@ query_type ::= "'full'" | "'simple'"
 search_mode ::= "'any'" | "'all'"
 ```
 
-Um diagrama da sintaxe interativa também está disponível:
+Um diagrama de sintaxe interativa também está disponível:
 
 > [!div class="nextstepaction"]
-> [Diagrama da sintaxe OData para o Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#search_is_match_call)
+> [Diagrama de sintaxe do OData para Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#search_is_match_call)
 
 > [!NOTE]
-> Ver [referência de sintaxe de expressão OData para o Azure Search](search-query-odata-syntax-reference.md) para a EBNF completa.
+> Consulte [referência de sintaxe de expressão OData para Azure Search](search-query-odata-syntax-reference.md) para o EBNF completo.
 
-### <a name="searchismatch"></a>search.ismatch
+### <a name="searchismatch"></a>Pesquisar. IsMatch
 
-O `search.ismatch` função avalia uma consulta de pesquisa em texto completo, como parte de uma expressão de filtro. Os documentos que correspondam à consulta de pesquisa serão retornados no conjunto de resultados. As seguintes sobrecargas dessa função estão disponíveis:
+A `search.ismatch` função avalia uma consulta de pesquisa de texto completo como parte de uma expressão de filtro. Os documentos que correspondem à consulta de pesquisa serão retornados no conjunto de resultados. As seguintes sobrecargas dessa função estão disponíveis:
 
 - `search.ismatch(search)`
 - `search.ismatch(search, searchFields)`
@@ -69,58 +69,58 @@ O `search.ismatch` função avalia uma consulta de pesquisa em texto completo, c
 
 Os parâmetros são definidos na tabela a seguir:
 
-| Nome do parâmetro | Tipo | Descrição |
+| Nome do parâmetro | Type | Descrição |
 | --- | --- | --- |
-| `search` | `Edm.String` | A consulta de pesquisa (em qualquer um [simples](query-simple-syntax.md) ou [completo](query-lucene-syntax.md) sintaxe de consulta Lucene). |
-| `searchFields` | `Edm.String` | Lista separada por vírgulas de campos pesquisáveis para procurar no; assume a predefinição de todos os campos pesquisáveis no índice. Ao usar [respondidas pesquisa](query-lucene-syntax.md#bkmk_fields) no `search` parâmetro, os especificadores de campo na consulta Lucene substituem quaisquer campos especificados neste parâmetro. |
-| `queryType` | `Edm.String` | `'simple'` ou `'full'`; o padrão é `'simple'`. Especifica qual linguagem de consulta foi utilizada no `search` parâmetro. |
-| `searchMode` | `Edm.String` | `'any'` ou `'all'`, o padrão é `'any'`. Indica se uma ou todas a pesquisa de termos no `search` parâmetro deve corresponder para a contagem do documento como uma correspondência. Ao utilizar o [operadores booleanos de Lucene](query-lucene-syntax.md#bkmk_boolean) no `search` parâmetro, irão ter precedência sobre este parâmetro. |
+| `search` | `Edm.String` | A consulta de pesquisa (em sintaxe de consulta de Lucene [simples](query-simple-syntax.md) ou [completa](query-lucene-syntax.md) ). |
+| `searchFields` | `Edm.String` | Lista separada por vírgulas de campos pesquisáveis para pesquisa; o padrão é todos os campos pesquisáveis no índice. Ao usar [](query-lucene-syntax.md#bkmk_fields) a `search` pesquisa de campo no parâmetro, os especificadores de campo na consulta Lucene substituem todos os campos especificados nesse parâmetro. |
+| `queryType` | `Edm.String` | `'simple'`ou `'full'`; o padrão é `'simple'`. Especifica qual linguagem de consulta foi usada no `search` parâmetro. |
+| `searchMode` | `Edm.String` | `'any'`ou `'all'`, usa como `'any'`padrão. Indica se um ou todos os termos de pesquisa no `search` parâmetro devem ser correspondidos a fim de contar o documento como uma correspondência. Ao usar os [operadores boolianos](query-lucene-syntax.md#bkmk_boolean) do Lucene `search` no parâmetro, eles terão precedência sobre esse parâmetro. |
 
-Todos os parâmetros acima são equivalentes a correspondente [parâmetros de solicitação de pesquisa na API de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Todos os parâmetros acima são equivalentes aos [parâmetros de solicitação de pesquisa correspondentes na API de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-O `search.ismatch` função devolve um valor do tipo `Edm.Boolean`, que permite que componha-lo com outros subexpressões de filtro com o valor de booleano [operadores lógicos](search-query-odata-logical-operators.md).
+A `search.ismatch` função retorna um valor do tipo `Edm.Boolean`, que permite que você o redija com outras subexpressãos de filtro usando os [operadores lógicos](search-query-odata-logical-operators.md)boolianos.
 
 > [!NOTE]
-> O Azure Search não suporta a utilização `search.ismatch` ou `search.ismatchscoring` no interior de expressões lambda. Isso significa que não é possível para filtros de escrita em coleções de objetos que podem correlacionar correspondências de pesquisa em texto completo com correspondências de filtro strict no mesmo objeto. Para obter mais detalhes sobre esta limitação, bem como exemplos, consulte [resolução de problemas de filtros de recolha no Azure Search](search-query-troubleshoot-collection-filters.md). Para obter mais informações aprofundadas sobre por que esta limitação existe, consulte [Noções básicas sobre filtros de recolha no Azure Search](search-query-understand-collection-filters.md).
+> Azure Search não dá suporte ao `search.ismatch` uso `search.ismatchscoring` de expressões lambda ou internas. Isso significa que não é possível gravar filtros em coleções de objetos que podem correlacionar correspondências de pesquisa de texto completo com correspondências de filtro estritas no mesmo objeto. Para obter mais detalhes sobre essa limitação, bem como exemplos, consulte [solução de problemas de filtros de coleção no Azure Search](search-query-troubleshoot-collection-filters.md). Para obter informações mais detalhadas sobre o motivo da existência dessa limitação, consulte [noções básicas sobre filtros de coleta no Azure Search](search-query-understand-collection-filters.md).
 
 
-### <a name="searchismatchscoring"></a>search.ismatchscoring
+### <a name="searchismatchscoring"></a>Pesquisar. ismatchscoring
 
-O `search.ismatchscoring` funcione, como o `search.ismatch` funcione, devolve `true` para documentos que correspondam à consulta de pesquisa em texto completo transmitida como um parâmetro. A diferença entre eles é que a relevância pontuação de documentos que correspondam a `search.ismatchscoring` consulta irá contribuir para a classificação de documento geral, embora, no caso de `search.ismatch`, a pontuação de documento não ser alterada. As seguintes sobrecargas dessa função estão disponíveis com parâmetros idênticos do `search.ismatch`:
+A `search.ismatchscoring` função, como a `search.ismatch` função, retorna `true` para documentos que correspondem à consulta de pesquisa de texto completo passada como um parâmetro. A diferença entre eles é que a pontuação de relevância dos documentos que `search.ismatchscoring` correspondem à consulta contribuirá para a pontuação geral do documento, enquanto, `search.ismatch`no caso do, a Pontuação do documento não será alterada. As seguintes sobrecargas dessa função estão disponíveis com parâmetros idênticos aos de `search.ismatch`:
 
 - `search.ismatchscoring(search)`
 - `search.ismatchscoring(search, searchFields)`
 - `search.ismatchscoring(search, searchFields, queryType, searchMode)`
 
-Tanto o `search.ismatch` e `search.ismatchscoring` funções podem ser utilizadas na mesma expressão de filtro.
+As `search.ismatch` funções e `search.ismatchscoring` podem ser usadas na mesma expressão de filtro.
 
 ## <a name="examples"></a>Exemplos
 
-Encontre os documentos com a palavra "frente marítima". Esta consulta de filtro é idêntica para um [solicitação de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) com `search=waterfront`.
+Localizar documentos com a palavra "orla marítima". Essa consulta de filtro é idêntica a uma solicitação de `search=waterfront` [pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) com.
 
     search.ismatchscoring('waterfront')
 
-Encontre os documentos com hostel"palavra" e classificação superior ou igual a 4 ou documentos com a palavra "motel" e classificação igual a 5. Tenha em atenção de que este pedido não foi possível ser expressado sem o `search.ismatchscoring` função.
+Localize documentos com a palavra "Hostel" e classificação maior ou igual a 4 ou documentos com a palavra "Motel" e classificação igual a 5. Observe que essa solicitação não pôde ser expressa sem a `search.ismatchscoring` função.
 
     search.ismatchscoring('hostel') and Rating ge 4 or search.ismatchscoring('motel') and Rating eq 5
 
-Encontre documentos sem a palavra "luxo".
+Localizar documentos sem a palavra "luxo".
 
     not search.ismatch('luxury')
 
-Encontre os documentos com a frase "Oceano view" ou uma classificação igual a 5. O `search.ismatchscoring` consulta será executada apenas em relação a campos `HotelName` e `Rooms/Description`.
+Localize documentos com a frase "exibição do oceano" ou classificação igual a 5. A `search.ismatchscoring` consulta será executada somente em campos `HotelName` e `Rooms/Description`.
 
-Apenas a segunda cláusula da disjunção de correspondentes serão devolvidos documentos demasiado – hotéis com `Rating` igual a 5. Para torná-lo claro que esses documentos não correspondam a qualquer uma das partes com a pontuação da expressão, vai ser devolvidos com score igual a zero.
+Os documentos que corresponderem somente à segunda cláusula da disjunção serão retornados também para hotéis com `Rating` igual a 5. Para tornar claro que esses documentos não corresponderam a nenhuma das partes pontuadas da expressão, eles serão retornados com pontuação igual a zero.
 
     search.ismatchscoring('"ocean view"', 'Rooms/Description,HotelName') or Rating eq 5
 
-Encontrar os documentos onde o hotel"termos" e "aeroporto" estão dentro de 5 palavras uns dos outros na descrição do hotel e onde fumar não é permitido em, pelo menos, algumas dos ambientes. Esta consulta utiliza a [completa de linguagem de consulta Lucene](query-lucene-syntax.md).
+Localize documentos em que os termos "Hotel" e "aeroporto" estejam dentro de 5 palavras entre si na descrição do Hotel, e onde o fumante não é permitido em pelo menos algumas das salas. Essa consulta usa a [linguagem de consulta Lucene completa](query-lucene-syntax.md).
 
     search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and Rooms/any(room: not room/SmokingAllowed)
 
 ## <a name="next-steps"></a>Passos Seguintes  
 
 - [Filtros no Azure Search](search-filters.md)
-- [Descrição geral de linguagem de expressão OData para o Azure Search](query-odata-filter-orderby-syntax.md)
-- [Referência de sintaxe de expressão OData para o Azure Search](search-query-odata-syntax-reference.md)
-- [Procurar nos documentos &#40;API de REST do serviço Azure Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Visão geral da linguagem de expressão OData para Azure Search](query-odata-filter-orderby-syntax.md)
+- [Referência de sintaxe de expressão OData para Azure Search](search-query-odata-syntax-reference.md)
+- [Pesquisar documentos &#40;Azure Search API REST do serviço&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

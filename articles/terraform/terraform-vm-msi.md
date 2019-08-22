@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: a1a980e1f8b004c4a3dba53e4f83367022074c7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3aaf943b5eecd9ec1853c09ea36156b98560d3d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884490"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648714"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Utilizar uma imagem do Azure Marketplace para criar uma máquina virtual Terraform Linux com identidades geridas para recursos do Azure
 
@@ -47,17 +47,17 @@ Introduza os seguintes dados no separador **Criar Terraform**:
 
 1. **Noções básicas**
     
-   * **Nome**: O nome da sua máquina virtual do Terraform.
-   * **Nome de utilizador**: A primeiro de início de sessão na conta ID.
-   * **palavra-passe**: A primeira conta palavra-passe. (Pode utilizar uma chave pública SSH em vez de uma palavra-passe.)
-   * **Subscrição**: A subscrição em que a máquina está a ser criado e faturadas. Tem de ter privilégios de criação de recursos para esta subscrição.
+   * **Nome**: O nome da sua máquina virtual Terraform.
+   * **Nome de usuário**: A primeira ID de entrada da conta.
+   * **Senha**: A primeira senha da conta. (Pode utilizar uma chave pública SSH em vez de uma palavra-passe.)
+   * **Assinatura**: A assinatura na qual o computador deve ser criado e cobrado. Tem de ter privilégios de criação de recursos para esta subscrição.
    * **Grupo de recursos**: Um grupo de recursos novo ou existente.
-   * **Localização**: O datacenter mais adequada. Normalmente corresponde ao datacenter que tem a maior parte dos seus dados ou a um que esteja mais próximo da sua localização física, para um acesso de rede mais rápido.
+   * **Local**: O datacenter mais apropriado. Normalmente corresponde ao datacenter que tem a maior parte dos seus dados ou a um que esteja mais próximo da sua localização física, para um acesso de rede mais rápido.
 
 2. **Definições adicionais**
 
    * **Tamanho**: Tamanho da máquina virtual. 
-   * **Tipo de disco VM**: SSD ou HDD.
+   * **Tipo de disco da VM**: SSD ou HDD.
 
 3. **Resumo do Terraform**
 
@@ -85,7 +85,7 @@ A permissão de contribuidor ajuda o MSI na VM a utilizar o Terraform de forma a
 
 `. ~/tfEnv.sh`
 
-O script anterior utiliza o mecanismo de [início de sessão interativo do AZ CLI v 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) para autenticar com o Azure e atribuir a permissão de contribuidor de Identidade Gerida em máquinas virtuais em toda a subscrição. 
+O script anterior utiliza o mecanismo de [início de sessão interativo do AZ CLI v 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#sign-in-interactively) para autenticar com o Azure e atribuir a permissão de contribuidor de Identidade Gerida em máquinas virtuais em toda a subscrição. 
 
  A VM tem um back-end de estado remoto do Terraform. Para o ativar na sua implementação do Terraform, copie o ficheiro remoteState.tf do diretório tfTemplate para a raiz dos scripts do Terraform.  
 

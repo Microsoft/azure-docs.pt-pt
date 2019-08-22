@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: heidist
-ms.openlocfilehash: a874c8a1fe2e8a81e2f42b2c88447fd52b47f3ad
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1c86649a989b16d928a46d322af3d805b6fbf832
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611960"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647352"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um tipo de preço para Azure Search
 
@@ -53,10 +53,10 @@ Você pode saber mais sobre as várias camadas na [página de preços](https://a
 
 Uma solução criada em Azure Search pode incorrer em custos das seguintes maneiras:
 
-+ Custo base do serviço na configuração mínima
-+ Custo incremental ao escalar verticalmente (adicionando réplicas ou partições)
-+ Cobranças de largura de banda para transferência de dados de saída
-+ Pesquisa cognitiva aproveitando os recursos de serviços cognitivas
++ Custo base do serviço na configuração mínima (criar um serviço)
++ Custo incremental ao escalar verticalmente (adicionar réplicas ou partições)
++ Encargos de largura de banda (transferência de dados de saída) 
++ Pesquisa cognitiva (anexe serviços cognitivas para enriquecimento de ia, armazenamento do Azure para armazenamento de conhecimento)
 
 ### <a name="service-costs"></a>Custos de serviço
 
@@ -221,7 +221,7 @@ Os recursos de camada gratuita e visualização não fornecem [contratos de nív
 
 + Lembre-se de que a única desvantagem de subprovisionamento é que você pode precisar subdividir um serviço se os requisitos reais forem maiores do que suas previsões. Para evitar a interrupção do serviço, você deve criar um novo serviço na mesma assinatura em uma camada superior e executá-lo lado a lado até que todos os aplicativos e solicitações tenham como destino o novo ponto de extremidade.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Comece com uma camada gratuita e crie um índice inicial usando um subconjunto de seus dados para entender suas características. A estrutura de dados no Azure Search é uma estrutura de índice invertida. O tamanho e a complexidade de um índice invertido são determinados pelo conteúdo. Lembre-se de que o conteúdo altamente redundante tende a resultar em um índice menor do que conteúdo altamente irregular. Portanto, as características de conteúdo, em vez do tamanho do conjunto de os, determinam os requisitos de armazenamento de índice
 

@@ -9,27 +9,27 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a3d2b51824f4293dc790979ca2513d011b60fd9c
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 70d0f5b28f769617b16b2ae8c71bc5b3e90d5dfe
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414435"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877258"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo Linux
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Início rápido: Implantar seu primeiro módulo IoT Edge em um dispositivo Linux Virtual
 
-O Azure IoT Edge move o poder da cloud para os seus dispositivos de Internet das Coisas. Neste guia de início rápido, irá aprender a utilizar a interface da cloud para implementar código pré-construído remotamente num dispositivo IoT Edge.
+Teste Azure IoT Edge neste guia de início rápido implantando código em contêineres em um dispositivo de IoT Edge virtual. IoT Edge permite que você gerencie remotamente o código em seus dispositivos para que você possa enviar mais de suas cargas de trabalho para a borda. Para este guia de início rápido, é recomendável usar uma máquina virtual do Azure para seu dispositivo IoT Edge, que permite criar rapidamente um computador de teste com todos os pré-requisitos instalados e, em seguida, excluí-lo quando você terminar. 
 
 Neste início rápido, vai aprender a:
 
 1. Criar um Hub IoT.
 2. Registar um dispositivo IoT Edge no seu hub IoT.
-3. Instalar e iniciar o runtime do IoT Edge no seu dispositivo.
+3. Instale e inicie o tempo de execução de IoT Edge em seu dispositivo virtual.
 4. Implementar remotamente um módulo num dispositivo IoT Edge.
 
 ![Diagrama - arquitetura de início rápido para o dispositivo e na cloud](./media/quickstart-linux/install-edge-full.png)
 
-Este guia de início rápido orienta você na criação de uma máquina virtual do Azure configurada para ser IoT Edge dispositivo. Em seguida, pode implementar um módulo a partir do portal do Azure no seu dispositivo. O módulo que vai implementar neste início rápido é um sensor simulado que gera dados de temperatura, humidade e pressão. Os outros tutoriais do Azure IoT Edge tiram partido do seu trabalho aqui realizado, ao implementar módulos que analisam os dados simulados de informações empresariais.
+Este guia de início rápido orienta você na criação de uma máquina virtual Linux configurada para ser IoT Edge dispositivo. Em seguida, pode implementar um módulo a partir do portal do Azure no seu dispositivo. O módulo que vai implementar neste início rápido é um sensor simulado que gera dados de temperatura, humidade e pressão. Os outros tutoriais do Azure IoT Edge tiram partido do seu trabalho aqui realizado, ao implementar módulos que analisam os dados simulados de informações empresariais.
 
 Se não tiver uma subscrição ativa do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
@@ -215,7 +215,7 @@ Remova o grupo de **IoTEdgeResources**.
 az group delete --name IoTEdgeResources
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 
 Neste guia de início rápido, você criou um dispositivo IoT Edge e usou a interface Azure IoT Edge Cloud para implantar o código no dispositivo. Agora tem um dispositivo de teste a gerar dados não processados sobre o seu ambiente.

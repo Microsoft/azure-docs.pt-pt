@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 7/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: f0944e9fddc0afb28f758ba7b16232330d3bc34d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 5095e680eb7fd33d28acb2d187f83d86db1b46bf
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635534"
+ms.locfileid: "69656630"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Como aproveitar a identidade gerenciada de um aplicativo Service Fabric para acessar os serviços do Azure (versão prévia)
 
@@ -60,7 +60,7 @@ posição
 | `GET` | O verbo HTTP, indicando que você deseja recuperar dados do ponto de extremidade. Nesse caso, um token de acesso OAuth. | 
 | `http://localhost:2377/metadata/identity/oauth2/token` | O ponto de extremidade de identidade gerenciada para aplicativos Service Fabric, fornecido por meio da variável de ambiente MSI_ENDPOINT. |
 | `api-version` | Um parâmetro de cadeia de caracteres de consulta, especificando a versão de API do serviço de token de identidade gerenciado; Atualmente, o único valor aceito `2019-07-01-preview`é e está sujeito a alterações. |
-| `resource` | Um parâmetro de cadeia de caracteres de consulta, indicando o URI da ID do aplicativo do recurso de destino. Isso será refletido como a `aud` declaração (público) do token emitido. Este exemplo solicita um token para acessar Azure Key Vault, cujo URI de ID do aplicativo https://keyvault.azure.com/ é. |
+| `resource` | Um parâmetro de cadeia de caracteres de consulta, indicando o URI da ID do aplicativo do recurso de destino. Isso será refletido como a `aud` declaração (público) do token emitido. Este exemplo solicita um token para acessar Azure Key Vault, cujo URI de ID do aplicativo é https\/:/keyvault.Azure.com/. |
 | `Secret` | Um campo de cabeçalho de solicitação HTTP, exigido pelo Service Fabric serviço de token de identidade gerenciada para serviços de Service Fabric para autenticar o chamador. Esse valor é fornecido pelo tempo de execução da it por meio da variável de ambiente MSI_SECRET. |
 
 

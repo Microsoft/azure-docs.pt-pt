@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 786c5725046885a0321696e95703c53081e96979
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1b731d8000e748813649ea32c91b9566a8bc245a
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560326"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648611"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extrair nomes com entidade simples e uma lista de frases
 
@@ -137,7 +137,7 @@ Entidades simples precisam de muitos exemplos para ter uma alta confiança de pr
 
 1. Rotular os trabalhos no exemplo declarações
 
-    Se houver mais declarações de exemplo em uma intenção do que outra intenção, essa intenção terá uma maior probabilidade de ser o texto previsto mais alto. 
+    Se houver mais declarações de exemplo em uma intenção do que outra intenção, essa intenção terá uma maior probabilidade de ser a maior intenção prevista. 
 
 ## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Treinar o aplicativo para que as alterações na intenção possam ser testadas 
 
@@ -233,7 +233,7 @@ Abra o [Jobs-Phrase-List. csv](https://github.com/Azure-Samples/cognitive-servic
 
     [![Captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    Se você quiser mais palavras adicionadas à lista de frases,  selecione recomando e, em seguida, examine os novos **valores relacionados** e adicione quaisquer que sejam relevantes. 
+    Se você quiser mais palavras adicionadas à lista de frases, selecione recomando e, em seguida, examine os novos **valores relacionados** e adicione quaisquer que sejam relevantes. 
 
     Certifique-se de manter **esses valores intercambiáveis** verificados porque esses valores devem ser tratados como sinônimos para trabalhos. Saiba mais sobre os conceitos intercambiáveis e não intercambiáveis da [lista de frases](luis-concept-feature.md#how-to-use-phrase-lists).
 

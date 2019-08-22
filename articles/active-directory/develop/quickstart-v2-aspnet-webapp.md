@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6685783d7ade59796af8fbf466124353a897cb9
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 10911e5100add2dca84475857a6909fb20d452c4
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562086"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891550"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar entrada com a Microsoft a um aplicativo Web ASP.NET
 
@@ -93,7 +93,7 @@ Neste início rápido, vai ficar a saber como uma aplicação Web ASP.NET pode i
 > Em que:
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
 > - `Enter_the_Tenant_Info_Here` - é uma das opções abaixo:
->   - Se a sua aplicação suportar **Apenas a minha organização**, substitua este valor pelo **Id do Inquilino** ou pelo **Nome do inquilino** (por exemplo, contoso.microsoft.com)
+>   - Se seu aplicativo der suporte **apenas à minha organização**, substitua esse valor pela **ID do locatário** ou pelo nome do **locatário** (por exemplo, contoso.onmicrosoft.com)
 >   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
 >   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft**, substitua este valor por `common`
 >

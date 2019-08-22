@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: Yahnoosh
 ms.author: jlembicz
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 25edc52be90b6133ec0a0f0b5e8ea525d75d4800
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0cd2cf4b7847b767bac391f2547c0a5c3e3a9135
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881522"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891562"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Adicionar analisadores personalizados a um índice de Azure Search
 
@@ -213,7 +213,7 @@ Para analisadores, os atributos de índice variam dependendo se você estiver us
 
 |||  
 |-|-|  
-|Nome|Ele deve conter apenas letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos e é limitado a 128 caracteres.|  
+|Name|Ele deve conter apenas letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos e é limitado a 128 caracteres.|  
 |Type|Tipo de analisador na lista de analisadores com suporte. Consulte a coluna **analyzer_type** na tabela de [analisadores](#AnalyzerTable) abaixo.|  
 |Opções|Deve ser uma opção válida de um analisador predefinido [](#AnalyzerTable) listado na tabela de analisadores abaixo.|  
 
@@ -221,7 +221,7 @@ Para analisadores, os atributos de índice variam dependendo se você estiver us
 
 |||  
 |-|-|  
-|Nome|Ele deve conter apenas letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos e é limitado a 128 caracteres.|  
+|Name|Ele deve conter apenas letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos e é limitado a 128 caracteres.|  
 |Type|Deve ser "#Microsoft. Azure. Search. CustomAnalyzer".|  
 |CharFilters|Defina como um dos filtros de caracteres predefinidos listados na tabela [filtros de caracteres](#char-filters-reference) ou um filtro de caracteres personalizado especificado na definição do índice.|  
 |Criador|Necessário. Defina como um dos criadores predefinidos listados na tabela [criadores](#Tokenizers) abaixo ou em um criador personalizado especificado na definição do índice.|  
@@ -238,7 +238,7 @@ Para analisadores, os atributos de índice variam dependendo se você estiver us
 
 |||  
 |-|-|  
-|Nome|Ele deve conter apenas letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos e é limitado a 128 caracteres.|  
+|Name|Ele deve conter apenas letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos e é limitado a 128 caracteres.|  
 |Type|Tipo de filtro Char na lista de filtros de caracteres com suporte. Consulte a coluna **char_filter_type** na tabela [filtros de caracteres](#char-filters-reference) abaixo.|  
 |Opções|Deve ser uma opção válida de um determinado tipo de [filtros de caractere](#char-filters-reference) .|  
 
@@ -251,7 +251,7 @@ Um analisador personalizado pode usar um criador predefinido com opções padrã
 
 |||  
 |-|-|  
-|Nome|Ele deve conter apenas letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos e é limitado a 128 caracteres.|  
+|Name|Ele deve conter apenas letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos e é limitado a 128 caracteres.|  
 |Type|Criador nome da lista de criadores com suporte. Consulte a coluna **tokenizer_type** na tabela [criadores](#Tokenizers) abaixo.|  
 |Opções|Deve ser uma opção válida de um determinado tipo criador listado na tabela [criadores](#Tokenizers) abaixo.|  
 
@@ -262,7 +262,7 @@ Você pode ter vários filtros de token em um analisador personalizado. Os filtr
 
 |||  
 |-|-|  
-|Nome|Ele deve conter apenas letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos e é limitado a 128 caracteres.|  
+|Name|Ele deve conter apenas letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos e é limitado a 128 caracteres.|  
 |Type|Nome do filtro de token da lista de filtros de token com suporte. Consulte a coluna **token_filter_type** na tabela [filtros de token](#TokenFilters) abaixo.|  
 |Opções|Devem ser [filtros de token](#TokenFilters) de um determinado tipo de filtro de token.|  
 
@@ -279,7 +279,7 @@ Esta seção fornece os valores válidos para os atributos especificados na defi
 |**analyzer_name**|**analyzer_type**  <sup>1</sup>|**Descrição e opções**|  
 |-|-|-|  
 |[chaves](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)| (o tipo se aplica somente quando as opções estão disponíveis) |Trata todo o conteúdo de um campo como um único token. Isso é útil para dados como CEPs, IDs e alguns nomes de produtos.|  
-|[pattern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|O separa de maneira flexível o texto em termos por meio de um padrão de expressão regular.<br /><br /> **Opções**<br /><br /> minúsculas (tipo: bool) – determina se os termos são minúsculos. O padrão é true.<br /><br /> [padrão](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (Type: String)-um padrão de expressão regular para corresponder a separadores de token. O padrão é \w +.<br /><br /> [sinalizadores](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) de (Type: String)-sinalizadores de expressão regulares. O padrão é uma cadeia de caracteres vazia. Valores permitidos: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> palavras irrelevantes (tipo: matriz de cadeia de caracteres)-uma lista de palavras irrelevantes. O padrão é uma lista vazia.|  
+|[pattern](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|O separa de maneira flexível o texto em termos por meio de um padrão de expressão regular.<br /><br /> **Opções**<br /><br /> minúsculas (tipo: bool) – determina se os termos são minúsculos. O padrão é true.<br /><br /> [padrão](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (Type: String)-um padrão de expressão regular para corresponder a separadores de token. O padrão é \w +.<br /><br /> [sinalizadores](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) de (Type: String)-sinalizadores de expressão regulares. O padrão é uma cadeia de caracteres vazia. Valores permitidos: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> palavras irrelevantes (tipo: matriz de cadeia de caracteres)-uma lista de palavras irrelevantes. O padrão é uma lista vazia.|  
 |[simple](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/SimpleAnalyzer.html)|(o tipo se aplica somente quando as opções estão disponíveis) |Divide o texto em não letras e os converte em minúsculas. |  
 |[standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) <br />(Também conhecido como standard. Lucene)|StandardAnalyzer|Standard Lucene Analyzer, composto pelo criador padrão, pelo filtro de minúsculas e pelo filtro de parada.<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int)-o comprimento máximo do token. O padrão é 255. Tokens maiores que o comprimento máximo são divididos. O comprimento máximo do token que pode ser usado é de 300 caracteres.<br /><br /> palavras irrelevantes (tipo: matriz de cadeia de caracteres)-uma lista de palavras irrelevantes. O padrão é uma lista vazia.|  
 |standardasciifolding.lucene|(o tipo se aplica somente quando as opções estão disponíveis) |Standard Analyzer com filtro de dobra em ASCII. |  
@@ -313,18 +313,18 @@ Na tabela a seguir, os criadores que são implementados usando o Apache Lucene e
 
 |**tokenizer_name**|**tokenizer_type** <sup>1</sup>|**Descrição e opções**|  
 |-|-|-|  
-|[classic](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicTokenizer.html)|ClassicTokenizer|Criador baseada em gramática que é adequada para processar a maioria dos documentos em idiomas europeus.<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int)-o comprimento máximo do token. Predefinição: 255, máximo: 300. Tokens maiores que o comprimento máximo são divididos.|  
+|[classic](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicTokenizer.html)|ClassicTokenizer|Criador baseada em gramática que é adequada para processar a maioria dos documentos em idiomas europeus.<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int)-o comprimento máximo do token. Os 255, máximo: 300. Tokens maiores que o comprimento máximo são divididos.|  
 |[edgeNGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html)|EdgeNGramTokenizer|Cria tokens a entrada de uma borda em n-grams de tamanhos especificados.<br /><br /> **Opções**<br /><br /> minGram (tipo: int) – padrão: 1, máximo: 300.<br /><br /> maxGram (tipo: int) – padrão: 2, máximo: 300. Deve ser maior que minGram.<br /><br /> tokenChars (tipo: matriz de cadeia de caracteres)-classes de caractere a serem mantidas nos tokens. Valores permitidos: <br />"letra", "dígito", "espaço em branco", "pontuação", "símbolo". O padrão é uma matriz vazia-mantém todos os caracteres. |  
-|[keyword_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html)|KeywordTokenizerV2|Emite a entrada inteira como um único token.<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int)-o comprimento máximo do token. Predefinição: 256, máximo: 300. Tokens maiores que o comprimento máximo são divididos.|  
+|[keyword_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html)|KeywordTokenizerV2|Emite a entrada inteira como um único token.<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int)-o comprimento máximo do token. Os 256, máximo: 300. Tokens maiores que o comprimento máximo são divididos.|  
 |[letras](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LetterTokenizer.html)|(o tipo se aplica somente quando as opções estão disponíveis)  |Divide o texto em não letras. Tokens com mais de 255 caracteres são divididos.|  
 |[lowercase](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseTokenizer.html)|(o tipo se aplica somente quando as opções estão disponíveis)  |Divide o texto em não letras e os converte em minúsculas. Tokens com mais de 255 caracteres são divididos.|  
 | microsoft_language_tokenizer| MicrosoftLanguageTokenizer| Divide o texto usando regras específicas do idioma.<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int)-o comprimento máximo do token, padrão: 255, máximo: 300. Tokens maiores que o comprimento máximo são divididos. Tokens com mais de 300 caracteres são divididos primeiro em tokens de comprimento 300 e, em seguida, cada um desses tokens é dividido com base no conjunto de maxTokenLength.<br /><br />isSearchTokenizer (Type: bool)-definido como true se for usado como a pesquisa criador, definido como false se usado como a indexação criador. <br /><br /> idioma (tipo: cadeia de caracteres)-idioma a ser usado, padrão "inglês". Os valores permitidos incluem:<br />"Bengali", "búlgaro", "catalão", "chineseSimplified", "chineseTraditional", "croata", "tcheco", "dinamarquês", "holandês", "inglês", "francês", "alemão", "grego", "Guzerate", "híndi", "Islandês", "indonésio", "italiano", "japonês", "Kannada", " coreano "," Malaio "," malaiala "," Marat "," norwegianBokmaal "," polonês "," Português "," portugueseBrazilian "," Punjabi "," romeno "," russo "," serbianCyrillic "," serbianLatin "," esloveno "," espanhol "," Sueco "," tâmil "," télugo "," tailandês "," Ucraniano "," urdu "," vietnamita " |
 | microsoft_language_stemming_tokenizer | MicrosoftLanguageStemmingTokenizer| Divide o texto usando regras específicas do idioma e reduz as palavras a seus formulários base<br /><br /> **Opções**<br /><br />maxTokenLength (tipo: int)-o comprimento máximo do token, padrão: 255, máximo: 300. Tokens maiores que o comprimento máximo são divididos. Tokens com mais de 300 caracteres são divididos primeiro em tokens de comprimento 300 e, em seguida, cada um desses tokens é dividido com base no conjunto de maxTokenLength.<br /><br /> isSearchTokenizer (Type: bool)-definido como true se for usado como a pesquisa criador, definido como false se usado como a indexação criador.<br /><br /> idioma (tipo: cadeia de caracteres)-idioma a ser usado, padrão "inglês". Os valores permitidos incluem:<br />"árabe", "Bengali", "búlgaro", "catalão", "croata", "tcheco", "dinamarquês", "holandês", "inglês", "estoniano", "finlandês", "francês", "alemão", "grego", "Guzerate", "hebraico", "híndi", "húngaro", "Islandês", "indonésio", "italiano", "Kannada", " Letão "," lituano "," Malaio "," malaiala "," Marat "," norwegianBokmaal "," polonês "," Português "," portugueseBrazilian "," Punjabi "," romeno "," russo "," serbianCyrillic "," serbianLatin "," eslovaco "," esloveno "," espanhol "," Sueco "," Tâmil "," télugo "," Turco "," ucraniano "," urdu " |
 |[nGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenizer.html)|NGramTokenizer|Cria tokens a entrada em n-gramas dos tamanhos especificados.<br /><br /> **Opções**<br /><br /> minGram (tipo: int) – padrão: 1, máximo: 300.<br /><br /> maxGram (tipo: int) – padrão: 2, máximo: 300. Deve ser maior que minGram. <br /><br /> tokenChars (tipo: matriz de cadeia de caracteres)-classes de caractere a serem mantidas nos tokens. Valores permitidos: "letra", "dígito", "espaço em branco", "pontuação", "símbolo". O padrão é uma matriz vazia-mantém todos os caracteres. |  
-|[path_hierarchy_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html)|PathHierarchyTokenizerV2|Criador para hierarquias semelhantes a caminho.<br /><br /> **Opções**<br /><br /> delimitador (tipo: cadeia de caracteres)-padrão: '/.<br /><br /> substituição (tipo: cadeia de caracteres) – se definido, substitui o caractere delimitador. O mesmo padrão é o valor do delimitador.<br /><br /> maxTokenLength (tipo: int)-o comprimento máximo do token. Predefinição: 300, máximo: 300. Caminhos maiores que maxTokenLength são ignorados.<br /><br /> Reverse (Type: bool)-se true, gera um token na ordem inversa. Padrão: false.<br /><br /> Skip (tipo: bool)-tokens iniciais a serem ignorados. O padrão é 0.|  
+|[path_hierarchy_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html)|PathHierarchyTokenizerV2|Criador para hierarquias semelhantes a caminho.<br /><br /> **Opções**<br /><br /> delimitador (tipo: cadeia de caracteres)-padrão: '/.<br /><br /> substituição (tipo: cadeia de caracteres) – se definido, substitui o caractere delimitador. O mesmo padrão é o valor do delimitador.<br /><br /> maxTokenLength (tipo: int)-o comprimento máximo do token. Os 300, máximo: 300. Caminhos maiores que maxTokenLength são ignorados.<br /><br /> Reverse (Type: bool)-se true, gera um token na ordem inversa. Padrão: false.<br /><br /> Skip (tipo: bool)-tokens iniciais a serem ignorados. O padrão é 0.|  
 |[pattern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|Esse criador usa a correspondência de padrão Regex para construir tokens distintos.<br /><br /> **Opções**<br /><br /> [padrão](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) (Type: String)-padrão de expressão regular. O padrão é \w +. <br /><br /> [sinalizadores](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) de (Type: String)-sinalizadores de expressão regulares. O padrão é uma cadeia de caracteres vazia. Valores permitidos: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> Grupo (tipo: int)-qual grupo deve ser extraído em tokens. O padrão é-1 (Split).|
-|[standard_v2](http://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|Quebra o texto seguindo as regras de segmentação de [texto Unicode](https://unicode.org/reports/tr29/).<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int)-o comprimento máximo do token. Predefinição: 255, máximo: 300. Tokens maiores que o comprimento máximo são divididos.|  
-|[uax_url_email](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|URLs e emails do cria tokens como um token.<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int)-o comprimento máximo do token. Predefinição: 255, máximo: 300. Tokens maiores que o comprimento máximo são divididos.|  
+|[standard_v2](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|Quebra o texto seguindo as regras de segmentação de [texto Unicode](https://unicode.org/reports/tr29/).<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int)-o comprimento máximo do token. Os 255, máximo: 300. Tokens maiores que o comprimento máximo são divididos.|  
+|[uax_url_email](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|URLs e emails do cria tokens como um token.<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int)-o comprimento máximo do token. Os 255, máximo: 300. Tokens maiores que o comprimento máximo são divididos.|  
 |[diferente](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(o tipo se aplica somente quando as opções estão disponíveis) |Divide o texto em espaço em branco. Tokens com mais de 255 caracteres são divididos.|  
 
  <sup>1</sup> os tipos de criador são sempre prefixados no código com "#Microsoft. Azure. Search", de modo que "ClassicTokenizer" seria realmente especificado como "#Microsoft. Azure. Search. ClassicTokenizer". Removemos o prefixo para reduzir a largura da tabela, mas lembre-se de incluí-lo em seu código. Observe que tokenizer_type é fornecido somente para criadores que podem ser personalizados. Se não houver opções, como é o caso com a letra criador, não há nenhum #Microsoft associado. Azure. Search Type.
@@ -354,7 +354,7 @@ Na tabela a seguir, os filtros de token que são implementados usando o Apache L
 |[keyword_marker](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/KeywordMarkerFilter.html)|KeywordMarkerTokenFilter|Marca os termos como palavras-chave.<br /><br /> **Opções**<br /><br /> Palavras-chave (tipo: matriz de cadeia de caracteres)-uma lista de palavras a serem marcadas como palavras-chave. O padrão é uma lista vazia. Necessário.<br /><br /> ignoreCase (tipo: bool)-se verdadeiro, use todas as palavras em letras minúsculas primeiro. O padrão é false.|  
 |[keyword_repeat](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/KeywordRepeatFilter.html)|(o tipo se aplica somente quando as opções estão disponíveis)  |Emite cada token de entrada duas vezes uma vez como palavra-chave e uma vez como não palavra-chave. |  
 |[kstem](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/en/KStemFilter.html)|(o tipo se aplica somente quando as opções estão disponíveis)  |Um filtro de kstem de alto desempenho para inglês. |  
-|[length](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/LengthFilter.html)|LengthTokenFilter|Remove palavras que são muito longas ou muito curtas.<br /><br /> **Opções**<br /><br /> min (tipo: int)-o número mínimo. Predefinição: 0, máximo: 300.<br /><br /> Max (tipo: int)-o número máximo. Predefinição: 300, máximo: 300.|  
+|[length](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/LengthFilter.html)|LengthTokenFilter|Remove palavras que são muito longas ou muito curtas.<br /><br /> **Opções**<br /><br /> min (tipo: int)-o número mínimo. Os 0, máximo: 300.<br /><br /> Max (tipo: int)-o número máximo. Os 300, máximo: 300.|  
 |[limit](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/LimitTokenCountFilter.html)|Microsoft.Azure.Search.LimitTokenFilter|Limita o número de tokens durante a indexação.<br /><br /> **Opções**<br /><br /> maxTokenCount (tipo: int)-número máximo de tokens a serem produzidos. O padrão é 1.<br /><br /> consumeAllTokens (tipo: bool) – se todos os tokens da entrada devem ser consumidos mesmo se maxTokenCount for atingido. O padrão é false.|  
 |[lowercase](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html)|(o tipo se aplica somente quando as opções estão disponíveis)  |Normaliza o texto do token para letras minúsculas. |  
 |[nGram_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenFilter.html)|NGramTokenFilterV2|Gera n-grams dos tamanhos especificados.<br /><br /> **Opções**<br /><br /> minGram (tipo: int) – padrão: 1, máximo: 300.<br /><br /> maxGram (tipo: int) – padrão: 2, máximo 300. Deve ser maior que minGram.|  

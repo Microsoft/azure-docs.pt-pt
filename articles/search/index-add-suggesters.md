@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: Brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 22b53000fa2eebdd8f9cf7fd9f1a2d00763c035b
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 73cfdb6a4185689a6485f55a4f6bdd1e7e3b14be
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533199"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648847"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Adicionar sugestores a um índice para typeahead no Azure Search
 

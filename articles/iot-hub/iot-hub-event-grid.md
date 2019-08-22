@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 0f8942d92958ee8add9645239cc5664a4a96bb33
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f411771fbf39a99642506253fc025d6b29840423
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533367"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648648"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir aos eventos do Hub IoT usando a grade de eventos para disparar ações
 
@@ -72,7 +72,7 @@ O exemplo a seguir mostra o esquema de um evento conectado ao dispositivo:
 
 ### <a name="device-telemetry-schema"></a>Esquema de telemetria do dispositivo
 
-A mensagem de telemetria do dispositivo deve estar em um formato JSON válido com o contentType definido como JSON e contentEncoding definido como UTF-8 nas [Propriedades do sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)de mensagens. Se isso não estiver definido, o Hub IoT gravará as mensagens no formato codificado 64 base.
+A mensagem de telemetria do dispositivo deve estar em um formato JSON válido com o contentType definido como **Application/JSON** e contentEncoding definido como **UTF-8** nas [Propriedades do sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)de mensagens. Essas duas propriedades não diferenciam maiúsculas de minúsculas. Se a codificação de conteúdo não estiver definida, o Hub IoT gravará as mensagens no formato codificado 64 base.
 
 Você pode enriquecer os eventos de telemetria do dispositivo antes que eles sejam publicados na grade de eventos selecionando o ponto de extremidade como grade de eventos. Para obter mais informações, consulte [visão geral](iot-hub-message-enrichments-overview.md)de aprimoramentos de mensagem.
 
@@ -174,9 +174,9 @@ O assunto dos eventos de IoT usa o formato:
 devices/{deviceId}
 ```
 
-A grade de eventos também permite a filtragem de atributos de cada evento, incluindo o conteúdo de dados. Isso permite que você escolha quais eventos são entregues com base no conteúdo da mensagem de telemetria. Consulte [filtragem avançada](../event-grid/event-filtering.md#advanced-filtering) para exibir exemplos. Para filtrar o corpo da mensagem de telemetria, você deve definir o contentType como JSON e contentEncoding como UTF-8 nas [Propriedades do sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)de mensagens.
+A grade de eventos também permite a filtragem de atributos de cada evento, incluindo o conteúdo de dados. Isso permite que você escolha quais eventos são entregues com base no conteúdo da mensagem de telemetria. Consulte [filtragem avançada](../event-grid/event-filtering.md#advanced-filtering) para exibir exemplos. Para filtrar o corpo da mensagem de telemetria, você deve definir o contentType como **Application/JSON** e ContentEncoding como **UTF-8** nas [Propriedades do sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)de mensagens. Essas duas propriedades não diferenciam maiúsculas de minúsculas.
 
-Para eventos que não são de telemetria como DeviceConnected, DeviceDisconnected, DeviceCreated e DeviceDeleted, a filtragem da grade de eventos pode ser usada ao criar a assinatura. Para eventos de telemetria, além da filtragem na grade de eventos, os usuários também podem filtrar no dispositivo gêmeos, propriedades de mensagem e corpo por meio da consulta de roteamento de mensagens. Criamos uma [rota](iot-hub-devguide-messages-d2c.md) padrão no Hub IOT, com base em sua assinatura da grade de eventos para a telemetria do dispositivo. Essa rota única pode lidar com todas as suas assinaturas de grade de eventos. Para filtrar mensagens antes que os dados de telemetria sejam enviados, você pode atualizar sua [consulta de roteamento](iot-hub-devguide-routing-query-syntax.md). Observe que a consulta de roteamento pode ser aplicada ao corpo da mensagem somente se o corpo for JSON. Você também deve definir o contentType como JSON e contentEncoding como UTF-8 nas propriedades do [sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)de mensagens.
+Para eventos que não são de telemetria como DeviceConnected, DeviceDisconnected, DeviceCreated e DeviceDeleted, a filtragem da grade de eventos pode ser usada ao criar a assinatura. Para eventos de telemetria, além da filtragem na grade de eventos, os usuários também podem filtrar no dispositivo gêmeos, propriedades de mensagem e corpo por meio da consulta de roteamento de mensagens. Criamos uma [rota](iot-hub-devguide-messages-d2c.md) padrão no Hub IOT, com base em sua assinatura da grade de eventos para a telemetria do dispositivo. Essa rota única pode lidar com todas as suas assinaturas de grade de eventos. Para filtrar mensagens antes que os dados de telemetria sejam enviados, você pode atualizar sua [consulta de roteamento](iot-hub-devguide-routing-query-syntax.md). Observe que a consulta de roteamento pode ser aplicada ao corpo da mensagem somente se o corpo for JSON. Você também deve definir o contentType como **Application/JSON** e ContentEncoding como **UTF-8** nas propriedades do [sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)de mensagens.
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitações para o dispositivo conectado e eventos desconectados do dispositivo
 

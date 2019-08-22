@@ -1,119 +1,122 @@
 ---
-title: Utilizar métricas para monitorizar o IoT Hub do Azure | Documentos da Microsoft
-description: Como utilizar as métricas do IoT Hub do Azure para avaliar e monitorizar o estado de funcionamento geral os hubs IoT.
+title: Usar métricas para monitorar o Hub IoT do Azure | Microsoft Docs
+description: Como usar as métricas do Hub IoT do Azure para avaliar e monitorar a integridade geral de seus hubs IoT.
 author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 6afebfe9a5db713e31fed0acd2e8ad7244f30037
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 948cdb2ab1af3fe93566497186c025f7f8f39b2e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274933"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877083"
 ---
-# <a name="understand-iot-hub-metrics"></a>Compreender as métricas do IoT Hub
+# <a name="understand-iot-hub-metrics"></a>Entender as métricas do Hub IoT
 
-IoT Hub métricas oferecem-lhe dados melhor sobre o estado dos recursos de IoT do Azure na sua subscrição do Azure. Métricas do IoT Hub permitem-lhe avaliar o estado de funcionamento geral do serviço IoT Hub e dispositivos conectados a ele. Destinada ao utilizador estatísticas são importantes porque eles ajudá-lo a ver o que está acontecendo com problemas de causa raiz seu IoT hub e ajuda sem a necessidade de contactar o suporte do Azure.
+As métricas do Hub IoT fornecem dados melhores sobre o estado dos recursos de IoT do Azure em sua assinatura do Azure. As métricas do Hub IoT permitem avaliar a integridade geral do serviço do Hub IoT e os dispositivos conectados a ele. As estatísticas voltadas para o usuário são importantes porque ajudam você a ver o que está acontecendo com o Hub IoT e a ajudar a causar problemas de causa raiz sem a necessidade de contatar o suporte do Azure.
 
-As métricas estão ativadas por predefinição. Pode ver as métricas do IoT Hub no portal do Azure.
+As métricas são habilitadas por padrão. Você pode exibir as métricas do Hub IoT no portal do Azure.
 
-## <a name="how-to-view-iot-hub-metrics"></a>Como ver as métricas do IoT Hub
+> [!NOTE]
+> Você pode usar as métricas do Hub IoT para exibir informações sobre dispositivos IoT Plug and Play conectados ao seu hub IoT. Os dispositivos IoT Plug and Play fazem parte da [Visualização pública do iot plug and Play](../iot-pnp/overview-iot-plug-and-play.md).
 
-1. Crie um hub IoT. Pode encontrar instruções sobre como criar um hub IoT a [enviar telemetria a partir de um dispositivo ao IoT Hub](quickstart-send-telemetry-dotnet.md) guia.
+## <a name="how-to-view-iot-hub-metrics"></a>Como exibir métricas do Hub IoT
 
-2. Abra o painel do IoT hub. A partir daí, clique em **métricas**.
+1. Crie um hub IoT. Você pode encontrar instruções sobre como criar um hub IoT no guia [Enviar telemetria de um dispositivo para o Hub IOT](quickstart-send-telemetry-dotnet.md) .
+
+2. Abra a folha do Hub IoT. A partir daí,clique em métricas.
    
-    ![Captura de ecrã que mostra onde a opção de métricas está na página de recursos do IoT Hub](./media/iot-hub-metrics/enable-metrics-1.png)
+    ![Captura de tela mostrando onde a opção de métrica está na página de recursos do Hub IoT](./media/iot-hub-metrics/enable-metrics-1.png)
 
-3. No painel métricas, pode ver as métricas para o seu hub IoT e criar vistas personalizadas, as métricas. 
+3. Na folha métricas, você pode exibir as métricas para o Hub IoT e criar exibições personalizadas de suas métricas. 
    
-    ![Captura de ecrã que mostra a página de métricas para o IoT Hub](./media/iot-hub-metrics/enable-metrics-2.png)
+    ![Captura de tela mostrando a página de métricas para o Hub IoT](./media/iot-hub-metrics/enable-metrics-2.png)
     
-4. Pode optar por enviar os seus dados de métricas para um ponto de extremidade de Hubs de eventos ou uma conta de armazenamento do Azure ao clicar em **as definições de diagnóstico**, em seguida, **Adicionar definição de diagnóstico**
+4. Você pode optar por enviar seus dados de métricas para um ponto de extremidade de hubs de eventos ou uma conta de armazenamento do Azure clicando em **configurações de diagnóstico**e, em seguida, **Adicionar configuração de diagnóstico**
 
-   ![Captura de ecrã que mostra onde está o botão de definições de diagnóstico](./media/iot-hub-metrics/enable-metrics-3.png)
+   ![Captura de tela mostrando onde o botão Configurações de diagnóstico é](./media/iot-hub-metrics/enable-metrics-3.png)
 
-## <a name="iot-hub-metrics-and-how-to-use-them"></a>Métricas do IoT Hub e como utilizá-los
+## <a name="iot-hub-metrics-and-how-to-use-them"></a>Métricas do Hub IoT e como usá-las
 
-O IoT Hub fornece várias métricas para uma visão geral do Estado de funcionamento do seu hub e o número total de dispositivos ligados. Pode combinar informações a partir de várias métricas para pintar uma visão mais ampla do Estado do IoT hub. A tabela seguinte descreve as métricas que controla cada hub IoT e como cada uma se relaciona com o estado geral do IoT hub.
+O Hub IoT fornece várias métricas para fornecer uma visão geral da integridade do seu hub e o número total de dispositivos conectados. Você pode combinar informações de várias métricas para pintar uma imagem maior do estado do Hub IoT. A tabela a seguir descreve as métricas que cada Hub IoT rastreia e como cada métrica está relacionada ao status geral do Hub IoT.
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|d2c<br>.telemetry<br>.Ingress.<br>allProtocol|Tentativas de envio de mensagens de telemetria|Count|Total|Número de mensagens de telemetria do dispositivo-para-cloud tentada a serem enviados ao seu hub IoT|Nenhuma dimensão|
-|d2c<br>.telemetry<br>.Ingress<br>.Success|Mensagens de telemetria enviadas|Contagem|Total|Número de mensagens de telemetria do dispositivo-para-cloud enviado com êxito ao seu hub IoT|Nenhuma dimensão|
-|c2d<br>.commands<br>.egress<br>.complete<br>.Success|Comandos concluídos|Count|Total|Número de comandos do cloud-para-dispositivo foi concluída com êxito pelo dispositivo|Nenhuma dimensão|
-|c2d<br>.commands<br>.egress<br>.abandon<br>.Success|Comandos abandonados|Contagem|Total|Número de comandos do cloud-para-dispositivo abandonadas pelo dispositivo|Nenhuma dimensão|
-|c2d<br>.commands<br>.egress<br>.reject<br>.Success|Comandos rejeitados|Count|Total|Número de comandos do cloud-para-dispositivo rejeitado pelo dispositivo|Nenhuma dimensão|
-|dispositivos<br>.totalDevices|Total de dispositivos (preterido)|Count|Total|Número de dispositivos registados no seu hub IoT|Nenhuma dimensão|
-|dispositivos<br>.connectedDevices<br>.allProtocol|Dispositivos ligados (preteridos) |Count|Total|Número de dispositivos ligados ao seu hub IoT|Nenhuma dimensão|
-|d2c<br>.telemetry<br>.egress<br>.Success|Encaminhamento: mensagens de telemetria entregues|Count|Total|O número de vezes que as mensagens foram entregues com êxito a todos os pontos finais através do IoT Hub encaminhamento. Se uma mensagem é encaminhada para vários pontos de extremidade, esse valor aumenta um para cada entrega concluída com êxito. Se uma mensagem é enviada para o mesmo ponto final várias vezes, esse valor aumenta um para cada entrega concluída com êxito.|Nenhuma dimensão|
-|d2c<br>.telemetry<br>.egress<br>.dropped|Encaminhamento: mensagens de telemetria removidas |Count|Total|O número de vezes que as mensagens foram removidas pelo IoT Hub encaminhamento devido a pontos de extremidade inativos. Este valor não conta mensagens entregues a rota de contingência, como mensagens de ignorados não são entregues lá.|Nenhuma dimensão|
-|d2c<br>.telemetry<br>.egress<br>.orphaned|Encaminhamento: mensagens de telemetria órfãos |Count|Total|O número de vezes que as mensagens foram órfão pelo encaminhamento do IoT Hub porque eles não correspondam a quaisquer regras de encaminhamento (incluindo a regra de contingência). |Nenhuma dimensão|
-|d2c<br>.telemetry<br>.egress<br>.invalid|Encaminhamento: mensagens de telemetria incompatíveis|Count|Total|O número de vezes que o IoT Hub encaminhamento não foi possível entregar mensagens devido a uma incompatibilidade com o ponto final. Este valor não inclui tentativas.|Nenhuma dimensão|
-|d2c<br>.telemetry<br>.egress<br>.fallback|Encaminhamento: mensagens entregues para contingência|Contagem|Total|O número de vezes que o IoT Hub encaminhamento entregar mensagens para o ponto final associado a rota de contingência.|Nenhuma dimensão|
-|d2c<br>.Endpoints<br>.egress<br>.eventHubs|Encaminhamento: mensagens entregues ao Hub de eventos|Count|Total|O número de vezes que o IoT Hub com êxito de encaminhamento entregar mensagens para pontos finais do Hub de eventos.|Nenhuma dimensão|
-|d2c<br>.Endpoints<br>.latency<br>.eventHubs|Encaminhamento: latência da mensagem para o Hub de eventos|Milissegundos|Média|A latência média (milissegundos) entre a receção de mensagem para o IoT Hub e entrada de mensagem num ponto de extremidade do Hub de eventos.|Nenhuma dimensão|
-|d2c<br>.Endpoints<br>.egress<br>.serviceBusQueues|Encaminhamento: mensagens entregues à fila do Service Bus|Count|Total|O número de vezes que o IoT Hub com êxito de encaminhamento entregar mensagens para pontos finais de fila do Service Bus.|Nenhuma dimensão|
-|d2c<br>.Endpoints<br>.latency<br>.serviceBusQueues|Encaminhamento: latência de mensagem de fila do Service Bus|Milissegundos|Média|A latência média (milissegundos) entre a receção de mensagem para o IoT Hub e entrada de mensagem de telemetria para um ponto de extremidade de fila do Service Bus.|Nenhuma dimensão|
-|d2c<br>.Endpoints<br>.egress<br>.serviceBusTopics|Encaminhamento: mensagens entregues ao tópico do Service Bus|Contagem|Total|O número de vezes encaminhamento com êxito o IoT Hub entregar mensagens para pontos finais de tópico do Service Bus.|Nenhuma dimensão|
-|d2c<br>.Endpoints<br>.latency<br>.serviceBusTopics|Encaminhamento: latência da mensagem para o tópico do Service Bus|Milissegundos|Média|A latência média (milissegundos) entre a receção de mensagem para o IoT Hub e entrada de mensagem de telemetria para um ponto de extremidade do tópico do Service Bus.|Nenhuma dimensão|
-|d2c<br>.Endpoints<br>.egress<br>.builtIn<br>.events|Encaminhamento: mensagens entregues para mensagens/eventos|Contagem|Total|O número de vezes que o IoT Hub com êxito de encaminhamento entregar mensagens para o ponto final incorporado (mensagens/eventos). Esta métrica começa apenas a funcionar quando o encaminhamento é ativado (https://aka.ms/iotrouting) do IoT hub.|Nenhuma dimensão|
-|d2c<br>.Endpoints<br>.latency<br>.builtIn.events|Encaminhamento: latência da mensagem para mensagens/eventos|Milissegundos|Média|A latência média (milissegundos) entre a receção de mensagem para o IoT Hub e entrada de mensagem de telemetria para o ponto final incorporado (mensagens/eventos). Esta métrica começa apenas a funcionar quando o encaminhamento é ativado (https://aka.ms/iotrouting) do IoT hub.|Nenhuma dimensão|
-|d2c<br>.Endpoints<br>.egress<br>.storage|Encaminhamento: mensagens entregues para o armazenamento|Count|Total|O número de vezes encaminhamento com êxito o IoT Hub entregar mensagens para pontos finais de armazenamento.|Nenhuma dimensão|
-|d2c<br>.Endpoints<br>.latency<br>.storage|Encaminhamento: latência da mensagem para armazenamento|Milissegundos|Média|A latência média (milissegundos) entre a receção de mensagem para o IoT Hub e entrada de mensagem de telemetria para um ponto de final de armazenamento.|Nenhuma dimensão|
-|d2c<br>.Endpoints<br>.egress<br>.storage<br>.bytes|Encaminhamento: dados entregues para o armazenamento|Bytes|Total|A quantidade de dados (bytes) IoT Hub encaminhamento entregues aos pontos finais de armazenamento.|Nenhuma dimensão|
-|d2c<br>.Endpoints<br>.egress<br>.storage<br>.blobs|Encaminhamento: blobs é entregue ao armazenamento|Count|Total|O número de vezes que o IoT Hub encaminhamento entregue blobs para pontos finais de armazenamento.|Nenhuma dimensão|
-|EventGridDeliveries|Entregas de grelha de eventos (pré-visualização)|Count|Total|O número de eventos do IoT Hub publicado para o Event Grid. Utilize a dimensão de resultado para o número de pedidos com êxito ou falhados. Dimensão de EventType mostra o tipo de evento (https://aka.ms/ioteventgrid). Para ver de onde os pedidos são provenientes, utilize a dimensão de EventType.|Resultado, EventType|
-|EventGridLatency|Latência de grelha de eventos (pré-visualização)|Milissegundos|Média|A latência média (milissegundos) de quando o evento do Iot Hub foi gerado para quando o evento foi publicado para o Event Grid. Este número é uma média entre todos os tipos de eventos. Utilize a dimensão de EventType para ver a latência de um tipo específico de evento.|EventType|
-|d2c<br>.twin<br>.read<br>.Success|Lê a partir do dispositivos duplos com êxito|Contagem|Total|Contagem de leituras de iniciada pelo dispositivo duplo tudo com êxito.|Nenhuma dimensão|
-|d2c<br>.twin<br>.read<br>.failure|Falha de leituras de twin de dispositivos|Count|Total|A contagem de todos os falha leituras iniciada pelo dispositivo duplo.|Nenhuma dimensão|
-|d2c<br>.twin<br>.read<br>.size|Tamanho de resposta de leituras de twin de dispositivos|Bytes|Média|A média, Mín e máx. de tudo com êxito iniciada pelo dispositivo duplo leituras.|Nenhuma dimensão|
-|d2c<br>.twin<br>.update<br>.Success|Atualizações de duplo com êxito a partir de dispositivos|Contagem|Total|Contagem de todos os com êxito atualizações de iniciada pelo dispositivo duplo.|Nenhuma dimensão|
-|d2c<br>.twin<br>.update<br>.failure|Falha de atualizações de twin de dispositivos|Contagem|Total|A contagem de todos os falha atualizações iniciadas pelo dispositivo duplo.|Nenhuma dimensão|
-|d2c<br>.twin<br>.update<br>.size|Tamanho de atualizações de twin de dispositivos|Bytes|Média|A média, Mín e tamanho máximo de todos os bem-sucedida iniciada pelo dispositivo duplo atualizações.|Nenhuma dimensão|
-|c2d<br>.methods<br>.Success|Invocações de método direto com êxito|Count|Total|Contagem de chamadas de método direto tudo com êxito.|Nenhuma dimensão|
-|c2d<br>.methods<br>.failure|Falha de invocações de método direto|Count|Total|A contagem de todos os falha chamadas de método direto.|Nenhuma dimensão|
-|c2d<br>.methods<br>.requestSize|Tamanho do pedido de invocações de método direto|Bytes|Média|A média, Mín e máx. de bem-sucedida de todos os pedidos de método direto.|Nenhuma dimensão|
-|c2d<br>.methods<br>.responseSize|Tamanho de resposta de invocações de método direto|Bytes|Média|A média, Mín e máx. de respostas de método direto tudo com êxito.|Nenhuma dimensão|
-|c2d<br>.twin<br>.read<br>.Success|Lê a partir do back-end duplo com êxito|Contagem|Total|Contagem de leituras de back-end-iniciada duplo tudo com êxito.|Nenhuma dimensão|
-|c2d<br>.twin<br>.read<br>.failure|Leituras de duplo com falha de back-end|Count|Total|A contagem de todos os falha leituras duplo iniciada pelo back-end.|Nenhuma dimensão|
-|c2d<br>.twin<br>.read<br>.size|Tamanho de resposta do duplo lê a partir do back-end|Bytes|Média|A média, Mín e máx. de todos os bem-sucedida iniciada pelo back-end duplo leituras.|Nenhuma dimensão|
-|c2d<br>.twin<br>.update<br>.Success|Duplo com êxito as atualizações a partir de back-end|Contagem|Total|Contagem de todos os com êxito atualizações de duplo iniciada pelo back-end.|Nenhuma dimensão|
-|c2d<br>.twin<br>.update<br>.failure|Atualizações de duplo com falha de back-end|Count|Total|A contagem de todos os falha atualizações duplo iniciada pelo back-end.|Nenhuma dimensão|
-|c2d<br>.twin<br>.update<br>.size|Tamanho de atualizações de duplo de back-end|Bytes|Média|A média, Mín e tamanho máximo de todos os bem-sucedida iniciada pelo back-end duplo atualizações.|Nenhuma dimensão|
-|twinQueries<br>.Success|Consultas de gémeos com êxito|Count|Total|Contagem de todas as consultas de gémeos com êxito.|Nenhuma dimensão|
-|twinQueries<br>.failure|Consultas de falhados duplo|Count|Total|Contagem de todas as consultas de falhados duplo.|Nenhuma dimensão|
-|twinQueries<br>.resultSize|Tamanho de resultados de consultas de gémeos|Bytes|Média|A média, Mín e máx. do tamanho do resultado de todas as consultas de gémeos com êxito.|Nenhuma dimensão|
-|Tarefas<br>.createTwinUpdateJob<br>.Success|Criações com êxito das tarefas de atualização de duplo|Count|Total|Contagem de criação com êxito todas as tarefas de atualização de duplo.|Nenhuma dimensão|
-|Tarefas<br>.createTwinUpdateJob<br>.failure|Criações com falhas de tarefas de atualização de duplo|Contagem|Total|Contagem de todos os falha na criação de tarefas de atualização de duplo.|Nenhuma dimensão|
-|Tarefas<br>.createDirectMethodJob<br>.Success|Criações com êxito das tarefas de invocação de método|Contagem|Total|Contagem de criação com êxito todas as tarefas de invocação do método direto.|Nenhuma dimensão|
-|Tarefas<br>.createDirectMethodJob<br>.failure|Criações com falhas de tarefas de invocação de método|Count|Total|Contagem de todos os falha na criação de tarefas de invocação do método direto.|Nenhuma dimensão|
-|Tarefas<br>.listJobs<br>.Success|Chamadas com êxito à lista de tarefas|Count|Total|Contagem de todas as chamadas com êxito à lista de tarefas.|Nenhuma dimensão|
-|Tarefas<br>.listJobs<br>.failure|Falha de chamadas para a lista de tarefas|Contagem|Total|Contagem de todas as chamadas falhadas para lista de tarefas.|Nenhuma dimensão|
-|Tarefas<br>.cancelJob<br>.Success|Cancelamentos de tarefas com êxito|Count|Total|Contagem de todas as chamadas com êxito para cancelar uma tarefa.|Nenhuma dimensão|
-|Tarefas<br>.cancelJob<br>.failure|Cancelamentos de tarefas com falhas|Count|Total|Contagem de todas as chamadas falhadas para cancelar uma tarefa.|Nenhuma dimensão|
-|Tarefas<br>.queryJobs<br>.Success|Consultas de tarefa concluída com êxito|Contagem|Total|Contagem de todas as chamadas com êxito para tarefas de consulta.|Nenhuma dimensão|
-|Tarefas<br>.queryJobs<br>.failure|Consultas de tarefa falhadas|Contagem|Total|Contagem de todas as chamadas falhadas para tarefas de consulta.|Nenhuma dimensão|
-|Tarefas<br>.completed|Tarefas concluídas|Contagem|Total|Contagem de todas as tarefas concluídas.|Nenhuma dimensão|
-|Tarefas<br>.failed|Tarefas falhadas|Count|Total|Contagem de todas as tarefas falhadas.|Nenhuma dimensão|
-|d2c<br>.telemetry<br>.Ingress<br>.sendThrottle|Número de erros de limitação|Count|Total|Limita o número de erros de limitação devido ao débito de dispositivo|Nenhuma dimensão|
-|dailyMessage<br>QuotaUsed|Número total de mensagens utilizada|Count|Média|Número de total de mensagens usados hoje em dia. Este é um valor cumulativo que é reposto a zero 00:00 UTC todos os dias.|Nenhuma dimensão|
-|deviceDataUsage|Utilização de dados do total de dispositivos|Bytes|Total|Bytes transferidos de e para quaisquer dispositivos ligados ao IotHub|Nenhuma dimensão|
-|totalDeviceCount|Total de dispositivos (pré-visualização)|Count|Média|Número de dispositivos registados no seu hub IoT|Nenhuma dimensão|
-|Ligado<br>DeviceCount|Dispositivos ligados (pré-visualização)|Count|Média|Número de dispositivos ligados ao seu hub IoT|Nenhuma dimensão|
-|Configurações|Métricas de configuração|Count|Total|Métricas para operações de configuração|Nenhuma dimensão|
+|D2C<br>. telemetria<br>entrada.<br>próprio protocolo|Tentativas de envio de mensagem de telemetria|Count|Total|Número de mensagens de telemetria do dispositivo para a nuvem que tentaram ser enviadas para o Hub IoT|Nenhuma dimensão|
+|D2C<br>. telemetria<br>. entrada<br>. êxito|Mensagens de telemetria enviadas|Count|Total|Número de mensagens de telemetria do dispositivo para a nuvem enviadas com êxito para o Hub IoT|Nenhuma dimensão|
+|C2D<br>. comandos<br>. saída<br>. concluído<br>. êxito|Comandos concluídos|Count|Total|Número de comandos da nuvem para o dispositivo concluídos com êxito pelo dispositivo|Nenhuma dimensão|
+|C2D<br>. comandos<br>. saída<br>. abandono<br>. êxito|Comandos abandonados|Count|Total|Número de comandos da nuvem para o dispositivo abandonados pelo dispositivo|Nenhuma dimensão|
+|C2D<br>. comandos<br>. saída<br>. rejeitar<br>. êxito|Comandos rejeitados|Count|Total|Número de comandos da nuvem para o dispositivo rejeitados pelo dispositivo|Nenhuma dimensão|
+|dispositivos<br>.totalDevices|Total de dispositivos (preterido)|Count|Total|Número de dispositivos registrados no Hub IoT|Nenhuma dimensão|
+|dispositivos<br>.connectedDevices<br>. MyProtocol|Dispositivos conectados (preterido) |Count|Total|Número de dispositivos conectados ao seu hub IoT|Nenhuma dimensão|
+|D2C<br>. telemetria<br>. saída<br>. êxito|Roteamento: mensagens de telemetria entregues|Count|Total|O número de vezes que as mensagens foram entregues com êxito a todos os pontos de extremidade usando o roteamento do Hub IoT. Se uma mensagem for roteada para vários pontos de extremidade, esse valor aumentará em um para cada entrega bem-sucedida. Se uma mensagem for entregue ao mesmo ponto de extremidade várias vezes, esse valor aumentará em um para cada entrega bem-sucedida.|Nenhuma dimensão|
+|D2C<br>. telemetria<br>. saída<br>. Descartado|Roteamento: mensagens de telemetria eliminadas |Count|Total|O número de vezes que as mensagens foram removidas pelo roteamento do Hub IoT devido a pontos de extremidade inativos. Esse valor não conta as mensagens entregues à rota de fallback, pois as mensagens ignoradas não são entregues lá.|Nenhuma dimensão|
+|D2C<br>. telemetria<br>. saída<br>. órfãos|Roteamento: mensagens de telemetria órfãs |Count|Total|O número de vezes que as mensagens ficaram órfãs pelo roteamento do Hub IoT porque não corresponderam a nenhuma regra de roteamento (incluindo a norma de fallback). |Nenhuma dimensão|
+|D2C<br>. telemetria<br>. saída<br>. inválido|Roteamento: mensagens de telemetria incompatíveis|Count|Total|O número de vezes que o roteamento do Hub IoT falhou ao entregar mensagens devido a uma incompatibilidade com o ponto de extremidade. Esse valor não inclui repetições.|Nenhuma dimensão|
+|D2C<br>. telemetria<br>. saída<br>. fallback|Roteamento: mensagens entregues ao fallback|Count|Total|O número de vezes que o roteamento do Hub IoT fornece mensagens ao ponto de extremidade associado à rota de fallback.|Nenhuma dimensão|
+|D2C<br>. pontos de extremidade<br>. saída<br>.eventHubs|Roteamento: mensagens entregues ao Hub de eventos|Count|Total|O número de vezes que o roteamento do Hub IoT forneceu com êxito mensagens para pontos de extremidade do hub de eventos.|Nenhuma dimensão|
+|D2C<br>. pontos de extremidade<br>. latência<br>.eventHubs|Roteamento: latência de mensagem para o Hub de eventos|Milissegundos|Average|A latência média (milissegundos) entre a entrada da mensagem para o Hub IoT e a entrada da mensagem em um ponto de extremidade do hub de eventos.|Nenhuma dimensão|
+|D2C<br>. pontos de extremidade<br>. saída<br>.serviceBusQueues|Roteamento: mensagens entregues à fila do barramento de serviço|Count|Total|O número de vezes que o roteamento do Hub IoT forneceu com êxito mensagens aos pontos de extremidade da fila do barramento de serviço.|Nenhuma dimensão|
+|D2C<br>. pontos de extremidade<br>. latência<br>.serviceBusQueues|Roteamento: latência de mensagem para a fila do barramento de serviço|Milissegundos|Average|A latência média (milissegundos) entre a entrada da mensagem para o Hub IoT e a entrada da mensagem de telemetria em um ponto de extremidade da fila do barramento de serviço.|Nenhuma dimensão|
+|D2C<br>. pontos de extremidade<br>. saída<br>.serviceBusTopics|Roteamento: mensagens entregues ao tópico do barramento de serviço|Count|Total|O número de vezes que o roteamento do Hub IoT forneceu com êxito mensagens para pontos de extremidade de tópico do barramento de serviço.|Nenhuma dimensão|
+|D2C<br>. pontos de extremidade<br>. latência<br>.serviceBusTopics|Roteamento: latência de mensagem para o tópico do barramento de serviço|Milissegundos|Average|A latência média (milissegundos) entre a entrada da mensagem para o Hub IoT e a entrada da mensagem de telemetria em um ponto de extremidade de tópico do barramento de serviço.|Nenhuma dimensão|
+|D2C<br>. pontos de extremidade<br>. saída<br>.builtIn<br>. eventos|Roteamento: mensagens entregues a mensagens/eventos|Count|Total|O número de vezes que o roteamento do Hub IoT forneceu com êxito mensagens para o ponto de extremidade interno (mensagens/eventos). Essa métrica só começa a funcionar quando o roteamento está https://aka.ms/iotrouting) habilitado (para o Hub IOT.|Nenhuma dimensão|
+|D2C<br>. pontos de extremidade<br>. latência<br>.builtIn.events|Roteamento: latência de mensagem para mensagens/eventos|Milissegundos|Average|A latência média (milissegundos) entre a entrada da mensagem e o Hub IoT e a entrada da mensagem de telemetria no ponto de extremidade interno (mensagens/eventos). Essa métrica só começa a funcionar quando o roteamento está https://aka.ms/iotrouting) habilitado (para o Hub IOT.|Nenhuma dimensão|
+|D2C<br>. pontos de extremidade<br>. saída<br>. armazenamento|Roteamento: mensagens entregues ao armazenamento|Count|Total|O número de vezes que o roteamento do Hub IoT forneceu com êxito mensagens para pontos de extremidade de armazenamento.|Nenhuma dimensão|
+|D2C<br>. pontos de extremidade<br>. latência<br>. armazenamento|Roteamento: latência de mensagem para armazenamento|Milissegundos|Average|A latência média (milissegundos) entre a entrada da mensagem para o Hub IoT e a entrada da mensagem de telemetria em um ponto de extremidade de armazenamento.|Nenhuma dimensão|
+|D2C<br>. pontos de extremidade<br>. saída<br>. armazenamento<br>. bytes|Roteamento: dados entregues ao armazenamento|Bytes|Total|A quantidade de dados (bytes) de roteamento do Hub IoT entregues aos pontos de extremidade de armazenamento.|Nenhuma dimensão|
+|D2C<br>. pontos de extremidade<br>. saída<br>. armazenamento<br>. BLOBs|Roteamento: BLOBs entregues ao armazenamento|Count|Total|O número de vezes que o roteamento do Hub IoT forneceu BLOBs para pontos de extremidade de armazenamento.|Nenhuma dimensão|
+|EventGridDeliveries|Entregas da grade de eventos (visualização)|Count|Total|O número de eventos do Hub IoT publicados na grade de eventos. Use a dimensão de resultado para o número de solicitações bem-sucedidas e com falha. A dimensão EventType mostra o tipo de evento https://aka.ms/ioteventgrid) (. Para ver a origem das solicitações, use a dimensão EventType.|Resultado, EventType|
+|EventGridLatency|Latência da grade de eventos (versão prévia)|Milissegundos|Average|A latência média (milissegundos) de quando o evento do Hub IOT foi gerado quando o evento foi publicado na grade de eventos. Esse número é uma média entre todos os tipos de evento. Use a dimensão EventType para ver a latência de um tipo específico de evento.|EventType|
+|D2C<br>.twin<br>. ler<br>. êxito|Leituras de entrelaçamento bem-sucedidas de dispositivos|Count|Total|A contagem de todas as leituras de entrelaças iniciadas pelo dispositivo bem-sucedidas.|Nenhuma dimensão|
+|D2C<br>.twin<br>. ler<br>. falha|Leituras de entrelaçamento com falha de dispositivos|Count|Total|A contagem de todas as leituras de entrelaças iniciadas pelo dispositivo com falha.|Nenhuma dimensão|
+|D2C<br>.twin<br>. ler<br>. tamanho|Tamanho da resposta de leituras de entrelaçamento de dispositivos|Bytes|Average|A média, o mínimo e o máximo de todas as leituras de entrelaçadas iniciadas pelo dispositivo bem-sucedidas.|Nenhuma dimensão|
+|D2C<br>.twin<br>. atualização<br>. êxito|Atualizações de atualização com êxito de dispositivos|Count|Total|A contagem de todas as atualizações de atualização do dispositivo iniciadas com êxito.|Nenhuma dimensão|
+|D2C<br>.twin<br>. atualização<br>. falha|Atualizações de atualização de falha de dispositivos|Count|Total|A contagem de todas as atualizações de atualização do dispositivo iniciadas com falha.|Nenhuma dimensão|
+|D2C<br>.twin<br>. atualização<br>. tamanho|Tamanho de atualizações de atualização de papel dos dispositivos|Bytes|Average|O tamanho médio, mínimo e máximo de todas as atualizações de atualização do dispositivo iniciadas com êxito.|Nenhuma dimensão|
+|C2D<br>. métodos<br>. êxito|Invocações de método diretos bem-sucedidas|Count|Total|A contagem de todas as chamadas de método diretas bem-sucedidas.|Nenhuma dimensão|
+|C2D<br>. métodos<br>. falha|Invocações de método direto com falha|Count|Total|A contagem de todas as chamadas de método diretas com falha.|Nenhuma dimensão|
+|C2D<br>. métodos<br>.requestSize|Tamanho da solicitação de invocações de método direto|Bytes|Average|A média, o mínimo e o máximo de todas as solicitações de método diretas bem-sucedidas.|Nenhuma dimensão|
+|C2D<br>. métodos<br>.responseSize|Tamanho da resposta de invocações de método diretas|Bytes|Average|A média, o mínimo e o máximo de todas as respostas de método diretas bem-sucedidas.|Nenhuma dimensão|
+|C2D<br>.twin<br>. ler<br>. êxito|Leituras de cópia com êxito do back-end|Count|Total|A contagem de todas as leituras de cópia de bits iniciadas de back-end bem-sucedidas.|Nenhuma dimensão|
+|C2D<br>.twin<br>. ler<br>. falha|Leituras de cópia com falha do back-end|Count|Total|A contagem de todas as leituras de cópia de bits iniciadas pelo back-end com falha.|Nenhuma dimensão|
+|C2D<br>.twin<br>. ler<br>. tamanho|Tamanho da resposta de leituras de cópia do back-end|Bytes|Average|A média, mín e máx de todas as leituras de cópia do back-end iniciadas com êxito.|Nenhuma dimensão|
+|C2D<br>.twin<br>. atualização<br>. êxito|Atualizações de cópia bem-sucedida do back-end|Count|Total|A contagem de todas as atualizações de cópia do back-end iniciadas com êxito.|Nenhuma dimensão|
+|C2D<br>.twin<br>. atualização<br>. falha|Atualizações de cópia com falha do back-end|Count|Total|A contagem de todas as atualizações de cópia de bits iniciadas pelo back-end com falha.|Nenhuma dimensão|
+|C2D<br>.twin<br>. atualização<br>. tamanho|Tamanho das atualizações de cópia do back-end|Bytes|Average|O tamanho médio, mínimo e máximo de todas as atualizações de cópia do back-end iniciadas com êxito.|Nenhuma dimensão|
+|twinQueries<br>. êxito|Consultas de entrelaçamento bem-sucedidas|Count|Total|A contagem de todas as consultas de myup com êxito.|Nenhuma dimensão|
+|twinQueries<br>. falha|Consultas de entrelaçamento com falha|Count|Total|A contagem de todas as consultas de entrelaçamento com falha.|Nenhuma dimensão|
+|twinQueries<br>.resultSize|Tamanho do resultado de consultas de entrelaçamento|Bytes|Average|A média, o mínimo e o máximo do tamanho do resultado de todas as consultas de myup com êxito.|Nenhuma dimensão|
+|tarefas<br>.createTwinUpdateJob<br>. êxito|Criações bem-sucedidas de trabalhos de atualização de entrelaçamento|Count|Total|A contagem de todas as criações de trabalhos de atualização de entrelaçamento com êxito.|Nenhuma dimensão|
+|tarefas<br>.createTwinUpdateJob<br>. falha|Criações com falha de trabalhos de atualização de entrelaçamento|Count|Total|A contagem de todas as falhas na criação de trabalhos de atualização de entrelaçamento.|Nenhuma dimensão|
+|tarefas<br>.createDirectMethodJob<br>. êxito|Criações de trabalhos de invocação de método com êxito|Count|Total|A contagem de toda a criação bem-sucedida de trabalhos de invocação de método direto.|Nenhuma dimensão|
+|tarefas<br>.createDirectMethodJob<br>. falha|Criações com falha de trabalhos de invocação de método|Count|Total|A contagem de todas as falhas na criação de trabalhos de invocação de método direto.|Nenhuma dimensão|
+|tarefas<br>.listJobs<br>. êxito|Chamadas com êxito para listar trabalhos|Count|Total|A contagem de todas as chamadas bem-sucedidas para listar trabalhos.|Nenhuma dimensão|
+|tarefas<br>.listJobs<br>. falha|Chamadas com falha para listar trabalhos|Count|Total|A contagem de todas as chamadas com falha para listar trabalhos.|Nenhuma dimensão|
+|tarefas<br>.cancelJob<br>. êxito|Cancelamentos de trabalho bem-sucedidos|Count|Total|A contagem de todas as chamadas bem-sucedidas para cancelar um trabalho.|Nenhuma dimensão|
+|tarefas<br>.cancelJob<br>. falha|Cancelamentos de trabalho com falha|Count|Total|A contagem de todas as chamadas com falha para cancelar um trabalho.|Nenhuma dimensão|
+|tarefas<br>.queryJobs<br>. êxito|Consultas de trabalho com êxito|Count|Total|A contagem de todas as chamadas bem-sucedidas para os trabalhos de consulta.|Nenhuma dimensão|
+|tarefas<br>.queryJobs<br>. falha|Consultas de trabalho com falha|Count|Total|A contagem de todas as chamadas com falha para trabalhos de consulta.|Nenhuma dimensão|
+|tarefas<br>. concluído|Trabalhos concluídos|Count|Total|A contagem de todos os trabalhos concluídos.|Nenhuma dimensão|
+|tarefas<br>. com falha|Trabalhos com falha|Count|Total|A contagem de todos os trabalhos com falha.|Nenhuma dimensão|
+|D2C<br>. telemetria<br>. entrada<br>.sendThrottle|Número de erros de limitação|Count|Total|Número de erros de limitação devido a aceleradores de taxa de transferência do dispositivo|Nenhuma dimensão|
+|dailyMessage<br>QuotaUsed|Número total de mensagens usadas|Count|Average|Número total de mensagens usadas hoje. Esse é um valor cumulativo que é redefinido para zero às 00:00 UTC todos os dias.|Nenhuma dimensão|
+|deviceDataUsage|Uso total de dados do dispositivo|Bytes|Total|Bytes transferidos de e para todos os dispositivos conectados ao IotHub|Nenhuma dimensão|
+|totalDeviceCount|Total de dispositivos (visualização)|Count|Average|Número de dispositivos registrados no Hub IoT|Nenhuma dimensão|
+|Connected<br>DeviceCount|Dispositivos conectados (visualização)|Count|Average|Número de dispositivos conectados ao seu hub IoT|Nenhuma dimensão|
+|Figura|Métricas de configuração|Count|Total|Métricas para operações de configuração|Nenhuma dimensão|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que já viu uma descrição geral das métricas do IoT Hub, siga esta ligação para saber mais sobre como gerir o IoT Hub do Azure:
+Agora que você já viu uma visão geral das métricas do Hub IoT, siga este link para saber mais sobre como gerenciar o Hub IoT do Azure:
 
 * [Monitorização de operações](iot-hub-operations-monitoring.md)
 
-Para explorar ainda mais os recursos do IoT Hub, veja:
+Para explorar ainda mais os recursos do Hub IoT, consulte:
 
 * [guia para programadores do IoT Hub](iot-hub-devguide.md)
 
-* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implantando ia em dispositivos de borda com Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

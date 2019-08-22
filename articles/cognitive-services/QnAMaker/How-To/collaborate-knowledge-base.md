@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 9c5398ff7cb31698db3d4a798b6a082f9e74b99b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d9c91d54fb357807682cd57f46b04454e4e2cfec
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955140"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876655"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>Colabore em sua base de dados de conhecimento
 
@@ -27,23 +27,23 @@ Execute as seguintes etapas para compartilhar seu serviço de QnA Maker com algu
 
     ![Lista de recursos do QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
 
-2. Vá para a guia **controle de acesso (iam)** .
+1. Vá para a guia **controle de acesso (iam)** .
 
     ![IAM QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam.PNG)
 
-3. Selecione **Adicionar**.
+1. Selecione **Adicionar**.
 
     ![Adicionar IAM QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
 
-4. Selecione o **proprietário** ou a função **colaborador** . Você não pode conceder acesso somente leitura por meio do controle de acesso baseado em função. A função proprietário e colaborador tem acesso de leitura/gravação direito de QnA Maker serviço.
+1. Selecione o **proprietário** ou a função **colaborador** . Você não pode conceder acesso somente leitura por meio do controle de acesso baseado em função. As funções de proprietário e colaborador têm permissões de acesso de leitura/gravação para o serviço de QnA Maker.
 
     ![Adicionar função IAM QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
 
-5. Insira o email com o qual você deseja compartilhar e pressione salvar.
+1. Insira o endereço de email do usuário e pressione **salvar**.
 
     ![Adicionar email QnA Maker IAM](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-email.PNG)
 
-Agora, quando a pessoa com a qual você compartilhou seu serviço de QnA Maker, faz logon no [portal de QnA Maker](https://qnamaker.ai) eles podem ver todas as bases de dados de conhecimento nesse serviço.
+Quando a pessoa, você compartilhou seu serviço de QnA Maker com, faz logon no [portal de QnA Maker](https://qnamaker.ai) eles podem ver todas as bases de dados de conhecimento nesse serviço.
 
 Lembre-se de que você não pode compartilhar uma base de dados de conhecimento específica em um serviço QnA Maker. Se você quiser um controle de acesso mais granular, considere distribuir suas bases de dados de conhecimento em diferentes serviços de QnA Maker.
 

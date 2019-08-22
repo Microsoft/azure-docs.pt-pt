@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 164a71354423bebc1422ba94747f2daeec33909d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e9c21ff5c4c94eecc7bb1a6643e46166df80edf4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828933"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648324"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar a entrada sem senha com o aplicativo Microsoft Authenticator (versão prévia)
 
@@ -92,7 +92,7 @@ Os usuários finais que estão habilitados para MFA por meio do servidor Azure M
 
 ### <a name="device-registration"></a>Registo de dispositivo
 
-Um dos pré-requisitos para criar essa nova credencial forte é que o dispositivo também deve estar registrado no locatário do Azure AD para um usuário individual. Devido às restrições de registro do dispositivo atual, um dispositivo só pode ser registrado em um único locatário. Esse limite significa que apenas uma conta corporativa ou de estudante no aplicativo Microsoft Authenticator pode ser habilitada para entrada pelo telefone.
+Um dos pré-requisitos para criar essa nova credencial forte é que o dispositivo, em que o aplicativo Microsoft Authenticator está instalado, também deve ser registrado no locatário do Azure AD para um usuário individual. Devido às restrições de registro do dispositivo atual, um dispositivo só pode ser registrado em um único locatário. Esse limite significa que apenas uma conta corporativa ou de estudante no aplicativo Microsoft Authenticator pode ser habilitada para entrada pelo telefone.
 
 > [!NOTE]
 > O registro do dispositivo não é o mesmo que o gerenciamento de dispositivos ou "MDM". Ele só associa uma ID de dispositivo e uma ID de usuário ao diretório do Azure AD.  

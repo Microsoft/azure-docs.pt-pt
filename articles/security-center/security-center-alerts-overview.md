@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 8/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 91dd397095718b3b43e41767af422801fd50b7f1
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 25fb94afdfe68510c66cff130a3abc8b74d7311d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295688"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647314"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança na central de segurança do Azure
 
@@ -50,7 +50,7 @@ Os tópicos a seguir explicam como a central de segurança aproveita a telemetri
 
 ## <a name="what-are-alert-incidents"></a>O que são incidentes de alerta?
 
-Um incidente de segurança é uma coleção de alertas relacionados, em vez de listar cada alerta individualmente. A central de segurança usa a fusão para correlacionar diferentes alertas e sinais de baixa fidelidade em incidentes de segurança.
+Um incidente de segurança é uma coleção de alertas relacionados, em vez de listar cada alerta individualmente. A central de segurança usa a [correlação de alertas inteligentes na nuvem](security-center-alerts-cloud-smart.md) para correlacionar diferentes alertas e sinais de baixa fidelidade em incidentes de segurança.
 
 Usando incidentes, a central de segurança fornece uma única exibição de uma campanha de ataque e todos os alertas relacionados. Essa exibição permite que você entenda rapidamente quais ações foram tomadas pelo invasor e quais recursos foram afetados. Para obter mais informações, consulte [correlação de alertas inteligentes na nuvem](security-center-alerts-cloud-smart.md).
 

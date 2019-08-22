@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: e078c75911a332c7e70f3a578723735729b9e6b6
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e6a1ec1d11404e6179fda919c58f581c3524c4d4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954489"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650342"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Fazer backup e restaurar bancos de dados SQL em VMs do Azure com o PowerShell
 
@@ -167,6 +167,18 @@ Uma política de backup especifica o agendamento de backups e por quanto tempo o
 * Exiba o agendamento da política de backup padrão usando [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
 * Use o cmdlet [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) para criar uma nova política de backup. Você insere os objetos de política de retenção e agendamento.
 
+Por padrão, uma hora de início é definida no objeto de política de agenda. Use o exemplo a seguir para alterar a hora de início para a hora de início desejada. A hora de início desejada também deve estar em UTC. O exemplo abaixo pressupõe que a hora de início desejada seja 01:00 AM UTC para backups diários.
+
+```powershell
+$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "MSSQL"
+$UtcTime = Get-Date -Date "2019-03-20 01:30:00Z"
+$UtcTime = $UtcTime.ToUniversalTime()
+$schpol.ScheduleRunTimes[0] = $UtcTime
+```
+
+> [!IMPORTANT]
+> Você precisa fornecer a hora de início apenas em 30 minutos. No exemplo acima, ele pode ser apenas "01:00:00" ou "02:30:00". A hora de início não pode ser "01:15:00"
+
 O exemplo a seguir armazena a política de agendamento e a política de retenção em variáveis. Em seguida, ele usa essas variáveis como parâmetros para uma nova política (**NewSQLPolicy**). O **NewSQLPolicy** usa um backup "completo" diário, o retém por 180 dias e faz um backup de log a cada 2 horas
 
 ```powershell
@@ -181,7 +193,7 @@ A saída é semelhante à seguinte.
 Name                 WorkloadType       BackupManagementType BackupTime                Frequency                                IsDifferentialBackup IsLogBackupEnabled
                                                                                                                                 Enabled
 ----                 ------------       -------------------- ----------                ---------                                -------------------- ------------------
-NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 9:00:00 PM      Daily                                    False                True
+NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 01:30:00 AM      Daily                                    False                True
 ```
 
 ## <a name="enable-backup"></a>Habilitar backup
@@ -198,7 +210,7 @@ Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagemen
 O comando retornará um ' contêiner de backup ' desse recurso e o status será ' Registered '
 
 > [!NOTE]
-> Se o parâmetro Force não for fornecido, o usuário será solicitado a confirmar com um texto ' deseja desabilitar a proteção para este contêiner '. Ignore este texto e diga "Y" para confirmar. Esse é um problema conhecido e estamos trabalhando para remover o texto e o requisito para o parâmetro Force
+> Se o parâmetro Force não for fornecido, o usuário será solicitado a confirmar com um texto ' deseja desabilitar a proteção para este contêiner '. Ignore este texto e diga "Y" para confirmar. Esse é um problema conhecido e estamos trabalhando para remover o texto e o requisito para o parâmetro Force.
 
 ### <a name="fetching-sql-dbs"></a>Buscando bancos de os SQL
 

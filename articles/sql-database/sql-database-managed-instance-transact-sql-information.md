@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: b792c0fc5d02a84d45b47ac68e0058144f31e673
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: HT
+ms.openlocfilehash: 8ed9b86f8dd4f255a6ea8420ef27fbb131df91a9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641002"
+ms.locfileid: "69644883"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -545,15 +545,13 @@ As caixas de diálogo de Service Broker de banco de dados cruzado deixarão de e
 
 **Resolução** Pare qualquer atividade que use conversas de caixa de diálogo Service Broker de banco de dados antes de atualizar a camada de serviço e reinicializá-la após. Se houver mensagens restantes que não são entregues após a alteração da camada de serviço, leia as mensagens da fila de origem e reenvie-as para a fila de destino.
 
-### <a name="impresonification-of-aad-login-types-is-not-supported"></a>Não há suporte para Impresonification de tipos de logon do AAD
+### <a name="impersonification-of-aad-login-types-is-not-supported"></a>Não há suporte para a impessoa de tipos de logon do AAD
 
 **Date** Julho de 2019
 
 Não há `EXECUTE AS USER` suporte `EXECUTE AS LOGIN` para a representação usando ou das seguintes entidades de segurança do AAD:
 -   Usuários com alias do AAD. O erro a seguir é retornado nesse caso `15517`.
 - Logons e usuários do AAD com base em aplicativos do AAD ou entidades de serviço. Os erros a seguir são retornados nesse caso `15517` e `15406`.
-
-### <a name="database-email"></a>Email do banco de dados 
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryparâmetro sem suporte em sp_send_db_mail
 

@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 3d3fc1541fb99d8d1219392158c3b87cd6ff99aa
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
-ms.translationtype: MT
+ms.openlocfilehash: 37624c79a345f956de9a289c672340e391199e2f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033540"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650702"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma nova oferta de SaaS
 
@@ -225,7 +225,7 @@ Até 3.000 caracteres de texto podem ser inseridos neste campo. Para obter dicas
 
 #### <a name="description"></a>**Descrição**
 
-Este campo é obrigatório. Itens a serem incluídos na descrição: 
+Este é um campo obrigatório. Itens a serem incluídos na descrição: 
 
 * Descreva claramente a proposta de valor da sua oferta nas primeiras frases da sua descrição.  
 * Tenha em mente que as primeiras frases podem ser exibidas nos resultados do mecanismo de pesquisa.  
@@ -302,12 +302,7 @@ Para tornar sua descrição de oferta mais atraente, você pode usar marcas HTML
 
     O anterior ficaria assim:
 
-    <h1>Este é o título 1</h1> 
-    <h2>Este é o título 2</h2> 
-    <h3>Este é o título 3</h3> 
-    <h4>Este é o título 4</h4> 
-    <h5>Este é o título 5</h5> 
-    <h6>Este é o título 6</h6> 
+    ![Títulos de exemplo](./media/heading.png)
 
 #### <a name="links"></a>Hiperligações
 

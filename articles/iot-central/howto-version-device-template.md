@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 638be5e62c523c478f139f13185edeb24995ab3f
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: c718794528989fbc46b404617f16d3a91ade6011
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848989"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877313"
 ---
 # <a name="create-a-new-device-template-version"></a>Criar uma nova versão de modelo de dispositivo
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 O Azure IoT Central permite o desenvolvimento rápido de aplicativos de IoT. Você pode iterar rapidamente seus designs de modelo de dispositivo adicionando, editando ou excluindo medidas, configurações ou propriedades. Algumas dessas alterações podem ser intrusivas para os dispositivos conectados no momento. O Azure IoT Central identifica essas alterações significativas e fornece uma maneira de implantar com segurança essas atualizações nos dispositivos.
 
@@ -59,7 +61,7 @@ Você pode criar várias versões do modelo de dispositivo. Ao longo do tempo, v
 1. Vá para a página de **Device Explorer** .
 1. Selecione o dispositivo que você precisa migrar para outra versão.
 1. Escolha **migrar dispositivo**.
-1. Selecione o número de versão para o qual você deseja migrar o dispositivo e escolha migrar.
+1. Selecione o número de versão para o qual você deseja migrar odispositivo e escolha migrar.
 
 ![Como migrar um dispositivo](media/howto-version-device-template/pick-version.png)
 

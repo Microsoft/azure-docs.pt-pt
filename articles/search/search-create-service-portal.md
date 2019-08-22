@@ -1,7 +1,7 @@
 ---
 title: Criar um serviço de Azure Search no portal-Azure Search
 description: Provisionar um recurso de Azure Search no portal do Azure. Escolha grupos de recursos, regiões e a SKU ou tipo de preço.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0649fea0b598ffaaaf2611c9d1324174105ee5d4
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0aabf10b3be8f2f13abbba15d514a008f193646c
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931544"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649949"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço do Azure Search no portal
 
@@ -150,7 +150,7 @@ Embora a maioria dos clientes utilize apenas um serviço, a redundância de serv
 
 Não é necessário um segundo serviço para elevada disponibilidade. A elevada disponibilidade para consultas é alcançada ao utilizar 2 ou mais réplicas no mesmo serviço. As atualizações de réplicas são sequenciais, o que significa que pelo menos uma está operacional quando é implementada uma atualização de serviço. Para obter mais informações sobre o tempo de atividade, veja [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Depois de provisionar um serviço de Azure Search, você pode continuar no portal para criar seu primeiro índice.
 

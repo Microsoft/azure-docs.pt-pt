@@ -1,8 +1,8 @@
 ---
-title: Exemplos de consulta usando a sintaxe de pesquisa "simples" - Azure Search
-description: Exemplos de consulta simples para pesquisa em texto completo, pesquisa de filtro, pesquisa geográfica, pesquisa por facetas e outras cadeias de caracteres de consulta, usadas para consultar um índice da Azure Search.
+title: Exemplos de consulta usando a sintaxe de pesquisa "simples"-Azure Search
+description: Exemplos de consulta simples para pesquisa de texto completo, pesquisa de filtro, pesquisa geográfica, pesquisa facetada e outras cadeias de caracteres de consulta usadas para consultar um índice de Azure Search.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: Simple query analyzer syntax
 services: search
 ms.service: search
@@ -10,116 +10,116 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6b7451371fe1562a6763643cd90e5646bd255018
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: df84686e512db90351d5a9815706890bce49848b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653516"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647621"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Exemplos de consulta usando a sintaxe de pesquisa "simples" no Azure Search
 
-[Sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) invoca o parser de consulta padrão para a execução de consultas de pesquisa de texto completo em relação a um índice da Azure Search. O analisador de consultas simples é rápido e lida com cenários comuns no Azure Search, incluindo a pesquisa em texto completo e pesquisa geográfica pesquisa por facetas e filtrada. Neste artigo, etapa por meio de exemplos que demonstram as operações de consulta disponíveis quando utiliza a sintaxe simple.
+A [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) invoca o analisador de consulta padrão para executar consultas de pesquisa de texto completo em um índice de Azure Search. O simples analisador de consultas é rápido e manipula cenários comuns no Azure Search, incluindo pesquisa de texto completo, pesquisa filtrada e facetada e pesquisa geográfica. Neste artigo, percorra os exemplos demonstrando as operações de consulta disponíveis ao usar a sintaxe simples.
 
-A sintaxe de consulta alternativo é [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), que suporta estruturas de consulta mais complexas, tais como difusa e pesquisa com carateres universais, o que pode demorar mais tempo a processar. Para obter mais informações e exemplos que demonstram a sintaxe completa, consulte [exemplos de consulta de sintaxe Lucene](search-query-lucene-examples.md).
+A sintaxe de consulta alternativa é o [Lucene completo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), dando suporte a estruturas de consulta mais complexas, como pesquisa difusa e curinga, o que pode levar mais tempo para ser processado. Para obter mais informações e exemplos que demonstram a sintaxe completa, consulte [exemplos de consulta de sintaxe do Lucene](search-query-lucene-examples.md).
 
-## <a name="formulate-requests-in-postman"></a>Formular pedidos no Postman
+## <a name="formulate-requests-in-postman"></a>Formular solicitações no postmaster
 
-Os exemplos seguintes tirar partido de um índice de pesquisa de empregos em nova IORQUE consistindo em tarefas disponíveis com base num conjunto de dados fornecido pelos [cidade de Nova Iorque OpenData](https://nycopendata.socrata.com/) iniciativa. Estes dados não devem ser considerados atual ou completa. O índice é um serviço de proteção de segurança fornecidas pela Microsoft, o que significa que não é necessário uma subscrição do Azure ou o Azure Search para experimentar estas consultas.
+Os exemplos a seguir aproveitam um índice de pesquisa de trabalhos do NYC que consiste em trabalhos disponíveis com base em um conjunto de conjuntos fornecido pela [cidade da iniciativa de OpenData de Nova York](https://nycopendata.socrata.com/) . Esses dados não devem ser considerados atuais ou completos. O índice está em um serviço de área restrita fornecido pela Microsoft, o que significa que você não precisa de uma assinatura do Azure ou Azure Search para tentar essas consultas.
 
-O que é necessário é o Postman ou uma ferramenta equivalente para emitir o pedido HTTP na GET. Para obter mais informações, consulte [explorar com clientes REST](search-get-started-postman.md).
+O que você precisa é o postmaster ou uma ferramenta equivalente para emitir a solicitação HTTP em GET. Para obter mais informações, consulte [explorar com clientes REST](search-get-started-postman.md).
 
-### <a name="set-the-request-header"></a>Definir o cabeçalho de pedido
+### <a name="set-the-request-header"></a>Definir o cabeçalho da solicitação
 
-1. No cabeçalho do pedido, defina **Content-Type** para `application/json`.
+1. No cabeçalho da solicitação, defina **Content-Type** como `application/json`.
 
-2. Adicionar uma **chave de api**e defina-o como esta cadeia: `252044BE3886FE4A8E3BAA4F595114BB`. Esta é uma chave de consulta para o serviço de pesquisa de área de segurança que aloja o índice de empregos em nova IORQUE.
+2. Adicione uma **chave de API**e defina-a para esta cadeia de `252044BE3886FE4A8E3BAA4F595114BB`caracteres:. Essa é uma chave de consulta para o serviço de pesquisa de área restrita que hospeda o índice de trabalhos do NYC.
 
-Depois de especificar o cabeçalho do pedido, pode reutilizá-lo para todas as consultas neste artigo, alternando apenas a **pesquisa =** cadeia de caracteres. 
+Depois de especificar o cabeçalho da solicitação, você pode reutilizá-lo para todas as consultas neste artigo, alternando apenas a cadeia de caracteres **Search =** . 
 
   ![Cabeçalho de pedido do Postman](media/search-query-lucene-examples/postman-header.png)
 
-### <a name="set-the-request-url"></a>Definir o URL do pedido
+### <a name="set-the-request-url"></a>Definir a URL da solicitação
 
-O pedido é um comando GET emparelhado com um URL que contém a cadeia de pesquisa e ponto final do Azure Search.
+A solicitação é um comando GET emparelhado com uma URL que contém o ponto de extremidade Azure Search e a cadeia de caracteres de pesquisa.
 
   ![Cabeçalho de pedido do Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
-A composição do URL tem os seguintes elementos:
+A composição de URL tem os seguintes elementos:
 
-+ **`https://azs-playground.search.windows.net/`** um serviço de pesquisa de área de segurança é mantido pela equipe de desenvolvimento do Azure Search. 
-+ **`indexes/nycjobs/`** é o índice de empregos em nova IORQUE da coleção de índices desse serviço. O nome do serviço e o índice são necessários no pedido.
-+ **`docs`** é a coleção de documentos que todo o conteúdo pesquisável. A consulta a chave de api fornecida no cabeçalho do pedido só funciona em operações de leitura visando a coleção de documentos.
-+ **`api-version=2019-05-06`** Define a api-version, que é um parâmetro necessário em cada solicitação.
-+ **`search=*`** é a cadeia de consulta, que, na consulta inicial, é nulo, retornando os resultados de 50 primeiras (por predefinição).
++ **`https://azs-playground.search.windows.net/`** o é um serviço de pesquisa de área restrita mantido pela equipe de desenvolvimento Azure Search. 
++ **`indexes/nycjobs/`** é o índice de trabalhos do NYC na coleção de índices desse serviço. O nome do serviço e o índice são necessários na solicitação.
++ **`docs`** é a coleção de documentos que contém todo o conteúdo pesquisável. A chave de API de consulta fornecida no cabeçalho da solicitação só funciona em operações de leitura direcionando a coleção de documentos.
++ **`api-version=2019-05-06`** define a versão de API, que é um parâmetro necessário em cada solicitação.
++ **`search=*`** é a cadeia de caracteres de consulta, que na consulta inicial é nula, retornando os primeiros 50 resultados (por padrão).
 
-## <a name="send-your-first-query"></a>Enviar a sua primeira consulta
+## <a name="send-your-first-query"></a>Enviar sua primeira consulta
 
-Como passo de verificação, cole o seguinte pedido GET e clique em **enviar**. Os resultados são retornados como verbosos de documentos JSON. Todos os documentos são devolvidos, que permite-lhe ver todos os campos e todos os valores.
+Como uma etapa de verificação, Cole a seguinte solicitação em GET e clique em **Enviar**. Os resultados são retornados como documentos JSON detalhados. Documentos inteiros são retornados, o que permite que você veja todos os campos e todos os valores.
 
-Cole este URL para um cliente REST como uma etapa de validação e para ver a estrutura do documento.
+Cole essa URL em um cliente REST como uma etapa de validação e exiba a estrutura do documento.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-A cadeia de consulta **`search=*`** , equivale uma pesquisa não especificada para a pesquisa de nula ou estar vazia. Não é especialmente útil, mas é a pesquisa mais simples, que pode fazer.
+A cadeia de caracteres **`search=*`** de consulta,, é uma pesquisa não especificada equivalente a uma pesquisa nula ou vazia. Isso não é especialmente útil, mas é a pesquisa mais simples que você pode fazer.
 
-Opcionalmente, pode adicionar **`$count=true`** para o URL para devolver uma contagem dos documentos correspondentes aos critérios de pesquisa. Numa cadeia de caracteres de pesquisa em branco, trata todos os documentos no índice (aproximadamente 2800 no caso de empregos em nova IORQUE).
+Opcionalmente, você pode adicionar **`$count=true`** à URL para retornar uma contagem dos documentos que correspondem aos critérios de pesquisa. Em uma cadeia de caracteres de pesquisa vazia, esses são todos os documentos no índice (cerca de 2800 no caso de trabalhos do NYC).
 
 ## <a name="how-to-invoke-simple-query-parsing"></a>Como invocar a análise de consulta simples
 
-Para consultas interativas, não é necessário especificar nada: a predefinição é simple. No código, se anteriormente invocado **queryType = full** para a sintaxe de consulta completa, foi possível repor a predefinição com **queryType = simples**.
+Para consultas interativas, você não precisa especificar nada: simples é o padrão. No código, se você tiver chamado anteriormente **QueryType = Full** para obter a sintaxe de consulta completa, poderá redefinir o padrão com **QueryType = Simple**.
 
-## <a name="example-1-field-scoped-query"></a>Exemplo 1: Consulta com abrangência de campo
+## <a name="example-1-field-scoped-query"></a>Exemplo 1: Consulta com escopo de campo
 
-Este primeiro exemplo não é específico do analisador, mas vamos levar com ele para apresentar o primeiro conceito de consulta fundamentais: contenção. Neste exemplo examina a execução da consulta e a resposta a apenas alguns campos específicos. É importante saber como estruturar uma resposta JSON legível quando sua ferramenta é o Explorador de pesquisa ou o Postman. 
+Este primeiro exemplo não é específico do analisador, mas nós o conduzimos a apresentar o primeiro conceito fundamental de consulta: confinamento. Este exemplo abrange a execução da consulta e a resposta a apenas alguns campos específicos. Saber como estruturar uma resposta JSON legível é importante quando sua ferramenta é o postmaster ou o Search Explorer. 
 
-Para fins de brevidade, a consulta destina-se apenas a *business_title* campo e especifica apenas os títulos de negócios são retornados. A sintaxe é **searchFields** para restringir a execução da consulta para apenas o campo de business_title, e **selecione** para especificar os campos que estão incluídos na resposta.
+Para resumir, a consulta destina-se apenas ao campo *business_title* e especifica que apenas títulos de negócios são retornados. A sintaxe é **searchFields** para restringir a execução da consulta apenas ao campo business_title e **selecione** para especificar quais campos serão incluídos na resposta.
 
-### <a name="partial-query-string"></a>Cadeia de consulta parcial
+### <a name="partial-query-string"></a>Cadeia de caracteres de consulta parcial
 
 ```http
 searchFields=business_title&$select=business_title&search=*
 ```
 
-Eis a mesma consulta com vários campos de uma lista delimitada por vírgulas.
+Aqui está a mesma consulta com vários campos em uma lista delimitada por vírgulas.
 
 ```http
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
 ```
 
-### <a name="full-url"></a>URL completo
+### <a name="full-url"></a>URL completa
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchFields=business_title&$select=business_title&search=*
 ```
 
-A resposta para esta consulta deve ser semelhante à seguinte captura de ecrã.
+A resposta para essa consulta deve ser semelhante à captura de tela a seguir.
 
-  ![Resposta de exemplo do postman](media/search-query-lucene-examples/postman-sample-results.png)
+  ![Resposta de exemplo do postmaster](media/search-query-lucene-examples/postman-sample-results.png)
 
-Poderá ter reparado a pontuação de pesquisa na resposta. Pontuações uniformes de 1 ocorrerem quando não existe nenhuma classificação, seja porque a pesquisa não era a pesquisa em texto completo ou porque não existem critérios foi aplicada. Para obter pesquisa nulo sem critérios, linhas voltar na ordem arbitrária. Quando inclui critérios reais, verá as pontuações evoluam em valores significativos de pesquisa.
+Talvez você tenha notado a pontuação de pesquisa na resposta. Pontuações uniformes de 1 ocorrem quando não há nenhuma classificação, porque a pesquisa não era uma pesquisa de texto completo ou porque nenhum critério foi aplicado. Para pesquisa nula sem critérios, as linhas retornam em ordem arbitrária. Ao incluir os critérios reais, você verá que as pontuações de pesquisa evoluem em valores significativos.
 
-## <a name="example-2-look-up-by-id"></a>Exemplo 2: Procurar por ID
+## <a name="example-2-look-up-by-id"></a>Exemplo 2: Pesquisar por ID
 
-Neste exemplo é um pouco atípica, mas ao avaliar os comportamentos de pesquisa, talvez queira inspecionar todo o conteúdo de um documento específico para compreender por que foram incluído ou excluído dos resultados. Para devolver um único documento em sua totalidade, utilize um [operação de pesquisa de](https://docs.microsoft.com/rest/api/searchservice/lookup-document) para passar no ID do documento.
+Este exemplo é um pouco atípicos, mas ao avaliar os comportamentos de pesquisa, talvez você queira inspecionar todo o conteúdo de um documento específico para entender por que ele foi incluído ou excluído dos resultados. Para retornar um único documento em sua totalidade, use uma [operação de pesquisa](https://docs.microsoft.com/rest/api/searchservice/lookup-document) para passar a ID do documento.
 
-Todos os documentos têm um identificador exclusivo. Para experimentar a sintaxe para uma consulta de pesquisa, primeiro devolva uma lista de IDs de documento para que pode encontrar uma para utilizar. Para empregos em nova IORQUE, os identificadores são armazenados no `id` campo.
+Todos os documentos têm um identificador exclusivo. Para testar a sintaxe de uma consulta de pesquisa, primeiro retorne uma lista de IDs de documento para que você possa encontrar uma para usar. Para trabalhos do NYC, os identificadores são armazenados no `id` campo.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchFields=id&$select=id&search=*
 ```
 
-O exemplo seguinte é uma consulta de pesquisa devolver um documento específico com base em `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", que apareceu primeiro na resposta anterior. A seguinte consulta devolve o documento inteiro, campos selecionados não apenas. 
+O exemplo a seguir é uma consulta de pesquisa que retorna um documento `id` específico com base em "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", que apareceu primeiro na resposta anterior. A consulta a seguir retorna o documento inteiro, não apenas os campos selecionados. 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2019-05-06&$count=true&search=*
 ```
 
-## <a name="example-3-filter-queries"></a>Exemplo 3: Consultas de filtro
+## <a name="example-3-filter-queries"></a>Exemplo 3: Filtrar consultas
 
-[Sintaxe de filtro](https://docs.microsoft.com/azure/search/search-query-odata-filter) é uma expressão de OData que pode utilizar com **pesquisa** ou por si só. Um filtro de autónoma, sem um parâmetro de pesquisa, é útil quando a expressão de filtro é capaz de qualificar completamente a documentos de interesse. Sem uma cadeia de consulta, significa que não existe nenhuma análise lexical ou linguística, nenhuma classificação (todas as pontuações são 1) e nenhuma classificação. Tenha em atenção que a cadeia de pesquisa está vazia.
+A [sintaxe de filtro](https://docs.microsoft.com/azure/search/search-query-odata-filter) é uma expressão OData que você pode usar com a **pesquisa** ou por si só. Um filtro autônomo, sem um parâmetro de pesquisa, é útil quando a expressão de filtro é capaz de qualificar totalmente os documentos de interesse. Sem uma cadeia de caracteres de consulta, não há nenhuma análise léxica ou linguística, sem pontuação (todas as pontuações são 1) e nenhuma classificação. Observe que a cadeia de caracteres de pesquisa está vazia.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2019-05-06
@@ -131,31 +131,31 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
     }
 ```
 
-Utilizados em conjunto, o filtro é aplicado primeiro ao índice completo e, em seguida, a pesquisa é executada nos resultados do filtro. Por conseguinte, os filtros podem ser uma técnica útil para melhorar o desempenho de consultas, uma vez que reduzem o conjunto de documentos necessários à consulta de pesquisa para processamento.
+Usado em conjunto, o filtro é aplicado primeiro ao índice inteiro e, em seguida, a pesquisa é executada nos resultados do filtro. Por conseguinte, os filtros podem ser uma técnica útil para melhorar o desempenho de consultas, uma vez que reduzem o conjunto de documentos necessários à consulta de pesquisa para processamento.
 
-  ![Resposta da consulta de filtro](media/search-query-simple-examples/filtered-query.png)
+  ![Filtrar resposta de consulta](media/search-query-simple-examples/filtered-query.png)
 
-Se quiser experimentar isso no Postman com o GET, pode colar esta cadeia:
+Se você quiser experimentar isso no postmaster usando GET, poderá colar nesta cadeia de caracteres:
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
 ```
 
-Outra forma poderosa de combinar filtrar e pesquisar é através de **`search.ismatch*()`** numa expressão de filtro, onde pode usar uma consulta de pesquisa dentro do filtro. Esta expressão de filtro utiliza um caráter universal no *plano* para selecionar business_title, incluindo o plano de termo, planner, planejamento e assim por diante.
+Outra maneira eficiente de combinar filtro e pesquisa é por **`search.ismatch*()`** meio de uma expressão de filtro, na qual você pode usar uma consulta de pesquisa dentro do filtro. Essa expressão de filtro usa um curinga no *plano* para selecionar business_title, incluindo o termo plano, planejador, planejamento e assim por diante.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-Para obter mais informações sobre a função, veja [search.ismatch "Exemplos de filtro"](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
+Para obter mais informações sobre a função, consulte [Search. IsMatch em "Filter examples"](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
 
 ## <a name="example-4-range-filters"></a>Exemplo 4: Filtros de intervalo
 
-Filtragem de intervalo é suportada através dos **`$filter`** expressões para qualquer tipo de dados. Os exemplos seguintes de pesquisa em campos numéricos e de cadeia de caracteres. 
+A filtragem de intervalo é **`$filter`** suportada por meio de expressões para qualquer tipo de dados. Os exemplos a seguir pesquisam em campos numéricos e de cadeia de caracteres. 
 
-Tipos de dados são importantes em filtros de intervalo e funcionam melhor quando dados numéricos estão nos campos numéricos e os dados de cadeia de caracteres em campos de cadeia de caracteres. Dados numéricos em campos de cadeia de caracteres não são adequados para intervalos de uma vez que as cadeias de caracteres numéricas não são comparáveis no Azure Search. 
+Os tipos de dados são importantes em filtros de intervalo e funcionam melhor quando dados numéricos estão em campos numéricos e dados de cadeia de caracteres em campos de cadeia de caracteres. Dados numéricos em campos de cadeia de caracteres não são adequados para intervalos porque cadeias numéricas não são comparáveis em Azure Search. 
 
-Os exemplos seguintes estão no formato de mensagem para melhorar a legibilidade (intervalo numérico, seguido de intervalo de texto):
+Os exemplos a seguir estão no formato de POSTAgem para legibilidade (intervalo numérico, seguido pelo intervalo de texto):
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2019-05-06
@@ -183,7 +183,7 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
 
   ![Filtro de intervalo para intervalos de texto](media/search-query-simple-examples/rangefiltertext.png)
 
-Pode também experimentar estas no Postman usando GET:
+Você também pode experimentá-los no postmaster usando GET:
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&search=&$filter=num_of_positions ge 5 and num_of_positions lt 10&$select=job_id, business_title, num_of_positions, agency&$orderby=agency&$count=true
@@ -194,13 +194,13 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ```
 
 > [!NOTE]
-> Facetamento ao longo de intervalos de valores é um requisito de aplicativo de pesquisa comum. Para obter mais informações e exemplos sobre como criar filtros para estruturas de navegação de Faceta, consulte ["Filtro com base num intervalo de" *como implementar a navegação por facetas*](search-faceted-navigation.md#filter-based-on-a-range).
+> A facetação de intervalos de valores é um requisito de aplicativo de pesquisa comum. Para obter mais informações e exemplos sobre a criação de filtros para estruturas de navegação de faceta, consulte ["filtrar com base em um intervalo" em *como implementar a navegação facetada*](search-faceted-navigation.md#filter-based-on-a-range).
 
 ## <a name="example-5-geo-search"></a>Exemplo 5: Pesquisa geográfica
 
-O índice de exemplo inclui um campo de geo_location com coordenadas de latitude e longitude. Este exemplo utiliza a [geo.distance função](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples) que filtros em documentos dentro da circunferência do ponto de partida, fora a uma distância arbitrária (em quilômetros), que fornece. Pode ajustar o último valor na consulta (4) para reduzir ou ampliar a área de superfície da consulta.
+O índice de exemplo inclui um campo geo_location com coordenadas de latitude e longitude. Este exemplo usa a [função geográfico. distance](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples) que filtra em documentos dentro da circunferência de um ponto inicial, até uma distância arbitrária (em quilômetros) que você fornece. Você pode ajustar o último valor na consulta (4) para reduzir ou aumentar a área da superfície da consulta.
 
-O exemplo a seguir está no formato de mensagem para melhorar a legibilidade:
+O exemplo a seguir está no formato de POSTAgem para facilitar a leitura:
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2019-05-06
@@ -211,9 +211,9 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
       "count": "true"
     }
 ```
-Para obter resultados mais legíveis, os resultados da pesquisa são cortados para incluir um ID da tarefa, cargo e a localização de trabalho. As coordenadas de partida foram obtidas a partir de um documento aleatório no índice (neste caso, para uma localização de trabalho no Staten island.
+Para obter resultados mais legíveis, os resultados da pesquisa são cortados para incluir uma ID do trabalho, um cargo e o local de trabalho. As coordenadas iniciais foram obtidas de um documento aleatório no índice (nesse caso, para um local de trabalho na Ilha Staten.
 
-Pode também experimentar isso no Postman usando GET:
+Você também pode experimentar isso no postmaster usando GET:
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=&$select=job_id, business_title, work_location&$filter=geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4
@@ -221,80 +221,80 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 ## <a name="example-6-search-precision"></a>Exemplo 6: Precisão da pesquisa
 
-Consultas de prazo são termos simples, talvez muitos deles, que são avaliados de forma independente. Consultas de frase entre aspas e avaliadas como uma cadeia de caracteres textual. Precisão de correspondência é controlado por operadores e searchMode.
+As consultas de termo são termos únicos, talvez muitas delas, que são avaliadas de forma independente. As consultas de frase são colocadas entre aspas e avaliadas como uma cadeia de caracteres textual. A precisão da correspondência é controlada por operadores e searchmode.
 
-Exemplo 1: **`&search=fire`** devolve 150 resultados, em que todas as correspondências contenham fire o word em algum lugar no documento.
+Exemplo 1: **`&search=fire`** retorna 150 resultados, onde todas as correspondências contêm a palavra Fire em algum lugar no documento.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=fire
 ```
 
-Exemplo 2: **`&search=fire department`** devolve resultados de 2002. Correspondências são devolvidas para documentos que contenham fogo ou departamento.
+Exemplo 2: **`&search=fire department`** retorna 2002 resultados. As correspondências são retornadas para documentos que contêm fogo ou departamento.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=fire department
 ```
 
-Exemplo 3: **`&search="fire department"`** devolve 82 resultados. Colocar a cadeia de caracteres de aspas é uma pesquisa textual em ambos os termos e forem encontradas correspondências em termos com token no índice que consiste dos termos combinados. Isto explica por que uma pesquisa, como **`search=+fire +department`** não é equivalente. Ambos os termos são necessários, mas são analisados de forma independente. 
+Exemplo 3: **`&search="fire department"`** retorna 82 resultados. Colocar a cadeia de caracteres entre aspas é uma pesquisa textual em ambos os termos e as correspondências são encontradas em termos de token no índice que consiste nos termos combinados. Isso explica por que uma pesquisa **`search=+fire +department`** como não é equivalente. Ambos os termos são necessários, mas são verificados de forma independente. 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search="fire department"
 ```
 
-## <a name="example-7-booleans-with-searchmode"></a>Exemplo 7: Booleanos com searchMode
+## <a name="example-7-booleans-with-searchmode"></a>Exemplo 7: Boolianos com searchmode
 
-Sintaxe simples suporta operadores booleanos na forma de carateres (`+, -, |`). O parâmetro searchMode informa as compensações entre a precisão e lembre-se, com `searchMode=any` favorável recolhimento (correspondência em critérios qualifica um documento para o conjunto de resultados), e `searchMode=all` favorável precisão (todos os critérios devem corresponder). A predefinição é `searchMode=any`, que pode ser confuso se são empilhadas uma consulta com vários operadores e introdução mais abrangente, em vez de resultados mais estreito. Isso é especialmente verdadeiro com não, onde os resultados incluem todos os documentos "que não contenha" uma condição específica.
+A sintaxe simples dá suporte a operadores boolianos na forma`+, -, |`de caracteres (). O parâmetro searchmode informa as compensações entre Precision e RECALL, `searchMode=any` com favorecer a RECALL (a correspondência em qualquer critério qualifica um documento para o conjunto de `searchMode=all` resultados) e favorecer a precisão (todos os critérios devem ser correspondidos). O padrão é `searchMode=any`, que pode ser confuso se você estiver empilhando uma consulta com vários operadores e obtendo resultados mais amplos em vez de mais estreitos. Isso é particularmente verdadeiro, pois os resultados incluem todos os documentos "não contendo" um termo específico.
 
-Utilizar o searchMode padrão (qualquer), são devolvidos documentos de 2800: aquelas que contém a parte multi prazo "fire departamento", além de todos os documentos que não têm o termo "Metrotech Center".
+Usando o searchmode padrão (any), 2800 documentos são retornados: aqueles que contêm o termo de várias partes "departamento de incêndio", além de todos os documentos que não têm o termo "MetroTech Center".
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  ![modo de pesquisa qualquer](media/search-query-simple-examples/searchmodeany.png)
+  ![Pesquisar no modo de pesquisa](media/search-query-simple-examples/searchmodeany.png)
 
-Alterar searchMode para `all` impõe um efeito cumulativo nos critérios e retorna o conjunto de resultados mais pequeno - 21 documentos - consiste em documentos que contêm a frase inteira "fire departamento" menos essas tarefas no endereço Metrotech Center.
+Alterar searchmode para `all` impõe um efeito cumulativo em critérios e retorna um conjunto de resultados menores-21 documentos – consistindo em documentos contendo a frase inteira "departamento de incêndio", menos esses trabalhos no endereço do MetroTech Center.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  ![todos os de modo de pesquisa](media/search-query-simple-examples/searchmodeall.png)
+  ![modo de pesquisa tudo](media/search-query-simple-examples/searchmodeall.png)
 
-## <a name="example-8-structuring-results"></a>Exemplo 8: Estruturar resultados
+## <a name="example-8-structuring-results"></a>Exemplo 8: Estruturando resultados
 
-Resulta de vários controle de parâmetros que campos são na pesquisa, o número de documentos devolvidos em cada lote e a ordem de classificação. Neste exemplo resurfaces alguns dos exemplos anteriores, limitar os resultados a campos específicos utilizando o **$select** instrução e critérios de pesquisa textuais, 82 correspondências retornadas 
+Vários parâmetros controlam quais campos estão nos resultados da pesquisa, o número de documentos retornados em cada lote e a ordem de classificação. Este exemplo retona alguns dos exemplos anteriores, limitando os resultados a campos específicos usando a instrução **$Select** e critérios de pesquisa textual, retornando 82 correspondências 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"
 ```
-Anexado no exemplo anterior, pode ordenar por título. Esse tipo funciona porque é civil_service_title *ordenável* no índice.
+Acrescentado no exemplo anterior, você pode classificar por título. Essa classificação funciona porque civil_service_title é *classificável* no índice.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title
 ```
 
-Resultados de paginação é implementado com o **$top** parâmetro, neste caso, retornar os documentos de 5 principais:
+Os resultados da paginação são implementados usando o parâmetro **$Top** , neste caso, retornando os 5 principais documentos:
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=0
 ```
 
-Para obter o próximo 5, ignore o primeiro batch:
+Para obter os próximos 5, ignore o primeiro lote:
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=5
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Tente especificar consultas no seu código. As ligações seguintes explicam como configurar a consultas de pesquisa para o .NET e a API de REST com a sintaxe simples predefinido.
+Tente especificar consultas em seu código. Os links a seguir explicam como configurar consultas de pesquisa para o .NET e a API REST usando a sintaxe simples padrão.
 
-* [Consultar o índice da Azure Search utilizando o SDK .NET](search-query-dotnet.md)
-* [Consultar o índice de pesquisa do Azure com a API REST](search-create-index-rest-api.md)
+* [Consultar seu índice de Azure Search usando o SDK do .NET](search-query-dotnet.md)
+* [Consultar seu índice de Azure Search usando a API REST](search-create-index-rest-api.md)
 
-Referência de sintaxe adicional, a arquitetura de consulta e exemplos podem ser encontrados nas seguintes ligações:
+Referência de sintaxe adicional, arquitetura de consulta e exemplos podem ser encontrados nos seguintes links:
 
-+ [Exemplos de consulta de sintaxe Lucene para a criação de consultas avançadas](search-query-lucene-examples.md)
-+ [Completa como funciona a pesquisa de texto no Azure Search](search-lucene-query-architecture.md)
++ [Exemplos de consulta de sintaxe Lucene para criar consultas avançadas](search-query-lucene-examples.md)
++ [Como funciona a pesquisa de texto completo no Azure Search](search-lucene-query-architecture.md)
 + [Sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Consultas de Lucene completas](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [Sintaxe de filtro e Orderby](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
++ [Consulta Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Sintaxe de Filter e OrderBy](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)

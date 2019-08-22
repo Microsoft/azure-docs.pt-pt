@@ -1,20 +1,20 @@
 ---
 title: Como depurar UDFs no Azure digital gêmeos | Microsoft Docs
 description: Diretrizes sobre como depurar UDFs no gêmeos digital do Azure.
-author: stefanmsft
-manager: deshner
+author: kingdomofends
+manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.author: stegaw
+ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 61c3f033fbe3febe7b0d048b247cc1fe8d597698
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 24dc01d47bece4191d1b142a58c4ad7b6d9fb6cf
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014178"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876574"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Como depurar funções definidas pelo usuário no Azure digital gêmeos
 

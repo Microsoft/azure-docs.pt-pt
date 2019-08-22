@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 5ef1749217dd8980892d7bf933cbe1412929fbbd
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 9e3df59af33d6e5fdd1024d42c34dc2b4ed3184e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976984"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873186"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Aprimoramentos de mensagem para mensagens do Hub IoT do dispositivo para a nuvem (versão prévia)
 
@@ -76,6 +76,8 @@ Para ver como experimentar os aprimoramentos de mensagens, consulte o tutorial d
 
 * O tamanho total da mensagem, incluindo os aprimoramentos, não pode exceder 256 KB. Se um tamanho de mensagem exceder 256 KB, o Hub IoT removerá a mensagem. Você pode usar [métricas do Hub IOT](iot-hub-metrics.md) para identificar e depurar erros quando as mensagens são descartadas. Por exemplo, você pode monitorar D2C. telemetria. egresso. Invalid.
 
+* Os aprimoramentos de mensagens não se aplicam a eventos de alteração de troca digital (parte da [Visualização pública de IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md)).
+
 ## <a name="pricing"></a>Preços
 
 Os aprimoramentos de mensagens estão disponíveis sem custo adicional. Atualmente, você é cobrado quando envia uma mensagem para um hub IoT. Você é cobrado apenas uma vez por essa mensagem, mesmo que a mensagem vá para vários pontos de extremidade.
@@ -84,9 +86,11 @@ Os aprimoramentos de mensagens estão disponíveis sem custo adicional. Atualmen
 
 Essa funcionalidade está disponível na versão prévia e está disponível em todas as regiões, exceto leste dos EUA, oeste dos EUA, Europa Ocidental, [Azure governamental](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china)e [Azure Alemanha](https://azure.microsoft.com/global-infrastructure/germany/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Confira estes artigos para obter mais informações sobre como rotear mensagens para um hub IoT:
+
+* [Tutorial de aprimoramentos de mensagens](tutorial-message-enrichments.md)
 
 * [Usar o roteamento de mensagens do Hub IoT para enviar mensagens do dispositivo para a nuvem para diferentes pontos de extremidade](iot-hub-devguide-messages-d2c.md)
 

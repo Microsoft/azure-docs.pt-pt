@@ -1,101 +1,103 @@
 ---
-title: Visualize os seus dados do Azure IoT Central no dashboard do Power BI | Documentos da Microsoft
-description: Utilize a solução de BI de energia para o Azure IoT Central para visualizar e analisar os seus dados de IoT Central.
+title: Visualizar os dados do Azure IoT Central em um painel de Power BI | Microsoft Docs
+description: Use a solução Power BI para o IoT Central do Azure para visualizar e analisar seus dados de IoT Central.
 ms.service: iot-central
 services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 06/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 16d7691d59e0805c7f8cf565a599ca5e6a78a7cf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 897b72dd7b292492e45cdc7401fe1acc5c86ca20
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053039"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877461"
 ---
-# <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualize e analise os dados do Azure IoT Central no dashboard do Power BI
+# <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualizar e analisar seus dados de IoT Central do Azure em um painel de Power BI
 
-*Este tópico aplica-se aos administradores.*
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
-![Pipeline de solução do Power BI](media/howto-connect-powerbi/iot-continuous-data-export.png)
+*Este tópico se aplica aos administradores do.*
 
-Utilize a solução de BI de energia para o Azure IoT Central para criar um dashboard do Power BI poderoso para monitorizar o desempenho dos seus dispositivos IoT. No dashboard do Power BI, pode:
-- Controlar a quantidade de dados estão a enviar seus dispositivos ao longo do tempo
-- Comparar o volume de dados entre Estados, quantidades de telemetria e eventos
-- Identificar dispositivos que estão a enviar relatórios inúmeras medições
-- Observe as tendências históricas derivadas de medidas de dispositivo
-- Identificar dispositivos problemáticos que enviar muitos eventos críticos
+![Pipeline de solução Power BI](media/howto-connect-powerbi/iot-continuous-data-export.png)
 
-Esta solução configura o pipeline que utiliza os dados na sua conta de armazenamento de Blobs do Azure partir [a exportação contínua de dados](howto-export-data.md). Estes dados fluem através das funções do Azure, Azure Data Factory e SQL Database do Azure para processar e transformar os dados. A saída pode ser visualizada e analisada no relatório do Power BI que pode baixar como um ficheiro PBIX. Todos esses recursos são criados na sua subscrição do Azure, pelo que pode personalizar cada componente de acordo com as suas necessidades.
+Use a solução Power BI para o IoT Central do Azure para criar um painel de Power BI poderoso para monitorar o desempenho de seus dispositivos IoT. No painel do Power BI, você pode:
+- Acompanhar a quantidade de dados que seus dispositivos estão enviando ao longo do tempo
+- Comparar o volume de dados entre telemetria, Estados e eventos
+- Identificar os dispositivos que estão relatando muitas medidas
+- Observar as tendências históricas das medições do dispositivo
+- Identificar dispositivos problemáticos que enviam muitos eventos críticos
 
-## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Obter o [do Power BI de solução para o Azure IoT Central](https://aka.ms/iotcentralpowerbisolutiontemplate) do Microsoft AppSource.
+Essa solução configura o pipeline que pega os dados em sua conta de armazenamento de BLOBs do Azure da [exportação de dados contínuas](howto-export-data.md). Esses dados fluem para o Azure Functions, Azure Data Factory e o banco de dados SQL do Azure para processar e transformar o dado. A saída pode ser visualizada e analisada em um relatório Power BI que você pode baixar como um arquivo PBIX. Todos esses recursos são criados em sua assinatura do Azure, para que você possa personalizar cada componente para atender às suas necessidades.
+
+## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Obtenha a [solução de Power bi para IOT central do Azure](https://aka.ms/iotcentralpowerbisolutiontemplate) do Microsoft AppSource.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Configurar a solução requer o seguinte:
-- Acesso a uma subscrição do Azure
-- Exportar dados com [a exportação contínua de dados](howto-export-data.md) da sua aplicação IoT Central. Recomendamos que ative medidas, dispositivos e fluxos de modelo do dispositivo para aproveitar ao máximo o dashboard do Power BI.
+A configuração da solução requer o seguinte:
+- Acesso a uma assinatura do Azure
+- Dados exportados usando a [exportação de dados contínuas](howto-export-data.md) do seu aplicativo IOT central. Recomendamos que você ative medidas, dispositivos e fluxos de modelo de dispositivo para obter o máximo do painel de Power BI.
 - Power BI Desktop (versão mais recente)
-- Power BI Pro (se quiser partilhar o dashboard com outras pessoas)
+- Power BI Pro (se você quiser compartilhar o painel com outras pessoas)
 
 ## <a name="reports"></a>Relatórios
 
 Dois relatórios são gerados automaticamente. 
 
-O primeiro relatório mostra uma vista histórica das medidas de reportados pelos dispositivos e divide os diferentes tipos de medidas e dispositivos que enviaram o maior número de medidas.
+O primeiro relatório mostra uma exibição histórica das medidas relatadas pelos dispositivos e divide os diferentes tipos de medidas e dispositivos que enviaram o número mais alto de medições.
 
-![Página de relatório do Power BI 1](media/howto-connect-powerbi/template-page1-hasdata.PNG)
+![Power BI página de relatório 1](media/howto-connect-powerbi/template-page1-hasdata.PNG)
 
-O segundo relatório se aprofunda-se nos eventos e mostra uma vista histórica dos erros e avisos relatados. Ela também mostra quais os dispositivos que comunicam o maior número de eventos todos juntos, bem como especificamente os eventos de erro e eventos de aviso.
+O segundo relatório se aprofunda mais em eventos e mostra uma exibição histórica de erros e avisos relatados. Ele também mostra quais dispositivos estão relatando o maior número de eventos em todo o tempo, bem como eventos de erros e de aviso específicos.
 
 ![Página de relatório do Power BI 2](media/howto-connect-powerbi/template-page2-hasdata.PNG)
 
 ## <a name="architecture"></a>Arquitetura
-Todos os recursos que foram criados podem ser acedidos no portal do Azure. Tudo o que deve ser sob um único grupo de recursos.
+Todos os recursos que foram criados podem ser acessados no portal do Azure. Tudo deve estar em um grupo de recursos.
 
-![Vista de Portal do Azure do grupo de recursos](media/howto-connect-powerbi/azure-deployment.PNG)
+![Exibição do portal do Azure do grupo de recursos](media/howto-connect-powerbi/azure-deployment.PNG)
 
-As especificidades de cada recurso e como ela é usada é descrita abaixo.
+As especificidades de cada recurso e como ela é usada são descritas abaixo.
 
 ### <a name="azure-functions"></a>Funções do Azure
-A aplicação de função do Azure é acionada sempre que um novo ficheiro é escrito para o armazenamento de Blobs. As funções de extrair os campos dentro de cada medidas, dispositivos e o ficheiro de modelos de dispositivo e preenche a várias tabelas SQL intermediárias a ser utilizado pelo Azure Data Factory.
+O aplicativo de funções do Azure é disparado cada vez que um novo arquivo é gravado no armazenamento de BLOBs. As funções extraem os campos dentro de cada medição, dispositivos e arquivo de modelos de dispositivo e popula várias tabelas intermediárias do SQL a serem usadas pelo Azure Data Factory.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
-O Azure Data Factory liga à base de dados SQL como um serviço ligado. Ele executa as atividades de procedimento armazenado que processam os dados e armazená-lo nas tabelas de análise.
+Azure Data Factory se conecta ao banco de dados SQL como um serviço vinculado. Ele executa atividades de procedimento armazenado que processam os dados e os armazenam nas tabelas de análise.
 
 ### <a name="azure-sql-database"></a>Base de Dados SQL do Azure
-Essas tabelas são criadas automaticamente para preencher os relatórios padrão. Explore esses esquemas no Power BI e pode criar suas próprias visualizações sobre estes dados.
+Essas tabelas são criadas automaticamente para popular os relatórios padrão. Explore esses esquemas no Power BI e você pode criar suas próprias visualizações sobre esses dados.
 
 | Nome da tabela |
 |------------|
-|[analytics].[Measurements]|
-|[analytics]. [Mensagens]|
-|[fase]. [Medidas]|
-|[analytics]. [Propriedades]|
-|[analytics].[PropertyDefinitions]|
+|[Analytics]. Medidas|
+|[Analytics]. Mensagens|
+|[estágio]. Medidas|
+|[Analytics]. Properties|
+|[Analytics]. [PropertyDefinitions]|
 |[analytics].[MeasurementDefinitions]|
-|[analytics]. [Dispositivos]|
-|[analytics].[DeviceTemplates]|
-|[dbo].[date]|
-|[dbo].[ChangeTracking]|
+|[Analytics]. Pseudodispositivos|
+|[Analytics]. [DeviceTemplates]|
+|[dbo]. Date|
+|[dbo]. ChangeTracking|
 
 ## <a name="estimated-costs"></a>Custos estimados
 
-Aqui está uma estimativa dos custos do Azure (função do Azure, o Data Factory, Azure SQL) envolvidos. Todos os preços são em dólares americanos. Tenha em atenção que os preços variam consoante a região, para que sempre deve consultar os preços mais recentes dos serviços individuais para obter os preços reais.
-As seguintes predefinições estão definidas para no modelo (pode modificar qualquer uma dessas após coisas mãos à obra):
+Aqui está uma estimativa dos custos do Azure (Azure functions, Data Factory, Azure SQL) envolvida. Todos os preços estão em USD. Tenha em mente que os preços variam de acordo com a região, portanto, você deve sempre procurar os preços mais recentes dos serviços individuais para obter os preços reais.
+Os padrões a seguir são definidos para você no modelo (você pode modificar qualquer um deles depois que as coisas forem configuradas):
 
-- Funções do Azure: Plano do App Service S1, US $74.40/ mês
-- S1 SQL do Azure, ~$30/month
+- Azure Functions: Plano do serviço de aplicativo S1, $74.40/mês
+- SQL do Azure S1, ~ $30/mês
 
-Aconselhamo-lo a familiarizar-se com várias opções de preços e ajustar as coisas para se adequar às suas necessidades.
+Incentivamos você a se familiarizar com as várias opções de preços e ajustar as coisas de acordo com suas necessidades.
 
 ## <a name="resources"></a>Recursos
 
-Visite o AppSource para obter o [Power BI solução do Azure IoT Central](https://aka.ms/iotcentralpowerbisolutiontemplate).
+Visite AppSource para obter a [solução de Power bi para o IOT central do Azure](https://aka.ms/iotcentralpowerbisolutiontemplate).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que sabe como visualizar os seus dados no Power BI, este é o passo seguinte sugerido:
+Agora que você aprendeu a visualizar seus dados em Power BI, aqui está a próxima etapa sugerida:
 
 > [!div class="nextstepaction"]
-> [Como gerir dispositivos](howto-manage-devices.md)
+> [Como gerenciar dispositivos](howto-manage-devices.md)

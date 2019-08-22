@@ -1,6 +1,6 @@
 ---
-title: Nas mensagens AS2 para a integração empresarial de B2B - Azure Logic Apps
-description: Trocar mensagens AS2 no Azure Logic Apps com o Enterprise Integration Pack
+title: Mensagens AS2 para integração corporativa B2B – aplicativos lógicos do Azure
+description: Trocar mensagens AS2 em aplicativos lógicos do Azure com Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,122 +8,117 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 04/22/2019
-ms.openlocfilehash: b494f6524e5105a95bc8a24a6fa2521abcca3f7b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/22/2019
+ms.openlocfilehash: b1e7664aa08171c16c83e17ad93977b29e31b5c0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64729391"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656378"
 ---
-# <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens AS2 para enterprise integração B2B no Azure Logic Apps Enterprise Integration Pack
+# <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens AS2 para integração corporativa B2B em aplicativos lógicos do Azure com o Enterprise Integration Pack
 
-Para trabalhar com mensagens AS2 no Azure Logic Apps, pode utilizar o conector AS2, que fornece os acionadores e ações para a gestão de comunicação de AS2. Por exemplo, para estabelecer a segurança e fiabilidade ao transmitir mensagens, pode utilizar estas ações:
+Para trabalhar com mensagens AS2 em aplicativos lógicos do Azure, você pode usar o conector do AS2, que fornece gatilhos e ações para gerenciar a comunicação AS2. Por exemplo, para estabelecer a segurança e a confiabilidade ao transmitir mensagens, você pode usar estas ações:
 
-* [**Codificar em mensagem AS2** ação](#encode) para fornecer encriptação, assinatura digital e as confirmações por meio de notificações de disposição de mensagem (MDN), que ajudar a suportar não-repúdio. Por exemplo, esta ação aplica-se os cabeçalhos de AS2/HTTP e executa estas tarefas quando configurado:
+* [Ação de **codificação AS2** ](#encode) para fornecer criptografia, assinatura digital e confirmações por meio de notificações de disposição de mensagem (MDN), que ajudam a dar suporte a não-repúdio. Por exemplo, essa ação aplica cabeçalhos AS2/HTTP e executa essas tarefas quando configurado:
 
-  * Sinais de mensagens de saída.
-  * Encripta as mensagens de saída.
+  * Assina mensagens de saída.
+  * Criptografa mensagens de saída.
   * Compacta a mensagem.
-  * Transmite o nome do ficheiro no cabeçalho de MIME.
+  * Transmite o nome do arquivo no cabeçalho MIME.
 
-* [**Descodificar mensagem AS2** ação](#decode) para fornecer a descriptografia, assinatura digital e as confirmações por meio de notificações de disposição de mensagem (MDN). Por exemplo, esta ação executa estas tarefas: 
+* [Ação de **decodificação AS2** ](#decode) para fornecer descriptografia, assinatura digital e confirmações por meio de notificações de disposição de mensagem (MDN). Por exemplo, essa ação executa estas tarefas:
 
-  * Processa cabeçalhos de AS2/HTTP.
-  * Reconcilia MDNs recebidos com as mensagens de saída originais.
-  * Atualizações e correlaciona os registos na base de dados não-repúdio.
-  * Grava os registros para relatórios de estado de AS2.
-  * Conteúdo do payload de saídas como codificada em base64.
-  * Determina se MDNs são necessárias. Com base em AS2 contrato, determina se o devem ser MDNs síncronos ou assíncronos.
-  * Gera MDNs síncronos ou assíncronos com base no contrato de AS2.
-  * Define as propriedades e os tokens de correlação de MDNs.
+  * Processa cabeçalhos AS2/HTTP.
+  * Reconcilia o MDNs recebido com as mensagens de saída originais.
+  * Atualiza e correlaciona registros no banco de dados de não-repúdio.
+  * Grava registros para relatório de status AS2.
+  * Gera o conteúdo da carga como codificado na base64.
+  * Determina se MDNs são necessárias. Com base no contrato AS2, determina se MDNs deve ser síncrono ou assíncrono.
+  * Gera MDNs síncronos ou assíncronos com base no contrato AS2.
+  * Define os tokens de correlação e as propriedades em MDNs.
 
-  Esta ação também executa estas tarefas quando configurado:
+  Essa ação também executa essas tarefas quando configuradas:
 
   * Verifica a assinatura.
-  * Desencripta as mensagens.
-  * Descomprime a mensagem. 
-  * Verifique e não permitir duplicados de ID de mensagem.
+  * Descriptografa as mensagens.
+  * Descompacta a mensagem.
+  * Verificar e proibir duplicatas de ID de mensagem.
 
-Este artigo mostra como adicionar a codificação de AS2 e decodificação de ações a uma aplicação lógica existente.
+Este artigo mostra como adicionar as ações de codificação e decodificação AS2 a um aplicativo lógico existente.
+
+> [!IMPORTANT]
+> O conector AS2 original será preterido, portanto, certifique-se de usar o conector **AS2 (v2)** em vez disso. Essa versão fornece os mesmos recursos que a versão original, é nativa para o tempo de execução dos aplicativos lógicos e fornece melhorias significativas de desempenho em termos de taxa de transferência e tamanho da mensagem. Além disso, o conector v2 nativo não exige que você crie uma conexão com sua conta de integração. Em vez disso, conforme descrito em pré-requisitos, certifique-se de vincular sua conta de integração ao aplicativo lógico em que você planeja usar o conector.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [Inscreva-se uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma subscrição do Azure. Se você ainda não tiver uma assinatura do Azure, [Inscreva-se para obter uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-* A aplicação de lógica de em que pretende utilizar o conector AS2 e um acionador que inicia o fluxo de trabalho da sua aplicação lógica. O conector AS2 fornece apenas ações, acionadores não. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [início rápido: Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* O aplicativo lógico do qual você deseja usar o conector AS2 e um gatilho que inicia o fluxo de trabalho do aplicativo lógico. O conector do AS2 fornece apenas ações, não gatilhos. Se você for novo em aplicativos lógicos, examine [o que é o](../logic-apps/logic-apps-overview.md) início [rápido e aplicativos lógicos do Azure: Crie seu primeiro aplicativo](../logic-apps/quickstart-create-first-logic-app-workflow.md)lógico.
 
-* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) que tem associados à subscrição do Azure e associado à aplicação lógica que planeia utilizar o conector AS2. Ambos os sua lógica aplicação e a integração conta tem de existir na mesma localização ou região do Azure.
+* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associada à sua assinatura do Azure e vinculada ao aplicativo lógico no qual você planeja usar o conector do AS2. O aplicativo lógico e a conta de integração devem existir no mesmo local ou na região do Azure.
 
-* Pelo menos dois [parceiros comerciais](../logic-apps/logic-apps-enterprise-integration-partners.md) que já definiu na sua conta de integração usando o qualificador de identidade de AS2.
+* Pelo menos dois [parceiros comerciais](../logic-apps/logic-apps-enterprise-integration-partners.md) que você já definiu em sua conta de integração usando o qualificador de identidade AS2.
 
-* Antes de poder utilizar o conector AS2, tem de criar um AS2 [contrato](../logic-apps/logic-apps-enterprise-integration-agreements.md) entre seus parceiros comerciais e um arquivo desse contrato na sua conta de integração.
+* Antes de usar o conector do AS2, você deve criar um [contrato](../logic-apps/logic-apps-enterprise-integration-agreements.md) AS2 entre seus parceiros comerciais e armazenar esse contrato em sua conta de integração.
 
-* Se usar [do Azure Key Vault](../key-vault/key-vault-overview.md) para a gestão de certificados, verifique que as suas chaves do cofre permitem a **Encrypt** e **desencriptar** operações. Caso contrário, a codificação e decodificação de ações falharem.
+* Se você usar [Azure Key Vault](../key-vault/key-vault-overview.md) para o gerenciamento de certificados, verifique se as chaves do cofre permitem as operações criptografar e descriptografar. Caso contrário, as ações de codificação e decodificação falharão.
 
-  No portal do Azure, aceda ao seu Cofre de chaves, ver a sua chave de cofre **permitido operações**e confirme que o **Encrypt** e **desencriptar** operações estão selecionadas.
+  No portal do Azure, vá para o cofre de chaves, exiba as **operações permitidas**da chave do cofre e confirme se as operações criptografar e descriptografar estão selecionadas.
 
-  ![Verifique as operações do Cofre de chaves](media/logic-apps-enterprise-integration-as2/vault-key-permitted-operations.png)
+  ![Verificar operações de chave do cofre](media/logic-apps-enterprise-integration-as2/vault-key-permitted-operations.png)
 
 <a name="encode"></a>
 
-## <a name="encode-as2-messages"></a>Codificar nas mensagens AS2
+## <a name="encode-as2-messages"></a>Codificar mensagens AS2
 
-1. Se ainda não o fez, no [portal do Azure](https://portal.azure.com), abra a aplicação lógica no Estruturador da aplicação lógica.
+1. Se você ainda não fez isso, na [portal do Azure](https://portal.azure.com), abra seu aplicativo lógico no designer de aplicativo lógico.
 
-1. No designer, adicione uma nova ação à sua aplicação lógica. 
+1. No designer, adicione uma nova ação ao seu aplicativo lógico.
 
-1. Sob **escolher uma ação** e a pesquisa de caixa, escolha **todos os**. Na caixa de pesquisa, introduza "codificar as2" e selecione a ação: **Codificar em mensagem AS2**.
+1. Em **escolher uma ação** e a caixa de pesquisa, selecione **tudo**. Na caixa de pesquisa, digite "AS2 Encode" e certifique-se de selecionar a ação AS2 (v2): **Codificação AS2**
 
-   ![Selecione "Codificar em mensagem AS2"](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
+   ![Selecione "codificação AS2"](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
 
-1. Se não tiver uma ligação existente à sua conta de integração, lhe for pedido para criar essa conexão agora. Nome da sua ligação, selecione a conta de integração que pretende ligar e escolha **criar**.
-
-   ![Criar ligação para a conta de integração](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
- 
-1. Agora fornecem informações para estas propriedades:
+1. Agora, forneça informações para essas propriedades:
 
    | Propriedade | Descrição |
    |----------|-------------|
-   | **AS2-do** | O identificador para o remetente da mensagem como especificado pelo seu contrato de AS2 |
-   | **AS2-para** | O identificador para o destinatário da mensagem como especificado pelo seu contrato de AS2 |
-   | **body** | O payload de mensagem |
+   | **Mensagem a ser codificada** | A carga da mensagem |
+   | **AS2 de** | O identificador do remetente da mensagem conforme especificado pelo seu contrato AS2 |
+   | **AS2 para** | O identificador do destinatário da mensagem, conforme especificado pelo seu contrato AS2 |
    |||
 
    Por exemplo:
 
-   ![Propriedades da mensagem de codificação](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
+   ![Propriedades de codificação de mensagem](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 
 <a name="decode"></a>
 
-## <a name="decode-as2-messages"></a>Descodificar nas mensagens AS2
+## <a name="decode-as2-messages"></a>Decodificar mensagens AS2
 
-1. Se ainda não o fez, no [portal do Azure](https://portal.azure.com), abra a aplicação lógica no Estruturador da aplicação lógica.
+1. Se você ainda não fez isso, na [portal do Azure](https://portal.azure.com), abra seu aplicativo lógico no designer de aplicativo lógico.
 
-1. No designer, adicione uma nova ação à sua aplicação lógica. 
+1. No designer, adicione uma nova ação ao seu aplicativo lógico.
 
-1. Sob **escolher uma ação** e a pesquisa de caixa, escolha **todos os**. Na caixa de pesquisa, introduza "descodificação as2" e selecione a ação: **Descodificar mensagem AS2**
+1. Em **escolher uma ação** e a caixa de pesquisa, selecione **tudo**. Na caixa de pesquisa, insira "decodificação AS2" e certifique-se de selecionar a ação AS2 (v2): **Decodificação AS2**
 
-   ![Selecione "Mensagem AS2 Decodificação"](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
+   ![Selecione "decodificação AS2"](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 
-1. Se não tiver uma ligação existente à sua conta de integração, lhe for pedido para criar essa conexão agora. Nome da sua ligação, selecione a conta de integração que pretende ligar e escolha **criar**.
+1. Para a **mensagem a ser codificada** e as propriedades de **cabeçalhos de mensagem** , selecione esses valores de saídas anteriores de gatilho ou ação.
 
-   ![Criar ligação para a conta de integração](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
+   Por exemplo, suponha que seu aplicativo lógico receba mensagens por meio de um gatilho de solicitação. Você pode selecionar as saídas desse gatilho.
 
-1. Para **corpo** e **cabeçalhos**, selecione esses valores de saídas de Acionador ou ação anteriores.
-
-   Por exemplo, suponha que a aplicação lógica recebe mensagens por meio de um acionador de pedido. Pode selecionar as saídas nesse disparador.
-
-   ![Selecione corpo e cabeçalhos de pedido de saídas](media/logic-apps-enterprise-integration-as2/as2-message-decoding-details.png) 
+   ![Selecionar corpo e cabeçalhos de saídas de solicitação](media/logic-apps-enterprise-integration-as2/as2-message-decoding-details.png)
 
 ## <a name="sample"></a>Exemplo
 
-Para experimentar a implantação de um cenário de AS2 de exemplo e a aplicação lógica totalmente operacional, consulte a [AS2 modelo da aplicação lógica e cenário](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
+Para tentar implantar um aplicativo lógico totalmente operacional e o cenário AS2 de exemplo, consulte o [modelo e o cenário do aplicativo lógico AS2](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos, como disparadores, ações e limites, conforme descrito pelo OpenAPI do conector (anteriormente Swagger) de ficheiros, consulte a [página de referência do conector](/connectors/as2/).
+Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/as2/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)

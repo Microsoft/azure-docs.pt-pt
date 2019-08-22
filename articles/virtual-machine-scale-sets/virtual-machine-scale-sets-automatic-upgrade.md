@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2019
 ms.author: manayar
-ms.openlocfilehash: ac754acd61700dc39ebc633da4274c74d8463824
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a9829f380200e616d242f5406b72593014f0efc2
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884172"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656554"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Conjunto de dimensionamento de máquinas virtuais do Azure atualizações automáticas de imagem de so
 
@@ -69,6 +69,7 @@ Atualmente, há suporte para os seguintes SKUs (e mais são adicionados periodic
 | Microsoft Corporation   | WindowsServer | 2019-datacenter |
 | Microsoft Corporation   | WindowsServer | 2019-datacenter-Smalldisk |
 | Microsoft Corporation   | WindowsServer | 2019-Datacenter-with-Containers |
+| Microsoft Corporation   | WindowsServer | Datacenter-Core-1903-com-containers-smalldisk |
 
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Requisitos para configurar a atualização automática da imagem do sistema operacional
@@ -282,5 +283,5 @@ Você pode usar modelos para implantar um conjunto de dimensionamento com atuali
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais exemplos de como usar atualizações automáticas do sistema operacional com conjuntos de dimensionamento, examine o [repositório GitHub](https://github.com/Azure/vm-scale-sets/tree/master/preview/upgrade).

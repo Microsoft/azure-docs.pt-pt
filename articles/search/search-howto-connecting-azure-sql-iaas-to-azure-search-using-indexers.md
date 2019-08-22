@@ -1,92 +1,92 @@
 ---
-title: Pesquisa do Azure de ligação de VM do SQL máquina virtual do Azure para a indexação da pesquisa-
-description: Ativar ligações encriptadas e configurar a firewall para permitir ligações ao SQL Server numa máquina virtual do Azure (VM) a partir de um indexador no Azure Search.
+title: Conexão de VM de máquina virtual do Azure SQL para indexação de pesquisa-Azure Search
+description: Habilite conexões criptografadas e configure o firewall para permitir conexões a SQL Server em uma VM (máquina virtual) do Azure de um indexador em Azure Search.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 90e5a133bac519cbc5ab2d7b112d51a019e8f698
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7629750da8f58c2c62f15102b60b5b562689f087
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60871285"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656706"
 ---
-# <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurar uma ligação a partir de um indexador de Azure Search para o SQL Server numa VM do Azure
-Conforme observado na [ligar o Azure SQL Database para a Azure Search utilizando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), criação de indexadores contra **do SQL Server em VMs do Azure** (ou **VMs do SQL Azure** para abreviar) é suportada pelo Azure Search, mas há alguns pré-requisitos relacionados à segurança para cuidar do primeiro. 
+# <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurar uma conexão de um Azure Search indexador para SQL Server em uma VM do Azure
+Conforme observado na [conexão do banco de dados SQL do Azure para Azure Search usando indexadores, a](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)criação de indexadores em relação a **SQL Server em VMs do azure** (ou **SQL Azure VMs** para curto) é suportada pelo Azure Search, mas há alguns pré-requisitos relacionados à segurança para Tome cuidado com o primeiro. 
 
-Ligações a partir do Azure Search para o SQL Server numa VM é uma ligação de internet pública. Todas as medidas de segurança que pode normalmente seguir para que estas ligações se aplicam aqui também:
+Conexões de Azure Search para SQL Server em uma VM é uma conexão de Internet pública. Todas as medidas de segurança que normalmente você seguiria para essas conexões também se aplicam aqui:
 
-+ Obter um certificado de um [fornecedor de autoridade de certificação](https://en.wikipedia.org/wiki/Certificate_authority#Providers) para o nome de domínio completamente qualificado da instância do SQL Server na VM do Azure.
-+ Instalar o certificado na VM e, em seguida, ativar e configurar ligações encriptadas na VM com as instruções neste artigo.
++ Obtenha um certificado de um [provedor de autoridade de certificação](https://en.wikipedia.org/wiki/Certificate_authority#Providers) para o nome de domínio totalmente qualificado da instância de SQL Server na VM do Azure.
++ Instale o certificado na VM e, em seguida, habilite e configure as conexões criptografadas na VM usando as instruções neste artigo.
 
-## <a name="enable-encrypted-connections"></a>Ativar ligações encriptadas
-O Azure Search necessita de um canal criptografado para todos os pedidos de indexador através de uma ligação de internet pública. Esta secção lista os passos para fazer isso funcionar.
+## <a name="enable-encrypted-connections"></a>Habilitar conexões criptografadas
+Azure Search requer um canal criptografado para todas as solicitações do indexador em uma conexão de Internet pública. Esta seção lista as etapas para fazer esse trabalho.
 
-1. Verifique as propriedades do certificado para verificar que o nome do requerente é o nome de domínio completamente qualificado (FQDN) da VM do Azure. Pode usar uma ferramenta como CertUtils ou o snap-in de certificados para ver as propriedades. Pode obter o FQDN da secção de Essentials do painel de serviço da VM, além da **etiqueta de nome DNS/endereço IP público** campo a [portal do Azure](https://portal.azure.com/).
+1. Verifique as propriedades do certificado para verificar se o nome da entidade é o FQDN (nome de domínio totalmente qualificado) da VM do Azure. Você pode usar uma ferramenta como CertUtils ou o snap-in de certificados para exibir as propriedades. Você pode obter o FQDN da seção conceitos básicos da folha de serviço da VM, no campo **rótulo de endereço IP público/nome DNS** , na [portal do Azure](https://portal.azure.com/).
    
-   * Para as VMs criadas com a mais recente **Resource Manager** modelo, o FQDN é formatado como `<your-VM-name>.<region>.cloudapp.azure.com`
-   * Para VMs anteriores criadas como um **clássica** VM, o FQDN é formatado como `<your-cloud-service-name.cloudapp.net>`.
+   * Para VMs criadas usando o modelo do **Resource Manager** mais recente, o FQDN é formatado como`<your-VM-name>.<region>.cloudapp.azure.com`
+   * Para VMs mais antigas criadas como uma VM **clássica** , o FQDN é formatado `<your-cloud-service-name.cloudapp.net>`como.
 
-2. Configure o SQL Server para utilizar o certificado com o Editor de registo (regedit). 
+2. Configure SQL Server para usar o certificado usando o editor do registro (regedit). 
    
-    Embora o Gestor de configuração do SQL Server, muitas vezes, é utilizado para esta tarefa, não é possível usá-lo para este cenário. Ele não localizará o certificado importado porque o FQDN da VM no Azure não corresponde ao FQDN conforme determinado pela VM (identifica o domínio como o computador local ou o domínio de rede ao qual está associado). Quando os nomes não correspondem, use regedit para especificar o certificado.
+    Embora SQL Server Configuration Manager geralmente seja usado para essa tarefa, você não pode usá-la para esse cenário. Ele não encontrará o certificado importado porque o FQDN da VM no Azure não corresponde ao FQDN conforme determinado pela VM (ele identifica o domínio como o computador local ou o domínio de rede ao qual ele está associado). Quando os nomes não corresponderem, use regedit para especificar o certificado.
    
-   * Em regedit, navegue para esta chave de registo: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate`.
+   * No regedit, navegue até esta chave do registro `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate`:.
      
-     O `[MSSQL13.MSSQLSERVER]` parte varia com base no nome da versão e instância. 
-   * Defina o valor do **certificado** chave para o **thumbprint** do certificado SSL que importou para a VM.
+     A `[MSSQL13.MSSQLSERVER]` parte varia de acordo com a versão e o nome da instância. 
+   * Defina o valor da chave de **certificado** para a **impressão digital** do certificado SSL que você importou para a VM.
      
-     Existem várias formas de obter o thumbprint, algumas melhor do que outros. Se copiá-lo a partir da **certificados** snap-in no MMC, provavelmente selecionará um caráter de líderes do setor invisível [conforme descrito neste artigo de suporte](https://support.microsoft.com/kb/2023869/), que resulta num erro ao tentar uma conexão . Existem várias soluções para corrigir este problema. O mais fácil é RETROCESSO sobre e, em seguida, volte a escrever o primeiro caráter de thumbprint para remover o caractere à esquerda no campo valor da chave no regedit. Em alternativa, pode utilizar uma ferramenta de diferente para copiar o thumbprint.
+     Há várias maneiras de obter a impressão digital, algumas melhores do que outras. Se você copiá-lo do snap-in de **certificados** no MMC, você provavelmente obterá um caractere de entrelinha invisível, [conforme descrito neste artigo de suporte](https://support.microsoft.com/kb/2023869/), que resulta em um erro quando você tenta uma conexão. Existem várias soluções alternativas para corrigir esse problema. O mais fácil é fazer o Backspace e, em seguida, digitar novamente o primeiro caractere da impressão digital para remover o caractere à esquerda no campo valor da chave no regedit. Como alternativa, você pode usar uma ferramenta diferente para copiar a impressão digital.
 
-3. Conceder permissões para a conta de serviço. 
+3. Conceda permissões para a conta de serviço. 
    
-    Certifique-se de que a conta de serviço do SQL Server é concedida permissão apropriada na chave privada do certificado SSL. Se ignorar este passo, o SQL Server não será iniciada. Pode utilizar o **certificados** snap-in ou **CertUtils** para esta tarefa.
+    Verifique se a conta de serviço SQL Server recebeu a permissão apropriada na chave privada do certificado SSL. Se você ignorar esta etapa, SQL Server não será iniciada. Você pode usar o snap-in de **certificados** ou **certutils** para esta tarefa.
     
 4. Reinicie o serviço do SQL Server.
 
-## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configurar a conectividade do SQL Server na VM
-Depois de configurar a conexão criptografada necessário pelo Azure Search, existem passos de configuração adicionais intrínseco para o SQL Server em VMs do Azure. Se ainda não fez isso, a próxima etapa é concluir a configuração através de qualquer um dos seguintes artigos:
+## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configurar a conectividade de SQL Server na VM
+Depois de configurar a conexão criptografada exigida pelo Azure Search, há etapas de configuração adicionais intrínsecas a SQL Server em VMs do Azure. Se você ainda não fez isso, a próxima etapa é concluir a configuração usando um destes artigos:
 
-* Para uma **Resource Manager** VM, consulte [ligar a um SQL Server Máquina Virtual no Azure com o Resource Manager](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
-* Para uma **clássica** VM, consulte [ligar a um SQL Server Máquina Virtual no Azure clássico](../virtual-machines/windows/classic/sql-connect.md).
+* Para uma VM do **Resource Manager** , consulte [conectar-se a uma máquina virtual SQL Server no Azure usando o Resource Manager](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
+* Para uma VM **clássica** , consulte [conectar-se a uma máquina virtual SQL Server no Azure clássico](../virtual-machines/windows/classic/sql-connect.md).
 
-Em particular, reveja a secção em cada artigo para "ligar através da internet".
+Em particular, examine a seção em cada artigo para "conectando-se pela Internet".
 
 ## <a name="configure-the-network-security-group-nsg"></a>Configurar o grupo de segurança de rede (NSG)
-Não é incomum configurar o NSG e ponto final do Azure correspondente ou lista de controlo de acesso (ACL) para disponibilizar a sua VM do Azure a outras partes. É provável que já fizemos isso antes para permitir que a sua própria lógica de aplicação para ligar à sua VM do SQL Azure. Não é diferente para uma ligação de Azure Search à sua VM do SQL Azure. 
+Não é incomum configurar o NSG e o ponto de extremidade do Azure correspondente ou a ACL (lista de controle de acesso) para tornar sua VM do Azure acessível a outras partes. É provável que você tenha feito isso antes de permitir que sua própria lógica de aplicativo se conecte à VM SQL Azure. Não é diferente para uma conexão de Azure Search com sua VM SQL Azure. 
 
-Os links a seguir fornecem instruções sobre configuração de NSG para implementações de VM. Utilize estas instruções para a ACL de um ponto de extremidade de Azure Search com base no respetivo endereço IP.
+Os links a seguir fornecem instruções sobre a configuração do NSG para implantações de VM. Use estas instruções para obter uma ACL Azure Search ponto de extremidade com base em seu endereço IP.
 
 > [!NOTE]
-> Para obter informações, veja [o que é um grupo de segurança de rede?](../virtual-network/security-overview.md)
+> Para obter informações, consulte [o que é um grupo de segurança de rede?](../virtual-network/security-overview.md)
 > 
 > 
 
-* Para uma **Resource Manager** VM, consulte [como criar NSGs para implementações de ARM](../virtual-network/tutorial-filter-network-traffic.md). 
-* Para uma **clássica** VM, consulte [como criar NSGs para as implementações clássicas](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
+* Para uma VM do **Resource Manager** , consulte [como criar NSGs para implantações do ARM](../virtual-network/tutorial-filter-network-traffic.md). 
+* Para uma VM **clássica** , consulte [como criar NSGs para](../virtual-network/virtual-networks-create-nsg-classic-ps.md)implantações clássicas.
 
-Endereçamento IP pode apresentar alguns desafios que são facilmente superar se está atento o problema e possíveis soluções alternativas. As seções restantes fornecem recomendações para lidar com problemas relacionados com endereços IP na ACL.
+O endereçamento IP pode apresentar alguns desafios que serão facilmente solucionados se você estiver atento ao problema e possíveis soluções alternativas. As seções restantes fornecem recomendações para lidar com problemas relacionados a endereços IP na ACL.
 
-#### <a name="restrict-access-to-the-search-service-ip-address"></a>Restringir o acesso para o endereço IP do serviço de pesquisa
-Recomendamos vivamente que restringir o acesso para o endereço IP do seu serviço de pesquisa na ACL em vez de fazer as suas VMs do SQL Azure totalmente aberto para quaisquer pedidos de ligação. Pode facilmente descobrir o endereço IP ao enviar pings para o FQDN (por exemplo, `<your-search-service-name>.search.windows.net`) do seu serviço de pesquisa.
+#### <a name="restrict-access-to-the-search-service-ip-address"></a>Restringir o acesso ao endereço IP do serviço de pesquisa
+É altamente recomendável que você restrinja o acesso ao endereço IP do serviço de pesquisa na ACL em vez de tornar suas SQL Azure VMs amplas abertas para qualquer solicitação de conexão. Você pode descobrir facilmente o endereço IP ao executar ping no FQDN (por exemplo, `<your-search-service-name>.search.windows.net`) do seu serviço de pesquisa.
 
-#### <a name="managing-ip-address-fluctuations"></a>Gerir a flutuações de endereço IP
-Se o serviço de pesquisa tiver apenas uma unidade de pesquisa (ou seja, uma das réplicas e uma partição), o endereço IP será alterado durante a rotina de serviço reinícios, invalidando uma ACL existente com o endereço IP do seu serviço de pesquisa.
+#### <a name="managing-ip-address-fluctuations"></a>Gerenciando flutuações de endereço IP
+Se o serviço de pesquisa tiver apenas uma unidade de pesquisa (ou seja, uma réplica e uma partição), o endereço IP será alterado durante a reinicialização do serviço de rotina, invalidando uma ACL existente com o endereço IP do serviço de pesquisa.
 
-É uma forma de evitar o erro de conectividade subsequentes utilizar mais do que uma réplica e de uma partição no Azure Search. Se o fizer, aumenta o custo, mas que também resolve o problema de endereço IP. No Azure Search, os endereços IP não alterados quando tem mais do que uma unidade de pesquisa.
+Uma maneira de evitar o erro de conectividade subsequente é usar mais de uma réplica e uma partição em Azure Search. Isso aumenta o custo, mas também resolve o problema de endereço IP. No Azure Search, os endereços IP não são alterados quando você tem mais de uma unidade de pesquisa.
 
-Uma segunda abordagem é permitir a conexão falhe e, em seguida, reconfigurar as ACLs no NSG. Em média, pode esperar endereços IP para alterar todas as semanas. Para os clientes que fazer a indexação controlada de forma pouco frequente, esta abordagem poderá ser viável.
+Uma segunda abordagem é permitir que a conexão falhe e, em seguida, reconfigurar as ACLs no NSG. Em média, você pode esperar que os endereços IP sejam alterados em intervalos de semanas. Para clientes que controlam a indexação com pouca frequência, essa abordagem pode ser viável.
 
-Uma terceira abordagem viável (mas não particularmente segura) é especificar o intervalo de endereços IP da região do Azure onde o serviço de pesquisa está aprovisionado. A lista de intervalos de IP a partir do qual os endereços IP públicos são alocados a recursos do Azure está publicada em [intervalos de IP de Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). 
+Uma terceira abordagem viável (mas não particularmente segura) é especificar o intervalo de endereços IP da região do Azure em que o serviço de pesquisa é provisionado. A lista de intervalos de IP de onde os endereços IP públicos são alocados aos recursos do Azure é publicada em [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). 
 
-#### <a name="include-the-azure-search-portal-ip-addresses"></a>Incluir os endereços IP de portais do Azure Search
-Se estiver a utilizar o portal do Azure para criar um indexador, lógica de portal do Azure Search precisa também de aceder à sua VM do SQL Azure durante a hora de criação. Endereços IP de portais do Azure search podem ser encontrados ao enviar pings para `stamp2.search.ext.azure.com`.
+#### <a name="include-the-azure-search-portal-ip-addresses"></a>Incluir os endereços IP do portal de Azure Search
+Se você estiver usando o portal do Azure para criar um indexador, Azure Search lógica do portal também precisará acessar sua VM do SQL Azure durante a criação. Os endereços IP do portal de pesquisa do Azure podem ser `stamp2.search.ext.azure.com`encontrados por meio do ping.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Com configuração fora do caminho, agora pode especificar um SQL Server numa VM do Azure como origem de dados para um indexador de Azure Search. Ver [ligar o Azure SQL Database para a Azure Search utilizando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) para obter mais informações.
+Com a configuração fora do caminho, agora você pode especificar um SQL Server na VM do Azure como a fonte de dados para um indexador de Azure Search. Consulte [conectando o banco de dados SQL do Azure para Azure Search usando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) para obter mais informações.
 

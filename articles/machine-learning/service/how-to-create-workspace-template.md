@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 0e78d9cfce59615a53534fe9815205e39f64853d
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 89c24512e50dedbf10d145088ec77c2e6e303d1e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868826"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873158"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Usar um modelo de Azure Resource Manager para criar um espaço de trabalho para o serviço Azure Machine Learning
 
@@ -41,7 +41,7 @@ Este modelo cria os seguintes serviços do Azure:
 * Conta de Armazenamento do Azure
 * Azure Key Vault
 * Azure Application Insights
-* Registo de Contentores do Azure
+* Azure Container Registry
 * Área de trabalho do Azure Machine Learning
 
 O grupo de recursos é o contêiner que mantém os serviços. Os vários serviços são exigidos pelo espaço de trabalho Azure Machine Learning.
@@ -71,8 +71,6 @@ Para obter mais informações sobre modelos, consulte os seguintes artigos:
    * Grupo de recursos: Selecione ou crie um grupo de recursos para conter os serviços.
    * Nome do espaço de trabalho: O nome a ser usado para o espaço de trabalho Azure Machine Learning que será criado. O nome do espaço de trabalho deve ter entre 3 e 33 caracteres. Ele pode conter apenas caracteres alfanuméricos e '-'.
    * Local Selecione o local onde os recursos serão criados.
-
-     ![Os parâmetros de modelo no portal do Azure](media/how-to-create-workspace-template/template-parameters.png)
 
 Para obter mais informações, consulte [implantar recursos do modelo personalizado](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -117,7 +115,7 @@ Para evitar esse problema, recomendamos uma das seguintes abordagens:
 * Examine as políticas de acesso do Key Vault e use essas políticas para definir a propriedade accessPolicies do modelo.
 * Verifique se o recurso de Key Vault já existe. Se tiver, não a recrie por meio do modelo. Por exemplo, adicione um parâmetro que permita desabilitar a criação do recurso de Key Vault se ele já existir.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Implante recursos com modelos do Resource Manager e a API REST do Resource Manager](../../azure-resource-manager/resource-group-template-deploy-rest.md).
 * [Criando e implantando grupos de recursos do Azure por meio do Visual Studio](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).

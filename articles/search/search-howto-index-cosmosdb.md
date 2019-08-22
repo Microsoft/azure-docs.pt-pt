@@ -1,159 +1,159 @@
 ---
-title: Índice de uma origem de dados do Azure Cosmos DB - Azure Search
-description: Pesquise a uma origem de dados do Azure Cosmos DB e ingestão de dados num índice de texto completo pesquisável no Azure Search. Indexadores automatizam ingestão de dados para origens de dados selecionada, como o Azure Cosmos DB.
+title: Indexar uma fonte de dados Azure Cosmos DB-Azure Search
+description: Rastreie uma fonte de dados Azure Cosmos DB e ingerir dados em um índice pesquisável de texto completo no Azure Search. Indexadores automatizam a ingestão de dados para fontes de dados selecionadas como Azure Cosmos DB.
 ms.date: 05/02/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 7f9df42725e41fb514370dbdb828ad5b1305ea78
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 802a4e9c6191d33051eb075543691845595bc9c3
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485458"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656700"
 ---
-# <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Como o índice do Cosmos DB com um indexador de Azure Search
+# <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Como indexar Cosmos DB usando um indexador de Azure Search
 
 
 > [!Note]
-> Suporte de API do MongoDB está em pré-visualização e não se utilização em produção. O [2019 no versão REST API-05-06-Preview](search-api-preview.md) fornece esta funcionalidade. Não existe nenhum portal ou o suporte do SDK de .NET neste momento.
+> O suporte à API do MongoDB está em versão prévia e não se destina ao uso em produção. A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para Portal ou SDK do .NET no momento.
 >
-> API de SQL está disponível em geral.
+> A API do SQL está geralmente disponível.
 
-Este artigo mostra-lhe como configurar o Azure Cosmos DB [indexador](search-indexer-overview.md) de extrair conteúdo e torná-lo pesquisáveis no Azure Search. Este fluxo de trabalho cria um índice da Azure Search e carrega-o com o texto existente extraído do Azure Cosmos DB. 
+Este artigo mostra como configurar um indexador Azure Cosmos DB [](search-indexer-overview.md) para extrair conteúdo e torná-lo pesquisável no Azure Search. Este fluxo de trabalho cria um índice de Azure Search e o carrega com o texto existente extraído do Azure Cosmos DB. 
 
-Como a terminologia pode ser confusa, vale a pena observar que [indexação do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview) e [indexação de pesquisa do Azure](search-what-is-an-index.md) são operações distintas, exclusivas para cada serviço. Antes de começar a Azure Search indexação, a base de dados do Azure Cosmos DB tem já existem e contêm dados.
+Como a terminologia pode ser confusa, vale a pena observar que [Azure Cosmos DB indexação](https://docs.microsoft.com/azure/cosmos-db/index-overview) e a [indexação de Azure Search](search-what-is-an-index.md) são operações distintas, exclusivas para cada serviço. Antes de iniciar a indexação de Azure Search, seu banco de dados Azure Cosmos DB já deve existir e conter dados.
 
-Pode utilizar o [portal](#cosmos-indexer-portal), REST APIs ou .NET SDK para indexar o conteúdo do Cosmos. O indexador de Cosmos DB no Azure Search consegue pesquisar [itens de Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) acessados por meio desses protocolos:
+Você pode usar o [portal](#cosmos-indexer-portal), as APIs REST ou o SDK do .net para indexar o conteúdo do cosmos. O indexador Cosmos DB no Azure Search pode rastrear [itens Cosmos do Azure](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) acessados por meio desses protocolos:
 
 * [API DE SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
-* [API do MongoDB (pré-visualização)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
+* [API do MongoDB (versão prévia)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
 
 > [!Note]
-> Voz do utilizador tem itens existentes para o suporte de API adicional. Pode converter um voto para as APIs de Cosmos gostaria de ver suportados no Azure Search: [API de tabela](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), [Apache Cassandra API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu).
+> A voz do usuário tem itens existentes para suporte adicional à API. Você pode converter um voto para as APIs do cosmos que você gostaria de ver com suporte no Azure Search: [API de tabela](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [API do Graph](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4) [API do Apache Cassandra](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu).
 >
 
 <a name="cosmos-indexer-portal"></a>
 
 ## <a name="use-the-portal"></a>Utilizar o portal
 
-O método mais fácil para indexação de itens do Cosmos do Azure é usar um assistente no [portal do Azure](https://portal.azure.com/). Dados de amostragem e lendo metadados no contentor, o [ **importar dados** ](search-import-data-portal.md) pode criar um índice predefinido, mapear campos de origem para campos de índice de destino e carregar o índice num único assistente no Azure Search operação. Dependendo do tamanho e complexidade da origem de dados, poderia ter um índice de pesquisa de texto completo operacional em minutos.
+O método mais fácil para indexação de itens de Cosmos do Azure é usar um assistente no [portal do Azure](https://portal.azure.com/). Por amostragem de dados e leitura de metadados no contêiner, o assistente de [**importação de dados**](search-import-data-portal.md) no Azure Search pode criar um índice padrão, mapear campos de origem para campos de índice de destino e carregar o índice em uma única operação. Dependendo do tamanho e da complexidade dos dados de origem, você pode ter um índice operacional de pesquisa de texto completo em minutos.
 
-Recomendamos que utilize a mesma subscrição do Azure para o Azure Search e o Azure Cosmos DB, de preferência na mesma região.
+É recomendável usar a mesma assinatura do Azure para Azure Search e Azure Cosmos DB, preferencialmente na mesma região.
 
-### <a name="1---prepare-source-data"></a>1 - preparar os dados de origem
+### <a name="1---prepare-source-data"></a>1-preparar dados de origem
 
-Deve ter uma conta do Cosmos, uma base de dados do Cosmos do Azure mapeada para a API de SQL ou a API do MongoDB e um contentor de documentos JSON. 
+Você deve ter uma conta Cosmos, um banco de dados Cosmos do Azure mapeado para a API do SQL ou a API do MongoDB e um contêiner de documentos JSON. 
 
-Certifique-se que a base de dados do Cosmos DB contém dados. O [Assistente de importação de dados](search-import-data-portal.md) lê metadados e realiza a amostragem de dados para inferir um esquema de índice, mas também cargas de dados do Cosmos DB. Se os dados estão em falta, o assistente será interrompido com este erro "esquema índice detectando de erro da origem de dados: Não foi possível criar um protótipo de índice porque a origem de dados "emptycollection" não devolveu dados".
+Certifique-se de que seu banco de dados do Cosmos DB contenha dado. O [Assistente de importação de dados](search-import-data-portal.md) lê metadados e executa a amostragem de dados para inferir um esquema de índice, mas também carrega dados de Cosmos DB. Se os dados estiverem ausentes, o assistente parará com esse erro "erro ao detectar o esquema de índice da fonte de dados: Não foi possível compilar um índice de protótipo porque a fonte de dados ' emptycollection ' não retornou nenhum dado ".
 
-### <a name="2---start-import-data-wizard"></a>2 - iniciar o Assistente de importação de dados
+### <a name="2---start-import-data-wizard"></a>2-iniciar o assistente de importação de dados
 
-Pode [iniciar o assistente](search-import-data-portal.md) na barra de comandos na página do serviço de pesquisa do Azure ou ao clicar **adicionar Azure Search** no **definições** esquerda secção da sua conta de armazenamento Painel de navegação.
+Você pode [iniciar o assistente](search-import-data-portal.md) na barra de comandos na página Azure Search serviço ou clicando em **Adicionar Azure Search** na seção **configurações** do painel de navegação esquerdo da sua conta de armazenamento.
 
-   ![Importar o comando de dados no portal](./media/search-import-data-portal/import-data-cmd2.png "iniciar o Assistente de importação de dados")
+   ![Comando importar dados no portal](./media/search-import-data-portal/import-data-cmd2.png "Iniciar o assistente de importação de dados")
 
-### <a name="3---set-the-data-source"></a>3 - definir a origem de dados
+### <a name="3---set-the-data-source"></a>3-definir a fonte de dados
 
 > [!NOTE] 
-> Atualmente, não é possível criar ou editar **MongoDB** origens de dados com o portal do Azure ou o SDK do .NET. No entanto, **pode** monitorizar o histórico de execução do MongoDB indexadores no portal.
+> No momento, não é possível criar ou editar fontes de dados do **MongoDB** usando portal do Azure ou o SDK do .net. No entanto, você **pode** monitorar o histórico de execução de indexadores do MongoDB no Portal.
 
-Na **origem de dados** página, a origem tem de ser **Cosmos DB**, com as seguintes especificações:
+Na página **fonte de dados** , a origem deve ser **Cosmos DB**, com as seguintes especificações:
 
-+ **Nome** é o nome do objeto de origem de dados. Depois de criado, pode escolhê-lo para outras cargas de trabalho.
++ **Nome** é o nome do objeto de fonte de dados. Depois de criado, você pode escolher para outras cargas de trabalho.
 
-+ **Conta do cosmos DB** deve ser a cadeia de ligação primária ou secundária do Cosmos DB, com um `AccountEndpoint` e uma `AccountKey`. A conta determina se os dados é converter como API de SQL ou a API do Mongo DB
++ A **conta de Cosmos DB** deve ser a cadeia de conexão primária ou secundária do cosmos DB `AccountEndpoint` , com `AccountKey`um e um. A conta determina se os dados são convertidos como API do SQL ou API do Mongo DB
 
-+ **Base de dados** é uma base de dados existente da conta. 
++ **Banco** de dados é um banco de dados existente da conta. 
 
-+ **Coleção** é um contentor de documentos. Documentos têm de existir na ordem para importação com êxito. 
++ A **coleção** é um contêiner de documentos. Os documentos devem existir para que a importação seja realizada com sucesso. 
 
-+ **Consulta** pode estar em branco se pretender que todos os documentos, caso contrário, pode inserir uma consulta que seleciona um subconjunto de documentos. 
++ A **consulta** poderá ficar em branco se você quiser todos os documentos, caso contrário, poderá inserir uma consulta que selecione um subconjunto de documentos. 
 
-   ![Definição de origem de dados do cosmos DB](media/search-howto-index-cosmosdb/cosmosdb-datasource.png "definição da origem de dados do Cosmos DB")
+   ![Cosmos DB definição de fonte de dados](media/search-howto-index-cosmosdb/cosmosdb-datasource.png "Cosmos DB definição de fonte de dados")
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4 - ignorar a página de "Adicionar a pesquisa cognitiva" no Assistente
+### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4-ignorar a página "Adicionar pesquisa cognitiva" no assistente
 
-Adicionar capacidades cognitivas não é necessário para importação de documento. A menos que tenha uma necessidade específica de [incluem APIs serviços cognitivos e transformações](cognitive-search-concept-intro.md) para o seu pipeline de indexação, deve ignorar este passo.
+Adicionar habilidades cognitivas não é necessário para a importação de documentos. A menos que você tenha uma necessidade específica de [incluir API de serviços cognitivos e](cognitive-search-concept-intro.md) transformações em seu pipeline de indexação, ignore esta etapa.
 
-Para ignorar a etapa, primeiro, ir até a página seguinte.
+Para ignorar a etapa, primeiro vá para a próxima página.
 
-   ![Botão seguinte da página de pesquisa cognitiva](media/search-get-started-portal/next-button-add-cog-search.png)
+   ![Botão próxima página para pesquisa cognitiva](media/search-get-started-portal/next-button-add-cog-search.png)
 
-Dessa página pode avançar diretamente para personalização do índice.
+Nessa página, você pode pular para a personalização do índice.
 
    ![Ignorar o passo de capacidades cognitivas](media/search-get-started-portal/skip-cog-skill-step.png)
 
-### <a name="5---set-index-attributes"></a>5 - conjunto de atributos de índice
+### <a name="5---set-index-attributes"></a>5-definir atributos de índice
 
-Na **índice** página, deve ver uma lista de campos com um tipo de dados e uma série de caixas de seleção para a definição de atributos de índice. O assistente pode gerar uma lista de campos com base nos metadados e a origem de dados de amostragem. 
+Na página **índice** , você verá uma lista de campos com um tipo de dados e uma série de caixas de seleção para definir atributos de índice. O assistente pode gerar uma lista de campos com base em metadados e por amostragem dos dados de origem. 
 
-Pode em massa-selecionar atributos ao clicar na caixa de verificação na parte superior de uma coluna de atributo. Escolher **recuperável** e **pesquisável** para todos os campos que devem ser devolvidos para uma aplicação de cliente e está sujeita a processamento de pesquisa de texto completo. Observará que os números inteiros não são texto completo ou difusa pesquisáveis (números são avaliados literalmente e, muitas vezes, são úteis em filtros).
+Você pode selecionar atributos em massa clicando na caixa de seleção na parte superior de uma coluna de atributo. Escolha **recuperável** e **pesquisável** para cada campo que deve ser retornado a um aplicativo cliente e sujeito ao processamento de pesquisa de texto completo. Você observará que inteiros não são de texto completo ou de pesquisa difusa (os números são avaliados de forma idêntica e geralmente são úteis em filtros).
 
-Reveja a descrição da [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) e [analisadores de idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support) para obter mais informações. 
+Examine a descrição de [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) e analisadores de [idioma](https://docs.microsoft.com/rest/api/searchservice/language-support) para obter mais informações. 
 
-Dedique uns momentos para rever as suas seleções. Depois de executar o assistente, estruturas de dados físico são criadas e não será possível editar estes campos sem remover e recriar todos os objetos.
+Reserve um tempo para examinar suas seleções. Depois de executar o assistente, as estruturas de dados físicos são criadas e você não poderá editar esses campos sem descartar e recriar todos os objetos.
 
-   ![Definição de índice do cosmos DB](media/search-howto-index-cosmosdb/cosmosdb-index-schema.png "definição de índice do Cosmos DB")
+   ![Definição de índice de Cosmos DB](media/search-howto-index-cosmosdb/cosmosdb-index-schema.png "Definição de índice de Cosmos DB")
 
-### <a name="6---create-indexer"></a>6 - criar indexador
+### <a name="6---create-indexer"></a>6-criar indexador
 
-Total especificado, o assistente cria 3 objetos distintos no seu serviço de pesquisa. Um objeto de origem de dados e o objeto de índice são guardadas como recursos nomeados do seu serviço Azure Search. A última etapa cria um objeto de indexador. O indexador de nomenclatura permite que ele existe como um recurso de autónomo, o que pode agendar e gerir de forma independente o objeto de origem dados e índice, criado na mesma sequência em Assistente.
+Totalmente especificado, o assistente cria três objetos distintos em seu serviço de pesquisa. Um objeto de fonte de dados e um objeto de índice são salvos como recursos nomeados em seu serviço de Azure Search. A última etapa cria um objeto de indexador. Nomear o indexador permite que ele exista como um recurso autônomo, que você pode agendar e gerenciar independentemente do índice e do objeto de fonte de dados, criado na mesma sequência do assistente.
 
-Se não estiver familiarizado com indexadores, um *indexador* é um recurso no Azure Search, que pesquisa uma origem de dados externos para conteúdo pesquisável. A saída do **importar dados** assistente é um indexador que rastreia a sua origem de dados do Cosmos DB, extrai o conteúdo pesquisável e importa-lo para um índice na Azure Search.
+Se você não estiver familiarizado com indexadores, um *indexador* é um recurso em Azure Search que rastreia uma fonte de dados externa para conteúdo pesquisável. A saída do assistente de **importação de dados** é um indexador que rastreia sua fonte de dados Cosmos DB, extrai o conteúdo pesquisável e o importa para um índice em Azure Search.
 
-Captura de ecrã seguinte mostra a configuração predefinida do indexador. Pode mudar para o **uma vez** se quiser executar o indexador uma vez. Clique em **submeter** para executar o assistente e criar todos os objetos. Indexação começa imediatamente.
+A captura de tela a seguir mostra a configuração padrão do indexador. Você pode alternar para **uma vez** se quiser executar o indexador uma vez. Clique em **Enviar** para executar o assistente e criar todos os objetos. A indexação começa imediatamente.
 
-   ![Definição de indexador do cosmos DB](media/search-howto-index-cosmosdb/cosmosdb-indexer.png "definição de indexador do Cosmos DB")
+   ![Cosmos DB definição] do indexador (media/search-howto-index-cosmosdb/cosmosdb-indexer.png "Cosmos DB definição") do indexador
 
-Pode monitorizar a importação de dados nas páginas de portais. Notificações de progresso indicam o estado de indexação e o número de documentos são carregados. 
+Você pode monitorar a importação de dados nas páginas do Portal. As notificações de progresso indicam o status de indexação e quantos documentos são carregados. 
 
-Quando a indexação é concluída, pode utilizar [Explorador de pesquisa](search-explorer.md) para consultar o índice.
+Quando a indexação estiver concluída, você poderá usar o [Search Explorer](search-explorer.md) para consultar o índice.
 
 > [!NOTE]
-> Se não vir os dados esperados, poderá ter de definir mais atributos em mais campos. Elimine o índice e indexador que acabou de criar e siga os passos do assistente mais uma vez, modificar as suas seleções para atributos de índice no passo 5. 
+> Se você não vir os dados esperados, talvez seja necessário definir mais atributos em mais campos. Exclua o índice e o indexador que você acabou de criar e percorra o assistente novamente, modificando suas seleções de atributos de índice na etapa 5. 
 
 <a name="cosmosdb-indexer-rest"></a>
 
 ## <a name="use-rest-apis"></a>Utilizar APIs REST
 
-Pode utilizar a API de REST para dados do índice do Azure Cosmos DB, segue um fluxo de trabalho de três partes comuns a todos os indexadores na pesquisa do Azure: criar uma origem de dados, criar um índice, criar um indexador. Extração de dados do armazenamento de Cosmos ocorre ao submeter o pedido de criar indexador. Após a conclusão deste pedido, terá um índice queryable. 
+Você pode usar a API REST para indexar Azure Cosmos DB dados, seguindo um fluxo de trabalho de três partes comum a todos os indexadores no Azure Search: criar uma fonte de dados, criar um índice, criar um indexador. A extração de dados do armazenamento Cosmos ocorre quando você envia a solicitação criar indexador. Depois que essa solicitação for concluída, você terá um índice passível de consulta. 
 
-Se estiver a avaliar o MongoDB, tem de utilizar o REST `api-version=2019-05-06-Preview` para criar a origem de dados.
+Se você estiver avaliando o MongoDB, deverá usar o `api-version=2019-05-06-Preview` restante para criar a fonte de dados.
 
-Na sua conta do Cosmos DB pode escolher se pretende que a coleção para indexar automaticamente todos os documentos. Por predefinição, todos os documentos são indexados automaticamente, mas pode desativar a indexação automática. Quando a indexação é desativada, documentos podem ser acedidos através de apenas seus auto-ligações ou por consultas utilizando o documento ID. O Azure Search necessita do Cosmos DB automática de indexação ativada na coleção que será indexada pelo Azure Search. 
+Em sua conta do Cosmos DB, você pode escolher se deseja que a coleção indexe automaticamente todos os documentos. Por padrão, todos os documentos são indexados automaticamente, mas você pode desativar a indexação automática. Quando a indexação está desativada, os documentos podem ser acessados somente por meio de seus links automáticos ou por consultas usando a ID do documento. Azure Search requer que Cosmos DB indexação automática seja ativada na coleção que será indexada por Azure Search. 
 
 > [!WARNING]
-> O Azure Cosmos DB é a próxima geração do DocumentDB. Anteriormente com a versão de API **2017-11-11** pode usar o `documentdb` sintaxe. Isso significava que poderia especificar o tipo de origem de dados como `cosmosdb` ou `documentdb`. A partir da versão de API **2019-05-06** as APIs de pesquisa do Azure e o Portal só suportam o `cosmosdb` sintaxe de acordo com as instruções neste artigo. Isso significa que tem o tipo de origem de dados `cosmosdb` se desejar ligar a um ponto de final do Cosmos DB.
+> Azure Cosmos DB é a próxima geração do DocumentDB. Anteriormente, com a versão **2017-11-11** da API, `documentdb` você poderia usar a sintaxe. Isso significa que você pode especificar o tipo de fonte de `cosmosdb` dados `documentdb`como ou. A partir da versão de API **2019-05-06** , o portal e as APIs de `cosmosdb` Azure Search só dão suporte à sintaxe conforme instruído neste artigo. Isso significa que o tipo de fonte de `cosmosdb` dados deve se você quiser se conectar a um ponto de extremidade Cosmos DB.
 
-### <a name="1---assemble-inputs-for-the-request"></a>1 - montar entradas para o pedido
+### <a name="1---assemble-inputs-for-the-request"></a>1-montar entradas para a solicitação
 
-Para cada pedido, tem de fornecer o nome do serviço e a chave de administrador para o Azure Search (no cabeçalho da mensagem) e o nome da conta de armazenamento e a chave para o armazenamento de Blobs. Pode usar [Postman](search-get-started-postman.md) para enviar solicitações HTTP para o Azure Search.
+Para cada solicitação, você deve fornecer o nome do serviço e a chave de administração para Azure Search (no cabeçalho da POSTAgem) e o nome da conta de armazenamento e a chave para o armazenamento de BLOBs. Você pode usar o [postmaster](search-get-started-postman.md) para enviar solicitações HTTP para Azure Search.
 
-Copie os seguintes quatro valores no bloco de notas, para que pode colá-los numa solicitação:
+Copie os quatro valores a seguir no bloco de notas para que você possa colá-los em uma solicitação:
 
-+ Nome do serviço de pesquisa do Azure
-+ Chave de administração de pesquisa do Azure
-+ Cadeia de ligação do cosmos DB
++ Nome do serviço de Azure Search
++ Azure Search chave de administração
++ Cosmos DB cadeia de conexão
 
-Pode encontrar estes valores no portal do:
+Você pode encontrar esses valores no Portal:
 
-1. As páginas do portal do Azure Search, copie o URL do serviço de pesquisa da página de descrição geral.
+1. Nas páginas do portal para Azure Search, copie a URL do serviço de pesquisa da página Visão geral.
 
-2. No painel de navegação esquerdo, clique em **chaves** e, em seguida, copie qualquer um da chave primária ou secundária (ambos são equivalentes).
+2. No painel de navegação esquerdo, clique em **chaves** e copie a chave primária ou secundária (elas são equivalentes).
 
-3. Mude para as páginas de portal para a sua conta de armazenamento do Cosmos. No painel de navegação esquerdo, sob **configurações**, clique em **chaves**. Esta página fornece um URI, dois conjuntos de cadeias de ligação, e dois conjuntos de chaves. Copie uma das cadeias de ligação para o bloco de notas.
+3. Alterne para as páginas do portal para sua conta de armazenamento do cosmos. No painel de navegação à esquerda, em **configurações**, clique em **chaves**. Esta página fornece um URI, dois conjuntos de cadeias de conexão e dois conjuntos de chaves. Copie uma das cadeias de conexão para o bloco de notas.
 
-### <a name="2---create-a-data-source"></a>2 - criar uma origem de dados
+### <a name="2---create-a-data-source"></a>2-criar uma fonte de dados
 
-R **origem de dados** Especifica os dados para o índice, credenciais e políticas para identificar alterações nos dados (como documentos modificados ou eliminados dentro da coleção). A origem de dados está definida como um recurso independente, para que possa ser utilizado por vários indexadores.
+Uma **fonte de dados** especifica os dados a serem indexados, as credenciais e as políticas para identificar alterações nos dados (como documentos modificados ou excluídos dentro de sua coleção). A fonte de dados é definida como um recurso independente para que possa ser usada por vários indexadores.
 
-Para criar uma origem de dados, formule um pedido POST:
+Para criar uma fonte de dados, formule uma solicitação POST:
 
     POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
@@ -172,22 +172,22 @@ Para criar uma origem de dados, formule um pedido POST:
         }
     }
 
-O corpo do pedido contém a definição de origem de dados, que deve incluir os seguintes campos:
+O corpo da solicitação contém a definição da fonte de dados, que deve incluir os seguintes campos:
 
 | Campo   | Descrição |
 |---------|-------------|
-| **name** | Necessário. Escolha o nome para representar o objeto de origem de dados. |
-|**type**| Necessário. Tem de ser `cosmosdb`. |
-|**credentials** | Necessário. Tem de ser uma cadeia de ligação do Cosmos DB.<br/>Para coleções de SQL, cadeias de ligação estão neste formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Para coleções de MongoDB, adicione **ApiKind = MongoDb** para a cadeia de ligação:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Evite os números de porta no url do ponto final. Se incluir o número de porta, o Azure Search será não é possível indexar a base de dados do Azure Cosmos DB.|
-| **container** | Contém os seguintes elementos: <br/>**name**: Necessário. Especifica o ID da coleção da base de dados ser indexados.<br/>**query**: Opcional. Pode especificar uma consulta para nivelamento um documento JSON arbitrário num esquema simples que o Azure Search pode indexar.<br/>Para coleções de MongoDB, as consultas não são suportadas. |
-| **dataChangeDetectionPolicy** | Recomendado. Ver [indexar documentos alterados](#DataChangeDetectionPolicy) secção.|
-|**dataDeletionDetectionPolicy** | Opcional. Ver [indexar documentos eliminado](#DataDeletionDetectionPolicy) secção.|
+| **name** | Necessário. Escolha qualquer nome para representar o objeto de fonte de dados. |
+|**type**| Necessário. Deve ser `cosmosdb`. |
+|**fornecidas** | Necessário. Deve ser uma cadeia de conexão Cosmos DB.<br/>Para coleções SQL, as cadeias de conexão estão neste formato:`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Para coleções do MongoDB, adicione **ApiKind = MongoDB** à cadeia de conexão:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Evite números de porta na URL do ponto de extremidade. Se você incluir o número da porta, Azure Search não poderá indexar o banco de dados Azure Cosmos DB.|
+| **container** | Contém os seguintes elementos: <br/>**nome**: Necessário. Especifique a ID da coleção de banco de dados a ser indexada.<br/>**consulta**: Opcional. Você pode especificar uma consulta para mesclar um documento JSON arbitrário em um esquema simples que Azure Search pode indexar.<br/>Para coleções do MongoDB, não há suporte para consultas. |
+| **dataChangeDetectionPolicy** | Aconselhável. Consulte a seção [indexando documentos alterados](#DataChangeDetectionPolicy) .|
+|**dataDeletionDetectionPolicy** | Opcional. Consulte a seção [indexando documentos excluídos](#DataDeletionDetectionPolicy) .|
 
-### <a name="using-queries-to-shape-indexed-data"></a>Através de consultas a forma indexou dados
-Pode especificar uma consulta SQL para nivelamento propriedades aninhadas ou matrizes, as propriedades do projeto JSON e filtrar os dados a ser indexados. 
+### <a name="using-queries-to-shape-indexed-data"></a>Usando consultas para formatar dados indexados
+Você pode especificar uma consulta SQL para mesclar propriedades aninhadas ou matrizes, projetar Propriedades JSON e filtrar os dados a serem indexados. 
 
 > [!WARNING]
-> Consultas personalizadas não são suportadas para **MongoDB** coleções: `container.query` parâmetro tem de ser definido como nulo ou omitido. Se precisar de utilizar uma consulta personalizada, faça contato no [User Voice](https://feedback.azure.com/forums/263029-azure-search).
+> Não há suporte para consultas personalizadas para coleções do `container.query` MongoDB: o parâmetro deve ser definido como nulo ou omitido. Se você precisar usar uma consulta personalizada, informe-nos sobre o [User Voice](https://feedback.azure.com/forums/263029-azure-search).
 
 Documento de exemplo:
 
@@ -205,7 +205,7 @@ Consulta de filtro:
 
     SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark ORDER BY c._ts
 
-Mesclar consulta:
+Consulta de mesclagem:
 
     SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
     
@@ -220,9 +220,9 @@ Consulta de mesclagem de matriz:
     SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
 
 
-### <a name="3---create-a-target-search-index"></a>3 - criar um índice de pesquisa de destino 
+### <a name="3---create-a-target-search-index"></a>3-criar um índice de pesquisa de destino 
 
-[Criar um índice da Azure Search destino](/rest/api/searchservice/create-index) se ainda não tiver um. O exemplo seguinte cria um índice com um campo de ID e a descrição:
+[Crie um índice de Azure Search de destino](/rest/api/searchservice/create-index) se você ainda não tiver um. O exemplo a seguir cria um índice com um campo de ID e descrição:
 
     POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
@@ -245,28 +245,28 @@ Consulta de mesclagem de matriz:
        }]
      }
 
-Certifique-se de que o esquema do seu índice de destino é compatível com o esquema dos documentos JSON de origem ou a saída da sua projecção de consulta personalizada.
+Verifique se o esquema do índice de destino é compatível com o esquema dos documentos JSON de origem ou a saída da projeção de consulta personalizada.
 
 > [!NOTE]
-> Para coleções particionadas, a chave do documento padrão é o Azure Cosmos DB `_rid` propriedade, que o Azure Search muda automaticamente o nome para `rid` porque os nomes de campo não podem começar com um caráter de undescore. Além disso, o Azure Cosmos DB `_rid` valores contêm carateres que são inválidas em chaves do Azure Search. Por esse motivo, o `_rid` valores são codificados em Base64.
+> Para coleções particionadas, a chave de documento padrão é Azure Cosmos DB `_rid` Propriedade, que Azure Search automaticamente renomear como `rid` porque os nomes de campo não podem começar com um caractere sublinhado. Além disso, `_rid` Azure Cosmos DB valores contêm caracteres que são inválidos em Azure Search chaves. Por esse motivo, os `_rid` valores são codificados em base64.
 > 
-> Para coleções de MongoDB, Azure Search automaticamente muda o nome da `_id` propriedade `doc_id`.  
+> Para coleções do MongoDB, Azure Search renomeia automaticamente `_id` a propriedade `doc_id`como.  
 
-### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mapeamento entre tipos de dados JSON e tipos de dados de pesquisa do Azure
-| Tipo de dados JSON | Tipos de campo de índice de destino compatível |
+### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mapeamento entre tipos de dados JSON e tipos de dados Azure Search
+| Tipo de dados JSON | Tipos de campo de índice de destino compatíveis |
 | --- | --- |
 | Bool |Edm.Boolean, Edm.String |
-| Números que são semelhantes a números inteiros |Edm.Int32, Edm.Int64, Edm.String |
-| Números entre aquela aparência como os pontos de vírgula flutuante |Edm.Double, Edm.String |
-| String |Edm.String |
+| Números que se parecem com números inteiros |Edm.Int32, Edm.Int64, Edm.String |
+| Números que se parecem com pontos flutuantes |EDM. Double, EDM. String |
+| Cadeia |Edm.String |
 | Matrizes de tipos primitivos, por exemplo ["a", "b", "c"] |Coleção (Edm.String) |
-| Cadeias de caracteres que se pareçam com datas |Edm.DateTimeOffset, Edm.String |
-| Objetos GeoJSON, por exemplo {"type": "Point", "coordenadas": [longo, lat]} |Edm.GeographyPoint |
+| Cadeias de caracteres parecidas com datas |Edm.DateTimeOffset, Edm.String |
+| Objetos geojson, por exemplo, {"Type": "Point", "coordenadas": [Long, Lat]} |Edm.GeographyPoint |
 | Outros objetos JSON |N/A |
 
-### <a name="4---configure-and-run-the-indexer"></a>4 - configurar e executar o indexador
+### <a name="4---configure-and-run-the-indexer"></a>4-configurar e executar o indexador
 
-Assim que tiver sido criado a origem de dados e índice, está pronto para criar o indexador:
+Depois que o índice e a fonte de dados tiverem sido criados, você estará pronto para criar o indexador:
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -279,15 +279,15 @@ Assim que tiver sido criado a origem de dados e índice, está pronto para criar
       "schedule" : { "interval" : "PT2H" }
     }
 
-Este indexador é executado a cada duas horas (intervalo de agendamento está definido para "PT2H"). Para executar um indexador a cada 30 minutos, defina o intervalo para "PT30M". O mais curto intervalo suportado é de 5 minutos. A agenda é opcional - se for omitido, um indexador é executado apenas uma vez, quando é criado. No entanto, pode executar uma indexador sob demanda em qualquer altura.   
+Esse indexador é executado a cada duas horas (o intervalo de agendamento é definido como "PT2H"). Para executar um indexador a cada 30 minutos, defina o intervalo como "PT30M". O intervalo mais curto com suporte é de 5 minutos. A agenda é opcional-se omitida, um indexador será executado apenas uma vez quando for criado. No entanto, você pode executar um indexador sob demanda a qualquer momento.   
 
-Para obter mais detalhes sobre a API de indexador criar, confira [criar indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Para obter mais detalhes sobre a API criar indexador, confira [criar indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Para obter mais informações sobre como definir agendas de indexador, consulte [como agendar indexadores para o Azure Search](search-howto-schedule-indexers.md).
+Para obter mais informações sobre como definir agendas do indexador, consulte [como agendar indexadores para Azure Search](search-howto-schedule-indexers.md).
 
 ## <a name="use-net"></a>Utilizar .NET
 
-O SDK de .NET disponível em geral tem paridade completa com a API REST disponível em geral. Recomendamos que reveja a secção de REST API anterior para aprender conceitos, fluxo de trabalho e os requisitos. Em seguida, pode consultar a seguinte documentação de referência de .NET API para implementar um indexador JSON em código gerenciado.
+O SDK do .NET disponível para o público geral tem paridade total com a API REST disponível. Recomendamos que você examine a seção anterior da API REST para saber os conceitos, o fluxo de trabalho e os requisitos. Em seguida, você pode consultar a seguinte documentação de referência da API .NET para implementar um indexador JSON em código gerenciado.
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -296,28 +296,28 @@ O SDK de .NET disponível em geral tem paridade completa com a API REST disponí
 
 <a name="DataChangeDetectionPolicy"></a>
 
-## <a name="indexing-changed-documents"></a>Indexar documentos alterados
+## <a name="indexing-changed-documents"></a>Indexando documentos alterados
 
-O objetivo de uma política de deteção de alteração de dados é eficiente identificar itens de dados alterados. Atualmente, a política de suporte única é a `High Water Mark` política utilizando o `_ts` a propriedade (timestamp) fornecida pelo Azure Cosmos DB, que é especificada da seguinte forma:
+A finalidade de uma política de detecção de alteração de dados é identificar com eficiência os itens de dados alterados. Atualmente, a única política com suporte é `High Water Mark` a política usando `_ts` a propriedade (timestamp) fornecida pelo Azure Cosmos DB, que é especificado da seguinte maneira:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
         "highWaterMarkColumnName" : "_ts"
     }
 
-Com esta política é altamente recomendado para garantir um desempenho bom indexador. 
+Usar essa política é altamente recomendável para garantir um bom desempenho do indexador. 
 
-Se estiver a utilizar uma consulta personalizada, certifique-se de que o `_ts` propriedade está projetada pela consulta.
+Se você estiver usando uma consulta personalizada, certifique-se de `_ts` que a propriedade seja projetada pela consulta.
 
 <a name="IncrementalProgress"></a>
 
 ### <a name="incremental-progress-and-custom-queries"></a>Progresso incremental e consultas personalizadas
 
-Progresso incremental durante a indexação garante que se a execução do indexador é interrompida por falhas transitórias ou limite de tempo de execução, o indexador possam começar onde parou próxima vez que é executado, em vez de precisar reindexar toda a coleção do zero. Isto é especialmente importante quando grandes coleções de indexação. 
+O progresso incremental durante a indexação garante que, se a execução do indexador for interrompida por falhas transitórias ou por um limite de tempo de execução, o indexador poderá escolher onde parou na próxima vez em que for executado, em vez de ter que reindexar toda a coleção do zero. Isso é especialmente importante ao indexar grandes coleções. 
 
-Para ativar o progresso incremental ao utilizar uma consulta personalizada, certifique-se de que a sua consulta ordena os resultados pelo `_ts` coluna. Isto permite que periódica verificação apontar que utiliza o Azure Search para fornecer o progresso incremental na presença de falhas.   
+Para habilitar o progresso incremental ao usar uma consulta personalizada, certifique-se de que sua consulta ordena `_ts` os resultados pela coluna. Isso habilita o ponto de verificação periódico que o Azure Search usa para fornecer o progresso incremental na presença de falhas.   
 
-Em alguns casos, mesmo se sua consulta contém um `ORDER BY [collection alias]._ts` cláusula, o Azure Search pode não inferir que a consulta está ordenada pelo `_ts`. Pode dizer ao Azure Search que os resultados são ordenados, utilizando o `assumeOrderByHighWaterMarkColumn` propriedade de configuração. Para especificar esta sugestão, criar ou atualizar o indexador da seguinte forma: 
+Em alguns casos, mesmo que a consulta contenha `ORDER BY [collection alias]._ts` uma cláusula, Azure Search pode não inferir que a consulta é ordenada `_ts`pelo. Você pode informar Azure Search que os resultados são ordenados usando `assumeOrderByHighWaterMarkColumn` a propriedade de configuração. Para especificar essa dica, crie ou atualize o indexador da seguinte maneira: 
 
     {
      ... other indexer definition properties
@@ -327,9 +327,9 @@ Em alguns casos, mesmo se sua consulta contém um `ORDER BY [collection alias]._
 
 <a name="DataDeletionDetectionPolicy"></a>
 
-## <a name="indexing-deleted-documents"></a>Indexar os documentos excluídos
+## <a name="indexing-deleted-documents"></a>Indexando documentos excluídos
 
-Quando as linhas são eliminadas da coleção, normalmente pretende eliminar as linhas do também o índice de pesquisa. O objetivo de uma política de deteção de eliminação de dados é eficiente identificar itens de dados eliminados. Atualmente, a política de suporte única é a `Soft Delete` política (eliminação está marcada com um sinalizador de algum tipo), que é especificado da seguinte forma:
+Quando as linhas são excluídas da coleção, normalmente você também deseja excluir essas linhas do índice de pesquisa. A finalidade de uma política de detecção de exclusão de dados é identificar com eficiência os itens de dados excluídos. Atualmente, a única política com suporte é `Soft Delete` a política (a exclusão é marcada com um sinalizador de algum tipo), que é especificado da seguinte maneira:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
@@ -337,9 +337,9 @@ Quando as linhas são eliminadas da coleção, normalmente pretende eliminar as 
         "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
 
-Se estiver a utilizar uma consulta personalizada, certifique-se de que a propriedade referenciados por `softDeleteColumnName` está projetada pela consulta.
+Se você estiver usando uma consulta personalizada, certifique-se de que a propriedade `softDeleteColumnName` referenciada por é projetada pela consulta.
 
-O exemplo seguinte cria uma origem de dados com uma política de eliminação de forma recuperável:
+O exemplo a seguir cria uma fonte de dados com uma política de exclusão reversível:
 
     POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
@@ -365,7 +365,7 @@ O exemplo seguinte cria uma origem de dados com uma política de eliminação de
 
 ## <a name="NextSteps"></a>Passos seguintes
 
-Parabéns! Aprendeu como integrar o Azure Cosmos DB com o Azure Search com um indexador.
+Parabéns! Você aprendeu a integrar o Azure Cosmos DB com Azure Search usando um indexador.
 
-* Para saber mais sobre o Azure Cosmos DB, veja a [página do serviço do Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
-* Para saber mais sobre o Azure Search, consulte a [página do serviço de pesquisa](https://azure.microsoft.com/services/search/).
+* Para saber mais sobre Azure Cosmos DB, consulte a [página de serviço do Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
+* Para saber mais sobre Azure Search, consulte a [página de serviço Search](https://azure.microsoft.com/services/search/).

@@ -2,7 +2,7 @@
 title: Como trabalhar com os resultados da pesquisa-Azure Search
 description: Estruturar e classificar resultados da pesquisa, obter uma contagem de documentos e adicionar navegação de conteúdo aos resultados da pesquisa em Azure Search.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: ''
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bb86a75be464cb78a16170626bc96778d43bb8b6
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 9fa2baf64dbb35d85c55635d7522075d61bfc17d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67974612"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647714"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Como trabalhar com resultados de pesquisa em Azure Search
 Este artigo fornece orientação sobre como implementar elementos padrão de uma página de resultados da pesquisa, como contagens totais, recuperação de documentos, ordens de classificação e navegação. As opções relacionadas à página que contribuem com dados ou informações para os resultados da pesquisa são especificadas por meio das solicitações de [documento de pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) enviadas ao seu serviço de Azure Search. 
@@ -64,7 +64,7 @@ Para retornar um subconjunto de campos para um layout ao lado do xadrez:
 
 Imagens e arquivos de mídia não são pesquisáveis diretamente e devem ser armazenados em outra plataforma de armazenamento, como o armazenamento de BLOBs do Azure, para reduzir os custos. No índice e nos documentos, defina um campo que armazene o endereço da URL do conteúdo externo. Em seguida, você pode usar o campo como uma referência de imagem. A URL para a imagem deve estar no documento.
 
-Para recuperar uma página de descrição do produto  para um evento onclick, use o [documento de pesquisa](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) para passar a chave do documento a ser recuperado. O tipo de dados da chave é `Edm.String`. Neste exemplo, é *246810*.
+Para recuperar uma página de descrição do produto para um evento onclick, use o [documento de pesquisa](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) para passar a chave do documento a ser recuperado. O tipo de dados da chave é `Edm.String`. Neste exemplo, é *246810*.
 
     GET /indexes/online-catalog/docs/246810
 
@@ -78,7 +78,7 @@ No Azure Search, a classificação é baseada na `$orderby` expressão, para tod
 
 A relevância está fortemente associada aos perfis de pontuação. Você pode usar a pontuação padrão, que se baseia em análise de texto e estatísticas para ordenar todos os resultados, com pontuações mais altas, passando para documentos com correspondências mais ou mais fortes em um termo de pesquisa.
 
-Ordens de classificação alternativas geralmente são associadas  a eventos onclick que retornam a um método que cria a ordem de classificação. Por exemplo, dado este elemento de página:
+Ordens de classificação alternativas geralmente são associadas a eventos onclick que retornam a um método que cria a ordem de classificação. Por exemplo, dado este elemento de página:
 
  ![][4]
 
@@ -96,7 +96,7 @@ A navegação de pesquisa é comum em uma página de resultados, geralmente loca
 
 ## <a name="filters-at-the-page-level"></a>Filtros no nível da página
 
-Se o design da solução incluísse páginas de pesquisa dedicadas para tipos específicos de conteúdo (por exemplo, um aplicativo de varejo online que tenha departamentos listados na parte superior da página), você poderá inserir uma [expressão de filtro](search-filters.md) junto com um evento OnClick para  Abra uma página em um Estado previamente filtrado.
+Se o design da solução incluísse páginas de pesquisa dedicadas para tipos específicos de conteúdo (por exemplo, um aplicativo de varejo online que tenha departamentos listados na parte superior da página), você poderá inserir uma [expressão de filtro](search-filters.md) junto com um evento OnClick para Abra uma página em um Estado previamente filtrado.
 
 Você pode enviar um filtro com ou sem uma expressão de pesquisa. Por exemplo, a solicitação a seguir filtrará o nome da marca, retornando somente os documentos que correspondem a ele.
 

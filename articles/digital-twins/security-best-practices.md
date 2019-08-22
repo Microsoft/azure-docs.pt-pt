@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 08/19/2019
 ms.author: v-adgera
-ms.openlocfilehash: 64a980ba8ed581b3cad369951220d47baf9e17ab
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: f211206bc2408fe55f6742622b5b0e56d1ab4d90
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849289"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656530"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -26,6 +26,9 @@ Este artigo resume as principais práticas recomendadas a serem seguidas.
 > [!IMPORTANT]
 > Para garantir a segurança máxima do seu espaço IoT, examine recursos de segurança adicionais. Certifique-se de incluir os fornecedores de dispositivo.
 
+> [!TIP]
+> Use a [central de segurança do Azure para IOT](https://docs.microsoft.com/azure/asc-for-iot/) para ajudar a detectar ameaças e vulnerabilidades de segurança de IOT.
+
 ## <a name="iot-security-best-practices"></a>Melhores práticas da segurança de IoT
 
 Algumas práticas importantes para proteger seus dispositivos IoT com segurança incluem:
@@ -36,6 +39,7 @@ Algumas práticas importantes para proteger seus dispositivos IoT com segurança
 > * Considere o uso potencial da filtragem de endereço IP do dispositivo e da restrição de porta.
 > * Limite a largura de banda de dispositivo e e/s para melhorar o desempenho. A limitação de taxa pode melhorar a segurança, impedindo ataques de negação de serviço.
 > * Manter o firmware do dispositivo atualizado.
+> * Auditar e revisar periodicamente práticas recomendadas de segurança de dispositivo, rede e gateway conforme elas continuam a melhorar e evoluir.
 
 Algumas práticas importantes para proteger com segurança um espaço IoT incluem:
 
@@ -43,6 +47,7 @@ Algumas práticas importantes para proteger com segurança um espaço IoT inclue
 > * Criptografar dados salvos, armazenados ou persistentes.
 > * Exigir que senhas ou chaves sejam alteradas periodicamente ou atualizadas.
 > * Restringir cuidadosamente o acesso e as permissões por função. Consulte a seção [práticas recomendadas de controle de acesso baseado em função](#rbac) abaixo.
+> * Considere uma topologia de rede dividida para que os dispositivos em cada rede sejam isolados dos outros.
 > * Use criptografia avançada. Exigir senhas longas e usar protocolos seguros e autenticação de dois fatores.
 
 [Monitorar](./how-to-configure-monitoring.md) Recursos de IoT para observar exceções, ameaças ou parâmetros de recursos que estão fora do intervalo de operação usual. Use a análise do Azure para o gerenciamento de monitoramento.
@@ -68,7 +73,7 @@ O Azure digital gêmeos usa Azure Active Directory para autenticar usuários e p
 
 [!INCLUDE [digital-twins-rbac-best-practices](../../includes/digital-twins-rbac-best-practices.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre as práticas recomendadas do Azure IoT, leia [práticas recomendadas de segurança de IOT](../iot-fundamentals/iot-security-best-practices.md).
 

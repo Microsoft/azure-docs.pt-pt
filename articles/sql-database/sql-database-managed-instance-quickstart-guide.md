@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 07/11/2019
-ms.openlocfilehash: 97f7393622311103d94d3067205f902e3eec6843
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a8dfe0db5277a995b6e6675381ebeb5aeb243c9b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567354"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647219"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introdução à instância gerenciada do banco de dados SQL do Azure
 
@@ -55,8 +55,6 @@ Esses guias de início rápido permitem criar, configurar e restaurar rapidament
 ## <a name="customize-network-environment"></a>Personalizar o ambiente de rede
 
 Embora a VNet/sub-rede possa ser configurada automaticamente quando a instância é criada usando [o portal do Azure](sql-database-managed-instance-get-started.md), talvez seja bom criá-la antes de começar a criar instâncias gerenciadas, pois você pode configurar os parâmetros de VNet e de sub-rede. A maneira mais fácil de criar e configurar o ambiente de rede é usar o modelo de [implantação de recursos do Azure](sql-database-managed-instance-create-vnet-subnet.md) , que criará e configurará a rede e a sub-rede em que a instância será colocada. Você só precisa pressionar o botão Azure Resource Manager implantar e preencher o formulário com parâmetros.
-
-Como alternativa, você pode usar o [script do PowerShell](https://www.powershellmagazine.com/20../../configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) para automatizar a criação da rede.
 
 Como alternativa, você também pode usar esse [script do PowerShell](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) para automatizar a criação da rede.
 

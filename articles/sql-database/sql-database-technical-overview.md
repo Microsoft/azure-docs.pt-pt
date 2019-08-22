@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: e648f89a86d7d6064b883496f888cb27a4af27e4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1c4fae5c41f4f23c4a7fe3135b602133aa69aacd
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566405"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873688"
 ---
 # <a name="what-is-azure-sql-database-service"></a>O que é o serviço de banco de dados SQL do Azure
 
@@ -197,6 +197,8 @@ Com a Base de Dados SQL, criar e manter aplicações é mais fácil e produtivo.
   Um editor de código livre, que pode ser baixado, aberto para Windows, macOS e Linux que dá suporte a extensões, incluindo a [extensão MSSQL](https://aka.ms/mssql-marketplace) para consultar Microsoft SQL Server, banco de dados SQL do Azure e SQL data warehouse.
 
 A Base de Dados suporta a criação de aplicações com Python, Java, Node.js, PHP, Ruby e .NET em macOS, Linux e Windows. A Base de Dados SQL suporta as mesmas [bibliotecas de ligações](sql-database-libraries.md) que o SQL Server.
+
+[!INCLUDE [sql-database-create-manage-portal](includes/sql-database-create-manage-portal.md)]
 
 ## <a name="sql-database-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o banco de dados SQL
 

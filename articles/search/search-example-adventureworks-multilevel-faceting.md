@@ -1,29 +1,29 @@
 ---
-title: 'Exemplo: Faceta de múltiplos níveis - Azure Search'
-description: Aprenda a criar estruturas de facetamento de vários níveis taxonomias, criação de uma estrutura de navegação aninhadas que podem ser incluídos em páginas do aplicativo.
+title: 'Exemplo: Facetas de vários níveis-Azure Search'
+description: Saiba como criar estruturas de faceta para taxonomias de vários níveis, criando uma estrutura de navegação aninhada que você pode incluir nas páginas do aplicativo.
 author: cstone
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: chstone
-ms.openlocfilehash: e17a91a35b69102e4e0ac6025559bbc32e71d8fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a6fda0157f0f3a4ca5861acd4bcbead7839e451
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024132"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649923"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>Exemplo: Faceta de múltiplos níveis no Azure Search
 
-Esquemas de pesquisa do Azure não suportam explicitamente categorias de taxonomia de vários níveis, mas pode aproximá-los com a manipulação de conteúdo antes da indexação e, em seguida, aplicar alguns tratamento especial para os resultados. 
+Os esquemas de Azure Search não dão suporte explicitamente a categorias de taxonomia de vários níveis, mas você pode aproximar-los manipulando o conteúdo antes da indexação e, em seguida, aplicando uma manipulação especial aos resultados. 
 
 ## <a name="start-with-the-data"></a>Comece com os dados
 
-O exemplo neste artigo baseia-se um exemplo anterior, [modelar a base de dados de inventário do AdventureWorks](search-example-adventureworks-modeling.md), para demonstrar facetamento com múltiplos nível no Azure Search.
+O exemplo neste artigo se baseia em um exemplo anterior, [Modele o banco de dados de inventário AdventureWorks](search-example-adventureworks-modeling.md), para demonstrar a faceta de vários níveis no Azure Search.
 
-AdventureWorks tem uma taxonomia de dois níveis simple com uma relação principal-subordinado. Para a fundo o taxonomia de comprimento fixo essa estrutura, uma consulta de associação SQL simples pode servir-se para a taxonomia de grupo:
+O AdventureWorks tem uma taxonomia simples de dois níveis com uma relação pai-filho. Para obter as profundidades de taxonomia de comprimento fixo dessa estrutura, uma consulta de junção SQL simples pode ser usada para agrupar a taxonomia:
 
 ```T-SQL
 SELECT 
@@ -35,27 +35,27 @@ LEFT JOIN
   ON category.ParentProductCategoryId=parent.ProductCategoryId
 ```
 
-  ![Consultar resultados](./media/search-example-adventureworks/prod-query-results.png "consultar resultados")
+  ![Resultados da consulta](./media/search-example-adventureworks/prod-query-results.png "Resultados da consulta")
 
-## <a name="indexing-to-a-collection-field"></a>Indexação a um campo de coleção
+## <a name="indexing-to-a-collection-field"></a>Indexando em um campo de coleção
 
-O índice que contém esta estrutura, criar um **Collection(Edm.String)** campo no esquema do Azure Search para armazenar estes dados, certificar-se de que os atributos de campo incluem pesquisável, filtrável, facetável e recuperável.
+No índice que contém essa estrutura, crie um campo de **coleção (EDM. String)** no esquema de Azure Search para armazenar esses dados, verificando se os atributos de campo incluem pesquisáveis, filtráveis, de face e recuperáveis.
 
-Agora, se precisa de indexar conteúdo que se refere a uma categoria específica de taxonomia, envio de taxonomia como uma matriz que contém o texto de cada nível de taxonomia. Por exemplo, para uma entidade com `ProductCategoryId = 5 (Mountain Bikes)`, submeta o campo como `[ "Bikes", "Bikes|Mountain Bikes"]`
+Agora, ao indexar conteúdo que se refere a uma categoria de taxonomia específica, envie a taxonomia como uma matriz que contém o texto de cada nível da taxonomia. Por exemplo, para uma entidade com `ProductCategoryId = 5 (Mountain Bikes)`, envie o campo como`[ "Bikes", "Bikes|Mountain Bikes"]`
 
-Observe a inclusão da categoria principal "Bicicletas" no valor de categoria do filho "Bicicletas de montanha". Cada subcategoria deve incorporar o caminho completo relativo ao elemento raiz. O separador de caráter de pipe é arbitrário, mas tem de ser consistente e não deve aparecer no texto de origem. O caráter de separação será utilizado no código da aplicação para reconstruir a árvore de taxonomia de resultados de faceta.
+Observe a inclusão da categoria pai "bicicletas" no valor de categoria filho "Mountain Bikes". Cada subcategoria deve inserir seu caminho inteiro relativo ao elemento raiz. O separador de caracteres de pipe é arbitrário, mas deve ser consistente e não deve aparecer no texto de origem. O caractere separador será usado no código do aplicativo para reconstruir a árvore de taxonomia dos resultados da faceta.
 
 ## <a name="construct-the-query"></a>Construir a consulta
 
-Quando emite consultas, incluem a especificação de faceta seguintes (onde taxonomia é o campo de taxonomia facetável): `facet = taxonomy,count:50,sort:value`
+Ao emitir consultas, inclua a seguinte especificação de faceta (em que taxonomia é o campo de taxonomia facetable):`facet = taxonomy,count:50,sort:value`
 
-O valor de contagem deve ser alto o suficiente para retornar todos os valores de taxonomia possíveis. Os dados da AdventureWorks contém 41 valores de taxonomia distintos, então, `count:50` é suficiente.
+O valor da contagem deve ser alto o suficiente para retornar todos os valores de taxonomia possíveis. Os dados da AdventureWorks contêm 41 valores de taxonomia distintos `count:50` , portanto, é suficiente.
 
-  ![Filtrar por facetas](./media/search-example-adventureworks/facet-filter.png "filtro por facetas")
+  ![Filtro facetado](./media/search-example-adventureworks/facet-filter.png "Filtro facetado")
 
 ## <a name="build-the-structure-in-client-code"></a>Criar a estrutura no código do cliente
 
-No código da aplicação de cliente, reconstrua a árvore de taxonomia, dividindo cada valor de faceta no caráter de pipe.
+No código do aplicativo cliente, reconstrua a árvore de taxonomia dividindo cada valor de faceta no caractere de pipe.
 
 ```javascript
 var sum = 0
@@ -82,21 +82,21 @@ results['@search.facets'][field].forEach(function(d) {
 categories.count = sum;
 ```
 
-O **categorias** objeto agora pode ser usado para processar uma árvore de taxonomia recolhível com contagens precisas:
+O objeto **Categories** agora pode ser usado para renderizar uma árvore de taxonomia recolhível com contagens precisas:
 
-  ![vários níveis filtro por facetas](./media/search-example-adventureworks/multi-level-facet.png "vários níveis filtro por facetas")
+  ![filtro facetado de vários níveis](./media/search-example-adventureworks/multi-level-facet.png "filtro facetado de vários níveis")
 
  
-Cada ligação na árvore da deve aplicar o filtro relacionado. Por exemplo:
+Cada link na árvore deve aplicar o filtro relacionado. Por exemplo:
 
-+ **Taxonomia/any** `(x:x eq 'Accessories')` devolve todos os documentos no ramo de acessórios
-+ **Taxonomia/any** `(x:x eq 'Accessories|Bike Racks')` devolve apenas os documentos com uma subcategoria de Racks de bicicletas sob a ramificação de acessórios.
++ **taxonomia/qualquer** `(x:x eq 'Accessories')` retorna todos os documentos na ramificação acessórios
++ **taxonomia/qualquer** `(x:x eq 'Accessories|Bike Racks')` retorna apenas os documentos com uma subcategoria de racks de bicicletas sob a ramificação acessórios.
 
-Essa técnica será dimensionada para abranger cenários mais complexos como árvores de taxonomia mais aprofundadas e duplicados subcategorias que ocorrem em categorias do elemento principal diferente (por exemplo, `Bike Components|Forks` e `Camping Equipment|Forks`).
+Essa técnica será dimensionada para abranger cenários mais complexos, como árvores de taxonomia mais profundas e subcategorias duplicadas que ocorrem em categorias pai diferentes `Bike Components|Forks` ( `Camping Equipment|Forks`por exemplo, e).
 
 > [!TIP]
-> Velocidade de consulta é afetada pelo número de facetas devolvido. Para suportar conjuntos de taxonomia muito grandes, considere adicionar um facetável **EDM** campo para conter o valor de taxonomia de nível superior para cada documento. Em seguida, aplicar a mesma técnica acima, mas apenas executar a consulta de faceta de coleção (filtrada no campo de taxonomia de raiz) quando o utilizador expande um nó de nível superior. Em alternativa, se 100% de recolhimento não for necessário, simplesmente reduza a contagem de faceta para um número razoável e certifique-se de que as entradas de faceta são ordenadas por contagem.
+> A velocidade da consulta é afetada pelo número de facetas retornadas. Para dar suporte a conjuntos de taxonomia muito grandes, considere adicionar um campo **EDM. String** de facetable para manter o valor de taxonomia de nível superior para cada documento. Em seguida, aplique a mesma técnica acima, mas apenas execute a consulta coleção-faceta (filtrada no campo taxonomia raiz) quando o usuário expande um nó de nível superior. Ou, se a recall de 100% não for necessária, simplesmente reduza a contagem de faceta para um número razoável e garanta que as entradas de faceta sejam classificadas por contagem.
 
 ## <a name="see-also"></a>Consulte também
 
-[Exemplo: Modelo da base de dados de inventário do AdventureWorks para o Azure Search](search-example-adventureworks-modeling.md)
+[Exemplo: Modele o banco de dados de inventário AdventureWorks para Azure Search](search-example-adventureworks-modeling.md)

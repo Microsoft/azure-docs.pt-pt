@@ -1,5 +1,5 @@
 ---
-title: Segurança de Hubs de notificação
+title: Segurança dos hubs de notificação
 description: Este tópico explica a segurança para os hubs de notificação do Azure.
 services: notification-hubs
 documentationcenter: .net
@@ -14,42 +14,40 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: jowargo
-ms.openlocfilehash: 3f5b23028094b545262e9c01640890f2c0b989ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73a6d0eaab286dec9d02bb55eb75f0781bcffcc4
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431250"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891580"
 ---
-# <a name="notification-hubs-security"></a>Segurança de Hubs de notificação
+# <a name="notification-hubs-security"></a>Segurança dos hubs de notificação
 
 ## <a name="overview"></a>Descrição geral
 
-Este tópico descreve o modelo de segurança dos Hubs de notificação do Azure.
+Este tópico descreve o modelo de segurança dos hubs de notificação do Azure.
 
-## <a name="shared-access-signature-security-sas"></a>Segurança de assinatura de acesso partilhado (SAS)
+## <a name="shared-access-signature-security-sas"></a>Segurança de assinatura de acesso compartilhado (SAS)
 
-Os Notification Hubs implementa um esquema de segurança ao nível da entidade chamada SAS (assinatura de acesso partilhado). Esse esquema permite que as entidades de mensagens declarar até 12 regras de autorização na respetiva descrição concedem direitos nessa entidade.
+Os hubs de notificação implementam um esquema de segurança em nível de entidade chamado SAS (assinatura de acesso compartilhado). Cada regra contém um nome, um valor de chave (segredo compartilhado) e um conjunto de direitos, conforme explicado em [declarações de segurança](#security-claims). Ao criar um hub de notificação, duas regras são criadas automaticamente: uma com direitos de **escuta** (que o aplicativo cliente usa) e outra com **todos os** direitos (que o back-end do aplicativo usa).
 
-Cada regra contém um nome, um valor de chave (segredo partilhado) e um conjunto de direitos, conforme explicado [afirmações de segurança](#security-claims). Ao criar um Hub de notificação, duas regras são criadas automaticamente: um com **escutar** direitos (que utiliza a aplicação de cliente) e outro com **todos os** direitos (que utiliza o back-end de aplicação).
+Ao executar o gerenciamento de registro de aplicativos cliente, se as informações enviadas por meio de notificações não forem confidenciais (por exemplo, atualizações do clima), uma maneira comum de acessar um hub de notificação é fornecer o valor de chave da regra de acesso somente de escuta para o aplicativo cliente, e para fornecer o valor de chave da regra acesso completo ao back-end do aplicativo.
 
-Quando efetuar a gestão de registos de aplicações de cliente, se as informações enviadas através de notificações não sejam confidenciais (por exemplo, atualizações de informações sobre o clima), uma forma comum de aceder a um Hub de notificação é fornecer o valor da chave da regra de acesso só de escuta para a aplicação de cliente, e para permitir que o valor da chave de regra de acesso completo ao back-end da aplicação.
+Os aplicativos não devem inserir o valor de chave nos aplicativos cliente da Windows Store, em vez disso, fazer com que o aplicativo cliente o recupere do back-end do aplicativo na inicialização.
 
-Aplicações não deve incorporar o valor da chave em aplicações de cliente do Windows Store, em vez disso, tem a aplicação de cliente recuperá-la a partir do back-end de aplicação na inicialização.
+A chave com acesso de **escuta** permite que um aplicativo cliente se registre em qualquer marca. Se seu aplicativo precisar restringir registros a marcas específicas para clientes específicos (por exemplo, quando as marcas representam IDs de usuário), o back-end do aplicativo deve executar os registros. Para obter mais informações, consulte [Gerenciamento de registro](notification-hubs-push-notification-registration-management.md). Observe que dessa forma, o aplicativo cliente não terá acesso direto aos hubs de notificação.
 
-A chave com **escutar** acesso permite que uma aplicação de cliente para se registar para qualquer marca. Se a sua aplicação tem de restringir registos a etiquetas específicas para clientes específicos (por exemplo, quando as marcas representam IDs de usuário), o back-end de aplicação tem de efetuar os registros. Para obter mais informações, consulte [gestão de registo](notification-hubs-push-notification-registration-management.md). Tenha em atenção que desta forma, a aplicação de cliente não terá acesso direto aos Hubs de notificação.
+## <a name="security-claims"></a>Declarações de segurança
 
-## <a name="security-claims"></a>Afirmações de segurança
-
-Assim como outras entidades, as operações de Hub de notificação são permitidas para três declarações de segurança: **Ouça**, **enviar**, e **gerir**.
+Semelhante a outras entidades, as operações do hub de notificação são permitidas para três declarações de segurança: **Ouça**, **envie**e **gerencie**.
 
 | Afirmação   | Descrição                                          | Operações permitidas |
 | ------- | ---------------------------------------------------- | ------------------ |
-| Escutar  | Criar/atualizar, ler e eliminar registos únicos | Criar/atualizar registo<br><br>Registo de leitura<br><br>Ler todos os registos para um identificador<br><br>Eliminar registo |
-| Enviar    | Enviar mensagens para o hub de notificação                | Enviar mensagem |
-| Gerir  | CRUDs sobre os Hubs de notificação (incluindo a atualizar credenciais PNS e chaves de segurança) e registos de leitura com base em etiquetas |Hubs de notificação de criar/atualizar/ler/eliminar<br><br>Registos de leitura por etiqueta |
+| Vigiar  | Criar/atualizar, ler e excluir registros únicos | Criar/atualizar registro<br><br>Ler registro<br><br>Ler todos os registros de um identificador<br><br>Excluir registro |
+| Enviar    | Enviar mensagens para o Hub de notificação                | Enviar mensagem |
+| Gerir  | CRUDs em hubs de notificação (incluindo atualização de credenciais do PNS e chaves de segurança) e ler registros com base em marcas |Criar/atualizar/ler/excluir hubs de notificação<br><br>Ler registros por marca |
 
-Os Notification Hubs aceita a assinatura de tokens gerados com partilhado configuradas diretamente no Hub de notificação de chaves.
+Os hubs de notificação aceitam tokens de assinatura gerados com chaves compartilhadas configuradas diretamente no Hub de notificação.
 
-Não é possível enviar uma notificação para mais do que um espaço de nomes. Espaços de nomes são contentores lógicos nos hubs de notificação e não estão envolvidos com o envio de notificações.
-As políticas de acesso de nível de espaço de nomes (credenciais) podem ser utilizadas para operações de nível de espaço de nomes, por exemplo: listagem dos hubs de notificação, criar ou eliminar os hubs de notificação, etc. Apenas as políticas de acesso ao nível do hub permitiria que enviar notificações.
+Não é possível enviar uma notificação para mais de um namespace. Os namespaces são contêineres lógicos para hubs de notificação e não estão envolvidos no envio de notificações.
+As políticas de acesso no nível de namespace (credenciais) podem ser usadas para operações em nível de namespace, por exemplo: listando hubs de notificação, criando ou excluindo hubs de notificação, etc. Somente as políticas de acesso no nível do Hub permitirão que você envie notificações.

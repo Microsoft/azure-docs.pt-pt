@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial do Python: Chamar serviços cognitivas em um pipeline de enriquecimento de ia-Azure Search'
 description: Percorra um exemplo de extração de dados, linguagem natural e processamento de ia de imagem em Azure Search usando um notebook Jupyter Python. Os dados extraídos são indexados e acessados facilmente por consulta.
-manager: cgronlun
+manager: nitinme
 author: LisaLeib
 services: search
 ms.service: search
@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: af355ec353e12c30723597927883cb23dfa31e71
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2cde1fe258d2caf7e7dc9d8ede582364f42c676b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840934"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648873"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutorial do Python: Chamar API de Serviços Cognitivos em um pipeline de indexação de Azure Search
 
@@ -512,7 +512,7 @@ Por fim, você aprendeu como testar os resultados e redefinir o sistema para ite
 
 A forma mais rápida de os limpar no final do tutorial passa por eliminar o grupo de recursos que contém o serviço do Azure Search e o serviço Blob do Azure. Supondo que você coloque os dois serviços no mesmo grupo, exclua o grupo de recursos para excluir permanentemente tudo nele, incluindo os serviços e qualquer conteúdo armazenado que você criou para este tutorial. No portal, o nome do grupo de recursos está na página Descrição geral de cada serviço.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Personalize ou expanda o pipeline com competências personalizadas. A criação de uma competência personalizada e a sua adição a um conjunto de competências permite-lhe carregar análises de texto ou imagem que escreveu.
 

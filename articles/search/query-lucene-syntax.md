@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e8e9b737676b2695b7b88430f59b0b0e79bc477a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d667588cea5902700c225dd7b597d8f03d93d200
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883869"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650051"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintaxe de consulta Lucene no Azure Search
 Você pode escrever consultas em relação a Azure Search com base na sintaxe avançada do analisador de [consulta do Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formulários de consulta especializados: curinga, pesquisa difusa, pesquisa por proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do analisador de consulta Lucene é [implementada intacta no Azure Search](search-lucene-query-architecture.md), com exceção das *pesquisas de intervalo* que são `$filter` construídas em Azure Search por meio de expressões. 

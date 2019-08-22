@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf0c639dd5fb678af7fca9224292218331b10ee6
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: accd14446ab8f4a70336e3bd6787cbd8c93ff21d
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834751"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891507"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço a serviço que usam identidade de usuário delegado no fluxo em nome de
 
@@ -196,7 +196,7 @@ Uma resposta de êxito é uma resposta JSON OAuth 2,0 com os seguintes parâmetr
 
 O exemplo a seguir mostra uma resposta de êxito a uma solicitação de um token de https://graph.windows.net acesso para a API da Web.
 
-```
+```json
 {
     "token_type":"Bearer",
     "scope":"User.Read",
@@ -215,7 +215,7 @@ O exemplo a seguir mostra uma resposta de êxito a uma solicitação de um token
 
 O ponto de extremidade de token do Azure AD retorna uma resposta de erro quando tenta adquirir um token de acesso para uma API downstream que é definida com uma política de acesso condicional (por exemplo, autenticação multifator). O serviço de camada intermediária deve enfileirar esse erro para o aplicativo cliente para que o aplicativo cliente possa fornecer a interação do usuário para atender à política de acesso condicional.
 
-```
+```json
 {
     "error":"interaction_required",
     "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",

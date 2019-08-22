@@ -1,13 +1,13 @@
 ---
-title: Referência de filtro de OData - Azure Search
-description: Referência de linguagem de OData para a sintaxe de filtro em consultas de pesquisa do Azure.
+title: Referência de filtro OData-Azure Search
+description: Referência de linguagem OData para a sintaxe de filtro em consultas Azure Search.
 ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: Brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,20 +19,20 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: c44645ebcbf8808cc929bfaa0c3cb0d3ee9c90cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8817ce075409a3f166b82404767697dc1326cc89
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079915"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647594"
 ---
-# <a name="odata-filter-syntax-in-azure-search"></a>Sintaxe de OData $filter no Azure Search
+# <a name="odata-filter-syntax-in-azure-search"></a>Sintaxe de $filter OData no Azure Search
 
-Utiliza o Azure Search [expressões de filtro de OData](query-odata-filter-orderby-syntax.md) para aplicar critérios adicionais para uma consulta de pesquisa, além de termos de pesquisa de texto completo. Este artigo descreve a sintaxe de filtros em detalhes. Para obter mais informações sobre o que são os filtros e como utilizá-los para concretizar os cenários de consulta específica, consulte [filtros no Azure Search](search-filters.md).
+Azure Search usa [expressões de filtro OData](query-odata-filter-orderby-syntax.md) para aplicar critérios adicionais a uma consulta de pesquisa além dos termos de pesquisa de texto completo. Este artigo descreve a sintaxe de filtros em detalhes. Para obter mais informações gerais sobre quais filtros são e como usá-los para obter cenários de consulta específicos, consulte [filtros em Azure Search](search-filters.md).
 
 ## <a name="syntax"></a>Sintaxe
 
-Um filtro na linguagem de OData é uma expressão booleana, que por sua vez pode ser um dos vários tipos de expressão, conforme exibido a seguir EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
+Um filtro na linguagem OData é uma expressão booleana que, por sua vez, pode ser um dos vários tipos de expressão, conforme mostrado pelo seguinte EBNF ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -50,153 +50,153 @@ boolean_expression ::=
 variable ::= identifier | field_path
 ```
 
-Um diagrama da sintaxe interativa também está disponível:
+Um diagrama de sintaxe interativa também está disponível:
 
 > [!div class="nextstepaction"]
-> [Diagrama da sintaxe OData para o Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#boolean_expression)
+> [Diagrama de sintaxe do OData para Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#boolean_expression)
 
 > [!NOTE]
-> Ver [referência de sintaxe de expressão OData para o Azure Search](search-query-odata-syntax-reference.md) para a EBNF completa.
+> Consulte [referência de sintaxe de expressão OData para Azure Search](search-query-odata-syntax-reference.md) para o EBNF completo.
 
 Os tipos de expressões booleanas incluem:
 
-- Expressões de filtro de coleção usando `any` ou `all`. Estes aplicam-se os critérios de filtro para os campos de coleção. Para obter mais informações, consulte [operadores de coleção OData na Azure Search](search-query-odata-collection-operators.md).
-- Expressões lógicas que combinam outras expressões booleanas utilizando os operadores `and`, `or`, e `not`. Para obter mais informações, consulte [OData operadores lógicos no Azure Search](search-query-odata-logical-operators.md).
-- Expressões de comparação, o qual comparam campos ou variáveis para utilizar os operadores de valores de constantes de alcance `eq`, `ne`, `gt`, `lt`, `ge`, e `le`. Para obter mais informações, consulte [operadores de comparação de OData no Azure Search](search-query-odata-comparison-operators.md). Expressões de comparação também são usadas para comparar as distâncias entre coordenadas geoespacial utilizando o `geo.distance` função. Para obter mais informações, consulte [OData funções geoespaciais no Azure Search](search-query-odata-geo-spatial-functions.md).
-- Os literais booleanos `true` e `false`. Essas constantes podem ser útil, por vezes, ao gerar programaticamente os filtros, mas caso contrário, não tendem a ser utilizado na prática.
-- Chamadas de funções booleanas, incluindo:
-  - `geo.intersects`, que testa se um determinado ponto é dentro de um determinado polígono. Para obter mais informações, consulte [OData funções geoespaciais no Azure Search](search-query-odata-geo-spatial-functions.md).
-  - `search.in`, que compara uma variável de campo ou intervalo com cada valor de uma lista de valores. Para obter mais informações, consulte [OData `search.in` função no Azure Search](search-query-odata-search-in-function.md).
-  - `search.ismatch` e `search.ismatchscoring`, qual executar operações de pesquisa em texto completo num contexto de filtro. Para obter mais informações, consulte [funções de pesquisa em texto completo de OData no Azure Search](search-query-odata-full-text-search-functions.md).
-- Caminhos de campo ou variáveis do tipo de alcance `Edm.Boolean`. Por exemplo, se o seu índice tem um campo Booleano chamado `IsEnabled` e pretende devolver todos os documentos em que este campo é `true`, a expressão de filtro pode ser o nome `IsEnabled`.
-- Expressões booleanas parênteses. Utilizar parênteses pode ajudar a determinar explicitamente a ordem de operações num filtro. Para obter mais informações sobre a precedência de padrão dos operadores de OData, veja a secção seguinte.
+- Expressões de filtro de `any` coleção `all`usando ou. Eles aplicam critérios de filtro aos campos de coleção. Para obter mais informações, consulte [operadores de coleção OData em Azure Search](search-query-odata-collection-operators.md).
+- Expressões lógicas que combinam outras expressões booleanas usando `and`os `or`operadores, `not`e. Para obter mais informações, consulte [operadores lógicos do OData em Azure Search](search-query-odata-logical-operators.md).
+- Expressões de comparação, que comparam campos ou variáveis de intervalo a valores `eq`constantes `ne`usando `gt`operadores `lt`, `ge`,, `le`, e. Para obter mais informações, consulte [operadores de comparação OData no Azure Search](search-query-odata-comparison-operators.md). As expressões de comparação também são usadas para comparar distâncias entre coordenadas geoespaciais usando a `geo.distance` função. Para obter mais informações, consulte [funções geoespaciais OData no Azure Search](search-query-odata-geo-spatial-functions.md).
+- Os literais `true` boolianos `false`e. Essas constantes podem ser úteis às vezes ao gerar filtros programaticamente, mas, caso contrário, não tendem a ser usadas na prática.
+- Chamadas para funções booleanas, incluindo:
+  - `geo.intersects`, que testa se um determinado ponto está dentro de um determinado polígono. Para obter mais informações, consulte [funções geoespaciais OData no Azure Search](search-query-odata-geo-spatial-functions.md).
+  - `search.in`, que compara um campo ou variável de intervalo com cada valor em uma lista de valores. Para obter mais informações, [consulte `search.in` OData function in Azure Search](search-query-odata-search-in-function.md).
+  - `search.ismatch`e `search.ismatchscoring`, que executam operações de pesquisa de texto completo em um contexto de filtro. Para obter mais informações, consulte [funções de pesquisa de texto completo OData no Azure Search](search-query-odata-full-text-search-functions.md).
+- Caminhos de campo ou variáveis de intervalo `Edm.Boolean`do tipo. Por exemplo, se o índice tiver um campo booliano `IsEnabled` chamado e você desejar retornar todos os documentos em que esse `true`campo é, a expressão de filtro poderá ser `IsEnabled`apenas o nome.
+- Expressões booleanas entre parênteses. O uso de parênteses pode ajudar a determinar explicitamente a ordem das operações em um filtro. Para obter mais informações sobre a precedência padrão dos operadores OData, consulte a próxima seção.
 
 ### <a name="operator-precedence-in-filters"></a>Precedência de operador em filtros
 
-Se escrever uma expressão de filtro com sem parênteses em torno de seu as subexpressões, o Azure Search será avaliá-lo, de acordo com um conjunto de regras de precedência de operador. Estas regras são baseiam-se de que operadores são usados para combinar as subexpressões. A tabela seguinte apresenta uma lista de grupos de operadores em ordem, do mais alto ao mais baixa precedência:
+Se você escrever uma expressão de filtro sem parênteses em suas subexpressãos, Azure Search irá avaliá-la de acordo com um conjunto de regras de precedência de operador. Essas regras são baseadas em quais operadores são usados para combinar subexpressãos. A tabela a seguir lista grupos de operadores na ordem da precedência mais alta para a mais baixa:
 
-| Grupo | Operator(s) |
+| Grupo | Operador (es) |
 | --- | --- |
 | Operadores lógicos | `not` |
 | Operadores de Comparação | `eq`, `ne`, `gt`, `lt`, `ge`, `le` |
 | Operadores lógicos | `and` |
 | Operadores lógicos | `or` |
 
-Um operador que é maior na tabela acima irá "vincular mais rigidamente" para seus operandos que outros operadores. Por exemplo, `and` é de precedência superior `or`, e operadores de comparação são de precedência superior a qualquer um deles, pelo que as seguintes duas expressões são equivalentes:
+Um operador que é superior na tabela acima será "associado mais rigidamente" a seus operandos do que outros operadores. Por exemplo, `and` é de maior precedência `or`do que e os operadores de comparação são de precedência mais alta do que qualquer um deles, portanto, as duas expressões a seguir são equivalentes:
 
     Rating gt 0 and Rating lt 3 or Rating gt 7 and Rating lt 10
     ((Rating gt 0) and (Rating lt 3)) or ((Rating gt 7) and (Rating lt 10))
 
-O `not` operador tem precedência máxima de tudo – até mesmo superior do que os operadores de comparação. É por isso que se tentar escrever um filtro semelhante a esta:
+O `not` operador tem a maior precedência de todos--ainda mais alto do que os operadores de comparação. É por isso que, se você tentar escrever um filtro como este:
 
     not Rating gt 5
 
-Obterá esta mensagem de erro:
+Você receberá essa mensagem de erro:
 
     Invalid expression: A unary operator with an incompatible type was detected. Found operand type 'Edm.Int32' for operator kind 'Not'.
 
-Este erro ocorre porque o operador está associado apenas o `Rating` campo, o que é do tipo `Edm.Int32`e não com a expressão de comparação de todo. A correção é colocar o operando de `not` parênteses:
+Esse erro ocorre porque o operador está associado apenas `Rating` ao campo, que é do tipo `Edm.Int32`, e não com a expressão de comparação inteira. A correção é colocar o operando `not` entre parênteses:
 
     not (Rating gt 5)
 
 <a name="bkmk_limits"></a>
 
-### <a name="filter-size-limitations"></a>Limitações de tamanho de filtro
+### <a name="filter-size-limitations"></a>Limitações de tamanho do filtro
 
-Existem limites para o tamanho e a complexidade de expressões de filtro que pode enviar para o Azure Search. Os limites baseiam-se mais ou menos o número de cláusulas na sua expressão de filtro. Uma boa diretriz é que se tiver centenas de cláusulas, está em risco de exceder o limite. Recomendamos a criação do seu aplicativo de tal forma que ele não gera filtros de tamanho não vinculado.
+Há limites para o tamanho e a complexidade das expressões de filtro que você pode enviar para Azure Search. Os limites são baseados aproximadamente no número de cláusulas em sua expressão de filtro. Uma boa diretriz é que, se você tiver centenas de cláusulas, corre o risco de exceder o limite. É recomendável projetar seu aplicativo de forma que ele não gere filtros de tamanho não associado.
 
 > [!TIP]
-> Usando [a `search.in` função](search-query-odata-search-in-function.md) em vez de longo disjunctions de igualdade comparações podem ajudar a evitar o limite de cláusula de filtro, uma vez que uma chamada de função é contabilizado como uma única cláusula.
+> Usar [a `search.in` função](search-query-odata-search-in-function.md) em vez de longas disjunçãos de comparações de igualdade pode ajudar a evitar o limite de cláusula de filtro, uma vez que uma chamada de função conta como uma única cláusula.
 
 ## <a name="examples"></a>Exemplos
 
-Localize todos os hotéis com, pelo menos, uma sala com uma taxa base com menos de US $200 que são classificados igual ou superior a 4:
+Localize todos os hotéis com pelo menos uma sala com uma taxa de base inferior a $200, classificada em ou acima de 4:
 
     $filter=Rooms/any(room: room/BaseRate lt 200.0) and Rating ge 4
 
-Localize hotéis todos os que não seja "Mar vista Motel" que foi renovated desde 2010:
+Encontre todos os hotéis diferentes de "Motel de exibição do mar" que foram renovadosdos desde 2010:
 
     $filter=HotelName ne 'Sea View Motel' and LastRenovationDate ge 2010-01-01T00:00:00Z
 
-Localize hotéis todos os que foram renovated no 2010 ou posterior. O literal de datetime inclui informações de fuso horário para hora padrão do Pacífico:  
+Encontre todos os hotéis que foram renovadosdos em 2010 ou posteriores. O literal DateTime inclui informações de fuso horário para o horário padrão do Pacífico:  
 
     $filter=LastRenovationDate ge 2010-01-01T00:00:00-08:00
 
-Localizar hotéis todos os que têm de estacionamento incluído e em que todos os ambientes são não fumar:
+Encontre todos os hotéis que têm o estacionamento incluído e onde todas as salas não são fumantes:
 
     $filter=ParkingIncluded and Rooms/all(room: not room/SmokingAllowed)
 
- \- OU-  
+ \-OR  
 
     $filter=ParkingIncluded eq true and Rooms/all(room: room/SmokingAllowed eq false)
 
-Localize hotéis todos os que são luxo ou incluem estacionamento e tem uma classificação de 5:  
+Localize todos os hotéis que estão luxo ou incluem estacionamento e têm uma classificação de 5:  
 
     $filter=(Category eq 'Luxury' or ParkingIncluded eq true) and Rating eq 5
 
-Localizar todos os hotéis com a etiqueta "Wi-Fi" em, pelo menos, uma sala (em que cada espaço tem etiquetas armazenadas num `Collection(Edm.String)` campo):  
+Localize todos os hotéis com a marca "WiFi" em pelo menos uma sala (onde cada sala tem marcas armazenadas em `Collection(Edm.String)` um campo):  
 
     $filter=Rooms/any(room: room/Tags/any(tag: tag eq 'wifi'))
 
-Localize todos os hotéis com todos os ambientes:  
+Encontre todos os hotéis com qualquer sala:  
 
     $filter=Rooms/any()
 
-Localize hotéis todos os que não têm os ambientes:
+Encontre todos os hotéis que não têm salas:
 
     $filter=not Rooms/any()
 
-Localizar todos os hotéis dentro de 10 quilómetros de distância de um ponto de referência especificado (em que `Location` é um campo do tipo `Edm.GeographyPoint`):
+Localiza todos os hotéis em 10 quilômetros de um determinado ponto de referência `Location` (em que é um `Edm.GeographyPoint`campo do tipo):
 
     $filter=geo.distance(Location, geography'POINT(-122.131577 47.678581)') le 10
 
-Localizar todos os hotéis dentro de uma determinado da janela viewport descrita como um polígono (onde `Location` é um campo do tipo geographypoint). O polígono tem de ser fechado, que significa que o primeiro e último ponto conjuntos têm de ser iguais. Além disso, [os pontos devem ser listados na ordem para a esquerda](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Localiza todos os hotéis em um determinado visor descrito como um polígono ( `Location` em que é um campo do tipo EDM. GeographyPoint). O polígono deve ser fechado, o que significa que os primeiros e os últimos conjuntos de pontos devem ser iguais. Além disso, [os pontos devem estar listados na ordem no sentido anti-horário](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
     $filter=geo.intersects(Location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
 
-Encontre todos os hotéis em que o campo de "Descrição" é nulo. O campo será nulo, se nunca foi definida ou se foi definido explicitamente como nulo:  
+Localiza todos os hotéis em que o campo "Descrição" é nulo. O campo será nulo se nunca tiver sido definido ou se tiver sido definido explicitamente como nulo:  
 
     $filter=Description eq null
 
-Encontre todos os hotéis com nome igual a 'Motel vista mar' ou "Hotel orçamento"). Estas expressões contenham espaços e o espaço é um delimitador de predefinição. Pode especificar um delimitador alternativo plicas como o terceiro parâmetro de cadeia de caracteres:  
+Localize todos os hotéis com o nome igual a ' Sea View Motel ' ou ' Budget Orca '). Essas frases contêm espaços e o espaço é um delimitador padrão. Você pode especificar um delimitador alternativo entre aspas simples como o terceiro parâmetro de cadeia de caracteres:  
 
     $filter=search.in(HotelName, 'Sea View motel,Budget hotel', ',')
 
-Localizar todos os hotéis com nome igual a 'Motel vista mar' ou 'hotel orçamento"separados por" | "):  
+Localize todos os hotéis com o nome igual ao ' Sea View Motel ' ou ao ' Budget Hotel ', separados por ' | '):  
 
     $filter=search.in(HotelName, 'Sea View motel|Budget hotel', '|')
 
-Localize todos os hotéis em que todos os ambientes têm a etiqueta "Wi-Fi" ou "tub":
+Localize todos os hotéis em que todas as salas têm a marca ' WiFi ' ou ' Tub ':
 
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub'))
 
-Encontre uma correspondência com frases dentro de uma coleção, como 'toalhas exaltados racks' ou "hairdryer incluídos" em etiquetas.
+Encontre uma correspondência em frases em uma coleção, como "racks de toalha aquecidos" ou "hairdryer incluídos" nas marcas.
 
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
 
-Encontre os documentos com a palavra "frente marítima". Esta consulta de filtro é idêntica para um [solicitação de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) com `search=waterfront`.
+Localizar documentos com a palavra "orla marítima". Essa consulta de filtro é idêntica a uma solicitação de `search=waterfront` [pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) com.
 
     $filter=search.ismatchscoring('waterfront')
 
-Encontre os documentos com hostel"palavra" e classificação superior ou igual a 4 ou documentos com a palavra "motel" e classificação igual a 5. Este pedido não foi possível ser expressado sem o `search.ismatchscoring` funcionar, uma vez que combina pesquisa de texto completo com operações de filtro com `or`.
+Localize documentos com a palavra "Hostel" e classificação maior ou igual a 4 ou documentos com a palavra "Motel" e classificação igual a 5. Essa solicitação não pôde ser expressa sem `search.ismatchscoring` a função, pois ela combina a pesquisa de texto completo com `or`operações de filtro usando.
 
     $filter=search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
 
-Encontre documentos sem a palavra "luxo".
+Localizar documentos sem a palavra "luxo".
 
     $filter=not search.ismatch('luxury')
 
-Encontre os documentos com a frase "Oceano view" ou uma classificação igual a 5. O `search.ismatchscoring` consulta será executada apenas em relação a campos `HotelName` e `Description`. Apenas a segunda cláusula da disjunção de correspondentes serão devolvidos documentos demasiado – hotéis com `Rating` igual a 5. Esses documentos serão devolvidos com score igual a zero para torná-lo claro que não correspondem qualquer uma das partes com a pontuação da expressão.
+Localize documentos com a frase "exibição do oceano" ou classificação igual a 5. A `search.ismatchscoring` consulta será executada somente em campos `HotelName` e `Description`. Os documentos que corresponderem somente à segunda cláusula da disjunção serão retornados também para hotéis com `Rating` igual a 5. Esses documentos serão retornados com pontuação igual a zero para deixá-lo claro que eles não corresponderam a nenhuma das partes pontuadas da expressão.
 
     $filter=search.ismatchscoring('"ocean view"', 'Description,HotelName') or Rating eq 5
 
-Localize hotéis onde o hotel"termos" e "aeroporto" são palavras não mais do que cinco afastadas na descrição e, em que todos os ambientes são não fumar. Esta consulta utiliza a [completa de linguagem de consulta Lucene](query-lucene-syntax.md).
+Encontre Hotéis em que os termos "Hotel" e "aeroporto" não têm mais do que cinco palavras de diferença na descrição, e onde todas as salas não são fumantes. Essa consulta usa a [linguagem de consulta Lucene completa](query-lucene-syntax.md).
 
     $filter=search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and not Rooms/any(room: room/SmokingAllowed)
 
-## <a name="next-steps"></a>Passos Seguintes  
+## <a name="next-steps"></a>Passos seguintes  
 
 - [Filtros no Azure Search](search-filters.md)
-- [Descrição geral de linguagem de expressão OData para o Azure Search](query-odata-filter-orderby-syntax.md)
-- [Referência de sintaxe de expressão OData para o Azure Search](search-query-odata-syntax-reference.md)
-- [Procurar nos documentos &#40;API de REST do serviço Azure Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Visão geral da linguagem de expressão OData para Azure Search](query-odata-filter-orderby-syntax.md)
+- [Referência de sintaxe de expressão OData para Azure Search](search-query-odata-syntax-reference.md)
+- [Pesquisar documentos &#40;Azure Search API REST do serviço&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

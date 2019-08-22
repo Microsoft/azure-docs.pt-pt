@@ -1,0 +1,130 @@
+---
+title: Exemplo – CAF de zona de aterrissagem de migração – etapas de implantação
+description: Implante as etapas do exemplo CAF migrar plantas de zona de aterrissagem.
+author: DCtheGeek
+ms.author: dacoulte
+ms.date: 08/20/2019
+ms.topic: sample
+ms.service: blueprints
+manager: carmonm
+ms.custom: fasttrack-new
+ms.openlocfilehash: a9ca5c299c2f030436f5a7ea9f4c2c1e136df747
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873345"
+---
+# <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Implantar a estrutura de adoção Microsoft Cloud para migrações do Azure exemplo de plantas de zona de aterrissagem
+
+Para implantar a amostra do plano gráfico do Azure Blueprints CAF migrar a zona de aterrissagem, as etapas a seguir devem ser executadas:
+
+> [!div class="checklist1"]
+> - Recomendado para implantar a amostra do [CAF Foundation](../caf-foundation/index.md) Blueprint
+
+> [!div class="checklist2"]
+> - Criar um novo plano gráfico por meio do exemplo
+> - Marque sua cópia do exemplo como **publicado**
+> - Atribuir sua cópia do plano gráfico a uma assinatura existente
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+
+## <a name="create-blueprint-from-sample"></a>Criar plano gráfico por meio de exemplo
+
+Primeiro, implemente o exemplo Blueprint criando uma nova especificação técnica em seu ambiente usando o exemplo como um início.
+
+1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
+
+1. Na página **Guia de introdução** à esquerda, selecione o botão **criar** em _criar um plano gráfico_.
+
+1. Localize a amostra de plantas da zona de aterrissagem de **migração do Caf** em _outros exemplos_ e selecione **usar este exemplo**.
+
+1. Insira os _conceitos básicos_ do exemplo Blueprint:
+   - **Nome do plano gráfico** Forneça um nome para sua cópia do exemplo de plano gráfico da zona de aterrissagem de migração do CAF.
+   - **Local de definição** Use as reticências e selecione o grupo de gerenciamento para salvar sua cópia do exemplo.
+
+1. Selecione a guia artefatos na parte superior da página ou **em Avançar: Artefatos** na parte inferior da página.
+
+1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
+
+## <a name="publish-the-sample-copy"></a>Publicar a cópia de exemplo
+
+Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado no modo de **rascunho** e deve ser **publicado** antes que possa ser atribuído e implantado. A cópia do exemplo do Blueprint pode ser personalizada para seu ambiente e necessidades, mas essa modificação pode movê-la para fora das diretrizes da zona de aterrissagem de migração do CAF.
+
+1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
+
+1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
+
+1. Selecione **publicar Blueprint** na parte superior da página. Na nova página à direita, forneça uma **versão** para sua cópia do exemplo Blueprint. Essa propriedade será útil se você fizer uma modificação posteriormente. Forneça **observações de alteração** , como "primeira versão publicada do exemplo de plantas da zona de aterrissagem de migração do caf". Em seguida, selecione **publicar** na parte inferior da página.
+
+## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
+
+Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela poderá ser atribuída a uma assinatura dentro do grupo de gerenciamento no qual foi salva. Esta etapa é onde os parâmetros são fornecidos para fazer com que cada implantação da cópia do exemplo de plano gráfico seja exclusiva.
+
+1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
+
+1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
+
+1. Selecione **atribuir plano gráfico** na parte superior da página de definição do Blueprint.
+
+1. Forneça os valores de parâmetro para a atribuição Blueprint:
+
+   - Noções Básicas
+     - **Subscrições**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
+     - **Nome da atribuição**: O nome é preenchido previamente para você com base no nome do plano gráfico.
+       Altere conforme necessário ou deixe como está.
+     - **Local**: Selecione uma região na qual a identidade gerenciada deve ser criada.
+     - O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído.
+       Para saber mais, veja [identidades geridas dos recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Versão de definição do Blueprint**: Escolha uma versão **publicada** da sua cópia do exemplo Blueprint.
+    
+   - Atribuição de Bloqueio
+
+     Selecione a configuração de bloqueio Blueprint para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
+
+   - Identidade Gerida
+
+     Escolha a opção de identidade gerenciada _atribuída pelo sistema_ padrão ou a opção de identidade _atribuída pelo usuário_ .
+
+   - Parâmetros de esquema
+
+     Os parâmetros definidos nesta seção são usados por muitos dos artefatos na definição do Blueprint para fornecer consistência.
+
+       - **Organização**: Insira o nome da sua organização, como contoso ou fabrikam, deve ser exclusivo.
+       - **AzureRegion**: Selecione uma região do Azure para implantação.
+       
+   - Parâmetros de artefacto
+
+     Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele é definido. Esses parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) , pois eles são definidos durante a atribuição do plano gráfico. Para obter uma lista completa ou parâmetros de artefato e suas descrições, consulte [tabela de parâmetros de artefato](#artifact-parameters-table).
+
+1. Depois que todos os parâmetros forem inseridos, selecione **atribuir** na parte inferior da página. A atribuição Blueprint é criada e a implantação do artefato começa. A implantação leva aproximadamente cinco minutos. Para verificar o status da implantação, abra a atribuição Blueprint.
+
+> [!WARNING]
+> O serviço de plantas do Azure e os exemplos de plantas internas são **gratuitos**. Os recursos do Azure são [cobrados por produto](https://azure.microsoft.com/pricing/). Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para estimar o custo da execução de recursos implantados por este exemplo de Blueprint.
+
+## <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefato
+
+A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
+
+|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
+|-|-|-|-|
+|Implantar zona de aterrissagem de vNET|Modelo do Resource Manager|IPAddress_Space|**Bloqueado** -forneça o primeiro exemplo de dois octetos, 10,0|
+|Implantar Key Vault|Modelo do Resource Manager|KV-AccessPolicy|ID de objeto de usuário ou grupo **bloqueado** para conceder permissões para no Key Vault|
+|Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_DataRetention|**Bloqueado** -número de dias que os dados serão retidos no log Analytics|
+|Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_Location|**Bloqueado** -região usada ao estabelecer o espaço de trabalho|
+|Implantar migrações para Azure|Modelo do Resource Manager|Azure_Migrate_Location|**Bloqueado** – selecione a região para implantar migrações para Azure|
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Agora que você analisou as etapas para implantar o exemplo CAF migrar a zona de aterrissagem, visite os seguintes artigos para saber mais sobre a arquitetura:
+
+> [!div class="nextstepaction"]
+> [CAF de zona de aterrissagem de migração de área-visão geral](./index.md)
+
+Artigos adicionais sobre esquemas e como utilizá-los:
+
+- Saiba mais sobre o [ciclo de vida de um esquema](../../concepts/lifecycle.md).
+- Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
+- Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
+- Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).
+- Saiba como [atualizar as atribuições existentes](../../how-to/update-existing-assignments.md).

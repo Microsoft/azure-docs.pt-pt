@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d08dce95836328f6a0991601951057944fa5f61e
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 0ad917215275ce2f80dfdd2ec4e5a16794b36c13
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69536446"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650363"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configurar uma conexão de alta disponibilidade do gateway de VPN local para CloudSimple
 
@@ -315,7 +315,7 @@ Configurando o Cisco Adaptive Security Appliance virtual (ASAv) no Azure:
 
 Configurando a VPN site a site com IDs de proxy no Palo Alto:
 
-<a href="https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/vpns/set-up-Site-to-Site-vpn.html#" target="_blank">Configurar VPN site a site</a>
+<a href="https://docs.paloaltonetworks.com/pan-os/9-0/pan-os-admin/vpns/set-up-site-to-site-vpn#" target="_blank">Configurar VPN site a site</a>
 
 Configurando o monitor de túnel:
 
@@ -323,4 +323,4 @@ Configurando o monitor de túnel:
 
 Operações de túnel de IPsec ou gateway IKE:
 
-<a href="https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/vpns/set-up-Site-to-Site-vpn/enabledisable-refresh-or-restart-an-ike-gateway-or-ipsec-tunnel.html#" target="_blank">Habilitar/desabilitar, atualizar ou reiniciar um gateway IKE ou túnel IPsec</a>
+<a href="https://docs.paloaltonetworks.com/pan-os/9-0/pan-os-admin/vpns/set-up-site-to-site-vpn/enabledisable-refresh-or-restart-an-ike-gateway-or-ipsec-tunnel#" target="_blank">Habilitar/desabilitar, atualizar ou reiniciar um gateway IKE ou túnel IPsec</a>

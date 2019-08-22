@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 9cd754b1810595c3ae82a7e4edfd9a3abe145b3f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 4f325d9fc512fd9f6776fcd799b720aaf60ce472
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816413"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876767"
 ---
 # <a name="remote-desktop-client-connections"></a>Ligações cliente do Ambiente de Trabalho Remoto
 
@@ -135,7 +135,7 @@ Siga estas instruções gerais de solução de problemas para códigos de erro d
     Time              : <Timestampt>
     ```
 
-### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>Erro: O_ADD_USER_TO_GROUP_FAILED/falha ao adicionar User = ≤ username ≥ a Group = Área de Trabalho Remota users. Razão: Win32.ERROR_NO_SUCH_MEMBER
+### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>Erro: O_ADD_USER_TO_GROUP_FAILED/falha ao adicionar User = ≤ username ≥ a Group = Área de Trabalho Remota users. Falha Win32.ERROR_NO_SUCH_MEMBER
 
 **Faz** A VM não ingressou no domínio em que o objeto de usuário é.
 
@@ -173,7 +173,7 @@ Se o cliente Web estiver sendo usado, confirme se não há problemas de credenci
 - Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool](troubleshoot-set-up-issues.md)de hosts.
 - Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).
 - Para solucionar problemas ao usar o PowerShell com a área de trabalho virtual do Windows, consulte [PowerShell da área de trabalho virtual do Windows](troubleshoot-powershell.md).
-- Para saber mais sobre o serviço de visualização, consulte [ambiente do Windows Desktop Preview](https://docs.microsoft.com/azure/virtual-desktop/environment-setup?).
+- Para saber mais sobre o serviço de visualização, consulte [ambiente de visualização de área de trabalho virtual do Windows](https://docs.microsoft.com/azure/virtual-desktop/environment-setup?).
 - Para percorrer um tutorial de solução de problemas [, consulte o tutorial: Solucionar problemas de implantações](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)de modelo do Resource Manager.
 - Para saber mais sobre ações de auditoria, consulte [operações de auditoria com o Gerenciador de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - Para saber mais sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

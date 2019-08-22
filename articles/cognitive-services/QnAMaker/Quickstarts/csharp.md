@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 08/20/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: cc005ee578e938311c640f7aa19f6643e7c99900
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: ec68a54b5e90416e97bb4e4b0c3074092502a920
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253893"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647197"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-c"></a>Como utilizar a API de REST do QnA Maker comC# 
 <a name="HOLTop"></a>
@@ -35,8 +35,8 @@ Este artigo mostra-lhe como utilizar o [API do Microsoft QnA Maker](../Overview/
 - [Eliminar uma base de dados de conhecimento.](#Delete)
 - [Obter as chaves de ponto final atual.](#GetKeys)
 - [Voltar a gerar as chaves de ponto final atual.](#PutKeys)
-- [Obtenha o conjunto atual de alterações de palavra maiúsculas de minúsculas.](#GetAlterations)
-- [Substitua o conjunto atual de alterações de palavra maiúsculas de minúsculas.](#PutAlterations)
+- [Obter o conjunto atual de alterações de palavras que não diferenciam maiúsculas de minúsculas.](#GetAlterations)
+- [Substitua o conjunto atual de alterações de palavras que não diferenciam maiúsculas de minúsculas.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 

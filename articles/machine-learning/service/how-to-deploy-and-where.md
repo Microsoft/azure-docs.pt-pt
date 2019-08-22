@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 5c0c3ade3fd089a4819b8836b07e249fc32c06e0
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
-ms.translationtype: MT
+ms.openlocfilehash: 7bfbec194733f2f8422eef45236a64e45bb553c7
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543608"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656369"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -190,6 +190,8 @@ O exemplo abaixo retornará um caminho para um único arquivo chamado `sklearn_m
 ```python
 model_path = Model.get_model_path('sklearn_mnist')
 ```
+
+<a id="schema"></a>
 
 #### <a name="optional-automatic-schema-generation"></a>Adicional Geração de esquema automática
 
@@ -746,7 +748,7 @@ Para eliminar um modelo registado, utilize `model.delete()`.
 
 Para obter mais informações, consulte a documentação de referência para [WebService. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--)e [Model. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)
 * [Proteger serviços da web do Azure Machine Learning com SSL](how-to-secure-web-service.md)

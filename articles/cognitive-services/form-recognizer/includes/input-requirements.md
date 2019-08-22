@@ -5,19 +5,19 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 17dc32f8948387b90229d3c4c07102cff98e3018
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4079b0cab0126a9750bbb91ca7046aa18dbe9ece
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562685"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69657848"
 ---
 O reconhecedor de formulário funciona em documentos de entrada que atendem a estes requisitos:
 
 * O formato deve ser JPG, PNG ou PDF (texto ou verificado). Os PDFs inseridos em texto são melhores porque não há possibilidade de erro na extração e na localização de caracteres.
 * Se os PDFs estiverem com bloqueio de senha, você deverá remover o bloqueio antes de enviá-los.
 * O tamanho do arquivo deve ser inferior a 4 MB.
-* Para imagens, as dimensões devem estar entre 50 x 50 pixels e 4200 x 4200 pixels.
+* Para imagens, as dimensões devem estar entre 600 x 100 pixels e 4200 x 4200 pixels.
 * Se examinados em documentos de papel, os formulários devem ser verificações de alta qualidade.
 * O texto deve usar o alfabeto latino (caracteres em inglês).
 * Os dados devem conter chaves e valores.
