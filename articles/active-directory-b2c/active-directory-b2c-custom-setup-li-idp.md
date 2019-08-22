@@ -76,7 +76,7 @@ Se desejar que os usuários entrem usando uma conta do LinkedIn, você precisar�
 
 Defina uma conta do LinkedIn como um provedor de declarações adicionando-a ao elemento **ClaimsProviders** no arquivo de extensão da política.
 
-1. Abra o arquivo *SocialAndLocalAccounts/ **TrustFrameworkExtensions. xml** *em seu editor. Esse arquivo está no [pacote de início de política personalizada][starter-pack] que você baixou como parte de um dos pré-requisitos.
+1. Abra o arquivo *SocialAndLocalAccounts/ **TrustFrameworkExtensions. xml*** em seu editor. Esse arquivo está no [pacote de início de política personalizada][starter-pack] que você baixou como parte de um dos pré-requisitos.
 1. Localize o elemento **ClaimsProviders** . Se não existir, adicione-o sob o elemento raiz.
 1. Adicione um novo Claims da seguinte maneira:
 
