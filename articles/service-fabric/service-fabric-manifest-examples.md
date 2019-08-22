@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: 10419240f730a6b68f1161f158f7f903a98a9933
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: dc3384821ddfba0a137a74297bc44903b6ed5d1d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035600"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650584"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Exemplos de manifesto de aplicativo e serviço Service Fabric
 Esta seção contém exemplos de manifestos de aplicativo e serviço. Esses exemplos não destinam-se a mostrar cenários importantes, mas mostrar as diferentes configurações disponíveis e como usá-las. 
@@ -39,7 +39,7 @@ Veja a seguir um índice dos recursos mostrados e os manifestos de exemplo dos q
 |[Declarar um pacote de dados](service-fabric-application-and-service-manifests.md)|[Manifesto do serviço VotingData](service-fabric-manifest-example-reliable-services-app.md#votingdata-service-manifest)|
 |[Substituir variáveis de ambiente](service-fabric-get-started-containers.md#configure-and-set-environment-variables)|[Manifesto do aplicativo de contêiner](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Configurar o mapeamento de porta-para-host do contêiner](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery)| [Manifesto do aplicativo de contêiner](service-fabric-manifest-example-container-app.md#application-manifest)|
-|[Configurar a autenticação do registro de contêiner](service-fabric-get-started-containers.md#configure-container-registry-authentication)|[Manifesto do aplicativo de contêiner](service-fabric-manifest-example-container-app.md#application-manifest)|
+|[Configurar a autenticação do registro de contêiner](service-fabric-get-started-containers.md#configure-container-repository-authentication)|[Manifesto do aplicativo de contêiner](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Definir modo de isolamento](service-fabric-get-started-containers.md#configure-isolation-mode)|[Manifesto do aplicativo de contêiner](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Especificar imagens de contêiner específicas da compilação do sistema operacional](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)|[Manifesto do aplicativo de contêiner](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Definir variáveis de ambiente](service-fabric-get-started-containers.md#configure-and-set-environment-variables)|[Manifesto do serviço FrontEndService do contêiner](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest), [manifesto do serviço BackEndService do contêiner](service-fabric-manifest-example-container-app.md#backendservice-service-manifest)|

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c225aa5f821925247d27890e9ee75f3eac4d9eb9
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 36c06182d0807ce3d255477a865023ae7b74e2cb
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977355"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874932"
 ---
 # <a name="create-a-data-source"></a>Criar uma origem de dados
 
@@ -22,7 +22,11 @@ O SDK da Web do Azure Maps armazena dados em fontes de dados que otimizam os dad
 
 **Fonte de dados geojson**
 
-Uma fonte de dados baseada em geojson pode carregar e armazenar dados localmente `DataSource` usando a classe. Os dados geojson podem ser criados ou criados manualmente usando as classes auxiliares no namespace do [Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) . A `DataSource` classe fornece funções para importar arquivos geojson locais ou remotos. Arquivos geojson remotos devem ser hospedados em um ponto de extremidade habilitado para CORs. A `DataSource` classe fornece funcionalidade para dados de ponto de cluster. 
+Uma fonte de dados baseada em geojson pode carregar e armazenar dados localmente `DataSource` usando a classe. Os dados geojson podem ser criados ou criados manualmente usando as classes auxiliares no namespace do [Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) . A `DataSource` classe fornece funções para importar arquivos geojson locais ou remotos. Arquivos geojson remotos devem ser hospedados em um ponto de extremidade habilitado para CORs. A `DataSource` classe fornece funcionalidade para dados de ponto de cluster. Os dados podem ser facilmente adicionados, removidos e atualizados com a `DataSource` classe.
+
+
+> [!TIP]
+> Se você quiser substituir todos os dados em um `DataSource`, se fizer chamadas para as `clear` funções then `add` , o mapa tentará renderizar novamente duas vezes, o que pode causar um pouco de atraso. Em vez disso `setShapes` , use a função que removerá e substituirá todos os dados na fonte de dados e disparará apenas uma única rerenderização do mapa.
 
 **Origem do bloco de vetor**
 

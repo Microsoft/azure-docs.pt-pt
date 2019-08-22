@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/13/2019
+ms.date: 08/20/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 5b410032004bce7b97e036216c922201e1ac80c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a6a8c0118e8179da570ce91b9fa7e3523bae1d3f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068282"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650552"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Como utilizar a API de REST do QnA Maker com node. js 
 <a name="HOLTop"></a>
@@ -35,8 +35,8 @@ Este artigo mostra-lhe como utilizar o [API do Microsoft QnA Maker](../Overview/
 - [Eliminar uma base de dados de conhecimento.](#Delete)
 - [Obter as chaves de ponto final atual.](#GetKeys)
 - [Voltar a gerar as chaves de ponto final atual.](#PutKeys)
-- [Obtenha o conjunto atual de alterações de palavra maiúsculas de minúsculas.](#GetAlterations)
-- [Substitua o conjunto atual de alterações de palavra maiúsculas de minúsculas.](#PutAlterations)
+- [Obter o conjunto atual de alterações de palavras que não diferenciam maiúsculas de minúsculas.](#GetAlterations)
+- [Substitua o conjunto atual de alterações de palavras que não diferenciam maiúsculas de minúsculas.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 

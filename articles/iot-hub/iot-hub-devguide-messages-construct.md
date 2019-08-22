@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
-ms.openlocfilehash: 9a62001f168e0577ea07ad030923a4d0398e50af
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 28537ac2389fbb1ca43ca4014515564bddeba4ce
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534971"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872493"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT
 
@@ -73,7 +73,7 @@ Para obter mais informações sobre como codificar e decodificar mensagens envia
 
 ## <a name="message-size"></a>Tamanho da mensagem
 
-O Hub IoT mede o tamanho da mensagem de forma independente de protocolo, considerando apenas a carga real. O tamanho em bytes é calculado como a soma do seguinte:
+O Hub IoT mede o tamanho da mensagem de forma independente de protocolo, considerando apenas a carga real. O tamanho em bytes é calculado como a soma dos seguintes valores:
 
 * O tamanho do corpo em bytes.
 * O tamanho em bytes de todos os valores das propriedades do sistema de mensagens.
@@ -101,7 +101,7 @@ A propriedade **iothub-Connection-auth-Method** contém um objeto JSON serializa
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre limites de tamanho de mensagem no Hub IoT, confira [cotas e limitação do Hub IOT](iot-hub-devguide-quotas-throttling.md).
 
