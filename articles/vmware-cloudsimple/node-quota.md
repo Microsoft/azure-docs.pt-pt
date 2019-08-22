@@ -3,21 +3,21 @@ title: Solução do Azure VMware por cota de nó CloudSimple-CloudSimple
 description: Descreve os limites de cota para nós CloudSimple e como solicitar um aumento de cota
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e765d7c87f2f941a5e2d558b71c4e5a71d2df9b1
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 5da91f37d197e9d427343a09d0376076c356e92d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816666"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877824"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>Limites de cota do nó CloudSimple
 
-Quatro nós é a quantidade padrão disponível para provisionamento, quando sua assinatura está habilitada para o serviço CloudSimple.  Você pode provisionar qualquer [tipo de nó](cloudsimple-node.md) de portal do Azure.  São necessários no mínimo três nós do mesmo SKU para criar uma nuvem privada.  Se você tiver provisionado os nós, poderá ver um erro ao tentar provisionar nós adicionais.
+Quatro nós é a quantidade padrão disponível para compra quando sua assinatura está habilitada para o serviço CloudSimple.  Você pode adquirir qualquer [tipo de nó](cloudsimple-node.md) do portal do Azure.  Pelo menos três nós do mesmo SKU são necessários para criar uma nuvem privada.  Se você comprou os nós, poderá ver um erro ao tentar comprar nós adicionais.
 
 ## <a name="quota-increase"></a>Aumento de cota
 
@@ -28,7 +28,7 @@ Você pode aumentar a cota do nó enviando uma solicitação de suporte. A equip
 * Tipo de serviço: **Solução VMware por CloudSimple**
 * Tipo de problema: **Cota de nós dedicados**
 * Subtipo de problema: **Aumentar a cota de nós dedicados**
-* Requerente: **Aumento de cota**
+* Assunto: **Aumento de cota**
 
 Nos detalhes do tíquete de suporte, forneça o número necessário de nós e SKU do nó.
 
@@ -38,7 +38,7 @@ Você também pode entrar em contato com seu [azurevmwaresales@microsoft.com](ma
 * SKU do nó
 * Número de nós adicionais para os quais você está solicitando o aumento de cota
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Provisionar nós](create-nodes.md)
+* [Nós de compra](create-nodes.md)
 * [Visão geral dos nós do CloudSimple](cloudsimple-node.md)

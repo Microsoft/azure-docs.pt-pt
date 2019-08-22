@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 7c331a4a7395069dc4dc3ab1dcfc89415be0898c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8827aa660d348ef9e42c617067c2837b8697ba6e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854460"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876785"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>O que é a versão prévia da área de trabalho virtual do Windows? 
 
@@ -81,7 +81,7 @@ Sua infraestrutura precisa dos seguintes itens para dar suporte à área de trab
 As máquinas virtuais do Azure criadas para a área de trabalho virtual do Windows devem ser:
 
 * Ingressado no AD [padrão](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) ou [híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). As máquinas virtuais não podem ser ingressadas no Azure AD.
-* Executando uma das seguintes [imagens de sistema operacional com suporte](#supported-virtual-machine-os-image).
+* Executando uma das seguintes [imagens de sistema operacional com suporte](#supported-virtual-machine-os-images).
 
 >[!NOTE]
 >Se precisar de uma assinatura do Azure, você poderá [se inscrever para uma avaliação gratuita de um mês](https://azure.microsoft.com/free/). Se você estiver usando a versão de avaliação gratuita do Azure, deverá usar Azure AD Domain Services para manter o Active Directory do Windows Server em sincronia com Azure Active Directory.
@@ -101,7 +101,7 @@ Os seguintes Área de Trabalho Remota clientes dão suporte à área de trabalho
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
 
-## <a name="supported-virtual-machine-os-image"></a>Imagem do so da máquina virtual com suporte
+## <a name="supported-virtual-machine-os-images"></a>Imagens do sistema operacional da máquina virtual com suporte
 
 A área de trabalho virtual do Windows dá suporte às seguintes imagens de so:
 

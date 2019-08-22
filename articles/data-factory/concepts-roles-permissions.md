@@ -1,6 +1,6 @@
 ---
-title: Funções e permissões do Azure Data Factory | Documentos da Microsoft
-description: Descreve as funções e as permissões necessárias para criar fábricas de dados e trabalhar com recursos subordinados.
+title: Funções e permissões para Azure Data Factory | Microsoft Docs
+description: Descreve as funções e permissões necessárias para criar fábricas de dados e trabalhar com recursos filho.
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: 19666eb668dd120c1705c6a62a8ba1abd2321026
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 765464f8593e217fba0b564a1fabad7777e94a36
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61261845"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873603"
 ---
-# <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões do Azure Data Factory
+# <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões para Azure Data Factory
 
-Este artigo descreve as funções necessárias para criar e gerir recursos do Azure Data Factory e as permissões concedidas por essas funções.
+Este artigo descreve as funções necessárias para criar e gerenciar Azure Data Factory recursos e as permissões concedidas por essas funções.
 
-## <a name="roles-and-requirements"></a>Funções e os requisitos
+## <a name="roles-and-requirements"></a>Funções e requisitos
 
 Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser membro das funções *contribuidor* ou *proprietário* ou *administrador* da subscrição do Azure. Para ver as permissões que tem na subscrição, no portal do Azure, selecione o seu nome de utilizador no canto superior direito e, em seguida, selecione **Permissões**. Se tiver acesso a várias subscrições, selecione a subscrição apropriada. 
 
@@ -34,58 +34,62 @@ Para obter instruções de exemplo sobre como adicionar um utilizador a uma fun�
 
 ## <a name="set-up-permissions"></a>Configurar permissões
 
-Depois de criar uma fábrica de dados, pode querer permitir que outros utilizadores de trabalhar com a fábrica de dados. Para atribuir este acesso a outros utilizadores, tem de adicioná-los incorporada **contribuinte do Data Factory** função no grupo de recursos que contém a fábrica de dados.
+Depois de criar um Data Factory, talvez você queira permitir que outros usuários trabalhem com o data factory. Para conceder esse acesso a outros usuários, você precisa adicioná-los à função de colaborador de **Data Factory** interna no grupo de recursos que contém o data Factory.
 
-### <a name="scope-of-the-data-factory-contributor-role"></a>Âmbito da função de contribuinte do Data Factory
+### <a name="scope-of-the-data-factory-contributor-role"></a>Escopo da função colaborador de Data Factory
 
-A associação a **contribuinte do Data Factory** função permite aos utilizadores que efetue os seguintes procedimentos:
-- Criar, editar e eliminar fábricas de dados e recursos subordinados, incluindo conjuntos de dados, serviços ligados, pipelines, acionadores e runtimes de integração.
-- Implemente modelos do Resource Manager. Implementação do Resource Manager é o método de implantação utilizado pela fábrica de dados no portal do Azure.
-- Gerir alertas do App Insights para uma fábrica de dados.
-- Crie pedidos de suporte.
+A associação na função **colaborador de data Factory** permite que os usuários realizem as seguintes ações:
+- Crie, edite e exclua data factories e recursos filho, incluindo conjuntos de dados, serviços vinculados, pipelines, gatilhos e tempos de execução de integração.
+- Implantar modelos do Resource Manager. A implantação do Gerenciador de recursos é o método de implantação usado por Data Factory no portal do Azure.
+- Gerencie alertas do App insights para um data factory.
+- Criar tíquetes de suporte.
 
-Para mais informações sobre esta função, veja [função de contribuinte do Data Factory](../role-based-access-control/built-in-roles.md#data-factory-contributor).
+Para obter mais informações sobre essa função, consulte [Data Factory colaborador role](../role-based-access-control/built-in-roles.md#data-factory-contributor).
 
 ### <a name="resource-manager-template-deployment"></a>Implementação de modelo do Resource Manager
 
-O **contribuinte do Data Factory** função, ao nível do grupo de recursos ou superior, permite aos utilizadores implementar modelos do Resource Manager. Como resultado, os membros da função podem utilizar modelos do Resource Manager para implementar fábricas de dados e respetivos recursos subordinados, incluindo conjuntos de dados, serviços ligados, pipelines, acionadores e runtimes de integração. Membros desta função não permitir que o utilizador crie outros recursos, no entanto.
+A função **colaborador do data Factory** , no nível do grupo de recursos ou acima, permite que os usuários implantem modelos do Resource Manager. Como resultado, os membros da função podem usar modelos do Resource Manager para implantar data factories e seus recursos filho, incluindo conjuntos de dados, serviços vinculados, pipelines, gatilhos e tempos de execução de integração. No entanto, a associação nessa função não permite que o usuário crie outros recursos.
 
-Permissões em repositórios do Azure e do GitHub são independentes de permissões do Data Factory. Como resultado, um utilizador com permissões de repositório que seja apenas um membro da função leitor pode editar recursos subordinados de fábrica de dados e consolidar as alterações ao repositório, mas não é possível publicar estas alterações.
+As permissões no Azure Repos e no GitHub são independentes de permissões de Data Factory. Como resultado, um usuário com permissões de repositório que é apenas um membro da função leitor pode editar Data Factory recursos filho e confirmar as alterações no repositório, mas não pode publicar essas alterações.
 
 > [!IMPORTANT]
-> Implementação de modelo do Resource Manager com o **contribuinte do Data Factory** função não elevar as suas permissões. Por exemplo, se implementar um modelo que cria uma máquina virtual do Azure, e não tem permissão para criar máquinas virtuais, a implementação falhar com um erro de autorização.
+> A implantação do modelo do Resource Manager com a função **colaborador do data Factory** não eleva suas permissões. Por exemplo, se você implantar um modelo que cria uma máquina virtual do Azure e não tiver permissão para criar máquinas virtuais, a implantação falhará com um erro de autorização.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Cenários personalizados e funções personalizadas
 
-Por vezes, terá de conceder diferentes níveis de acesso para utilizadores de fábrica de dados diferentes. Por exemplo:
-- Poderá ter um grupo em que os utilizadores só têm permissões numa fábrica de dados específico.
-- Ou poderá ter um grupo em que os utilizadores só podem monitorizar uma fábrica de dados (ou fábricas), mas não é possível modificá-lo.
+Às vezes, talvez seja necessário conceder diferentes níveis de acesso para diferentes data factory usuários. Por exemplo:
+- Talvez seja necessário um grupo no qual os usuários só tenham permissões em um data factory específico.
+- Ou talvez você precise de um grupo no qual os usuários possam monitorar apenas um data factory (ou fábricas), mas não podem modificá-lo.
 
-Pode obter estes cenários personalizados ao criar funções personalizadas e atribuir utilizadores a essas funções. Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas no Azure](..//role-based-access-control/custom-roles.md).
+Você pode obter esses cenários personalizados criando funções personalizadas e atribuindo usuários a essas funções. Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas no Azure](..//role-based-access-control/custom-roles.md).
 
-Aqui estão alguns exemplos que demonstram o que pode conseguir com funções personalizadas:
+Aqui estão alguns exemplos que demonstram o que você pode obter com funções personalizadas:
 
-- Permitir que um usuário criar, editar ou eliminar qualquer fábrica de dados num grupo de recursos do portal do Azure.
+- Permita que um usuário crie, edite ou exclua qualquer data factory em um grupo de recursos do portal do Azure.
 
-  Atribuir o incorporado **contribuinte do Data Factory** função ao nível do grupo de recursos para o utilizador. Se pretender permitir o acesso a qualquer fábrica de dados numa subscrição, atribua a função ao nível da subscrição.
+  Atribua a função de **colaborador de data Factory** interna no nível do grupo de recursos para o usuário. Se você quiser permitir o acesso a qualquer data factory em uma assinatura, atribua a função no nível de assinatura.
 
-- Permitir que um modo de exibição do usuário (leitura) e monitorizar uma fábrica de dados, mas não editar ou alterá-la.
+- Permitir que um usuário exiba (leia) e monitore um data factory, mas não edite ou altere-o.
 
-  Atribuir o incorporado **leitor** função no recurso de fábrica de dados para o utilizador.
+  Atribua a função de **leitor** interna no recurso de data Factory para o usuário.
 
-- Permitir que um utilizador editar uma fábrica de dados individual no portal do Azure.
+- Permitir que um usuário edite um único data factory no portal do Azure.
 
-  Este cenário requer duas atribuições de funções.
+  Esse cenário requer duas atribuições de função.
 
-  1. Atribuir o incorporado **contribuinte** função ao nível da fábrica de dados.
-  2. Criar uma função personalizada com a permissão **Microsoft.Resources/deployments/** . Atribua esta função personalizada para o utilizador ao nível do grupo de recursos.
+  1. Atribua a função **colaborador** interna no nível de data Factory.
+  2. Crie uma função personalizada com a permissão **Microsoft. Resources/Implantations/** . Atribua essa função personalizada ao usuário no nível do grupo de recursos.
 
-- Permitir que um utilizador Atualize uma fábrica de dados do PowerShell ou o SDK, mas não no portal do Azure.
+- Permitir que um usuário só possa testar a conexão em um serviço vinculado
 
-  Atribuir o incorporado **contribuinte** função no recurso de fábrica de dados para o utilizador. Esta função permite que o usuário consulte os recursos no portal do Azure, mas o utilizador não é possível aceder a **Publish** e **publicar tudo** botões.
+    Crie uma função de função personalizada com permissões para as seguintes ações: **Microsoft. datafactory/fábricas/Getfeaturevalue/Read** e **Microsoft. datafactory/factories/getDataPlaneAccess/Read**. Atribua essa função personalizada no recurso de data factory para o usuário.
+
+- Permitir que um usuário atualize uma data factory do PowerShell ou do SDK, mas não no portal do Azure.
+
+  Atribua a função **colaborador** interna no recurso de data Factory para o usuário. Essa função permite que o usuário veja os recursos na portal do Azure, mas o usuário não pode acessar os botões **publicar** e **publicar todos** .
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre as funções no Azure - [compreender as definições de função](../role-based-access-control/role-definitions.md)
+- Saiba mais sobre as funções no Azure – [entender as definições de função](../role-based-access-control/role-definitions.md)
 
-- Saiba mais sobre o **contribuinte do Data Factory** função - [função de contribuinte do Data Factory](../role-based-access-control/built-in-roles.md#data-factory-contributor).
+- Saiba mais sobre a função colaborador do **Data Factory** - [Data Factory colaborador](../role-based-access-control/built-in-roles.md#data-factory-contributor).

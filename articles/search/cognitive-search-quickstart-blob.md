@@ -1,7 +1,7 @@
 ---
 title: 'Início rápido: Criar um índice aprimorado de ia no portal do Azure-Azure Search'
 description: Capacidade de extração de dados, linguagem natural e processamento de imagem em um Azure Search Portal de indexação, usando o portal do Azure e os dados de exemplo.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: quickstart
 ms.date: 07/09/2019
 ms.author: heidist
-ms.openlocfilehash: 7bc8bd77ef581134fad0cb2e11277dc4fcee99c4
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: a4654e5895e9c7768b9fa6b975ef848294bcc8cc
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841176"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648912"
 ---
 # <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Início rápido: Criar um pipeline de indexação de ia usando habilidades cognitivas no Azure Search
 

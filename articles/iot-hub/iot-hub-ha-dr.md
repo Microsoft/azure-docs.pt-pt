@@ -5,18 +5,18 @@ author: rkmanda
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 08/21/2019
 ms.author: philmea
-ms.openlocfilehash: 32caebf8ea216050427f4400102cf56ffc657b55
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f1944e06989844528a55c89f82c3db3b3a28dca1
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875255"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876898"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastre do Hub IoT
 
-Como uma primeira etapa na implementação de uma solução de IoT resiliente, arquitetos, desenvolvedores e proprietários de negócios devem definir as metas de tempo de atividade para as soluções que estão compilando. Essas metas podem ser definidas principalmente com base em objetivos de negócios específicos para cada cenário. Neste contexto, o artigo [orientação técnica da continuidade de negócios do Azure](https://docs.microsoft.com/azure/architecture/resiliency/) descreve uma estrutura geral para ajudá-lo a pensar na continuidade dos negócios e na recuperação de desastres. O artigo [recuperação de desastres e alta disponibilidade para aplicativos do Azure](https://msdn.microsoft.com/library/dn251004.aspx) fornece diretrizes de arquitetura sobre estratégias para aplicativos do Azure para atingir alta disponibilidade (ha) e recuperação de desastres (Dr).
+Como uma primeira etapa na implementação de uma solução de IoT resiliente, arquitetos, desenvolvedores e proprietários de negócios devem definir as metas de tempo de atividade para as soluções que estão compilando. Essas metas podem ser definidas principalmente com base em objetivos de negócios específicos para cada cenário. Neste contexto, o artigo [orientação técnica da continuidade de negócios do Azure](https://docs.microsoft.com/azure/architecture/resiliency/) descreve uma estrutura geral para ajudá-lo a pensar na continuidade dos negócios e na recuperação de desastres. O artigo [recuperação de desastres e alta disponibilidade para aplicativos do Azure](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) fornece diretrizes de arquitetura sobre estratégias para aplicativos do Azure para atingir alta disponibilidade (ha) e recuperação de desastres (Dr).
 
 Este artigo aborda os recursos de HA e DR oferecidos especificamente pelo serviço do Hub IoT. As áreas amplas discutidas neste artigo são:
 
@@ -41,7 +41,7 @@ O serviço de Hub IoT fornece HA de região interna implementando redundâncias 
 
 Pode haver algumas situações raras em que um datacenter experimenta interrupções extensas devido a falhas de energia ou outras falhas envolvendo ativos físicos. Esses eventos são raros durante os quais o recurso de HA da região, descrito acima, nem sempre pode ajudar. O Hub IoT fornece várias soluções para a recuperação de tais interrupções estendidas. 
 
-As opções de recuperação disponíveis para clientes nessa situação são "failover iniciado pela Microsoft" e "failover manual". A diferença fundamental entre os dois é que a Microsoft inicia o primeiro e o usuário inicia o último. Além disso, o failover manual fornece um RTO (objetivo de tempo de recuperação) menor em comparação com a opção de failover iniciada pela Microsoft. Os RTOs específicos oferecidos com cada opção são discutidos nas seções a seguir. Quando qualquer uma dessas opções para executar o failover de um hub IoT de sua região primária for exercitada, o Hub se tornará totalmente funcional na [região do emparelhada geográfica do Azure](../best-practices-availability-paired-regions.md)correspondente.
+As opções de recuperação disponíveis para clientes nessa situação são o [failover iniciado pela Microsoft e o](#microsoft-initiated-failover) [failover manual](#manual-failover). A diferença fundamental entre os dois é que a Microsoft inicia o primeiro e o usuário inicia o último. Além disso, o failover manual fornece um RTO (objetivo de tempo de recuperação) menor em comparação com a opção de failover iniciada pela Microsoft. Os RTOs específicos oferecidos com cada opção são discutidos nas seções a seguir. Quando qualquer uma dessas opções para executar o failover de um hub IoT de sua região primária for exercitada, o Hub se tornará totalmente funcional na [região do emparelhada geográfica do Azure](../best-practices-availability-paired-regions.md)correspondente.
 
 Ambas as opções de failover oferecem os seguintes RPOs (objetivos de ponto de recuperação):
 
@@ -55,26 +55,24 @@ Ambas as opções de failover oferecem os seguintes RPOs (objetivos de ponto de 
 | Mensagens de monitoramento de operações |Todas as mensagens não lidas são perdidas |
 | Mensagens de comentários da nuvem para o dispositivo |Todas as mensagens não lidas são perdidas |
 
-<sup>1</sup> As mensagens da nuvem para o dispositivo e os trabalhos pai não são recuperados como parte do failover manual na oferta de visualização desse recurso.
+<sup>1</sup> As mensagens da nuvem para o dispositivo e os trabalhos pai não são recuperados como parte do failover manual.
 
-Depois que a operação de failover para o Hub IoT for concluída, todas as operações do dispositivo e dos aplicativos de back-end deverão continuar trabalhando sem a necessidade de uma intervenção manual.
+Depois que a operação de failover para o Hub IoT for concluída, todas as operações do dispositivo e dos aplicativos de back-end deverão continuar trabalhando sem a necessidade de uma intervenção manual. Isso significa que as mensagens do dispositivo para a nuvem devem continuar funcionando e todo o registro do dispositivo está intacto. Os eventos emitidos por meio da grade de eventos podem ser consumidos por meio da mesma assinatura (s) configurada anteriormente, desde que as assinaturas da grade de eventos continuem disponíveis.
 
 > [!CAUTION]
 > - O nome compatível com o Hub de eventos e o ponto de extremidade do ponto de extremidade de eventos internos do Hub IoT são alterados após o failover. Ao receber mensagens de telemetria do ponto de extremidade interno usando o cliente do hub de eventos ou o host do processador de eventos, você deve [usar a cadeia de conexão do Hub IOT](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) para estabelecer a conexão. Isso garante que seus aplicativos de back-end continuem a funcionar sem a necessidade de uma intervenção manual após o failover. Se você usar o nome compatível com o Hub de eventos e o ponto de extremidade em seu aplicativo de back-end diretamente, será necessário reconfigurar seu aplicativo [buscando o novo nome compatível com o Hub de eventos e o ponto de extremidade](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) após o failover para continuar as operações.
 >
-> - Após o failover, os eventos emitidos por meio da grade de eventos podem ser consumidos por meio da mesma assinatura (s) configurada anteriormente, desde que as assinaturas da grade de eventos continuem disponíveis.
->
 > - Ao rotear para o armazenamento de BLOBs, é recomendável inlistar os BLOBs e, em seguida, iterar sobre eles, para garantir que todos os contêineres sejam lidos sem fazer nenhuma suposição de partição. O intervalo de partição pode ser alterado durante um failover iniciado pela Microsoft ou um failover manual. Para saber como enumerar a lista de BLOBs, consulte [Roteamento para o armazenamento](iot-hub-devguide-messages-d2c.md#azure-blob-storage)de BLOBs.
 
-### <a name="microsoft-initiated-failover"></a>Failover iniciado pela Microsoft
+## <a name="microsoft-initiated-failover"></a>Failover iniciado pela Microsoft
 
 O failover iniciado pela Microsoft é exercido pela Microsoft em raras situações para realizar o failover de todos os hubs IoT de uma região afetada para a região emparelhada geograficamente correspondente. Esse processo é uma opção padrão (não há como recusar os usuários) e não requer nenhuma intervenção do usuário. A Microsoft se reserva o direito de fazer uma determinação de quando essa opção será exercitada. Esse mecanismo não envolve um consentimento do usuário antes que o Hub do usuário seja reprovado. O failover iniciado pela Microsoft tem um RTO (objetivo de tempo de recuperação) de 2-26 horas. 
 
 O RTO grande é porque a Microsoft deve executar a operação de failover em nome de todos os clientes afetados nessa região. Se você estiver executando uma solução de IoT menos crítica que possa sustentar um tempo de inatividade de aproximadamente um dia, é certo que você tenha uma dependência dessa opção para atender aos objetivos gerais de recuperação de desastres para sua solução de IoT. O tempo total para que as operações de tempo de execução se tornem totalmente operacionais quando esse processo é disparado, é descrito na seção "tempo para recuperar".
 
-### <a name="manual-failover-preview"></a>Failover manual (visualização)
+## <a name="manual-failover"></a>Ativação pós-falha manual
 
-Se suas metas de tempo de atividade de negócios não forem satisfeitas pelo RTO fornecido pelo Microsoft failover, você deverá considerar o uso do failover manual para disparar o processo de failover por conta própria. O RTO que usa essa opção pode estar em qualquer lugar entre 10 minutos e algumas horas. Atualmente, o RTO é uma função do número de dispositivos registrados na instância do Hub IoT que está sendo realizado o failover. Você pode esperar que o RTO de um Hub que hospeda aproximadamente 100.000 dispositivos esteja em aproximada de 15 minutos. O tempo total para que as operações de tempo de execução se tornem totalmente operacionais quando esse processo é disparado, é descrito na seção "tempo para recuperar".
+Se suas metas de tempo de atividade de negócios não forem satisfeitas pelo RTO fornecido pelo failover do Microsoft, considere usar o failover manual para disparar o processo de failover por conta própria. O RTO que usa essa opção pode estar em qualquer lugar entre 10 minutos e algumas horas. Atualmente, o RTO é uma função do número de dispositivos registrados na instância do Hub IoT que está sendo realizado o failover. Você pode esperar que o RTO de um Hub que hospeda aproximadamente 100.000 dispositivos esteja em aproximada de 15 minutos. O tempo total para que as operações de tempo de execução se tornem totalmente operacionais quando esse processo é disparado, é descrito na seção "tempo para recuperar".
 
 A opção de failover manual está sempre disponível para uso, independentemente de a região primária estar com tempo de inatividade ou não. Portanto, essa opção pode ser usada potencialmente para executar failovers planejados. Um exemplo de uso de failovers planejados é executar análises de failover periódicas. No entanto, uma observação é que uma operação de failover planejada resulta em um tempo de inatividade para o Hub para o período definido pelo RTO para essa opção e também resulta em uma perda de dados, conforme definido pela tabela de RPO acima. Você poderia considerar a configuração de uma instância de Hub IoT de teste para exercitar a opção de failover planejado periodicamente para obter confiança em sua capacidade de colocar suas soluções de ponta a ponta em funcionamento quando ocorrer um desastre real.
 
@@ -83,18 +81,18 @@ A opção de failover manual está sempre disponível para uso, independentement
 >
 > - O failover manual não deve ser usado como um mecanismo para migrar permanentemente seu hub entre as regiões emparelhadas do Azure Geo. Isso causaria uma latência maior para as operações executadas no hub a partir de dispositivos hospedados na região primária antiga.
 
-### <a name="failback"></a>Reativação pós-falha
+## <a name="failback"></a>Reativação pós-falha
 
 O failback para a região primária antiga pode ser obtido disparando a ação de failover outra vez. Se a operação de failover original foi executada para recuperar-se de uma interrupção estendida na região primária original, recomendamos que o Hub faça failback para o local original quando esse local for recuperado da situação de interrupção.
 
 > [!IMPORTANT]
 > - Os usuários só têm permissão para executar 2 failover bem-sucedido e 2 operações de failback bem-sucedidas por dia.
 >
-> - Voltar para operações de failover/failback não são permitidos. Os usuários precisarão aguardar 1 hora entre essas operações.
+> - Voltar para operações de failover/failback não são permitidos. Você deve aguardar uma hora entre essas operações.
 
-### <a name="time-to-recover"></a>Tempo para recuperar
+## <a name="time-to-recover"></a>Tempo para recuperar
 
-Embora o FQDN (e, portanto, a cadeia de conexão) da instância do Hub IoT permaneça o mesmo failover após, o endereço IP subjacente será alterado. Portanto, o tempo geral para as operações de tempo de execução que estão sendo executadas em sua instância do Hub IoT ficar totalmente operacional após o disparo do processo de failover pode ser expresso usando a seguinte função.
+Embora o FQDN (e, portanto, a cadeia de conexão) da instância do Hub IoT permaneça o mesmo failover pós, o endereço IP subjacente é alterado. Portanto, o tempo geral para as operações de tempo de execução que estão sendo executadas em sua instância do Hub IoT ficar totalmente operacional após o disparo do processo de failover pode ser expresso usando a seguinte função.
 
 Tempo de recuperação = RTO [10 min-2 horas para failover manual | 2-26 horas para failover iniciado pela Microsoft] + atraso de propagação de DNS + tempo gasto pelo aplicativo cliente para atualizar qualquer endereço IP do Hub IoT em cache.
 
@@ -127,13 +125,12 @@ Aqui está um resumo das opções de HA/DR apresentadas neste artigo que podem s
 
 | Opção HA/DR | RTO | RPO | Requer intervenção manual? | Complexidade da implementação | Impacto adicional no custo|
 | --- | --- | --- | --- | --- | --- |
-| Failover iniciado pela Microsoft |2-26 horas|Consulte a tabela de RPO acima|Não|Nenhuma|Nenhum|
-| Failover manual |10 min-2 horas|Consulte a tabela de RPO acima|Sim|Muito baixo. Você só precisa disparar essa operação no Portal.|Nenhum|
+| Failover iniciado pela Microsoft |2-26 horas|Consulte a tabela de RPO acima|Não|Nenhum|Nenhum|
+| Ativação pós-falha manual |10 min-2 horas|Consulte a tabela de RPO acima|Sim|Muito baixo. Você só precisa disparar essa operação no Portal.|Nenhum|
 | Alta disponibilidade entre regiões |< 1 min|Depende da frequência de replicação da sua solução de HA personalizada|Não|Alta|> 1x o custo de 1 Hub IoT|
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Siga estes links para saber mais sobre o Hub IoT do Azure:
-
-* [Introdução aos hubs IoT (início rápido)](quickstart-send-telemetry-dotnet.md)
 * [O que é o Hub IoT do Azure?](about-iot-hub.md)
+* [Introdução aos hubs IoT (início rápido)](quickstart-send-telemetry-dotnet.md)
+* [Tutorial: Executar failover manual para um hub IoT](tutorial-manual-failover.md)

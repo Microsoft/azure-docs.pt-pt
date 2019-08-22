@@ -2,7 +2,7 @@
 title: Exemplos de consulta do Lucene – Azure Search
 description: Sintaxe de consulta Lucene para pesquisa difusa, pesquisa de proximidade, aumento de termo, pesquisa de expressão regular e pesquisas de curinga em um serviço de Azure Search.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: Lucene query analyzer syntax
 services: search
 ms.service: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 53a1f09fcc9897f4def565a9119ad97ca365cae3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 3f6a39129db9e8c43a5e2de68d919ba1037c3f5c
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882755"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648226"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Exemplos de consulta usando a sintaxe de pesquisa "completa" do Lucene (consultas avançadas no Azure Search)
 
@@ -282,7 +282,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 > As consultas curinga não [](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis)são analisadas. A única transformação executada em termos de consulta incompletos está em letras minúsculas.
 >
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Tente especificar o analisador de consulta Lucene em seu código. Os links a seguir explicam como configurar consultas de pesquisa para o .NET e a API REST. Os links usam a sintaxe simples padrão, portanto, será necessário aplicar o que você aprendeu deste artigo para especificar o **QueryType**.
 
 * [Consultar seu índice de Azure Search usando o SDK do .NET](search-query-dotnet.md)

@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 9f40ec658fc6725f381300d967c9d7cd61c3a218
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: a0c34fcc70d92f98a6d72e4cd2fc78d34d863d55
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624155"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650466"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação no Azure Functions
 
@@ -60,7 +60,7 @@ Quando você altera qualquer um de seus gatilhos, a infraestrutura do Functions 
 
 ### <a name="remote-build"></a>Build remoto
 
-Azure Functions pode executar compilações automaticamente no código que recebe após implantações de zip. Essas compilações se comportam um pouco diferente dependendo se seu aplicativo está em execução no Windows ou no Linux. As compilações remotas não são executadas quando um aplicativo tiver sido previamente definido para execução em execução no modo [de pacote](run-functions-from-deployment-package.md) . 
+Azure Functions pode executar compilações automaticamente no código que recebe após implantações de zip. Essas compilações se comportam um pouco diferente dependendo se seu aplicativo está em execução no Windows ou no Linux. As compilações remotas não são executadas quando um aplicativo tiver sido previamente definido para execução em execução no modo [de pacote](run-functions-from-deployment-package.md) . Para saber como usar a compilação remota, navegue até a [implantação de zip](#zip-deploy).
 
 > [!NOTE]
 > Se você estiver tendo problemas com a compilação remota, pode ser porque seu aplicativo foi criado antes de o recurso ser disponibilizado (1º de agosto de 2019). Tente criar um novo aplicativo de funções.
@@ -85,11 +85,11 @@ Quando os aplicativos são criados remotamente no Linux, eles são [executados a
 
 ##### <a name="consumption-preview-plan"></a>Plano de consumo (versão prévia)
 
-Os aplicativos de funções do Linux em execução no plano de consumo não têm um site SCM/kudu, que limita as opções de implantação. No entanto, os aplicativos de funções no Linux em execução no plano de consumo oferecem suporte a compilações remotas. Essas compilações remotas usam [Oryx](https://github.com/microsoft/Oryx).
+Os aplicativos de funções do Linux em execução no plano de consumo não têm um site SCM/kudu, que limita as opções de implantação. No entanto, os aplicativos de funções no Linux em execução no plano de consumo oferecem suporte a compilações remotas.
 
 ##### <a name="dedicated-and-premium-preview-plans"></a>Planos dedicado e Premium (visualização)
 
-Os aplicativos de funções em execução no Linux no [plano dedicado (serviço de aplicativo)](functions-scale.md#app-service-plan) e no [plano Premium](functions-scale.md#premium-plan) também têm um site do SCM/kudu limitado, que aproveita o [Oryx](https://github.com/microsoft/Oryx).
+Os aplicativos de funções em execução no Linux no [plano dedicado (serviço de aplicativo)](functions-scale.md#app-service-plan) e no [plano Premium](functions-scale.md#premium-plan) também têm um site do SCM/kudu limitado.
 
 ## <a name="deployment-technology-details"></a>Detalhes da tecnologia de implantação
 
@@ -111,7 +111,7 @@ Use a implantação de zip para enviar por push um arquivo. zip que contém seu 
 
 >__Como usá-lo:__ Implante usando sua ferramenta de cliente favorita: [Vs Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)ou o [CLI do Azure](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). Para implantar manualmente um arquivo. zip em seu aplicativo de funções, siga as instruções em [implantar de um arquivo. zip ou de uma URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
-Para executar um zip implantar com uma compilação remota, use o seguinte comando de [ferramentas principais](functions-run-local.md) :
+Para executar um zip implantar com uma [compilação remota](#remote-build), use o seguinte comando de [ferramentas principais](functions-run-local.md) :
 
 ```bash
 func azure functionapp publish <app name> --build remote

@@ -8,13 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 10/06/2017
-ms.openlocfilehash: 243f4e63cc04bca018c2bf69492dccf163e92b73
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/16/2019
+ms.openlocfilehash: 0a89cd2c576a3539d7b1b6a282a2287551e8265a
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780838"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877132"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Agendar e difundir trabalhos (Node. js)
 
@@ -48,9 +48,11 @@ No final deste tutorial, você tem dois aplicativos node. js:
 
 * **scheduleJobService. js**, que chama um método direto no aplicativo de dispositivo simulado e atualiza as propriedades desejadas do dispositivo "s" usando um trabalho.
 
-Para concluir este tutorial, precisa do seguinte:
+## <a name="prerequisites"></a>Pré-requisitos
 
-* O Node. js versão 10.0. x ou posterior [Prepare seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) descreve como instalar o Node. js para este tutorial no Windows ou no Linux.
+Para concluir este tutorial, precisa de:
+
+* Node. js versão 10.0. x ou posterior. [Preparar seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) descreve como instalar o Node. js para este tutorial no Windows ou no Linux.
 
 * Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
@@ -68,39 +70,39 @@ Nesta seção, você cria um aplicativo de console do node. js que responde a um
 
 1. Crie uma nova pasta vazia chamada **simDevice**.  Na pasta **simDevice** , crie um arquivo Package. JSON usando o comando a seguir no prompt de comando.  Aceite todas as predefinições:
 
-   ```
+   ```console
    npm init
    ```
 
 2. No prompt de comando na pasta **simDevice** , execute o seguinte comando para instalar o pacote do SDK do dispositivo **Azure-IOT-Device** e o pacote **Azure-IOT-Device-MQTT** :
-   
-   ```
+
+   ```console
    npm install azure-iot-device azure-iot-device-mqtt --save
    ```
 
 3. Usando um editor de texto, crie um novo arquivo **simDevice. js** na pasta **simDevice** .
 
 4. Adicione as seguintes instruções "require" no início do arquivo **simDevice. js** :
-   
-    ```
+
+    ```javascript
     'use strict';
-   
+
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. Adicione uma variável **connectionString** e utilize-a para criar uma instância do **Cliente**.  
-   
-    ```
-    var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
+5. Adicione uma variável **connectionString** e utilize-a para criar uma instância do **Cliente**. Substitua o `{yourDeviceConnectionString}` valor do espaço reservado pela cadeia de conexão do dispositivo que você copiou anteriormente.
+
+    ```javascript
+    var connectionString = '{yourDeviceConnectionString}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
 6. Adicione a seguinte função para manipular o método **lockDoor** .
-   
-    ```
+
+    ```javascript
     var onLockDoor = function(request, response) {
-   
+
         // Respond the cloud app for the direct method
         response.send(200, function(err) {
             if (err) {
@@ -109,14 +111,14 @@ Nesta seção, você cria um aplicativo de console do node. js que responde a um
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');
             }
         });
-   
+
         console.log('Locking Door!');
     };
     ```
 
 7. Adicione o código a seguir para registrar o manipulador para o método **lockDoor** .
 
-   ```
+   ```javascript
    client.open(function(err) {
         if (err) {
             console.error('Could not connect to IotHub client.');
@@ -145,30 +147,30 @@ Nesta seção, você cria um aplicativo de console do node. js que inicia um **l
 
 1. Crie uma nova pasta vazia chamada **scheduleJobService**.  Na pasta **scheduleJobService** , crie um arquivo Package. JSON usando o comando a seguir no prompt de comando.  Aceite todas as predefinições:
 
-    ```
+    ```console
     npm init
     ```
 
 2. No prompt de comando na pasta **scheduleJobService** , execute o seguinte comando para instalar o pacote do SDK do dispositivo **Azure-iothub** e o pacote **Azure-IOT-Device-MQTT** :
-   
-    ```
+
+    ```console
     npm install azure-iothub uuid --save
     ```
 
 3. Usando um editor de texto, crie um novo arquivo **scheduleJobService. js** na pasta **scheduleJobService** .
 
-4. Adicione as seguintes instruções "require" no início do arquivo **dmpatterns_gscheduleJobServiceetstarted_service. js** :
-   
-    ```
+4. Adicione as seguintes instruções "require" no início do arquivo **scheduleJobService. js** :
+
+    ```javascript
     'use strict';
-   
+
     var uuid = require('uuid');
     var JobClient = require('azure-iothub').JobClient;
     ```
 
-5. Adicione as seguintes declarações de variável e substitua os valores de espaço reservado:
-   
-    ```
+5. Adicione as seguintes declarações de variável. Substitua o `{iothubconnectionstring}` valor do espaço reservado pelo valor copiado em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string). Se você registrou um dispositivo diferentede DeviceID, certifique-se de alterá-lo na condição de consulta.
+
+    ```javascript
     var connectionString = '{iothubconnectionstring}';
     var queryCondition = "deviceId IN ['myDeviceId']";
     var startTime = new Date();
@@ -177,8 +179,8 @@ Nesta seção, você cria um aplicativo de console do node. js que inicia um **l
     ```
 
 6. Adicione a seguinte função que é usada para monitorar a execução do trabalho:
-   
-    ```
+
+    ```javascript
     function monitorJob (jobId, callback) {
         var jobMonitorInterval = setInterval(function() {
             jobClient.getJob(jobId, function(err, result) {
@@ -197,14 +199,14 @@ Nesta seção, você cria um aplicativo de console do node. js que inicia um **l
     ```
 
 7. Adicione o seguinte código para agendar o trabalho que chama o método de dispositivo:
-   
-    ```
+  
+    ```javascript
     var methodParams = {
         methodName: 'lockDoor',
         payload: null,
         responseTimeoutInSeconds: 15 // Timeout after 15 seconds if device is unable to process method
     };
-   
+
     var methodJobId = uuid.v4();
     console.log('scheduling Device Method job with id: ' + methodJobId);
     jobClient.scheduleDeviceMethod(methodJobId,
@@ -228,8 +230,8 @@ Nesta seção, você cria um aplicativo de console do node. js que inicia um **l
     ```
 
 8. Adicione o seguinte código para agendar o trabalho para atualizar o dispositivo de atualização:
-   
-    ```
+
+    ```javascript
     var twinPatch = {
        etag: '*',
        properties: {
@@ -239,9 +241,9 @@ Nesta seção, você cria um aplicativo de console do node. js que inicia um **l
            }
        }
     };
-   
+
     var twinJobId = uuid.v4();
-   
+
     console.log('scheduling Twin Update job with id: ' + twinJobId);
     jobClient.scheduleTwinUpdate(twinJobId,
                                 queryCondition,
@@ -270,18 +272,26 @@ Nesta seção, você cria um aplicativo de console do node. js que inicia um **l
 Pode agora executar as aplicações.
 
 1. No prompt de comando na pasta **simDevice** , execute o comando a seguir para começar a escutar o método direto de reinicialização.
-   
-    ```
+
+    ```console
     node simDevice.js
     ```
 
 2. No prompt de comando na pasta **scheduleJobService** , execute o comando a seguir para disparar os trabalhos para bloquear a porta e atualizar a atualização de
-   
-    ```
+
+    ```console
     node scheduleJobService.js
     ```
 
-3. Você vê a resposta do dispositivo para o método direto no console.
+3. Você vê a resposta do dispositivo para o método direto e o status do trabalho no console do.
+
+   O seguinte mostra a resposta do dispositivo para o método direto:
+
+   ![Saída de aplicativo de dispositivo simulado](./media/iot-hub-node-node-schedule-jobs/sim-device.png)
+
+   O seguinte mostra os trabalhos de agendamento de serviço para o método direto e a atualização do dispositivo e os trabalhos em execução para a conclusão:
+
+   ![Executar o aplicativo de dispositivo simulado](./media/iot-hub-node-node-schedule-jobs/schedule-job-service.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

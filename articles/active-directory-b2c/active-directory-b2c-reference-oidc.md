@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/22/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 36efdb7db57d3acfa7384d904e9be8faad4c6534
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 35abb84f92ed9a7295c45afc69b673a3be46be15
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622082"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874119"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Entrada na Web com o OpenID Connect no Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Azure AD B2C estende o protocolo OpenID Connect padrão para fazer mais do que a
 
 Quando seu aplicativo Web precisa autenticar o usuário e executar um fluxo de usuário, ele pode direcionar o usuário `/authorize` para o ponto de extremidade. O usuário executa a ação dependendo do fluxo do usuário.
 
-Nessa solicitação, o cliente indica as permissões que precisa adquirir do usuário no `scope` parâmetro e especifica o fluxo de usuário a ser executado. Três exemplos são fornecidos nas seções a seguir (com quebras de linha para facilitar a leitura), cada um usando um fluxo de usuário diferente. Para ter uma ideia de como cada solicitação funciona, tente colar a solicitação em um navegador e executá-la. Você pode substituir `fabrikamb2c` pelo nome do seu locatário se tiver um e tiver criado um fluxo de usuário. Você também precisará substituir `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`. Substitua essa ID do cliente pela ID do aplicativo que você criou. Além disso, altere o nome`{policy}`da política () para o nome da política que você tem em seu `b2c_1_sign_in`locatário, por exemplo.
+Nessa solicitação, o cliente indica as permissões que precisa adquirir do usuário no `scope` parâmetro e especifica o fluxo de usuário a ser executado. Para ter uma ideia de como a solicitação funciona, tente colar a solicitação em um navegador e executá-la. Substitua `{tenant}` pelo nome do seu locatário. Substitua `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` pela ID do aplicativo que você registrou anteriormente em seu locatário. Além disso, altere o nome`{policy}`da política () para o nome da política que você tem em seu `b2c_1_sign_in`locatário, por exemplo.
 
 ```HTTP
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
@@ -48,7 +48,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Parâmetro | Requerido | Descrição |
 | --------- | -------- | ----------- |
 | vários | Sim | Nome do seu locatário de Azure AD B2C |
-| regras | Sim | O fluxo do usuário que é executado. É o nome de um fluxo de usuário que é criado em seu locatário Azure AD B2C. O nome do fluxo do usuário deve começar com `b2c_1_`. Por exemplo: `b2c_1_sign_in`, `b2c_1_sign_up`ou `b2c_1_edit_profile`. |
+| regras | Sim | O fluxo do usuário a ser executado. Especifique o nome de um fluxo de usuário que você criou em seu locatário Azure AD B2C. Por exemplo: `b2c_1_sign_in`, `b2c_1_sign_up`ou `b2c_1_edit_profile`. |
 | client_id | Sim | A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuído ao seu aplicativo. |
 | nonce | Sim | Um valor incluído na solicitação (gerado pelo aplicativo) que é incluído no token de ID resultante como uma declaração. O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. O valor normalmente é uma cadeia de caracteres exclusiva aleatória que pode ser usada para identificar a origem da solicitação. |
 | response_type | Sim | Deve incluir um token de ID para o OpenID Connect. Se o aplicativo Web também precisar de tokens para chamar uma API da Web, `code+id_token`você poderá usar o. |
@@ -274,14 +274,14 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | --------- | -------- | ----------- |
 | vários | Sim | Nome do seu locatário de Azure AD B2C |
 | regras | Sim | O fluxo de usuário que você deseja usar para desconectar o usuário do seu aplicativo. |
-| id_token_hint| Não | Um token de ID emitido anteriormente para passar para o ponto de extremidade de logout como uma dica sobre a sessão autenticada atual do usuário final com o cliente. |
-| post_logout_redirect_uri | Não | A URL para a qual o usuário deve ser redirecionado após a saída bem-sucedida. Se não estiver incluído, Azure AD B2C mostrará ao usuário uma mensagem genérica. |
+| id_token_hint| Não | Um token de ID emitido anteriormente para passar para o ponto de extremidade de logout como uma dica sobre a sessão autenticada atual do usuário final com o cliente. O `id_token_hint` garante que o `post_logout_redirect_uri` é uma URL de resposta registrada em suas configurações de Azure ad B2C aplicativo. |
+| post_logout_redirect_uri | Não | A URL para a qual o usuário deve ser redirecionado após a saída bem-sucedida. Se não estiver incluído, Azure AD B2C mostrará ao usuário uma mensagem genérica. A menos que você `id_token_hint`forneça um, você não deve registrar essa URL como uma URL de resposta em suas configurações de Azure ad B2C aplicativo. |
 | state | Não | Se um `state` parâmetro for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os `state` valores na solicitação e na resposta são idênticos. |
 
-### <a name="require-id-token-hint-in-logout-request"></a>Exigir dica de token de ID na solicitação de logout
+### <a name="secure-your-logout-redirect"></a>Proteger seu redirecionamento de logout
 
 Após o logout, o usuário é redirecionado para o URI especificado no `post_logout_redirect_uri` parâmetro, independentemente das URLs de resposta que foram especificadas para o aplicativo. No entanto, se `id_token_hint` um válido for passado, Azure ad B2C verificará se o `post_logout_redirect_uri` valor de corresponde a um dos URIs de redirecionamento configurados do aplicativo antes de executar o redirecionamento. Se nenhuma URL de resposta correspondente tiver sido configurada para o aplicativo, uma mensagem de erro será exibida e o usuário não será redirecionado.
 
-### <a name="external-identity-provider-session"></a>Sessão do provedor de identidade externa
+### <a name="external-identity-provider-sign-out"></a>Logout do provedor de identidade externo
 
 Direcionar o usuário para o `end_session` ponto de extremidade limpa parte do estado de logon único do usuário com o Azure ad B2C, mas ele não desconecta o usuário de sua sessão do IDP (provedor de identidade social). Se o usuário selecionar o mesmo IDP durante uma entrada subsequente, ele será reautenticado sem inserir suas credenciais. Se um usuário quiser sair do aplicativo, isso não significa necessariamente que deseja sair de sua conta do Facebook. No entanto, se forem usadas contas locais, a sessão do usuário será encerrada corretamente.

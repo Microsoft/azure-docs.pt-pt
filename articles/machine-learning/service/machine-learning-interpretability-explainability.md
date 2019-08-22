@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 06/21/2019
-ms.openlocfilehash: 1e742c278b9356c7501964541802e0c96dc74b09
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2e8eb79c4baebebb1974a977394215545ef944db
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358656"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872393"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Interpretação de modelo com serviço Azure Machine Learning
 
@@ -69,7 +69,7 @@ Os explicadores diretos vêm de bibliotecas integradas. O SDK encapsula todos os
 * **Explicador de importância do recurso de permuta**: A importância do recurso de permuta é uma técnica usada para explicar os modelos de classificação e regressão inspirados pelo [documento de florestas aleatórias do Breiman](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (consulte a seção 10). Em um alto nível, a maneira como ele funciona é por meio do embaralhamento de dados um recurso por vez para todo o DataSet e calcular a quantidade de métricas de desempenho que o interesse diminui. Quanto maior a alteração, mais importante é esse recurso.
 
 * **Explicador de verde-limão** (`contrib`): Com base no verde-limão, o explicador de verde-limão usa o algoritmo de alto-limão de modelo interpretável local interpretado para criar modelos substitutos locais. Diferentemente dos modelos substitutos globais, o verde-limão se concentra em treinar modelos substitutos locais para explicar previsões individuais.
-* **Explicador de texto Han** (`contrib`): O explicador de texto HAN usa uma rede de atenção hierárquica para obter explicações de modelo de dados de texto para um determinado modelo de texto de caixa preta. Treinamos o modelo substituto de HAN em uma determinada saída prevista do modelo de professor. Depois de treinar globalmente pelo texto corpus, adicionamos uma etapa de ajuste fino para um documento específico a fim de melhorar a precisão das explicações. O HAN usa um RNN bidirecional com duas camadas de atenção, para a atenção da frase e da palavra. Depois que o DNN é treinado no modelo de professor e ajustado em um documento específico, podemos extrair a palavra importância das camadas de atenção. Encontramos o HAN para ser mais preciso do que verde-limão ou SHAP para dados de texto, mas também mais dispendioso em termos de tempo de treinamento. No entanto, fizemos melhorias no tempo de treinamento, dando ao usuário a opção de inicializar a rede com incorporações de palavras diferenciada, embora ainda seja lenta. O tempo de treinamento pode ser melhorado significativamente com a execução de HAN em uma VM de GPU remota do Azure. A implementação de HAN é descrita em "redes de atenção hierárquica para classificação de documentos (Yang et al., 2016)[https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf)" ().
+* **Explicador de texto Han** (`contrib`): O explicador de texto HAN usa uma rede de atenção hierárquica para obter explicações de modelo de dados de texto para um determinado modelo de texto de caixa preta. Treinamos o modelo substituto de HAN em uma determinada saída prevista do modelo de professor. Depois de treinar globalmente pelo texto corpus, adicionamos uma etapa de ajuste fino para um documento específico a fim de melhorar a precisão das explicações. O HAN usa um RNN bidirecional com duas camadas de atenção, para a atenção da frase e da palavra. Depois que o DNN é treinado no modelo de professor e ajustado em um documento específico, podemos extrair a palavra importância das camadas de atenção. Encontramos o HAN para ser mais preciso do que verde-limão ou SHAP para dados de texto, mas também mais dispendioso em termos de tempo de treinamento. No entanto, fizemos melhorias no tempo de treinamento, dando ao usuário a opção de inicializar a rede com incorporações de palavras diferenciada, embora ainda seja lenta. O tempo de treinamento pode ser melhorado significativamente com a execução de HAN em uma VM de GPU remota do Azure. A implementação de HAN é descrita em ["redes de atenção hierárquica para classificação de documentos (Yang et al., 2016)"](https://www.researchgate.net/publication/305334401_Hierarchical_Attention_Networks_for_Document_Classification).
 
 
 Os __meta explicadores__ selecionam automaticamente um explicador direto adequado e geram as melhores informações de explicação com base no modelo e nos conjuntos de dados fornecidos. Os timeexplicadores aproveitam todas as bibliotecas (SHAP, verde-limão, imitação, etc.) que nós integramos ou desenvolvemos. Estes são os meta explicadores disponíveis no SDK:

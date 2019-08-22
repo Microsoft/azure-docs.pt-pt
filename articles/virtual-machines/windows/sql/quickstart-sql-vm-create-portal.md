@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb35cc99164cc8da047e8309d63bf7909abf4815
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 50297147d371898c35259bf4be59337eaa716579
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846020"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877863"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Início rápido: Crie uma máquina virtual do SQL Server 2017 Windows no portal do Azure
 
@@ -42,16 +42,15 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando sua conta.
 
-1. No portal do Azure, selecione **Criar um recurso**. 
+1. Selecione **SQL do Azure** no menu à esquerda da portal do Azure. Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite *SQL do Azure* na caixa de pesquisa.
+1. Selecione **+ Adicionar** para abrir a página **selecionar opção de implantação do SQL** . Você pode exibir informações adicionais selecionando **Mostrar detalhes** no bloco **máquinas virtuais do SQL** .
+1. Selecione a **licença de SQL Server gratuita: SQL Server desenvolvedor 2017 na imagem do Windows** Server 2016 do menu suspenso.
 
-1. No campo de pesquisa, digite `SQL Server 2017 Developer on Windows Server 2016`e pressione Enter. Expanda a opção SQL Server 2017 no Windows Server 2016. 
-
-1. Selecione a **licença de SQL Server gratuita: SQL Server desenvolvedor 2017 na imagem do Windows** Server 2016. A edição de Programador é utilizada neste tutorial porque é uma edição com todas as funcionalidades do SQL Server que é gratuita para fins de teste de programação. Apenas paga pelo custo de execução da VM. Para obter considerações mais compeltas sobre preços, consulte [Pricing guidance for SQL Server Azure VMs (Documentação de orientação sobre preços de VMs do Azure do SQL Server)](virtual-machines-windows-sql-server-pricing-guidance.md).
-
-   ![Nova janela de procura](./media/quickstart-sql-vm-create-portal/newsearch.png)
-
+   ![Nova janela de procura](./media/quickstart-sql-vm-create-portal/select-sql-2017-vm-image.png)
 
 1. Selecione **Criar**.
+
+   ![Nova janela de procura](./media/quickstart-sql-vm-create-portal/create-sql-2017-vm-image.png)
 
 ## <a id="configure"></a> Forneça os detalhes básicos
 
@@ -76,9 +75,9 @@ Na guia **noções básicas** , forneça as seguintes informações:
 
 1. Em **regras de porta de entrada**, escolha **permitir portas selecionadas** e, em seguida, selecione **RDP (3389)** na lista suspensa. 
 
-   ![Regras da porta de entrada](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
+   ![Regras de porta de entrada](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
 
-## <a name="sql-server-settings"></a>Definições do SQL Server
+## <a name="sql-server-settings"></a>Definições de SQL Server
 
 Na guia **configurações de SQL Server** , configure as seguintes opções:
 
@@ -132,7 +131,7 @@ O acesso ao computador permite-lhe alterar diretamente as definições do SQL Se
 Se não precisar que a sua VM SQL execute continuamente, pode evitar despesas desnecessárias ao pará-la quando não estiver a utilizar. Também pode eliminar permanentemente todos os recursos associados à máquina virtual ao eliminar o seu grupo de recursos associados no portal. Isto também elimina permanentemente a máquina virtual, pelo que utilize este comando com cuidado. Para mais informações, consulte [Manage Azure resources through portal (Gerir recursos do Azure através do portal)](../../../azure-resource-manager/manage-resource-groups-portal.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você criou uma máquina virtual SQL Server 2017 no portal do Azure. Para saber mais sobre como migrar os seus dados para o novo SQL Server, consulte o seguinte artigo.
 

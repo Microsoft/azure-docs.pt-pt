@@ -2,17 +2,17 @@
 title: API de preenchimento de SaaS v2 | Azure Marketplace
 description: Este artigo explica como criar e gerenciar uma oferta de SaaS no AppSource e no Azure Marketplace usando as APIs de cumprimento associado v2.
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: qianw211
 ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: 276699b9316a0c4fd428038f2c967bdf934f449c
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: a2041aefcfdcb1746e64f50c7cb53b3bfaec3299
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016033"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872795"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>APIs de preenchimento de SaaS, versão 2 
 
@@ -108,7 +108,7 @@ O ponto de extremidade de resolução permite que o Publicador resolva um token 
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
+|  Tipo de conteúdo      | `application/json` |
 |  x-ms-requestid    |  Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 |  x-ms-correlationid |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
 |  authorization     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo: "`Bearer <access_token>`". |
@@ -116,7 +116,7 @@ O ponto de extremidade de resolução permite que o Publicador resolva um token 
 
 *Códigos de resposta:*
 
-Código: 200<br>
+Auto-completar 200<br>
 Resolve o token opaco para uma assinatura de SaaS. Corpo da resposta:
  
 
@@ -130,17 +130,17 @@ Resolve o token opaco para uma assinatura de SaaS. Corpo da resposta:
 }
 ```
 
-Código: 400<br>
+Auto-completar 400<br>
 Solicitação inadequada. x-MS-Marketplace-token está ausente, malformado ou expirou.
 
-Código: 403<br>
+Auto-completar 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
 
-Código: 404<br>
+Auto-completar 404<br>
 Não encontrado.
 
-Código: 500<br>
-Erro interno de servidor.
+Auto-completar 500<br>
+Erro interno do servidor.
 
 ```json
 {
@@ -172,14 +172,14 @@ Lista todas as assinaturas de SaaS para um Publicador.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-| Content-Type       |  `application/json`  |
+| Tipo de conteúdo       |  `application/json`  |
 | x-ms-requestid     |  Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | x-ms-correlationid |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
 | authorization      |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo: "`Bearer <access_token>`".  |
 
 *Códigos de resposta:*
 
-Código: 200 <br/>
+Auto-completar 200 <br/>
 Obtém o Publicador e as assinaturas correspondentes para todas as ofertas do Publicador, com base no token de autenticação.
 Carga de resposta:<br>
 
@@ -218,11 +218,11 @@ Carga de resposta:<br>
 
 O token de continuação estará presente somente se houver "páginas" adicionais de planos para recuperar. 
 
-Código: 403 <br>
+Auto-completar 403 <br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual. 
 
-Código: 500<br>
-Erro interno de servidor.
+Auto-completar 500<br>
+Erro interno do servidor.
 
 ```json
 {
@@ -250,14 +250,14 @@ Obtém a assinatura SaaS especificada. Use esta chamada para obter informações
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      |  `application/json`  |
+|  Tipo de conteúdo      |  `application/json`  |
 |  x-ms-requestid    |  Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 |  x-ms-correlationid |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
 |  authorization     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo: "`Bearer <access_token>`".  |
 
 *Códigos de resposta:*
 
-Código: 200<br>
+Auto-completar 200<br>
 Obtém a assinatura de SaaS do identificador. Carga de resposta:<br>
 
 ```json
@@ -287,14 +287,14 @@ Response Body:
 }
 ```
 
-Código: 403<br>
+Auto-completar 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
 
-Código: 404<br>
+Auto-completar 404<br>
 Não encontrado.<br> 
 
-Código: 500<br>
-Erro interno de servidor.<br>
+Auto-completar 500<br>
+Erro interno do servidor.<br>
 
 ```json
 {
@@ -320,14 +320,14 @@ Use essa chamada para descobrir se há alguma oferta privada ou pública para o 
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     |  `application/json` |
+|   Tipo de conteúdo     |  `application/json` |
 |   x-ms-requestid   |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 |  x-ms-correlationid  | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 |  authorization     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`". |
 
 *Códigos de resposta:*
 
-Código: 200<br>
+Auto-completar 200<br>
 Obtém uma lista de planos disponíveis para um cliente. Corpo da resposta:
 
 ```json
@@ -340,14 +340,14 @@ Obtém uma lista de planos disponíveis para um cliente. Corpo da resposta:
 }
 ```
 
-Código: 404<br>
+Auto-completar 404<br>
 Não encontrado.<br> 
 
-Código: 403<br>
+Auto-completar 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual. <br> 
 
-Código: 500<br>
-Erro interno de servidor.<br>
+Auto-completar 500<br>
+Erro interno do servidor.<br>
 
 ```json
 { 
@@ -372,7 +372,7 @@ Erro interno de servidor.<br>
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json`  |
+|  Tipo de conteúdo      | `application/json`  |
 |  x-ms-requestid    | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
 |  x-ms-correlationid  | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Essa cadeia de caracteres correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
 |  authorization     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`". |
@@ -388,20 +388,20 @@ Erro interno de servidor.<br>
 
 *Códigos de resposta:*
 
-Código: 200<br>
+Auto-completar 200<br>
 Ativa a assinatura.<br>
 
-Código: 400<br>
+Auto-completar 400<br>
 Solicitação inadequada: falhas de validação.
 
-Código: 403<br>
+Auto-completar 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
 
-Código: 404<br>
+Auto-completar 404<br>
 Não encontrado.
 
-Código: 500<br>
-Erro interno de servidor.
+Auto-completar 500<br>
+Erro interno do servidor.
 
 ```json
 {
@@ -429,7 +429,7 @@ Atualize o plano na assinatura.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
+|  Tipo de conteúdo      | `application/json` |
 |  x-ms-requestid    |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
 |  x-ms-correlationid  |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.    |
 | authorization      |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
@@ -451,20 +451,20 @@ Request Body:
 
 *Códigos de resposta:*
 
-Código: 202<br>
+Auto-completar 202<br>
 A solicitação para alterar o plano foi aceita. O parceiro deve sondar o local da operação para determinar um êxito ou uma falha. <br>
 
-Código: 400<br>
+Auto-completar 400<br>
 Solicitação inadequada: falhas de validação.
 
-Código: 403<br>
+Auto-completar 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
 
-Código: 404<br>
+Auto-completar 404<br>
 Não encontrado.
 
-Código: 500<br>
-Erro interno de servidor.
+Auto-completar 500<br>
+Erro interno do servidor.
 
 ```json
 {
@@ -495,7 +495,7 @@ Atualize a quantidade na assinatura.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
+|  Tipo de conteúdo      | `application/json` |
 |  x-ms-requestid    |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
 |  x-ms-correlationid  |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.    |
 | authorization      |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
@@ -517,21 +517,21 @@ Request Body:
 
 *Códigos de resposta:*
 
-Código: 202<br>
+Auto-completar 202<br>
 A solicitação para alterar a quantidade foi aceita. O parceiro deve sondar o local da operação para determinar um êxito ou uma falha. <br>
 
-Código: 400<br>
+Auto-completar 400<br>
 Solicitação inadequada: falhas de validação.
 
 
-Código: 403<br>
+Auto-completar 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
 
-Código: 404<br>
+Auto-completar 404<br>
 Não encontrado.
 
-Código: 500<br>
-Erro interno de servidor.
+Auto-completar 500<br>
+Erro interno do servidor.
 
 ```json
 {
@@ -562,27 +562,27 @@ Cancelar assinatura e excluir a assinatura especificada.
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     |  `application/json` |
+|   Tipo de conteúdo     |  `application/json` |
 |  x-ms-requestid    |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
 |  x-ms-correlationid  |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
 |  authorization     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
 
 *Códigos de resposta:*
 
-Código: 202<br>
+Auto-completar 202<br>
 O parceiro iniciou uma chamada para cancelar a inscrição de uma assinatura de SaaS.<br>
 
-Código: 400<br>
+Auto-completar 400<br>
 Excluir em uma assinatura com **excluir** não em `allowedCustomerOperations`.
 
-Código: 403<br>
+Auto-completar 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
 
-Código: 404<br>
+Auto-completar 404<br>
 Não encontrado.
 
-Código: 500<br>
-Erro interno de servidor.
+Auto-completar 500<br>
+Erro interno do servidor.
 
 ```json
 {
@@ -615,14 +615,14 @@ Lista as operações pendentes para o Publicador atual.
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     |  `application/json` |
+|   Tipo de conteúdo     |  `application/json` |
 |  x-ms-requestid    |  Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
 |  x-ms-correlationid |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
 |  authorization     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
 
 *Códigos de resposta:*
 
-Código: 200<br> Obtém a lista de operações pendentes em uma assinatura. Carga de resposta:
+Auto-completar 200<br> Obtém a lista de operações pendentes em uma assinatura. Carga de resposta:
 
 ```json
 [{
@@ -640,17 +640,17 @@ Código: 200<br> Obtém a lista de operações pendentes em uma assinatura. Carg
 ```
 
 
-Código: 400<br>
+Auto-completar 400<br>
 Solicitação inadequada: falhas de validação.
 
-Código: 403<br>
+Auto-completar 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
 
-Código: 404<br>
+Auto-completar 404<br>
 Não encontrado.
 
-Código: 500<br>
-Erro interno de servidor.
+Auto-completar 500<br>
+Erro interno do servidor.
 
 ```json
 {
@@ -678,14 +678,14 @@ Permite que o Publicador acompanhe o status da operação assíncrona acionada e
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      |  `application/json`   |
+|  Tipo de conteúdo      |  `application/json`   |
 |  x-ms-requestid    |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
 |  x-ms-correlationid |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
 |  authorization     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo: "`Bearer <access_token>`".  |
 
 *Códigos de resposta:*<br>
 
-Código: 200<br> Obtém a operação SaaS pendente especificada. Carga de resposta:
+Auto-completar 200<br> Obtém a operação SaaS pendente especificada. Carga de resposta:
 
 ```json
 Response body:
@@ -704,16 +704,16 @@ Response body:
 
 ```
 
-Código: 400<br>
+Auto-completar 400<br>
 Solicitação inadequada: falhas de validação.
 
-Código: 403<br>
+Auto-completar 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
  
-Código: 404<br>
+Auto-completar 404<br>
 Não encontrado.
 
-Código: 500<br> Erro interno de servidor.
+Auto-completar 500<br> Erro interno do servidor.
 
 ```json
 {
@@ -742,7 +742,7 @@ Atualize o status de uma operação para indicar êxito ou falha com os valores 
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     | `application/json`   |
+|   Tipo de conteúdo     | `application/json`   |
 |   x-ms-requestid   |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 |  x-ms-correlationid |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 |  authorization     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
@@ -760,21 +760,21 @@ Atualize o status de uma operação para indicar êxito ou falha com os valores 
 
 *Códigos de resposta:*
 
-Código: 200<br> Uma chamada para informar a conclusão de uma operação no lado do parceiro. Por exemplo, essa resposta pode sinalizar a alteração de estações ou planos.
+Auto-completar 200<br> Uma chamada para informar a conclusão de uma operação no lado do parceiro. Por exemplo, essa resposta pode sinalizar a alteração de estações ou planos.
 
-Código: 400<br>
+Auto-completar 400<br>
 Solicitação inadequada: falhas de validação.
 
-Código: 403<br>
+Auto-completar 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
 
-Código: 404<br>
+Auto-completar 404<br>
 Não encontrado.
 
-Código: 409<br>
+Auto-completar 409<br>
 Houver. Por exemplo, uma transação mais recente já foi cumprida.
 
-Código: 500<br> Erro interno de servidor.
+Auto-completar 500<br> Erro interno do servidor.
 
 ```json
 {
@@ -790,7 +790,6 @@ Código: 500<br> Erro interno de servidor.
 
 O Publicador deve implementar um webhook nesse serviço SaaS para notificar os usuários de alterações em seu serviço proativamente. Espera-se que o serviço SaaS chame a API de operações para validar e autorizar antes de tomar uma ação na notificação de webhook.
 
-Para garantir comunicações seguras, a Microsoft inclui o token Azure Active Directory JWT no cabeçalho de autorização como parte da chamada. Os provedores de SaaS são incentivados a validar o token JWT, conforme descrito no artigo tokens de [acesso da plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) , para garantir que apenas as chamadas válidas sejam aceitas.
 
 ```json
 {

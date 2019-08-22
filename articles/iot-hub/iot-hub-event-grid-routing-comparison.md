@@ -1,6 +1,6 @@
 ---
-title: Comparar o Event Grid, encaminhamento para o IoT Hub | Documentos da Microsoft
-description: IoT Hub oferece seu próprio serviço de encaminhamento de mensagens, mas também se integra com o Event Grid para publicação de eventos. Compare os dois recursos.
+title: Comparar a grade de eventos, roteamento para o Hub IoT | Microsoft Docs
+description: O Hub IoT oferece seu próprio serviço de roteamento de mensagens, mas também se integra à grade de eventos para publicação de eventos. Compare os dois recursos.
 author: kgremban
 manager: philmea
 ms.service: iot-hub
@@ -8,73 +8,73 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: c6d395d878d38ab48b95ca82d94d2a222428bae1
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 067293f76ac4894ca73f4e74cb01db65ae8d1fba
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274937"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876923"
 ---
-# <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparar o encaminhamento de mensagens e o Event Grid para o IoT Hub
+# <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparar o roteamento de mensagens e a grade de eventos para o Hub IoT
 
-O IoT Hub do Azure fornece a capacidade de transmitir dados a partir de seus dispositivos ligados e integrar esses dados nas suas aplicações empresariais. IoT Hub oferece dois métodos para a integração de eventos de IoT para outros serviços do Azure ou para aplicativos de negócios. Este artigo aborda os dois recursos que fornecem esta capacidade, para que pode escolher qual é a opção mais adequada para seu cenário.
+O Hub IoT do Azure fornece a capacidade de transmitir dados de seus dispositivos conectados e integrá-los aos seus aplicativos de negócios. O Hub IoT oferece dois métodos para integrar eventos de IoT em outros serviços do Azure ou aplicativos de negócios. Este artigo aborda os dois recursos que fornecem esse recurso, para que você possa escolher qual é a melhor opção para seu cenário.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-**[Roteamento de mensagens do IoT Hub](iot-hub-devguide-messages-d2c.md)** : Esta funcionalidade do IoT Hub permite aos utilizadores encaminhar mensagens do dispositivo para a cloud para pontos finais de serviço, como contentores de armazenamento do Azure, os Hubs de eventos, filas do Service Bus e tópicos do Service Bus. Também encaminhamento fornece um recurso de consulta para filtrar os dados antes de encaminhamento para os pontos de extremidade. Além de dados de telemetria do dispositivo, também pode enviar [eventos sem ser de telemetria](iot-hub-devguide-messages-d2c.md#non-telemetry-events) que pode ser utilizado para acionar ações. 
+**[Roteamento de mensagens do Hub IOT](iot-hub-devguide-messages-d2c.md)** : Esse recurso de Hub IoT permite aos usuários rotear mensagens do dispositivo para a nuvem para pontos de extremidade de serviço como contêineres de armazenamento do Azure, hubs de eventos, filas do barramento de serviço e tópicos do barramento de serviço. O roteamento também fornece uma funcionalidade de consulta para filtrar os dados antes de roteá-los para os pontos de extremidade. Além dos dados de telemetria do dispositivo, você também pode enviar [eventos de não telemetria](iot-hub-devguide-messages-d2c.md#non-telemetry-events) que podem ser usados para disparar ações. 
 
-**Integração do IoT Hub com o Event Grid**: O Azure Event Grid é um serviço de encaminhamento de eventos totalmente gerido que utiliza um publicar-subscrever o modelo. IoT Hub e o Event Grid que funcionam em conjunto para [integrar eventos do IoT Hub no Azure e serviços não pertencente ao Azure](iot-hub-event-grid.md), em tempo quase real. IoT Hub publica [eventos de dispositivo](iot-hub-event-grid.md#event-types), que estão disponível em geral e agora também publica os eventos de telemetria, que está em pré-visualização pública.
+**Integração do Hub IOT com a grade de eventos**: A grade de eventos do Azure é um serviço de roteamento de eventos totalmente gerenciado que usa um modelo de publicação/assinatura. O Hub IoT e a grade de eventos trabalham juntos para [integrar eventos do Hub IOT ao Azure e a serviços não Azure](iot-hub-event-grid.md), quase em tempo real. O Hub IoT publica [eventos de dispositivo](iot-hub-event-grid.md#event-types), que estão geralmente disponíveis e agora também publica eventos de telemetria, que estão em visualização pública.
 
-## <a name="differences"></a>Diferenças
+## <a name="differences"></a>Pequenas
 
-Embora o roteamento de mensagens e o Event Grid ativar a configuração de alerta, existem algumas diferenças fundamentais entre os dois. Consulte a tabela seguinte para obter mais detalhes:
+Embora o roteamento de mensagens e a grade de eventos habilitem a configuração de alertas, há algumas diferenças importantes entre os dois. Consulte a tabela a seguir para obter detalhes:
 
-| Funcionalidade | Roteamento de mensagens do IoT Hub | Integração do IoT Hub com o Event Grid |
+| Funcionalidade | Roteamento de mensagens do Hub IoT | Integração do Hub IoT com a grade de eventos |
 | ------- | --------------- | ---------- |
-| **Mensagens do dispositivo e eventos** | Sim, o encaminhamento de mensagens pode ser utilizado para dados de telemetria e as alterações de duplo de relatório e eventos de ciclo de vida do dispositivo. | Sim, o Event Grid pode ser utilizado para dados de telemetria mas também pode comunicar quando os dispositivos são criados, eliminados, ligados e desligados a partir do IoT Hub |
-| **Ordenação** | Sim, é mantida ordenação de eventos.  | Não, a ordem de eventos não é garantido. | 
-| **Filtragem** | Avançados de filtragem nas propriedades da aplicação de mensagem, propriedades do sistema de mensagem, o corpo da mensagem, o etiquetas do dispositivo duplo e o dispositivo duplo propriedades. Para obter exemplos, consulte [sintaxe de consulta de encaminhamento de mensagens](iot-hub-devguide-routing-query-syntax.md). | Filtragem com base no tipo de evento, o tipo de assunto e atributos em cada evento. Para obter exemplos, consulte [compreender a filtragem de eventos em subscrições do Event Grid](../event-grid/event-filtering.md). Ao subscrever a eventos de telemetria, pode aplicar filtros adicionais nos dados filtrar nas propriedades da mensagem, duplo de corpo e o dispositivo de mensagem do seu IoT Hub, antes de publicar para o Event Grid. Ver [como filtrar eventos](../iot-hub/iot-hub-event-grid.md#filter-events). |
-| **Pontos finais** | <ul><li>Hubs de Eventos</li> <li>Armazenamento de Blobs do Azure</li> <li>Fila do Service Bus</li> <li>Tópicos do Service Bus</li></ul><br>IoT Hub aos SKUs pagos (S1, S2 e S3) estão limitados a 10 pontos de extremidade personalizados. 100 rotas podem ser criadas por IoT Hub. | <ul><li>Funções do Azure</li> <li>Automatização do Azure</li> <li>Hubs de Eventos</li> <li>Aplicações Lógicas</li> <li>Blob de Armazenamento</li> <li>Tópicos Personalizados</li> <li>Armazenamento de filas</li> <li>Microsoft Flow</li> <li>Serviços de terceiros através de WebHooks</li></ul><br>500 pontos finais por IoT Hub suporta. Para obter a lista mais atualizada dos pontos finais, consulte [manipuladores de eventos do Event Grid](../event-grid/overview.md#event-handlers). |
-| **Custo** | Não existe cobrança separada para o encaminhamento de mensagens. Apenas uma entrada de telemetria no IoT Hub é cobrada. Por exemplo, se tiver uma mensagem encaminhada para três diferentes pontos de extremidade, é cobrada apenas uma mensagem. | Não há nenhum custo do IoT Hub. Grelha de eventos oferece as primeiro 100.000 operações por mês gratuitamente e, em seguida, 0,60 us $ por milhão de operações posteriormente. |
+| **Mensagens e eventos do dispositivo** | Sim, o roteamento de mensagens pode ser usado para dados de telemetria, alterações no dispositivo de relatório, eventos de ciclo de vida do dispositivo e eventos de alteração de troca digital (parte da [Visualização pública do IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md)). | Sim, a grade de eventos pode ser usada para dados de telemetria, mas também pode relatar quando os dispositivos são criados, excluídos, conectados e desconectados do Hub IoT |
+| **Ordenação** | Sim, a ordenação de eventos é mantida.  | Não, a ordem dos eventos não é garantida. | 
+| **Filtragem** | Filtragem avançada nas propriedades do aplicativo de mensagens, propriedades do sistema de mensagens, corpo da mensagem, marcas de dispositivo e propriedades de dispositivo. A filtragem não é aplicada a eventos de alteração de troca digital. Para obter exemplos, consulte [sintaxe de consulta de roteamento de mensagens](iot-hub-devguide-routing-query-syntax.md). | Filtragem com base no tipo de evento, tipo de assunto e atributos em cada evento. Para obter exemplos, consulte [entender os eventos de filtragem em assinaturas da grade de eventos](../event-grid/event-filtering.md). Ao assinar eventos de telemetria, você pode aplicar filtros adicionais aos dados para filtrar as propriedades da mensagem, o corpo da mensagem e o dispositivo de mensagens no Hub IoT, antes de publicar na grade de eventos. Consulte [como filtrar eventos](../iot-hub/iot-hub-event-grid.md#filter-events). |
+| **Extremidade** | <ul><li>Hubs de Eventos</li> <li>Armazenamento de Blobs do Azure</li> <li>Fila do Service Bus</li> <li>Tópicos do Service Bus</li></ul><br>As SKUs do Hub IoT pagas (S1, S2 e S3) são limitadas a 10 pontos de extremidade personalizados. 100 as rotas podem ser criadas por Hub IoT. | <ul><li>Funções do Azure</li> <li>Automatização do Azure</li> <li>Hubs de Eventos</li> <li>Aplicações Lógicas</li> <li>Blob de Armazenamento</li> <li>Tópicos Personalizados</li> <li>Armazenamento de filas</li> <li>Microsoft Flow</li> <li>Serviços de terceiros por meio de WebHooks</li></ul><br>500 pontos de extremidade por Hub IoT têm suporte. Para obter a lista mais atualizada de pontos de extremidade, consulte manipuladores de [eventos de grade de eventos](../event-grid/overview.md#event-handlers). |
+| **Custo** | Não há nenhum encargo separado para o roteamento de mensagens. Somente a entrada de telemetria no Hub IoT é cobrada. Por exemplo, se você tiver uma mensagem roteada para três pontos de extremidade diferentes, você será cobrado por apenas uma mensagem. | Não há nenhum encargo do Hub IoT. A grade de eventos oferece as primeiras 100.000 operações por mês gratuitamente e, em seguida, $0.60 por milhão de operações posteriormente. |
 
 ## <a name="similarities"></a>Semelhanças
 
-Roteamento de mensagens do IoT Hub e o Event Grid tem também semelhanças, alguns dos quais estão descritos na tabela a seguir:
+O roteamento de mensagens do Hub IoT e a grade de eventos também têm semelhanças, algumas das quais são detalhadas na tabela a seguir:
 
-| Funcionalidade | Roteamento de mensagens do IoT Hub | Integração do IoT Hub com o Event Grid |
+| Funcionalidade | Roteamento de mensagens do Hub IoT | Integração do Hub IoT com a grade de eventos |
 | ------- | --------------- | ---------- |
-| **Tamanho máximo da mensagem** | 256 KB, dispositivo para a cloud | 256 KB, dispositivo para a cloud |
-| **Fiabilidade** | Alta: Fornece a cada mensagem para o ponto final, pelo menos, uma vez para cada rota. Expira a todas as mensagens que não são entregues dentro de uma hora. | Alta: Fornece a cada mensagem para o webhook, pelo menos, uma vez para cada subscrição. Expira a todos os eventos que não são entregues no prazo de 24 horas. | 
-| **Escalabilidade** | Alta: Otimizado para suportar milhões de dispositivos ligados em simultâneo a enviar milhares de milhões de mensagens. | Alta: Com capacidade de encaminhamento de 10.000.000 eventos por segundo por região. |
-| **Latência** | Baixa: Quase em tempo real. | Baixa: Quase em tempo real. |
-| **Enviar para vários pontos de extremidade** | Sim, envie uma única mensagem para vários pontos de extremidade. | Sim, envie uma única mensagem para vários pontos de extremidade.  
-| **Segurança** | O IOT Hub fornece identidade por dispositivo e controlo de acesso irrevogável. Para obter mais informações, consulte a [controlo de acesso do IoT Hub](iot-hub-devguide-security.md). | Event Grid fornece validação em três pontos: subscrições de eventos, a publicação de eventos e a entrega de eventos de webhook. Para obter mais informações, consulte [Event Grid segurança e autenticação](../event-grid/security-authentication.md). |
+| **Tamanho máximo da mensagem** | 256 KB, dispositivo para a nuvem | 256 KB, dispositivo para a nuvem |
+| **Fiabilidade** | Elevada Entrega cada mensagem ao ponto de extremidade pelo menos uma vez para cada rota. Expira todas as mensagens que não são entregues em uma hora. | Elevada Entrega cada mensagem ao webhook pelo menos uma vez para cada assinatura. Expira todos os eventos que não são entregues dentro de 24 horas. | 
+| **Escalabilidade** | Elevada Otimizado para dar suporte a milhões de dispositivos conectados simultaneamente, enviando bilhões de mensagens. | Elevada Capaz de rotear eventos 10 milhões por segundo por região. |
+| **Latência** | Pequena Quase em tempo real. | Pequena Quase em tempo real. |
+| **Enviar para vários pontos de extremidade** | Sim, enviar uma única mensagem para vários pontos de extremidade. | Sim, enviar uma única mensagem para vários pontos de extremidade.  
+| **Segurança** | O Hub IOT fornece identidade por dispositivo e controle de acesso revogável. Para obter mais informações, consulte o [controle de acesso do Hub IOT](iot-hub-devguide-security.md). | A grade de eventos fornece validação em três pontos: assinaturas de evento, publicação de eventos e entrega de eventos de webhook. Para obter mais informações, consulte [Event Grid segurança e autenticação](../event-grid/security-authentication.md). |
 
 ## <a name="how-to-choose"></a>Como escolher
 
-Roteamento de mensagens do IoT Hub e a integração do IoT Hub com o Event Grid executar ações diferentes para alcançar resultados semelhantes. Elas obtêm informações de sua solução de IoT Hub tanto transmitir para que podem reagir a outros serviços. Então, como decidir qual devo utilizar? Considere as seguintes perguntas para ajudar a orientar a sua decisão: 
+O roteamento de mensagens do Hub IoT e a integração do Hub IoT com a grade de eventos executam ações diferentes para obter resultados semelhantes. Ambos tomam informações de sua solução de Hub IoT e as passam para que outros serviços possam reagir. Então, como você decide qual deles usar? Considere as seguintes perguntas para ajudar a orientar sua decisão: 
 
-* **Que tipo de dados estão a enviar para os pontos finais?**
+* **Que tipo de dados você está enviando para os pontos de extremidade?**
 
-   Utilize o IoT Hub roteamento de mensagens quando tiver de enviar dados telemétricos para outros serviços. Mensagem de encaminhamento, também permite consultar as propriedades das aplicações e do sistema de mensagens, corpo da mensagem, etiquetas de twin do dispositivo e propriedades de twin do dispositivo.
+   Use o roteamento de mensagens do Hub IoT quando precisar enviar dados de telemetria para outros serviços. O roteamento de mensagens também permite consultar Propriedades do sistema e do aplicativo de mensagens, corpo da mensagem, marcas de dispositivo e propriedades de dispositivo.
 
-   A integração do IoT Hub com o Event Grid funciona com eventos que ocorrem no serviço IoT Hub. Estes eventos do IoT Hub incluem dados de telemetria, dispositivo criados, eliminados, ligado e desligado. Ao subscrever a eventos de telemetria, pode aplicar filtros adicionais nos dados filtrar nas propriedades da mensagem, duplo de corpo e o dispositivo de mensagem do seu IoT Hub, antes de publicar para o Event Grid. Ver [como filtrar eventos](../iot-hub/iot-hub-event-grid.md#filter-events).
+   A integração do Hub IoT com a grade de eventos funciona com eventos que ocorrem no serviço do Hub IoT. Esses eventos do Hub IoT incluem dados de telemetria, dispositivos criados, excluídos, conectados e desconectados. Ao assinar eventos de telemetria, você pode aplicar filtros adicionais aos dados para filtrar as propriedades da mensagem, o corpo da mensagem e o dispositivo de mensagens no Hub IoT, antes de publicar na grade de eventos. Consulte [como filtrar eventos](../iot-hub/iot-hub-event-grid.md#filter-events).
 
-* **O que os pontos finais necessário receber essas informações?**
+* **Quais pontos de extremidade precisam receber essas informações?**
 
-   Roteamento de mensagens do IoT Hub suporta um número limitado de pontos de extremidade exclusivos e tipos de ponto final, mas pode criar conectores para redirecionar os dados e eventos para pontos finais adicionais. Para obter uma lista completa de pontos finais suportados, consulte a tabela na secção anterior. 
+   O roteamento de mensagens do Hub IoT dá suporte a um número limitado de pontos de extremidade exclusivos e tipos de ponto de extremidades, mas você pode criar conectores para redirecionar os dados e eventos para pontos de extremidades adicionais. Para obter uma lista completa de pontos de extremidade com suporte, consulte a tabela na seção anterior. 
 
-   A integração do IoT Hub com o Event Grid suporta 500 pontos finais por IoT Hub e uma maior variedade de tipos de ponto final. Ele integra-se nativamente com as funções do Azure, o Logic Apps, filas de armazenamento e o Service Bus e também funciona com webhooks para estender o envio de dados fora do ecossistema de serviço do Azure e em aplicações empresariais de terceiros.
+   A integração do Hub IoT com a grade de eventos dá suporte a pontos de extremidade de 500 por Hub IoT e a uma variedade maior de tipos de Endpoint. Ele se integra nativamente com Azure Functions, aplicativos lógicos, armazenamento e filas do barramento de serviço, além de funcionar com WebHooks para estender o envio de dados fora do ecossistema de serviços do Azure e para aplicativos de negócios de terceiros.
 
-* **É importante se seus dados chegam em ordem?**
+* **É importante que seus dados cheguem em ordem?**
 
-   Roteamento de mensagens do IoT Hub mantém a ordem na qual as mensagens são enviadas, para que chegam da mesma forma.
+   O roteamento de mensagens do Hub IoT mantém a ordem em que as mensagens são enviadas, para que elas cheguem da mesma maneira.
 
-   Grelha de eventos não garante que os pontos finais vão receber eventos na mesma ordem em que ocorreu. Para os casos em que ordem absoluto das mensagens é significativo e/ou em que um consumidor tem um identificador exclusivo confiável de mensagens, recomendamos que utilize o encaminhamento de mensagens. 
+   A grade de eventos não garante que os pontos de extremidade receberão eventos na mesma ordem em que ocorreram. Para os casos em que a ordem absoluta de mensagens é significativa e/ou em que um consumidor precisa de um identificador exclusivo confiável para mensagens, é recomendável usar o roteamento de mensagens. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [roteamento de mensagens do Hub de IoT](iot-hub-devguide-messages-d2c.md) e o [pontos finais do IoT Hub](iot-hub-devguide-endpoints.md).
+* Saiba mais sobre o [Roteamento de mensagens do Hub IOT](iot-hub-devguide-messages-d2c.md) e os [pontos de extremidade do Hub IOT](iot-hub-devguide-endpoints.md).
 * Saiba mais sobre o [Azure Event Grid](../event-grid/overview.md).
-* Para saber como criar rotas de mensagens, consulte a [mensagens de dispositivo-para-cloud do Hub de IoT de processo utilizar rotas](../iot-hub/tutorial-routing.md) tutorial.
-* Experimente a integração do Event Grid pela [enviando notificações de e-mail sobre eventos do IoT Hub do Azure com o Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
+* Para saber como criar rotas de mensagens, consulte o tutorial [processar mensagens do dispositivo para a nuvem do Hub IOT usando rotas](../iot-hub/tutorial-routing.md) .
+* Experimente a integração da grade de eventos [enviando notificações por email sobre eventos do Hub IOT do Azure usando aplicativos lógicos](../event-grid/publish-iot-hub-events-to-logic-apps.md).

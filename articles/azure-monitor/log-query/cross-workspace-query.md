@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 597944d03e685a9a2933a04847f78c9d54f3ea36
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a1ea4012b7cda5b5deab82027e5547a9c9ef786f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722708"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650159"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Executar consultas de log entre recursos no Azure Monitor  
 
@@ -134,6 +134,11 @@ applicationsScoping
 | summarize count() by applicationName, bin(timestamp, 1h) 
 | render timechart
 ```
+
+>[!NOTE]
+>Esse método não pode ser usado com alertas de log porque a validação de acesso dos recursos de regra de alerta, incluindo espaços de trabalho e aplicativos, é executada no momento da criação do alerta. Não há suporte para a adição de novos recursos à função após a criação do alerta. Se preferir usar a função para o escopo de recursos em alertas de log, você precisará editar a regra de alerta no portal ou com um modelo do Resource Manager para atualizar os recursos com escopo. Como alternativa, você pode incluir a lista de recursos na consulta de alerta de log.
+
+
 ![Timechart](media/cross-workspace-query/chart.png)
 
 ## <a name="next-steps"></a>Passos Seguintes

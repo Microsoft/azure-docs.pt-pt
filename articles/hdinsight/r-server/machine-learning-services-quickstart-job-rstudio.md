@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Executar um script R num cluster no HDInsight do Azure através do RStudio Server serviços ML'
-description: Guia de introdução, que executa um script R num cluster de serviços de ML no HDInsight do Azure através do RStudio Server.
+title: 'Início rápido: Executar um script do R em um cluster de serviços de ML no Azure HDInsight usando o servidor RStudio'
+description: No início rápido, você executa um script R em um cluster de serviços do ML no Azure HDInsight usando o servidor RStudio.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,32 +8,32 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 484763adfa154dcdf226b03f1f591d248532ee35
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 295430027afabcfcf793a87ae5859dc9c6675966
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450920"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876297"
 ---
-# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Início rápido: Executar um script R num cluster no HDInsight do Azure através do RStudio Server serviços ML
+# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Início rápido: Executar um script do R em um cluster de serviços de ML no Azure HDInsight usando o servidor RStudio
 
-Serviços de ML no Azure HDInsight permite que os scripts R utilizem o Apache Spark e Apache Hadoop MapReduce para executar cálculos distribuídos. Serviços de ML controla como as chamadas são executadas ao definir o contexto de cálculo. Nó de extremidade de um cluster fornece um local conveniente para ligar ao cluster e para executar os scripts R. Com um nó de extremidade, tem a opção de executar as funções em paralelo distribuídas de RevoScaleR entre os núcleos do servidor de nó edge. Também pode executá-los em todos os nós do cluster através da utilização Hadoop mapeamento redução do RevoScaleR ou contextos de computação do Apache Spark.
+Os serviços de ML no Azure HDInsight permitem que os scripts R usem Apache Spark e Apache Hadoop MapReduce para executar cálculos distribuídos. Os serviços de ML controlam como as chamadas são executadas definindo o contexto de computação. O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts do R. Com um nó de borda, você tem a opção de executar as funções distribuídas paralelizadas do RevoScaleR nos núcleos do servidor do nó de borda. Você também pode executá-los em todos os nós do cluster usando o mapa do Hadoop do RevoScaleR para reduzir ou Apache Spark contextos de computação.
 
-Neste início rápido, irá aprender a executar um script R com o r Studio Server, que demonstra a utilização do Spark para cálculos de R distribuídos. Definir o contexto de cálculo para efetuar cálculos localmente num nó de extremidade e, novamente distribuída por nós do cluster do HDInsight.
+Neste guia de início rápido, você aprende a executar um script R com o RStudio Server que demonstra o uso do Spark para cálculos de R distribuídos. Você definirá um contexto de computação para executar cálculos localmente em um nó de borda e será distribuído novamente entre os nós no cluster HDInsight.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-Um cluster de serviços de ML no HDInsight. Ver [Apache Hadoop criar clusters no portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **serviços ML** para **tipo de Cluster**.
+Um cluster de serviços do ML no HDInsight. Consulte [criar Apache Hadoop clusters usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Serviços ml** para o **tipo de cluster**.
 
 ## <a name="connect-to-rstudio-server"></a>Ligar ao RStudio Server
 
-RStudio Server é executado no nó de extremidade do cluster. Aceda ao URL seguinte onde `CLUSTERNAME` é o nome do cluster serviços ML criou:
+O servidor RStudio é executado no nó de borda do cluster. Vá para a URL a seguir `CLUSTERNAME` , em que é o nome do cluster de serviços ml que você criou:
 
 ```
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-A primeira vez que iniciar sessão terá de se autenticar duas vezes. No primeiro aviso de autenticação, forneça o início de sessão de administrador de cluster e a palavra-passe, a predefinição é `admin`. No segundo aviso de autenticação, forneça o início de sessão SSH e a palavra-passe, a predefinição é `sshuser`. Inícios de sessão subsequentes necessitam apenas das credenciais SSH.
+Na primeira vez que você entrar, precisará autenticar duas vezes. Para o primeiro prompt de autenticação, forneça o logon de administrador do cluster e a `admin`senha, o padrão é. Para o segundo prompt de autenticação, forneça o logon e a senha do SSH `sshuser`, o padrão é. As entradas subsequentes exigem apenas as credenciais SSH.
 
 Assim que estiver ligado, o ecrã deve assemelhar-se à captura de ecrã seguinte:
 
@@ -41,7 +41,7 @@ Assim que estiver ligado, o ecrã deve assemelhar-se à captura de ecrã seguint
 
 ## <a name="use-a-compute-context"></a>Utilizar um contexto de cálculo
 
-1. A partir do RStudio Server, utilize o seguinte código para carregar dados de exemplo para o armazenamento predefinido do HDInsight:
+1. No servidor RStudio, use o seguinte código para carregar dados de exemplo no armazenamento padrão do HDInsight:
 
     ```RStudio
     # Set the HDFS (WASB) location of example data
@@ -76,9 +76,9 @@ Assim que estiver ligado, o ecrã deve assemelhar-se à captura de ecrã seguint
      rxHadoopCopyFromLocal(source, bigDataDirRoot)
     ```
 
-    Este passo pode demorar cerca de 8 minutos a concluir.
+    Esta etapa pode levar cerca de 8 minutos para ser concluída.
 
-1. Criar algumas informações de dados e definir duas origens de dados. Introduza o seguinte código no RStudio:
+1. Crie algumas informações de dados e defina duas fontes de dados. Insira o seguinte código em RStudio:
 
     ```RStudio
     # Define the HDFS (WASB) file system
@@ -105,7 +105,7 @@ Assim que estiver ligado, o ecrã deve assemelhar-se à captura de ecrã seguint
      formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
     ```
 
-1. Executar um regressão logística sobre os dados com o **local** contexto de cálculo. Introduza o seguinte código no RStudio:
+1. Execute uma regressão logística sobre os dados usando o contexto de computação **local** . Insira o seguinte código em RStudio:
 
     ```RStudio
     # Set a local compute context
@@ -120,7 +120,7 @@ Assim que estiver ligado, o ecrã deve assemelhar-se à captura de ecrã seguint
      summary(modelLocal)
     ```
 
-    As computações devem demorar cerca de 7 minutos. Deverá ver um resultado que acaba com linhas semelhantes ao seguinte fragmento:
+    Os cálculos devem ser concluídos em aproximadamente 7 minutos. Você deve ver a saída que termina com linhas semelhantes ao trecho a seguir:
 
     ```output
     Data: airOnTimeDataLocal (RxTextData Data Source)
@@ -150,7 +150,7 @@ Assim que estiver ligado, o ecrã deve assemelhar-se à captura de ecrã seguint
       Number of iterations: 7
     ```
 
-1. Executar a mesma regressão logística com o **Spark** contexto. O contexto do Spark distribui o processamento por todos os nós de trabalho do cluster do HDInsight. Introduza o seguinte código no RStudio:
+1. Execute a mesma regressão logística usando o contexto do **Spark** . O contexto do Spark distribui o processamento por todos os nós de trabalho do cluster do HDInsight. Insira o seguinte código em RStudio:
 
     ```RStudio
     # Define the Spark compute context
@@ -168,17 +168,20 @@ Assim que estiver ligado, o ecrã deve assemelhar-se à captura de ecrã seguint
      summary(modelSpark)
     ```
 
-    As computações devem demorar cerca de 5 minutos.
+    Os cálculos devem ser concluídos em cerca de 5 minutos.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de concluir o início rápido, pode querer eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados.
+Depois de concluir o início rápido, talvez você queira excluir o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados.
 
-Para eliminar um cluster, veja [eliminar um cluster do HDInsight com o seu browser, o PowerShell ou a CLI do Azure](../hdinsight-delete-cluster.md).
+Para excluir um cluster, consulte [excluir um cluster HDInsight usando seu navegador, o PowerShell ou o CLI do Azure](../hdinsight-delete-cluster.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, aprendeu a executar um script R com o r Studio Server, que demonstram a utilização do Spark para cálculos de R distribuídos.  Avance para o artigo seguinte para saber as opções que estão disponíveis para especificar se e como a execução é paralelizada entre os núcleos do nó de extremidade ou cluster do HDInsight.
+Neste guia de início rápido, você aprendeu a executar um script R com o RStudio Server, que demonstrou usar o Spark para cálculos de R distribuídos.  Avance para o próximo artigo para aprender as opções disponíveis para especificar se e como a execução é paralelizada entre os núcleos do nó de borda ou do cluster HDInsight.
 
 > [!div class="nextstepaction"]
->[Opções de contexto para os serviços de ML no HDInsight de computação](./r-server-compute-contexts.md)
+>[Opções de contexto de computação para serviços de ML no HDInsight](./r-server-compute-contexts.md)
+
+> [!NOTE]
+> Esta página descreve os recursos do RStudio software. Microsoft Azure HDInsight não é afiliado com RStudio, Inc.

@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 1d8b49b17698d3b527ceab88abdb1a37452f7a06
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 07de717865399f45a153f2a273c30d81c41944e3
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638346"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877484"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Conectividade do dispositivo no Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Este artigo apresenta os principais conceitos relacionados à conectividade do dispositivo no Microsoft Azure IoT Central.
 
@@ -201,7 +203,7 @@ Se o dispositivo não puder usar nenhum dos protocolos com suporte, você poder�
 
 Todos os dados trocados entre dispositivos e sua IoT Central do Azure são criptografados. O Hub IoT autentica todas as solicitações de um dispositivo que se conecta a qualquer um dos pontos de extremidade do Hub IoT voltados para o dispositivo. Para evitar a troca de credenciais pela conexão, um dispositivo usa tokens assinados para autenticar. Para obter mais informações, consulte [controlar o acesso ao Hub IOT](../iot-hub/iot-hub-devguide-security.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você aprendeu sobre a conectividade do dispositivo no Azure IoT Central, aqui estão as próximas etapas sugeridas:
 

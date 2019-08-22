@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e62a0c1363acfedc1f059ac0e56fce0df68298f8
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 57ec69f4bc2e73bfb390a6b23b1da627d77f9b5e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532375"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874240"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização
 
@@ -265,6 +265,7 @@ Procurando informações sobre os códigos de erro AADSTS que são retornados do
 | AADSTS700023 | InvalidResourcelessScope-o valor fornecido para o escopo do parâmetro de entrada não é válido ao solicitar um token de acesso. |
 | AADSTS1000000 | UserNotBoundError-a API de ligação exige que o usuário do Azure AD também se autentique com um IDP externo, o que ainda não aconteceu. |
 | AADSTS1000002 | BindCompleteInterruptError-a associação foi concluída com êxito, mas o usuário deve ser informado. |
+| AADSTS7000112 | UnauthorizedClientApplicationDisabled-o aplicativo está desabilitado. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 8e7456eff3062ef6667e7b0022ea9740c397a493
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 5ffa77a05e6019ee6b5e29c5af5ed0130e027cae
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679237"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876508"
 ---
 > [!NOTE]
 > Este documento detalha a lista de recursos que foram desativados da central de segurança do Azure em 31 de julho de 2019.
@@ -160,7 +160,7 @@ A central de segurança pode habilitar [soluções de segurança integradas no A
 - [Análise avançada de ameaças da Microsoft](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
-Após a desativação, você não poderá adicionar ou modificar nenhum dos tipos de solução mencionados na lista anterior, seja da interface do usuário ou da API.
+Após a desativação, você não poderá adicionar ou modificar nenhum dos tipos de solução mencionados na lista anterior, seja da interface do usuário ou da API. A central de segurança do Azure não descobrirá mais nenhuma nova instância das soluções de parceiros mencionadas anteriormente.
 
 Se você tiver soluções conectadas existentes, recomendamos que você passe para o Azure Sentinel.
 

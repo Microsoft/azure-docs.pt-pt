@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 99c4f0f99af61196cf1a12f2f68a7d10d8b2e6c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ece55cdad04e71d339944b5fcda5a16d35630c16
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61477166"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877744"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>O que é o SQL Server nas Máquinas Virtuais do Azure? (Windows)
 
@@ -69,12 +69,12 @@ A tabela seguinte fornece uma matriz de imagens do SQL Server pay as you go.
 Para ver as imagens de máquina virtual do SQL Server do Linux disponíveis, veja [Overview of SQL Server on Azure Virtual Machines (Linux) (Descrição Geral do SQL Server em Máquinas Virtuais do Azure (Linux))](../../linux/sql/sql-server-linux-virtual-machines-overview.md).
 
 > [!NOTE]
-> Agora, é possível alterar o modelo de licenciamento de uma VM do pagamento por utilização SQL Server para utilizar a sua própria licença. Para obter mais informações, consulte [como alterar o modelo de licenciamento de uma VM do SQL](virtual-machines-windows-sql-ahb.md). 
+> Agora é possível alterar o modelo de licenciamento de uma VM de SQL Server de pagamento por uso para usar sua própria licença. Para obter mais informações, consulte [como alterar o modelo de licenciamento para uma VM do SQL](virtual-machines-windows-sql-ahb.md). 
 
 ### <a id="BYOL"></a> Traga a sua própria licença
 Também pode trazer a sua licença (BYOL). Neste cenário, apenas paga a VM sem quaisquer taxas adicionais para o licenciamento do SQL Server.  Colocar a sua própria licença poderá poupar dinheiro ao longo do tempo para cargas de trabalho de produção contínua. Para saber sobre os requisitos necessários para utilizar esta opção, veja [Pricing guidance for SQL Server Azure VMs (Documentação de orientação sobre preços de VMs do Azure do SQL Server)](virtual-machines-windows-sql-server-pricing-guidance.md#byol).
 
-Para trazer a sua licença, pode optar por converter uma VM de SQL de pagamento por utilização existente ou pode implementar uma imagem com o com prefixo **{BYOL}** . Para obter mais informações sobre a mudança do seu modelo de licenciamento entre o pagamento por utilização e BYOL, consulte [como alterar o modelo de licenciamento de uma VM do SQL](virtual-machines-windows-sql-ahb.md). 
+Para trazer sua própria licença, você pode converter uma VM SQL de pagamento por uso existente ou pode implantar uma imagem com o prefixo **{BYOL}** . Para obter mais informações sobre como alternar o modelo de licenciamento entre pagamento por uso e BYOL, consulte [como alterar o modelo de licenciamento para uma VM do SQL](virtual-machines-windows-sql-ahb.md). 
 
 | Version | Sistema operativo | Edição |
 | --- | --- | --- |
@@ -83,13 +83,13 @@ Para trazer a sua licença, pode optar por converter uma VM de SQL de pagamento 
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4StandardWindowsServer2012R2) |
 
-É possível implementar uma imagem mais antiga do SQL Server que não está disponível no Portal do Azure com o PowerShell. Para ver todas as imagens disponíveis com o Powershell, utilize o seguinte comando:
+É possível implantar uma imagem mais antiga do SQL Server que não está disponível no portal do Azure usando o PowerShell. Para exibir todas as imagens disponíveis usando o PowerShell, use o seguinte comando:
 
   ```powershell
   Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
   ```
 
-Para obter mais informações sobre a implementação de VMs do SQL Server com o PowerShell, veja [como aprovisionar máquinas virtuais do SQL Server com o Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+Para obter mais informações sobre como implantar VMs SQL Server usando o PowerShell, veja [como provisionar SQL Server máquinas virtuais com Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
 
 ### <a name="connect-to-the-vm"></a>Ligar à VM
@@ -97,6 +97,30 @@ Depois de criar a VM do SQL Server, ligue-se à mesma a partir de aplicações o
 
 ### <a name="migrate-your-data"></a>Migrar os dados
 Se tiver uma base de dados existente, deverá movê-la para a VM do SQL recentemente aprovisionada. Para obter uma lista de opções de migração e orientações, consulte o artigo [Migrar uma Base de Dados para o SQL Server numa VM do Azure](virtual-machines-windows-migrate-sql.md).
+
+## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Criar e gerenciar recursos do SQL Azure com o portal do Azure
+
+O portal do Azure fornece uma única página onde você pode gerenciar [todos os seus recursos SQL do Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) , incluindo suas máquinas virtuais do SQL.
+
+Para acessar a página de **recursos do SQL do Azure** , selecione **SQL do Azure** no menu à esquerda da portal do Azure. Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite *SQL do Azure* na caixa de pesquisa.
+
+> [!NOTE]
+> O **SQL do Azure** fornece uma maneira rápida e fácil de acessar todos os seus bancos de dados SQL, pools elásticos, servidores de banco de dados, instâncias gerenciadas do SQL e máquinas virtuais do SQL. O SQL do Azure não é um serviço ou recurso. 
+
+Para gerenciar os recursos existentes, selecione o item desejado na lista. Para criar novos recursos do SQL Azure, selecione **+ Adicionar**. 
+
+![Página do portal SQL do Azure](./media/quickstart-sql-vm-create-portal/azure-sql.png)
+
+Depois de selecionar **+ Adicionar**, exiba informações adicionais sobre as diferentes opções selecionando **Mostrar detalhes** em qualquer bloco.
+
+![detalhes do bloco bancos de dados](./media/quickstart-sql-vm-create-portal/sql-vm-details.png)
+
+Para obter mais detalhes, veja:
+
+- [Criar um banco de dados individual](../../../sql-database/sql-database-single-database-get-started.md)
+- [Criar um conjunto elástico](../../../sql-database/sql-database-elastic-pool.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
+- [Criar uma instância gerenciada](../../../sql-database/sql-database-managed-instance-get-started.md)
+- [Criar uma máquina virtual do SQL](quickstart-sql-vm-create-portal.md)
 
 ## <a id="lifecycle"></a> Política de atualização de imagem de VM do SQL Server
 O Azure mantém apenas uma imagem de máquina virtual para cada sistema operativo suportado, a versão e a combinação de edição. Isto significa que ao longo do tempo as imagens são atualizadas e as imagens mais antigas são removidas. Para obter mais informações, veja a secção **Imagens** das [FAQ de VMs do SQL Server](virtual-machines-windows-sql-server-iaas-faq.md#images).

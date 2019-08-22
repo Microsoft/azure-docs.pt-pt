@@ -8,14 +8,16 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 0fcce6bd6ee9461790ca7618f65be9a20a821afc
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 7366072dbf6b000981899a56ca1c8cfe6af6f04a
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360336"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876056"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Exportar seus dados para o armazenamento de BLOBs do Azure
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 *Este tópico se aplica aos administradores do.*
 
@@ -38,7 +40,7 @@ Se você não tiver um armazenamento existente para exportar para o, siga estas 
 
 1. Crie uma [nova conta de armazenamento no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Você pode aprender mais em [documentos do armazenamento do Azure](https://aka.ms/blobdocscreatestorageaccount).
 2. Para o tipo de conta, escolha **uso geral** ou **armazenamento**de BLOBs.
-3. Escolha uma subscrição. 
+3. Escolha uma assinatura. 
 
     > [!Note] 
     > Agora, você pode exportar dados para outras assinaturas que não são **iguais** às do seu aplicativo de IOT central pago conforme o uso. Nesse caso, você se conectará usando uma cadeia de conexão.
@@ -104,7 +106,7 @@ Medidas, dispositivos e dados de modelos de dispositivo são exportados para sua
 Os dados de medidas exportados têm todas as novas mensagens recebidas por IoT Central de todos os dispositivos durante esse tempo. Os arquivos exportados usam o mesmo formato que os arquivos de mensagem exportados pelo [Roteamento de mensagens do Hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) para o armazenamento de BLOBs.
 
 > [!NOTE]
-> Os dispositivos que enviam as medidas são representados por IDs de dispositivo (consulte as seções a seguir). Para obter os nomes dos dispositivos, exporte os instantâneos do dispositivo. Correlacione cada registro de mensagem usando o **connectionDeviceId** que corresponde ao  DeviceID do registro do dispositivo.
+> Os dispositivos que enviam as medidas são representados por IDs de dispositivo (consulte as seções a seguir). Para obter os nomes dos dispositivos, exporte os instantâneos do dispositivo. Correlacione cada registro de mensagem usando o **connectionDeviceId** que corresponde ao DeviceID do registro do dispositivo.
 
 O exemplo a seguir mostra um registro em um arquivo Avro decodificado:
 

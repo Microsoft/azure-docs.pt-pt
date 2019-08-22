@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: e18d6519d1ee3c1750757af5c59157de8bdde80c
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 3c16d8b5f1611c6c05e60d65551f73eb2d395668
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637918"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872895"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -175,7 +175,7 @@ Como descobrir bancos de dados em execução em uma VM:
    Para otimizar as cargas de backup, o backup do Azure define um número máximo de bancos de dados em um trabalho de backup para 50.
 
      * Para proteger mais de 50 bancos de dados, configure vários backups.
-     * Para habilitar [](#enable-auto-protection) a instância inteira ou o grupo de disponibilidade Always on. Na lista suspensa autoproteger, selecione **ativado**e, em seguida, selecione **OK**.
+     * Para [habilitar](#enable-auto-protection) a instância inteira ou o grupo de disponibilidade Always on, na lista suspensa autoproteger, selecione **ativado**e, em seguida, selecione **OK**.
 
     > [!NOTE]
     > O recurso de [proteção automática](#enable-auto-protection) não só habilita a proteção em todos os bancos de dados existentes de uma vez, mas também protege automaticamente quaisquer novos bancos de dados adicionados a essa instância ou ao grupo de disponibilidade.  

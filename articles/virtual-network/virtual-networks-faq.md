@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: ebb9028aab8626554d0f5fede15129c141d441cb
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 7ec731c6b75ff556c9e00f7041fea32f807fe5f4
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035339"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69892030"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure
 
@@ -29,9 +29,11 @@ Uma VNet (rede virtual) do Azure é uma representação de sua própria rede na 
 
 Use VNets para:
 
-* Criar uma VNet somente de nuvem privada dedicada às vezes você não precisa de uma configuração entre locais para sua solução. Quando você cria uma VNet, seus serviços e VMs em sua VNet podem se comunicar de forma direta e segura entre si na nuvem. Você ainda pode configurar conexões de ponto de extremidade para as VMs e serviços que exigem comunicação com a Internet, como parte de sua solução.
-* Estenda com segurança seu data center com o VNets, você pode criar VPNs de site a site (S2S) tradicionais para dimensionar com segurança a capacidade do datacenter. As VPNs S2S usam IPSEC para fornecer uma conexão segura entre o gateway de VPN corporativo e o Azure.
-* Habilitar cenários de nuvem híbrida VNets oferecem a flexibilidade para dar suporte a uma variedade de cenários de nuvem híbrida. Você pode conectar aplicativos baseados em nuvem com segurança a qualquer tipo de sistema local, como mainframes e sistemas UNIX.
+* Crie uma VNet somente de nuvem privada dedicada. Às vezes, você não precisa de uma configuração entre locais para sua solução. Quando você cria uma VNet, seus serviços e VMs em sua VNet podem se comunicar de forma direta e segura entre si na nuvem. Você ainda pode configurar conexões de ponto de extremidade para as VMs e serviços que exigem comunicação com a Internet, como parte de sua solução.
+
+* Estenda com segurança seu data center. Com o VNets, você pode criar VPNs de site a site (S2S) tradicionais para dimensionar com segurança a capacidade do datacenter. As VPNs S2S usam IPSEC para fornecer uma conexão segura entre o gateway de VPN corporativo e o Azure.
+
+* Habilite cenários de nuvem híbrida. O VNets oferece a flexibilidade para dar suporte a uma variedade de cenários de nuvem híbrida. Você pode conectar aplicativos baseados em nuvem com segurança a qualquer tipo de sistema local, como mainframes e sistemas UNIX.
 
 ### <a name="how-do-i-get-started"></a>Como posso começar?
 Visite a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/) para começar. Este conteúdo fornece informações de visão geral e de implantação para todos os recursos de VNet.

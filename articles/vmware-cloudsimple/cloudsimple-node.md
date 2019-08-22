@@ -1,40 +1,40 @@
 ---
-title: Visão geral dos nós da solução VMware por CloudSimple – Azure
+title: Visão geral da solução Azure VMware por CloudSimple nós
 description: Saiba mais sobre os nós e conceitos do CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 346bd046810ebae5142bc23400419857000d0c8e
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 58af69b401400c7b2f663a91de8bf38bc9a296a3
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812572"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877689"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Visão geral dos nós do CloudSimple
 
-Um nó é:
+Os nós são os blocos de construção de uma nuvem privada. Um nó é:
 
-* Um host de computação bare-metal dedicado no qual VMware ESXi hipervisor está instalado  
-* Uma unidade de computação que você pode provisionar ou reservar para criar nuvens privadas  
-* Disponível para provisionar ou reservar em uma região onde o serviço CloudSimple está disponível
+* Um host de computação bare-metal dedicado em que um hipervisor VMware ESXi está instalado  
+* Uma unidade de computação que você pode comprar ou reservar para criar nuvens privadas
+* Disponível para compra ou reserva em uma região onde o serviço CloudSimple está disponível
 
-Os nós são blocos de construção de uma nuvem privada.  Para criar uma nuvem privada, você precisa de um mínimo de três nós do mesmo SKU.  Para expandir uma nuvem privada, adicione outros nós.  Você pode adicionar nós a um cluster existente. Ou, você pode criar um novo cluster Provisionando nós no portal do Azure e associando-os ao serviço CloudSimple.  Todos os nós provisionados são visíveis no serviço CloudSimple.  Você cria uma nuvem privada a partir dos nós provisionados no portal do CloudSimple.
+Você cria uma nuvem privada a partir dos nós comprados. Para criar uma nuvem privada, você precisa de um mínimo de três nós do mesmo SKU. Para expandir uma nuvem privada, adicione outros nós.  Você pode adicionar nós a um cluster existente ou criar um novo cluster adquirindo nós no portal do Azure e associando-os ao serviço CloudSimple.  Todos os nós adquiridos são visíveis no serviço CloudSimple.  
 
-## <a name="provisioned-nodes"></a>Nós provisionados
+## <a name="purchased-nodes"></a>Nós comprados
 
-Os nós provisionados fornecem capacidade de pagamento conforme o uso. O provisionamento de nós ajuda você a dimensionar rapidamente seu cluster VMware sob demanda. Você pode adicionar nós conforme necessário ou excluir um nó provisionado para reduzir verticalmente o cluster do VMware. os nós provisionados são cobrados mensalmente e cobrados para a assinatura onde são provisionados:
+Os nós adquiridos fornecem capacidade pré-paga. A compra de nós ajuda você a dimensionar rapidamente seu cluster VMware sob demanda. Você pode adicionar nós conforme necessário ou excluir um nó comprado para reduzir verticalmente o cluster do VMware. Os nós adquiridos são cobrados mensalmente e cobrados na assinatura em que são comprados.
 
 * Se você pagar pela sua assinatura do Azure por cartão de crédito, o cartão será cobrado imediatamente.
 * Se você for cobrado por fatura, os encargos serão exibidos na próxima fatura.
 
 ## <a name="vmware-solution-by-cloudsimple-nodes-sku"></a>Solução VMware por SKU de nós CloudSimple
 
-Os seguintes nós de tipos estão disponíveis para provisionamento ou reserva.
+Os seguintes tipos de nós estão disponíveis para compra ou reserva.
 
 | SKU | CS28-nó | CS36-nó |
 |-----|-------------|-------------|
@@ -57,5 +57,5 @@ Os limites de nó a seguir se aplicam a nuvens privadas.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba como provisionar [nós](create-nodes.md)
-* Saiba mais sobre a [nuvem privada](cloudsimple-private-cloud.md)
+* Saiba como [comprar nós](create-nodes.md)
+* Saiba mais sobre [nuvens privadas](cloudsimple-private-cloud.md)

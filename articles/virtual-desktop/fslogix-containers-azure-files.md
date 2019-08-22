@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 6bb3be3805243bba4d11037b180e7f8418a84014
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
-ms.translationtype: MT
+ms.openlocfilehash: 54d3f175e74b9f94c7845725e3d8f4531750df57
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947209"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877562"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contentores de perfil FSLogix e ficheiros do Azure
 
@@ -86,7 +86,7 @@ A área de trabalho virtual do Windows oferece controle total sobre o tamanho, o
 Para garantir que seu ambiente de área de trabalho virtual do Windows siga as práticas recomendadas:
 
 - A conta de armazenamento de arquivos do Azure deve estar na mesma região que as VMs do host de sessão.
-- As permissões dos arquivos do Azure devem corresponder às permissões descritas em [requisitos – contêineres de perfil](https://docs.fslogix.com/display/20170529/Requirements+-+Profile+Containers).
+- As permissões dos arquivos do Azure devem corresponder às permissões descritas em [requisitos – contêineres de perfil](https://docs.microsoft.com/fslogix/overview#requirements).
 - Cada pool de hosts deve ser compilado do mesmo tipo e de uma VM de tamanho com base na mesma imagem mestra.
 - Cada VM do pool de hosts deve estar no mesmo grupo de recursos para ajudar no gerenciamento, no dimensionamento e na atualização.
 - Para obter um desempenho ideal, a solução de armazenamento e o contêiner de perfil FSLogix devem estar no mesmo local de data center.
@@ -99,6 +99,6 @@ Use os guias a seguir para configurar um ambiente de área de trabalho virtual d
 - Para começar a criar sua solução de virtualização de desktops, consulte [criar um locatário na área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md).
 - Para criar um pool de hosts dentro de seu locatário de área de trabalho virtual do Windows, confira [criar um pool de hosts com o Azure Marketplace](create-host-pools-azure-marketplace.md).
 - Para configurar compartilhamentos de arquivos totalmente gerenciados na nuvem, consulte [Configurar o compartilhamento de arquivos do Azure](/articles/storage/files/storage-files-active-directory-enable.md).
-- Para configurar contêineres de perfil de FSLogix, consulte [configurar um compartilhamento de perfil de usuário para um pool de hosts](create-host-pools-user-profile.md).
+- Para configurar contêineres de perfil FSLogix, consulte [criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md).
 - Para atribuir usuários a um pool de hosts, consulte [gerenciar grupos de aplicativos para a área de trabalho virtual do Windows](manage-app-groups.md).
 - Para acessar os recursos da área de trabalho virtual do Windows em um navegador da Web, consulte [conectar-se à área de trabalho virtual do Windows](connect-web.md).

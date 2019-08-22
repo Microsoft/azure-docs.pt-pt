@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2019
 ms.author: damendo
-ms.openlocfilehash: b788e2196ac3d5657c3d6133f3febb4d3eb3827a
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 6b6227827e8d1efbb1d20899cd08315c4cbb0150
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69564241"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875198"
 ---
 # <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Excluir blobs de armazenamento de log de fluxo do grupo de segurança de rede no observador de rede
 
@@ -112,7 +112,7 @@ foreach ($Psflowlog in $FlowLogsList)
         if ((-not $Confirm) -or ($Confirmation -eq 'Y'))
         {
             Write-Output ($Blob.Name + '===>' + $BlobLastModifietedDTinUTC  + ' ===> DELETED')
-            Remove-AzStorageBlob -Container $container_name -Context $storage_account.Context -Blob $Blob.Name
+            Remove-AzStorageBlob -Container $ContainerName -Context $StorageAccount.Context -Blob $Blob.Name
         }
         else
         {

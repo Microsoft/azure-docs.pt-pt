@@ -7,12 +7,12 @@ ms.date: 08/10/2018
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 9e0e024a5bd3c9cf16879bb9ea93727a338ddbf4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: ee8dd9da186013dc168e20e6b8b842cca85de172
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986395"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877631"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usar o emulador de armazenamento do Azure para desenvolvimento e teste
 
@@ -221,9 +221,21 @@ Não há diferenças específicas para o armazenamento de fila no emulador.
 
 ## <a name="storage-emulator-release-notes"></a>Notas de versão do emulador de armazenamento
 
+### <a name="version-510"></a>Versão 5,10
+
+* O emulador de armazenamento não rejeitará a versão 2019-07-07 dos serviços de armazenamento em pontos de extremidade de serviço de BLOB, fila e tabela.
+
+### <a name="version-59"></a>Versão 5,9
+
+* O emulador de armazenamento não rejeitará a versão 2019-02-02 dos serviços de armazenamento em pontos de extremidade de serviço de BLOB, fila e tabela.
+
+### <a name="version-58"></a>Versão 5,8
+
+* O emulador de armazenamento não rejeitará a versão 2018-11-09 dos serviços de armazenamento em pontos de extremidade de serviço de BLOB, fila e tabela.
+
 ### <a name="version-57"></a>Versão 5,7
 
-Correção de um bug que causaria uma falha se o registro em log estivesse habilitado.
+* Correção de um bug que causaria uma falha se o registro em log estivesse habilitado.
 
 ### <a name="version-56"></a>Versão 5,6
 
@@ -236,11 +248,11 @@ Correção de um bug que causaria uma falha se o registro em log estivesse habil
 
 ### <a name="version-54"></a>Versão 5,4
 
-Para melhorar a estabilidade da instalação, o emulador não tenta mais reservar portas no momento da instalação. Se as reservas de porta forem desejadas, use a opção *-reserveports* do comando **init** para especificá-las.
+* Para melhorar a estabilidade da instalação, o emulador não tenta mais reservar portas no momento da instalação. Se as reservas de porta forem desejadas, use a opção *-reserveports* do comando **init** para especificá-las.
 
 ### <a name="version-53"></a>Versão 5,3
 
-O emulador de armazenamento agora dá suporte à versão 2017-07-29 dos serviços de armazenamento em pontos de extremidade de serviço de BLOB, fila e tabela.
+* O emulador de armazenamento agora dá suporte à versão 2017-07-29 dos serviços de armazenamento em pontos de extremidade de serviço de BLOB, fila e tabela.
 
 ### <a name="version-52"></a>Versão 5,2
 
@@ -249,7 +261,7 @@ O emulador de armazenamento agora dá suporte à versão 2017-07-29 dos serviço
 
 ### <a name="version-51"></a>Versão 5,1
 
-Corrigido um bug em que o emulador de armazenamento `DataServiceVersion` estava retornando o cabeçalho em algumas respostas em que o serviço não estava.
+* Corrigido um bug em que o emulador de armazenamento `DataServiceVersion` estava retornando o cabeçalho em algumas respostas em que o serviço não estava.
 
 ### <a name="version-50"></a>Versão 5,0
 
@@ -308,7 +320,7 @@ Corrigido um bug em que o emulador de armazenamento `DataServiceVersion` estava 
 * A interface gráfica do usuário do emulador de armazenamento foi preterida em favor de uma interface de linha de comando programável por script. Para obter detalhes sobre a interface de linha de comando, consulte referência da ferramenta de linha de comando do emulador de armazenamento. A interface gráfica continuará presente na versão 3,0, mas só poderá ser acessada quando o emulador de computação for instalado clicando com o botão direito do mouse no ícone da bandeja do sistema e selecionando Mostrar interface do usuário do emulador de armazenamento.
 * A versão 2013-08-15 dos serviços de armazenamento do Azure agora tem suporte total. (Anteriormente, esta versão era suportada apenas pelo emulador de armazenamento versão 2.2.1 Preview.)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Avalie o [azurite](https://github.com/arafato/azurite)do emulador de armazenamento de software livre de plataforma cruzada, mantido pela Comunidade. 
 * [Exemplos de armazenamento do Azure usando o .net](../storage-samples-dotnet.md) contém links para vários exemplos de código que você pode usar ao desenvolver seu aplicativo.

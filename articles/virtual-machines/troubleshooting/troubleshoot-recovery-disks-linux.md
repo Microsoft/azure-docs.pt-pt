@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: 49ee83e451e9d555a7fe5fca57bc58d6616334da
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: b1aca591437738b29786f50c2a5291ab456f3416
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641058"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876698"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Solucionar problemas de uma VM Linux anexando o disco do sistema operacional a uma VM de recuperação com o CLI do Azure
 Se a VM (máquina virtual) do Linux encontrar um erro de disco ou de inicialização, talvez seja necessário executar as etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma entrada inválida no `/etc/fstab` que impede que a VM seja capaz de inicializar com êxito. Este artigo fornece detalhes sobre como usar o CLI do Azure para conectar seu disco rígido virtual a outra VM Linux para corrigir erros e, em seguida, recriar a VM original. 
@@ -39,7 +39,7 @@ Para executar essas etapas de solução de problemas, você precisará do [CLI d
 > [!Important]
 > Os scripts neste artigo se aplicam somente às VMs que usam o [disco gerenciado](../linux/managed-disks-overview.md). 
 
-Nos exemplos a seguir, substitua os nomes de parâmetro pelos seus próprios valores. Os nomes de parâmetro `myResourceGroup` de `myVM`exemplo incluem e.
+Nos exemplos a seguir, substitua os nomes de parâmetro pelos seus próprios valores, `myResourceGroup` como `myVM`e.
 
 ## <a name="determine-boot-issues"></a>Determinar problemas de inicialização
 Examine a saída serial para determinar por que sua VM não pode ser inicializada corretamente. Um exemplo comum é uma entrada inválida `/etc/fstab`no, ou o disco rígido virtual subjacente que está sendo excluído ou movido.
@@ -56,88 +56,70 @@ Examine a saída serial para determinar por que a VM está falhando na inicializ
 
 O exemplo a seguir interrompe a VM `myVM` denominada do grupo de `myResourceGroup`recursos chamado:
 
-```powershell
-Stop-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+```azurecli
+az vm stop --resource-group MyResourceGroup --name MyVm
 ```
-
-Aguarde até que a VM tenha concluído a exclusão antes de processar para a próxima etapa.
-
-## <a name="create-a-snapshot-from-the-os-disk-of-the-vm"></a>Criar um instantâneo do disco do sistema operacional da VM
+## <a name="take-a-snapshot-from-the-os-disk-of-the-affected-vm"></a>Tirar um instantâneo do disco do sistema operacional da VM afetada
 
 Um instantâneo é uma cópia completa e somente leitura de um VHD. Ele não pode ser anexado a uma VM. Na próxima etapa, criaremos um disco a partir desse instantâneo. O exemplo a seguir cria um instantâneo com `mySnapshot` o nome do disco do sistema operacional da VM chamada ' myVM '. 
 
-```powershell
-$resourceGroupName = 'myResourceGroup' 
-$location = 'eastus' 
-$vmName = 'myVM'
-$snapshotName = 'mySnapshot'  
+```azurecli
+#Get the OS disk Id 
+$osdiskid=(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 
-#Get the VM
-$vm = get-azvm `
--ResourceGroupName $resourceGroupName `
--Name $vmName
-
-#Create the snapshot configuration for the OS disk
-$snapshot =  New-AzSnapshotConfig `
--SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
--Location $location `
--CreateOption copy
-
-#Take the snapshot
-New-AzSnapshot `
-   -Snapshot $snapshot `
-   -SnapshotName $snapshotName `
-   -ResourceGroupName $resourceGroupName 
+#creates a snapshot of the disk
+az snapshot create --resource-group myResourceGroupDisk --source "$osdiskid" --name mySnapshot
 ```
 ## <a name="create-a-disk-from-the-snapshot"></a>Criar um disco a partir do instantâneo
 
-Esse script cria um disco gerenciado com o `newOSDisk` nome do instantâneo chamado `mysnapshot`.  
+Esse script cria um disco gerenciado com o `myOSDisk` nome do instantâneo chamado `mySnapshot`.  
 
-```powershell
-#Set the context to the subscription Id where Managed Disk will be created
-#You can skip this step if the subscription is already selected
-
-$subscriptionId = 'yourSubscriptionId'
-
-Select-AzSubscription -SubscriptionId $SubscriptionId
-
+```azurecli
 #Provide the name of your resource group
-$resourceGroupName ='myResourceGroup'
+$resourceGroup=myResourceGroup
 
 #Provide the name of the snapshot that will be used to create Managed Disks
-$snapshotName = 'mySnapshot' 
+$snapshot=mySnapshot
 
 #Provide the name of the Managed Disk
-$diskName = 'newOSDisk'
+$osDisk=myNewOSDisk
 
 #Provide the size of the disks in GB. It should be greater than the VHD file size.
-$diskSize = '128'
+$diskSize=128
 
-#Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
-$storageType = 'StandardLRS'
+#Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
+$storageType=Premium_LRS
 
-#Provide the Azure region (e.g. westus) where Managed Disks will be located.
-#This location should be same as the snapshot location
-#Get all the Azure location using command below:
-#Get-AzLocation
-$location = 'eastus'
+#Provide the OS type
+$osType=linux
 
-$snapshot = Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName 
- 
-$diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
- 
-New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
+#Provide the name of the virtual machine
+$virtualMachine=myVM
+
+#Get the snapshot Id 
+$snapshotId=(az snapshot show --name $snapshot --resource-group $resourceGroup --query [id] -o tsv)
+
+# Create a new Managed Disks using the snapshot Id.
+
+az disk create --resource-group $resourceGroup --name $osDisk --sku $storageType --size-gb $diskSize --source $snapshotId
+
 ```
+
+Se o grupo de recursos e o instantâneo de origem não estiverem na mesma região, você receberá o erro "recurso não encontrado" ao executar `az disk create`. Nesse caso, você deve especificar `--location <region>` para criar o disco na mesma região que o instantâneo de origem.
+
 Agora você tem uma cópia do disco do sistema operacional original. Você pode montar esse novo disco em outra VM do Windows para fins de solução de problemas.
 
 ## <a name="attach-the-new-virtual-hard-disk-to-another-vm"></a>Anexar o novo disco rígido virtual a outra VM
-Para as próximas etapas, você usa outra VM para fins de solução de problemas. Você anexa o disco a essa VM de solução de problemas para procurar e editar o conteúdo do disco. Esse processo permite que você corrija quaisquer erros de configuração ou examine arquivos adicionais de log do sistema ou do aplicativo, por exemplo. Escolha ou crie outra VM a ser usada para fins de solução de problemas.
+Para as próximas etapas, você usa outra VM para fins de solução de problemas. Você anexa o disco a essa VM de solução de problemas para procurar e editar o conteúdo do disco. Esse processo permite que você corrija quaisquer erros de configuração ou examine arquivos adicionais de log do sistema ou do aplicativo.
 
-Anexe o disco rígido virtual existente com [AZ VM Unmanaged-Disk Attach](/cli/azure/vm/unmanaged-disk). Ao anexar o disco rígido virtual existente, especifique o URI para o disco obtido no comando anterior `az vm show` . O exemplo a seguir anexa um disco rígido virtual existente à VM de solução de problemas `myVMRecovery` chamada no grupo de recursos `myResourceGroup`chamado:
+Esse script anexa o disco `myNewOSDisk` à VM: `MyTroubleshootVM`
 
 ```azurecli
-az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecovery \
-    --vhd-uri https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd
+# Get ID of the OS disk that you just created.
+$myNewOSDiskid=(az vm show -g myResourceGroupDisk -n myNewOSDisk --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+
+# Attach the disk to the troubleshooting VM
+az vm disk attach --disk $diskId --resource-group MyResourceGroup --size-gb 128 --sku Standard_LRS --vm-name MyTroubleshootVM
 ```
 ## <a name="mount-the-attached-data-disk"></a>Montar o disco de dados anexado
 
@@ -197,46 +179,30 @@ Depois que os erros forem resolvidos, desmonte e desanexe o disco rígido virtua
     sudo umount /dev/sdc1
     ```
 
-2. Agora desanexe o disco rígido virtual da VM. Saia da sessão SSH para a VM de solução de problemas. Liste os discos de dados anexados à sua VM de solução de problemas com [AZ VM Unmanaged-Disk List](/cli/azure/vm/unmanaged-disk). O exemplo a seguir lista os discos de dados anexados à `myVMRecovery` VM chamada no grupo de `myResourceGroup`recursos denominado:
+2. Agora desanexe o disco rígido virtual da VM. Saia da sessão SSH para a VM de solução de problemas:
 
     ```azurecli
-    azure vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
-        --query '[].{Disk:vhd.uri}' --output table
-    ```
-
-    Anote o nome do disco rígido virtual existente. Por exemplo, o nome de um disco com o URI de **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** é **myVHD**. 
-
-    Desanexe o disco de dados de sua VM [AZ VM Unmanaged-Disk Detach](/cli/azure/vm/unmanaged-disk). O exemplo a seguir desanexa o disco nomeado `myVHD` da VM chamada `myVMRecovery` no `myResourceGroup` grupo de recursos:
-
-    ```azurecli
-    az vm unmanaged-disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
-        --name myVHD
+    az vm disk detach -g MyResourceGroup --vm-name MyTroubleShootVm --name myNewOSDisk
     ```
 
 ## <a name="change-the-os-disk-for-the-affected-vm"></a>Alterar o disco do sistema operacional para a VM afetada
 
-Você pode usar Azure PowerShell para trocar os discos do sistema operacional. Você não precisa excluir e recriar a VM.
+Você pode usar CLI do Azure para trocar os discos do sistema operacional. Você não precisa excluir e recriar a VM.
 
-Este exemplo interrompe a VM denominada `myVM` e atribui o disco chamado `newOSDisk` como o novo disco do sistema operacional. 
+Este exemplo interrompe a VM denominada `myVM` e atribui o disco chamado `myNewOSDisk` como o novo disco do sistema operacional.
 
-```powershell
-# Get the VM 
-$vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM 
+```azurecli
+# Stop the affected VM
+az vm stop -n myVM -g myResourceGroup
 
-# Make sure the VM is stopped\deallocated
-Stop-AzVM -ResourceGroupName myResourceGroup -Name $vm.Name -Force
+# Get ID of the OS disk that is repaired.
+$myNewOSDiskid=(az vm show -g myResourceGroupDisk -n myNewOSDisk --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 
-# Get the new disk that you want to swap in
-$disk = Get-AzDisk -ResourceGroupName myResourceGroup -Name newDisk
-
-# Set the VM configuration to point to the new disk  
-Set-AzVMOSDisk -VM $vm -ManagedDiskId $disk.Id -Name $disk.Name  -sto
-
-# Update the VM with the new OS disk. Possible values of StorageAccountType include: 'Standard_LRS' and 'Premium_LRS'
-Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -StorageAccountType <Type of the storage account >
+# Change the OS disk of the affected VM to "myNewOSDisk"
+az vm update -g myResourceGroup -n myVM --os-disk $myNewOSDiskid
 
 # Start the VM
-Start-AzVM -Name $vm.Name -ResourceGroupName myResourceGroup
+az vm start -n myVM -g myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

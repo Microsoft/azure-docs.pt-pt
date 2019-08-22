@@ -3,25 +3,25 @@ title: Solução do Azure VMware por manutenção e atualizações do CloudSimpl
 description: Descreve o processo do serviço CloudSimple para manutenção e atualizações agendadas
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5d6eeecbecc89995c25e687cc6808ed3b0c5dc5c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 92f02c0abef6755213d4c73189c7e0a593867ef6
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816214"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877937"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>Manutenção e atualizações do CloudSimple
 
-O ambiente de nuvem privada foi projetado para não ter nenhum ponto único de falha:
+O ambiente de nuvem privada foi projetado para não ter nenhum ponto único de falha.
 
-* Os clusters ESXi são configurados com alta disponibilidade do vSphere. Os clusters são dimensionados para ter pelo menos um nó sobressalente para resiliência.
+* Os clusters ESXi são configurados com HA (alta disponibilidade) de vSphere. Os clusters são dimensionados para ter pelo menos um nó sobressalente para resiliência.
 * O armazenamento primário redundante é fornecido pelo vSAN, que requer pelo menos três nós para fornecer proteção contra uma única falha. a vSAN pode ser configurada para fornecer maior resiliência para clusters maiores.
-* as VMs do vCenter, PSC e NSX Manager são configuradas com a política de armazenamento RAID-10 para proteger contra falhas de armazenamento. As VMs são protegidas contra falhas de nó/rede por vSphere HA.
+* as VMs do vCenter, PSC e NSX Manager são configuradas com o armazenamento RAID-10 para proteger contra falhas de armazenamento. As VMs são protegidas contra falhas de nó/rede por vSphere HA.
 * Os hosts ESXi têm ventiladores e NICs redundantes.
 * Os comutadores TOR e lombada são configurados em pares de alta disponibilidade para fornecer resiliência.
 
@@ -52,14 +52,14 @@ O CloudSimple faz backup, mantém e atualiza esses elementos do VMware nas nuven
 * vSAN
 * NSX
 
-## <a name="back-up-and-restore"></a>Backup e restauração
+## <a name="back-up-and-restore"></a>Criar cópias de segurança e restauro
 
 O backup do CloudSimple inclui:
 
 * Backups incrementais noturnos de regras do vCenter, PSC e DVS.
-* Uso de APIs nativas do vCenter para fazer backup de componentes na camada de aplicativo.
-* Backup automático antes de qualquer atualização ou atualização do software de gerenciamento do VMware.
-* Criptografia de dados na origem, pelo vCenter, antes da transferência de dados em um canal TLS 1.2 criptografado para o Azure. Os dados são armazenados em um blob do Azure onde são replicados entre regiões.
+* APIs nativas do vCenter para fazer backup de componentes na camada de aplicativo.
+* Backup automático antes da atualização ou atualização do software de gerenciamento do VMware.
+* a criptografia de dados do vCenter na origem antes que os dados sejam transferidos por um canal criptografado do TLS 1.2 para o Azure. Os dados são armazenados em um blob do Azure onde são replicados entre regiões.
 
 Você pode solicitar uma restauração abrindo um [solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
@@ -105,4 +105,4 @@ O CloudSimple fornece atualizações de manutenção trimestral para componentes
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Fazer backup de VMs de carga de trabalho usando Veeam](https://docs.azure.cloudsimple.com/backup-workloads-veeam/).
+[Fazer backup de VMs de carga de trabalho usando Veeam](backup-workloads-veeam.md)

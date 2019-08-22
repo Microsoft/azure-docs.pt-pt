@@ -1,61 +1,61 @@
 ---
-title: implementar a análise de tráfego de pesquisa - Azure Search
-description: Ative a análise de tráfego de pesquisa para o Azure Search adicionar telemetria e eventos iniciados pelo usuário em arquivos de log.
+title: implementar análise de tráfego de pesquisa-Azure Search
+description: Habilite a análise de tráfego de pesquisa para Azure Search adicionar telemetria e eventos iniciados pelo usuário a arquivos de log.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b15ae30151b22509a78b9a39d258991363a05e5b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: bb12ed2f18df100ab3f679e7a8a3ef1e7c1aca45
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295430"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647802"
 ---
-# <a name="implement-search-traffic-analytics-in-azure-search"></a>Implementar a análise de tráfego de pesquisa no Azure Search
-Procurar análises de tráfego é um padrão para a implementação de um ciclo de comentários para o seu serviço de pesquisa. Este padrão descreve os dados necessários e como reuni-los com o Application Insights, líder da indústria para monitorizar os serviços em várias plataformas.
+# <a name="implement-search-traffic-analytics-in-azure-search"></a>Implementar análise de tráfego de pesquisa no Azure Search
+A análise de tráfego de pesquisa é um padrão para implementar um loop de comentários para o serviço de pesquisa. Esse padrão descreve os dados necessários e como coletá-los usando Application Insights, um líder do setor para monitorar serviços em várias plataformas.
 
-Procurar análises de tráfego permite-lhe ganhar visibilidade para o serviço de pesquisa e desbloquear informações sobre os seus utilizadores e seu comportamento. Fazendo com que dados sobre o que escolhem os seus utilizadores, é possível para tomar decisões que melhorar ainda mais a sua experiência de pesquisa e para voltar e quando os resultados são não o que o esperado.
+A análise de tráfego de pesquisa permite que você tenha visibilidade do serviço de pesquisa e descubra informações sobre os usuários e seu comportamento. Com os dados sobre o que seus usuários escolhem, é possível tomar decisões que melhorem ainda mais a sua experiência de pesquisa e que sejam desativadas quando os resultados não forem o esperado.
 
-O Azure Search oferece uma solução de telemetria que integra o Azure Application Insights e o Power BI para fornecer monitorização e de controlo detalhadas. Como a interação com o Azure Search é apenas através de APIs, a telemetria tem de ser implementada pelos desenvolvedores com pesquisa, seguindo as instruções nesta página.
+O Azure Search oferece uma solução de telemetria que integra Aplicativo Azure informações e Power BI para fornecer monitoramento e acompanhamento detalhados. Como a interação com Azure Search é apenas por meio de APIs, a telemetria deve ser implementada pelos desenvolvedores que usam a pesquisa, seguindo as instruções nesta página.
 
-## <a name="identify-relevant-search-data"></a>Identificar os dados de pesquisa relevantes
+## <a name="identify-relevant-search-data"></a>Identificar dados de pesquisa relevantes
 
-Para que as métricas de pesquisa útil, é necessário para alguns sinais de registo dos utilizadores de aplicativo de pesquisa. Esses sinais significar o conteúdo que os utilizadores estejam interessados em e o que considerar relevantes para as suas necessidades.
+Para ter métricas de pesquisa úteis, é necessário registrar alguns sinais dos usuários do aplicativo de pesquisa. Esses sinais significam conteúdo em que os usuários estão interessados e que eles consideram relevantes para suas necessidades.
 
-Existem dois sinais que precisa de análise de tráfego de pesquisa:
+Há dois sinais Análise de Tráfego necessidades de pesquisa:
 
-1. Eventos de pesquisa de gerados pelo utilizador: apenas consultas de pesquisa iniciadas por um utilizador são interessantes. Pedidos de pesquisa utilizados para preencher facetas, conteúdo adicional ou quaisquer informações internas, não são importantes e eles inclinar e tendência seus resultados.
+1. Eventos de pesquisa gerados pelo usuário: somente consultas de pesquisa iniciadas por um usuário são interessantes. As solicitações de pesquisa usadas para popular facetas, conteúdo adicional ou qualquer informação interna, não são importantes e distorcem e interpolarem seus resultados.
 
-2. Eventos de clique gerados pelo utilizador: Por cliques neste documento, nos Referimos a um utilizador selecionar um resultado de pesquisa específico devolvido por uma consulta de pesquisa. Um clique, geralmente, significa que um documento é um resultado relevante para uma consulta de pesquisa específica.
+2. Eventos de clique gerados pelo usuário: Ao clicar neste documento, nos referimos a um usuário que seleciona um determinado resultado de pesquisa retornado por uma consulta de pesquisa. Um clique geralmente significa que um documento é um resultado relevante para uma consulta de pesquisa específica.
 
-Vinculando a pesquisa e clique em eventos com um id de correlação, é possível analisar os comportamentos dos utilizadores na sua aplicação. Estas informações de pesquisa são impossíveis de se obter com apenas registos de tráfego de pesquisa.
+Ao vincular a pesquisa e clicar em eventos com uma ID de correlação, é possível analisar os comportamentos dos usuários em seu aplicativo. Essas informações de pesquisa são impossíveis de obter somente com logs de tráfego de pesquisa.
 
-## <a name="add-search-traffic-analytics"></a>Adicionar a análise de tráfego de pesquisa
+## <a name="add-search-traffic-analytics"></a>Adicionar análise de tráfego de pesquisa
 
-Os sinais mencionados na secção anterior devem ser reunidos a partir da aplicação de pesquisa à medida que o usuário interage com ele. O Application Insights é uma solução de monitorização extensível, disponível para várias plataformas, com opções flexíveis de instrumentação. Utilização do Application Insights permite-lhe tirar partido dos relatórios de pesquisa de Power BI criado pelo Azure Search para facilitar a análise de dados.
+Os sinais mencionados na seção anterior devem ser coletados do aplicativo de pesquisa à medida que o usuário interage com ele. Application Insights é uma solução de monitoramento extensível, disponível para várias plataformas, com opções de instrumentação flexíveis. O uso de Application Insights permite que você aproveite os Power BI relatórios de pesquisa criados por Azure Search para facilitar a análise dos dados.
 
-Na [portal](https://portal.azure.com) página para o seu serviço de Azure Search, o painel de análise de tráfego de pesquisa contém uma referência rápida para seguir este padrão de telemetria. Também pode selecionar ou criar um recurso do Application Insights e ver os dados necessários, tudo num único local.
+Na página do [portal](https://portal.azure.com) para seu serviço de Azure Search, a folha Pesquisar análise de tráfego contém uma página de dicas para seguir esse padrão de telemetria. Você também pode selecionar ou criar um recurso de Application Insights e ver os dados necessários, tudo em um só lugar.
 
-![Instruções de análise de tráfego de pesquisa][1]
+![Instruções de Análise de Tráfego de pesquisa][1]
 
-## <a name="1---select-a-resource"></a>1 - Selecione um recurso
+## <a name="1---select-a-resource"></a>1-selecionar um recurso
 
-Tem de selecionar um recurso do Application Insights para utilizar ou criar um se ainda não tiver um. Pode usar um recurso que já está em utilização para registar os eventos personalizados necessários.
+Você precisa selecionar um recurso Application Insights para usar ou criar um, caso ainda não tenha um. Você pode usar um recurso que já está em uso para registrar os eventos personalizados necessários.
 
-Ao criar um novo recurso do Application Insights, todos os tipos de aplicação são válidos para este cenário. Selecione aquele que melhor se adequa a plataforma que está a utilizar.
+Ao criar um novo recurso de Application Insights, todos os tipos de aplicativo são válidos para esse cenário. Selecione aquele que melhor se adapta à plataforma que você está usando.
 
-Terá da chave de instrumentação para criar o cliente de telemetria para a sua aplicação. Pode obtê-lo a partir do dashboard do portal do Application Insights ou pode obtê-lo da página de análise de tráfego de pesquisa, selecionar a instância que pretende utilizar.
+Você precisa da chave de instrumentação para criar o cliente de telemetria para seu aplicativo. Você pode obtê-lo no painel do Application Insights portal ou pode obtê-lo na página Pesquisar Análise de Tráfego, selecionando a instância que deseja usar.
 
-## <a name="2---add-instrumentation"></a>2 - Adicionar instrumentação
+## <a name="2---add-instrumentation"></a>2-adicionar instrumentação
 
-Nesta fase é onde instrumente a sua própria aplicação de pesquisa, usando o recurso do Application Insights sua criado no passo acima. Existem quatro etapas para este processo:
+Essa fase é onde você instrumenta seu próprio aplicativo de pesquisa, usando o recurso Application Insights criado na etapa acima. Há quatro etapas para esse processo:
 
-**Passo 1: Criar um cliente de telemetria** esse é o objeto para enviar eventos para o recurso do Application Insights.
+**Passo 1: Criar um cliente** de telemetria esse é o objeto que envia eventos para o recurso de Application insights.
 
 *C#*
 
@@ -71,9 +71,9 @@ Nesta fase é onde instrumente a sua própria aplicação de pesquisa, usando o 
     window.appInsights=appInsights;
     </script>
 
-Para outros idiomas e plataformas, consulte o concluída [lista](https://docs.microsoft.com/azure/application-insights/app-insights-platforms).
+Para outras linguagens e plataformas, consulte a [lista](https://docs.microsoft.com/azure/application-insights/app-insights-platforms)completa.
 
-**Passo 2: Um ID de pesquisa para a correlação de pedido** para correlacionar os pedidos de pesquisa com cliques, é necessário ter um id de correlação que se relacione esses dois eventos distintos. O Azure Search fornece um Id de pesquisa quando solicitá-la com um cabeçalho:
+**Passo 2: Solicitar uma ID de pesquisa para** correlação para correlacionar solicitações de pesquisa com cliques, é necessário ter uma ID de correlação que relaciona esses dois eventos distintos. Azure Search fornece uma ID de pesquisa quando você a solicita com um cabeçalho:
 
 *C#*
 
@@ -94,18 +94,18 @@ Para outros idiomas e plataformas, consulte o concluída [lista](https://docs.mi
     request.setRequestHeader("Access-Control-Expose-Headers", "x-ms-azs-searchid");
     var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
-**Passo 3: Registar eventos de pesquisa**
+**Passo 3: Eventos de pesquisa de log**
 
-Sempre que um pedido de pesquisa é emitido por um utilizador, deve iniciar que como um evento de pesquisa com o esquema abaixo num evento personalizado do Application Insights:
+Toda vez que uma solicitação de pesquisa é emitida por um usuário, você deve registrar isso como um evento de pesquisa com o esquema a seguir em um evento Application Insights personalizado:
 
-**SearchServiceName**: nome do serviço de pesquisa (cadeia) **SearchId**: identificador de exclusivo (guid) da consulta de pesquisa (acontecer na resposta da pesquisa) **IndexName**: índice de serviço de pesquisa (cadeia) para é possível consultar **QueryTerms**: termos de pesquisa (cadeia) inseridos pelo usuário **parâmetro ResultCount**: (int) número de documentos que foram devolvidos (acontecer na resposta da pesquisa)  **ScoringProfile**: nome de (cadeia) do perfil de classificação utilizado, se aplicável
+**SearchServiceName**: (String) nome do serviço de pesquisa **searchId**: (GUID) identificador exclusivo da consulta de pesquisa (vem na resposta depesquisa) IndexName: (String) índice do serviço de pesquisa a ser consultado **QueryTerms**: (cadeia de caracteres) pesquisa termos inseridos pelo usuário **ResultCount**: (int) número de documentos que foram retornados (vem na resposta de pesquisa) **ScoringProfile**: (cadeia de caracteres) nome do perfil de Pontuação usado, se houver
 
 > [!NOTE]
-> Número de pedidos em consultas de utilizador gerado ao adicionar $count = TRUE para a consulta de pesquisa. Ver mais informações [aqui](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)
+> Solicite a contagem de consultas geradas pelo usuário adicionando $count = true à sua consulta de pesquisa. Veja mais informações [aqui](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)
 >
 
 > [!NOTE]
-> Lembre-se apenas registar as consultas de pesquisa que são geradas pelos utilizadores.
+> Lembre-se de registrar somente as consultas de pesquisa geradas pelos usuários.
 >
 
 *C#*
@@ -131,14 +131,14 @@ Sempre que um pedido de pesquisa é emitido por um utilizador, deve iniciar que 
     ScoringProfile: <scoring profile used>
     });
 
-**Passo 4: Inicie sessão clique eventos**
+**Passo 4: Eventos de clique de log**
 
-Sempre que um usuário clica num documento, o que é um sinal de que tem de ter sessão iniciado para fins de análise de pesquisa. Utilize eventos personalizados do Application Insights para registar estes eventos com o esquema seguinte:
+Toda vez que um usuário clica em um documento, esse é um sinal que deve ser registrado para fins de análise de pesquisa. Use Application Insights eventos personalizados para registrar esses eventos no esquema a seguir:
 
-**ServiceName**: nome do serviço de pesquisa (cadeia) **SearchId**: identificador de exclusivo (guid) da consulta de pesquisa relacionada **DocId**: identificador de documento (cadeia) **posição**: página de resultados de classificação (int) do documento na pesquisa
+ServiceName: (cadeia de caracteres) nome do serviço de pesquisa **searchId**: (GUID) identificador exclusivo da consulta de pesquisa relacionada **DocId**: (cadeia de caracteres) **posição**do identificador do documento: (int) classificação do documento na página de resultados da pesquisa
 
 > [!NOTE]
-> Posição refere-se na ordem de cardinal em seu aplicativo. Tem liberdade para definir este número, desde que é sempre o mesmo, para permitir a comparação.
+> Posição refere-se à ordem cardeal em seu aplicativo. Você tem a liberdade de definir esse número, desde que seja sempre o mesmo, para permitir a comparação.
 >
 
 *C#*
@@ -160,44 +160,44 @@ Sempre que um usuário clica num documento, o que é um sinal de que tem de ter 
         Rank: <clicked document position>
     });
 
-## <a name="3---analyze-in-power-bi"></a>3 - analisar no Power BI
+## <a name="3---analyze-in-power-bi"></a>3-analisar no Power BI
 
-Depois de ter instrumentado a sua aplicação e verificado que seu aplicativo está ligado corretamente para o Application Insights, pode utilizar um modelo predefinido criado pelo Azure Search para o Power BI desktop. 
+Depois de instrumentar seu aplicativo e verificar se seu aplicativo está conectado corretamente ao Application Insights, você pode usar um modelo predefinido criado por Azure Search para Power BI desktop. 
 
-O Azure search fornece uma monitorização [o pacote de conteúdos do Power BI](https://app.powerbi.com/getdata/services/azure-search) para que pode analisar dados de registo. O pacote de conteúdos de T adiciona predefinidos de gráficos e tabelas útil para analisar os dados adicionais capturados para análise de tráfego de pesquisa. Para obter mais informações, consulte a [página de ajuda do pacote de conteúdos](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/). 
+O Azure Search fornece um [pacote de conteúdo](https://app.powerbi.com/getdata/services/azure-search) de monitoramento Power bi para que você possa analisar os dados de log. T o pacote de conteúdo adiciona gráficos predefinidos e tabelas úteis para analisar os dados adicionais capturados para análise de tráfego de pesquisa. Para obter mais informações, consulte a [página de ajuda do pacote de conteúdos](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/). 
 
-1. O Azure pesquisar em Painel de navegação à esquerda do dashboard, **definições**, clique em **análise de tráfego de pesquisa**.
+1. No painel de navegação Azure Search painel esquerdo, em **configurações**, clique em **análise de tráfego de pesquisa**.
 
-2. Sobre o **pesquisar a análise de tráfego** página, no passo 3, clique em **obter o Power BI Desktop** para instalar o Power BI.
+2. Na página **análise de tráfego de pesquisa** , na etapa 3, clique em **obter Power BI Desktop** para instalar Power bi.
 
-   ![Obter relatórios do Power BI](./media/search-traffic-analytics/get-use-power-bi.png "relatórios do Power BI obter")
+   ![Obter Power bi relatórios](./media/search-traffic-analytics/get-use-power-bi.png "Obter Power bi relatórios")
 
-2. Na mesma página, clique em **relatório do PowerBI transferir**.
+2. Na mesma página, clique em **baixar relatório do PowerBI**.
 
-3. O relatório é aberto no Power BI Desktop e lhe for pedido para ligar ao Application Insights. Pode encontrar estas informações nas páginas de portais do Azure para, recurso do Application Insights.
+3. O relatório é aberto no Power BI Desktop e você é solicitado a se conectar ao Application Insights. Você pode encontrar essas informações nas páginas portal do Azure para Application Insights recurso.
 
-   ![Ligar para o Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "ligar para o Application Insights")
+   ![Conectar-se ao Application insights](./media/search-traffic-analytics/connect-to-app-insights.png "Conectar-se ao Application insights")
 
-4. Clique em **carga**.
+4. Clique em **carregar**.
 
-O relatório contém gráficos e tabelas que o ajudam a tomar decisões mais informadas para melhorar o desempenho de pesquisa e relevância.
+O relatório contém gráficos e tabelas que ajudam você a tomar decisões mais informadas para melhorar o desempenho e a relevância da pesquisa.
 
-Métricas inclui os seguintes itens:
+As métricas incluíam os seguintes itens:
 
-* Clique em por meio de taxa (CTR): o rácio de utilizadores que clicar num documento específico para o número de pesquisas total.
-* Pesquisas sem cliques: termos de principais consultas que registe-se sem cliques
-* Mais clicado documentos: mais clicou em documentos por ID de nas últimas 24 horas, 7 dias e 30 dias.
-* Pares de documento de termo popular: termos que fazer com o mesmo documento clicado, ordenado pelo cliques.
-* Tempo de clicar em: cliques registados pelo tempo uma vez que a consulta de pesquisa
+* Taxa de clique por (CTR): a taxa de usuários que clicam em um documento específico para o número total de pesquisas.
+* Pesquisa sem cliques: termos para as principais consultas que não registram nenhum clique
+* Documentos mais clicados: a maioria dos documentos clicados por ID nas últimas 24 horas, 7 dias e 30 dias.
+* Pares de documentos de termo populares: termos que resultam no mesmo documento clicado, ordenados por cliques.
+* Hora para clicar: clica em buckets por tempo desde a consulta de pesquisa
 
-Captura de ecrã seguinte mostra os relatórios incorporados e análise de tráfego de pesquisa de gráficos para análise.
+A captura de tela a seguir mostra os relatórios e gráficos internos para analisar a análise de tráfego de pesquisa.
 
-![Dashboard do Power BI para o Azure Search](./media/search-traffic-analytics/AzureSearch-PowerBI-Dashboard.png "dashboard do Power BI para o Azure Search")
+![Painel de Power bi para Azure Search](./media/search-traffic-analytics/AzureSearch-PowerBI-Dashboard.png "Painel de Power bi para Azure Search")
 
 ## <a name="next-steps"></a>Passos Seguintes
-Instrumente a sua aplicação de pesquisa para obter dados poderosos e esclarecedores sobre o serviço de pesquisa.
+Instrumente seu aplicativo de pesquisa para obter dados poderosos e criteriosos sobre o serviço de pesquisa.
 
-Pode encontrar mais informações sobre [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) e visite o [página de preços](https://azure.microsoft.com/pricing/details/application-insights/) para saber mais sobre os escalões de serviço diferentes.
+Você pode encontrar mais informações sobre [Application insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) e visitar a [página de preços](https://azure.microsoft.com/pricing/details/application-insights/) para saber mais sobre suas diferentes camadas de serviço.
 
 Saiba mais sobre a criação de relatórios incríveis. Ver [introdução ao Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/) para obter detalhes
 

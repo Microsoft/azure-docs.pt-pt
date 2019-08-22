@@ -4,14 +4,14 @@ description: Descreve as funções para utilizar num modelo do Azure Resource Ma
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 08/06/2019
+ms.date: 08/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2ec6e58438e7be953e1f672fb815ff3f68a7f252
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2cd37405176eefa8f4445942b9fbf1afc2a7404a
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839251"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650423"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
 
@@ -634,7 +634,7 @@ O exemplo anterior retorna um objeto no seguinte formato:
 
 ## <a name="resourceid"></a>resourceId
 
-`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
+`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 Devolve o identificador exclusivo de um recurso. Utilize esta função quando o nome do recurso é ambíguo ou não aprovisionada dentro do mesmo modelo. 
 
@@ -646,43 +646,46 @@ Devolve o identificador exclusivo de um recurso. Utilize esta função quando o 
 | resourceGroupName |Não |cadeia |Valor predefinido é o grupo de recursos atual. Especifica este valor quando precisar de recuperar um recurso noutro grupo de recursos. |
 | resourceType |Sim |cadeia |Tipo de recurso, incluindo o espaço de nomes de fornecedor de recursos. |
 | resourceName1 |Sim |cadeia |Nome do recurso. |
-| resourceName2 |Não |cadeia |Recurso nome segmento seguinte se o recurso está aninhado. |
+| resourceName2 |Não |Cadeia de caracteres |Próximo segmento de nome de recurso, se necessário. |
+
+Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.
 
 ### <a name="return-value"></a>Valor de retorno
 
 O identificador é devolvido no seguinte formato:
 
-```json
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
+**/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}**
+
 
 ### <a name="remarks"></a>Observações
 
-Quando usado com uma [implantação em nível de assinatura](deploy-to-subscription.md), `resourceId()` a função só pode recuperar a ID dos recursos implantados nesse nível. Por exemplo, você pode obter a ID de uma definição de política ou definição de função, mas não a ID de uma conta de armazenamento. Para implantações em um grupo de recursos, o oposto é true. Você não pode obter a ID de recurso dos recursos implantados no nível da assinatura.
+O número de parâmetros que você fornece varia dependendo de o recurso ser um recurso pai ou filho e se o recurso está na mesma assinatura ou grupo de recursos.
 
-Os valores de parâmetro que especifica dependem se o recurso é o mesmo grupo de recursos e subscrição como a implementação atual. Para obter o ID de recurso para uma conta de armazenamento na mesma subscrição e grupo de recursos, utilize:
-
-```json
-"[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
-```
-
-Para obter o ID de recurso para uma conta de armazenamento na mesma subscrição, mas um grupo de recursos diferente, utilize:
+Para obter a ID de recurso de um recurso pai na mesma assinatura e grupo de recursos, forneça o tipo e o nome do recurso.
 
 ```json
-"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+"[resourceId('Microsoft.ServiceBus/namespaces', 'namespace1')]"
 ```
 
-Para obter o ID de recurso para uma conta de armazenamento numa subscrição diferente e grupo de recursos, utilize:
+Para obter a ID de recurso de um recurso filho, preste atenção ao número de segmentos no tipo de recurso. Forneça um nome de recurso para cada segmento do tipo de recurso. O nome do segmento corresponde ao recurso que existe para essa parte da hierarquia.
+
+```json
+"[resourceId('Microsoft.ServiceBus/namespaces/queues/authorizationRules', 'namespace1', 'queue1', 'auth1')]"
+```
+
+Para obter a ID de recurso de um recurso na mesma assinatura, mas em um grupo de recursos diferente, forneça o nome do grupo de recursos.
+
+```json
+"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts', 'examplestorage')]"
+```
+
+Para obter a ID de recurso de um recurso em uma assinatura e um grupo de recursos diferentes, forneça a ID da assinatura e o nome do grupo de recursos.
 
 ```json
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-Para obter o ID de recurso para uma base de dados no grupo de recursos diferente, utilize:
-
-```json
-"[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
-```
+Quando usado com uma [implantação em nível de assinatura](deploy-to-subscription.md), `resourceId()` a função só pode recuperar a ID dos recursos implantados nesse nível. Por exemplo, você pode obter a ID de uma definição de política ou definição de função, mas não a ID de uma conta de armazenamento. Para implantações em um grupo de recursos, o oposto é true. Você não pode obter a ID de recurso dos recursos implantados no nível da assinatura.
 
 Para obter a ID de recurso de um recurso de nível de assinatura ao implantar no escopo da assinatura, use:
 
@@ -810,7 +813,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Para intercalar vários modelos, veja [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).

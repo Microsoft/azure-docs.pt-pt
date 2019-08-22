@@ -8,14 +8,16 @@ ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: c6f10352646350152c5aac795885231697e81fe7
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: e6df6a1f751106f62cdfecc3a7b5efb0fe4c63bf
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850196"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876003"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportar seus dados no Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 *Este tópico se aplica aos administradores do.*
 
@@ -112,7 +114,7 @@ Os dados de medidas, dispositivos e modelos de dispositivo são exportados para 
 Uma nova mensagem é exportada rapidamente depois que IoT Central recebe a mensagem de um dispositivo. Cada mensagem exportada nos hubs de eventos e no barramento de serviço contém a mensagem completa que o dispositivo enviou na propriedade "Body" no formato JSON. 
 
 > [!NOTE]
-> Os dispositivos que enviam as medidas são representados por IDs de dispositivo (consulte as seções a seguir). Para obter os nomes dos dispositivos, exporte os dados do dispositivo e correlacione cada mensagem usando o **connectionDeviceId** que corresponde  à DeviceID da mensagem do dispositivo.
+> Os dispositivos que enviam as medidas são representados por IDs de dispositivo (consulte as seções a seguir). Para obter os nomes dos dispositivos, exporte os dados do dispositivo e correlacione cada mensagem usando o **connectionDeviceId** que corresponde à DeviceID da mensagem do dispositivo.
 
 O exemplo a seguir mostra uma mensagem sobre os dados de medidas recebidos no Hub de eventos ou na fila ou no tópico do barramento de serviço.
 
@@ -293,7 +295,7 @@ O exemplo a seguir mostra uma mensagem sobre os dados de modelos de dispositivo 
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você sabe como exportar seus dados para os hubs de eventos do Azure e o barramento de serviço do Azure, vá para a próxima etapa:
 

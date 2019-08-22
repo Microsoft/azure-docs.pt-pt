@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: Yahnoosh
 ms.author: jlembicz
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 88d229d33f549755479d7e1c7cf012d0391bccbb
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e54fa449e0ed7f3208d9924b69946c6598a00444
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881514"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648815"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Adicionar analisadores de idioma a um índice de Azure Search
 

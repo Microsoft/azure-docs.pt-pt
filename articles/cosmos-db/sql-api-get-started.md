@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: kirankk
-ms.openlocfilehash: 25275aeb6637d50379b7c71e87be9ecffce269db
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ea3779ce7d4d77e6b0a55b8a00374b701a073b66
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614682"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876447"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Criar um aplicativo de console .NET para gerenciar dados em Azure Cosmos DB conta da API do SQL
 
@@ -323,7 +323,7 @@ Selecione **F5** para executar o aplicativo.
 Parabéns! Você criou dois itens do Azure cosmos com êxito.  
 
 ## <a id="Query"></a>Etapa 7: Recursos de Azure Cosmos DB de consulta
-O Azure Cosmos DB suporta [consultas](sql-api-sql-query.md) extensas de documentos JSON armazenados em cada coleção. O código de exemplo a seguir mostra como executar uma consulta em relação aos itens que inserimos na etapa anterior.
+O Azure Cosmos DB dá suporte a [consultas](sql-api-sql-query.md) avançadas em documentos JSON armazenados em cada contêiner. O código de exemplo a seguir mostra como executar uma consulta em relação aos itens que inserimos na etapa anterior.
 
 1. Copie e cole o método **QueryItemsAsync** abaixo do método **AddItemsToContainerAsync** .
 

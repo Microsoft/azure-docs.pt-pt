@@ -10,20 +10,20 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: 24e340d25cb57f9a35f06f6dbd5a394d60a14fad
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/20/2019
+ms.openlocfilehash: 7ff7712130372dcfd277750e881cccce23b36465
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566429"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648351"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados em várias bases de dados na cloud e no local com a sincronização de dados SQL
 
 Sincronização de dados SQL é um serviço criado na base de dados do SQL do Azure que permite-lhe sincronizar os dados que selecionar bidirecionalmente em várias bases de dados SQL e instâncias do SQL Server.
 
 > [!IMPORTANT]
-> O Azure Sincronização de Dados SQL não **oferece suporte a** instância gerenciada do banco de dados SQL do Azure no momento.
+> O Azure Sincronização de Dados SQL não oferece suporte a instância gerenciada do banco de dados SQL do Azure no momento.
 
 ## <a name="when-to-use-data-sync"></a>Quando utilizar a sincronização de dados
 
@@ -118,6 +118,12 @@ Aprovisionamento e desaprovisionamento durante a criação do grupo de sincroniz
 ### <a name="general-requirements"></a>Requisitos gerais
 
 - Cada tabela tem de ter uma chave primária. Não altere o valor da chave primária em qualquer linha. Se tiver de alterar um valor de chave primário, eliminar a linha e recriá-lo com o novo valor da chave primário. 
+
+> [!IMPORTANT]
+> Alterar o valor de uma chave primária existente resultará no seguinte comportamento de falha:   
+>   - Os dados entre o Hub e o membro podem ser perdidos, embora a sincronização não relate nenhum problema.
+> - A sincronização pode falhar porque a tabela de rastreamento tem uma linha não existente da origem devido à alteração da chave primária.
+
 - Isolamento de instantâneo tem de estar ativado. Para mais informações, veja [isolamento do instantâneo no SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Limitações gerais

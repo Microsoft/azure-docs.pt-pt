@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 08/20/2019
 ms.author: v-adgera
-ms.openlocfilehash: 7ceb36d818c84642461372f0df70c8088908550c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 66dbfd09ef07740c07ddb010b73e33e783340e5a
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965819"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873666"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o postmaster para o Azure digital gêmeos
 
@@ -53,7 +53,9 @@ Configure seu aplicativo Azure Active Directory para usar o fluxo de concessão 
 
 ## <a name="obtain-an-oauth-20-token"></a>Obter um token 2,0 do OAuth
 
-Em seguida, configure e configure o postmaster para obter um token de Azure Active Directory. Posteriormente, faça uma solicitação HTTP autenticada para o Azure digital gêmeos usando o token adquirido:
+[!INCLUDE [digital-twins-management-api](../../includes/digital-twins-management-api.md)]
+
+Configure e configure o postmaster para obter um token de Azure Active Directory. Posteriormente, faça uma solicitação HTTP autenticada para o Azure digital gêmeos usando o token adquirido:
 
 1. Acesse [www.getpostman.com](https://www.getpostman.com/) para baixar o aplicativo.
 1. Verifique se a **URL de autorização** está correta. Ele deve ter o formato:
@@ -62,7 +64,7 @@ Em seguida, configure e configure o postmaster para obter um token de Azure Acti
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | Nome  | Substituir | Exemplo |
+    | Name  | Substituir | Exemplo |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | O nome do seu locatário ou organização | `microsoft` |
 
@@ -75,7 +77,7 @@ Em seguida, configure e configure o postmaster para obter um token de Azure Acti
     | URL de autenticação | Use a **URL de autorização** da etapa 2 |
     | ID de Cliente | Use a **ID do aplicativo** para o Azure Active Directory aplicativo que foi criado ou realocado da seção anterior |
     | Scope | Deixar em branco |
-    | Estado | Deixar em branco |
+    | State | Deixar em branco |
     | Autenticação de Cliente | `Send as Basic Auth header` |
 
 1. O cliente agora deve aparecer como:

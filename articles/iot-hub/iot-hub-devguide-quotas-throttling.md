@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 184cdaddc638461d50f322292d5cfaf28ab93093
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 0e60607d50722a4496dc8f4ad7d609cdf9fd5792
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950534"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877175"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência-cotas e limitação do Hub IoT
 
@@ -25,6 +25,10 @@ Cada assinatura do Azure pode ter no máximo 50 hubs IoT e no máximo 1 Hub livr
 Cada hub IoT é aprovisionado com um determinado número de unidades num escalão específico. A camada e o número de unidades determinam a cota diária máxima de mensagens que você pode enviar. O tamanho da mensagem usado para calcular a cota diária é de 0,5 KB para um hub de camada gratuita e 4 KB para todas as outras camadas. Para obter mais informações, consulte [preços do Hub IOT do Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 A camada também determina os limites de limitação que o Hub IoT impõe em todas as operações.
+
+### <a name="iot-plug-and-play"></a>IoT Plug and Play
+
+Durante a visualização pública, os dispositivos IoT Plug and Play enviarão mensagens separadas por interface, o que pode aumentar o número de mensagens contadas em direção à sua cota de mensagens.
 
 ## <a name="operation-throttles"></a>Limitação de operação
 
@@ -122,7 +126,7 @@ Várias unidades do Hub IoT afetam a limitação conforme descrito anteriormente
 
 Se você vir aumentos inesperados na latência da operação, entre em contato com [suporte da Microsoft](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para uma discussão aprofundada sobre o comportamento de limitação do Hub IoT, consulte a postagem do blog [limitação do Hub IOT e você](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/).
 

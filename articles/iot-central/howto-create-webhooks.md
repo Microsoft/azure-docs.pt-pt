@@ -1,6 +1,6 @@
 ---
-title: Criar webhooks em regras do Azure IoT Central | Documentos da Microsoft
-description: Crie webhooks no Azure IoT Central para notificar automaticamente a outros aplicativos quando as regras são acionados.
+title: Criar WebHooks em regras no Azure IoT Central | Microsoft Docs
+description: Crie WebHooks no Azure IoT Central para notificar automaticamente outros aplicativos quando as regras forem acionadas.
 author: viv-liu
 ms.author: viviali
 ms.date: 06/16/2019
@@ -8,40 +8,42 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: fdeefdc1ec5372d6ac17f0f985ee0c50ce902e56
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 508e8b4b3a909e87f538f67b1ad9a5efdbcd9551
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165330"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876031"
 ---
-# <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Criar ações de webhook em regras do Azure IoT Central
+# <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Criar ações de webhook em regras no Azure IoT Central
 
-*Este tópico aplica-se para criadores e administradores.*
+*Este tópico se aplica a construtores e administradores.*
 
-Os Webhooks permitem-lhe ligar a sua aplicação do Centro de IoT para outras aplicações e serviços para monitorização remota e notificações. Os Webhooks notificam automaticamente outras aplicações e serviços que ligar sempre que é acionada uma regra na sua aplicação IoT Central. A aplicação de centro de IoT envia um pedido POST ao ponto final HTTP de outro aplicativo sempre que é acionada uma regra. O payload contém detalhes do dispositivo e detalhes do acionador de regra.
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
+Os WebHooks permitem que você conecte seu aplicativo IoT Central a outros aplicativos e serviços para monitoramento e notificações remotas. WebHooks notificam automaticamente outros aplicativos e serviços que você conecta sempre que uma regra é disparada em seu aplicativo IoT Central. Seu aplicativo IoT Central envia uma solicitação POST para o ponto de extremidade HTTP do outro aplicativo sempre que uma regra é disparada. A carga contém detalhes do dispositivo e detalhes do gatilho da regra.
 
 ## <a name="set-up-the-webhook"></a>Configurar o webhook
 
-Neste exemplo, vai ligar a RequestBin para ser notificado quando as regras são acionados através de webhooks.
+Neste exemplo, você se conecta ao RequestBin para ser notificado quando as regras forem acionadas usando WebHooks.
 
-1. Open [RequestBin](https://requestbin.net/).
+1. Abra [RequestBin](https://requestbin.net/).
 
-1. Criar um novo RequestBin e copiar o **URL do Bin**.
+1. Crie um novo RequestBin e copie a **URL bin**.
 
-1. Criar uma [regra telemetria](howto-create-telemetry-rules.md) ou uma [regra de evento](howto-create-event-rules.md). Guardar a regra e adicione uma nova ação.
+1. Crie uma [regra](howto-create-telemetry-rules.md) de telemetria ou uma [regra de evento](howto-create-event-rules.md). Salve a regra e adicione uma nova ação.
 
-    ![Ecrã de criação do Webhook](media/howto-create-webhooks/webhookcreate.png)
+    ![Tela de criação do webhook](media/howto-create-webhooks/webhookcreate.png)
 
-1. Escolha a ação de webhook e fornecer um nome a apresentar e cole o URL do Bin como o URL de retorno de chamada.
+1. Escolha a ação de webhook e forneça um nome de exibição e cole a URL do compartimento como a URL de retorno de chamada.
 
-1. Guarde a regra.
+1. Salve a regra.
 
-Agora quando a regra é acionada, verá um novo pedido de aparecer no RequestBin.
+Agora, quando a regra for disparada, você verá que uma nova solicitação aparecerá em RequestBin.
 
 ## <a name="payload"></a>Payload
 
-Quando é acionada uma regra, um pedido POST de HTTP é feito para o URL de retorno de chamada, que contém um payload json com o medidas, dispositivo, regras e detalhes da aplicação. Para uma regra de telemetria, o payload é semelhante ao seguinte:
+Quando uma regra é disparada, uma solicitação HTTP POST é feita à URL de retorno de chamada que contém uma carga JSON com as medidas, o dispositivo, a regra e os detalhes do aplicativo. Para uma regra de telemetria, o conteúdo é semelhante ao seguinte:
 
 ```json
 {
@@ -91,10 +93,10 @@ Quando é acionada uma regra, um pedido POST de HTTP é feito para o URL de reto
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 
-Atualmente não é possível programática de subscrever/anular a subscrição destes webhooks através de uma API.
+Atualmente, não há nenhuma maneira programática de assinar/cancelar a assinatura desses WebHooks por meio de uma API.
 
-Se tiver ideias sobre como melhorar esta funcionalidade, publique suas sugestões à nossa [fórum do Uservoice](https://feedback.azure.com/forums/911455-azure-iot-central).
+Se você tiver ideias sobre como melhorar esse recurso, poste suas sugestões em nosso [Fórum UserVoice](https://feedback.azure.com/forums/911455-azure-iot-central).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu a configurar e utilizar webhooks, a próxima etapa sugerida é explorar [criação de fluxos de trabalho no Microsoft Flow](howto-add-microsoft-flow.md).
+Agora que você aprendeu como configurar e usar WebHooks, a próxima etapa sugerida é explorar a [criação de fluxos de trabalho em Microsoft Flow](howto-add-microsoft-flow.md).

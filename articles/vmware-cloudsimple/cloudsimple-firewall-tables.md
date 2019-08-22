@@ -1,23 +1,23 @@
 ---
-title: Tabelas de firewall – solução VMware por CloudSimple – Azure
+title: Solução do Azure VMware por tabelas CloudSimple-firewall
 description: Saiba mais sobre as tabelas de firewall e as regras de firewall da nuvem privada do CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9d25aa9252f061cee7f4cffdca42f00d84f719a3
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 89bef6cef48f2b972aa3f931008b0db84431b832
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812657"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877720"
 ---
 # <a name="firewall-tables-overview"></a>Visão geral das tabelas de firewall
 
-Uma tabela de firewall lista regras para filtrar o tráfego de rede de e para recursos de nuvem privada. Você pode aplicá-las a uma VLAN ou sub-rede. Em seguida, as regras controlam o tráfego de rede entre uma rede de origem ou endereço IP e uma rede de destino ou endereço IP.
+Uma tabela de firewall lista regras para filtrar o tráfego de rede de e para recursos de nuvem privada. Você pode aplicar tabelas de firewall a uma VLAN/sub-rede. As regras controlam o tráfego de rede entre uma rede de origem ou um endereço IP e uma rede de destino ou endereço IP.
 
 ## <a name="firewall-rules"></a>Regras de firewall
 
@@ -26,7 +26,7 @@ A tabela a seguir descreve os parâmetros em uma regra de firewall.
 | Propriedade | Detalhes |
 | ---------| --------|
 | **Name** | Um nome que identifica exclusivamente a regra de firewall e sua finalidade. |
-| **prioridade** | Um número entre 100 e 4096, com 100 sendo a prioridade mais alta. As regras são processadas em ordem de prioridade. Quando o tráfego entra em uma correspondência de regra, o processamento da regra é interrompido. Como resultado, todas as regras que existem com prioridades mais baixas que têm os mesmos atributos que as regras com prioridades mais altas não são processadas.  Tome cuidado para evitar regras conflitantes. |
+| **prioridade** | Um número entre 100 e 4096, com 100 sendo a prioridade mais alta. As regras são processadas em ordem de prioridade. Quando o tráfego encontra uma correspondência de regra, o processamento da regra é interrompido. Como resultado, as regras com prioridades mais baixas que têm os mesmos atributos que as regras com prioridades mais altas não são processadas.  Tome cuidado para evitar regras conflitantes. |
 | **Rastreamento de estado** | O rastreamento pode ser sem estado (nuvem privada, Internet ou VPN) ou com estado (IP público).  |
 | **Protocolo** | As opções incluem any, TCP ou UDP. Se você precisar de ICMP, use any. |
 | **Direção** | Indica se a regra se aplica a tráfego de entrada ou de saída. |
@@ -53,7 +53,7 @@ Regras adicionais podem ser necessárias para o fluxo de tráfego na direção i
 
 As regras padrão a seguir são criadas em cada tabela de firewall.
 
-|Priority|Nome|Rastreamento de estado|Direction|Tipo de tráfego|Protocol|Source|Porta de Origem|Destino|Porta de Destino|Action|
+|Priority|Name|Rastreamento de estado|Direction|Tipo de tráfego|Protocol|Source|Porta de Origem|Destino|Porta de Destino|Action|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
 |65000|permitir-tudo para a Internet|Dinâmico|Saída|IP público ou tráfego de Internet|Todos|Any|Any|Any|Any|Allow|
 |65001|negar-tudo-da-Internet|Dinâmico|Entrada|IP público ou tráfego de Internet|Todos|Any|Any|Any|Any|Negar|
@@ -62,4 +62,4 @@ As regras padrão a seguir são criadas em cada tabela de firewall.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Configurar regras e tabelas de firewall](https://docs.azure.cloudsimple.com/firewall/)
+* [Configurar regras e tabelas de firewall](firewall.md)

@@ -8,14 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: ced771002ca9f542f89dbf74ba4a4745ad2a0339
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: aa5ff93b4f1f6392f753a88d57a072f542fc16e2
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850181"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877277"
 ---
-# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalizar a vista do operador do Azure IoT Central
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalizar a exibição do operador de IoT Central do Azure
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Este tutorial mostra-lhe como personalizar a vista do operador da sua aplicação como construtor. Quando fizer uma alteração à aplicação como construtor, pode pré-visualizar a vista do operador na aplicação do Microsoft Azure IoT Central.
 
@@ -28,8 +30,8 @@ Neste tutorial, ficará a saber como:
 > * Configurar o seu esquema de definições do dispositivo
 > * Configurar o seu esquema de propriedades do dispositivo
 > * Pré-visualizar o dispositivo como operador
-> * Configurar o seu dashboard de aplicações predefinido
-> * Pré-visualizar o dashboard de aplicações padrão como um operador
+> * Configurar o painel do aplicativo padrão
+> * Visualizar o painel de aplicativo padrão como um operador
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,15 +42,15 @@ Antes de iniciar sessão, deve concluir os dois tutoriais anteriores:
 
 ## <a name="configure-your-device-dashboard"></a>Configurar o dashboard do seu dispositivo
 
-Pode definir as informações que são apresentadas num dashboard do dispositivo como construtor. Na [definir um novo tipo de dispositivo em seu aplicativo](tutorial-define-device-type.md) tutorial, adicionou um gráfico de linhas e outras informações para o **ligado ar-condicionado** dashboard.
+Pode definir as informações que são apresentadas num dashboard do dispositivo como construtor. No tutorial [definir um novo tipo de dispositivo no aplicativo](tutorial-define-device-type.md) , você adicionou um gráfico de linhas e outras informações ao painel do **ar-condicionado conectado** .
 
-1. Para editar a **ligado ar-condicionado** modelo de dispositivo, escolha **modelos de dispositivos** no menu de navegação à esquerda:
+1. Para editar o modelo de dispositivo de **ar-condicionado conectado** , escolha **modelos de dispositivo** no menu de navegação à esquerda:
 
-    ![Página de modelos de dispositivo](media/tutorial-customize-operator/devicetemplates.png)
+    ![Página modelos de dispositivo](media/tutorial-customize-operator/devicetemplates.png)
 
-2. Para personalizar o dashboard do dispositivo, selecione o **ligado ar-condicionado (1.0.0)** dispositivos do modelo de dispositivo que criou no [definir um novo tipo de dispositivo na sua aplicação](tutorial-define-device-type.md) tutorial.
+2. Para personalizar o painel do dispositivo, selecione o dispositivo de modelo de dispositivo do **1.0.0 (ar condicionador)** que você criou no tutorial [definir um novo tipo de dispositivo no aplicativo](tutorial-define-device-type.md) .
 
-3. Para editar o dashboard, selecione o **Dashboard** separador.
+3. Para editar o painel, selecione a guia **painel** .
 
 4. Para adicionar um mosaico do Indicador Chave de Desempenho (KPI) ao dashboard, escolha **KPI**:
 
@@ -56,9 +58,9 @@ Pode definir as informações que são apresentadas num dashboard do dispositivo
 
     | Definição     | Valor |
     | ----------- | ----- |
-    | Nome        | Temperatura máxima |
-    | Intervalo de tempo  | Passado 1 semana |
-    | Tipo de medida | Telemetria |
+    | Name        | Temperatura máxima |
+    | Intervalo de tempo  | Última semana |
+    | Tipo de Medida | Telemetria |
     | Medida | temperatura |
     | Agregação | Máximo |
     | Visibilidade  | Enabled |
@@ -69,13 +71,13 @@ Pode definir as informações que são apresentadas num dashboard do dispositivo
 
     ![Mosaico de KPI](media/tutorial-customize-operator/temperaturekpi.png)
 
-6. Para mover ou redimensionar um mosaico no dashboard, mova o ponteiro do rato sobre o mosaico. Pode arrastar o mosaico para uma localização nova ou redimensioná-la.
+6. Para mover ou redimensionar um mosaico no dashboard, mova o ponteiro do rato sobre o mosaico. Você pode arrastar o bloco para um novo local ou redimensioná-lo.
 
 ## <a name="configure-your-settings-layout"></a>Configurar o seu esquema de definições
 
-Também pode configurar a vista do operador das definições do dispositivo como construtor. Um operador utiliza o separador de definições do dispositivo para configurar um dispositivo. Por exemplo, um operador utiliza o separador de definições para definir a temperatura de destino para o ar condicionado ligado.
+Também pode configurar a vista do operador das definições do dispositivo como construtor. Um operador usa a guia Configurações do dispositivo para configurar um dispositivo. Por exemplo, um operador usa a guia Configurações para definir a temperatura de destino do ar condicionado conectado.
 
-1. Para editar o esquema de definições para sua ligado de ar-condicionado, escolha o **definições** separador.
+1. Para editar o layout de configurações para o ar-condicionado conectado, escolha a guia **configurações** .
 
 2. Pode mover e redimensionar os mosaicos de definições:
 
@@ -83,23 +85,23 @@ Também pode configurar a vista do operador das definições do dispositivo como
 
 ## <a name="configure-your-properties-layout"></a>Configurar o seu esquema de propriedades
 
-Para além do dashboard e das definições, também pode configurar a vista do operador das propriedades do dispositivo. Um operador utiliza o separador de propriedades do dispositivo para gerir metadados do dispositivo. Por exemplo, um operador utiliza o separador de propriedades para ver um número de série do dispositivo ou atualizar detalhes de contacto para o fabricante.
+Para além do dashboard e das definições, também pode configurar a vista do operador das propriedades do dispositivo. Um operador usa a guia Propriedades do dispositivo para gerenciar metadados do dispositivo. Por exemplo, um operador usa a guia Propriedades para exibir um número de série do dispositivo ou atualizar detalhes de contato para o fabricante.
 
-1. Para editar o layout de propriedades para sua ligado de ar-condicionado, escolha o **propriedades** separador.
+1. Para editar o layout de propriedades do ar-condicionado conectado, escolha a guia **Propriedades** .
 
 2. Pode mover e redimensionar os campos de propriedades:
 
     ![Editar o esquema de propriedades](media/tutorial-customize-operator/propertieslayout.png)
 
-## <a name="preview-the-device"></a>Pré-visualização do dispositivo
+## <a name="preview-the-device"></a>Visualizar o dispositivo
 
-Utilizar o **modelos de dispositivos** página para personalizar os separadores dashboard, definições e propriedades para um operador. Utilizar o **Device Explorer** página para ver e utilizar o modelo de dispositivo.
+Use a página **modelos de dispositivo** para personalizar as guias painel, configurações e propriedades de um operador. Use a página **Device Explorer** para exibir e usar o modelo de dispositivo.
 
-1. Para ver e utilizar o modelo conectado ar-condicionado como um operador, navegue para o **Device Explorer** página e selecione o dispositivo simulado que IoT Central gerado a partir do seu modelo:
+1. Para exibir e usar o modelo de ar-condicionado conectado como um operador, navegue até a página **Device Explorer** e escolha o dispositivo simulado que IOT central gerado a partir de seu modelo:
 
-    ![Ver e utilizar o modelo de dispositivo](media/tutorial-customize-operator/usetemplate.png)
+    ![Exibir e usar o modelo de dispositivo](media/tutorial-customize-operator/usetemplate.png)
 
-2. Para atualizar a localização deste dispositivo, escolha **propriedades** e edite o valor no mosaico de localização. Em seguida, selecione **guardar**:
+2. Para atualizar o local deste dispositivo, escolha **Propriedades** e edite o valor no bloco localização. Em seguida, selecione **salvar**:
 
     ![Editar um valor de propriedade](media/tutorial-customize-operator/editproperty.png)
 
@@ -113,39 +115,39 @@ Utilizar o **modelos de dispositivos** página para personalizar os separadores 
 
     ![Vista do operador do dashboard do dispositivo](media/tutorial-customize-operator/operatordashboard.png)
 
-## <a name="configure-the-default-dashboard"></a>Configurar o dashboard predefinido
+## <a name="configure-the-default-dashboard"></a>Configurar o painel padrão
 
-Quando um construtor ou o operador inicia sessão a uma aplicação do Azure IoT Central, verão o dashboard de aplicações. Como um construtor, pode configurar o conteúdo do dashboard predefinido para incluir o conteúdo mais útil e relevante para um operador.
+Quando um construtor ou operador entra em um aplicativo de IoT Central do Azure, ele vê o painel do aplicativo. Como um construtor, você pode configurar o conteúdo do painel padrão para incluir o conteúdo mais útil e relevante para um operador.
 
 > [!NOTE]
-> Os utilizadores também podem criar seus próprios dashboards pessoais e escolher uma como seu padrão.
+> Os usuários também podem criar seus próprios painéis pessoais e escolher um como padrão.
 
-1. Para personalizar o dashboard de aplicações predefinido, navegue para o **Dashboard** página e selecione **editar** no canto superior direito da página. É apresentado um painel com uma biblioteca de objetos, que pode adicionar ao dashboard.
+1. Para personalizar o painel do aplicativo padrão, navegue até a página **painel** e selecione **Editar** na parte superior direita da página. Um painel é exibido com uma biblioteca de objetos que você pode adicionar ao painel.
 
-    ![Página de dashboard](media/tutorial-customize-operator/builderhome.png)
+    ![Página do painel](media/tutorial-customize-operator/builderhome.png)
 
-2. Para personalizar o dashboard, adicione mosaicos a partir da **biblioteca**. Escolha **Ligação** e adicione os detalhes do site da sua organização. Em seguida, escolha **Guardar**:
+2. Para personalizar o painel, adicione blocos da **biblioteca**. Escolha **Ligação** e adicione os detalhes do site da sua organização. Em seguida, escolha **Guardar**:
 
-    ![Adicionar ligação ao dashboard](media/tutorial-customize-operator/addlink.png)
+    ![Adicionar link ao painel](media/tutorial-customize-operator/addlink.png)
 
     > [!NOTE]
     > Também pode adicionar ligações a páginas na sua aplicação do Azure IoT Central. Por exemplo, pode adicionar uma ligação a um dashboard de dispositivo ou à página de definições.
 
-3. Opcionalmente, escolha **imagem** e carregar uma imagem a apresentar no seu dashboard. Uma imagem pode ter um URL para o qual navega, ao selecioná-lo:
+3. Opcionalmente, escolha **imagem** e carregue uma imagem para exibição em seu painel. Uma imagem pode ter uma URL para a qual você navega ao selecioná-la:
 
-    ![Adicionar uma imagem ao dashboard](media/tutorial-customize-operator/addimage.png)
+    ![Adicionar uma imagem ao painel](media/tutorial-customize-operator/addimage.png)
 
     Para obter mais informações, veja [Como preparar e carregar imagens para a aplicação do Azure IoT Central](howto-prepare-images.md).
 
-## <a name="preview-the-dashboard"></a>Pré-visualização do dashboard
+## <a name="preview-the-dashboard"></a>Visualizar o painel
 
-Para pré-visualizar o dashboard de aplicações como um operador, selecione **feito** no canto superior direito da página.
+Para visualizar o painel de aplicativos como um operador, selecione **concluído** no canto superior direito da página.
 
 ![Alternar Modo de Estrutura](media/tutorial-customize-operator/operatorviewhome.png)
 
-Pode selecionar os mosaicos de imagem e ligação para navegar para os URLs que definir como um construtor.
+Você pode selecionar os blocos de link e imagem para navegar até as URLs definidas como um construtor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a personalizar a vista do operador da aplicação.
 

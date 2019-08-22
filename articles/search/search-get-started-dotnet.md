@@ -2,7 +2,7 @@
 title: C#TUTORIAIS Criar, carregar e consultar índices usando o SDK do .NET-Azure Search
 description: Explica como criar um índice, carregar dados e executar consultas usando C# o e o SDK do .net Azure Search.
 author: heidisteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 tags: azure-portal
 services: search
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/11/2019
-ms.openlocfilehash: 6138df5b80f479a54683ec0408b832dd78bff8e4
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 6a77ecd91c0d04f0b449d25686578784921987bf
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67847085"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649804"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>Início rápido: Criar um índice de Azure Search C# no usando o SDK do .net
 > [!div class="op_single_selector"]
@@ -557,7 +557,7 @@ Você pode encontrar e gerenciar recursos no portal, usando o link **todos os re
 
 Se você estiver usando um serviço gratuito, lembre-se de que você está limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia C# de início rápido, você trabalhou em uma série de tarefas para criar um índice, carregá-lo com documentos e executar consultas. Em diferentes estágios, pegamos atalhos para simplificar o código para facilitar a legibilidade e a compreensão. Se você estiver familiarizado com os conceitos básicos, recomendamos o próximo artigo para uma exploração de abordagens e conceitos alternativos que aprofundarão seu conhecimento. 
 

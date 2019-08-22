@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 2ed93846e0a1ab98b25bdfbe33b34779996da82b
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 6882476cabc3dc3a737f31eeeb4ccd92e5ea6ee0
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782649"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872749"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure para o Azure
 
@@ -26,7 +26,7 @@ Este artigo descreve a arquitetura, os componentes e os processos usados quando 
 
 Os componentes envolvidos na recuperação de desastre para VMs do Azure são resumidos na tabela a seguir.
 
-**Componente** | **Requirement**
+**Componente** | **Requisitos**
 --- | ---
 **VMs na região de origem** | Uma ou mais VMs do Azure em uma [região de origem com suporte](azure-to-azure-support-matrix.md#region-support).<br/><br/> As VMs podem estar executando qualquer [sistema operacional com suporte](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Armazenamento de VM de origem** | As VMs do Azure podem ser gerenciadas ou ter discos não gerenciados distribuídos entre contas de armazenamento.<br/><br/>[Saiba mais sobre](azure-to-azure-support-matrix.md#replicated-machines---storage) o armazenamento do Azure com suporte.
@@ -74,7 +74,7 @@ Você pode gerenciar e modificar as configurações de políticas de replicaçã
 - Você pode modificar as configurações ao habilitar a replicação.
 - Você pode criar uma política de replicação a qualquer momento e, em seguida, aplicá-la quando habilitar a replicação.
 
-### <a name="multi-vm-consistency"></a>Consistência de multi-VMs
+### <a name="multi-vm-consistency"></a>Consistência de várias VMs
 
 Se você quiser que as VMs se repliquem juntas e tenham pontos de recuperação consistentes e consistentes com o aplicativo e com falhas em um failover, você poderá reuni-los em um grupo de replicação. A consistência de várias VMs afeta o desempenho da carga de trabalho e só deve ser usada para VMs que executam cargas de trabalho que precisam de consistência em todas as máquinas. 
 
@@ -95,13 +95,13 @@ Site Recovery usa instantâneos da seguinte maneira:
 
 A tabela a seguir explica os diferentes tipos de consistência.
 
-### <a name="crash-consistent"></a>Consistente com a Falha
+### <a name="crash-consistent"></a>Com consistência de falhas
 
 **Descrição** | **Detalhes** | **Recomendação**
 --- | --- | ---
 Um instantâneo com consistência de falha captura dados que estavam no disco quando o instantâneo foi tirado. Ele não inclui nada na memória.<br/><br/> Ele contém o equivalente dos dados em disco que estaria presente se a VM falhasse ou o cabo de alimentação foi puxado do servidor no instante em que o instantâneo foi tirado.<br/><br/> Uma falha consistente não garante a consistência de dados para o sistema operacional ou para aplicativos na VM. | O Site Recovery cria pontos de recuperação consistentes com falhas a cada cinco minutos por padrão. Essa configuração não pode ser modificada.<br/><br/>  | Hoje, a maioria dos aplicativos pode se recuperar bem de pontos consistentes com falhas.<br/><br/> Os pontos de recuperação consistentes com falhas geralmente são suficientes para a replicação de sistemas operacionais e aplicativos como servidores DHCP e servidores de impressão.
 
-### <a name="app-consistent"></a>Consistente com a Aplicação
+### <a name="app-consistent"></a>Consistente com o aplicativo
 
 **Descrição** | **Detalhes** | **Recomendação**
 --- | --- | ---
@@ -139,6 +139,7 @@ Se o acesso de saída para VMs for controlado com URLs, permita essas URLs.
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
 Para controlar a conectividade de saída para VMs usando endereços IP, permita esses endereços.
+Observe que os detalhes dos requisitos de conectividade de rede podem ser encontrados no [White Paper de rede](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) 
 
 #### <a name="source-region-rules"></a>Regras de região de origem
 
@@ -185,6 +186,6 @@ Quando você inicia um failover, as VMs são criadas no grupo de recursos de des
 
 ![Processo de failover](./media/concepts-azure-to-azure-architecture/failover.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Replique rapidamente](azure-to-azure-quickstart.md) uma VM do Azure para uma região secundária.

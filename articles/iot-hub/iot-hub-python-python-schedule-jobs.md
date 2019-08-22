@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/16/2019
 ms.author: robinsh
-ms.openlocfilehash: 81b2145e6107558f2d9698c7e5d03658f1129b00
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 63534260e042a1b47ca5e635c48123672d663a9b
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667934"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873316"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Agendar e difundir trabalhos (Python)
 
@@ -47,15 +47,17 @@ No final deste tutorial, você tem dois aplicativos Python:
 
 **scheduleJobService.py**, que chama um método direto no aplicativo de dispositivo simulado e atualiza as propriedades desejadas do dispositivo ' s ' usando um trabalho.
 
-[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
-
-Veja a seguir as instruções de instalação para os pré-requisitos.
-
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
-
 > [!NOTE]
 > O **SDK do Azure IOT para Python** não oferece suporte direto à funcionalidade de **trabalhos** . Em vez disso, este tutorial oferece uma solução alternativa utilizando threads e temporizadores assíncronos. Para obter mais atualizações, consulte a lista de recursos do **SDK do cliente do serviço** na página SDK do [Azure IOT para Python](https://github.com/Azure/azure-iot-sdk-python) .
 >
+
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para concluir este tutorial, precisa de:
+
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
@@ -74,6 +76,10 @@ Nesta seção, você cria um aplicativo de console do Python que responde a um m
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
+
+   > [!NOTE]
+   > Os pacotes Pip para Azure-iothub-Service-Client e Azure-iothub-Device-Client estão atualmente disponíveis apenas para o sistema operacional Windows. Para o Linux/Mac OS, consulte as seções específicas do Linux e do Mac OS na postagem [preparar seu ambiente de desenvolvimento para o Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) .
+   >
 
 2. Usando um editor de texto, crie um novo arquivo **simDevice.py** em seu diretório de trabalho.
 
@@ -158,9 +164,27 @@ Nesta seção, você cria um aplicativo de console do Python que responde a um m
 
 ## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
 
-[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+Neste artigo, você cria um serviço de back-end que invoca um método direto em um dispositivo e atualiza o dispositivo de atualização. O serviço precisa da permissão de **conexão de serviço** para chamar um método direto em um dispositivo. O serviço também precisa das permissões de **leitura** do registro e de **gravação do registro** para ler e gravar o registro de identidade. Não há nenhuma política de acesso compartilhado padrão que contenha apenas essas permissões, portanto, você precisa criar uma.
 
-[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+Para criar uma política de acesso compartilhado que conceda permissões de conexão do **serviço**, **leitura do registro**e **gravação do registro** e para obter uma cadeia de conexão para essa política, siga estas etapas:
+
+1. Abra o Hub IoT no [portal do Azure](https://portal.azure.com). A maneira mais fácil de acessar o Hub IoT é selecionar grupos de **recursos**, selecionar o grupo de recursos onde o Hub IOT está localizado e, em seguida, selecionar o Hub IOT na lista de recursos.
+
+2. No painel do lado esquerdo do Hub IoT, selecione políticas de **acesso compartilhado**.
+
+3. No menu superior acima da lista de políticas, selecione **Adicionar**.
+
+4. No painel **Adicionar uma política de acesso compartilhado** , insira um nome descritivo para a política; por exemplo: *serviceAndRegistryReadWrite*. Em **permissões**, selecione **conexão de serviço** e **gravação de registro** (a**leitura do registro** é selecionada automaticamente quando você seleciona **gravação do registro**). Em seguida, selecione **Criar**.
+
+    ![Mostrar como adicionar uma nova política de acesso compartilhado](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
+
+5. De volta ao painel **políticas de acesso compartilhado** , selecione sua nova política na lista de políticas.
+
+6. Em **chaves de acesso compartilhado**, selecione o ícone de cópia para a **cadeia de conexão--chave primária** e salve o valor.
+
+    ![Mostrar como recuperar a cadeia de conexão](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
+
+Para obter mais informações sobre políticas de acesso compartilhado do Hub IoT e permissões, consulte [controle de acesso e permissões](./iot-hub-devguide-security.md#access-control-and-permissions).
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Agendar trabalhos para chamar um método direto e atualizar as propriedades de um dispositivo
 
@@ -172,9 +196,13 @@ Nesta seção, você cria um aplicativo de console do Python que inicia um **loc
     pip install azure-iothub-service-client
     ```
 
+   > [!NOTE]
+   > Os pacotes Pip para Azure-iothub-Service-Client e Azure-iothub-Device-Client estão atualmente disponíveis apenas para o sistema operacional Windows. Para o Linux/Mac OS, consulte as seções específicas do Linux e do Mac OS na postagem [preparar seu ambiente de desenvolvimento para o Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) .
+   >
+
 2. Usando um editor de texto, crie um novo arquivo **scheduleJobService.py** em seu diretório de trabalho.
 
-3. Adicione as seguintes `import` instruções e variáveis ao início do arquivo **scheduleJobService.py** :
+3. Adicione as seguintes `import` instruções e variáveis ao início do arquivo **scheduleJobService.py** . Substitua o `{IoTHubConnectionString}` espaço reservado pela cadeia de conexão do Hub IOT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string). Substitua o `{deviceId}` espaço reservado pela ID do dispositivo que você registrou em [registrar um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub):
 
     ```python
     import sys
@@ -322,7 +350,7 @@ Pode agora executar as aplicações.
 
     ![Exemplo de trabalho do Hub IoT 2--saída do dispositivo](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você usou um trabalho para agendar um método direto para um dispositivo e a atualização das propriedades de FileUp do dispositivo.
 
