@@ -65,7 +65,7 @@ Primeiro, crie uma função acionada por HTTP, que inicia uma orquestração de 
 
     ![Escolha o modelo de arranque HTTP](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. Deixe o nome predefinido, como `DurableFunctionsHttpStart` e prima *** Enter * *, em seguida, selecione **anónimo** autenticação.
+3. Deixe o nome predefinido, como `DurableFunctionsHttpStart` e prima ** **Enter**, em seguida, selecione **anónimo** autenticação.
 
     ![Escolher autenticação anónima](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 

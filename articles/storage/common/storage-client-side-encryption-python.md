@@ -52,7 +52,7 @@ A descriptografia por meio da técnica de envelope funciona da seguinte maneira:
 A biblioteca de cliente de armazenamento usa o [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para criptografar os dados do usuário. Especificamente, o modo [CBC (encadeamento de bloco de codificação)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) com AES. Cada serviço funciona de maneira um pouco diferente, então discutiremos cada um deles aqui.
 
 ### <a name="blobs"></a>Blobs
-Atualmente, a biblioteca de cliente dá suporte apenas à criptografia de BLOBs inteiros. Especificamente, há suporte para a criptografia quando os usuários usam os métodos **Create***. Para downloads, há suporte para downloads completos e de intervalo e a paralelização de upload e download está disponível.
+Atualmente, a biblioteca de cliente dá suporte apenas à criptografia de BLOBs inteiros. Especificamente, há suporte para a criptografia quando os usuários usam os métodos **Create** *. Para downloads, há suporte para downloads completos e de intervalo e a paralelização de upload e download está disponível.
 
 Durante a criptografia, a biblioteca de cliente gerará um vetor de inicialização aleatória (IV) de 16 bytes, junto com uma chave de criptografia de conteúdo aleatória (CEK) de 32 bytes e executará a criptografia de envelope dos dados de BLOB usando essas informações. O CEK encapsulado e alguns metadados de criptografia adicionais são armazenados como metadados de blob junto com o blob criptografado no serviço.
 

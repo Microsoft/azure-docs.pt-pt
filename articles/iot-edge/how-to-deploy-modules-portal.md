@@ -70,7 +70,7 @@ O portal do Azure tem um assistente que explica como criar o manifesto de implan
 
 ### <a name="specify-routes"></a>Especificar rotas
 
-Por predefinição, o assistente apresenta uma rota chamada **rota** e definido como **FROM /* em $ a montante * *, que significa que todas as mensagens de saída por quaisquer módulos são enviadas ao seu hub IoT.  
+Por predefinição, o assistente apresenta uma rota chamada **rota** e definido como **FROM /\* em $ a montante**, que significa que todas as mensagens de saída por quaisquer módulos são enviadas ao seu hub IoT.  
 
 Adicionar ou atualizar as rotas com as informações de [declarar rotas](module-composition.md#declare-routes), em seguida, selecione **próxima** para continuar para a secção de revisão.
 
