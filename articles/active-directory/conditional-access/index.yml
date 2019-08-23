@@ -1,56 +1,71 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentação de Acesso Condicional do Azure AD
+### YamlMime:Landing
+title: Documentação do Acesso Condicional do Azure AD
+summary: Saiba como configurar e testar o Acesso Condicional do Azure Active Directory
 metadata:
-  document_id: null
-  title: 'Documentação do Acesso Condicional ao Azure Active Directory - Tutoriais, inícios rápidos, conceitos, referências | Microsoft Docs'
-  description: Saiba como configurar e testar o Acesso Condicional do Azure Active Directory.
+  title: Documentação do Acesso Condicional do Azure AD
+  description: Saiba como configurar e testar o Acesso Condicional do Azure Active Directory
   services: active-directory
-  ms.subservice: conditional-access
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: conditional-access
   ms.topic: landing-page
-  ms.date: 08/14/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: 'Saiba como dominar o equilíbrio entre a segurança e a produtividade ao configurar o Acesso Condicional ao Azure AD. Com as políticas de Acesso Condicional, pode fatorizar a forma como as suas aplicações na cloud são acedidas nas suas decisões de acesso. Por exemplo, pode abordar as suas decisões de acesso para as seguintes questões:<ul><li>Qual é a localização da rede do utilizador?</li><li>A tentativa de acesso foi iniciada a partir de um dispositivo gerido?</li><li>A partir de que aplicação de cliente foi iniciada uma tentativa de ligação?</li><li>Foi feita uma tentativa de acesso a partir de um início de sessão arriscado?</li></ul>Os seguintes recursos ajudam-no a começar rapidamente.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ./media/index/video.png
-      width: 246
-    title: Acesso Condicional explicado
-    href: 'https://www.youtube.com/watch?v=XruceejcCKQ'
-    width: 246
-sections:
-  - title: Inícios rápidos de 5 minutos
-    items:
-      - type: paragraph
-        text: Saiba como configurar as políticas de Acesso Condicional para cenários de acesso comuns.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Exigir o MFA para aplicações específicas
-            href: app-based-mfa.md
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Bloquear o acesso quando é detetado um risco de sessão
-            href: app-sign-in-risk.md
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Exigir que os termos de utilização sejam aceites
-            href: require-tou.md
-  - title: Tutoriais Passo-a-Passo
-    items:
-      - type: paragraph
-        text: Saiba como migrar as suas políticas de Acesso Condicional clássicas.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/conditional-access/policy-migration-mfa">Migrar de uma política clássica que exija a autenticação multifator</a>
+  ms.date: 08/20/2019
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: 39f9cf3e64e343c2da98f2c4f4b403ccdc0f3f20
+  ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 08/21/2019
+  ms.locfileid: "69874271"
+landingContent:
+- title: Acerca do Acesso Condicional
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Acesso Condicional?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: O que são condições?
+      url: conditions.md
+    - text: Como posso definir localizações?
+      url: location-condition.md
+    - text: O que são controlos?
+      url: controls.md
+    - text: Dependências de serviço do Acesso Condicional
+      url: service-dependencies.md
+- title: Implementar o Acesso Condicional
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Planear a implementação do Acesso Condicional
+      url: plan-conditional-access.md
+  - linkListType: how-to-guide
+    links:
+    - text: Bloquear a autenticação legada
+      url: block-legacy-authentication.md
+    - text: Resolução de problemas com a ferramenta What If
+      url: troubleshoot-conditional-access-what-if.md
+- title: Políticas de Acesso Condicional comuns
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Políticas de Acesso Condicional comuns
+      url: concept-conditional-access-policy-common.md
+  - linkListType: how-to-guide
+    links:
+    - text: Exigir MFA aos administradores
+      url: howto-conditional-access-policy-admin-mfa.md
+    - text: Exigir MFA para a gestão do Azure
+      url: howto-conditional-access-policy-azure-management.md
+    - text: Bloquear a autenticação legada
+      url: howto-conditional-access-policy-block-legacy.md
+    - text: Acesso Condicional baseado no risco (Requer o Azure AD Premium P2)
+      url: howto-conditional-access-policy-risk.md
+    - text: Exigir localização fidedigna para o registo com MFA
+      url: howto-conditional-access-policy-registration.md
+    - text: Bloquear acesso por localização
+      url: howto-conditional-access-policy-location.md
+    - text: Pedir dispositivo conforme
+      url: howto-conditional-access-policy-compliant-device.md

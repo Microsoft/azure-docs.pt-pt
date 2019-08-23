@@ -34,8 +34,10 @@
       href: create-host-pools-powershell.md
     - name: Aplicar a licença do Windows a anfitriões de sessões do Windows Virtual Desktop
       href: apply-windows-license.md
-    - name: Configurar uma partilha do perfil de utilizador para um conjunto de anfitriões
+    - name: Criar um contentor de perfis para um conjunto de anfitriões através de uma partilha de ficheiros
       href: create-host-pools-user-profile.md
+    - name: Criar um contentor de perfis para um conjunto de anfitriões através do Azure NetApp Files
+      href: create-fslogix-profile-container.md
     - name: Configurar o método de balanceamento de carga do Windows Virtual Desktop
       href: configure-host-pool-load-balancing.md
     - name: Preparar e personalizar uma imagem VHD principal

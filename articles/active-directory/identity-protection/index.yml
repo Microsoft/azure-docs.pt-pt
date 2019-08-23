@@ -1,40 +1,55 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure AD Identity Protection
+### YamlMime:Landing
+title: Documentação do Azure AD Identity Protection
+summary: Saiba como utilizar o Identity Protection para identificar e resolver riscos de identidade na sua organização
 metadata:
-  document_id: null
-  title: 'Documentação do Azure Active Directory Identity Protection - Inícios rápidos, conceitos, referências | Microsoft Docs'
-  description: Saiba como configurar e testar o Azure Active Directory Identity Protection.
+  title: Documentação do Azure AD Identity Protection
+  description: Saiba como utilizar o Identity Protection para identificar e resolver riscos de identidade na sua organização
   services: active-directory
-  ms.subservice: identity-protection
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: identity-protection
   ms.topic: landing-page
-  ms.date: 09/14/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: 'Saiba como funciona a deteção de identidades potencialmente comprometidas e como implementar respostas automatizadas para resolvê-las. O Azure Active Directory Identity Protection é uma funcionalidade do Azure AD Premium edição P2 que lhe permite:<ul><li>Detetar potenciais vulnerabilidades que afetam as identidades da sua organização</li><li>Configurar políticas de Acesso Condicional para responder automaticamente a ações suspeitas relacionadas com as identidades da sua organização</li><li>Investigar incidentes suspeitos e tomar as medidas adequadas para resolvê-los</li></ul><br> Os seguintes recursos ajudam-no a começar rapidamente.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ./media/index/video.png
-      width: 246
-    title: Introdução ao Azure AD Identity Protection
-    href: 'https://www.youtube.com/watch?v=zI3jn_G0_Ns'
-    width: 246
-sections:
-  - title: Inícios rápidos de 5 minutos
-    items:
-      - type: paragraph
-        text: Saiba como configurar as políticas de Acesso Condicional de risco de início de sessão para cenários de acesso comuns.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Bloquear o acesso quando é detetado um risco de sessão
-            href: quickstart-sign-in-risk-policy.md
+  ms.date: 08/20/2019
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: 5f69dff8568c308d7a8eb9d80e247ef7cfc58acd
+  ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 08/21/2019
+  ms.locfileid: "69874115"
+landingContent:
+- title: Acerca do Identity Protection
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Identity Protection?
+      url: overview-v2.md
+    - text: Introdução à descrição geral da segurança
+      url: security-overview.md
+- title: Investigar eventos de risco
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configurar políticas de risco
+      url: howto-configure-risk-policies.md
+    - text: Investigar utilizadores e inícios de sessão de risco
+      url: howto-investigate-risky-users-signins.md
+  - linkListType: reference
+    links:
+    - text: Tipos de eventos
+      url: risk-events-reference.md
+- title: Experiência do Identity Protection
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Experiência de início de sessão
+      url: flows.md
+  - linkListType: how-to-guide
+    links:
+    - text: Simular eventos de risco
+      url: playbook.md
+  - linkListType: quickstart
+    links:
+    - text: Bloquear o acesso quando é detetado um risco de sessão
+      url: quickstart-sign-in-risk-policy.md

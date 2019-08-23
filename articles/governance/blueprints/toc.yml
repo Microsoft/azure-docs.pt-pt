@@ -101,6 +101,22 @@
         - name: Passos para implementar
           displayName: 'standards, uk official, uk nhs'
           href: ./samples/ukofficial/deploy.md
+    - name: Fundação do CAF
+      items:
+        - name: Descrição geral
+          displayName: 'caf, foundation'
+          href: ./samples/caf-foundation/index.md
+        - name: Passos para implementar
+          displayName: 'caf, foundation, deploy'
+          href: ./samples/caf-foundation/deploy.md
+    - name: Zona de destino de migração do CAF
+      items:
+        - name: Descrição geral
+          displayName: 'caf, migrate, landing zone'
+          href: ./samples/caf-migrate-landing-zone/index.md
+        - name: Passos para implementar
+          displayName: 'caf, migrate, landing zone, deploy'
+          href: ./samples/caf-migrate-landing-zone/deploy.md
 - name: Conceitos
   items:
     - name: Ciclo de vida de um esquema

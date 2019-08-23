@@ -1,43 +1,87 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentação da Autenticação do Azure AD
+### YamlMime:Landing
+title: Documentação da Autenticação do Azure Active Directory
+summary: Saiba como gerir e implementar a reposição de palavra-passe self-service do Azure Active Directory, o Multi-Factor Authentication, a lista personalizada de palavras-passe banidas e o bloqueio inteligente.
 metadata:
-  document_id: null
-  title: Documentação da Autenticação Azure Active Directory
-  description: 'Saiba como gerir e implementar a reposição de palavra-passe self-service do Azure Active Directory, o Multi-Factor Authentication, a lista personalizada de palavras-passe banidas e o bloqueio inteligente.'
+  title: Documentação da Autenticação do Azure Active Directory
+  description: Saiba como gerir e implementar a reposição de palavra-passe self-service do Azure Active Directory, o Multi-Factor Authentication, a lista personalizada de palavras-passe banidas e o bloqueio inteligente.
   services: active-directory
-  ms.subservice: authentication
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: authentication
   ms.topic: landing-page
-  ms.date: 07/19/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: 'Saiba como implementar e gerir a reposição de palavra-passe self-service do Azure Active Directory, o Multi-Factor Authentication, a lista personalizada de palavras-passe banidas e o bloqueio inteligente. Essas funcionalidades juntam-se para dar uma forma autenticação com uma variedade de métodos de verificação enquando fornece um proceso simples de início de sessão para a sua organização.'
-sections:
-  - title: Inícios rápidos de cinco minutos
-    items:
-      - type: paragraph
-        text: Saiba como ativar a reposição de palavra-passe self-service para reduzir as chamadas de suporte dos utilizadores.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_protect.png
-            text: Ativar a reposição de palavras-passe self-service
-            href: 'https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr'
-  - title: Tutoriais Passo-a-Passo
-    items:
-      - type: paragraph
-        text: Saiba como ativar um processo de início de sessão simples e seguro para a sua empresa.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/authentication/tutorial-sspr-pilot">Ativar um piloto de reposição de palavra-passe self-service</a>
-          - html: <a href="/azure/active-directory/authentication/tutorial-mfa-applications">Exigir o MFA para o portal do Azure</a>
-          - html: <a href="/azure/active-directory/authentication/tutorial-enable-writeback">Ativar a integração local de reposição de palavras-passe self-service</a>
-          - html: <a href="/azure/active-directory/authentication/tutorial-sspr-windows">Ativar a reposição de palavra-passe do Windows 10</a>
-          - html: <a href="/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa">Integrar com o Azure Identity Protection</a>
+  ms.date: 08/20/2019
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: 4ae9515bf7926eca305f77eff4bae3ab53d1dfa0
+  ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 08/21/2019
+  ms.locfileid: "69874387"
+landingContent:
+- title: Acerca da autenticação
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a autenticação?
+      url: overview-authentication.md
+    - text: O que são métodos de autenticação?
+      url: concept-authentication-methods.md
+    - text: Registo de informações de segurança
+      url: concept-registration-mfa-sspr-combined.md
+    - text: O que é o modo sem palavra-passe?
+      url: concept-authentication-passwordless.md
+- title: Implementar a reposição personalizada de palavras-passe
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Como funciona a reposição personalizada de palavra-passe
+      url: concept-sspr-howitworks.md
+    - text: Repetição de escrita de palavras-passe
+      url: concept-sspr-writeback.md
+  - linkListType: quickstart
+    links:
+    - text: Início rápido da reposição personalizada de palavra-passe
+      url: quickstart-sspr.md
+  - linkListType: deploy
+    links:
+    - text: Implementar a reposição personalizada de palavra-passe do Azure AD
+      url: howto-sspr-deployment.md
+    - text: Ativar repetição de escrita de palavras-passe
+      url: howto-sspr-writeback.md
+    - text: Ativar a reposição de palavra-passe no ecrã de início de sessão do Windows
+      url: howto-sspr-windows.md
+- title: Ativar a Multi-Factor Authentication do Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Como funciona o Multi-Factor Authentication do Azure
+      url: concept-mfa-howitworks.md
+  - linkListType: tutorial
+    links:
+    - text: Direcionar o MFA do Azure a aplicações específicas
+      url: tutorial-mfa-applications.md
+    - text: Utilizar eventos de risco para acionar o Multi-Factor Authentication e as alterações de palavra-passe
+      url: tutorial-risk-based-sspr-mfa.md
+  - linkListType: deploy
+    links:
+    - text: Implementar o Multi-Factor Authentication do Azure
+      url: howto-mfa-getstarted.md
+    - text: Utilizar a extensão NPS para integrar aplicações no local
+      url: howto-mfa-nps-extension.md
+- title: Implementar proteção de palavras-passe do Azure AD
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Eliminar senhas fracas na cloud
+      url: concept-password-ban-bad.md
+    - text: Eliminar senhas fracas no local
+      url: concept-password-ban-bad-on-premises.md
+  - linkListType: get-started
+    links:
+    - text: Configurar a lista de palavras-passe banidas
+      url: howto-password-ban-bad-configure.md
+  - linkListType: how-to-guide
+    links:
+    - text: Implementar proteção de palavras-passe do Azure AD
+      url: howto-password-ban-bad-on-premises-deploy.md
