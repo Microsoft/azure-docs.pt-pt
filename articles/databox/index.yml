@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: alkohli
   ms.author: alkohli
-  ms.date: 08/14/2019
-  ms.openlocfilehash: 03de9ceffe4495b1c3a39dad6617cc72d022fbbd
-  ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+  ms.date: 08/16/2019
+  ms.openlocfilehash: 2c42ee93804eb1e0e24b0b67925a092cc8517ceb
+  ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/16/2019
-  ms.locfileid: "69557830"
+  ms.lasthandoff: 08/20/2019
+  ms.locfileid: "69650377"
 landingContent:
 - title: Acerca da família do Data Box
   linkLists:
@@ -53,75 +53,43 @@ landingContent:
     links:
     - text: Para o Data Box
       url: data-box-system-requirements.md
-    - text: Para o Armazenamento de blobs do Data Box
-      url: data-box-system-requirements-rest.md
     - text: Para o Data Box Disk
       url: data-box-disk-system-requirements.md
     - text: Para Data Box Heavy
       url: data-box-heavy-system-requirements.md
-- title: Implementar o Data Box
+- title: Encomendar, configurar, copiar, devolver
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Encomenda
+    - text: Data Box
       url: data-box-deploy-ordered.md
-    - text: Instalar os cabos
-      url: data-box-deploy-set-up.md
-    - text: Ligar e copiar dados através de SMB
-      url: data-box-deploy-copy-data.md
-    - text: Devolver, carregar e verificar dados do Azure
-      url: data-box-deploy-picked-up.md
-- title: Implementar o Data Box Disk
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Encomenda
+    - text: Data Box Disk
       url: data-box-disk-deploy-ordered.md
-    - text: Desbloquear e ligar
-      url: data-box-disk-deploy-set-up.md
-    - text: Copiar e validar dados
-      url: data-box-disk-deploy-copy-data.md
-    - text: Devolver, carregar e verificar dados do Azure
-      url: data-box-disk-deploy-picked-up.md
-- title: Implementar o Data Box Heavy
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Encomenda
+    - text: Data Box Heavy
       url: data-box-heavy-deploy-ordered.md
-    - text: Instalar os cabos
-      url: data-box-heavy-deploy-set-up.md
-    - text: Ligar e copiar dados através de SMB
-      url: data-box-heavy-deploy-copy-data.md
-    - text: Devolver, carregar e verificar dados do Azure
-      url: data-box-heavy-deploy-picked-up.md
 - title: Gerir dispositivo
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Data Box e Data Box Heavy no Azure
+    - text: Data Box no Azure
       url: data-box-portal-admin.md
-    - text: Data Box e Data Box Heavy através da IU local
-      url: data-box-local-web-ui-admin.md
     - text: Data Box Disk no Azure
       url: data-box-portal-ui-admin.md
-- title: FAQs
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: FAQ - Data Box
-      url: data-box-faq.md
-    - text: FAQ - Data Box Disk
-      url: data-box-disk-faq.md
+    - text: Data Box Heavy no Azure
+      url: data-box-portal-admin.md
 - title: Resolução de problemas
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Data Box e Data Box Heavy
+    - text: Data Box
       url: data-box-troubleshoot.md
-    - text: Armazenamento de blobs do Data Box
-      url: data-box-troubleshoot-rest.md
     - text: Data Box Disk
       url: data-box-disk-troubleshoot.md
+    - text: Data Box Heavy
+      url: data-box-troubleshoot.md
+    - text: Através da FAQ do Data Box
+      url: data-box-faq.md
+    - text: Através da FAQ do Data Box Disk
+      url: data-box-disk-faq.md
     - text: Abrir Pedido de suporte
       url: data-box-disk-contact-microsoft-support.md

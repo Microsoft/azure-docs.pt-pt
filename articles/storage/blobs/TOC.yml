@@ -599,6 +599,8 @@
           href: ../blobs/data-lake-storage-use-databricks-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Extrair, transformar e carregar dados com o Apache Hive no Azure HDInsight'
           href: ../blobs/data-lake-storage-tutorial-extract-transform-load-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Inserir dados em tabelas Delta do Databricks com o Event Grid
+          href: ../blobs/data-lake-storage-events.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Conceitos
       items:
         - name: Acesso multiprotocolo

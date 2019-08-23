@@ -1,35 +1,59 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentação de Identidade de Dispositivo no Azure AD
+### YamlMime:Landing
+title: Documentação da identidade de dispositivo do Azure AD
+summary: Saiba como configurar e gerir identidades de dispositivos no Azure AD.
 metadata:
-  document_id: null
-  title: 'Documentação de Gestão de Identidades de Dispositivos do Azure Active Directory Device - Tutoriais, conceitos, referencias | Microsoft Docs'
+  title: Documentação da identidade de dispositivo do Azure AD
   description: Saiba como configurar e gerir identidades de dispositivos no Azure AD.
   services: active-directory
-  ms.subservice: devices
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: devices
   ms.topic: landing-page
-  ms.date: 08/14/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: 'Através dos dispositivos no Azure AD, os seus utilizadores estão a obter acesso aos seus recursos empresariais. Para proteger os seus recursos empresariais, enquanto administrador de TI, pode gerir estas identidades de dispositivos no Azure AD. Isto permite garantir que os seus utilizadores estão a aceder aos seus recursos a partir de dispositivos que cumprem os seus padrões de segurança e conformidade.<br>A gestão de Identidades de Dispositivos é também a base dos cenários de Acesso Condicional baseado no dispositivo. Com o Acesso Condicional baseado no dispositivo, pode certificar-se de que o acesso aos recursos no seu ambiente é apenas possível com os dispositivos geridos.'
-sections:
-  - title: Tutoriais passo-a-passo
-    items:
-      - type: paragraph
-        text: Saiba como integrar os seus dispositivos associados ao AD no local com o Azure AD.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Domínios geridos
-            href: hybrid-azuread-join-managed-domains.md
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Domínios Federados
-            href: hybrid-azuread-join-federated-domains.md
+  ms.date: 08/20/2019
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: e26be2206ba63fa4721ced7ed1a2f35ddc63a5fd
+  ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 08/20/2019
+  ms.locfileid: "69648929"
+landingContent:
+- title: Acerca da identidade de dispositivo
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é uma identidade de dispositivo?
+      url: overview.md
+    - text: O que é o roaming de estado empresarial?
+      url: enterprise-state-roaming-overview.md
+  - linkListType: concept
+    links:
+    - text: Dispositivos registados no Azure AD
+      url: concept-azure-ad-register.md
+    - text: Dispositivos associados ao Azure AD
+      url: concept-azure-ad-join.md
+    - text: Dispositivos híbridos associados ao Azure AD
+      url: concept-azure-ad-join-hybrid.md
+    - text: Recursos de SSO para o local
+      url: azuread-join-sso.md
+    - text: Tokens de Atualização Principal
+      url: concept-primary-refresh-token.md
+- title: Configurar e gerir dispositivos associados ao Azure AD
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Planear a sua implementação de associação do Azure AD
+      url: azureadjoin-plan.md
+    - text: Gerir o grupo de administradores locais nos dispositivos associados ao Azure AD
+      url: assign-local-admin.md
+    - text: Localizar e gerir dispositivos obsoletos no Azure AD
+      url: manage-stale-devices.md
+- title: Configurar e gerir dispositivos associados ao Azure AD híbrido
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Planear a sua implementação de associação ao Azure AD híbrido
+      url: hybrid-azuread-join-plan.md
+    - text: Resolução de problemas dos dispositivos associados ao Azure AD híbrido
+      url: troubleshoot-hybrid-join-windows-current.md

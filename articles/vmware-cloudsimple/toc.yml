@@ -12,7 +12,7 @@
       items:
         - name: Capacidade de inicialização e aprovisionamento
           href: quickstart-create-cloudsimple-service.md
-        - name: Configurar o ambiente de cloud privada
+        - name: Configurar o ambiente de Cloud Privada
           href: quickstart-create-private-cloud.md
         - name: Criar VM de VMware na Cloud Privada
           href: quickstart-create-private-cloud-vmware-virtual-machine.md
@@ -42,7 +42,7 @@
           href: cloudsimple-account.md
         - name: Gestão da atividade
           href: cloudsimple-activity.md
-        - name: VMware em cloud privada
+        - name: VMware na Cloud Privada
           href: vmware-components.md
         - name: Descrição geral da segurança
           href: cloudsimple-security.md
@@ -66,25 +66,25 @@
               href: create-nodes.md
             - name: Eliminar nós
               href: delete-nodes.md
-        - name: Gerir recursos de cloud privada
+        - name: Gerir recursos da Cloud Privada
           items:
-            - name: Criar uma cloud privada
+            - name: Criar uma Cloud Privada
               href: create-private-cloud.md
-            - name: Gerir as suas clouds privadas
+            - name: Gerir as suas Clouds Privadas
               href: manage-private-cloud.md
-            - name: Expandir uma cloud privada
+            - name: Expandir uma Cloud Privada
               href: expand-private-cloud.md
-            - name: Encolher uma cloud privada
+            - name: Encolher uma Cloud Privada
               href: shrink-private-cloud.md
             - name: Mapear a sua subscrição do Azure
               href: azure-subscription-mapping.md
             - name: Escalar privilégios
               href: escalate-private-cloud-privileges.md
-            - name: Eliminar uma cloud privada
+            - name: Eliminar uma Cloud Privada
               href: delete-private-cloud.md
         - name: Monitorizar a atividade da CloudSimple
           href: monitor-activity.md
-        - name: Configurar as redes da cloud privada
+        - name: Configurar a rede da Cloud Privada
           items:
             - name: Criar e gerir VLANs e sub-redes
               href: create-vlan-subnet.md
@@ -104,11 +104,11 @@
               href: account.md
             - name: Ver a lista de utilizadores
               href: users.md
-            - name: Configurar uma ligação de rede virtual à cloud privada
-              href: 'https://docs.azure.cloudsimple.com/virtual-network-connection/'
+            - name: Configurar uma ligação de rede virtual à Cloud Privada
+              href: virtual-network-connection.md
             - name: Editar o perfil de utilizador
               href: 'https://docs.azure.cloudsimple.com/editprofile/'
-        - name: Configurar máquinas virtuais de VMware para a cloud privada
+        - name: Configurar máquinas virtuais VMware para a Cloud Privada
           items:
             - name: Criar uma VM no Azure
               href: azure-create-vm.md
@@ -124,11 +124,11 @@
               href: escalate-privileges.md
             - name: Configuração de cargas de trabalho DNS e DHCP
               href: dns-dhcp-setup.md
-            - name: VPN NSX de Camada 2 para migração
-              href: 'https://docs.azure.cloudsimple.com/migrate-workloads/#migrating-vms-using-nsx-layer-2-vpn'
+            - name: Migrar cargas de trabalho com redes ampliadas de Camada 2
+              href: migration-layer-2-vpn.md
         - name: Redes da cloud privada
           items:
-            - name: Ligação VPN entre a cloud no local e a cloud privada
+            - name: Ligação VPN entre o local e a Cloud Privada
               href: set-up-vpn.md
             - name: Ligação de rede no local com o ExpressRoute
               href: on-premises-connection.md
@@ -136,33 +136,37 @@
               href: azure-expressroute-connection.md
         - name: Plataforma VMware
           items:
-            - name: Conhecer o modelo de permissão de cloud privada
+            - name: Conhecer o modelo de permissão da Cloud Privada
               href: learn-private-cloud-permissions.md
             - name: Origens de identidade do vCenter
               href: set-vcenter-identity.md
             - name: Gateway de Aplicação do Azure com VMs de VMware
               href: azure-application-gateway.md
-            - name: Configurar o servidor do vCenter da cloud privada como ponto final de automatização VRealize
+            - name: Configurar o servidor do vCenter da Cloud Privada como ponto final de automatização do vRealize
               href: configure-server-vrealize-automation-endpoint.md
-            - name: Migrar VMs de carga de trabalho para uma cloud privada
-              href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
+            - name: Migrar VMs de carga de trabalho para uma Cloud Privada
+              href: migrate-workloads.md
             - name: Garantir elevada disponibilidade de Aplicações no VMware no Azure
               href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
+            - name: Escolher uma solução de balanceamento de carga
+              href: load-balancers.md
         - name: Ecossistema do VMware
           items:
             - name: Fazer cópias de segurança de máquinas virtuais de carga de trabalho
               href: backup-workloads-veeam.md
+            - name: Configurar uma Cloud Privada como local de recuperação após desastre com o Zerto
+              href: disaster-recovery-zerto.md
             - name: Guia de soluções do VMware Horizon
               href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
-            - name: Configurar a encriptação vSAN para a cloud privada
+            - name: Configurar a encriptação vSAN para a sua Cloud Privada
               href: vsan-encryption.md
-            - name: Implementação do Oracle RAC na cloud privada da CloudSimple
-              href: 'https://docs.azure.cloudsimple.com/oracle-rac/'
+            - name: Otimizar a sua Cloud Privada para o Oracle RAC
+              href: oracle-real-application-clusters.md
         - name: Integração do Azure Core
           items:
             - name: Origem de identidades do Azure AD no vCenter de Cloud Privada
               href: azure-ad.md
             - name: Ligação de rede no local com o ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
+              href: on-premises-connection.md
             - name: Ligação de rede virtual do Azure com o ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/azure-expressroute-connection/'
+              href: azure-expressroute-connection.md

@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação de Pré-visualização do IoT Plug and Play
+metadata:
+  title: 'Documentação de Pré-visualização do IoT Plug and Play - Tutoriais, Referência da API | Microsoft Docs'
+  description: 'Saiba como utilizar o IoT Plug and Play com a ajuda de tutoriais, referências da API, vídeos e outra documentação.'
+  author: dominicbetts
+  manager: philmea
+  ms.service: iot-pnp
+  services: iot-pnp
+  ms.topic: landing-page
+  ms.date: 07/23/2019
+  ms.author: dobett
+abstract:
+  description: 'Saiba como utilizar a Pré-visualização do IoT Plug and Play para definir um modelo de dispositivo que permita às soluções cloud compreender o seu dispositivo automaticamente e começar a interagir com o mesmo, tudo isto sem escrever código de dispositivo. Temos tutoriais, referências da API, vídeos e outra documentação para o ajudar a ligar dispositivos a soluções cloud como o Azure IoT Central ou aplicações de parceiros.'
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/index/video-thumb-pnp-introduction.png
+      width: 250
+    title: 'Introdução ao IoT Plug and Play. (11:54)'
+    href: 'https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player'
+    width: 250
+sections:
+  - title: Inícios rápidos de cinco minutos
+    items:
+      - type: paragraph
+        text: Saiba como <a href="quickstart-create-pnp-device">utilizar um modelo de função de dispositivo para criar um dispositivo</a>.
+      - type: paragraph
+        text: Saiba como <a href="quickstart-connect-pnp-device-solution">ligar um dispositivo à sua solução</a>.
+  - title: Tutoriais Passo-a-Passo
+    items:
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-pnp-visual-studio-code">Criar um dispositivo com o Visual Studio Code</a>
+          - html: <a href="tutorial-build-device-certification">Criar um dispositivo pronto para certificação</a>
+          - html: <a href="tutorial-certification-test">Certificar o dispositivo</a>
