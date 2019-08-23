@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 08/22/2019
 ms.author: dapine
-ms.openlocfilehash: e6c7dcd3015b0b8ab5b3c719ebd2397bc814b81a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c87132c3ae41dec82e3493f9a0ee2397455ff881
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67717243"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971310"
 ---
 ### <a name="text-to-speech-sub-chart-chartstexttospeech"></a>Conversão de texto em fala (subgráfico: gráficos/textToSpeech)
 
-Para substituir o gráfico "abrangência", adicione o prefixo `textToSpeech.` em qualquer parâmetro para torná-lo mais específico. Por exemplo, ele substituirá o parâmetro correspondente, por `textToSpeech.numberOfConcurrentRequest` exemplo `numberOfConcurrentRequest`, substitui.
+Para substituir o gráfico "abrangência", adicione o prefixo `textToSpeech.` em qualquer parâmetro para torná-lo mais específico. Por exemplo, ele substituirá o parâmetro correspondente, por exemplo `textToSpeech.numberOfConcurrentRequest` , `numberOfConcurrentRequest`substitui.
 
 |Parâmetro|Descrição|Predefinição|
 | -- | -- | -- |
@@ -37,5 +37,6 @@ Para substituir o gráfico "abrangência", adicione o prefixo `textToSpeech.` em
 | `image.args.apikey`necessária | Utilizado para controlar informações de faturação. ||
 | `service.type` | O tipo de serviço kubernetes do serviço de **conversão de texto em fala** . Consulte as [instruções de tipos de serviço kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) para obter mais detalhes e verificar o suporte ao provedor de nuvem. | `LoadBalancer` |
 | `service.port`|  A porta do serviço de **conversão de texto em fala** . | `80` |
+| `service.annotations` | As anotações de **conversão de texto em fala** para os metadados de serviço. As anotações são pares chave-valor. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
 | `service.autoScaler.enabled` | Se a [escala de aumento horizontal do pod](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) é habilitada. Se `true`, o `text-to-speech-autoscaler` será implantado no cluster kubernetes. | `true` |
 | `service.podDisruption.enabled` | Se o [orçamento de interrupção do pod](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) está habilitado. Se `true`, o `text-to-speech-poddisruptionbudget` será implantado no cluster kubernetes. | `true` |

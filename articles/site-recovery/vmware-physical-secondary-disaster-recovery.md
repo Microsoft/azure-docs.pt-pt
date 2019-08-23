@@ -1,86 +1,86 @@
 ---
-title: Configurar a recuperação após desastre de VMs de VMware ou servidores físicos para um site secundário com o Azure Site Recovery | Documentos da Microsoft
-description: Saiba como configurar a recuperação após desastre de VMs de VMware, ou Windows e Linux servidores físicos para um site secundário com o Azure Site Recovery.
+title: Configurar a recuperação de desastre de VMs VMware ou de servidores físicos em um site secundário com Azure Site Recovery | Microsoft Docs
+description: Saiba como configurar a recuperação de desastre de VMs VMware ou servidores físicos Windows e Linux para um site secundário com Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 9a1cb63bd2a209c72af608d23515723a63b180e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a87abfdd70db07e4310dc6a39a280e12f664d03b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417721"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972097"
 ---
-# <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurar a recuperação após desastre de máquinas de virtuais de VMware no local ou servidores físicos para um site secundário
+# <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurar a recuperação de desastre de máquinas virtuais VMware locais ou servidores físicos para um site secundário
 
-InMage Scout na [do Azure Site Recovery](site-recovery-overview.md) fornece replicação em tempo real entre locais sites de VMware. InMage Scout está incluído nas assinaturas de serviço do Azure Site Recovery.
+O InMage Scout no [Azure site Recovery](site-recovery-overview.md) fornece replicação em tempo real entre sites VMware locais. O InMage Scout está incluído em Azure Site Recovery assinaturas de serviço.
 
-## <a name="end-of-support-announcement"></a>Anúncio de fim do suporte
+## <a name="end-of-support-announcement"></a>Anúncio do fim do suporte
 
-O cenário de recuperação de sites do Azure para a replicação entre datacenters físicos ou o VMware no local está a atingir o fim do suporte.
+O cenário de Azure Site Recovery para replicação entre data centers físicos ou VMware locais está atingindo o fim do suporte.
 
--   A partir de Agosto de 2018, o cenário não pode ser configurado no cofre dos serviços de recuperação e, o software de InMage Scout não pode ser transferido a partir do cofre. As implementações existentes serão suportadas. 
--   De 2020 de 31 de Dezembro, o cenário de não ser suportado.
-- Parceiros existentes podem integrar novos clientes para o cenário até as extremidades de suporte.
+-   De agosto de 2018, o cenário não pode ser configurado no cofre dos serviços de recuperação e o software InMage Scout não pode ser baixado do cofre. As implantações existentes terão suporte. 
+-   De dezembro de 31 2020, o cenário não terá suporte.
+- Os parceiros existentes podem integrar novos clientes ao cenário até que o suporte termine.
 
-Durante a 2018 e 2019, serão lançadas duas atualizações: 
+Durante 2018 e 2019, duas atualizações serão lançadas: 
 
--   Atualização 7: Corrige problemas de configuração e de conformidade de rede e fornece suporte de TLS 1.2.
--   Atualização 8: Adiciona suporte para Linux sistemas operativos RHEL/CentOS 7.3/7.4/7.5 e para a 12 de SUSE
+-   Atualização 7: Corrige problemas de conformidade e configuração de rede e fornece suporte a TLS 1,2.
+-   Atualização 8: Adiciona suporte para sistemas operacionais Linux RHEL/CentOS 7.3/7.4/7.5 e para SUSE 12
 
-Após a atualização 8, não são necessárias mais atualizações serão lançadas. Haverá suporte limitado de correção para os sistemas de operativos adicionados em 8 de atualização e correções de erros com base na melhor esforço.
+Após a atualização 8, nenhuma outra atualização será lançada. Haverá suporte limitado a hotfixes para os sistemas operacionais adicionados na atualização 8 e correções de bugs com base no melhor esforço.
 
-O Azure Site Recovery continua a inovar ao fornecer uma solução de DRaaS totalmente integrada e melhor na classe de clientes do VMware e Hyper-V com o Azure como um site de recuperação após desastre. A Microsoft recomenda que existentes InMage / clientes de ASR Scout considere a utilização de VMware do Azure Site Recovery para o cenário do Azure para necessidades de continuidade do negócio. VMware do Azure Site Recovery para o cenário do Azure é uma solução de DR de nível empresarial para aplicações de VMware, que oferece RPO e RTO de minutos, suportam para a replicação de aplicativo de várias VMS e recuperação, a integração totalmente integrada, monitoramento abrangente, e vantagem do TCO significativa.
+Azure Site Recovery continua a inovar fornecendo aos clientes VMware e Hyper-V uma solução de DRaaS direta e de melhor classe com o Azure como um site de recuperação de desastre. A Microsoft recomenda que os clientes existentes do InMage/ASR Scout considerem o uso do Azure Site Recovery VMware para o cenário do Azure para suas necessidades de continuidade de negócios. O cenário de Azure Site Recovery do VMware para o Azure é uma solução de DR de classe empresarial para aplicativos VMware, que oferece RPO e RTO de minutos, suporte para replicação e recuperação de aplicativos de várias VMS, integração direta, monitoramento abrangente e vantagem significativa do TCO.
 
-### <a name="scenario-migration"></a>Migração do cenário
-Como alternativa, recomendamos a configuração da recuperação após desastre para VMs de VMware no local e máquinas físicas ao replicá-los para o Azure. Fazer isso da seguinte forma:
+### <a name="scenario-migration"></a>Migração de cenário
+Como alternativa, é recomendável configurar a recuperação de desastre para VMs VMware locais e máquinas físicas replicando-as no Azure. Faça isso da seguinte maneira:
 
-1.  Reveja a comparação rápida abaixo. Antes, pode replicar máquinas no local, terá de verificação que cumprem [requisitos](./vmware-physical-azure-support-matrix.md#replicated-machines) para replicação no Azure. Se estiver a replicar VMs de VMware, recomendamos que reveja [diretrizes de planeamento de capacidade](./site-recovery-plan-capacity-vmware.md)e execute o [ferramenta Planeador de implementações](./site-recovery-deployment-planner.md) para os requisitos de capacidade de identidade e verificar a conformidade.
-2.  Depois de executar o planeador de implementação, pode configurar a replicação: o para VMs de VMware, siga estes tutoriais para [preparar o Azure](./tutorial-prepare-azure.md), [preparar seu ambiente do VMware no local](./vmware-azure-tutorial-prepare-on-premises.md), e [configurar recuperação após desastre](./vmware-azure-tutorial-prepare-on-premises.md).
-s para máquinas físicas, siga este [tutorial](./physical-azure-disaster-recovery.md).
-3.  Depois das máquinas estão a replicar para o Azure, pode executar uma [teste de recuperação após desastre](./site-recovery-test-failover-to-azure.md) para se certificar de que está tudo a funcionar conforme esperado.
+1.  Examine a comparação rápida abaixo. Antes de poder replicar computadores locais, você precisa verificar se eles atendem [aos requisitos](./vmware-physical-azure-support-matrix.md#replicated-machines) de replicação para o Azure. Se você estiver replicando VMs VMware, recomendamos que revise as [diretrizes de planejamento de capacidade](./site-recovery-plan-capacity-vmware.md)e execute a ferramenta de [planejador de implantações](./site-recovery-deployment-planner.md) para identificar os requisitos de capacidade e verificar a conformidade.
+2.  Depois de executar o Planejador de Implantações, você pode configurar a replicação: o para VMs VMware, siga estes tutoriais para [preparar o Azure](./tutorial-prepare-azure.md), [preparar seu ambiente VMware local](./vmware-azure-tutorial-prepare-on-premises.md)e [Configurar a recuperação](./vmware-azure-tutorial-prepare-on-premises.md)de desastres.
+o para computadores físicos, siga este [tutorial](./physical-azure-disaster-recovery.md).
+3.  Depois que os computadores estiverem replicando para o Azure, você poderá executar uma [análise de recuperação de desastre](./site-recovery-test-failover-to-azure.md) para verificar se tudo está funcionando conforme o esperado.
 
 ### <a name="quick-comparison"></a>Comparação rápida
 
-**Funcionalidade** | **Replicação para o Azure** |**Replicação entre os datacenters de VMware**
+**Funcionalidade** | **Replicação para o Azure** |**Replicação entre data centers VMware**
 --|--|--
-**Componentes necessários** |Serviço de mobilidade nas máquinas replicadas. Local no servidor de configuração, o servidor de processos, o servidor de destino mestre. Servidor de processo temporário no Azure para reativação pós-falha.|Serviço de mobilidade, servidor de processos, o servidor de configuração e o destino principal
-**Configuração e orquestração** |O Cofre dos serviços de recuperação no portal do Azure | Usando vContinuum 
+**Componentes necessários** |Serviço de mobilidade em máquinas replicadas. Servidor de configuração local, servidor de processo, servidor de destino mestre. Servidor de processo temporário no Azure para failback.|Serviço de mobilidade, servidor de processo, servidor de configuração e destino mestre
+**Configuração e orquestração** |Cofre dos serviços de recuperação no portal do Azure | Usando vContinuum 
 **Replicados** |Disco (Windows e Linux) |Volume-Windows<br> Disk-Linux
-**Cluster de disco partilhado** |Não suportado|Suportadas
-**Alterações a dados limites (média)** |10 MB/s dados por disco<br> Dados de 25MB/s por VM<br> [Saiba mais](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | Dados > 10 MB/s por disco  <br> Dados > 25 MB/s por VM
-**Monitorização** |No portal do Azure|No c++ /CX (servidor de configuração)
-**Matriz de suporte** | [Clique aqui para obter detalhes](./vmware-physical-azure-support-matrix.md)|[Transferir a matriz de ASR Scout compatível](https://aka.ms/asr-scout-cm)
+**Cluster de disco compartilhado** |Não suportado|Suportadas
+**Limites de rotatividade de dados (média)** |dados de 10 MB/s por disco<br> dados de 25 MB/s por VM<br> [Saiba mais](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > dados de 10 MB/s por disco  <br> > 25 MB/s de dados por VM
+**Monitorização** |De portal do Azure|Da CX (servidor de configuração)
+**Matriz de suporte** | [Clique aqui para obter detalhes](./vmware-physical-azure-support-matrix.md)|[Baixar matriz compatível com o ASR Scout](https://aka.ms/asr-scout-cm)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial:
 
-- [Revisão](vmware-physical-secondary-support-matrix.md) os requisitos de suporte para todos os componentes.
-- Certifique-se de que estão em conformidade com as máquinas que pretende replicar [replicados suporte máquina](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
+- [Examine](vmware-physical-secondary-support-matrix.md) os requisitos de suporte para todos os componentes.
+- Verifique se os computadores que você deseja replicar estão em conformidade com o [suporte ao computador replicado](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
-## <a name="download-and-install-component-updates"></a>Transferir e instalar atualizações de componentes
+## <a name="download-and-install-component-updates"></a>Baixar e instalar atualizações de componentes
 
- Reveja e instale a versão mais recente [atualizações](#updates). Atualizações devem ser instaladas em servidores na seguinte ordem:
+ Examine e instale as [atualizações](#updates)mais recentes. As atualizações devem ser instaladas nos servidores na seguinte ordem:
 
 1. Servidor RX (se aplicável)
 2. Servidores de configuração
-3. Servidores de processos
-4. Servidores de destino principal
-5. servidores de vContinuum
-6. Servidor de origem (Windows e servidores Linux)
+3. Servidores de processo
+4. Servidores de destino mestre
+5. servidores vContinuum
+6. Servidor de origem (servidores Windows e Linux)
 
-Instale as atualizações da seguinte forma:
+Instale as atualizações da seguinte maneira:
 
 > [!NOTE]
->Versão de atualização de ficheiro dos todos os componentes do Scout pode não ser o mesmo para o ficheiro. zip de atualização. A versão mais antiga indicam que não há nenhuma alteração no componente desde a atualização anterior para esta atualização.
+>A versão de atualização de arquivo de todos os componentes do Scout pode não ser a mesma no arquivo. zip de atualização. A versão mais antiga indica que não há nenhuma alteração no componente desde a atualização anterior para essa atualização.
 
-Transfira o [atualizar](https://aka.ms/asr-scout-update7) ficheiro. zip e a [MySQL e PHP atualizam](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) ficheiros de configuração. O ficheiro. zip de atualização contém todas as a base de binários e os binários de atualização cumulativos dos seguintes componentes: 
+Baixe o arquivo. zip de [atualização](https://aka.ms/asr-scout-update7) e os arquivos de configuração de [atualização do MySQL e php](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) . O arquivo Update. zip contém todos os binários base e binários de atualização cumulativa dos seguintes componentes: 
 - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
 - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
 - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
@@ -117,231 +117,231 @@ Transfira o [atualizar](https://aka.ms/asr-scout-update7) ficheiro. zip e a [MyS
 - InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
 - InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
 - InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
-  1. Extraia os ficheiros. zip.
-  2. **Servidor de RX**: Cópia **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz** para o servidor de RX e extraia-o. A pasta extraída, execute **/Install**.
-  3. **Servidor de configuração e o servidor de processos**: Cópia **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** para o servidor de configuração e o servidor de processos. Faça duplo clique para executá-lo.<br>
-  4. **Servidor de destino principal de Windows**: Para atualizar o agente unificado, copie **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** para o servidor. Clique duas vezes nele para executá-lo. O mesmo ficheiro também pode ser utilizado para instalação de raiz. A mesma atualização de agente unified também é aplicável para o servidor de origem.
-  A atualização não tem de aplicar no mestre de destino preparado com o **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** como este é o novo instalador de disponibilidade geral em todas as alterações mais recentes.
-  5. **servidor vContinuum**:  Cópia **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** para o servidor.  Certifique-se de que tenha fechado o Assistente do vContinuum. Faça duplo clique no ficheiro para executá-lo.
-  6. **Servidor de destino principal do Linux**: Para atualizar o agente unificado, copie **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** para o servidor de destino principal do Linux e extraia-o. A pasta extraída, execute **/Install**.
-  7. **Servidor de origem do Windows**: Para atualizar o agente unificado, copie **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** ao servidor de origem. Faça duplo clique no ficheiro para executá-lo. 
-  8. **Servidor de origem do Linux**: Para atualizar o agente unificado, copie a versão correspondente do arquivo agente unificado para o servidor Linux e extraí-lo. A pasta extraída, execute **/Install**.  Exemplo: Para RHEL 6.7 server de 64 bits, copie **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** para o servidor e extraia-o. A pasta extraída, execute **/Install**.
-  9. Depois de atualizar o servidor de configuração, o servidor de processos e o servidor RX com os programas de instalação acima mencionados, as bibliotecas PHP e MySQL precisa ser atualizado manualmente com os passos mencionados na secção 7.4 a [guia de instalação rápida](https://aka.ms/asr-scout-quick-install-guide).
+  1. Extraia os arquivos. zip.
+  2. **Servidor RX**: Copie **rx_ 8.0.7.0 _ga_update_7_2965621_28dec18. tar. gz** para o servidor RX e extraia-o. Na pasta extraída, execute **/install**.
+  3. **Servidor de configuração e servidor de processo**: Copie **cx_windows_ 8.0.7.0 _ga_update_7_2965621_28dec18. exe** para o servidor de configuração e o servidor de processo. Clique duas vezes para executá-lo.<br>
+  4. **Servidor de destino mestre do Windows**: Para atualizar o agente unificado, copie **inmage_ua_ 8.0.7.0 _windows_ga_27dec2018_release. exe** para o servidor. Clique duas vezes nele para executá-lo. O mesmo arquivo também pode ser usado para nova instalação. A mesma atualização de agente unificado também se aplica ao servidor de origem.
+  A atualização não precisa ser aplicada ao destino mestre preparado com **inmage_scout_vcontinuum_mt_ 8.0.7.0 _windows_ga_27dec2018_release. exe** , pois esse é um novo instalador de GA com todas as alterações mais recentes.
+  5. **servidor vContinuum**:  Copie **inmage_scout_vcontinuum_mt_ 8.0.7.0 _windows_ga_27dec2018_release. exe** para o servidor.  Verifique se você fechou o assistente de vContinuum. Clique duas vezes no arquivo para executá-lo.
+  6. **Servidor de destino mestre do Linux**: Para atualizar o agente unificado, copie **inmage_ua_ 8.0.7.0 _rhel6-64_ga_03dec2018_release. tar. gz** para o servidor de destino mestre do Linux e extraia-o. Na pasta extraída, execute **/install**.
+  7. **Servidor de origem do Windows**: Para atualizar o agente unificado, copie **inmage_ua_ 8.0.7.0 _windows_ga_27dec2018_release. exe** para o servidor de origem. Clique duas vezes no arquivo para executá-lo. 
+  8. **Servidor de origem do Linux**: Para atualizar o agente unificado, copie a versão correspondente do arquivo do agente unificado para o servidor Linux e extraia-a. Na pasta extraída, execute **/install**.  Exemplo: Para o servidor RHEL 6,7 64-bit, copie **inmage_ua_ 8.0.7.0 _rhel6-64_ga_03dec2018_release. tar. gz** para o servidor e extraia-o. Na pasta extraída, execute **/install**.
+  9. Depois de atualizar o servidor de configuração, o servidor de processo e o servidor RX com os instaladores mencionados acima, as bibliotecas PHP e MySQL precisam ser atualizadas manualmente com as etapas mencionadas na seção 7,4 do [Guia de instalação rápida](https://aka.ms/asr-scout-quick-install-guide).
 
-## <a name="enable-replication"></a>Ativar a replicação
+## <a name="enable-replication"></a>Ativar replicação
 
-1. Configurar a replicação entre a origem e sites de VMware de destino.
-2. Consulte os seguintes documentos para saber mais sobre a instalação, proteção e recuperação:
+1. Configure a replicação entre os sites VMware de origem e de destino.
+2. Consulte os documentos a seguir para saber mais sobre a instalação, proteção e recuperação:
 
    * [Notas de versão](https://aka.ms/asr-scout-release-notes)
    * [Matriz de compatibilidade](https://aka.ms/asr-scout-cm)
-   * [Guia do utilizador](https://aka.ms/asr-scout-user-guide)
-   * [Guia do usuário RX](https://aka.ms/asr-scout-rx-user-guide)
+   * [Guia do usuário](https://aka.ms/asr-scout-user-guide)
+   * [Guia do usuário do RX](https://aka.ms/asr-scout-rx-user-guide)
    * [Guia de instalação rápida](https://aka.ms/asr-scout-quick-install-guide)
-   * [Atualizar bibliotecas do MYSQL e PHP](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade)
+   * [Atualizando bibliotecas MYSQL e PHP](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade)
 
 ## <a name="updates"></a>Atualizações
 
-### <a name="site-recovery-scout-801-update-7"></a>Atualização do Scout 8.0.1 de recuperação de sites 7 
-Atualizado: Transferir a partir de 31 de Dezembro de 2018 [atualização do Scout 7](https://aka.ms/asr-scout-update7).
-Atualização do Scout 7 é um instalador completo que pode ser utilizado para a instalação de raiz, bem como para atualizar existente agentes/MT que são as atualizações anteriores (a partir de 1 de atualização para atualização 6). Ele contém todas as correções de atualização 1 para atualização 6 plus as novas correções e aprimoramentos de descrito abaixo.
+### <a name="site-recovery-scout-801-update-7"></a>Site Recovery Scout 8.0.1 atualização 7 
+Atualização: 31 de dezembro de 2018 baixar a [atualização do Scout 7](https://aka.ms/asr-scout-update7).
+O Scout Update 7 é um instalador completo que pode ser usado para a nova instalação, bem como para atualizar os agentes/MT existentes que estão nas atualizações anteriores (da atualização 1 para a atualização 6). Ele contém todas as correções da atualização 1 para a atualização 6, além das novas correções e aprimoramentos descritos abaixo.
  
 #### <a name="new-features"></a>Novos recursos
-* Conformidade de PCI
-* Suporte a TLS versão 1.2
+* Conformidade com PCI
+* Suporte a TLS v 1.2
 
-#### <a name="bug-and-security-fixes"></a>Bugs e correções de segurança
-* Corrigido: Máquinas de Cluster/autónomas do Windows tem uma configuração incorreta do IP após a recuperação/exploração de DR.
-* Corrigido: Por vezes, não consegue adicionar operação de disco para o cluster de V2V.
-* Corrigido: Assistente do vContinuum fica preso durante a fase de recuperação se o destino principal é o Windows Server 2016
-* Corrigido: Problemas de segurança do MySQL são atenuados ao atualizar o MySQL para a versão 5.7.23
+#### <a name="bug-and-security-fixes"></a>Correções de bugs e de segurança
+* Fixado O cluster do Windows/computadores autônomos têm configuração de IP incorreta após recuperação/DR-Drill.
+* Fixado Às vezes, a operação de adição de disco falha para o cluster V2V.
+* Corrigido: o assistente de vContinuum fica preso durante a fase de recuperação se o destino mestre for o Windows Server 2016
+* Fixado Os problemas de segurança do MySQL são mitigados atualizando o MySQL para a versão 5.7.23
 
-#### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>Atualização manual para PHP e MySQL no CS, PS e RX
-A plataforma de script PHP deve ser atualizada para a versão 7.2.10 no servidor de configuração, o servidor de processos e o servidor RX.
-O sistema de gestão de base de dados MySQL deve ser atualizado para a versão 5.7.23 no servidor de configuração, o servidor de processos e o servidor RX.
-Siga os passos manuais fornecidos na [guia de instalação rápida](https://aka.ms/asr-scout-quick-install-guide) para atualizar as versões do PHP e MySQL.
+#### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>Atualização manual para PHP e MySQL em CS, PS e RX
+A plataforma de script PHP deve ser atualizada para a versão 7.2.10 no servidor de configuração, no servidor de processo e no servidor RX.
+O sistema de gerenciamento de banco de dados MySQL deve ser atualizado para a versão 5.7.23 no servidor de configuração, servidor de processo e servidor RX.
+Siga as etapas manuais fornecidas no guia de [instalação rápida](https://aka.ms/asr-scout-quick-install-guide) para atualizar as versões do PHP e do MySQL.
 
-### <a name="site-recovery-scout-801-update-6"></a>Atualização do Scout 8.0.1 de recuperação de sites 6 
-Atualizado: 12 de Outubro de 2017
+### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 atualização 6 
+Atualização: 12 de outubro de 2017
 
-Baixe [atualização do Scout 6](https://aka.ms/asr-scout-update6).
+Baixe a [atualização do Scout 6](https://aka.ms/asr-scout-update6).
 
-A atualização do Scout 6 é uma atualização cumulativa. Ele contém todas as correções de atualização 1 para Update 5 e as novas correções e aprimoramentos de descrito abaixo. 
+O Scout Update 6 é uma atualização cumulativa. Ele contém todas as correções da atualização 1 para a atualização 5, além das novas correções e aprimoramentos descritos abaixo. 
 
 #### <a name="new-platform-support"></a>Novo suporte de plataforma
-* Foi adicionado suporte para a origem Windows Server 2016
-* Foi adicionado suporte para os seguintes sistemas operativos Linux:
-    - Red Hat Enterprise Linux (RHEL) 6.9
-    - CentOS 6.9
-    - Oracle Linux 5.11
-    - Oracle Linux 6.8
-* Foi adicionado suporte para VMware Center 6.5
+* Foi adicionado suporte para o Windows Server 2016 de origem
+* Foi adicionado suporte para os seguintes sistemas operacionais Linux:
+    - Red Hat Enterprise Linux (RHEL) 6,9
+    - CentOS 6,9
+    - Oracle Linux 5,11
+    - Oracle Linux 6,8
+* Foi adicionado suporte para o VMware Center 6,5
 
-Instale as atualizações da seguinte forma:
+Instale as atualizações da seguinte maneira:
 
 > [!NOTE]
->Versão de atualização de ficheiro dos todos os componentes do Scout pode não ser o mesmo para o ficheiro. zip de atualização. A versão mais antiga indicam que não há nenhuma alteração no componente desde a atualização anterior para esta atualização.
+>A versão de atualização de arquivo de todos os componentes do Scout pode não ser a mesma no arquivo. zip de atualização. A versão mais antiga indica que não há nenhuma alteração no componente desde a atualização anterior para essa atualização.
 
-Transfira o [atualizar](https://aka.ms/asr-scout-update6) ficheiro. zip. O ficheiro contém os seguintes componentes: 
+Baixe o arquivo. zip de [atualização](https://aka.ms/asr-scout-update6) . O arquivo contém os seguintes componentes: 
 - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
 - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
 - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
 - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-- Bits de update4 UA para RHEL5, OL5, OL6, SUSE 10, 11 de SUSE: UA_\<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-  1. Extraia os ficheiros. zip.
-  2. **Servidor de RX**: Cópia **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** para o servidor de RX e extraia-o. A pasta extraída, execute **/Install**.
-  3. **Servidor de configuração e o servidor de processos**: Cópia **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** para o servidor de configuração e o servidor de processos. Faça duplo clique para executá-lo.<br>
-  4. **Servidor de destino principal de Windows**: Para atualizar o agente unificado, copie **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** para o servidor. Clique duas vezes nele para executá-lo. A mesma atualização de agente unified também é aplicável para o servidor de origem. Se a origem não foi atualizada para a atualização 4, deve atualizar o agente unificado.
-  A atualização não tem de aplicar no mestre de destino preparado com o **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** como este é o novo instalador de disponibilidade geral em todas as alterações mais recentes.
-  5. **servidor vContinuum**:  Cópia **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** para o servidor.  Certifique-se de que tenha fechado o Assistente do vContinuum. Faça duplo clique no ficheiro para executá-lo.
-  A atualização não tem de aplicar no destino mestre preparado com o **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** como este é o novo instalador de disponibilidade geral em todas as alterações mais recentes.
-  6. **Servidor de destino principal do Linux**: Para atualizar o agente unificado, copie **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** a mestre e extraia-o servidor de destino. A pasta extraída, execute **/Install**.
-  7. **Servidor de origem do Windows**: Para atualizar o agente unificado, copie **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** ao servidor de origem. Faça duplo clique no ficheiro para executá-lo. 
-  Não precisa de instalar o agente de atualização 5 no servidor de origem, se ele já foi atualizado para a atualização 4 ou agente de origem é instalado com o instalador de base mais recente **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-  8. **Servidor de origem do Linux**: Para atualizar o agente unificado, copie a versão correspondente do arquivo agente unificado para o servidor Linux e extraí-lo. A pasta extraída, execute **/Install**.  Exemplo: Para RHEL 6.7 server de 64 bits, copie **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** para o servidor e extraia-o. A pasta extraída, execute **/Install**.
+- UA atualização 4 bits para RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_\<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  1. Extraia os arquivos. zip.
+  2. **Servidor RX**: Copie **rx_ 8.0.4.0 _ga_update_4_8725872_16sep16. tar. gz** para o servidor RX e extraia-o. Na pasta extraída, execute **/install**.
+  3. **Servidor de configuração e servidor de processo**: Copie **cx_windows_ 8.0.6.0 _ga_update_6_13746667_18sep17. exe** para o servidor de configuração e o servidor de processo. Clique duas vezes para executá-lo.<br>
+  4. **Servidor de destino mestre do Windows**: Para atualizar o agente unificado, copie **ua_windows_ 8.0.5.0 _ga_update_5_11525802_20apr17. exe** para o servidor. Clique duas vezes nele para executá-lo. A mesma atualização de agente unificado também se aplica ao servidor de origem. Se a origem não tiver sido atualizada para a atualização 4, você deverá atualizar o agente unificado.
+  A atualização não precisa ser aplicada ao destino mestre preparado com **inmage_scout_vcontinuum_mt_ 8.0.1.0 _windows_ga_10oct2017_release. exe** , pois esse é um novo instalador de GA com todas as alterações mais recentes.
+  5. **servidor vContinuum**:  Copie **vcon_windows_ 8.0.6.0 _ga_update_6_11525767_21sep17. exe** para o servidor.  Verifique se você fechou o assistente de vContinuum. Clique duas vezes no arquivo para executá-lo.
+  A atualização não precisa ser aplicada ao destino mestre preparado com **inmage_scout_vcontinuum_mt_ 8.0.1.0 _windows_ga_10oct2017_release. exe** , pois esse é um novo instalador de GA com todas as alterações mais recentes.
+  6. **Servidor de destino mestre do Linux**: Para atualizar o agente unificado, copie **ua_rhel6-64_ 8.0.4.0 _ga_update_4_9035261_26sep16. tar. gz** para o servidor de destino mestre e extraia-o. Na pasta extraída, execute **/install**.
+  7. **Servidor de origem do Windows**: Para atualizar o agente unificado, copie **ua_windows_ 8.0.5.0 _ga_update_5_11525802_20apr17. exe** para o servidor de origem. Clique duas vezes no arquivo para executá-lo. 
+  Você não precisa instalar o agente da atualização 5 no servidor de origem se ele já tiver sido atualizado para a atualização 4 ou se o agente de origem estiver instalado com o instalador base mais recente **inmage_ua_ 8.0.1.0 _windows_ga_28sep2017_release. exe**.
+  8. **Servidor de origem do Linux**: Para atualizar o agente unificado, copie a versão correspondente do arquivo do agente unificado para o servidor Linux e extraia-a. Na pasta extraída, execute **/install**.  Exemplo: Para o servidor RHEL 6,7 64-bit, copie **ua_rhel6-64_ 8.0.4.0 _ga_update_4_9035261_26sep16. tar. gz** para o servidor e extraia-o. Na pasta extraída, execute **/install**.
 
 
 > [!NOTE]
-> * Base Unified Agent(UA) installer para Windows foi atualizado para suportar o Windows Server 2016. O novo instalador **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** é empacotado com o pacote básico do Scout GA (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). O instalador mesmo será utilizado para todas as versões suportadas do Windows. 
-> * Base do vContinuum do Windows e de destino principal instalador foi atualizado para suportar o Windows Server 2016. O novo instalador **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** é empacotado com o pacote básico do Scout GA (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). O instalador mesmo será utilizado para implementar o destino de principal do Windows 2016 e Windows 2012R2 mestre de destino.
-> * O servidor de Windows 2016 no servidor físico não é suportado pelo Scout de ASR. Ele oferece suporte apenas Windows Server 2016 VM de VMware. 
+> * O instalador de UA (agente unificado) base para Windows foi atualizado para dar suporte ao Windows Server 2016. O novo instalador **inmage_ua_ 8.0.1.0 _windows_ga_28sep2017_release. exe** é empacotado com o pacote base scout GA (**inmage_scout_standard_ 8.0.1 ga-Oct17. zip**). O mesmo instalador será usado para todas as versões do Windows com suporte. 
+> * Base Windows vContinuum & o instalador mestre de destino foi atualizado para dar suporte ao Windows Server 2016. O novo instalador **inmage_scout_vcontinuum_mt_ 8.0.1.0 _windows_ga_10oct2017_release. exe** é empacotado com o pacote base scout GA (**inmage_scout_standard_ 8.0.1 ga-Oct17. zip**). O mesmo instalador será usado para implantar o destino mestre do Windows 2016 e o destino mestre do Windows 2012R2.
+> * O Windows Server 2016 no servidor físico não é suportado pelo ASR Scout. Ele dá suporte apenas à VM do VMware do Windows Server 2016. 
 >
 
-#### <a name="bug-fixes-and-enhancements"></a>Correções de erros e melhorias
-- Falha de proteção de reativação pós-falha para VM do Linux com a lista de discos a serem replicados está vazia no final da configuração.
+#### <a name="bug-fixes-and-enhancements"></a>Correções de bugs e aprimoramentos
+- Falha na proteção de failback para que a VM do Linux com a lista de discos a serem replicados esteja vazia no final da configuração.
 
-### <a name="site-recovery-scout-801-update-5"></a>Atualização do Scout 8.0.1 de recuperação de sites 5
-Atualização do Scout 5 é uma atualização cumulativa. Contém todas as correções de atualização 1 para a atualização 4 e as novas correções descritas abaixo.
-- Correções do Site Recovery Scout atualização 4 a 5 de atualização são especificamente para os componentes de vContinuum e de destino mestres.
-- Se os servidores de origem, o destino mestre, configuração, processo e servidores de RX já estiver a executar a atualização 4, em seguida, aplicá-la apenas no servidor de destino mestre. 
+### <a name="site-recovery-scout-801-update-5"></a>Site Recovery Scout 8.0.1 atualização 5
+O Scout Update 5 é uma atualização cumulativa. Ele contém todas as correções da atualização 1 para a atualização 4 e as novas correções descritas abaixo.
+- As correções do Site Recovery Scout Update 4 para a atualização 5 são especificamente para os componentes de destino mestre e vContinuum.
+- Se os servidores de origem, o destino mestre, a configuração, o processo e os servidores RX já estiverem executando a atualização 4, aplique-os somente no servidor de destino mestre. 
 
 #### <a name="new-platform-support"></a>Novo suporte de plataforma
-* SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
-* SLES 11 SP4 64 bits **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** é empacotado com o pacote básico do Scout GA (**InMage_Scout_Standard_8.0.1 GA.zip**). Transferir o pacote de disponibilidade geral no portal, conforme descrito em criar um cofre.
+* SUSE Linux Enterprise Server 11 Service Pack 4 (SP4)
+* SLES 11 SP4 64 bit **inmage_ua_ 8.0.1.0 _sles11-SP4-64_ga_13apr2017_release. tar. gz** é empacotado com o pacote base scout GA (**inmage_scout_standard_ 8.0.1 ga. zip**). Baixe o pacote GA do portal, conforme descrito em criar um cofre.
 
 
-#### <a name="bug-fixes-and-enhancements"></a>Correções de erros e melhorias
+#### <a name="bug-fixes-and-enhancements"></a>Correções de bugs e aprimoramentos
 
-* Correções para o cluster do Windows uma maior fiabilidade de suporte:
-    * Fixo – alguns do MSCS P2V tornam-se de discos de cluster RAW após a recuperação.
-    * A recuperação de cluster do MSCS de P2V Fixed-falha devido a um erro de correspondência de encomenda do disco.
-    * Fixo – o MSCS operação para adicionar discos falhar com um erro de incompatibilidade de tamanho de disco de cluster.
-    * Verifique – a preparação para a origem de cluster do MSCS com o mapeamento de LUNs de RDM falha na verificação de tamanho.
-    * Proteção de cluster de nó único do Fixed-falha devido a um problema de falta de correspondência de SCSI. 
-    * A fixed-proteção de reavaliação de do servidor de cluster do Windows de P2V falha se existirem discos de cluster de destino. 
+* Correções para maior confiabilidade de suporte de cluster do Windows:
+    * Corrigido-alguns dos discos do cluster do MSCS P2V se tornam BRUTOs após a recuperação.
+    * Corrigido-a recuperação de cluster do MSCS do P2V falha devido a uma incompatibilidade de ordem de disco.
+    * Corrigido-a operação de cluster do MSCS para adicionar discos falha com um erro de incompatibilidade de tamanho de disco.
+    * Corrigido-a verificação de preparação para o cluster do MSCS de origem com mapeamento de LUNs RDM falha na verificação de tamanho.
+    * Fixo-a proteção de cluster de nó único falha devido a um problema de incompatibilidade de SCSI. 
+    * Corrigido – a nova proteção do servidor de cluster do Windows P2V falhará se os discos de cluster de destino estiverem presentes. 
     
-* Corrigido: Durante a proteção de reativação pós-falha, se o servidor de destino principais selecionados não está no mesmo servidor ESXi que a máquina de origem protegida (durante a proteção de encaminhamento), em seguida, vContinuum escolherá o servidor de destino mestre errado durante a recuperação de reativação pós-falha e a recuperação Falha da operação.
+* Fixado Durante a proteção de failback, se o servidor de destino mestre selecionado não estiver no mesmo servidor ESXi que o computador de origem protegido (durante a proteção de encaminhamento), o vContinuum selecionará o servidor de destino mestre errado durante a recuperação de failback e a recuperação falha na operação.
 
 > [!NOTE]
-> * As correções de cluster de P2V são aplicáveis apenas a clusters físicos MSCS recentemente protegidos com o Site Recovery Scout Update 5. Para instalar as correções de cluster em clusters de P2V MSCS protegidos com as atualizações mais antigas, siga os passos de atualização mencionados na secção 12 a [notas de versão do Site Recovery Scout](https://aka.ms/asr-scout-release-notes).
-> * Se durante a reavaliação de proteção, o mesmo conjunto de discos está ativo em cada um de nós do cluster quando inicialmente protegidos, nova proteção de um cluster do MSCS físico só pode reutilizar discos de destino existente. Se não for, em seguida, utilize os passos manuais na seção 12 [notas de versão do Site Recovery Scout](https://aka.ms/asr-scout-release-notes), para mover os discos de lado de destino para o caminho de arquivo de dados correto, para reutilização durante a reavaliação de proteção. Se voltar a proteger o cluster do MSCS no modo de P2V sem seguir os passos de atualização, cria um novo disco no servidor de ESXi de destino. Terá de eliminar manualmente os discos antigos do arquivo de dados.
-> * Quando um servidor de origem SLES11 ou SLES11 (com qualquer service pack) é reiniciado corretamente, em seguida, marcar manualmente os **raiz** pares de replicação para a nova sincronização do disco. Não haverá nenhuma notificação na interface do CX. Se não marcar o disco de raiz para a ressincronização, pode observar problemas de integridade de dados.
+> * As correções de cluster P2V são aplicáveis somente a clusters do MSCS físicos que são protegidos recentemente com o Site Recovery Scout Update 5. Para instalar as correções de cluster em clusters do MSCS do P2V protegidos com atualizações mais antigas, siga as etapas de atualização mencionadas na seção 12 das [notas de versão do site Recovery Scout](https://aka.ms/asr-scout-release-notes).
+> * se, no momento da nova proteção, o mesmo conjunto de discos estiver ativo em cada um dos nós de cluster como estavam quando protegidos inicialmente, a nova proteção de um cluster do MSCS físico poderá reutilizar os discos de destino existentes. Caso contrário, use as etapas manuais na seção 12 de [notas de versão do site Recovery Scout](https://aka.ms/asr-scout-release-notes)para mover os discos do lado de destino para o caminho de repositório de armazenamento correto, para reutilização durante a nova proteção. Se você proteger novamente o cluster do MSCS no modo FV sem seguir as etapas de atualização, ele criará um novo disco no servidor ESXi de destino. Você precisará excluir manualmente os discos antigos do repositório de armazenamento.
+> * Quando um servidor de origem SLES11 ou SLES11 (com qualquer service pack) for reinicializado normalmente, marque manualmente os pares de replicação de disco **raiz** para nova sincronização. Não há nenhuma notificação na interface CX. Se você não marcar o disco raiz para ressincronização, poderá notar problemas de integridade de dados.
 
 
-### <a name="azure-site-recovery-scout-801-update-4"></a>O Azure Site Recovery Scout 8.0.1 atualização 4
-A atualização 4 do Scout é uma atualização cumulativa. Inclui todas as correções de atualização 1 para o Update 3 e as novas correções descritas abaixo.
+### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 atualização 4
+O Scout Update 4 é uma atualização cumulativa. Ele inclui todas as correções da atualização 1 para a atualização 3 e as novas correções descritas abaixo.
 
 #### <a name="new-platform-support"></a>Novo suporte de plataforma
 
-* Foi adicionado suporte para o vCenter/vSphere 6.0, 6.1 e 6.2
-* Foi adicionado suporte para estes sistemas de operativos Linux:
-  * Red Hat Enterprise Linux (RHEL) 7.0, o 7.1 e 7.2
-  * CentOS 7.0, o 7.1 e 7.2
-  * Red Hat Enterprise Linux (RHEL) 6.8
-  * CentOS 6.8
+* Foi adicionado suporte para vCenter/vSphere 6,0, 6,1 e 6,2
+* Foi adicionado suporte para esses sistemas operacionais Linux:
+  * Red Hat Enterprise Linux (RHEL) 7,0, 7,1 e 7,2
+  * CentOS 7,0, 7,1 e 7,2
+  * Red Hat Enterprise Linux (RHEL) 6,8
+  * CentOS 6,8
 
 > [!NOTE]
-> RHEL/CentOS 7 64bit **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** é empacotado com o pacote básico do Scout GA **InMage_Scout_Standard_8.0.1 GA.zip**. Transferir o pacote de GA do Scout no portal, conforme descrito em criar um cofre.
+> RHEL/CentOS 7 64 bit **inmage_ua_ 8.0.1.0 _rhel7-64_ga_06oct2016_release. tar. gz** é empacotado com o pacote base scout GA **inmage_scout_standard_ 8.0.1 ga. zip**. Baixe o pacote do Scout GA no portal, conforme descrito em criar um cofre.
 
-#### <a name="bug-fixes-and-enhancements"></a>Correções de erros e melhorias
+#### <a name="bug-fixes-and-enhancements"></a>Correções de bugs e aprimoramentos
 
-* Encerramento melhorado processamento para os seguintes sistemas operativos Linux e clones, para evitar problemas de ressincronização indesejável:
-    * Red Hat Enterprise Linux (RHEL) 6.x
-    * Oracle Linux (OL) 6.x
-* Para o Linux, todas as permissões de acesso de pasta no diretório de instalação do agente unificado agora são restritos apenas o utilizador local.
-* No Windows, uma correção para um tempo limite problema ocorrido ao emitir indicadores de distribuídas de consistência comum, no bastante carregadas aplicações distribuídas, como os clusters do SQL Server e SharePoint.
-* Um registo relacionadas com a correção no instalador de base de servidor de configuração.
-* Uma ligação de transferência para o VMware vCLI 6.0 foi adicionada para o instalador de base de destino principal de Windows.
-* Verificações adicionais e os registos foram adicionados para alterações de configuração de rede durante as explorações de recuperação após desastre e de ativação pós-falha.
-* Uma solução para um problema que causou a informações de retenção para não será possível reportar para o servidor de configuração.  
-* Para clusters físicos, uma solução para um problema que causou o redimensionamento de volume efetuar a ativação no Assistente do vContinuum, ao reduzir o volume de origem.
-* Uma correção para um problema de proteção de cluster falhou com o erro: "Falha ao localizar a assinatura de disco", quando o disco de cluster é um disco PRDM.
-* Uma correção para uma falha de servidor de transporte cxps, causada por uma exceção de fora do intervalo.
-* Nome do servidor e de colunas de endereço IP estão agora redimensionáveis na **instalação Push do** página do Assistente do vContinuum.
-* Aprimoramentos de API de RX:
-  * Os cinco mais recente disponível comuns consistência aponta agora disponível (garantido apenas etiquetas).
-  * Capacidade e os detalhes de espaço livre são apresentados para todos os dispositivos protegidos.
-  * Estado de driver do Scout no servidor de origem está disponível.
+* Melhor manipulação de desligamento para os seguintes sistemas operacionais Linux e clones, para evitar problemas de ressincronização indesejados:
+    * Red Hat Enterprise Linux (RHEL) 6. x
+    * Oracle Linux (OL) 6. x
+* Para o Linux, todas as permissões de acesso à pasta no diretório de instalação do agente unificado agora são restritas somente ao usuário local.
+* No Windows, uma correção para um problema de tempo limite que ocorreu durante a emissão de indicadores de consistência distribuída comuns, em aplicativos distribuídos altamente carregados, como SQL Server e clusters de ponto de compartilhamento.
+* Uma correção relacionada ao log no instalador base do servidor de configuração.
+* Um link de download para o VMware vCLI 6,0 foi adicionado ao instalador base de destino mestre do Windows.
+* Logs e verificações adicionais foram adicionados, para alterações de configuração de rede durante a análise de failover e recuperação de desastre.
+* Uma correção para um problema que fazia com que as informações de retenção não sejam relatadas ao servidor de configuração.  
+* Para clusters físicos, uma correção para um problema que causou a falha no redimensionamento de volume no assistente de vContinuum, ao reduzir o volume de origem.
+* Uma correção para um problema de proteção de cluster que falhou com o erro: "Falha ao localizar a assinatura de disco", quando o disco de cluster é um disco PRDM.
+* Uma correção para uma falha do servidor de transporte cxps, causada por uma exceção fora do intervalo.
+* As colunas nome do servidor e endereço IP agora são redimensionáveis na página **instalação por push** do assistente de vContinuum.
+* Aprimoramentos da API RX:
+  * Os cinco pontos de consistência comuns mais recentes disponíveis agora estão disponíveis (somente marcas Garantidas).
+  * Os detalhes de capacidade e espaço livre são exibidos para todos os dispositivos protegidos.
+  * O estado do driver Scout no servidor de origem está disponível.
 
 > [!NOTE]
-> * **InMage_Scout_Standard_8.0.1_GA.zip** pacote básico tem:
->     * Um instalador de base de servidor de configuração atualizada (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
->     * Um instalador de base de destino principal de Windows (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
->     * Para instalações novas, utilize o novo servidor de configuração e bits de destino mestre GA do Windows.
-> * A atualização 4 pode ser aplicada diretamente em 8.0.1 GA.
-> * O servidor de configuração e atualizações de RX não serão apresentadas depois dos que foram aplicadas.
+> * O pacote base **inmage_scout_standard_ 8.0.1 _ga. zip** tem:
+>     * Um instalador base do servidor de configuração atualizado (**inmage_cx_ 8.0.1.0 _windows_ga_26feb2015_release. exe**)
+>     * Um instalador base de destino mestre do Windows (**inmage_scout_vcontinuum_mt_ 8.0.1.0 _windows_ga_26feb2015_release. exe**).
+>     * Para todas as novas instalações, use o novo servidor de configuração e os bits de GA de destino mestre do Windows.
+> * A atualização 4 pode ser aplicada diretamente no 8.0.1 GA.
+> * O servidor de configuração e as atualizações de RX não podem ser revertidas depois de serem aplicadas.
 
 
-### <a name="azure-site-recovery-scout-801-update-3"></a>O Azure Site Recovery Scout 8.0.1 atualização 3
+### <a name="azure-site-recovery-scout-801-update-3"></a>Azure Site Recovery Scout 8.0.1 atualização 3
 
-Todas as atualizações de recuperação de sites são cumulativas. Atualização 3 contém todas as correções Update 1 e 2 de atualização. A atualização 3 pode ser aplicada diretamente no 8.0.1 GA. O servidor de configuração e atualizações de RX não serão apresentadas depois dos que foram aplicadas.
+Todas as atualizações de Site Recovery são cumulativas. A atualização 3 contém todas as correções da atualização 1 e da atualização 2. A atualização 3 pode ser aplicada diretamente no 8.0.1 GA. O servidor de configuração e as atualizações de RX não podem ser revertidas depois de serem aplicadas.
 
-#### <a name="bug-fixes-and-enhancements"></a>Correções de erros e melhorias
-Atualização 3 corrige os problemas seguintes:
+#### <a name="bug-fixes-and-enhancements"></a>Correções de bugs e aprimoramentos
+A atualização 3 corrige os seguintes problemas:
 
-* O servidor de configuração e RX não estão registados no cofre quando estão por trás do proxy.
-* O número de horas em que não foi atingido o objetivo de ponto de recuperação (RPO) não é atualizado no relatório de estado de funcionamento.
-* O servidor de configuração não está a sincronizar com RX quando os detalhes de hardware do ESX, ou detalhes da rede, contenham quaisquer carateres de UTF-8.
-* Controladores de domínio do Windows Server 2008 R2 não iniciada após a recuperação.
-* Sincronização offline não está a funcionar conforme esperado.
-* Após a ativação pós-falha da VM, a eliminação do par de replicação não progride na consola do servidor de configuração durante muito tempo. Os utilizadores não é possível concluir a reativação pós-falha ou retomar as operações.
-* Em geral, operações de instantâneo pela tarefa de consistência foram otimizadas ajudar a reduzir o aplicativo se desliga tais como clientes do SQL Server.
-* O desempenho de ferramenta (VACP.exe) de consistência foi aprimorado. Utilização de memória necessária para a criação de instantâneos no Windows foi reduzida.
-* O push instalar falhas de serviço, quando a palavra-passe é superior a 16 carateres.
-* vContinuum não verifique e pedir novas credenciais do vCenter, quando as credenciais são modificadas.
-* No Linux, o Gerenciador de cache de destino mestre (cachemgr) não é transferir ficheiros do servidor de processos. Isso resulta na limitação do par de replicação.
-* Quando a ordem de disco de cluster (MSCS) de ativação pós-falha física não é o mesmo em todos os nós, a replicação não está definida para alguns dos volumes de cluster. O cluster tem de ser protegida novamente para aproveitar esta correção.  
-* Funcionalidade de SMTP não está a funcionar conforme esperado, após a RX é atualizada de Scout 7.1 para Scout 8.0.1.
-* Foram adicionadas estatísticas mais no registo para a operação de reversão, para controlar o tempo necessário para concluí-la.
-* Foi adicionado suporte para sistemas de operativos Linux no servidor de origem:
-  * Atualização do Red Hat Enterprise Linux (RHEL) 6 7
+* O servidor de configuração e o RX não são registrados no cofre quando estão atrás do proxy.
+* O número de horas em que o RPO (objetivo de ponto de recuperação) não foi atingido não é atualizado no relatório de integridade.
+* O servidor de configuração não está sincronizando com RX quando os detalhes de hardware do ESX ou detalhes de rede contêm qualquer caractere UTF-8.
+* Os controladores de domínio do Windows Server 2008 R2 não são iniciados após a recuperação.
+* A sincronização offline não está funcionando conforme o esperado.
+* Após o failover da VM, a exclusão do par de replicação não progride no console do servidor de configuração por um longo tempo. Os usuários não podem concluir as operações de failback ou retomada.
+* As operações gerais de instantâneo pelo trabalho de consistência foram otimizadas para ajudar a reduzir desconexões de aplicativos, como clientes SQL Server.
+* O desempenho da ferramenta de consistência (VACP. exe) foi aprimorado. O uso de memória necessário para a criação de instantâneos no Windows foi reduzido.
+* O serviço de instalação por push falha quando a senha tem mais de 16 caracteres.
+* vContinuum não verifica e solicita novas credenciais do vCenter, quando as credenciais são modificadas.
+* No Linux, o Gerenciador de cache de destino mestre (cachemgr) não está baixando arquivos do servidor de processo. Isso resulta na limitação do par de replicação.
+* Quando a ordem de disco do MSCS (cluster de failover físico) não é a mesma em todos os nós, a replicação não é definida para alguns dos volumes de cluster. O cluster deve ser protegido novamente para aproveitar essa correção.  
+* A funcionalidade SMTP não está funcionando conforme o esperado, após o RX ser atualizado do Scout 7,1 para o Scout 8.0.1.
+* Mais estatísticas foram adicionadas ao log para a operação de reversão, para controlar o tempo necessário para concluí-la.
+* Foi adicionado suporte para sistemas operacionais Linux no servidor de origem:
+  * Red Hat Enterprise Linux (RHEL) 6 atualização 7
   * CentOS 6 atualização 7
-* O servidor de configuração e RX consolas agora mostrar notificações para o par, o que entra em modo de bitmap.
-* Foram adicionadas as seguintes correções de segurança no RX:
-    * Ignorar autorização por meio de violação de parâmetros: Acesso restrito a utilizadores não aplicáveis.
-    * Falsificação de solicitação: O conceito de token de página foi implementado e gera aleatoriamente para todas as páginas. Isso significa que existe apenas uma única início de sessão instância para o mesmo utilizador, e a atualização de página não funciona. Em vez disso, redireciona para o dashboard.
-    * Carregamento de ficheiros maliciosos: Ficheiros estão limitados a extensões específicas: z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf , sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml e zip.
-    * Scripts entre sites persistente: Foram adicionadas validações de entrada.
+* O servidor de configuração e os consoles RX agora mostram notificações para o par, que entra no modo Bitmap.
+* As seguintes correções de segurança foram adicionadas em RX:
+    * Bypass de autorização por meio de violação de parâmetro: Acesso restrito a usuários não aplicáveis.
+    * Falsificação de solicitação entre sites: O conceito de token de página foi implementado e gera aleatoriamente para cada página. Isso significa que há apenas uma instância de entrada única para o mesmo usuário e a atualização de página não funciona. Em vez disso, ele redireciona para o painel.
+    * Upload de arquivo mal-intencionado: Os arquivos são restritos a extensões específicas: z, AIFF, ASF, AVI, BMP, CSV, Doc, docx, FLA, FLV, GIF, gz, GZIP, JPEG, jpg, log, mid, MOV, mp3, MP4, MPC, MPEG, MPG, ODS, odt, PDF, png, ppt, pptx, PXD, QT, RAM, rar, RM, RMI, RMVB, RTF, SDC, sitd, SWF , sxc, sxw, tar, TGZ, TIF, TIFF, txt, vsd, WAV, WMA, WMV, xls, xlsx, XML e zip.
+    * Script persistente entre sites: As validações de entrada foram adicionadas.
 
-### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site Recovery Scout 8.0.1 Update 2 (Update 03Dec15)
+### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site Recovery Scout 8.0.1 atualização 2 (atualização 03Dec15)
 
-Correções na atualização 2 incluem:
+As correções na atualização 2 incluem:
 
-* **Servidor de configuração**: Problemas que impediram a 31 dias medição à funcionalidade gratuita de trabalho conforme o esperado, quando o servidor de configuração foi registado para o cofre do Azure Site Recovery.
-* **Agente unificado**: Correção para um problema em que resultaram na atualização não sendo instalada no servidor de destino mestre, durante a atualização da versão 8.0 para 8.0.1 Update 1.
+* **Servidor de configuração**: Problemas que impediram que o recurso de medição gratuita de 31 dias funcione conforme o esperado, quando o servidor de configuração foi registrado para Azure Site Recovery cofre.
+* **Agente**unificado: Correção de um problema na atualização 1 que fez com que a atualização não fosse instalada no servidor de destino mestre, durante a atualização da versão 8,0 para 8.0.1.
 
-### <a name="azure-site-recovery-scout-801-update-1"></a>O Azure Site Recovery Scout 8.0.1 atualização 1
-Atualização 1 inclui as seguintes correções de erros e novas funcionalidades:
+### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery Scout 8.0.1 atualização 1
+A atualização 1 inclui as seguintes correções de bugs e novos recursos:
 
-* 31 dias de proteção gratuito por instância de servidor. Isto permite-lhe testar a funcionalidade ou configurar uma prova de conceito.
-* Todas as operações no servidor, incluindo a ativação pós-falha e reativação pós-falha, são gratuitas durante os primeiros 31 dias. O tempo é iniciado quando um servidor primeiro estiver protegido por Scout de recuperação de Site. Ao dia 32nd, cada servidor protegido é cobrado a taxa de instância padrão para a proteção de recuperação de sites num site de cliente.
-* Em qualquer altura, está disponível no número de servidores protegidos atualmente está a ser cobrada a **Dashboard** no cofre.
-* Foi adicionado suporte para vSphere a Interface de linha de comandos (vCLI) 5.5 atualização 2.
-* Foi adicionado suporte para estes sistemas de operativos Linux no servidor de origem:
-    * 6 de atualização do RHEL 6
+* 31 dias de proteção gratuita por instância de servidor. Isso permite que você teste a funcionalidade ou configure uma prova de conceito.
+* Todas as operações no servidor, incluindo failover e failback, são gratuitas durante os primeiros 31 dias. O tempo começa quando um servidor é protegido pela primeira vez com o Site Recovery Scout. Do dia 32 º, cada servidor protegido é cobrado com a taxa de instância padrão para proteção de Site Recovery para um site de Propriedade do cliente.
+* A qualquer momento, o número de servidores protegidos atualmente sendo cobrados está disponível no **painel** no cofre.
+* Foi adicionado suporte para a interface de linha de comando vSphere (vCLI) 5,5 atualização 2.
+* Foi adicionado suporte para esses sistemas operacionais Linux no servidor de origem:
+    * RHEL 6 Atualização 6
     * RHEL 5 atualização 11
-    * Atualização 6 do centOS 6
-    * Atualização do centOS 5 11
-* Correções de erros para resolver os problemas seguintes:
-  * Falha do registo do cofre para o servidor de configuração ou o servidor de RX.
-  * Volumes de cluster não são apresentados como esperados quando em cluster que VMS voltar a proteger como retomar a eles.
-  * Reativação pós-falha falha quando o servidor de destino mestre está alojado num servidor ESXi diferente de VMs de produção no local.
-  * Permissões de ficheiro de configuração são alteradas durante a atualização para 8.0.1. Esta alteração afeta a proteção e as operações.
-  * O limiar de ressincronização não é imposto como esperado, fazendo com que o comportamento de replicação inconsistente.
-  * As definições de RPO não são apresentados corretamente na consola do servidor de configuração. O valor de dados não comprimidos incorretamente mostra o valor comprimido.
-  * A operação de remoção não elimina conforme esperado no Assistente do vContinuum e os replicação não é eliminada do console do servidor de configuração.
-  * No Assistente do vContinuum, o disco é automaticamente não selecionado ao clicar **detalhes** na vista de disco, durante a proteção de VMs do MSCS.
-  * No cenário físico-virtual (P2V), os serviços de HP necessários (como CIMnotify e CqMgHost) não são movidos para manual na recuperação VM. Este problema resulta em tempo de arranque adicionais.
-  * A proteção de VM do Linux falha quando há mais de 26 discos no servidor de destino mestre.
+    * CentOS 6 Atualização 6
+    * CentOS 5 atualização 11
+* Correções de bugs para resolver os seguintes problemas:
+  * Falha no registro do cofre para o servidor de configuração ou servidor RX.
+  * Os volumes de cluster não aparecem conforme o esperado quando as VMs clusterizadas são protegidas novamente à medida que eles são retomados.
+  * O failback falha quando o servidor de destino mestre é hospedado em um servidor ESXi diferente das VMs de produção locais.
+  * As permissões do arquivo de configuração são alteradas quando você atualiza para o 8.0.1. Essa alteração afeta a proteção e as operações.
+  * O limite de ressincronização não é imposto conforme o esperado, causando um comportamento de replicação inconsistente.
+  * As configurações de RPO não aparecem corretamente no console do servidor de configuração. O valor de dados não compactados mostra incorretamente o valor compactado.
+  * A operação de remoção não exclui conforme esperado no assistente de vContinuum e a replicação não é excluída do console do servidor de configuração.
+  * No assistente de vContinuum, o disco é desmarcado automaticamente quando você clica em **detalhes** na exibição de disco, durante a proteção de VMs do MSCS.
+  * No cenário FV (Physical-to-virtual), os serviços HP necessários (como CIMnotify e CqMgHost) não são movidos para manual na recuperação de VM. Esse problema resulta em tempo de inicialização adicional.
+  * A proteção da VM do Linux falha quando há mais de 26 discos no servidor de destino mestre.
 

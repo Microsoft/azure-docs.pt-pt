@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 7cd555f66bb6f65f498f9b3e5db9bbeda0505a8f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 0a8b3a8bcfc2aa8270d7be140a94e5b83973f3e5
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384971"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972135"
 ---
 # <a name="manage-mobility-agent-on-protected-machines"></a>Gerenciar o agente de mobilidade em computadores protegidos
 
@@ -61,7 +61,7 @@ Desinstale a partir da interface do usuário ou de um prompt de comando.
 
 ### <a name="on-a-linux-machine"></a>Em um computador Linux
 1. No computador Linux, entre como um usuário **raiz** .
-2. Em um terminal, vá para/user/local/ASR.
+2. Em um terminal, vá para/usr/local/ASR.
 3. Execute o seguinte comando:
     ```
     uninstall.sh -Y

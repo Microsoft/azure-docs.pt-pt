@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: df13a6638c5ed72532b020ef7074123a2159b1c4
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69536316"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972384"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>Configurar uma conexão VPN para sua nuvem privada do CloudSimple
 
@@ -26,7 +26,7 @@ Os gateways de VPN permitem que você se conecte à rede CloudSimple a partir de
 
 Em uma região, você pode criar um gateway de VPN site a site e um gateway de VPN ponto a site.
 
-## <a name="point-to-site-vpn"></a>VPN ponto a site
+## <a name="point-to-site-vpn"></a>VPN ponto a Site
 
 Para criar um gateway de VPN ponto a site, consulte [criar gateway de VPN ponto a site](vpn-gateway.md#create-point-to-site-vpn-gateway).
 

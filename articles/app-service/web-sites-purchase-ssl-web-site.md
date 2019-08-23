@@ -16,12 +16,12 @@ ms.date: 10/16/2018
 ms.author: cephalin
 ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 7675a22b4b2d8b13524f06f45d6bb805c1e2fad1
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 8f55e2eb3ac7fe2e869b6b1061f6d45d11894ccf
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019138"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905929"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Comprar e configurar um certificado SSL para o serviço de Azure App
 
@@ -50,7 +50,7 @@ Use a tabela a seguir para ajudá-lo a configurar o certificado. Quando terminar
 
 | Definição | Descrição |
 |-|-|
-| Nome | Um nome amigável para seu certificado de serviço de aplicativo. |
+| Name | Um nome amigável para seu certificado de serviço de aplicativo. |
 | Nome do Anfitrião do Domínio sem "www" | Especifique o domínio raiz aqui. O certificado emitido protege o domínio raiz e o `www` subdomínio. No certificado emitido, o campo nome comum contém o domínio raiz e o campo nome alternativo da entidade contém o `www` domínio. Para proteger somente qualquer subdomínio, especifique o nome de domínio totalmente qualificado do subdomínio aqui (por exemplo, `mysubdomain.contoso.com`).|
 | Subscription | O centro de dados onde o a aplicação Web está alojada. |
 | Resource group | O grupo de recursos que contém o certificado. Você pode usar um novo grupo de recursos ou selecionar o mesmo grupo de recursos que o aplicativo do serviço de aplicativo, por exemplo. |
@@ -71,7 +71,7 @@ Na página **status da Key Vault** , clique em **repositório Key Vault** para c
 
 | Definição | Descrição |
 |-|-|
-| Nome | Um nome exclusivo que consiste em caracteres alfanuméricos e traços. |
+| Name | Um nome exclusivo que consiste em caracteres alfanuméricos e traços. |
 | Resource group | Como recomendação, selecione o mesmo grupo de recursos que o seu certificado de serviço de aplicativo. |
 | Location | Selecione o mesmo local que o aplicativo do serviço de aplicativo. |
 | Escalão de preço | Para obter informações, consulte [Azure Key Vault detalhes de preços](https://azure.microsoft.com/pricing/details/key-vault/). |
@@ -114,7 +114,7 @@ Use a tabela a seguir para ajudá-lo a configurar a associação na caixa de di�
 
 | Definição | Descrição |
 |-|-|
-| Nome do Anfitrião | O nome de domínio para o qual adicionar a associação SSL. |
+| Nome do sistema anfitrião | O nome de domínio para o qual adicionar a associação SSL. |
 | Thumbprint do Certificado Privado | O certificado a ser associado. |
 | Tipo de SSL | <ul><li>**SSL SNI** -várias associações SSL baseadas em SNI podem ser adicionadas. Esta opção permite utilizar vários certificados SSL para proteger múltiplos domínios no mesmo endereço IP. Os browsers mais modernos (incluindo o Internet Explorer, o Chrome, o Firefox e o Opera) suportam SNI (encontre informações mais abrangentes sobre o suporte de browsers em [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) [Indicação do Nome de Servidor]).</li><li>**SSL baseado em IP** - só pode ser adicionado um enlace SSL baseado em IP. Esta opção permite utilizar apenas um certificado SSL para proteger um endereço IP público dedicado. Depois de configurar a associação, siga as etapas em [remapear um registro para IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
@@ -139,7 +139,7 @@ Quando a operação de rechaveamento for concluída, clique em **sincronizar**. 
 
 ## <a name="renew-certificate"></a>Renovar certificado
 
-Para ativar a renovação automática de seu certificado a qualquer momento, selecione o certificado na página [certificados do serviço de aplicativo](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e clique em **configurações de renovação automática** no painel de navegação esquerdo.
+Para ativar a renovação automática de seu certificado a qualquer momento, selecione o certificado na página [certificados do serviço de aplicativo](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e clique em **configurações de renovação automática** no painel de navegação esquerdo. Por padrão, os certificados do serviço de aplicativo têm um período de validade de 1 ano.
 
 Selecione **ativado** e clique em **salvar**. Os certificados podem começar a renovar automaticamente 60 dias antes da expiração se você tiver a renovação automática ativada.
 

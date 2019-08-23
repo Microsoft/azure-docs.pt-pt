@@ -6,15 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 9030d85ff5bc83bb54f4a67a9f319a1670a6c2ad
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c9ebaeb66bc46132160c77c09f93fc2921dc8961
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881852"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906339"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referência do Bing local da API de pesquisa de negócios v7
 
@@ -70,12 +71,12 @@ A seguir estão os cabeçalhos que uma solicitação e uma resposta podem inclui
 A solicitação pode incluir os seguintes parâmetros de consulta. Consulte a coluna necessária para os parâmetros necessários. Você deve codificar a URL dos parâmetros de consulta.  
   
   
-|Nome|Value|Type|Requerido|  
+|Name|Value|Type|Obrigatória|  
 |----------|-----------|----------|--------------|
 |<a name="count" />contar|O número de resultados a serem retornados, começando com o índice especificado pelo `offset` parâmetro.|Cadeia|Não|   
 |<a name="localCategories" />localCategories|Lista de opções que definem a pesquisa por categoria de negócios.  Consulte [pesquisa de categorias de negócios locais](local-categories.md)|Cadeia|Não|  
 |<a name="mkt" />mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte códigos de mercado.<br /><br /> **NOTA:** Atualmente, a API de pesquisa de negócios local dá suporte apenas ao mercado e à linguagem en-US.<br /><br />|Cadeia|Sim|
-|<a name="offset"/>desvio|O índice para iniciar os resultados especificados pelo `count` parâmetro.|Número inteiro|Não|  
+|<a name="offset"/>desvio|O índice para iniciar os resultados especificados pelo `count` parâmetro.|Integer|Não|  
 |<a name="query" />q|O termo de pesquisa do usuário.|Cadeia|Não|  
 |<a name="responseformat" />responseFormat|O tipo de mídia a ser usado para a resposta. A seguir estão os valores possíveis que não diferenciam maiúsculas de minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> O padrão é JSON. Para obter informações sobre os objetos JSON que a resposta contém, consulte [objetos de resposta](#response-objects).<br /><br />  Se você especificar JsonLd, o corpo da resposta incluirá objetos JSON-LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, consulte [JSON-LD](https://json-ld.org/).|Cadeia|Não|  
 |<a name="safesearch" />safeSearch|É um filtro utilizado para filtrar conteúdo para adultos. Os valores seguintes são os possíveis valores do filtro, não sensíveis a maiúsculas e minúsculas.<br /><ul><li>Off&mdash;retornar páginas da Web com texto adulto, imagens ou vídeos.<br /><br/></li><li>Páginas&mdash;da Web de retorno moderado com texto adulto, mas não imagens ou vídeos adultos.<br /><br/></li><li>Estrito&mdash;não retornar páginas da Web com texto adulto, imagens ou vídeos.</li></ul><br /> A predefinição é Moderado.<br /><br /> **NOTA:** Se a solicitação vier de um mercado que a política adulto do Bing exigir `safeSearch` que esteja definida como estrita, o Bing ignorará o `safeSearch` valor e usará estrito.<br/><br/>**NOTA:** Se você usar o `site:` operador de consulta, haverá a chance de que a resposta possa conter conteúdo somente para adultos, `safeSearch` independentemente da definição do parâmetro de consulta. Utilize `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdos para adultos. |Cadeia|Não|  
@@ -107,7 +108,7 @@ Define o erro que ocorreu.
 ### <a name="errorresponse"></a>ErrorResponse  
 O objeto de nível superior que a resposta inclui quando a solicitação falha.  
   
-|Nome|Value|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|Cadeia|  
 |<a name="errors" />los|Uma lista de erros que descrevem os motivos pelos quais a solicitação falhou.|[Erro](#error) do []|  
@@ -117,16 +118,16 @@ O objeto de nível superior que a resposta inclui quando a solicitação falha.
 ### <a name="license"></a>Licença  
 Define a licença sob a qual o texto ou a foto podem ser usados.  
   
-|Nome|Value|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |name|O nome da licença.|Cadeia|  
 |url|A URL para um site em que o usuário pode obter mais informações sobre a licença.<br /><br /> Use o nome e a URL para criar um hiperlink.|Cadeia|  
 
 
-### <a name="link"></a>Associar  
+### <a name="link"></a>Hiperligação  
 Define os componentes de um hiperlink.  
   
-|Nome|Value|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|Cadeia|  
 |text|O texto de exibição.|Cadeia|  
@@ -140,7 +141,7 @@ Define um Publicador.
   
 Observe que um Publicador pode fornecer seu nome ou seu site ou ambos.  
   
-|Nome|Value|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |name|O nome do editor.|Cadeia|  
 |url|A URL para o site do editor.<br /><br /> Observe que o Publicador pode não fornecer um site.|Cadeia|  
@@ -150,7 +151,7 @@ Observe que um Publicador pode fornecer seu nome ou seu site ou ambos.
 ### <a name="place"></a>Local  
 Define informações sobre um negócio local, como um restaurante ou Hotel.  
   
-|Nome|Value|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Digite Hint, que pode ser definida como uma das seguintes opções:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurante</ul><li>|Cadeia|  
 |endereço|O endereço postal do qual a entidade está localizada.|PostalAddress|  
@@ -174,23 +175,23 @@ Define o contexto de consulta que o Bing usou para a solicitação.
 
 ### <a name="identifiable"></a>Identificação
 
-|Nome|Value|Type|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |id|Um identificador de recurso|Cadeia|
  
 ### <a name="rankinggroup"></a>De classificação
 Define um grupo de resultados de pesquisa, como a principal.
 
-|Nome|Value|Type|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |items|Uma lista de resultados da pesquisa a serem exibidos no grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define um item de resultado de pesquisa a ser exibido.
 
-|Nome|Value|Type|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
-|resultIndex|Um índice de base zero do item na resposta a ser exibido. Se o item não incluir esse campo, exiba todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta de notícias.|Número inteiro|
+|resultIndex|Um índice de base zero do item na resposta a ser exibido. Se o item não incluir esse campo, exiba todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta de notícias.|Integer|
 |arquivo_de_resposta|A resposta que contém o item a ser exibido. Por exemplo, notícias.<br /><br />Use o tipo para localizar a resposta no objeto SearchResponse. O tipo é o nome de um campo SearchResponse.<br /><br /> No entanto, use o tipo de resposta somente se esse objeto incluir o campo valor; caso contrário, ignore-o.|Cadeia|
 |textualIndex|O índice da resposta em textualAnswers a ser exibido.| Inteiro sem sinal|
 |value|A ID que identifica uma resposta a ser exibida ou um item de uma resposta a ser exibida. Se a ID identificar uma resposta, exiba todos os itens da resposta.|Identificação|
@@ -198,7 +199,7 @@ Define um item de resultado de pesquisa a ser exibido.
 ### <a name="rankingresponse"></a>RankingResponse  
 Define onde o conteúdo da página de resultados da pesquisa deve ser colocado e em qual ordem.  
   
-|Nome|Value|  
+|Name|Value|  
 |----------|-----------|  
 |<a name="ranking-mainline" />principal|Os resultados da pesquisa a serem exibidos na principal.|  
 |<a name="ranking-pole" />Pólo|Os resultados da pesquisa que devem ter o tratamento mais visível (por exemplo, exibido acima da principal e da barra lateral).|  
@@ -209,7 +210,7 @@ Define o objeto de nível superior que a resposta inclui quando a solicitação 
   
 Observe que, se o serviço suspeitar de um ataque de negação de serviço, a solicitação terá sucesso (o código de status HTTP é 200 OK); no entanto, o corpo da resposta estará vazio.  
   
-|Nome|Value|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Digite Hint, que é definida como SearchResponse.|Cadeia|  
 |limita|Uma lista de entidades que são relevantes para a consulta de pesquisa.|Objeto JSON|  

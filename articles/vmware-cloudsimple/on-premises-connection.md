@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3f1772384621978524539514a0d647a4921a7b20
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: ee359b76072da3caee9ae1f5fab3d0fc28d25c0e
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69564111"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972694"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Conectar de local para CloudSimple usando o ExpressRoute
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 459c11448280b63bafdfd54c13a6cad5983ef1b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 967ca233169e2a2a213534d5b60bef2e3f44b6a9
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615885"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69969654"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicativos no serviço kubernetes do Azure (AKS)
 
@@ -55,7 +55,7 @@ Para simplificar a configuração de rede para cargas de trabalho de aplicativo,
 
 O endereço IP para balanceadores de carga e serviços podem ser atribuídos dinamicamente ou você pode especificar um endereço IP estático existente a ser usado. Os endereços IP estáticos internos e externos podem ser atribuídos. Esse endereço IP estático existente geralmente está vinculado a uma entrada DNS.
 
-Os balanceadores de carga *internos* e *externos* podem ser criados. Os balanceadores de carga internos só recebem um endereço IP privado e, portanto, não podem ser acessados pela Internet.
+Os balanceadores de carga *internos* e *externos* podem ser criados. Os balanceadores de carga internos só recebem um endereço IP privado, portanto, eles não podem ser acessados pela Internet.
 
 ## <a name="azure-virtual-networks"></a>Redes virtuais do Azure
 

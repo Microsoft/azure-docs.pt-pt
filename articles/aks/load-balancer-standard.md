@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: 68968c1f846a1052600a8ed108f4d40fd9d8f2cb
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 422189952096ef25b69e62aa2708c59385b0637a
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534724"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898945"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Visualização-usar um balanceador de carga de SKU padrão no serviço de kubernetes do Azure (AKS)
 
@@ -166,7 +166,7 @@ A saída de exemplo seguinte mostra o nó único criado nos passos anteriores. V
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.9
+aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.10
 ```
 
 ## <a name="verify-your-cluster-uses-the-standard-sku"></a>Verifique se o cluster usa o SKU *Standard*
@@ -318,7 +318,7 @@ kubectl delete -f sample.yaml
 kubectl delete -f standard-lb.yaml
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre os serviços Kubernetess na [documentação dos serviços Kubernetess][kubernetes-services].
 

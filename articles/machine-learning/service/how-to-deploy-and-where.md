@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 7bfbec194733f2f8422eef45236a64e45bb553c7
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: acb3717f0e71ca1e67f1ddec79a259935f6cc539
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656369"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897698"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -723,7 +723,7 @@ Você pode implantar modelos continuamente usando a extensão Machine Learning p
 
 1. Use __conexões de serviço__ para configurar uma conexão de entidade de serviço com o espaço de trabalho do Azure Machine Learning Service para acessar todos os seus artefatos. Vá para configurações do projeto, clique em conexões de serviço e selecione Azure Resource Manager.
 
-    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
+    [![Exibir-serviço-conexão](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png) 
 
 1. Defina AzureMLWorkspace como o __nível de escopo__ e preencha os parâmetros subsequentes.
 
@@ -731,11 +731,11 @@ Você pode implantar modelos continuamente usando a extensão Machine Learning p
 
 1. Em seguida, para implantar continuamente o modelo de aprendizado de máquina usando o Azure Pipelines, em pipelines, selecione __liberar__. Adicione um novo artefato, selecione artefato do modelo do AzureML e a conexão de serviço que foi criada na etapa anterior. Selecione o modelo e a versão para disparar uma implantação. 
 
-    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+    [![Select-AzureMLmodel-artefato](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
 
 1. Habilite o gatilho de modelo em seu artefato de modelo. Ativando o gatilho, toda vez que a versão especificada (ou seja, a versão mais recente) desse modelo é registrar em seu espaço de trabalho, um pipeline de versão do Azure DevOps é disparado. 
 
-    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+    [![Habilitar-modelo-gatilho](media/how-to-deploy-and-where/set-modeltrigger.png)](media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
 
 Para obter mais exemplos e projetos de exemplo, consulte o seguinte exemplo de repositórios:
 

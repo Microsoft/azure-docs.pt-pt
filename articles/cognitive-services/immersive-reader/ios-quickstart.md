@@ -1,20 +1,20 @@
 ---
 title: 'Início rápido: Criar um aplicativo iOS que inicie o leitor de imersão (Swift)'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você criará um aplicativo iOS do zero e adicionará a funcionalidade de leitura de imersão.
 services: cognitive-services
-author: MeganRoach
+author: metanMSFT
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 08/01/2019
-ms.author: t-meroa
-ms.openlocfilehash: 64b3cab857a541d0bede88e7fdf21c00526b9a43
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.author: metan
+ms.openlocfilehash: 64fd7508244f2123cc10ee96ec4f805050aedfaa
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965151"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899537"
 ---
 # <a name="quickstart-create-an-ios-app-that-launches-the-immersive-reader-swift"></a>Início rápido: Criar um aplicativo iOS que inicie o leitor de imersão (Swift)
 
@@ -100,6 +100,6 @@ Ao clicar no botão "leitor de imersão", você verá o leitor de imersão inici
 
 ![Leitura Avançada](./media/ios/immersive-reader-ipad.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Explorar o [SDK do IOS do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS) e a [referência do SDK do IOS do leitor de imersão](./ios-reference.md)

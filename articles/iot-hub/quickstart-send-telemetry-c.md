@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 92575f2fc8e6dbcfc5767a179ddf60df1bce0c83
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 842efca1b40827f63ab23581aeac7e5226d04349
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872626"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900286"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Início rápido: Enviar telemetria a partir de um dispositivo para um hub IoT e lê-lo com uma aplicação de back-end (C)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Início rápido: Enviar telemetria de um dispositivo para um hub IoT e lê-lo com um aplicativo de back-end (C)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -33,9 +33,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instalar [Visual Studio 2019](https://www.visualstudio.com/vs/) com o [' desenvolvimento com C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) carga de trabalho ativada.
+* Instale o [Visual Studio 2019](https://www.visualstudio.com/vs/) com a carga de [trabalho C++' desenvolvimento de desktop com '](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
 * Instale a versão mais recente do [Git](https://git-scm.com/download/).
-* Execute o seguinte comando para adicionar a extensão de IoT do Microsoft Azure para a CLI do Azure à sua instância do Cloud Shell. A extensão de IOT adiciona comandos específicos de IoT Hub, o IoT Edge e o serviço aprovisionamento de dispositivos IoT (DPS) para a CLI do Azure.
+* Execute o comando a seguir para adicionar a extensão de IoT Microsoft Azure para CLI do Azure à sua instância de Cloud Shell. A extensão de IOT adiciona comandos específicos do serviço de provisionamento de dispositivos IOT, IoT Edge e do Hub IoT a CLI do Azure.
 
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
@@ -43,33 +43,33 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
 
-Neste início rápido, irá utilizar o [Azure IoT device SDK para C](iot-hub-device-sdk-c-intro.md). 
+Para este guia de início rápido, você usará o [SDK do dispositivo IOT do Azure para C](iot-hub-device-sdk-c-intro.md). 
 
 Pode utilizar o SDK ao instalar os pacotes e as bibliotecas nos seguintes ambientes:
 
-* **Linux**: apt-get pacotes estão disponíveis para o Ubuntu 16.04 e 18.04 usando as seguintes arquiteturas de CPU: amd64, arm64, armhf e i386. Para obter mais informações, veja [Using apt-get to create a C device client project on Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md) (Utilizar apt-get para criar um projeto de cliente de dispositivo C no Ubuntu).
+* **Linux**: apt-obter pacotes estão disponíveis para Ubuntu 16, 4 e 18, 4 usando as seguintes arquiteturas de CPU: AMD64, arm64, armhf e i386. Para obter mais informações, veja [Using apt-get to create a C device client project on Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md) (Utilizar apt-get para criar um projeto de cliente de dispositivo C no Ubuntu).
 
-* **mbed**: Para os desenvolvedores a criar aplicativos de dispositivos na plataforma mbed, Publicámos uma biblioteca e exemplos que irão ajudá-lo a trabalhar em poucos minutos com o IoT Hub do Azure. Para obter mais informações, veja [Use the mbed library](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed) (Utilizar a biblioteca mbed).
+* **Mbed**: Para os desenvolvedores que criam aplicativos de dispositivo na plataforma Mbed, publicamos uma biblioteca e exemplos que irão ajudá-lo a começar em minutos com o Hub IoT do Azure. Para obter mais informações, veja [Use the mbed library](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed) (Utilizar a biblioteca mbed).
 
-* **Arduino**: Se estiver desenvolvendo em Arduino, pode aproveitar a biblioteca de IoT do Azure disponível no Gestor de biblioteca de Arduino IDE. Para obter mais informações, veja [The Azure IoT Hub library for Arduino](https://github.com/azure/azure-iot-arduino) (A biblioteca do IoT Hub do Azure para Arduino).
+* **Arduino**: Se estiver desenvolvendo no Arduino, você poderá aproveitar a biblioteca IoT do Azure disponível no Gerenciador de biblioteca do IDE do Arduino. Para obter mais informações, veja [The Azure IoT Hub library for Arduino](https://github.com/azure/azure-iot-arduino) (A biblioteca do IoT Hub do Azure para Arduino).
 
-* **iOS**: O SDK de dispositivo do Hub IoT está disponível, como o CocoaPods, para o desenvolvimento de dispositivos Mac e iOS. Para obter mais informações, veja [Exemplos de iOS para o Microsoft Azure IoT](https://cocoapods.org/pods/AzureIoTHubClient).
+* **iOS**: O SDK do dispositivo do Hub IoT está disponível como CocoaPods para desenvolvimento de dispositivos Mac e iOS. Para obter mais informações, veja [Exemplos de iOS para o Microsoft Azure IoT](https://cocoapods.org/pods/AzureIoTHubClient).
 
-No entanto, neste início rápido, irá preparar um ambiente de desenvolvimento usado para clonar e criar os [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) do GitHub. O SDK no GitHub inclui o código de exemplo utilizado neste início rápido. 
+No entanto, neste guia de início rápido, você preparará um ambiente de desenvolvimento usado para clonar e compilar o [SDK do Azure IOT C](https://github.com/Azure/azure-iot-sdk-c) do github. O SDK no GitHub inclui o código de exemplo utilizado neste início rápido.
 
-1. Transfira o [sistema de compilação CMake](https://cmake.org/download/).
+1. Baixe o [sistema de Build CMake](https://cmake.org/download/).
 
-    É importante que os pré-requisitos do Visual Studio (Visual Studio e o "desenvolvimento com C++" carga de trabalho) estão instalados no seu computador, **antes de** iniciar o `CMake` instalação. Depois de os pré-requisitos estarem assegurados e a transferência verificada, instale o sistema de compilação CMake.
+    É importante que os pré-requisitos do Visual Studio (o Visual Studio e a carga de trabalho ' C++desenvolvimento de desktops com ') estejam instalados em seu computador `CMake` , **antes** de iniciar a instalação. Depois de os pré-requisitos estarem assegurados e a transferência verificada, instale o sistema de compilação CMake.
 
-2. Abra uma linha de comandos ou a shell do Git Bash. Execute o seguinte comando para clonar o [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) no repositório do GitHub:
-    
+2. Abra um prompt de comando ou shell do git bash e navegue até um diretório de trabalho para o qual você deseja clonar o SDK do Azure IoT C. Execute o seguinte comando para clonar o [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) no repositório do GitHub:
+
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
+
     Esta operação deve demorar vários minutos a ser concluída.
 
-
-3. Crie um subdiretório `cmake` no diretório de raiz do repositório git e navegue para essa pasta. 
+3. Crie um subdiretório `cmake` no diretório de raiz do repositório git e navegue para essa pasta. Insira os seguintes comandos em seu diretório de trabalho:
 
     ```cmd/sh
     cd azure-iot-sdk-c
@@ -77,13 +77,13 @@ No entanto, neste início rápido, irá preparar um ambiente de desenvolvimento 
     cd cmake
     ```
 
-4. Execute o seguinte comando para compilar uma versão do SDK específica da plataforma de cliente de desenvolvimento. Será gerada uma solução do Visual Studio para o dispositivo simulado no diretório `cmake`. 
+4. Execute o comando a seguir para criar uma versão do SDK específica para sua plataforma de cliente de desenvolvimento. Será gerada uma solução do Visual Studio para o dispositivo simulado no diretório `cmake`.
 
     ```cmd
     cmake ..
     ```
-    
-    Se `cmake` não encontra o C++ compilador, poderá obter erros de compilação ao executar o comando acima. Se isto acontecer, tente executar o comando seguinte na [linha de comandos do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+
+    Se `cmake` o não encontrar C++ seu compilador, você poderá obter erros de compilação ao executar o comando acima. Se isto acontecer, tente executar o comando seguinte na [linha de comandos do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     Assim que a compilação for concluída com êxito, as últimas linhas de saída terão um aspeto semelhante ao seguinte:
 
@@ -101,28 +101,27 @@ No entanto, neste início rápido, irá preparar um ambiente de desenvolvimento 
     -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
     ```
 
-
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
-É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Nesta secção, vai utilizar o Azure Cloud Shell com o [extensão de IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) para registar um dispositivo simulado.
+É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Nesta seção, você usará o Azure Cloud Shell com a [extensão de IOT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) para registrar um dispositivo simulado.
 
-1. Execute o seguinte comando no Azure Cloud Shell para criar a identidade de dispositivo.
+1. Execute o comando a seguir em Azure Cloud Shell para criar a identidade do dispositivo.
 
-   **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
+   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome que você escolher para o Hub IoT.
 
-   **MyCDevice**: Este é o nome fornecido para o dispositivo registado. Utilize MyCDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, terá também a usar esse nome ao longo deste artigo e atualizar o nome do dispositivo em amostras de aplicativos antes de executá-los.
+   **MyCDevice**: Este é o nome fornecido para o dispositivo registrado. Utilize MyCDevice, conforme mostrado. Se você escolher um nome diferente para seu dispositivo, também precisará usar esse nome em todo este artigo e atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyCDevice
     ```
 
-2. Execute os seguintes comandos no Azure Cloud Shell para obter o _cadeia de ligação do dispositivo_ para o dispositivo é registado:
+2. Execute os seguintes comandos no Azure Cloud Shell para obter a _cadeia de conexão do dispositivo_ para o dispositivo registrado:
 
-   **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
+   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome que você escolher para o Hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyCDevice --output table
@@ -138,10 +137,10 @@ No entanto, neste início rápido, irá preparar um ambiente de desenvolvimento 
 
 A aplicação de dispositivo simulado liga-se a um ponto final específico do dispositivo no seu hub IoT e envia uma cadeia de carateres como telemetria simulada.
 
-1. Com um editor de texto, abra o ficheiro de origem iothub_convenience_sample.c e reveja o código de exemplo para enviar telemetria. Pode encontrar o ficheiro na seguinte localização:
+1. Com um editor de texto, abra o ficheiro de origem iothub_convenience_sample.c e reveja o código de exemplo para enviar telemetria. O arquivo está localizado no seguinte local sob o diretório de trabalho em que você clonou o SDK do Azure IoT C:
 
     ```
-    \azure-iot-sdk-c\iothub_client\samples\iothub_convenience_sample\iothub_convenience_sample.c
+    azure-iot-sdk-c\iothub_client\samples\iothub_convenience_sample\iothub_convenience_sample.c
     ```
 
 2. Procure a declaração da constante `connectionString`:
@@ -150,12 +149,13 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
     /* Paste in your device connection string  */
     static const char* connectionString = "[device connection string]";
     ```
+
     Substitua o valor da constante `connectionString` pela cadeia de ligação do dispositivo que anotou anteriormente. Em seguida, guarde as alterações ao **iothub_convenience_sample.c**.
 
-3. Na janela do terminal local, navegue para o diretório do projeto *iothub_convenience_sample* no diretório CMake que criou no SDK C do Azure IoT.
+3. Na janela do terminal local, navegue para o diretório do projeto *iothub_convenience_sample* no diretório CMake que criou no SDK C do Azure IoT. Digite o seguinte comando em seu diretório de trabalho:
 
-    ```
-    cd /azure-iot-sdk-c/cmake/iothub_client/samples/iothub_convenience_sample
+    ```cmd/sh
+    cd azure-iot-sdk-c/cmake/iothub_client/samples/iothub_convenience_sample
     ```
 
 4. Execute o CMake na janela de terminal local para criar o exemplo com o seu valor `connectionString` atualizado:
@@ -164,7 +164,7 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
     cmake --build . --target iothub_convenience_sample --config Debug
     ```
 
-5. Numa janela de terminal local, execute o seguinte comando para executar a aplicação de dispositivo simulado:
+5. Na janela do terminal local, execute o seguinte comando para executar o aplicativo de dispositivo simulado:
 
     ```cmd/sh
     Debug\iothub_convenience_sample.exe
@@ -176,12 +176,11 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Ler a telemetria a partir do seu hub
 
-
-Nesta secção, vai utilizar o Azure Cloud Shell com o [extensão de IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) para monitorizar as mensagens de dispositivo que são enviadas pelo dispositivo simulado.
+Nesta seção, você usará o Azure Cloud Shell com a [extensão de IOT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) para monitorar as mensagens do dispositivo que são enviadas pelo dispositivo simulado.
 
 1. Com o Azure Cloud Shell, execute o seguinte comando para se ligar e ler mensagens do hub IoT:
 
-   **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
+   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome que você escolher para o Hub IoT.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
@@ -189,13 +188,11 @@ Nesta secção, vai utilizar o Azure Cloud Shell com o [extensão de IoT](https:
 
     ![Ler as mensagens do dispositivo com a CLI do Azure](media/quickstart-send-telemetry-c/read-device-to-cloud-messages-app.png)
 
-    
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, configurou um hub IoT, registou um dispositivo, enviou telemetria simulada para o hub com uma aplicação C e leu a telemetria do hub com o Azure Cloud Shell.
 

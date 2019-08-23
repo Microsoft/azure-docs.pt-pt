@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4e1642366d41906035e1ba1b7f75d0ad875c739b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 8d4712ca57801c15510ffcaf54852ce9287d343b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574766"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972405"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Crie máquinas virtuais VMware em sua nuvem privada
 
@@ -141,9 +141,9 @@ As páginas de rede no portal do CloudSimple permitem que você especifique a co
 7. Se desejar, insira um nome DNS associado.
 8. Clique em **Concluído**.
 
-    ![IP Público](media/quick-create-pc-public-ip.png)
+    ![IP público](media/quick-create-pc-public-ip.png)
 
-A tarefa de alocar o endereço IP público começa. Você pode verificar o status da tarefa na página **atividades > tarefas** . Quando a alocação for concluída, a nova entrada será mostrada na página IPs públicos. 
+A tarefa de alocar o endereço IP público começa. Você pode verificar o status da tarefa na página **atividades > tarefas** . Quando a alocação for concluída, a nova entrada será mostrada na página IPs públicos.
 
 A VM para a qual esse endereço IP deve ser mapeado precisa ser configurada com o endereço local especificado acima. O procedimento para configurar um endereço IP é específico para o sistema operacional da VM. Consulte a documentação do sistema operacional da VM para obter o procedimento correto.
 
@@ -205,7 +205,7 @@ ou
 ```
 python3 -m http.server 80
 ```
-Inicie um navegador na área de trabalho e aponte-o para a porta 80 para o endereço IP público para procurar os arquivos em sua VM. 
+Inicie um navegador na área de trabalho e aponte-o para a porta 80 para o endereço IP público para procurar os arquivos em sua VM.
 
 ### <a name="default-cloudsimple-firewall-rules-for-public-ip"></a>Regras de firewall padrão do CloudSimple para IP público
 
@@ -223,7 +223,7 @@ Você pode instalar soluções em sua nuvem privada do CloudSimple para aproveit
 
 Para instalar uma solução, você deve solicitar privilégios adicionais por um período limitado. Consulte [escalonar privilégios](escalate-private-cloud-privileges.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Consumir VMs VMware no Azure](quickstart-create-vmware-virtual-machine.md)
 * [Conectar-se à rede local usando o Azure ExpressRoute](on-premises-connection.md)

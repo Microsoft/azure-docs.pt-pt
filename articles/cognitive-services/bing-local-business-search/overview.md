@@ -6,15 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: bing-local-business
 ms.topic: overview
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 6992c5c9a7ecc9cff5f56733b8b7e851d8cd7e42
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 8ee5dbe546b78557dde70868d01ec09ae33bee07
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839918"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906328"
 ---
 # <a name="what-is-bing-local-business-search"></a>O que é a pesquisa de negócios local do Bing?
 A API de pesquisa de negócios local do Bing é um serviço RESTful que permite que seus aplicativos encontrem informações sobre empresas locais com base em consultas de pesquisa. Por exemplo, `q=<business-name> in Redmond, Washington`, ou `q=Italian restaurants near me`. 
@@ -39,7 +40,7 @@ Chame a API de pesquisa de negócios local do Bing de qualquer linguagem de prog
 > [!NOTE]
 > Atualmente, a pesquisa de negócios local não dá suporte à sugestão automática. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Consulta e resposta](local-search-query-response.md)
 - [Início rápido de pesquisa comercial local](quickstarts/local-quickstart.md)
 - [Referência da API de pesquisa de negócios local](local-search-reference.md)

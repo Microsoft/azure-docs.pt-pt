@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: e076d6fed8cb3baf6b62dc3ede6ddd34732ed7a2
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 95df72875338b6964f42075404cf9c30ba132f9d
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562072"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900212"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para aplicativos lógicos do Azure
 
@@ -253,9 +253,11 @@ Quando elimina uma aplicação lógica, não são instanciadas novas execuções
 
 ## <a name="firewall-configuration-ip-addresses"></a>Configuração da firewall: Endereços IP
 
-Todos os aplicativos lógicos na mesma região usam os mesmos intervalos de endereços IP. Para dar suporte às chamadas que seus aplicativos lógicos fazem diretamente com [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)e outras solicitações HTTP, configure seus firewalls com *todos* os endereços IP de [entrada](#inbound) *e* [saída](#outbound) usados pelo serviço de aplicativos lógicos , com base nas regiões em que seus aplicativos lógicos existem. Esses endereços aparecem sob os cabeçalhos de **entrada** e **saída** nesta seção e são classificados por região.
+Todos os aplicativos lógicos na mesma região usam os mesmos intervalos de endereços IP. Para dar suporte às chamadas que seus aplicativos lógicos fazem diretamente com [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)e outras solicitações HTTP, configure seus firewalls com *todos* os endereços IP de [entrada](#inbound) *e* [saída](#outbound) usados pelo serviço de aplicativos lógicos , com base nas regiões em que seus aplicativos lógicos existem. Esses endereços aparecem sob os cabeçalhos de **entrada** e **saída** nesta seção e são classificados por região. 
 
 Para dar suporte às chamadas feitas pelos conectores gerenciados pela [Microsoft](../connectors/apis-list.md) , configure seu firewall com *todos* os endereços IP de [saída](#outbound) usados por esses conectores, com base nas regiões em que seus aplicativos lógicos existem. Esses endereços aparecem sob o título de **saída** nesta seção e são classificados por região.
+
+Para aplicativos lógicos executados em um ambiente do serviço de integração (ISE), certifique-se de [abrir essas portas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
 
 Para o [Azure governamental](../azure-government/documentation-government-overview.md) e o [Azure China 21vianet](https://docs.microsoft.com/azure/china/), os endereços IP reservados para conectores não estão disponíveis no momento.
 

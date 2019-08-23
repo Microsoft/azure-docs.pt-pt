@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: ac3cb1d637eae1b4ee0a7db59efe631c7eb1ac6f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: abff902dc62ad7ae48f2ecedfbd52aeb96719093
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815269"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970375"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Suporte a idiomas e regiões para os serviços de fala
 
@@ -24,40 +24,40 @@ Diferentes idiomas têm suporte para diferentes funções de serviços de fala. 
 
 ## <a name="speech-to-text"></a>Conversão de voz em texto
 
-O SDK do reconhecimento de fala da Microsoft e a API REST dão suporte aos seguintes idiomas (localidades). Estão disponíveis para cada idioma diferentes níveis de personalização.
+O SDK do reconhecimento de fala da Microsoft e a API REST dão suporte aos seguintes idiomas (localidades). Para melhorar a precisão, a personalização é oferecida para um subconjunto das linguagens por meio do carregamento de áudio + transcrições com rótulo humano ou texto relacionado: Frase.  Atualmente, a personalização de pronúncia está disponível apenas para en-US e de-DE. Saiba mais sobre a personalização [aqui](how-to-custom-speech.md).
 
-  Código | Idioma | [Adaptação acústica](how-to-customize-acoustic-models.md) | [Adaptação de idioma](how-to-customize-language-model.md) | [Adaptação de pronúncia](how-to-customize-pronunciation.md)
- ------|----------|---------------------|---------------------|-------------------------
- ar-por exemplo | Árabe (Egito), standard moderna | Não | Sim | Não
- ES de AC | Catalão | Não | Não | Não
- da-DK | Dinamarquês (Dinamarca) | Não | Não | Não
- de-DE | Alemão (Alemanha) | Sim | Sim | Sim
- EN-AU | Inglês (Austrália) | Não | Sim | Não
- en-CA | Inglês (Canadá) | Não | Sim | Não
- en-GB | Inglês (Reino Unido) | Não | Sim | Não
- EN-IN | English (India) | Sim | Sim | Não
- EN-NZ | Inglês (Nova Zelândia) | Não | Sim | Não 
- en-US | Inglês (Estados Unidos) | Sim | Sim | Sim
- es-ES | Espanhol (Espanha) | Sim | Sim | Não
- es-MX | Espanhol (México) | Não | Sim | Não
- fi-FI | Finlandês (Finlândia) | Não | Não | Não
- fr-CA | Francês (Canadá) | Não | Sim | Não
- FR-FR | Francês (França) | Sim | Sim | Não
- IN | Hindi (Índia) | Não | Sim | Não
- it-IT | Italiano (Itália) | Sim | Sim | Não
- ja-JP | Japonês (Japão) | Não | Sim | Não
- ko-KR | Coreano (Coreia) | Não | Sim | Não
- nb-NO | Norueguês (Bokmål) (Noruega) | Não | Não | Não
- NL-NL | Holandês (Países Baixos) | Não | Sim | Não
- pl-PL | Polaco (Polónia) | Não | Não | Não
- pt-BR | Português (Brasil) | Sim | Sim | Não
- pt-PT | Português (Portugal) | Não | Sim | Não
- ru-RU | Russo (Rússia) | Sim | Sim | Não
- SV-SE | Sueco (Suécia) | Não | Não | Não
- zh-CN | Chinês (simplificado Mandarim) | Sim | Sim | Não
- zh-HK | Chinês (Cantonês, tradicional) | Não | Sim | Não
- zh-TW | Chinês (Taiwanês Mandarim) | Não | Sim | Não
- th-TH | Tailandês (Tailândia) | Não | Não | Não
+  Código | Idioma | Suportadas | Personalizável
+ ------|----------|---------------------|---------------------
+ ar-por exemplo | Árabe (Egito), standard moderna | Sim | Sim
+ ES de AC | Catalão | Sim | Não
+ da-DK | Dinamarquês (Dinamarca) | Sim | Não
+ de-DE | Alemão (Alemanha) | Sim | Sim
+ EN-AU | Inglês (Austrália) | Sim | Sim
+ en-CA | Inglês (Canadá) | Sim | Sim
+ en-GB | Inglês (Reino Unido) | Sim | Sim
+ EN-IN | English (India) | Sim | Sim
+ EN-NZ | Inglês (Nova Zelândia) | Sim | Sim
+ en-US | Inglês (Estados Unidos) | Sim | Sim
+ es-ES | Espanhol (Espanha) | Sim | Sim
+ es-MX | Espanhol (México) | Sim | Sim
+ fi-FI | Finlandês (Finlândia) | Sim | Não
+ fr-CA | Francês (Canadá) | Sim | Sim
+ FR-FR | Francês (França) | Sim | Sim
+ IN | Hindi (Índia) | Sim | Sim
+ it-IT | Italiano (Itália) | Sim | Sim
+ ja-JP | Japonês (Japão) | Sim | Sim
+ ko-KR | Coreano (Coreia) | Sim | Sim
+ nb-NO | Norueguês (Bokmål) (Noruega) | Sim | Não
+ NL-NL | Holandês (Países Baixos) | Sim | Sim
+ pl-PL | Polaco (Polónia) | Sim | Não
+ pt-BR | Português (Brasil) | Sim | Sim
+ pt-PT | Português (Portugal) | Sim | Sim
+ ru-RU | Russo (Rússia) | Sim | Sim
+ SV-SE | Sueco (Suécia) | Sim | Não
+ zh-CN | Chinês (simplificado Mandarim) | Sim | Sim
+ zh-HK | Chinês (Cantonês, tradicional) | Sim | Sim
+ zh-TW | Chinês (Taiwanês Mandarim) | Sim | Sim
+ th-TH | Tailandês (Tailândia) | Sim | Não 
 
 
 ## <a name="text-to-speech"></a>Conversão de texto em voz

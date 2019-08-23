@@ -1,6 +1,6 @@
 ---
-title: Opções para grandes conjuntos de dados entre moderada e alta largura de banda de transferência de dados do Azure | Documentos da Microsoft
-description: Saiba como escolher uma solução do Azure para a transferência de dados, quando tem largura de banda de rede entre moderada e alta no seu ambiente e estiver a planear transferir grandes conjuntos de dados.
+title: Opções do Azure Data Transfer para grandes conjuntos de dados, moderada para alta largura de banda de rede | Microsoft Docs
+description: Saiba como escolher uma solução do Azure para transferência de dados quando você tiver uma largura de banda de rede moderada e alta em seu ambiente e estiver planejando transferir grandes conjuntos de dados.
 services: storage
 author: alkohli
 ms.service: storage
@@ -8,104 +8,104 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 8dd55032c933cdc31b848addfdac991550376dcf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7177a95bdd585ff2822c9ac8c94a85d12f9259b
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60729240"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900371"
 ---
-# <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transferência de dados para grandes conjuntos de dados com moderada para elevada largura de banda
+# <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transferência de dados para grandes conjuntos com largura de banda de rede moderada para alta
  
-Este artigo fornece uma descrição geral da transferência de dados soluções quando tem largura de banda de rede entre moderada e alta no seu ambiente e estiver a planear transferir grandes conjuntos de dados. O artigo também descreve as opções de transferência de dados recomendada e a matriz de respetivas capacidades-chave para este cenário.
+Este artigo fornece uma visão geral das soluções de transferência de dados quando você tem uma largura de banda de rede de moderada a alta em seu ambiente e está planejando transferir grandes DataSets. O artigo também descreve as opções de transferência de dados recomendadas e a respectiva matriz de capacidade de chave para esse cenário.
 
-Para compreender uma visão geral de todas as opções de transferência de dados disponíveis, aceda a [escolher uma solução de transferência de dados do Azure](storage-choose-data-transfer-solution.md).
+Para entender uma visão geral de todas as opções de transferência de dados disponíveis, vá para [escolher uma solução de transferência de dados do Azure](storage-choose-data-transfer-solution.md).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Grandes conjuntos de dados referem-se a tamanhos de dados por ordem de TB para PBs. Moderada para elevada largura de banda refere-se para 100 Mbps para 10 Gbps.
+Grandes conjuntos de dados referem-se a tamanhos de dado na ordem de TBs para o PBs. A largura de banda de rede moderada a alta refere-se a 100 Mbps a 10 Gbps.
 
 ## <a name="recommended-options"></a>Opções recomendadas
 
-As opções recomendadas neste cenário dependem se tiver de largura de banda de rede moderada ou alta largura de banda.
+As opções recomendadas neste cenário dependem de se você tem largura de banda de rede moderada ou alta largura de banda de rede.
 
-### <a name="moderate-network-bandwidth-100-mbps---1-gbps"></a>Largura de banda de rede moderada (100 Mbps - 1 Gbps)
+### <a name="moderate-network-bandwidth-100-mbps---1-gbps"></a>Largura de banda de rede moderada (100 Mbps-1 Gbps)
 
-Com largura de banda de rede moderada, precisa projetar o tempo de transferência de dados através da rede.
+Com a largura de banda de rede moderada, você precisa projetar o tempo de transferência de dados pela rede.
 
-Utilize a seguinte tabela para estimar o tempo e com base nisso, escolha entre uma transferência offline ou sobre a transferência de rede. A tabela mostra a hora prevista para transferência de dados de rede, para várias larguras de banda disponível da rede (partindo do princípio de 90% da utilização).  
+Use a tabela a seguir para estimar a hora e com base nela, escolha entre uma transferência offline ou pela transferência de rede. A tabela mostra o tempo projetado para a transferência de dados de rede, para várias larguras de banda de rede disponíveis (supondo 90% de utilização).  
 
 ![Transferência de rede ou transferência offline](media/storage-solution-large-dataset-low-network/storage-network-or-offline-transfer.png)
 
-- Se a transferência de rede está projetada para ser muito lento, deve usar um dispositivo físico. Neste caso, as opções recomendadas são os dispositivos de transferência offline da família de Azure Data Box ou importar/exportar do Azure com seus próprios discos.
+- Se a transferência de rede for projetada para ser muito lenta, você deverá usar um dispositivo físico. As opções recomendadas neste caso são os dispositivos de transferência offline da família Azure Data Box ou importação/exportação do Azure usando seus próprios discos.
 
-    - **O Azure Data Box família para transferências offline** – utilizar dispositivos a partir de dispositivos de fornecido pelo Microsoft Data Box para mover grandes quantidades de dados para o Azure quando está limitado pelo tempo, disponibilidade de rede ou custos. Copie dados no local através de ferramentas, tal como Robocopy. Dependendo do tamanho de dados que se destina a transferência, pode escolher entre o disco Data Box, caixa de dados ou dados caixa pesada.
-    - **Importar/exportar do Azure** – serviço de importação/exportação de utilização do Azure envie as suas próprias unidades de disco para importar com segurança grandes quantidades de dados para o armazenamento de Blobs do Azure e ficheiros do Azure. Este serviço também pode ser utilizado para transferir dados do armazenamento de Blobs do Azure para unidades de disco e disponibilize aos seus sites no local.
+    - **Família de Azure data box para transferências offline** – use dispositivos de dispositivos data Box fornecidos pela Microsoft para mover grandes quantidades de dados para o Azure quando você estiver limitado por tempo, disponibilidade de rede ou custos. Copie dados locais usando ferramentas como o Robocopy. Dependendo do tamanho dos dados pretendidos para transferência, você pode escolher entre Disco do Data Box, Data Box ou Data Box Heavy.
+    - **Importação/exportação do Azure** – use o serviço de importação/exportação do Azure enviando suas próprias unidades de disco para importar com segurança grandes quantidades de dados para o armazenamento de BLOBs do Azure e os arquivos do Azure. Esse serviço também pode ser usado para transferir dados do armazenamento de BLOBs do Azure para as unidades de disco e enviar para seus sites locais.
 
-- Se a transferência de rede está projetada para ser razoável, então pode usar qualquer uma das seguintes ferramentas detalhadas [alta largura de banda](#high-network-bandwidth).
+- Se a transferência de rede for projetada para ser razoável, você poderá usar qualquer uma das ferramentas a seguir detalhadas em [alta largura de banda de rede](#high-network-bandwidth).
 
 
-### <a name="high-network-bandwidth-1-gbps---100-gbps"></a>Alta largura de banda (1 Gbps - 100 Gbps)
+### <a name="high-network-bandwidth-1-gbps---100-gbps"></a>Alta largura de banda de rede (1 Gbps-100 Gbps)
 
-Se a largura de banda de rede disponível é alta, utilize uma das seguintes ferramentas.
+Se a largura de banda de rede disponível estiver alta, use uma das ferramentas a seguir.
 
-- **AzCopy** - Utilize esta ferramenta da linha de comandos para copiar facilmente os dados de e para os Blobs do Azure, ficheiros e o armazenamento com um desempenho ideal de tabelas. AzCopy oferece suporte a simultaneidade e paralelismo e a capacidade para retomar as operações de cópia quando interrompido.
-- **Azure Storage REST APIs/SDKs** – ao criar uma aplicação, pode desenvolver a aplicação em relação a APIs de REST de armazenamento do Azure e utilizar os SDKs do Azure disponível em vários idiomas.
-- **O Azure Data Box família para transferências online** – Edge de caixa de dados e dados de caixa de Gateway são dispositivos de rede online que podem mover dados para dentro e fora do Azure. Utilize dados de caixa de borda precisa de um dispositivo físico quando existe um simultâneas para ingestão contínua e o processamento prévio do antes de dados para carregar. Gateway de caixa de dados é uma versão virtual do dispositivo com as mesmas capacidades de transferência de dados. Em cada caso, a transferência de dados é gerida pelo dispositivo.
-- **O Azure Data Factory** – Data Factory deve ser utilizado para aumentar horizontalmente uma operação de transferência, e se for necessário para o nível de orquestração e o enterprise capacidades de monitorização. Utilize o Data Factory para regularmente transferir ficheiros entre vários serviços do Azure, no local ou uma combinação dos dois. com o Data Factory, pode criar e agendar condicionada por dados fluxos de trabalho (denominados pipelines) que ingerir dados de arquivos de dados diferentes e automatizam o movimento de dados e transformação de dados.
+- **AzCopy** – Use essa ferramenta de linha de comando para copiar facilmente dados de e para BLOBs, arquivos e armazenamento de tabelas do Azure com desempenho ideal. O AzCopy dá suporte à simultaneidade e ao paralelismo e à capacidade de retomar operações de cópia quando interrompido.
+- **APIs/SDKS REST do armazenamento do Azure** – ao criar um aplicativo, você pode desenvolver o aplicativo em relação às APIs REST do armazenamento do Azure e usar os SDKs do Azure oferecidos em vários idiomas.
+- **Família de Azure data box para transferências online** – Data Box Edge e gateway do data box são dispositivos de rede online que podem mover dados para dentro e fora do Azure. Use Data Box Edge dispositivo físico quando houver uma necessidade simultânea de ingestão contínua e pré-processamento dos dados antes do carregamento. Gateway do Data Box é uma versão virtual do dispositivo com os mesmos recursos de transferência de dados. Em cada caso, a transferência de dados é gerenciada pelo dispositivo.
+- **Azure data Factory** – data Factory deve ser usado para escalar horizontalmente uma operação de transferência e, se houver a necessidade de recursos de monitoramento de nível empresarial e orquestração. Use Data Factory para transferir regularmente arquivos entre vários serviços do Azure, locais ou uma combinação dos dois. com Data Factory, você pode criar e agendar fluxos de trabalho orientados a dados (chamados de pipelines) que ingerirão dados de armazenamentos de dados diferentes e automatizar a movimentação de dados e a transformação de dados.
 
 ## <a name="comparison-of-key-capabilities"></a>Comparação dos principais recursos
 
-As tabelas seguintes resumem as diferenças nos principais capacidades para as opções recomendadas.
+As tabelas a seguir resumem as diferenças nos principais recursos para as opções recomendadas.
 
 ### <a name="moderate-network-bandwidth"></a>Largura de banda de rede moderada
 
-Se utilizar a transferência de dados offline, utilize a tabela seguinte para compreender as diferenças nos recursos de chave.
+Se estiver usando a transferência de dados offline, use a tabela a seguir para entender as diferenças nos principais recursos.
 
 |                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy            |    Importação/Exportação                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
-|    Tamanho dos dados                        |    Até 35 TB                 |    Até 80 TB por dispositivo                       |    Até 800 TB por dispositivo               |    Variável                            |
-|    Tipo de dados                        |    Blobs do Azure                  |    Blobs do Azure<br>Ficheiros do Azure                    |    Blobs do Azure<br>Ficheiros do Azure            |    Blobs do Azure<br>Ficheiros do Azure          |
-|    Fator de formulário                      |    5 SSDs por ordem             |    1 x 50-lbs. dispositivo de porte no ambiente de trabalho de mensagens em fila por ordem    |    1 X ~ 500-lbs. dispositivo grandes por ordem    |    Até 10 HDDs/SSDs por ordem        |
-|    Tempo de configuração inicial               |    Baixa <br>(15 min)            |    Baixo a moderado <br> (< 30 minutos)               |    Moderado<br>(1 a 2 horas)               |    Moderar a difícil<br>(variável) |
+|    Tamanho dos dados                        |    Até 35 TBs                 |    Até 80 TBs por dispositivo                       |    Até 800 TB por dispositivo               |    Variável                            |
+|    Tipo de dados                        |    BLOBs do Azure                  |    BLOBs do Azure<br>Ficheiros do Azure                    |    BLOBs do Azure<br>Ficheiros do Azure            |    BLOBs do Azure<br>Ficheiros do Azure          |
+|    Fator forma                      |    5 SSDs por pedido             |    1 X 50-lbs. dispositivo de tamanho de área de trabalho por pedido    |    1 X ~ 500-lbs. dispositivo grande por pedido    |    Até 10 HDDs/SSDs por pedido        |
+|    Tempo de configuração inicial               |    Baixa <br>(15 min)            |    Baixo para moderado <br> (< 30 minutos)               |    Moderado<br>(1-2 horas)               |    Moderado a difícil<br>Ela |
 |    Enviar dados para o Azure               |    Sim                          |    Sim                                           |    Sim                                   |    Sim                                 |
 |    Exportar dados do Azure           |    Não                           |    Não                                            |    Não                                    |    Sim                                 |
-|    Encriptação                       |    AES 128 bits                  |    AES de 256 bits                                   |    AES de 256 bits                           |    AES 128 bits                         |
-|    Hardware                         |     Microsoft fornecido          |    Microsoft fornecido                            |    Microsoft fornecido                    |    Cliente fornecido                   |
-|    Interface de rede                |    3\.1/SATA DE USB                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
-|    Integração de parceiros              |    Alguns                         |    [Alta](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Alta](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Alguns                                |
-|    Envio                         |    Gerida pela Microsoft            |    Gerida pela Microsoft                             |    Gerida pela Microsoft                     |    Gerida pelo cliente                    |
-| Quando move os dados de utilização         |Num limite de comércio|Num limite de comércio|Num limite de comércio|Através das fronteiras geográficas, por exemplo, da UE|
+|    Encriptação                       |    AES 128 bits                  |    AES 256 bits                                   |    AES 256 bits                           |    AES 128 bits                         |
+|    Hardware                         |     Fornecido pela Microsoft          |    Fornecido pela Microsoft                            |    Fornecido pela Microsoft                    |    Fornecido pelo cliente                   |
+|    Interface de rede                |    USB 3.1/SATA                 |    RJ 45, SFP +                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
+|    Integração de parceiros              |    Alguns                         |    [Elevada](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Elevada](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Alguns                                |
+|    Envio                         |    Gerenciado pela Microsoft            |    Gerenciado pela Microsoft                             |    Gerenciado pela Microsoft                     |    Gerenciado pelo cliente                    |
+| Usar quando os dados forem movidos         |Dentro de um limite de comércio|Dentro de um limite de comércio|Dentro de um limite de comércio|Entre limites geográficos, por exemplo, US para a UE|
 |    Preços                          |    [Preços](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Preços](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Preços](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Preços](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 
-Se utilizar a transferência de dados online, utilize a tabela na secção seguinte para alta largura de banda.
+Se estiver usando transferência de dados online, use a tabela na seção a seguir para alta largura de banda de rede.
 
 ### <a name="high-network-bandwidth"></a>Largura de banda de rede elevada
 
-|                                     |    AzCopy de ferramentas, <br>Azure PowerShell, <br>CLI do Azure             |    REST APIs, SDKs de armazenamento do Azure                   |    Gateway de caixa de dados ou de extremidade de caixa de dados          |    Azure Data Factory                                            |
+|                                     |    Ferramentas AzCopy, <br>Azure PowerShell, <br>CLI do Azure             |    APIs REST do armazenamento do Azure, SDKs                   |    Gateway do Data Box ou Data Box Edge          |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
-|    Tipo de dados                  |    Blobs do Azure, os ficheiros do Azure, as tabelas do Azure    |    Blobs do Azure, os ficheiros do Azure, as tabelas do Azure    |    Blobs do Azure, os ficheiros do Azure                           |   Suporta 70 conectores de dados para arquivos de dados e formatos    |
-|    Fator de formulário                |    Ferramentas de linha de comandos                        |    Interface programática                    |    Microsoft fornece um virtual <br>ou o dispositivo físico     |    Serviço no portal do Azure                                            |
-|    Configuração inicial de uso individual     |    Fácil               |    Moderado                       |    Fácil (< 30 minutos) para moderado (1 a 2 horas)            |    Extensa                                                          |
-|    Processamento prévio de dados              |    Não                                        |    Não                                        |    Sim (computação) com o Edge)                               |    Sim                                                                |
-|    Transferir a partir de outras clouds       |    Não                                        |    Não                                        |    Não                                                    |    Sim                                                                |
-|    Tipo de utilizador                        |    IT Pro ou desenvolvimento                                       |    Dev                                       |    Profissional de TI                                                |    Profissional de TI                                                             |
-|    Preços                          |    Gratuito, são aplicáveis encargos de saída de dados         |    Gratuito, são aplicáveis encargos de saída de dados         |    [Preços](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Preços](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
+|    Tipo de dados                  |    BLOBs do Azure, arquivos do Azure, tabelas do Azure    |    BLOBs do Azure, arquivos do Azure, tabelas do Azure    |    BLOBs do Azure, arquivos do Azure                           |   Dá suporte a mais de 70 conectores de dados para armazenamentos de dados e formatos    |
+|    Fator forma                |    Ferramentas de linha de comandos                        |    Interface programática                    |    A Microsoft fornece um virtual <br>ou dispositivo físico     |    Serviço no portal do Azure                                            |
+|    Configuração de uso único inicial     |    Fácil               |    Moderado                       |    Fácil (< 30 minutos) a moderado (1-2 horas)            |    Ampla                                                          |
+|    Pré-processamento de dados              |    Não                                        |    Não                                        |    Sim (com computação de borda)                               |    Sim                                                                |
+|    Transferência de outras nuvens       |    Não                                        |    Não                                        |    Não                                                    |    Sim                                                                |
+|    Tipo de utilizador                        |    Profissional de ti ou desenvolvimento                                       |    Dev                                       |    Profissional de TI                                                |    Profissional de TI                                                             |
+|    Preços                          |    Gratuito, as cobranças de saída de dados se aplicam         |    Gratuito, as cobranças de saída de dados se aplicam         |    [Preços](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Preços](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Aprender a transferir dados com a importação/exportação](/azure/storage/common/storage-import-export-data-to-blobs).
-- Compreender como
+- [Saiba como transferir dados com importação/exportação](/azure/storage/common/storage-import-export-data-to-blobs).
+- Entenda como
 
-    - [Transferir dados com dados de caixa de disco](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
-    - [Transferir dados com o Data Box](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
+    - [Transferir dados com disco do data Box](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
+    - [Transferir dados com data Box](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
 - [Transferir dados com AzCopy](/azure/storage/common/storage-use-azcopy-v10).
-- Compreender como:
-    - [Transferir dados com dados de caixa de Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Transformar dados com o Edge de caixa de dados antes de enviar para o Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Aprender a transferir dados com o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal).
-- Utilizar as APIs REST para transferir dados
+- Entenda como:
+    - [Transferir dados com gateway do data Box](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
+    - [Transforme dados com data Box Edge antes de enviar para o Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
+- [Saiba como transferir dados com Azure data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal).
+- Usar as APIs REST para transferir dados
 
     - [No .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [In Java](https://docs.microsoft.com/java/api/overview/azure/storage/client)
+    - [Em Java](https://docs.microsoft.com/java/api/overview/azure/storage)

@@ -7,16 +7,16 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 8dbb25f0b854f1ebbc9d8871689a87d4d5b1cfbe
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0d6721c2ef24665035cc4a99c9bf3804b312fe75
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036842"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900166"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Criar uma nova oferta do Dynamics 365 Business central
 
-Este tópico explica como criar uma nova oferta do Dynamics 365 Business central. [O Microsoft Dynamics 365 Business central](https://dynamics.microsoft.com/business-central) é um sistema de ERP (planejamento de recursos empresariais) que lida com uma ampla variedade de processos de negócios, incluindo finanças, operações, Cadeia de fornecedores, gerenciamento de CRM e de projetos e comércio eletrônico. Os pacotes Premium também dão suporte ao gerenciamento e à fabricação de serviços. Todas as ofertas do Dynamics 365 Business central devem passar pelo nosso processo de certificação.
+Este tópico explica como criar uma nova oferta do Dynamics 365 Business central. [O Microsoft Dynamics 365 Business central](https://dynamics.microsoft.com/business-central) é um sistema de ERP (planejamento de recursos empresariais) que lida com uma ampla variedade de processos de negócios, incluindo finanças, operações, Cadeia de fornecedores, CRM e gerenciamento de projetos e comércio eletrônico. Os pacotes Premium também dão suporte ao modelo de implantação clássico e fabricação. Todas as ofertas do Dynamics 365 Business central devem passar pelo nosso processo de certificação.
 
 Para começar a criar as ofertas do Dynamics 365 Business central, certifique-se de primeiro [criar uma conta do Partner Center](./create-account.md) e abrir o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), com a página **visão geral** selecionada.
 
@@ -28,7 +28,7 @@ Selecione o botão **+ nova oferta** e, em seguida, selecione o item de menu **D
 
 ### <a name="offer-id-and-alias"></a>ID da oferta e alias
 
-- **ID da oferta**: Identificador exclusivo para cada oferta em sua conta. Essa ID será visível para os clientes no endereço URL para a oferta do Marketplace e os modelos de Azure Resource Manager (se aplicável). A ID da oferta deve conter caracteres alfanuméricos minúsculos (incluindo hifens e sublinhados, mas sem espaço em branco). Isso é limitado a 50 caracteres e não pode ser alterado depois que você seleciona **criar**.  Por exemplo, se você inserir *Test-offer-1* aqui, a URL da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- **ID da oferta**: Identificador exclusivo para cada oferta em sua conta. Essa ID será visível para os clientes no endereço URL para a oferta do Marketplace e os modelos de Azure Resource Manager (se aplicável). A ID da oferta deve ser caracteres alfanuméricos minúsculos (incluindo hifens e sublinhados, mas sem espaço em branco), limitado a 50 caracteres e não pode ser alterada depois que você selecionar **criar**.  Por exemplo, se você inserir *Test-offer-1* aqui, a URL da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
 - **Alias da oferta**: O nome usado para fazer referência à oferta no Partner Center. Esse nome não será usado no Marketplace e será diferente do nome da oferta e outros valores que serão mostrados aos clientes. Esse valor não pode ser alterado depois que você seleciona **criar**.
 
@@ -61,7 +61,7 @@ Colete informações de contato do cliente conectando seu sistema de gerenciamen
 
 Uma test drive é uma ótima maneira de demonstrar sua oferta a clientes potenciais, fornecendo a eles a opção "tentar antes de comprar", resultando em uma maior conversão e na geração de clientes potenciais altamente qualificados. [Saiba mais sobre test drives.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-Para habilitar uma test drive, marque a caixa **habilitar um test drive** . Em seguida, você precisará configurar um ambiente de demonstração no [test drive de configuração técnica](#test-drive-technical-configuration) configure para permitir que os clientes experimentem sua oferta por um período de tempo fixo. 
+Para habilitar uma test drive, marque a caixa **habilitar um test drive** . Em seguida, você precisará configurar um ambiente de demonstração no [test drive de configuração técnica](#test-drive-technical-configuration) configure para permitir que os clientes tentem sua oferta por um período de tempo fixo. 
 
 #### <a name="type-of-test-drive"></a>Tipo de test drive
 
@@ -82,27 +82,11 @@ Selecione uma das seguintes opções:
 
 ## <a name="connect-lead-management"></a>Conectar gerenciamento de leads
 
-Conecte-se com os clientes diretamente conectando seu sistema de gerenciamento de relacionamento com o cliente (CRM). Ao fazer isso, você receberá informações de contato do cliente quando um cliente expressar interesse ou implantar seu produto.
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-Para conectar seu sistema CRM, selecione **conectar**.
+Para obter mais informações, consulte [visão geral do gerenciamento de Lead](./commercial-marketplace-get-customer-leads.md).
 
-### <a name="choose-a-lead-destination"></a>Escolher um destino de cliente potencial
-
-Depois de selecionar **conectar**, você verá um menu suspenso onde pode selecionar o sistema CRM e fornecer detalhes de conexão.
-
-O Partner Center dá suporte aos seguintes sistemas CRM para gerenciamento de leads. Selecione o link para obter instruções de instalação.
-
-- [Tabela do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – forneça a cadeia de conexão da conta de armazenamento. 
-- [Dynamics 365 for Customer Engagement (anteriormente Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – forneça a URL da instância do Dynamics 365 e o modo de autenticação (Office 365 ou Azure Active Directory).
-- [Ponto de extremidade https](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – forneça sua URL de ponto de extremidade HTTPS. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – forneça a ID do servidor, a ID da conta do Munchkin e a ID do formulário.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -forneça a ID da sua organização.
-
-#### <a name="additional-lead-management-resources"></a>Recursos adicionais de gerenciamento de leads
-
-- [Perguntas frequentes sobre gerenciamento de Lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erros comuns de configuração de Lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Visão geral do gerenciamento de leads um pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+Lembre-se de **salvar** antes de passar para a próxima seção!
 
 ## <a name="properties"></a>properties
 
@@ -110,7 +94,7 @@ A página **Propriedades** permite que você defina as categorias e os setores u
 
 ### <a name="category"></a>Category
 
-Selecione no mínimo um e no máximo três categorias. Eles serão usados para posicionar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Lembre-se de chamar como sua oferta dá suporte a essas categorias na descrição da oferta. 
+Selecione no mínimo um e no máximo três categorias, que serão usadas para posicionar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Lembre-se de chamar como sua oferta dá suporte a essas categorias na descrição da oferta. 
 
 ### <a name="industry"></a>Sector
 
@@ -136,7 +120,7 @@ Se você não marcar a caixa **usar contrato padrão?** , você precisará forne
 
 ## <a name="offer-listing"></a>Listagem de ofertas
 
-A página de listagem da oferta exibe os idiomas nos quais sua oferta será listada. Observe que, no momento, o **Inglês (Estados Unidos)** é a única opção disponível.
+A página de listagem da oferta exibe os idiomas nos quais sua oferta será listada. Atualmente, o **Inglês (Estados Unidos)** é a única opção disponível.
 
 Você precisará definir detalhes do Marketplace (nome da oferta, descrição, imagens, etc.) para cada idioma/mercado. Selecione o idioma/nome do mercado para fornecer essas informações.
 
@@ -149,7 +133,7 @@ O nome que você digitar aqui será mostrado aos clientes como o título da sua 
 
 ### <a name="short-description"></a>Descrição resumida
 
-Forneça uma breve descrição da sua oferta (até 100 caracteres). Isso pode ser usado nos resultados da pesquisa do Marketplace.
+Forneça uma breve descrição da sua oferta (até 100 caracteres), que pode ser usada nos resultados da pesquisa do Marketplace.
 
 ### <a name="description"></a>Descrição
 
@@ -157,7 +141,7 @@ Forneça uma descrição mais longa da sua oferta (até 3.000 caracteres). Essa 
 
 Algumas dicas para escrever sua descrição:  
 
-- Descreva claramente a proposta de valor da sua oferta nas primeiras frases da sua descrição. Inclua o seguinte em sua proposta de valor:
+- Descreva claramente a proposta de valor da sua oferta nas primeiras frases da sua descrição. Inclua os seguintes itens em sua proposta de valor:
   - Descrição do produto
   - O tipo de usuário que se beneficia do produto
   - O cliente precisa ou dificuldade de que os endereços do produto
@@ -194,7 +178,7 @@ Na seção **contato de suporte** , você também deve fornecer a **URL de supor
 
 ### <a name="supporting-documents"></a>Documentos de suporte
 
-Você deve fornecer pelo menos um (e até três) documentos de marketing relacionados aqui, como White papers, folhetos, listas de verificação ou apresentações. Esses documentos devem estar no formato. pdf.
+Forneça pelo menos um (e até três) documentos de marketing relacionados aqui, como White papers, folhetos, listas de verificação ou apresentações. Esses documentos devem estar no formato. pdf.
 
 ### <a name="marketplace-images"></a>Imagens do Marketplace
 
@@ -202,7 +186,7 @@ Nesta seção, você pode fornecer logotipos e imagens que serão usados ao most
 
 #### <a name="store-logos"></a>Armazenar logotipos
 
-Você deve fornecer o logotipo de sua oferta em dois tamanhos: **Pequeno (48 x 48)** e **grande (216 x 216)** .
+Forneça o logotipo de sua oferta em dois tamanhos: **Pequeno (48 x 48)** e **grande (216 x 216)** .
 
 #### <a name="hero"></a>Destaque
 
@@ -226,16 +210,16 @@ A página **disponibilidade** fornece opções sobre onde e como tornar sua ofer
 
 ### <a name="markets"></a>Mercados
 
-Esta seção permite que você especifique os mercados nos quais sua oferta deve estar disponível. Para fazer isso, selecione **Editar mercados.** Isso exibirá a janela pop-up **seleção do mercado** .
+Esta seção permite que você especifique os mercados nos quais sua oferta deve estar disponível. Para fazer isso, selecione **Editar mercados**, que exibirá a janela pop-up **seleção do mercado** .
 
 Por padrão, não há mercados selecionados, mas você deve selecionar pelo menos um mercado para publicar sua oferta. Clique em **selecionar tudo** para disponibilizar sua oferta em todos os possíveis mercados ou selecione os mercados específicos que você deseja adicionar. Depois de concluir, selecione **salvar**.
 
-Observe que suas seleções se aplicam somente a novas aquisições; Se alguém já tiver seu aplicativo em um determinado mercado e você remover esse mercado posteriormente, as pessoas que já têm a oferta desse mercado poderão continuar a usá-lo, mas nenhum novo cliente nesse mercado poderá obter sua oferta.
+Suas seleções aqui se aplicam somente a novas aquisições; Se alguém já tiver seu aplicativo em um determinado mercado e você remover esse mercado posteriormente, as pessoas que já têm a oferta desse mercado poderão continuar a usá-lo, mas nenhum novo cliente nesse mercado poderá obter sua oferta.
 
 > [!IMPORTANT]
 > É sua responsabilidade atender a requisitos legais locais, mesmo que esses requisitos não estejam listados aqui ou no Partner Center.
 
-Tenha em mente que, mesmo que você selecione todos os mercados, as leis e restrições locais ou outros fatores podem impedir que determinadas ofertas sejam listadas em alguns países e regiões.
+Tenha em mente que, mesmo que você selecione todos os mercados, leis locais e restrições ou outros fatores podem impedir que determinadas ofertas sejam listadas em alguns países e regiões.
 
 ### <a name="preview-audience"></a>Público de visualização
 
@@ -256,7 +240,7 @@ Selecione a opção que se aplica à sua oferta:
 
 ### <a name="file-upload"></a>Carregamento de ficheiros
 
-Se você selecionou **Adicionar** acima, é aqui que você carregará o arquivo de pacote da sua oferta, juntamente com os arquivos de pacote para qualquer extensão na qual ele tenha dependências.
+Se você selecionou **Adicionar** acima, onde você carregará o arquivo de pacote da sua oferta, juntamente com os arquivos de pacote para qualquer extensão na qual ele tenha dependências.
 
 #### <a name="extensions-package-file"></a>Arquivo de pacote de extensões
 
@@ -268,7 +252,7 @@ Necessário se sua oferta deve ser instalada junto com outra extensão que não 
 
 #### <a name="dependency-package-file"></a>Arquivo de pacote de dependência
 
-Necessário se sua oferta deve ser instalada junto com outra extensão que já foi publicada no Marketplace. Nesse caso, carregue seu arquivo. app ou. zip aqui.
+Necessário se sua oferta deve ser instalada junto com outra extensão que já foi publicada no Marketplace. Nesse caso, carregue seu `.app` arquivo `.zip` ou aqui.
 
 ### <a name="url-to-app-installation"></a>URL para instalação do aplicativo
 
@@ -301,7 +285,7 @@ Um modelo de implantação que contém todos os recursos do Azure que compõem s
 
 - **Testar unidade de Azure Resource Manager modelo**: Carregue o. zip que contém seu modelo de Azure Resource Manager.  Saiba mais sobre como criar um modelo de Azure Resource Manager no artigo de início rápido [criar e implantar modelos de Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-- **Duração do teste de unidade** (obrigatório): Insira o período de tempo que a unidade de teste permanecerá ativa, em número de horas. O Test-Drive automaticamente termina após o final deste período de tempo. Essa duração pode apenas apostar definida por um número inteiro de horas (por exemplo, "2" horas, "1,5" não é válido).
+- **Duração do teste de unidade** (obrigatório): Insira o período de tempo que a unidade de teste permanecerá ativa, em número de horas. O Test-Drive automaticamente termina após o final deste período de tempo. Essa duração só pode ser configurada por um número inteiro de horas (por exemplo, "2" horas, "1,5" não é válido).
 
 ### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Configuração técnica do Dynamics 365 test drive
 
@@ -309,19 +293,19 @@ A Microsoft pode remover a complexidade de configurar um test drive hospedando e
 
 - **Máximo de unidades de teste simultâneas** (obrigatório): Defina o número máximo de clientes que podem usar seu test drive ao mesmo tempo. Cada usuário simultâneo consumirá uma licença do Dynamics 365 enquanto o test drive estiver ativo, portanto, será necessário garantir que você tenha licenças suficientes disponíveis para dar suporte ao limite máximo definido. Valor recomendado de 3-5.
 
-- **Duração do teste de unidade** (obrigatório): Insira o período de tempo que a unidade de teste permanecerá ativa definindo o número de horas. Depois disso, a sessão será encerrada e não consumirá mais uma de suas licenças. Recomendamos um valor de 2-24 horas, dependendo da complexidade da sua oferta. Essa duração pode apenas apostar definida por um número inteiro de horas (por exemplo, "2" horas, "1,5" não é válido).  O usuário pode solicitar uma nova sessão se ela ficar sem tempo e desejar acessar a test drive novamente.
+- **Duração do teste de unidade** (obrigatório): Insira o período de tempo que a unidade de teste permanecerá ativa definindo o número de horas. Depois disso, a sessão será encerrada e não consumirá mais uma de suas licenças. Recomendamos um valor de 2-24 horas, dependendo da complexidade da sua oferta. Essa duração só pode ser configurada por um número inteiro de horas (por exemplo, "2" horas, "1,5" não é válido).  O usuário pode solicitar uma nova sessão se ela ficar sem tempo e desejar acessar a test drive novamente.
 
-- **URL da instância** (obrigatório): A URL em que o cliente começará sua test drive. Normalmente, a URL da instância do Dynamics 365 que executa seu aplicativo com os dados de exemplo https://testdrive.crm.dynamics.com) instalados (por exemplo,.
+- **URL da instância** (obrigatório): A URL em que o cliente começará sua test drive. Normalmente, a URL da instância do Dynamics 365 que executa seu aplicativo com os dados de exemplo instalados https://testdrive.crm.dynamics.com) (por exemplo,.
 
-- **URL da API Web da instância** (obrigatório): Recupere a URL da API da Web para sua instância do Dynamics 365 fazendo logon em sua conta do Microsoft 365 e navegando para **as configurações** \&gt; **Personalização** do \&gt; **Recursos para desenvolvedores** \&gt; **API Web da instância (URL da raiz do serviço)** , copie a URL encontrada aqui https://testdrive.crm.dynamics.com/api/data/v9.0) (por exemplo,.
+- **URL da API Web da instância** (obrigatório): Recupere a URL da API da Web para sua instância do Dynamics 365 fazendo logon em sua conta do Microsoft 365 e navegando para **as configurações** \&gt; **Personalização** do \&gt; **Recursos para desenvolvedores** \&gt; **API Web da instância (URL da raiz do serviço)** , copie a URL encontrada aqui ( https://testdrive.crm.dynamics.com/api/data/v9.0) por exemplo,.
 
-- **Nome da função** (obrigatório): Forneça o nome da função de segurança que você definiu em seu test drive personalizado do Dynamics 365. Isso será atribuído ao usuário durante seu test drive (por exemplo, Test-Drive-Role).
+- **Nome da função** (obrigatório): Forneça o nome da função de segurança que você definiu em seu test drive personalizado do Dynamics 365, que será atribuído ao usuário durante o test drive (por exemplo, Test-Drive-Role).
 
 ### <a name="technical-configuration-for-logic-app-test-drive"></a>Configuração técnica para o aplicativo lógico test drive
 
 Todos os produtos personalizados devem usar esse tipo de test drive modelo de implantação que abrange uma variedade de arquiteturas de solução complexas. Para obter mais informações sobre como configurar unidades lógicas de teste de aplicativo, visite [operações](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e [envolvimento do cliente](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) no github.
 
-- **Região** do (requerido, lista suspensa de seleção única): Atualmente, há 26 regiões com suporte do Azure em que seu test drive pode ser disponibilizado. Os recursos para seu aplicativo lógico serão implantados na região que você selecionar. Se seu aplicativo lógico tiver qualquer recurso personalizado armazenado em uma região específica, verifique se a região está selecionada aqui. A melhor maneira de fazer isso é implantar totalmente seu aplicativo lógico localmente em sua assinatura do Azure no portal e verificar se ele funciona corretamente antes de fazer essa seleção.
+- **Região** do (requerido, lista suspensa de seleção única): Atualmente, há 26 regiões com suporte do Azure em que seu test drive pode ser disponibilizado. Os recursos para seu aplicativo lógico serão implantados na região que você selecionar. Se seu aplicativo lógico tiver qualquer recurso personalizado armazenado em uma região específica, verifique se a região está selecionada aqui. A melhor maneira é implantar totalmente seu aplicativo lógico localmente em sua assinatura do Azure no portal e verificar se ele funciona corretamente antes de fazer essa seleção.
 
 - **Máximo de unidades de teste simultâneas** (obrigatório): Defina o número máximo de clientes que podem usar seu test drive ao mesmo tempo. Essas unidades de teste já estão implantadas, permitindo que os clientes as acessem instantaneamente sem esperar por uma implantação.
 
@@ -343,11 +327,11 @@ Para implantar o Test Drive em seu nome, crie e forneça uma assinatura do Azure
 
 - **ID da assinatura do Azure** (necessário para Azure Resource Manager e aplicativos lógicos): Insira a ID da assinatura para conceder acesso aos serviços de conta do Azure para relatório e cobrança de uso de recursos. Recomendamos que você considere a [criação de uma assinatura do Azure separada](https://docs.microsoft.com/azure/billing/billing-create-subscription) a ser usada para unidades de teste, se você ainda não tiver uma. Você pode encontrar sua ID de assinatura do Azure fazendo logon no [portal do Azure](https://portal.azure.com/) e navegando até a guia **assinaturas** do menu do lado esquerdo. A seleção da guia exibirá sua ID de assinatura (por exemplo, "a83645ac-1234-5ab6-6789-1h234g764ghty").
 
-- **ID do locatário do Azure ad** (obrigatório): Insira sua [ID de locatário](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)do Azure Active Directory (AD). Para localizar essa ID, entre no [portal do Azure](https://portal.azure.com/), selecione a guia Active Directory no menu à esquerda, selecione **Propriedades** e procure o número de **ID de diretório** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Você também pode pesquisar a ID de locatário da sua organização usando sua URL de nome de [https://www.whatismytenantid.com](https://www.whatismytenantid.com)domínio em:.
+- **ID do locatário do Azure ad** (obrigatório): Insira sua [ID de locatário](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)do Azure Active Directory (AD). Para localizar essa ID, entre no [portal do Azure](https://portal.azure.com/), selecione a guia Active Directory no menu à esquerda, selecione * * Propriedades e procure o número de **ID de diretório** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Você também pode pesquisar a ID de locatário da sua organização usando sua URL de nome de [https://www.whatismytenantid.com](https://www.whatismytenantid.com)domínio em:.
 
 - **Nome do locatário do Azure ad** (necessário para o Dynamic 365): Insira seu nome de Azure Active Directory (AD). Para localizar esse nome, entre no [portal do Azure](https://portal.azure.com/), no canto superior direito, o nome do locatário será listado em seu nome de conta.
 
-- **ID do aplicativo do Azure ad** (obrigatório): Insira sua [ID do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)Azure Active Directory (AD). Para localizar essa ID, entre no [portal do Azure](https://portal.azure.com/), selecione a guia Active Directory no menu à esquerda, selecione **registros de aplicativo**e procure o número de **ID do aplicativo** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e).
+- **ID do aplicativo do Azure ad** (obrigatório): Insira sua [ID do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)Azure Active Directory (AD). Para localizar essa ID, entre no [portal do Azure](https://portal.azure.com/), selecione a guia Active Directory no menu à esquerda, selecione **registros de aplicativo**, em seguida, procure o número de **ID do aplicativo** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e).
 
 - **Segredo do cliente de aplicativo do Azure ad** (obrigatório): Insira o [segredo do cliente](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)do aplicativo Azure AD. Para localizar esse valor, entre no [portal do Azure](https://portal.azure.com/). Selecione a guia **Azure Active Directory** no menu à esquerda, selecione **registros de aplicativo**e, em seguida, selecione seu aplicativo Test Drive. Em seguida, **Selecione certificados e segredos**, **Selecione novo segredo do cliente**, insira uma descrição, selecione **nunca** em **expirar**e, em seguida, escolha **Adicionar**. Certifique-se de copiar o valor. (Não navegue para fora da página antes de fazer isso, ou você não terá acesso ao valor.)
 
@@ -355,7 +339,7 @@ Lembre-se de **salvar** antes de passar para a próxima seção!
 
 ### <a name="test-drive-marketplace-listings"></a>Testar listagens do Marketplace
 
-A opção de **listagem do Marketplace** encontrada na guia **Test Drive** exibe os idiomas em que seu Test Drive está disponível. Observe que atualmente o **Inglês (Estados Unidos)** é o único local disponível. Selecione o nome do idioma para inserir informações que descrevam a experiência de test drive.
+A opção de **listagem do Marketplace** encontrada na guia **Test Drive** exibe os idiomas em que seu Test Drive está disponível. Atualmente, o **Inglês (Estados Unidos)** é o único local disponível. Selecione o nome do idioma para inserir informações que descrevam a experiência de test drive.
 
 - **Descrição** do (obrigatório): Descreva sua test drive, o que será demonstrado, os objetivos para o usuário experimentar, os recursos a serem explorados e quaisquer informações relevantes para ajudar o usuário a determinar se deve adquirir sua oferta. Até 3.000 caracteres de texto podem ser inseridos neste campo. 
 
@@ -363,10 +347,10 @@ A opção de **listagem do Marketplace** encontrada na guia **Test Drive** exibe
 
 - **Manual do usuário** (obrigatório): Uma explicação detalhada de sua experiência de test drive. O manual do usuário deve abranger exatamente o que você deseja que o cliente tenha de apresentar o test drive e servir como uma referência para quaisquer perguntas que possam ter. O arquivo deve estar no formato PDF e ter o nome (máximo de 255 caracteres) após o carregamento.
 
-- **Explica Adicionar vídeos** (opcional): Os vídeos podem ser carregados no YouTube ou no Vimeo e referenciados aqui com uma imagem de link e miniatura (533 x 324 pixels) para que um cliente possa exibir uma orientação sobre as informações para ajudá-los a entender melhor o test drive, incluindo como usar com êxito os recursos do seu ofereça e entenda os cenários que destacam seus benefícios.
+- **Explica Adicionar vídeos** (opcional): Os vídeos podem ser carregados no YouTube ou no Vimeo e referenciados aqui com uma imagem de link e miniatura (533 x 324 pixels) para que um cliente possa exibir um passo a passo de informações para ajudá-los a entender melhor o test drive, incluindo como usar com êxito os recursos do sua oferta e entender os cenários que destacam seus benefícios.
   - **Nome** do necessária
   - **URL (somente YouTube ou Vimeo)** necessária
-  - **Miniatura (533 x 324px)** : O arquivo de imagem deve estar no formato PNG.
+  - **Miniatura (533 x 324 px)** : O arquivo de imagem deve estar no formato PNG.
 
 ## <a name="supplemental-content"></a>Conteúdo complementar
 
@@ -382,11 +366,11 @@ Indique se sua solução dá suporte à edição Essentials e/ou Premium do Micr
 
 ### <a name="key-usage-scenario"></a>Cenário de uso de chave
 
-Você deve carregar um arquivo. pdf que lista os principais cenários de uso de sua oferta listados em um documento (formato. pdf). Todos os cenários listados aqui podem ser verificados por nossa equipe de validação antes de aprovarmos sua oferta para o Marketplace.
+Carregue um `.pdf` arquivo que lista os principais cenários de uso da sua oferta listados em um documento (formato. pdf). Todos os cenários listados aqui podem ser verificados por nossa equipe de validação antes de aprovarmos sua oferta para o Marketplace.
 
 ### <a name="app-tests-automation"></a>Automação de testes de aplicativo
 
-Você também deve carregar um arquivo de **automação de testes de aplicativo** aqui (. app).
+Também carregue um arquivo de **automação de testes de aplicativo** aqui (. app).
 
 ### <a name="test-accounts"></a>Contas de teste
 
@@ -398,14 +382,14 @@ Se uma conta de teste for necessária para que nossa equipe de certificação ex
 
 Depois de concluir todas as seções necessárias da oferta, selecione **publicar** no canto superior direito do Portal. Você será redirecionado para a página **revisar e publicar** . 
 
-Se esta for a primeira vez que você publica essa oferta, você pode:
+Se for a primeira vez que publicar essa oferta, você poderá:
 
 - Consulte o status de conclusão de cada seção da oferta.
     - *Não iniciado* – significa que a seção não foi tocada e precisa ser concluída.
     - *Incompleto* – significa que a seção tem erros que precisam ser corrigidos ou que requer mais informações a serem fornecidas. Volte para a (s) seção (ões) e atualize-a.
     - *Concluído* – significa que a seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta devem estar em um estado completo antes que você possa enviar a oferta.
 - Na seção **notas de certificação** , forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de qualquer nota suplementar útil para entender seu aplicativo.
-- Envie a oferta para publicação selecionando **Enviar**. Enviaremos um email para que você saiba quando uma versão prévia da oferta está disponível para revisão e aprovação. Você deve retornar ao Partner Center e selecionar **Go-Live** para a oferta para publicar sua oferta no público (ou se uma oferta privada, para o público privado).
+- Envie a oferta para publicação selecionando **Enviar**. Nós lhe enviaremos um email quando uma versão prévia da oferta estiver disponível para revisão e aprovação. Retorne ao Partner Center e selecione **Go-Live** para a oferta para publicar sua oferta no público (ou se uma oferta privada, para o público privado).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

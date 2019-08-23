@@ -4,19 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b0150fc362f607a9622073492c7cd6b4d0513cb3
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 5510088925b7a628417c7f3c11bb89c5ce915381
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968532"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906490"
 ---
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [Prerequisites](prerequisites-go.md)]
 
-Este início rápido requer:
-
-* [Go](https://golang.org/doc/install)
-* Uma chave de subscrição do Azure para Tradução de Texto
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos exigidos
 
@@ -38,28 +35,33 @@ import (
 
 ## <a name="create-the-main-function"></a>Criar a função principal
 
-Este exemplo irá tentar ler a chave de subscrição de Tradução de Texto a partir da variável de ambiente `TRANSLATOR_TEXT_KEY`. Se não estiver familiarizado com variáveis de ambiente, pode definir `subscriptionKey` como cadeia e comentar a instrução condicional.
+Este exemplo tentará ler sua chave de assinatura tradução de texto e o ponto de extremidade dessas variáveis `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` de `TRANSLATOR_TEXT_ENDPOINT`ambiente: e. Se você não estiver familiarizado com as variáveis de ambiente, poderá `subscriptionKey` definir `endpoint` e como cadeias de caracteres e comentar as instruções condicionais.
 
 Copie este código para o seu projeto:
 
 ```go
 func main() {
     /*
-     * Read your subscription key from an env variable.
-     * Please note: You can replace this code block with
-     * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables. If so, be sure to delete the "os" import.
-     */
-    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
-    if subscriptionKey == "" {
-       log.Fatal("Environment variable TRANSLATOR_TEXT_KEY is not set.")
+    * Read your subscription key from an env variable.
+    * Please note: You can replace this code block with
+    * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
+    * want to use env variables. If so, be sure to delete the "os" import.
+    */
+    if "" == os.Getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY") {
+      log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_SUBSCRIPTION_KEY.")
     }
+    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY")
+    if "" == os.Getenv("TRANSLATOR_TEXT_ENDPOINT") {
+      log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_ENDPOINT.")
+    }
+    endpoint := os.Getenv("TRANSLATOR_TEXT_ENDPOINT")
+    uri := endpoint + "/transliterate?api-version=3.0"
     /*
-     * This calls our transliterate function, which we'll
+     * This calls our breakSentence function, which we'll
      * create in the next section. It takes a single argument,
      * the subscription key.
      */
-    transliterate(subscriptionKey)
+    transliterate(subscriptionKey, uri)
 }
 ```
 
@@ -68,7 +70,7 @@ func main() {
 Vamos criar uma função para transliterar texto. Essa função usará um único argumento, sua Tradução de Texto chave de assinatura.
 
 ```go
-func transliterate(subscriptionKey string) {
+func transliterate(subscriptionKey string, uri string) {
     /*  
      * In the next few sections, we'll add code to this
      * function to make a request and handle the response.
@@ -82,7 +84,7 @@ Copie esse código para a `transliterate` função.
 
 ```go
 // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0")
+u, _ := url.Parse(uri)
 q := u.Query()
 q.Add("language", "ja")
 q.Add("fromScript", "jpan")
@@ -100,9 +102,9 @@ Em seguida, crie uma estrutura anônima para o corpo da solicitação e codifiqu
 ```go
 // Create an anonymous struct for your request body and encode it to JSON
 body := []struct {
-    Text string
+  Text string
 }{
-    {Text: "こんにちは"},
+  {Text: "こんにちは"},
 }
 b, _ := json.Marshal(body)
 ```
@@ -166,7 +168,7 @@ Se quiser comparar o seu código com o nosso, o exemplo completo está disponív
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Dê uma olhada na referência da API para entender tudo o que você pode fazer com o API de Tradução de Texto.
 

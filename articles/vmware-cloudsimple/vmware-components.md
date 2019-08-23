@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 26f58a38ac3abe9c6e2a3c6254190dffc4a51eb9
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 51a19d867b4906aacfe58cb4fdfd08f32a16e5f3
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543720"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972347"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes de nuvem privada do VMware
 
@@ -33,7 +33,7 @@ Uma nuvem privada VMware Stack é implantada com a seguinte versão de software.
 | ESXi | 6.7 U1 | Enterprise Plus |
 | vCenter | 6.7 U1 | vCenter padrão |
 | vSAN | 6.7 | Empresarial |
-| Data Center do NSX | 2.3 | Avançadas |
+| Data Center do NSX | 2.3 | Avançado |
 
 ## <a name="esxi"></a>ESXi
 

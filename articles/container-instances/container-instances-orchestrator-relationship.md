@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: c83648124f616670423b2ef459530c191d7e17e4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 044b74e1a8683c6beb0220c1cf9fb97403286a95
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68325765"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972240"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Instâncias de contêiner do Azure e orquestradores de contêiner
 
@@ -65,13 +65,13 @@ Os nós virtuais usam o [Kubelet virtual][aci-connector-k8s] de software livre p
 
 Consulte o projeto [Kubelet virtual](https://github.com/virtual-kubelet/virtual-kubelet) para obter exemplos adicionais de como estender a API kubernetes em plataformas de contêiner sem servidor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Crie seu primeiro contêiner com as instâncias de contêiner do Azure usando o [Guia de início rápido](container-instances-quickstart.md).
 
 <!-- IMAGES -->
 
 <!-- LINKS -->
-[aci-connector-k8s]: https://github.com/virtual-kubelet/virtual-kubelet/tree/master/providers/azure
+[aci-connector-k8s]: https://github.com/virtual-kubelet/azure-aci
 [kubelet-doc]: https://kubernetes.io/docs/admin/kubelet/
 [pod-doc]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

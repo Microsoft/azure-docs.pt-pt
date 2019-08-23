@@ -1,21 +1,21 @@
 ---
-title: Saiba mais sobre operações de armazém de dados SQL do Azure | Documentos da Microsoft
+title: Saiba mais sobre as operações de SQL Data Warehouse do Azure | Microsoft Docs
 description: 'A elasticidade do SQL Data Warehouse permite aumentar, reduzir ou colocar em pausa a capacidade de computação, utilizando uma escala móvel de unidades do Data Warehouse (DWUs). Este artigo explica as métricas do armazém de dados e como se relacionam com as DWUs. '
 services: sql-data-warehouse
-author: kevinvngo
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: f0489d9c018abac380cd0f8b1aa51fa5bb81707a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 47e04cb6b58a185e84120fe73a8468834d2e57fd
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531182"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907928"
 ---
 # <a name="data-warehouse-workload"></a>Carga de trabalho do armazém de dados
 Uma carga de trabalho de armazém de dados refere-se a todas as operações que ocorrem num armazém de dados. A carga de trabalho do armazém de dados abrange todo o processo de carregamento de dados para o armazém, execução de análises e relatórios no armazém de dados, gestão de dados no armazém de dados e exportação de dados do armazém de dados. A profundidade e a amplitude destes componentes são, muitas vezes, proporcionais ao nível de maturidade do armazém de dados.

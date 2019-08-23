@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 591a62ebb6b83ea23d3ed6cf867c07b91e1596b3
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 5664bf1eaee85d2492601ef00968d9b17d857abb
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847043"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900489"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedar um site estático no armazenamento do Azure
 
@@ -175,7 +175,7 @@ Você pode exibir o conteúdo de um navegador usando a URL pública do site.
 Localize a URL usando o seguinte comando:
 
 ```powershell
- $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>"
 Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
@@ -217,7 +217,7 @@ Depois de habilitar as métricas, as estatísticas de tráfego nos arquivos no c
 
    ![Métricas de sites estáticos do armazenamento do Azure GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Alojamento de site estático no Armazenamento do Azure](storage-blob-static-website.md)
 * [Usar a CDN do Azure para acessar BLOBs com domínios personalizados por HTTPS](storage-https-custom-domain-cdn.md)

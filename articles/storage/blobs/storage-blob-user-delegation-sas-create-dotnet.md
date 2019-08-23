@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: bed95c070649785a701f9d08a98faf29c8ee1413
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 98ab93bbec8da17dde93c9c343703838b0279994
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990692"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900435"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com .NET (versão prévia)
 
@@ -44,7 +44,7 @@ Para autenticar com as credenciais do Azure AD por meio da biblioteca de cliente
 
 Para criar uma entidade de serviço com CLI do Azure e atribuir uma função de RBAC, chame o comando [AZ ad SP Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Forneça uma função de acesso de dados do armazenamento do Azure para atribuir à nova entidade de serviço. A função deve incluir a ação **Microsoft. Storage/storageAccounts/blobservices/generateUserDelegationKey** . Para obter mais informações sobre as funções internas fornecidas para o armazenamento do Azure, consulte [funções internas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
 
-Além disso, forneça o escopo para a atribuição de função. A entidade de serviço criará a chave de delegação de usuário, que é uma operação executada no nível da conta de armazenamento, de modo que a atribuição de função deve ser delimitada no nível da conta de armazenamento, do grupo de recursos ou da assinatura. Para obter mais informações sobre permissões RBAC para criar uma SAS de delegação de usuário, consulte a seção **atribuir permissões com o RBAC** em [criar uma delegação de usuário (API REST)](/rest/api/storageservices/create-a-user-delegation-sas).
+Além disso, forneça o escopo para a atribuição de função. A entidade de serviço criará a chave de delegação de usuário, que é uma operação executada no nível da conta de armazenamento, de modo que a atribuição de função deve ser delimitada no nível da conta de armazenamento, do grupo de recursos ou da assinatura. Para obter mais informações sobre permissões RBAC para criar uma SAS de delegação de usuário, consulte a seção **atribuir permissões com o RBAC** em [criar uma delegação de usuário (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
 Se você não tiver permissões suficientes para atribuir uma função à entidade de serviço, talvez seja necessário solicitar ao proprietário da conta ou ao administrador para executar a atribuição de função.
 
@@ -276,4 +276,4 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 ## <a name="see-also"></a>Consulte também
 
 - [Operação de obtenção de chave de delegação de usuário](/rest/api/storageservices/get-user-delegation-key)
-- [Criar uma SAS de delegação de usuário (API REST)](/rest/api/storageservices/create-a-user-delegation-sas)
+- [Criar uma SAS de delegação de usuário (API REST)](/rest/api/storageservices/create-user-delegation-sas)

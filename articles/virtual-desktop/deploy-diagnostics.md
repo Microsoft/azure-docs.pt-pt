@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: helohr
-ms.openlocfilehash: 356b430e0bb9170999398eb8eb68ad31f2d5eeb6
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: d5f0dbf916096b608495c0cc1017d919616653d4
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017312"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899695"
 ---
-# <a name="deploy-the-diagnostics-tool"></a>Implantar a ferramenta de diagnóstico
+# <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
 
 Veja o que a ferramenta de diagnóstico para a área de trabalho virtual do Windows pode fazer por você:
 
@@ -106,7 +106,7 @@ Veja como configurar manualmente os contadores de desempenho recomendados:
     -   Informações do processador\*(\\) tempo do processador
     -   Atraso de entrada do usuário por\*sessão\\() atraso máximo de entrada
 
-Saiba mais sobre os contadores de desempenho em [fontes de dados de desempenho do Windows e do Linux no Azure monitor](/articles/azure-monitor/platform/data-sources-performance-counters.md).
+Saiba mais sobre os contadores de desempenho em [fontes de dados de desempenho do Windows e do Linux no Azure monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
 
 >[!NOTE]
 >Quaisquer contadores adicionais que você configurar não aparecerão na ferramenta de diagnóstico em si. Para que ele apareça na ferramenta de diagnóstico, você precisa configurar o arquivo de configuração da ferramenta. As instruções sobre como fazer isso com a administração avançada estarão disponíveis no GitHub em uma data posterior.
@@ -150,7 +150,7 @@ Para poder exibir a integridade das VMs, você precisará habilitar a conexão L
 4. Selecione o nome da VM à qual você deseja se conectar.
 5. Selecione **Ligar**.
 
-## <a name="deploy-the-diagnostics-tool"></a>Implantar a ferramenta de diagnóstico
+## <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
 
 Para implantar o modelo de gerenciamento de recursos do Azure para a ferramenta de diagnóstico:
 
@@ -189,7 +189,7 @@ Para definir o URI de redirecionamento:
 
 Antes de disponibilizar a ferramenta de diagnóstico para seus usuários, verifique se eles têm as seguintes permissões:
 
-- Os usuários precisam de acesso de leitura para o log Analytics. Para obter mais informações, consulte Introdução [às funções, permissões e segurança com Azure monitor](/articles/azure-monitor/platform/roles-permissions-security.md).
+- Os usuários precisam de acesso de leitura para o log Analytics. Para obter mais informações, consulte Introdução [às funções, permissões e segurança com Azure monitor](/azure/azure-monitor/platform/roles-permissions-security).
 -  Os usuários também precisam de acesso de leitura para o locatário da área de trabalho virtual do Windows (função leitor do RDS). Para obter mais informações, consulte [acesso delegado na visualização da área de trabalho virtual do Windows](delegated-access-virtual-desktop.md).
 
 Você também precisa dar aos seus usuários as seguintes informações:
@@ -229,22 +229,22 @@ Você também pode interagir com os usuários no host da sessão:
 - LogicalDisk (\*)\|% de espaço livre:
 
     - Exibe o percentual do total de espaço utilizável no disco lógico que é gratuito.
-    - Limiar: Menos de 20% é marcado como não íntegro.
+    - Os Menos de 20% é marcado como não íntegro.
 
 - LogicalDisk (C:)\\Méd. Comprimento da fila de disco:
 
     - Representa as condições do sistema de armazenamento.
-    - Limiar: Maior que 5 é marcado como não íntegro.
+    - Os Maior que 5 é marcado como não íntegro.
 
 - Memória (\*)\\MBytes disponíveis:
 
     - A memória disponível para o sistema.
-    - Limiar: Menos de 500 megabytes marcados como não íntegros.
+    - Os Menos de 500 megabytes marcados como não íntegros.
 
 - Informações do processador\*(\\) tempo do processador:
 
-    - Limiar: Maior que 80% é marcado como não íntegro.
+    - Os Maior que 80% é marcado como não íntegro.
 
 - [Atraso de entrada do usuário por\*sessão\\() atraso máximo de entrada](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
-    - Limiar: Mais de 2000 MS está marcado como não íntegro.
+    - Os Mais de 2000 MS está marcado como não íntegro.

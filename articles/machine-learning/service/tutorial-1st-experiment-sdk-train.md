@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 17fee1f01bf883aa2a9845fe4f2817fb806056dd
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: aa3a9bdb51e1137cde2ca29e2b5db55ba621cf8c
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516237"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972494"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treinar seu primeiro modelo de ML
 
@@ -31,11 +31,13 @@ Neste tutorial, você aprende as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O único pré-requisito é executar o tutorial anterior, o [ambiente de instalação e o espaço de trabalho](tutorial-1st-experiment-sdk-setup.md).
+O único pré-requisito é executar a parte um deste tutorial, o [ambiente de instalação e o espaço de trabalho](tutorial-1st-experiment-sdk-setup.md).
+
+Nesta parte do tutorial, você executa o código no bloco de anotações Jupyter de exemplo aberto no final da parte 1. Este artigo percorre o mesmo código que está no bloco de anotações.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Conectar espaço de trabalho e criar experimento
 
-Importe a `Workspace` classe e carregue as informações de assinatura do arquivo `config.json` usando a função `from_config().` que procura o arquivo JSON no diretório atual por padrão, mas você também pode especificar um parâmetro de caminho para apontar para o arquivo usando `from_config(path="your/file/path")`o. Se você estiver executando este bloco de anotações em um servidor de bloco de anotações de nuvem em seu espaço de trabalho, o arquivo será automaticamente no diretório raiz.
+Importe a `Workspace` classe e carregue as informações de assinatura do arquivo `config.json` usando a função `from_config().` que procura o arquivo JSON no diretório atual por padrão, mas você também pode especificar um parâmetro de caminho para apontar para o arquivo usando `from_config(path="your/file/path")`o. Em um servidor de bloco de anotações de nuvem, o arquivo é automaticamente no diretório raiz.
 
 Se o código a seguir solicitar autenticação adicional, basta colar o link em um navegador e inserir o token de autenticação.
 
@@ -196,7 +198,7 @@ Se você usou um servidor de bloco de anotações de nuvem, pare a VM quando nã
 
 Você também pode manter o grupo de recursos, mas excluir um único espaço de trabalho. Exiba as propriedades do espaço de trabalho e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você fez as seguintes tarefas:
 

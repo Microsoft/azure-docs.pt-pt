@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: eead4436a7135f6f74528cde52883ea247360fc6
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: a95e643d6561f425484a21b5032b1df585d0460b
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648781"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900329"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferir dados com o armazenamento de BLOBs e AzCopy
 
@@ -195,7 +195,7 @@ Esta secção contém os exemplos seguintes:
 
 ## <a name="synchronize-files"></a>Sincronizar arquivos
 
-Você pode sincronizar o conteúdo de um sistema de arquivos local com um contêiner de BLOB. A sincronização é unidirecional. Em outras palavras, você escolhe quais desses dois pontos de extremidade são a origem e qual deles é o destino.
+Você pode sincronizar o conteúdo de um sistema de arquivos local com um contêiner de BLOB. A sincronização é unidirecional. Em outras palavras, você escolhe quais desses dois pontos de extremidade são a origem e qual deles é o destino. A sincronização também usa APIs de servidor para servidor.
 
 > [!NOTE]
 > Atualmente, esse cenário tem suporte apenas para contas que não têm um namespace hierárquico. A versão atual do AzCopy não é sincronizada entre outras origens e destinos (por exemplo: Armazenamento de arquivos ou buckets de Amazon Web Services (AWS) S3).

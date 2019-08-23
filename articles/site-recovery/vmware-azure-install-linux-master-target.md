@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 062ed5e408317e95b36d6d0dfa395311ed4afe7f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5b4b3f5025edef242b87215665fd65f131157943
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261422"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904405"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino mestre do Linux para failback
 Depois de fazer failover de suas máquinas virtuais para o Azure, você pode executar failback das máquinas virtuais para o site local. Para fazer failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para esse processo, você precisa de um servidor de destino mestre local para receber o tráfego. 
@@ -67,7 +67,7 @@ Mantenha um ISO 16.04.2 Minimal mínimo de 64 bits na unidade de DVD e inicie o 
 
 1.  Selecione **Inglês** como seu idioma preferido e, em seguida, selecione **Enter**.
     
-    ![Selecione uma Linguagem](./media/vmware-azure-install-linux-master-target/image1.png)
+    ![Selecionar um idioma](./media/vmware-azure-install-linux-master-target/image1.png)
 1. Selecione **instalar servidor Ubuntu**e, em seguida, selecione **Enter**.
 
     ![Selecione instalar servidor Ubuntu](./media/vmware-azure-install-linux-master-target/image2.png)
@@ -214,12 +214,11 @@ Para baixá-lo usando o Linux, digite:
 
 ### <a name="apply-custom-configuration-changes"></a>Aplicar alterações de configuração personalizadas
 
-Para aplicar alterações de configuração personalizadas, use as seguintes etapas:
-
+Para aplicar alterações de configuração personalizadas, use as seguintes etapas como um usuário raiz:
 
 1. Execute o comando a seguir para descompactar o binário.
 
-    `tar -zxvf latestlinuxmobsvc.tar.gz`
+    `tar -xvf latestlinuxmobsvc.tar.gz`
 
     ![Captura de tela do comando a ser executado](./media/vmware-azure-install-linux-master-target/image16.png)
 

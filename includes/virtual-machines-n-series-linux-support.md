@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 50d896f2a835136316945b26a3191861125faa25
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 0ed7fbf5e2b4f7f9b554f718d88c62e7a266f4ad
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68306122"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69903880"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuições e controladores suportados
 
@@ -34,7 +34,7 @@ A Microsoft redistribui os instaladores de driver de grade NVIDIA para VMs de s�
 
 | Distribuição | Controlador |
 | --- | -- |
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7,0 a 7,6<br/><br/>Baseado em CentOS 7,0 a 7,6<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 9,0, ramificação do driver R430|
+|Ubuntu 18, 4 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7,0 a 7,6<br/><br/>Baseado em CentOS 7,0 a 7,6<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 9,0, ramificação do driver R430|
 
 > [!WARNING] 
 > A instalação de software de terceiros em produtos Red Hat pode afetar os termos de suporte do Red Hat. Veja o [Red Hat Knowledgebase](https://access.redhat.com/articles/1067) (Base de Dados de Conhecimento do Red Hat).

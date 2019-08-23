@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: overview
 ms.date: 08/15/2019
 ms.author: heidist
-ms.openlocfilehash: 89c56496ed1f356ffedf4df93f1728bd4acda323
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 4987c17eabf5d9e140352e3581b38a7d29049c5f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639960"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899966"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>O que é "pesquisa cognitiva" em Azure Search?
 
@@ -51,7 +51,7 @@ A pesquisa cognitiva, usando habilidades predefinidas, é bem adequada para os s
 
   Além disso, as habilidades predefinidas também podem ser usadas para reestruturar o conteúdo por meio de operações de divisão, mesclagem e forma de texto.
 
-As habilidades personalizadas podem dar suporte a cenários mais complexos, como reconhecer formulários ou detecção de entidade personalizada usando um modelo que você fornece e encapsula a [interface da Web de habilidades personalizadas](cognitive-search-custom-skill-interface.md). Vários exemplos de habilidades personalizadas incluem reconhecedor de [formulários](), integração do [API de pesquisa de entidade do Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example)e [reconhecimento de entidade personalizada](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
+As habilidades personalizadas podem dar suporte a cenários mais complexos, como reconhecer formulários ou detecção de entidade personalizada usando um modelo que você fornece e encapsula a [interface da Web de habilidades personalizadas](cognitive-search-custom-skill-interface.md). Vários exemplos de habilidades personalizadas incluem reconhecedor de [formulários](/azure/cognitive-services/form-recognizer/overview), integração do [API de pesquisa de entidade do Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example)e [reconhecimento de entidade personalizada](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
 
 ## <a name="component-pipeline-of-cognitive-search"></a>Pipeline de componente da pesquisa cognitiva
@@ -114,9 +114,9 @@ Os índices são gerados de um esquema de índice que define os campos, atributo
 
 ## <a name="where-do-i-start"></a>Por onde devo começar?
 
-**Passo 1: [Criar um recurso de Azure Search](search-create-service-portal.md)** 
+**Passo 1: [Criar um recurso de Azure Search](search-create-service-portal.md)** 
 
-**Passo 2: Experimente alguns guias de início rápido e exemplos para experiência prática**
+**Passo 2: Experimente alguns guias de início rápido e exemplos para experiência prática**
 
 + [Início rápido (Portal)](cognitive-search-quickstart-blob.md)
 + [Tutorial (solicitações HTTP)](cognitive-search-tutorial-blob.md)
@@ -124,7 +124,7 @@ Os índices são gerados de um esquema de índice que define os campos, atributo
 
 Recomendamos o serviço gratuito para fins de aprendizado, no entanto, o número de transações gratuitas é limitado a 20 documentos por dia. Para executar o início rápido e o tutorial em um dia, use um conjunto de arquivos menor (10 documentos) para que você possa se ajustar a ambos os exercícios ou exclua o indexador que você usou no guia de início rápido ou tutorial.
 
-**Passo 3: Examinar a API**
+**Passo 3: Examinar a API**
 
 Você pode usar REST `api-version=2019-05-06` em solicitações ou o SDK do .net. 
 
@@ -159,7 +159,7 @@ Esta etapa usa as APIs REST para criar uma solução de pesquisa cognitiva. Some
 
 Para obter mais informações sobre perguntas ou problemas específicos, consulte [dicas de solução de problemas](cognitive-search-concept-troubleshooting.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 + [Documentação da pesquisa cognitiva](cognitive-search-resources-documentation.md)
 + [Quickstart: Instruções de pesquisa cognitiva em um portal](cognitive-search-quickstart-blob.md)

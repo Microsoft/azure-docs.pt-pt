@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 9053866b76ec1cc409c3f00d0af59bf3761d3936
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e5ed60ea59dc8cf19b8f9ca7e96777dbc6980171
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927984"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906048"
 ---
 # <a name="azure-database-security-overview"></a>Visão geral da segurança do banco de dados Azure
 
@@ -206,7 +206,7 @@ O [banco de dados do Azure para PostgreSQL proteção avançada contra ameaças]
 
 O [Centro de Segurança do Azure](https://azure.microsoft.com/documentation/services/security-center/) ajuda-o a evitar, detetar e responder a ameaças. Ele fornece monitoramento de segurança integrado e gerenciamento de políticas em suas assinaturas do Azure. Ele ajuda a detectar ameaças que poderiam passar despercebidas e trabalha com um amplo ecossistema de soluções de segurança.
 
-A [central de segurança](../../security-center/security-center-sql-database.md) ajuda você a proteger os dados no SQL Database, fornecendo visibilidade sobre a segurança de todos os seus servidores e bancos de dados. Com a central de segurança, você pode:
+A [central de segurança](../../security-center/security-center-alerts-data-services.md) ajuda você a proteger os dados no SQL Database, fornecendo visibilidade sobre a segurança de todos os seus servidores e bancos de dados. Com a central de segurança, você pode:
 
 - Defina políticas para a criptografia e a auditoria do banco de dados SQL.
 - Monitore a segurança dos recursos do banco de dados SQL em todas as suas assinaturas.

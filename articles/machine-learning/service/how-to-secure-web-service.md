@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: e730e1b5534c4c74734816f5481247e341436b08
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: 5a2cab9dff4a075545d919cb41e72cf6e446e9d2
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656330"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897335"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Usar SSL para proteger um serviço Web por meio do Azure Machine Learning
 
@@ -149,9 +149,9 @@ Em seguida, tem de atualizar o DNS para apontar para o serviço web.
   > [!WARNING]
   > Se você usou o *leaf_domain_label* para criar o serviço usando um certificado da Microsoft, não atualize manualmente o valor DNS para o cluster. O valor deve ser definido automaticamente.
 
-  Atualize o DNS na guia **configuração** do endereço IP público do cluster AKs. (Consulte a imagem a seguir.) O endereço IP público é um tipo de recurso que é criado no grupo de recursos que contém os nós do agente AKS e outros recursos de rede.
+  Atualize o DNS do endereço IP público do cluster AKS na guia **configuração** em **configurações** no painel esquerdo. (Consulte a imagem a seguir.) O endereço IP público é um tipo de recurso que é criado no grupo de recursos que contém os nós do agente AKS e outros recursos de rede.
 
-  ![Serviço de Azure Machine Learning: Protegendo serviços Web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  [![Serviço de Azure Machine Learning: Protegendo serviços Web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-ssl-certificate"></a>Atualizar o certificado SSL
 
@@ -230,9 +230,7 @@ Para obter mais informações, consulte os documentos de referência a seguir:
 
 ## <a name="disable-ssl"></a>Desabilitar SSL
 
-Para desabilitar o SSL para um modelo implantado no serviço kubernetes do Azure, você pode usar o SDK ou a CLI:
-
-**Usar o SDK**
+Para desabilitar o SSL para um modelo implantado no serviço kubernetes do `SslConfiguration` Azure `status="Disabled"`, crie um com e, em seguida, execute uma atualização:
 
 ```python
 from azureml.core.compute import AksCompute
@@ -248,13 +246,7 @@ update_config = AksUpdateConfiguration(ssl_configuration)
 aks_target.update(update_config)
 ```
 
-**Utilizar a CLI**
-
-```azurecli
- az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-disable True
-```
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Aprenda a:
 + [Consumir um modelo de aprendizado de máquina implantado como um serviço Web](how-to-consume-web-service.md)
 + [Executar experimentos e inferências com segurança dentro de uma rede virtual do Azure](how-to-enable-virtual-network.md)

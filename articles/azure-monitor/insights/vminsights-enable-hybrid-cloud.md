@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: e8241069a8671919b70dfbe44fe28c99a05358c5
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: b06fe477f551977b1357f3b1b185cb340a948052
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489740"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905488"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Habilitar Azure Monitor para VMs (versão prévia) para um ambiente híbrido
 
@@ -42,6 +42,9 @@ As etapas para concluir essa tarefa são resumidas da seguinte maneira:
 3. Ative a recolha de contadores de desempenho.
 
 4. Implemente o Azure Monitor para as VMs.
+
+>[!NOTE]
+>As informações descritas neste artigo para a implantação do Dependency Agent também são aplicáveis à [solução de mapa do serviço](service-map.md).  
 
 ## <a name="install-the-dependency-agent-on-windows"></a>Instale o agente de dependência no Windows
 

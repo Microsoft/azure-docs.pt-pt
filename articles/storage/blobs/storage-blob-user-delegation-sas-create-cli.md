@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 1c60c4b868854952771ba297107904762a2357d8
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ef51a1b130323a8799d5334d8d043fda08fcc7ef
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032989"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896970"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com a CLI do Azure (versão prévia)
 
@@ -49,7 +49,7 @@ az role assignment create \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-Para obter mais informações sobre as funções internas que incluem a ação **Microsoft. Storage/storageAccounts/blobservices/generateUserDelegationKey** , consulte [funções internas para recursos do Azure](/role-based-access-control/built-in-roles).
+Para obter mais informações sobre as funções internas que incluem a ação **Microsoft. Storage/storageAccounts/blobservices/generateUserDelegationKey** , consulte [funções internas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Usar as credenciais do Azure AD para proteger uma SAS
 
@@ -63,7 +63,7 @@ Ao criar uma SAS de delegação de usuário `--auth-mode login` , `--as-user par
 
 Para criar uma SAS de delegação de usuário para um contêiner com CLI do Azure, chame o comando [AZ Storage container Generate-SAS](/cli/azure/storage/container#az-storage-container-generate-sas) .
 
-As permissões com suporte para uma SAS de delegação de usuário em um contêiner incluem adicionar, criar, excluir, listar, ler e gravar. As permissões podem ser especificadas isoladamente ou combinadas. Para obter mais informações sobre essas permissões, consulte [criar uma SAS de delegação de usuário](/rest/api/storageservices/create-a-user-delegation-sas).
+As permissões com suporte para uma SAS de delegação de usuário em um contêiner incluem adicionar, criar, excluir, listar, ler e gravar. As permissões podem ser especificadas isoladamente ou combinadas. Para obter mais informações sobre essas permissões, consulte [criar uma SAS de delegação de usuário](/rest/api/storageservices/create-user-delegation-sas).
 
 O exemplo a seguir retorna um token SAS de delegação de usuário para um contêiner. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
 
@@ -87,7 +87,7 @@ se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26
 
 Para criar uma SAS de delegação de usuário para um blob com CLI do Azure, chame o comando [AZ Storage blob Generate-SAS](/cli/azure/storage/blob#az-storage-blob-generate-sas) .
 
-As permissões com suporte para uma SAS de delegação de usuário em um blob incluem adicionar, criar, excluir, ler e gravar. As permissões podem ser especificadas isoladamente ou combinadas. Para obter mais informações sobre essas permissões, consulte [criar uma SAS de delegação de usuário](/rest/api/storageservices/create-a-user-delegation-sas).
+As permissões com suporte para uma SAS de delegação de usuário em um blob incluem adicionar, criar, excluir, ler e gravar. As permissões podem ser especificadas isoladamente ou combinadas. Para obter mais informações sobre essas permissões, consulte [criar uma SAS de delegação de usuário](/rest/api/storageservices/create-user-delegation-sas).
 
 A sintaxe a seguir retorna uma SAS de delegação de usuário para um blob. O exemplo especifica o `--full-uri` parâmetro, que retorna o URI do blob com o token SAS anexado. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
 
@@ -115,5 +115,5 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Criar uma SAS de delegação de usuário (API REST)](/rest/api/storageservices/create-a-user-delegation-sas)
+- [Criar uma SAS de delegação de usuário (API REST)](/rest/api/storageservices/create-user-delegation-sas)
 - [Operação de obtenção de chave de delegação de usuário](/rest/api/storageservices/get-user-delegation-key)

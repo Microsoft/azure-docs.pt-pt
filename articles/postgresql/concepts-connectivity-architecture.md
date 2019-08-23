@@ -1,30 +1,30 @@
 ---
-title: Arquitetura de conectividade na base de dados do Azure para PostgreSQL
-description: Descreve a arquitetura de conectividade da base de dados do Azure para o servidor PostgreSQL.
+title: Arquitetura de conectividade no banco de dados do Azure para PostgreSQL
+description: Descreve a arquitetura de conectividade do banco de dados do Azure para o servidor PostgreSQL.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 0d91458c555c819c4bcf97215a712719ebc5eb71
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 92844f0fe3a851802836015a1340983eb4633ed2
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588946"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900556"
 ---
-# <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade na base de dados do Azure para PostgreSQL
-Este artigo explica a base de dados do Azure para PostgreSQL arquitetura de conectividade, bem como a forma como o tráfego é direcionado para a sua base de dados do Azure para PostgreSQL a instância de base de dados de clientes dentro e fora do Azure.
+# <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade no banco de dados do Azure para PostgreSQL
+Este artigo explica a arquitetura de conectividade do banco de dados do Azure para PostgreSQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para PostgreSQL de clientes dentro e fora do Azure.
 
 ## <a name="connectivity-architecture"></a>Arquitetura de conectividade
-Ligação à base de dados do Azure para PostgreSQL é estabelecida através de um gateway que é responsável pelo encaminhamento ligações de entrada para a localização física do seu servidor no nosso clusters. O diagrama seguinte ilustra o fluxo de tráfego.
+A conexão com o banco de dados do Azure para PostgreSQL é estabelecida por meio de um gateway que é responsável por rotear conexões de entrada para o local físico do servidor em nossos clusters. O diagrama a seguir ilustra o fluxo de tráfego.
 
-![Descrição geral da arquitetura de conectividade](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
+![Visão geral da arquitetura de conectividade](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-Como cliente ligar à base de dados, eles têm uma cadeia de ligação que o liga ao gateway. Este gateway tem um endereço IP público que escuta a porta 5432. No banco de dados o tráfego de clusterz é encaminhado para o banco de dados apropriadas do Azure para PostgreSQL. Portanto, para ligar ao seu servidor, como a partir de redes corporativas, é necessário abrir a firewall do lado do cliente para permitir tráfego de saída para ser capaz de alcançar os gateways. Abaixo pode encontrar uma lista completa dos endereços IP utilizados pelo nosso gateways por região.
+Como o cliente se conecta ao banco de dados, ele obtém uma cadeia de conexão que se conecta ao gateway. Esse gateway tem um endereço IP público que escuta a porta 5432. Dentro do cluster de banco de dados, o tráfego é encaminhado para o banco de dados do Azure apropriado para PostgreSQL. Portanto, para se conectar ao servidor, como de redes corporativas, é necessário abrir o Firewall do lado do cliente para permitir que o tráfego de saída seja capaz de alcançar nossos gateways. Abaixo, você pode encontrar uma lista completa dos endereços IP usados por nossos gateways por região.
 
-## <a name="azure-database-for-postgresql-gateway-ip-addresses"></a>Base de dados do Azure para PostgreSQL endereços IP de gateway
-A tabela seguinte lista os IPs primário e secundário da base de dados do Azure para PostgreSQL gateway para todas as regiões de dados. O endereço IP principal é o endereço IP atual do gateway e o segundo endereço IP é um endereço IP de ativação pós-falha em caso de falha dos principais. Conforme mencionado, os clientes devem permitir saídos para os endereços IP. O segundo endereço IP não escutar em quaisquer serviços até que seja ativado pela base de dados do Azure para PostgreSQL aceitar ligações.
+## <a name="azure-database-for-postgresql-gateway-ip-addresses"></a>Banco de dados do Azure para os endereços IP do gateway PostgreSQL
+A tabela a seguir lista os IPs primários e secundários do gateway do banco de dados do Azure para PostgreSQL para todas as regiões de data. O endereço IP primário é o endereço IP atual do gateway e o segundo endereço IP é um endereço IP de failover em caso de falha do primário. Conforme mencionado, os clientes devem permitir a saída para os dois endereços IP. O segundo endereço IP não escuta em nenhum serviço até que seja ativado pelo banco de dados do Azure para PostgreSQL para aceitar conexões.
 
 | **Nome da região** | **Endereço IP primário** | **Endereço IP secundário** |
 |:----------------|:-------------|:------------------------|
@@ -39,7 +39,7 @@ A tabela seguinte lista os IPs primário e secundário da base de dados do Azure
 | Norte da China 1 | 139.219.15.17 | |
 | Norte da China 2 | 40.73.50.0 | |
 | Ásia Oriental | 191.234.2.139 | 52.175.33.150 |
-| E.U.A. Leste 1 | 191.238.6.43 | 40.121.158.30 |
+| Leste dos EUA 1 | 191.238.6.43 | 40.121.158.30 |
 | EUA Leste 2 | 191.239.224.107 | 40.79.84.180 * |
 | França Central | 40.79.137.0 | 40.79.129.1 |
 | Alemanha Central | 51.4.144.100 | |
@@ -57,12 +57,12 @@ A tabela seguinte lista os IPs primário e secundário da base de dados do Azure
 | Reino Unido Sul | 51.140.184.11 | |
 | Reino Unido Oeste | 51.141.8.11| |
 | Europa Ocidental | 191.237.232.75 | 40.68.37.158 |
-| E.U.A. oeste 1 | 23.99.34.75 | 104.42.238.205 |
+| Oeste dos EUA 1 | 23.99.34.75 | 104.42.238.205 |
 | EUA Oeste 2 | 13.66.226.202 | |
 ||||
 
 > [!NOTE]
-> *E.U.A. Leste 2* também tem um endereço IP terciário de `52.167.104.0`.
+> *Leste dos EUA 2* também é um endereço IP terciário `52.167.104.0`de.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

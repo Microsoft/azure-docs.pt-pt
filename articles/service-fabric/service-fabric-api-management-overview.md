@@ -1,6 +1,6 @@
 ---
-title: O Azure Service Fabric com a descrição geral da gestão de API | Documentos da Microsoft
-description: Este artigo é uma introdução à utilização de API Management do Azure como um gateway para seus aplicativos do Service Fabric.
+title: Azure Service Fabric com o gerenciamento de API visão geral | Microsoft Docs
+description: Este artigo é uma introdução ao uso do gerenciamento de API do Azure como um gateway para seus aplicativos Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,108 +14,108 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 0dac2730bcc13b979de6a8faaaa53c0aaf15e902
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 52f9584a2f793ff513100afcb7b7bd6acd2a4742
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60621892"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900513"
 ---
-# <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric com a descrição geral da gestão de API do Azure
+# <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric com visão geral do gerenciamento de API do Azure
 
-Geralmente, as aplicações da cloud precisam de um gateway de front-end que forneça um único ponto de entrada para utilizadores, dispositivos ou outras aplicações. No Service Fabric, um gateway pode ser qualquer serviço sem estado, tais como um [aplicação ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), ou outro serviço concebido para entrada de tráfego, tal como [dos Hubs de eventos](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/), ou [API Management do Azure](https://docs.microsoft.com/azure/api-management/).
+Geralmente, as aplicações da cloud precisam de um gateway de front-end que forneça um único ponto de entrada para utilizadores, dispositivos ou outras aplicações. No Service Fabric, um gateway pode ser qualquer serviço sem estado, como um [aplicativo ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), ou outro serviço projetado para entrada de tráfego, como [hubs de eventos](https://docs.microsoft.com/azure/event-hubs/), [Hub IOT](https://docs.microsoft.com/azure/iot-hub/)ou [Gerenciamento de API do Azure](https://docs.microsoft.com/azure/api-management/).
 
-Este artigo é uma introdução à utilização de API Management do Azure como um gateway para seus aplicativos do Service Fabric. Gestão de API integra-se diretamente com o Service Fabric, que lhe permite publicar APIs com um conjunto avançado de regras de encaminhamento para os serviços de recursos de infraestrutura do serviço de back-end. 
+Este artigo é uma introdução ao uso do gerenciamento de API do Azure como um gateway para seus aplicativos Service Fabric. O gerenciamento de API se integra diretamente com o Service Fabric, permitindo que você publique APIs com um conjunto avançado de regras de roteamento para seus serviços de back-end Service Fabric. 
 
 ## <a name="availability"></a>Disponibilidade
 
 > [!IMPORTANT]
-> Esta funcionalidade está disponível na **Premium** e **programador** escalões da gestão de API devido a necessários virtual suporte de rede.
+> Esse recurso está disponível nas camadas **Premium** e **desenvolvedor** do gerenciamento de API devido ao suporte necessário à rede virtual.
 
 ## <a name="architecture"></a>Arquitetura
 
-Uma arquitetura comum do Service Fabric utiliza uma aplicação web de página única que faz chamadas HTTP para os serviços de back-end que expõem HTTP APIs. O [aplicação de exemplo da introdução do Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) mostra um exemplo dessa arquitetura.
+Uma arquitetura de Service Fabric comum usa um aplicativo Web de página única que faz chamadas HTTP para serviços de back-end que expõem APIs HTTP. O [aplicativo de exemplo Service Fabric introdução](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) mostra um exemplo dessa arquitetura.
 
-Neste cenário, um serviço web sem monitorização de estado serve como o gateway para a aplicação do Service Fabric. Essa abordagem exige que escreva um serviço web que pode pedidos HTTP de proxy para serviços de back-end, conforme mostrado no diagrama seguinte:
+Nesse cenário, um serviço Web sem estado serve como o gateway para o aplicativo Service Fabric. Essa abordagem exige que você grave um serviço Web que pode fazer proxy de solicitações HTTP para serviços de back-end, conforme mostrado no diagrama a seguir:
 
-![Service Fabric com a descrição geral da topologia de API Management do Azure][sf-web-app-stateless-gateway]
+![Service Fabric com visão geral da topologia de gerenciamento de API do Azure][sf-web-app-stateless-gateway]
 
-À medida que aplicações aumentam em complexidade, então, fazer os gateways que tem de apresentar uma API na frente de uma infinidade de serviços de back-end. Gestão de API do Azure foi concebido para lidar com APIs complexas com regras de encaminhamento, controlo de acesso, limitação de taxa, monitorização, registo de eventos e cache de resposta com um mínimo de trabalho da sua parte. Gestão de API do Azure suporta a deteção de serviços do Service Fabric, resolução de partições e seleção de réplica inteligentemente rotear solicitações diretamente para os serviços de back-end no Service Fabric para que não tenha de escrever seu próprio gateway de API sem monitoração de estado. 
+À medida que os aplicativos crescem em complexidade, os gateways devem apresentar uma API na frente de inúmeros serviços de back-end. O gerenciamento de API do Azure foi projetado para lidar com APIs complexas com regras de roteamento, controle de acesso, limitação de taxa, monitoramento, log de eventos e cache de resposta com o mínimo de trabalho de sua parte. O gerenciamento de API do Azure dá suporte à descoberta de serviço Service Fabric, resolução de partição e seleção de réplica para rotear solicitações de forma inteligente diretamente para serviços de back-end no Service Fabric para que você não precise escrever seu próprio gateway de API sem estado. 
 
-Neste cenário, a web interface do Usuário é ainda servido através de um serviço da web, enquanto as chamadas de API de HTTP são gerenciadas e encaminhadas através da gestão de API do Azure, conforme mostrado no diagrama seguinte:
+Nesse cenário, a interface do usuário da Web ainda é servida por meio de um serviço Web, enquanto as chamadas da API HTTP são gerenciadas e roteadas por meio do gerenciamento de API do Azure, conforme mostrado no diagrama a seguir:
 
-![Service Fabric com a descrição geral da topologia de API Management do Azure][sf-apim-web-app]
+![Service Fabric com visão geral da topologia de gerenciamento de API do Azure][sf-apim-web-app]
 
 ## <a name="application-scenarios"></a>Cenários de aplicações
 
-Serviços no Service Fabric podem ser com ou sem estado, e eles podem ser particionados utilizando um dos três esquemas: singleton, intervalo de int 64 e com nome. Resolução de ponto final de serviço requer a identificação de uma partição específica de uma instância de serviço específico. Ao resolver um ponto final de um serviço, tanto o nome de instância de serviço (por exemplo, `fabric:/myapp/myservice`), bem como a partição específica do serviço tem de ser especificada, exceto no caso da partição singleton.
+Os serviços no Service Fabric podem ser com ou sem estado e podem ser particionados usando um dos três esquemas: singleton, intervalo int-64 e nomeado. A resolução de ponto de extremidade de serviço requer a identificação de uma partição específica de uma instância de serviço específica. Ao resolver um ponto de extremidade de um serviço, o nome da instância de serviço (por `fabric:/myapp/myservice`exemplo,), bem como a partição específica do serviço, deve ser especificado, exceto no caso de partição singleton.
 
-Gestão de API do Azure pode ser utilizado com qualquer combinação de serviços sem estado, serviços com estado e qualquer esquema de particionamento.
+O gerenciamento de API do Azure pode ser usado com qualquer combinação de serviços sem estado, serviços com estado e qualquer esquema de particionamento.
 
 ## <a name="send-traffic-to-a-stateless-service"></a>Enviar tráfego para um serviço sem estado
 
-No caso mais simples, o tráfego é encaminhado para uma instância de serviço sem estado. Para conseguir isso, uma operação de gestão de API contém uma política de processamento de entrada com um back-end de Service Fabric que mapeia para uma instância de serviço sem estado específico no back-end do Service Fabric. Os pedidos enviados para esse serviço são enviados para uma réplica aleatória a instância de serviço sem estado.
+No caso mais simples, o tráfego é encaminhado para uma instância de serviço sem estado. Para fazer isso, uma operação de gerenciamento de API contém uma política de processamento de entrada com um back-end Service Fabric que mapeia para uma instância de serviço sem estado específica no back-end de Service Fabric. As solicitações enviadas para esse serviço são enviadas a uma instância aleatória do serviço.
 
 #### <a name="example"></a>Exemplo
-No cenário seguinte, uma aplicação do Service Fabric contém um serviço sem estado com o nome `fabric:/app/fooservice`, que expõe uma API HTTP interna. O nome da instância de serviço é bem conhecido e pode ser inserida diretamente na política de processamento de entrada de gestão de API. 
+No cenário a seguir, um aplicativo Service Fabric contém um serviço sem estado `fabric:/app/fooservice`chamado, que expõe uma API http interna. O nome da instância de serviço é bem conhecido e pode ser embutido em código diretamente na política de processamento de entrada do gerenciamento de API. 
 
-![Service Fabric com a descrição geral da topologia de API Management do Azure][sf-apim-static-stateless]
+![Service Fabric com visão geral da topologia de gerenciamento de API do Azure][sf-apim-static-stateless]
 
 ## <a name="send-traffic-to-a-stateful-service"></a>Enviar tráfego para um serviço com estado
 
-Assim como o cenário de serviço sem estado, o tráfego pode ser reencaminhado para uma instância de serviço com estado. Neste caso, uma operação de gestão de API contém uma política de processamento de entrada com um back-end de Service Fabric que mapeia um pedido para uma partição específica de um específico *com monitoração de estado* instância de serviço. A partição para mapear a cada pedido é calculada através de um método de lambda usando alguma entrada da solicitação HTTP recebida, como um valor no caminho do URL. A política pode ser configurada para enviar pedidos para a réplica primária apenas, ou para uma réplica aleatória para operações de leitura.
+Semelhante ao cenário de serviço sem estado, o tráfego pode ser encaminhado para uma instância de serviço com estado. Nesse caso, uma operação de gerenciamento de API contém uma política de processamento de entrada com um back-end Service Fabric que mapeia uma solicitação para uma partição específica de uma instância específica de serviço com *estado* . A partição para mapear cada solicitação é calculada por meio de um método Lambda usando alguma entrada da solicitação HTTP de entrada, como um valor no caminho da URL. A política pode ser configurada para enviar solicitações somente para a réplica primária ou para uma réplica aleatória para operações de leitura.
 
 #### <a name="example"></a>Exemplo
 
-No cenário seguinte, uma aplicação do Service Fabric contém um serviço com estado particionado com o nome `fabric:/app/userservice` que expõe uma API HTTP interna. O nome da instância de serviço é bem conhecido e pode ser inserida diretamente na política de processamento de entrada de gestão de API.  
+No cenário a seguir, um aplicativo Service Fabric contém um serviço com estado particionado `fabric:/app/userservice` chamado que expõe uma API http interna. O nome da instância de serviço é bem conhecido e pode ser embutido em código diretamente na política de processamento de entrada do gerenciamento de API.  
 
-O serviço é particionado usando o esquema de partição Int64 com duas partições e um intervalo de chaves que abranja `Int64.MinValue` para `Int64.MaxValue`. A política de back-end computa uma chave de partição dentro do intervalo ao converter o `id` valor fornecido no caminho de pedido de URL para um inteiro de 64 bits, embora qualquer algoritmo pode ser aqui utilizado para calcular a chave de partição. 
+O serviço é particionado usando o esquema de partição Int64 com duas partições e um intervalo de chaves que `Int64.MinValue` abrange `Int64.MaxValue`. A política de back-end computa uma chave de partição dentro desse intervalo, convertendo o `id` valor fornecido no caminho de solicitação de URL para um inteiro de 64 bits, embora qualquer algoritmo possa ser usado aqui para computar a chave de partição. 
 
-![Service Fabric com a descrição geral da topologia de API Management do Azure][sf-apim-static-stateful]
+![Service Fabric com visão geral da topologia de gerenciamento de API do Azure][sf-apim-static-stateful]
 
 ## <a name="send-traffic-to-multiple-stateless-services"></a>Enviar tráfego para vários serviços sem estado
 
-Em cenários mais avançados, pode definir uma operação de gestão de API que mapeia as solicitações para mais de uma instância de serviço. Neste caso, cada operação contém uma política que mapeia as solicitações para uma instância de serviço específico com base nos valores de entrada solicitação HTTP, tais como a cadeia de consulta ou de caminho de URL e, no caso de serviços com estado, uma partição dentro da instância de serviço. 
+Em cenários mais avançados, você pode definir uma operação de gerenciamento de API que mapeia solicitações para mais de uma instância de serviço. Nesse caso, cada operação contém uma política que mapeia solicitações para uma instância de serviço específica com base em valores da solicitação HTTP de entrada, como o caminho da URL ou a cadeia de caracteres de consulta, e no caso de serviços com estado, uma partição dentro da instância do serviço. 
 
-Para conseguir isso, uma operação de gestão de API contém uma política de processamento de entrada com um back-end de Service Fabric que mapeia para uma instância de serviço sem estado no back-end de Service Fabric com base nos valores obtidos da solicitação HTTP recebida. Pedidos para uma instância de serviço são enviados para uma réplica aleatória a instância de serviço.
+Para conseguir isso, uma operação de gerenciamento de API contém uma política de processamento de entrada com um back-end Service Fabric que mapeia para uma instância de serviço sem estado no Service Fabric back-end com base nos valores recuperados da solicitação HTTP de entrada. As solicitações para um serviço são enviadas para uma instância aleatória do serviço.
 
 #### <a name="example"></a>Exemplo
 
-Neste exemplo, uma nova instância de serviço sem estado é criada para cada utilizador de uma aplicação com um nome gerado dinamicamente usando a seguinte fórmula:
+Neste exemplo, uma nova instância de serviço sem estado é criada para cada usuário de um aplicativo com um nome gerado dinamicamente usando a seguinte fórmula:
  
 - `fabric:/app/users/<username>`
 
-  Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos iniciais porque os serviços são criados em resposta ao utilizador ou administrador de entrada e, portanto, não pode ser codificada em políticas APIM ou regras de encaminhamento. Em vez disso, o nome do serviço ao qual pretende enviar uma solicitação é gerado na definição de política de back-end do `name` valor fornecido no caminho de pedido do URL. Por exemplo:
+  Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos antes porque os serviços são criados em resposta à entrada do usuário ou do administrador e, portanto, não podem ser embutidos em código em políticas de APIM ou regras de roteamento. Em vez disso, o nome do serviço para o qual enviar uma solicitação é gerado na definição de política de back-end `name` a partir do valor fornecido no caminho de solicitação de URL. Por exemplo:
 
-  - Um pedido para `/api/users/foo` é encaminhado para a instância de serviço `fabric:/app/users/foo`
-  - Um pedido para `/api/users/bar` é encaminhado para a instância de serviço `fabric:/app/users/bar`
+  - Uma solicitação para `/api/users/foo` é roteada para a instância de serviço`fabric:/app/users/foo`
+  - Uma solicitação para `/api/users/bar` é roteada para a instância de serviço`fabric:/app/users/bar`
 
-![Service Fabric com a descrição geral da topologia de API Management do Azure][sf-apim-dynamic-stateless]
+![Service Fabric com visão geral da topologia de gerenciamento de API do Azure][sf-apim-dynamic-stateless]
 
 ## <a name="send-traffic-to-multiple-stateful-services"></a>Enviar tráfego para vários serviços com estado
 
-Semelhante ao exemplo de serviço sem estado, uma operação de gestão de API pode mapear os pedidos para mais do que um **com monitoração de estado** instância de serviço, caso em que também poderá ter de efetuar a resolução de partição para cada instância de serviço com estado.
+Semelhante ao exemplo de serviço sem estado, uma operação de gerenciamento de API pode mapear solicitações para mais de uma instância de serviço com **estado** ; nesse caso, você também pode precisar executar a resolução de partição para cada instância de serviço com estado.
 
-Para conseguir isso, uma operação de gestão de API contém uma política de processamento de entrada com um back-end de Service Fabric que mapeia para uma instância de serviço com estado no back-end de Service Fabric com base nos valores obtidos da solicitação HTTP recebida. Além do mapeamento um pedido para a instância de serviço específico, o pedido também pode ser mapeado para uma partição específica dentro da instância de serviço e, opcionalmente, para a réplica primária ou uma réplica secundária aleatória dentro da partição.
+Para conseguir isso, uma operação de gerenciamento de API contém uma política de processamento de entrada com um back-end Service Fabric que mapeia para uma instância de serviço com estado no Service Fabric back-end com base nos valores recuperados da solicitação HTTP de entrada. Além de mapear uma solicitação para uma instância de serviço específica, a solicitação também pode ser mapeada para uma partição específica dentro da instância de serviço e, opcionalmente, para a réplica primária ou uma réplica secundária aleatória dentro da partição.
 
 #### <a name="example"></a>Exemplo
 
-Neste exemplo, é criada uma instância de serviço com estado novo para cada usuário do aplicativo com um nome gerado dinamicamente usando a seguinte fórmula:
+Neste exemplo, uma nova instância de serviço com estado é criada para cada usuário do aplicativo com um nome gerado dinamicamente usando a seguinte fórmula:
  
 - `fabric:/app/users/<username>`
 
-  Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos iniciais porque os serviços são criados em resposta ao utilizador ou administrador de entrada e, portanto, não pode ser codificada em políticas APIM ou regras de encaminhamento. Em vez disso, o nome do serviço ao qual pretende enviar uma solicitação é gerado na definição de política de back-end do `name` valor indicado o caminho de pedido de URL. Por exemplo:
+  Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos antes porque os serviços são criados em resposta à entrada do usuário ou do administrador e, portanto, não podem ser embutidos em código em políticas de APIM ou regras de roteamento. Em vez disso, o nome do serviço para o qual enviar uma solicitação é gerado na definição de política de back-end `name` a partir do valor fornecido o caminho de solicitação de URL. Por exemplo:
 
-  - Um pedido para `/api/users/foo` é encaminhado para a instância de serviço `fabric:/app/users/foo`
-  - Um pedido para `/api/users/bar` é encaminhado para a instância de serviço `fabric:/app/users/bar`
+  - Uma solicitação para `/api/users/foo` é roteada para a instância de serviço`fabric:/app/users/foo`
+  - Uma solicitação para `/api/users/bar` é roteada para a instância de serviço`fabric:/app/users/bar`
 
-Cada instância de serviço também é particionada usando o esquema de partição Int64 com duas partições e um intervalo de chaves que abranja `Int64.MinValue` para `Int64.MaxValue`. A política de back-end computa uma chave de partição dentro do intervalo ao converter o `id` valor fornecido no caminho de pedido de URL para um inteiro de 64 bits, embora qualquer algoritmo pode ser aqui utilizado para calcular a chave de partição. 
+Cada instância de serviço também é particionada usando o esquema de partição Int64 com duas partições e um intervalo de chaves `Int64.MinValue` que `Int64.MaxValue`abrange. A política de back-end computa uma chave de partição dentro desse intervalo, convertendo o `id` valor fornecido no caminho de solicitação de URL para um inteiro de 64 bits, embora qualquer algoritmo possa ser usado aqui para computar a chave de partição. 
 
-![Service Fabric com a descrição geral da topologia de API Management do Azure][sf-apim-dynamic-stateful]
+![Service Fabric com visão geral da topologia de gerenciamento de API do Azure][sf-apim-dynamic-stateful]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Siga os [tutorial](service-fabric-tutorial-deploy-api-management.md) para configurar o seu primeiro cluster do Service Fabric com pedidos de gestão de API e o flow através da gestão de API para seus serviços.
+Siga o [tutorial](service-fabric-tutorial-deploy-api-management.md) para configurar seu primeiro cluster de Service Fabric com o gerenciamento de API e as solicitações de fluxo por meio do gerenciamento de API para seus serviços.
 
 <!-- links -->
 

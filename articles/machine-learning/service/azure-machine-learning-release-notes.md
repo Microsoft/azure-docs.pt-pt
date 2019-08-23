@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: e169d7734776f9319685d97f941b3fc11eec8298
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: 1e35baf24b59e7864982d131f44f79458e0d9015
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656250"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971498"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -89,9 +89,18 @@ Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais 
   + **azureml-widgets**
     + Gráficos de matriz de confusão aprimorados para treinamento de classificação.
 
+### <a name="azure-machine-learning-data-prep-sdk-v1112"></a>SDK v 1.1.12 do Azure Machine Learning data Prep
++ **Novos recursos**
+  + Listas de cadeias de caracteres agora podem ser passadas `read_*` como entrada para métodos.
+
++ **Correções de bugs e melhorias**
+  + O desempenho do `read_parquet` foi significativamente melhorado quando executado no Spark.
+  + Corrigido um problema em `column_type_builder` que houve falha no caso de uma única coluna com formatos de data ambíguos.
+
 ### <a name="azure-portal"></a>Portal do Azure
 + **Recurso de visualização**
   + O streaming do arquivo de log e saída agora está disponível para páginas de detalhes de execução. Os arquivos transmitirão atualizações em tempo real quando a alternância de visualização estiver ativada.
+  + A capacidade de definir a cota em um nível de espaço de trabalho é liberada na versão prévia. As cotas de AmlCompute são alocadas no nível da assinatura, mas agora podemos distribuir essa cota entre espaços de trabalho e alocá-la para compartilhamento e governança justas. Basta clicar na folha **usos + cotas** na barra de navegação à esquerda do espaço de trabalho e selecionar a guia **configurar cotas** . Observe que você deve ser um administrador de assinatura para poder definir cotas no nível do espaço de trabalho, pois essa é uma operação entre espaços de trabalho.
 
 ## <a name="2019-08-05"></a>2019-08-05
 
@@ -1002,6 +1011,6 @@ A [versão 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) inclui os se
 Uma nova versão atualizada do Azure Machine Learning: Leia mais sobre esta versão: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia a visão geral do [serviço de Azure Machine Learning](../service/overview-what-is-azure-ml.md).

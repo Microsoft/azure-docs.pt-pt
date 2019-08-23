@@ -4,19 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 43f9d82ca2b6db55fe5c125b63da6c199e7cf24c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: b342838c41ad72609cf9917b345ef0f72b352f2e
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968749"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907140"
 ---
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
-Este início rápido requer:
-
-* [Node 8.12.x ou posterior](https://nodejs.org/en/)
-* Uma chave de subscrição do Azure para Tradução de Texto
+[!INCLUDE [Setup and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos exigidos
 
@@ -32,23 +29,23 @@ const uuidv4 = require('uuid/v4');
 
 Estes módulos são obrigatórios para construir o pedido HTTP e criar um identificador exclusivo para o cabeçalho `'X-ClientTraceId'`.
 
-## <a name="set-the-subscription-key"></a>Definir a chave de subscrição
+## <a name="set-the-subscription-key-and-endpoint"></a>Definir a chave de assinatura e o ponto de extremidade
 
-Este código irá tentar ler a chave de subscrição de Tradução de Texto a partir da variável de ambiente `TRANSLATOR_TEXT_KEY`. Se não estiver familiarizado com variáveis de ambiente, pode definir `subscriptionKey` como cadeia e comentar a instrução condicional.
+Este exemplo tentará ler sua chave de assinatura tradução de texto e o ponto de extremidade dessas variáveis `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` de `TRANSLATOR_TEXT_ENDPOINT`ambiente: e. Se você não estiver familiarizado com as variáveis de ambiente, poderá `subscriptionKey` definir `endpoint` e como cadeias de caracteres e comentar as instruções condicionais.
 
 Copie este código para o seu projeto:
 
 ```javascript
-/* Checks to see if the subscription key is available
-as an environment variable. If you are setting your subscription key as a
-string, then comment these lines out.
-
-If you want to set your subscription key as a string, replace the value for
-the Ocp-Apim-Subscription-Key header as a string. */
-const subscriptionKey = process.env.TRANSLATOR_TEXT_KEY;
-if (!subscriptionKey) {
-  throw new Error('Environment variable for your subscription key is not set.')
-};
+var key_var = 'TRANSLATOR_TEXT_SUBSCRIPTION_KEY';
+if (!process.env[key_var]) {
+    throw new Error('Please set/export the following environment variable: ' + key_var);
+}
+var subscriptionKey = process.env[key_var];
+var endpoint_var = 'TRANSLATOR_TEXT_ENDPOINT';
+if (!process.env[endpoint_var]) {
+    throw new Error('Please set/export the following environment variable: ' + endpoint_var);
+}
+var endpoint = process.env[endpoint_var];
 ```
 
 ## <a name="configure-the-request"></a>Configurar o pedido
@@ -61,7 +58,7 @@ O método `request()`, disponibilizado através do módulo de pedido, permite-no
 ```javascript
 let options = {
     method: 'POST',
-    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    baseUrl: endpoint,
     url: 'detect',
     qs: {
       'api-version': '3.0',

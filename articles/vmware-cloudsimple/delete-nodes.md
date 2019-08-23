@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9dbe1751ac77f370991af75ea161247c21700ff2
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 122e0636f54e066ae86ed2d19cefe5863b026293
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886991"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972823"
 ---
-# <a name="delete-nodes-from-vmware-solution-by-cloudsimple---azure"></a>Excluir nós da solução VMware por CloudSimple-Azure
+# <a name="delete-nodes-from-azure-vmware-solution-by-cloudsimple"></a>Excluir nós da solução do Azure VMware por CloudSimple
 
-Os nós CloudSimple são medidos assim que são criados.  Os nós devem ser excluídos para interromper a medição dos nós.  Você exclui os nós que não são usados no portal do Azure. 
+Os nós CloudSimple são medidos assim que são criados.  Os nós devem ser excluídos para interromper a medição dos nós.  Você exclui os nós que não são usados no portal do Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -25,7 +25,6 @@ Um nó só pode ser excluído sob as seguintes condições:
 
 * Uma nuvem privada criada com os nós é excluída.  Para excluir uma nuvem privada, consulte [excluir uma solução do Azure VMware por nuvem privada CloudSimple](delete-private-cloud.md).
 * O nó foi removido da nuvem privada por meio da redução da nuvem privada.  Para reduzir uma nuvem privada, consulte [reduzir a solução do Azure VMware pela nuvem privada CloudSimple](shrink-private-cloud.md).
-
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

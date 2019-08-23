@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7cf87c3a146f51666a2c24c7cd0d6e9425159225
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: ad321dfa3db69c89b8da080673cb3bab02e4af66
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228934"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905235"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior do migrações para Azure
 
@@ -244,8 +244,7 @@ Para instalar o agente em um computador Linux:
 
 ### <a name="install-the-mma-agent-on-a-machine-monitored-by-operations-manager"></a>Instalar o agente do MMA em um computador monitorado pelo Operations Manager
 
-Para computadores monitorados pelo System Center Operations Manager 2012 R2 ou posterior, não é necessário instalar o agente MMA. Mapa do Serviço integra-se com o Operations Manager MMA para coletar os dados de dependência necessários. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). O agente de dependência precisa ser instalado.
-
+Para máquinas monitorizadas pelo System Center Operations Manager 2012 R2 ou posterior, não é preciso instalar o agente MMA. Mapa do Serviço integra-se com o Operations Manager MMA para coletar os dados de dependência necessários. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). O agente de dependência precisa ser instalado.
 
 ### <a name="install-the-dependency-agent"></a>Instalar o agente de Dependência
 
@@ -254,15 +253,17 @@ Para computadores monitorados pelo System Center Operations Manager 2012 R2 ou p
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- Saiba mais sobre o suporte do agente de dependência para os sistemas operacionais [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) e [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) .
-- [Saiba mais](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) sobre como você pode usar scripts para instalar o Dependency Agent.
+- Saiba mais sobre o [suporte do agente de dependência](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) para os sistemas operacionais Windows e Linux.
+- [Saiba mais](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) sobre como você pode usar scripts para instalar o Dependency Agent.
 
+>[!NOTE]
+> O artigo Azure Monitor para VMs referenciado para fornecer uma visão geral dos pré-requisitos e métodos do sistema para implantar o agente de dependência também se aplica à solução de Mapa do Serviço.
 
 ### <a name="create-a-group-with-dependency-mapping"></a>Criar um grupo com mapeamento de dependência
 
 1. Depois de instalar os agentes, acesse o portal e clique em **gerenciar** > **computadores**.
 2. Pesquise o computador onde você instalou os agentes.
-3. A  coluna dependências para o computador agora deve ser mostrada como **Exibir dependências**. Clique na coluna para exibir as dependências do computador.
+3. A coluna dependências para o computador agora deve ser mostrada como **Exibir dependências**. Clique na coluna para exibir as dependências do computador.
 4. O mapa de dependências da máquina mostra os seguintes detalhes:
     - Conexões TCP de entrada (clientes) e saída (servidores) para/do computador
         - Os computadores dependentes que não têm o MMA e o agente de dependência instalados são agrupados por números de porta.
@@ -339,5 +340,5 @@ VMConnection
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais sobre](migrate-services-overview.md) a versão mais recente das migrações para Azure.

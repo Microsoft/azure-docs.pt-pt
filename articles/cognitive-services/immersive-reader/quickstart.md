@@ -1,6 +1,6 @@
 ---
 title: 'Início rápido: Criar um aplicativo Web que inicia o leitor de imersão comC#'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você cria um aplicativo Web do zero e adiciona a funcionalidade da API do leitor de imersão.
 services: cognitive-services
 author: metanMSFT
@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 0d67385975db13539c28745eede4fb288a0daedd
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ed49f834cb7cd4f649d84aea9e549e212771eead
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989148"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899354"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Início rápido: Criar um aplicativo Web que inicia o leitor de imersãoC#()
 
@@ -221,7 +221,7 @@ Ao clicar no botão "leitor de imersão", você verá o leitor de imersão inici
 
 ![Leitura Avançada](./media/quickstart-immersive-reader.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Veja o [tutorial do node. js](./tutorial-nodejs.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando node. js
 * Veja o [tutorial do Python](./tutorial-python.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando o Python

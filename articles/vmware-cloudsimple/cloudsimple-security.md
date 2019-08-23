@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f7afd3d4b03c55c6cd9878b7d22106eee371ba99
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 1a33e20ec540a05885eb13a3828d28ffc9923fff
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877911"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972844"
 ---
 # <a name="cloudsimple-security-overview"></a>Visão geral da segurança do CloudSimple
 
@@ -81,7 +81,7 @@ O serviço CloudSimple tem redes de camada 2 separadas logicamente que restringe
 
 O CloudSimple é responsável pela aplicação de patch de segurança periódica do software VMware gerenciado (ESXi, vCenter e NSX).
 
-## <a name="identity-and-access-management"></a>Gestão de Identidades e Acessos
+## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 Os clientes podem se autenticar em sua conta do Azure (no Azure AD) usando a autenticação multifator ou SSO como preferencial. No portal do Azure, você pode iniciar o portal do CloudSimple sem reinserir as credenciais.
 

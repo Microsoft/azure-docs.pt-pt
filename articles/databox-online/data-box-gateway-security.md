@@ -1,73 +1,73 @@
 ---
-title: Segurança de Gateway de caixa de dados do Azure | Documentos da Microsoft
-description: Descreve as funcionalidades de segurança e privacidade que protegem o seu dispositivo virtual de Gateway de caixa de dados do Azure, serviço e dados, no local e na cloud.
+title: Segurança do Gateway do Azure Data Box | Microsoft Docs
+description: Descreve os recursos de segurança e privacidade que protegem seu Gateway do Azure Data Box dispositivo virtual, serviço e dados, no local e na nuvem.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 230d1a28ba15a8736e46c02cb08217a28fc18599
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89f981fcda8f40daff49ebdf796b896d90ce1754
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695192"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900604"
 ---
-# <a name="azure-data-box-gateway-security-and-data-protection"></a>Proteção do Azure de segurança e os dados de Gateway de caixa de dados
+# <a name="azure-data-box-gateway-security-and-data-protection"></a>Gateway do Azure Data Box segurança e proteção de dados
 
-A segurança é uma preocupação importante quando estiver adotando uma nova tecnologia, especialmente se a tecnologia é utilizada com dados confidenciais ou proprietários. O Azure Gateway de caixa de dados ajuda a garantir que apenas autorizados entidades pode ver, modificar ou eliminar os seus dados.
+A segurança é uma preocupação importante quando você está adotando uma nova tecnologia, especialmente se a tecnologia for usada com dados confidenciais ou proprietários. Gateway do Azure Data Box ajuda a garantir que apenas entidades autorizadas possam exibir, modificar ou excluir seus dados.
 
-Este artigo descreve os recursos de segurança do Gateway de caixa de dados do Azure que ajudam a proteger todos os componentes da solução e os dados armazenados nas mesmas.
+Este artigo descreve os Gateway do Azure Data Box recursos de segurança que ajudam a proteger cada um dos componentes da solução e os dados armazenados neles.
 
-A solução de Gateway de caixa de dados consiste em quatro componentes principais que interagem entre si:
+A solução Gateway do Data Box consiste em quatro componentes principais que interagem entre si:
 
-- **Serviço de Gateway de caixa de dados, alojado no Azure**. O recurso de gestão que utiliza para criar a ordem de dispositivo, configurar o dispositivo e, em seguida, controlar a ordem até à conclusão.
-- **Dispositivo de Gateway de caixa de dados**. O dispositivo virtual que provisionar o hipervisor do sistema fornecidas por si. Este dispositivo virtual é utilizado para importar os dados no local para o Azure.
-- **Os clientes/anfitriões ligados ao dispositivo**. Os clientes na sua infraestrutura de que se ligam ao dispositivo de Gateway de caixa de dados e contêm dados que precisam ser protegido.
-- **Armazenamento na nuvem**. A localização na plataforma cloud do Azure, onde os dados são armazenados. Esta localização é, normalmente, a conta de armazenamento ligada para o recurso de Gateway de caixa de dados que criar.
+- **Gateway do data box serviço, hospedado no Azure**. O recurso de gerenciamento que você usa para criar a ordem do dispositivo, configurar o dispositivo e acompanhar o pedido até a conclusão.
+- **Gateway do data Box dispositivo**. O dispositivo virtual que você provisiona no hipervisor do sistema que você fornece. Esse dispositivo virtual é usado para importar seus dados locais para o Azure.
+- **Clientes/hosts conectados ao dispositivo**. Os clientes em sua infraestrutura que se conectam ao dispositivo de Gateway do Data Box e contêm dados que precisam ser protegidos.
+- **Armazenamento em nuvem**. O local na plataforma de nuvem do Azure onde os dados são armazenados. Normalmente, esse local é a conta de armazenamento vinculada ao recurso de Gateway do Data Box que você cria.
 
 
-## <a name="data-box-gateway-service-protection"></a>Proteção de serviço de Gateway de caixa de dados
+## <a name="data-box-gateway-service-protection"></a>Proteção de serviço do Gateway do Data Box
 
-O serviço de Gateway de caixa de dados é um serviço de gestão que está alojado no Azure. O serviço é utilizado para configurar e gerir o dispositivo.
+O serviço de Gateway do Data Box é um serviço de gerenciamento hospedado no Azure. O serviço é usado para configurar e gerenciar o dispositivo.
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-service-protection.md)]
+[!INCLUDE [data-box-edge-gateway-service-protection](../../includes/data-box-edge-gateway-service-protection.md)]
 
-## <a name="data-box-gateway-device-protection"></a>Proteção de dispositivos de Gateway de caixa de dados
+## <a name="data-box-gateway-device-protection"></a>Proteção de dispositivo Gateway do Data Box
 
-O dispositivo de Gateway de caixa de dados é um dispositivo virtual que está aprovisionado no hipervisor de um sistema no local que indicar. O dispositivo ajuda a enviar dados para o Azure. O dispositivo:
+O dispositivo de Gateway do Data Box é um dispositivo virtual provisionado no hipervisor de um sistema local que você fornece. O dispositivo ajuda a enviar dados para o Azure. Seu dispositivo:
 
-- Precisa de uma chave de ativação para aceder ao serviço de Gateway de caixa de Edge/dados de caixa de dados.
-- É protegida sempre por uma palavra-passe do dispositivo.
+- Precisa de uma chave de ativação para acessar o serviço de Data Box Edge/Gateway do Data Box.
+- O é protegido sempre por uma senha de dispositivo.
 <!---  secure boot enabled.
 - Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies.-->
 
-### <a name="protect-the-device-via-activation-key"></a>Proteger o dispositivo através de chave de ativação
+### <a name="protect-the-device-via-activation-key"></a>Proteger o dispositivo por meio da chave de ativação
 
-Apenas um dispositivo de Gateway de caixa de dados autorizado tem permissão para associar o serviço de Gateway de caixa de dados que criou na sua subscrição do Azure. Para autorizar um dispositivo, terá de utilizar uma chave de ativação para ativar o dispositivo com o serviço de Gateway de caixa de dados.
+Somente um dispositivo Gateway do Data Box autorizado tem permissão para ingressar no serviço de Gateway do Data Box que você cria em sua assinatura do Azure. Para autorizar um dispositivo, você precisa usar uma chave de ativação para ativar o dispositivo com o serviço de Gateway do Data Box.
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-activation-key.md)]
+[!INCLUDE [data-box-edge-gateway-activation-key](../../includes/data-box-edge-gateway-activation-key.md)]
 
 Para obter mais informações, consulte [obter uma chave de ativação](data-box-gateway-deploy-prep.md#get-the-activation-key).
 
-### <a name="protect-the-device-via-password"></a>Proteger o dispositivo através de palavra-passe
+### <a name="protect-the-device-via-password"></a>Proteger o dispositivo por meio de senha
 
-As palavras-passe Certifique-se de que apenas os utilizadores autorizados podem aceder aos seus dados. Dados caixa Gateway dispositivos arranque no estado bloqueado.
+As senhas garantem que somente usuários autorizados possam acessar seus dados. Gateway do Data Box dispositivos inicializam em um estado bloqueado.
 
 Pode:
 
-- Ligar à IU do dispositivo através de um browser da web local e, em seguida, forneça uma palavra-passe para iniciar sessão no dispositivo.
-- Ligar remotamente a interface do PowerShell do dispositivo através de HTTP. Gestão remota está ativada por predefinição. Em seguida, pode fornecer a palavra-passe do dispositivo para iniciar sessão no dispositivo. Para obter mais informações, consulte [ligar remotamente ao seu dispositivo de Gateway de caixa de dados](data-box-gateway-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Conecte-se à interface do usuário da Web local do dispositivo por meio de um navegador e forneça uma senha para entrar no dispositivo.
+- Conectar-se remotamente à interface do PowerShell do dispositivo por HTTP. O gerenciamento remoto é ativado por padrão. Em seguida, você pode fornecer a senha do dispositivo para entrar no dispositivo. Para obter mais informações, consulte [conectar-se remotamente ao dispositivo gateway do data Box](data-box-gateway-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-password-best-practices.md)]
-- Utilização da interface do Usuário para o local da web [alterar a palavra-passe](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Se alterar a palavra-passe, certifique-se de que todos os utilizadores de acesso remoto de notificar para que não tenham problemas ao iniciar sessão.
+[!INCLUDE [data-box-edge-gateway-password-best-practices](../../includes/data-box-edge-gateway-password-best-practices.md)]
+- Use a interface do usuário da Web local para [alterar a senha](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Se você alterar a senha, lembre-se de notificar todos os usuários de acesso remoto para que eles não tenham problemas de entrada.
 
 
 ## <a name="protect-your-data"></a>Proteja os seus dados
 
-Esta secção descreve os recursos de segurança do Gateway de caixa de dados que protegem os dados em trânsito e armazenados.
+Esta seção descreve os Gateway do Data Box recursos de segurança que protegem dados armazenados e em trânsito.
 
 ### <a name="protect-data-at-rest"></a>Proteger dados em repouso
 
@@ -75,23 +75,23 @@ Esta secção descreve os recursos de segurança do Gateway de caixa de dados qu
 
 ### <a name="protect-data-in-flight"></a>Proteger dados em trânsito
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-data-flight.md)]
+[!INCLUDE [data-box-edge-gateway-data-flight](../../includes/data-box-edge-gateway-data-flight.md)]
 
-### <a name="protect-data-via-storage-accounts"></a>Proteger dados através de contas de armazenamento
+### <a name="protect-data-via-storage-accounts"></a>Proteger dados por meio de contas de armazenamento
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
-- Rodar e, em seguida [sincronizar as chaves de conta de armazenamento](data-box-gateway-manage-shares.md#sync-storage-keys) regularmente para ajudar a proteger a sua conta de armazenamento contra utilizadores não autorizados.
+[!INCLUDE [data-box-edge-gateway-data-storage-accounts](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
+- Gire e [sincronize suas chaves de conta de armazenamento](data-box-gateway-manage-shares.md#sync-storage-keys) regularmente para ajudar a proteger sua conta de armazenamento de usuários não autorizados.
 
-## <a name="manage-personal-information"></a>Gerir informações pessoais
+## <a name="manage-personal-information"></a>Gerenciar informações pessoais
 
-O serviço de Gateway de caixa de dados recolhe as informações pessoais nos seguintes cenários:
+O serviço de Gateway do Data Box coleta informações pessoais nos seguintes cenários:
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-manage-personal-data.md)]
+[!INCLUDE [data-box-edge-gateway-manage-personal-data](../../includes/data-box-edge-gateway-manage-personal-data.md)]
 
-Para ver a lista de utilizadores que podem aceder ou eliminar uma partilha, siga os passos em [gerir partilhas no Gateway de caixa de dados](data-box-gateway-manage-shares.md).
+Para exibir a lista de usuários que podem acessar ou excluir um compartilhamento, siga as etapas em [gerenciar compartilhamentos no gateway do data Box](data-box-gateway-manage-shares.md).
 
-Para obter mais informações, reveja a política de privacidade da Microsoft na [Centro de fidedignidade](https://www.microsoft.com/trustcenter).
+Para obter mais informações, examine a política de privacidade da Microsoft na [central de confiabilidade](https://www.microsoft.com/trustcenter).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Implementar o dispositivo de Gateway de caixa de dados](data-box-gateway-deploy-prep.md)
+[Implantar o dispositivo Gateway do Data Box](data-box-gateway-deploy-prep.md)

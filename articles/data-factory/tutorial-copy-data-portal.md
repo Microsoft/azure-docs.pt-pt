@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 5174b46bae5bbcc18f5a2575fb68cce1305507a3
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a1a97e7521e9772b1d13049d42e67d7ac318fffc
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826703"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907367"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de blobs do Azure para a base de dados SQL com o Azure Data Factory
 Neste tutorial, vai criar uma fábrica de dados com a interface de utilizador (IU) do Azure Data Factory. O pipeline nesta fábrica de dados copia os dados do Armazenamento de blobs do Azure para uma base de dados SQL. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista dos arquivos de dados suportados como origens e sinks, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -117,7 +117,7 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 
 1. Na caixa de ferramentas **atividades** , expanda a categoria **mover e transformar** e arraste e solte a atividade **copiar dados** da caixa de ferramentas para a superfície do designer de pipeline. Especifique **CopyFromBlobToSql** em **Nome**.
 
-    ![Copiar atividade](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
+    ![Atividade Copiar](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
 
 ### <a name="configure-source"></a>Configurar origem
 
@@ -172,6 +172,9 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 1. Vá para o separador com o pipeline e, em **Conjunto de Dados Sink**, confirme que **OutputSqlDataset** está selecionado.
 
     ![Separador do pipeline](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
+
+Opcionalmente, você pode mapear o esquema da origem para o esquema correspondente de destino, seguindo o [mapeamento de esquema na atividade de cópia](copy-activity-schema-and-type-mapping.md)
+    
 ## <a name="validate-the-pipeline"></a>Validar o pipeline
 Para validar o pipeline, selecione **Validar** na barra de ferramentas.
  

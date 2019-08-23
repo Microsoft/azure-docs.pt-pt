@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1ce71665a924c6681af418075d8cc635c73f8a1a
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 3dc20036ead29c62d47b4a628d7ce8101b9d31f4
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717680"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972511"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
@@ -25,9 +25,30 @@ Se você tiver sugestões para Site Recovery recursos, adoraríamos [ouvir seus 
 
 [Leia este artigo](service-updates-how-to.md) para obter site Recovery suporte e instruções de atualização.
 
+## <a name="updates-august-2019"></a>Atualizações (agosto de 2019)
+
+### <a name="update-rollup-39"></a>Pacote cumulativo de atualizações 39
+
+O [pacote cumulativo](https://support.microsoft.com/help/4517283/update-rollup-39-for-azure-site-recovery) de atualizações 39 fornece as seguintes atualizações.
+
+**Atualização** | **Detalhes**
+--- | ---
+**Fornecedores e agentes** | Atualizações para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
+**Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
+
+
+### <a name="azure-vm-disaster-recovery"></a>Recuperação de desastre da VM do Azure
+
+Os novos recursos para a recuperação de desastres de VM do Azure são resumidos na tabela.
+
+**Funcionalidade** | **Detalhes**
+--- | ---
+**Criptografia sem o Azure AD** | A criptografia sem um aplicativo do Azure AD agora tem suporte para replicação de VM do Azure para discos gerenciados que executam o Windows.
+**Recursos de rede para failover** | Ao fazer failover para outra região, agora você pode anexar as configurações de recurso de rede (NSGs, balanceamento de carga, endereço IP público) a uma VM. 
+
 ## <a name="updates-july-2019"></a>Atualizações (julho de 2019)
 
-### <a name="update-rollup-38"></a>Pacote cumulativo de atualizações 38
+### <a name="update-rollup-38"></a>Update rollup 38
 
 O [pacote cumulativo](https://support.microsoft.com/help/4513507/) de atualizações 38 fornece as seguintes atualizações.
 
@@ -339,6 +360,6 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Mantenha-se atualizado com nossas atualizações na página [atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery) .

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 08/14/2019
-ms.openlocfilehash: 6a29d1e001d4c647d5b975b7e746eced29962ee4
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 08/22/2019
+ms.openlocfilehash: 481419a5db6efd600d74851238cd1a12d8766186
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637252"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972536"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra baseado em vCore
 
@@ -301,7 +301,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está em ver
 |Latência de e/s (aproximada)|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|2400|3200|4000|8000|
 |Sessões simultâneas máx.|30000|30000|30000|30000|30000|30000|30000|30000|
-|Número de réplicas|2|2|2|2|2|2|2|2|
+|Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/A|N/D|N/D|N/D|N/D|N/D|N/D|N/A|
 |Expansão de leitura|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de backup incluído |7|7|7|7|7|7|7|7|
@@ -311,7 +311,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está em ver
 
 O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPS efetivo dependerá da carga de trabalho.
 
-### <a name="next-steps"></a>Passos Seguintes
+### <a name="next-steps"></a>Passos seguintes
 
 - Para os limites de recursos de DTU para um único banco de dados, consulte [limites de recursos para bancos de dados individuais usando o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-single-databases.md)
 - Para limites de recursos vCore para pools elásticos, consulte [limites de recursos para pools elásticos usando o modelo de compra baseado em vCore](sql-database-vcore-resource-limits-elastic-pools.md)

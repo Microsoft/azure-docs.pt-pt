@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.openlocfilehash: 928a85c9d03148198fe3e965636740812ce732f7
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.date: 08/21/2019
+ms.openlocfilehash: 0884120c15b2e48566d1889400197e316bac9021
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976276"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907449"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Ler réplicas no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -120,9 +120,25 @@ Você pode interromper a replicação entre um mestre e uma réplica. A ação d
 > O servidor autônomo não pode ser tornado novamente em uma réplica.
 > Antes de interromper a replicação em uma réplica de leitura, verifique se a réplica tem todos os dados necessários.
 
-Quando você interrompe a replicação, a réplica perde todos os links para o mestre anterior e outras réplicas. Não há nenhum failover automatizado entre um mestre e uma réplica. 
+Quando você interrompe a replicação, a réplica perde todos os links para o mestre anterior e outras réplicas.
 
 Saiba como [interromper a replicação em uma réplica](howto-read-replicas-portal.md).
+
+## <a name="fail-over"></a>Efetuar a ativação pós-falha
+Não há nenhum failover automatizado entre servidores mestre e de réplica. 
+
+Como a replicação é assíncrona, há um atraso entre o mestre e a réplica. A quantidade de latência depende de quão pesada a carga de trabalho em execução no servidor mestre é. Na maioria dos casos, a latência de réplica varia entre alguns segundos e alguns minutos. Você pode acompanhar o retardo de replicação real usando o *retardo de réplica*de métrica, que está disponível para cada réplica. Essa métrica mostra o tempo desde a última transação reproduzida. É recomendável que você identifique o que é o retardo médio, observando o atraso da réplica em um período de tempo. Você pode definir um alerta na latência de réplica, de modo que, se ele ficar fora do intervalo esperado, você poderá executar uma ação.
+
+> [!Tip]
+> Se você fizer failover para a réplica, o retardo no momento em que você desvincular a réplica do mestre indicará a quantidade de dados perdidos.
+
+Depois que você decidir que deseja fazer failover para uma réplica, 
+
+1. Parar a replicação na réplica esta etapa é necessária para tornar o servidor de réplica capaz de aceitar gravações. Como parte desse processo, o servidor de réplica será reiniciado e será desvinculado do mestre. Depois que você inicia a interrupção da replicação, o processo de back-end normalmente leva cerca de 2 minutos para ser concluído. Saiba mais sobre como [parar a replicação](#stop-replication).
+    
+2. Aponte seu aplicativo para a réplica (antiga) cada servidor tem uma cadeia de conexão exclusiva. Atualize seu aplicativo para apontar para a réplica (antiga) em vez do mestre.
+    
+Depois que o aplicativo processar leituras e gravações com êxito, você terá concluído o failover. A quantidade de tempo de inatividade com a qual suas experiências de aplicativo dependerão quando você detectar um problema e concluir as etapas 1 e 2 acima.
 
 
 ## <a name="considerations"></a>Considerações
@@ -136,17 +152,17 @@ Antes de criar uma réplica de leitura, `azure.replication_support` o parâmetro
 Uma réplica de leitura é criada como um novo servidor de banco de dados do Azure para PostgreSQL. Não é possível estabelecer um servidor existente em uma réplica. Você não pode criar uma réplica de outra réplica de leitura.
 
 ### <a name="replica-configuration"></a>Configuração de réplica
-Uma réplica é criada usando a mesma configuração de servidor que o mestre. Depois que uma réplica é criada, várias configurações podem ser alteradas independentemente do servidor mestre: geração de computação, vCores, armazenamento e período de retenção de backup. O tipo de preço também pode ser alterado de forma independente, exceto para ou da camada básica.
+Uma réplica é criada usando as mesmas configurações de computação e armazenamento que o mestre. Depois que uma réplica é criada, várias configurações podem ser alteradas independentemente do servidor mestre: geração de computação, vCores, armazenamento e período de retenção de backup. O tipo de preço também pode ser alterado de forma independente, exceto para ou da camada básica.
 
 > [!IMPORTANT]
-> Antes que uma configuração de servidor mestre seja atualizada para novos valores, atualize a configuração de réplica para valores iguais ou maiores. Essa ação garante que a réplica possa acompanhar as alterações feitas no mestre.
+> Antes que uma configuração mestre seja atualizada para um novo valor, atualize a configuração de réplica para um valor igual ou maior. Essa ação garante que a réplica possa acompanhar as alterações feitas no mestre.
 
 PostgreSQL requer que o valor do `max_connections` parâmetro na réplica de leitura seja maior ou igual ao valor mestre; caso contrário, a réplica não será iniciada. No banco de dados do Azure para `max_connections` PostgreSQL, o valor do parâmetro é baseado na SKU. Para obter mais informações, consulte [limites no banco de dados do Azure para PostgreSQL](concepts-limits.md). 
 
 Se você tentar atualizar os valores do servidor, mas não atender aos limites, você receberá um erro.
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
-[PostgreSQL requer](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) que o valor do `max_prepared_transactions` parâmetro na réplica de leitura seja maior ou igual ao valor mestre; caso contrário, a réplica não será iniciada. Se você quiser alterar `max_prepared_transactions` o mestre, primeiro altere-o nas réplicas.
+[PostgreSQL requer](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) que o valor do `max_prepared_transactions` parâmetro na réplica de leitura seja maior ou igual ao valor mestre; caso contrário, a réplica não será iniciada. Se você quiser alterar `max_prepared_transactions` o mestre, primeiro altere-o nas réplicas.
 
 ### <a name="stopped-replicas"></a>Réplicas interrompidas
 Se você parar a replicação entre um servidor mestre e uma réplica de leitura, a réplica será reiniciada para aplicar a alteração. A réplica parada torna-se um servidor autônomo que aceita leituras e gravações. O servidor autônomo não pode ser tornado novamente em uma réplica.
@@ -154,5 +170,6 @@ Se você parar a replicação entre um servidor mestre e uma réplica de leitura
 ### <a name="deleted-master-and-standalone-servers"></a>Servidores mestre e autônomo excluídos
 Quando um servidor mestre é excluído, todas as suas réplicas de leitura se tornam servidores autônomos. As réplicas são reiniciadas para refletir essa alteração.
 
-## <a name="next-steps"></a>Passos Seguintes
-Saiba como [criar e gerenciar réplicas de leitura no portal do Azure](howto-read-replicas-portal.md).
+## <a name="next-steps"></a>Passos seguintes
+* Saiba como [criar e gerenciar réplicas de leitura no portal do Azure](howto-read-replicas-portal.md).
+* Saiba como [criar e gerenciar réplicas de leitura no CLI do Azure](howto-read-replicas-cli.md).

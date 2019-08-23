@@ -7,14 +7,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 570429a2d5332e7d951271b36b79d9d16df174c0
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: b0345773956a0adc5c7f403195c496a3ea5e6fd6
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535213"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982332"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Serviços Cognitivos e aprendizagem automática
 
@@ -65,7 +65,7 @@ Em geral, as audiências são diferentes:
 
 Um serviço cognitiva fornece um modelo treinado para você. Isso traz dados e um algoritmo juntos, disponíveis de uma API REST ou SDK. Você pode implementar esse serviço em minutos, dependendo do seu cenário.  Um serviço cognitiva fornece respostas a problemas gerais, como frases-chave na identificação de texto ou item em imagens. 
 
-O Machine Learning é um processo que geralmente requer um período de tempo maior para ser implementado com êxito. Esse tempo é gasto na coleta de dados, limpeza, transformação, seleção de algoritmo, treinamento de modelo e implantação para chegar ao mesmo nível de funcionalidade fornecido por um serviço cognitiva. Com o Machine Learning, é possível fornecer respostas para qualquer tipo de problema, incluindo problemas altamente especializados ou específicos. Esses problemas de aprendizado de máquina exigem familiaridade com um ou mais dos seguintes itens: assunto, Machine Learning, ciência de dados.
+O Machine Learning é um processo que geralmente requer um período de tempo maior para ser implementado com êxito. Esse tempo é gasto na coleta de dados, limpeza, transformação, seleção de algoritmo, treinamento de modelo e implantação para chegar ao mesmo nível de funcionalidade fornecido por um serviço cognitiva. Com o Machine Learning, é possível fornecer respostas para problemas altamente especializados e/ou específicos. Os problemas de aprendizado de máquina exigem familiaridade com o assunto específico e os dados do problema em questão, bem como experiência em ciência de dados.
 
 ## <a name="what-kind-of-data-do-you-have"></a>Que tipo de dados você tem?
 
@@ -131,7 +131,7 @@ Serviços cognitivas que fornecem modelos exportados para outras ferramentas de 
 |--|--|
 |[Visão Personalizada](./custom-vision-service/home.md)|[Exportar](./Custom-Vision-Service/export-model-python.md) para Tensorflow para Android, do coreml para IOS11, ONNX para Windows ml|
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 * [Guia de arquitetura – quais são os produtos de Machine Learning da Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Machine Learning-introdução ao aprendizado profundo versus aprendizado de máquina](../machine-learning/service/concept-deep-learning-vs-machine-learning.md)

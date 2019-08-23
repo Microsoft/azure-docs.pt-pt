@@ -1,100 +1,100 @@
 ---
-title: Monitorizar o servidor de processos do Azure Site Recovery
-description: Este artigo descreve como monitorizar o servidor de processos do Azure Site Recovery.
+title: Monitorar o servidor de processo de Azure Site Recovery
+description: Este artigo descreve como monitorar Azure Site Recovery servidor de processo.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 4ff52e737438210296b8f2201d5e66e1d38b7bc9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d746385a034fdf742b8958b3d1fe51ea2a3c5cf
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418278"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972183"
 ---
-# <a name="monitor-the-process-server"></a>Monitorizar o servidor de processos
+# <a name="monitor-the-process-server"></a>Monitorar o servidor de processo
 
-Este artigo descreve como monitorizar o [recuperação de Site](site-recovery-overview.md) servidor de processos.
+Este artigo descreve como monitorar o [site Recovery](site-recovery-overview.md) servidor de processo.
 
-- O servidor de processos é utilizado quando configurou a recuperação após desastre de VMs de VMware no local e servidores físicos para o Azure.
-- Por predefinição, o servidor de processos é executado no servidor de configuração. Ele é instalado por padrão quando implantar o servidor de configuração.
-- Opcionalmente, para dimensionamento e o identificador de grandes quantidades de máquinas replicadas e mais altos volumes de tráfego de replicação, pode implementar servidores de processos adicionais, de escalamento horizontal.
+- O servidor de processo é usado quando você configura a recuperação de desastre de VMs VMware locais e servidores físicos para o Azure.
+- Por padrão, o servidor de processo é executado no servidor de configuração. Ele é instalado por padrão quando você implanta o servidor de configuração.
+- Opcionalmente, para dimensionar e lidar com números maiores de máquinas replicadas e volumes maiores de tráfego de replicação, você pode implantar servidores de processo adicionais e de expansão.
 
-[Saiba mais](vmware-physical-azure-config-process-server-overview.md) sobre a função e a implementação de servidores de processos.
+[Saiba mais](vmware-physical-azure-config-process-server-overview.md) sobre a função e a implantação de servidores de processo.
 
 ## <a name="monitoring-overview"></a>Descrição geral da monitorização
 
-Uma vez que o servidor de processos tem muitas funções, especialmente em dados replicados de colocação em cache, compressão e a transferência para o Azure, é importante monitorizar o estado de funcionamento de servidor de processos de forma contínua.
+Como o servidor de processo tem tantas funções, especialmente em cache de dados replicados, compactação e transferência para o Azure, é importante monitorar a integridade do servidor de processo em uma base contínua.
 
-Existem diversas situações que normalmente afetam o desempenho do servidor de processo. Problemas que afetam o desempenho serão de ter um impacto em cascata no estado de funcionamento VM, eventualmente, enviar por push o servidor de processos e respetivas máquinas replicadas para um estado crítico. Situações incluem:
+Há várias situações que geralmente afetam o desempenho do servidor de processo. Problemas que afetam o desempenho terão um efeito em cascata na integridade da VM, por fim enviando o servidor de processo e seus computadores replicados para um estado crítico. As situações incluem:
 
-- Elevado número de VMs, utilize um servidor de processos, a aproximar-se as ou superando limitações recomendadas.
-- VMs com o servidor de processos tem uma elevada taxa de alteração.
-- Débito de rede entre VMs e o servidor de processos não é suficiente para carregar dados de replicação para o servidor de processos.
-- Débito de rede entre o servidor de processos e o Azure não é suficiente para carregar dados de replicação do servidor de processos para o Azure.
+- Números altos de VMs usam um servidor de processo, aproximando ou excedendo as limitações recomendadas.
+- As VMs que usam o servidor de processo têm uma alta taxa de rotatividade.
+- A taxa de transferência de rede entre VMs e o servidor de processo não é suficiente para carregar dados de replicação no servidor de processo.
+- A taxa de transferência de rede entre o servidor de processo e o Azure não é suficiente para carregar dados de replicação do servidor de processo para o Azure.
 
-Todos esses problemas podem afetar o objetivo de ponto de recuperação (RPO) de VMs. 
+Todos esses problemas podem afetar o RPO (objetivo de ponto de recuperação) das VMs. 
 
-**Por quê?** Uma vez que a geração de um ponto de recuperação para uma VM requer que todos os discos na VM para ter um ponto comum. Se um disco com uma elevada taxa de alteração, a replicação está lenta ou, o servidor de processos não é ideal, elas impactam a eficiência do desempenho são criados pontos de recuperação.
+**Por?** Como a geração de um ponto de recuperação para uma VM exige que todos os discos na VM tenham um ponto comum. Se um disco tem uma alta taxa de rotatividade, a replicação é lenta ou o servidor de processo não é ideal, ele afeta a forma com que os pontos de recuperação são criados.
 
 ## <a name="monitor-proactively"></a>Monitorizar proativamente
 
-Para evitar problemas com o servidor de processos, é importante:
+Para evitar problemas com o servidor de processo, é importante:
 
-- Compreender os requisitos específicos para os servidores de processos usando [capacidade e a documentação de orientação de dimensionamento](site-recovery-plan-capacity-vmware.md#capacity-considerations)e certifique-se de servidores de processos são implementados e em execução, de acordo com as recomendações.
-- Monitorizar alertas e resolução de problemas à medida que ocorrem, para manter os servidores de processos em execução com eficiência.
+- Entenda os requisitos específicos para servidores de processo usando [diretrizes de capacidade e dimensionamento](site-recovery-plan-capacity-vmware.md#capacity-considerations)e verifique se os servidores de processo estão implantados e em execução de acordo com as recomendações.
+- Monitore alertas e solucione problemas à medida que eles ocorrem, para manter os servidores de processo em execução com eficiência.
 
 
-## <a name="process-server-alerts"></a>Alertas do servidor de processos
+## <a name="process-server-alerts"></a>Alertas do servidor de processo
 
-O servidor de processos gera um número de alertas de estado de funcionamento, resumidos na tabela seguinte.
+O servidor de processo gera vários alertas de integridade, resumidos na tabela a seguir.
 
 **Tipo de alerta** | **Detalhes**
 --- | ---
-![Bom estado de funcionamento][green] | Servidor de processos está ligado e bom estado de funcionamento.
-![Aviso][yellow] | Utilização da CPU > 80% para os últimos 15 minutos
-![Aviso][yellow] | Utilização de memória > 80% para os últimos 15 minutos
-![Aviso][yellow] | Pasta de cache de espaço livre < 30% nos últimos 15 minutos
-![Aviso][yellow] | Não estão a executar serviços do servidor de processos nos últimos 15 minutos
-![Crítico][red] | Utilização da CPU > 95% para os últimos 15 minutos
-![Crítico][red] | Memória utilização > 95% para os últimos 15 minutos
-![Crítico][red] | Pasta de cache de espaço livre < 25% para os últimos 15 minutos
-![Crítico][red] | Nenhum heartbeat do servidor de processos para 15 minutos.
+![Bom estado de funcionamento][green] | O servidor de processo está conectado e íntegro.
+![Aviso][yellow] | Utilização da CPU > 80% nos últimos 15 minutos
+![Aviso][yellow] | Uso de memória > 80% nos últimos 15 minutos
+![Aviso][yellow] | Espaço livre na pasta de cache < 30% nos últimos 15 minutos
+![Aviso][yellow] | Os serviços do servidor de processo não estão em execução nos últimos 15 minutos
+![Crítico][red] | Utilização da CPU > 95% nos últimos 15 minutos
+![Crítico][red] | Uso de memória > 95% nos últimos 15 minutos
+![Crítico][red] | Espaço livre na pasta de cache < 25% nos últimos 15 minutos
+![Crítico][red] | Nenhuma pulsação do servidor de processo por 15 minutos.
 
-![chave da tabela](./media/vmware-physical-azure-monitor-process-server/table-key.png)
+![Chave de tabela](./media/vmware-physical-azure-monitor-process-server/table-key.png)
 
 > [!NOTE]
-> O estado de funcionamento geral do servidor de processos baseia-se a pior alerta gerado.
+> O status de integridade geral do servidor de processo é baseado no pior alerta gerado.
 
 
 
-## <a name="monitor-process-server-health"></a>Estado de funcionamento de servidor de processos de monitor
+## <a name="monitor-process-server-health"></a>Monitorar a integridade do servidor de processo
 
-Pode monitorizar o estado de funcionamento dos seus servidores de processo da seguinte forma: 
+Você pode monitorar o estado de integridade de seus servidores de processo da seguinte maneira: 
 
-1. Para monitorizar o estado de funcionamento de replicação e o estado de uma máquina replicada e do seu servidor de processos, no cofre > **itens replicados**, clique na máquina que pretende monitorizar.
-2. Na **estado de funcionamento da replicação**, pode monitorizar o estado de funcionamento da VM. Clique no estado para desagregar para obter detalhes de erro.
+1. Para monitorar a integridade e o status da replicação de um computador replicado e de seu servidor de processo, no cofre > **itens replicados**, clique no computador que você deseja monitorar.
+2. Em **integridade da replicação**, você pode monitorar o status de integridade da VM. Clique no status para detalhar os detalhes do erro.
 
-    ![Estado de funcionamento de servidor de processos no dashboard VM](./media/vmware-physical-azure-monitor-process-server/vm-ps-health.png)
+    ![Integridade do servidor de processo no painel da VM](./media/vmware-physical-azure-monitor-process-server/vm-ps-health.png)
 
-4. Na **estado de funcionamento de servidor de processos**, pode monitorizar o estado do servidor de processos. Desagregar para obter detalhes.
+4. Em **processo integridade do servidor**, você pode monitorar o status do servidor de processo. Faça uma busca detalhada para obter detalhes.
 
-    ![Detalhes do servidor de processo no dashboard VM](./media/vmware-physical-azure-monitor-process-server/ps-summary.png)
+    ![Detalhes do servidor de processo no painel da VM](./media/vmware-physical-azure-monitor-process-server/ps-summary.png)
 
-5. Estado de funcionamento também pode ser monitorizado com a representação gráfica na página de VM.
-    - Um servidor de processos de escalamento horizontal irá ser destacado na cor de laranja se existirem avisos associados a ele e vermelho, se tiver quaisquer problemas críticos. 
-    - Se o servidor de processos está em execução na implementação predefinida no servidor de configuração, em seguida, o servidor de configuração será realçado em conformidade.
-    - Para fazer uma busca detalhada, clique no servidor de configuração ou no servidor de processo. Tenha em atenção de todos os problemas e quaisquer recomendações de correção.
+5. A integridade também pode ser monitorada usando a representação gráfica na página da VM.
+    - Um servidor de processo de escalabilidade horizontal será realçado em laranja se houver avisos associados a ele e vermelho se ele tiver problemas críticos. 
+    - Se o servidor de processo estiver sendo executado na implantação padrão no servidor de configuração, o servidor de configuração será realçado adequadamente.
+    - Para fazer uma busca detalhada, clique no servidor de configuração ou no servidor de processo. Observe quaisquer problemas e quaisquer recomendações de correção.
 
-Também pode monitorizar processar servidores no cofre sob **infraestrutura do Site Recovery**. Na **gerir a infraestrutura do Site Recovery**, clique em **servidores de configuração**. Selecione o servidor de configuração associado com o servidor de processos e exploração de para baixo em detalhes do servidor de processo.
+Você também pode monitorar servidores de processo no cofre em **infraestrutura de site Recovery**. Em **gerenciar sua infraestrutura de site Recovery**, clique em **servidores de configuração**. Selecione o servidor de configuração associado ao servidor de processo e faça uma busca detalhada nos detalhes do servidor de processo.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Se tiver algum processar problemas de servidores, siga os nossos [orientações de resolução de problemas](vmware-physical-azure-troubleshoot-process-server.md)
-- Se precisar de mais ajuda, publique sua pergunta no [fórum do Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
+- Se você tiver problemas de servidores de processo, siga nossas [diretrizes de solução de problemas](vmware-physical-azure-troubleshoot-process-server.md)
+- Se precisar de mais ajuda, poste sua pergunta no [Fórum de Azure site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
 
 [green]: ./media/vmware-physical-azure-monitor-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-monitor-process-server/yellow.png

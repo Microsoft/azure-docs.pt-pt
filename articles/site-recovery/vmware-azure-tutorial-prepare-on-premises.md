@@ -6,19 +6,19 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7a61edc01a87be8996b4d7dd5093f9d3554e6585
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 315d4daf7155bc33235507f39b5cce8869db5aa6
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417765"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972162"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware no local para a recuperação após desastre para o Azure
 
-Este artigo descreve como preparar servidores VMware no local para a recuperação após desastre para o Azure com o [do Azure Site Recovery](site-recovery-overview.md) serviços. 
+Este artigo descreve como preparar servidores VMware locais para recuperação de desastres no Azure usando os serviços de [Azure site Recovery](site-recovery-overview.md) . 
 
 Este artigo é o segundo tutorial de uma série que lhe mostra como configurar a recuperação após desastre no Azure para VMs do VMware no local. No primeiro tutorial, [configurámos os componentes do Azure](tutorial-prepare-azure.md) necessários para a recuperação após desastre do VMware.
 
@@ -26,17 +26,17 @@ Este artigo é o segundo tutorial de uma série que lhe mostra como configurar a
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Prepare uma conta no vCenter server ou vSphere ESXi no anfitrião, para automatizar a deteção de VMS.
-> * Prepare uma conta para a instalação automática do serviço de mobilidade em VMs de VMware.
-> * Reveja o servidor VMware e os requisitos de VM e suporte.
-> * Prepare-se a ligação para as VMs do Azure após a ativação pós-falha.
+> * Prepare uma conta no servidor vCenter ou no host ESXi vSphere para automatizar a descoberta de VM.
+> * Prepare uma conta para a instalação automática do serviço de mobilidade em VMs VMware.
+> * Examine os requisitos e o suporte do servidor VMware e da VM.
+> * Prepare-se para se conectar às VMs do Azure após o failover.
 
 > [!NOTE]
-> Tutoriais mostram-lhe o caminho de implantação mais simples para um cenário. Utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. Para obter instruções detalhadas, consulte o artigo na seção como a do Site Recovery sumário.
+> Os tutoriais mostram o caminho de implantação mais simples para um cenário. Utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. Para obter instruções detalhadas, examine o artigo na seção como do Sumário de Site Recovery.
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Certifique-se de que já preparou a Azure conforme descrito no [primeiro tutorial nesta série](tutorial-prepare-azure.md).
+Verifique se você preparou o Azure conforme descrito no [primeiro tutorial desta série](tutorial-prepare-azure.md).
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Preparar uma conta para a deteção automática
 
@@ -69,7 +69,7 @@ Prepare a conta da seguinte forma:
 
 Prepare um domínio ou uma conta local com permissões para instalar na VM.
 
-- **VMs do Windows**: Para instalar em VMs do Windows se não estiver a utilizar uma conta de domínio, desative o controlo de acesso de utilizador remoto na máquina local. Para fazer isto, no registo > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy**, com um valor de 1.
+- **VMs do Windows**: Para instalar o em VMs do Windows, se você não estiver usando uma conta de domínio, desabilite o controle de acesso de usuário remoto no computador local. Para fazer isto, no registo > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy**, com um valor de 1.
 - **VMs do Linux**: Para instalar em VMs do Linux, prepare uma conta raiz no servidor Linux de origem.
 
 
@@ -82,7 +82,7 @@ Certifique-se de que os servidores do VMware e as VM cumprem os requisitos.
 3. Verifique a [rede](vmware-physical-azure-support-matrix.md#network) local e o suporte de [armazenamento](vmware-physical-azure-support-matrix.md#storage). 
 4. Verifique o que é suportado para [redes do Azure](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [armazenamento](vmware-physical-azure-support-matrix.md#azure-storage), e [computação](vmware-physical-azure-support-matrix.md#azure-compute), após a ativação pós-falha.
 5. As suas VM no local que replica para o Azure devem estar em conformidade com os [requisitos de VM do Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
-6. Em máquinas virtuais do Linux, nome do dispositivo ou nome do ponto de montagem deve ser exclusivo. Certifique-se de que não existem dois pontos de montagem/dispositivos têm os mesmos nomes. Tenha em atenção que o nome não diferencia maiúsculas de minúsculas. Por exemplo, dois dispositivos de nomenclatura para a mesma VM como _device1_ e _Device1_ não é permitida.
+6. Em máquinas virtuais Linux, o nome do dispositivo ou o nome do ponto de montagem deve ser exclusivo. Verifique se não há dois dispositivos/pontos de montagem com os mesmos nomes. Observe que o nome não diferencia maiúsculas de minúsculas. Por exemplo, nomear dois dispositivos para a mesma VM como _Device1_ e _Device1_ não é permitido.
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar a ligação para VMs do Azure após a ativação pós-falha
@@ -96,7 +96,7 @@ Para ligar às VMs do Windows via RDP após a ativação pós-falha, faça o seg
     - Antes da ativação pós-falha, ative o protocolo RDP no computador local.
     - O protocolo RDP deve estar permitido em **Firewall do Windows** -> **Aplicações e funcionalidades permitidas** para redes de **Domínio e Privadas**.
     - Verifique se a política de SAN do sistema operativo está definida como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).
-- Não devem haver atualizações do Windows pendentes na VM quando aciona uma ativação pós-falha. Se existirem, não será possível iniciar sessão na máquina virtual enquanto a atualização for concluída.
+- Não devem haver atualizações do Windows pendentes na VM quando aciona uma ativação pós-falha. Se houver, você não poderá entrar na máquina virtual até que a atualização seja concluída.
 - Na VM do Azure do Windows após a ativação pós-falha, consulte o **Diagnóstico de arranque**  para ver uma captura de ecrã da VM. Se não conseguir ligar-se, verifique se a VM está em execução e reveja estas [sugestões de resolução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 Para ligar às VMs do Linux via SSH após a ativação pós-falha, faça o seguinte:
@@ -109,13 +109,13 @@ Para ligar às VMs do Linux via SSH após a ativação pós-falha, faça o segui
 
 
 ## <a name="failback-requirements"></a>Requisitos de reativação pós-falha
-Se planear para a reativação pós-falha seu site no local, existem diversas [pré-requisitos para a reativação pós-falha](vmware-azure-reprotect.md##before-you-begin). Pode preparar estes agora, mas não precisa. Pode preparar depois de efetuar a ativação pós-falha para o Azure.
+Se você planeja fazer failback para o site local, há vários [pré-requisitos para o failback](vmware-azure-reprotect.md##before-you-begin). Você pode prepará-los agora, mas não precisa. Você pode se preparar depois de fazer failover para o Azure.
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Configure a recuperação de desastres. Se estiver a replicar várias VMs, planear a capacidade.
+Configure a recuperação de desastre. Se você estiver replicando várias VMs, planeje a capacidade.
 > [!div class="nextstepaction"]
-> [Configurar a recuperação após desastre para o Azure das VMs VMware](vmware-azure-tutorial.md)
-> [efetuar o planeamento de capacidade](site-recovery-deployment-planner.md).
+> [Configurar a recuperação de desastres para o Azure para VMs](vmware-azure-tutorial.md)
+> do VMware[executar o planejamento de capacidade](site-recovery-deployment-planner.md).

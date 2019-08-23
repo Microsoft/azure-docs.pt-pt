@@ -3,19 +3,19 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 06/19/2019
+ms.date: 07/31/2019
 ms.author: mathoma
-ms.openlocfilehash: ffa48d55703347883edf96a0a27ee52d19189976
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d19e21edd31be461ba30e8985e80c4651bbbb02d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935021"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69894146"
 ---
-Nesta etapa, você criará seu grupo de recursos e um banco de dados SQL do Azure.
+Nesta etapa, você criará um banco de dados individual do banco de dados SQL do Azure. 
 
 > [!IMPORTANT]
-> Certifique-se de configurar as regras de firewall para usar o endereço IP público do computador no qual você está executando as etapas neste artigo. 
+> Certifique-se de configurar as regras de firewall para usar o endereço IP público do computador que você está usando para concluir este artigo.
 >
 > Para obter informações, consulte [criar uma regra de firewall no nível de banco de dados](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) ou para determinar o endereço IP usado para a regra de firewall no nível de servidor para seu computador, consulte [criar um firewall de nível de servidor](../sql-database-server-level-firewall-rule.md).  
 
@@ -23,10 +23,11 @@ Nesta etapa, você criará seu grupo de recursos e um banco de dados SQL do Azur
 
 Crie seu grupo de recursos e um banco de dados individual usando o portal do Azure.
 
-1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
-2. Selecione **bancos** de dados e, em seguida, selecione **SQL Database** para abrir a página **criar banco de dados SQL** .
+1. Selecione **SQL do Azure** no menu à esquerda da portal do Azure. Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite *SQL do Azure* na caixa de pesquisa.
+2. Selecione **+ Adicionar** para abrir a página **selecionar opção de implantação do SQL** . Você pode exibir informações adicionais sobre os bancos de dados diferentes selecionando **Mostrar detalhes** no bloco **bancos de dados** .
+3. Selecione **criar**:
 
-   ![Criar base de dados individual](../media/sql-database-get-started-portal/create-database-1.png)
+   ![Criar base de dados individual](../media/sql-database-get-started-portal/create-single-database.png)
 
 3. Na guia **noções básicas** , na seção **detalhes do projeto** , digite ou selecione os seguintes valores:
 

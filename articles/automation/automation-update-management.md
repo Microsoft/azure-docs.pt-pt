@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 393c66f57cd4a7621ad660774a95502c0f5ad8c4
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: b9fcf06caf2abf116a2f2b99f26ead6277f7ad50
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534721"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970553"
 ---
 # <a name="update-management-solution-in-azure"></a>Gerenciamento de Atualizações solução no Azure
 
@@ -76,7 +76,7 @@ A tabela a seguir mostra uma lista de sistemas operacionais com suporte:
 |Sistema operativo  |Notas  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Dá suporte apenas a avaliações de atualização.         |
-|Windows Server 2008 R2 SP1 e posterior.  |O .NET Framework 4.5.1 ou posterior é necessário. ([Baixar .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> O Windows PowerShell 4,0 ou posterior é necessário. ([Baixe o WMF 4,0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> O Windows PowerShell 5,1 é recomendado para maior confiabilidade.  ([Baixe o WMF 5,1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2019 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2016 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2012 R2 (datacenter/padrão)<br><br>Windows Server 2008 R2 (RTM e SP1 Standard)|O .NET Framework 4.5.1 ou posterior é necessário. ([Baixar .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> O Windows PowerShell 4,0 ou posterior é necessário. ([Baixe o WMF 4,0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> O Windows PowerShell 5,1 é recomendado para maior confiabilidade.  ([Baixe o WMF 5,1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização. A aplicação de patches baseada em classificação requer ' yum ' para retornar dados de segurança que o CentOS não está pronto para uso. Para obter mais informações sobre aplicação de patch com base em classificação no CentOS, consulte [Atualizar classificações no Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
@@ -371,7 +371,7 @@ Os endereços a seguir são necessários especificamente para Gerenciamento de A
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |*.azure-automation.net|*.azure-automation.us|
 
-Para computadores Windows, você também deve permitir o tráfego para qualquer ponto de extremidade exigido pelo Windows Update.  Você pode encontrar uma lista atualizada de endoints necessários em [problemas relacionados ao http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se você tiver um [servidor de Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)local, também deverá permitir o tráfego para o servidor especificado em sua [chave do WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+Para computadores Windows, você também deve permitir o tráfego para qualquer ponto de extremidade exigido pelo Windows Update.  Você pode encontrar uma lista atualizada de pontos de extremidade necessários em [problemas relacionados ao http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se você tiver um [servidor de Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)local, também deverá permitir o tráfego para o servidor especificado em sua [chave do WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
 Para computadores Red Hat Linux, consulte [os IPs para os servidores de distribuição de conteúdo RHUI para os](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) pontos de extremidade necessários. Para outras distribuições do Linux, consulte a documentação do provedor.
 

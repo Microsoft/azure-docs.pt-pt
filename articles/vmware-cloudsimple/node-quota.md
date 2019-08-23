@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5da91f37d197e9d427343a09d0376076c356e92d
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 12fecfc3a20d91b9324e1662f3f937340b7ff5c4
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877824"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972458"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>Limites de cota do nó CloudSimple
 
@@ -38,7 +38,7 @@ Você também pode entrar em contato com seu [azurevmwaresales@microsoft.com](ma
 * SKU do nó
 * Número de nós adicionais para os quais você está solicitando o aumento de cota
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Nós de compra](create-nodes.md)
 * [Visão geral dos nós do CloudSimple](cloudsimple-node.md)

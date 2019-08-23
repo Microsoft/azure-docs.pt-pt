@@ -1,23 +1,23 @@
 ---
-title: Arquitetura para a recuperação de desastres do servidor VMware/físico para um site secundário com o Azure Site Recovery | Documentos da Microsoft
-description: Este artigo fornece uma visão geral dos componentes e da arquitetura utilizada durante a recuperação após desastre de VMs de VMware no local ou servidores físicos do Windows/Linux para um site de VMware secundário com o Azure Site Recovery.
+title: Arquitetura para recuperação de desastre do VMware/servidor físico em um site secundário com Azure Site Recovery | Microsoft Docs
+description: Este artigo fornece uma visão geral dos componentes e da arquitetura usados durante a recuperação de desastres de VMs VMware locais ou de servidores físicos Windows/Linux em um site VMware secundário com Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 171a88045531f1fdc01d7046ef0ad8157859d28c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c00e26e6c12835db96c192400c3fe8652534dd4
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418262"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972118"
 ---
-# <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Arquitetura de replicação de servidor do VMware/físico para um site secundário no local
+# <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Arquitetura para replicação de servidor VMware/físico para um site local secundário
 
-Este artigo descreve a arquitetura e os processos utilizados quando configurar a replicação de recuperação após desastre, ativação pós-falha e recuperação de máquinas de virtuais de VMware no local (VMs) ou servidores físicos do Windows/Linux para uma secundária através de site de VMware [Azure Recuperação de sites](site-recovery-overview.md).
+Este artigo descreve a arquitetura e os processos usados ao configurar a recuperação de desastres, o failover e a recuperação de VMs (máquinas virtuais) VMware locais ou de servidores físicos do Windows/Linux em um site secundário do VMware usando o [Azure site Recovery ](site-recovery-overview.md).
 
 
 ## <a name="architectural-components"></a>Componentes da arquitetura
@@ -38,12 +38,12 @@ Este artigo descreve a arquitetura e os processos utilizados quando configurar a
 2. Após a replicação inicial, o agente em cada máquina envia alterações de replicação delta para o servidor de processos.
 3. O servidor de processos otimiza os dados e transfere-o para o servidor de destino principal no site secundário. O servidor de configuração gere o processo de replicação.
 
-**Figura 6: VMware para replicação de VMware**
+**Figura 6: Replicação do VMware para o VMware**
 
 ![VMware para VMware](./media/site-recovery-components/vmware-to-vmware.png)
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Configurar](vmware-physical-secondary-disaster-recovery.md) recuperação após desastre de VMs de VMware e servidores físicos para um site secundário.
+[Configure](vmware-physical-secondary-disaster-recovery.md) a recuperação de desastre de VMs VMware e servidores físicos para um site secundário.

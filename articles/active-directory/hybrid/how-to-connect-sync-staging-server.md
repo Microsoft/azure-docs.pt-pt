@@ -1,6 +1,6 @@
 ---
-title: 'Sincronização do Azure AD Connect: Considerações e tarefas operacionais | Documentos da Microsoft'
-description: Este tópico descreve as tarefas operacionais para a sincronização do Azure AD Connect e para se preparar para o funcionamento deste componente.
+title: 'Sincronização de Azure AD Connect: Considerações e tarefas operacionais | Microsoft Docs'
+description: Este tópico descreve as tarefas operacionais para Azure AD Connect sincronização e como preparar para operar esse componente.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,117 +16,117 @@ ms.date: 02/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60381591"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900064"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Testar o servidor e a recuperação após desastre
-Com um servidor no modo de teste, pode efetuar alterações à configuração e visualizar as alterações antes de tornar o servidor Active Directory. Ele também permite a execução de importação completa e uma sincronização completa para verificar que todas as alterações esperadas antes de efetuar estas alterações no seu ambiente de produção.
+Com um servidor no modo de preparo, você pode fazer alterações na configuração e visualizar as alterações antes de tornar o servidor ativo. Ele também permite que você execute a importação completa e a sincronização completa para verificar se todas as alterações são esperadas antes de fazer essas alterações em seu ambiente de produção.
 
 ## <a name="staging-mode"></a>Modo de teste
-O modo de teste pode ser utilizado para vários cenários, incluindo:
+O modo de preparo pode ser usado para vários cenários, incluindo:
 
 * Elevada disponibilidade.
-* Testar e implementar novas alterações de configuração.
-* Introduzir um novo servidor e desativar o antigo.
+* Testar e implantar novas alterações de configuração.
+* Introduza um novo servidor e encerre o antigo.
 
-Durante a instalação, pode selecionar o servidor estar no **modo de teste**. Esta ação torna o servidor Active Directory para importação e sincronização, mas não executa quaisquer exportações. Um servidor no modo de teste não está em execução a sincronização de palavra-passe ou a repetição de escrita de palavra-passe, mesmo se tiver selecionado esses recursos durante a instalação. Quando desativar o modo de teste, o servidor inicia a exportar, permite a sincronização de palavra-passe e permite que a repetição de escrita de palavra-passe.
+Durante a instalação, você pode selecionar o servidor no **modo de preparo**. Essa ação torna o servidor ativo para importação e sincronização, mas não executa nenhuma exportação. Um servidor no modo de preparo não está executando A sincronização de senha ou o Write-back de senha, mesmo que você tenha selecionado esses recursos durante a instalação. Quando você desabilita o modo de preparo, o servidor inicia a exportação, habilita a sincronização de senha e habilita o Write-back de senha.
 
 > [!NOTE]
-> Suponha que tem um Azure AD Connect com a funcionalidade de sincronização de Hash de palavra-passe ativada. Quando ativa o modo de teste, o pára de servidor muda de sincronização de palavra-passe do AD no local. Quando desativar o modo de teste, o servidor retoma a sincronização de alterações de palavra-passe de onde pela última vez parou. Se o servidor ficar no modo de teste por um longo período de tempo, pode demorar algum tempo para o servidor sincronizar todas as alterações de palavra-passe que tiveram ocorrido durante o período de tempo.
+> Suponha que você tenha uma Azure AD Connect com o recurso de sincronização de hash de senha habilitado. Quando você habilita o modo de preparo, o servidor para de sincronizar as alterações de senha do AD local. Quando você desabilita o modo de preparo, o servidor retoma a sincronização de alterações de senha de onde ela foi deixada pela última vez. Se o servidor for deixado no modo de preparo por um longo período, pode levar algum tempo para que o servidor sincronize todas as alterações de senha que ocorreram durante o período de tempo.
 >
 >
 
-Ainda pode forçar uma exportação ao utilizar o synchronization service manager.
+Você ainda pode forçar uma exportação usando o Synchronization Service Manager.
 
-Um servidor no modo de teste continua a receber as alterações do Active Directory e o Azure AD. Tem sempre uma cópia das alterações mais recentes e pode fazer de muito rápida sobre as responsabilidades de outro servidor. Se efetuar alterações de configuração para o servidor primário, é sua responsabilidade assegurar as mesmas alterações para o servidor no modo de teste.
+Um servidor no modo de preparo continua a receber alterações do Active Directory e do Azure AD e pode assumir rapidamente as responsabilidades de outro servidor em caso de falha. Se você fizer alterações de configuração em seu servidor primário, será sua responsabilidade fazer as mesmas alterações no servidor no modo de preparo.
 
-Para aqueles que com conhecimento das tecnologias de sincronização mais antigos, o modo de teste é diferente, uma vez que o servidor tem sua própria base de dados SQL. Esta arquitetura permite no servidor do modo de preparação estar localizados num datacenter diferente.
+Para aqueles com conhecimento das tecnologias de sincronização mais antigas, o modo de preparo é diferente, uma vez que o servidor tem seu próprio banco de dados SQL. Essa arquitetura permite que o servidor de modo de preparo esteja localizado em um datacenter diferente.
 
 ### <a name="verify-the-configuration-of-a-server"></a>Verificar a configuração de um servidor
-Para aplicar este método, siga estes passos:
+Para aplicar esse método, siga estas etapas:
 
-1. [Preparar](#prepare)
+1. [Deixar](#prepare)
 2. [Configuração](#configuration)
 3. [Importar e sincronizar](#import-and-synchronize)
-4. [Certifique-se](#verify)
-5. [Servidor de Active Directory do comutador](#switch-active-server)
+4. [Confirme](#verify)
+5. [Alternar servidor ativo](#switch-active-server)
 
-#### <a name="prepare"></a>Preparação
-1. Instalar o Azure AD Connect, selecione **modo de teste**e anule a seleção **Iniciar sincronização** na última página no Assistente de instalação. Este modo permite-lhe executar manualmente o motor de sincronização.
+#### <a name="prepare"></a>Preparar
+1. Instale Azure AD Connect, selecione o **modo de preparo**e desmarque **Iniciar sincronização** na última página do assistente de instalação. Esse modo permite que você execute o mecanismo de sincronização manualmente.
    ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
-2. Início de sessão desativado/início de sessão no e a partir de menu Iniciar, selecione **serviço de sincronização**.
+2. Desconecte/entre e, no menu Iniciar, selecione **serviço de sincronização**.
 
 #### <a name="configuration"></a>Configuração
-Se fez alterações personalizadas para o servidor primário e deseja comparar a configuração com o servidor de preparação, em seguida, utilize [documenter de configuração do Azure AD Connect](https://github.com/Microsoft/AADConnectConfigDocumenter).
+Se você tiver feito alterações personalizadas no servidor primário e quiser comparar a configuração com o servidor de preparo, use Azure AD Connect o Documentador de [configuração](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
 #### <a name="import-and-synchronize"></a>Importar e sincronizar
-1. Selecione **conectores**e selecione o primeiro conector com o tipo **serviços de domínio do Active Directory**. Clique em **execute**, selecione **importação completa**, e **OK**. Efetue estes passos para todos os conectores deste tipo.
-2. Seleccione o conector com o tipo **do Azure Active Directory (Microsoft)** . Clique em **execute**, selecione **importação completa**, e **OK**.
-3. Certifique-se de que o separador conectores ainda está selecionado. Para cada conector com o tipo **serviços de domínio do Active Directory**, clique em **execute**, selecione **sincronização Delta**, e **OK**.
-4. Seleccione o conector com o tipo **do Azure Active Directory (Microsoft)** . Clique em **execute**, selecione **sincronização Delta**, e **OK**.
+1. Selecione **conectores**e selecione o primeiro conector com o tipo **Active Directory Domain Services**. Clique em **executar**, selecione **importação completa**e **OK**. Siga estas etapas para todos os conectores desse tipo.
+2. Selecione o conector com o tipo **Azure Active Directory (Microsoft)** . Clique em **executar**, selecione **importação completa**e **OK**.
+3. Verifique se a guia conectores ainda está selecionada. Para cada conector com o tipo **Active Directory Domain Services**, clique em **executar**, selecione **sincronização Delta**e **OK**.
+4. Selecione o conector com o tipo **Azure Active Directory (Microsoft)** . Clique em **executar**, selecione **sincronização Delta**e **OK**.
 
-Agora tem testado exportação muda para o Azure AD e AD no local (se estiver a utilizar a implementação híbrida do Exchange). Os passos seguintes permitem-lhe inspecionar o que está prestes a mudar antes de começar, na verdade, a exportação para os diretórios.
+Agora você preparou a exportação de alterações para o Azure AD e o AD local (se você estiver usando a implantação híbrida do Exchange). As próximas etapas permitem que você inspecione o que está prestes a ser alterado antes de realmente iniciar a exportação para os diretórios.
 
 #### <a name="verify"></a>Verificar
-1. Iniciar um prompt de comando e vá para `%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Execução: `csexport "Name of Connector" %temp%\export.xml /f:x` O nome do conector pode ser encontrado no serviço de sincronização. Ele tem um nome semelhante a "contoso.com – AAD" para o Azure AD.
-3. Execução: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Possui um arquivo em % temp % com o nome export.csv que pode ser examinada no Microsoft Excel. Esse arquivo contém todas as alterações que estão prestes a ser exportado.
-4. Faça as alterações necessárias para a configuração ou de dados e executar estes passos novamente (importar e sincronizar e certifique-se) até que a espera-se que as alterações que estão prestes a ser exportado.
+1. Inicie um prompt cmd e vá para`%ProgramFiles%\Microsoft Azure AD Sync\bin`
+2. Execução: `csexport "Name of Connector" %temp%\export.xml /f:x`O nome do conector pode ser encontrado no serviço de sincronização. Ele tem um nome semelhante a "contoso.com – AAD" para o Azure AD.
+3. Execução: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`Você tem um arquivo em% temp% chamado Export. csv que pode ser examinado no Microsoft Excel. Esse arquivo contém todas as alterações que estão prestes a ser exportadas.
+4. Faça as alterações necessárias nos dados ou na configuração e execute essas etapas novamente (importar e sincronizar e verificar) até que as alterações que estão prestes a ser exportadas sejam esperadas.
 
-**Noções básicas sobre o ficheiro de export.csv** maioria do ficheiro é auto-explicativa. Alguns abreviações para compreender o conteúdo:
-* OMODT – tipo de modificação do objeto. Indica se a operação ao nível do objeto é um Add, Update ou Delete.
-* AMODT – tipo de modificação de atributo. Indica se a operação num nível de atributo é um Add, Update ou delete.
+**Noções básicas sobre o arquivo Export. csv** A maior parte do arquivo é auto-explicativa. Algumas abreviações para entender o conteúdo:
+* OMODT – tipo de modificação de objeto. Indica se a operação em um nível de objeto é uma adição, atualização ou exclusão.
+* AMODT – tipo de modificação de atributo. Indica se a operação em um nível de atributo é uma adição, atualização ou exclusão.
 
-**Obter identificadores comuns** o ficheiro de export.csv contém todas as alterações que estão prestes a ser exportado. Cada linha corresponde a uma alteração para um objeto no espaço conector e o objeto é identificado pelo atributo DN. O atributo de DN é um identificador exclusivo atribuído a um objeto no espaço conector. Quando tiver muitas linhas/alterações na export.csv para analisar, poderá ser difícil para descobrir que objetos que as alterações são para baseado no atributo DN sozinho. Para simplificar o processo de analisar as alterações, utilize o csanalyzer.ps1 script do PowerShell. O script obtém identificadores comuns (por exemplo, displayName, userPrincipalName) dos objetos. Para utilizar o script:
-1. Copie o script do PowerShell da secção [CSAnalyzer](#appendix-csanalyzer) num ficheiro denominado `csanalyzer.ps1`.
-2. Abra uma janela do PowerShell e navegue até à pasta onde criou o script do PowerShell.
-3. Run: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
-4. Agora tem um ficheiro denominado **processedusers1.csv** que pode ser examinada no Microsoft Excel. Tenha em atenção que o ficheiro fornece um mapeamento do atributo do DN para identificadores comuns (por exemplo, displayName e userPrincipalName). Atualmente não inclui as alterações de atributo real que estão prestes a ser exportado.
+**Recuperar identificadores comuns** O arquivo Export. csv contém todas as alterações que estão prestes a ser exportadas. Cada linha corresponde a uma alteração de um objeto no espaço do conector e o objeto é identificado pelo atributo DN. O atributo DN é um identificador exclusivo atribuído a um objeto no espaço do conector. Quando você tem muitas linhas/alterações no export. csv para analisar, pode ser difícil descobrir para quais objetos as alterações se baseiam apenas no atributo DN. Para simplificar o processo de análise das alterações, use o script do PowerShell csanalyzer. ps1. O script recupera identificadores comuns (por exemplo, displayName, userPrincipalName) dos objetos. Para usar o script:
+1. Copie o script do PowerShell da seção [CSAnalyzer](#appendix-csanalyzer) para um arquivo chamado `csanalyzer.ps1`.
+2. Abra uma janela do PowerShell e navegue até a pasta em que você criou o script do PowerShell.
+3. Executar: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
+4. Agora você tem um arquivo chamado **processedusers1. csv** que pode ser examinado no Microsoft Excel. Observe que o arquivo fornece um mapeamento do atributo DN para identificadores comuns (por exemplo, displayName e userPrincipalName). Atualmente, ele não inclui as alterações de atributo reais que estão prestes a ser exportadas.
 
-#### <a name="switch-active-server"></a>Servidor de Active Directory do comutador
-1. No servidor atualmente ativo, desligue o servidor (DirSync/FIM/Azure AD Sync) para que não está a ser exportado para o Azure AD ou defini-lo no modo (Azure AD Connect) de teste.
-2. Execute o Assistente de instalação no servidor, na **modo de teste** e desativar **modo de teste**.
+#### <a name="switch-active-server"></a>Alternar servidor ativo
+1. No servidor ativo no momento, desligue o servidor (DirSync/FIM/Azure AD Sync) para que ele não seja exportado para o Azure AD ou defina-o no modo de preparo (Azure AD Connect).
+2. Execute o assistente de instalação do no servidor no **modo de preparo** e desabilite o modo de **preparo**.
    ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/additionaltasks.png)
 
 ## <a name="disaster-recovery"></a>Recuperação após desastre
-Parte do design de implementação é planejar para o que fazer no caso de um desastre em que perde o servidor de sincronização. Existem diferentes modelos de utilização e qual devo utilizar depende de vários fatores, incluindo:
+Parte do design de implementação é planejar o que fazer caso haja um desastre em que você perca o servidor de sincronização. Há modelos diferentes a serem usados e qual deles usar depende de vários fatores, incluindo:
 
-* O que é a sua tolerância para não ser capaz de fazer alterações a objetos no Azure AD durante o período de indisponibilidade?
-* Se utilizar a sincronização de palavra-passe, os utilizadores aceitamos que têm de utilizar a palavra-passe antiga no Azure AD, caso eles alteração-lo no local?
-* Tem uma dependência em operações em tempo real, como a repetição de escrita de palavra-passe?
+* Qual é a sua tolerância para não ser possível fazer alterações em objetos no Azure AD durante o tempo de inatividade?
+* Se você usar a sincronização de senha, os usuários aceitarão que eles tenham que usar a senha antiga no Azure AD, caso eles alterem o local?
+* Você tem uma dependência em operações em tempo real, como o Write-back de senha?
 
-Consoante as respostas a estas questões e a política da sua organização, uma das seguintes estratégias pode ser implementada:
+Dependendo das respostas a essas perguntas e da política da sua organização, uma das estratégias a seguir pode ser implementada:
 
-* Reconstrua quando necessário.
-* Ter um servidor de reserva dinâmica reserva, conhecido como **modo de teste**.
-* Utilize máquinas virtuais.
+* Recompilar quando necessário.
+* Ter um servidor de espera sobressalente, conhecido como **modo de preparo**.
+* Usar máquinas virtuais.
 
-Se não utilizar a base de dados incorporada SQL Express, também deverá rever os [elevada disponibilidade de SQL](#sql-high-availability) secção.
+Se você não usar o banco de dados interno do SQL Express, também deverá examinar a seção de [alta disponibilidade do SQL](#sql-high-availability) .
 
-### <a name="rebuild-when-needed"></a>Reconstruir quando necessário
-Uma estratégia viável é planejar de reconstrução de um servidor quando necessário. Normalmente, a instalar o motor de sincronização e faça que a importação inicial e a sincronização podem ser concluídas em algumas horas. Se existir um servidor de reserva não estiver disponível, é possível usar temporariamente um controlador de domínio para alojar o motor de sincronização.
+### <a name="rebuild-when-needed"></a>Recompilar quando necessário
+Uma estratégia viável é planejar uma recompilação do servidor quando necessário. Geralmente, instalar o mecanismo de sincronização e fazer a importação e a sincronização iniciais podem ser concluídos em algumas horas. Se não houver um servidor sobressalente disponível, é possível usar temporariamente um controlador de domínio para hospedar o mecanismo de sincronização.
 
-O servidor de motor de sincronização não armazena qualquer estado sobre os objetos para que a base de dados pode ser reconstruída dos dados no Active Directory e o Azure AD. O **sourceAnchor** atributo é utilizado para associar os objetos no local e na cloud. Se recriar o servidor com objetos no local existentes e a nuvem, em seguida, o motor de sincronização corresponde a esses objetos em conjunto novamente na reinstalação. As coisas que precisa documentar e guardar são as alterações de configuração efetuadas no servidor, tais como regras de sincronização e filtragem. Estas configurações personalizadas tem de ser reaplicadas antes de iniciá-la.
+O servidor do mecanismo de sincronização não armazena nenhum Estado sobre os objetos, de modo que o banco de dados pode ser recriado a partir do Active Directory e do Azure AD. O atributo **sourceAnchor** é usado para unir os objetos do local e da nuvem. Se você recriar o servidor com objetos existentes no local e na nuvem, o mecanismo de sincronização corresponderá esses objetos novamente na reinstalação. As coisas que você precisa documentar e salvar são as alterações de configuração feitas no servidor, como regras de filtragem e de sincronização. Essas configurações personalizadas devem ser reaplicadas antes de iniciar a sincronização.
 
-### <a name="have-a-spare-standby-server---staging-mode"></a>Ter um servidor de reserva dinâmica reserva - modo de teste
-Se tiver um ambiente mais complexo, em seguida, ter um ou mais servidores de reserva dinâmica é recomendado. Durante a instalação, pode ativar um servidor de estar no **modo de teste**.
+### <a name="have-a-spare-standby-server---staging-mode"></a>Ter um servidor em espera reserva-modo de preparo
+Se você tiver um ambiente mais complexo, é recomendável ter um ou mais servidores em espera. Durante a instalação, você pode habilitar um servidor para estar no **modo de preparo**.
 
-Para obter mais informações, consulte [modo de teste](#staging-mode).
+Para obter mais informações, consulte [modo de preparo](#staging-mode).
 
-### <a name="use-virtual-machines"></a>Utilize máquinas virtuais
-É um método comum e com suporte executar o motor de sincronização numa máquina virtual. No caso do anfitrião tem um problema, a imagem com o servidor de motor de sincronização pode ser migrada para outro servidor.
+### <a name="use-virtual-machines"></a>Usar máquinas virtuais
+Um método comum e com suporte é executar o mecanismo de sincronização em uma máquina virtual. Caso o host tenha um problema, a imagem com o servidor do mecanismo de sincronização pode ser migrada para outro servidor.
 
-### <a name="sql-high-availability"></a>Elevada disponibilidade SQL
-Se não estiver usando o SQL Server Express que vem com o Azure AD Connect, em seguida, alta disponibilidade do SQL Server também deve ser considerada. As soluções de elevada disponibilidade suportadas incluem o agrupamento do SQL e AOA (grupos de Disponibilidade AlwaysOn). Soluções não suportadas incluem espelhamento.
+### <a name="sql-high-availability"></a>Alta disponibilidade do SQL
+Se você não estiver usando o SQL Server Express fornecido com o Azure AD Connect, a alta disponibilidade para SQL Server também deverá ser considerada. As soluções de alta disponibilidade com suporte incluem clustering do SQL e AOA (Always On grupos de disponibilidade). Soluções sem suporte incluem espelhamento.
 
-Foi adicionado suporte para AOA de SQL para o Azure AD Connect, na versão 1.1.524.0. Tem de ativar AOA de SQL antes de instalar o Azure AD Connect. Durante a instalação, o Azure AD Connect Deteta se a instância SQL fornecida está ativada para SQL AOA ou não. Se estiver ativada AOA de SQL, Azure AD Connect ainda mais descobre se o SQL AOA está configurado para utilizar a replicação síncrona ou replicação assíncrona. Quando configurar o serviço de escuta do grupo de disponibilidade, recomenda-se que defina a propriedade RegisterAllProvidersIP para 0. Isto acontece porque o Azure AD Connect utiliza atualmente o SQL Native Client para ligar ao SQL e SQL Native Client não suporta a utilização da propriedade MultiSubNetFailover.
+O suporte para SQL AOA foi adicionado a Azure AD Connect na versão 1.1.524.0. Você deve habilitar o SQL AOA antes de instalar Azure AD Connect. Durante a instalação, Azure AD Connect detecta se a instância do SQL fornecida está habilitada para SQL AOA ou não. Se o SQL AOA estiver habilitado, Azure AD Connect outras figuras se o SQL AOA estiver configurado para usar replicação síncrona ou replicação assíncrona. Ao configurar o ouvinte do grupo de disponibilidade, é recomendável que você defina a propriedade RegisterAllProvidersIP como 0. Isso ocorre porque Azure AD Connect atualmente usa SQL Native Client para se conectar ao SQL e o SQL Native Client não oferece suporte ao uso da propriedade MultiSubNetFailover.
 
 ## <a name="appendix-csanalyzer"></a>Apêndice CSAnalyzer
-Consulte a secção [verificar](#verify) sobre como utilizar este script.
+Consulte a seção [verificar](#verify) como usar esse script.
 
 ```
 Param(
@@ -267,8 +267,8 @@ Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
 $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-**Tópicos de descrição geral**  
+## <a name="next-steps"></a>Passos seguintes
+**Tópicos de visão geral**  
 
-* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)  
+* [Sincronização do Azure AD Connect: Entender e personalizar a sincronização](how-to-connect-sync-whatis.md)  
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)  

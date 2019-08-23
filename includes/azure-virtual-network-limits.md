@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 1fd08efd12e723a16445eba1d341f017a86a212e
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e55b191e937b6c9f8183b3878b264eb50401b3f1
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68481536"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69903910"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede-Azure Resource Manager os seguintes limites se aplicam somente a recursos de rede gerenciados por meio de **Azure Resource Manager** por região por assinatura. Saiba como [Exibir o uso atual de recursos em relação aos limites de sua assinatura](../articles/networking/check-usage-against-limits.md).
 
@@ -78,7 +78,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Resource | Limite predefinido | Limite máximo |
 | --- | --- | --- |
 | Redes virtuais |100 |100 |
-| Sites de rede local |20 |Contacte o suporte. |
+| Sites de rede local |20 |50 |
 | Servidores DNS por rede virtual |20 |20 |
 | Endereços IP privados por rede virtual |4\.096 |4\.096 |
 | Fluxos TCP ou UDP simultâneos por NIC de uma máquina virtual ou instância de função |500.000, até 1 milhão para duas ou mais NICs. |500.000, até 1 milhão para duas ou mais NICs. |

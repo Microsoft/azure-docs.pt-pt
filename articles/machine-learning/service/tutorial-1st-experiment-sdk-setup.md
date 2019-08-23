@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: cc16f3c8ea287e78d7b7b4d9a56f5a2e82c26f01
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 54fc87f02ca058e17de3a65627bc76fd7d9cac11
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515337"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971558"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment"></a>Tutorial: Introdução à criação de seu primeiro experimento do ML
 
@@ -73,7 +73,9 @@ Depois que a VM estiver em execução, use a seção de **VMs do notebook** para
     > [!TIP]
     > Essa pasta está localizada no [contêiner de armazenamento](concept-workspace.md#resources) em seu espaço de trabalho em vez de na própria VM do bloco de anotações.  Você pode excluir a VM do notebook e ainda manter todo o seu trabalho.  Quando você criar uma nova VM de bloco de anotações mais tarde, ela carregará essa mesma pasta. Se você compartilhar seu espaço de trabalho com outras pessoas, ele verá sua pasta e você verá seus.
 
-1. Abra o `samples-*` subdiretório e, em seguida `tutorials/tutorial-1st-experiment-sdk-train.ipynb` , abra para executar a **parte dois** do tutorial.
+1. Abra o `samples-*` subdiretório e, em seguida, abra`tutorials/tutorial-1st-experiment-sdk-train.ipynb` 
+
+Na **parte dois** do tutorial, você executa o código `tutorial-1st-experiment-sdk-train.ipynb` para treinar um modelo de aprendizado de máquina.
 
 ## <a name="end"></a>Limpar recursos
 
@@ -99,7 +101,7 @@ Se você usou um servidor de bloco de anotações de nuvem, pare a VM quando nã
 
 Você também pode manter o grupo de recursos, mas excluir um único espaço de trabalho. Exiba as propriedades do espaço de trabalho e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você concluiu estas tarefas:
 

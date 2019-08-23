@@ -6,25 +6,20 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 08/13/2019
+ms.date: 08/21/2019
 ms.author: heidist
-ms.openlocfilehash: 1f3e4d69d3fdba8eba2e7d3cadc3c29703bffcaf
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 204951f725c2885fe9f8bf33fffe83e55628dd34
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558608"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899689"
 ---
 # <a name="what-is-azure-search"></a>O que é o Azure Search?
 
-O Azure Search é uma solução de nuvem de pesquisa como serviço que oferece aos desenvolvedores APIs e ferramentas para adicionar uma experiência de pesquisa avançada sobre conteúdo privado e heterogêneo em aplicativos Web, móveis e empresariais. O código personalizado invoca a ingestão de dados (indexação), emite solicitações de consulta e processa respostas. A experiência de pesquisa é definida no código do cliente usando a funcionalidade do Azure Search, com a execução da consulta em um índice persistente que você cria, tem e armazena em Azure Search.
+O Azure Search é uma solução de nuvem de pesquisa como serviço que oferece aos desenvolvedores APIs e ferramentas para adicionar uma experiência de pesquisa avançada sobre conteúdo privado e heterogêneo em aplicativos Web, móveis e empresariais. O código personalizado invoca a ingestão de dados (indexação) para criar e carregar um índice. No outro lado, o código do aplicativo emite solicitações de consulta e manipula as respostas. A experiência de pesquisa é definida em seu cliente usando a funcionalidade do Azure Search, com a execução da consulta em um índice persistente que você cria, possui e armazena em Azure Search.
 
 ![Arquitetura de Azure Search](media/search-what-is-azure-search/azure-search-diagram.svg "Arquitetura de Azure Search")
-
-<!-- + Build a search index containing only your data, sourced from multiple content types and platforms. 
-+ Leverage AI enrichments to extract text and features from image files, or entities and key phrases from raw text.
-+ Create intuitive search experiences with facet navigation and filters, synonyms, autocomplete, and text analysis for "did you mean" autocorrected search terms. Get relevance tuning through functions and boosting logic.
-+ Create search apps for specific use-cases. Geo-search supports a "find near me" experience. Multi-lingual search is supported through language analyzers for non-English full text search. -->
 
 A funcionalidade é exposta através de uma simples [REST API](/rest/api/searchservice/) ou [.NET SDK](search-howto-dotnet-sdk.md) que dissimula a complexidade inerente da obtenção de informações. Para além das APIs, o Portal do Azure fornece suporte à administração e à gestão de conteúdos, com as ferramentas para fazer o protótipo e consultar os índices. Por o serviço executar na cloud, as infraestruturas e disponibilidade são geridas pela Microsoft.
 
@@ -36,7 +31,7 @@ Azure Search é bem adequado para os seguintes cenários de aplicativo:
 
 + Implementação fácil de recursos relacionados à pesquisa. As APIs de Azure Search simplificam a construção da consulta, a navegação facetada, os filtros (incluindo a pesquisa espacial geográfica), o mapeamento de sinônimos, as consultas typeahead e o ajuste de relevância. Usando recursos internos, você pode satisfazer as expectativas do usuário final para uma experiência de pesquisa semelhante aos mecanismos de pesquisa na Web comercial.
 
-+ Indexação de texto não estruturado ou extração de texto e informações de arquivos de imagem. O recurso de pesquisa cognitiva do Azure Search adiciona o processamento de ia a um pipeline de indexação. Alguns casos de uso comuns incluem OCR sobre documentos digitalizados, reconhecimento de entidade e extração de frases-chave em documentos grandes, detecção de idioma e tradução de texto e análise de sentimentos.
++ Indexação de texto não estruturado ou extração de texto e informações de arquivos de imagem. O recurso de [pesquisa cognitiva](cognitive-search-concept-intro.md) do Azure Search adiciona o processamento de ia a um pipeline de indexação. Alguns casos de uso comuns incluem OCR sobre documentos digitalizados, reconhecimento de entidade e extração de frases-chave em documentos grandes, detecção de idioma e tradução de texto e análise de sentimentos.
 
 + Requisitos linguísticos satisfeitos usando os analisadores personalizado e de idioma de Azure Search. Se você tiver conteúdo diferente do inglês, o Azure Search dará suporte aos analisadores do Lucene e aos processadores de idioma natural da Microsoft. Você também pode configurar analisadores para obter processamento especializado de conteúdo bruto, como filtragem de sinais diacríticos.
 
@@ -93,7 +88,9 @@ O modelo pull obtém dados a partir de origens de dados externas. É suportado a
 O modelo de push é fornecido através da SDK ou de APIs REST, utilizado para enviar documentos atualizados para um índice. Pode enviar dados a partir de praticamente qualquer conjunto de dados ao utilizar o formato JSON. Veja [Adicionar, atualizar ou eliminar Documentos](/rest/api/searchservice/addupdate-or-delete-documents) ou [Como utilizar o SDK .NET)](search-howto-dotnet-sdk.md) para obter diretrizes sobre carregar dados.
 
 ### <a name="step-4-search"></a>Passo 4: Pesquisa
-Após preencher um índice, pode [emitir consultas de pesquisa](/rest/api/searchservice/Search-Documents) ao seu ponto final de serviço com simples pedidos HTTP com a API REST ou a SDK .NET.
+Depois de preencher um índice, você pode [emitir consultas de pesquisa](search-query-overview.md) para o ponto de extremidade de serviço usando solicitações HTTP simples com a [API REST](/rest/api/searchservice/Search-Documents) ou o [SDK do .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations).
+
+Percorra a [criação de seu primeiro aplicativo de pesquisa](tutorial-csharp-create-first-app.md) para compilar e, em seguida, estender uma página da Web que coleta a entrada do usuário e manipula os resultados. Você também pode usar o [postmaster para chamadas REST](search-get-started-postman.md) interativas ou o [Gerenciador de pesquisa](search-explorer.md) interno no portal do Azure para consultar um índice existente.
 
 ## <a name="how-it-compares"></a>Como se compara
 

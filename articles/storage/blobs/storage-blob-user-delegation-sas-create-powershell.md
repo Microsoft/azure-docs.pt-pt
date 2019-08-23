@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 86b5e4b6bcf65c2174fa3d3743551813ce2f8b1b
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: bdb66ec65d493c6af2f33bf6ed6e4a2bb2154235
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034744"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897029"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com o PowerShell (versão prévia)
 
@@ -80,7 +80,7 @@ Para obter mais informações sobre como entrar com o PowerShell, consulte [entr
 
 ## <a name="assign-permissions-with-rbac"></a>Atribuir permissões com o RBAC
 
-Para criar uma SAS de delegação de usuário do Azure PowerShell, a conta do Azure AD usada para entrar no PowerShell deve ser atribuída a uma função que inclui a ação **Microsoft. Storage/storageAccounts/blobservices/generateUserDelegationKey** . Essa permissão permite que a conta do Azure AD solicite a *chave de delegação do usuário*. A chave de delegação de usuário é usada para assinar a SAS de delegação de usuário. A função que fornece a ação **Microsoft. Storage/storageAccounts/blobservices/generateUserDelegationKey** deve ser atribuída no nível da conta de armazenamento, no grupo de recursos ou na assinatura. Para obter mais informações sobre permissões RBAC para criar uma SAS de delegação de usuário, consulte a seção **atribuir permissões com RBAC** em [criar uma SAS de delegação de usuário](/rest/api/storageservices/create-a-user-delegation-sas).
+Para criar uma SAS de delegação de usuário do Azure PowerShell, a conta do Azure AD usada para entrar no PowerShell deve ser atribuída a uma função que inclui a ação **Microsoft. Storage/storageAccounts/blobservices/generateUserDelegationKey** . Essa permissão permite que a conta do Azure AD solicite a *chave de delegação do usuário*. A chave de delegação de usuário é usada para assinar a SAS de delegação de usuário. A função que fornece a ação **Microsoft. Storage/storageAccounts/blobservices/generateUserDelegationKey** deve ser atribuída no nível da conta de armazenamento, no grupo de recursos ou na assinatura. Para obter mais informações sobre permissões RBAC para criar uma SAS de delegação de usuário, consulte a seção **atribuir permissões com RBAC** em [criar uma SAS de delegação de usuário](/rest/api/storageservices/create-user-delegation-sas).
 
 Se você não tiver permissões suficientes para atribuir funções de RBAC a uma entidade de segurança do Azure AD, talvez seja necessário solicitar ao proprietário da conta ou ao administrador que atribua as permissões necessárias.
 
@@ -94,7 +94,7 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-Para obter mais informações sobre as funções internas que incluem a ação **Microsoft. Storage/storageAccounts/blobservices/generateUserDelegationKey** , consulte [funções internas para recursos do Azure](/role-based-access-control/built-in-roles).
+Para obter mais informações sobre as funções internas que incluem a ação **Microsoft. Storage/storageAccounts/blobservices/generateUserDelegationKey** , consulte [funções internas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Usar as credenciais do Azure AD para proteger uma SAS
 
@@ -167,5 +167,5 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Criar uma SAS de delegação de usuário (API REST)](/rest/api/storageservices/create-a-user-delegation-sas)
+- [Criar uma SAS de delegação de usuário (API REST)](/rest/api/storageservices/create-user-delegation-sas)
 - [Operação de obtenção de chave de delegação de usuário](/rest/api/storageservices/get-user-delegation-key)

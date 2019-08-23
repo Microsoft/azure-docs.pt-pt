@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: dapine
-ms.openlocfilehash: ddbe586c03d9f722d844d06968aa25e4b4a5aac0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: ff0be2e9dada758cce96ba7c5eebbf03b00f56c6
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815290"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971452"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contêineres de Análise de Texto
 
@@ -32,7 +32,7 @@ Para executar qualquer um dos contêineres de Análise de Texto, você deve ter 
 
 Tem de cumprir os seguintes pré-requisitos antes de utilizar contentores de análise de texto:
 
-|Requerido|Objetivo|
+|Obrigatória|Objetivo|
 |--|--|
 |Mecanismo do Docker| Você precisa do mecanismo do Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/)e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | Você deve ter uma compreensão básica dos conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como o conhecimento de comandos `docker` básicos.| 
@@ -139,7 +139,7 @@ Este comando:
 
 O contêiner fornece APIs de ponto de extremidade de previsão de consulta baseadas em REST.
 
-Use o host, `https://localhost:5000`, para APIs de contêiner.
+Use o host, `http://localhost:5000`, para APIs de contêiner.
 
 <!--  ## Validate container is running -->
 

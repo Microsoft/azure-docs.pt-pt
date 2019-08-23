@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8d94e0e21f6a4564435a1674a933bd483073378f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: a61e789bb40d8263d293c70a67567ea61d5d2652
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69536628"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972609"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>Configurar gateways de VPN na rede CloudSimple
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 38c850f167287fe5e1a444c8670e359c4d2b6b90
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e702a5921e785100c5971057d1652db9aab26acf
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934824"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899956"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Um mundo sem senhas com Azure Active Directory
 
@@ -208,7 +208,7 @@ Os administradores podem habilitar o suporte do FIDO2 no Azure AD e atribuir a c
 
 * Azure AD
 
-* Azure Multi-Factor Authentication
+* Multi-Factor Authentication do Azure
 
 * Visualização de registro combinado
 
@@ -226,7 +226,7 @@ Também recomendamos que cada organização crie um protocolo para que os usuár
 
 #### <a name="user-sets-up-fido2-security-key"></a>O usuário configura a chave de segurança FIDO2
 
-Embora os administradores possam provisionar [manualmente as chaves](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable) e distribuí-las aos usuários finais, o provisionamento e a habilitação do provedor de credenciais FIDO2 na tela de bloqueio do Windows 10 terão suporte por meio do [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Os administradores também precisarão usar o [portal do Azure](https://portal.azure.com/) para habilitar dispositivos de token de hardware como um método de autenticação com senha.
+Embora os administradores possam provisionar [manualmente as chaves](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless) e distribuí-las aos usuários finais, o provisionamento e a habilitação do provedor de credenciais FIDO2 na tela de bloqueio do Windows 10 terão suporte por meio do [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Os administradores também precisarão usar o [portal do Azure](https://portal.azure.com/) para habilitar dispositivos de token de hardware como um método de autenticação com senha.
 
 A implantação de chaves de segurança do FIDO2 também exige que os usuários registrem suas chaves usando o [registro combinado](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). Com o registro combinado, os usuários se registram uma vez e obtêm os benefícios da autenticação multifator do Azure e da SSPR (redefinição de senha de logon único).
 
@@ -238,7 +238,7 @@ Além de selecionar o token de hardware como o método de autenticação multifa
 
 * Chamada telefónica
 
-* Mensagem SMS
+* Mensagem de texto
 
 #### <a name="user-using-fido2-security-key-for-sign-in"></a>Usuário usando a chave de segurança FIDO2 para entrar
 
@@ -343,4 +343,4 @@ A adoção de tecnologias de autenticação multifator modernas, como biometria 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Uma visão geral do [que é com senha?](../../active-directory/authentication/concept-authentication-passwordless.md)
-* [Como habilitar senhas no Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable)
+* [Como habilitar senhas no Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)

@@ -1,21 +1,19 @@
 ---
 title: Desenvolver Azure Functions usando o Visual Studio | Microsoft Docs
 description: Saiba como desenvolver e testar Azure Functions usando as ferramentas do Azure Functions para o Visual Studio 2019.
-services: functions
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 6040552ccee5269e4a04d8b7a1ee072400a8506d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 10c356afc235494b00777561259190ae78b65482
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68593238"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905685"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver Azure Functions usando o Visual Studio  
 
@@ -212,6 +210,9 @@ Isso exibe a caixa de diálogo **configurações do aplicativo** para o aplicati
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
 **Local** representa um valor de configuração no arquivo local. Settings. JSON, e **Remote** é a configuração atual no aplicativo de funções no Azure.  Escolha **Adicionar configuração** para criar uma nova configuração de aplicativo. Use o link **Inserir valor do local** para copiar um valor de configuração para o campo **remoto** . As alterações pendentes são gravadas no arquivo de configurações local e no aplicativo de funções quando você seleciona **OK**.
+
+> [!NOTE]
+> Por padrão, o arquivo local. Settings. JSON não é verificado no controle do código-fonte. Isso significa que, quando você clona um projeto de funções locais do controle do código-fonte, o projeto não tem um arquivo local. Settings. JSON. Nesse caso, você precisa criar manualmente o arquivo local. Settings. JSON na raiz do projeto para que a caixa de diálogo **configurações do aplicativo** funcione conforme o esperado. 
 
 Você também pode gerenciar as configurações do aplicativo de uma dessas outras maneiras:
 

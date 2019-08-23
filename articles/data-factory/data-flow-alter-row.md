@@ -1,48 +1,57 @@
 ---
-title: Mapeamento de transformação de linha de Alter de fluxo de dados de fábrica de dados do Azure
-description: Como atualizar o destino de base de dados através do Azure Data Factory mapeamento fluxo Alter linha transformação de dados
+title: Azure Data Factory mapeando a transformação alterar linha do fluxo de dados
+description: Como atualizar o destino do banco de dados usando Azure Data Factory mapeando a transformação alterar linha
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: f0ac5bb36079983b10e4d86cc776bd4e5ee6817d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2cd69d5977b8ad1d9be2a71a006579fe3abfd23
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65520152"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971260"
 ---
-# <a name="azure-data-factory-alter-row-transformation"></a>Transformação de linha de Alter de fábrica de dados do Azure
+# <a name="azure-data-factory-alter-row-transformation"></a>Transformação alterar linha Azure Data Factory
 
-Utilize a transformação de linha de Alter para definir políticas de insert, delete, atualização e upsert nas linhas. Pode adicionar condições de um-para-muitos como expressões. Cada uma destas condições pode resultar numa linha (ou linhas) a ser inserido, atualizado, eliminado ou upsert. ALTER linha pode produzir DDL & DML ações na base de dados.
+Use a transformação alterar linha para definir políticas de inserção, exclusão, atualização e Upsert em linhas. Você pode adicionar condições um-para-muitos como expressões. Essas condições devem ser especificadas em ordem de prioridade, pois cada linha será marcada com a política correspondente à primeira expressão correspondente. Cada uma dessas condições pode resultar em uma linha (ou linhas) sendo inserida, atualizada, excluída ou introduzida. ALTER Row pode produzir as ações de DDL & DML em seu banco de dados.
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Alterar as definições de linha](media/data-flow/alter-row1.png "alterar definições de linha")
+![Alterar configurações de linha](media/data-flow/alter-row1.png "Alterar configurações de linha")
 
 > [!NOTE]
-> Transformações de linha de ALTER só vão operar Coletores de base de dados no seu fluxo de dados. As ações que são atribuídas a linhas (insert, update, delete, upsert) não irão ocorrer durante a sessões de depuração. Tem de adicionar uma tarefa de executar o fluxo de dados para um pipeline e utilizar a depuração de pipeline ou acionadores adotar as políticas de linha de alter num suas tabelas de base de dados.
+> As transformações de alteração de linha só funcionarão em coletores de banco de dados em seu fluxo. As ações que você atribui a linhas (inserir, atualizar, excluir, Upsert) não ocorrerão durante as sessões de depuração. Você deve adicionar uma tarefa Executar fluxo de dados a um pipeline e usar depuração de pipeline ou gatilhos para aplicarr as políticas de alteração de linha em suas tabelas de banco de dados.
+
+## <a name="indicate-a-default-row-policy"></a>Indicar uma política de linha padrão
+
+Crie uma transformação ALTER Row e especifique uma política de linha com uma condição `true()`de. Cada linha que não atende a nenhuma das expressões definidas anteriormente será marcada para a política de linha especificada. Por padrão, cada linha que não atende a nenhuma expressão condicional será marcada para `Insert`.
+
+![Alterar uma política de linha única](media/data-flow/alter-row4.png "Alterar uma política de linha única")
+
+> [!NOTE]
+> Para marcar todas as linhas com uma política, você pode criar uma condição para essa política e especificar a condição `true()`como.
 
 ## <a name="view-policies"></a>Ver políticas
 
-Mudar o modo de dados de fluxo de depuração no e, em seguida, ver os resultados das suas políticas de linha de alterar no painel de pré-visualização de dados. Uma linha de alter em execução no modo de dados de fluxo de depuração não produzirá DDL ou DML ações contra o destino. Para ter essas ações que ocorrem, execute o fluxo de dados dentro de uma atividade de executar o fluxo de dados dentro de um pipeline.
+Ative o modo de depuração de fluxo de dados para exibir os resultados de suas políticas de alteração de linha no painel de visualização de dados. A execução de uma alteração de linha no modo de depuração do fluxo de dados não produzirá ações DDL ou DML em relação ao seu destino. Para que essas ações ocorram, execute o fluxo de dados dentro de uma atividade executar fluxo de dados em um pipeline.
 
-![Alterar as políticas de linha](media/data-flow/alter-row3.png "alterar políticas de linha")
+![Alterar políticas de linha](media/data-flow/alter-row3.png "Alterar políticas de linha")
 
-Isso permitirá que verificar e ver o estado de cada linha com base em suas condições. Existem ícone representa para cada insert, update, delete e upsert ação que irá ocorrer no seu fluxo de dados, que indica qual a ação irá ocorrer quando executar o fluxo de dados dentro de um pipeline.
+Isso permitirá que você verifique e exiba o estado de cada linha com base em suas condições. Há ícones representativos para cada ação de inserção, atualização, exclusão e Upsert que ocorrerá em seu fluxo de dados, indicando qual ação ocorrerá quando você executar o fluxo de dados dentro de um pipeline.
 
-## <a name="sink-settings"></a>Definições de sink
+## <a name="sink-settings"></a>Configurações do coletor
 
-Tem de ter uma base de dados sink o tipo de linha de Alter trabalhar. O coletor de definições, tem de definir cada ação seja permitido.
+Você deve ter um tipo de coletor de banco de dados para alterar linha para funcionar. Nas configurações do coletor, você deve definir cada ação correspondente às condições de alteração de linha a serem permitidas.
 
-![Alterar o sink de linha](media/data-flow/alter-row2.png "Alter Sink de linha")
+![Alterar coletor de linha](media/data-flow/alter-row2.png "Alterar coletor de linha")
 
-O comportamento padrão no fluxo de dados do ADF com Coletores de base de dados é inserir linhas. Se quiser permitir atualizações e eliminações também upserts, também tem de verificar essas caixas de sink para permitir as ações.
+O comportamento padrão no fluxo de dados do ADF com coletores de banco de dado é inserir linhas. Se você deseja permitir atualizações, upserts e exclusões também, também deve marcar essas caixas no coletor para permitir as ações.
 
 > [!NOTE]
-> Se sua inserções, atualizações ou upserts modificar o esquema de tabela de destino no coletor, o fluxo de dados irá falhar. Para modificar o esquema de destino na base de dados, tem de escolher a opção "Recrie a tabela" no coletor. Isto irá remover e recriar as tabelas com a nova definição de esquema.
+> Se suas inserções, atualizações ou upserts modificarem o esquema da tabela de destino no coletor, o fluxo de dados falhará. Para modificar o esquema de destino em seu banco de dados, você deve escolher a opção "recriar tabela" no coletor. Isso removerá e recriará sua tabela com a nova definição de esquema.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Após a transformação de linha de Alter, talvez queira [seus dados de sink para um arquivo de dados de destino](data-flow-sink.md).
+Após a transformação alterar linha, talvez você queira [coletar seus dados em um armazenamento de dados de destino](data-flow-sink.md).

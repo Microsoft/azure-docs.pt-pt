@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 665eeb60012d5cec08b8a3ad919d7ddfdadc2d23
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 78c126559c4b919ebc81b49ed5567dd0d0196039
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609588"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971588"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -239,7 +239,7 @@ Além das APIs REST, muitos serviços do Azure também permitem que você gerenc
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [python](https://docs.microsoft.com/python/azure)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
--   [Go](https://docs.microsoft.com/go/azure)
+-   [Go](https://docs.microsoft.com/azure/go)
 
 Serviços como [aplicativos móveis](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) e [serviços de mídia do Azure](../../media-services/previous/media-services-dotnet-how-to-use.md) fornecem SDKs do lado do cliente para permitir que você acesse serviços de aplicativos de cliente Web e móveis.
 

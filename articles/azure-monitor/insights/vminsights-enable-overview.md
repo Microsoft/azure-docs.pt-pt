@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 039a4db11adf66e0c28826106df5845b42fedef5
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: f395ba5d63463aa177b453d187d025a4461eff28
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688254"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905582"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitar a Azure Monitor para VMs (visualização) visão geral
 
@@ -33,7 +33,10 @@ Para configurar Azure Monitor para VMs:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, certifique-se de que compreende as informações nas secções seguintes.
+Antes de começar, certifique-se de que compreende as informações nas secções seguintes. 
+
+>[!NOTE]
+>As informações a seguir descritas nesta seção também são aplicáveis à [solução de mapa do serviço](service-map.md).  
 
 ### <a name="log-analytics"></a>Log Analytics
 
@@ -46,8 +49,8 @@ O Azure Monitor para VMs dá suporte a um espaço de trabalho do Log Analytics n
 - Reino Unido Sul
 - Europa Ocidental
 - Sudeste Asiático
-- Leste da Austrália
-- Sudeste da Austrália
+- Leste da Austrália<sup>1</sup>
+- Sudeste da Austrália<sup>1</sup>
 
 <sup>1</sup> nesta região atualmente não suporta a funcionalidade de estado de funcionamento do Monitor do Azure para VMs.
 
@@ -153,6 +156,9 @@ O recurso de mapa no Azure Monitor para VMs obtém seus dados do Microsoft Depen
 
 Se você habilitar Azure Monitor para VMs para uma única VM do Azure ou usar o método de implantação em escala, use a extensão do agente de dependência de VM do Azure para instalar o agente como parte da experiência.
 
+>[!NOTE]
+>As informações a seguir descritas nesta seção também são aplicáveis à [solução de mapa do serviço](service-map.md).  
+
 Em um ambiente híbrido, você pode baixar e instalar o agente de dependência manualmente. Se suas VMs estiverem hospedadas fora do Azure, use um método de implantação automatizado.
 
 A tabela seguinte descreve as origens ligadas que a funcionalidade de mapa suporta num ambiente híbrido.
@@ -167,8 +173,8 @@ Você pode baixar o Dependency Agent nestes locais:
 
 | Ficheiro | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.1 | FCF9C1D9B20AD414051B49EE79144E595CCC411EB6D444D6D5B5A7B1874DCDEC |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 
@@ -246,6 +252,6 @@ Para obter mais informações sobre a recolha de dados e a utilização, consult
 
 Agora que você habilitou o monitoramento para sua VM, as informações de monitoramento estão disponíveis para análise no Azure Monitor para VMs.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber como utilizar a funcionalidade de estado de funcionamento, veja [vista do Azure Monitor de estado de funcionamento de VMs](vminsights-health.md). Para ver dependências de aplicações detetadas, consulte [vista do Azure Monitor para o mapa de VMs](vminsights-maps.md).

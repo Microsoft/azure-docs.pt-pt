@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 2fa9db20554df813e5da94e2bbea122ac6cc9b60
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 602e4356ccd9eb45855462a7a25e0966dc176b4f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946537"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899931"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Blueprint de Segurança e Conformidade do Azure-aplicativo Web IaaS de três camadas para o Reino Unido
 
@@ -186,7 +186,7 @@ Esses VNets ainda são gerenciados como recursos separados, mas aparecem como um
 
 [Diretrizes para implantar o Windows Server Active Directory em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Integração do Active Directory**: Como alternativa a uma arquitetura de AD DS dedicada, os clientes podem querer usar a integração [Azure Active Directory](/azure/architecture/reference-architectures/identity.md) ou [Active Directory no Azure ingressado em uma floresta local](/azure/architecture/reference-architectures/identity.md).
+**Integração do Active Directory**: Como alternativa a uma arquitetura de AD DS dedicada, os clientes podem querer usar a integração [Azure Active Directory](/azure/architecture/reference-architectures/identity) ou [Active Directory no Azure ingressado em uma floresta local](/azure/architecture/reference-architectures/identity).
 
 ### <a name="security"></a>Segurança
 
@@ -200,9 +200,9 @@ Os clientes também podem considerar o uso de um [modelo administrativo de segur
 
 **Intervalos de IP**: Os intervalos de IP na arquitetura são intervalos sugeridos. Os clientes são aconselhados a considerar seu próprio ambiente e usar intervalos apropriados.
 
-**Conectividade híbrida**: As cargas de trabalho baseadas em nuvem são conectadas ao datacenter local por meio de VPN IPSEC usando o gateway de VPN do Azure. Os clientes devem garantir que estejam usando um gateway de VPN apropriado para se conectar ao Azure. Exemplo- [modelo do Gerenciador de recursos do gateway de VPN](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Os clientes que executam cargas de trabalho de grande escala e de missão crítica com requisitos de Big Data talvez queiram considerar uma arquitetura de rede híbrida usando o [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute.md) para conectividade de rede privada para os serviços de nuvem da Microsoft.
+**Conectividade híbrida**: As cargas de trabalho baseadas em nuvem são conectadas ao datacenter local por meio de VPN IPSEC usando o gateway de VPN do Azure. Os clientes devem garantir que estejam usando um gateway de VPN apropriado para se conectar ao Azure. Exemplo- [modelo do Gerenciador de recursos do gateway de VPN](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Os clientes que executam cargas de trabalho de grande escala e de missão crítica com requisitos de Big Data talvez queiram considerar uma arquitetura de rede híbrida usando o [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute) para conectividade de rede privada para os serviços de nuvem da Microsoft.
 
-**Separação de preocupações**: Essa arquitetura de referência separa o VNets para operações de gerenciamento e de negócios. VNets e sub-redes separadas permitem o gerenciamento de tráfego, incluindo restrições de entrada e saída de tráfego, usando o NSGs entre os segmentos de rede seguindo os [serviços de nuvem da Microsoft e](/azure/architecture/vdc/networking-virtual-datacenter.md) as práticas recomendadas de segurança de rede.
+**Separação de preocupações**: Essa arquitetura de referência separa o VNets para operações de gerenciamento e de negócios. VNets e sub-redes separadas permitem o gerenciamento de tráfego, incluindo restrições de entrada e saída de tráfego, usando o NSGs entre os segmentos de rede seguindo os [serviços de nuvem da Microsoft e](/azure/architecture/vdc/networking-virtual-datacenter) as práticas recomendadas de segurança de rede.
 
 **Gerenciamento de recursos**: Recursos do Azure, como VMs, VNets e balanceadores de carga, são gerenciados agrupando-os em [grupos de recursos do Azure](../../azure-resource-manager/resource-group-overview.md). As funções de controle de acesso baseadas em recursos podem ser atribuídas a cada grupo de recursos para restringir o acesso somente a usuários autorizados.
 
@@ -228,7 +228,7 @@ Além disso, a CSA (Cloud Security Alliance) publicou a matriz de controle de nu
 
 Há dois métodos que os usuários de implantação podem usar para implantar essa automação do Blueprint. O primeiro método usa um script do PowerShell, enquanto o segundo método utiliza o portal do Azure para implantar a arquitetura de referência. Instruções de implantação detalhadas estão disponíveis [aqui](https://aka.ms/ukofficial-iaaswa-repo).
 
-## <a name="disclaimer"></a>Exclusão de Responsabilidade
+## <a name="disclaimer"></a>Exclusão de responsabilidade
 
  - Este documento é apenas para fins informativos. A MICROSOFT NÃO OFERECE NENHUMA GARANTIA, EXPRESSA, IMPLÍCITA OU ESTATUTÁRIA, QUANTO ÀS INFORMAÇÕES CONTIDAS NESTE DOCUMENTO. Este documento é fornecido "no estado em que se encontra". As informações e as exibições expressas neste documento, incluindo URLs e outras referências de site da Internet, podem ser alteradas sem aviso prévio. Os clientes que lêem este documento trazem o risco de usá-lo.
  - Este documento não fornece aos clientes nenhum direito legal sobre qualquer propriedade intelectual em qualquer produto ou solução da Microsoft.

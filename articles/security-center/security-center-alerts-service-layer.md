@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 70b43c65703316e5dee8e9cf2cf86fe982a49592
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: aae2270417e0bb3bdf0dd847e2e09e7cb1999d39
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624773"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972473"
 ---
 # <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Detecção de ameaças para a camada de serviço do Azure na central de segurança do Azure
 
@@ -50,6 +50,10 @@ A central de segurança rede – a análise de camada baseia-se nos [dados IPFIX
 |**A comunicação de rede com um endereço mal-intencionado foi detectada**|A análise de tráfego de rede de amostra detectou a comunicação proveniente de um recurso em sua implantação com um servidor de comando e controle (C & C) possível. Tenha em atenção que este tipo de atividade, possivelmente, pode fazer com que o IP seja sinalizados como malicioso por entidades externas.|
 
 Para entender como a central de segurança pode usar sinais relacionados à rede para aplicar a proteção contra ameaças, confira [detecções heurísticas de DNS na central de segurança do Azure](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
+
+>[!NOTE]
+>Os alertas de detecção de ameaças da camada de rede do Azure, na central de segurança do Azure, não são gerados durante a primeira hora após a criação da VM.
+
 ## Camada de gerenciamento do Azure (Azure Resource Manager) (visualização)<a name ="management-layer"></a>
 
 >[!NOTE]

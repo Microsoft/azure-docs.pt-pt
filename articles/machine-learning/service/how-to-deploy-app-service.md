@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/01/2019
-ms.openlocfilehash: a5fd376a6da70ed68baedf44fd4c2cc47e68d3cf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
-ms.translationtype: HT
+ms.openlocfilehash: ada2a19de12c2f3f6b23fcc3d759afb0c747d37d
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872380"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897419"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implantar um modelo de aprendizado de máquina no serviço Azure App (versão prévia)
 
@@ -108,11 +108,11 @@ Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. 
 
 1. No [portal do Azure](https://portal.azure.com), selecione seu espaço de trabalho do Azure Machine Learning. Na seção __visão geral__ , use o link __do registro__ para acessar o registro de contêiner do Azure para o espaço de trabalho.
 
-    ![Captura de tela da visão geral do espaço de trabalho](media/how-to-deploy-app-service/workspace-overview.png)
+    [![Captura de tela da visão geral do espaço de trabalho](media/how-to-deploy-app-service/workspace-overview.png)](media/how-to-deploy-app-service/workspace-overview-expanded.png)
 
 2. No registro de contêiner do Azure,selecione repositórios e, em seguida, selecione o __nome da imagem__ que você deseja implantar. Para a versão que você deseja implantar, selecione a entrada __...__ e, em seguida, __implante no aplicativo Web__.
 
-    ![Captura de tela da implantação do ACR em um aplicativo Web](media/how-to-deploy-app-service/deploy-to-web-app.png)
+    [![Captura de tela da implantação do ACR em um aplicativo Web](media/how-to-deploy-app-service/deploy-to-web-app.png)](media/how-to-deploy-app-service/deploy-to-web-app-expanded.png)
 
 3. Para criar o aplicativo Web, forneça um nome de site, uma assinatura, um grupo de recursos e selecione o local/plano do serviço de aplicativo. Por fim, selecione __criar__.
 
@@ -122,7 +122,7 @@ Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. 
 
 No [portal do Azure](https://portal.azure.com), selecione o aplicativo Web criado na etapa anterior. Na seção __visão geral__ , copie a __URL__. Esse valor é a __URL base__ do serviço.
 
-![Captura de tela da visão geral do aplicativo Web](media/how-to-deploy-app-service/web-app-overview.png)
+[![Captura de tela da visão geral do aplicativo Web](media/how-to-deploy-app-service/web-app-overview.png)](media/how-to-deploy-app-service/web-app-overview-expanded.png)
 
 O serviço Web que passa solicitações para o modelo está localizado em `{baseurl}/score`. Por exemplo, `https://mywebapp.azurewebsites.net/score`. O código Python a seguir demonstra como enviar dados para a URL e exibir a resposta:
 
@@ -147,7 +147,7 @@ print(response.elapsed)
 print(response.json())
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter mais informações sobre como configurar seu aplicativo Web, consulte a documentação do [serviço de aplicativo no Linux](/azure/app-service/containers/) .
 * Para obter mais informações sobre o dimensionamento, consulte Introdução [ao dimensionamento automático no Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).

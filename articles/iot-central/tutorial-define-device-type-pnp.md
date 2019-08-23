@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a622aa85d1d0a9dcd5d5ad9b2b30e7a3120ea974
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d58cec644c75baaac37862f445477da92075c44d
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878013"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907342"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-preview-features"></a>Tutorial: Definir um novo tipo de dispositivo no aplicativo de IoT Central do Azure (recursos de visualização)
 
@@ -90,11 +90,11 @@ As etapas a seguir mostram como importar o modelo de capacidade para um disposit
 
 1. Para adicionar um novo modelo de dispositivo, selecione **+ novo** na página **modelos de dispositivo** .
 
-1. Escolha **personalizado** na lista de modelos de capacidade de dispositivo.
+1. Escolha **personalizado** na lista de modelos.
 
 1. Insira **sensor ambiental** como o nome do seu modelo de dispositivo.
 
-1. Escolha **Importar modelo de funcionalidade** para criar um novo modelo de capacidade de dispositivo a partir de um arquivo JSON. Navegue até a pasta em que você salvou o arquivo **EnvironmentalSensorInline. capabilitymodel. JSON** em seu computador local. Selecione o arquivo **EnvironmentalSensorInline. capabilitymodel. JSON** e, em seguida, selecione importar. O modelo de recurso do sensor de ambiente inclui as interfaces do **sensor ambiental** e de **informações do dispositivo** :
+1. Escolha **Importar modelo de funcionalidade** para criar um novo modelo de capacidade de dispositivo a partir de um arquivo JSON. Navegue até a pasta em que você salvou o arquivo **EnvironmentalSensorInline. capabilitymodel. JSON** em seu computador local. Selecione o arquivo **EnvironmentalSensorInline. capabilitymodel. JSON** e, em seguida, selecione **abrir**. O modelo de recurso do sensor de ambiente inclui as interfaces do **sensor ambiental** e de **informações do dispositivo** :
 
     ![Modelo de capacidade de dispositivo do sensor ambiental](./media/tutorial-define-device-type-pnp/newdevicecapabilitymodel.png)
 
@@ -147,9 +147,9 @@ Depois de selecionar **gerar exibições padrão**, elas serão adicionadas auto
 
 Um painel de dispositivos permite que um operador visualize um dispositivo usando gráficos e métricas. Pode definir as informações que são apresentadas num dashboard do dispositivo como construtor. Você pode definir vários painéis para dispositivos. Para criar um painel para visualizar a telemetria do sensor ambiental , selecione exibições e, em seguida, **visualizando o dispositivo**:
 
-1. Todas as propriedades do dispositivo, propriedades de nuvem, telemetria e opções estáticas são listadas no painel à direita. Você pode arrastar e soltar qualquer um desses itens para a exibição. Arraste uma propriedade para a exibição. Você pode configurar o bloco usando o ícone de engrenagem.
+1. Todas as propriedades do dispositivo, propriedades de nuvem, telemetria e opções estáticas são listadas em **Propriedades**. Você pode arrastar e soltar qualquer um desses itens para a exibição. Arraste a propriedade **nível de brilho** para a exibição. Você pode configurar o bloco usando o ícone de engrenagem.
 
-1. Para adicionar um gráfico que plota telemetria, selecione **umidade** e **temperatura**e, em seguida, selecione **combinar**. Para exibir esse gráfico em qualquer formato diferente, como um gráfico de pizza ou gráfico de barras, selecione o botão **alterar visualização** na parte superior do bloco.
+1. Para adicionar um gráfico que plota telemetria, selecione **umidade** e **temperatura**e, em seguida, selecione **combinar**. Para exibir esse gráfico em um formato diferente, como um gráfico de pizza ou um gráfico de barras, selecione o botão **alterar visualização** na parte superior do bloco.
 
 1. Selecione **salvar** para salvar sua exibição:
 
@@ -161,7 +161,7 @@ Um formulário de dispositivo permite que um operador Edite propriedades de disp
 
 Para criar um formulário para exibir e editar as propriedades do sensor ambiental:
 
-1. Selecione o bloco **dispositivo de edição e dados de nuvem** .
+1. Navegue até **exibições** no modelo de **sensor ambiental** . Selecione o bloco **dispositivo de edição e dados de nuvem** para adicionar uma nova exibição.
 
 1. Insira o nome do formulário **Propriedades do sensor ambiental**.
 
@@ -169,10 +169,9 @@ Para criar um formulário para exibir e editar as propriedades do sensor ambient
 
 1. Selecione o **nível de brilho** e as propriedades do dispositivo de **estado do dispositivo** . Em seguida, selecione **Adicionar seção**. Edite o título da seção para ser **Propriedades do sensor**. Selecione **Aplicar**.
 
-1. Selecione a **bateria restante**, o **modelo do dispositivo**, a versão do **firmware**, o **fabricante**e as propriedades do dispositivo de **número de série** . Em seguida, selecione **Adicionar seção**. Edite o título da seção para ser **Propriedades do dispositivo**. Selecione **Aplicar**.
+1. Selecione o **modelo do dispositivo**, a **versão do software**, o **fabricante**e as propriedades do dispositivo do **fabricante do processador** . Em seguida, selecione **Adicionar seção**. Edite o título da seção para ser **Propriedades do dispositivo**. Selecione **Aplicar**.
 
 1. Selecione **salvar** para salvar sua exibição.
-
 
 ## <a name="publish-device-template"></a>Publicar modelo de dispositivo
 
@@ -190,7 +189,7 @@ Para publicar um modelo de dispositivo:
 
 Depois que um modelo de dispositivo é publicado, ele fica visível na página **dispositivos** e no operador. Em um modelo de dispositivo publicado, você não pode editar um modelo de capacidade de dispositivo sem criar uma nova versão. No entanto, você pode fazer atualizações nas propriedades de nuvem, personalizações e exibições, em um modelo de dispositivo publicado sem controle de versão. Depois de fazer alterações, selecione **publicar** para enviar por push essas alterações para o operador.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

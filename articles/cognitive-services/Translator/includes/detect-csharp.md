@@ -4,20 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 03719408c456a3f99265e1f25a91af66b10640a0
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0c263ed1f18ceaa2db976632ea31b9fe1eb47a93
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968742"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907212"
 ---
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
-* C#7,1 ou posterior
-* [SDK do .NET](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
-* [Pacote NuGet do Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), ou no seu editor de texto favorito
-* Uma chave de subscrição do Azure para Tradução de Texto
+[!INCLUDE [Setup and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-net-core-project"></a>Criar um projeto .NET Core
 
@@ -86,12 +82,37 @@ public class AltTranslations
 }
 ```
 
-## <a name="create-a-function-to-detect-the-source-texts-language"></a>Criar uma função para detectar o idioma do texto de origem
+## <a name="get-subscription-information-from-environment-variables"></a>Obter informações de assinatura de variáveis de ambiente
 
-Dentro da `Program` classe, crie uma função chamada `DetectTextRequest()`. Essa classe encapsula o código usado para chamar o recurso de detecção e imprime o resultado no console do.
+Adicione as linhas a seguir à `Program` classe. Essas linhas lêem a chave de assinatura e o ponto de extremidade de variáveis de ambiente e geram um erro se você encontrar problemas.
 
 ```csharp
-static public async Task DetectTextRequest(string subscriptionKey, string host, string route, string inputText)
+private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
+private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
+
+private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
+private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
+
+static Program()
+{
+    if (null == subscriptionKey)
+    {
+        throw new Exception("Please set/export the environment variable: " + key_var);
+    }
+    if (null == endpoint)
+    {
+        throw new Exception("Please set/export the environment variable: " + endpoint_var);
+    }
+}
+// The code in the next section goes here.
+```
+
+## <a name="create-a-function-to-detect-the-source-texts-language"></a>Criar uma função para detectar o idioma do texto de origem
+
+Na classe, crie uma função chamada `DetectTextRequest()`. `Program` Essa classe encapsula o código usado para chamar o recurso de detecção e imprime o resultado no console do.
+
+```csharp
+static public async Task DetectTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
 {
   /*
    * The code for your call to the translation service will be added to this
@@ -138,7 +159,7 @@ Adicione este código ao `HttpRequestMessage`:
 // Build the request.
 request.Method = HttpMethod.Post;
 // Construct the URI and add headers.
-request.RequestUri = new Uri(host + route);
+request.RequestUri = new Uri(endpoint + route);
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
@@ -178,11 +199,11 @@ static async Task Main(string[] args)
     // This is our main function.
     // Output languages are defined in the route.
     // For a complete list of options, see API reference.
-    string subscriptionKey = "YOUR_TRANSLATOR_TEXT_KEY_GOES_HERE";
-    string host = "https://api.cognitive.microsofttranslator.com";
     string route = "/detect?api-version=3.0";
-    string breakSentenceText = @"How are you doing today? The weather is pretty pleasant. Have you been to the movies lately?";
-    await DetectTextRequest(subscriptionKey, host, route, breakSentenceText);
+    string detectSentenceText = @"How are you doing today? The weather is pretty pleasant. Have you been to the movies lately?";
+    await DetectTextRequest(subscriptionKey, endpoint, route, detectSentenceText);
+    Console.WriteLine("Press any key to continue.");
+    Console.ReadKey();
 }
 ```
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
@@ -247,7 +268,7 @@ Essa mensagem é criada a partir do JSON bruto, que terá a seguinte aparência:
 
 Não se esqueça de remover quaisquer informações confidenciais do código-fonte da sua aplicação de exemplo, como chaves de subscrição.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Dê uma olhada na referência da API para entender tudo o que você pode fazer com o API de Tradução de Texto.
 

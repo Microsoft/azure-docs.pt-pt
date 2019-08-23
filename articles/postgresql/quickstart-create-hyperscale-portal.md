@@ -1,6 +1,6 @@
 ---
-title: Base de dados do Azure para PostgreSQL – Hiperescala (Citus) (pré-visualização) início rápido
-description: Início rápido para criar e consultar distribuído tabelas na base de dados do Azure para PostgreSQL Hiperescala (Citus) (pré-visualização).
+title: Banco de dados do Azure para PostgreSQL – início rápido de hiperescala (Citus) (versão prévia)
+description: Início rápido para criar e consultar tabelas distribuídas no banco de dados do Azure para PostgreSQL Citus (visualização).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,34 +8,34 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: efc3801ab03f739761a41bec754f975fe43dcd8e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e9e7d884b7580d7655921134a7ab63b0b1b0dd6
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792012"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899993"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Início rápido: Criar uma base de dados do Azure para PostgreSQL - Hiperescala (Citus) (pré-visualização) no portal do Azure
+# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Início rápido: Criar um banco de dados do Azure para PostgreSQL-hiperescala (Citus) (visualização) no portal do Azure
 
-A Base de Dados do Azure para o PostgreSQL é um serviço gerido com o qual pode executar, gerir e dimensionar as bases de dados de elevada disponibilidade do PostgreSQL na cloud. Este guia de introdução mostra-lhe como criar uma base de dados do Azure para PostgreSQL - Hiperescala (Citus) (pré-visualização) grupo de servidores com o portal do Azure. Vou explorar dados distribuídos: tabelas de fragmentação em todos os nós, ao ingerir dados de exemplo e execução de consultas que são executadas em vários nós.
+A Base de Dados do Azure para o PostgreSQL é um serviço gerido com o qual pode executar, gerir e dimensionar as bases de dados de elevada disponibilidade do PostgreSQL na cloud. Este guia de início rápido mostra como criar um grupo de servidores de banco de dados do Azure para PostgreSQL (Citus) (visualização) usando o portal do Azure. Você explorará dados distribuídos: fragmentando tabelas entre nós, ingerindo dados de exemplo e executando consultas que são executadas em vários nós.
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="create-and-distribute-tables"></a>Criar e distribuir tabelas
 
-Depois de ligado para o nó coordenador de hiperescala com psql, pode concluir algumas tarefas básicas.
+Uma vez conectado ao nó de coordenador de hiperescala usando psql, você pode concluir algumas tarefas básicas.
 
-Numa Hiperescala lá os servidores são três tipos de tabelas:
+Em servidores de hiperescala, há três tipos de tabelas:
 
-- Tabelas distribuídas ou em partição horizontal (espalhadas para ajudar a dimensionar para o desempenho e paralelização)
+- Tabelas distribuídas ou fragmentadas (distribuídas para ajudar a dimensionar o desempenho e a paralelização)
 - Tabelas de referência (várias cópias mantidas)
-- Tabelas locais (muitas vezes, utilizadas para tabelas de administrador interno)
+- Tabelas locais (geralmente usadas para tabelas de administração internas)
 
-Neste início rápido, focaremos principalmente em tabelas distribuídas e familiarizar-se com eles.
+Neste guia de início rápido, nos concentraremos principalmente nas tabelas distribuídas e nos familiarizaremos com elas.
 
-O modelo de dados, vamos trabalhar com é simples: dados de eventos e de utilizador do GitHub. Eventos incluem a criação do fork, confirmações do git relacionados com uma organização e muito mais.
+O modelo de dados com o qual vamos trabalhar é simples: dados de usuário e evento do GitHub. Os eventos incluem criação de bifurcação, confirmações git relacionadas a uma organização e muito mais.
 
-Depois de se ligar através do psql, vamos criar nossa tabelas. Na consola do psql executar:
+Depois de se conectar via psql, vamos criar nossas tabelas. Na execução do console do psql:
 
 ```sql
 CREATE TABLE github_events
@@ -62,30 +62,30 @@ CREATE TABLE github_users
 );
 ```
 
-O `payload` campo `github_events` tem um tipo de dados JSONB. JSONB é o tipo de dados JSON no formato binário em Postgres. O tipo de dados torna mais fácil de armazenar um esquema flexível numa única coluna.
+O `payload` campo de `github_events` tem um tipo de dados JSONB. JSONB é o tipo de dados JSON em formato binário em Postgres. O tipo de dados torna mais fácil armazenar um esquema flexível em uma única coluna.
 
-Pode criar Postgres um `GIN` índice neste tipo, que será indexar cada chave e valor dentro do mesmo. Com um índice, torna rápido e fácil de consultar o payload com várias condições. Vamos continuar e criar alguns dos índices antes de que carregarmos nossos dados. No psql:
+Postgres pode criar um `GIN` índice nesse tipo, que indexará cada chave e valor dentro dele. Com um índice, torna-se rápido e fácil consultar a carga com várias condições. Vamos continuar e criar alguns índices antes de carregarmos nossos dados. Em psql:
 
 ```sql
 CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Em seguida vamos tomar essas tabelas Postgres no nó coordenador e dizer de Hiperescala para a partição horizontal-los entre as funções de trabalho. Para fazer isso, vamos executar uma consulta para cada tabela especificar a chave de partição horizontal-la nas. No exemplo atual, veremos os eventos de usuários e tabela de partições horizontais `user_id`:
+Em seguida, pegaremos essas tabelas postgres no nó de coordenador e dizem para a subescala para fragmentá-las entre os trabalhadores. Para fazer isso, executaremos uma consulta para cada tabela especificando a chave para fragmentá-la. No exemplo atual, vamos fragmentar a tabela de eventos e de usuários `user_id`em:
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
 SELECT create_distributed_table('github_users', 'user_id');
 ```
 
-Estamos prontos para carregar dados. No psql ainda assim, shell para transferir os ficheiros:
+Estamos prontos para carregar dados. No psql ainda, saia do Shell para baixar os arquivos:
 
 ```sql
 \! curl -O https://examples.citusdata.com/users.csv
 \! curl -O https://examples.citusdata.com/events.csv
 ```
 
-Em seguida, carregue os dados dos arquivos para as tabelas distribuídas:
+Em seguida, carregue os dados dos arquivos nas tabelas distribuídas:
 
 ```sql
 \copy github_events from 'events.csv' WITH CSV
@@ -94,13 +94,13 @@ Em seguida, carregue os dados dos arquivos para as tabelas distribuídas:
 
 ## <a name="run-queries"></a>Executar consultas
 
-Agora chegou a hora para a diversão parte, na verdade, execução de algumas consultas. Vamos começar com um simples `count (*)` para ver a quantidade de dados foi carregado:
+Agora é hora da parte divertida, realmente executando algumas consultas. Vamos começar com um simples `count (*)` para ver a quantidade de dados que carregamos:
 
 ```sql
 SELECT count(*) from github_events;
 ```
 
-Funcionou muito bem. Vamos voltar para esse tipo de agregação daqui a pouco, mas por agora vamos examinar algumas outras consultas. Dentro do JSONB `payload` coluna aqui é um pouco de dados, mas ele varia com base no tipo de evento. `PushEvent` eventos contêm um tamanho que inclui o número de consolidações distintas para o envio. Podemos utilizar para localizar o número total de consolidações por hora:
+Isso funcionou bem. Voltaremos a esse tipo de agregação em um pouco, mas, por enquanto, vamos dar uma olhada em algumas outras consultas. Na coluna JSONB `payload` , há um bom bit de dados, mas varia de acordo com o tipo de evento. `PushEvent`os eventos contêm um tamanho que inclui o número de confirmações distintas para o envio por push. Podemos usá-lo para encontrar o número total de confirmações por hora:
 
 ```sql
 SELECT date_trunc('hour', created_at) AS hour,
@@ -111,29 +111,29 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Até agora, as consultas envolvesse o github\_eventos exclusivamente, mas podemos combinar essas informações com o github\_utilizadores. Desde em partição horizontal que os utilizadores e os eventos do mesmo identificador (`user_id`), as linhas de ambas as tabelas com o ID de utilizador correspondentes serão [colocalizados](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) no mesmo nós de base de dados e podem facilmente ser associadas.
+Até agora, as consultas envolveram os\_eventos do GitHub exclusivamente, mas podemos combinar essas informações com\_os usuários do github. Como nós Fragmentamos os usuários e os eventos no mesmo identificador (`user_id`), as linhas de ambas as tabelas com IDs de usuário correspondentes serão colocalizadas nos mesmos nós de banco de dados e poderão ser facilmente Unidas. [](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation)
 
-Se, Junte-se no `user_id`, Hiperescala pode empurrar a execução de associação em partições horizontais para execução em paralelo em nós de trabalho. Por exemplo, vamos descobrir quando os utilizadores que criou ao maior número de repositórios:
+Se unirmos `user_id`, a hiperescala poderá enviar por push a execução de junção para dentro de fragmentos para execução em paralelo em nós de trabalho. Por exemplo, vamos encontrar os usuários que criaram o maior número de repositórios:
 
 ```sql
-SELECT login, count(*)
-FROM github_events ge
-JOIN github_users gu
-ON ge.user_id = gu.user_id
-WHERE event_type = 'CreateEvent' AND
-      payload @> '{"ref_type": "repository"}'
-GROUP BY login
-ORDER BY count(*) DESC;
+SELECT gu.login, count(*)
+  FROM github_events ge
+  JOIN github_users gu
+    ON ge.user_id = gu.user_id
+ WHERE ge.event_type = 'CreateEvent'
+   AND ge.payload @> '{"ref_type": "repository"}'
+ GROUP BY gu.login
+ ORDER BY count(*) DESC;
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Nos passos anteriores, criou os recursos do Azure num grupo de servidor. Se não espera precisa destes recursos no futuro, elimine o grupo de servidor. Prima a **eliminar** botão no **descrição geral** página para o seu grupo de servidor. Quando lhe for pedido numa página de pop-up, confirme o nome do grupo de servidor e clique no último **eliminar** botão.
+Nas etapas anteriores, você criou recursos do Azure em um grupo de servidores. Se você não espera precisar desses recursos no futuro, exclua o grupo de servidores. Pressione o botão **excluir** na página **visão geral** do seu grupo de servidores. Quando solicitado em uma página pop-up, confirme o nome do grupo de servidores e clique no botão **excluir** final.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, aprendeu como aprovisionar um grupo de servidores de grande escala (Citus). Conectados a ele com psql, criou um esquema e dados distribuídos.
+Neste guia de início rápido, você aprendeu a provisionar um grupo de servidores de hiperescala (Citus). Você se conectou a ele com psql, criou um esquema e distribuiu dados.
 
-Em seguida, siga um tutorial para criar aplicações escaláveis de multi-inquilinos.
+Em seguida, siga um tutorial para criar aplicativos multilocatário escalonáveis.
 > [!div class="nextstepaction"]
-> [Criar uma base de dados do multi-inquilino](https://aka.ms/hyperscale-tutorial-multi-tenant)
+> [Criar um banco de dados de vários locatários](https://aka.ms/hyperscale-tutorial-multi-tenant)

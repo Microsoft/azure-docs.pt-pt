@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 54d3f175e74b9f94c7845725e3d8f4531750df57
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
-ms.translationtype: HT
+ms.openlocfilehash: fe45adc3eb65631c0b127872240f8d76400f9102
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877562"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899671"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contentores de perfil FSLogix e ficheiros do Azure
 
@@ -92,13 +92,13 @@ Para garantir que seu ambiente de área de trabalho virtual do Windows siga as p
 - Para obter um desempenho ideal, a solução de armazenamento e o contêiner de perfil FSLogix devem estar no mesmo local de data center.
 - A conta de armazenamento que contém a imagem mestra deve estar na mesma região e assinatura em que as VMs estão sendo provisionadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Use os guias a seguir para configurar um ambiente de área de trabalho virtual do Windows.
 
 - Para começar a criar sua solução de virtualização de desktops, consulte [criar um locatário na área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md).
 - Para criar um pool de hosts dentro de seu locatário de área de trabalho virtual do Windows, confira [criar um pool de hosts com o Azure Marketplace](create-host-pools-azure-marketplace.md).
-- Para configurar compartilhamentos de arquivos totalmente gerenciados na nuvem, consulte [Configurar o compartilhamento de arquivos do Azure](/articles/storage/files/storage-files-active-directory-enable.md).
+- Para configurar compartilhamentos de arquivos totalmente gerenciados na nuvem, consulte [Configurar o compartilhamento de arquivos do Azure](/azure/storage/files/storage-files-active-directory-enable).
 - Para configurar contêineres de perfil FSLogix, consulte [criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md).
 - Para atribuir usuários a um pool de hosts, consulte [gerenciar grupos de aplicativos para a área de trabalho virtual do Windows](manage-app-groups.md).
 - Para acessar os recursos da área de trabalho virtual do Windows em um navegador da Web, consulte [conectar-se à área de trabalho virtual do Windows](connect-web.md).

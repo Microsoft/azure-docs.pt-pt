@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c78c2c8279972108aee12b9b386175d0f27b7fee
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 339b13201934b1ba5cd4f53c21d50b62814c36eb
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310419"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905382"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Executar um fluxo de trabalho de contêiner de várias etapas na nuvem ao confirmar o código-fonte
 
@@ -332,7 +332,7 @@ az acr task create \
     --name example2 \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
     --branch master \
-    --file taskmulti-image.yaml \
+    --file taskmulti-multiregistry.yaml \
     --git-access-token $GIT_PAT \
     --set regDate=mycontainerregistrydate.azurecr.io
 ```
@@ -363,7 +363,7 @@ Como no exemplo anterior, para testar a tarefa de várias etapas, acione-a manua
 az acr task run --registry $ACR_NAME --name example2
 ```
 
-Por predefinição, o comando `az acr task run` transmite a saída de registo para a consola quando executar o comando. Como antes, a saída mostra o andamento da execução de cada uma das etapas da tarefa. A saída é condensada para mostrar as etapas principais
+Por predefinição, o comando `az acr task run` transmite a saída de registo para a consola quando executar o comando. Como antes, a saída mostra o andamento da execução de cada uma das etapas da tarefa. A saída é condensada para mostrar as etapas principais.
 
 Saída:
 
@@ -461,7 +461,7 @@ The push refers to repository [mycontainerregistrydate.azurecr.io/hello-world]
 Run ID: cf1g was successful after 46s
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu a criar tarefas de várias etapas com base em vários contêineres que são disparadas automaticamente quando você confirma o código-fonte para um repositório git. Para obter recursos avançados de tarefas de várias etapas, incluindo a execução de etapas paralelas e dependentes, consulte a [referência de YAML de tarefas do ACR](container-registry-tasks-reference-yaml.md). Avance para o tutorial seguinte para saber como criar tarefas que acionam compilações quando a imagem de base de uma imagem do contentor é atualizada.
 

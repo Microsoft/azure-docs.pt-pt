@@ -1,46 +1,49 @@
 ---
-title: Informações de desempenho de consulta na base de dados do Azure para PostgreSQL - servidor único
-description: Este artigo descreve a funcionalidade de informações de desempenho de consulta na base de dados do Azure para PostgreSQL - único servidor.
+title: Análise de Desempenho de Consultas no banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve o recurso Análise de Desempenho de Consultas no banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: d45b79e2ca3b3d478102bebdcff3c8892bef2cb5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2019
+ms.openlocfilehash: cd07656ab4e6e0f684eecf35d241eac539b7a552
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067548"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907460"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
 
-**Aplica-se a:** Base de dados do Azure para PostgreSQL - único servidor 9.6 e 10
+**Aplica-se a:** Banco de dados do Azure para PostgreSQL-servidor único 9,6 e 10
 
-O Query Performance Insight ajuda-o a identificar rapidamente quais são suas consultas de maior duração, como são alterados ao longo do tempo e esperas de que estão a afetá-los.
+Análise de Desempenho de Consultas ajuda a identificar rapidamente o que são suas consultas em execução mais longas, como elas mudam com o passar do tempo e quais esperas estão afetando-as.
 
 ## <a name="permissions"></a>Permissões
 As permissões **Proprietário**ou **Contribuidor** necessárias para ver o texto das consultas no Query Performance Insight. O **Leitor** pode ver gráficos e tabelas, mas não o texto da consulta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para o Query Performance Insight para a função, dados tem de existir na [Query Store](concepts-query-store.md).
+Para que Análise de Desempenho de Consultas funcionem, os dados devem existir no [repositório de consultas](concepts-query-store.md).
 
-## <a name="viewing-performance-insights"></a>Ver informações de desempenho
+## <a name="viewing-performance-insights"></a>Exibindo informações de desempenho
 A vista [Query Performance Insight](concepts-query-performance-insight.md) no portal do Azure vai apresentar visualizações sobre informações importantes do Arquivo de Consultas. 
 
-Na página do portal da sua base de dados do Azure para o servidor PostgreSQL, selecione **informações de desempenho de consultas** sob a **desempenho inteligente** secção da barra de menus.
+Na página do portal do servidor do banco de dados do Azure para PostgreSQL, selecione análise de **desempenho de consultas** na seção **desempenho inteligente** da barra de menus.
 
-![O Query Performance Insight consultas de execução longa](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
+![Análise de Desempenho de Consultas consultas de longa execução](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
-O **consultas de longa execução** separador mostra as consultas de cinco por duração média por execução, agregados em intervalos de 15 minutos. Pode ver mais consultas ao selecionar no menu pendente **Número de Consultas**. Ao fazer isso, as cores do gráfico podem ser alteradas para um ID de Consulta específico.
+A guia **consultas de longa execução** mostra as cinco principais consultas por duração média por execução, agregadas em intervalos de 15 minutos. Pode ver mais consultas ao selecionar no menu pendente **Número de Consultas**. Ao fazer isso, as cores do gráfico podem ser alteradas para um ID de Consulta específico.
 
-Pode clicar e arrastar no gráfico para restringir a uma janela de tempo específica. Em alternativa, utilize o zoom os ícones para ver um menor ou maior do período de tempo, respetivamente.
+Pode clicar e arrastar no gráfico para restringir a uma janela de tempo específica. Como alternativa, use os ícones ampliar e reduzir para exibir um período de tempo menor ou maior, respectivamente.
 
-A tabela abaixo o gráfico fornece mais detalhes sobre as consultas de longa execução nessa janela de tempo.
+A tabela abaixo do gráfico fornece mais detalhes sobre as consultas de execução longa nessa janela de tempo.
 
 Selecione o separador **Estatísticas de Espera** para ver as visualizações correspondentes sobre esperas no servidor.
 
-![Estatísticas de espera o Query Performance Insight](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+![Estatísticas de esperas de Análise de Desempenho de Consultas](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+
+## <a name="considerations"></a>Considerações
+* Análise de Desempenho de Consultas não está disponível para [réplicas de leitura](concepts-read-replicas.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Saber mais sobre [monitorização e otimização](concepts-monitoring.md) na Base de Dados do Azure para PostgreSQL.

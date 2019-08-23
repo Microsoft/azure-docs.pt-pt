@@ -3,16 +3,16 @@ title: Resolver erros comuns
 description: Saiba como solucionar problemas de consulta de recursos do Azure com o grafo de recursos do Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/24/2019
+ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 511d170f90e8ed34b00a3960d084223ec73d99dd
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3c59b5c4b580604c65572364d29d4e5d10a26820
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480556"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900013"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Solucionar erros usando o grafo de recursos do Azure
 
@@ -60,6 +60,33 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 # View the completed results of the query on all subscriptions
 $response
 ```
+
+### <a name="rest-contenttype"></a>Cenário Cabeçalho REST de tipo de conteúdo sem suporte
+
+#### <a name="issue"></a>Problema
+
+Os clientes que consultam a API REST do grafo de recursos do Azure obtêm uma resposta _500_ (erro interno do servidor) retornada.
+
+#### <a name="cause"></a>Causa
+
+A API REST do grafo de recursos do Azure `Content-Type` dá suporte apenas a um **aplicativo/JSON**. Algumas ferramentas REST ou agentes assumem o padrão de **text/plain**, que não é suportado pela API REST.
+
+#### <a name="resolution"></a>Resolução
+
+Valide se a ferramenta ou o agente que você está usando para consultar o grafo de recursos do Azure `Content-Type` tem o cabeçalho da API REST configurado para **Application/JSON**.
+### <a name="rest-403"></a>Cenário Nenhuma permissão de leitura para todas as assinaturas na lista
+
+#### <a name="issue"></a>Problema
+
+Os clientes que passam explicitamente uma lista de assinaturas com uma consulta do grafo de recursos do Azure obtêm uma resposta de _403_ (proibido).
+
+#### <a name="cause"></a>Causa
+
+Se o cliente não tiver permissão de leitura para todas as assinaturas fornecidas, a solicitação será negada devido à falta de direitos de segurança apropriados.
+
+#### <a name="resolution"></a>Resolução
+
+Inclua pelo menos uma assinatura na lista de assinaturas que o cliente que está executando a consulta tenha pelo menos acesso de leitura ao. Para obter mais informações, consulte [permissões no grafo de recursos do Azure](../overview.md#permissions-in-azure-resource-graph).
 
 ## <a name="next-steps"></a>Passos seguintes
 

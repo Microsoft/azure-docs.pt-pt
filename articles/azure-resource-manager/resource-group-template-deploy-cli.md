@@ -4,14 +4,14 @@ description: Use Azure Resource Manager e CLI do Azure para implantar recursos n
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/12/2019
+ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 93b1b16776bac6cb24996d6fa08a547318802f32
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: bd43e919cc0b2bcf1d130c7e616b7da064abcc65
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853837"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971019"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementar recursos com modelos do Resource Manager e do CLI do Azure
 
@@ -133,7 +133,7 @@ A implantação especificada deve ter êxito.
 
 ## <a name="parameters"></a>Parâmetros
 
-Para passar valores de parâmetro, você pode usar parâmetros embutidos ou um arquivo de parâmetro. Os exemplos anteriores neste artigo mostram parâmetros embutidos.
+Para passar valores de parâmetro, você pode usar parâmetros embutidos ou um arquivo de parâmetro.
 
 ### <a name="inline-parameters"></a>Parâmetros embutidos
 
@@ -172,23 +172,7 @@ O formato arrayContent. JSON é:
 
 Em vez de passar parâmetros como valores embutidos em seu script, você pode achar mais fácil usar um arquivo JSON que contenha os valores de parâmetro. O arquivo de parâmetro deve ser um arquivo local. Não há suporte para arquivos de parâmetros externos com CLI do Azure.
 
-O arquivo de parâmetro deve estar no seguinte formato:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-     "storageAccountType": {
-         "value": "Standard_GRS"
-     }
-  }
-}
-```
-
-Observe que a seção de parâmetros inclui um nome de parâmetro que corresponde ao parâmetro definido em seu modelo (storageAccountType). O arquivo de parâmetro contém um valor para o parâmetro. Esse valor é passado automaticamente para o modelo durante a implantação. Você pode criar mais de um arquivo de parâmetro e, em seguida, passar o arquivo de parâmetro apropriado para o cenário. 
-
-Copie o exemplo anterior e salve-o como um arquivo `storage.parameters.json`chamado.
+Para obter mais informações sobre o arquivo de parâmetro, consulte [criar arquivo de parâmetro do Resource Manager](resource-manager-parameter-files.md).
 
 Para passar um arquivo de parâmetro local, `@` use para especificar um arquivo local chamado Storage. Parameters. JSON.
 
@@ -198,18 +182,6 @@ az group deployment create \
   --resource-group ExampleGroup \
   --template-file storage.json \
   --parameters @storage.parameters.json
-```
-
-### <a name="parameter-precedence"></a>Precedência de parâmetro
-
-Você pode usar parâmetros embutidos e um arquivo de parâmetro local na mesma operação de implantação. Por exemplo, você pode especificar alguns valores no arquivo de parâmetro local e adicionar outros valores embutidos durante a implantação. Se você fornecer valores para um parâmetro no arquivo de parâmetro local e embutido, o valor embutido terá precedência.
-
-```azurecli
-az group deployment create \
-  --resource-group testgroup \
-  --template-file demotemplate.json \
-  --parameters @demotemplate.parameters.json \
-  --parameters exampleArray=@arrtest.json
 ```
 
 ## <a name="test-a-template-deployment"></a>Testar uma implantação de modelo
@@ -263,7 +235,7 @@ Se o modelo tiver um erro de sintaxe, o comando retornará um erro indicando que
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Os exemplos neste artigo implantam recursos em um grupo de recursos em sua assinatura padrão. Para usar uma assinatura diferente, consulte [gerenciar várias assinaturas do Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 - Para especificar como lidar com recursos que existem no grupo de recursos, mas que não estão definidos no modelo, consulte [Azure Resource Manager modos de implantação](deployment-modes.md).

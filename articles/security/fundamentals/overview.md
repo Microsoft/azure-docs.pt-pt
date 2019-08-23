@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e87fc74b3fa989471f9074a33fc66d8cb8250aa0
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 2cc8f4f81ad95376dcbc10c2952c1b2ed95ffe42
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927844"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907917"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição geral
@@ -113,7 +113,7 @@ A seção fornece informações adicionais sobre os principais recursos de segur
 ### <a name="web-application-vulnerability-scanning"></a>Verificação de vulnerabilidade do aplicativo Web
 Uma das maneiras mais fáceis de começar a testar vulnerabilidades no aplicativo do serviço de [aplicativo](../../app-service/overview.md) é usar a [integração com o tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) para executar a verificação de vulnerabilidades com um clique em seu aplicativo. Você pode exibir os resultados do teste em um relatório fácil de entender e saber como corrigir cada vulnerabilidade com instruções passo a passo.
 
-### <a name="penetration-testing"></a>Teste de Penetração
+### <a name="penetration-testing"></a>Testes de Penetração
 Se preferir executar seus próprios testes de penetração ou desejar usar outro pacote de scanner ou provedor, você deverá seguir o [processo de aprovação de teste de penetração do Azure](https://docs.microsoft.com/azure/security/fundamentals/pen-testing ) e obter aprovação anterior para executar os testes de penetração desejados.
 
 ### <a name="web-application-firewall"></a>Firewall do aplicativo Web
@@ -251,10 +251,10 @@ Fornece ativação pós-falha, pedidos HTTP de encaminhamento de desempenho entr
 
 O aplicativo fornece muitos recursos do ADC (controlador de entrega de aplicativos), incluindo balanceamento de carga HTTP, afinidade de sessão baseada em cookie, descarregamento de [protocolo SSL (SSL)](../../application-gateway/tutorial-restrict-web-traffic-powershell.md) , investigações de integridade personalizadas, suporte para vários sites e muitos outros.
 
-### <a name="web-application-firewall"></a>Firewall de Aplicações Web
+### <a name="web-application-firewall"></a>Firewall de Aplicação Web
 O Firewall do aplicativo Web é um recurso do [Gateway de aplicativo Azure](../../application-gateway/overview.md) que fornece proteção para aplicativos Web que usam o gateway de aplicativo para funções de ADC (controle de entrega de aplicativos) padrão. A Firewall de aplicações Web fá-lo ao protegê-las contra a maioria das 10 principais vulnerabilidades Web da OWASP.
 
-![Firewall de Aplicações Web](./media/overview/azure-security-fig1.png)
+![Firewall de Aplicação Web](./media/overview/azure-security-fig1.png)
 
 -   Proteção contra injeção de SQL
 
@@ -270,6 +270,7 @@ O Firewall do aplicativo Web é um recurso do [Gateway de aplicativo Azure](../.
 
 
 Uma firewall de aplicações Web centralizada contra ataques Web simplifica em muito a gestão da segurança e confere à aplicação uma maior garantia de proteção contra as ameaças de intrusão. Uma solução WAF também pode reagir mais rapidamente a uma ameaça de segurança ao corrigir uma vulnerabilidade conhecida numa localização central, em vez de proteger cada uma das aplicações Web individualmente. Os gateways de aplicação existentes podem ser convertidos num gateway de aplicação com a firewall de aplicações Web facilmente.
+
 ### <a name="traffic-manager"></a>Gestor de Tráfego
 O [Gerenciador de tráfego](../../traffic-manager/traffic-manager-overview.md) do Microsoft Azure permite que você controle a distribuição do tráfego do usuário para pontos de extremidade de serviço em diferentes data centers. Os pontos de extremidade de serviço com suporte do Gerenciador de tráfego incluem VMs do Azure, aplicativos Web e serviços de nuvem. Também pode utilizar o Gestor de Tráfego com pontos finais externos, não pertencentes ao Azure. O Gerenciador de tráfego usa o DNS (sistema de nomes de domínio) para direcionar solicitações de cliente para o ponto de extremidade mais apropriado com base em um [método de roteamento de tráfego](../../traffic-manager/traffic-manager-routing-methods.md) e a integridade dos pontos.
 
@@ -295,18 +296,8 @@ Você pode habilitar as seguintes categorias de log de diagnóstico para NSGs:
 -   Contador de regras: Contém entradas para quantas vezes cada regra NSG é aplicada para negar ou permitir o tráfego.
 
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
-A central de segurança ajuda você a prevenir, detectar e responder a ameaças, além de oferecer maior visibilidade e controle sobre a segurança de seus recursos do Azure. Ele fornece monitoramento de segurança integrado e gerenciamento de políticas em suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com um amplo ecossistema de soluções de segurança. Centro de recomendações de rede sobre firewalls, grupos de segurança de rede, configuração de regras de tráfego de entrada e muito mais.
 
-As recomendações de rede disponíveis são as seguintes:
-
--   [Adicionar um firewall da próxima geração](../../security-center/security-center-add-next-generation-firewall.md) Recomenda que você adicione um firewall de última geração (NGFW) de um parceiro da Microsoft para aumentar suas proteções de segurança
-
--   [Rotear o tráfego somente por meio de NGFW](../../security-center/security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) Recomenda que você configure regras de NSG (grupo de segurança de rede) que forçam o tráfego de entrada para sua VM por meio de seu NGFW.
-
--   [Habilitar grupos de segurança de rede em sub-redes ou máquinas virtuais](../../security-center/security-center-enable-network-security-groups.md) Recomenda que você habilite NSGs em sub-redes ou VMs.
-
--   [Restringir o acesso pelo ponto de extremidade voltado para a Internet](../../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) Recomenda que você configure regras de tráfego de entrada para NSGs.
-
+A [central de segurança do Azure](../../security-center/security-center-intro.md) analisa continuamente o estado de segurança de seus recursos do Azure para práticas recomendadas de segurança de rede. Quando a central de segurança identifica possíveis vulnerabilidades de segurança, ele cria [recomendações](../../security-center/security-center-recommendations.md) que orientam você pelo processo de configuração dos controles necessários para proteger e proteger seus recursos.
 
 ## <a name="compute"></a>Computação
 
@@ -387,7 +378,7 @@ A Microsoft usa várias práticas e tecnologias de segurança em seus produtos e
 - O [proxy de aplicativo do Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) fornece SSO e acesso remoto seguro para aplicativos Web hospedados localmente.
 
 ## <a name="next-steps"></a>Próximos Passos
-- [Introdução à segurança do Microsoft Azure](./https://docs.microsoft.com/azure/security)
+- [Introdução à segurança do Microsoft Azure](https://docs.microsoft.com/azure/security)
 
 Serviços e funcionalidades do Azure que pode utilizar para o ajudar a proteger os seus serviços e dados no Azure
 

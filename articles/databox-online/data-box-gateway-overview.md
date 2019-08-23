@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 07/16/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 1b749df7c5b3badbc6e7eccd885cb953ab3d0afa
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b8c6b4085f56bc12b67bf87177ba33b82c6a6db9
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277392"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900591"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>O que é Gateway do Azure Data Box?
 
@@ -57,7 +57,6 @@ O Data Box Gateway possui as seguintes funções:
 |Acesso rápido     | Cache local no dispositivo para um acesso rápido aos ficheiros utilizados mais recentemente.|
 |Carregamento offline     | O modo desligado suporta cenários de carregamento offline.|
 |Atualização de dados     | Capacidade de atualizar os ficheiros locais com a versão mais recente da cloud.|
-|Encriptação    | Suporte de BitLocker para encriptar localmente os dados e proteger a transferência de dados para a cloud através de *https*       |
 |Resiliência     | Resiliência de rede incorporada        |
 
 
@@ -97,7 +96,7 @@ Gateway do Data Box dispositivo físico, recurso do Azure e conta de armazenamen
     As regiões nas quais as contas de armazenamento armazenam os dados do Data Box devem estar localizadas próximo de onde estiver o dispositivo, para um desempenho ideal. Uma conta de armazenamento localizada longe do dispositivo resulta em latências longas e desempenho mais lento.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os [requisitos de sistema do Data Box Gateway](data-box-gateway-system-requirements.md).
 - Compreenda os [Limites do Data Box Gateway](data-box-gateway-limits.md).

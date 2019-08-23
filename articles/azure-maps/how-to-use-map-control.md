@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: a152f32ef7d68686539b7d6edee57db8a5da9553
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: fa6a3af7893830eba2f4a5c43184991bff68d8a8
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976247"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898212"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usar o controle de mapeamento do Azure Maps
 
@@ -96,7 +96,7 @@ Você pode inserir um mapa em uma página da Web usando o Controle de Mapeamento
                 authType: 'aad',
                 clientId: '<Your AAD Client Id>',
                 aadAppId: '<Your AAD App Id>',
-                aadTenant: 'msft.ccsctp.net'
+                aadTenant: '<Your AAD Tenant Id>'
             }
         });
     </script>
@@ -189,7 +189,7 @@ map = new atlas.Map('myMap', {
         authType: 'aad',
         clientId: '<Your AAD Client Id>',
         aadAppId: '<Your AAD App Id>',
-        aadTenant: 'msft.ccsctp.net'
+        aadTenant: '<Your AAD Tenant Id>'
     }
 });
 ```

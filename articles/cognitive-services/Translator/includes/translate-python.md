@@ -4,19 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 32a784d0b359c21aa17c7ed73081c01a37f01e90
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 648842e86410985e3a6fb21f474b9df9d14e109d
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968679"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906719"
 ---
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [Prerequisites](prerequisites-python.md)]
 
-Este início rápido requer:
-
-* Python 2.7.x ou 3.x
-* Uma chave de subscrição do Azure para Tradução de Texto
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos exigidos
 
@@ -24,10 +21,7 @@ Crie um novo projeto do Python através do seu editor ou IDE favorito. Em seguid
 
 ```python
 # -*- coding: utf-8 -*-
-import os
-import requests
-import uuid
-import json
+import os, requests, uuid, json
 ```
 
 > [!NOTE]
@@ -35,27 +29,25 @@ import json
 
 O primeiro comentário indica ao interpretador Python para utilizar a codificação UTF-8. Em seguida, os módulos exigidos são importados para ler a chave de subscrição a partir de uma variável de ambiente, construir o pedido de http, criar um identificador exclusivo e processar a resposta JSON devolvida pela API de Texto do Microsoft Translator.
 
-## <a name="set-the-subscription-key-base-url-and-path"></a>Definir a chave de subscrição, o URL base e o caminho
+## <a name="set-the-subscription-key-endpoint-and-path"></a>Definir a chave de assinatura, o ponto de extremidade e o caminho
 
-Este exemplo irá tentar ler a chave de subscrição de Tradução de Texto a partir da variável de ambiente `TRANSLATOR_TEXT_KEY`. Se não estiver familiarizado com variáveis de ambiente, pode definir `subscriptionKey` como cadeia e comentar a instrução condicional.
+Este exemplo tentará ler sua chave de assinatura tradução de texto e o ponto de extremidade das variáveis `TRANSLATOR_TEXT_KEY` de `TRANSLATOR_TEXT_ENDPOINT`ambiente: e. Se você não estiver familiarizado com as variáveis de ambiente, poderá `subscription_key` definir `endpoint` e como cadeias de caracteres e comentar as instruções condicionais.
 
 Copie este código para o seu projeto:
 
 ```python
-# Checks to see if the Translator Text subscription key is available
-# as an environment variable. If you are setting your subscription key as a
-# string, then comment these lines out.
-if 'TRANSLATOR_TEXT_KEY' in os.environ:
-    subscriptionKey = os.environ['TRANSLATOR_TEXT_KEY']
-else:
-    print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
-    exit()
-# If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key.
-#subscriptionKey = 'put_your_key_here'
+key_var_name = 'TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
+if not key_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
+subscription_key = os.environ[key_var_name]
+
+endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
 ```
 
-O ponto de extremidade global Tradução de Texto é definido `base_url`como o. `path` define a rota `translate` e identifica que queremos utilizar a versão 3 da API.
+O ponto de extremidade global Tradução de Texto é definido `endpoint`como o. `path` define a rota `translate` e identifica que queremos utilizar a versão 3 da API.
 
 São utilizados `params` para definir os idiomas de saída. Neste exemplo, vamos traduzir de inglês para italiano e alemão: `it` e `de`.
 
@@ -63,10 +55,9 @@ São utilizados `params` para definir os idiomas de saída. Neste exemplo, vamos
 > Para obter mais informações sobre pontos de extremidade, rotas e parâmetros de solicitação, [consulte API de tradução de texto 3,0: Traduzir](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```python
-base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/translate?api-version=3.0'
 params = '&to=de&to=it'
-constructed_url = base_url + path + params
+constructed_url = endpoint + path + params
 ```
 
 ## <a name="add-headers"></a>Adicionar cabeçalhos
@@ -77,7 +68,7 @@ Copie este código para o seu projeto:
 
 ```python
 headers = {
-    'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Ocp-Apim-Subscription-Key': subscription_key,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -148,7 +139,7 @@ Se quiser comparar o seu código com o nosso, o exemplo completo está disponív
 
 Se codificou a chave de subscrição no seu programa, certifique-se de que remove a chave de subscrição quando tiver terminado este início rápido.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Dê uma olhada na referência da API para entender tudo o que você pode fazer com o API de Tradução de Texto.
 

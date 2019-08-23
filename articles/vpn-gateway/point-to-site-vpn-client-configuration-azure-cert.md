@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 79e7027d308d389aa672d164de91df61b1142e32
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 07d48ed195f74c9aef5d34de1925ab8fc2a3ae21
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534162"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899900"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar arquivos de configuração de cliente VPN para configurações nativas de P2S de autenticação de certificado do Azure
 
@@ -133,13 +133,13 @@ As instruções a seguir foram criadas no Ubuntu 18.0.4. O Ubuntu 16.0.10 não d
    ```
    sudo apt install network-manager-strongswan
    ```
-2. Selecione o ícone **Gerenciador de rede** (seta para cima/seta para baixo) e, em seguida, selecione **Editar conexões**.
+2. Selecione **configurações** e, em seguida, selecione **rede**.
 
    ![editar conexões](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. Clique no botão **Adicionar** para criar uma nova conexão.
+3. Clique no **+** botão para criar uma nova conexão.
 
    ![Adicionar uma conexão](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
-4. Selecione **IPSec/IKEv2 (strongSwan)** no menu suspenso e, em seguida, clique em **criar**. Você pode renomear a conexão nesta etapa.
+4. Selecione **IPSec/IKEv2 (strongSwan)** no menu e clique duas vezes em. Você pode nomear sua conexão nesta etapa.
 
    ![escolher um tipo de conexão](./media/point-to-site-vpn-client-configuration-azure-cert/choosetype.png)
 5. Abra o arquivo **VpnSettings. xml** da pasta **genérica** contida nos arquivos de configuração do cliente baixados. Localize a marca chamada **VpnServer** e copie o nome, começando com ' azuregateway ' e terminando com '. cloudapp.net '.
@@ -148,8 +148,8 @@ As instruções a seguir foram criadas no Ubuntu 18.0.4. O Ubuntu 16.0.10 não d
 6. Cole esse nome no campo **endereço** da nova conexão VPN na seção **Gateway** . Em seguida, selecione o ícone de pasta no final do campo **certificado** , navegue até a pasta **genérica** e selecione o arquivo **VpnServerRoot** .
 7. Na seção **cliente** da conexão, para **autenticação**, selecione **certificado/chave privada**. Para **certificado** e **chave privada**, escolha o certificado e a chave privada que foram criados anteriormente. Em **Opções**, selecione **solicitar um endereço IP interno**. Em seguida, clique em **adicionar**.
 
-   ![solicitar um endereço IP interno](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
-8. Clique no ícone **Gerenciador de rede** (seta para cima/seta para baixo) e passe o mouse sobre **conexões VPN**. Você verá a conexão VPN que você criou. Clique para iniciar a conexão.
+   ![solicitar um endereço IP interno](./media/point-to-site-vpn-client-configuration-azure-cert/turnon.png)
+8. Ative a conexão.
 
 ## <a name="linuxinstallcli"></a>Linux (CLI do strongSwan)
 
@@ -199,7 +199,7 @@ Se você ainda não gerou certificados, use as seguintes etapas:
    # ipsec up azure
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Retorne ao artigo para [concluir a configuração do P2S](vpn-gateway-howto-point-to-site-rm-ps.md).
 

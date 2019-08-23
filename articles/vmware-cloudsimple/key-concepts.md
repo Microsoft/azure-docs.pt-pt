@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e434065feb218b0a46220b95cc6bfd9a7033de30
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 120ab94ce62010acf4e742bd5220405961dad6db
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816106"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972730"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solution-by-cloudsimple"></a>Principais conceitos para administração da solução do Azure VMware por CloudSimple
 
@@ -34,7 +34,6 @@ Saiba mais sobre o [serviço CloudSimple](cloudsimple-service.md).
 ## <a name="cloudsimple-node"></a>Nó CloudSimple
 
 Um nó CloudSimple é um host de armazenamento e de computação com e sem sistema operacional dedicado, em que o hipervisor VMware ESXi é implantado. Esse nó é então incorporado às plataformas VMware vSphere, vCenter, vSAN e NSX. Os serviços de rede do CloudSimple e os serviços de rede de borda também estão habilitados. Cada nó serve como uma unidade de computação e capacidade de armazenamento que você pode provisionar para criar [nuvens privadas do CloudSimple](cloudsimple-private-cloud.md). Você provisiona ou reserva nós em uma região onde o serviço CloudSimple está disponível.
-
 
 Saiba mais sobre [nós CloudSimple](cloudsimple-node.md).
 

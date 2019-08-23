@@ -1,56 +1,56 @@
 ---
-title: Implementar recursos com o PowerShell e o modelo | Documentos da Microsoft
-description: Utilize o Azure Resource Manager e o Azure PowerShell para implementar recursos no Azure. Os recursos são definidos num modelo do Resource Manager.
+title: Implantar recursos com o PowerShell e o modelo | Microsoft Docs
+description: Use Azure Resource Manager e Azure PowerShell para implantar recursos no Azure. Os recursos são definidos num modelo do Resource Manager.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 63d729f19b0ef20d0e7a716d6857b4627095856b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1f9fb786933d03b27be47c9f778a5f1575ca17c2
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476976"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970896"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementar recursos com modelos do Resource Manager e do Azure PowerShell
 
-Saiba como utilizar o Azure PowerShell com modelos do Resource Manager para implementar os seus recursos no Azure. Para obter mais informações sobre os conceitos de implantar e gerenciar suas soluções do Azure, consulte [descrição geral do Azure Resource Manager](resource-group-overview.md).
+Saiba como usar Azure PowerShell com modelos do Resource Manager para implantar seus recursos no Azure. Para obter mais informações sobre os conceitos de implantação e gerenciamento de suas soluções do Azure, consulte [visão geral de Azure Resource Manager](resource-group-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment-scope"></a>Escopo da implantação
 
-Pode direcionar a sua implementação para uma subscrição do Azure ou um grupo de recursos numa subscrição. Na maioria dos casos, será o direcionamento de implementação para um grupo de recursos. Utilize implementações de subscrição para aplicar políticas e as atribuições de funções a subscrição. Também utilizar implementações de subscrição para criar um grupo de recursos e implementar recursos no mesmo. Dependendo do escopo da implantação, é usar comandos diferentes.
+Você pode direcionar sua implantação para uma assinatura do Azure ou um grupo de recursos em uma assinatura. Na maioria dos casos, você direcionará a implantação para um grupo de recursos. Use implantações de assinatura para aplicar políticas e atribuições de função na assinatura. Você também usa implantações de assinatura para criar um grupo de recursos e implantar recursos nele. Dependendo do escopo da implantação, você usará comandos diferentes.
 
-Para implementar um **grupo de recursos**, utilize [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
+Para implantar em um **grupo de recursos**, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
 ```
 
-Para implementar um **subscrição**, utilize [New-AzDeployment](/powershell/module/az.resources/new-azdeployment):
+Para implantar em uma **assinatura**, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment):
 
 ```azurepowershell
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
-Atualmente, só são suportadas implementações do grupo de gestão através da API REST. Ver [implementar recursos com modelos do Resource Manager e API de REST do Resource Manager](resource-group-template-deploy-rest.md).
+Atualmente, as implantações de grupo de gerenciamento só têm suporte por meio da API REST. Consulte [implantar recursos com modelos do Resource Manager e a API REST do Gerenciador de recursos](resource-group-template-deploy-rest.md).
 
-Os exemplos neste artigo utilizam implementações do grupo de recursos. Para obter mais informações sobre implementações de subscrição, veja [criar grupos de recursos e recursos ao nível da subscrição](deploy-to-subscription.md).
+Os exemplos neste artigo usam implantações de grupo de recursos. Para obter mais informações sobre implantações de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](deploy-to-subscription.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de um modelo para implementar. Se ainda não tiver uma, transferir e guardar um [modelo de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) do repositório de modelos de início rápido do Azure. O nome de ficheiro local utilizado neste artigo é **c:\MyTemplates\azuredeploy.json**.
+Você precisa de um modelo para implantar. Se você ainda não tiver um, baixe e salve um [modelo de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) do repositório de modelos de início rápido do Azure. O nome do arquivo local usado neste artigo é **c:\MyTemplates\azuredeploy.JSON**.
 
-A menos que utilize o Azure Cloud shell para implementar modelos, tem de instalar o Azure PowerShell e ligue-se para o Azure:
+A menos que você use o Azure cloud Shell para implantar modelos, você precisa instalar Azure PowerShell e conectar-se ao Azure:
 
-- **Instale cmdlets Azure PowerShell no seu computador local.** Para obter mais informações, veja [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
-- **Ligar ao Azure, utilizando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)** . Se tiver várias subscrições do Azure, também poderá ter de ser executado [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para obter mais informações, consulte [utilizar várias subscrições do Azure](/powershell/azure/manage-subscriptions-azureps).
+- **Instale os cmdlets Azure PowerShell no computador local.** Para obter mais informações, veja [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
+- **Conecte-se ao Azure usando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)** . Se você tiver várias assinaturas do Azure, talvez também precise executar [set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para obter mais informações, consulte [usar várias assinaturas do Azure](/powershell/azure/manage-subscriptions-azureps).
 
-## <a name="deploy-local-template"></a>Implementar o modelo de local
+## <a name="deploy-local-template"></a>Implantar modelo local
 
-O exemplo seguinte cria um grupo de recursos e implementa um modelo a partir do seu computador local. O nome do grupo de recursos só pode incluir carateres alfanuméricos, pontos finais, carateres de sublinhado, hífenes e parênteses. Pode ser até 90 carateres. Não pode terminar com um período.
+O exemplo a seguir cria um grupo de recursos e implanta um modelo de seu computador local. O nome do grupo de recursos pode incluir apenas caracteres alfanuméricos, pontos, sublinhados, hifens e parênteses. Pode ter até 90 caracteres. Ele não pode terminar em um ponto.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -63,11 +63,11 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 A implementação pode demorar alguns minutos a concluir.
 
-## <a name="deploy-remote-template"></a>Implementar modelo remoto
+## <a name="deploy-remote-template"></a>Implantar modelo remoto
 
-Em vez de armazenar modelos do Resource Manager no seu computador local, pode armazená-las num local externo. Pode armazenar modelos num repositório de controle de origem (por exemplo, o GitHub). Em alternativa, pode armazená-los numa conta de armazenamento do Azure para acesso partilhado na sua organização.
+Em vez de armazenar modelos do Resource Manager em seu computador local, você pode preferir armazená-los em um local externo. Você pode armazenar modelos em um repositório de controle do código-fonte (como o GitHub). Ou você pode armazená-los em uma conta de armazenamento do Azure para acesso compartilhado em sua organização.
 
-Para implementar um modelo externo, utilize o **TemplateUri** parâmetro. Utilize o URI no exemplo para implementar o modelo de exemplo do GitHub.
+Para implantar um modelo externo, use o parâmetro **TemplateUri** . Use o URI no exemplo para implantar o modelo de exemplo do GitHub.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -78,13 +78,13 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-O exemplo anterior exige um URI publicamente acessível para o modelo, que funciona na maioria dos cenários, porque o modelo não deve incluir dados confidenciais. Se tiver de especificar os dados confidenciais (como uma palavra-passe de administrador), passe esse valor como um parâmetro seguro. No entanto, se não pretender que o modelo para estar acessível publicamente, pode protegê-los armazenando-os num contentor do armazenamento privado. Para obter informações sobre como implementar um modelo que precisa de um token de assinatura (SAS) de acesso partilhado, consulte [implementar modelo privado com o SAS token](resource-manager-powershell-sas-token.md). Para seguir um tutorial, veja [Tutorial: Integrar o Azure Key Vault na implementação de modelo do Resource Manager](./resource-manager-tutorial-use-key-vault.md).
+O exemplo anterior requer um URI acessível publicamente para o modelo, que funciona para a maioria dos cenários porque o modelo não deve incluir dados confidenciais. Se você precisar especificar dados confidenciais (como uma senha de administrador), passe esse valor como um parâmetro seguro. No entanto, se você não quiser que seu modelo seja acessível publicamente, você pode protegê-lo armazenando-o em um contêiner de armazenamento privado. Para obter informações sobre como implantar um modelo que requer um token SAS (assinatura de acesso compartilhado), consulte [implantar modelo privado com o token SAS](resource-manager-powershell-sas-token.md). Para percorrer um tutorial, consulte [o tutorial: Integre Azure Key Vault no Implantação de modelo](./resource-manager-tutorial-use-key-vault.md)do Resource Manager.
 
-## <a name="deploy-from-azure-cloud-shell"></a>Implementar a partir do Azure Cloud shell
+## <a name="deploy-from-azure-cloud-shell"></a>Implantar do Azure cloud Shell
 
-Pode utilizar o [Azure Cloud Shell](https://shell.azure.com) para implementar o modelo. Para implementar um modelo externo, forneça o URI do modelo. Para implementar um modelo de local, primeiro tem de carregar o modelo para a conta de armazenamento para o Cloud Shell. Para carregar ficheiros para o shell, selecione o **carregar/transferir ficheiros** ícone de menu da janela do shell.
+Você pode usar o [Azure cloud Shell](https://shell.azure.com) para implantar o modelo. Para implantar um modelo externo, forneça o URI do modelo. Para implantar um modelo local, você deve primeiro carregar o modelo na conta de armazenamento para seu Cloud Shell. Para carregar arquivos no Shell, selecione o ícone de menu **carregar/baixar arquivos** na janela do Shell.
 
-Para abrir o Cloud shell, navegue até [ https://shell.azure.com ](https://shell.azure.com), ou selecione **Try It** da seção de código seguinte:
+Para abrir o Cloud Shell, navegue até [https://shell.azure.com](https://shell.azure.com)ou selecione **Try-it** na seguinte seção de código:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -95,20 +95,20 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Colar o código no shell, clique com o botão direito dentro do shell e, em seguida, selecione **colar**.
+Para colar o código no Shell, clique com o botão direito do mouse dentro do Shell e selecione **colar**.
 
-## <a name="redeploy-when-deployment-fails"></a>Implementar novamente quando ocorre uma falha de implementação
+## <a name="redeploy-when-deployment-fails"></a>Reimplantar quando a implantação falhar
 
-Esta funcionalidade também é conhecido como *reversão com o erro*. Quando uma implementação falhar, pode implementar automaticamente novamente uma implementação anterior, com êxito do seu histórico de implementação. Para especificar a nova implementação, utilize o `-RollbackToLastDeployment` ou `-RollBackDeploymentName` parâmetro no comando de implementação. Essa funcionalidade é útil se tem um bom estado conhecido para a sua implementação de infraestrutura e pretenda reverter para este estado. Há uma série de limitações e restrições:
+Esse recurso também é conhecido como *reversão em caso de erro*. Quando uma implantação falha, você pode reimplantar automaticamente uma implantação bem-sucedida anterior do seu histórico de implantação. Para especificar a reimplantação, use o `-RollbackToLastDeployment` parâmetro `-RollBackDeploymentName` ou no comando de implantação. Essa funcionalidade será útil se você tiver um estado válido conhecido para sua implantação de infraestrutura e quiser reverter para esse estado. Há várias limitações e restrições:
 
-- A reimplementação é executada exatamente como foi anteriormente executada com os mesmos parâmetros. Não é possível alterar os parâmetros.
-- A implementação anterior for executada utilizando o [modo de conclusão](./deployment-modes.md#complete-mode). São eliminados todos os recursos não incluídos na implementação anterior e quaisquer configurações de recursos são definidas para o seu estado anterior. Certifique-se de que compreende totalmente o [modos de implementação](./deployment-modes.md).
-- A reimplementação afeta apenas os recursos, quaisquer alterações de dados não são afetadas.
-- Esta funcionalidade só é suportada em implementações de grupo de recursos, não implementações ao nível de subscrição. Para obter mais informações sobre a implementação de nível de subscrição, veja [criar grupos de recursos e recursos ao nível da subscrição](./deploy-to-subscription.md).
+- A reimplantação é executada exatamente como foi executada anteriormente com os mesmos parâmetros. Você não pode alterar os parâmetros.
+- A implantação anterior é executada usando o [modo completo](./deployment-modes.md#complete-mode). Todos os recursos não incluídos na implantação anterior são excluídos e as configurações de recurso são definidas para o estado anterior. Certifique-se de compreender totalmente os [modos de implantação](./deployment-modes.md).
+- A reimplantação afeta apenas os recursos, as alterações de dados não são afetadas.
+- Esse recurso só tem suporte em implantações de grupo de recursos, não em implantações de nível de assinatura. Para obter mais informações sobre a implantação em nível de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](./deploy-to-subscription.md).
 
-Para utilizar esta opção, as suas implementações tem de ter nomes exclusivos para que eles podem ser identificados na história. Se não tem nomes exclusivos, a falha na implementação atual poderá substituir a implementação bem-sucedida anterior na história. Só pode utilizar esta opção com implementações de nível de raiz. Implementações a partir de um modelo aninhado não estão disponíveis para reimplantação.
+Para usar essa opção, suas implantações devem ter nomes exclusivos para que possam ser identificadas no histórico. Se você não tiver nomes exclusivos, a implantação com falha atual poderá substituir a implantação bem-sucedida anteriormente no histórico. Você só pode usar essa opção com implantações de nível raiz. Implantações de um modelo aninhado não estão disponíveis para reimplantação.
 
-Para Reimplementar a última implementação efetuada com êxito, adicione o `-RollbackToLastDeployment` parâmetro como um sinalizador.
+Para reimplantar a última implantação bem-sucedida, adicione o `-RollbackToLastDeployment` parâmetro como um sinalizador.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -Name ExampleDeployment02 `
@@ -117,7 +117,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment02 `
   -RollbackToLastDeployment
 ```
 
-Para Reimplementar uma implementação específica, utilize o `-RollBackDeploymentName` parâmetro e forneça o nome da implementação.
+Para reimplantar uma implantação específica, use o `-RollBackDeploymentName` parâmetro e forneça o nome da implantação.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -Name ExampleDeployment02 `
@@ -126,15 +126,15 @@ New-AzResourceGroupDeployment -Name ExampleDeployment02 `
   -RollBackDeploymentName ExampleDeployment01
 ```
 
-A implementação especificada tem de ter foi concluída com êxito.
+A implantação especificada deve ter êxito.
 
-## <a name="pass-parameter-values"></a>Transmita os valores de parâmetro
+## <a name="pass-parameter-values"></a>Passar valores de parâmetro
 
-Para passar valores de parâmetros, pode utilizar parâmetros inline ou um ficheiro de parâmetros. Os exemplos anteriores neste artigo mostram parâmetros inline.
+Para passar valores de parâmetro, você pode usar parâmetros embutidos ou um arquivo de parâmetro.
 
-### <a name="inline-parameters"></a>Parâmetros inline
+### <a name="inline-parameters"></a>Parâmetros embutidos
 
-Para passar parâmetros inline, forneça os nomes de parâmetro com o `New-AzResourceGroupDeployment` comando. Por exemplo, para passar uma cadeia de caracteres e a matriz a um modelo, utilize:
+Para passar parâmetros embutidos, forneça os nomes do parâmetro com o `New-AzResourceGroupDeployment` comando. Por exemplo, para passar uma cadeia de caracteres e uma matriz para um modelo, use:
 
 ```powershell
 $arrayParam = "value1", "value2"
@@ -144,7 +144,7 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -exampleArray $arrayParam
 ```
 
-Também pode obter o conteúdo do arquivo e fornecer esse conteúdo como um parâmetro de inline.
+Você também pode obter o conteúdo do arquivo e fornecer esse conteúdo como um parâmetro embutido.
 
 ```powershell
 $arrayParam = "value1", "value2"
@@ -154,9 +154,9 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -exampleArray $arrayParam
 ```
 
-Obtendo um valor de parâmetro de um arquivo é útil quando tem de fornecer valores de configuração. Por exemplo, pode fornecer [valores de cloud-init para uma máquina virtual Linux](../virtual-machines/linux/using-cloud-init.md).
+Obter um valor de parâmetro de um arquivo é útil quando você precisa fornecer valores de configuração. Por exemplo, você pode fornecer [valores de Cloud-init para uma máquina virtual do Linux](../virtual-machines/linux/using-cloud-init.md).
 
-Se precisar de passar uma matriz de objetos, criar tabelas de hash no PowerShell e adicioná-los para uma matriz. Passe essa matriz como um parâmetro durante a implementação.
+Se você precisar passar uma matriz de objetos, crie tabelas de hash no PowerShell e adicione-as a uma matriz. Passe essa matriz como um parâmetro durante a implantação.
 
 ```powershell
 $hash1 = @{ Name = "firstSubnet"; AddressPrefix = "10.0.0.0/24"}
@@ -167,30 +167,13 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -exampleArray $subnetArray
 ```
 
+### <a name="parameter-files"></a>Arquivos de parâmetro
 
-### <a name="parameter-files"></a>Ficheiros de parâmetros
+Em vez de passar parâmetros como valores embutidos em seu script, você pode achar mais fácil usar um arquivo JSON que contenha os valores de parâmetro. O arquivo de parâmetro pode ser um arquivo local ou um arquivo externo com um URI acessível.
 
-Em vez de passar parâmetros como valores de inline no seu script, talvez ache mais fácil de utilizar um ficheiro JSON que contém os valores de parâmetro. O ficheiro de parâmetros pode ser um ficheiro local ou um arquivo externo com um URI acessível.
+Para obter mais informações sobre o arquivo de parâmetro, consulte [criar arquivo de parâmetro do Resource Manager](resource-manager-parameter-files.md).
 
-O ficheiro de parâmetros tem de estar no seguinte formato:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-     "storageAccountType": {
-         "value": "Standard_GRS"
-     }
-  }
-}
-```
-
-Observe que a secção de parâmetros inclui um nome de parâmetro que corresponda ao parâmetro definido no seu modelo (storageAccountType). O ficheiro de parâmetros contém um valor para o parâmetro. Este valor é automaticamente passado para o modelo durante a implementação. Pode criar mais do que um ficheiro de parâmetros e, em seguida, passar o ficheiro de parâmetros adequada para o cenário.
-
-Copie o exemplo anterior e guarde-o como um arquivo chamado `storage.parameters.json`.
-
-Para passar um ficheiro de parâmetros local, utilize o **TemplateParameterFile** parâmetro:
+Para passar um arquivo de parâmetro local, use o parâmetro **TemplateParameterFile** :
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -198,7 +181,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
 
-Para passar um ficheiro de parâmetros externo, utilize o **TemplateParameterUri** parâmetro:
+Para passar um arquivo de parâmetro externo, use o parâmetro **TemplateParameterUri** :
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -206,26 +189,16 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
 ```
 
-### <a name="parameter-precedence"></a>Precedência de parâmetro
+## <a name="test-template-deployments"></a>Implantações de modelo de teste
 
-Pode usar parâmetros inline e um ficheiro de parâmetros local na mesma operação de implementação. Por exemplo, pode especificar alguns valores no ficheiro de parâmetros local e adicionar outros embutidos valores durante a implementação. Se fornecer valores para um parâmetro no ficheiro de parâmetros local e inline, o valor de inline tem precedência.
-
-No entanto, quando utiliza um ficheiro de parâmetros externo, não poder passar os outros valores de qualquer inline ou a partir de um ficheiro local. Se especificar um ficheiro de parâmetros nos **TemplateParameterUri** parâmetro, inline todos os parâmetros são ignorados. Fornece todos os valores de parâmetros no ficheiro externo. Se o seu modelo inclui um valor confidencial que não pode incluir no ficheiro de parâmetros, adicione esse valor para um cofre de chaves ou fornecer dinamicamente tudo embutido de valores de parâmetro.
-
-### <a name="parameter-name-conflicts"></a>Conflitos de nomes de parâmetro
-
-Se o seu modelo inclui um parâmetro com o mesmo nome que um dos parâmetros no comando do PowerShell, PowerShell apresenta o parâmetro a partir do seu modelo com o sufixo **FromTemplate**. Por exemplo, um parâmetro denominado **ResourceGroupName** em seu conflitos de modelo com o **ResourceGroupName** parâmetro no [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. Lhe for pedido para fornecer um valor para **ResourceGroupNameFromTemplate**. Em geral, deve evitar essa confusão ao não nomear os parâmetros com o mesmo nome como parâmetros utilizados para operações de implementação.
-
-## <a name="test-template-deployments"></a>Implementações do modelo de teste
-
-Para testar seus valores de modelo e o parâmetro sem ter de implementar, na verdade, todos os recursos, utilize [Test-AzureRmResourceGroupDeployment](/powershell/module/az.resources/test-azresourcegroupdeployment). 
+Para testar seus valores de modelo e parâmetro sem realmente implantar nenhum recurso, use [Test-AzureRmResourceGroupDeployment](/powershell/module/az.resources/test-azresourcegroupdeployment). 
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\azuredeploy.json -storageAccountType Standard_GRS
 ```
 
-Se não são detetados erros, o comando terminar sem uma resposta. Se for detetado um erro, o comando devolve uma mensagem de erro. Por exemplo, passando um valor incorreto para a conta de armazenamento SKU, devolve o erro seguinte:
+Se nenhum erro for detectado, o comando será concluído sem uma resposta. Se um erro for detectado, o comando retornará uma mensagem de erro. Por exemplo, a passagem de um valor incorreto para o SKU da conta de armazenamento retorna o seguinte erro:
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName testgroup `
@@ -238,16 +211,16 @@ Message : Deployment template validation failed: 'The provided value 'badSku' fo
 Details :
 ```
 
-Se o seu modelo tem um erro de sintaxe, o comando devolve um erro que indica que não foi possível analisar o modelo. A mensagem indica o número de linha e a posição de erro de análise.
+Se o modelo tiver um erro de sintaxe, o comando retornará um erro indicando que ele não pôde analisar o modelo. A mensagem indica o número de linha e a posição do erro de análise.
 
 ```powershell
 Test-AzResourceGroupDeployment : After parsing a value an unexpected character was encountered: 
   ". Path 'variables', line 31, position 3.
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para com segurança implementar o seu serviço mais do que uma região, veja [Gestor de implementação do Azure](deployment-manager-overview.md).
-- Para especificar como lidar com recursos de que existem no grupo de recursos, mas não estão definidos no modelo, consulte [modos de implementação Azure Resource Manager](deployment-modes.md).
-- Para compreender como definir parâmetros no seu modelo, veja [compreender a estrutura e a sintaxe de modelos Azure Resource Manager](resource-group-authoring-templates.md).
-- Para obter informações sobre como implementar um modelo que necessita de um token SAS, consulte [implementar modelo privado com o SAS token](resource-manager-powershell-sas-token.md).
+- Para distribuir com segurança seu serviço para mais de uma região, consulte [Deployment Manager do Azure](deployment-manager-overview.md).
+- Para especificar como lidar com recursos que existem no grupo de recursos, mas que não estão definidos no modelo, consulte [Azure Resource Manager modos de implantação](deployment-modes.md).
+- Para entender como definir parâmetros em seu modelo, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](resource-group-authoring-templates.md).
+- Para obter informações sobre como implantar um modelo que requer um token SAS, consulte [implantar o modelo privado com o token SAS](resource-manager-powershell-sas-token.md).

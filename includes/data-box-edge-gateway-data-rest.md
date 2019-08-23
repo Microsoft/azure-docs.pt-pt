@@ -2,19 +2,18 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 8a6ceee0f7db4b7b368dce1a28c8edc0b2b11180
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: eb55d993ad8960f821c2b72f0a53602166b7cc7e
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184901"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900621"
 ---
-Para dados Inativos:
+Para dados em repouso:
 
-- Encriptação do BitLocker XTS-AES de 256 bits é utilizada para proteger os dados locais.
-- O acesso aos dados armazenados em partilhas é restrito.
+- O acesso a dados armazenados em compartilhamentos é restrito.
 
-    - Clientes SMB que acedem a partilha de dados tem das credenciais de utilizador associadas à partilha. Estas credenciais são definidas quando criar a partilha.
-    - Os endereços IP dos clientes NFS que acedam um compartilhamento tem de ser adicionado ao criar a partilha.
+    - Clientes SMB que acessam dados de compartilhamento precisam de credenciais de usuário associadas ao compartilhamento. Essas credenciais são definidas quando o compartilhamento é criado.
+    - Os endereços IP de clientes NFS que acessam um compartilhamento precisam ser adicionados quando o compartilhamento é criado.

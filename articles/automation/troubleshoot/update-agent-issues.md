@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: bbccb9beab374a4a514d527c22b3861f0752d5fd
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 956e31c157c667acd2f830702467249d869648cb
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782391"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971279"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Entender os resultados da verificação do agente do Windows em Gerenciamento de Atualizações
 
@@ -65,7 +65,7 @@ A verificação de .NET Framework verifica se o sistema tem um mínimo de [.NET 
 
 A verificação do WMF verifica se o sistema tem a versão necessária do WMF (Windows Management Framework) – [Windows Management framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616).
 
-### <a name="tls-12"></a>TLS 1.2
+### <a name="tls-12"></a>TLS 1,2
 
 Essa verificação determina se você está usando o TLS 1,2 para criptografar suas comunicações. O TLS 1,0 não é mais suportado pela plataforma. Recomendamos que os clientes usem o TLS 1,2 para se comunicar com Gerenciamento de Atualizações.
 
@@ -107,7 +107,9 @@ A verificação de acesso à pasta de criptografia determina se a conta do siste
 
 ## <a name="troubleshoot-offline"></a>Solucionar problemas offline
 
-Você pode usar a solução de problemas em um Hybrid Runbook Worker offline executando o script localmente. Você pode obter o script, [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration), na galeria do PowerShell. A saída desse script é semelhante ao exemplo a seguir:
+Você pode usar a solução de problemas em um Hybrid Runbook Worker offline executando o script localmente. Você pode obter o script, [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration), na galeria do PowerShell. Você deve ter o WMF 4,0 ou superior instalado para executar o script. Para baixar a versão mais recente do PowerShell, consulte [Instalando várias versões do PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell).
+
+A saída desse script é semelhante ao exemplo a seguir:
 
 ```output
 RuleId                      : OperatingSystemCheck

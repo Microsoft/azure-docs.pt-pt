@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 09/15/2017
+ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 44dea072b9871d0be6e18549896456af2a4989f6
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 5a0be55df9be67fcf6ff5d53e18e3eb2b0e69d7f
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558765"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904467"
 ---
 # <a name="get-started-with-device-management-net"></a>Introdução ao gerenciamento de dispositivos (.NET)
 
@@ -34,7 +34,9 @@ No final deste tutorial, terá duas aplicações de consola .NET:
 
 * **TriggerReboot**. Esse aplicativo chama um método direto no aplicativo de dispositivo simulado, exibe a resposta e exibe as propriedades relatadas atualizadas.
 
-Para concluir este tutorial, precisa dos seguintes pré-requisitos:
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para concluir este tutorial, precisa de:
 
 * Visual Studio.
 
@@ -81,7 +83,7 @@ Nesta seção, você cria um aplicativo de console do .NET, C#usando o, que inic
    using Microsoft.Azure.Devices.Shared;
    ```
 
-1. Adicione os seguintes campos à classe **Programa**. Substitua o valor do espaço reservado pela cadeia de conexão do Hub IoT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string).
+1. Adicione os seguintes campos à classe **Programa**. Substitua o `{iot hub connection string}` valor do espaço reservado pela cadeia de conexão do Hub IOT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string).
 
    ```csharp
    static RegistryManager registryManager;
@@ -133,7 +135,7 @@ Nesta seção, você cria um aplicativo de console do .NET, C#usando o, que inic
 
 ## <a name="create-a-simulated-device-app"></a>Criar uma aplicação de dispositivo simulada
 
-Nesta seção, você executa as seguintes ações:
+Nesta secção, pode:
 
 * Crie um aplicativo de console .NET que responda a um método direto chamado pela nuvem.
 
@@ -164,11 +166,10 @@ Para criar o aplicativo de dispositivo simulado, siga estas etapas:
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. Adicione os seguintes campos à classe **Programa**. Substitua o valor do espaço reservado pela cadeia de conexão do dispositivo que você anotou na seção anterior.
+1. Adicione os seguintes campos à classe **Programa**. Substitua o `{device connection string}` valor do espaço reservado pela cadeia de conexão do dispositivo que você anotou anteriormente em [registrar um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).
 
     ```csharp
-    static string DeviceConnectionString = 
-      "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+    static string DeviceConnectionString = "{device connection string}";
     static DeviceClient Client = null;
     ```
 
@@ -233,7 +234,7 @@ Para criar o aplicativo de dispositivo simulado, siga estas etapas:
    }
    ```
 
-1. Em Gerenciador de Soluções, clique com o botão direito do mouse em sua solução e selecione **definir projetos de inicialização**. 
+1. Em Gerenciador de Soluções, clique com o botão direito do mouse em sua solução e selecione **definir projetos de inicialização**.
 
 1. Para o**projeto de inicialização**de **Propriedades** > comuns, selecione **projeto de inicialização única**e, em seguida, selecione o projeto **SimulateManagedDevice** . Selecione **OK** para guardar as alterações.
 
@@ -244,7 +245,7 @@ Para criar o aplicativo de dispositivo simulado, siga estas etapas:
 
 ## <a name="run-the-apps"></a>Executar as aplicações
 
-Já está pronto para executar as aplicações.
+Agora você está pronto para executar os aplicativos.
 
 1. Para executar o aplicativo de dispositivo do .NET **SimulateManagedDevice**, em Gerenciador de soluções, clique com o botão direito do mouse no projeto **SimulateManagedDevice** , selecione **depurar**e, em seguida, selecione **Iniciar nova instância**. O aplicativo deve começar a escutar chamadas de método de seu hub IoT.
 

@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 671b7de8852b0aac30e35b76d89eb4489a206f91
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 61c404abc9c0b00512014d4ebf3450023699507b
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708555"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907999"
 ---
-# <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Utilize o Centro de segurança do Azure para monitorizar máquinas virtuais do Linux
+# <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Usar a central de segurança do Azure para monitorar máquinas virtuais do Linux
 
 O Centro de Segurança do Azure pode ajudá-lo a obter visibilidade para as práticas de segurança dos seus recursos do Azure. O Centro de Segurança oferece monitorização de segurança integrada. Pode detetar ameaças que, caso contrário, poderiam passar despercebidas. Neste tutorial, pode obter informações sobre o Centro de Segurança do Azure e como:
  
@@ -65,14 +65,14 @@ Para configurar uma política de segurança para toda a subscrição:
 
 1. No dashboard Centro de Segurança, selecione **Política de Segurança** e, em seguida, selecione a sua subscrição.
 2. No painel **Política de Segurança**, selecione **Política de segurança**. 
-3. Sobre o **política de segurança - política de segurança** painel, ative ou desative os itens de política que pretende aplicar à subscrição.
+3. Na folha **política de segurança – política de segurança** , ative ou desative os itens de política que você deseja aplicar à assinatura.
 4. Quando tiver terminado de selecionar as definições, selecione **Guardar** na parte superior do painel. 
 
 ![Política exclusiva](./media/tutorial-azure-security/unique-policy.png)
 
 ## <a name="view-vm-configuration-health"></a>Ver o estado de funcionamento de configuração de VM
 
-Depois de ter ativado a recolha de dados e definido uma política de segurança, o Centro de Segurança começa a disponibilizar recomendações e alertas. À medida que as VMs são implementadas, o agente de recolha de dados é instalado. O Centro de Segurança é então preenchido com os dados das novas VMs. Para obter informações aprofundadas sobre o estado de funcionamento de configuração de VM, veja [Proteger as suas VMs no Centro de Segurança](../../security-center/security-center-virtual-machine-recommendations.md). 
+Depois de ter ativado a recolha de dados e definido uma política de segurança, o Centro de Segurança começa a disponibilizar recomendações e alertas. À medida que as VMs são implementadas, o agente de recolha de dados é instalado. O Centro de Segurança é então preenchido com os dados das novas VMs. Para obter informações aprofundadas sobre o estado de funcionamento de configuração de VM, veja [Proteger as suas VMs no Centro de Segurança](../../security-center/security-center-virtual-machine-protection.md). 
 
 À medida que os dados são recolhidos, o estado de funcionamento de recursos de cada VM e os recursos do Azure relacionados são agregados. As informações são mostradas num gráfico de fácil leitura. 
 
@@ -106,7 +106,7 @@ Em muitos casos, o Centro de Segurança fornece passos acionáveis que pode segu
 
 Além das recomendações de configuração de recursos, o Centro de Segurança apresenta os alertas de deteção de ameaças. A funcionalidade de alertas de segurança agrega os dados recolhidos de cada VM, os registos de rede do Azure e as soluções de parceiros ligadas para detetar ameaças de segurança relativamente aos recursos do Azure. Para obter informações aprofundadas sobre as capacidades de deteção do Centro de Segurança, veja [Capacidades de deteção do Centro de Segurança do Azure](../../security-center/security-center-detection-capabilities.md).
 
-A funcionalidade de alertas de segurança requer que o escalão de preço do Centro de Segurança seja aumentado de *Gratuito* para *Standard*. R **avaliação gratuita** está disponível quando passar para este escalão de preço superior. 
+A funcionalidade de alertas de segurança requer que o escalão de preço do Centro de Segurança seja aumentado de *Gratuito* para *Standard*. Uma **avaliação gratuita** está disponível quando você passa para esse tipo de preço mais alto. 
 
 Para alterar o escalão de preço:  
 

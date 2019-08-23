@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 48733a8c2a554fc62c7731b6c0fb4ef5b8d45159
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5b44bfd94dffa14fcd501f5e0ddea11309adabf6
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450182"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907848"
 ---
-# <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS num domínio personalizado de porta de entrada
+# <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado de porta frontal
 
 Este tutorial mostra como ativar o protocolo HTTPS num domínio personalizado associado ao Front Door na secção de sistemas anfitrião de front-end. A utilização do protocolo HTTPS no seu domínio personalizado (por exemplo, https:\//www.contoso.com) garante que os seus dados confidenciais são entregues em segurança através de encriptação TLS/SSL quando são enviados pela Internet. Quando o browser está ligado a um site por HTTPS, valida o certificado de segurança do site e verifica que este é emitido por uma autoridade de certificação legítima. Este processo oferece segurança e protege as suas aplicações Web de ataques.
 
@@ -27,11 +27,11 @@ O Azure Front Door Service suporta HTTPS num nome de anfitrião predefinido do F
 
 Alguns dos principais atributos da funcionalidade HTTPS personalizada são:
 
-- Sem custos adicionais: Existem sem custos de aquisição do certificado ou de renovação e sem custos adicionais para tráfego HTTPS. 
+- Sem custo adicional: Não há custos para a aquisição ou renovação de certificados e nenhum custo adicional para o tráfego HTTPS. 
 
-- Ativação simples: Aprovisionamento de um clique está disponível a partir da [portal do Azure](https://portal.azure.com). Também pode utilizar a API REST ou outras ferramentas de programador para ativar a funcionalidade.
+- Habilitação simples: O provisionamento com um clique está disponível na [portal do Azure](https://portal.azure.com). Também pode utilizar a API REST ou outras ferramentas de programador para ativar a funcionalidade.
 
-- Gestão de certificados completa está disponível: Todos os certificados de aprovisionamento e gestão é feita automaticamente. Os certificados são aprovisionados e renovados automaticamente antes de expirarem, o que elimina os riscos de interrupção do serviço devido à expiração dos mesmos.
+- O gerenciamento de certificados completo está disponível: Todas as compras e gerenciamento de certificados são tratados para você. Os certificados são aprovisionados e renovados automaticamente antes de expirarem, o que elimina os riscos de interrupção do serviço devido à expiração dos mesmos.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -46,14 +46,14 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para poder concluir os passos neste tutorial, tem primeiro de criar um Front Door com, pelo menos, um domínio personalizado carregado. Para obter mais informações, consulte [Tutorial: Adicionar um domínio personalizado para a porta da frente](front-door-custom-domain.md).
+Para poder concluir os passos neste tutorial, tem primeiro de criar um Front Door com, pelo menos, um domínio personalizado carregado. Para obter mais informações, [consulte Tutorial: Adicione um domínio personalizado à sua porta](front-door-custom-domain.md)frontal.
 
 ## <a name="ssl-certificates"></a>Certificados SSL
 
 Para ativar o protocolo HTTPS para entregar conteúdo de forma segura num domínio personalizado do Front Door, tem de utilizar um certificado SSL. Pode optar por utilizar um certificado gerido pelo Azure Front Door Service ou utilizar o seu próprio certificado.
 
 
-### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Opção 1 (predefinição): Utilizar um certificado gerido por porta de entrada
+### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Opção 1 (padrão): Usar um certificado gerenciado pela porta frontal
 
 Quando utiliza um certificado gerido pelo Azure Front Door Service, a funcionalidade HTTPS pode ser ativada com apenas alguns cliques. O Azure Front Door Service processa inteiramente as tarefas de gestão do certificado, tais como o aprovisionamento e a renovação. Depois de ativar a funcionalidade, o processo é iniciado imediatamente. Se o domínio personalizado já estiver mapeado para o sistema anfitrião de font-end predefinido do Front Door (`{hostname}.azurefd.net`), não é necessária mais nenhuma ação. O Front Door vai processar os passos e concluir o pedido automaticamente. No entanto, se o domínio personalizado estiver mapeado noutro local, terá de utilizar o e-mail para validar a propriedade do domínio.
 
@@ -76,16 +76,22 @@ Pode utilizar o seu próprio certificado para ativar a funcionalidade HTTPS. Est
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Prepare a conta e o certificado do Azure Key Vault
  
-1. Cofre de chaves do Azure: Tem de ter uma conta do Azure Key Vault em execução na mesma subscrição como a porta de entrada que pretende ativar o HTTPS personalizado. Se não tiver uma, crie uma conta do Azure Key Vault.
+1. Azure Key Vault: Você deve ter uma conta de Azure Key Vault em execução na mesma assinatura que a porta de sua frente para a qual você deseja habilitar o HTTPS personalizado. Se não tiver uma, crie uma conta do Azure Key Vault.
 
 > [!WARNING]
-> O serviço de porta de entrada do Azure atualmente suporta apenas contas do Cofre de chaves na mesma subscrição que a configuração de porta de entrada. Escolher um Key Vault numa subscrição diferente do que o Front Door resultará numa falha.
+> O serviço de porta frontal do Azure atualmente dá suporte apenas a contas Key Vault na mesma assinatura que a configuração de porta frontal. Escolher um Key Vault numa subscrição diferente do que o Front Door resultará numa falha.
 
-2. Certificados de Cofre de chaves do Azure: Se já tiver um certificado, pode carregá-lo diretamente à sua conta do Azure Key Vault ou pode criar um novo certificado diretamente através do Azure Key Vault a partir de um parceiro de CAs esse cofre de chaves do Azure integra-se.
+2. Azure Key Vault certificados: Se você já tiver um certificado, poderá carregá-lo diretamente em sua conta do Azure Key Vault ou pode criar um novo certificado diretamente por meio de Azure Key Vault de uma das CAs de parceiro que Azure Key Vault integra com o. Carregue seu certificado como um objeto de **certificado** , em vez de um **segredo**.
+
+> [!IMPORTANT]
+> Você deve carregar o certificado no formato PFX **sem** proteção por senha.
 
 #### <a name="register-azure-front-door-service"></a>Registar o Azure Front Door Service
 
 Registe o principal de serviço do Azure Front Door Service como uma aplicação no Azure Active Directory através do PowerShell.
+
+> [!NOTE]
+> Essa ação só precisa ser executada **uma vez** por locatário.
 
 1. Caso seja necessário, instale o [Azure PowerShell](/powershell/azure/install-az-ps) no PowerShell no seu computador local.
 
@@ -95,18 +101,19 @@ Registe o principal de serviço do Azure Front Door Service como uma aplicação
 
 #### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Conceder ao Azure Front Door Service acesso ao cofre de chaves
  
-Dê permissão ao Azure Front Door Service para aceder aos certificados na secção Segredos na sua conta do Azure Key Vault.
+Conceda permissão de serviço de porta frontal do Azure para acessar os certificados em sua conta de Azure Key Vault.
 
 1. Na sua conta do cofre de chaves, em DEFINIÇÕES, selecione **Políticas de acesso** e **Adicionar nova** para criar uma nova política.
 
 2. Em **Selecionar principal**, procure **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** e escolha **Microsoft.Azure.Frontdoor**. Clique em **Selecionar**.
 
+3. Em **permissões de segredo**, selecione **obter** para permitir que a porta frontal recupere o certificado.
 
-3. Em **Permissões do segredo**, selecione **Obter** para permitir que o Front Door execute estas permissões para obter e listar os certificados. 
+4. Em **permissões de certificado**, selecione **obter** para permitir que a porta frontal recupere o certificado.
 
-4. Selecione **OK**. 
+5. Selecione **OK**. 
 
-    O Azure Front Door Service pode agora aceder a este cofre de chaves e aos certificados (segredos) que estão armazenados neste cofre de chaves.
+    O serviço de porta frontal do Azure agora pode acessar esse Key Vault e os certificados armazenados neste Key Vault.
  
 #### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>Selecione o certificado que vai ser implementado pelo Azure Front Door Service
  
@@ -142,11 +149,11 @@ O registo CNAME deve estar no seguinte formato, em que *Nome* é o nome do seu d
 
 | Name            | Tipo  | Value                 |
 |-----------------|-------|-----------------------|
-| <www.contoso.com> | CNAME | contoso.azurefd.net |
+| < www. contoso. com > | CNAME | contoso.azurefd.net |
 
 Para obter mais informações sobre os registos CNAME, veja [Criar o registo DNS CNAME](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
-Se o registo CNAME estiver no formato correto, DigiCert verifica o seu nome de domínio personalizado automaticamente e cria um certificado dedicado para o seu nome de domínio. DigitCert não lhe enviará um e-mail de verificação e não terá de aprovar o seu próprio pedido. O certificado é válido durante um ano e será autorenewed antes de expirar. Avance para [Aguardar pela propagação](#wait-for-propagation). 
+Se o registo CNAME estiver no formato correto, DigiCert verifica o seu nome de domínio personalizado automaticamente e cria um certificado dedicado para o seu nome de domínio. DigitCert não lhe enviará um e-mail de verificação e não terá de aprovar o seu próprio pedido. O certificado é válido por um ano e será renovado antes de expirar. Avance para [Aguardar pela propagação](#wait-for-propagation). 
 
 Normalmente, a validação automática demora alguns minutos. Se não vir o seu domínio validado ao fim de uma hora, abra um pedido de suporte.
 
@@ -169,7 +176,7 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;o-seu-nome-de-domínio.com&gt;  
 
-Deverá receber um e-mail passados alguns minutos, semelhante ao seguinte exemplo, que lhe pede para aprovar o pedido. Se estiver a utilizar um filtro de spam, adicione admin@digicert.com à sua lista de permissões. Se não receber um e-mail passadas 24 horas, contacte o suporte da Microsoft.
+Deverá receber um e-mail passados alguns minutos, semelhante ao seguinte exemplo, que lhe pede para aprovar o pedido. Se você estiver usando um filtro de spam, admin@digicert.com adicione à sua lista de permissões. Se não receber um e-mail passadas 24 horas, contacte o suporte da Microsoft.
 
 Quando clica na ligação de aprovação, é direcionado para um formulário de aprovação online. Siga as instruções do formulário; tem duas opções de verificação:
 
@@ -177,7 +184,7 @@ Quando clica na ligação de aprovação, é direcionado para um formulário de 
 
 - Pode aprovar apenas o nome de anfitrião específico utilizado neste pedido. É necessária aprovação adicional para pedidos subsequentes.
 
-Após a aprovação, a DigiCert conclui a criação do certificado para o seu nome de domínio personalizado. O certificado é válido durante um ano e será autorenewed antes de expirar.
+Após a aprovação, a DigiCert conclui a criação do certificado para o seu nome de domínio personalizado. O certificado é válido por um ano e será renovado antes de expirar.
 
 ## <a name="wait-for-propagation"></a>Aguardar pela propagação
 
@@ -260,7 +267,7 @@ A tabela seguinte mostra o progresso da operação que ocorre quando desativa o 
     Não, atualmente os registos Autorização de Autoridade de Certificação não são necessários. No entanto, se tiver um, o mesmo tem de incluir a DigiCert como AC válida.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

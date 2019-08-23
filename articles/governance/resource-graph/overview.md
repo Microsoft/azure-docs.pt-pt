@@ -1,57 +1,57 @@
 ---
 title: Descrição geral do Azure Resource Graph
-description: Compreenda como o serviço de gráfico de recursos do Azure permite consultas complexas de recursos em escala.
+description: Entenda como o serviço do grafo de recursos do Azure permite consultas complexas de recursos em escala.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: d78c640f4269c799d3d371e6dd9db477faf96694
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: faad0a0166c1b11f51f814bb6ce3351d7a017239
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807426"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900030"
 ---
-# <a name="overview-of-the-azure-resource-graph-service"></a>Descrição geral do serviço de gráfico de recursos do Azure
+# <a name="overview-of-the-azure-resource-graph-service"></a>Visão geral do serviço de grafo de recursos do Azure
 
-Gráfico de recursos do Azure é um serviço no Azure que foi desenvolvido para ampliar do Azure Resource Management, fornecendo eficiente e exploração de recursos de alto desempenho com a capacidade de consulta em escala num determinado conjunto de subscrições para que pode efetivamente regem seu ambiente. Estas consultas fornecem as seguintes funcionalidades:
+O grafo de recursos do Azure é um serviço no Azure projetado para estender o gerenciamento de recursos do Azure, fornecendo exploração de recursos eficiente e eficaz com a capacidade de consultar em escala em um determinado conjunto de assinaturas para que você possa governar efetivamente seu ambiente. Estas consultas fornecem as seguintes funcionalidades:
 
 - Capacidade de consultar recursos com filtragem, agrupamento e classificação complexos por propriedades de recursos.
-- Capacidade de maneira iterativa explore os recursos com base nos requisitos de governação.
+- Capacidade de explorar iterativamente os recursos com base nos requisitos de governança.
 - Capacidade de avaliar o impacto da aplicação de políticas num vasto ambiente de cloud.
-- Capacidade de [detalham as alterações feitas às propriedades de recurso](./how-to/get-resource-changes.md) (pré-visualização).
+- Capacidade de [detalhar as alterações feitas nas propriedades do recurso](./how-to/get-resource-changes.md) (versão prévia).
 
 Nesta documentação, vamos abordar cada funcionalidade de forma detalhada.
 
 > [!NOTE]
-> Gráfico de recursos do Azure capacita a barra de pesquisa do portal do Azure, o novo procurar "Todos os recursos" experiência e do Azure Policy [histórico de alterações](../policy/how-to/determine-non-compliance.md#change-history-preview)
-> _visual diff_. Foi concebido para ajudar os clientes a gerir os ambientes de grande escala.
+> O grafo de recursos do Azure capacita a barra de pesquisa de portal do Azure, a nova experiência de procurar todos os recursos e a_diferença visual_do [histórico](../policy/how-to/determine-non-compliance.md#change-history-preview)
+> de alterações do Azure Policy. Ele foi projetado para ajudar os clientes a gerenciar ambientes em larga escala.
 
 [!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Como é que o Resource Graph complementa o Azure Resource Manager?
 
-O Azure Resource Manager suporta atualmente consultas sobre campos de recurso básico, especificamente - recurso nome ID, tipo, grupo de recursos, subscrição e localização. Gestor de recursos também fornece recursos para chamada dos fornecedores de recursos individuais para um recurso de propriedades detalhadas de cada vez.
+Azure Resource Manager atualmente dá suporte a consultas em campos de recursos básicos, especificamente, nome do recurso, ID, tipo, grupo de recursos, assinatura e local. O Resource Manager também fornece recursos para chamar provedores de recursos individuais para propriedades detalhadas de um recurso por vez.
 
-Com o Azure Resource Graph, pode aceder a estas propriedades devolvidas pelos fornecedores de recursos sem a necessidade de fazer chamadas individuais para cada fornecedor de recursos. Para obter uma lista de tipos de recurso suportados, procure um **Sim** no [recursos para implementações no modo completa](../../azure-resource-manager/complete-mode-deletion.md) tabela.
+Com o Azure Resource Graph, pode aceder a estas propriedades devolvidas pelos fornecedores de recursos sem a necessidade de fazer chamadas individuais para cada fornecedor de recursos. Para obter uma lista de tipos de recursos com suporte, procure um **Sim** na tabela [recursos para implantações de modo completo](../../azure-resource-manager/complete-mode-deletion.md) .
 
-Com o gráfico de recursos do Azure, pode:
+Com o grafo de recursos do Azure, você pode:
 
-- Acessar as propriedades retornadas por fornecedores de recursos sem a necessidade de fazer chamadas individuais para cada fornecedor de recursos.
-- Ver os últimos 14 dias do histórico de alterações feitas para o recurso para ver as propriedades alteradas e quando. (pré-visualização)
+- Acesse as propriedades retornadas pelos provedores de recursos sem a necessidade de fazer chamadas individuais para cada provedor de recursos.
+- Exiba os últimos 14 dias do histórico de alterações feitas ao recurso para ver quais propriedades foram alteradas e quando. (pré-visualização)
 
-## <a name="how-resource-graph-is-kept-current"></a>Como o gráfico de recursos é mantido atualizado
+## <a name="how-resource-graph-is-kept-current"></a>Como o grafo de recursos é mantido atual
 
-Quando um recurso do Azure é atualizado, o gráfico de recursos é notificado pelo Resource Manager da alteração.
-Gráfico de recursos, em seguida, atualiza a respetiva base de dados. Gráfico de recursos também faz um regular _análise completa_. Esta análise garante que os dados de gráficos de recursos são a atuais se existem notificações em falta ou quando um recurso for atualizado fora do Resource Manager.
+Quando um recurso do Azure é atualizado, o grafo de recursos é notificado pelo Gerenciador de recursos sobre a alteração.
+Em seguida, o grafo de recursos atualiza seu banco de dados. O grafo de recursos também faz uma _verificação completa_normal. Essa verificação garante que os dados do grafo de recursos sejam atuais se houver notificações perdidas ou quando um recurso for atualizado fora do Gerenciador de recursos.
 
 ## <a name="the-query-language"></a>Linguagem de consulta
 
 Agora que compreende melhor o que é o Azure Resource Graph, vamos aprofundar como criar consultas.
 
-É importante compreender que a linguagem de consulta do gráfico de recursos do Azure se baseia a [linguagem de consulta de Kusto](../../data-explorer/data-explorer-overview.md) utilizado pelo Explorador de dados do Azure.
+É importante entender que a linguagem de consulta do grafo de recursos do Azure é baseada na [linguagem de consulta Kusto](../../data-explorer/data-explorer-overview.md) usada pelo Azure data Explorer.
 
 Em primeiro lugar, para obter detalhes sobre operações e funções que podem ser utilizadas com o Azure Resource Graph, veja [Linguagem de consulta do Resource Graph](./concepts/query-language.md).
 Para procurar recursos, veja [explorar recursos](./concepts/explore-resources.md).
@@ -61,27 +61,30 @@ Para procurar recursos, veja [explorar recursos](./concepts/explore-resources.md
 Para utilizar o Resource Graph, tem de possuir os direitos adequados no [Controlo de acesso baseado em funções](../../role-based-access-control/overview.md) (RBAC) com acesso de leitura, pelo menos, aos recursos que pretende consultar. Sem, pelo menos, permissões `read` para o objeto do Azure ou o grupo de objetos, não seriam devolvidos resultados.
 
 > [!NOTE]
-> Gráfico de recursos usa as subscrições disponíveis para uma entidade de segurança durante o início de sessão. Para ver os recursos de uma nova subscrição adicionada durante uma sessão ativa, o principal tem de atualizar o contexto. Esta ação ocorre automaticamente quando terminar sessão e voltar a.
+> O grafo de recursos usa as assinaturas disponíveis para uma entidade de segurança durante o logon. Para ver os recursos de uma nova assinatura adicionada durante uma sessão ativa, a entidade de segurança deve atualizar o contexto. Essa ação ocorre automaticamente durante o logout e o retorno.
+
+CLI do Azure e Azure PowerShell usar assinaturas às quais o usuário tem acesso. Ao usar a API REST diretamente, a lista de assinaturas é fornecida pelo usuário. Se o usuário tiver acesso a qualquer uma das assinaturas na lista, os resultados da consulta serão retornados para as assinaturas às quais o usuário tem acesso. Esse comportamento é o mesmo que ao chamar [grupos de recursos-List](/rest/api/resources/resourcegroups/list) \- você obtém os grupos de recursos aos quais você tem acesso sem nenhuma indicação de que o resultado pode ser parcial.
+Se não houver nenhuma assinatura na lista de assinaturas à qual o usuário tenha direitos apropriados, a resposta será um _403_ (proibido).
 
 ## <a name="throttling"></a>Limitação
 
-Como um serviço gratuito, as consultas para o gráfico de recursos são limitadas para fornecer o melhor experiência e tempo de resposta para todos os clientes. Se a organização pretende utilizar a Graph API do recurso para consultas em grande escala e frequentes, utilização portal "Comentários" a partir da [página do portal de gráfico de recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
-Forneça o seu caso comercial e selecione a caixa de verificação "Microsoft pode enviar um e-mail sobre os seus comentários" para que a equipe de entrar em contacto consigo.
+Como um serviço gratuito, as consultas ao grafo de recursos são limitadas para fornecer a melhor experiência e o tempo de resposta para todos os clientes. Se sua organização quiser usar o API do Graph de recursos para consultas em grande escala e frequentes, use o portal ' comentários ' na [página do portal do grafo de recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
+Forneça seu caso comercial e selecione a caixa de seleção ' a Microsoft pode enviar um email sobre seus comentários ' para que a equipe entre em contato com você.
 
-Gráfico de recursos regula consultas no nível do usuário. A resposta do serviço contém os seguintes cabeçalhos HTTP:
+O grafo de recursos limita as consultas no nível de usuário. A resposta do serviço contém os seguintes cabeçalhos HTTP:
 
-- `x-ms-user-quota-remaining` (int): A quota de recursos restantes para o utilizador. Este valor é mapeado para a contagem de consulta.
-- `x-ms-user-quota-resets-after` (hh:mm:ss): A duração de tempo até que o consumo de quota de um utilizador é reposto
+- `x-ms-user-quota-remaining`(int): A cota de recursos restante para o usuário. Esse valor é mapeado para a contagem de consultas.
+- `x-ms-user-quota-resets-after` (hh:mm:ss): A duração de tempo até que o consumo de cota de um usuário seja redefinido
 
-Para obter mais informações, consulte [orientações para pedidos limitados](./concepts/guidance-for-throttled-requests.md).
+Para obter mais informações, consulte [diretrizes para solicitações limitadas](./concepts/guidance-for-throttled-requests.md).
 
 ## <a name="running-your-first-query"></a>Executar a primeira consulta
 
-Gráfico de recursos oferece suporte a CLI do Azure, o Azure PowerShell e o Azure SDK para .NET. A consulta está estruturada a mesma para cada idioma. Saiba como ativar o Resource Graph na [CLI do Azure](first-query-azurecli.md#add-the-resource-graph-extension) e no [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module).
+O grafo de recursos dá suporte a CLI do Azure, Azure PowerShell e SDK do Azure para .NET. A consulta é estruturada da mesma para cada idioma. Saiba como ativar o Resource Graph na [CLI do Azure](first-query-azurecli.md#add-the-resource-graph-extension) e no [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Executar a sua primeira consulta [CLI do Azure](first-query-azurecli.md).
-- Executar a sua primeira consulta [do Azure PowerShell](first-query-powershell.md).
-- Começar com [Starter consultas](./samples/starter.md).
-- Melhorar a compreensão com [consultas avançadas](./samples/advanced.md).
+- Execute sua primeira consulta com [CLI do Azure](first-query-azurecli.md).
+- Execute sua primeira consulta com [Azure PowerShell](first-query-powershell.md).
+- Comece com as [consultas iniciais](./samples/starter.md).
+- Aprimore sua compreensão com [consultas avançadas](./samples/advanced.md).

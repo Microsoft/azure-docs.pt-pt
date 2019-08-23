@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0ad917215275ce2f80dfdd2ec4e5a16794b36c13
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: ea8ad80d8d12ae9ecac88bd6a3d661ca895d67f4
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650363"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972780"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configurar uma conexão de alta disponibilidade do gateway de VPN local para CloudSimple
 
@@ -315,11 +315,11 @@ Configurando o Cisco Adaptive Security Appliance virtual (ASAv) no Azure:
 
 Configurando a VPN site a site com IDs de proxy no Palo Alto:
 
-<a href="https://docs.paloaltonetworks.com/pan-os/9-0/pan-os-admin/vpns/set-up-site-to-site-vpn#" target="_blank">Configurar VPN site a site</a>
+[Configurar VPN site a site](https://docs.paloaltonetworks.com/pan-os/9-0/pan-os-admin/vpns/set-up-site-to-site-vpn#)
 
 Configurando o monitor de túnel:
 
-<a href="https://docs.paloaltonetworks.com/pan-os/7-1/pan-os-admin/vpns/set-up-tunnel-monitoring.html" target="_blank">Configurar o monitoramento do túnel</a>
+[Configurar o monitoramento do túnel](https://docs.paloaltonetworks.com/pan-os/7-1/pan-os-admin/vpns/set-up-tunnel-monitoring.html)
 
 Operações de túnel de IPsec ou gateway IKE:
 

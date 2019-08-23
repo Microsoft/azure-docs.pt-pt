@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: v-mohabe
-ms.openlocfilehash: 73480c6e24ab13b7764c5b72280c19971eb3d039
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 1ef4d8e76b54b995a09decdfaf9974f0929c8ed9
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296482"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905348"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorar identidade e acesso na central de segurança do Azure (versão prévia)
 Este artigo ajuda-o a utilizar o Centro de Segurança do Azure para monitorizar a atividade de identidade e acesso dos utilizadores.
@@ -119,7 +119,7 @@ Use a tabela abaixo como referência para ajudá-lo a entender a identidade disp
 |Subscription|5|As contas preteridas devem ser removidas da sua assinatura|Remova contas preteridas de suas assinaturas para habilitar o acesso somente aos usuários atuais. |
 |Subscription|5|Deve haver mais de um proprietário atribuído à sua assinatura|Designe mais de um proprietário de assinatura para ter redundância de acesso de administrador.|
 |Subscription|5|Um máximo de 3 proprietários deve ser designado para sua assinatura|Designe menos de 3 proprietários de assinatura para reduzir o potencial de violação por um proprietário comprometido.|
-|Key Vault|5|Os logs de diagnóstico no Key Vault devem ser habilitados|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|Cofre de chaves|5|Os logs de diagnóstico no Key Vault devem ser habilitados|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
 |Subscription|15|Contas externas com permissões de leitura devem ser removidas da sua assinatura|Remova contas externas com privilégios de leitura de sua assinatura para impedir o acesso não monitorado.| 
 
 > [!NOTE]
@@ -128,7 +128,7 @@ Use a tabela abaixo como referência para ajudá-lo a entender a identidade disp
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
 
-- [Proteger as máquinas e aplicações no Centro de Segurança do Azure](security-center-virtual-machine-recommendations.md)
+- [Proteger as máquinas e aplicações no Centro de Segurança do Azure](security-center-virtual-machine-protection.md)
 - [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)
 - [Protegendo o serviço e os dados do SQL Azure na central de segurança do Azure](security-center-sql-service-recommendations.md)
 

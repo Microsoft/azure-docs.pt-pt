@@ -1,7 +1,7 @@
 ---
-title: Implantar modelos usando uma imagem personalizada do Docker
+title: Implantar modelos com uma imagem de base do Docker personalizada
 titleSuffix: Azure Machine Learning service
-description: Saiba como usar uma imagem personalizada do Docker ao implantar seus modelos de serviço Azure Machine Learning. Ao implantar um modelo treinado, uma imagem do Docker é criada para hospedar a imagem, o servidor Web e outros componentes necessários para executar o serviço. Embora Azure Machine Learning serviço forneça uma imagem padrão para você, você também pode usar sua própria imagem.
+description: Saiba como usar uma imagem de base do Docker personalizada ao implantar seus modelos de serviço Azure Machine Learning. Ao implantar um modelo treinado, uma imagem de contêiner base é implantada para executar seu modelo de inferência. Embora Azure Machine Learning serviço forneça uma imagem base padrão para você, você também pode usar sua própria imagem base.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,23 +9,25 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/11/2019
-ms.openlocfilehash: f41ccef7803366e63247e6862c59ddb983527d26
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.date: 08/22/2019
+ms.openlocfilehash: a86dd021d8f9cfe275b3af3f0cb71b99857c26d7
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990504"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971508"
 ---
-# <a name="deploy-a-model-by-using-a-custom-docker-image"></a>Implantar um modelo usando uma imagem personalizada do Docker
+# <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implantar um modelo usando uma imagem de base do Docker personalizada
 
-Saiba como usar uma imagem personalizada do Docker ao implantar modelos treinados com o serviço de Azure Machine Learning.
+Saiba como usar uma imagem de base do Docker personalizada ao implantar modelos treinados com o serviço de Azure Machine Learning.
 
-Quando você implanta um modelo treinado em um serviço Web ou IoT Edge dispositivo, uma imagem do Docker é criada. Essa imagem contém o modelo, o ambiente Conda e os ativos necessários para usar o modelo. Ele também contém um servidor Web para lidar com solicitações de entrada quando implantado como um serviço Web e os componentes necessários para trabalhar com o Hub IoT do Azure.
+Quando você implanta um modelo treinado em um serviço Web ou IoT Edge dispositivo, é criado um pacote que contém um servidor Web para lidar com solicitações de entrada.
 
-Azure Machine Learning serviço fornece uma imagem padrão do Docker para que você não precise se preocupar com a criação de uma. Você também pode usar uma imagem personalizada que você cria como uma _imagem de base_. Uma imagem base é usada como ponto de partida quando uma imagem é criada para uma implantação. Ele fornece o sistema operacional e os componentes subjacentes. Em seguida, o processo de implantação adiciona componentes adicionais, como seu modelo, ambiente Conda e outros ativos, à imagem antes de implantá-lo.
+Azure Machine Learning serviço fornece uma imagem base padrão do Docker para que você não precise se preocupar com a criação de uma. Você também pode usar uma imagem de base personalizada que você cria como uma _imagem de base_. 
 
-Normalmente, você cria uma imagem personalizada quando deseja controlar as versões de componentes ou economizar tempo durante a implantação. Por exemplo, talvez você queira padronizar em uma versão específica do Python, Conda ou outro componente. Talvez você também queira instalar o software exigido por seu modelo, onde o processo de instalação leva muito tempo. Instalar o software ao criar a imagem base significa que você não precisa instalá-lo para cada implantação.
+Uma imagem base é usada como ponto de partida quando uma imagem é criada para uma implantação. Ele fornece o sistema operacional e os componentes subjacentes. Em seguida, o processo de implantação adiciona componentes adicionais, como seu modelo, ambiente Conda e outros ativos, à imagem antes de implantá-lo.
+
+Normalmente, você cria uma imagem de base personalizada quando deseja usar o Docker para gerenciar suas dependências, manter um controle mais rígido sobre as versões de componentes ou economizar tempo durante a implantação. Por exemplo, talvez você queira padronizar em uma versão específica do Python, Conda ou outro componente. Talvez você também queira instalar o software exigido por seu modelo, onde o processo de instalação leva muito tempo. Instalar o software ao criar a imagem base significa que você não precisa instalá-lo para cada implantação.
 
 > [!IMPORTANT]
 > Ao implantar um modelo, não é possível substituir os componentes principais, como o servidor Web ou os componentes do IoT Edge. Esses componentes fornecem um ambiente de trabalho conhecido que é testado e suportado pela Microsoft.
@@ -35,8 +37,8 @@ Normalmente, você cria uma imagem personalizada quando deseja controlar as vers
 
 Este documento está dividido em duas seções:
 
-* Criar uma imagem personalizada: Fornece informações para administradores e DevOps sobre como criar uma imagem personalizada e configurar a autenticação para um registro de contêiner do Azure usando o CLI do Azure e Machine Learning a CLI.
-* Usar uma imagem personalizada: Fornece informações para cientistas de dados e DevOps/MLOps usando imagens personalizadas ao implantar um modelo treinado do SDK do Python ou da CLI do ML.
+* Criar uma imagem base personalizada: Fornece informações para administradores e DevOps sobre como criar uma imagem personalizada e configurar a autenticação para um registro de contêiner do Azure usando o CLI do Azure e Machine Learning a CLI.
+* Implantar um modelo usando uma imagem de base personalizada: Fornece informações para cientistas de dados e engenheiros de DevOps/ML usando imagens personalizadas ao implantar um modelo treinado do SDK do Python ou da CLI do ML.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,7 +49,7 @@ Este documento está dividido em duas seções:
 * Um [registro de contêiner do Azure](/azure/container-registry) ou outro registro do Docker que está acessível na Internet.
 * As etapas neste documento pressupõem que você esteja familiarizado com a criação e o uso de um objeto de __configuração__ de inferência como parte da implantação do modelo. Para obter mais informações, consulte a seção "preparar para implantar" de [onde implantar e como](how-to-deploy-and-where.md#prepare-to-deploy).
 
-## <a name="create-a-custom-image"></a>Criar uma imagem personalizada
+## <a name="create-a-custom-base-image"></a>Criar uma imagem de base personalizada
 
 As informações nesta seção pressupõem que você está usando um registro de contêiner do Azure para armazenar imagens do Docker. Use a seguinte lista de verificação ao planejar criar imagens personalizadas para Azure Machine Learning serviço:
 
@@ -109,7 +111,7 @@ Se você já tiver treinado ou implantado modelos usando o serviço de Azure Mac
 
     O `<registry_name>` valor é o nome do registro de contêiner do Azure para seu espaço de trabalho.
 
-### <a name="build-a-custom-image"></a>Criar uma imagem personalizada
+### <a name="build-a-custom-base-image"></a>Criar uma imagem de base personalizada
 
 As etapas nesta seção orientam a criação de uma imagem personalizada do Docker no registro de contêiner do Azure.
 
@@ -162,7 +164,7 @@ Para obter mais informações sobre como criar imagens com um registro de contê
 
 Para obter mais informações sobre como carregar imagens existentes para um registro de contêiner do Azure, consulte [enviar por push sua primeira imagem para um registro de contêiner privado do Docker](/azure/container-registry/container-registry-get-started-docker-cli).
 
-## <a name="use-a-custom-image"></a>Utilizar uma imagem personalizada
+## <a name="use-a-custom-base-image"></a>Usar uma imagem de base personalizada
 
 Para usar uma imagem personalizada, você precisará das seguintes informações:
 
@@ -174,7 +176,7 @@ Para usar uma imagem personalizada, você precisará das seguintes informações
 
     Se você não tiver essas informações, fale com o administrador do registro de contêiner do Azure que contém a imagem.
 
-### <a name="publicly-available-images"></a>Imagens disponíveis publicamente
+### <a name="publicly-available-base-images"></a>Imagens base disponíveis publicamente
 
 A Microsoft fornece várias imagens do Docker em um repositório publicamente acessível, que pode ser usado com as etapas nesta seção:
 
@@ -253,7 +255,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc depl
 
 Para obter mais informações sobre como implantar um modelo usando a CLI do ML, consulte a seção "registro do modelo, criação de perfil e implantação" do artigo [extensão da CLI para Azure Machine Learning serviço](reference-azure-machine-learning-cli.md#model-registration-profiling-deployment) .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre [onde implantar e como](how-to-deploy-and-where.md).
 * Saiba como [treinar e implantar modelos de aprendizado de máquina usando o Azure pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops).

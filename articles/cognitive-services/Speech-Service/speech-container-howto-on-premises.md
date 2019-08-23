@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 7/16/2019
 ms.author: dapine
-ms.openlocfilehash: 420ac45b7d3b5e97772b1aa712ba6b8442ac1de2
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: d8a5b941be34028f7a1c53e39b38ab30714ba301
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562756"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971349"
 ---
 # <a name="use-with-kubernetes-and-helm"></a>Utilizar com o Kubernetes e Helm
 
@@ -25,7 +25,7 @@ Uma opção para gerenciar seus contêineres de fala no local é usar kubernetes
 
 Os seguintes pré-requisitos antes de usar os contêineres de fala locais:
 
-|Requerido|Objetivo|
+|Obrigatória|Objetivo|
 |--|--|
 | Conta do Azure | Se não tiver uma subscrição do Azure, crie uma [conta gratuita][free-azure-account] antes de começar. |
 | Acesso ao registro de contêiner | Para que o kubernetes pegue as imagens do Docker no cluster, ele precisará de acesso ao registro de contêiner. Você precisa [solicitar o acesso ao registro de contêiner][speech-preview-access] primeiro. |
@@ -150,7 +150,7 @@ Para instalar o *gráfico do Helm* , precisaremos executar o [`helm install`][he
 
 ```console
 helm install microsoft/cognitive-services-speech-onpremise \
-    --version 0.1.0 \
+    --version 0.1.1 \
     --values <config-values.yaml> \
     --name onprem-speech
 ```

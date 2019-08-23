@@ -1,59 +1,59 @@
 ---
-title: Gerir réplicas de leitura da base de dados do Azure para PostgreSQL - servidor único a partir do portal do Azure
-description: Saiba como gerir a leitura de réplicas de base de dados do Azure para PostgreSQL - servidor único a partir do portal do Azure.
+title: Gerenciar réplicas de leitura para o banco de dados do Azure para PostgreSQL-servidor único da portal do Azure
+description: Saiba como gerenciar réplicas de leitura banco de dados do Azure para PostgreSQL-servidor único do portal do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 87371f91d9ea1f556d0f78beebd73b8a28977b71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2019
+ms.openlocfilehash: d0f29e2c01d6295935ac56cb19c37e1ad6bbd21b
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510399"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907390"
 ---
-# <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Criar e gerir réplicas de leitura na base de dados do Azure para PostgreSQL - servidor único a partir do portal do Azure
+# <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Criar e gerenciar réplicas de leitura no banco de dados do Azure para PostgreSQL-servidor único do portal do Azure
 
-Neste artigo, saiba como criar e gerir réplicas de leitura na base de dados do Azure para PostgreSQL a partir do portal do Azure. Para saber mais acerca das réplicas de leitura, veja a [descrição geral](concepts-read-replicas.md).
+Neste artigo, você aprenderá a criar e gerenciar réplicas de leitura no banco de dados do Azure para PostgreSQL no portal do Azure. Para saber mais sobre réplicas de leitura, consulte a [visão geral](concepts-read-replicas.md).
 
 > [!IMPORTANT]
-> Pode criar uma réplica de leitura na mesma região que o servidor principal ou em qualquer outra região do Azure à sua escolha. A replicação entre regiões está atualmente em pré-visualização pública.
+> Você pode criar uma réplica de leitura na mesma região que o servidor mestre ou em qualquer outra região do Azure de sua escolha. A replicação entre regiões está atualmente em visualização pública.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Uma [base de dados do Azure para o servidor PostgreSQL](quickstart-create-server-database-portal.md) deve ser o servidor principal.
+Um [banco de dados do Azure para o servidor PostgreSQL](quickstart-create-server-database-portal.md) ser o servidor mestre.
 
 ## <a name="prepare-the-master-server"></a>Preparar o servidor mestre
-Estes passos devem ser utilizados para preparar um servidor mestre nos escalões fins gerais ou com otimização de memória. O servidor mestre é preparado para replicação, definindo o parâmetro azure.replication_support. Quando o parâmetro de replicação é alterado, reiniciar o servidor é necessário para que a alteração tenha efeito. No portal do Azure, essas duas etapas são encapsuladas por um único botão, **ativar o suporte de replicação**.
+Essas etapas devem ser usadas para preparar um servidor mestre nas camadas de Uso Geral ou com otimização de memória. O servidor mestre está preparado para replicação definindo o parâmetro Azure. replication_support. Quando o parâmetro de replicação é alterado, uma reinicialização do servidor é necessária para que a alteração entre em vigor. No portal do Azure, essas duas etapas são encapsuladas por um único botão, **habilitar o suporte de replicação**.
 
-1. No portal do Azure, selecione Azure base de dados existente para o servidor PostgreSQL para utilizar como um modelo.
+1. Na portal do Azure, selecione o banco de dados do Azure para servidor PostgreSQL existente a ser usado como mestre.
 
 2. Na barra lateral do servidor, em **configurações**, selecione **replicação**.
 
-3. Selecione **ativar o suporte de replicação**. 
+3. Selecione **habilitar suporte à replicação**. 
 
-   ![Ativar o suporte de replicação](./media/howto-read-replicas-portal/enable-replication-support.png)
+   ![Habilitar suporte à replicação](./media/howto-read-replicas-portal/enable-replication-support.png)
 
-4. Confirme que pretende ativar o suporte de replicação. Esta operação irá reiniciar o servidor mestre. 
+4. Confirme que você deseja habilitar o suporte à replicação. Esta operação reiniciará o servidor mestre. 
 
-   ![Confirmar a ativar o suporte de replicação](./media/howto-read-replicas-portal/confirm-enable-replication.png)
+   ![Confirmar habilitar suporte à replicação](./media/howto-read-replicas-portal/confirm-enable-replication.png)
    
-5. Receberá notificações do portal do Azure dois depois de concluída a operação. Há uma notificação para o parâmetro de servidor de atualização. Há outra notificação para o reinício de servidor que segue imediatamente.
+5. Você receberá duas notificações de portal do Azure quando a operação for concluída. Há uma notificação para atualizar o parâmetro do servidor. Há outra notificação para a reinicialização do servidor que segue imediatamente.
 
-   ![Ativar notificações de sucesso-](./media/howto-read-replicas-portal/success-notifications-enable.png)
+   ![Notificações de êxito-habilitar](./media/howto-read-replicas-portal/success-notifications-enable.png)
 
-6. Atualize a página de portal do Azure para atualizar a barra de ferramentas de replicação. Agora, pode criar as réplicas de leitura para este servidor.
+6. Atualize a página de portal do Azure para atualizar a barra de ferramentas de replicação. Agora você pode criar réplicas de leitura para este servidor.
 
    ![Barra de ferramentas atualizada](./media/howto-read-replicas-portal/updated-toolbar.png)
    
-Ativar o suporte de replicação é uma operação única por servidor mestre. R **desativar o suporte de replicação** botão é disponibilizado para sua comodidade. Não recomendamos desativar o suporte de replicação, a menos que tenha a certeza de que nunca irá criar uma réplica neste servidor mestre. Não é possível desativar o suporte de replicação enquanto o servidor mestre tem réplicas existentes.
+Habilitar o suporte de replicação é uma operação única por servidor mestre. Um botão para **desabilitar o suporte à replicação** é fornecido para sua conveniência. Não recomendamos desabilitar o suporte à replicação, a menos que você tenha certeza de que nunca criará uma réplica nesse servidor mestre. Não é possível desabilitar o suporte à replicação enquanto o servidor mestre tiver réplicas existentes.
 
 
 ## <a name="create-a-read-replica"></a>Criar uma réplica de leitura
-Para criar uma réplica de leitura, siga estes passos:
+Para criar uma réplica de leitura, siga estas etapas:
 
-1. Selecione Azure base de dados existente para o servidor PostgreSQL para utilizar como o servidor mestre. 
+1. Selecione o servidor do banco de dados do Azure para PostgreSQL existente a ser usado como servidor mestre. 
 
 2. Na barra lateral do servidor, em **configurações**, selecione **replicação**.
 
@@ -61,121 +61,125 @@ Para criar uma réplica de leitura, siga estes passos:
 
    ![Adicionar uma réplica](./media/howto-read-replicas-portal/add-replica.png)
 
-4. Introduza um nome para a réplica de leitura. 
+4. Insira um nome para a réplica de leitura. 
 
-    ![Nome da réplica](./media/howto-read-replicas-portal/name-replica.png)
+    ![Nomear a réplica](./media/howto-read-replicas-portal/name-replica.png)
 
-5. Selecione uma localização para a réplica. Pode criar uma réplica em qualquer região do Azure. A localização predefinida é o mesmo que o servidor mestre.
+5. Selecione um local para a réplica. O local padrão é o mesmo que o do servidor mestre.
 
     ![Selecione uma localização](./media/howto-read-replicas-portal/location-replica.png)
 
+   > [!NOTE]
+   > Para saber mais sobre em quais regiões você pode criar uma réplica, visite o [artigo conceitos de leitura de réplica](concepts-read-replicas.md). 
+
 6. Selecione **OK** para confirmar a criação da réplica.
 
-Ao utilizar a mesma configuração de servidor como o mestre, é criada uma réplica. Depois de criar uma réplica, várias configurações podem ser alteradas independentemente do servidor mestre: computação geração, vCores, armazenamento e período de retenção de cópia de segurança. O escalão de preço também pode ser alterado de forma independente, exceto de ou para o escalão básico.
+Uma réplica é criada usando as mesmas configurações de computação e armazenamento que o mestre. Depois que uma réplica é criada, várias configurações podem ser alteradas independentemente do servidor mestre: geração de computação, vCores, armazenamento e período de retenção de backup. O tipo de preço também pode ser alterado de forma independente, exceto para ou da camada básica.
 
 > [!IMPORTANT]
-> Antes de uma configuração de servidor mestre é atualizada para novos valores, atualize a configuração de réplica para valores iguais ou superior. Esta ação garante que a réplica pode acompanhar todas as alterações efetuadas a mestre.
+> Antes que uma configuração de servidor mestre seja atualizada para um novo valor, atualize a configuração de réplica para um valor igual ou maior. Essa ação ajuda a réplica a acompanhar as alterações feitas no mestre.
 
-Depois de criar a réplica de leitura, ele pode ser visualizado a partir da **replicação** janela:
+Depois que a réplica de leitura é criada, ela pode ser exibida na janela **replicação** :
 
-![Veja a nova réplica na janela de replicação](./media/howto-read-replicas-portal/list-replica.png)
+![Exibir a nova réplica na janela replicação](./media/howto-read-replicas-portal/list-replica.png)
  
 
-## <a name="stop-replication"></a>Parar a replicação
-Pode parar a replicação entre um servidor principal e uma réplica de leitura.
+## <a name="stop-replication"></a>Parar replicação
+Você pode interromper a replicação entre um servidor mestre e uma réplica de leitura.
 
 > [!IMPORTANT]
-> Depois de parar a replicação para um servidor principal e uma réplica de leitura, não pode ser anulada. A réplica de leitura torna-se um servidor autônomo que oferece suporte a leituras e gravações. O servidor autónomo não pode se transformar numa réplica novamente.
+> Depois de parar a replicação em um servidor mestre e em uma réplica de leitura, ela não pode ser desfeita. A réplica de leitura torna-se um servidor autônomo que dá suporte a leituras e gravações. O servidor autônomo não pode ser tornado novamente em uma réplica.
 
-Para parar a replicação entre um servidor principal e uma réplica de leitura do portal do Azure, siga estes passos:
+Para interromper a replicação entre um servidor mestre e uma réplica de leitura do portal do Azure, siga estas etapas:
 
-1. No portal do Azure, selecione a sua base de dados principal do Azure para o servidor PostgreSQL.
+1. No portal do Azure, selecione o servidor mestre do banco de dados do Azure para PostgreSQL.
 
-2. No menu do servidor, em **configurações**, selecione **replicação**.
+2. No menu servidor, em **configurações**, selecione **replicação**.
 
-3. Selecione o servidor de réplica para o qual pretende parar a replicação.
+3. Selecione o servidor de réplica para o qual interromper a replicação.
 
-   ![Selecione a réplica](./media/howto-read-replicas-portal/select-replica.png)
+   ![Selecionar a réplica](./media/howto-read-replicas-portal/select-replica.png)
  
-4. Selecione **paragem da replicação**.
+4. Selecione **parar replicação**.
 
-   ![Selecione a paragem da replicação](./media/howto-read-replicas-portal/select-stop-replication.png)
+   ![Selecione parar replicação](./media/howto-read-replicas-portal/select-stop-replication.png)
  
 5. Selecione **OK** para parar a replicação.
 
-   ![Confirme que pretende para parar a replicação](./media/howto-read-replicas-portal/confirm-stop-replication.png)
+   ![Confirmar para parar a replicação](./media/howto-read-replicas-portal/confirm-stop-replication.png)
  
 
 ## <a name="delete-a-master-server"></a>Eliminar um servidor principal
-Para eliminar um servidor principal, utilize os mesmos passos como para eliminar a base de dados autónomo para o servidor PostgreSQL. 
+Para excluir um servidor mestre, use as mesmas etapas para excluir um servidor autônomo do banco de dados do Azure para PostgreSQL. 
 
 > [!IMPORTANT]
-> Quando elimina um servidor principal, a replicação para todas as réplicas de leitura é parada. As réplicas de leitura tornam-se a servidores autónomos que agora oferecem suporte a leituras e gravações.
+> Quando você exclui um servidor mestre, a replicação para todas as réplicas de leitura é interrompida. As réplicas de leitura tornam-se servidores autônomos que agora dão suporte a leituras e gravações.
 
-Para eliminar um servidor do portal do Azure, siga estes passos:
+Para excluir um servidor do portal do Azure, siga estas etapas:
 
-1. No portal do Azure, selecione a sua base de dados principal do Azure para o servidor PostgreSQL.
+1. No portal do Azure, selecione o servidor mestre do banco de dados do Azure para PostgreSQL.
 
-2. Abra o **descrição geral** página do servidor. Selecione **Eliminar**.
+2. Abra a página **visão geral** do servidor. Selecione **Eliminar**.
 
-   ![Na página de descrição geral do servidor, selecione para eliminar o servidor mestre](./media/howto-read-replicas-portal/delete-server.png)
+   ![Na página Visão geral do servidor, selecione para excluir o servidor mestre](./media/howto-read-replicas-portal/delete-server.png)
  
-3. Introduza o nome do servidor principal para eliminar. Selecione **eliminar** para confirmar a eliminação do servidor mestre.
+3. Insira o nome do servidor mestre a ser excluído. Selecione **excluir** para confirmar a exclusão do servidor mestre.
 
-   ![Confirme que pretende para eliminar o servidor mestre](./media/howto-read-replicas-portal/confirm-delete.png)
- 
-
-## <a name="delete-a-replica"></a>Eliminar uma réplica
-Pode eliminar uma réplica de leitura semelhante a como eliminar um servidor principal.
-
-- No portal do Azure, abra a **descrição geral** página para a réplica de leitura. Selecione **Eliminar**.
-
-   ![Na página de descrição geral da réplica, selecione para eliminar a réplica](./media/howto-read-replicas-portal/delete-replica.png)
- 
-Também pode eliminar a réplica de leitura do **replicação** janela seguindo estes passos:
-
-1. No portal do Azure, selecione a sua base de dados principal do Azure para o servidor PostgreSQL.
-
-2. No menu do servidor, em **configurações**, selecione **replicação**.
-
-3. Selecione a réplica de leitura para eliminar.
-
-   ![Selecione a réplica para eliminar](./media/howto-read-replicas-portal/select-replica.png)
- 
-4. Selecione **Eliminar réplica**.
-
-   ![Selecione Eliminar réplica](./media/howto-read-replicas-portal/select-delete-replica.png)
- 
-5. Introduza o nome da réplica para eliminar. Selecione **eliminar** para confirmar a eliminação da réplica.
-
-   ![Confirme que pretende para eliminar a réplica de te](./media/howto-read-replicas-portal/confirm-delete-replica.png)
+   ![Confirmar para excluir o servidor mestre](./media/howto-read-replicas-portal/confirm-delete.png)
  
 
-## <a name="monitor-a-replica"></a>Monitorizar uma réplica
-Duas métricas estão disponíveis para monitorizar as réplicas de leitura.
+## <a name="delete-a-replica"></a>Excluir uma réplica
+Você pode excluir uma réplica de leitura semelhante a como você exclui um servidor mestre.
 
-### <a name="max-lag-across-replicas-metric"></a>Métrica de máximo de atraso em réplicas
-O **máximo de atraso em réplicas** métrica mostra o desfasamento de bytes entre o servidor mestre e maioria lagging réplica. 
+- Na portal do Azure, abra a página **visão geral** da réplica de leitura. Selecione **Eliminar**.
 
-1.  No portal do Azure, selecione a base de dados principal do Azure para o servidor PostgreSQL.
-
-2.  Selecione **Métricas**. Na **métricas** janela, selecione **máximo de atraso em réplicas**.
-
-    ![Monitorizar o atraso máximo em réplicas](./media/howto-read-replicas-portal/select-max-lag.png)
+   ![Na página Visão geral da réplica, selecione para excluir a réplica](./media/howto-read-replicas-portal/delete-replica.png)
  
-3.  Para sua **agregação**, selecione **Max**.
+Você também pode excluir a réplica de leitura da janela **replicação** seguindo estas etapas:
 
+1. No portal do Azure, selecione o servidor mestre do banco de dados do Azure para PostgreSQL.
 
-### <a name="replica-lag-metric"></a>Métrica de desfasamento de réplica
-O **desfasamento de réplica** métrica mostra o tempo, uma vez que o último reproduzidos transação numa réplica. Se não houver nenhuma transação que ocorrem no seu controlador, a métrica reflete este intervalo de tempo.
+2. No menu servidor, em **configurações**, selecione **replicação**.
 
-1. No portal do Azure, selecione a base de dados do Azure para PostgreSQL a réplica de leitura.
+3. Selecione a réplica de leitura a ser excluída.
 
-2. Selecione **Métricas**. Na **métricas** janela, selecione **desfasamento de réplica**.
-
-   ![Monitorizar o desfasamento de réplica](./media/howto-read-replicas-portal/select-replica-lag.png)
+   ![Selecionar a réplica a ser excluída](./media/howto-read-replicas-portal/select-replica.png)
  
-3. Para sua **agregação**, selecione **Max**. 
+4. Selecione **excluir réplica**.
+
+   ![Selecionar Excluir réplica](./media/howto-read-replicas-portal/select-delete-replica.png)
  
-## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre [ler réplicas na base de dados do Azure para PostgreSQL](concepts-read-replicas.md).
+5. Insira o nome da réplica a ser excluída. Selecione **excluir** para confirmar a exclusão da réplica.
+
+   ![Confirmar para excluir a réplica de te](./media/howto-read-replicas-portal/confirm-delete-replica.png)
+ 
+
+## <a name="monitor-a-replica"></a>Monitorar uma réplica
+Duas métricas estão disponíveis para monitorar réplicas de leitura.
+
+### <a name="max-lag-across-replicas-metric"></a>Atraso máximo entre as métricas de réplicas
+A métrica de **atraso máximo entre réplicas** mostra o retardo em bytes entre o servidor mestre e a réplica mais deatrasante. 
+
+1.  No portal do Azure, selecione o servidor mestre do banco de dados do Azure para PostgreSQL.
+
+2.  Selecione **Métricas**. Na janela **métricas** , selecione **atraso máximo entre réplicas**.
+
+    ![Monitorar o atraso máximo entre réplicas](./media/howto-read-replicas-portal/select-max-lag.png)
+ 
+3.  Para sua **agregação**, selecione **máximo**.
+
+
+### <a name="replica-lag-metric"></a>Métrica de atraso de réplica
+A métrica de **atraso de réplica** mostra o tempo desde a última transação reproduzida em uma réplica. Se não houver nenhuma transação ocorrendo no mestre, a métrica refletirá esse intervalo de tempo.
+
+1. Na portal do Azure, selecione a réplica de leitura do banco de dados do Azure para PostgreSQL.
+
+2. Selecione **Métricas**. Na janela **métricas** , selecione **atraso de réplica**.
+
+   ![Monitorar a latência da réplica](./media/howto-read-replicas-portal/select-replica-lag.png)
+ 
+3. Para sua **agregação**, selecione **máximo**. 
+ 
+## <a name="next-steps"></a>Passos seguintes
+* Saiba mais sobre [réplicas de leitura no banco de dados do Azure para PostgreSQL](concepts-read-replicas.md).
+* Saiba como [criar e gerenciar réplicas de leitura no CLI do Azure](howto-read-replicas-cli.md).

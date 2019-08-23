@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: dadf5fb64ba727b388c373f9b8befb54592c49d9
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: c0f575417819f0e2d46565ad15aaa23a04fd7cf1
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68958515"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972631"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Acessando seu ambiente de nuvem privada do CloudSimple e aplicativos do local
 
@@ -57,7 +57,7 @@ As máquinas virtuais de carga de trabalho de acesso em execução na nuvem priv
 | 389 (TCP/UDP) | Rede de carga de trabalho de nuvem privada | Rede do Active Directory local | Ingresse máquinas virtuais de carga de trabalho do Windows no domínio do Active Directory local.       |
 | 53 (UDP)      | Rede de carga de trabalho de nuvem privada | Rede no local                  | Acesso do serviço DNS para máquinas virtuais de carga de trabalho para servidores DNS locais.         |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar e gerenciar VLANs e sub-redes](https://docs.azure.cloudsimple.com/create-vlan-subnet/)
 * [Conectar-se à rede local usando o Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection/)

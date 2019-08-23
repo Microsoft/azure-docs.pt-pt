@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 31e59f913fa29c92bc1b97029d8712bbd9b68ab8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 52d74983458a2c6a4de27ec91bc23a8dd9bee387
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934667"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899828"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral da segurança operacional do Azure
 
-[Segurança operacional do Azure] (/Azure/Security/Fundamentals/Operational-Security refere-se aos serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros ativos no Microsoft Azure. É uma estrutura que incorpora o conhecimento obtido por meio de uma variedade de recursos que são exclusivos da Microsoft. Esses recursos incluem o SDL (ciclo de vida de desenvolvimento de segurança da Microsoft), o programa Microsoft Security Response Center e uma percepção profunda do panorama de ameaças do segurança cibernética.
+A [segurança operacional do Azure](/azure/security/fundamentals/operational-security) refere-se aos serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros ativos no Microsoft Azure. É uma estrutura que incorpora o conhecimento obtido por meio de uma variedade de recursos que são exclusivos da Microsoft. Esses recursos incluem o SDL (ciclo de vida de desenvolvimento de segurança da Microsoft), o programa Microsoft Security Response Center e uma percepção profunda do panorama de ameaças do segurança cibernética.
 
 ## <a name="azure-management-services"></a>Serviços de gerenciamento do Azure
 
@@ -42,7 +42,7 @@ Você pode consolidar dados de uma variedade de fontes e combinar dados de seus 
 
 A [automação do Azure](/azure/automation/automation-intro) fornece uma maneira de automatizar as tarefas manuais, demoradas, propensas a erros e repetidas com frequência que normalmente são executadas em um ambiente corporativo e de nuvem. Ele economiza tempo e aumenta a confiabilidade das tarefas administrativas. Ele até agenda essas tarefas para serem executadas automaticamente em intervalos regulares. Você pode automatizar processos usando runbooks ou automatizar o gerenciamento de configuração usando a configuração de estado desejado.
 
-### <a name="backup"></a>Criar cópia de segurança
+### <a name="backup"></a>Cópia de segurança
 
 O [backup do Azure](/azure/backup/backup-introduction-to-azure-backup) é o serviço baseado no Azure que você pode usar para fazer backup (ou proteger) e restaurar seus dados no Microsoft Cloud. O backup do Azure substitui sua solução existente de backup local ou fora do local por uma solução baseada em nuvem que é confiável, segura e de custo competitivo. 
 
@@ -185,7 +185,7 @@ Os profissionais maduros de DevOps adotam várias das práticas a seguir. Essas 
 - A [IaC (infraestrutura como código)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) é uma prática que permite a automação e a validação da criação e da desmontagem de redes e máquinas virtuais para ajudar a fornecer plataformas de Hospedagem de aplicativos seguras e estáveis.
 - [](https://www.visualstudio.com/learn/what-are-microservices/) A arquitetura de microserviços é usada para isolar casos de uso de negócios em serviços pequenos reutilizáveis.  Essa arquitetura permite escalabilidade e eficiência.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a solução Segurança e Auditoria, consulte os seguintes artigos:
 

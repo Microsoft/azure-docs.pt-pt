@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 84738d9de880e09177ebb5c060fbd7bbd4613006
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: f9223fdead9d22e8f58076b47502e71c06741e3f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036816"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900117"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Criar uma nova oferta do Dynamics 365 for Operations
 
@@ -82,27 +82,11 @@ Selecione uma das seguintes opções:
 
 ## <a name="connect-lead-management"></a>Conectar gerenciamento de leads
 
-Conecte-se com os clientes diretamente conectando seu sistema de gerenciamento de relacionamento com o cliente (CRM). Ao fazer isso, você receberá informações de contato do cliente quando um cliente expressar interesse ou implantar seu produto.
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-Para conectar seu sistema CRM, selecione **conectar**.
+Consulte [visão geral do gerenciamento de Lead](./commercial-marketplace-get-customer-leads.md) para obter mais informações.
 
-### <a name="choose-a-lead-destination"></a>Escolher um destino de cliente potencial
-
-Depois de selecionar **conectar**, você verá um menu suspenso onde pode selecionar o sistema CRM e fornecer detalhes de conexão.
-
-O Partner Center dá suporte aos seguintes sistemas CRM para gerenciamento de leads. Selecione o link para obter instruções de instalação.
-
-- [Tabela do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – forneça a cadeia de conexão da conta de armazenamento. 
-- [Dynamics 365 for Customer Engagement (anteriormente Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – forneça a URL da instância do Dynamics 365 e o modo de autenticação (Office 365 ou Azure Active Directory).
-- [Ponto de extremidade https](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – forneça sua URL de ponto de extremidade HTTPS. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – forneça a ID do servidor, a ID da conta do Munchkin e a ID do formulário.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -forneça a ID da sua organização.
-
-#### <a name="additional-lead-management-resources"></a>Recursos adicionais de gerenciamento de leads
-
-- [Perguntas frequentes sobre gerenciamento de Lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erros comuns de configuração de Lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Visão geral do gerenciamento de leads um pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+Lembre-se de **salvar** antes de passar para a próxima seção!
 
 ## <a name="properties"></a>properties
 
@@ -386,6 +370,6 @@ Se esta for a primeira vez que você publica essa oferta, você pode:
 - Na seção **notas de certificação** , forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de qualquer nota suplementar útil para entender seu aplicativo.
 - Envie a oferta para publicação selecionando **Enviar**. Enviaremos um email para que você saiba quando uma versão prévia da oferta está disponível para revisão e aprovação. Você deve retornar ao Partner Center e selecionar **Go-Live** para a oferta para publicar sua oferta no público (ou se uma oferta privada, para o público privado).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no Marketplace comercial](./update-existing-offer.md)

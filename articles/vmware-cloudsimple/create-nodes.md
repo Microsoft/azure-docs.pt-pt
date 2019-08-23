@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2d5b2847109149701cb6453753e52fb671ba69d0
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 5806198968d98fea4c5cbf8731358ca4041f0935
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533348"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972877"
 ---
-# <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Provisionar nós para solução VMware por CloudSimple-Azure
+# <a name="provision-nodes-for-azure-vmware-solution-by-cloudsimple"></a>Provisionar nós para a solução do Azure VMware por CloudSimple
 
 Provisionar nós no portal do Azure. Em seguida, você pode configurar a capacidade paga conforme o uso para seu ambiente de nuvem privada do CloudSimple.
 
