@@ -5,15 +5,15 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 08/21/2019
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: fe6c6d461fd6b99ce2ce57ebdd61a3f3e961489c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 42e965b188db2b84579ab322fbe19781000dff7e
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184422"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69894159"
 ---
 ## <a name="storage"></a>Armazenamento
 
@@ -24,4 +24,3 @@ ms.locfileid: "67184422"
 | [Negar camadas de acesso esporádico para contas de armazenamento](../articles/governance/policy/samples/deny-cool-access-tiering.md) | Proíbe a utilização de camadas de acesso esporádico para contas de armazenamento de blobs.  |
 | [Assegurar o tráfego https apenas para contas de armazenamento](../articles/governance/policy/samples/ensure-https-storage-account.md) | Requer que as contas de armazenamento utilizem o tráfego HTTPS.  |
 | [Assegurar a encriptação de ficheiros de armazenamento](../articles/governance/policy/samples/ensure-storage-file-encryption.md) | Requer que a encriptação de ficheiros esteja ativada para contas de armazenamento.  |
-| [Requerer a encriptação de contas de armazenamento](../articles/governance/policy/samples/require-storage-account-encryption.md) | Requer que a conta de armazenamento utilize a encriptação de blobs.  |

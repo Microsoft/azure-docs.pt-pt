@@ -88,7 +88,7 @@ sections:
         items:
           - html: '.NET &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=dotnet">Blobs</a> | <a     href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=dotnet">Ficheiros</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=dotnet">Filas</a>'
           - html: 'Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">Blobs</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">Ficheiros</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">Filas</a>'
-          - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
+          - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">O Azure PowerShell</a>
           - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">CLI do Azure</a>
   - title: Desenvolva as suas competências com o Microsoft Learn
     items:
@@ -138,6 +138,6 @@ sections:
           - title: Linha de Comandos
             html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">CLI do Azure</a></p>
           - title: Linguagens
-            html: '<p><a href="/dotnet/api/overview/azure/storage/client">.NET</a></p><p><a href="/java/api/overview/azure/storage/client?view=azure-java-stable">Java</a></p><p><a href="/javascript/api/overview/azure/storage?view=azure-node-latest">Node.js</a></p><p><a href="/python/api/overview/azure/storage">Python</a></p><p><a href="https://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="https://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="https://azure.github.io/azure-storage-android">Android</a></p>'
+            html: '<p><a href="/dotnet/api/overview/azure/storage/client">.NET</a></p><p><a href="/java/api/overview/azure/storage/?view=azure-java-stable">Java</a></p><p><a href="/javascript/api/overview/azure/storage?view=azure-node-latest">Node.js</a></p><p><a href="/python/api/overview/azure/storage">Python</a></p><p><a href="https://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="https://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="https://azure.github.io/azure-storage-android">Android</a></p>'
           - title: REST
             html: '<p><a href="/rest/api/storageservices">API de Blobs, Filas, Tabelas e Ficheiros</a></p><p><a href="/rest/api/storagerp">API do Fornecedor de Recursos de Armazenamento</a></p><p><a href="/rest/api/storageimportexport">API do Serviço Importar/Exportar</a></p>'

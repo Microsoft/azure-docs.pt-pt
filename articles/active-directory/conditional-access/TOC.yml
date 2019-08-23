@@ -42,7 +42,7 @@
       href: plan-conditional-access.md
     - name: Melhores práticas
       href: best-practices.md
-    - name: Modelos de políticas comuns
+    - name: Políticas de Acesso Condicional comuns
       items:
         - name: Exigir MFA aos administradores
           href: howto-conditional-access-policy-admin-mfa.md
