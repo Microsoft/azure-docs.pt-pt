@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 22d1da4c194b392993b37b16ab20673120c3362e
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 160be4224e31793b5bb172f5b913c364ae2c8a59
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951799"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013031"
 ---
 # <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>O que são pipelines de ML no serviço Azure Machine Learning?
 
@@ -69,7 +69,7 @@ As principais vantagens de usar pipelines para seus fluxos de trabalho de aprend
 
 ## <a name="the-python-sdk-for-pipelines"></a>O SDK de Python para pipelines
 
-[Use o SDK do Python](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) para criar seus pipelines de ml em seus notebooks JUPYTER ou IDE preferenciais. O SDK do Azure Machine Learning oferece construções imperativas para sequenciar e paralelização os passos em seus pipelines quando nenhuma dependência de dados está presente. 
+[Use o SDK do Python](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) para criar seus pipelines de ml em seu ambiente de desenvolvimento integrado (IDE) ou notebooks Jupyter de preferência. O SDK do Azure Machine Learning oferece construções imperativas para sequenciar e paralelização os passos em seus pipelines quando nenhuma dependência de dados está presente. 
 
 Através de dependências de dados declarativa, pode otimizar as suas tarefas. O SDK inclui uma estrutura de módulos pré-criados para tarefas comuns, como transferência de dados e publicação de modelo. Você pode estender a estrutura para modelar suas próprias convenções implementando etapas personalizadas reutilizáveis entre pipelines. Você também pode gerenciar destinos de computação e recursos de armazenamento diretamente do SDK.
 

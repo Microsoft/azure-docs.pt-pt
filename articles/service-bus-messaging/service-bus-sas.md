@@ -4,7 +4,6 @@ description: Visão geral do controle de acesso do barramento de serviço usando
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
@@ -12,20 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2018
+ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: d2cd7c8e24571f66fa73ceaa9a70ce33d6105e9c
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: ac240fee9a71714f2c7368b43e60f4e6c5d7093d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017746"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013057"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controle de acesso do barramento de serviço com assinaturas de acesso compartilhado
 
 *Assinaturas de acesso compartilhado* (SAS) é o mecanismo de segurança principal para mensagens do barramento de serviço. Este artigo discute a SAS, como elas funcionam e como usá-las de forma independente da plataforma.
 
 A SAS protege o acesso ao barramento de serviço com base nas regras de autorização. Eles são configurados em um namespace ou em uma entidade de mensagens (retransmissão, fila ou tópico). Uma regra de autorização tem um nome, está associada a direitos específicos e transporta um par de chaves de criptografia. Você usa o nome e a chave da regra por meio do SDK do barramento de serviço ou em seu próprio código para gerar um token SAS. Um cliente pode passar o token para o barramento de serviço para provar a autorização para a operação solicitada.
+
+> [!NOTE]
+> O barramento de serviço do Azure dá suporte à autorização de acesso a um namespace do barramento de serviço e suas entidades usando o Azure Active Directory (AD do Azure). A autorização de usuários ou aplicativos usando o token 2,0 do OAuth retornado pelo Azure AD fornece segurança superior e facilidade de uso sobre SAS (assinaturas de acesso compartilhado). Com o Azure AD, não é necessário armazenar os tokens no código e arriscar as vulnerabilidades de segurança potenciais.
+>
+> A Microsoft recomenda usar o Azure AD com seus aplicativos do barramento de serviço do Azure quando possível. Para obter mais informações, veja os artigos seguintes:
+> - [Autentique e autorize um aplicativo com Azure Active Directory para acessar entidades do barramento de serviço do Azure](authenticate-application.md).
+> - [Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos do barramento de serviço do Azure](service-bus-managed-service-identity.md)
 
 ## <a name="overview-of-sas"></a>Visão geral da SAS
 
@@ -57,7 +63,7 @@ Quando você cria um namespace do barramento de serviço, uma regra de política
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Configuração da autenticação de assinatura de acesso compartilhado
 
-Você pode configurar a regra [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) em namespaces, filas ou tópicos do barramento de serviço. Não há suporte para a configuração de um [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) em uma assinatura do barramento de serviço no momento, mas você pode usar regras configuradas em um namespace ou tópico para proteger o acesso a assinaturas. Para obter um exemplo funcional que ilustra esse procedimento, consulte o exemplo [Gerenciando filas do barramento de serviço do Azure](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule) .
+Você pode configurar a regra [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) em namespaces, filas ou tópicos do barramento de serviço. Não há suporte para a configuração de um [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) em uma assinatura do barramento de serviço no momento, mas você pode usar regras configuradas em um namespace ou tópico para proteger o acesso a assinaturas. Para obter um exemplo funcional que ilustre esse procedimento, consulte o exemplo [usando a autenticação SAS (assinatura de acesso compartilhado) com assinaturas do barramento de serviço](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) .
 
 ![RÍGIDO](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -88,7 +94,7 @@ O token contém os valores sem hash para que o destinatário possa recalcular o 
 
 O URI de recurso é o URI completo do recurso do barramento de serviço ao qual o acesso é reivindicado. Por exemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` ou `sb://<namespace>.servicebus.windows.net/<entityPath>`; ou seja, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
-**O URI deve ser [codificado por percentual](/dotnet/api/system.web.httputility.urlencode?view=netframework-4.8).**
+**O URI deve ser [codificado por percentual](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
 
 A regra de autorização de acesso compartilhado usada para assinatura deve ser configurada na entidade especificada por esse URI ou por um de seus pais hierárquicos. Por exemplo, `http://contoso.servicebus.windows.net/contosoTopics/T1` ou `http://contoso.servicebus.windows.net` no exemplo anterior.
 
@@ -104,8 +110,8 @@ Se você souber ou suspeitar que uma chave está comprometida e precisar revogar
 
 Os cenários descritos a seguir incluem a configuração de regras de autorização, a geração de tokens SAS e a autorização do cliente.
 
-Para obter um exemplo funcional completo de um aplicativo do barramento de serviço que ilustra a configuração e usa a autorização SAS, consulte o exemplo a seguir em nosso repositório GitHub: [Gerenciando filas do barramento de serviço do Azure](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
- 
+Para obter um exemplo funcional completo de um aplicativo do barramento de serviço que ilustra a configuração e usa a autorização de SAS, consulte [autenticação de assinatura de acesso compartilhado com o barramento de serviço](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Um exemplo relacionado que ilustra o uso de regras de autorização SAS configuradas em namespaces ou tópicos para proteger assinaturas do barramento de serviço está disponível aqui: [Usando a autenticação SAS (assinatura de acesso compartilhado) com assinaturas do barramento de serviço](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Acessar regras de autorização de acesso compartilhado em uma entidade
 
 Com as bibliotecas de .NET Framework do barramento de serviço, você pode acessar um objeto [Microsoft. ServiceBus. Messaging. SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) configurado em uma fila ou um tópico do barramento de serviço por meio da coleção [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) no correspondente [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) ou [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription).

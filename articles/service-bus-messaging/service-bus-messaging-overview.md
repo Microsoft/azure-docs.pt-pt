@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 0ab658b26a44e98b073c477c1aaeeb683372ee46
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0f3995e8904396dbb0bcbeeea1f993913d68587e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988494"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013125"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
 
-Microsoft Azure Service Bus é uma empresa totalmente gerida [integração](https://azure.com/integration) Mediador de mensagens. O Service Bus é mais utilizado para dissociar aplicações e serviços e é uma plataforma fiável e segura para transferência de estados e dados assíncronos. Os dados são transferidos entre diferentes aplicações e serviços utilizando *mensagens*. É uma mensagem no formato binário, que pode conter somente texto, JSON ou XML. 
+Barramento de Serviço do Microsoft Azure é um agente de mensagem de [integração](https://azure.com/integration) corporativa totalmente gerenciado. O Service Bus é mais utilizado para dissociar aplicações e serviços e é uma plataforma fiável e segura para transferência de estados e dados assíncronos. Os dados são transferidos entre diferentes aplicações e serviços utilizando *mensagens*. Uma mensagem está em formato binário, que pode conter JSON, XML ou apenas texto. 
 
 Alguns cenários comuns de mensagens são:
 
@@ -37,9 +37,9 @@ O espaço de nomes é um contentor para todos os componentes de mensagens. Um ú
 
 As mensagens são enviadas e recebidas de *filas*. As filas permitem armazenar mensagens até a aplicação recetora estar disponível para receber e processá-las.
 
-![Fila](./media/service-bus-messaging-overview/about-service-bus-queue.png)
+![Filas](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-Mensagens em filas são ordenadas e timestamped na chegada. Depois de aceite, a mensagem é guardada em segurança no armazenamento redundante. As mensagens são entregues na *pull* modo, que oferece a mensagens de pedido.
+As mensagens nas filas são ordenadas e com carimbo de data/hora na chegada. Depois de aceite, a mensagem é guardada em segurança no armazenamento redundante. As mensagens são entregues no modo de *pull* , que entrega mensagens na solicitação.
 
 ## <a name="topics"></a>Tópicos
 
@@ -93,11 +93,11 @@ A [eliminação automática em inatividade](/dotnet/api/microsoft.servicebus.mes
 
 ### <a name="duplicate-detection"></a>Deteção de duplicados
 
-Se ocorrer um erro que faz com que o cliente tiver qualquer dúvida sobre o resultado de uma operação de envio [duplicar deteção](duplicate-detection.md) leva a dúvida fora essas situações, permitindo que o remetente enviar novamente a mesma mensagem e a fila ou tópico elimina quaisquer cópias duplicadas.
+Se ocorrer um erro que faz com que o cliente tenha alguma dúvida sobre o resultado de uma operação de envio, a [detecção](duplicate-detection.md) de duplicidades levará a dúvida dessas situações, permitindo que o remetente reenvie a mesma mensagem e a fila ou o tópico descartará qualquer duplicata cópia.
 
 ### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>SAS, RBAC e Identidades geridas para os recursos do Azure
 
-O Service Bus suporta protocolos de segurança como [Assinaturas de Acesso Partilhado](service-bus-sas.md) (SAS), [Controlo de Acesso Baseado em Funções](service-bus-role-based-access-control.md) (RBAC) e [Identidades geridas para os recursos do Azure](service-bus-managed-service-identity.md).
+O Service Bus suporta protocolos de segurança como [Assinaturas de Acesso Partilhado](service-bus-sas.md) (SAS), [Controlo de Acesso Baseado em Funções](authenticate-application.md) (RBAC) e [Identidades geridas para os recursos do Azure](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Recuperação após desastre geográfica
 
@@ -121,7 +121,7 @@ O Service Bus integra-se totalmente nos seguintes serviços do Azure:
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a utilizar as mensagens do Service Bus, consulte os seguintes artigos:
 
@@ -129,4 +129,4 @@ Para começar a utilizar as mensagens do Service Bus, consulte os seguintes arti
 * Obtenha mais informações sobre os escalões [Standard e Premium](https://azure.microsoft.com/pricing/details/service-bus/) do Azure Service Bus e os respetivos preços
 * [Desempenho e Latência do escalão Premium do Azure Service Bus](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722)
 * Experimente os inícios rápidos sobre [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md) ou [JMS](service-bus-java-how-to-use-jms-api-amqp.md)
-* [Gerir recursos do Service Bus com o Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Gerenciar recursos do barramento de serviço com o Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

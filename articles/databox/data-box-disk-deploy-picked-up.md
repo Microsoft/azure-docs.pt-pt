@@ -6,26 +6,29 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/12/2019
+ms.localizationpriority: high
+ms.date: 08/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 9e3159a083d21e4a7a81df2fcf7a7d5db882b757
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 6dcd55cc2c269024179e450d789df544bb8ff9a9
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976922"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012925"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: Retornar Disco do Azure Data Box e verificar o carregamento de dados no Azure
+# <a name="tutorial-return-azure-data-box-disk"></a>Tutorial: Disco do Azure Data Box de retorno 
 
-Este é o último tutorial da série: Implantar Disco do Azure Data Box. Neste tutorial, vai aprender a:
+Este tutorial descreve como agendar uma seleção para retornar o Disco do Azure Data Box. As instruções de seleção dependem de onde você está retornando o dispositivo. 
+
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Enviar o Data Box Disk para a Microsoft
-> * Verificar o carregamento de dados para o Azure
-> * Eliminação de dados do Data Box Disk
+> * Pegue Disco do Data Box em regiões diferentes
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,18 +45,15 @@ Antes de começar, verifique se você concluiu o [tutorial: Copie dados para Dis
 
 As próximas etapas são determinadas por onde você está retornando o dispositivo.
 
-### <a name="pick-up-in-us-canada"></a>Escolha nos EUA, Canadá
+## <a name="pick-up-in-us-canada"></a>Escolha nos EUA, Canadá
 
 Execute as etapas a seguir se retornar o dispositivo nos EUA ou no Canadá.
 
 1. Utilize a etiqueta de envio para devolução, na capa de plástico afixada na caixa. Se o rótulo estiver danificado ou perdido:
-    - Aceda a **Descrição Geral > Transferir etiqueta de envio**.
+    - Acesse **visão geral > baixar o rótulo de envio** e baixar um rótulo de remessa de retorno.
 
         ![Transferir etiqueta de envio](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
 
-        Esta ação transfere uma etiqueta de envio para devolução, conforme mostrado abaixo.
-
-        ![Etiqueta de envio de exemplo](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
     - Afixar o rótulo no dispositivo.
 
 2. Feche a caixa de envio e certifique-se de que a etiqueta para envio de devolução se encontra visível.
@@ -65,18 +65,15 @@ Execute as etapas a seguir se retornar o dispositivo nos EUA ou no Canadá.
     - Em vez de agendar a retirada, você também pode remover o Disco do Data Box no local de distribuição mais próximo.
 
 
-### <a name="pick-up-in-europe"></a>Escolha na Europa
+## <a name="pick-up-in-europe"></a>Escolha na Europa
 
 Execute as etapas a seguir se retornar o dispositivo na Europa.
 
 1. Utilize a etiqueta de envio para devolução, na capa de plástico afixada na caixa. Se o rótulo estiver danificado ou perdido:
-    - Aceda a **Descrição Geral > Transferir etiqueta de envio**.
+    - Acesse **visão geral > baixar o rótulo de envio** e baixar um rótulo de remessa de retorno.
 
         ![Transferir etiqueta de envio](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
 
-        Esta ação transfere uma etiqueta de envio para devolução, conforme mostrado abaixo.
-
-        ![Etiqueta de envio de exemplo](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
     - Afixar o rótulo no dispositivo.
 
 2. Feche a caixa de envio e certifique-se de que a etiqueta para envio de devolução se encontra visível.
@@ -89,11 +86,11 @@ Execute as etapas a seguir se retornar o dispositivo na Europa.
 
       ![Agendar recolha](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
 
-### <a name="pick-up-in-asia-pacific-region"></a>Escolha na região do Pacífico Asiático
+## <a name="pick-up-in-asia-pacific"></a>Escolha na Ásia-Pacífico
 
 Esta região inclui instruções para retirada no Japão, na Coreia, na Austrália e na Cingapura.
 
-#### <a name="pick-up-in-australia"></a>Escolha na Austrália
+### <a name="pick-up-in-australia"></a>Escolha na Austrália
 
 Os data centers do Azure na Austrália têm uma notificação de segurança adicional. Todas as remessas de entrada devem ter uma notificação avançada. Execute as etapas a seguir para a retirada na Austrália.
 
@@ -104,7 +101,7 @@ Os data centers do Azure na Austrália têm uma notificação de segurança adic
     - Endereço
     - Nome do contacto
 
-#### <a name="pick-up-in-japan"></a>Escolha no Japão
+### <a name="pick-up-in-japan"></a>Escolha no Japão
 
 1. Grave as informações de nome e endereço da sua empresa na nota de consignação como as informações do remetente.
 2. Envie uma solução de Quantium de email usando o modelo de email a seguir.
@@ -131,7 +128,7 @@ Se necessário, você pode entrar em contato com o suporte da solução Quantium
 - Email:Customerservice.JP@quantiumsolutions.com 
 - Telefone: 03-5755-0150 
 
-#### <a name="pick-up-in-korea"></a>Escolha na Coreia
+### <a name="pick-up-in-korea"></a>Escolha na Coreia
 
 1. Certifique-se de incluir a nota de consignação de retorno.
 2. Para solicitar retirada quando a nota de consignação estiver presente:
@@ -148,13 +145,10 @@ Se necessário, você pode entrar em contato com o suporte da solução Quantium
 ### <a name="pick-up-in-singapore"></a>Escolha em Cingapura
 
 1. Imprima o rótulo de remessa e anexe na caixa. Se o rótulo estiver danificado ou perdido:
-    - Aceda a **Descrição Geral > Transferir etiqueta de envio**.
+    - Acesse **visão geral > baixar o rótulo de envio** e obter um rótulo de envio de devolução.
 
         ![Transferir etiqueta de envio](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
 
-        Esta ação transfere uma etiqueta de envio para devolução, conforme mostrado abaixo.
-
-        ![Etiqueta de envio de exemplo](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
     - Afixar o rótulo no dispositivo. Verifique se o rótulo está visível.
 
 2. Para solicitar retirada:
@@ -165,107 +159,39 @@ Se necessário, você pode entrar em contato com o suporte da solução Quantium
 3. Passe para a Courier. 
 
 
-## <a name="verify-data-upload-to-azure"></a>Verificar o carregamento de dados para o Azure
-
-Após a sua transportadora recolher os discos, o estado de encomenda no portal será atualizado para **Picked up (Recolhido)** . É também mostrado um ID de controlo.
-
-![Discos recolhidos](media/data-box-disk-deploy-picked-up/data-box-portal-pickedup.png)
-
-Quando a Microsoft receber e analisar o disco, o estado da tarefa será alterado para **Received (Recebido)** . 
-
-![Discos recebidos](media/data-box-disk-deploy-picked-up/data-box-portal-received.png)
-
-Os dados são automaticamente copiados após os discos serem ligados a um servidor no datacenter do Azure. Consoante o tamanho dos dados, a operação de cópia poderá demorar algumas horas a dias para concluir. Pode monitorizar o progresso da tarefa de cópia no portal.
-
-Quando a cópia for concluída, o estado da encomenda será atualizado para **Completed (Concluído)** .
-
-![Cópia de dados concluída](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
-
-Se a cópia for concluída com erros, consulte [solucionar problemas de erros de upload](data-box-disk-troubleshoot-upload.md).
-
-Certifique-se de que os dados estão na(s) conta(s) de armazenamento antes de o eliminá-los da origem. Seus dados podem estar em:
-
-- Suas contas de armazenamento do Azure. Quando copia os dados para o Data Box, consoante o tipo, os dados são carregados para um dos seguintes caminhos na sua conta de Armazenamento do Azure.
-
-  - Para blobs de blocos e blobs de páginas: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
-  - Para Ficheiros do Azure: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
-
-    Em alternativa, pode aceder à sua conta de armazenamento do Azure no portal do Azure e navegar a partir daí.
-
-- Seus grupos de recursos de disco gerenciado. Ao criar discos gerenciados, os VHDs são carregados como BLOBs de páginas e convertidos em discos gerenciados. Os discos gerenciados são anexados aos grupos de recursos especificados no momento da criação do pedido.
-
-  - Se sua cópia para discos gerenciados no Azure tiver sido bem-sucedida, você poderá ir para os **detalhes do pedido** no portal do Azure e anotar o grupo de recursos especificado para discos gerenciados.
-
-      ![Exibir detalhes do pedido](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
-
-    Vá para o grupo de recursos observado e localize os discos gerenciados.
-
-      ![Grupo de recursos para discos gerenciados](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
-
-  - Se você copiou um VHDX, ou um VHD dinâmico/diferencial, o VHDX/VHD será carregado para a conta de armazenamento de preparo como um blob de blocos. Acesse sua conta de **armazenamento** de preparo > BLOBs e, em seguida, selecione o contêiner-StandardSSD, StandardHDD ou PremiumSSD apropriado. O VHDX/VHDs deve aparecer como BLOBs de blocos em sua conta de armazenamento de preparo.
-
-Para garantir que os dados foram carregados para o Azure, execute os seguintes passos:
-
-1. Aceda à conta de armazenamento associada à sua encomenda de disco.
-2. Aceda a **Serviço Blob > Procurar blobs**. É apresentada a lista de contentores. De forma correspondente à subpasta que criou nas pastas *BlockBlob* e *PageBlob*, os contentores com o mesmo nome são criados na sua conta de armazenamento.
-    Se os nomes de pastas não estiverem em conformidade com as convenções de nomenclatura do Azure, o carregamento de dados para o Azure irá falhar.
-
-4. Para se certificar de que todo o conjunto de dados foi carregado, utilize o Explorador de Armazenamento do Microsoft Azure. Anexe a conta de armazenamento correspondente à encomenda de aluguer de discos e, em seguida, observe a lista de contentores de blobs. Selecione um contentor, clique em **…Mais** e, em seguida, clique em **Estatísticas de pasta**. No painel **Atividades**, a estatística dessa pasta, incluindo o número de blobs e o tamanho total de blobs, é apresentado. O tamanho total de blobs em bytes deve corresponder ao tamanho do conjunto de dados.
-
-    ![Estatísticas de pastas no Explorador de Armazenamento do Azure](media/data-box-disk-deploy-picked-up/folder-statistics-storage-explorer.png)
-
-## <a name="erasure-of-data-from-data-box-disk"></a>Eliminação de dados do Data Box Disk
-
-Após a cópia ser concluída e se certificar de que os dados estão na conta de armazenamento do Azure, os discos são apagados de forma segura, segundo a norma NIST.
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box Disk, como:
 
 > [!div class="checklist"]
 > * Enviar o Data Box Disk para a Microsoft
-> * Verificar o carregamento de dados para o Azure
-> * Eliminação de dados do Data Box Disk
+> * Pegue Disco do Data Box em regiões diferentes
 
-
-Avance para as próximas instruções para saber como gerir o Data Box Disk através do portal do Azure.
+Avance para o próximo passo para saber como verificar o carregamento de dados de Disco do Data Box para a conta de armazenamento do Azure.
 
 > [!div class="nextstepaction"]
-> [Utilizar o portal do Azure para administrar o Azure Data Box Disk](./data-box-portal-ui-admin.md)
+> [Verificar o carregamento de dados do Disco do Azure Data Box](./data-box-disk-deploy-picked-up.md)
 
 ::: zone-end
 
 
 ::: zone target="chromeless"
 
-# <a name="return-the-disk-and-verify-upload-to-azure"></a>Retornar o disco e verificar o carregamento no Azure
-
-## <a name="ship-to-azure"></a>Enviar para o Azure
+# <a name="return-the-disk-to-azure"></a>Retornar o disco para o Azure
 
 1. Depois que a validação de dados for concluída, desconecte os discos. Remova os cabos de ligação.
 2. Embrulhe todos os discos e os cabos de ligação em plástico-bolha e coloque-os na caixa de envio. Os encargos poderão ser aplicados se os acessórios estiverem ausentes.
     - Reutilize o empacotamento da remessa inicial.  
     - É recomendável que você empacote os discos usando um encapsulamento bolha bem protegido.
     - Certifique-se de que o ajuste esteja ajustado para reduzir os movimentos na caixa.
+
 3. As próximas etapas são determinadas por onde você está retornando o dispositivo.
+
     - [Agende uma retirada com UPS se retornar o dispositivo nos EUA e no Canadá](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
     - [Agende uma retirada com a DHL para a Europa](data-box-disk-deploy-picked-up.md#pick-up-in-europe) visitando seu site e especificando o número de Bill aéreo.
-    - [Agendar uma retirada para países na Austrália do Pacífico](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific-region) , como Austrália, Japão, Coreia e Cingapura.
-4. Depois que os discos são coletados pela sua operadora, o status do pedido no portal é atualizado e uma ID de rastreamento é exibida.
+    - [Agendar uma retirada para países na Austrália do Pacífico](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific) , como Austrália, Japão, Coreia e Cingapura.
 
-## <a name="verify-upload-to-azure"></a>Verificar upload no Azure
-
-Depois que os dados são carregados no Azure, verifique se os dados estão nas contas de armazenamento antes de excluí-lo da origem. Seus dados podem estar em:
-
-- Suas contas de armazenamento do Azure. Quando copia os dados para o Data Box, consoante o tipo, os dados são carregados para um dos seguintes caminhos na sua conta de Armazenamento do Azure.
-
-    - **Para BLOBs de bloco e blobs de página**: https://< storage_account_name >. blob. Core. Windows.<containername>net//files/a.txt
-
-    - **Para arquivos do Azure**: https://< storage_account_name >. File. Core. Windows. NET<sharename>//files/a.txt
-
-    Em alternativa, pode aceder à sua conta de armazenamento do Azure no portal do Azure e navegar a partir daí.
-
-- Seus grupos de recursos de disco gerenciado. Ao criar discos gerenciados, os VHDs são carregados como BLOBs de páginas e convertidos em discos gerenciados. Os discos gerenciados são anexados aos grupos de recursos especificados no momento da criação do pedido.
+Depois que os discos são coletados pela sua operadora, o status do pedido no portal é atualizado e uma ID de rastreamento é exibida.
 
 ::: zone-end
 

@@ -15,12 +15,12 @@ ms.date: 08/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 09551eb2620349fa2445c1da3a7e0d66062ebaf0
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 776b8303e3454b40979691ea32fdcca11be4fa71
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899740"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013378"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 
@@ -54,15 +54,15 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 | [Operador de runbook de automação](#automation-runbook-operator) | Ler propriedades do runbook – para poder criar trabalhos do runbook. |
 | [Colaborador de avere](#avere-contributor) | Pode criar e gerenciar um cluster avere vFXT. |
 | [Operador avere](#avere-operator) | Usado pelo cluster avere vFXT para gerenciar o cluster |
-| [Proprietário de dados dos hubs de eventos do Azure (versão prévia)](#azure-event-hubs-data-owner-preview) | Permite acesso completo aos recursos dos hubs de eventos do Azure. |
-| [Receptor de dados dos hubs de eventos do Azure (versão prévia)](#azure-event-hubs-data-receiver-preview) | Permite o acesso de recebimento aos recursos dos hubs de eventos do Azure. |
-| [Remetente de dados dos hubs de eventos do Azure (versão prévia)](#azure-event-hubs-data-sender-preview) | Permite o acesso de envio aos recursos dos hubs de eventos do Azure. |
+| [Proprietário de dados dos hubs de eventos do Azure](#azure-event-hubs-data-owner) | Permite acesso completo aos recursos dos hubs de eventos do Azure. |
+| [Receptor de dados dos hubs de eventos do Azure](#azure-event-hubs-data-receiver) | Permite o acesso de recebimento aos recursos dos hubs de eventos do Azure. |
+| [Remetente de dados dos hubs de eventos do Azure](#azure-event-hubs-data-sender) | Permite o acesso de envio aos recursos dos hubs de eventos do Azure. |
 | [Função de administrador de cluster do serviço kubernetes do Azure](#azure-kubernetes-service-cluster-admin-role) | Listar ação de credencial de administrador do cluster. |
 | [Função de usuário de cluster do serviço kubernetes do Azure](#azure-kubernetes-service-cluster-user-role) | Listar ação de credencial de usuário de cluster. |
 | [Leitor de dados do Azure Maps (versão prévia)](#azure-maps-data-reader-preview) | Concede acesso para ler dados relacionados ao mapa de uma conta do Azure Maps. |
-| [Proprietário de dados do barramento de serviço do Azure (versão prévia)](#azure-service-bus-data-owner-preview) | Permite acesso completo aos recursos do barramento de serviço do Azure. |
-| [Receptor de dados do barramento de serviço do Azure (versão prévia)](#azure-service-bus-data-receiver-preview) | Permite o acesso de recebimento aos recursos do barramento de serviço do Azure. |
-| [Remetente de dados do barramento de serviço do Azure (visualização)](#azure-service-bus-data-sender-preview) | Permite o acesso de envio aos recursos do barramento de serviço do Azure. |
+| [Proprietário de dados do barramento de serviço do Azure](#azure-service-bus-data-owner) | Permite acesso completo aos recursos do barramento de serviço do Azure. |
+| [Receptor de dados do barramento de serviço do Azure](#azure-service-bus-data-receiver) | Permite o acesso de recebimento aos recursos do barramento de serviço do Azure. |
+| [Remetente de dados do barramento de serviço do Azure](#azure-service-bus-data-sender) | Permite o acesso de envio aos recursos do barramento de serviço do Azure. |
 | [Proprietário do registro de Azure Stack](#azure-stack-registration-owner) | Permite que você gerencie registros de Azure Stack. |
 | [Colaborador de backup](#backup-contributor) | Permite que você gerencie o serviço de backup, mas não pode criar cofres e conceder acesso a outros |
 | [Operador de backup](#backup-operator) | Permite que você gerencie serviços de backup, exceto remoção de backup, criação de cofre e concessão de acesso a outros |
@@ -556,7 +556,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
-## <a name="azure-event-hubs-data-owner-preview"></a>Proprietário de dados dos hubs de eventos do Azure (versão prévia)
+## <a name="azure-event-hubs-data-owner"></a>Proprietário de dados dos hubs de eventos do Azure
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -571,7 +571,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
-## <a name="azure-event-hubs-data-receiver-preview"></a>Receptor de dados dos hubs de eventos do Azure (versão prévia)
+## <a name="azure-event-hubs-data-receiver"></a>Receptor de dados dos hubs de eventos do Azure
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -586,7 +586,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
-## <a name="azure-event-hubs-data-sender-preview"></a>Remetente de dados dos hubs de eventos do Azure (versão prévia)
+## <a name="azure-event-hubs-data-sender"></a>Remetente de dados dos hubs de eventos do Azure
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -646,7 +646,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
-## <a name="azure-service-bus-data-owner-preview"></a>Proprietário de dados do barramento de serviço do Azure (versão prévia)
+## <a name="azure-service-bus-data-owner"></a>Proprietário de dados do barramento de serviço do Azure
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -661,7 +661,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
-## <a name="azure-service-bus-data-receiver-preview"></a>Receptor de dados do barramento de serviço do Azure (versão prévia)
+## <a name="azure-service-bus-data-receiver"></a>Receptor de dados do barramento de serviço do Azure
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -678,7 +678,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
-## <a name="azure-service-bus-data-sender-preview"></a>Remetente de dados do barramento de serviço do Azure (visualização)
+## <a name="azure-service-bus-data-sender"></a>Remetente de dados do barramento de serviço do Azure
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2819,7 +2819,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
-## <a name="user-access-administrator"></a>Administrador de Acesso de Utilizador
+## <a name="user-access-administrator"></a>Administrador de Acesso dos Utilizadores
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2975,7 +2975,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Custom roles for Azure resources](custom-roles.md) (Funções personalizadas para recursos do Azure)
 - [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)

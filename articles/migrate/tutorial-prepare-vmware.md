@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 16c0354466d5c2a1207873a1e83e209da9339705
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 5bd4926494e13c1dd0cfb6283292ade967471238
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509997"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013424"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparar VMs VMware para avaliação e migração para o Azure
 
@@ -163,5 +163,5 @@ Neste tutorial:
 Continue no segundo tutorial para configurar um projeto de migrações para Azure e avaliar as VMs do VMware para migração para o Azure.
 
 > [!div class="nextstepaction"] 
-> [Avaliar VMs VMware](./tutorial-migrate-vmware.md) 
+> [Avaliar VMs VMware](./tutorial-assess-vmware.md) 
 

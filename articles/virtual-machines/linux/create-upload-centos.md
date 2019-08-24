@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: 72ed518af579bb6b95d3b13400f2fbf6679cd036
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 6f7175e24f4eb85229847470bc37a6224ac6dd6e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248179"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013688"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em CentOS para o Azure
 
@@ -174,11 +174,14 @@ Este artigo pressupõe que você já tenha instalado um sistema operacional Linu
 
     Como alternativa, você pode seguir as instruções de instalação manual na [página de download do LIS](https://go.microsoft.com/fwlink/?linkid=403033) para instalar o RPM em sua VM.
 
-12. Instale o agente Linux do Azure e as dependências:
+12. Instale o agente Linux do Azure e as dependências. Iniciar e habilitar o serviço waagent:
 
     ```bash
     sudo yum install python-pyasn1 WALinuxAgent
+    sudo service waagent start
+    sudo chkconfig waagent on
     ```
+
 
     O pacote WALinuxAgent removerá os pacotes NetworkManager e NetworkManager-gnome se eles ainda não tiverem sido removidos, conforme descrito na etapa 3.
 
@@ -391,6 +394,6 @@ Preparar uma máquina virtual CentOS 7 para o Azure é muito semelhante ao CentO
 
 14. Clique em **ação-> desligar** no Gerenciador do Hyper-V. Seu VHD do Linux agora está pronto para ser carregado no Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora você está pronto para usar seu disco rígido virtual CentOS Linux para criar novas máquinas virtuais no Azure. Se esta for a primeira vez que você está carregando o arquivo. vhd no Azure, consulte [criar uma VM do Linux a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).

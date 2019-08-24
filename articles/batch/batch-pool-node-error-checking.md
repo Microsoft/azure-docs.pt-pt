@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 07/16/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9481263773cc919fecacce80191cf209ec2a1282
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: d115b7d56609b95f2ea10b3fee2f8900102b94e4
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359252"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012476"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificar se há erros de pool e de nó
 
@@ -64,7 +64,7 @@ Lote define o [estado do pool](https://docs.microsoft.com/rest/api/batchservice/
 
 ## <a name="pool-compute-node-errors"></a>Erros de nó de computação do pool
 
-Mesmo quando o lote aloca nós em um pool com êxito, vários problemas podem fazer com que alguns nós não estejam íntegros e não possam executar tarefas. Esses nós ainda incorrem em encargos, portanto, é importante detectar problemas para evitar o pagamento de nós que não podem ser usados.
+Mesmo quando o lote aloca nós em um pool com êxito, vários problemas podem fazer com que alguns nós não estejam íntegros e não possam executar tarefas. Esses nós ainda incorrem em encargos, portanto, é importante detectar problemas para evitar o pagamento de nós que não podem ser usados. Além dos erros de nó comuns, saber se o [estado](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate) atual do trabalho é útil para solução de problemas.
 
 ### <a name="start-task-failures"></a>Falhas na tarefa inicial
 
@@ -84,7 +84,7 @@ As tarefas iniciais devem ser reentrante novamente, pois é possível que a tare
 
 Você pode especificar um ou mais pacotes de aplicativos para um pool. O lote baixa os arquivos de pacote especificados para cada nó e descompacta os arquivos após o nó ser iniciado, mas antes que as tarefas sejam agendadas. É comum usar uma linha de comando de tarefa inicial em conjunto com pacotes de aplicativos. Por exemplo, para copiar arquivos para um local diferente ou para executar a instalação.
 
-A propriedade de [erros](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) de nó relata uma falha ao baixar e cancelar a compactação de um pacote de aplicativos; o estado do nó é definido como inutilizável.
+A propriedade de [erros](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) de nó relata uma falha ao baixar e cancelar a compactação de um pacote de aplicativos; o estado do nó é definidocomo inutilizável.
 
 ### <a name="container-download-failure"></a>Falha no download do contêiner
 
@@ -92,13 +92,13 @@ Você pode especificar uma ou mais referências de contêiner em um pool. O lote
 
 ### <a name="node-in-unusable-state"></a>Nó em estado inutilizável
 
-O lote do Azure pode definir o [estado do nó](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) como inutilizável por vários motivos. Com o estado do nó definido como inutilizável, as tarefas não podem ser agendadas para o nó, mas ainda incorrem em encargos.
+O lote do Azure pode definir o [estado do nó](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) como inutilizável por vários motivos. Com o estado do nó definidocomo inutilizável, as tarefas não podem ser agendadas para o nó, mas ainda incorrem em encargos.
 
-Nós em um  estado inutilizável, mas sem [erros](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) significa que o lote não pode se comunicar com a VM. Nesse caso, o lote sempre tenta recuperar a VM. O lote não tentará automaticamente recuperar as VMs que falharam ao instalar pacotes de aplicativos ou contêineres, mesmo que seu estado seja inutilizável.
+Nós em um estado inutilizável, mas sem [erros](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) significa que o lote não pode se comunicar com a VM. Nesse caso, o lote sempre tenta recuperar a VM. O lote não tentará automaticamente recuperar as VMs que falharam ao instalar pacotes de aplicativos ou contêineres,mesmo que seu estado seja inutilizável.
 
 Se o lote puder determinar a causa, a propriedade de [erros](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) de nó o relatará.
 
-Exemplos adicionais de causas para  nós inutilizáveis incluem:
+Exemplos adicionais de causas para nós inutilizáveis incluem:
 
 - Uma imagem de VM personalizada é inválida. Por exemplo, uma imagem que não está preparada corretamente.
 
@@ -118,7 +118,7 @@ O processo do agente do lote que é executado em cada nó de pool pode fornecer 
 
 ### <a name="node-disk-full"></a>Nó cheio do disco
 
-A unidade temporária para uma VM de nó de pool é usada pelo lote para arquivos de trabalho, arquivos de tarefas e arquivos compartilhados. 
+A unidade temporária para uma VM de nó de pool é usada pelo lote para arquivos de trabalho, arquivos de tarefas e arquivos compartilhados.
 
 - Arquivos de pacotes de aplicativos
 - Ficheiros de recursos de tarefas

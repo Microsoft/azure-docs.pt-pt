@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 347e7c2aa2ff4fb4f188847b81d03006c1909166
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
-ms.translationtype: HT
+ms.openlocfilehash: 1625f0e6f9bfe8297cae2770e63107bf4f19f95e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997651"
+ms.locfileid: "70012988"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Compilar e implantar o serviço de gerenciamento de certificados do compartimento OPC
 
@@ -86,7 +86,7 @@ Também é possível reimplantar apenas os binários do aplicativo Web. Com o pa
 
 Após a implantação bem-sucedida, sinta-se à vontade para começar a usar os serviços: [Como gerenciar o serviço de gerenciamento de certificados do compartimento OPC](howto-opc-vault-manage.md)
 
-## <a name="delete-the-certificate-management-service-from-the-subscription"></a>Excluir o serviço de gerenciamento de certificados da assinatura
+## <a name="delete-the-services-from-the-subscription"></a>Excluir os serviços da assinatura
 
 1. Entre no portal do Azure: `https://portal.azure.com`.
 2. Vá para o grupo de recursos no qual o serviço foi implantado.
@@ -173,7 +173,7 @@ Opcional, para recompilar e reimplantar apenas os aplicativos Web e recriar os c
 [docker-url]: https://www.docker.com/
 [dotnet-install]: https://www.microsoft.com/net/learn/get-started
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você aprendeu a implantar o cofre OPC do zero, aqui está a próxima etapa sugerida:
 

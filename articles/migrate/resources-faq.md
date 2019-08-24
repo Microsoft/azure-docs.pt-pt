@@ -6,189 +6,197 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: bf591306220b2c8c1e6c8166686836d96432fc7d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 96fde6ade45bb92036fbc9ac803eebd50640bf85
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856267"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013453"
 ---
-# <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrações para Azure-perguntas frequentes (FAQ)
+# <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate: Perguntas Mais Frequentes (FAQ)
 
-Este artigo inclui perguntas frequentes sobre as migrações para Azure. Se você tiver outras consultas depois de ler este artigo, poste-as no [Fórum](https://aka.ms/AzureMigrateForum)de migrações para Azure.
+Este artigo responde às perguntas frequentes sobre as migrações para Azure. Se você tiver outras consultas depois de ler este artigo, poste-as no fórum de migrações para [Azure](https://aka.ms/AzureMigrateForum).
 
 ## <a name="general"></a>Geral
 
-### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Quais geografias do Azure são compatíveis com as migrações para Azure?
+### <a name="which-azure-geographies-does-azure-migrate-support"></a>Quais Geografia do Azure há suporte para migrações para Azure?
 
-Você pode encontrar a lista para [VMware aqui](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) e para o [Hyper-V aqui](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
+Consulte a [lista para VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) e a [lista para o Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
 
-### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Como as migrações para Azure são diferentes de Azure Site Recovery?
+### <a name="whats-the-difference-between-azure-migrate-and-azure-site-recovery"></a>Qual é a diferença entre migrações e Azure Site Recovery do Azure?
 
-As migrações para Azure fornecem um hub centralizado para iniciar, executar e acompanhar a descoberta, a avaliação e a migração de máquinas e cargas de trabalho para o Azure. [Azure site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) é uma solução de recuperação de desastre. A migração de servidor de migrações para Azure aproveita Azure Site Recovery no back-end para habilitar os cenários de migração para a migração de comparação entre computadores locais e com o deslocamento de precisão.
+As migrações para Azure fornecem um hub centralizado para iniciar a migração, executar e acompanhar a descoberta e a avaliação de máquinas e cargas de trabalho e executar e acompanhar a migração de máquinas e cargas de trabalho para o Azure. [Azure site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) é uma solução de recuperação de desastre. A migração de servidor de migrações para Azure usa Azure Site Recovery no back-end para habilitar cenários de migração para a migração de comparação entre computadores locais e com o deslocamento de precisão.
 
 ## <a name="azure-migrate-appliance-vmwarephysical-servers"></a>Dispositivo de migrações para Azure (servidores VMware/físicos)
 
 ### <a name="how-does-the-azure-migrate-appliance-connect-to-azure"></a>Como o dispositivo de migrações para Azure se conecta ao Azure?
 
-A conexão pode ser pela Internet ou você pode usar o ExpressRoute com emparelhamento público/Microsoft.
+A conexão pode ser pela Internet ou você pode usar o Azure ExpressRoute com o emparelhamento público/Microsoft.
 
-### <a name="what-network-connectivity-requirements-are-needed-for-azure-migrate-server-assessment-and-migration"></a>Quais requisitos de conectividade de rede são necessários para a migração e avaliação do servidor de migrações para Azure
+### <a name="what-are-the-network-connectivity-requirements-for-azure-migrate-server-assessment-and-migration"></a>Quais são os requisitos de conectividade de rede para migração e avaliação do servidor de migrações para Azure?
 
-Para as URLs e portas necessárias para que as migrações para Azure se comuniquem com o Azure, examine as matrizes de suporte do [VMware](migrate-support-matrix-vmware.md) e [Hyper-V](migrate-support-matrix-hyper-v.md) .
+Consulte as matrizes de suporte do [VMware](migrate-support-matrix-vmware.md) e [Hyper-V](migrate-support-matrix-hyper-v.md) para obter informações sobre as URLs e as portas necessárias para habilitar a migração do Azure para se comunicar com o Azure.
 
-### <a name="can-i-harden-the-appliance-vm-i-set-up-with-the-template"></a>Posso proteger a VM do dispositivo que configurei com o modelo?
+### <a name="can-i-harden-the-appliance-vm-that-i-set-up-with-the-template"></a>Posso proteger a VM do dispositivo que configurei com o modelo?
 
-Os componentes adicionais (por exemplo, antivírus) podem ser adicionados ao modelo, desde que as regras de comunicação e de firewall necessárias para o dispositivo de migrações para Azure sejam deixadas como estão.   
+Você pode adicionar componentes (por exemplo, antivírus) ao modelo, desde que você deixe as regras de comunicação e firewall necessárias para o dispositivo de migrações para Azure como está.
 
-### <a name="what-data-is-collected-by-azure-migrate-appliance"></a>Quais dados são coletados pelo dispositivo de migrações para Azure?
+### <a name="what-data-is-collected-by-the-azure-migrate-appliance"></a>Quais dados são coletados pelo dispositivo de migrações para Azure?
 
-Você pode obter detalhes sobre os dados coletados pelo dispositivo de migrações para Azure [aqui](https://docs.microsoft.com/azure/migrate/migrate-appliance#collected-performance-data-vmware).
+Você pode exibir detalhes sobre os dados coletados pelo dispositivo de migrações para Azure [na documentação de migrações para Azure](https://docs.microsoft.com/azure/migrate/migrate-appliance#collected-performance-data-vmware).
 
 ### <a name="is-there-any-performance-impact-on-the-analyzed-vmware-or-hyper-v-environment"></a>Há algum impacto no desempenho sobre o ambiente analisado do VMware ou do Hyper-V?
 
-Com a criação de perfil contínua de dados de desempenho, o dispositivo de migrações para Azure cria perfis de computadores locais para medir os dados de desempenho da VM. Isso tem um impacto de desempenho quase zero nos hosts Hyper-V/ESXi, bem como no vCenter Server.
+O dispositivo de migrações para Azure cria perfis de máquinas locais continuamente para medir os dados de desempenho da VM. Essa criação de perfil não tem impacto sobre o desempenho nos hosts Hyper-V/ESXi ou no vCenter Server.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Onde os dados coletados são armazenados e por quanto tempo?
 
-Os dados coletados pelo dispositivo de migrações para Azure são armazenados no local do Azure que você especificar ao criar o projeto de migração. Os dados são armazenados com segurança em uma assinatura da Microsoft e são excluídos quando você exclui o projeto de migrações para Azure.
+Os dados coletados pelo dispositivo migrações para Azure são armazenados no local do Azure que você escolhe ao criar o projeto de migração. Os dados são armazenados com segurança em uma assinatura da Microsoft e são excluídos quando você exclui o projeto de migrações para Azure.
 
-Para a visualização de dependência, se você instalar agentes nas VMs, os dados coletados pelos agentes de dependência serão armazenados nos EUA, em um espaço de trabalho Log Analytics criado na assinatura do Azure. Esses dados são excluídos quando você exclui o espaço de trabalho Log Analytics em sua assinatura. [Saiba mais](concepts-dependency-visualization.md).
+Para a visualização de dependência, se você instalar agentes nas VMs, os dados coletados pelos agentes de dependência serão armazenados nos EUA, em um espaço de trabalho Log Analytics criado na assinatura do Azure. Esses dados são excluídos quando você exclui o espaço de trabalho Log Analytics em sua assinatura. Para obter mais informações, consulte [visualização de dependência](concepts-dependency-visualization.md).
 
-### <a name="what-is-the-volume-of-data-uploaded-by-azure-migrate-appliance-during-continuous-profiling"></a>Qual é o volume de dados carregados pelo dispositivo de migrações para Azure durante a criação de perfil contínua?
+### <a name="what-volume-of-data-is-uploaded-by-the-azure-migrate-appliance-during-continuous-profiling"></a>Qual volume de dados é carregado pelo dispositivo de migrações para Azure durante a criação de perfil contínua?
 
-O volume de dados enviados para migrações para Azure varia de acordo com vários parâmetros. Para dar um número de indícios, um projeto de migrações para Azure com 10 computadores (cada um com um disco e uma NIC), envia cerca de 50 MB por dia. Esse é um valor aproximado, que é alterado com base no número de pontos de dados para NICs e discos (os dados enviados não são lineares se o número de computadores, NICs ou discos aumenta).
+O volume de dados enviados para migrações para Azure varia dependendo de vários parâmetros. Para dar uma noção do volume: um projeto de migrações para Azure com 10 computadores (cada um com um disco e uma NIC) envia cerca de 50 MB por dia. Esse valor é uma aproximação. Ele muda com base no número de pontos de dados para os NICs e discos. (O aumento nos dados enviados será não linear se o número de computadores, NICs ou discos aumentar.)
 
 ### <a name="is-the-data-encrypted-at-rest-and-in-transit"></a>Os dados são criptografados em repouso e em trânsito?
 
-Sim para ambos. Os metadados são enviados com segurança para o serviço de migrações para Azure pela Internet, via HTTPS. Os metadados são armazenados em um [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest)e no [armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) em uma assinatura da Microsoft e são criptografados em repouso.
+Sim, ambos. Os metadados são enviados com segurança para o serviço de migrações para Azure pela Internet, via HTTPS. Os metadados são armazenados em um banco de dados [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) e no [armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) em uma assinatura da Microsoft. Os metadados são criptografados em repouso.
 
-Os dados coletados pelos agentes de dependência também são criptografados em trânsito (HTTPS seguro) e armazenados em um espaço de trabalho Log Analytics na assinatura do usuário. Ele também é criptografado em repouso.
+Os dados coletados pelos agentes de dependência também são criptografados em trânsito (HTTPS seguro). Ele é armazenado em um espaço de trabalho Log Analytics em sua assinatura. Ele também é criptografado em repouso.
 
-### <a name="how-does-the-azure-migrate-appliance-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>Como o dispositivo de migrações para Azure se comunica com o vCenter Server e o serviço de migrações para Azure?
+### <a name="how-does-the-azure-migrate-appliance-communicate-with-vcenter-server-and-the-azure-migrate-service"></a>Como o dispositivo de migrações para Azure se comunica com vCenter Server e o serviço de migrações para Azure?
 
-O dispositivo se conecta à vCenter Server (porta 443) usando as credenciais fornecidas quando você configura o dispositivo. Ele consulta o vCenter Server usando o VMware PowerCLI para coletar metadados sobre as VMs gerenciadas pelo vCenter Server. Ele coleta os dados de configuração sobre VMs (núcleos, memória, discos, NIC, etc.), bem como o histórico de desempenho de cada VM no último mês. Os metadados coletados são enviados para a avaliação do servidor de migrações para Azure (pela Internet via HTTPS) para avaliação.
+O dispositivo se conecta ao vCenter Server (porta 443) usando as credenciais fornecidas quando você configura o dispositivo. Ele usa o VMware PowerCLI para consultar vCenter Server coletar metadados sobre as VMs gerenciadas pelo vCenter Server. Ele coleta dados de configuração sobre VMs (núcleos, memória, discos, NICs e assim por diante) e também o histórico de desempenho de cada VM no último mês. Os metadados coletados são enviados para a avaliação do servidor de migrações para Azure (pela Internet via HTTPS) para avaliação.
 
-### <a name="can-i-connect-the-same-appliance-to-multiple-vcenter-servers"></a>Posso conectar o mesmo dispositivo a vários servidores vCenter?
+### <a name="can-i-connect-the-same-appliance-to-multiple-vcenter-server-instances"></a>Posso conectar o mesmo dispositivo a várias instâncias de vCenter Server?
 
-Não. Há um mapeamento de um para um entre um dispositivo e vCenter Server. Se precisar descobrir VMs em vários servidores vCenter, você precisará implantar vários dispositivos. 
+Não. Há um mapeamento de um para um entre um dispositivo e vCenter Server. Se precisar descobrir VMs em várias instâncias de vCenter Server, você precisará implantar vários dispositivos.
 
 
-### <a name="i-changed-my-machine-size-can-i-rerun-an-assessment"></a>Alterei o tamanho do meu computador. Posso executar novamente uma avaliação?
+### <a name="i-changed-my-machine-size-can-i-run-the-assessment-again"></a>Alterei o tamanho do meu computador. Posso executar a avaliação novamente?
 
-O dispositivo de migração do Azure coleta continuamente informações sobre o ambiente local. No entanto, uma avaliação é um instantâneo pontual de VMs locais. Se você alterar as configurações em uma VM que deseja avaliar, use a opção ' recalcular ' para atualizar a avaliação com as alterações mais recentes.
+O dispositivo de migração do Azure coleta continuamente informações sobre o ambiente local. Porém, uma avaliação é um instantâneo pontual de VMs locais. Se você alterar as configurações em uma VM que deseja avaliar, use a opção recalcular para atualizar a avaliação com as alterações mais recentes.
 
-### <a name="how-can-i-discover-a-multi-tenant-environment-in-azure-migrate-server-assessment"></a>Como posso descobrir um ambiente multilocatário na avaliação do servidor de migrações para Azure?
+### <a name="how-can-i-perform-discovery-in-a-multitenant-environment-in-azure-migrate-server-assessment"></a>Como posso executar a descoberta em um ambiente multilocatário na avaliação do servidor de migrações para Azure?
 
-Para o VMware, se você tiver um ambiente compartilhado entre locatários e não quiser descobrir as VMs de um locatário na assinatura de outro locatário, crie vCenter Server credenciais com acesso somente a essas VMs que você deseja descobrir. Em seguida, use as credenciais quando iniciar desativar a descoberta no dispositivo de migrações para Azure.
+Para o VMware, se você tiver um ambiente compartilhado entre locatários e não quiser descobrir as VMs de um locatário na assinatura de outro locatário, crie vCenter Server credenciais que possam acessar somente as VMs que você deseja descobrir. Em seguida, use essas credenciais quando iniciar a descoberta no dispositivo de migrações para Azure.
 
-Para o Hyper-V, a descoberta usa credenciais de host do Hyper-V, se as VMs compartilharem o mesmo host do Hyper-V, atualmente não há nenhuma maneira de separar a descoberta.  
+Para o Hyper-V, a descoberta usa credenciais de host do Hyper-V. Se as VMs compartilharem o mesmo host do Hyper-V, não há como separar a descoberta no momento.  
 
-### <a name="how-many-vms-can-be-discovered-using-a-single-migration-appliance"></a>Quantas VMs podem ser descobertas usando um único dispositivo de migração?
+### <a name="how-many-vms-can-i-discover-with-a-single-migration-appliance"></a>Quantas VMs posso descobrir com um único dispositivo de migração?
 
-Você pode descobrir até 10.000 VMs VMware e até 5.000 VMs Hyper-V usando um único dispositivo de migração.  Se você tiver mais computadores no seu ambiente local, saiba como dimensionar o [Hyper-V](scale-hyper-v-assessment.md) e a avaliação do [VMware](scale-vmware-assessment.md) .
+Você pode descobrir até 10.000 VMs VMware e até 5.000 VMs Hyper-V com um único dispositivo de migração. Se você tiver mais computadores no seu ambiente local, saiba como dimensionar o [Hyper-V](scale-hyper-v-assessment.md) e a avaliação do [VMware](scale-vmware-assessment.md) .
 
-## <a name="azure-migrate-server-assessment"></a>Azure Migrate: Avaliação do Servidor
+## <a name="azure-migrate-server-assessment"></a>Avaliação do servidor de migrações para Azure
 
-### <a name="does-azure-migrate-server-assessment-support-assessment-of-physical-servers"></a>O Azure migra: Avaliação de suporte de avaliação do servidor de servidores físicos?
+### <a name="does-azure-migrate-server-assessment-support-assessment-of-physical-servers"></a>A avaliação do Azure migra o servidor oferece suporte à avaliação de servidores físicos?
 
 Não, as migrações para Azure atualmente não dão suporte à avaliação de servidores físicos.
 
-### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>As migrações para Azure precisam vCenter Server para descobrir um ambiente VMware?
+### <a name="does-azure-migrate-need-vcenter-server-to-perform-discovery-in-a-vmware-environment"></a>As migrações para Azure precisam de vCenter Server para executar a descoberta em um ambiente VMware?
 
-Sim, as migrações para Azure precisam vCenter Server para descobrir um ambiente VMware. Ele não dá suporte à descoberta de hosts ESXi que não são gerenciados pelo vCenter Server.
+Sim, as migrações para Azure precisam vCenter Server para executar a descoberta em um ambiente VMware. Ele não dá suporte à descoberta de hosts ESXi que não são gerenciados pelo vCenter Server.
 
-### <a name="whats-the-difference-between-using-azure-migrate-server-assessment-and-the-map-toolkit"></a>Qual é a diferença entre usar as migrações para Azure: Avaliação do servidor e o MAP Toolkit?
+### <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>Qual é a diferença entre a avaliação do servidor de migrações para Azure e o MAP Toolkit?
 
-Azure Migrate: A avaliação do servidor fornece avaliação de migração para ajudar com a preparação da migração e a avaliação de cargas de trabalho para migração para o Azure. [O kit de ferramentas de avaliação e planejamento da Microsoft (MAP)](https://www.microsoft.com/download/details.aspx?id=7826) tem outras funcionalidades, como o planejamento de migração para versões mais recentes de sistemas operacionais de cliente e servidor Windows e o acompanhamento de uso de software. Para esses cenários, continue a usar o MAP Toolkit.
+A avaliação de servidor de migrações para Azure fornece avaliação de migração para ajudar com a prontidão de migração e avaliação de cargas de trabalho para migração para o Azure. [O kit de ferramentas de avaliação e planejamento da Microsoft (MAP)](https://www.microsoft.com/download/details.aspx?id=7826) ajuda com outras tarefas, como o planejamento de migração para versões mais recentes de sistemas operacionais de cliente e servidor do Windows e acompanhamento de uso de software. Para esses cenários, continue a usar o MAP Toolkit.
 
-### <a name="how-is-azure-migrate-server-assessment-different-from-azure-site-recovery-deployment-planner"></a>Como migrações para Azure: A avaliação do servidor é diferente da Planejador de Implantações do Azure Site Recovery?
+### <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-azure-site-recovery-deployment-planner"></a>Qual é a diferença entre a avaliação do servidor de migrações para Azure e a Planejador de Implantações do Azure Site Recovery?
 
-Azure Migrate: A avaliação do servidor é uma ferramenta de planejamento de migração. Planejador de Implantações do Azure Site Recovery é uma ferramenta de planejamento de recuperação de desastre.
+A avaliação do servidor de migrações para Azure é uma ferramenta de planejamento de migração. O Planejador de Implantações do Azure Site Recovery é uma ferramenta de planejamento de recuperação de desastre.
 
-- **Migração do VMware/Hyper-V para o Azure**: Se você pretende migrar seus servidores locais para o Azure, use a migração do Azure: Ferramenta de avaliação de servidor para planejamento de migração. A ferramenta avalia as cargas de trabalho locais e fornece orientações, ideias e mecanismos para ajudá-lo a migrar para o Azure. Quando estiver pronto com seu plano de migração, você poderá usar ferramentas como migrações para Azure: Migração de servidor, para migrar os computadores para o Azure.
-- **Recuperação de desastre do VMware/Hyper-V para o Azure**: Para a recuperação de desastre no Azure usando Site Recovery, use o Planejador de Implantações de Site Recovery para o planejamento de recuperação de desastre. Site Recovery Planejador de Implantações faz uma avaliação profunda Site Recovery específica de seu ambiente local. Ele fornece recomendações necessárias por Site Recovery para operações de desastres bem-sucedidas, como replicação e failover de VMs.
+**Migração do VMware/Hyper-V para o Azure**: Se você planeja migrar seus servidores locais para o Azure, use a avaliação de servidor de migrações para Azure para planejamento de migração. Ele avalia as cargas de trabalho locais e fornece orientações, ideias e ferramentas para ajudá-lo a migrar seus servidores para o Azure. Depois de estar pronto com seu plano de migração, você pode usar ferramentas como migração de servidor de migrações para Azure para migrar os computadores para o Azure.
 
-### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>As migrações para Azure dão suporte à estimativa de custo com base em Enterprise Agreement (EA)?
+**Recuperação de desastre do VMware/Hyper-V para o Azure**: Para a recuperação de desastre no Azure por meio de Site Recovery, use o Planejador de Implantações de Site Recovery para planejamento. Site Recovery Planejador de Implantações faz uma avaliação profunda Site Recovery específica de seu ambiente local. Ele fornece recomendações necessárias por Site Recovery para operações de desastres bem-sucedidas, como replicação e failover de VMs.
 
-Atualmente, as migrações para Azure não dão suporte à estimativa de custo para [Enterprise Agreement oferta](https://azure.microsoft.com/offers/enterprise-agreement-support/). A solução alternativa é especificar o pré-pago como a oferta e especificar manualmente a porcentagem de desconto (aplicável à assinatura) no campo ' desconto ' das propriedades de avaliação.
+### <a name="does-azure-migrate-support-cost-estimation-for-the-enterprise-agreement-ea-program"></a>As migrações para Azure dão suporte à estimativa de custo para o programa Enterprise Agreement (EA)?
 
-  ![Desconto](./media/resources-faq/discount.png)
+Atualmente, as migrações para Azure não dão suporte à estimativa de custo para o [programa Enterprise Agreement](https://azure.microsoft.com/offers/enterprise-agreement-support/). A solução alternativa é especificar o pré- **pago** como a **oferta** e especificar manualmente a porcentagem de desconto (aplicável à assinatura) na caixa de **desconto** das propriedades de avaliação:
+
+  ![Propriedades de avaliação](./media/resources-faq/discount.png)
 
 ### <a name="whats-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>Qual é a diferença entre o dimensionamento com base no dimensionamento e no desempenho no local?
 
-- No como o dimensionamento local, as migrações para Azure não consideram os dados de desempenho da VM. Ele dimensiona as VMs com base na configuração local. -Em dimensionamento baseado em desempenho, o dimensionamento é baseado nos dados de utilização.
-- Por exemplo, se uma VM local tiver 4 núcleos e 8 GB de memória com 50% de utilização da CPU e 50% de utilização de memória, como o dimensionamento local recomendará uma SKU de VM do Azure com quatro núcleos e 8 GB de memória. O dimensionamento baseado em desempenho, no entanto, recomenda um SKU de VM de dois núcleos e 4 GB, pois a porcentagem de utilização é considerada.
-- Da mesma forma, o dimensionamento de disco depende de duas propriedades de avaliação – critérios de dimensionamento e tipo de armazenamento.
-= Se o critério de dimensionamento for baseado em desempenho e o tipo de armazenamento for automático, os valores de IOPS e taxa de transferência do disco serão considerados ao identificar o tipo de disco de destino (Standard ou Premium).
-- Se o critério de dimensionamento for baseado em desempenho e o tipo de armazenamento for Premium, um disco Premium será recomendado. A SKU do disco Premium é selecionada com base no tamanho do disco local. A mesma lógica é usada para fazer o dimensionamento do disco quando o critério de dimensionamento é o dimensionamento local e o tipo de armazenamento é Standard ou Premium.
+Com o dimensionamento local, as migrações para Azure não consideram os dados de desempenho da VM. Ele dimensiona as VMs com base na configuração local. Com o dimensionamento baseado em desempenho, o dimensionamento é baseado nos dados de utilização.
 
-### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Que impacto o histórico de desempenho e a utilização de percentil têm nas recomendações de tamanho?
+Por exemplo, considere uma VM local com 4 núcleos e 8 GB de memória às 50% de utilização da CPU e 50% de utilização da memória. Para essa VM, o dimensionamento local recomenda uma SKU de VM do Azure que tem quatro núcleos e 8 GB de memória. O dimensionamento baseado em desempenho recomenda uma SKU de VM que tenha dois núcleos e 4 GB de memória, pois a porcentagem de utilização é considerada.
+
+Da mesma forma, o dimensionamento de disco depende de duas propriedades de avaliação: critérios de dimensionamento e tipo de armazenamento. Se os critérios de dimensionamento forem baseados em desempenho e o tipo de armazenamento for automático, as migrações para Azure levarão em conta os valores de IOPS e taxa de transferência do disco quando identificarem o tipo de disco de destino (Standard ou Premium).
+
+Se os critérios de dimensionamento forem baseados em desempenho e o tipo de armazenamento for Premium, as migrações para Azure recomendarão um disco Premium. A SKU do disco Premium é selecionada com base no tamanho do disco local. A mesma lógica é usada para fazer o dimensionamento do disco quando os critérios de dimensionamento são de dimensionamento local e o tipo de armazenamento é Standard ou Premium.
+
+### <a name="what-impact-does-performance-history-and-utilization-percentile-have-on-size-recommendations"></a>Que impacto o histórico de desempenho e a utilização do percentil têm recomendações de tamanho?
 
 Estas propriedades só são aplicáveis ao dimensionamento baseado no desempenho.
 
-- As migrações para Azure coletam o histórico de desempenho de máquinas locais e as usam para recomendar o tamanho da VM e o tipo de disco no Azure.
-- O dispositivo cria o perfil continuamente no ambiente local para coletar dados de utilização em tempo real a cada 20 segundos. A aplicação acumula os exemplos de 20 segundos e cria um ponto de dados individual para cada 15 minutos. Para criar o ponto de dados individual, a aplicação seleciona o valor de pico de todos os exemplos de 20 segundos e envia-o para o Azure.
-- Quando você cria uma avaliação no Azure (com base no valor de duração do desempenho e do percentual do histórico de desempenho), as migrações para Azure calculam o valor efetivo de utilização e as usam para o dimensionamento.
-- Por exemplo, se você definir a duração do desempenho como um dia e o valor do percentil como 95 percentil, as migrações para Azure usarão os pontos de exemplo de 15 minutos enviados pelo coletor para o último dia, os classifica em ordem crescente e escolhe o valor de 95 º percentil como o utilização efetiva.
-- O valor do 95 º percentil garante que você está ignorando as exceções, o que pode ocorrer se você usar o 99 º percentil. Se quiser escolher a utilização de pico para o período e não quiser perder quaisquer valores atípicos, deve selecionar o percentil 99.
+As migrações para Azure coletam o histórico de desempenho de máquinas locais e as usam para recomendar o tamanho da VM e o tipo de disco no Azure.
+
+O dispositivo cria o perfil continuamente no ambiente local para coletar dados de utilização em tempo real a cada 20 segundos. O dispositivo acumula os exemplos de 20 segundos e cria um único ponto de dados para cada 15 minutos. Para criar o ponto de dados, o dispositivo seleciona o valor de pico de todos os exemplos de 20 segundos. O dispositivo envia esse ponto de dados para o Azure.
+
+Quando você cria uma avaliação no Azure (com base no valor do percentual de duração de desempenho e histórico de desempenho), as migrações para Azure calculam o valor de utilização efetivo e as usam para o dimensionamento.
+
+Por exemplo, suponha que você defina a duração do desempenho para um dia e o valor de percentil como 95 percentil. As migrações para Azure classifica os pontos de exemplo de 15 minutos enviados pelo coletor para o dia anterior em ordem crescente e escolhe o valor de 95 º percentil como a utilização efetiva.
+
+O valor do 95 º percentil garante que você está ignorando as exceções. As exceções podem ser incluídas se você usar o 99 º percentil. Se você quiser escolher o pico de uso do período e não quiser perder as exceções, selecione o 99 º percentil.
 
 ### <a name="what-is-dependency-visualization"></a>O que é a visualização de dependência?
 
-A visualização de dependências permite que você avalie grupos de VMs para migração com maior confiança. Ele faz verificações entre as dependências de computador antes de executar uma avaliação. A visualização de dependência ajuda a garantir que nada seja deixado para trás e evite interrupções inesperadas ao migrar para o Azure. As migrações para Azure aproveitam a solução Mapa do Serviço nos logs de Azure Monitor, para habilitar a visualização de dependência.
+A visualização de dependências permite que você avalie grupos de VMs para migração com maior confiança. Ele faz verificações entre as dependências de computador antes de executar uma avaliação. A visualização de dependência ajuda a garantir que nada seja deixado para evitar interrupções inesperadas ao migrar para o Azure. As migrações para Azure usam a solução Mapa do Serviço em logs de Azure Monitor para habilitar a visualização de dependências.
 
 > [!NOTE]
-> A funcionalidade de visualização de dependência não está disponível no Azure governamental.
+> A visualização de dependência não está disponível no Azure governamental.
 
-### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>Preciso pagar para usar o recurso de visualização de dependência?
+### <a name="do-i-need-to-pay-to-use-dependency-visualization"></a>Preciso pagar para usar a visualização de dependência?
 
-Não. [Saiba mais](https://azure.microsoft.com/pricing/details/azure-migrate/) sobre os preços do Azure Migrate.
+Não. Para obter mais informações, consulte preços de migrações para [Azure](https://azure.microsoft.com/pricing/details/azure-migrate/).
 
 ### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>É necessário instalar qualquer coisa para a visualização de dependência?
 
 Para usar a visualização de dependência, você precisa baixar e instalar agentes em cada computador local que você deseja avaliar.
 
-- [O MMA (Microsoft Monitoring Agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) precisa ser instalado em cada computador.
-- O [agente de dependência](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) precisa ser instalado em cada computador.
-- Além disso, se você tiver computadores sem conectividade com a Internet, será necessário baixar e instalar Log Analytics gateway neles.
+Você precisa instalar os seguintes agentes em cada computador:
+- [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).
+- [Agente de dependência](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure).
+- Se você tiver computadores sem conectividade com a Internet, será necessário baixar e instalar Log Analytics gateway neles.
 
 Você não precisa desses agentes, a menos que esteja usando a visualização de dependência.
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Posso usar um espaço de trabalho existente para a visualização de dependência?
 
-Sim, você pode anexar um espaço de trabalho existente ao projeto de migração e aproveitá-lo para visualização de dependência. [Saiba mais](concepts-dependency-visualization.md#how-does-it-work).
+Sim, você pode anexar um espaço de trabalho existente ao projeto de migração e usá-lo para a visualização de dependência. Para obter mais informações, consulte "como funciona" no artigo sobre a [visualização de dependência](concepts-dependency-visualization.md#how-does-it-work) .
 
 ### <a name="can-i-export-the-dependency-visualization-report"></a>Posso exportar o relatório de visualização de dependência?
 
-Não, a visualização de dependência não pode ser exportada. No entanto, como as migrações para Azure usam Mapa do Serviço para a visualização de dependência, você pode usar as [APIs REST mapa do serviço](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) para obter as dependências em um formato JSON.
+Não, a visualização de dependência não pode ser exportada. Mas como as migrações para Azure usam Mapa do Serviço para a visualização de dependência, você pode usar a [API REST mapa do serviço](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) para obter as dependências no formato JSON.
 
-### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>Como é possível automatizar a instalação do Microsoft Monitoring Agent (MMA) e o agente de dependência?
+### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-the-dependency-agent"></a>Como é possível automatizar a instalação do Microsoft Monitoring Agent (MMA) e o Dependency Agent?
 
-[Use esse script](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) para a instalação dos agentes. [Siga estas instruções](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) para instalar o MMA usando a linha de comando ou automação. Para MMA, aproveite [esse script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
+Use esse [script para instalar os agentes](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples). Siga estas [instruções para instalar o MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) usando a linha de comando ou automação. Para MMA, use [este script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 
-Além de scripts, você pode usar ferramentas de implantação como System Center Configuration Manager, [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) , etc. para implantar os agentes.
+Além de scripts, você também pode usar ferramentas de implantação como System Center Configuration Manager e [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) para implantar os agentes.
 
 ### <a name="what-operating-systems-are-supported-by-mma"></a>Quais sistemas operacionais são compatíveis com o MMA?
 
-- [Examine](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) a lista de sistemas operacionais Windows com suporte do MMA.
-- [Examine](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) a lista de sistemas operacionais Linux com suporte do MMA.
+- Exiba a lista de [sistemas operacionais Windows com suporte pelo MMA](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+- Exiba a lista de [sistemas operacionais Linux com suporte do MMA](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
 
-### <a name="what-are-the-operating-systems-supported-by-the-dependency-agent"></a>Quais são os sistemas operacionais com suporte do Dependency Agent?
+### <a name="what-operating-systems-are-supported-by-the-dependency-agent"></a>Quais sistemas operacionais são compatíveis com o Dependency Agent?
 
-[Examine](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems) os sistemas operacionais Windows com suporte pelo Dependency Agent.
-[Examine](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems) a lista de sistemas operacionais Linux com suporte pelo Dependency Agent.
+- Exiba a lista de [sistemas operacionais Windows com suporte pelo Dependency Agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+- Exiba a lista de [sistemas operacionais Linux com suporte pelo Dependency Agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-an-hour"></a>Posso Visualizar dependências no Azure migrar por mais de uma hora?
-Não, você pode visualizar dependências por até uma hora. Você pode voltar para uma data específica no histórico, até o último mês, mas a duração máxima da visualização é de uma hora. Por exemplo, você pode usar a duração de tempo no mapa de dependências para exibir dependências de ontem, mas só pode exibi-la para uma janela de uma hora. No entanto, você pode usar os logs de Azure Monitor para [consultar dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) por uma duração maior.
+Não. Você pode visualizar dependências por até uma hora. Você pode voltar para uma data específica no histórico, até um mês, mas a duração máxima da visualização é de uma hora. Por exemplo, você pode usar a duração de tempo no mapa de dependências para exibir dependências de ontem, mas você pode exibi-las apenas para uma janela de uma hora. No entanto, você pode usar os logs de Azure Monitor para [consultar dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) por uma duração maior.
 
-### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>Há suporte para a visualização de dependência de grupos com mais de 10 VMs?
-Você pode [Visualizar dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) com até 10 VMS. Se você tiver um grupo com mais de 10 VMs, recomendamos dividir o grupo em grupos menores e, em seguida, Visualizar as dependências.
+### <a name="can-i-use-dependency-visualization-for-groups-that-contain-more-than-10-vms"></a>Posso usar a visualização de dependência para grupos que contêm mais de 10 VMs?
+Você pode [Visualizar dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) que contêm até 10 VMS. Se você tiver um grupo com mais de 10 VMs, recomendamos dividir o grupo em grupos menores e, em seguida, Visualizar as dependências.
 
-## <a name="azure-migrate-server-migration"></a>Azure Migrate: Migração do Servidor
+## <a name="azure-migrate-server-migration"></a>Migração de servidor de migrações para Azure
 
-### <a name="how-is-azure-migrate-server-migration-different-from-azure-site-recovery"></a>Como migrações para Azure: A migração do servidor é diferente da Azure Site Recovery?
+### <a name="whats-the-difference-between-azure-migrate-server-migration-and-azure-site-recovery"></a>Qual é a diferença entre a migração e a Azure Site Recovery do servidor de migrações para Azure?
 
-Azure Migrate: A migração do servidor aproveita o mecanismo de replicação do Site Recovery para a migração baseada em agente de VMs VMware, a migração de VMs do Hyper-V e a migração de servidores físicos para o Azure. A opção sem agente para migrar VMs VMware é criada nativamente na migração de servidor.
+A migração de servidor de migrações para Azure usa o mecanismo de replicação Site Recovery para a migração baseada em agente de VMs VMware, a migração de VMs do Hyper-V e a migração de servidores físicos para o Azure. A opção sem agente para migrar VMs VMware é originalmente incorporada à migração de servidor.
 
-## <a name="next-steps"></a>Passos seguintes
-Leia a [visão geral](migrate-services-overview.md) de migrações para Azure
+## <a name="next-steps"></a>Passos Seguintes
+Leia a [visão geral](migrate-services-overview.md)de migrações para Azure.

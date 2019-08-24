@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: f575dd882c217badb3320b85229149d9793ceb5f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 505a3104968e285a7fe4801db8029dc45647087a
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619265"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011355"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar o LDAP seguro para um domínio gerenciado Azure Active Directory Domain Services
 
@@ -286,7 +286,7 @@ Neste tutorial, ficou a saber como:
 > * Associar e testar o LDAP seguro para um domínio gerenciado do Azure AD DS
 
 > [!div class="nextstepaction"]
-> [Saiba como a sincronização funciona em um domínio gerenciado Azure AD Domain Services](synchronization.md)
+> [Configurar a sincronização de hash de senha para um ambiente híbrido do Azure AD](tutorial-configure-password-hash-sync.md)
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

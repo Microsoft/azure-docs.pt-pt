@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f89e7307d75b159886cb47bde3e1fceb5ed557f5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: bd587bfed7fcfea8e8cd99ca155ee9d86222ae3d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699320"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013523"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
-Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. Sincronização de Arquivos do Azure transforma o Windows Server em um cache rápido de seu compartilhamento de arquivos do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
+Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
 
 Este artigo descreve considerações importantes para uma implantação de Sincronização de Arquivos do Azure. É recomendável que você também leia [planejando uma implantação de arquivos do Azure](storage-files-planning.md). 
 
@@ -149,7 +149,7 @@ Para exibir os resultados em CSV:
 | \\SyncShareState | Pasta para sincronização |
 
 ### <a name="failover-clustering"></a>Clustering de failover
-O Windows Server failover clustering tem suporte pelo Sincronização de Arquivos do Azure para a opção de implantação "servidor de arquivos para uso geral". O clustering de failover não tem suporte no "servidor de arquivos de escalabilidade horizontal para dados de aplicativo" (SOFS) ou em volumes compartilhados clusterizados (CSVs).
+O Windows Server failover clustering tem suporte pelo Sincronização de Arquivos do Azure para a opção de implantação "servidor de arquivos para uso geral". O clustering de failover não tem suporte em "Servidor de Arquivos de Escalabilidade Horizontal para dados de aplicativos" (SOFS) ou em volumes compartilhados clusterizados (CSVs).
 
 > [!Note]  
 > O agente de Sincronização de Arquivos do Azure deve ser instalado em cada nó em um cluster de failover para que a sincronização funcione corretamente.
@@ -254,12 +254,15 @@ Sincronização de Arquivos do Azure está disponível somente nas seguintes reg
 | East US | Virginia |
 | E.U.A. Leste 2 | Virginia |
 | França Central | Paris |
-| Coreia do Sul Central| Seul |
-| Coreia do Sul| Busan |
+| Sul da França * | Marselha |
+| Coreia do Sul Central | Seul |
+| Coreia do Sul | Busan |
 | Leste do Japão | Tóquio, Saitama |
 | Oeste do Japão | Osaka |
 | EUA Centro-Norte | Illinois |
 | Europa do Norte | Irlanda |
+| Norte da África do Sul | Joanesburgo |
+| Oeste da África do Sul * | Cidade do Cabo |
 | EUA Centro-Sul | Texas |
 | Sul da Índia | Chennai |
 | Sudeste Asiático | Singapura |
@@ -274,6 +277,8 @@ Sincronização de Arquivos do Azure está disponível somente nas seguintes reg
 | EUA Oeste 2 | Washington |
 
 Sincronização de Arquivos do Azure dá suporte à sincronização somente com um compartilhamento de arquivos do Azure que está na mesma região que o serviço de sincronização de armazenamento.
+
+Para as regiões marcadas com asteriscos, você deve contatar o suporte do Azure para solicitar acesso ao armazenamento do Azure nessas regiões. O processo é descrito neste [documento](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ### <a name="azure-disaster-recovery"></a>Recuperação de desastre do Azure
 Para proteger contra a perda de uma região do Azure, o Sincronização de Arquivos do Azure se integra com a opção grs ( [redundância de armazenamento geograficamente redundante](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) ). O armazenamento GRS funciona usando a replicação de bloco assíncrono entre o armazenamento na região primária, com a qual você normalmente interage e armazenamento na região secundária emparelhada. No caso de um desastre que faz com que uma região do Azure fique temporariamente ou permanentemente offline, a Microsoft fará o failover do armazenamento para a região emparelhada. 
@@ -296,12 +301,15 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 | East US             | EUA Oeste            |
 | EUA Leste 2           | EUA Central         |
 | França Central      | Sul de França       |
+| Sul de França        | França Central     |
 | Leste do Japão          | Oeste do Japão         |
 | Oeste do Japão          | Leste do Japão         |
 | Coreia do Sul Central       | Coreia do Sul        |
 | Coreia do Sul         | Coreia do Sul Central      |
 | Europa do Norte        | Europa Ocidental        |
 | EUA Centro-Norte    | EUA Centro-Sul   |
+| Norte da África do Sul  | Oeste da África do Sul  |
+| Oeste da África do Sul   | Norte da África do Sul |
 | EUA Centro-Sul    | EUA Centro-Norte   |
 | Sul da Índia         | Índia Central      |
 | Sudeste Asiático      | Ásia Oriental          |

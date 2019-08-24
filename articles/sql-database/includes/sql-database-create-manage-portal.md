@@ -3,18 +3,18 @@ author: stevestein
 ms.service: sql-database
 ms.subservice: operations
 ms.topic: include
-ms.date: 08/09/2019
+ms.date: 08/23/2019
 ms.author: sstein
-ms.openlocfilehash: f7b385f359311217595352be31ba0687ca87bf40
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9e189d0582d2e81193c892cb349b475ed0d68df8
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873739"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70014804"
 ---
 ## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Criar e gerenciar recursos do SQL Azure com o portal do Azure
 
-O portal do Azure fornece uma única página onde você pode gerenciar [todos os seus recursos SQL do Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) , incluindo suas máquinas virtuais do SQL.
+O portal do Azure fornece uma única página onde você pode gerenciar [todos os seus recursos SQL do Azure](https://go.microsoft.com/fwlink/?linkid=2100641) , incluindo suas máquinas virtuais do SQL.
 
 Para acessar a página de **recursos do SQL do Azure** , selecione **SQL do Azure** no menu à esquerda da portal do Azure. Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite *SQL do Azure* na caixa de pesquisa.
 

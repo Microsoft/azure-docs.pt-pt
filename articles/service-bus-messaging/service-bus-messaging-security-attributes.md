@@ -4,17 +4,16 @@ description: Uma lista de verificação de atributos de segurança para avaliar 
 services: service-bus-messaging
 ms.service: service-bus-messaging
 documentationcenter: ''
-author: msmbaldwin
-manager: barbkess
+author: axisc
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 0e1d6e041b47a261b549fb8b608cf09d0d6362dd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.author: aschhab
+ms.openlocfilehash: 875754282f9e7a2b8dd92b0eb2d7e277ac842696
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443903"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013099"
 ---
 # <a name="security-attributes-for-azure-service-bus-messaging"></a>Atributos de segurança para mensagens do barramento de serviço do Azure
 
@@ -52,7 +51,7 @@ Este artigo documenta os atributos de segurança internos no sistema de mensagen
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
 | Authentication| Sim | Gerenciado por meio de [Azure Active Directory identidade de serviço gerenciada](service-bus-managed-service-identity.md); consulte [autenticação e autorização do barramento de serviço](service-bus-authentication-and-authorization.md).|
-| Autorização| Sim | Dá suporte à autorização via [RBAC](service-bus-role-based-access-control.md) (visualização) e token SAS; consulte [autenticação e autorização do barramento de serviço](service-bus-authentication-and-authorization.md). |
+| Autorização| Sim | Dá suporte à autorização por meio do [RBAC](authenticate-application.md) e do token SAS; consulte [autenticação e autorização do barramento de serviço](service-bus-authentication-and-authorization.md). |
 
 
 

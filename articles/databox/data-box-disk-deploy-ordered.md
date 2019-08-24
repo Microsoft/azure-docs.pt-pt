@@ -1,5 +1,5 @@
 ---
-title: Tutorial para a ordem de disco do Azure Data Box | Documentos da Microsoft
+title: Tutorial para ordenar Disco do Azure Data Box | Microsoft Docs
 description: Utilize este tutorial para saber como inscrever-se e encomendar um disco do Azure Data Box Disk para importar dados para o Azure.
 services: databox
 author: alkohli
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 39d39b313cd2e65989989080d4cb0729b0be1e65
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: c1626542aba71f971ad96fe9f187ce9f1c1a99f3
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561456"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012931"
 ---
-# <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicite um disco de caixa de dados do Azure
+# <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Ordenar um Disco do Azure Data Box
 
 O Azure Data Box Disk é uma solução na cloud híbrida que permite importar os dados no local para o Azure, de forma rápida, fácil e fiável. Transfira os seus dados para discos de estado sólido (SSDs) fornecidos pela Microsoft e reenvie os discos. Estes dados são então carregados para o Azure.
 
@@ -29,7 +29,7 @@ Este tutorial descreve como pode encomendar um disco do Azure Data Box Disk. Nes
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de implementar, conclua os seguintes pré-requisitos de configuração para o serviço do Data Box e disco Data Box.
+Antes de implantar o, conclua os seguintes pré-requisitos de configuração para Data Box serviço e Disco do Data Box.
 
 ### <a name="for-service"></a>Para o serviço
 
@@ -43,18 +43,18 @@ Antes de começar, certifique-se de que:
 ### <a name="for-device"></a>Para o dispositivo
 
 Antes de começar, certifique-se de que:
-- Possui um computador de cliente disponível do qual pode copiar os dados. O computador cliente tem de:
+- Você tem um computador cliente disponível do qual você pode copiar os dados. O computador cliente tem de:
     - Executar um [sistema operativo suportado](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
     - Ter outro [software necessário](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) instalado se for um cliente Windows.  
 
 ## <a name="order-data-box-disk"></a>Encomendar o Data Box Disk
 
-Inicie sessão no:
+Entrar em:
 
-- O portal do Azure neste URL: https://portal.azure.com para ordem disco Data Box.
-- Ou, no portal do Azure Government neste URL: https://portal.azure.us. Para obter mais detalhes, aceda a [ligue-se ao utilizar o portal do Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+- O portal do Azure nesta URL: https://portal.azure.com para solicitar disco do data box.
+- Ou o portal do Azure governamental nesta URL: https://portal.azure.us. Para obter mais detalhes, acesse [conectar-se ao Azure governamental usando o portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
-Siga os passos seguintes para ordem disco Data Box.
+Execute as etapas a seguir para ordenar Disco do Data Box.
 
 1. No canto superior esquerdo do portal, clique em **+ Criar um recurso**e procure *Azure Data Box*. Clique em **Azure Data Box**.
     
@@ -68,9 +68,9 @@ Siga os passos seguintes para ordem disco Data Box.
 
     |Definição|Valor|
     |---|---|
-    |Subscrição|Selecione a subscrição para o qual o serviço Data Box está ativado.<br> A subscrição está ligada à sua conta de faturação. |
+    |Subscription|Selecione a subscrição para o qual o serviço Data Box está ativado.<br> A subscrição está ligada à sua conta de faturação. |
     |Tipo de transferência| Importar para o Azure|
-    |País de origem | Selecione o país/região onde residem atualmente seus dados.|
+    |País de origem | Selecione o país/região onde os dados residem no momento.|
     |Região do Azure de destino|Selecione a região do Azure para onde pretende transferir os dados.|
 
   
@@ -83,25 +83,25 @@ Siga os passos seguintes para ordem disco Data Box.
     |Definição|Valor|
     |---|---|
     |Name|Forneça um nome amigável para controlar a encomenda.<br> O nome pode ter entre 3 e 24 carateres que podem ser letras, números e hífenes. <br> O nome tem de começar e terminar com uma letra ou um número. |
-    |Grupo de recursos| Utilize um grupo de recursos existente ou crie um novo. <br> Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. |
+    |Resource group| Utilize um grupo de recursos existente ou crie um novo. <br> Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. |
     |Região do Azure de destino| Selecione uma região para a sua conta de armazenamento.<br> Atualmente, são suportadas contas de armazenamento em todas as regiões nos EUA, na Europa Ocidental e Europa do Norte, no Canadá e na Austrália. |
     |Tamanho de dados estimado em TB| Introduza uma estimativa em TB. <br>Com base no tamanho dos dados, a Microsoft envia um número adequado de SSDs de 8 TB (capacidade utilizável de 7 TB). <br>A capacidade máxima utilizável de 5 discos é 35 TB. |
-    |Chave de acesso de disco| Indique a chave de acesso do disco, se assinalar **Utilizar a chave personalizada em vez da chave de acesso gerada pelo Azure**. <br> Forneça uma chave de alfanuméricos de 12 a 32 carateres que tenha pelo menos numérico e um caráter especial. Os carateres especiais permitidos são `@?_+`. <br> Pode optar por ignorar esta opção e utilizar a chave de acesso gerada pelo Azure para desbloquear os discos.|
-    |Destino de armazenamento     | Escolha entre a conta de armazenamento ou discos geridos ou ambos. <br> Com base na região do Azure especificada, selecione uma conta de armazenamento na lista filtrada de uma conta de armazenamento existente. Disco de caixa de dados pode ser associado com a conta de armazenamento apenas 1. <br> Também pode criar uma nova **para fins gerais v1**, **para fins gerais v2**, ou **conta de armazenamento de BLOBs**. <br>Contas de armazenamento com redes virtuais são suportadas. Para permitir que o serviço do Data Box trabalhar com contas de armazenamento seguro, ative os serviços confiáveis dentro de definições de firewall de rede da conta de armazenamento. Para obter mais informações, consulte como [adicionar o Azure Data Box como um serviço de confiança](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).|
+    |Chave de acesso de disco| Indique a chave de acesso do disco, se assinalar **Utilizar a chave personalizada em vez da chave de acesso gerada pelo Azure**. <br> Forneça uma chave alfanumérica de 12 a 32 caracteres que tenha pelo menos um caractere numérico e um especial. Os carateres especiais permitidos são `@?_+`. <br> Pode optar por ignorar esta opção e utilizar a chave de acesso gerada pelo Azure para desbloquear os discos.|
+    |Destino de armazenamento     | Escolha entre a conta de armazenamento ou os discos gerenciados ou ambos. <br> Com base na região do Azure especificada, selecione uma conta de armazenamento na lista filtrada de uma conta de armazenamento existente. Disco do Data Box pode ser vinculado somente a uma conta de armazenamento. <br> Você também pode criar uma nova **conta de armazenamento de blob** **v1**, de **uso geral v2**ou de uso geral. <br>Há suporte para contas de armazenamento com redes virtuais. Para permitir que Data Box serviço funcione com contas de armazenamento protegidas, habilite os serviços confiáveis nas configurações de firewall de rede da conta de armazenamento. Para obter mais informações, consulte como [adicionar Azure data box como um serviço confiável](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).|
 
-    Se utilizar a conta de armazenamento como o destino de armazenamento, verá a seguinte captura de ecrã:
+    Se estiver usando a conta de armazenamento como o destino de armazenamento, você verá a seguinte captura de tela:
 
-    ![Encomenda do disco de caixa de dados para a conta de armazenamento](media/data-box-disk-deploy-ordered/order-storage-account.png)
+    ![Ordem de Disco do Data Box para a conta de armazenamento](media/data-box-disk-deploy-ordered/order-storage-account.png)
 
-    Se utilizar o disco Data Box para criar discos geridos a partir dos VHD no local, terá também de fornecer as seguintes informações:
+    Se estiver usando Disco do Data Box para criar discos gerenciados a partir dos VHDs locais, você também precisará fornecer as seguintes informações:
 
     |Definição  |Value  |
     |---------|---------|
-    |Grupo de recursos     | Crie um novo grupo de recursos se pretende criar discos geridos a partir de VHDs no local. Utilize um grupo de recursos existente apenas se ele foi criado para encomenda do disco de caixa de dados para o disco gerido pelo serviço do Data Box. <br> Apenas um grupo de recursos é suportado.|
+    |Resource group     | Crie um novo grupo de recursos se você pretende criar discos gerenciados de VHDs locais. Use um grupo de recursos existente somente se ele tiver sido criado para Disco do Data Box ordem para o disco gerenciado pelo serviço Data Box. <br> Há suporte para apenas um grupo de recursos.|
 
-    ![Encomenda do disco de caixa de dados para o disco gerido](media/data-box-disk-deploy-ordered/order-managed-disks.png)
+    ![Ordem de Disco do Data Box do disco gerenciado](media/data-box-disk-deploy-ordered/order-managed-disks.png)
 
-    A conta de armazenamento especificada para discos geridos é utilizada como uma conta de armazenamento de teste. O serviço do Data Box carrega os VHDs para a conta de armazenamento temporário e, em seguida, converte-las em discos geridos e move para os grupos de recursos. Para obter mais informações, consulte [verificar dados carregar para o Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
+    A conta de armazenamento especificada para discos gerenciados é usada como uma conta de armazenamento de preparo. O serviço de Data Box carrega os VHDs para a conta de armazenamento de preparo e, em seguida, converte-os em discos gerenciados e move para os grupos de recursos. Para obter mais informações, consulte [verificar o carregamento de dados no Azure](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure).
 
 13. Clique em **Seguinte**.
 
