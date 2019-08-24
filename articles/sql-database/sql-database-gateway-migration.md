@@ -1,5 +1,5 @@
 ---
-title: Aviso de migração de gateway para o banco de dados SQL do Azure de Gen2 para Gen3 | Microsoft Docs
+title: Aviso de migração de tráfego de gateway para o banco de dados SQL do Azure | Microsoft Docs
 description: O artigo fornece um aviso aos usuários sobre a migração de endereços IP de gateways do banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -10,23 +10,23 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 85691464684ff327c01a85bf357514f447564dd7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1fc6c054b32c62fbebaa2af738e25ef0dec362ac
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568123"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981291"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migração de tráfego do banco de dados SQL do Azure para gateways mais recentes
 
-À medida que a infraestrutura do Azure melhora, a Microsoft atualizará periodicamente o hardware para garantir que forneceremos a melhor experiência possível para o cliente. Nos próximos meses, planejamos adicionar gateways criados em gerações de hardware mais recentes e descomissionar gateways criados em hardware mais antigo em algumas regiões.  
+À medida que a infraestrutura do Azure melhora, a Microsoft atualizará periodicamente o hardware para garantir que forneceremos a melhor experiência possível para o cliente. Nos próximos meses, planejamos adicionar gateways criados em gerações de hardware mais recentes, migrar o tráfego para eles e eventualmente descomissionar os gateways criados em um hardware mais antigo em algumas regiões.  
 
 Os clientes serão notificados por email e na portal do Azure bem antes de qualquer alteração nos gateways disponíveis em cada região. As informações mais atualizadas serão mantidas na tabela [endereços IP do gateway do banco de dados SQL do Azure](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) .
 
 ## <a name="impact-of-this-change"></a>Impacto dessa alteração
 
-A primeira rodada de descomissionamento de gateway está agendada para 1º de setembro de 2019 nas seguintes regiões:
-
+A primeira rodada de migração de tráfego para gateways mais recentes está agendada para **14 de outubro de 2019** nas seguintes regiões:
+- Sul do Brasil
 - EUA Oeste
 - Europa Ocidental
 - East US
@@ -40,12 +40,14 @@ A primeira rodada de descomissionamento de gateway está agendada para 1º de se
 - EUA Leste 2
 - Ásia Oriental
 
-O endereço IP descomissionado deixará de aceitar o tráfego e quaisquer novas tentativas de conexão serão roteadas para um dos gateways na região.
+A migração de tráfego alterará o endereço IP público que o DNS resolve para o banco de dados SQL.
+Você será afetado se tiver
+- O endereço IP embutido em código para qualquer gateway específico em seu firewall local
+- Todas as sub-redes que usam Microsoft. SQL como um ponto de extremidade de serviço, mas não podem se comunicar com os endereços IP do gateway
 
-Onde você não verá o impacto dessa alteração:
-
-- Os clientes que usam o redirecionamento como sua política de conexão não verão nenhum impacto.
-- As conexões com o banco de dados SQL de dentro do Azure e o uso de marcas de serviço não serão afetadas.
+Você não será afetado se tiver 
+- Redirecionamento como a política de conexão
+- Conexões com o banco de dados SQL de dentro do Azure e usando marcas de serviço
 - As conexões feitas usando as versões com suporte do driver JDBC para SQL Server não terão impacto. Para obter suporte para versões JDBC, consulte [baixar o Microsoft JDBC Driver para SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
 
 ## <a name="what-to-do-you-do-if-youre-affected"></a>O que fazer se você for afetado

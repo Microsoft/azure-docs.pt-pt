@@ -1,5 +1,5 @@
 ---
-title: Como gerenciar o serviço de gerenciamento de certificados do cofre OPC-Azure | Microsoft Docs
+title: Como gerenciar o serviço de certificado do cofre OPC – Azure | Microsoft Docs
 description: Gerencie os certificados de autoridade de certificação raiz do cofre OPC e as permissões de usuário.
 author: mregen
 ms.author: mregen
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6e53914b16bc126cdab7300d918dbb7b6b868728
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 4420e5b0d895f8ea30dbd39fc50dd7480d57d086
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69973808"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996000"
 ---
-# <a name="how-to-manage-the-opc-ua-certificate-service"></a>Como gerenciar o serviço de certificado OPC UA
+# <a name="how-to-manage-the-opc-vault-certificate-service"></a>Como gerenciar o serviço de certificado do cofre OPC
 
-Este artigo explica as tarefas administrativas para o serviço de gerenciamento de certificado OPC UA no Azure, como renovar certificados de autoridade de certificação do emissor, como renovar a CRL (lista de certificados revogados) e como conceder e revogar o acesso do usuário.
+Este artigo explica as tarefas administrativas para o serviço de gerenciamento de certificados do cofre do OPC no Azure, como renovar certificados de autoridade de certificação do emissor, como renovar a CRL (lista de certificados revogados) e como conceder e revogar o acesso do usuário.
 
 ## <a name="create-or-renew-the-root-ca-certificate"></a>Criar ou renovar o certificado de autoridade de certificação raiz
 
@@ -56,7 +56,7 @@ No fluxo de trabalho a seguir, todas as solicitações de certificado nos Estado
 4. Clique no `Update CRL Revocation List(CRL)` botão para emitir uma CRL atualizada para todos os certificados de emissor ativos no armazenamento do cofre OPC.
 5. Depois de alguns segundos, `Certificate Details` os são mostrados. Pressione `Issuer` ou`Crl` para baixar o certificado de autoridade de certificação e a CRL mais recentes para distribuição para seus aplicativos OPC UA.
 
-## <a name="manage-user-roles"></a>Gerenciar funções de usuário
+## <a name="manage-user-roles"></a>Gerir funções de utilizador
 
 As funções de usuário para o microserviço do compartimento OPC são gerenciadas no aplicativo Azure Active Directory Enterprise.
 
@@ -64,7 +64,7 @@ Para obter uma descrição detalhada das definições de função, consulte a se
 
 Por padrão, um usuário autenticado no locatário pode entrar no serviço como um ' leitor '. Funções com privilégios mais altos exigem gerenciamento manual no portal do Azure ou usando o PowerShell.
 
-### <a name="add-user"></a>Adicionar Utilizador
+### <a name="add-user"></a>Adicionar utilizador
 
 1. Abra o portal do Azure em `portal.azure.com`.
 2. Navegue até `Azure Active Directory`. / `Enterprise applications`
@@ -76,7 +76,7 @@ Por padrão, um usuário autenticado no locatário pode entrar no serviço como 
 8. Pressione o `Assign` botão.
 9. Para usuários no `Administrator` ou `Approver` na função, continue a adicionar políticas de acesso de Azure Key Vault.
 
-### <a name="remove-user"></a>Remover Utilizador
+### <a name="remove-user"></a>Remover utilizador
 
 1. Abra o portal do Azure em `portal.azure.com`.
 2. Navegue até `Azure Active Directory`. / `Enterprise applications`

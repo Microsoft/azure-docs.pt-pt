@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.author: jingwang
-ms.openlocfilehash: 7b5c0a045fe932db38666559ee415d7b27aa11e4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 05ecfdc4f082aaa44fe54e6b807a1c5faf84eb8d
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614172"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996449"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guia de desempenho e escalabilidade da atividade de cópia
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Data Factory que você está usando:"]
@@ -41,30 +41,30 @@ Depois de ler este artigo, será capaz de responder às seguintes perguntas:
 
 O ADF oferece uma arquitetura sem servidor que permite paralelismo em diferentes níveis, o que permite aos desenvolvedores criar pipelines para utilizar totalmente a largura de banda da rede, bem como IOPS de armazenamento e largura de banda para maximizar a taxa de transferência de movimentação de dados para o seu ambiente.  Isso significa que a taxa de transferência que você pode obter pode ser estimada medindo a taxa de transferência mínima oferecida pelo armazenamento de dados de origem, o armazenamento de dados de destino e a largura de banda de rede entre a origem e o destino.  A tabela a seguir calcula a duração da cópia com base no tamanho dos dados e no limite de largura de banda do seu ambiente. 
 
-| Tamanho dos dados \ largura de banda | 50 Mbps    | 100 Mbps  | 200 Mbps  | 500 Mbps  | 1 Gbps   | 10 Gbps  |
-| --------------------- | ---------- | --------- | --------- | --------- | -------- | -------- |
-| 1 GB                  | mínimo de 2,7    | mínimo de 1,4   | mínimo de 0,7   | mínimo de 0,3   | mínimo de 0,1  | mínimo de 0,0  |
-| 10 GB                 | mínimo de 27,3   | mínimo de 13,7  | mínimo de 6,8   | mínimo de 2,7   | mínimo de 1,3  | mínimo de 0,1  |
-| 100 GB                | 4,6 horas    | 2,3 horas   | 1,1 horas   | 0,5 horas   | 0,2 horas  | 0,0 horas  |
-| 1 TB                  | 46,6 horas   | 23,3 horas  | 11,7 horas  | 4,7 horas   | 2,3 horas  | 0,2 horas  |
-| 10 TB                 | 19,4 dias  | 9,7 dias  | 4,9 dias  | 1,9 dias  | 0,9 dias | 0,1 dias |
-| 100 TB                | 194,2 dias | 97,1 dias | 48,5 dias | 19,4 dias | 9,5 dias | 0,9 dias |
-| 1 PB                  | 64,7 mo    | 32,4 mo   | 16,2 mo   | 6,5 mo    | 3,2 mo   | 0,3 mo   |
-| 10 PB                 | 647,3 mo   | 323,6 mo  | 161,8 mo  | 64,7 mo   | 31,6 mo  | 3,2 mo   |
+| Tamanho dos dados/ <br/> Largura de banda | 50 Mbps    | 100 Mbps  | 500 Mbps  | 1 Gbps   | 5 Gbps   | 10 Gbps  | 50 Gbps   |
+| --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
+| **1 GB**                    | mínimo de 2,7    | mínimo de 1,4   | mínimo de 0,3   | mínimo de 0,1  | mínimo de 0, 3 | mínimo de 0, 1 | mínimo de 0,0   |
+| **10 GB**                   | mínimo de 27,3   | mínimo de 13,7  | mínimo de 2,7   | mínimo de 1,3  | mínimo de 0,3  | mínimo de 0,1  | mínimo de 0, 3  |
+| **100 GB**                  | 4,6 horas    | 2,3 horas   | 0,5 horas   | 0,2 horas  | 0, 5 horas | 0, 2 horas | 0,0 horas   |
+| **1 TB**                    | 46,6 horas   | 23,3 horas  | 4,7 horas   | 2,3 horas  | 0,5 horas  | 0,2 horas  | 0, 5 horas  |
+| **10 TB**                   | 19,4 dias  | 9,7 dias  | 1,9 dias  | 0,9 dias | 0,2 dias | 0,1 dias | 0, 2 dias |
+| **100 TB**                  | 194,2 dias | 97,1 dias | 19,4 dias | 9,7 dias | 1,9 dias | 1 dias   | 0,2 dias  |
+| **1 PB**                    | 64,7 mo    | 32,4 mo   | 6,5 mo    | 3,2 mo   | 0,6 mo   | 0,3 mo   | 0, 6 mo   |
+| **10 PB**                   | 647,3 mo   | 323,6 mo  | 64,7 mo   | 31,6 mo  | 6,5 mo   | 3,2 mo   | 0,6 mo    |
 
 A cópia do ADF é escalonável em diferentes níveis:
 
 ![como a cópia do ADF é dimensionada](media/copy-activity-performance/adf-copy-scalability.png)
 
-- Uma única atividade de cópia pode aproveitar os recursos de computação escalonáveis: ao usar Azure Integration Runtime, você pode especificar [até 256 DIUs](#data-integration-units) para cada atividade de cópia de maneira sem servidor; ao usar o Integration Runtime auto-hospedado, você pode escalar verticalmente o computador manualmente ou escalar horizontalmente para vários computadores ([até 4 nós](create-self-hosted-integration-runtime.md#high-availability-and-scalability)) e uma única atividade de cópia particionará seu conjunto de arquivos em todos os nós.
-- Uma única atividade de cópia lê e grava no armazenamento de dados usando vários threads.
 - O fluxo de controle do ADF pode iniciar várias atividades de cópia em paralelo, por exemplo, usando [loop for each](control-flow-for-each-activity.md).
+- Uma única atividade de cópia pode aproveitar os recursos de computação escalonáveis: ao usar Azure Integration Runtime, você pode especificar [até 256 DIUs](#data-integration-units) para cada atividade de cópia de maneira sem servidor; ao usar o Integration Runtime auto-hospedado, você pode escalar verticalmente o computador manualmente ou escalar horizontalmente para vários computadores ([até 4 nós](create-self-hosted-integration-runtime.md#high-availability-and-scalability)) e uma única atividade de cópia particionará seu conjunto de arquivos em todos os nós.
+- Uma única atividade de cópia lê e grava no armazenamento de dados usando vários threads [em paralelo](#parallel-copy).
 
 ## <a name="performance-tuning-steps"></a>Etapas de ajuste de desempenho
 
 Siga estas etapas para ajustar o desempenho do seu serviço de Azure Data Factory com a atividade de cópia.
 
-1. **Estabelecer uma linha de base.** Durante a fase de desenvolvimento, teste seu pipeline usando a atividade de cópia em um exemplo de dados representativos. Coletar detalhes de execução e características de desempenho após o [monitoramento da atividade de cópia](copy-activity-overview.md#monitoring).
+1. **Pegue um conjunto de testes e estabeleça uma linha de base.** Durante a fase de desenvolvimento, teste seu pipeline usando a atividade de cópia em um exemplo de dados representativos. O conjunto de dados que você escolher deve representar seus padrões de dado típicos (estrutura de pastas, padrão de arquivo, esquema de dados, etc.) e é grande o suficiente para avaliar o desempenho de cópia, por exemplo, demora 10 minutos ou mais para que a atividade de cópia seja concluída. Coletar detalhes de execução e características de desempenho após o [monitoramento da atividade de cópia](copy-activity-overview.md#monitoring).
 
 2. **Como maximizar o desempenho de uma única atividade de cópia**:
 
@@ -78,19 +78,19 @@ Siga estas etapas para ajustar o desempenho do seu serviço de Azure Data Factor
 
    A atividade de cópia deve ser dimensionada quase perfeitamente à medida que você aumenta a configuração DIU.  Se, ao dobrar a configuração DIU, você não estiver vendo a taxa de transferência, duas coisas podem estar ocorrendo:
 
-   - O padrão de cópia específico que você está executando não se beneficia da adição de mais DIUs.  Embora você tenha especificado um valor maior de DIU, o DIU real usado permaneceu o mesmo e, portanto, você está obtendo a mesma taxa de transferência como antes.  Se esse for o caso, vá para a etapa #3
+   - O padrão de cópia específico que você está executando não se beneficia da adição de mais DIUs.  Embora você tenha especificado um valor maior de DIU, o DIU real usado permaneceu o mesmo e, portanto, você está obtendo a mesma taxa de transferência como antes.  Se esse for o caso, maximize a taxa de transferência agregada executando várias cópias ao fazer referência à etapa 3 simultaneamente.
    - Ao adicionar mais DIUs (mais potência) e, assim, orientar a taxa mais alta de extração, transferência e carregamento de dados, o armazenamento de dados de origem, a rede entre o ou o armazenamento de dados de destino atingiu seu afunilamento e possivelmente sendo limitado.  Se esse for o caso, tente entrar em contato com o administrador do armazenamento de dados ou o administrador da rede para aumentar o limite superior ou, como alternativa, reduza a configuração DIU até que a limitação pare de ocorrer.
 
    **Se a atividade de cópia estiver sendo executada em um Integration Runtime hospedado automaticamente:**
 
-   É recomendável que você use um computador dedicado separado do servidor que hospeda o repositório de dados para hospedar o Integration Runtime
+   É recomendável que você use um computador dedicado separado do servidor que hospeda o repositório de dados para hospedar o Integration Runtime.
 
    Comece com valores padrão para a configuração de [cópia paralela](#parallel-copy) e use um único nó para o ir auto-hospedado.  Execute uma execução de teste de desempenho e anote o desempenho obtido.
 
    Se você quiser obter uma taxa de transferência mais alta, poderá escalar verticalmente ou escalar horizontalmente o IR do modo auto-hospedado:
 
    - Se a CPU e a memória disponível no nó IR de hospedagem interna não forem totalmente utilizadas, mas a execução de trabalhos simultâneos estiver atingindo o limite, você deverá escalar verticalmente aumentando o número de trabalhos simultâneos que podem ser executados em um nó.  Consulte [aqui](create-self-hosted-integration-runtime.md#scale-up) para obter instruções.
-   - Se, por outro lado, a CPU estiver alta no nó IR auto-hospedado e a memória disponível estiver baixa, você poderá adicionar um novo nó para ajudar a escalar horizontalmente a carga entre os vários nós.  Consulte [aqui](create-self-hosted-integration-runtime.md#high-availability-and-scalability) para obter instruções.
+   - Se, por outro lado, a CPU estiver alta no nó IR auto-hospedado ou se a memória disponível estiver baixa, você poderá adicionar um novo nó para ajudar a escalar horizontalmente a carga entre os vários nós.  Consulte [aqui](create-self-hosted-integration-runtime.md#high-availability-and-scalability) para obter instruções.
 
    À medida que você escalar verticalmente ou expandir a capacidade do IR auto-hospedado, repita a execução do teste de desempenho para ver se você está obtendo uma taxa de transferência cada vez mais melhor.  Se a taxa de transferência parar de melhorar, provavelmente o armazenamento de dados de origem, a rede entre o ou o armazenamento de dados de destino atingiu seu gargalo e está começando a ser limitado. Se esse for o caso, tente entrar em contato com o administrador do armazenamento de dados ou o administrador da rede para aumentar o limite superior ou, como alternativa, volte para a configuração de dimensionamento anterior para o IR de hospedagem interna. 
 
@@ -98,9 +98,7 @@ Siga estas etapas para ajustar o desempenho do seu serviço de Azure Data Factor
 
    Agora que você maximizou o desempenho de uma única atividade de cópia, se ainda não tiver atingido os limites superiores da taxa de transferência do seu ambiente – rede, armazenamento de dados de origem e armazenamento de dados de destino-você pode executar várias atividades de cópia em paralelo usando o ADF construções de fluxo de controle, como [loop for each](control-flow-for-each-activity.md).
 
-4. **Diagnostique e otimize o desempenho.** Se o desempenho que você observar não atender às suas expectativas, identifique gargalos de desempenho. Em seguida, a otimizar o desempenho para remover ou reduzir o efeito de afunilamentos.
-
-   Em alguns casos, ao executar uma atividade de cópia no Azure Data Factory, você verá uma mensagem "dicas de ajuste de desempenho" sobre o [monitoramento da atividade de cópia](copy-activity-overview.md#monitor-visually), conforme mostrado no exemplo a seguir. A mensagem informa o afunilamento que foi identificado para a execução de cópia fornecida. Ele também orienta você sobre o que mudar para impulsionar a produtividade da cópia. As dicas de ajuste de desempenho atualmente fornecem sugestões como:
+4. **Dicas de ajuste de desempenho e recursos de otimização.** Em alguns casos, ao executar uma atividade de cópia no Azure Data Factory, você verá uma mensagem "dicas de ajuste de desempenho" sobre o [monitoramento da atividade de cópia](copy-activity-overview.md#monitor-visually), conforme mostrado no exemplo a seguir. A mensagem informa o afunilamento que foi identificado para a execução de cópia fornecida. Ele também orienta você sobre o que mudar para impulsionar a produtividade da cópia. As dicas de ajuste de desempenho atualmente fornecem sugestões como:
 
    - Use o polybase ao copiar dados para o Azure SQL Data Warehouse.
    - Aumente Azure Cosmos DB unidades de solicitação ou DTUs do banco de dados SQL do Azure (unidades de produtividade do banco de dado) quando o recurso no lado do repositório de armazenamento for o afunilamento.
@@ -114,12 +112,11 @@ Siga estas etapas para ajustar o desempenho do seu serviço de Azure Data Factor
 
    ![Copiar monitoramento com dicas de ajuste de desempenho](media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-   Além disso, estas são algumas considerações comuns. Uma descrição completa do diagnóstico de desempenho está além do escopo deste artigo.
+   Além disso, estes são alguns dos recursos de otimização de desempenho dos quais você deve estar atento:
 
-   - Recursos de otimização de desempenho:
-     - [Cópia paralela](#parallel-copy)
-     - [Unidades de Integração de Dados](#data-integration-units)
-     - [Cópia faseada](#staged-copy)
+   - [Cópia paralela](#parallel-copy)
+   - [Unidades de Integração de Dados](#data-integration-units)
+   - [Cópia faseada](#staged-copy)
    - [Escalabilidade do tempo de execução de integração auto-hospedado](concepts-integration-runtime.md#self-hosted-integration-runtime)
 
 5. **Expanda a configuração para todo o conjunto de seus conjuntos de seus.** Quando estiver satisfeito com os resultados e o desempenho da execução, você poderá expandir a definição e o pipeline para abranger todo o seu conjunto de todos.
@@ -136,7 +133,9 @@ O Azure Data Factory fornece os seguintes recursos de otimização de desempenho
 
 Uma unidade de integração de dados é uma medida que representa a potência (uma combinação de CPU, memória e alocação de recursos de rede) de uma única unidade no Azure Data Factory. A unidade de integração de dados só se aplica ao [Integration Runtime do Azure](concepts-integration-runtime.md#azure-integration-runtime), mas não ao [tempo de execução de integração auto-hospedado](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-O DIUs permitido para capacitar uma execução da atividade de cópia é entre 2 e 256. Se não for especificado, a tabela seguinte lista os DIUs padrão usados em cenários de cópia diferentes:
+Você será cobrado **n º de DIUs \* da unidade \* de duração da cópia de tempo/DIU-hora**. Veja os preços atuais [aqui](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/). A moeda local e a descontagem separada podem ser aplicadas por tipo de assinatura.
+
+O DIUs permitido para capacitar uma execução da atividade de cópia é **entre 2 e 256**. Se não for especificado ou você escolher "auto" na interface do usuário, Data Factory aplicar dinamicamente a configuração ideal de DIU com base no seu par de coletor de origem e no padrão de dados. A tabela a seguir lista os DIUs padrão usados em diferentes cenários de cópia:
 
 | Cenário de cópia | DIUs predefinido determinados pelo serviço |
 |:--- |:--- |
@@ -151,7 +150,7 @@ Você pode ver o DIUs usado para cada execução de cópia na saída da atividad
 > [!NOTE]
 > A configuração de DIUs maior que quatro atualmente se aplica somente quando você copia vários arquivos do armazenamento do Azure, Azure Data Lake Storage, Amazon S3, Google Cloud Storage, FTP de nuvem ou SFTP em nuvem para qualquer outro armazenamento de dados de nuvem.
 
-**Exemplo**
+**Example:**
 
 ```json
 "activities":[
@@ -173,10 +172,6 @@ Você pode ver o DIUs usado para cada execução de cópia na saída da atividad
 ]
 ```
 
-#### <a name="data-integration-units-billing-impact"></a>Impacto de faturação de unidades de integração de dados
-
-Lembre-se de que você será cobrado com base no tempo total da operação de cópia. A duração total que você é cobrada pela movimentação de dados é a soma da duração em DIUs. Se uma tarefa de cópia costumava levar uma hora com duas unidades de cloud e agora demora 15 minutos com oito unidades de cloud, a fatura global permanece praticamente o mesmo.
-
 ### <a name="parallel-copy"></a>Cópia paralela
 
 Você pode usar a propriedade **parallelCopies** para indicar o paralelismo que você deseja que a atividade de cópia use. Você pode considerar essa propriedade como o número máximo de threads na atividade de cópia que pode ler de sua origem ou gravar em armazenamentos de dados de coletor em paralelo.
@@ -193,6 +188,15 @@ Para cada execução de atividade de cópia, Azure Data Factory determina o núm
 > Quando você copia dados entre repositórios baseados em arquivo, o comportamento padrão geralmente oferece a melhor taxa de transferência. O comportamento padrão é determinado automaticamente com base no padrão do arquivo de origem.
 
 Para controlar a carga em computadores que hospedam seus armazenamentos de dados ou para ajustar o desempenho da cópia, você pode substituir o valor padrão e especificar um valor para a propriedade **parallelCopies** . O valor tem de ser um número inteiro maior que ou igual a 1. Em tempo de execução, para obter o melhor desempenho, a atividade de cópia usa um valor menor ou igual ao valor que você definiu.
+
+**Pontos a serem observados:**
+
+- Quando você copia dados entre repositórios baseados em arquivo, o **parallelCopies** determina o paralelismo no nível de arquivo. O agrupamento em um único arquivo ocorre abaixo de forma automática e transparente. Ele foi projetado para usar o melhor tamanho de bloco adequado para um determinado tipo de armazenamento de dados de origem para carregar dados em paralelo e ortogonal em **parallelCopies**. O número real de cópias paralelas utiliza o serviço de movimento de dados para a operação de cópia em tempo de execução é não mais do que o número de ficheiros que tiver. Se o comportamento de cópiafor mergefile, a atividade de cópia não poderá tirar proveito do paralelismo de nível de arquivo.
+- Quando você copia dados de armazenamentos que não são baseados em arquivo (exceto [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [tabela SAP](connector-sap-table.md#sap-table-as-source)e conector de [Hub aberto SAP](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) como fonte com particionamento de dados habilitado) para armazenamentos que são baseados em arquivo, o serviço de movimentação de dados ignora a propriedade **parallelCopies** . Mesmo que o paralelismo é especificado, não é aplicado neste caso.
+- A propriedade **parallelCopies** é ortogonal a **dataIntegrationUnits**. O primeiro é contado em todas as unidades de integração de dados.
+- Ao especificar um valor para a propriedade **parallelCopies** , considere o aumento de carga nos armazenamentos de dados de origem e do coletor. Considere também o aumento de carga para o tempo de execução de integração auto-hospedado se a atividade de cópia for habilitada por ti, por exemplo, para cópia híbrida. Esse aumento de carga ocorre especialmente quando você tem várias atividades ou execuções simultâneas das mesmas atividades executadas no mesmo armazenamento de dados. Se você observar que o armazenamento de dados ou o tempo de execução de integração auto-hospedado está sobrecarregado com a carga, diminua o valor de **parallelCopies** para aliviar a carga.
+
+**Example:**
 
 ```json
 "activities":[
@@ -213,13 +217,6 @@ Para controlar a carga em computadores que hospedam seus armazenamentos de dados
     }
 ]
 ```
-
-**Pontos a serem observados:**
-
-* Quando você copia dados entre repositórios baseados em arquivo, o **parallelCopies** determina o paralelismo no nível de arquivo. O agrupamento em um único arquivo ocorre abaixo de forma automática e transparente. Ele foi projetado para usar o melhor tamanho de bloco adequado para um determinado tipo de armazenamento de dados de origem para carregar dados em paralelo e ortogonal em **parallelCopies**. O número real de cópias paralelas utiliza o serviço de movimento de dados para a operação de cópia em tempo de execução é não mais do que o número de ficheiros que tiver. Se o comportamento de cópiafor mergefile, a atividade de cópia não poderá tirar proveito do paralelismo de nível de arquivo.
-* Quando você copia dados de armazenamentos que não são baseados em arquivo (exceto [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [tabela SAP](connector-sap-table.md#sap-table-as-source)e conector de [Hub aberto SAP](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) como fonte com particionamento de dados habilitado) para armazenamentos que são baseados em arquivo, o serviço de movimentação de dados ignora a propriedade **parallelCopies** . Mesmo que o paralelismo é especificado, não é aplicado neste caso.
-* A propriedade **parallelCopies** é ortogonal a **dataIntegrationUnits**. O primeiro é contado em todas as unidades de integração de dados.
-* Ao especificar um valor para a propriedade **parallelCopies** , considere o aumento de carga nos armazenamentos de dados de origem e do coletor. Considere também o aumento de carga para o tempo de execução de integração auto-hospedado se a atividade de cópia for habilitada por ti, por exemplo, para cópia híbrida. Esse aumento de carga ocorre especialmente quando você tem várias atividades ou execuções simultâneas das mesmas atividades executadas no mesmo armazenamento de dados. Se você observar que o armazenamento de dados ou o tempo de execução de integração auto-hospedado está sobrecarregado com a carga, diminua o valor de **parallelCopies** para aliviar a carga.
 
 ### <a name="staged-copy"></a>Cópia faseada
 
@@ -305,5 +302,5 @@ Aqui estão as referências de monitoramento e ajuste de desempenho para alguns 
 Consulte os outros artigos de atividade de cópia:
 
 - [Descrição geral da atividade de cópia](copy-activity-overview.md)
-- [Mapeamento de esquema de atividade de cópia](copy-activity-schema-and-type-mapping.md)
-- [Copie a tolerância a falhas de atividade](copy-activity-fault-tolerance.md)
+- [Use Azure Data Factory para migrar dados de seu data Lake ou data warehouse para o Azure](data-migration-guidance-overview.md)
+- [Migrar dados do Amazon S3 para o armazenamento do Azure](data-migration-guidance-s3-azure-storage.md)

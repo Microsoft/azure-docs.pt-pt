@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Criar um pipeline CI/CD para node. js com projetos de DevOps do Azure'
-description: Projetos de DevOps torna mais fácil começar a utilizar no Azure. Ajuda-o a utilizar o seu próprio código e o repositório GitHub para lançar uma aplicação num serviço do Azure à sua escolha com alguns passos rápidos.
+title: 'Início rápido: Criar um pipeline de CI/CD para node. js com Azure DevOps Projects'
+description: DevOps Projects facilita a introdução ao Azure. Ajuda-o a utilizar o seu próprio código e o repositório GitHub para lançar uma aplicação num serviço do Azure à sua escolha com alguns passos rápidos.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -17,88 +17,88 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: dadc394e9c9ddb152923095de10b8f727310d3f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eeab0433310892f27b9cb2d2eb6f64e17e6f14ef
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60554834"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991728"
 ---
-#  <a name="create-a-cicd-pipeline-for--nodejs-with-azure-devops-projects"></a>Criar um pipeline CI/CD para node. js com projetos de DevOps do Azure 
+#  <a name="create-a-cicd-pipeline-for--nodejs-with-azure-devops-projects"></a>Criar um pipeline de CI/CD para node. js com Azure DevOps Projects 
 
-Projetos de DevOps do Azure apresenta uma experiência simplificada que cria os recursos do Azure e configura uma integração contínua (CI) e o pipeline de entrega contínua (CD) para a sua aplicação node. js em Pipelines do Azure.  
+Azure DevOps Projects apresenta uma experiência simplificada que cria recursos do Azure e configura um pipeline de integração contínua (CI) e entrega contínua (CD) para seu aplicativo node. js no Azure Pipelines.  
 
 Se não tiver uma subscrição do Azure, pode obter uma subscrição gratuita através do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Projetos de DevOps cria um pipeline CI/CD em Pipelines do Azure. Pode criar uma nova organização de DevOps do Azure ou utilizar uma organização existente. Projetos de DevOps também cria os recursos do Azure na subscrição do Azure à sua escolha.
+DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. Você pode criar uma nova organização de DevOps do Azure ou usar uma organização existente. Projetos de DevOps também cria os recursos do Azure na subscrição do Azure à sua escolha.
 
 1. Inicie sessão no [Portal do Microsoft Azure](https://portal.azure.com).
 
-1. No painel esquerdo, selecione **criar um recurso**e, em seguida, procure **projetos de DevOps**. 
+1. No painel esquerdo, selecione **criar um recurso**e procure **DevOps Projects**. 
 
     ![Iniciar a configuração da Entrega Contínua](_img/azure-devops-project-nodejs/fullbrowser.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selecione um exemplo de aplicação e serviço do Azure
 
-1. Selecione a aplicação de exemplo de node. js.  
+1. Selecione o aplicativo de exemplo node. js.  
     Os exemplos Node.js incluem várias opções de arquiteturas de aplicações.
 
-1. A estrutura de exemplo do padrão é a Express. js. Deixe a predefinição e, em seguida, selecione **seguinte**.  
-    **A Aplicação Web no Windows** é o destino de implementação predefinido.  A estrutura da aplicação, que escolheu anteriormente, dita o tipo de destino da implementação do serviço do Azure disponível aqui.  
+1. A estrutura de exemplo padrão é Express. js. Deixe a configuração padrão e, em seguida, selecione **Avançar**.  
+    **A Aplicação Web no Windows** é o destino de implementação predefinido.  A estrutura do aplicativo, que você escolheu anteriormente, dita o tipo de destino de implantação de serviço do Azure disponível aqui.  
 
-2. Deixe o serviço predefinido e, em seguida, selecione **seguinte**.
+2. Deixe o serviço padrão e, em seguida, selecione **Avançar**.
  
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configurar o Azure DevOps e uma subscrição do Azure 
 
-1. Crie uma nova organização do Azure DevOps ou escolha uma organização existente. 
+1. Crie uma nova organização de DevOps do Azure ou escolha uma organização existente. 
 
-    a. Escolha um nome para o seu projeto. 
+    a. Insira um nome para o seu projeto.
 
-    b. Selecione a subscrição do Azure e a localização, escolha um nome para a sua aplicação e, em seguida, selecione **feito**.  
-    Após alguns minutos, é apresentado o dashboard de projetos de DevOps no portal do Azure. Um aplicativo de exemplo está configurado num repositório na sua organização de DevOps do Azure, uma compilação é executada e a aplicação é implementada para o Azure. Este dashboard fornece visibilidade para o repositório de código, o pipeline de CI/CD e a sua aplicação no Azure.
+    b. Selecione sua assinatura e local do Azure, insira um nome para seu aplicativo e, em seguida, selecione **concluído**.  
+    Depois de alguns minutos, o painel de DevOps Projects é exibido na portal do Azure. Um aplicativo de exemplo é configurado em um repositório em sua organização DevOps do Azure, uma compilação é executada e seu aplicativo é implantado no Azure. Este dashboard fornece visibilidade para o repositório de código, o pipeline de CI/CD e a sua aplicação no Azure.
      
-3. Selecione **procurar** para ver a sua aplicação em execução.
+3. Selecione **procurar** para exibir o aplicativo em execução.
 
     ![Vista do Dashboard](_img/azure-devops-project-nodejs/dashboardnopreview.png) 
     
-Projetos de DevOps configurado automaticamente uma compilação CI e a versão de Acionador.  Agora, está pronto para colaborar com uma equipe numa aplicação node. js com um processo de CI/CD que implementa automaticamente o seu trabalho mais recente ao seu web site.
+DevOps Projects configurou automaticamente um gatilho de Build e versão de CI.  Agora você está pronto para colaborar com uma equipe em um aplicativo node. js com um processo de CI/CD que implanta automaticamente o trabalho mais recente em seu site da Web.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Consolidar as alterações de código e executar o CI/CD
 
-Projetos de DevOps cria um repositório de Git em repositórios do Azure ou do GitHub. Siga os passos seguintes para ver o repositório e fazer alterações de código no aplicativo.
+DevOps Projects cria um repositório git no Azure Repos ou no GitHub. Execute as etapas a seguir para exibir o repositório e fazer alterações de código em seu aplicativo.
 
-1. À esquerda do dashboard de projetos de DevOps, selecione a ligação para o ramo principal.  
+1. À esquerda do painel de DevOps Projects, selecione o link para o Branch mestre.  
 Esta ligação abre uma vista para o repositório Git recentemente criado.
 
-1. Para ver o URL de clone do repositório, selecione **Clone** na parte superior direita do navegador.   
+1. Para exibir a URL de clone do repositório , selecione clonar na parte superior direita do navegador.   
     Pode clonar o repositório Git no seu IDE preferido. Nos próximos passos, pode utilizar o browser para fazer e consolidar alterações de código diretamente no ramo principal.
 
-1. No lado esquerdo do browser, vá para o **views/index.pug** ficheiro.
+1. No lado esquerdo do navegador, vá para o arquivo **views/index. Pug** .
 
-1. Selecione **editar**e, em seguida, faça uma alteração para o título h2.  
-    Por exemplo, digite **Get started right away with the Azure DevOps Project** (Começar a utilizar imediatamente o Projeto de DevOps do Azure) ou faça outra alteração.
+1. Selecione **Editar**e, em seguida, faça uma alteração no título H2.  
+    Por exemplo, digite introdução imediatamente **com Azure DevOps Projects** ou faça alguma outra alteração.
 
 1. Selecione **consolidar**e, em seguida, guarde as alterações.
 
-1. No seu browser, aceda ao dashboard de projetos de DevOps.   
-Deverá ver uma compilação em curso. As alterações que acabou de criar são automaticamente criadas e implementadas através de um pipeline CI/CD.
+1. No navegador, vá para o painel de DevOps Projects.   
+Agora você deve ver uma compilação em andamento. As alterações que você acabou de fazer são criadas automaticamente e implantadas por meio de um pipeline de CI/CD.
 
 ## <a name="examine-the-azure-cicd-pipeline"></a>Examinar o pipeline de CI/CD do Azure
 
-No passo anterior, os projetos de DevOps configurado automaticamente um pipeline de CI/CD completo. Explore e personalize o pipeline, conforme necessário. Siga os passos seguintes para familiarizar-se com a compilação e lançar pipelines.
+Na etapa anterior, DevOps Projects configurou automaticamente um pipeline de CI/CD completo. Explore e personalize o pipeline, conforme necessário. Execute as etapas a seguir para se familiarizar com os pipelines de compilação e versão.
 
 1. Na parte superior do dashboard de projetos de DevOps, selecione **criar Pipelines**.  
-Esse link abre um separador do browser e o pipeline de compilação para o novo projeto.
+Esse link abre uma guia do navegador e o pipeline de compilação para seu novo projeto.
 
-1. Aponte para o **estado** campo e, em seguida, selecione as reticências (...).  
-    Esta ação abre um menu onde pode iniciar várias atividades, como a colocação em fila uma nova compilação, colocar em pausa uma compilação e editar o pipeline de compilação.
+1. Aponte para o campo **status** e, em seguida, selecione as reticências (...).  
+    Essa ação abre um menu em que você pode iniciar várias atividades, como enfileirar uma nova compilação, pausar uma compilação e editar o pipeline de compilação.
 
 1. Selecione **Editar**.
 
 1. Neste painel, pode examinar as várias tarefas para o seu pipeline de compilação.  
-A compilação efetua uma variedade de tarefas, como a obtenção de origens do repositório Git, a restauração de dependências e a publicação de saídas que são utilizadas para implementações.
+A compilação executa uma variedade de tarefas, como busca de fontes do repositório git, restauração de dependências e publicação de saídas que são usadas para implantações.
 
 1. Na parte superior do pipeline de compilação, selecione o nome do pipeline de compilação.
 
@@ -113,11 +113,11 @@ Na **histórico** painel, verá uma trilha de auditoria das alterações recente
 1. Selecione **Retenção**.   
 Dependendo do seu cenário, pode especificar políticas de manter ou remover um determinado número de compilações.
 
-1. Selecione **criar e lançar**e, em seguida, selecione **versões**.  
- Projetos de DevOps cria um pipeline de lançamento para gerir implementações para o Azure.
+1. Selecione **Compilar e liberar**e, em seguida, selecione **versões**.  
+ DevOps Projects cria um pipeline de liberação para gerenciar implantações no Azure.
 
-1. No lado esquerdo, selecione as reticências (...) junto ao seu pipeline de lançamento e, em seguida, selecione **editar**.  
-Pipeline de versões define o processo de liberação.
+1. À esquerda, selecione as reticências (...) ao lado de seu pipeline de lançamento e, em seguida, selecione **Editar**.  
+O pipeline de lançamento define o processo de liberação.
 
 12. Em **Artefactos**, selecione **Remover**.  
     O pipeline de compilação que examinou nos passos anteriores produz a saída utilizada para o artefacto. 
@@ -127,7 +127,7 @@ Esta versão de pipeline tem um acionador de CD ativado, o que é executada uma 
 
 
 1. No lado esquerdo, selecione **tarefas**.   
-As tarefas são as atividades que executa o processo de implementação. Neste exemplo, foi criada uma tarefa para implantar o App Service do Azure.
+As tarefas são as atividades que executa o processo de implementação. Neste exemplo, uma tarefa foi criada para ser implantada no serviço Azure App.
 
 
 1. À direita, selecione **ver versões**.  
@@ -149,11 +149,11 @@ Os registos contêm informações úteis sobre o processo de implementação. Po
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Quando configurou o seu processo de CI/CD, compilação e lançar pipelines criados automaticamente. Pode modificar estes pipelines de compilação e de lançamento para satisfazer as necessidades da sua equipa. Para saber mais sobre o pipeline de CI/CD, consulte:
+Quando você configurou o processo de CI/CD, os pipelines de compilação e de versão foram criados automaticamente. Pode modificar estes pipelines de compilação e de lançamento para satisfazer as necessidades da sua equipa. Para saber mais sobre o pipeline de CI/CD, consulte:
 
 > [!div class="nextstepaction"]
 > [Personalizar o processo de CD](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
-## <a name="videos"></a>Vídeos
+## <a name="videos"></a>Os meus vídeos
 
 > [!VIDEO https://www.youtube.com/embed/3etwjubReJs]

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 530e37400881ace2de603aed6875ed236e45f2c7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2cc93ad9ae1d9d6d21064a2a80c3d62bf661dabc
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847416"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992284"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Definir permissões de nível de arquivo e diretório usando Gerenciador de Armazenamento do Azure com Azure Data Lake Storage Gen2
 
@@ -28,11 +28,11 @@ Neste artigo, você aprenderá a usar o Gerenciador de Armazenamento do Azure pa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para descrever melhor o processo, exigimos que você conclua nosso [Gerenciador de armazenamento do Azure início rápido](data-lake-storage-Explorer.md). Isso garante que sua conta de armazenamento estará no estado mais apropriado (sistema de arquivos criado e dados carregados nele).
+Para descrever melhor o processo, exigimos que você conclua nosso [Gerenciador de armazenamento do Azure início rápido](data-lake-storage-Explorer.md). Isso garante que sua conta de armazenamento estará no estado mais apropriado (contêiner criado e dados carregados nele).
 
 ## <a name="managing-access"></a>Gerir o acesso
 
-Você pode definir permissões na raiz do sistema de arquivos. Para fazer isso, você deve estar conectado ao Gerenciador de Armazenamento do Azure com sua conta individual com direitos para fazer isso (em oposição a uma cadeia de conexão). Clique com o botão direito do mouse no sistema de arquivos e selecione **gerenciar permissões**, trazendo a caixa de diálogo **gerenciar permissão** .
+Você pode definir permissões na raiz do seu contêiner. Para fazer isso, você deve estar conectado ao Gerenciador de Armazenamento do Azure com sua conta individual com direitos para fazer isso (em oposição a uma cadeia de conexão). Clique com o botão direito do mouse no contêiner e selecione **gerenciar permissões**, trazendo a caixa de diálogo **gerenciar permissão** .
 
 ![Gerenciador de Armazenamento do Microsoft Azure-gerenciar o acesso ao diretório](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 

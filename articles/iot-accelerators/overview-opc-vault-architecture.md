@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 151eb535e70bd485c978ac21539c784bbea0a532
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 9331473402ddd22180df3b404824969360d48164
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69973234"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995822"
 ---
 # <a name="opc-vault-architecture"></a>Arquitetura do cofre OPC
 
@@ -88,3 +88,10 @@ Para dar suporte a um servidor de descoberta global de rede de fábrica, o módu
 ## <a name="yet-unsupported-features"></a>Recursos do ainda sem suporte
 
 **(*)** ainda não tem suporte.
+
+## <a name="next-steps"></a>Passos seguintes
+
+Agora que você aprendeu sobre a arquitetura do cofre do OPC, aqui está a próxima etapa sugerida:
+
+> [!div class="nextstepaction"]
+> [Compilar e implantar o cofre OPC](howto-opc-vault-deploy.md)

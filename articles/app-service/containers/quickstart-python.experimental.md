@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/28/2019
+ms.date: 08/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ea247907aebc241fb8f1b266ad55bc2fc983607f
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: c971e84a12b23625326d63b3493395f1d1381937
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853993"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996901"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Criar um aplicativo Python no serviço de Azure App no Linux (versão prévia)
 
@@ -41,7 +41,7 @@ No Cloud Shell, crie um diretório de início rápido e, em seguida, altere-o.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 Em seguida, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu diretório de início rápido.
@@ -163,9 +163,9 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-A imagem do Python incorporada no Serviço de Aplicações do Linux encontra-se em pré-visualização, sendo que pode personalizar o comando que serve para iniciar a sua aplicação. Em alternativa, também pode criar aplicações Python de produção com um contentor personalizado.
+A imagem interna do Python no serviço de aplicativo no Linux está atualmente em versão prévia e você pode personalizar o comando usado para iniciar seu aplicativo. Em alternativa, também pode criar aplicações Python de produção com um contentor personalizado.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Aplicativo Python com PostgreSQL](tutorial-python-postgresql-app.md)

@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
 ms.custom: seo-java-august2019
-ms.openlocfilehash: a7e2089b8dfff1f021c31d2b13591b54dcd9c4ac
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 110c4a343909a81e092b147b79ed69d6bd5c2d9c
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616974"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981762"
 ---
-# <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>Início rápido: Compilar um aplicativo Java usando Azure Cosmos DB conta da API do SQL
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Início rápido: Compilar um aplicativo Java para gerenciar Azure Cosmos DB dados da API do SQL
 
 
 > [!div class="op_single_selector"]
@@ -202,7 +202,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você aprendeu como criar uma conta do Azure Cosmos, um banco de dados de documento e um contêiner usando o Data Explorer e executar um aplicativo para fazer a mesma coisa programaticamente. Agora você pode importar dados adicionais para o contêiner Cosmos do Azure. 
 

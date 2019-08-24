@@ -1,138 +1,169 @@
 ---
-title: Configurar o agente do Log Analytics do Azure para computadores de Windows híbrida | Documentos da Microsoft
-description: Neste início rápido, irá aprender como implantar o agente do Log Analytics para computadores Windows em execução fora do Azure e ativar a recolha de dados com o Log Analytics.
-services: log-analytics
-documentationcenter: log-analytics
+title: Coletar dados de um computador Windows híbrido com Azure Monitor | Microsoft Docs
+description: Neste guia de início rápido, você aprenderá a implantar o agente de Log Analytics para computadores Windows em execução fora do Azure e habilitar a coleta de dados com logs de Azure Monitor.
+services: azure-monitor
+documentationcenter: azure-monitor
 author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
-ms.service: log-analytics
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 04/09/2019
+ms.date: 08/22/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 15885137b9559bf34fb2b985398401af09caa629
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 50059711df195c13ee44061ee4844f0192e0e10d
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602991"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992103"
 ---
-# <a name="configure-the-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Configurar o agente do Log Analytics para computadores Windows num ambiente híbrido
-[O Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) pode recolher dados diretamente a partir de computadores Windows físicos ou virtuais para um único repositório para análise e correlação detalhadas. Log Analytics pode recolher dados de um datacenter ou outro ambiente de cloud. Este início rápido mostra-lhe como configurar e recolher dados do seu computador Windows em alguns passos simples.  Para obter informações sobre as VMs do Windows Azure, consulte [recolher dados sobre máquinas virtuais do Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
+# <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Coletar dados de um computador Windows em um ambiente híbrido com Azure Monitor
 
-Para compreender a configuração suportada, veja [sistemas de operativos Windows suportados](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) e [configuração de firewall de rede](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
+[Azure monitor](../overview.md) pode coletar dados diretamente de você são seus computadores Windows físicos ou virtuais em seu ambiente em um espaço de trabalho log Analytics para análise e correlação detalhadas. A instalação do [agente de log Analytics](../platform/log-analytics-agent.md) permite Azure monitor coletar dados de um datacenter ou de outro ambiente de nuvem. Este início rápido mostra-lhe como configurar e recolher dados do seu computador Windows em alguns passos simples. Para obter informações sobre VMs do Windows do Azure, consulte [coletar dados sobre máquinas virtuais do Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
+
+Para entender a configuração com suporte, consulte [sistemas operacionais Windows](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) e [configuração de firewall de rede](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements)com suporte.
  
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
+
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
-1. No portal do Azure, selecione **Todos os serviços**. Na caixa de pesquisa, introduza **do Log Analytics**. À medida que escreve, os filtros de lista com base na sua entrada. Selecione **do Log Analytics**:
 
-    ![Portal do Azure](media/quick-collect-windows-computer/azure-portal-01.png)
+1. No portal do Azure, selecione **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **log Analytics espaços de trabalho**.
+
+    ![Portal do Azure](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+
+2. Selecione **criar**e, em seguida, selecione as opções para os seguintes itens:
+
+   * Indique um nome para a nova **Área de trabalho do Log Analytics**, como *DefaultLAWorkspace*.  
+   * Selecione uma **Subscrição** à qual ligar ao escolher na lista pendente se a predefinição selecionada não é adequada.
+   * Para **Grupo de Recursos**, selecione um grupo de recursos existente que contenha uma ou mais máquinas virtuais do Azure.  
+   * Selecione a **Localização** para onde as VMs devem ser implementadas.  Para obter mais informações, veja em que [regiões está disponível o Log Analytics](https://azure.microsoft.com/regions/services/).
+   * Se estiver a criar uma área de trabalho numa subscrição nova criada depois de 2 de abril de 2018, a mesma utilizará automaticamente o plano de preços *Por GB* e a opção para selecionar um escalão de preços não estará disponível.  Se estiver a criar uma área de trabalho para uma subscrição já existente criada antes de 2 de abril ou para uma subscrição que estava associada a uma inscrição EA já existente, selecione o seu escalão de preço preferido.  Para obter informações adicionais sobre os escalões específicos, veja [Detalhes de Preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-2. Selecione **criar**e, em seguida, forneça estes detalhes:
+        ![Criar Log Analytics folha de recursos](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
 
-   * Introduza um nome para a nova **área de trabalho do Log Analytics**. Algo como **DefaultLAWorkspace**.
-   * Selecione um **subscrição** para ligar a. Se a predefinição não for aquele que pretende utilizar, selecione outra lista.
-   * Para o **grupo de recursos**, selecione um grupo de recursos existente que contém um ou mais máquinas virtuais do Azure.  
-   * Selecione a **Localização** para onde as VMs devem ser implementadas. Aqui está uma lista dos [regiões em que está disponível o Log Analytics](https://azure.microsoft.com/regions/services/).  
-   * Se estiver a criar uma área de trabalho numa subscrição que criou depois de 2 de Abril de 2018, a área de trabalho irá utilizar automaticamente o **por GB** plano de preços. Não será possível selecionar um escalão de preço. Se estiver a criar uma área de trabalho numa subscrição que criou antes de 2 de Abril de 2018, ou numa subscrição que estava associada a uma inscrição EA já existente, selecione o escalão de preço que pretende utilizar. Consulte a [detalhes de preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para obter informações sobre as camadas.
+3. Depois de fornecer as informações necessárias no painel **log Analytics espaço de trabalho** , selecione **OK**.  
 
-        ![Criar recurso do Log Analytics](media/quick-collect-windows-computer/create-loganalytics-workspace-02.png)<br>  
+Enquanto as informações são confirmadas e a área de trabalho criada, pode acompanhar o progresso em **Notificações**, no menu. 
 
-3. Depois de fornecer as informações necessárias na **área de trabalho do Log Analytics** painel, selecione **OK**.  
 
-Enquanto as informações são confirmadas e a área de trabalho está a ser criada, pode acompanhar o progresso em **notificações** no menu.
+## <a name="get-the-workspace-id-and-key"></a>Obter a ID e a chave do espaço de trabalho
 
-## <a name="get-the-workspace-id-and-key"></a>Obter o ID de área de trabalho e a chave
-Antes de instalar o Microsoft Monitoring Agent para Windows, terá do ID de área de trabalho e a chave para a área de trabalho do Log Analytics. O Assistente de configuração precisa dessas informações para configurar corretamente o agente e assegurar que consegue comunicar com o Log Analytics.  
+Antes de instalar o agente de Log Analytics para Windows (também conhecido como Microsoft Monitoring Agent (MMA)), você precisa da ID e da chave do espaço de trabalho para seu espaço de trabalho Log Analytics. O assistente de instalação precisa dessas informações para configurar corretamente o agente e garantir que ele possa se comunicar com Azure Monitor.  
 
-1. No canto superior esquerdo do portal do Azure, selecione **todos os serviços**. Na caixa de pesquisa, introduza **do Log Analytics**. À medida que escreve, os filtros de lista com base na sua entrada. Selecione **Log Analytics**.
-2. Na lista de áreas de trabalho do Log Analytics, selecione a área de trabalho que criou anteriormente. (Pode ter-lhe o nome **DefaultLAWorkspace**.)
-3. Selecione **definições avançadas**:
+1. No canto superior esquerdo da portal do Azure, selecione **todos os serviços**. Na caixa de pesquisa, digite **log Analytics**. Conforme você digita, a lista filtra com base em sua entrada. Selecione **log Analytics espaços de trabalho**.
 
-    ![Definições avançadas do log Analytics](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)
+2. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho que você criou anteriormente. (Você pode ter nomeado **DefaultLAWorkspace**.)
+
+3. Selecione **Configurações avançadas**:
+
+    ![Log Analytics configurações avançadas](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
   
 4. Selecione **Origens Ligadas** e, em seguida, selecione **Servidores Windows**.
-5. Copie os valores para a direita da **ID da área de trabalho** e **chave primária**. Cole-os no seu editor favorito.
+
+5. Copie os valores à direita da **ID do espaço de trabalho** e da **chave primária**. Cole-os em seu editor favorito.
 
 ## <a name="install-the-agent-for-windows"></a>Instalar o agente para Windows
-Os seguintes passos instale e configure o agente do Log Analytics no Azure e o Azure Government. Usará o programa de configuração do Microsoft Monitoring Agent para instalar o agente no seu computador.
 
-1. Continuando do conjunto anterior de passos, o **servidores do Windows** página, selecione a **transferir o agente do Windows** versão que pretende transferir. Selecione a versão adequada para a arquitetura de processador do sistema operativo Windows.
+As etapas a seguir instalam e configuram o agente para Log Analytics no Azure e no Azure governamental. Você usará o programa de instalação Microsoft Monitoring Agent para instalar o agente em seu computador.
+
+1. Continuando do conjunto de etapas anterior, na página **servidores do Windows** , selecione a versão de **download do agente do Windows** que você deseja baixar. Selecione a versão apropriada para a arquitetura do processador do seu sistema operacional Windows.
+
 2. Execute a Configuração para instalar o agente no seu computador.
-2. Na página **Bem-vindo**, selecione **Seguinte**.
-3. Na página **Termos de Licenciamento**, leia a licença e selecione **Aceito**.
-4. Na página **Pasta de Destino**, altere ou mantenha a pasta de instalação predefinida e selecione **Seguinte**.
-5. Sobre o **opções de configuração do agente** página, ligar o agente ao Azure Log Analytics e, em seguida, selecione **próxima**.
-6. Sobre o **do Azure Log Analytics** página, conclua estes passos:
-   1. Cole o **ID da área de trabalho** e **chave da área de trabalho (chave primária)** que copiou anteriormente. Se o computador deva reportar a uma área de trabalho do Log Analytics no Azure Government, selecione **do Azure US Government** no **na Cloud do Azure** lista.  
-   2. Se o computador tiver de comunicar através de um servidor proxy com o serviço do Log Analytics, selecione **Avançadas** e forneça o URL e o número da porta do servidor proxy. Se o servidor proxy requer autenticação, introduza o nome de utilizador e palavra-passe para a autenticação com o servidor proxy e, em seguida, selecione **seguinte**.  
-7. Selecione **seguinte** depois de adicionar as definições de configuração:
 
-    ![Configuração do Microsoft Monitoring Agent](media/quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)
+3. Na página **Bem-vindo**, selecione **Seguinte**.
 
-8. Na página **Pronto para Instalar**, reveja as suas opções e selecione **Instalar**.
-9. Sobre o **configuração concluída com êxito** página, selecione **concluir**.
+4. Na página **Termos de Licenciamento**, leia a licença e selecione **Aceito**.
 
-Quando a instalação e configuração estiver concluída, o Microsoft Monitoring Agent é apresentada no painel de controlo. Pode rever a configuração e confirmar que o agente está ligado ao Log Analytics. Quando estiver ligado, no **do Azure Log Analytics** guia, o agente apresenta esta mensagem: **O Microsoft Monitoring Agent foi ligado com êxito para o serviço Microsoft Log Analytics.**<br><br> ![Estado de ligação do MMA](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+5. Na página **Pasta de Destino**, altere ou mantenha a pasta de instalação predefinida e selecione **Seguinte**.
+
+6. Na página **Opções de instalação do agente** , conecte o agente ao log Analytics do Azure e, em seguida, selecione **Avançar**.
+
+7. Na página **log Analytics do Azure** , conclua estas etapas:
+
+   1. Cole a **ID do espaço de trabalho** e a **chave do espaço de trabalho (chave primária)** que você copiou anteriormente. Se o computador deve se reportar a um espaço de trabalho Log Analytics no Azure governamental, selecione **Azure EUA governamental** na lista de **nuvem do Azure** .  
+   2. Se o computador tiver de comunicar através de um servidor proxy com o serviço do Log Analytics, selecione **Avançadas** e forneça o URL e o número da porta do servidor proxy. Se o servidor proxy exigir autenticação, insira o nome de usuário e a senha para autenticação com o servidor proxy e, em seguida, selecione **Avançar**.  
+
+8. Selecione **Avançar** depois de adicionar as definições de configuração:
+
+    ![Microsoft Monitoring Agent configuração](media/quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)
+
+9. Na página **Pronto para Instalar**, reveja as suas opções e selecione **Instalar**.
+
+10. Na página **configuração concluída com êxito** , selecione **concluir**.
+
+Quando a instalação e a instalação forem concluídas, Microsoft Monitoring Agent aparecerá no painel de controle. Você pode examinar sua configuração e verificar se o agente está conectado ao espaço de trabalho Log Analytics. Quando conectado, na guia **log Analytics do Azure** , o agente exibe esta mensagem: **O Microsoft Monitoring Agent se conectou com êxito ao serviço de Log Analytics da Microsoft.**<br><br> ![Status da conexão do MMA](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 ## <a name="collect-event-and-performance-data"></a>Recolher dados de eventos e de desempenho
-Log Analytics pode recolher eventos que especifique do registo de eventos do Windows e contadores de desempenho para análises mais tempo do prazo e relatórios. Também pode demorar ação quando detetar uma determinada condição. Siga estes passos para configurar a recolha de eventos a partir do registo de eventos do Windows e de vários contadores de desempenho comuns para começar.  
 
-1. No canto inferior esquerdo do portal do Azure, selecione **mais serviços**. Na caixa de pesquisa, introduza **do Log Analytics**. À medida que escreve, os filtros de lista com base na sua entrada. Selecione **Log Analytics**.
-2. Selecione **definições avançadas**:
+Azure Monitor pode coletar eventos que você especificar no log de eventos do Windows e contadores de desempenho para análise e relatórios de longo prazo. Ele também pode tomar medidas quando detecta uma condição específica. Siga estes passos para configurar a recolha de eventos a partir do registo de eventos do Windows e de vários contadores de desempenho comuns para começar.  
 
-    ![Definições avançadas do log Analytics](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)
+1. No canto inferior esquerdo da portal do Azure, selecione **mais serviços**. Na caixa de pesquisa, digite **log Analytics**. Conforme você digita, a lista filtra com base em sua entrada. Selecione **log Analytics espaços de trabalho**.
+
+2. Selecione **Configurações avançadas**:
+
+    ![Log Analytics configurações avançadas](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
  
 3. Selecione **Dados** e, em seguida, selecione **Registos de Eventos do Windows**.  
-4. Adicione um registo de eventos ao introduzir o nome do registo. Introduza **System**e, em seguida, selecione o sinal de adição (**+**).  
-5. Na tabela, selecione o **erro** e **aviso** gravidades.
-6. Selecione **guardar** na parte superior da página.
-7. Selecione **contadores de desempenho do Windows** para ativar a recolha de contadores de desempenho num computador Windows.
-8. Quando configura pela primeira vez contadores de desempenho do Windows para uma nova área de trabalho do Log Analytics, é-lhe fornecido a opção para criar rapidamente vários contadores comuns. Cada opção está listada, com uma caixa de verificação junto ao mesmo:
+
+4. Você adiciona um log de eventos digitando o nome do log. Insira **sistema**e, em seguida, selecione o sinal **+** de adição ().  
+
+5. Na tabela, selecione as severidades de **erro** e **aviso** .
+
+6. Selecione **salvar** na parte superior da página.
+
+7. Selecione **contadores de desempenho do Windows** para habilitar a coleta de contadores de desempenho em um computador Windows.
+
+8. Ao configurar os contadores de desempenho do Windows pela primeira vez para um novo Log Analytics espaço de trabalho, você tem a opção de criar rapidamente vários contadores comuns. Cada opção é listada, com uma caixa de seleção ao lado dela:
 
     ![Contadores de desempenho do Windows](media/quick-collect-windows-computer/windows-perfcounters-default.png).
     
-    Selecione **adicionar os contadores de desempenho selecionados**. Os contadores são adicionados e predefinidos com um intervalo de amostra de recolha de dez segundo.
+    Selecione **adicionar os contadores de desempenho selecionados**. Os contadores são adicionados e predefinidos com um intervalo de amostra de coleção de dez segundos.
 
-9. Selecione **guardar** na parte superior da página.
+9. Selecione **salvar** na parte superior da página.
 
 ## <a name="view-collected-data"></a>Ver dados recolhidos
-Agora que ativou a recolha de dados, vamos executar uma pesquisa de registos simples para ver alguns dados do computador de destino.  
 
-1. No portal do Azure, na área de trabalho selecionada, selecione o **registos** mosaico.  
-2. Sobre o **pesquisa de registos** painel, na caixa de consulta, introduza **desempenho** e clique em **executar** no topo da caixa de consulta:
+Agora que você habilitou a coleta de dados, vamos executar uma pesquisa de log simples para ver alguns dados do computador de destino.  
+
+1. No espaço de trabalho selecionado, no painel esquerdo, selecione **logs**.
+
+2. Na página consulta de logs, digite `Perf` no editor de consultas e selecione **executar**.
  
-    ![Pesquisa de registos do log Analytics](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
+    ![Log Analytics pesquisa de log](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
 
-    Por exemplo, a consulta nesta imagem devolveu 735 registos de desempenho:
+    Por exemplo, a consulta nesta imagem retornou 10.000 registros de desempenho. Os resultados serão significativamente menos.
 
-    ![Resultado da pesquisa de registos do Log Analytics](media/quick-collect-windows-computer/log-analytics-search-perf.png)
+    ![Resultado da pesquisa de registos do Log Analytics](media/quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Pode remover o agente do computador e eliminar a área de trabalho do Log Analytics, se já não precisar deles.  
 
-Para remover o agente, conclua estes passos:
+Você pode remover o agente do seu computador e excluir o Log Analytics espaço de trabalho se não precisar mais deles.  
+
+Para remover o agente, conclua estas etapas:
 
 1. Abra o painel de controle.
+
 2. Abra **Programas e Funcionalidades**.
-3. Na **programas e funcionalidades**, selecione **Microsoft Monitoring Agent** e, em seguida, selecione **desinstalação**.
 
-Para eliminar a área de trabalho do Log Analytics que criou anteriormente, selecione-o e, na página de recursos, selecione **eliminar**:
+3. Em **programas e recursos**, selecione **Microsoft Monitoring Agent** e, em seguida, selecione **desinstalar**.
 
-![Eliminar área de trabalho de Log Analyticss](media/quick-collect-windows-computer/log-analytics-portal-delete-resource.png)
+Para excluir o espaço de trabalho Log Analytics criado anteriormente, selecione-o e, na página recurso, selecione **excluir**:
 
-## <a name="next-steps"></a>Passos Seguintes
-Agora que está a recolher operacionais e dados de desempenho do seu computador Windows, pode começar facilmente a explorar, analisar e atuar sobre os dados recolhidos, para *gratuita*.  
+![Eliminar área de trabalho de Log Analyticss](media/quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
-Para saber como ver e analisar os dados, avance para o tutorial:
+## <a name="next-steps"></a>Passos seguintes
+
+Agora que você está coletando dados operacionais e de desempenho do seu computador Windows, você pode começar a explorar, analisar e agir com facilidade nos dados coletados *gratuitamente*.  
+
+Para saber como exibir e analisar os dados, prossiga para o tutorial:
 
 > [!div class="nextstepaction"]
 > [Ver ou analisar dados no Log Analytics](tutorial-viewdata.md)

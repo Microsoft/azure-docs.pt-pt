@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 152e373f3a340a8abe3d8bc54d6515296d95efba
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 48161f56a8885239525587b764c4a116ffc8539f
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878321"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997738"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Início rápido: Use um modelo de funcionalidade de dispositivo para criar um dispositivo de Plug and Play de IoT e conectá-lo ao seu aplicativo IoT Central
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
-Um DCM ( _modelo de funcionalidade de dispositivo_ ) descreve os recursos de um dispositivo de [plug and Play IOT](https://aka.ms/iot-pnp-docs) . IoT Central pode usar um DCM para criar um modelo de dispositivo e visualizações para um dispositivo quando o dispositivo se conecta pela primeira vez. Este manual de início rápido mostra-lhe como:
+Um DCM ( _modelo de funcionalidade de dispositivo_ ) descreve os recursos de um dispositivo de [plug and Play IOT](../iot-pnp/overview-iot-plug-and-play.md) . IoT Central pode usar um DCM para criar um modelo de dispositivo e visualizações para um dispositivo quando o dispositivo se conecta pela primeira vez. Este manual de início rápido mostra-lhe como:
 
 * Use Visual Studio Code para criar um dispositivo IoT Plug and Play usando um DCM.
 * Execute o código do dispositivo no Windows e veja se ele se conecta ao seu aplicativo IoT Central.
@@ -193,7 +193,7 @@ Depois que o código do dispositivo se conectar ao seu IoT Central, você poder�
 
     ![Página modelos de dispositivo](./media/quick-create-pnp-device-pnp/device-template.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você aprendeu a conectar um dispositivo de Plug and Play IoT que foi gerado de um DCM no repositório de modelo público.
 

@@ -110,6 +110,19 @@
           href: tutorial-deploy-ssis-packages-azure.md
         - name: Azure PowerShell
           href: tutorial-deploy-ssis-packages-azure-powershell.md
+    - name: Carregar o Armazenamento do Data Lake Ger2
+      href: load-azure-data-lake-storage-gen2.md
+      items:
+        - name: Copiar a partir do Data Lake Storage Ger1
+          href: load-azure-data-lake-storage-gen2-from-gen1.md
+    - name: Carregar SQL Data Warehouse
+      href: load-azure-sql-data-warehouse.md
+    - name: Carregar o Armazenamento do Data Lake Ger1
+      href: load-azure-data-lake-store.md
+    - name: Carregar dados do SAP BW
+      href: load-sap-bw-data.md
+    - name: Carregar dados do Office 365
+      href: load-office-365-data.md
 - name: Amostras
   items:
     - name: Exemplos de código
@@ -358,29 +371,14 @@
           href: delete-activity.md
         - name: Ferramenta Copiar Dados
           href: copy-data-tool.md
-        - name: Carregar o Armazenamento do Data Lake Ger2
-          href: load-azure-data-lake-storage-gen2.md
-          items:
-            - name: Copiar a partir do Data Lake Storage Ger1
-              href: load-azure-data-lake-storage-gen2-from-gen1.md
-        - name: Carregar SQL Data Warehouse
-          href: load-azure-sql-data-warehouse.md
-        - name: Carregar o Armazenamento do Data Lake Ger1
-          href: load-azure-data-lake-store.md
-        - name: Carregar dados do SAP BW
-          href: load-sap-bw-data.md
-        - name: Carregar dados do Office 365
-          href: load-office-365-data.md
-        - name: Ler ou escrever dados particionados
-          href: how-to-read-write-partitioned-data.md
+        - name: Desempenho e otimização
+          href: copy-activity-performance.md
         - name: Suporte de formato e compressão
           href: supported-file-formats-and-compression-codecs.md
         - name: Mapeamento de esquemas e tips
           href: copy-activity-schema-and-type-mapping.md
         - name: Tolerância a falhas
           href: copy-activity-fault-tolerance.md
-        - name: Desempenho e otimização
-          href: copy-activity-performance.md
     - name: Transformar dados
       href: transform-data.md
       items:

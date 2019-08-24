@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 04/17/2018
+ms.date: 08/23/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 38d353541b233f3cd9466e8dcf6c2b84083bd859
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 6c198b6d5e9ecfed3f36ddc3be831af85a913ca5
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515790"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995844"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Referência rápida do Azure SQL Data Warehouse
 Esta referência rápida disponibiliza sugestões e melhores práticas úteis para criar as suas soluções do Azure SQL Data Warehouse. Antes de começar, saiba mais sobre cada passo detalhadamente em [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Padrões e Antipadrões de Cargas de Trabalho do Azure SQL Data Warehouse), que explica do que se trata e não se trata o SQL Data Warehouse.
@@ -41,7 +41,7 @@ Em primeiro lugar, carregue os dados para o [Azure Data Lake Store](https://docs
 |:--- |:--- |
 | Distribuição | Round Robin |
 | Indexação | Área dinâmica para dados |
-| Criação de partições | Nenhuma |
+| Criação de partições | Nenhum |
 | Classe de Recursos | largerc ou xlargerc |
 
 Saiba mais sobre a [migração de dados], o [carregamento de dados] e o [processo de Extração, Carregamento e Transformação (ELT)](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading). 
@@ -96,9 +96,11 @@ Saiba mais sobre as [partições].
 
 ## <a name="incremental-load"></a>Carregamento incremental
 
-Se pretender carregar os seus dados de forma incremental, comece por garantir que aloca mais classes de recursos ao carregamento. Recomendamos utilizar o PolyBase e o ADF V2 para automatizar os seus pipelines de ELT no SQL Data Warehouse.
+Se pretender carregar os seus dados de forma incremental, comece por garantir que aloca mais classes de recursos ao carregamento.  Isso é particularmente importante ao carregar em tabelas com índices columnstore clusterizados.  Consulte [classes de recurso](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) para obter mais detalhes.  
 
-Para lotes grandes de atualizações nos seus dados históricos, elimine primeiro os dados em causa. Em seguida, insira os dados novos em massa. Esta abordagem de dois passos é mais eficiente.
+Recomendamos utilizar o PolyBase e o ADF V2 para automatizar os seus pipelines de ELT no SQL Data Warehouse.
+
+Para um grande lote de atualizações em seus dados históricos, considere usar um [CTAS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) para gravar os dados que você deseja manter em uma tabela em vez de usar INSERT, Update e Delete.
 
 ## <a name="maintain-statistics"></a>Manter as estatísticas
  Enquanto as estatísticas automáticas não estiverem em disponibilidade geral, a manutenção de estatísticas no SQL Data Warehouse tem de ser feita manualmente. É importante atualizar as estatísticas à medida que ocorrem alterações *significativas* nos seus dados. As atualizações ajudam a otimizar os planos de consultas. Se achar que manter todas as estatísticas demora muito tempo, seja mais seletivo quanto às colunas que as têm. 
@@ -157,7 +159,7 @@ Implemente com um clique os seus raios nas bases de dados SQL a partir do SQL Da
 <!--Other Web references-->
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[migração de dados]:https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
+[migração de dados]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 [Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
 [sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql

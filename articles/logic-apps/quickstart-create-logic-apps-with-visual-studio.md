@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 04/25/2019
-ms.openlocfilehash: 51d1af24a22f7ed86b01b1c7c79b204cd552a7ea
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 29ad95e33381aa03dc647e077cea56022f35a8db
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385400"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982846"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início rápido: Criar tarefas, processos e fluxos de trabalho automatizados com aplicativos lógicos do Azure-Visual Studio
 
@@ -82,6 +82,8 @@ Para começar, crie um [Projeto do Grupo de Recursos do Azure](../azure-resource
    ![Criar projeto do Grupo de Recursos do Azure](./media/quickstart-create-logic-apps-with-visual-studio/create-azure-cloud-service-project.png)
 
    > [!NOTE]
+   > Os nomes dos grupos de recursos podem conter apenas letras, números`.`, pontos (), sublinhados (`_`),`-`hifens () e parênteses `)`(`(`,), mas não podem terminar`.`com pontos ().
+   >
    > Se a **nuvem** ou o **grupo de recursos do Azure** não aparecer, certifique-se de instalar o SDK do Azure para Visual Studio.
 
    Se você estiver usando o Visual Studio 2019, siga estas etapas:
@@ -119,7 +121,7 @@ Quando você tiver seu projeto de grupo de recursos do Azure, crie seu aplicativ
    | Definição | Valor de exemplo | Descrição |
    | ------- | ------------- | ----------- |
    | Lista do perfil de utilizador | Contoso <br> jamalhartnett@contoso.com | Por predefinição, a conta que utilizou para iniciar sessão |
-   | **Subscrição** | Pay As You Go <br> (jamalhartnett@contoso.com) | O nome da sua subscrição do Azure e a conta associada |
+   | **Subscrição** | "Pay As You Go" <br> (jamalhartnett@contoso.com) | O nome da sua subscrição do Azure e a conta associada |
    | **Grupo de Recursos** | MyLogicApp-RG <br> (E.U.A. Oeste) | O grupo de recursos do Azure e o local para armazenar e implantar os recursos do aplicativo lógico |
    | **Location** | MyLogicApp-RG2 <br> (E.U.A. Oeste) | Uma localização diferente, se não quiser utilizar a localização do grupo de recursos |
    ||||

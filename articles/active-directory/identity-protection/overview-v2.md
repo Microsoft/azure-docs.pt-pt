@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2987f8fb116bfcbb1698335c3aca6f1fd8eb633e
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: f2f7e26e2f32ba02db9afc0676a99003717ff585
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717293"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991084"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>O que é Azure Active Directory Identity Protection (atualizado)?
 
@@ -49,19 +49,19 @@ Azure AD Identity Protection detecta os seguintes eventos de risco:
 | Tipo de evento de risco | Descrição | Tipo de deteção |
 | --- | --- | --- |
 | Percurso atípico | Entre em um local atípicos com base nas entradas recentes do usuário. | Offline |
-| Endereços IP anónimos | Entre em um endereço IP anônimo (por exemplo: Tor browser, Anonymizer VPNs). | Em tempo real |
-| Propriedades de início de sessão não familiar | Entre com propriedades que não vimos recentemente para o usuário determinado. | Em tempo real |
+| Endereços IP anónimos | Entre em um endereço IP anônimo (por exemplo: Tor browser, Anonymizer VPNs). | Tempo real |
+| Propriedades de entrada desconhecidas | Entre com propriedades que não vimos recentemente para o usuário determinado. | Tempo real |
 | Endereço IP ligado a software maligno | Entrar de um endereço IP vinculado por malware | Offline |
-| Credenciais vazadas | Este evento de risco indica que houve uma fuga das credenciais válidas do utilizador | Offline |
+| Credenciais vazadas | Esse evento de risco indica que as credenciais válidas do usuário foram vazadas | Offline |
 
 ## <a name="types-of-risk"></a>Tipos de risco 
 
 A proteção de identidade baseia-se em dois tipos de risco:
 
-- Risco de início de sessão
+- Risco de entrada
 - Risco de utilizador
 
-### <a name="sign-in-risk"></a>Risco de início de sessão
+### <a name="sign-in-risk"></a>Risco de entrada
 
 Um risco de entrada representa a probabilidade de que uma determinada solicitação de autenticação não seja autorizada pelo proprietário da identidade.
 
@@ -79,7 +79,7 @@ Um risco de usuário representa a probabilidade de que uma determinada identidad
 
 O risco do usuário é calculado Considerando todos os riscos associados ao usuário:
 
-- Todos os inícios de sessão de risco
+- Todas as entradas arriscadas
 - Todos os eventos de risco não vinculados a uma entrada
 - O risco do usuário atual
 - Qualquer correção de risco ou ações de descarte executadas na data do usuário até o momento
@@ -145,13 +145,17 @@ Para obter mais informações, consulte [atribuindo funções de administrador n
 >[!NOTE]
 > Durante a visualização pública da proteção de identidade (atualizada), somente os clientes Azure AD Premium P2 terão acesso ao relatório de usuários arriscados e de entradas arriscadas.
 
-| Funcionalidade | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/gratuito |
-| --- | --- | --- | --- |
-| Política de risco de utilizador | Sim | Não | Não |
-| Política de risco de início de sessão | Sim | Não | Não |
-| Relatório dos utilizadores de risco | Acesso total | Informações limitadas | Informações limitadas |
-| Relatório de inícios de sessão de risco | Acesso completo | Informações limitadas | Informações limitadas |
-| Política de registo MFA | Sim | Não | Não |
+| Funcionalidade | Detalhes | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/gratuito |
+| --- | --- | --- | --- | --- |
+| Políticas de risco | Política de risco do usuário (por meio da proteção de identidade) | Sim | Não | Não |
+| Políticas de risco | Política de risco de entrada (por meio da proteção de identidade ou acesso condicional) | Sim | Não | Não |
+| Relatórios de segurança | Descrição geral | Sim | Não | Não |
+| Relatórios de segurança | Usuários arriscados | Acesso total | Informações limitadas | Informações limitadas |
+| Relatórios de segurança | Inícios de sessão de risco | Acesso total | Informações limitadas | Informações limitadas |
+| Relatórios de segurança | Detecções de risco | Acesso total | Informações limitadas | Não |
+| Notificações | Alertas de usuários em risco detectados | Sim | Não | Não |
+| Notificações | Resumo semanal | Sim | Não | Não |
+| | Política de registo MFA | Sim | Não | Não |
 
 ## <a name="next-steps"></a>Passos Seguintes 
 

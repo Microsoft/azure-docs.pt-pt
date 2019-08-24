@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 3dea4dfc58bf087b8f6bc0a3f45646da5cb597ad
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: de2dc5068dc454925744688a43f49a855aac42f3
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847223"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991836"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
 
@@ -64,7 +64,7 @@ Seguem-se as entidades equivalentes, conforme descrito pelo conceitos diferentes
 | Conceito                                | Organização de nível superior | Organização de nível inferior                                            | Contentor de dados |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | BLOBs – armazenamento de objetos de fins gerais | Contentor              | Diretório virtual (SDK apenas – não fornece manipulação atômica) | Blobs           |
-| ADLS Gen2 – análise de armazenamento          | Sistema de ficheiros             | Diretório                                                           | Ficheiro           |
+| ADLS Gen2 – análise de armazenamento          | Contentor            | Diretório                                                           | Ficheiro           |
 
 ## <a name="supported-open-source-platforms"></a>Código-fonte aberto plataformas suportadas
 
@@ -81,7 +81,7 @@ Várias plataformas de código-fonte aberto suportam a geração 2 de armazename
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1 + | [Versões de Runtime do Databricks](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
 |[Hortonworks](https://hortonworks.com/)| 3.1. x + + | [Configurando o acesso a dados na nuvem](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Os seguintes artigos descrevem alguns dos principais conceitos de geração 2 de armazenamento do Data Lake e detalhes como armazenar, acessar, gerir e obter informações a partir dos seus dados:
 

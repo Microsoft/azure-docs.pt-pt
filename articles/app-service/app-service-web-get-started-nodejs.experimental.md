@@ -1,5 +1,5 @@
 ---
-title: Criar aplicação web do node. js - serviço de aplicações do Azure | Documentos da Microsoft
+title: Criar aplicativo Web node. js-serviço de Azure App | Microsoft Docs
 description: Implemente em minutos o seu primeiro Node.js Hello World nas aplicações Web do serviço de aplicações do Azure.
 services: app-service\web
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 08/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 237f498d1ebe2b402c86f1a4aed66a7ed443ccfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f70699c104f2649969159c3cf4a5c5564c11692e
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66139277"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996887"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar uma aplicação Web Node.js no Azure
 
@@ -28,11 +28,11 @@ ms.locfileid: "66139277"
 > Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implementar um Serviço de Aplicações no _Linux_, consulte [Criar uma aplicação Web Node.js no Serviço de Aplicações do Azure no Linux](./containers/quickstart-nodejs.md).
 >
 
-O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este guia de introdução mostra como implementar uma aplicação de node. js no App Service do Azure. Criar a aplicação web com o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), mas também pode executar estes comandos localmente com [CLI do Azure](/cli/azure/install-azure-cli). Implementar o código de node. js de exemplo para a aplicação web com o [az webapp config origem de implementação de software-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) comando.  
+O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este guia de início rápido mostra como implantar um aplicativo node. js no serviço Azure App. Você cria o aplicativo Web usando o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), mas também pode executar esses comandos localmente com [CLI do Azure](/cli/azure/install-azure-cli). Implante o código node. js de exemplo no aplicativo Web usando o comando [AZ webapp Deployment Source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) .  
 
 ![Aplicação de exemplo em execução no Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-Pode seguir os passos aqui indicados num computador Mac, Windows ou Linux. Demora cerca de três minutos para concluir os passos.
+Pode seguir os passos aqui indicados num computador Mac, Windows ou Linux. Leva cerca de três minutos para concluir as etapas.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,7 +45,7 @@ No Cloud Shell, crie um diretório de início rápido e, em seguida, altere-o.
 ```azurecli-interactive
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 Em seguida, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu diretório de início rápido.
@@ -65,7 +65,7 @@ Checking connectivity... done.
 ```
 
 > [!NOTE]
-> O exemplo Index define a porta de escuta para process.env.PORT. Esta variável de ambiente é atribuído pelo serviço de aplicações.
+> O índice. js de exemplo define a porta de escuta como Process. env. PORT. Essa variável de ambiente é atribuída pelo serviço de aplicativo.
 >
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-scus.md)]
@@ -101,7 +101,7 @@ Quando a aplicação Web tiver sido criada, a CLI do Azure mostra informações 
 
 ### <a name="set-nodejs-runtime"></a>Definir o runtime do Node.js
 
-Defina o tempo de execução do nó para 10.14.1. Para ver todos os runtimes suportados, execute [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
+Defina o tempo de execução do nó como 10.14.1. Para ver todos os runtimes suportados, execute [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
 
 ```azurecli-interactive
 # Bash and Powershell
@@ -114,11 +114,11 @@ Navegue para a sua aplicação Web recentemente criada. Substitua `<app_name>` c
 http://<app_name>.azurewebsites.net
 ```
 
-A aplicação Web deve ter o seguinte aspeto: ![Página da aplicação web vazia](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
+A aplicação Web deve ter o seguinte aspeto: ![Página de aplicativo Web vazia](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
 ## <a name="deploy-zip-file"></a>Implementar o ficheiro ZIP
 
-No Cloud Shell, navegue até ao diretório de raiz da sua aplicação, crie um novo ficheiro ZIP para o seu projeto de exemplo.
+No Cloud Shell, navegue até o diretório raiz do seu aplicativo, crie um novo arquivo ZIP para seu projeto de exemplo.
 
 ```azurecli-interactive
 cd nodejs-docs-hello-world  
@@ -126,13 +126,13 @@ cd nodejs-docs-hello-world
 zip -r myUpdatedAppFiles.zip *.*
 ```
 
-Implementar o ficheiro ZIP para a sua aplicação web com o [az webapp config origem de implementação de software-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) comando.  
+Implante o arquivo ZIP em seu aplicativo Web usando o comando [AZ webapp Deployment Source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) .  
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src myUpdatedAppFiles.zip
 ```
 
-Este comando implementa os ficheiros e os diretórios do ficheiro ZIP na pasta de aplicações do Serviço de Aplicações predefinido (`\home\site\wwwroot`) e reinicia a aplicação. Se estiver configurado qualquer processo de compilação personalizado adicional, este é executado corretamente. Para obter mais informações, consulte [documentação de Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
+Este comando implementa os ficheiros e os diretórios do ficheiro ZIP na pasta de aplicações do Serviço de Aplicações predefinido (`\home\site\wwwroot`) e reinicia a aplicação. Se estiver configurado qualquer processo de compilação personalizado adicional, este é executado corretamente. Para obter mais informações, consulte a [documentação do kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
 ## <a name="browse-to-the-app"></a>Navegar para a aplicação
 
@@ -153,9 +153,9 @@ O código Node.js de exemplo está em execução numa aplicação Web do serviç
 
 ## <a name="update-and-redeploy-the-code"></a>Atualizar e voltar a implementar o código
 
-No Cloud Shell, escreva `code index.js` para abrir o editor do Cloud Shell.
+Na Cloud Shell, digite `code index.js` para abrir o editor de Cloud Shell.
 
-![Index de código](media/app-service-web-get-started-nodejs-poc/code-indexjs.png)
+![Índice de código. js](media/app-service-web-get-started-nodejs-poc/code-indexjs.png)
 
 Faça uma pequena alteração no texto da chamada de `response.end`:
 
@@ -163,9 +163,9 @@ Faça uma pequena alteração no texto da chamada de `response.end`:
 response.end("Hello Azure!");
 ```
 
-Guardar as alterações e sair do editor. Utilize o comando `^S` para guardar e `^Q` para sair.
+Salve as alterações e saia do editor. Utilize o comando `^S` para guardar e `^Q` para sair.
 
-Criar um ficheiro ZIP e implementá-lo utilizando o [az webapp config origem de implementação de software-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) comando.  
+Crie um arquivo ZIP e implante-o usando o comando [AZ webapp Deployment Source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) .  
 
 ```azurecli-interactive
 # Bash
@@ -178,11 +178,11 @@ Volte para a janela do browser aberta que abriu no passo **Navegar para a aplica
 
 ![Aplicação de exemplo atualizada em execução no Azure](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-app"></a>Gerir a sua nova aplicação do Azure
+## <a name="manage-your-new-azure-app"></a>Gerenciar seu novo aplicativo do Azure
 
 Aceda ao <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerir a aplicação Web que criou.
 
-No menu à esquerda, clique em **dos serviços de aplicações**e, em seguida, clique no nome da sua aplicação do Azure.
+No menu à esquerda, clique em **serviços de aplicativos**e, em seguida, clique no nome do seu aplicativo do Azure.
 
 ![Navegação do portal para a aplicação do Azure](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
@@ -194,7 +194,7 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Node.js com MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)

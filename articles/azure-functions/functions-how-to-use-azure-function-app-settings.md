@@ -1,130 +1,128 @@
 ---
-title: Configurar definições da aplicação de função do Azure | Documentos da Microsoft
-description: Saiba como configurar as definições de aplicação de função do Azure.
-services: ''
-documentationcenter: .net
+title: Definir configurações de Aplicativo de funções do Azure | Microsoft Docs
+description: Saiba como definir as configurações do aplicativo de funções do Azure.
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27e56c3bcaa08fee25c362cdfed64c61b92873cb
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957385"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982647"
 ---
-# <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Como gerir uma aplicação de funções no portal do Azure 
+# <a name="how-to-manage-a-function-app"></a>Como gerenciar um aplicativo de funções
 
-Nas funções do Azure, uma aplicação de funções fornece o contexto de execução para as suas funções individuais. Comportamentos da aplicação de função aplicam-se a todas as funções alojadas por uma aplicação de função especificada. Este tópico descreve como configurar e gerir as suas aplicações de função no portal do Azure.
+No Azure Functions, um aplicativo de funções fornece o contexto de execução para suas funções individuais. Os comportamentos do aplicativo de funções se aplicam a todas as funções hospedadas por um determinado aplicativo de funções. Este tópico descreve como configurar e gerenciar seus aplicativos de funções no portal do Azure.
 
-Para começar, vá para o [portal do Azure](https://portal.azure.com) e inicie sessão na sua conta do Azure. Na barra de pesquisa na parte superior do portal, escreva o nome da sua aplicação de função e selecione-a na lista. Depois de selecionar a sua aplicação function app, verá a página seguinte:
+Para começar, acesse a [portal do Azure](https://portal.azure.com) e entre em sua conta do Azure. Na barra de pesquisa na parte superior do portal, escreva o nome da sua aplicação de função e selecione-a na lista. Depois de selecionar seu aplicativo de funções, você verá a seguinte página:
 
-![Descrição geral da aplicação de função no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+![Visão geral do aplicativo de funções no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-Pode navegar para todo o necessário para gerir a sua aplicação de função em particular na página Descrição geral, o **[definições da aplicação](#settings)** e **[defuncionalidadesdeplataforma](#platform-features)** .
+Você pode navegar até tudo o que precisa para gerenciar seu aplicativo de funções na página Visão geral, em particular as **[configurações do aplicativo](#settings)** e os **[recursos da plataforma](#platform-features)** .
 
-## <a name="settings"></a>Definições da aplicação
+## <a name="settings"></a>Configurações do aplicativo
 
-O **as definições da aplicação** separador mantém as definições que são utilizadas pela sua aplicação de função.
+A guia **configurações do aplicativo** mantém as configurações que são usadas pelo seu aplicativo de funções.
 
-![Definições da aplicação de funções no portal do Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+![Configurações do aplicativo de funções no portal do Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-Estas definições são armazenadas de forma encriptada e tem de selecionar **Mostrar valores** para ver os valores no portal.
+Essas configurações são armazenadas criptografadas e você deve selecionar **Mostrar valores** para ver os valores no Portal.
 
-Para adicionar uma definição, selecione **nova definição de aplicação** e adicione o novo par de chave-valor.
+Para adicionar uma configuração, selecione **nova configuração de aplicativo** e adicione o novo par chave-valor.
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-Ao desenvolver uma aplicação de funções localmente, estes valores são mantidos no arquivo de projeto Settings.
+Quando você desenvolve um aplicativo de funções localmente, esses valores são mantidos no arquivo de projeto local. Settings. JSON.
 
 ## <a name="platform-features"></a>Funcionalidades de plataforma
 
-![Guia de funcionalidades de plataforma de aplicação de função.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
+![Guia recursos da plataforma do aplicativo de funções.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
-Aplicações de funções executados em e são mantidas pela plataforma do App Service do Azure. Como tal, as suas aplicações de função tem acesso à maioria dos recursos da plataforma de alojamento de web do núcleo do Azure. O **funcionalidades de plataforma** guia é onde acessar as várias funcionalidades da plataforma do serviço de aplicações que pode utilizar nas suas aplicações de função. 
+Os aplicativos de funções são executados no e são mantidos pela plataforma de serviço Azure App. Assim, seus aplicativos de funções têm acesso à maioria dos recursos da plataforma principal de hospedagem na Web do Azure. A guia **recursos da plataforma** é onde você acessa os vários recursos da plataforma do serviço de aplicativo que você pode usar em seus aplicativos de funções. 
 
 > [!NOTE]
-> Nem todas as funcionalidades do serviço de aplicações estão disponíveis quando uma aplicação de função é executada no consumo plano de alojamento.
+> Nem todos os recursos do serviço de aplicativo estão disponíveis quando um aplicativo de funções é executado no plano de Hospedagem de consumo.
 
-O resto deste tópico concentra-se as seguintes funcionalidades de serviço de aplicações no portal do Azure, que são úteis para as funções:
+O restante deste tópico se concentra nos seguintes recursos do serviço de aplicativo no portal do Azure que são úteis para as funções do:
 
-+ [Editor do serviço de aplicações](#editor)
++ [Editor do serviço de aplicativo](#editor)
 + [Console](#console)
-+ [Ferramentas Avançadas (Kudu)](#kudu)
-+ [Opções de implementação](#deployment)
++ [Ferramentas avançadas (kudu)](#kudu)
++ [Opções de implantação](#deployment)
 + [CORS](#cors)
 + [Autenticação](#auth)
 + [Definição de API](#swagger)
 
-Para obter mais informações sobre como trabalhar com definições de serviço de aplicações, consulte [configurar definições de serviço de aplicações do Azure](../app-service/configure-common.md).
+Para obter mais informações sobre como trabalhar com as configurações do serviço de aplicativo, consulte [definir configurações de serviço Azure app](../app-service/configure-common.md).
 
-### <a name="editor"></a>Editor do serviço de aplicações
-
-| | |
-|-|-|
-| ![Aplicação de função de editor do serviço de aplicações.](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | O editor do serviço de aplicações é um editor no portal avançado que pode utilizar para modificar ficheiros de configuração JSON e arquivos de código semelhantes. Escolher esta opção inicia um separador do browser separado com um editor básico. Isto permite-lhe integrar com o repositório de Git, executar e depurar o código e modificar as definições de aplicação de função. Este editor fornece um ambiente de desenvolvimento avançado para as suas funções em comparação com o painel de aplicação de função predefinido.    |
-
-![O editor do serviço de aplicações](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
-
-### <a name="console"></a>Console
+### <a name="editor"></a>Editor do Serviço de Aplicativo
 
 | | |
 |-|-|
-| ![Consola de aplicação de função no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-console.png) | A consola de dentro do portal é uma ferramenta de desenvolvimento ideal quando preferir interagir com a sua aplicação de função na linha de comando. Comandos comuns incluem o diretório e criação de ficheiros e navegação, bem como executar scripts e arquivos em lote. |
+| ![Editor do serviço de aplicativo do aplicativo de funções.](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | O editor do serviço de aplicativo é um editor avançado no portal que você pode usar para modificar arquivos de configuração JSON e arquivos de código da mesma forma. A escolha dessa opção inicia uma guia separada do navegador com um editor básico. Isso permite que você integre com o repositório git, execute e depure o código e modifique as configurações do aplicativo de funções. Esse editor fornece um ambiente de desenvolvimento aprimorado para suas funções comparadas com a folha do aplicativo de funções padrão.    |
 
-![Consola de aplicação de função](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
+![O editor do serviço de aplicativo](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-### <a name="kudu"></a>Ferramentas Avançadas (Kudu)
-
-| | |
-|-|-|
-| ![Aplicação de funções Kudu no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | As ferramentas avançadas para o serviço de aplicações (também conhecido como Kudu) fornecem acesso a funcionalidades administrativas avançadas da sua aplicação de função. Do Kudu, a gerenciar informações do sistema, as definições da aplicação, as variáveis de ambiente, as extensões de site, cabeçalhos HTTP e variáveis de servidor. Também pode iniciar **Kudu** ao navegar para o ponto de final do SCM para a sua aplicação de função, como `https://<myfunctionapp>.scm.azurewebsites.net/` |
-
-![Configurar o Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
-
-
-### <a name="a-namedeploymentdeployment-options"></a><a name="deployment">Opções de implementação
+### <a name="console"></a>MMC
 
 | | |
 |-|-|
-| ![Opções de implementação de aplicação de função no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | As funções permitem desenvolver o código de função no seu computador local. Em seguida, pode carregar seu projeto de aplicação de função local para o Azure. Para além da tradicional de carregamento FTP, as funções permite-lhe implementar a sua aplicação de função usando soluções de integração contínua populares, como o GitHub, do Azure DevOps, Dropbox, Bitbucket e outros. Para obter mais informações, consulte [implementação contínua para funções do Azure](functions-continuous-deployment.md). Para carregar manualmente através de FTP ou local Git, terá também [configurar as credenciais de implementação](functions-continuous-deployment.md#credentials). |
+| ![Console do aplicativo de funções no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-console.png) | O console no portal é uma ferramenta de desenvolvedor ideal quando você prefere interagir com seu aplicativo de funções na linha de comando. Os comandos comuns incluem criação e navegação de diretório e arquivo, bem como a execução de scripts e arquivos em lotes. |
+
+![Console do aplicativo de funções](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
+
+### <a name="kudu"></a>Ferramentas avançadas (kudu)
+
+| | |
+|-|-|
+| ![Kudu de aplicativo de funções no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | As ferramentas avançadas para o serviço de aplicativo (também conhecido como kudu) fornecem acesso a recursos administrativos avançados do seu aplicativo de funções. Em kudu, você gerencia informações do sistema, configurações do aplicativo, variáveis de ambiente, extensões de site, cabeçalhos HTTP e variáveis de servidor. Você também pode iniciar o **kudu** navegando até o ponto de extremidade do SCM para seu aplicativo de funções, como`https://<myfunctionapp>.scm.azurewebsites.net/` |
+
+![Configurar o kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
+
+
+### <a name="a-namedeploymentdeployment-options"></a><a name="deployment">Opções de implantação
+
+| | |
+|-|-|
+| ![Opções de implantação de aplicativo de funções no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | O Functions permite que você desenvolva seu código de função em seu computador local. Em seguida, você pode carregar seu projeto de aplicativo de função local no Azure. Além do carregamento de FTP tradicional, o Functions permite que você implante seu aplicativo de funções usando soluções de integração contínua populares, como GitHub, Azure DevOps, Dropbox, bitbucket e outros. Para obter mais informações, consulte [implantação contínua para Azure Functions](functions-continuous-deployment.md). Para carregar manualmente usando FTP ou git local, você também deve [configurar suas credenciais de implantação](functions-continuous-deployment.md#credentials). |
 
 
 ### <a name="cors"></a>CORS
 
 | | |
 |-|-|
-| ![Aplicação de funções CORS no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | Para impedir a execução de código mal-intencionado nos seus serviços, o serviço de aplicações bloqueia chamadas às suas aplicações de função de fontes externas. As funções suportam os recursos de várias origens (CORS) para permitem-lhe definir uma "lista aprovada" de origens permitidas a partir do qual as suas funções podem aceitar pedidos remotos de partilha.  |
+| ![CORS do aplicativo de funções no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | Para evitar a execução de código mal-intencionado em seus serviços, o serviço de aplicativo bloqueia chamadas para seus aplicativos de funções de fontes externas. As funções suportam os recursos de várias origens (CORS) para permitem-lhe definir uma "lista aprovada" de origens permitidas a partir do qual as suas funções podem aceitar pedidos remotos de partilha.  |
 
-![Configurar a aplicação de funções CORS](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
+![Configurar CORS do Aplicativo de funções](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
-### <a name="auth"></a>Autenticação
+### <a name="auth"></a>Authentication
 
 | | |
 |-|-|
-| ![Autenticação de aplicação de função no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | Quando as funções utilizam um acionador HTTP, pode exigir a chamadas para ser autenticada pela primeira vez. Serviço de aplicações suporta a autenticação do Azure Active Directory e inicie sessão com fornecedores de redes sociais, como o Facebook, Microsoft e Twitter. Para obter detalhes sobre como configurar fornecedores de autenticação específicos, consulte [descrição geral da autenticação do serviço de aplicações do Azure](../app-service/overview-authentication-authorization.md). |
+| ![Autenticação do aplicativo de funções no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | Quando as funções usam um gatilho HTTP, você pode exigir que as chamadas sejam autenticadas primeiro. O serviço de aplicativo dá suporte à autenticação Azure Active Directory e a entrar com provedores sociais, como Facebook, Microsoft e Twitter. Para obter detalhes sobre como configurar provedores de autenticação específicos, consulte [Azure app visão geral da autenticação do serviço](../app-service/overview-authentication-authorization.md). |
 
-![Configurar a autenticação para uma aplicação de funções](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
+![Configurar a autenticação para um aplicativo de funções](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
 
 ### <a name="swagger"></a>Definição de API
 
 | | |
 |-|-|
-| ![A definição no portal do Azure de swagger da API de aplicação de função](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | As funções suportam Swagger para permitir aos clientes consumir mais facilmente suas funções acionada por HTTP. Para obter mais informações sobre como criar definições de API com Swagger, visite [alojar uma API RESTful com CORS no App Service do Azure](../app-service/app-service-web-tutorial-rest-api.md). Também pode utilizar os Proxies de funções para definir uma única superfície de API para várias funções. Para obter mais informações, consulte [trabalhar com os Proxies de funções do Azure](functions-proxies.md). |
+| ![Definição de Swagger de API de aplicativo de função no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | O Functions oferece suporte ao Swagger para permitir que os clientes consumam com mais facilidade suas funções disparadas por HTTP. Para obter mais informações sobre como criar definições de API com o Swagger, visite [hospedar uma API RESTful com CORS no serviço Azure app](../app-service/app-service-web-tutorial-rest-api.md). Você também pode usar os proxies do Functions para definir uma única superfície de API para várias funções. Para obter mais informações, consulte [trabalhando com proxies do Azure Functions](functions-proxies.md). |
 
-![Configurar API da aplicação de função](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
+![Configurar a API do Aplicativo de funções](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-+ [Configurar as definições do serviço de aplicações do Azure](../app-service/configure-common.md)
++ [Definir configurações de serviço de Azure App](../app-service/configure-common.md)
 + [Implementação contínua para Funções do Azure](functions-continuous-deployment.md)
 
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
-ms.openlocfilehash: 2f39678e9fa0ed665863a94767240e2e37eace39
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
-ms.translationtype: HT
+ms.openlocfilehash: f0d63b9e01b7e39b03e6a3b1e310b5fae0f8d25f
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906108"
+ms.locfileid: "69982853"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Início rápido: Crie seu primeiro fluxo de trabalho automatizado com os aplicativos lógicos do Azure-portal do Azure
 
@@ -43,7 +43,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais
 
    | Propriedade | Value | Descrição |
    |----------|-------|-------------|
-   | **Name** | <*logic-app-name*> | O nome do aplicativo lógico, que pode conter apenas letras, números ou os `-` `.` caracteres `(`, `)`, `_`,,. Este exemplo usa "My-First-Logic-app". |
+   | **Name** | <*logic-app-name*> | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens`-`(), sublinhados`_`(), parênteses`(`( `)`,) e pontos (`.`). Este exemplo usa "My-First-Logic-app". |
    | **Subscrição** | <*Azure-subscription-name*> | O nome da sua assinatura do Azure |
    | **Grupo de recursos** | <*Azure-resource-group-name*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar os recursos relacionados. Este exemplo usa "My-First-LA-RG". |
    | **Location** | <*Azure-região*> | A região onde armazenar as informações do aplicativo lógico. Este exemplo usa "oeste dos EUA". |
@@ -180,7 +180,7 @@ Quando já não precisar deste exemplo, elimine o grupo de recursos que contém 
 
 Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, criou a sua primeira aplicação lógica que verifica a existência de atualizações RSS com base no seu agendamento especificado (a cada minuto) e realiza uma ação (envia e-mail) quando existem atualizações. Para saber mais, continue com este tutorial que cria fluxos de trabalho mais avançados com base num agendamento:
 

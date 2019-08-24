@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 1a6f73841550c64e93fa09fe0a1b033f840c9752
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
-ms.translationtype: HT
+ms.openlocfilehash: 7cd278143ffe482cb51f76b1019413e97a777a3a
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971373"
+ms.locfileid: "69981821"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: Automatizar compilações de imagem de contêiner quando uma imagem base é atualizada em um registro de contêiner do Azure 
 
@@ -82,7 +82,7 @@ Quando uma imagem de base é atualizada, será necessário recompilar todas as i
 
 * Para habilitar uma tarefa ACR para determinar e acompanhar as dependências de uma imagem de contêiner, que incluem sua imagem base, você deve primeiro disparar a tarefa **pelo menos uma vez**. Por exemplo, dispare a tarefa manualmente usando o comando [AZ ACR Task execute][az-acr-task-run] .
 
-* Para disparar uma tarefa na atualização da imagem base, a imagem base deve ter uma marca *estável* , como `node:9-alpine`. Essa marcação é típica para uma imagem de base que é atualizada com OS patches do sistema operacional e da estrutura para uma versão estável mais recente. Se a imagem base for atualizada com uma nova marca de versão, ela não disparará uma tarefa. Para obter mais informações sobre a marcação de imagem, consulte as [diretrizes de práticas recomendadas](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/). 
+* Para disparar uma tarefa na atualização da imagem base, a imagem base deve ter uma marca *estável* , como `node:9-alpine`. Essa marcação é típica para uma imagem de base que é atualizada com OS patches do sistema operacional e da estrutura para uma versão estável mais recente. Se a imagem base for atualizada com uma nova marca de versão, ela não disparará uma tarefa. Para obter mais informações sobre a marcação de imagem, consulte as [diretrizes de práticas recomendadas](container-registry-image-tag-version.md). 
 
 ### <a name="base-image-update-scenario"></a>Cenário de atualização da imagem de base
 
@@ -262,7 +262,7 @@ az group delete --resource-group $RES_GROUP
 az ad sp delete --id http://$ACR_NAME-pull
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a utilizar uma tarefa para acionar automaticamente compilações da imagem de contentor quando a imagem de base é atualizada. Agora, pode avançar para saber mais sobre a autenticação do registo do contentor.
 

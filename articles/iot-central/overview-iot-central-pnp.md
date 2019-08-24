@@ -9,19 +9,19 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 0675be988e7e9560560dd07338563c9fa22fcb4c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: af5b16448a39e0106dbc04724607ff603483484c
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878293"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997749"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>O que é o Azure IoT Central (recursos de visualização)?
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
 > [!WARNING]
-> Os recursos de [plug and Play de IOT](https://aka.ms/iot-pnp-docs) no Azure IOT Central estão atualmente em visualização pública. Não use um aplicativo de IoT Central de Plug and Play habilitado para IoT para cargas de trabalho de produção. Para ambientes de produção, use um aplicativo IoT central criado a partir de um modelo de aplicativo atual, geralmente disponível.
+> Os recursos de [plug and Play de IOT](../iot-pnp/overview-iot-plug-and-play.md) no Azure IOT Central estão atualmente em visualização pública. Não use um aplicativo de IoT Central de Plug and Play habilitado para IoT para cargas de trabalho de produção. Para ambientes de produção, use um aplicativo IoT central criado a partir de um modelo de aplicativo atual, geralmente disponível.
 
 O Azure IoT Central é uma solução de software como serviço IoT totalmente gerenciada que facilita a criação de produtos que conectam os mundos físicos e digitais. Pode dar vida à sua visão de produto ligado, ao:
 
@@ -95,7 +95,7 @@ Este modelo de dispositivo inclui:
 
 ### <a name="create-device-templates"></a>Criar modelos de dispositivo
 
-O [plug and Play de IOT](https://aka.ms/iot-pnp-docs) permite que IOT central integre dispositivos sem escrever nenhum código de dispositivo inserido. No núcleo do Plug and Play IoT está um esquema de modelo de capacidade de dispositivo que descreve os recursos do dispositivo. Em um aplicativo IoT Central Preview, os modelos de dispositivo usam esses modelos de capacidade de dispositivo de Plug and Play IoT.
+O [plug and Play de IOT](../iot-pnp/overview-iot-plug-and-play.md) permite que IOT central integre dispositivos sem escrever nenhum código de dispositivo inserido. No núcleo do Plug and Play IoT está um esquema de modelo de capacidade de dispositivo que descreve os recursos do dispositivo. Em um aplicativo IoT Central Preview, os modelos de dispositivo usam esses modelos de capacidade de dispositivo de Plug and Play IoT.
 
 Como um construtor, você tem várias opções para criar modelos de dispositivo:
 
@@ -151,4 +151,4 @@ Agora que tem uma descrição geral do Azure IoT Central, eis os passos sugerido
   - [Como construtor, adicionar regras para automatizar a solução](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
   - [Como operador, monitorizar os dispositivos](tutorial-monitor-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
   - [Como um operador, adicione um dispositivo à sua solução](tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-- Saiba mais sobre [plug and Play de IOT](https://aka.ms/iot-pnp-docs)
+- Saiba mais sobre [plug and Play de IOT](../iot-pnp/overview-iot-plug-and-play.md)

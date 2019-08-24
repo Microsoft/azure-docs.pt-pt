@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b7265f8d5ec4b7336253787e9cb881900a52b79
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 29a30e466e78c3a71764b36bf8337aaeae8981f7
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963450"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980502"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Práticas recomendadas para acesso condicional no Azure Active Directory
 
@@ -87,7 +87,9 @@ Para cada entrada, Azure Active Directory avalia todas as políticas e garante q
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>O acesso condicional funciona com o Exchange ActiveSync?
 
-Sim, você pode usar o Exchange ActiveSync em uma política de acesso condicional com algumas [limitações](block-legacy-authentication.md). 
+Sim, você pode usar o Exchange ActiveSync em uma política de acesso condicional.
+
+Alguns aplicativos de nuvem, como o SharePoint Online e o Exchange Online, também oferecem suporte a protocolos de autenticação herdados. Quando um aplicativo cliente pode usar um protocolo de autenticação herdado para acessar um aplicativo de nuvem, o Azure AD não pode impor uma política de acesso condicional nessa tentativa de acesso. Para impedir que um aplicativo cliente ignore a imposição de políticas, você deve verificar se é possível habilitar apenas a autenticação moderna nos aplicativos de nuvem afetados.
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Como você deve configurar o acesso condicional com os aplicativos do Office 365?
 
@@ -140,7 +142,7 @@ Considere migrar as políticas que você não criou no portal do Azure porque:
 
 Para obter mais informações, consulte [migrar políticas clássicas no portal do Azure](policy-migration.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você quiser saber:
 

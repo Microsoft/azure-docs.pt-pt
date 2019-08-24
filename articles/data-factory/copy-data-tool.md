@@ -1,6 +1,6 @@
 ---
-title: Ferramenta de copiar dados do Azure Data Factory | Documentos da Microsoft
-description: Fornece informações sobre a ferramenta copiar dados na IU do Azure Data Factory
+title: Azure Data Factory da ferramenta Copiar Dados | Microsoft Docs
+description: Fornece informações sobre a ferramenta de Copiar Dados na interface do usuário do Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -11,76 +11,76 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
-ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 144a991eb911fa6a337b6711515bd5760456fc10
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787742"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996394"
 ---
-# <a name="copy-data-tool-in-azure-data-factory"></a>Ferramenta copiar dados no Azure Data Factory
-A ferramenta copiar dados do Azure Data Factory simplifica e otimiza o processo de ingerir dados num data lake, que é normalmente uma primeira etapa num cenário de integração de dados ponto a ponto.  Isso economiza tempo, especialmente quando utiliza a fábrica de dados do Azure para ingerir dados de uma origem de dados pela primeira vez. Algumas das vantagens de utilizar esta ferramenta são:
+# <a name="copy-data-tool-in-azure-data-factory"></a>Copiar Dados ferramenta no Azure Data Factory
+A ferramenta de Copiar Dados Azure Data Factory facilita e otimiza o processo de ingestão de dados em um data Lake, que geralmente é uma primeira etapa em um cenário de integração de dados de ponta a ponta.  Ele economiza tempo, especialmente quando você usa Azure Data Factory para ingerir dados de uma fonte de dados pela primeira vez. Alguns dos benefícios de usar essa ferramenta são:
 
-- Ao utilizar a ferramenta copiar dados do Azure Data Factory, não precisa compreender as definições de fábrica de dados para serviços ligados, conjuntos de dados, pipelines, atividades e acionadores. 
-- O fluxo da ferramenta copiar dados é intuitivo para carregar dados para um data lake. A ferramenta cria automaticamente todos os recursos de fábrica de dados necessários para copiar dados do arquivo de dados de origem selecionado para o arquivo de dados de destino/sink selecionado. 
-- A ferramenta copiar dados ajuda-o a validar os dados que está a ser ingeridos no momento da criação, que ajuda a evitar quaisquer potenciais erros no início em si.
-- Se precisar de implementar a lógica de negócio complexa para carregar dados para um data lake, ainda pode editar os recursos de fábrica de dados criados pela ferramenta copiar dados com a criação de por atividade na IU do Data Factory. 
+- Ao usar a ferramenta de Copiar Dados de Azure Data Factory, você não precisa entender as definições de Data Factory para serviços vinculados, conjuntos de itens, pipelines, atividades e gatilhos. 
+- O fluxo da ferramenta de Copiar Dados é intuitivo para carregar dados em um data Lake. A ferramenta cria automaticamente todos os recursos de Data Factory necessários para copiar dados do armazenamento de dados de origem selecionado para o armazenamento de dados de destino/coletor selecionado. 
+- A ferramenta de Copiar Dados ajuda a validar os dados que estão sendo ingeridos no momento da criação, o que ajuda a evitar possíveis erros no início.
+- Se você precisar implementar uma lógica de negócios complexa para carregar dados em um data Lake, ainda poderá editar os Data Factory recursos criados pela ferramenta de Copiar Dados usando a criação por atividade na interface do usuário do Data Factory. 
 
-A tabela seguinte fornece orientações sobre quando utilizar a ferramenta copiar dados vs. criação de por atividade na IU do Data Factory: 
+A tabela a seguir fornece orientação sobre quando usar a ferramenta de Copiar Dados vs. criação por atividade na interface do usuário do Data Factory: 
 
-| Ferramenta Copiar Dados | Por atividade (atividade de cópia) de criação |
+| Ferramenta Copiar Dados | Criação por atividade (atividade de cópia) |
 | -------------- | -------------------------------------- |
-| Pretende criar facilmente um tarefa sem saber mais sobre entidades do Azure Data Factory (serviços ligados, conjuntos de dados, pipelines, etc.) o carregamento de dados | Pretende implementar a lógica complexa e flexível para carregar dados para o lake. |
-| Deseja carregar rapidamente um grande número de artefactos de dados para um data lake. | Quer da cadeia de atividade de cópia com as atividades subsequentes para os dados de limpeza ou processamento. |
+| Você deseja criar facilmente uma tarefa de carregamento de dados sem saber mais sobre entidades de Azure Data Factory (serviços vinculados, DataSets, pipelines, etc.) | Você deseja implementar uma lógica complexa e flexível para carregar dados no Lake. |
+| Você deseja carregar rapidamente um grande número de artefatos de dados em um data Lake. | Você deseja encadear a atividade de cópia com atividades subsequentes para limpeza ou processamento de dados. |
 
-Para iniciar a ferramenta copiar dados, clique nas **copiar dados** mosaico na home page de sua fábrica de dados.
+Para iniciar a ferramenta de Copiar Dados, clique no bloco **copiar dados** na home page do data Factory.
 
-![Página Introdução - ligação para a ferramenta copiar dados](./media/copy-data-tool/get-started-page.png)
+![Página de introdução-link para a ferramenta de Copiar Dados](./media/copy-data-tool/get-started-page.png)
 
 
-## <a name="intuitive-flow-for-loading-data-into-a-data-lake"></a>Fluxo intuitivo para carregar dados para um data lake
-Esta ferramenta permite-lhe mover facilmente dados de uma grande variedade de origens para destinos em minutos com um fluxo de intuitivo:  
+## <a name="intuitive-flow-for-loading-data-into-a-data-lake"></a>Fluxo intuitivo para carregar dados em um data Lake
+Essa ferramenta permite mover dados facilmente de uma ampla variedade de fontes para destinos em minutos com um fluxo intuitivo:  
 
-1. Configurar as definições para o **origem**.
-2. Configurar as definições para o **destino**. 
-3. Configurar **definições avançadas** para a operação de cópia, como o mapeamento de colunas, as definições de desempenho e as definições de tolerância a falhas. 
-4. Especifique um **agenda** para os tarefa de carregamento de dados. 
-5. Revisão **resumo** de entidades da fábrica de dados a ser criada. 
-6. **Editar** pipeline para atualizar as definições para a atividade de cópia conforme necessário. 
+1. Defina as configurações para a **origem**.
+2. Defina as configurações para o **destino**. 
+3. Defina **as configurações avançadas** para a operação de cópia, como mapeamento de coluna, configurações de desempenho e configurações de tolerância a falhas. 
+4. Especifique um **agendamento** para a tarefa de carregamento de dados. 
+5. Examine o **Resumo** das entidades de data Factory a serem criadas. 
+6. **Edite** o pipeline para atualizar as configurações da atividade de cópia, conforme necessário. 
 
-   A ferramenta foi criada com grandes volumes de dados em mente, desde o início, com o suporte de dados diversificado e tipos de objeto. Pode usá-lo de mover centenas de pastas, ficheiros ou tabelas. A ferramenta suporta a visualização de dados automática, captura de esquema e mapeamento automático e filtragem de dados também.
+   A ferramenta foi projetada com Big Data em mente desde o início, com suporte para diversos tipos de dados e objetos. Você pode usá-lo para mover centenas de pastas, arquivos ou tabelas. A ferramenta dá suporte à visualização automática de dados, captura de esquema e mapeamento automático e filtragem de dados também.
 
 ![Ferramenta Copiar Dados](./media/copy-data-tool/copy-data-tool.png)
 
-## <a name="automatic-data-preview"></a>Pré-visualização de dados automática
-Pode visualizar parte dos dados do arquivo de dados de origem selecionado, que permite-lhe validar os dados que estão a ser copiados. Além disso, se a origem de dados estiver num arquivo de texto, a ferramenta copiar dados analisa o arquivo de texto para detetar automaticamente os delimitadores de linha e coluna e o esquema.
+## <a name="automatic-data-preview"></a>Visualização automática de dados
+Você pode visualizar parte dos dados do armazenamento de dados de origem selecionado, o que permite validar os dados que estão sendo copiados. Além disso, se os dados de origem estiverem em um arquivo de texto, a ferramenta de Copiar Dados analisará o arquivo de texto para detectar automaticamente os delimitadores de linha e de coluna e o esquema.
 
-![Definições do ficheiro](./media/copy-data-tool/file-format-settings.png)
+![Configurações de arquivo](./media/copy-data-tool/file-format-settings.png)
 
-Após a deteção:
+Após a detecção:
 
-![Definições de arquivo detectado e pré-visualização](./media/copy-data-tool/after-detection.png)
+![Configurações e visualização de arquivo detectados](./media/copy-data-tool/after-detection.png)
 
 ## <a name="schema-capture-and-automatic-mapping"></a>Captura de esquema e mapeamento automático
-O esquema da origem de dados pode não ser o mesmo que o esquema de destino dos dados em muitos casos. Neste cenário, terá de mapear colunas do esquema de origem para colunas do esquema de destino.
+O esquema de fonte de dados pode não ser o mesmo que o esquema de destino de dados em muitos casos. Nesse cenário, você precisa mapear colunas do esquema de origem para colunas do esquema de destino.
 
-A ferramenta copiar dados monitoriza e aprende o seu comportamento quando o mapeamento de colunas entre arquivos de origem e de destino. Depois de escolher uma ou algumas colunas a partir do arquivo de dados de origem e mapeá-los para o esquema de destino, começa a ferramenta copiar dados analisar o padrão para os pares de coluna que é detetado a partir de ambos os lados. Em seguida, aplica-se o mesmo padrão para o resto das colunas. Por conseguinte, verá todas as colunas foram mapeadas para o destino de uma forma que pretende que apenas depois de alguns cliques.  Se não estiver satisfeito com a escolha do mapeamento de colunas fornecida pela ferramenta copiar dados, pode ignorá-lo e continuar com o mapeamento manualmente as colunas. Enquanto isso, a ferramenta copiar dados constantemente aprende e atualiza o padrão e, por fim, atinge o padrão de certo para o mapeamento de colunas que pretende obter. 
+A ferramenta Copiar Dados monitora e aprende seu comportamento quando você está mapeando colunas entre repositórios de origem e de destino. Depois de escolher uma ou algumas colunas do armazenamento de dados de origem e mapeá-las para o esquema de destino, a ferramenta de Copiar Dados começará a analisar o padrão para pares de colunas que você escolheu de ambos os lados. Em seguida, ele aplica o mesmo padrão ao restante das colunas. Portanto, você vê que todas as colunas foram mapeadas para o destino de uma maneira que você deseja apenas após vários cliques.  Se você não estiver satisfeito com a escolha do mapeamento de coluna fornecido pela ferramenta Copiar Dados, poderá ignorá-lo e continuar com o mapeamento manual das colunas. Enquanto isso, a ferramenta de Copiar Dados aprende e atualiza constantemente o padrão e, por fim, atinge o padrão certo para o mapeamento de coluna que você deseja obter. 
 
 > [!NOTE]
-> Quando copiar dados do SQL Server ou SQL Database do Azure para o Azure SQL Data Warehouse, se a tabela não existe no arquivo de destino, ferramenta copiar dados suporta a criação da tabela automaticamente ao utilizar o esquema de origem. 
+> Ao copiar dados de SQL Server ou de um Azure SQL Database para o Azure SQL Data Warehouse, se a tabela não existir no repositório de destino, Copiar Dados ferramenta dará suporte à criação da tabela automaticamente usando o esquema de origem. 
 
 ## <a name="filter-data"></a>Filtrar dados
-Pode filtrar os dados de origem para selecionar apenas os dados que precisam ser copiados para o arquivo de dados de sink. Filtragem reduz o volume dos dados a ser copiados para o arquivo de dados de sink e, portanto, melhora o débito de operação de cópia. Ferramenta de cópia de dados fornece uma maneira flexível para filtrar dados numa base de dados relacional utilizando a linguagem de consulta SQL ou arquivos numa pasta de Blobs do Azure. 
+Você pode filtrar os dados de origem para selecionar apenas os dados que precisam ser copiados para o armazenamento de dados do coletor. A filtragem reduz o volume dos dados a serem copiados para o armazenamento de dados do coletor e, portanto, melhora a taxa de transferência da operação de cópia. Copiar Dados ferramenta fornece uma maneira flexível de filtrar dados em um banco de dado relacional usando a linguagem de consulta SQL ou os arquivos em uma pasta de blob do Azure. 
 
-### <a name="filter-data-in-a-database"></a>Filtrar dados numa base de dados
-Captura de ecrã seguinte mostra uma consulta SQL para filtrar os dados.
+### <a name="filter-data-in-a-database"></a>Filtrar dados em um banco de dado
+A captura de tela a seguir mostra uma consulta SQL para filtrar os dados.
 
-![Filtrar dados numa base de dados](./media/copy-data-tool/filter-data-in-database.png)
+![Filtrar dados em um banco de dado](./media/copy-data-tool/filter-data-in-database.png)
 
-### <a name="filter-data-in-an-azure-blob-folder"></a>Filtrar dados numa pasta de Blobs do Azure
-Pode utilizar variáveis no caminho da pasta para copiar dados de uma pasta. As variáveis suportadas são: **{year}** , **{month}** , **{day}** , **{hour}** , e **{minute}** . Por exemplo: inputfolder / {ano} / {month} / {day}. 
+### <a name="filter-data-in-an-azure-blob-folder"></a>Filtrar dados em uma pasta de blob do Azure
+Você pode usar variáveis no caminho da pasta para copiar dados de uma pasta. As variáveis com suporte são: **{year}** , **{mês}** , **{Day}** , **{Hour}** e **{minute}** . Por exemplo: inputfolder/{ano}/{month}/{Day}. 
 
-Suponha que tem a entrada pastas no seguinte formato: 
+Suponha que você tenha pastas de entrada no seguinte formato: 
 
 ```
 2016/03/01/01
@@ -89,25 +89,25 @@ Suponha que tem a entrada pastas no seguinte formato:
 ...
 ```
 
-Clique nas **navegue** botão para **ficheiro ou pasta**, procure uma dessas pastas (por exemplo, 2016 -> 03 -> 01-02 >) e clique em **escolha**. Deverá ver 2016/03/01/02 na caixa de texto. 
+Clique no botão **procurar** para **arquivo ou pasta**, navegue até uma dessas pastas (por exemplo, 2016-> 03-> 01-> 02) e clique em **escolher**. Você deve ver 2016/03/01/02 na caixa de texto. 
 
-Em seguida, substitua **2016** com **{year}** , **03** com **{month}** , **01** com **{day}** , e **02** com **{hour}** e prima a **separador** chave. Deverá ver a lista pendente para selecionar o formato para este quatro variáveis:
+Em seguida, substitua **2016** por **{year}** , **03** por **{month}** , **01** por **{Day}** e **02** por **{Hour}** e pressione a tecla **Tab** . Você deve ver as listas suspensas para selecionar o formato dessas quatro variáveis:
 
-![Filtro de ficheiro ou pasta](./media/copy-data-tool/filter-file-or-folder.png)
+![Filtrar arquivo ou pasta](./media/copy-data-tool/filter-file-or-folder.png)
 
-A ferramenta copiar dados gera parâmetros com expressões, funções e variáveis do sistema que podem ser usadas para representar {year}, {month}, {day}, {hour} e {minuto} ao criar o pipeline. Para obter mais informações, consulte a [como ler ou escrever particionados dados](how-to-read-write-partitioned-data.md) artigo.
+A ferramenta Copiar Dados gera parâmetros com expressões, funções e variáveis do sistema que podem ser usadas para representar {year}, {mês}, {Day}, {hour} e {minute} durante a criação do pipeline.
 
 ## <a name="scheduling-options"></a>Opções de agendamento
-Pode executar a operação de cópia de uma vez ou com base numa agenda (por hora, diariamente, e assim por diante). Estas opções podem ser utilizadas para os conectores ambientes diferentes, incluindo no local, a cloud e a área de trabalho local. 
+Você pode executar a operação de cópia uma vez ou em um agendamento (por hora, diariamente e assim por diante). Essas opções podem ser usadas para os conectores em ambientes diferentes, incluindo a área de trabalho local, na nuvem e na empresa. 
 
-Uma operação de cópia de uso individual permite o movimento de dados de uma origem para um destino apenas uma vez. Aplica-se aos dados de qualquer tamanho e qualquer formato suportado. A cópia agendada permite-lhe copiar dados numa periodicidade que especificar. Pode utilizar definições avançadas (como repetição, tempo limite e alertas) para configurar a cópia agendada.
+Uma operação de cópia única permite a movimentação de dados de uma origem para um destino apenas uma vez. Ele se aplica a dados de qualquer tamanho e qualquer formato com suporte. A cópia agendada permite copiar dados em uma recorrência que você especificar. Você pode usar configurações avançadas (como repetição, tempo limite e alertas) para configurar a cópia agendada.
 
 ![Opções de agendamento](./media/copy-data-tool/scheduling-options.png)
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Experimente estes tutoriais que utilizam a ferramenta copiar dados:
+Experimente estes tutoriais que usam a ferramenta de Copiar Dados:
 
-- [Início rápido: criar uma fábrica de dados com a ferramenta copiar dados](quickstart-create-data-factory-copy-data-tool.md)
-- [Tutorial: copiar dados no Azure com a ferramenta copiar dados](tutorial-copy-data-tool.md) 
-- [Tutorial: copiar dados no local para o Azure com a ferramenta copiar dados](tutorial-hybrid-copy-data-tool.md)
+- [Início rápido: criar um data factory usando a ferramenta de Copiar Dados](quickstart-create-data-factory-copy-data-tool.md)
+- [Tutorial: copiar dados no Azure usando a ferramenta de Copiar Dados](tutorial-copy-data-tool.md) 
+- [Tutorial: copiar dados locais para o Azure usando a ferramenta de Copiar Dados](tutorial-hybrid-copy-data-tool.md)

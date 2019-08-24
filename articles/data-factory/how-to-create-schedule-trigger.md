@@ -1,6 +1,6 @@
 ---
-title: Criar acionadores de agenda na fábrica de dados do Azure | Documentos da Microsoft
-description: Saiba como criar um acionador no Azure Data Factory que executa um pipeline com base numa agenda.
+title: Criar gatilhos de agendamento no Azure Data Factory | Microsoft Docs
+description: Saiba como criar um gatilho no Azure Data Factory que executa um pipeline em um agendamento.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -12,25 +12,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 09f80f69857ae17a0136229fe9bf13d4f63e7096
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b38e85994fc99272a649b9e529380cb953d1bca
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65151073"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996364"
 ---
-# <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um acionador que executa um pipeline com base numa agenda
-Este artigo fornece informações sobre o acionador de agenda e os passos para criar, iniciar e monitorizar um acionador de agenda. Para outros tipos de acionadores, veja [execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md).
+# <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um gatilho que executa um pipeline em um agendamento
+Este artigo fornece informações sobre o gatilho de agendamento e as etapas para criar, iniciar e monitorar um gatilho de agendamento. Para outros tipos de gatilhos, consulte [execução de pipeline e gatilhos](concepts-pipeline-execution-triggers.md).
 
-Ao criar um acionador de agenda, especifique um agendamento (data, periodicidade de início, etc. de data de fim) para o acionador e associar com um pipeline. Os pipelines e os acionadores têm uma relação muitos para muitos. Múltiplos acionadores podem arrancar um pipeline individual. Um acionador único pode arrancar vários pipelines.
+Ao criar um gatilho de agendamento, especifique uma agenda (data de início, recorrência, data de término etc.) para o gatilho e associe a um pipeline. Os pipelines e os acionadores têm uma relação muitos para muitos. Múltiplos acionadores podem arrancar um pipeline individual. Um acionador único pode arrancar vários pipelines.
 
-As secções seguintes fornecem passos para criar um acionador de agenda de formas diferentes. 
+As seções a seguir fornecem etapas para criar um gatilho de agendamento de diferentes maneiras. 
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
-Pode criar uma **acionador de agenda** para agendar um pipeline para executar periodicamente (hora a hora, diariamente, etc.). 
+Você pode criar um **gatilho de agendamento** para agendar um pipeline para ser executado periodicamente (por hora, diariamente, etc.). 
 
 > [!NOTE]
-> Para obter instruções completas de criação de um pipeline e um acionador de agenda, associar o acionador do pipeline e executar e monitorizar o pipeline, veja [início rápido: criar uma fábrica de dados com a IU do Data Factory](quickstart-create-data-factory-portal.md).
+> Para obter uma explicação completa de como criar um pipeline e um gatilho de agendamento, associar o gatilho ao pipeline e executar e monitorar o pipeline, consulte [início rápido: criar um data Factory usando a interface do usuário do data Factory](quickstart-create-data-factory-portal.md).
 
 1. Mude para o separador **Editar**. 
 
@@ -41,24 +41,24 @@ Pode criar uma **acionador de agenda** para agendar um pipeline para executar pe
 2. Na página **Adicionar Acionadores**, clique em **Escolher acionador...** e clique em **Novo**. 
 
     ![Adicionar acionadores - acionador novo](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
-3. Na **novo acionador** página, efetue os seguintes passos: 
+3. Na página **novo gatilho** , execute as seguintes etapas: 
 
-    1. Confirme que **agenda** está selecionada para **tipo**. 
-    2. Especifica a datetime de início do acionador para **data de início (UTC)** . Ele é definido como a data/hora atual por predefinição. 
-    3. Especifique **periodicidade** para o acionador. Selecione um dos valores da lista pendente (cada minuto, hora a hora, diariamente, semanalmente e mensal). Introduza o multiplicador na caixa de texto. Por exemplo, se pretender que o acionador para ser executado uma vez para cada 15 minutos, selecione **cada minuto**e introduza **15** na caixa de texto. 
-    4. Para o **final** campo, se não pretender especificar uma datetime de fim para o acionador, selecione **sem fim**. Para especificar um end data hora, selecione **na data**, especifique a data/hora final e clique em **aplicar**. Nenhuma execução de pipeline tem custos associados. Se estiver a testar, pode querer Certifique-se de que o pipeline é acionado apenas duas vezes. No entanto, certifique-se de que há tempo suficiente para o pipeline ser executado entre a hora de publicação e a hora de fim. O acionador só entra em vigor depois de publicar a solução no Data Factory e não quando guarda o acionador na IU.
+    1. Confirme se a **agenda** está selecionada para o **tipo**. 
+    2. Especifique o DateTime inicial do gatilho para **data de início (UTC)** . Ele é definido como o DateTime atual por padrão. 
+    3. Especifique a recorrência para o gatilho. Selecione um dos valores na lista suspensa (a cada minuto, por hora, diariamente, semanalmente e mensalmente). Insira o multiplicador na caixa de texto. Por exemplo, se você quiser que o gatilho seja executado uma vez a cada 15 minutos, selecione a **cada minuto**e digite **15** na caixa de texto. 
+    4. Para o campo **final** , se você não quiser especificar um DateTime final para o gatilho, selecione **sem fim**. Para especificar uma data e hora de término, selecione **na data**, especifique end DateTime e clique em **aplicar**. Nenhuma execução de pipeline tem custos associados. Se você estiver testando, talvez queira garantir que o pipeline seja disparado apenas algumas vezes. No entanto, certifique-se de que há tempo suficiente para o pipeline ser executado entre a hora de publicação e a hora de fim. O acionador só entra em vigor depois de publicar a solução no Data Factory e não quando guarda o acionador na IU.
 
         ![Definições do acionador](./media/how-to-create-schedule-trigger/trigger-settings.png)
-4. Na **novo acionador** janela, verifique o **Activated** opção e clique em **seguinte**. Pode utilizar esta caixa de verificação para desativar o acionador mais tarde. 
+4. Na janela **novo gatilho** , marque a opção **ativado** e clique em **Avançar**. Você pode usar essa caixa de seleção para desativar o gatilho mais tarde. 
 
     ![Definições do acionador - botão seguinte](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
 5. Na página **Novo Acionador**, reveja a mensagem de aviso e clique em **Concluir**.
 
     ![Definições do acionador - botão concluir](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
-6. Clique em **Publicar** para publicar as alterações no Data Factory. Até a publicar alterações à fábrica de dados, o acionador não inicia a acionar a execução de pipeline. 
+6. Clique em **Publicar** para publicar as alterações no Data Factory. Até que você publique alterações no Data Factory, o gatilho não iniciará o disparo das execuções de pipeline. 
 
     ![Botão Publicar](./media/how-to-create-schedule-trigger/publish-2.png)
-8. Mude para o separador **Monitorizar**, no lado esquerdo. Clique em **Atualizar** para atualizar a lista. Verá que as execuções do pipeline acionada pelo acionador agendado. Repare nos valores na coluna **Acionado Por**. Se usar **acionar agora** opção, verá a execução na lista do acionador manual. 
+8. Mude para o separador **Monitorizar**, no lado esquerdo. Clique em **Atualizar** para atualizar a lista. Você vê as execuções de pipeline disparadas pelo gatilho agendado. Repare nos valores na coluna **Acionado Por**. Se você usar a opção **disparar agora** , verá a execução do gatilho manual na lista. 
 
     ![Monitorizar execuções acionadas](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 9. Clique na seta para baixo junto a **Execuções do Pipeline** para mudar para a vista **Execuções Acionadas**. 
@@ -69,12 +69,12 @@ Pode criar uma **acionador de agenda** para agendar um pipeline para executar pe
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Esta secção mostra-lhe como utilizar o Azure PowerShell para criar, iniciar e monitorizar um acionador de agenda. Para ver este trabalho de exemplo, em primeiro lugar a [início rápido: Criar uma fábrica de dados com o Azure PowerShell](quickstart-create-data-factory-powershell.md). Em seguida, adicione o seguinte código para o método principal, o que cria e inicia um acionador de agenda é executada a cada 15 minutos. O acionador é associado a um pipeline com o nome **Adfv2QuickStartPipeline** que criou como parte do início rápido.
+Esta seção mostra como usar Azure PowerShell para criar, iniciar e monitorar um gatilho de agendamento. Para ver este exemplo funcionando, primeiro Percorra o [início rápido: Crie um data factory usando Azure PowerShell](quickstart-create-data-factory-powershell.md). Em seguida, adicione o seguinte código ao método Main, que cria e inicia um gatilho de agendamento que é executado a cada 15 minutos. O gatilho é associado a um pipeline denominado **Adfv2QuickStartPipeline** que você cria como parte do guia de início rápido.
 
-1. Crie um ficheiro JSON com o nome **MyTrigger.json** na pasta C:\ADFv2QuickStartPSH\ com o seguinte conteúdo:
+1. Crie um arquivo JSON chamado **mytrigger. JSON** na pasta C:\ADFv2QuickStartPSH\ com o seguinte conteúdo:
 
     > [!IMPORTANT]
-    > Antes de guardar o ficheiro JSON, defina o valor do **startTime** elemento para a hora UTC atual. Defina o valor do **endTime** elemento para uma hora posterior à hora UTC atual.
+    > Antes de salvar o arquivo JSON, defina o valor do elemento **StartTime** como a hora UTC atual. Defina o valor do elemento **EndTime** para uma hora após a hora UTC atual.
 
     ```json   
     {
@@ -104,50 +104,50 @@ Esta secção mostra-lhe como utilizar o Azure PowerShell para criar, iniciar e 
     }
     ```
 
-    No fragmento JSON:
-    - O **tipo** elemento do acionador está definido como "ScheduleTrigger."
-    - O **frequência** elemento é definido para "Minuto" e o **intervalo** elemento está definido como 15. Por conseguinte, o acionador executa o pipeline entre as horas de início e de fim a cada 15 minutos.
-    - O **endTime** elemento é de uma hora após o valor da **startTime** elemento. Por conseguinte, o acionador executa o pipeline de 15 minutos, 30 minutos e 45 minutos após a hora de início. Não se esqueça de atualizar a hora de início para a atual hora UTC e a hora de fim para uma hora posterior à hora de início. 
-    - O acionador está associado a **Adfv2QuickStartPipeline** pipeline. Para associar vários pipelines com um acionador, adicione mais **pipelineReference** secções.
-    - O pipeline no guia de introdução utiliza dois **parâmetros** valores: **inputPath** e **outputPath**. Portanto, passar valores para estes parâmetros, a partir do acionador.
+    No trecho de JSON:
+    - O elemento **Type** do gatilho é definido como "ScheduleTrigger".
+    - O elemento **Frequency** é definido como "Minute" e o elemento **Interval** é definido como 15. Portanto, o gatilho executa o pipeline a cada 15 minutos entre as horas de início e término.
+    - O elemento **EndTime** é uma hora após o valor do elemento **StartTime** . Portanto, o gatilho executa o pipeline 15 minutos, 30 minutos e 45 minutos após a hora de início. Não se esqueça de atualizar a hora de início para a hora UTC atual e a hora de término para uma hora após a hora de início. 
+    - O gatilho é associado ao pipeline **Adfv2QuickStartPipeline** . Para associar vários pipelines a um gatilho, adicione mais seções **pipelineReference** .
+    - O pipeline no início rápido usa dois valores de **parâmetros** : **inputPath** e **outputPath**. Portanto, você passa valores para esses parâmetros do gatilho.
 
-2. Criar um acionador com o **Set-AzDataFactoryV2Trigger** cmdlet:
+2. Crie um gatilho usando o cmdlet **set-AzDataFactoryV2Trigger** :
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Confirme que o estado do acionador está **parado** utilizando o **Get-AzDataFactoryV2Trigger** cmdlet:
+3. Confirme se o status do gatilho é **interrompido** usando o cmdlet **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Iniciar o acionador com o **Start-AzDataFactoryV2Trigger** cmdlet:
+4. Inicie o gatilho usando o cmdlet **Start-AzDataFactoryV2Trigger** :
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Confirme que o estado do acionador está **iniciado** utilizando o **Get-AzDataFactoryV2Trigger** cmdlet:
+5. Confirme se o status do gatilho é **iniciado** usando o cmdlet **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  GET, o acionador é executado no Azure PowerShell, utilizando o **Get-AzDataFactoryV2TriggerRun** cmdlet. Para obter as informações sobre as execuções do acionador, execute o seguinte comando periodicamente. Atualização do **TriggerRunStartedAfter** e **TriggerRunStartedBefore** valores de acordo com os valores existentes na sua definição do acionador:
+6.  Obtenha as execuções do gatilho em Azure PowerShell usando o cmdlet **Get-AzDataFactoryV2TriggerRun** . Para obter as informações sobre as execuções do gatilho, execute o comando a seguir periodicamente. Atualize os valores de **TriggerRunStartedAfter** e **TriggerRunStartedBefore** para corresponder aos valores em sua definição de gatilho:
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
-    Para monitorizar o acionador é executado e o pipeline é executado no portal do Azure, consulte [monitorizar execuções de pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+    Para monitorar as execuções de gatilho e as execuções de pipeline no portal do Azure, consulte [monitorar execuções de pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 
 ## <a name="net-sdk"></a>SDK .NET
-Esta secção mostra-lhe como utilizar o SDK do .NET para criar, iniciar e monitorizar um acionador. Para ver este trabalho de exemplo, em primeiro lugar a [início rápido: Criar uma fábrica de dados com o SDK de .NET](quickstart-create-data-factory-dot-net.md). Em seguida, adicione o seguinte código para o método principal, o que cria e inicia um acionador de agenda é executada a cada 15 minutos. O acionador é associado a um pipeline com o nome **Adfv2QuickStartPipeline** que criou como parte do início rápido.
+Esta seção mostra como usar o SDK do .NET para criar, iniciar e monitorar um gatilho. Para ver este exemplo funcionando, primeiro Percorra o [início rápido: Crie um data factory usando o SDK](quickstart-create-data-factory-dot-net.md)do .net. Em seguida, adicione o seguinte código ao método Main, que cria e inicia um gatilho de agendamento que é executado a cada 15 minutos. O gatilho é associado a um pipeline denominado **Adfv2QuickStartPipeline** que você cria como parte do guia de início rápido.
 
-Para criar e iniciar um acionador de agenda é executada a cada 15 minutos, adicione o seguinte código ao método principal:
+Para criar e iniciar um gatilho de agendamento que é executado a cada 15 minutos, adicione o seguinte código ao método principal:
 
 ```csharp
             // Create the trigger
@@ -197,7 +197,7 @@ Para criar e iniciar um acionador de agenda é executada a cada 15 minutos, adic
             client.Triggers.Start(resourceGroup, dataFactoryName, triggerName);
 ```
 
-Para monitorizar um execução do acionador, adicione o código a seguir antes do último `Console.WriteLine` instrução no exemplo:
+Para monitorar uma execução de gatilho, adicione o seguinte código antes da `Console.WriteLine` última instrução no exemplo:
 
 ```csharp
             // Check that the trigger runs every 15 minutes
@@ -221,11 +221,11 @@ Para monitorizar um execução do acionador, adicione o código a seguir antes d
             }
 ```
 
-Para monitorizar o acionador é executado e o pipeline é executado no portal do Azure, consulte [monitorizar execuções de pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+Para monitorar as execuções de gatilho e as execuções de pipeline no portal do Azure, consulte [monitorar execuções de pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 
 ## <a name="python-sdk"></a>SDK Python
-Esta secção mostra-lhe como utilizar o SDK de Python para criar, iniciar e monitorizar um acionador. Para ver este trabalho de exemplo, em primeiro lugar a [início rápido: Criar uma fábrica de dados com o SDK de Python](quickstart-create-data-factory-python.md). Em seguida, adicione o seguinte bloco de código depois do bloco de código "monitorizar a execução do pipeline" o script de Python. Este código cria um acionador de agenda é executada a cada 15 minutos entre o início especificado e horas de fim. Atualização do **start_time** variável para a hora UTC atual e o **end_time** variável para uma hora posterior à hora UTC atual.
+Esta seção mostra como usar o SDK do Python para criar, iniciar e monitorar um gatilho. Para ver este exemplo funcionando, primeiro Percorra o [início rápido: Crie um data factory usando o SDK](quickstart-create-data-factory-python.md)do Python. Em seguida, adicione o bloco de código a seguir após o bloco de código "monitorar o pipeline de execução" no script do Python. Esse código cria um gatilho de agendamento que é executado a cada 15 minutos entre as horas de início e término especificadas. Atualize a variável **start_time** para a hora UTC atual e a variável **end_time** para uma hora após a hora UTC atual.
 
 ```python
     # Create a trigger
@@ -242,24 +242,22 @@ Esta secção mostra-lhe como utilizar o SDK de Python para criar, iniciar e mon
     adf_client.triggers.start(rg_name, df_name, tr_name)
 ```
 
-Para monitorizar o acionador é executado e o pipeline é executado no portal do Azure, consulte [monitorizar execuções de pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+Para monitorar as execuções de gatilho e as execuções de pipeline no portal do Azure, consulte [monitorar execuções de pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
-Pode utilizar um modelo Azure Resource Manager para criar um acionador. Para obter instruções passo a passo, consulte [criar uma fábrica de dados do Azure com um modelo do Resource Manager](quickstart-create-data-factory-resource-manager-template.md).  
+Você pode usar um modelo de Azure Resource Manager para criar um gatilho. Para obter instruções detalhadas, consulte [criar um data Factory do Azure usando um modelo do Resource Manager](quickstart-create-data-factory-resource-manager-template.md).  
 
-## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Passar a hora de início de Acionador para um pipeline
-O Azure Data Factory versão 1 oferece suporte a ler ou escrever dados particionados utilizando as variáveis do sistema: **SliceStart**, **SliceEnd**, **WindowStart**, e **WindowEnd**. Na versão atual do Azure Data Factory, pode conseguir este comportamento ao utilizar um parâmetro de pipeline. A hora de início e a hora agendada para o acionador estiverem definidos como o valor para o parâmetro de pipeline. No exemplo a seguir, o horário agendado para o acionador é transmitido como um valor para o pipeline **scheduledRunTime** parâmetro:
+## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Passar a hora de início do gatilho para um pipeline
+Azure Data Factory versão 1 dá suporte à leitura ou gravação de dados particionados usando as variáveis do sistema: **SliceStart**, **SliceEnd**, **WindowStart**e **WindowEnd**. Na versão atual do Azure Data Factory, você pode obter esse comportamento usando um parâmetro de pipeline. A hora de início e a hora agendada para o gatilho são definidas como o valor para o parâmetro de pipeline. No exemplo a seguir, a hora agendada para o gatilho é passada como um valor para o parâmetro pipeline **scheduledRunTime** :
 
 ```json
 "parameters": {
     "scheduledRunTime": "@trigger().scheduledTime"
 }
-```    
-
-Para obter mais informações, consulte as instruções em [como ler ou escrever particionados dados](how-to-read-write-partitioned-data.md).
+```
 
 ## <a name="json-schema"></a>JSON schema
-A seguinte definição JSON mostra-lhe como criar um acionador de agenda com o agendamento e a periodicidade:
+A definição JSON a seguir mostra como criar um gatilho de agendamento com agendamento e recorrência:
 
 ```json
 {
@@ -327,11 +325,11 @@ A tabela que se segue fornece uma descrição geral de alto nível dos principai
 
 | Propriedade JSON | Tipo | Necessário | Valor predefinido | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | String | Sim | Nenhuma | Datas-Horas ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Object | Sim | Nenhuma | Objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | Cadeia | Sim | Nenhum | Datas-Horas ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | Objeto | Sim | Nenhum | Objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Number | Não | 1 | 1 a 1000 | `"interval":10` |
-| **endTime** | String | Sim | Nenhuma | Um valor de data/hora que representa uma hora no futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | Object | Não | Nenhuma | Objeto da agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **endTime** | Cadeia | Sim | Nenhum | Um valor de data/hora que representa uma hora no futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **schedule** | Objeto | Não | Nenhum | Objeto da agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propriedade startTime
 A tabela que se segue mostra o modo como a propriedade **startTime** controla a execução de um acionador:
@@ -364,7 +362,7 @@ A tabela seguinte descreve os elementos de **schedule** de forma detalhada:
 | **minutes** | Minutos da hora em que o acionador é executado. | <ul><li>Integer</li><li>Matriz de números inteiros</li></ul>
 | **hours** | Horas do dia em que o acionador é executado. | <ul><li>Integer</li><li>Matriz de números inteiros</li></ul> |
 | **weekDays** | Dias da semana em que o acionador é executado. O valor pode ser especificado com uma frequência semanal apenas. | <ul><li>Segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira, sábado, domingo</li><li>Matriz de valores de dia (o tamanho máximo da matriz é 7)</li><li>Os valores de dia não são sensíveis às maiúsculas e minúsculas</li></ul> |
-| **monthlyOccurrences** | Dias do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. | <ul><li>Matriz de **monthlyOccurrence** objetos: `{ "day": day,  "occurrence": occurrence }`.</li><li>O atributo **day** é o dia da semana em que o acionador é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor **day** igual a `{Sunday}` significa todos os domingos do mês. O atributo **day** é obrigatório.</li><li>O atributo **occurrence** é a ocorrência do valor **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.</li></ul> |
+| **monthlyOccurrences** | Dias do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. | <ul><li>Matriz de objetos **monthlyOccurrence** : `{ "day": day,  "occurrence": occurrence }`.</li><li>O atributo **day** é o dia da semana em que o acionador é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor **day** igual a `{Sunday}` significa todos os domingos do mês. O atributo **day** é obrigatório.</li><li>O atributo **occurrence** é a ocorrência do valor **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.</li></ul> |
 | **monthDays** | Dia do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. | <ul><li>Qualquer valor <= -1 e >= -31</li><li>Qualquer valor >= 1 e <= 31</li><li>Matriz de valores</li></ul> |
 
 
@@ -404,4 +402,4 @@ Os exemplos partem do princípio de que o valor **interval** é igual a 1 e que 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter informações detalhadas sobre os acionadores, veja [execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md#triggers).
+Para obter informações detalhadas sobre gatilhos, consulte [execução de pipeline e gatilhos](concepts-pipeline-execution-triggers.md#triggers).

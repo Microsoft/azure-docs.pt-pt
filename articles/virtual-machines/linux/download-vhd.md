@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 08/21/2019
 ms.author: cynthn
-ms.openlocfilehash: 5639571739f3eb6263f62444e7ab02186e2ca945
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 21720ead788a505f86c4d35eb5a39943ff4a2e12
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742589"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981010"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Baixar um VHD do Linux do Azure
 
@@ -58,9 +58,9 @@ Para usar o VHD como uma imagem para criar outras VMs, conclua estas etapas:
 Para usar o VHD como um disco para uma nova instância de uma VM ou um disco de dados existente, conclua estas etapas:
 
 1.  Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2.  No menu Hub, clique em **Virtual Machines**.
+2.  No menu à esquerda, selecione **máquinas virtuais**.
 3.  Selecione a VM na lista.
-4.  Na folha da VM, clique em **parar**.
+4.  Na página da VM, selecione **parar**.
 
     ![Parar VM](./media/download-vhd/export-stop.png)
 
@@ -68,21 +68,21 @@ Para usar o VHD como um disco para uma nova instância de uma VM ou um disco de 
 
 Para baixar o arquivo VHD, você precisa gerar uma URL de [assinatura de acesso compartilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Quando a URL é gerada, um tempo de expiração é atribuído à URL.
 
-1.  No menu da folha da VM, clique em **discos**.
-2.  Selecione o disco do sistema operacional para a VM e clique em **exportação de disco**.
-3.  Clique em **gerar URL**.
+1.  No menu da página da VM, selecione **discos**.
+2.  Selecione o disco do sistema operacional para a VM e, em seguida, selecione **exportação de disco**.
+3.  Selecione **gerar URL**.
 
     ![Gerar URL](./media/download-vhd/export-generate.png)
 
 ## <a name="download-vhd"></a>Baixar VHD
 
-1.  Na URL que foi gerada, clique em baixar o arquivo VHD.
-
+1.  Na URL que foi gerada, selecione **baixar o arquivo VHD**.
+**
     ![Baixar VHD](./media/download-vhd/export-download.png)
 
-2.  Talvez seja necessário clicar em **salvar** no navegador para iniciar o download. O nome padrão para o arquivo VHD é *ABCD*.
+2.  Talvez seja necessário selecionar **salvar** no navegador para iniciar o download. O nome padrão para o arquivo VHD é *ABCD*.
 
-    ![Clique em salvar no navegador](./media/download-vhd/export-save.png)
+    ![Selecione salvar no navegador](./media/download-vhd/export-save.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,6 +1,6 @@
 ---
-title: O que é o Cofre de OPC - Azure | Documentos da Microsoft
-description: Descrição geral do cofre OPC
+title: O que é o cofre do OPC – Azure | Microsoft Docs
+description: Visão geral do cofre OPC
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,25 +8,32 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 40a9016ac7a10175b51f0fb6f072dd089bde3a51
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 44315790116545dd888aed533731bbf01abe801d
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606284"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997313"
 ---
-# <a name="what-is-opc-vault"></a>O que é o OPC Cofre?
+# <a name="what-is-opc-vault"></a>O que é o cofre do OPC?
 
-O Cofre de OPC é um microsserviço que pode configurar, registe-se e gerenciar o ciclo de vida do certificado para o servidor OPC UA e aplicações de cliente na cloud. Este artigo descreve casos de uso simples do cofre OPC.
+O cofre do OPC é um microserviço que pode configurar, registrar e gerenciar o ciclo de vida do certificado para aplicativos cliente e servidor OPC UA na nuvem. Este artigo descreve os casos de uso simples do cofre do OPC.
 
 ## <a name="certificate-management"></a>Gestão de certificados
 
-Por exemplo, uma empresa industrial precisa se conectar a suas máquinas de servidor OPC UA à respetiva aplicação de cliente acabou de criar. Quando o fabricante faz o acesso inicial da máquina do servidor, uma mensagem de erro imediatamente é mostrada no aplicativo de servidor OPC UA para indicar que a aplicação de cliente não está protegida. Esse mecanismo baseia-se na máquina do servidor OPC UA para impedir que qualquer acesso de aplicação não autorizado, o que impede que os hackers vicioso no chão shop.
+Por exemplo, uma empresa de fabricação precisa conectar seu computador de servidor OPC UA ao seu aplicativo cliente recém-criado. Quando o fabricante faz o acesso inicial da máquina do servidor, uma mensagem de erro é exibida imediatamente no aplicativo de servidor do OPC UA para indicar que o aplicativo cliente não é seguro. Esse mecanismo é criado no computador do servidor OPC UA para evitar qualquer acesso de aplicativo não autorizado, o que impede a invasão de vicioso no chão de fábrica.
 
-## <a name="application-security-management"></a>Gestão de segurança de aplicações
-Um profissional de segurança utiliza o Cofre OPC microsserviços para permitir facilmente o servidor OPC UA comunicar com qualquer aplicativo de cliente, porque o Cofre de OPC tem todas as funções para registro de certificado, armazenamento e gestão de ciclo de vida. Agora o servidor OPC UA é conectado com segurança, pode comunicar com a aplicação cliente acabou de criar
+## <a name="application-security-management"></a>Gerenciamento de segurança de aplicativos
+Um profissional de segurança usa o microserviço do cofre OPC para permitir que o servidor OPC UA se comunique com qualquer aplicativo cliente, porque o cofre do OPC tem todas as funções para o registro de certificado, o armazenamento e o gerenciamento do ciclo de vida. Agora o servidor OPC UA está conectado com segurança, ele pode se comunicar com o aplicativo cliente criado recentemente
 
-## <a name="the-complete-opc-vault-architecture"></a>A arquitetura de cofre OPC completa
-O diagrama seguinte ilustra a arquitetura de cofre OPC completa.
+## <a name="the-complete-opc-vault-architecture"></a>A arquitetura completa do cofre OPC
+O diagrama a seguir ilustra a arquitetura completa do cofre OPC.
 
-![Arquitetura do Cofre de OPC](media/overview-opc-vault-architecture/opc-vault.png)
+![Arquitetura do cofre OPC](media/overview-opc-vault-architecture/opc-vault.png)
+
+## <a name="next-steps"></a>Passos seguintes
+
+Agora que você aprendeu sobre o cofre do OPC e seus usos, aqui está a próxima etapa sugerida:
+
+> [!div class="nextstepaction"]
+> [Arquitetura do cofre OPC](overview-opc-vault-architecture.md)
