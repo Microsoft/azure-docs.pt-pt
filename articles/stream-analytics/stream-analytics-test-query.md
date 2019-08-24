@@ -1,55 +1,109 @@
 ---
-title: Testar uma tarefa Azure Stream Analytics com dados de exemplo
-description: Este artigo descreve como utilizar o portal do Azure para testar uma tarefa do Azure Stream Analytics, a entrada de exemplo e carregar dados de exemplo.
+title: Testar um trabalho de Azure Stream Analytics com dados de exemplo
+description: Este artigo descreve como usar o portal do Azure para testar um trabalho de Azure Stream Analytics, entrada de exemplo e carregar dados de exemplo.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 6/21/2019
+ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: ad0e0ca75bf3d3a8d9d1029d42f8609b3c4c627b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: b8670fc7958e66e7c25e27bb3a22429ab20b2514
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620819"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991023"
 ---
-# <a name="test-a-stream-analytics-query-with-sample-data"></a>Testar uma consulta do Stream Analytics com dados de exemplo
+# <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Testar um trabalho de Azure Stream Analytics com dados de exemplo
 
-Ao utilizar o Azure Stream Analytics, pode dados a partir de entradas de exemplo ou carregar dados de exemplo para testar consultas no portal do Azure sem iniciar ou parar uma tarefa.
+No Azure Stream Analytics, você pode testar sua consulta sem iniciar ou parar seu trabalho. Você pode testar consultas em dados de entrada de seu coletor de entrada ou carregar dados de exemplo de um arquivo local.
 
-## <a name="upload-or-sample-data-from-a-live-source-to-test-the-query"></a>Carregamento ou dados de exemplo de uma origem em direto para testar a consulta
+## <a name="sample-incoming-data-from-input"></a>Exemplo de dados de entrada de entrada
 
-1. Inicie sessão no Portal do Azure. 
+Azure Stream Analytics busca automaticamente eventos de sua entrada de streaming. Você pode executar consultas no exemplo padrão ou definir um intervalo de tempo específico para o exemplo.
 
+1. Inicie sessão no Portal do Azure.
+
+2. Localize e selecione seu trabalho de Stream Analytics existente.
+
+3. Na página Stream Analytics trabalho, no cabeçalho **topologia do trabalho** , selecione **consulta** para abrir a janela do editor de consultas. 
+
+4. Para ver uma lista de exemplos de eventos de entrada, selecione o ícone entrada com arquivo e os eventos de exemplo serão exibidos automaticamente na **visualização de entrada**. 
+
+   a. O tipo de serialização para seus dados será detectado automaticamente se seu JSON ou CSV. Você pode alterá-lo manualmente, bem como JSON, CSV, AVRO alterando a opção no menu suspenso.
+    
+   b. Use o seletor para exibir seus dados em formato de **tabela** ou **bruto** .
+    
+   c. Se os dados mostrados não estiverem atuais, selecione **Atualizar** para ver os eventos mais recentes.
+
+   A tabela a seguir é um exemplo de dados no **formato de tabela**:
+
+   ![Azure Stream Analytics entrada de exemplo no formato de tabela](./media/stream-analytics-test-query/asa-sample-table.png)
+
+   A tabela a seguir é um exemplo de dados no **formato bruto**:
+
+   ![Azure Stream Analytics entrada de exemplo no formato bruto](./media/stream-analytics-test-query/asa-sample-raw.png)
+
+5. Para testar sua consulta com os dados de entrada, selecione **testar consulta**. Os resultados aparecem na guia **resultados do teste** . Você também pode selecionar **baixar resultados** para baixar os resultados.
+
+   ![Azure Stream Analytics resultados da consulta de teste de exemplo](./media/stream-analytics-test-query/asa-test-query.png)
+
+6. Para testar sua consulta em um intervalo de tempo específico de eventos de entrada, selecione **selecionar intervalo de tempo**.
+   
+   ![Azure Stream Analytics intervalo de tempo para eventos de exemplo de entrada](./media/stream-analytics-test-query/asa-select-time-range.png)
+
+7. Defina o intervalo de tempo dos eventos que você deseja usar para testar sua consulta e selecione **exemplo**. Dentro desse período, você pode recuperar até 1000 eventos ou 1 MB, o que vier primeiro.
+
+   ![Azure Stream Analytics definir intervalo de tempo para eventos de exemplo de entrada](./media/stream-analytics-test-query/asa-set-time-range.png)
+
+8. Depois que os eventos são amostrados para o intervalo de tempo selecionado, eles aparecem na guia **visualização de entrada** .
+
+   ![Azure Stream Analytics exibir resultados de teste](./media/stream-analytics-test-query/asa-view-test-results.png)
+
+9. Selecione **Redefinir** para ver a lista de exemplos de eventos de entrada. Se você selecionar **Redefinir**, sua seleção de intervalo de tempo será perdida. Selecione **testar consulta** para testar sua consulta e examine os resultados na guia **resultados do teste** .
+
+10. Ao fazer alterações em sua consulta, selecione **Salvar consulta** para testar a nova lógica de consulta. Isso permite que você modifique a consulta iterativamente e teste-a novamente para ver como a saída é alterada.
+
+11. Depois de verificar os resultados mostrados no navegador, você estará pronto para **Iniciar** o trabalho.
+
+## <a name="upload-sample-data-from-a-local-file"></a>Carregar dados de exemplo de um arquivo local
+
+Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo local para testar sua consulta de Azure Stream Analytics.
+
+1. Inicie sessão no Portal do Azure.
+   
 2. Localize a tarefa de Stream Analytics existente e selecioná-lo.
 
-3. Sobre o Stream Analytics tarefa em página, o **topologia da tarefa** cabeçalho, selecione **consulta** para abrir a janela do editor de consulta. 
+3. Na página Stream Analytics trabalho, no cabeçalho **topologia do trabalho** , selecione **consulta** para abrir a janela do editor de consultas.
 
-4. Para testar a sua consulta pode, em seguida, optar por apresentar exemplos dos dados a partir de uma entrada em direto ou ao carregar a partir de um ficheiro. Os dados devem ser serializados no JSON, CSV ou AVRO. Entrada de exemplo tem de ser codificada em UTF-8 e não comprimida. Delimitador de vírgula (,) só é suportada para a testar entrada CSV no portal.
+4. Para testar sua consulta com um arquivo local, selecione **carregar entrada de exemplo** na guia **visualização de entrada** . 
 
-    1. Com entrada em direto: com o botão direito em qualquer uma das suas entradas. Em seguida, selecione **dados de exemplo da entrada**. No ecrã seguinte, é possível definir a duração do exemplo. Amostragem de eventos a partir de uma origem em direto irá obter até 1000 eventos ou 1 MB (o que acontecer primeiro), para que o objeto de amostragem de dados não podem representar o intervalo de tempo integral especificado.
+   ![Azure Stream Analytics carregar arquivo de exemplo](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
-    1. Utilizar o ficheiro: com o botão direito em qualquer uma das suas entradas. Em seguida, selecione **carregar dados de exemplo do ficheiro**. 
+5. Carregue seu arquivo local para testar a consulta. Você só pode carregar arquivos com os formatos JSON, CSV ou AVRO. Selecione **OK**.
 
-    ![editor de consultas de teste de consulta do Stream analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
+   ![Azure Stream Analytics carregar arquivo de exemplo](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
-5. Depois da amostragem ou o carregamento estiver concluído, selecione **testar** para testar esta consulta contra os dados de exemplo que forneceu.
+6. Assim que você carregar o arquivo, também poderá ver o conteúdo do arquivo no formato como uma tabela ou no formato bruto. Se você selecionar **Redefinir**, os dados de exemplo serão retornados para os dados de entrada de entrada explicados na seção anterior. Você pode carregar qualquer outro arquivo para testar a consulta a qualquer momento.
 
-    ![dados de exemplo de teste do editor de consulta do Stream analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
+7. Selecione **testar consulta** para testar sua consulta em relação ao arquivo de exemplo carregado.
 
-6. Se precisar do resultado do teste para uso posterior, é apresentado o resultado da consulta no browser com uma ligação para os resultados da transferência. 
+8. Os resultados de teste são mostrados com base em sua consulta. Você pode alterar a consulta e selecionar **Salvar consulta** para testar a nova lógica de consulta. Isso permite que você modifique a consulta iterativamente e teste-a novamente para ver como a saída é alterada.
 
-7. Iterativamente, modifique a consulta e testá-lo novamente para ver como o resultado é alterado.
+9. Quando você usa várias saídas na consulta, os resultados são mostrados com base na saída selecionada. 
 
-   ![Saída de exemplo do editor de consulta do Stream Analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
+   ![Azure Stream Analytics saída selecionada](./media/stream-analytics-test-query/asa-sample-test-selected-output.png)
 
-   Quando utiliza várias saídas numa consulta, os resultados são mostrados nas guias separados e pode alternar facilmente entre eles.
-
-8. Depois de verificar os resultados mostrados no navegador, **guardar** sua consulta. Em seguida, **iniciar** a tarefa e deixá-lo a processar os eventos de entrada.
+10. Depois de verificar os resultados mostrados no navegador, você pode **Iniciar** o trabalho.
 
 ## <a name="next-steps"></a>Passos Seguintes
-> [!div class="nextstepaction"]
-> [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+
+* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+
+* [Exemplos de consulta para padrões comuns de uso de Stream Analytics](stream-analytics-stream-analytics-query-patterns.md)
+
+* [Entender as entradas para Azure Stream Analytics](stream-analytics-add-inputs.md)
+
+* [Compreender as saídas do Azure Stream Analytics](stream-analytics-define-outputs.md)

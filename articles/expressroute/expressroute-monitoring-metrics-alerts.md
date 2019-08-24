@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 08/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: d78c110f3317f4dd9f16cbe243aeca437e9890a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 92ec03e20fb6e681a0afd14048449ad004ebca0c
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60364708"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991490"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorização, métricas e alertas do ExpressRoute
 
@@ -25,15 +25,59 @@ Este artigo ajuda-o a compreender o ExpressRoute, monitorização, métricas e a
 
 ## <a name="circuit-metrics"></a>Métricas de circuito
 
-Para navegar até **métricas**, clique na página de ExpressRoute para o circuito que pretende monitorizar. Sob **monitorização**, pode ver a **métricas**. Selecione BitsInPerSecond ou BitsOutPerSecond e a agregação. Opcionalmente, pode aplicar a divisão, que mostrará as métricas por tipo de peering.
+Para navegar até **métricas**, clique na página de ExpressRoute para o circuito que pretende monitorizar. Sob **monitorização**, pode ver a **métricas**. Selecione uma das métricas listadas abaixo. A agregação padrão será aplicada. Opcionalmente, você pode aplicar a divisão, que mostrará as métricas com dimensões diferentes.
+
+### <a name="metrics-available"></a>Métricas disponíveis: 
+* **Disponibilidade** 
+    * Disponibilidade do ARP
+      * Dimensões disponíveis:
+        * Par (roteador de ExpressRoute primário/secundário)
+        * Tipo de emparelhamento (privado/público/Microsoft)
+    * Disponibilidade de BGP
+      * Dimensões disponíveis:
+        * Par (roteador de ExpressRoute primário/secundário)
+        * Tipo de emparelhamento (privado/público/Microsoft)
+* **Tráfico**
+    * BitsInPerSecond
+      * Dimensões disponíveis:
+        * Tipo de emparelhamento (privado/público/Microsoft)
+    * BitsOutPerSecond
+      * Dimensões disponíveis:
+        * Tipo de emparelhamento (privado/público/Microsoft)
+    * GlobalReachBitsInPerSecond
+      * Dimensões disponíveis:
+        * Circuito emparelhado skey (chave de serviço)
+    * GlobalReachBitsOutPerSecond
+      * Dimensões disponíveis:
+        * Circuito emparelhado skey (chave de serviço)
+
+>[!NOTE]
+>Usar *GlobalGlobalReachBitsInPerSecond* e *GlobalGlobalReachBitsOutPerSecond* só será visível se pelo menos uma conexão alcance global for estabelecida.
+>
+
+## <a name="bits-in-and-out---metrics-across-all-peerings"></a>Bits de entrada e saída-métricas em todos os emparelhamentos
+
+Você pode exibir as métricas em todos os emparelhamentos em um determinado circuito do ExpressRoute.
 
 ![Métricas de circuito](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
-## <a name="metrics-per-peering"></a>Métricas por peering
+## <a name="bits-in-and-out---metrics-per-peering"></a>Métricas de entrada e saída de bits por emparelhamento
 
 Pode ver as métricas para privado, público e peering em bits por segundo da Microsoft.
 
 ![Métricas por peering](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
+
+## <a name="bgp-availability---split-by-peer"></a>Disponibilidade de BGP-divisão por par  
+
+Você pode exibir quase a disponibilidade em tempo real do BGP entre emparelhamentos e pares (roteadores de ExpressRoute primários e secundários). Esse painel mostra a sessão BGP primária para emparelhamento privado e a segunda sessão BGP para emparelhamento privado. 
+
+![Disponibilidade de BGP por ponto](./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg) 
+
+## <a name="arp-availability---split-by-peering"></a>Disponibilidade ARP-divisão por emparelhamento  
+
+Você pode exibir quase a disponibilidade em tempo real do [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) entre emparelhamentos e pares (roteadores de ExpressRoute primários e secundários). Este painel mostra a sessão ARP de emparelhamento privado em ambos os pares, mas é concluída para o emparelhamento da Microsoft entre emparelhamentos. A agregação padrão (média) foi utilizada em ambos os pares.  
+
+![Disponibilidade ARP por ponto](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
 
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>Ligações de gateway do ExpressRoute em bits/segundos
 

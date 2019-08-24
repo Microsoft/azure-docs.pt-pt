@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 23ae7b5cfec26fb2483a3e4ac13a1220888d76ee
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 59ac4b36a4bc2b3ff454b3a2ae98ce60f6bfcb5f
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614263"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996612"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia numa fábrica de dados do Azure
 
@@ -264,10 +264,7 @@ Neste exemplo, durante a execução da cópia, o ADF observa que o banco de info
 ## <a name="incremental-copy"></a>Cópia incremental
 O Data Factory dá suporte a cenários de cópia incremental de dados Delta de um armazenamento de dados de origem para um armazenamento de dados de coletor. Ver [Tutorial: copiar dados de forma incremental](tutorial-incremental-copy-overview.md).
 
-## <a name="read-and-write-partitioned-data"></a>Ler e escrever dados particionados
-Na versão 1, o Azure Data Factory suportadas ler ou escrever dados particionados utilizando variáveis de sistema do SliceStart/SliceEnd/WindowStart/WindowEnd. Na versão atual, pode conseguir este comportamento ao utilizar um parâmetro de pipeline e agendada/hora a hora de início do acionador como um valor do parâmetro. Para obter mais informações, consulte [como ler ou escrever particionados dados](how-to-read-write-partitioned-data.md).
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes inícios rápidos, tutoriais e amostras:
 
 - [Copiar dados de uma localização para outra localização no mesmo armazenamento de Blobs do Azure](quickstart-create-data-factory-dot-net.md)

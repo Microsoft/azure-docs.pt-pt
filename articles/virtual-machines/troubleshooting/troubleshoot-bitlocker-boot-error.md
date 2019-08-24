@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/25/2019
+ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: 27a675982711f8d8f0b36ea0cc2600de45e97a6e
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: c96c8ef5e5bd9758cf270946da1e90bb12e8bca0
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348453"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998007"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de inicialização do BitLocker em uma VM do Azure
 
@@ -127,26 +127,27 @@ Se esse método não resolver o problema, siga estas etapas para restaurar o arq
     ```
     Neste exemplo, o disco do sistema operacional anexado é a unidade F. Certifique-se de usar a letra da unidade correta. 
 
-    - Se o disco foi desbloqueado com êxito usando a chave BEK. Podemos considerar o problema do BitLocker a ser resolvido. 
+8. Depois que o disco for desbloqueado com êxito usando a chave BEK, desanexe o disco da VM de recuperação e recrie a VM usando esse novo disco do sistema operacional.
 
-    - Se usar a chave BEK não desbloquear o disco, você poderá usar suspender a proteção para desativar temporariamente o BitLocker executando o comando a seguir
-    
-        ```powershell
-        manage-bde -protectors -disable F: -rc 0
-        ```      
-    - Se você pretende recriar a VM usando o disco dytem, deverá descriptografar completamente a unidade. Para tal, execute o seguinte comando:
+    > [!NOTE]
+    > Não há suporte para alternar o disco do sistema operacional para VMs que usam criptografia de disco.
 
-        ```powershell
-        manage-bde -off F:
-        ```
-8.  Desanexe o disco da VM de recuperação e anexe novamente o disco à VM afetada como um disco do sistema. Para obter mais informações, consulte [solucionar problemas de uma VM do Windows anexando o disco do sistema operacional a uma VM de recuperação](troubleshoot-recovery-disks-windows.md).
+9. Se a nova VM ainda não puder ser inicializada normalmente, tente uma das etapas a seguir depois de desbloquear a unidade:
+
+    - Suspenda a proteção para desativar temporariamente o BitLocker executando o seguinte:
+
+                    manage-bde -protectors -disable F: -rc 0
+           
+    - Descriptografar completamente a unidade. Para tal, execute o seguinte comando:
+
+                    manage-bde -off F:
 
 ### <a name="key-encryption-key-scenario"></a>Cenário de chave de criptografia de chave
 
 Para um cenário de chave de criptografia de chave, siga estas etapas:
 
 1. Verifique se a conta de usuário conectada requer a permissão "desencapsulada" nas políticas de acesso de Key Vault no **usuário | Permissões de chave | Operações criptográficas | Desencapsular chave**.
-2. Salve os scripts a seguir em um. Arquivo PS1:
+2. Salve o script a seguir em um. Arquivo PS1:
 
     ```powershell
     #Set the Parameters for the script
@@ -184,6 +185,7 @@ Para um cenário de chave de criptografia de chave, siga estas etapas:
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
     $authResult = $authContext.AcquireTokenAsync($resourceAppIdURI, $clientId, $redirectUri, $platformParameters).result
     # Generate auth header 
     $authHeader = $authResult.CreateAuthorizationHeader()
@@ -231,7 +233,7 @@ Para um cenário de chave de criptografia de chave, siga estas etapas:
     $bekFileBytes = [System.Convert]::FromBase64String($base64Bek);
     [System.IO.File]::WriteAllBytes($bekFilePath,$bekFileBytes)
     ```
-3. Defina os parâmetros. O script processará o segredo KEK para criar a chave BEK e, em seguida, o salvará em uma pasta local na VM de recuperação.
+3. Defina os parâmetros. O script processará o segredo KEK para criar a chave BEK e, em seguida, o salvará em uma pasta local na VM de recuperação. Se você receber erros ao executar o script, consulte a seção [solução de problemas de script](#script-troubleshooting) .
 
 4. Você verá a seguinte saída quando o script começar:
 
@@ -254,17 +256,38 @@ Para um cenário de chave de criptografia de chave, siga estas etapas:
     ```
     Neste exemplo, o disco do sistema operacional anexado é a unidade F. Certifique-se de usar a letra da unidade correta. 
 
-    - Se o disco foi desbloqueado com êxito usando a chave BEK. Podemos considerar o problema do BitLocker a ser resolvido. 
+6. Depois que o disco for desbloqueado com êxito usando a chave BEK, desanexe o disco da VM de recuperação e recrie a VM usando esse novo disco do sistema operacional. 
 
-    - Se usar a chave BEK não desbloquear o disco, você poderá usar suspender a proteção para desativar temporariamente o BitLocker executando o comando a seguir
-    
-        ```powershell
-        manage-bde -protectors -disable F: -rc 0
-        ```      
-    - Se você pretende recriar a VM usando o disco dytem, deverá descriptografar completamente a unidade. Para tal, execute o seguinte comando:
+    > [!NOTE]
+    > Não há suporte para alternar o disco do sistema operacional para VMs que usam criptografia de disco.
 
-        ```powershell
-        manage-bde -off F:
-        ```
+7. Se a nova VM ainda não puder ser inicializada normalmente, tente uma das etapas a seguir depois de desbloquear a unidade:
 
-6. Desanexe o disco da VM de recuperação e anexe novamente o disco à VM afetada como um disco do sistema. Para obter mais informações, consulte [solucionar problemas de uma VM do Windows anexando o disco do sistema operacional a uma VM de recuperação](troubleshoot-recovery-disks-windows.md).
+    - Suspenda a proteção para desativar temporariamente o BitLocker executando o seguinte comando:
+
+             manage-bde -protectors -disable F: -rc 0
+           
+    - Descriptografar completamente a unidade. Para tal, execute o seguinte comando:
+
+                    manage-bde -off F:
+## <a name="script-troubleshooting"></a>Solução de problemas de script
+
+**Erro: Não foi possível carregar o arquivo ou o assembly**
+
+Esse erro ocorre porque os caminhos dos assemblies da ADAL estão errados. Se o módulo AZ for instalado apenas para o usuário atual, os assemblies de ADAL estarão localizados em `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
+
+Você também pode procurar `Az.Accounts` pasta para localizar o caminho correto.
+
+**Erro: Get-AzKeyVaultSecret ou Get-AzKeyVaultSecret não é reconhecido como o nome de um cmdlet**
+
+Se você estiver usando o módulo atual AZ PowerShell, deverá alterar os dois comandos para `Get-AzureKeyVaultSecret` e. `Get-AzureKeyVaultSecret`
+
+**Exemplos de parâmetros**
+
+| Parâmetros  | Exemplo de valor  |Comentários   |
+|---|---|---|
+|  $keyVaultName | myKeyVault2112852926  | O nome do cofre de chaves que armazena a chave |
+|$kekName   |MyKey   | O nome da chave usada para criptografar a VM|
+|$secretName   |7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D  | O nome do segredo da chave da VM|
+|$bekFilePath   |c:\bek\7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D. BEK |O caminho para gravar o arquivo BEK.|
+|$adTenant  |contoso.onmicrosoft.com   | FQDN ou GUID do seu Azure Active Directory que hospeda o cofre de chaves |

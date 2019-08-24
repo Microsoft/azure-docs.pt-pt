@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: d726006d3ecce69f129b1576c7c6d12833582873
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12ea21a3f61404c2e031909adda28f8e1e768cd0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612744"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992079"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Responder a incidentes de segurança
 O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud híbrida com análises avançadas e informações de ameaças para o alertar de atividades maliciosas. Além disso, pode integrar alertas de outros produtos e serviços de segurança no Centro de Segurança e criar alertas personalizados com base nos seus próprios indicadores ou origens de informações. Assim que for gerado um alerta, é necessária uma ação rápida para analisar e remediar. Neste tutorial, vai aprender a:
@@ -33,7 +33,29 @@ O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para acompanhar as funcionalidades abrangidas neste tutorial, tem de estar no escalão de preço Standard do Centro de Segurança. Pode experimentar o Centro de segurança Standard sem encargos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
+Para acompanhar as funcionalidades abrangidas neste tutorial, tem de estar no escalão de preço Standard do Centro de Segurança. Você pode experimentar a central de segurança Standard sem nenhum custo. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
+
+## <a name="scenario"></a>Cenário
+A Contoso migrou recentemente alguns dos recursos no local para o Azure, incluindo algumas cargas de trabalho de linha de negócio baseadas em máquinas virtuais e bases de dados SQL. De momento, a CSIRT (Equipa de Resposta a Incidentes de Segurança Informática) da Contoso tem dificuldade em investigar problemas de segurança porque as informações de segurança não estão integradas com as respetivas ferramentas atuais de resposta a incidentes. Esta falta de integração apresenta um problema durante a fase de Deteção (demasiados falsos positivos), bem como durante as fases de Avaliação e Diagnóstico. Como parte desta migração, eles decidem se pretendem que o Centro de Segurança os ajude a resolver este problema.
+
+A primeira fase desta migração foi concluída após a integração de todos os recursos e a aceitação de todas as recomendações de segurança do Centro de Segurança. O Contoso CSIRT é o ponto central para lidar com incidentes de segurança informática. A equipa consiste num grupo de pessoas com responsabilidades para lidar com qualquer incidente de segurança. Os membros da equipa têm deveres claramente definidos para se certificar de que nenhuma área de resposta é deixada sem cobertura.
+
+Para efeitos deste cenário, vamos concentrar-nos nas funções das seguintes pessoas que fazem parte da CSIRT da Contoso:
+
+![Ciclo de vida de resposta a incidentes](./media/tutorial-security-incident/security-center-incident-response.png)
+
+A Constança está nas operações de segurança. Suas responsabilidades incluem:
+
+* Monitorização e capacidade de resposta contínuas a ameaças de segurança.
+* Escalonamento para o proprietário da carga de trabalho na nuvem ou analista de segurança, conforme necessário.
+
+Sam é analista de segurança e suas responsabilidades incluem:
+
+* Investigar ataques.
+* Resolver alertas.
+* Trabalhar com proprietários de cargas de trabalho para determinar e aplicar atenuações.
+
+Como pode ver, a Constança e o Samuel têm responsabilidades diferentes e devem trabalhar em conjunto para partilharem as informações do Centro de Segurança.
 
 ## <a name="triage-security-alerts"></a>Triar alertas de segurança
 O Centro de Segurança proporciona uma vista unificada de todos os alertas de segurança. Os alertas de segurança são classificados de acordo com a gravidade e, se possível, sempre que houver alertas relacionados, os mesmos são combinados num incidente de segurança. Ao triar alertas e incidentes, deve:

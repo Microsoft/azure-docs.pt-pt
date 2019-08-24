@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 5fc611af75a7f733576f9343a4375fb56cacc030
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: aab93204c850223756f28a56ea550f912e28e0d2
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67593155"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996760"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Referência do mecanismo de regras da CDN do Azure da Verizon Premium
 
@@ -71,7 +71,9 @@ Caractere especial | Descrição
 Espaço | Um caractere de espaço normalmente é tratado como um caractere literal.
 valor | Aspas simples são tratadas como caracteres literais. Um conjunto de aspas simples não tem significado especial.
 
-## <a name="next-steps"></a>Passos seguintes
+As condições de correspondência e os recursos que oferecem suporte a expressões regulares aceitam padrões definidos por PCRE (expressões regulares compatíveis com Perl).
+
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Condições de correspondência do motor de regras](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Expressões condicionais do motor de regras](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)

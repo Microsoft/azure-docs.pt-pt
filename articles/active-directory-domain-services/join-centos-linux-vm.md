@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: f28933623100ed18320df37741c7c1e82ccffa9f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 183f1190e4ccbd730600290305a5847f83853c39
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612858"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990735"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Ingressar em uma máquina virtual CentOS Linux em um domínio gerenciado
 Este artigo mostra como unir uma máquina virtual CentOS Linux no Azure a um Azure AD Domain Services domínio gerenciado.
@@ -84,7 +84,7 @@ Agora que os pacotes necessários estão instalados na máquina virtual Linux, a
 1. Descubra o domínio gerenciado dos serviços de domínio do AAD. No terminal SSH, digite o seguinte comando:
 
     ```console
-    sudo realm discover contoso.COM
+    sudo realm discover CONTOSO.COM
     ```
 
    > [!NOTE]
@@ -100,7 +100,7 @@ Agora que os pacotes necessários estão instalados na máquina virtual Linux, a
     > * Especifique o nome de domínio em letras maiúsculas, caso contrário, kinit falhará.
 
     ```console
-    kinit bob@contoso.COM
+    kinit bob@CONTOSO.COM
     ```
 
 3. Ingresse o computador no domínio. No terminal SSH, digite o seguinte comando:
@@ -111,7 +111,7 @@ Agora que os pacotes necessários estão instalados na máquina virtual Linux, a
     > Se sua VM não puder ingressar no domínio, verifique se o grupo de segurança de rede da VM permite o tráfego de saída do Kerberos na porta TCP + UDP 464 para a sub-rede da rede virtual para o domínio gerenciado do Azure AD DS.
 
     ```console
-    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM'
+    sudo realm join --verbose CONTOSO.COM -U 'bob@CONTOSO.COM'
     ```
 
 Você deverá receber uma mensagem ("computador registrado com êxito no Realm") quando o computador tiver ingressado com êxito no domínio gerenciado.
@@ -120,10 +120,10 @@ Você deverá receber uma mensagem ("computador registrado com êxito no Realm")
 ## <a name="verify-domain-join"></a>Verificar ingresso no domínio
 Verifique se o computador foi ingressado com êxito no domínio gerenciado. Conecte-se à VM CentOS do domínio ingressado usando uma conexão SSH diferente. Use uma conta de usuário de domínio e verifique se a conta de usuário foi resolvida corretamente.
 
-1. No terminal SSH, digite o seguinte comando para se conectar à máquina virtual CentOS do domínio ingressado usando o SSH. Use uma conta de domínio que pertença ao domínio gerenciado (por exemplo,bob@contoso.COM' ' neste caso).
+1. No terminal SSH, digite o seguinte comando para se conectar à máquina virtual CentOS do domínio ingressado usando o SSH. Use uma conta de domínio que pertença ao domínio gerenciado (por exemplo,bob@CONTOSO.COM' ' neste caso).
     
     ```console
-    ssh -l bob@contoso.COM contoso-centos.contoso.com
+    ssh -l bob@CONTOSO.COM contoso-centos.contoso.com
     ```
 
 2. No terminal SSH, digite o seguinte comando para ver se o diretório base foi inicializado corretamente.

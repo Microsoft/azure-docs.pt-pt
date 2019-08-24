@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: a9451b5dcd572eee27809cf66df889f06da960ed
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e2a94f82e4830bd1e9c96039f5ef8fe6546b0d0b
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571500"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982665"
 ---
 # <a name="role-based-access-control-rbac-and-privileged-identity-management-pim"></a>Controle de acesso baseado em função (RBAC) e Privileged Identity Management (PIM)
 
@@ -27,7 +27,7 @@ Em um alto nível, implementar o RBAC requer três componentes:
 
 ![RBAC-visão geral](media/rbac-overview.png)
 
-* **Entidades de segurança**: Uma entidade de segurança pode ser qualquer uma das seguintes opções: um usuário, um grupo, [entidades de serviço ou uma [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). As entidades de segurança devem receber privilégios usando grupos de Azure Active Directory.
+* **Entidades de segurança**: Uma entidade de segurança pode ser qualquer uma das seguintes opções: um usuário, um grupo, [entidades de serviço](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals)ou uma [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). As entidades de segurança devem receber privilégios usando grupos de Azure Active Directory.
 
 * **Definições de função**: Uma definição de função, também chamada de função, é uma coleção de permissões. Essas permissões definem as operações que podem ser executadas pelas entidades de segurança atribuídas à definição de função. Essa funcionalidade é fornecida pelas funções de recursos do Azure e Azure Active Directory funções de administrador. O Azure vem com um conjunto de funções internas (link) que podem ser aumentadas com funções personalizadas.
 
@@ -169,6 +169,6 @@ Isso garante que cada administrador individual só tenha acesso elevado pelo per
 
 O progresso das revisões de acesso pendentes pode ser monitorado a qualquer momento por meio de um Dashboard no portal do Azure. O acesso à função que está sendo revisada permanecerá inalterado até que a revisão de acesso seja concluída. Também é possível auditar [](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-use-audit-log) todas as atribuições e ativações de usuário PIM em um período de tempo indicado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Examine o artigo sobre [monitoramento do sistema na Austrália do Azure](system-monitor.md).

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9073e00f5c3702e43665541bd8ff9e66c2bc505b
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: ca2b7f2b0e20e85e1e62f8efabb81eddd5f901f2
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968504"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991103"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Habilitar o acesso remoto para Power BI Mobile com o Azure Proxy de Aplicativo do AD
 
@@ -103,25 +103,28 @@ Agora você está pronto para configurar o Azure Proxy de Aplicativo do AD.
 
 Para concluir a configuração do aplicativo, vá para **a seção usuários e grupos** e atribua usuários para acessar este aplicativo.
 
-## <a name="step-3-register-the-native-app-and-grant-access-to-the-api"></a>Passo 3: Registrar o aplicativo nativo e conceder acesso à API
+## <a name="step-3-grant-power-bi-mobile-access-to-report-services"></a>Passo 3: Conceder Power BI Mobile acesso aos serviços de relatório
 
-Aplicativos nativos são programas desenvolvidos para uso em uma plataforma ou dispositivo. Antes que o aplicativo móvel Power BI possa se conectar e acessar uma API, você deve registrá-lo no Azure AD.  
+Antes que o aplicativo móvel Power BI possa se conectar e acessar os serviços de relatório, você deve registrá-lo corretamente no Azure AD.  
 
-1. Registre o aplicativo no Azure AD seguindo a [etapa 2 em como habilitar aplicativos cliente nativos para interagir com aplicativos de proxy](application-proxy-configure-native-client-application.md#step-2-register-your-native-application).
+1. Na página **visão geral** do Azure Active Directory, selecione **registros de aplicativo**.
+2. Na guia **todos os aplicativos** , pesquise o aplicativo criado na etapa 2.
+3. Selecione o aplicativo e, em seguida, selecione **autenticação**.
+4. Adicione os seguintes URIs de redirecionamento com base em qual plataforma você está usando.
 
-   Ao registrar o aplicativo para Power BI Mobile **Ios**, adicione os seguintes URIs de redirecionamento:
+   Ao registrar o aplicativo para Power BI Mobile **Ios**, adicione os seguintes URIs de redirecionamento do tipo cliente público (Mobile & Desktop):
    - `msauth://code/mspbi-adal%3a%2f%2fcom.microsoft.powerbimobile`
    - `msauth://code/mspbi-adalms%3a%2f%2fcom.microsoft.powerbimobilems`
    - `mspbi-adal://com.microsoft.powerbimobile`
    - `mspbi-adalms://com.microsoft.powerbimobilems`
    
-   Ao registrar o aplicativo para Power BI Mobile **Android**, adicione os seguintes URIs de redirecionamento:
+   Ao registrar o aplicativo para Power BI Mobile **Android**, adicione os seguintes URIs de redirecionamento do tipo cliente público (Mobile & Desktop):
    - `urn:ietf:wg:oauth:2.0:oob`
 
    > [!IMPORTANT]
-   > Os URIs de redirecionamento devem ser adicionados para que o aplicativo funcione corretamente.
+   > Os URIs de redirecionamento devem ser adicionados para que o aplicativo funcione corretamente. Se você estiver configurando isso para iOS e Android, você só precisará registrar um **único** aplicativo e adicionar os URIs de redirecionamento para IOS e Android. Se você precisar de aplicativos separados para cada plataforma, será necessário incluir o URI de redirecionamento: `mspbi-adal://com.microsoft.powerbimobile` para ambos os aplicativos.
 
-Agora que você registrou seu aplicativo nativo, você pode conceder a ele acesso a outros aplicativos em seu diretório, nesse caso, para acessar os serviços de relatório publicados por meio do proxy de aplicativo. Siga as etapas na [etapa 3: Conceda acesso ao seu aplicativo](application-proxy-configure-native-client-application.md#step-3-grant-access-to-your-proxy-application)proxy.
+2. Agora que você registrou seu aplicativo nativo, você pode conceder a ele acesso a outros aplicativos em seu diretório, nesse caso, para acessar os serviços de relatório publicados por meio do proxy de aplicativo. Siga as etapas na [etapa 3: Conceda acesso ao seu aplicativo](application-proxy-configure-native-client-application.md#step-3-grant-access-to-your-proxy-application)proxy.
 
 ## <a name="step-4-connect-from-the-power-bi-mobile-app"></a>Passo 4: Conectar-se do aplicativo Power BI Mobile
 
@@ -153,7 +156,7 @@ Você pode usar Microsoft Intune para gerenciar os aplicativos cliente que a for
 
 Se o aplicativo retornar uma página de erro depois de tentar carregar um relatório por mais de alguns minutos, talvez seja necessário alterar a configuração de tempo limite. Por padrão, o proxy de aplicativo dá suporte a aplicativos que levam até 85 segundos para responder a uma solicitação. Para aumentar essa configuração para 180 segundos, selecione o tempo limite de back-end para **longo** na página de configurações de proxy de aplicativo para o aplicativo. Para obter dicas sobre como criar relatórios rápidos e confiáveis, consulte [práticas recomendadas de Power bi relatórios](https://docs.microsoft.com/power-bi/power-bi-reports-performance).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Permitir que aplicativos cliente nativos interajam com aplicativos de proxy](application-proxy-configure-native-client-application.md)
 - [Exibir KPIs e relatórios locais do servidor de relatório no Power BI aplicativos móveis](https://docs.microsoft.com/power-bi/consumer/mobile/mobile-app-ssrs-kpis-mobile-on-premises-reports)

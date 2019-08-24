@@ -1,32 +1,32 @@
 ---
-title: Conceitos de servidor na base de dados do Azure para PostgreSQL
-description: Este artigo fornece considerações e diretrizes para configurar e gerir a base de dados do Azure para servidores PostgreSQL.
+title: Conceitos de servidor no banco de dados do Azure para PostgreSQL
+description: Este artigo fornece considerações e diretrizes para configurar e gerenciar servidores do banco de dados do Azure para PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: d03cfd49887adf1f6a4650e374d3e13eeca735a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 533958221898b620500b7363f3710f75f155934a
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65077474"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998052"
 ---
-# <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus-preview"></a>Colocalização de tabela na base de dados do Azure para PostgreSQL – Hiperescala (Citus) (pré-visualização)
+# <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Colocação de tabela no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
 
-Significa que a partilha de localização, armazenando informações relacionadas em conjunto em nós do mesmo. Podem aceder a consultas rápidas quando os dados necessários tudo estão disponíveis sem qualquer tráfego de rede. Colocalizar dados relacionados em nós diferentes permite consultas a serem executadas com eficiência em paralelo em cada nó.
+A colocalização significa armazenar informações relacionadas nos mesmos nós. As consultas podem ficar rápidas quando todos os dados necessários estiverem disponíveis sem qualquer tráfego de rede. A colocação de dados relacionados em nós diferentes permite que as consultas sejam executadas com eficiência em paralelo em cada nó.
 
-## <a name="data-colocation-for-hash-distributed-tables"></a>Colocalização de dados para tabelas de hash e distribuída
+## <a name="data-colocation-for-hash-distributed-tables"></a>Colocação de dados para tabelas distribuídas por hash
 
-Em grande escala, uma linha é armazenada numa partição horizontal, se o hash do valor da coluna de distribuição está dentro do intervalo de hash a partição horizontal. As partições horizontais com o mesmo intervalo de hash sempre são colocadas no mesmo nó. Linhas com valores de coluna de distribuição igual são sempre no mesmo nó em tabelas.
+No banco de dados do Azure para PostgreSQL – visualização de hiperescala (Citus), uma linha é armazenada em um fragmento se o hash do valor na coluna de distribuição cair dentro do intervalo de hash do fragmento. Os fragmentos com o mesmo intervalo de hash sempre são colocados no mesmo nó. Linhas com valores de coluna de distribuição iguais sempre estão no mesmo nó entre tabelas.
 
-![Partições horizontais](media/concepts-hyperscale-colocation/colocation-shards.png)
+![Fragmentos](media/concepts-hyperscale-colocation/colocation-shards.png)
 
-## <a name="a-practical-example-of-colocation"></a>Um exemplo prático de partilha de localização
+## <a name="a-practical-example-of-colocation"></a>Um exemplo prático de colocação
 
-Considere as seguintes tabelas que podem fazer parte de uma análise de web do multi-inquilino SaaS:
+Considere as tabelas a seguir que podem ser parte de um SaaS Web Analytics multilocatário:
 
 ```sql
 CREATE TABLE event (
@@ -45,9 +45,9 @@ CREATE TABLE page (
 );
 ```
 
-Agora queremos responder a consultas que podem ser emitidas por um dashboard do lado do cliente, tais como: "Devolver o número de visitas da semana passada para todas as páginas, começando com" / blog "no inquilino seis."
+Agora queremos responder a consultas que podem ser emitidas por um painel voltado para o cliente. Um exemplo de consulta é "retornar o número de visitas na última semana para todas as páginas que começam com"/blog "no locatário seis."
 
-Se os nossos dados estavam numa opção de implementação de servidor único, podemos facilmente expressar nossa consulta usando o conjunto avançado de operações relacionais oferecida pelo SQL:
+Se nossos dados estavam na opção de implantação de servidor único, poderíamos expressar facilmente nossa consulta usando o conjunto avançado de operações relacionais oferecidas pelo SQL:
 
 ```sql
 SELECT page_id, count(event_id)
@@ -62,13 +62,13 @@ WHERE tenant_id = 6 AND path LIKE '/blog%'
 GROUP BY page_id;
 ```
 
-Desde que o [conjunto de trabalho](https://en.wikipedia.org/wiki/Working_set) para esta consulta se encaixa na memória, uma tabela de servidor único é uma solução apropriada. No entanto, vamos considerar as oportunidades de dimensionar o modelo de dados com a opção de implementação de Hiperescala.
+Desde que o [conjunto de trabalho](https://en.wikipedia.org/wiki/Working_set) para essa consulta caiba na memória, uma tabela de servidor único é uma solução apropriada. Vamos considerar as oportunidades de dimensionar o modelo de dados com a opção de implantação de hiperescala (Citus).
 
-### <a name="distributing-tables-by-id"></a>Distribuição de tabelas por ID
+### <a name="distribute-tables-by-id"></a>Distribuir tabelas por ID
 
-Consultas de servidor único iniciar lento conforme cresce o número de inquilinos e os dados armazenados para cada inquilino. O trabalho definir paradas que se ajusta na memória e CPU tornar-se um estrangulamento.
+As consultas de servidor único começam a diminuir a velocidade conforme o número de locatários e os dados armazenados para cada locatário crescem. O conjunto de trabalho para de se ajustar na memória e a CPU se torna um afunilamento.
 
-Neste caso, podemos partições horizontais os dados em vários nós usando Hiperescala. A opção de primeira e mais importante que precisamos fazer quando a fragmentação é a coluna de distribuição. Vamos começar com uma opção simples de usar `event_id` para a tabela de eventos e `page_id` para o `page` tabela:
+Nesse caso, podemos fragmentar os dados em vários nós usando o Citus (hiperescala). A primeira e mais importante opção que precisamos fazer quando decidimos fragmentar é a coluna de distribuição. Vamos começar com uma opção simples de usar `event_id` para a tabela de eventos e `page_id` para a `page` tabela:
 
 ```sql
 -- naively use event_id and page_id as distribution columns
@@ -77,7 +77,7 @@ SELECT create_distributed_table('event', 'event_id');
 SELECT create_distributed_table('page', 'page_id');
 ```
 
-Quando os dados estão dispersos entre diferentes funções de trabalho, não é possível realizar uma junção à medida que faríamos num único nó de PostgreSQL. Em vez disso, será necessário emitir consultas de dois:
+Quando os dados são dispersos em diferentes trabalhadores, não podemos realizar uma junção como faria em um único nó PostgreSQL. Em vez disso, precisamos emitir duas consultas:
 
 ```sql
 -- (Q1) get the relevant page_ids
@@ -92,24 +92,24 @@ WHERE page_id IN (/*…page IDs from first query…*/)
 GROUP BY page_id ORDER BY count DESC LIMIT 10;
 ```
 
-Depois disso, os resultados de dois passos tem de ser combinados pela aplicação.
+Posteriormente, os resultados das duas etapas precisam ser combinados pelo aplicativo.
 
-Executar as consultas tem de consultar dados em partições horizontais espalhados entre nós.
+Executar as consultas deve consultar dados em fragmentos espalhados entre nós.
 
-![consultas ineficientes](media/concepts-hyperscale-colocation/colocation-inefficient-queries.png)
+![Consultas ineficientes](media/concepts-hyperscale-colocation/colocation-inefficient-queries.png)
 
-Neste caso, a distribuição de dados cria substanciais desvantagens:
+Nesse caso, a distribuição de dados cria desvantagens substanciais:
 
--   Sobrecarga de consultar a cada partição horizontal, em execução várias consultas
--   Sobrecarga de Q1 número de linhas a devolver ao cliente
--   Q2 se torne grande
--   A necessidade de escrever consultas em várias etapas são necessárias alterações no aplicativo
+-   Sobrecarga da consulta de cada fragmento e execução de várias consultas.
+-   Sobrecarga de Q1 retornando muitas linhas para o cliente.
+-   Q2 torna-se grande.
+-   A necessidade de escrever consultas em várias etapas requer alterações no aplicativo.
 
-Uma vez que os dados estão dispersos, as consultas podem ser colocado em paralelo. No entanto, só é útil se a quantidade de trabalho que faz a consulta é consideravelmente maior do que a sobrecarga de consulta muitos fragmentos.
+Os dados são dispersos, portanto, as consultas podem ser paralelizadas. Só é benéfico se a quantidade de trabalho que a consulta faz é consideravelmente maior do que a sobrecarga de consultar muitos fragmentos.
 
-### <a name="distributing-tables-by-tenant"></a>Distribuição de tabelas por inquilino
+### <a name="distribute-tables-by-tenant"></a>Distribuir tabelas por locatário
 
-Em grande escala, linhas com o mesmo valor de coluna de distribuição são garantidas no mesmo nó. Recomeçar, podemos criar nossos tabelas com `tenant_id` como a coluna de distribuição.
+Em hiperescala (Citus), as linhas com o mesmo valor de coluna de distribuição têm a garantia de estar no mesmo nó. A partir de então, podemos criar nossas tabelas `tenant_id` com como a coluna de distribuição.
 
 ```sql
 -- co-locate tables by using a common distribution column
@@ -117,7 +117,7 @@ SELECT create_distributed_table('event', 'tenant_id');
 SELECT create_distributed_table('page', 'tenant_id', colocate_with => 'event');
 ```
 
-Agora Hiperescala pode responder a consulta original de servidor único sem modificação (P1):
+Agora o Citus (subscale) pode responder à consulta de servidor único original sem modificação (Q1):
 
 ```sql
 SELECT page_id, count(event_id)
@@ -132,12 +132,12 @@ WHERE tenant_id = 6 AND path LIKE '/blog%'
 GROUP BY page_id;
 ```
 
-Graças ao filtro e a associação no tenant_id, Hiperescala sabe que a consulta inteira pode ser respondida usando o conjunto de partições horizontais colocalizados que contêm os dados para esse inquilino específico. Um único nó de PostgreSQL pode responder a consulta numa única etapa.
+Devido ao filtro e à junção em tenant_id, o Citus (subscale) sabe que toda a consulta pode ser respondida usando o conjunto de fragmentos colocalizados que contêm os dados para esse locatário específico. Um único nó PostgreSQL pode responder à consulta em uma única etapa.
 
-![consulta melhor](media/concepts-hyperscale-colocation/colocation-better-query.png)
+![Consulta melhor](media/concepts-hyperscale-colocation/colocation-better-query.png)
 
-Em alguns casos, as consultas e esquemas de tabela devem ser alteradas para incluir o ID de inquilino nas restrições exclusivas e Junte-se a condições. No entanto, isso normalmente é uma alteração simples.
+Em alguns casos, as consultas e os esquemas de tabela devem ser alterados para incluir a ID do locatário em restrições exclusivas e condições de junção. Essa alteração é normalmente simples.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Veja como os dados de inquilino é colocalizados no [tutorial de multi-inquilino](tutorial-design-database-hyperscale-multi-tenant.md)
+- Veja como os dados de locatário estão colocalizados no [tutorial de vários locatários](tutorial-design-database-hyperscale-multi-tenant.md).

@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c6a76f4188ecbf6ca778fdbcd23ac9fed2f60dde
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 024cc18f537334a4e9fb260864b13ac027af582f
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534657"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982692"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solucionando problemas com Gerenciamento de Atualizações
 
@@ -339,7 +339,7 @@ Se você não puder resolver um problema de aplicação de patch, faça uma cóp
 ### <a name="machines-do-not-install-updates"></a>Os computadores não instalam atualizações
 
 * Experimente executar as atualizações diretamente na máquina. Se a máquina não se conseguir atualizar, veja a [lista de potenciais erros no guia de resolução de problemas](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
-* Se as atualizações forem executadas localmente, experimente remover e reinstalar o agente na máquina com as instruções em ["Remove a VM from Update Management"](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-for-update-management) (“Remover VMs da Gestão de Atualizações”).
+* Se as atualizações forem executadas localmente, experimente remover e reinstalar o agente na máquina com as instruções em ["Remove a VM from Update Management"](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-from-update-management) (“Remover VMs da Gestão de Atualizações”).
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-needed-on-my-machines"></a>Sei que as atualizações estão disponíveis, mas elas não são mostradas conforme necessário em meus computadores
 

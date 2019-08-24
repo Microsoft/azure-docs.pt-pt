@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: bbbb570cc042d5faa16b66c42aef9792b24fdb12
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: dc9f59894da071e956283591cf7206bc371650b7
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854058"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991438"
 ---
 # <a name="pre-filtering-manifests-by-using-dynamic-packager"></a>Pré-filtrando manifestos usando o Dynamic Packager
 
@@ -28,7 +28,7 @@ Alguns cenários de entrega exigem que você verifique se um cliente não conseg
 
 Você pode combinar a filtragem por meio da especificação [de filtros no localizador de streaming](filters-concept.md#associating-filters-with-streaming-locator) + filtros específicos de dispositivos adicionais que o cliente especifica na URL. Isso pode ser útil para restringir faixas adicionais, como metadados ou fluxos de eventos, idiomas de áudio ou faixas de áudio descritivas. 
 
-Essa capacidade de especificar filtros diferentes em seu fluxo fornece uma solução de manipulação de **manifesto dinâmico** poderosa para direcionar vários cenários de caso de uso para seus dispositivos de destino. Este tópico explica os conceitos relacionados  a manifestos dinâmicos e fornece exemplos de cenários nos quais você pode desejar usar esse recurso.
+Essa capacidade de especificar filtros diferentes em seu fluxo fornece uma solução de manipulação de **manifesto dinâmico** poderosa para direcionar vários cenários de caso de uso para seus dispositivos de destino. Este tópico explica os conceitos relacionados a manifestos dinâmicos e fornece exemplos de cenários nos quais você pode desejar usar esse recurso.
 
 > [!NOTE]
 > Os manifestos dinâmicos não alteram o ativo e o manifesto padrão para esse ativo. 
@@ -107,7 +107,7 @@ Este é o ativo filtrado:
 
 ## <a name="adjusting-the-presentation-window-dvr"></a>Ajustando a janela de apresentação (DVR)
 
-Atualmente, os serviços de mídia do Azure oferecem um arquivo circular em que a duração pode ser configurada entre 5 minutos e 25 horas. A filtragem de manifesto pode ser usada para criar uma janela DVR de interrupção na parte superior do arquivo morto, sem excluir a mídia. Há muitos cenários em que os difusores desejam fornecer uma janela DVR limitada para mover com o Live Edge e, ao mesmo tempo, manter uma janela de arquivamento maior. Um transmissor pode querer usar os dados que estão fora da janela DVR para realçar clipes ou pode querer fornecer janelas DVR diferentes para diferentes dispositivos. Por exemplo, a maioria dos dispositivos móveis não lida com janelas DVR grandes (você pode ter uma janela DVR de 2 minutos para dispositivos móveis e uma hora para clientes de desktop).
+Atualmente, os serviços de mídia do Azure oferecem um arquivo circular em que a duração pode ser configurada entre 1 minuto e 25 horas. A filtragem de manifesto pode ser usada para criar uma janela DVR de interrupção na parte superior do arquivo morto, sem excluir a mídia. Há muitos cenários em que os difusores desejam fornecer uma janela DVR limitada para mover com o Live Edge e, ao mesmo tempo, manter uma janela de arquivamento maior. Um transmissor pode querer usar os dados que estão fora da janela DVR para realçar clipes ou pode querer fornecer janelas DVR diferentes para diferentes dispositivos. Por exemplo, a maioria dos dispositivos móveis não lida com janelas DVR grandes (você pode ter uma janela DVR de 2 minutos para dispositivos móveis e uma hora para clientes de desktop).
 
 ![Janela DVR][dvr_filter]
 
@@ -134,7 +134,7 @@ Você também pode combinar vários filtros em uma única URL. O cenário a segu
 1. Você deseja combinar esses dois filtros. Sem a combinação, você precisaria adicionar a filtragem de qualidade ao filtro de corte, o que dificultaria o uso do filtro.
 
 
-Para combinar filtros, você precisa definir os nomes de filtro para a URL de manifesto/playlist no formato delimitado por ponto e vírgula. Vamos supor que você tenha um filtro chamado *MyMobileDevice* que filtre qualidades, e que você tenha outro  chamado mystartime para definir uma hora de início específica. Você pode combinar até três filtros. 
+Para combinar filtros, você precisa definir os nomes de filtro para a URL de manifesto/playlist no formato delimitado por ponto e vírgula. Vamos supor que você tenha um filtro chamado *MyMobileDevice* que filtre qualidades, e que você tenha outro chamado mystartime para definir uma hora de início específica. Você pode combinar até três filtros. 
 
 Para obter mais informações, consulte [esta postagem no blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
@@ -149,7 +149,7 @@ Para obter mais informações, consulte [esta postagem no blog](https://azure.mi
     - Para determinar as propriedades das faixas em um ativo, [obtenha e examine o arquivo de manifesto](#get-and-examine-manifest-files).
     - A fórmula para definir as propriedades de carimbo de data/hora do filtro de ativos é: <br/>startTimestamp = &lt;hora de início no manifesto&gt; +  &lt;tempo de início de filtro esperado&gt; em segundos * escala de tempo
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Os artigos a seguir mostram como criar filtros programaticamente:  
 

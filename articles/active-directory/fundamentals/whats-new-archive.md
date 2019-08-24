@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b338ad90c01c109cc9b2e222f1d7bcaa09f20346
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a978e2755818e88cad580753e041eacd50a9e6d2
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812946"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980473"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivada para o que há de novo? no Azure Active Directory
 
@@ -64,7 +64,7 @@ Para obter mais informações sobre os novos cookies, consulte [configurações 
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---january-2019"></a>Novas Aplicações Federadas disponíveis na galeria de aplicações do Azure AD - janeiro de 2019
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---january-2019"></a>Novos aplicativos federados disponíveis na Galeria de aplicativos do Azure AD – janeiro de 2019
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Aplicações Empresariais  
@@ -78,11 +78,11 @@ Para obter mais informações sobre as aplicações, consulte [integração de a
 
 ---
 
-### <a name="new-azure-ad-identity-protection-enhancements-public-preview"></a>Novas melhorias no Azure AD Identity Protection (Pré-visualização pública)
+### <a name="new-azure-ad-identity-protection-enhancements-public-preview"></a>Novos aprimoramentos de Azure AD Identity Protection (visualização pública)
 
 **Escreva** Funcionalidade alterada  
 **Categoria de serviço:** Identity Protection  
-**Funcionalidade do produto:** Segurança e Proteção de Identidade
+**Funcionalidade do produto:** Proteção de & de segurança de identidade
 
 Estamos empolgados em anunciar que adicionamos os seguintes aprimoramentos à oferta de visualização pública Azure AD Identity Protection, incluindo:
 
@@ -98,11 +98,11 @@ Para obter mais informações sobre os aprimoramentos, consulte [o que é Azure 
 
 ---
 
-### <a name="new-app-lock-feature-for-the-microsoft-authenticator-app-on-ios-and-android-devices"></a>Nova funcionalidade de Bloqueio de Aplicação para a aplicação Microsoft Authenticator em dispositivos iOS e Android
+### <a name="new-app-lock-feature-for-the-microsoft-authenticator-app-on-ios-and-android-devices"></a>Novo recurso de bloqueio de aplicativo para o aplicativo Microsoft Authenticator em dispositivos iOS e Android
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Microsoft Authenticator aplicativo  
-**Funcionalidade do produto:** Segurança e Proteção de Identidade
+**Funcionalidade do produto:** Proteção de & de segurança de identidade
 
 Para manter suas senhas de uso único, informações de aplicativo e configurações de aplicativo mais seguras, você pode ativar o recurso de bloqueio de aplicativo no aplicativo Microsoft Authenticator. Ativar o bloqueio do aplicativo significa que você será solicitado a autenticar usando seu PIN ou biométrica toda vez que abrir o aplicativo Microsoft Authenticator.
 
@@ -110,7 +110,7 @@ Para obter mais informações, consulte as [perguntas frequentes do aplicativo M
 
 ---
 
-### <a name="enhanced-azure-ad-privileged-identity-management-pim-export-capabilities"></a>Capacidades de exportação avançadas do Azure AD Privileged Identity Management (PIM)
+### <a name="enhanced-azure-ad-privileged-identity-management-pim-export-capabilities"></a>Recursos de exportação do PIM (Azure AD Privileged Identity Management avançado)
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Privileged Identity Management  
@@ -124,7 +124,7 @@ Para obter mais informações, consulte [Exibir histórico de atividades e de au
 
 ## <a name="novemberdecember-2018"></a>Novembro/Dezembro de 2018
 
-### <a name="users-removed-from-synchronization-scope-no-longer-switch-to-cloud-only-accounts"></a>Os utilizadores removidos do âmbito de sincronização já não mudam para contas apenas na cloud
+### <a name="users-removed-from-synchronization-scope-no-longer-switch-to-cloud-only-accounts"></a>Usuários removidos do escopo de sincronização não são mais alternados para contas somente de nuvem
 
 **Escreva** Fixo  
 **Categoria de serviço:** Gestão de Utilizadores  
@@ -155,7 +155,7 @@ Essa correção, consequentemente, impede que as atualizações diretas no atrib
 
 **Escreva** Funcionalidade alterada  
 **Categoria de serviço:** Relatórios  
-**Funcionalidade do produto:** Monitorização e Relatórios
+**Funcionalidade do produto:** Monitoramento & relatórios
 
 Atualmente, estamos publicando a auditoria e os fluxos de log de entrada por meio de Azure Monitor, para que você possa integrar diretamente os arquivos de log com suas ferramentas SIEM ou com Log Analytics. Com base em seus comentários e na preparação para o comunicado de disponibilidade geral do recurso, estamos fazendo as seguintes alterações em nosso esquema. Essas alterações de esquema e suas atualizações de documentação relacionadas ocorrerão na primeira semana de Janeiro.
 
@@ -169,7 +169,7 @@ Os campos a seguir estão sendo alterados no esquema de auditoria:
 |----------|------------|----------|----------|
 |Category|Esse era o campo **nome do serviço** . Agora é o campo de **categorias de auditoria** . O **nome do serviço** foi renomeado para o campo **loggedByService** .|<ul><li>Aprovisionamento de Contas</li><li>Diretório do Núcleo</li><li>Redefinição de senha de autoatendimento</li></ul>|<ul><li>Gestão de Utilizadores</li><li>Gestão de Grupos</li><li>Gestão de Aplicações</li></ul>|
 |targetResources|Inclui **TargetResourceType** no nível superior.|&nbsp;|<ul><li>Política</li><li>Aplicação</li><li>Utilizador</li><li>Grupo</li></ul>|
-|loggedByService|Fornece o nome do serviço que gerou o log de auditoria.|Null|<ul><li>Aprovisionamento de Contas</li><li>Diretório do Núcleo</li><li>Reposição de palavra-passe self-service</li></ul>|
+|loggedByService|Fornece o nome do serviço que gerou o log de auditoria.|Null|<ul><li>Aprovisionamento de Contas</li><li>Diretório do Núcleo</li><li>Reposição personalizada de palavra-passe</li></ul>|
 |Resultado|Fornece o resultado dos logs de auditoria. Anteriormente, isso foi enumerado, mas agora mostramos o valor real.|<ul><li>0</li><li>1</li></ul>|<ul><li>Êxito</li><li>Falha</li></ul>|
 
 #### <a name="changed-fields-in-the-sign-in-schema"></a>Campos alterados no esquema de entrada
@@ -185,7 +185,7 @@ Para obter mais informações sobre o esquema, consulte [interpretar o esquema d
 
 ---
 
-### <a name="identity-protection-improvements-to-the-supervised-machine-learning-model-and-the-risk-score-engine"></a>Melhorias no Identity Protection para o modelo controlado de machine learning e motor de pontuação de risco
+### <a name="identity-protection-improvements-to-the-supervised-machine-learning-model-and-the-risk-score-engine"></a>Melhorias de proteção de identidade para o modelo de aprendizado de máquina supervisionado e o mecanismo de Pontuação de risco
 
 **Escreva** Funcionalidade alterada  
 **Categoria de serviço:** Identity Protection  
@@ -197,7 +197,7 @@ As detecções de risco agora são avaliadas pelo modelo de aprendizado de máqu
 
 ---
 
-### <a name="administrators-can-reset-their-own-password-using-the-microsoft-authenticator-app-public-preview"></a>Os administradores podem repor a própria palavra-passe com a aplicação Microsoft Authenticator (Pré-visualização pública)
+### <a name="administrators-can-reset-their-own-password-using-the-microsoft-authenticator-app-public-preview"></a>Os administradores podem redefinir suas próprias senhas usando o aplicativo Microsoft Authenticator (visualização pública)
 
 **Escreva** Funcionalidade alterada  
 **Categoria de serviço:** Reposição Autónoma de Palavra-passe  
@@ -215,11 +215,11 @@ Os administradores do Azure AD agora podem redefinir suas próprias senhas usand
 
 - Mensagem SMS
 
-Para obter mais informações sobre como usar o aplicativo Microsoft Authenticator para redefinir senhas, consulte redefinição de [senha de autoatendimento do Azure ad-aplicativo móvel e SSPR (versão prévia)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#mobile-app-and-sspr-preview)
+Para obter mais informações sobre como usar o aplicativo Microsoft Authenticator para redefinir senhas, consulte redefinição de [senha de autoatendimento do Azure ad-aplicativo móvel e SSPR (versão prévia)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#mobile-app-and-sspr)
 
 ---
 
-### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>Nova função de Administrador de Dispositivos de Cloud do Azure AD (Pré-visualização pública)
+### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>Nova função de administrador de dispositivo de nuvem do Azure AD (visualização pública)
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Gestão e Registo de Dispositivos  
@@ -231,7 +231,7 @@ Para obter mais informações sobre funções e permissões, consulte [atribuind
 
 ---
 
-### <a name="manage-your-devices-using-the-new-activity-timestamp-in-azure-ad-public-preview"></a>Gira os seus dispositivos com a nova data/hora de atividade no Azure AD (Pré-visualização pública)
+### <a name="manage-your-devices-using-the-new-activity-timestamp-in-azure-ad-public-preview"></a>Gerenciar seus dispositivos usando o novo carimbo de data/hora de atividade no Azure AD (visualização pública)
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Gestão e Registo de Dispositivos  
@@ -280,7 +280,7 @@ Para obter mais informações, consulte a [seção adicionar termos de uso do re
  
 ---
 
-### <a name="new-azure-ad-privileged-identity-management-pim-emails-for-azure-active-directory-roles"></a>Novos e-mails do Azure AD Privileged Identity Management (PIM) para funções do Azure Active Directory
+### <a name="new-azure-ad-privileged-identity-management-pim-emails-for-azure-active-directory-roles"></a>Novos emails de Azure AD Privileged Identity Management (PIM) para funções de Azure Active Directory
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Privileged Identity Management  
@@ -302,7 +302,7 @@ Para obter mais informações sobre o PIM e as notificações por email disponí
 
 ---
 
-### <a name="group-based-licensing-is-now-generally-available"></a>O licenciamento baseado em grupos está agora geralmente disponível
+### <a name="group-based-licensing-is-now-generally-available"></a>O licenciamento baseado em grupo agora está disponível para o público geral
 
 **Escreva** Funcionalidade alterada  
 **Categoria de serviço:** Outros  
@@ -314,7 +314,7 @@ Para obter mais informações sobre licenciamento baseado em grupo, consulte [o 
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---november-2018"></a>Novas Aplicações Federadas disponíveis na galeria de aplicações do Azure AD - novembro de 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---november-2018"></a>Novos aplicativos federados disponíveis na Galeria de aplicativos do Azure AD – novembro de 2018
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Aplicações Empresariais  
@@ -334,7 +334,7 @@ Para obter mais informações sobre as aplicações, consulte [integração de a
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Relatórios  
-**Funcionalidade do produto:** Monitorização e Relatórios
+**Funcionalidade do produto:** Monitoramento & relatórios
 
 Temos o prazer de anunciar que agora pode reencaminhar os registos do Azure AD para o Azure Log Analytics! Esta funcionalidade mais pedidas ajuda dá a acesso ainda melhor para análise para o seu negócio, operações e segurança, bem como uma forma de ajudar a monitorizar a sua infraestrutura. Para obter mais informações, consulte a [registos de atividade do Active Directory do Azure no Azure Log Analytics agora disponível](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-Activity-logs-in-Azure-Log-Analytics-now/ba-p/274843) blog.
 
@@ -451,7 +451,7 @@ Para obter mais informações, consulte [o que é o portal as minhas aplicaçõe
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Relatórios  
-**Funcionalidade do produto:** Monitorização e Relatórios
+**Funcionalidade do produto:** Monitoramento & relatórios
 
 A nova **resolução de problemas e suporte** guia a **inícios de sessão** página do Azure portal, tem como objetivo ajudar os administradores e engenheiros de suporte resolver problemas relacionados com inícios de sessão do Azure AD. Este novo separador fornece o código de erro, mensagem de erro e em recomendações de atualização (se houver) para ajudar a resolver o problema. Se não é possível resolver o problema, também fornecemos uma nova forma de criar um pedido de suporte com o **copiar para área de transferência** experiência, que preenche a **ID do pedido** e **data (UTC)** campos para o ficheiro de registo no seu pedido de suporte.  
 
@@ -504,7 +504,7 @@ Para obter mais informações, consulte [como ativar a reposição do Windows 7,
 ### <a name="change-notice-authorization-codes-will-no-longer-be-available-for-reuse"></a>Aviso de alteração: Os códigos de autorização não estarão mais disponíveis para reutilização 
 
 **Escreva** Plano de alteração  
-**Categoria de serviço:** Autenticações (Inícios de sessão)  
+**Categoria de serviço:** Autenticações (logons)  
 **Funcionalidade do produto:** Autenticação de Utilizador
 
 A partir de 15 de Novembro de 2018, do Azure AD irá parar abertos ao recebimento de códigos de autenticação utilizados anteriormente para aplicações. Esta alteração de segurança ajuda a trazer do Azure AD em conformidade com a especificação de OAuth e será imposta em pontos finais de ambos o v1 e v2.
@@ -588,7 +588,7 @@ Tráfego de rede está a mudar para estes intervalos de novo nos próximos dois 
 ### <a name="change-notice-authorization-codes-will-no-longer-be-available-for-reuse"></a>Aviso de alteração: Os códigos de autorização não estarão mais disponíveis para reutilização 
 
 **Escreva** Plano de alteração  
-**Categoria de serviço:** Autenticações (Inícios de sessão)  
+**Categoria de serviço:** Autenticações (logons)  
 **Funcionalidade do produto:** Autenticação de Utilizador
 
 A partir de 15 de Novembro de 2018, do Azure AD irá parar abertos ao recebimento de códigos de autenticação utilizados anteriormente para aplicações. Esta alteração de segurança ajuda a trazer do Azure AD em conformidade com a especificação de OAuth e será imposta em pontos finais de ambos o v1 e v2.
@@ -709,7 +709,7 @@ E-mails de Active Directory (Azure AD) do Azure apresentam agora um design atual
 As notificações de e-mail serão enviadas o seguinte endereço de e-mail e nome a apresentar:
 
 - Endereço de e-mail: azure-noreply@microsoft.com
-- Nome a apresentar: Microsoft Azure
+- Nome para exibição: Microsoft Azure
  
 Para obter um exemplo de alguns dos novos designs de email e obter mais informações, consulte [notificações no Azure AD PIM por E-Mail](https://go.microsoft.com/fwlink/?linkid=2005832).
 
@@ -719,7 +719,7 @@ Para obter um exemplo de alguns dos novos designs de email e obter mais informa�
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Relatórios  
-**Funcionalidade do produto:** Monitorização e Relatórios
+**Funcionalidade do produto:** Monitoramento & relatórios
 
 Os registos de atividades do Azure AD estão agora disponíveis em pré-visualização pública para o Azure Monitor (serviço de monitorização ao nível da plataforma do Azure). Monitor do Azure oferece-lhe retenção de longa duração e a integração totalmente integrada, além destas melhorias:
 
@@ -737,7 +737,7 @@ Para obter mais informações sobre estas novas capacidades, consulte o nosso bl
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Relatórios  
-**Funcionalidade do produto:** Segurança e Proteção de Identidade
+**Funcionalidade do produto:** Proteção de & de segurança de identidade
  
 Esta atualização permite-lhe ver que políticas são avaliadas quando um utilizador inicia sessão, juntamente com o resultado de política. Além disso, o relatório inclui agora o tipo de aplicação de cliente utilizado pelo utilizador, para que possa identificar o tráfego de protocolo de legado. Agora também podem ser pesquisadas entradas de relatório para um ID de correlação, que pode ser encontrado na mensagem de erro destinada ao utilizador e pode ser utilizado para identificar e resolver problemas relacionados com o pedido de início de sessão correspondente.
 
@@ -747,7 +747,7 @@ Esta atualização permite-lhe ver que políticas são avaliadas quando um utili
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Relatórios  
-**Funcionalidade do produto:** Monitorização e Relatórios
+**Funcionalidade do produto:** Monitoramento & relatórios
  
 Com a introdução do **aplicação de cliente** registos de campo da atividade de início de sessão, os clientes podem agora ver os utilizadores que estão a utilizar as autenticações de legado. Os clientes poderão aceder a estas informações com a Graph API do inícios de sessão MS ou através do início de sessão registos de atividades no portal do Azure AD em que pode utilizar o **aplicação de cliente** controlo para filtrar em autenticações herdadas. Consulte a documentação para obter mais detalhes.
 
@@ -787,7 +787,7 @@ Para obter uma lista de todas as aplicações que suportam o aprovisionamento de
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** AD Connect  
-**Funcionalidade do produto:** Monitorização e Relatórios
+**Funcionalidade do produto:** Monitoramento & relatórios
  
 O Azure AD Connect Health apresenta a solução de gestão personalizada para o ajudar a realçar e corrigir erros de sincronização. Esta funcionalidade soluciona problemas em erros de sincronização de atributo duplicado e correções de objetos que ficarão órfãos do Azure AD. Este diagnóstico tem as seguintes vantagens:
 
@@ -846,7 +846,7 @@ Estamos a atualizar a cadeia de caracteres de aceitação na IU do utilizador fi
 ### <a name="pass-through-authentication-supports-legacy-protocols-and-applications"></a>A autenticação pass-through suporta agora aplicações e protocolos de rede legados
 
 **Escreva** Funcionalidade alterada  
-**Categoria de serviço:** Autenticações (Inícios de sessão)  
+**Categoria de serviço:** Autenticações (logons)  
 **Funcionalidade do produto:** Autenticação de Utilizador
  
 Agora a autenticação pass-through suporta protocolos legados e aplicações. As seguintes limitações agora são totalmente suportadas:
@@ -895,7 +895,7 @@ Notificação de aplicação móvel apenas pode ser ligada como parte de uma pol
 
 **Escreva** Plano de alteração  
 **Categoria de serviço:** Relatórios  
-**Funcionalidade do produto:** Monitorização e Relatórios
+**Funcionalidade do produto:** Monitoramento & relatórios
 
 Devido à nossa imposição de segurança mais forte, tivemos de fazer uma alteração às permissões para aplicações que utilizam um fluxo de autorização delegada para acessar [APIs de registos de atividade do Azure AD](https://aka.ms/aadreportsapi). Esta alteração irá ocorrer por **26 de Junho de 2018**.
 
@@ -1015,7 +1015,7 @@ Para obter mais informações, consulte [do Azure Active Directory termos da fun
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Outros  
-**Funcionalidade do produto:** Segurança e Proteção de Identidade
+**Funcionalidade do produto:** Proteção de & de segurança de identidade
  
 Lançámos o novo orientações passo a passo sobre como implementar o Azure multi-factor Authentication (MFA) na sua organização.
 
@@ -1054,7 +1054,7 @@ Para obter mais informações sobre a pré-visualização pública, consulte o [
 ### <a name="expressroute-support-changes"></a>Alterações de suporte do ExpressRoute
 
 **Escreva** Plano de alteração  
-**Categoria de serviço:** Autenticações (Inícios de sessão)  
+**Categoria de serviço:** Autenticações (logons)  
 **Funcionalidade do produto:** Plataforma  
 
 Software como um oferta de serviço, como o Azure Active Directory (Azure AD) foram concebidas para funcionar melhor indo diretamente através da Internet, sem exigir o ExpressRoute ou quaisquer outros privadas túneis VPN. Por este motivo, no **dia 1 de Agosto de 2018**, vamos deixar de suportar o ExpressRoute para serviços do Azure AD com o peering público do Azure e comunidades do Azure em peering da Microsoft. Quaisquer serviços afetados por esta alteração poderão notar Azure tráfego AD gradualmente mudando de ExpressRoute à Internet.
@@ -1082,7 +1082,7 @@ Adicionamos Microsoft Graph APIs para a operação de administração de termos 
 ### <a name="add-azure-ad-multi-tenant-endpoint-as-an-identity-provider-in-azure-ad-b2c"></a>Adicionar ponto final de multi-inquilino do Azure AD como fornecedor de identidade no Azure AD B2C
 
 **Escreva** Nova funcionalidade  
-**Categoria de serviço:** B2C - Gestão de Identidades de Consumidor  
+**Categoria de serviço:** B2C – gerenciamento de identidade do consumidor  
 **Funcionalidade do produto:** B2B/B2C
  
 Utilizar políticas personalizadas, agora pode adicionar o ponto de extremidade comum do Azure AD como fornecedor de identidade no Azure AD B2C. Isto permite-lhe ter um único ponto de entrada para todos os utilizadores do Azure AD que está a iniciar sessão nas suas aplicações. Para obter mais informações, [consulte Azure Active Directory B2C: Permita que os usuários entrem em um provedor de identidade multilocatário do Azure AD usando](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-commonaad-custom)políticas personalizadas.
@@ -1141,7 +1141,7 @@ Revisão de acesso de grupos e aplicações está agora geralmente disponível c
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Relatórios  
-**Funcionalidade do produto:** Monitorização e Relatórios
+**Funcionalidade do produto:** Monitoramento & relatórios
  
 Registos de atividade do AD do Azure, nomeadamente, inícios de sessão e registos de auditoria, estão agora disponíveis através do MS Graph. Podemos ter expostos dois pontos finais por meio do MS Graph para aceder a estes registos. Confira nosso [documentos](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) para acesso programático a APIs do Azure AD de relatórios para começar a utilizar. 
 
@@ -1222,7 +1222,7 @@ Revisões de acesso de grupos e aplicações estão agora geralmente disponívei
 ### <a name="id-tokens-can-no-longer-be-returned-using-the-query-response_mode-for-new-apps"></a>Tokens de ID já não podem ser devolvidos com o response_mode de consulta para novas aplicações. 
 
 **Escreva** Funcionalidade alterada  
-**Categoria de serviço:** Autenticações (Inícios de sessão)  
+**Categoria de serviço:** Autenticações (logons)  
 **Funcionalidade do produto:** Autenticação de Utilizador
  
 Aplicações criadas em ou depois de 25 de Abril de 2018 já não poderá solicitar uma **id_token** utilizando o **consulta** response_mode.  Isso traz inline do Azure AD com as especificações de OIDC e ajuda a reduzir a superfície de ataque de aplicações.  Aplicações criadas antes de 25 de Abril de 2018 não estão impedidas de utilizar o **consulta** response_mode com um response_type de **id_token**.  O erro devolvido, ao pedir uma id_token do AAD, foi **AADSTS70007: "query" não é um valor suportado de "response_mode" ao pedir um token**.
@@ -1236,7 +1236,7 @@ O **fragmento** e **form_post** response_modes continuar a trabalhar - quando cr
 ### <a name="azure-ad-b2c-access-token-are-ga"></a>O Azure AD B2C Token de acesso estão GA
 
 **Escreva** Nova funcionalidade  
-**Categoria de serviço:** B2C - Gestão de Identidades de Consumidor  
+**Categoria de serviço:** B2C – gerenciamento de identidade do consumidor  
 **Funcionalidade do produto:** B2B/B2C 
 
 Agora pode aceder a APIs da Web protegida pelo Azure AD B2C com tokens de acesso. A funcionalidade está a mudar de pré-visualização pública para GA. Foi melhorada a experiência de interface do Usuário para configurar aplicações do Azure AD B2C e web APIs e outras pequenas melhorias foram feitas.
@@ -1276,7 +1276,7 @@ Para obter mais informações, consulte a [termos do Azure AD de utilização da
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Outros  
-**Funcionalidade do produto:** Monitorização e Relatórios
+**Funcionalidade do produto:** Monitoramento & relatórios
 
 Agora suporta a capacidade de detetar IP, endereços que excedem um limiar de inícios de sessão falhados U/P numa base por hora ou diário do Connect Health. Os recursos fornecidos por esta funcionalidade são:
 
@@ -1420,7 +1420,7 @@ Para obter mais informações, consulte:
 ### <a name="twitter-and-github-identity-providers-in-azure-ad-b2c"></a>Fornecedores de identidade de twitter e do GitHub no Azure AD B2C
 
 **Escreva** Nova funcionalidade  
-**Categoria de serviço:** B2C - Gestão de Identidades de Consumidor  
+**Categoria de serviço:** B2C – gerenciamento de identidade do consumidor  
 **Funcionalidade do produto:** B2B/B2C
  
 Agora pode adicionar o Twitter ou o GitHub como fornecedor de identidade no Azure AD B2C. Twitter é mudar de pré-visualização pública para GA. GitHub está a ser lançado em pré-visualização pública.
@@ -1433,7 +1433,7 @@ Para obter mais informações, consulte [o que é a colaboração B2B do Azure A
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Acesso Condicional  
-**Funcionalidade do produto:** Segurança e Proteção de Identidade
+**Funcionalidade do produto:** Proteção de & de segurança de identidade
  
 **Agora em pré-visualização pública!**
 
@@ -1466,7 +1466,7 @@ Para obter mais informações, consulte [AzureAD](https://docs.microsoft.com/pow
 ### <a name="office-365-native-clients-are-supported-by-seamless-sso-using-a-non-interactive-protocol"></a>Clientes nativos do Office 365 são suportados pelo SSO totalmente integrado com um protocolo não interativa
 
 **Escreva** Nova funcionalidade  
-**Categoria de serviço:** Autenticações (Inícios de sessão)  
+**Categoria de serviço:** Autenticações (logons)  
 **Funcionalidade do produto:** Autenticação de Utilizador
  
 Utilizador com clientes nativos do Office 365 (versão 16.0.8730.xxxx e acima) obter uma silenciosa experiência de logon usando o SSO totalmente integrado. Este suporte é fornecido pela adição um protocolo de não-interativa (WS-Trust) para o Azure AD.
@@ -1478,7 +1478,7 @@ Para obter mais informações, consulte [como início de sessão num cliente nat
 ### <a name="users-get-a-silent-sign-on-experience-with-seamless-sso-if-an-application-sends-sign-in-requests-to-azure-ads-tenant-endpoints"></a>Os utilizadores obtêm uma silenciosa experiência de logon, com o SSO totalmente integrado, se uma aplicação envia pedidos de início de sessão para pontos finais de inquilino do Azure AD
 
 **Escreva** Nova funcionalidade  
-**Categoria de serviço:** Autenticações (Inícios de sessão)  
+**Categoria de serviço:** Autenticações (logons)  
 **Funcionalidade do produto:** Autenticação de Utilizador
  
 Os utilizadores obtêm uma silenciosa experiência de logon, com o SSO totalmente integrado, se um aplicativo (por exemplo, `https://contoso.sharepoint.com`) envia pedidos de início de sessão para pontos finais de inquilino do Azure AD - ou seja, `https://login.microsoftonline.com/contoso.com/<..>` ou `https://login.microsoftonline.com/<tenant_ID>/<..>` - em vez de ponto de extremidade comum do Azure AD (`https://login.microsoftonline.com/common/<...>`).
@@ -1490,7 +1490,7 @@ Para obter mais informações, consulte [do Azure Active Directory totalmente in
 ### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>Tem de adicionar apenas um URL do Azure AD, em vez de dois URLs como anteriormente, para as definições de zona de Intranet dos utilizadores para implementar o SSO totalmente integrado
 
 **Escreva** Nova funcionalidade  
-**Categoria de serviço:** Autenticações (Inícios de sessão)  
+**Categoria de serviço:** Autenticações (logons)  
 **Funcionalidade do produto:** Autenticação de Utilizador
  
 Para distribuir o SSO totalmente integrado aos seus utilizadores, tem de adicionar definições de zona apenas um URL de AD do Azure para Intranet dos utilizadores ao utilizar a política de grupo no Active Directory: `https://autologon.microsoftazuread-sso.com`. Anteriormente, os clientes eram necessário adicionar dois URLs.
@@ -1530,7 +1530,7 @@ Para obter mais informações, consulte [PIM para recursos do Azure (pré-visual
 ### <a name="adding-optional-claims-to-your-apps-tokens-public-preview"></a>Adicionar afirmações opcionais aos tokens das aplicações (pré-visualização pública)
 
 **Escreva** Nova funcionalidade  
-**Categoria de serviço:** Autenticações (Inícios de sessão)  
+**Categoria de serviço:** Autenticações (logons)  
 **Funcionalidade do produto:** Autenticação de Utilizador
  
 A aplicação do Azure AD pode agora afirmações de pedidos personalizados ou opcionais em JWTs ou SAML tokens.  Estes são declarações sobre o utilizador ou o inquilino que não estão incluídas por predefinição no token, devido a restrições de tamanho ou a aplicabilidade.  Está atualmente em pré-visualização pública para aplicações do Azure AD nos pontos finais v1.0 e v2.0.  Consulte a documentação para obter informações sobre quais as afirmações podem ser adicionados e como editar o manifesto da aplicação para solicitá-los.  
@@ -1542,7 +1542,7 @@ Para obter mais informações, consulte [opcional de afirmações no Azure AD](h
 ### <a name="azure-ad-supports-pkce-for-more-secure-oauth-flows"></a>O Azure AD suporta PKCE para os fluxos do OAuth mais seguros
 
 **Escreva** Nova funcionalidade  
-**Categoria de serviço:** Autenticações (Inícios de sessão)  
+**Categoria de serviço:** Autenticações (logons)  
 **Funcionalidade do produto:** Autenticação de Utilizador
  
 Documentos de AD do Azure foram atualizados observar o suporte para PKCE, que permite a comunicação mais segura durante o fluxo de concessão do código de autorização do OAuth 2.0.  Os pontos finais v1.0 e v2.0 são suportadas code_challenges S256 e texto sem formatação. 
@@ -1579,7 +1579,7 @@ Para obter mais informações, consulte [regras de associação dinâmica para g
 ### <a name="improved-sign-out-behavior-with-seamless-sso"></a>Comportamento de fim de sessão melhorado com o SSO totalmente integrado
 
 **Escreva** Funcionalidade alterada  
-**Categoria de serviço:** Autenticações (Inícios de sessão)  
+**Categoria de serviço:** Autenticações (logons)  
 **Funcionalidade do produto:** Autenticação de Utilizador
  
 Anteriormente, mesmo que os utilizadores com sessão iniciada explicitamente fora de uma aplicação protegida pelo Azure AD, eles seriam iniciar sessão automaticamente na através do SSO totalmente integrado se estiver a tentar aceder uma aplicação do Azure AD novamente dentro de sua rede empresarial a partir dos seus dispositivos associados a um domínio. Com esta alteração, a fim de sessão é suportada.  Isto permite aos utilizadores escolher o Azure idêntica ou diferente conta de AD para iniciar sessão novamente com, em vez de automaticamente a ser iniciado sessão com o SSO totalmente integrado.
@@ -1592,7 +1592,7 @@ Para obter mais informações, consulte [do Azure Active Directory totalmente in
 
 **Escreva** Funcionalidade alterada  
 **Categoria de serviço:** Proxy de Aplicações  
-**Funcionalidade do produto:** Segurança e Proteção de Identidade
+**Funcionalidade do produto:** Proteção de & de segurança de identidade
  
 Esta versão do conector será gradualmente implementada por meio de Novembro. Esta nova versão do conector inclui as seguintes alterações:
 
@@ -1621,7 +1621,7 @@ A experiência de navegação para gerir utilizadores e grupos foi otimizada. Po
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Azure Stack  
-**Funcionalidade do produto:** Monitorização e Relatórios
+**Funcionalidade do produto:** Monitoramento & relatórios
 
 Relatórios de registo de atividade do AD do Azure estão agora disponíveis no Microsoft Azure operado pela 21Vianet (Azure China 21Vianet) instâncias. Os seguintes registos estão incluídos:
 
@@ -1645,7 +1645,7 @@ Para obter mais informações sobre como utilizar estes relatórios, consulte [d
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Relatórios  
-**Funcionalidade do produto:** Monitorização e Relatórios
+**Funcionalidade do produto:** Monitoramento & relatórios
 
 À medida que faz parte de comentários de clientes para ativar as funções de não-administrador, para ter acesso a atividade do Azure AD, ativámos a capacidade para utilizadores que estão na função "Leitor de relatório" para acesso inícios de sessão e a atividade de auditoria no portal do Azure, bem como com nossa Graph APIs. 
 
@@ -1790,7 +1790,7 @@ Esta versão tem as seguintes atualizações e alterações:
 
 **Escreva** Funcionalidade alterada  
 **Categoria de serviço:** Acesso Condicional  
-**Funcionalidade do produto:** Segurança e Proteção de Identidade
+**Funcionalidade do produto:** Proteção de & de segurança de identidade
 
 Adicionamos mais aplicativos que dão suporte ao acesso condicional baseado em aplicativo. Agora, pode obter acesso ao Office 365 e outras aplicações de cloud do Azure AD-ligado a utilizar estas aplicações aprovadas do cliente.
 
@@ -1841,7 +1841,7 @@ Para obter mais informações sobre a listagem a sua aplicação na Galeria de a
 
 **Escreva** Nova funcionalidade  
 **Categoria de serviço:** Identity Protection  
-**Funcionalidade do produto:** Segurança e Proteção de Identidade
+**Funcionalidade do produto:** Proteção de & de segurança de identidade
 
 A informação que obtém um evento de risco detetados está associada à sua subscrição do Azure AD. Com a edição do Azure AD Premium P2, obtenha as informações mais detalhadas sobre todas as detecções subjacentes.
 
@@ -2030,7 +2030,7 @@ Com o fluxo de trabalho de aprovação, os administradores de função com privi
 ### <a name="pass-through-authentication-skype-for-business-support"></a>Autenticação de passagem: Suporte do Skype for Business
 
 **Escreva** Funcionalidade alterada  
-**Categoria de serviço:** Autenticações (Inícios de sessão)  
+**Categoria de serviço:** Autenticações (logons)  
 **Funcionalidade do produto:** Autenticação de utilizador
 
 Agora a autenticação pass-through suporta início de sessão de utilizador-ins ao Skype para aplicações de cliente de negócio que suportam a autenticação moderna, que inclui online e topologias híbridas. 
@@ -2120,7 +2120,7 @@ Agora, os administradores podem criar novos termos de utilização que contêm v
 ### <a name="real-time-password-writeback-client-status"></a>Estado do cliente de repetição de escrita de palavra-passe em tempo real
 
 **Escreva** Nova funcionalidade  
-**Categoria de serviço:** Reposição de palavra-passe self-service  
+**Categoria de serviço:** Reposição personalizada de palavra-passe  
 **Funcionalidade do produto:** Autenticação de utilizador
 
 Agora pode rever o estado do seu cliente de repetição de escrita de palavra-passe no local. Esta opção está disponível na **integração no local** secção a [reposição de palavra-passe](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset) página. 
@@ -2202,7 +2202,7 @@ Para obter mais informações, consulte:
 ### <a name="network-policy-server-extension-for-azure-multi-factor-authentication"></a>Extensão de servidor de políticas de rede para o Azure multi-factor Authentication 
 
 **Escreva** Nova funcionalidade    
-**Categoria de serviço:**  Autenticação multifator  
+**Categoria de serviço:**  Multi-Factor Authentication  
 **Funcionalidade do produto:** Autenticação de utilizador
 
 A extensão de servidor de políticas de rede para o Azure multi-factor Authentication adiciona capacidades de multi-factor Authentication com base na cloud à sua infraestrutura de autenticação ao utilizar seus servidores existentes. Com a extensão de servidor de políticas de rede, pode adicionar a chamada telefónica, mensagem de texto ou verificação de aplicação do telefone para o fluxo de autenticação existente. Não é preciso instalar, configurar e manter novos servidores. 
@@ -2308,7 +2308,7 @@ Devido a um problema de serviço, essa funcionalidade foi temporariamente desati
 ### <a name="new-multi-factor-authentication-features"></a>Novos recursos de multi-factor Authentication
 
 **Escreva** Nova funcionalidade  
-**Categoria de serviço:** Autenticação multifator  
+**Categoria de serviço:** Multi-Factor Authentication  
 **Funcionalidade do produto:** Segurança e proteção de identidade  
 
 Autenticação multifator (MFA) é uma parte essencial de proteger a sua organização. Para tornar as credenciais mais adaptáveis e a experiência mais integrada, foram adicionadas as seguintes funcionalidades: 

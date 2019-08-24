@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2019
+ms.date: 08/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: ca96ba4c6b0de8ad39866a0783e7091fb4755164
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a8033448c2db2ca30ece54b3367ecb60ecf12c3d
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706240"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990710"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de operações e planeamento do Centro de Segurança do Azure
 Este guia destina-se a profissionais de tecnologias da informação (TI), arquitetos de TI, analistas de segurança de informações e administradores de nuvem cujas organizações estejam a planear utilizar o Centro de Segurança do Azure.
@@ -87,21 +87,21 @@ Utilizando as pessoas fidedignas explicadas no diagrama anterior, é necessário
 
 **Jorge (Proprietário de Carga de Trabalho)**
 
-* Proprietário/colaborador de grupo de recursos
+* Proprietário/colaborador do grupo de recursos
 
 **Diogo (Segurança de TI)**
 
-* Proprietário/colaborador de subscrição ou administrador de segurança
+* Proprietário/colaborador ou administrador de segurança da assinatura
 
 **Júlia (Operações de Segurança)**
 
 * Leitor de Subscrição ou Leitor de Segurança para visualizar Alertas
-* Proprietário/colaborador de subscrição ou administrador de segurança necessário para dispensar alertas
+* Proprietário/colaborador ou administrador de segurança da assinatura necessário para ignorar alertas
 
 **Samuel (Analista de Segurança)**
 
 * Leitor de Subscrição para visualizar Alertas
-* Proprietário/colaborador de subscrição necessário para dispensar alertas
+* Proprietário/colaborador da assinatura necessário para ignorar alertas
 * O acesso à área de trabalho poderá ser necessário
 
 Mais algumas informações importantes a considerar:
@@ -121,7 +121,7 @@ As políticas de segurança definem a configuração pretendida para as suas car
 
 As políticas do Centro de Segurança contêm os componentes seguintes:
 - [Recolha de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): aprovisionamento de agente e definições de recolha de dados.
-- [Política de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies): um [Azure Policy](../governance/policy/overview.md) que determina que controlos são monitorizados e recomendados pelo centro de segurança ou da utilização do Azure Policy para criar definições novas, definir políticas adicionais e atribuir políticas vários grupos de gestão.
+- [Política de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies): um [Azure Policy](../governance/policy/overview.md) que determina quais controles são monitorados e recomendados pela central de segurança, ou use Azure Policy para criar novas definições, definir políticas adicionais e atribuir políticas entre grupos de gerenciamento.
 - [Notificações por e-mail](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): contactos de segurança e definições de notificação.
 - [Escalão de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing): seleção de preço gratuito ou standard, que determina quais as funcionalidades do Centro de Segurança que estão disponíveis para os recursos no âmbito (pode ser especificado para subscrições, grupos de recursos e áreas de trabalho).
 
@@ -134,7 +134,7 @@ O Centro de Segurança cria automaticamente uma política de segurança predefin
 Antes de configurar as políticas de segurança, reveja cada uma das [recomendações de segurança](https://docs.microsoft.com/azure/security-center/security-center-recommendations) e determine se estas são adequadas para as suas várias subscrições e grupos de recursos. Também é importante entender que ação deve ser realizada para abordar as recomendações de segurança e quem na sua organização será responsável por monitorizar novas recomendações e tomar as medidas necessárias.
 
 ## <a name="data-collection-and-storage"></a>Armazenamento e recolha de dados
-Centro de segurança do Azure utiliza o Microsoft Monitoring Agent – este é o mesmo agente utilizado pelo serviço do Azure Monitor – para recolher dados de segurança das suas máquinas virtuais. Os [dados recolhidos](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) neste agente serão armazenados nas suas áreas de trabalho do Log Analytics.
+A central de segurança do Azure usa o Microsoft Monitoring Agent – esse é o mesmo agente usado pelo serviço de Azure Monitor – para coletar dados de segurança de suas máquinas virtuais. Os [dados recolhidos](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) neste agente serão armazenados nas suas áreas de trabalho do Log Analytics.
 
 ### <a name="agent"></a>Agente
 
@@ -156,8 +156,8 @@ Os dados recolhidos pelo Agente de Monitorização Microsoft (em nome do Centro 
 
 No portal do Azure, pode procurar uma lista das áreas de trabalho do Log Analytics, incluindo as que foram criadas pelo Centro de Segurança do Azure. Um grupo de recursos relacionado será criado para as novas áreas de trabalho. Ambos seguirão esta convenção de nomenclatura:
 
-* Área de trabalho: *DefaultWorkspace-[subscription-ID]-[geo]*
-* Grupo de recursos: *DefaultResourceGroup-[geo]*
+* Espaço *DefaultWorkspace-[subscription-ID]-[geo]*
+* Grupo de recursos: *Defaultresource: [geo]*
 
 Para áreas de trabalho criadas pelo Centro de Segurança do Azure, os dados são retidos durante 30 dias. Para as áreas de trabalho existentes, a retenção baseia-se no escalão de preço da área de trabalho. Se quiser, também pode utilizar uma área de trabalho existente.
 
@@ -246,7 +246,7 @@ Depois de identificar o sistema comprometido, pode executar os [playbooks](https
 No vídeo [Como tirar partido do Centro de segurança do Azure e do Microsoft Operations Management Suite para uma resposta a incidentes](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) pode ver algumas demonstrações que podem ajudá-lo a compreender como o Centro de segurança pode ser utilizado em cada uma destas fases.
 
 > [!NOTE]
-> Leia [Tirar Partido do Centro de Segurança do Azure para Resposta a Incidentes](security-center-incident-response.md) para obter mais informações sobre como utilizar as capacidades do Centro de Segurança para o ajudar durante os processos de Resposta a Incidentes.
+> Leia [Gerenciando e respondendo a alertas de segurança na central de segurança do Azure](security-center-managing-and-responding-alerts.md) para obter mais informações sobre como usar os recursos da central de segurança para ajudá-lo durante o processo de resposta a incidentes.
 >
 >
 

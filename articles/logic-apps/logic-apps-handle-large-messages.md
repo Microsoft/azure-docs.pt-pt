@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: 4a37345cf33cbb02a6bd9a70b0253a55ee4c9478
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ed086c4c36711f92ba654a64856b43a5fdaadf5f
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035585"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989914"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Manipular mensagens grandes com agrupamento em aplicativos lógicos do Azure
 
@@ -128,7 +128,7 @@ Estas etapas descrevem os aplicativos lógicos de processo detalhados usados par
    | Campo de cabeçalho de resposta do ponto de extremidade | Type | Necessário | Descrição |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | Não | O tamanho de parte sugerido em bytes |
-   | **Location** | Cadeia | Não | O local da URL para onde enviar as mensagens de PATCH HTTP |
+   | **Location** | Cadeia | Sim | O local da URL para onde enviar as mensagens de PATCH HTTP |
    ||||
 
 3. Seu aplicativo lógico cria e envia mensagens de PATCH HTTP de acompanhamento, cada uma com essas informações:
@@ -148,7 +148,7 @@ Estas etapas descrevem os aplicativos lógicos de processo detalhados usados par
 
    | Campo de cabeçalho de resposta do ponto de extremidade | Type | Necessário | Descrição |
    |--------------------------------|------|----------|-------------|
-   | **Amplitude** | Cadeia | Sim | O intervalo de bytes para o conteúdo recebido pelo ponto de extremidade, por exemplo: "bytes = 0-1023" |   
+   | **Intervalo** | Cadeia | Sim | O intervalo de bytes para o conteúdo recebido pelo ponto de extremidade, por exemplo: "bytes = 0-1023" |   
    | **x-ms-chunk-size** | Integer | Não | O tamanho de parte sugerido em bytes |
    ||||
 

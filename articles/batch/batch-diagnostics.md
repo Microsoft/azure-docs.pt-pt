@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 63d0196609e432b081e91a49b5b1410431223632
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: MT
+ms.openlocfilehash: da5a71c75485f929ba9c4f510066df84d7a31996
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323616"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992158"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas de lote, alertas e registos para a avaliação de diagnóstico e monitorização
 
@@ -48,6 +48,7 @@ Para ver todas as métricas de conta do Batch:
 1. No portal, clique em **todos os serviços** > **contas do Batch**e, em seguida, clique no nome da sua conta do Batch.
 2. Sob **monitorização**, clique em **métricas**.
 3. Selecione uma ou mais das métricas. Se desejar, selecionar métricas adicionais recursos utilizando o **subscrições**, **grupo de recursos**, **tipo de recurso**, e **recursos** listas pendentes.
+    * Para métricas baseadas em contagem (como "contagem de núcleos dedicados" ou "contagem de nós de baixa prioridade"), use a agregação "média". Para métricas baseadas em evento (como "eventos de redimensionamento de pool concluídos"), use a agregação "contagem".
 
     ![Métricas de batch](media/batch-diagnostics/metrics-portal.png)
 

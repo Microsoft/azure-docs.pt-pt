@@ -1,6 +1,6 @@
 ---
-title: Perguntas mais frequentes sobre a Azure Red Hat OpenShift | Documentos da Microsoft
-description: Aqui estão as respostas a perguntas comuns sobre o Microsoft Azure Red Hat OpenShift
+title: Perguntas frequentes sobre o Azure Red Hat OpenShift | Microsoft Docs
+description: Aqui estão as respostas para perguntas comuns sobre Microsoft Azure Red Hat OpenShift
 services: container-service
 author: jimzim
 ms.author: jzim
@@ -8,83 +8,159 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 32eb2c47ed46aed8e2e3755a83437a21391295c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ba252ccf7a46e93b2057b6822f2aae298f537d1
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122968"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991633"
 ---
-# <a name="azure-red-hat-openshift-faq"></a>FAQ do Azure de Red Hat OpenShift
+# <a name="azure-red-hat-openshift-faq"></a>Perguntas frequentes sobre o Azure Red Hat OpenShift
 
-Este artigo aborda perguntas mais frequentes (FAQ) sobre o Microsoft Azure Red Hat OpenShift.
+Este artigo aborda perguntas frequentes (FAQs) sobre Microsoft Azure Red Hat OpenShift.
 
 ## <a name="how-do-i-get-started"></a>Como posso começar?
 
-Antes de poder utilizar a Azure Red Hat OpenShift, terá de comprar um mínimo de 4 nós de aplicação do Azure Red Hat OpenShift reservados.
+Antes de usar o Azure Red Hat OpenShift, você precisará comprar um mínimo de 4 nós de aplicativos reservados para o Red Hat OpenShift do Azure.
 
-Se for um cliente do Azure,[comprar instâncias reservadas do Azure Red Hat OpenShift](https://aka.ms/openshift/buy) através do portal do Azure. Após a compra, a sua subscrição será ativada dentro de 24 horas, após o qual será capaz de clusters de aprovisionamento.
+Se você for um cliente do Azure,[adquira as instâncias reservadas do Red Hat OpenShift do Azure](https://aka.ms/openshift/buy) por meio do portal do Azure. Após a compra, sua assinatura será ativada dentro de 24 horas, após a qual você poderá provisionar clusters.
 
-Se não for um cliente do Azure, [contactar as vendas](https://aka.ms/openshift/contact-sales) e preencha o formulário de vendas na parte inferior da página para iniciar o processo.
+Se você não for um cliente do Azure, [entre em contato com as vendas](https://aka.ms/openshift/contact-sales) e preencha o formulário de vendas na parte inferior da página para iniciar o processo.
 
 Consulte a [página de preços do Azure Red Hat OpenShift](https://aka.ms/openshift/pricing) para obter mais informações.
 
-## <a name="which-azure-regions-are-supported"></a>Que regiões do Azure são suportados?
+## <a name="which-azure-regions-are-supported"></a>Quais regiões do Azure têm suporte?
 
-Ver [recursos suportados](supported-resources.md#azure-regions) para obter uma lista de regiões globais, onde a Azure Red Hat OpenShift é suportada.
+Consulte [recursos com suporte](supported-resources.md#azure-regions) para obter uma lista de regiões globais em que o Azure Red Hat OpenShift tem suporte.
 
-## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Pode implementar um cluster numa rede virtual existente?
+## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Posso implantar um cluster em uma rede virtual existente?
 
-Não. Mas pode ligar um cluster do Azure Red Hat OpenShift a uma VNET existente através do peering. Ver [ligar uma rede virtual de um cluster a uma rede virtual existente ](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) para obter detalhes.
+Não. Mas você pode conectar um cluster do Azure Red Hat OpenShift a uma VNET existente por meio de emparelhamento. Consulte [conectar a rede virtual de um cluster a uma rede virtual existente](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) para obter detalhes.
 
-## <a name="what-cluster-operations-are-available"></a>As operações de cluster estão disponíveis?
+## <a name="what-cluster-operations-are-available"></a>Quais operações de cluster estão disponíveis?
 
-Apenas pode aumentar ou reduzir verticalmente o número de nós de computação. Não existem outras modificações que são permitidas para o `Microsoft.ContainerService/openShiftManagedClusters` recursos após a criação. O número máximo de nós de computação é limitado a 20.
+Você só pode escalar ou reduzir verticalmente o número de nós de computação. Nenhuma outra modificação é permitida para o `Microsoft.ContainerService/openShiftManagedClusters` recurso após a criação. O número máximo de nós de computação é limitado a 20.
 
-## <a name="what-virtual-machine-sizes-can-i-use"></a>Os tamanhos de máquina virtual posso utilizar?
+## <a name="what-virtual-machine-sizes-can-i-use"></a>Quais tamanhos de máquina virtual posso usar?
 
-Ver [tamanhos de máquinas virtuais do Azure Red Hat OpenShift](supported-resources.md#virtual-machine-sizes) para obter uma lista de tamanhos de máquina virtual pode utilizar com um cluster do Azure Red Hat OpenShift.
+Consulte [tamanhos de máquina virtual do Azure Red Hat OpenShift](supported-resources.md#virtual-machine-sizes) para obter uma lista de tamanhos de máquina virtual que você pode usar com um cluster do Azure Red Hat OpenShift.
 
-## <a name="is-data-on-my-cluster-encrypted"></a>São os dados no meu cluster encriptado?
+## <a name="is-data-on-my-cluster-encrypted"></a>Os dados estão criptografados no meu cluster?
 
-Por predefinição, existe a encriptação em repouso. A plataforma de armazenamento do Azure encripta automaticamente os dados antes de persistir e desencripta os dados antes da obtenção. Ver [encriptação do serviço de armazenamento do Azure para dados Inativos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) para obter detalhes.
+Por padrão, há criptografia em repouso. A plataforma de armazenamento do Azure criptografa automaticamente os dados antes de mantê-los e descriptografa os dados antes da recuperação. Consulte [criptografia do serviço de armazenamento do Azure para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) para obter detalhes.
 
-## <a name="can-i-use-prometheusgrafana-to-monitor-my-applications"></a>Pode utilizar Prometheus/Grafana para monitorizar as minhas aplicações?
+## <a name="can-i-use-prometheusgrafana-to-monitor-my-applications"></a>Posso usar Prometheus/Grafana para monitorar meus aplicativos?
 
-Sim, pode implementar Prometheus em seus aplicativos de espaço de nomes e o monitor no seu espaço de nomes.
+Sim, você pode implantar Prometheus em seu namespace e monitorar aplicativos em seu namespace.
 
-## <a name="can-i-use-prometheusgrafana-to-monitor-metrics-related-to-cluster-health-and-capacity"></a>Pode utilizar Prometheus/Grafana para monitorizar métricas relacionadas com o estado de funcionamento do cluster e a capacidade?
+## <a name="can-i-use-prometheusgrafana-to-monitor-metrics-related-to-cluster-health-and-capacity"></a>Posso usar Prometheus/Grafana para monitorar as métricas relacionadas à integridade e à capacidade do cluster?
 
-Não, não à hora atual.
+Não, não na hora atual.
 
-## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>O registo do Docker está disponível externamente para poder usar ferramentas como o Jenkins?
+## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>O registro do Docker está disponível externamente para que eu possa usar ferramentas como Jenkins?
 
-O registo do Docker está disponível a partir `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` no entanto, não é fornecida uma garantia de durabilidade de armazenamento forte. Também pode utilizar [Azure Container Registry](https://azure.microsoft.com/services/container-registry/).
+O registro do Docker está disponível `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` no entanto, uma garantia de durabilidade de armazenamento forte não é fornecida. Você também pode usar o [registro de contêiner do Azure](https://azure.microsoft.com/services/container-registry/).
 
-## <a name="is-cross-namespace-networking-supported"></a>Espaço de nomes entre redes é suportada?
+## <a name="is-cross-namespace-networking-supported"></a>Há suporte para a rede de namespace cruzado?
 
-Cliente e os administradores de projeto individuais podem personalizar o sistema de rede entre-espaço de nomes (incluindo negá-la) sobre como utilizar uma base por projeto `NetworkPolicy` objetos.
+Os administradores de projetos individuais e de clientes podem personalizar a rede de namespace cruzado (incluindo sua negação) em `NetworkPolicy` uma base por projeto usando objetos.
 
-## <a name="can-an-admin-manage-users-and-quotas"></a>Um administrador pode gerir utilizadores e de quotas?
+## <a name="can-an-admin-manage-users-and-quotas"></a>Um administrador pode gerenciar usuários e cotas?
 
-Sim. Um administrador do Azure Red Hat OpenShift pode gerir utilizadores e de quotas, além de aceder a todos os utilizadores criados projetos.
+Sim. Um administrador do Azure Red Hat OpenShift pode gerenciar usuários e cotas, além de acessar todos os projetos criados pelo usuário.
 
-## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>Posso restringir a um cluster apenas a determinados utilizadores do Azure AD?
+## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>Posso restringir um cluster a apenas determinados usuários do AD do Azure?
 
-Sim. Pode restringir o qual os utilizadores do AD podem iniciar sessão a um cluster ao configurar a aplicação do Azure AD. Para obter detalhes, consulte [como: Restringir a sua aplicação para um conjunto de utilizadores](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
+Sim. Você pode restringir quais usuários do Azure AD podem entrar em um cluster Configurando o aplicativo do Azure AD. Para obter detalhes, [consulte Como: Restringir seu aplicativo a um conjunto de usuários](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
 
-## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>Pode um cluster tiver nós de computação em várias regiões do Azure?
+## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>Um cluster pode ter nós de computação em várias regiões do Azure?
 
-Não. Todos os nós num cluster do Azure Red Hat OpenShift têm de ter origem na mesma região do Azure.
+Não. Todos os nós em um cluster do Azure Red Hat OpenShift devem se originar da mesma região do Azure.
 
-## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>Foram nós mestre e infraestrutura abstraídos como acontece com o Azure Kubernetes Service (AKS)?
+## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>Os nós mestre e de infraestrutura são abstratos como estão com o AKS (serviço kubernetes do Azure)?
 
-Não. Todos os recursos, incluindo o mestre de cluster, executam na sua subscrição de cliente. Esses tipos de recursos são colocados num grupo de recursos só de leitura.
+Não. Todos os recursos, incluindo o mestre de cluster, são executados na sua assinatura de cliente. Esses tipos de recursos são colocados em um grupo de recursos somente leitura.
 
-## <a name="is-open-service-broker-for-azure-osba-supported"></a>É o Open Service Broker for Azure (OSBA) suportada?
+## <a name="is-open-service-broker-for-azure-osba-supported"></a>Há suporte para o Service Broker aberto para Azure (OSBA)?
 
-Sim. Pode usar o OSBA com a Azure Red Hat OpenShift. Ver [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) para obter mais informações.
+Sim. Você pode usar o OSBA com o Azure Red Hat OpenShift. Consulte [abrir Service Broker para o Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) para obter mais informações.
 
-## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Eu estou tentando configurar o peering numa rede virtual numa subscrição diferente, mas introdução `Failed to get vnet CIDR` erro.
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Estou tentando emparelhar em uma rede virtual em uma assinatura diferente, mas obtendo `Failed to get vnet CIDR` erro.
 
-Na subscrição que tem a rede virtual, certifique-se para se registar `Microsoft.ContainerService` fornecedor com o `az provider register -n Microsoft.ContainerService --wait` 
+Na assinatura que tem a rede virtual, certifique-se de registrar `Microsoft.ContainerService` o provedor com`az provider register -n Microsoft.ContainerService --wait` 
+
+## <a name="what-is-the-azure-red-hat-openshift-aro-maintenance-process"></a>O que é o processo de manutenção da toa (Red Hat OpenShift) do Azure?
+
+Há três tipos de manutenção para toa: atualizações, backup e restauração de dados do etcd e manutenção iniciada pelo provedor de nuvem.
+
++ Atualizações incluem atualizações de software e CVEs. A correção de CVE ocorre na inicialização `yum update` executando e fornece a mitigação imediata.  Em paralelo, uma nova compilação de imagem será criada para futuras criações de cluster.
+
++ O backup e o gerenciamento de dados do etcd são um processo automatizado que pode exigir tempo de inatividade do cluster dependendo da ação. Se o banco de dados etcd estiver sendo restaurado de um backup, haverá um tempo de inatividade. Fazemos o backup do etcd por hora e reguardamos as últimas 6 horas de backups.
+
++ A manutenção iniciada pelo provedor de nuvem inclui interrupções de rede, armazenamento e regionais. A manutenção depende do provedor de nuvem e depende das atualizações fornecidas pelo provedor.
+
+## <a name="what-is-the-general-upgrade-process"></a>O que é o processo de atualização geral?
+
+A execução de uma atualização deve ser um processo seguro para ser executado e não deve interromper os serviços de cluster. O SRE pode disparar o processo de atualização quando novas versões estão disponíveis ou CVEs estão pendentes.
+
+As atualizações disponíveis são testadas em um ambiente de estágio e, em seguida, aplicadas a clusters de produção. Quando aplicado, um novo nó é temporariamente adicionado e os nós são atualizados de maneira rotativa para que o pods Mantenha as contagens de réplica. As práticas recomendadas a seguir ajudam a garantir um mínimo de sem tempo de inatividade.
+
+Dependendo da severidade da atualização ou atualização pendente, o processo pode ser diferente, pois as atualizações podem ser aplicadas rapidamente para atenuar a exposição do serviço a um CVE. Uma nova imagem será criada de forma assíncrona, testada e distribuída como uma atualização de cluster. Além disso, não há nenhuma diferença entre emergência e manutenção planejada. A manutenção planejada não é preprogramada com o cliente.
+
+As notificações podem ser enviadas por meio de ICM e email se a comunicação com o cliente for necessária.
+
+## <a name="what-about-emergency-vs-planned-maintenance-windows"></a>E quanto à emergência versus as janelas de manutenção planejadas?
+
+Não fazemos distinção entre os dois tipos de manutenção. Nossas equipes estão disponíveis 24/7/365 e não usam janelas de manutenção tradicionais programadas "fora de horas".
+
+## <a name="how-will-host-operating-system-and-openshift-software-be-updated"></a>Como o sistema operacional host e o software OpenShift serão atualizados?
+
+O sistema operacional do host e o software OpenShift são atualizados por meio de nosso processo geral de atualização e criação de imagem.
+
+## <a name="whats-the-process-to-reboot-the-updated-node"></a>Qual é o processo para reinicializar o nó atualizado?
+
+Isso deve ser tratado como parte de uma atualização.
+
+## <a name="is-data-stored-in-etcd-encrypted-on-aro"></a>Os dados são armazenados no etcd criptografados na toa?
+
+Ele não é criptografado no nível de etcd. No momento, não há suporte para a opção de ativá-lo. O OpenShift dá suporte a esse recurso, mas os esforços de engenharia são necessários para fazê-lo no mapa de estrada. Os dados são criptografados no nível do disco. Para obter mais informações [, consulte Criptografando dados na camada de armazenamento](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html) de Datastore.
+
+## <a name="can-logs-of-underlying-vms-be-streamed-out-to-a-customer-log-analysis-system"></a>Os logs de VMs subjacentes podem ser transmitidos para um sistema de análise de log do cliente?
+
+Syslog, logs do Docker, diário e dmesg são tratados pelo serviço gerenciado e não são expostos aos clientes.
+
+## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>Como um cliente pode obter acesso a métricas como CPU/memória no nível do nó para tomar medidas para dimensionar, depurar problemas, etc. Não consigo executar `kubectl top` em um cluster de toa.
+
+`kubectl top`Não está disponível no Red Hat OpenShift. Ele requer uma fonte de métricas de backup, Heapster (preterido) ou Metrics-Server (incubating ou Alpha), nenhum dos quais estão incluídos na pilha de monitoramento OpenShift.
+
+## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>Qual é a configuração do Agendador de Pod padrão para toa?
+
+A toa usa o agendador padrão fornecido no OpenShift. Há alguns mecanismos adicionais que não têm suporte na toa. Consulte a documentação do [Agendador padrão](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) e a [documentação do Agendador mestre](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v6/data/master/etc/origin/master/scheduler.json) para obter mais detalhes.
+
+No momento, não há suporte para o agendamento avançado/personalizado. Consulte a [documentação de agendamento](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/index.html) para obter mais detalhes.
+
+## <a name="if-we-scale-up-the-deployment-how-do-azure-fault-domains-map-into-pod-placement-to-ensure-all-pods-for-a-service-do-not-get-knocked-out-by-a-failure-in-a-single-fault-domain"></a>Se expandirmos a implantação, como os domínios de falha do Azure serão mapeados no posicionamento pod para garantir que todos os pods de um serviço não sejam vazados por uma falha em um único domínio de falha?
+
+Há, por padrão, cinco domínios de falha ao usar conjuntos de dimensionamento de máquinas virtuais no Azure. Cada instância de máquina virtual em um conjunto de dimensionamento será colocada em um desses domínios de falha. Isso garante que os aplicativos implantados nos nós de computação em um cluster sejam colocados em domínios de falha separados.
+
+Consulte [escolher o número correto de domínios de falha para o conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com//azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains) para obter mais detalhes.
+
+## <a name="is-there-a-way-to-manage-pod-placement"></a>Há uma maneira de gerenciar o posicionamento do pod?
+
+Com a atualização iminente do administrador do cliente, os clientes terão a capacidade de obter nós e exibir rótulos.  Isso fornecerá uma maneira de direcionar qualquer VM no conjunto de dimensionamento.
+
+Cuidado deve ser usado ao usar rótulos específicos:
+
+- O nome do host não deve ser usado. O nome do host é girado frequentemente com atualizações e atualizações e tem a garantia de alteração.
+
+- Se o cliente tiver uma solicitação de rótulos específicos ou uma estratégia de implantação, isso poderá ser realizado, mas exigiria esforços de engenharia e não terá suporte atualmente.
+
+## <a name="what-is-the-maximum-number-of-pods-in-an-aro-cluster-what-is-the-maximum-number-of-pods-per-node-in-aro"></a>Qual é o número máximo de pods em um cluster de toa?  Qual é o número máximo de pods por nó na toa?
+
+Consulte [docs OpenShift upstream](https://docs.openshift.com/container-platform/3.11/scaling_performance/cluster_limits.html#scaling-performance-current-cluster-limits) para obter mais detalhes. O Red Hat OpenShift 3,11 tem um limite de 250-Pod/nó, enquanto [a toa tem um limite de nó de 20 computadores](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available), de modo que ele limita o número máximo de pods com suporte em um cluster de toa para 250 * 20 = 5000.
+
+## <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>Podemos especificar intervalos de IP para implantação na VNET privada, evitando conflitos com outros VNETs corporativos uma vez emparelhados?
+
+O Azure Red Hat OpenShift dá suporte ao emparelhamento de VNET e permite que o cliente forneça uma VNET para emparelhar com e um CIDR de VNET no qual a rede OpenShift funcionará.
+
+A VNET criada pela toa será protegida e não aceitará alterações de configuração. A VNET emparelhada é controlada pelo cliente e reside em sua assinatura.

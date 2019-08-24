@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 945d123c0901722a527e7cc8181c91f09e4e95ec
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 71e08f00600bebcc21eba32d991353c9bcaeaa97
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014513"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991927"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapeando o modo de depuração do fluxo de dados
 
@@ -53,7 +53,14 @@ Com a depuração ativada, a guia Visualização de dados se acenderá no painel
 
 ![Visualização de dados](media/data-flow/datapreview.png "Visualização de dados")
 
+> [!NOTE]
+> As fontes de arquivo limitam apenas as linhas que você vê, não as linhas que estão sendo lidas. Para conjuntos de grandes volumes de arquivos, é recomendável que você faça uma pequena parte desse arquivo e use-o para seu teste. Você pode selecionar um arquivo temporário nas configurações de depuração para cada fonte que seja um tipo de conjunto de um arquivo.
+
 Quando executado no modo de depuração no fluxo de dados, seus dados não serão gravados na transformação do coletor. Uma sessão de depuração destina-se a servir como um equipamento de teste para suas transformações. Coletores não são necessários durante a depuração e são ignorados em seu fluxo de dados. Se você quiser testar a gravação dos dados em seu coletor, execute o fluxo de dados de um pipeline Azure Data Factory e use a execução de depuração de um pipeline.
+
+### <a name="testing-join-conditions"></a>Testando condições de junção
+
+Quando o teste de unidade une as transformações, existe ou pesquisa, certifique-se de usar um pequeno conjunto de dados conhecidos para seu teste. Você pode usar a opção configurações de depuração acima para definir um arquivo temporário a ser usado para o teste. Isso é necessário porque, ao limitar ou fazer amostragem de linhas de um grande conjunto de grandes, você não pode prever quais linhas e quais chaves serão lidas no fluxo para teste. O resultado é não determinístico, o que significa que suas condições de junção podem falhar.
 
 ### <a name="quick-actions"></a>Ações rápidas
 

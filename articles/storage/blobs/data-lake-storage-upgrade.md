@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 850d580d4eb1ca41932a28005d3375ced709db60
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 7c018ad15ee653bcdc903492028ec5ed058dbd14
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016382"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992239"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Atualize suas soluções de análise de Big Data de Azure Data Lake Storage Gen1 para Azure Data Lake Storage Gen2
 
@@ -235,7 +235,7 @@ Observe que há terceiros que podem lidar com a Data Lake Storage Gen1 Data Lake
 
 * Se usar uma ferramenta que não copia as ACLs ou não pretende copiar sobre as ACLs, terá de definir as ACLs no destino manualmente no nível superior apropriado. Pode fazê-lo através do Explorador de armazenamento. Certifique-se de que as ACLs são as ACLs padrão para que os ficheiros e pastas que copie herdarem-los.
 
-* Gen1 de armazenamento do Data Lake, é o nível mais elevado, pode definir ACLs na raiz da conta. No Data Lake Storage Gen2, no entanto, o nível mais alto que você pode definir ACLs está na pasta raiz em um sistema de arquivos, não na conta inteira. Então, se pretender definir ACLs padrão ao nível da conta, precisará duplicar através de todos os sistemas de ficheiros na sua conta de geração 2 de armazenamento do Data Lake.
+* Gen1 de armazenamento do Data Lake, é o nível mais elevado, pode definir ACLs na raiz da conta. No Data Lake Storage Gen2, no entanto, o nível mais alto que você pode definir ACLs está na pasta raiz em um contêiner, não na conta inteira. Então, se pretender definir ACLs padrão ao nível da conta, precisará duplicar através de todos os sistemas de ficheiros na sua conta de geração 2 de armazenamento do Data Lake.
 
 * Restrições de nomenclatura de ficheiro são diferentes entre os dois sistemas de armazenamento. Essas diferenças são especialmente em relação a quando copiar de geração 2 de armazenamento do Data Lake para geração 1 de armazenamento do Data Lake, uma vez que o segundo tem mais restrita restrições.
 

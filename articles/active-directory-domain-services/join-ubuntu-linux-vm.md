@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: c782629d422eb8846b209fed7ab6b5a5c015de25
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 80dbb4f3d0c8b993beab5f6344d6034d6c2b6895
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612291"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990583"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Adicionar uma máquina virtual Ubuntu no Azure a um domínio gerenciado
 Este artigo mostra como ingressar uma máquina virtual Ubuntu Linux em um domínio Azure AD Domain Services gerenciado.
@@ -88,7 +88,7 @@ Em seguida, instale os pacotes necessários para o ingresso no domínio na máqu
 3. Durante a instalação do Kerberos, você verá uma tela rosa. A instalação do pacote ' krb5-User ' solicita o nome do Realm (em letras MAIÚSCULAs). A instalação grava as seções [Realm] e [domain_realm] em/etc/krb5.conf.
 
     > [!TIP]
-    > Se o nome do domínio gerenciado for contoso.com, insira contoso.COM como o realm. Lembre-se de que o nome do Realm deve ser especificado em letras MAIÚSCULAs.
+    > Se o nome do domínio gerenciado for contoso.com, insira CONTOSO.COM como o realm. Lembre-se de que o nome do Realm deve ser especificado em letras MAIÚSCULAs.
 
 
 ## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>Definir as configurações de NTP (protocolo NTP) na máquina virtual Linux
@@ -121,7 +121,7 @@ Agora que os pacotes necessários estão instalados na máquina virtual Linux, a
 1. Descubra o domínio gerenciado dos serviços de domínio do AAD. No terminal SSH, digite o seguinte comando:
 
     ```console
-    sudo realm discover contoso.COM
+    sudo realm discover CONTOSO.COM
     ```
 
    > [!NOTE]
@@ -138,7 +138,7 @@ Agora que os pacotes necessários estão instalados na máquina virtual Linux, a
     >
 
     ```console
-    kinit bob@contoso.COM
+    kinit bob@CONTOSO.COM
     ```
 
 3. Ingresse o computador no domínio. No terminal SSH, digite o seguinte comando:
@@ -149,7 +149,7 @@ Agora que os pacotes necessários estão instalados na máquina virtual Linux, a
     > Se sua VM não puder ingressar no domínio, verifique se o grupo de segurança de rede da VM permite o tráfego de saída do Kerberos na porta TCP + UDP 464 para a sub-rede da rede virtual para o domínio gerenciado do Azure AD DS.
 
     ```console
-    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM' --install=/
+    sudo realm join --verbose CONTOSO.COM -U 'bob@CONTOSO.COM' --install=/
     ```
 
 Você deverá receber uma mensagem ("computador registrado com êxito no Realm") quando o computador tiver ingressado com êxito no domínio gerenciado.
@@ -192,10 +192,10 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ## <a name="verify-domain-join"></a>Verificar ingresso no domínio
 Verifique se o computador foi ingressado com êxito no domínio gerenciado. Conecte-se à VM Ubuntu ingressada no domínio usando uma conexão SSH diferente. Use uma conta de usuário de domínio e verifique se a conta de usuário foi resolvida corretamente.
 
-1. No terminal SSH, digite o seguinte comando para se conectar à máquina virtual Ubuntu ingressada no domínio usando SSH. Use uma conta de domínio que pertença ao domínio gerenciado (por exemplo,bob@contoso.COM' ' neste caso).
+1. No terminal SSH, digite o seguinte comando para se conectar à máquina virtual Ubuntu ingressada no domínio usando SSH. Use uma conta de domínio que pertença ao domínio gerenciado (por exemplo,bob@CONTOSO.COM' ' neste caso).
     
     ```console
-    ssh -l bob@contoso.COM contoso-ubuntu.contoso.com
+    ssh -l bob@CONTOSO.COM contoso-ubuntu.contoso.com
     ```
 
 2. No terminal SSH, digite o seguinte comando para ver se o diretório base foi inicializado corretamente.

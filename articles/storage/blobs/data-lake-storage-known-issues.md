@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 369069ef9a9c562ef6ba88a46dc0ef82c4debba1
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 951b1f3749807ac6aee78a96ae7eb38877ca6acc
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950688"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991801"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
 
@@ -32,7 +32,7 @@ As APIs de armazenamento de BLOBs são desabilitadas para evitar problemas de op
 
 Se qualquer um deles usar APIs de BLOB e você quiser usá-las para trabalhar com todo o conteúdo carregado em sua conta, você terá duas opções.
 
-* **Opção 1**: Não habilite um namespace hierárquico em sua conta de armazenamento de BLOBs até que as APIs de BLOB se tornem interoperáveis com Azure Data Lake APIs Gen2. O uso de uma conta de armazenamento sem um namespace hierárquico significa que você não tem acesso a Data Lake Storage Gen2 recursos específicos, como listas de controle de acesso do diretório e do sistema de arquivos.
+* **Opção 1**: Não habilite um namespace hierárquico em sua conta de armazenamento de BLOBs até que as APIs de BLOB se tornem interoperáveis com Azure Data Lake APIs Gen2. O uso de uma conta de armazenamento sem um namespace hierárquico significa que você não tem acesso a Data Lake Storage Gen2 recursos específicos, como listas de controle de acesso de diretório e contêiner.
 
 * **Opção 2**: Registre-se na visualização pública de [acesso de vários protocolos em data Lake Storage](data-lake-storage-multi-protocol-access.md). Ferramentas e aplicativos que chamam APIs de BLOB, bem como recursos de armazenamento de BLOBs, como logs de diagnóstico, podem trabalhar com contas que têm um namespace hierárquico.
 

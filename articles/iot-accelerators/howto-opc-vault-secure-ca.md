@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b08358680793ccdadca27c5f2aa57fbffe89b53a
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: f35836f60fae11c0955c128e96a4cea188681942
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69973795"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997668"
 ---
-# <a name="how-to-run-the-opc-ua-certificate-management-service-securely"></a>Como executar o serviço de gerenciamento de certificados do OPC UA com segurança
+# <a name="how-to-run-the-opc-vault-certificate-management-service-securely"></a>Como executar o serviço de gerenciamento de certificados do cofre OPC com segurança
 
-Este artigo explica como executar o serviço de gerenciamento de certificados do OPC UA com segurança no Azure e outras diretrizes de segurança a serem consideradas.
+Este artigo explica como executar o serviço de gerenciamento de certificados do cofre do OPC com segurança no Azure e outras diretrizes de segurança a serem consideradas.
 
 ## <a name="roles"></a>Funções
 
@@ -32,7 +32,7 @@ O microserviço do cofre OPC está configurado para permitir que funções disti
 
 ### <a name="certificate-management-service-roles"></a>Funções do serviço de gerenciamento de certificados
 
-O Microservice define as seguintes funções:
+O microserviço do compartimento OPC define as seguintes funções:
 
 - **Leitor**: Por padrão, qualquer usuário autenticado no locatário tem acesso de leitura. 
   - Acesso de leitura a aplicativos e solicitações de certificado. Pode listar e consultar aplicativos e solicitações de certificado. Além disso, as informações de descoberta de dispositivo e os certificados públicos estão acessíveis com acesso de leitura.
@@ -132,14 +132,14 @@ Para os dispositivos IoT Edge, os nomes de host e os endereços IP devem ser doc
 
 A documentação da hierarquia da autoridade de certificação deve conter todas as CAs operadas, incluindo todas as CAS subordinadas relacionadas, CAs pai e CAs raiz, mesmo quando elas não são gerenciadas pelo serviço. Um conjunto completo de todos os certificados de autoridade de certificação não expirados pode ser fornecido em vez da documentação formal.
 
-> [!IMPORTANT]
+> [!NOTE]
 > O aplicativo de exemplo do cofre OPC dá suporte ao download de todos os certificados usados e produzidos no serviço para documentação.
 
 ### <a name="document-the-issued-certificates-by-all-certification-authorities-cas"></a>Documentar os certificados emitidos por todas as autoridades de certificação (CAs)
 
 Um conjunto completo de todos os certificados emitidos nos últimos 12 meses deve ser fornecido para a documentação.
 
-> [!IMPORTANT]
+> [!NOTE]
 > O aplicativo de exemplo do cofre OPC dá suporte ao download de todos os certificados usados e produzidos no serviço para documentação.
 
 ### <a name="document-the-sop-for-securely-deleting-cryptographic-keys"></a>Documentar o SOP para excluir com segurança as chaves de criptografia
@@ -220,7 +220,7 @@ O SOP do microserviço do cofre OPC é descrito na [visão geral](overview-opc-v
 
 O processo de revogação de certificado é descrito na [visão geral](overview-opc-vault-architecture.md) e no [como gerenciar](howto-opc-vault-manage.md) documentos.
     
-### <a name="document-certification-authority-key-generation-ceremony"></a>Cerimônia de geração de chave de autoridade de certificação de documento 
+### <a name="document-certification-authority-ca-key-generation-ceremony"></a>Cerimônia de geração de chave de CA (autoridade de certificação) de documento 
 
 A geração de chave de autoridade de certificação do emissor no microserviço do cofre OPC é simplificada devido ao armazenamento seguro no Azure keyvault e descrito na documentação [como gerenciar](howto-opc-vault-manage.md) .
 

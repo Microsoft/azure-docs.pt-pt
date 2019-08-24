@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: e94c4f179174a3957aef8828687ebf1fbb299903
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0c4a70f337166a304bd8664da2180fcda29ca8ac
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967428"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996644"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse via hub aberto usando o Azure Data Factory
 
@@ -174,7 +174,7 @@ Para obter uma lista completa das secções e propriedades disponíveis para a d
 
 Para copiar dados de SAP BW Hub aberto, defina o tipo de fonte na atividade de cópia como **SapOpenHubSource**. Não há propriedades adicionais específicas do tipo necessárias na seção **origem** da atividade de cópia.
 
-Para acelerar o carregamento de dados, você pode definir [`parallelCopies`](copy-activity-performance.md#parallel-copy) na atividade de cópia para carregar dados de SAP BW Hub aberto em paralelo. Por exemplo, se você definir `parallelCopies` como quatro, data factory executar simultaneamente quatro chamadas RFC, e cada chamada RFC recuperará uma parte dos dados da tabela SAP BW Open Hub particionada pela ID da solicitação DTP e ID do pacote. Isso se aplica quando o número de ID de solicitação DTP + ID de pacote exclusiva é maior que `parallelCopies`o valor de.
+Para acelerar o carregamento de dados, você pode definir [`parallelCopies`](copy-activity-performance.md#parallel-copy) na atividade de cópia para carregar dados de SAP BW Hub aberto em paralelo. Por exemplo, se você definir `parallelCopies` como quatro, data factory executar simultaneamente quatro chamadas RFC, e cada chamada RFC recuperará uma parte dos dados da tabela SAP BW Open Hub particionada pela ID da solicitação DTP e ID do pacote. Isso se aplica quando o número de ID de solicitação DTP + ID de pacote exclusiva é maior que `parallelCopies`o valor de. Ao copiar dados para o armazenamento de dados baseado em arquivo, ele também é recriado para gravar em uma pasta como vários arquivos (apenas especifique o nome da pasta); nesse caso, o desempenho é melhor do que gravar em um único arquivo.
 
 **Example:**
 
@@ -223,5 +223,5 @@ Ao copiar dados do SAP BW Hub aberto, os seguintes mapeamentos são usados de SA
 | N (NUMC) | Cadeia |
 | X (binário e bruto) | Cadeia |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

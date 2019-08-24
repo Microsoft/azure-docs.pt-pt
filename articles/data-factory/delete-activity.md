@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2019
-ms.openlocfilehash: e749138cd28f7bd8faf10ca1087a73f323533a25
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.date: 08/20/2019
+ms.openlocfilehash: d9a1c76e8ac386b954c68f16e2189df4e6c0e1b7
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335663"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996311"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Excluir atividade no Azure Data Factory
 
@@ -44,6 +44,7 @@ Aqui estão algumas recomendações para usar a atividade de exclusão:
 -   [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md)
 -   [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+-   [File Storage do Azure](connector-azure-file-storage.md)
 
 ### <a name="file-system-data-stores"></a>Armazenamentos de dados do sistema de arquivos
 
@@ -51,6 +52,7 @@ Aqui estão algumas recomendações para usar a atividade de exclusão:
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
+-   [Armazenamento em nuvem do Google](connector-google-cloud-storage.md)
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -115,7 +117,7 @@ Há dois locais em que você pode ver e monitorar os resultados da atividade de 
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Arquivo de log de exemplo da atividade de exclusão
 
-| Nome | Category | Estado | Erro |
+| Name | Category | State | Erro |
 |:--- |:--- |:--- |:--- |
 | test1/yyy.json | Ficheiro | Eliminado |  |
 | test2/hello789.txt | Ficheiro | Eliminado |  |
@@ -572,7 +574,7 @@ Você também pode obter o modelo para mover os arquivos [aqui](solution-templat
 
 -   Ao usar o filtro de atributo de arquivo: modifiedDatetimeStart e modifiedDatetimeEnd para selecionar os arquivos a serem excluídos, certifique-se de definir "fileName": "*" no DataSet.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre como mover arquivos no Azure Data Factory.
 

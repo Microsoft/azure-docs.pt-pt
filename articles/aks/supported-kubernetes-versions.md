@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 0f2d3079de43767e61dfc1c8d77244da19f13a40
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
-ms.translationtype: HT
+ms.openlocfilehash: 0e26b9b5aee61f399a39c032cdbd2084884538c9
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898868"
+ms.locfileid: "69982701"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do kubernetes com suporte no serviço kubernetes do Azure (AKS)
 
@@ -30,7 +30,6 @@ Kubernetes usa o esquema de controle de versão de [controle semântico](https:/
 Example:
   1.12.14
   1.12.15
-  1.13.7
 ```
 
 Cada número na versão indica compatibilidade geral com a versão anterior:
@@ -39,7 +38,7 @@ Cada número na versão indica compatibilidade geral com a versão anterior:
 * As versões secundárias são alteradas quando são feitas alterações de funcionalidade que são compatíveis com versões anteriores a outros lançamentos secundários.
 * As versões de patch são alteradas quando são feitas correções de bugs compatíveis com versões anteriores.
 
-Em geral, os usuários devem executar a versão mais recente do patch da versão secundária em execução, por exemplo, se o cluster de produção estiver em *1.13.6* e *1.13.7* for a versão de patch mais recente disponível para a série *1,13* , Você deve atualizar para o *1.13.7* assim que for possível garantir que o cluster seja totalmente corrigido e tenha suporte.
+Em geral, os usuários devem executar a versão mais recente do patch da versão secundária em execução, por exemplo, se o cluster de produção estiver em *1.12.14* e *1.12.15* for a versão de patch mais recente disponível para a série *1,12* , você deve atualizar para o *1.12.15* assim que for possível garantir que o cluster seja totalmente corrigido e tenha suporte.
 
 ## <a name="kubernetes-version-support-policy"></a>Política de suporte da versão do Kubernetes
 

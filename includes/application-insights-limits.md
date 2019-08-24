@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: mbullwin
 ms.custom: include file
-ms.openlocfilehash: 7bf9c338315f5013be815625b06d633567a801a0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 14e2bd4af2616e9dd33fe8267de132ab6c0f1cfe
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912461"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982618"
 ---
 Há alguns limites no número de métricas e eventos por aplicativo, ou seja, por chave de instrumentação. Os limites dependem do [plano de preços](https://azure.microsoft.com/pricing/details/application-insights/) que escolher.
 
@@ -21,7 +21,7 @@ Há alguns limites no número de métricas e eventos por aplicativo, ou seja, po
 | --- | --- | --- |
 | Total de dados por dia | 100 GB | Pode reduzir os dados ao definir um limite. Se você precisar de mais dados, poderá aumentar o limite no portal, até 1.000 GB. Para capacidades maiores que 1.000 GB, envie um email AIDataCap@microsoft.compara.
 | Limitação | 32.000 eventos/segundo | O limite é mediso ao longo de um minuto.
-| Retenção de dados | 90 dias | Este recurso é para [Pesquisa](../articles/azure-monitor/app/diagnostic-search.md), [Análise](../articles/azure-monitor/app/analytics.md) e [Explorador de métricas](../articles/azure-monitor/app/metrics-explorer.md).
+| Retenção de dados | [30-730 dias](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period)  | Este recurso é para [Pesquisa](../articles/azure-monitor/app/diagnostic-search.md), [Análise](../articles/azure-monitor/app/analytics.md) e [Explorador de métricas](../articles/azure-monitor/app/metrics-explorer.md).
 | [Teste de disponibilidade de vários passos](../articles/azure-monitor/app/availability-multistep.md) com retenção de resultados detalhados | 90 dias | Este recurso fornece resultados detalhados de cada passo.
 | Tamanho máximo do item de telemetria | 64 kB |
 | Máximo de itens de telemetria por lote | 64 K |

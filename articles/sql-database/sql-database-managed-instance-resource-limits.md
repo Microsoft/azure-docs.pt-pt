@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: e5dc449dc51faccdd8c0e69337cc5f8ac19fa296
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 776a27ca0babfd7557bf4d16c449a8dfa5bceaf7
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874404"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998204"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral dos limites de recursos de instância gerenciada do banco de dados SQL
 
@@ -42,7 +42,8 @@ Instância gerenciada do banco de dados SQL do Azure pode ser implantada em duas
 | Armazenamento reservado de instância máx. |  Uso Geral: 8 TB<br/>Comercialmente Crítico: 1TB | Uso Geral: 8 TB<br/> Comercialmente Crítico 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
 
 > [!IMPORTANT]
-> Novos bancos de dados Gen4 não têm mais suporte nas regiões leste da Austrália ou sul do Brasil.
+> - O hardware Gen4 está sendo desativado. É recomendável implantar novas instâncias gerenciadas em hardware Gen5.
+> - O hardware do Gen4 no momento está disponível nas seguintes regiões: Europa Setentrional, Europa Ocidental, leste dos EUA, Sul EUA Central, norte EUA Central, oeste dos EUA 2, EUA Central, Canadá central, sul da Índia, Sudeste Asiático e Coreia central.
 
 ### <a name="service-tier-characteristics"></a>Características da camada de serviço
 
@@ -106,7 +107,7 @@ A tabela a seguir mostra os limites regionais padrão para assinaturas com supor
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional e Plataformas MSDN|2|32|
 
-\*Ao planejar suas implantações, considere que um vCore de Comercialmente Crítico (BC) (devido à redundância adicionada) consome 4x mais capacidade do que um vCore de Uso Geral (GP). Portanto, para seus cálculos, 1 GP vCore = 1 unidade vCore e 1 BC vCore = 4 unidades vCore. Para simplificar a análise de consumo em relação aos limites padrão, resuma as unidades vCore em todas as sub-redes na região em que as instâncias gerenciadas são implantadas e compare os resultados com os limites de unidade de instância para o tipo de assinatura. O limite **máximo de unidades vCore** aplica-se a cada assinatura em uma região. Não há limite por sub-redes individuais, exceto que a soma de todos os vCores implantados em várias sub-redes deve ser menor ou igual ao **número máximo de unidades vCore**.
+\*No planejamento de implantações, leve em consideração que a camada de serviço de Comercialmente Crítico (BC) requer quatro (4) vezes mais capacidade de vCore do que a camada de serviço de Uso Geral (GP). Por exemplo: 1 GP vCore = 1 unidade vCore e 1 BC vCore = 4 unidades vCore. Para simplificar a análise de consumo em relação aos limites padrão, resuma as unidades vCore em todas as sub-redes na região em que as instâncias gerenciadas são implantadas e compare os resultados com os limites de unidade de instância para o tipo de assinatura. O limite **máximo de unidades vCore** aplica-se a cada assinatura em uma região. Não há limite por sub-redes individuais, exceto que a soma de todos os vCores implantados em várias sub-redes deve ser menor ou igual ao **número máximo de unidades vCore**.
 
 \*\*Os limites de maior sub-rede e vCore estão disponíveis nas seguintes regiões: Leste da Austrália, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental, oeste dos EUA 2.
 
@@ -144,7 +145,7 @@ Para iniciar o processo de obtenção de uma cota maior:
 6. Na guia informações de contato da nova solicitação de suporte, insira o método de contato preferencial (email ou telefone) e os detalhes de contato.
 7. Clique em **Criar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre a instância gerenciada, consulte [o que é uma instância gerenciada?](sql-database-managed-instance.md).
 - Para obter informações sobre preços, consulte [preços da instância gerenciada do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).

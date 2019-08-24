@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: 4159eed04ff1a4e81ea36a4d7f06f342a63fe367
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: c47cc49a8e81b44a4529f8f82954797e2648c938
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442030"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983097"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais
 
@@ -254,8 +254,9 @@ Para obter mais informações sobre como usar uma rede virtual do Azure com o HD
 Para obter um exemplo de como usar dois tipos de cluster em uma rede virtual do Azure, consulte [usar Apache Spark streaming estruturado com Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). Para obter mais informações sobre como usar o HDInsight com uma rede virtual, incluindo requisitos de configuração específicos para a rede virtual, consulte [planejar uma rede virtual para o HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
+- [Solucionar problemas de falhas de criação de cluster com o Azure HDInsight](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md)
 - [O que são o HDInsight, o ecossistema de Apache Hadoop e os clusters Hadoop?](hadoop/apache-hadoop-introduction.md)
 - [Introdução ao uso de Apache Hadoop no HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Trabalhar em Apache Hadoop no HDInsight de um computador Windows](hdinsight-hadoop-windows-tools.md)

@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas relacionados com o RBAC para recursos do Azure | Documentos da Microsoft
-description: Resolva problemas com o controlo de acesso baseado em funções (RBAC) para recursos do Azure.
+title: Solucionar problemas de RBAC para recursos do Azure | Microsoft Docs
+description: Solucionar problemas com o RBAC (controle de acesso baseado em função) para recursos do Azure.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -11,52 +11,52 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 08/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 59ece9c37a563efba6329a30c06c1b596b1a5d57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c3ca873cb4dd49d77ba818b3d05c3aa41e89276f
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058151"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982727"
 ---
-# <a name="troubleshoot-rbac-for-azure-resources"></a>Resolver problemas relacionados com o RBAC para recursos do Azure
+# <a name="troubleshoot-rbac-for-azure-resources"></a>Solucionar problemas de RBAC para recursos do Azure
 
-Este artigo responde a perguntas comuns sobre o controlo de acesso baseado em funções (RBAC) para recursos do Azure, para que saiba o que esperar ao utilizar as funções no portal do Azure e pode resolver problemas de acesso.
+Este artigo responde a perguntas comuns sobre o RBAC (controle de acesso baseado em função) para recursos do Azure, para que você saiba o que esperar ao usar as funções no portal do Azure e pode solucionar problemas de acesso.
 
 ## <a name="problems-with-rbac-role-assignments"></a>Problemas com atribuições de funções do RBAC
 
-- Se não for possível adicionar uma atribuição de função no portal do Azure no **controlo de acesso (IAM)** porque o **Add** > **adicionar atribuição de função** opção está desativada ou uma vez que obterá o erro de permissões "o cliente com o id de objeto não tem autorização para realizar a ação", verifique que o tem atualmente sessão iniciada com um utilizador que está atribuído uma função que tenha as `Microsoft.Authorization/roleAssignments/write` permissão como [proprietário](built-in-roles.md#owner) ou [administrador de acesso de utilizador](built-in-roles.md#user-access-administrator) no âmbito para atribuir a função que está a tentar.
-- Se receber a mensagem de erro "podem ser criadas mais atribuições de função (código: RoleAssignmentLimitExceeded)" quando tenta atribuir uma função, experimente atribuir funções a grupos, de modo a reduzir o número de atribuições. O Azure suporta até **duas mil** atribuições de funções por subscrição.
+- Se não for possível adicionar uma atribuição de função no portal do Azure no **controle de acesso (iam)** porque a opção **Adicionar** > **Adicionar atribuição de função** está desabilitada ou porque você recebe o erro de permissões "o cliente com a ID de objeto não tem autorização para executar a ação ", verifique se você está conectado no momento com um usuário que recebe uma função que tem a `Microsoft.Authorization/roleAssignments/write` permissão como [proprietário](built-in-roles.md#owner) ou [administrador de acesso do usuário](built-in-roles.md#user-access-administrator) no escopo ao qual você está tentando atribuir a função.
+- Se você receber a mensagem de erro "não é possível criar mais atribuições de função (código: RoleAssignmentLimitExceeded)" quando tenta atribuir uma função, experimente atribuir funções a grupos, de modo a reduzir o número de atribuições. O Azure suporta até **duas mil** atribuições de funções por subscrição.
 
 ## <a name="problems-with-custom-roles"></a>Problemas com funções personalizadas
 
-- Se precisar de passos para saber como criar uma função personalizada, veja os tutoriais de função personalizada usando [do Azure PowerShell](tutorial-custom-role-powershell.md) ou [CLI do Azure](tutorial-custom-role-cli.md).
-- Se não é possível atualizar uma função personalizada existente, verifique se o é atualmente sessão iniciada com um utilizador que está atribuído uma função que tenha as `Microsoft.Authorization/roleDefinition/write` permissão, tais como [proprietário](built-in-roles.md#owner) ou [o administrador de acesso de utilizador](built-in-roles.md#user-access-administrator).
+- Se você precisar de etapas para criar uma função personalizada, consulte os tutoriais de função personalizada usando [Azure PowerShell](tutorial-custom-role-powershell.md) ou [CLI do Azure](tutorial-custom-role-cli.md).
+- Se não for possível atualizar uma função personalizada existente, verifique se você está conectado no momento com um usuário que recebe uma função que tem a `Microsoft.Authorization/roleDefinition/write` permissão como [proprietário](built-in-roles.md#owner) ou administrador de acesso do [usuário](built-in-roles.md#user-access-administrator).
 - Se não conseguir eliminar uma função personalizada e obtiver a mensagem de erro “Não existem atribuições de funções existentes que façam referência à função (código: RoleDefinitionHasAssignments)", significa que ainda há atribuições de funções a utilizar a função personalizada. Remova essas atribuições e experimente eliminar a função personalizada novamente.
-- Se receber a mensagem de erro “Limite de definição de função excedido. Podem ser criadas mais definições de função (código: RoleDefinitionLimitExceeded) "ao tentar criar uma nova função personalizada, eliminar quaisquer funções personalizadas que não estão a ser utilizadas. O Azure suporta até **5000** funções personalizadas num inquilino. (para clouds especializadas, como o Azure Government, o Azure Alemanha e o Azure China 21Vianet, o limite é de 2000 funções personalizadas).
-- Se obtiver um erro semelhante a "o cliente tem permissão para executar a ação 'Microsoft.Authorization/roleDefinitions/write' no âmbito '/ subscrições / {subscriptionid}', no entanto, a subscrição associada não foi encontrada" ao tentar atualizar uma função personalizada, verifique Se um ou mais [âmbitos atribuíveis](role-definitions.md#assignablescopes) ter sido eliminada no inquilino. Se o âmbito tiver sido eliminado, crie um pedido de suporte, pois não existe nenhuma solução self-service atualmente.
+- Se receber a mensagem de erro “Limite de definição de função excedido. Não é possível criar mais definições de função (código: RoleDefinitionLimitExceeded) "ao tentar criar uma nova função personalizada, exclua todas as funções personalizadas que não estão sendo usadas. O Azure dá suporte a até **5000** funções personalizadas em um locatário. (para clouds especializadas, como o Azure Government, o Azure Alemanha e o Azure China 21Vianet, o limite é de 2000 funções personalizadas).
+- Se você receber um erro semelhante a "o cliente tem permissão para executar a ação ' Microsoft. Authorization/roleDefinitions/Write ' no escopo '/subscriptions/{SubscriptionId} ', no entanto, a assinatura vinculada não foi encontrada" quando você tentar atualizar uma função personalizada, verifique se um ou mais [](role-definitions.md#assignablescopes) escopos atribuíveis foram excluídos no locatário. Se o âmbito tiver sido eliminado, crie um pedido de suporte, pois não existe nenhuma solução self-service atualmente.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Recuperar o RBAC quando as subscrições são movidas entre inquilinos
 
-- Se precisar de passos para saber como transferir uma subscrição para um Azure AD diferente do inquilino, consulte [transferir a propriedade de uma subscrição do Azure para outra conta](../billing/billing-subscription-transfer.md).
-- Se transferir uma subscrição para outro inquilino do Azure AD, todas as atribuições de funções são eliminadas permanentemente do inquilino do Azure AD de origem e não são migradas para o inquilino do Azure AD de destino. Tem de recriar as atribuições de funções no inquilino de destino. Também terá de recriar manualmente as identidades geridas para recursos do Azure. Para obter mais informações, consulte [FAQ e problemas conhecidos com geridos identidades](../active-directory/managed-identities-azure-resources/known-issues.md).
-- Se for um Azure AD Administrador Global e não tiver acesso a uma subscrição depois que ele foi movido entre inquilinos, utilize o **Access management para recursos do Azure** alternância para temporariamente [elevar o acesso do utilizador](elevate-access-global-admin.md) para obter acesso à subscrição.
+- Se você precisar de etapas sobre como transferir uma assinatura para um locatário diferente do Azure AD, consulte [transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md).
+- Se transferir uma subscrição para outro inquilino do Azure AD, todas as atribuições de funções são eliminadas permanentemente do inquilino do Azure AD de origem e não são migradas para o inquilino do Azure AD de destino. Tem de recriar as atribuições de funções no inquilino de destino. Você também precisa recriar manualmente as identidades gerenciadas dos recursos do Azure. Para obter mais informações, consulte [perguntas frequentes e problemas conhecidos com identidades gerenciadas](../active-directory/managed-identities-azure-resources/known-issues.md).
+- Se você for um administrador global do Azure AD e não tiver acesso a uma assinatura após sua movimentação entre locatários, use a opção **Gerenciamento de acesso para recursos do Azure** para [elevar temporariamente seu acesso](elevate-access-global-admin.md) para obter acesso à assinatura.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problemas relacionados com administradores ou coadministradores de serviços
 
-- Se estiver a ter problemas com o administrador de serviços ou coadministradores, veja [adicionar ou alterar os administradores de subscrição do Azure](../billing/billing-add-change-azure-subscription-administrator.md) e [funções de administrador de subscrição clássico, funções RBAC do Azure e o Azure AD funções de administrador](rbac-and-directory-admin-roles.md).
+- Se você estiver tendo problemas com o administrador de serviços ou coadministradores, consulte [Adicionar ou alterar os administradores de assinatura do Azure](../billing/billing-add-change-azure-subscription-administrator.md) e as funções de [administrador de assinatura clássica, funções de RBAC do Azure e funções de administrador do Azure ad](rbac-and-directory-admin-roles.md).
 
 ## <a name="access-denied-or-permission-errors"></a>Acesso negado ou erros de permissão
 
 - Se receber o erro de permissões “O cliente com o id de objeto não tem autorização para realizar a ação acima do âmbito (código: AuthorizationFailed)" quando tenta criar um recurso, confirme que tem sessão iniciada com um utilizador que tenha atribuída uma função com a permissão de escrita no recurso no âmbito selecionado. Por exemplo, para gerir máquinas virtuais num grupo de recursos, deve ter a função [Contribuidor de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) no grupo de recursos (ou no âmbito principal). Para obter uma lista das permissões de cada função incorporada, veja [Built-in roles for Azure resources](built-in-roles.md) (Funções incorporadas dos recursos do Azure)
-- Se obtiver o erro de permissões "Não tem permissão para criar um pedido de suporte" quando tenta criar ou atualizar um pedido de suporte, verifique se o é atualmente sessão iniciada com um utilizador que está atribuído uma função que tenha o `Microsoft.Support/supportTickets/write` permissão, como [Contribuidor de pedido de suporte](built-in-roles.md#support-request-contributor).
+- Se você receber o erro de permissões "você não tem permissão para criar uma solicitação de suporte" ao tentar criar ou atualizar um tíquete de suporte, verifique se você está conectado no momento com um usuário que recebe uma função que tem a `Microsoft.Support/supportTickets/write` permissão, como [ Colaborador de solicitação de suporte](built-in-roles.md#support-request-contributor).
 
-## <a name="role-assignments-without-a-security-principal"></a>Atribuições de funções sem uma entidade de segurança
+## <a name="role-assignments-without-a-security-principal"></a>Atribuições de função sem uma entidade de segurança
 
-Quando listar as atribuições de função com o Azure PowerShell, poderá ver atribuições com vazio `DisplayName` e um `ObjectType` definido como Unknown. Por exemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retorna uma atribuição de função que é semelhante ao seguinte:
+Ao listar as atribuições de função usando Azure PowerShell, você poderá ver as atribuições com `ObjectType` um vazio `DisplayName` e um definido como desconhecido. Por exemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retorna uma atribuição de função semelhante à seguinte:
 
 ```azurepowershell
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -70,7 +70,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Da mesma forma, quando listar as atribuições de função com a CLI do Azure, poderá ver atribuições com vazio `principalName`. Por exemplo, [lista de atribuições de função de az](/cli/azure/role/assignment#az-role-assignment-list) retorna uma atribuição de função que é semelhante ao seguinte:
+Da mesma forma, ao listar suas atribuições de função usando CLI do Azure, você poderá ver `principalName`atribuições com um vazio. Por exemplo, a [lista de atribuição de função AZ](/cli/azure/role/assignment#az-role-assignment-list) retorna uma atribuição de função semelhante à seguinte:
 
 ```azurecli
 {
@@ -86,11 +86,11 @@ Da mesma forma, quando listar as atribuições de função com a CLI do Azure, p
 }
 ```
 
-Estas atribuições de função ocorrerem quando atribuir uma função para uma entidade de segurança (utilizador, grupo, principal de serviço ou identidade gerida) e posteriormente eliminar esse principal de segurança. Estas atribuições de função não são apresentadas no portal do Azure e não é um problema para deixá-los. No entanto, se desejar, pode remover estas atribuições de funções.
+Essas atribuições de função ocorrem quando você atribui uma função a uma entidade de segurança (usuário, grupo, entidade de serviço ou identidade gerenciada) e depois exclui essa entidade de segurança. Essas atribuições de função não são exibidas no portal do Azure e não é um problema para deixá-las. No entanto, se desejar, você pode remover essas atribuições de funções.
 
-Para remover estas atribuições de função, utilize o [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) ou [eliminar atribuição de função de az](/cli/azure/role/assignment#az-role-assignment-delete) comandos.
+Para remover essas atribuições de função, use os comandos de [exclusão de atribuição de função](/cli/azure/role/assignment#az-role-assignment-delete) [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) ou AZ.
 
-No PowerShell, se tentar remover as atribuições de funções com o ID de objeto e nome de definição de função e mais de uma atribuição de função corresponda os parâmetros, obterá a mensagem de erro: "As informações fornecidas não é mapeado para uma atribuição de função". O código a seguir mostra um exemplo de mensagem de erro:
+No PowerShell, se você tentar remover as atribuições de função usando a ID de objeto e o nome de definição de função, e mais de uma atribuição de função corresponder aos parâmetros, você receberá a mensagem de erro: "As informações fornecidas não são mapeadas para uma atribuição de função". Veja a seguir um exemplo da mensagem de erro:
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
@@ -103,85 +103,85 @@ At line:1 char:1
 + FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
 ```
 
-Se receber esta mensagem de erro, certifique-se de que especifique também a `-Scope` ou `-ResourceGroupName` parâmetros.
+Se você receber essa mensagem de erro, certifique-se de também `-Scope` especificar `-ResourceGroupName` os parâmetros ou.
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
-## <a name="rbac-changes-are-not-being-detected"></a>Alterações RBAC não estão a ser detetadas
+## <a name="rbac-changes-are-not-being-detected"></a>As alterações de RBAC não estão sendo detectadas
 
-O Gestor de recursos do Azure armazena em cache, às vezes, configurações e dados para melhorar o desempenho. Quando criar ou eliminar as atribuições de funções, pode demorar até 30 minutos para que as alterações entrem em vigor. Se estiver a utilizar o portal do Azure, o Azure PowerShell ou a CLI do Azure, pode forçar uma atualização das suas alterações de atribuição de função ao terminar a sessão e iniciar sessão. Se estiver a efetuar alterações à atribuição de função com chamadas de REST API, pode forçar uma atualização ao atualizar o token de acesso.
+Às vezes, o Azure Resource Manager armazena em cache as configurações e os dados para melhorar o desempenho. Ao criar ou excluir atribuições de função, pode levar até 30 minutos para que as alterações entrem em vigor. Se você estiver usando o portal do Azure, Azure PowerShell ou CLI do Azure, poderá forçar uma atualização de suas alterações de atribuição de função desconectando e entrando. Se você estiver fazendo alterações de atribuição de função com chamadas à API REST, poderá forçar uma atualização atualizando seu token de acesso.
 
-## <a name="web-app-features-that-require-write-access"></a>Funcionalidades da aplicação Web que necessitam de acesso de escrita
+## <a name="web-app-features-that-require-write-access"></a>Recursos do aplicativo Web que exigem acesso de gravação
 
-Se conceder um acesso de só de leitura do utilizador para uma aplicação web individual, algumas funcionalidades estão desativadas que não pode estar esperando. As seguintes capacidades de gestão requerem **escrever** aceder a uma aplicação web (Contribuidor ou proprietário) e não estão disponíveis em qualquer cenário de só de leitura.
+Se você conceder a um usuário acesso somente leitura a um único aplicativo Web, alguns recursos serão desabilitados que talvez você não espere. Os seguintes recursos de gerenciamento exigem acesso de **gravação** a um aplicativo Web (colaborador ou proprietário) e não estão disponíveis em nenhum cenário somente leitura.
 
 * Comandos (como iniciar, parar, etc.)
-* Como a alteração das definições de configuração geral, as definições de dimensionamento, as definições de cópia de segurança e as definições de monitorização
-* Aceder a credenciais de publicação e outros segredos, como as definições da aplicação e as cadeias de ligação
+* Alterando configurações como configuração geral, configurações de escala, configurações de backup e configurações de monitoramento
+* Acessando credenciais de publicação e outros segredos, como configurações de aplicativo e cadeias de conexão
 * Registos de transmissão em fluxo
-* Configuração de registos de diagnóstico
-* Console (linha de comandos)
-* Implementações de Active Directory e recentes (para implementação contínua do local git)
-* Estimado gastar
+* Configuração de logs de diagnóstico
+* Console (prompt de comando)
+* Implantações ativas e recentes (para implantação contínua local do git)
+* Gasto estimado
 * Testes Web
-* Rede virtual (visível apenas para um leitor se anteriormente tiver sido configurada uma rede virtual por um utilizador com acesso de escrita).
+* Rede virtual (visível somente para um leitor se uma rede virtual tiver sido configurada anteriormente por um usuário com acesso de gravação).
 
-Se não é possível aceder a qualquer um destes mosaicos, terá de solicitar o administrador de acesso de contribuinte para a aplicação web.
+Se você não puder acessar nenhum desses blocos, precisará pedir ao administrador o acesso de colaborador ao aplicativo Web.
 
-## <a name="web-app-resources-that-require-write-access"></a>Recursos da aplicação Web que necessitam de acesso de escrita
+## <a name="web-app-resources-that-require-write-access"></a>Recursos do aplicativo Web que exigem acesso de gravação
 
-Aplicações Web são complicadas pela presença de alguns recursos diferentes que interação. Este é um grupo de recursos típico com alguns dos Web sites:
+Os aplicativos Web são complicados pela presença de alguns recursos diferentes que são interplayáveis. Este é um grupo de recursos típico com alguns sites:
 
-![Grupo de recursos de aplicação Web](./media/troubleshooting/website-resource-model.png)
+![Grupo de recursos do aplicativo Web](./media/troubleshooting/website-resource-model.png)
 
-Como resultado, se conceder alguém o acesso apenas na aplicação web, grande parte da funcionalidade no painel do Web site no portal do Azure está desativado.
+Como resultado, se você conceder a alguém acesso apenas ao aplicativo Web, grande parte da funcionalidade na folha do site na portal do Azure será desabilitada.
 
-Esses itens requerem **escrever** aceder para o **plano do App Service** que corresponde ao seu Web site:  
+Esses itens exigem acesso de **gravação** ao **plano do serviço de aplicativo** que corresponde ao seu site:  
 
-* Ver a aplicação web do escalão de preço (gratuita ou Standard)  
-* Configuração de dimensionamento (número de instâncias, tamanho da máquina virtual, definições de dimensionamento automático)  
-* Quotas (armazenamento, CPU, largura de banda)  
+* Exibindo o tipo de preço do aplicativo Web (gratuito ou padrão)  
+* Configuração de escala (número de instâncias, tamanho da máquina virtual, configurações de dimensionamento automático)  
+* Cotas (armazenamento, largura de banda, CPU)  
 
-Esses itens requerem **escrever** acesso a todo **grupo de recursos** que contém o seu Web site:  
+Esses itens exigem acesso de **gravação** para todo o **grupo de recursos** que contém o site:  
 
-* Certificados SSL e enlaces (certificados SSL podem ser partilhados entre sites no mesmo grupo de recursos e localização geográfica)  
+* Associações e certificados SSL (certificados SSL podem ser compartilhados entre sites no mesmo grupo de recursos e localização geográfica)  
 * Regras de alerta  
-* Definições de dimensionamento automático  
-* Componentes do Application insights  
+* Configurações de autoescala  
+* Componentes de informações de aplicação  
 * Testes Web  
 
-## <a name="virtual-machine-features-that-require-write-access"></a>Funcionalidades das máquinas virtuais que necessitam de acesso de escrita
+## <a name="virtual-machine-features-that-require-write-access"></a>Recursos de máquina virtual que exigem acesso de gravação
 
-Assim como aplicações web, algumas funcionalidades no painel da máquina virtual requerem acesso de escrita para a máquina virtual ou para outros recursos no grupo de recursos.
+Assim como os aplicativos Web, alguns recursos na folha da máquina virtual exigem acesso de gravação à máquina virtual ou a outros recursos no grupo de recursos.
 
-Máquinas virtuais estão relacionadas com nomes de domínio, redes virtuais, contas de armazenamento e regras de alerta.
+As máquinas virtuais estão relacionadas a nomes de domínio, redes virtuais, contas de armazenamento e regras de alerta.
 
-Esses itens requerem **escrever** aceder para o **Máquina Virtual**:
+Esses itens exigem acesso de **gravação** à **máquina virtual**:
 
 * Pontos Finais  
 * Endereços IP  
 * Discos  
 * Extensões  
 
-Eles exigem **escrever** acesso a ambos os **Máquina Virtual**e o **grupo de recursos** (juntamente com o nome de domínio) que estejam na:  
+Eles exigem acesso de **gravação** para a **máquina virtual**e o **grupo de recursos** (junto com o nome de domínio) em que ele se encontra:  
 
-* Conjunto de disponibilidade  
+* Conjunto de Disponibilidade  
 * Conjunto com balanceamento de carga  
 * Regras de alerta  
 
-Se não é possível aceder a qualquer um destes mosaicos, peça ao administrador de acesso de Contribuidor ao grupo de recursos.
+Se você não puder acessar nenhum desses blocos, peça ao administrador para acesso de colaborador ao grupo de recursos.
 
-## <a name="azure-functions-and-write-access"></a>As funções do Azure e o acesso de escrita
+## <a name="azure-functions-and-write-access"></a>Acesso de Azure Functions e gravação
 
-Algumas funcionalidades do [as funções do Azure](../azure-functions/functions-overview.md) necessitam de acesso de escrita. Por exemplo, se um utilizador tem atribuído a função de leitor, não poderão ver as funções dentro de uma aplicação de funções. O portal apresentará **(sem acesso)** .
+Alguns recursos do [Azure Functions](../azure-functions/functions-overview.md) exigem acesso de gravação. Por exemplo, se uma função de [leitor](built-in-roles.md#reader) for atribuída a um usuário, ela não poderá exibir as funções em um aplicativo de funções. O portal será exibido **(sem acesso)** .
 
-![Aplicações de funções sem acesso](./media/troubleshooting/functionapps-noaccess.png)
+![Aplicativos de função sem acesso](./media/troubleshooting/functionapps-noaccess.png)
 
-Um leitor pode clicar a **funcionalidades de plataforma** separador e, em seguida, clique em **todas as definições** ver algumas definições relacionadas com uma aplicação de funções (semelhante a uma aplicação web), mas não podem modificar qualquer uma destas definições.
+Um leitor pode clicar na guia **recursos da plataforma** e clicar em todas as **configurações** para exibir algumas configurações relacionadas a um aplicativo de funções (semelhante a um aplicativo Web), mas não podem modificar nenhuma dessas configurações. Para acessar esses recursos, você precisará da função de [colaborador](built-in-roles.md#contributor) .
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)
-* [Ver registos de atividade para alterações RBAC para recursos do Azure](change-history-report.md)
+* [Exibir logs de atividade para alterações de RBAC para recursos do Azure](change-history-report.md)
 

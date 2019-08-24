@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 630f92bc8cf5fb89626bfe4de4e4a575045c961a
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6eb73c1c2b768d82143890415702950905f261f6
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880959"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997230"
 ---
 # <a name="use-visual-studio-code-to-create-an-iot-plug-and-play-device-that-connects-to-iot-central"></a>Use Visual Studio Code para criar um dispositivo de Plug and Play IoT que se conecta ao IoT Central
 
@@ -22,7 +22,7 @@ Este guia de instruções mostra como:
 
 * Como um operador, para adicionar e configurar um dispositivo real em seu aplicativo de IoT Central do Azure.
 
-* Como desenvolvedor de dispositivos, para usar Visual Studio Code para criar um dispositivo de [plug and Play IOT](https://aka.ms/iot-pnp-docs) que se conecta ao seu aplicativo IOT central.
+* Como desenvolvedor de dispositivos, para usar Visual Studio Code para criar um dispositivo de [plug and Play IOT](../iot-pnp/overview-iot-plug-and-play.md) que se conecta ao seu aplicativo IOT central.
 
 Você usa um [modelo de capacidade de dispositivo](./concepts-architecture-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) para definir o dispositivo que se conecta ao IOT central. Neste guia, você usa um modelo que define um dispositivo de sensor ambiental.
 

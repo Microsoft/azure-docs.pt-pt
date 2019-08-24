@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 982ebf28a0f99a6eace2448676c934855cd99d1f
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: fd7cd8f73f602953573b7e6edab32bf2a6aecc05
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879737"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998127"
 ---
 # <a name="set-up-and-manage-a-device-template-preview-features"></a>Configurar e gerenciar um modelo de dispositivo (recursos de visualização)
 
@@ -36,7 +36,7 @@ Nesse modelo de dispositivo, um operador pode criar e conectar dispositivos de v
 > [!NOTE]
 > Somente os criadores e os administradores podem criar, editar e excluir modelos de dispositivo. Qualquer usuário pode criar dispositivos na página **dispositivos** a partir de modelos de dispositivo existentes.
 
-O [plug and Play de IOT](https://aka.ms/iot-pnp-docs) permite que IOT central integre dispositivos sem escrever nenhum código de dispositivo inserido. No núcleo do Plug and Play IoT está um esquema de modelo de capacidade de dispositivo que descreve os recursos do dispositivo. Em um aplicativo IoT Central Preview, os modelos de dispositivo usam esses modelos de capacidade de dispositivo de Plug and Play IoT.
+O [plug and Play de IOT](../iot-pnp/overview-iot-plug-and-play.md) permite que IOT central integre dispositivos sem escrever nenhum código de dispositivo inserido. No núcleo do Plug and Play IoT está um esquema de modelo de capacidade de dispositivo que descreve os recursos do dispositivo. Em um aplicativo IoT Central Preview, os modelos de dispositivo usam esses modelos de capacidade de dispositivo de Plug and Play IoT.
 
 Como um construtor, você tem várias opções para criar modelos de dispositivo:
 
@@ -251,7 +251,7 @@ Para publicar um modelo de dispositivo, acesse seu modelo de dispositivo e selec
 
 Depois de publicar um modelo de dispositivo, um operador pode ir para a página **dispositivos** e adicionar dispositivos reais ou simulados que usam o modelo de dispositivo. Você pode continuar a modificar e salvar o modelo de dispositivo enquanto estiver fazendo alterações, no entanto, quando desejar enviar essas alterações para o operador para exibição na página **dispositivos** , deverá selecionar **publicar** a cada vez.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você aprendeu como configurar um modelo de dispositivo em seu aplicativo de IoT Central do Azure, você pode:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b0c9d55846a0240dde92de16ea17e9403a112c3e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9264aa6d24256b991abefe35b41045caa2e76d67
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699223"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997788"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Migrar dados em massa para Sincronização de Arquivos do Azure
 Você pode migrar dados em massa para Sincronização de Arquivos do Azure de duas maneiras:
@@ -22,9 +22,10 @@ Você pode migrar dados em massa para Sincronização de Arquivos do Azure de du
 
 Este artigo explica como migrar arquivos offline de forma que seja compatível com Sincronização de Arquivos do Azure. Siga estas instruções para evitar conflitos de arquivo e preservar as listas de controle de acesso (ACLs) de arquivo e pasta e os carimbos de data/hora depois de habilitar a sincronização.
 
-## <a name="online-migration-tools"></a>Ferramentas de migração online
-O processo que descrevemos neste artigo funciona não apenas para Data Box, mas também para outras ferramentas de migração offline. Ele também funciona para ferramentas online, como AzCopy, Robocopy ou serviços e ferramentas de parceiros. No entanto, você supera o desafio de upload inicial, siga as etapas neste artigo para usar essas ferramentas de forma que seja compatível com Sincronização de Arquivos do Azure.
+## <a name="migration-tools"></a>Ferramentas de migração
+O processo que descrevemos neste artigo funciona não apenas para Data Box, mas também para outras ferramentas de migração offline. Ele também funciona para ferramentas como AzCopy, Robocopy ou ferramentas de parceiros e serviços que funcionam diretamente pela Internet. No entanto, para superar o desafio de upload inicial, siga as etapas neste artigo para usar essas ferramentas de forma que seja compatível com Sincronização de Arquivos do Azure.
 
+Em alguns casos, você precisa passar de um Windows Server para outro Windows Server antes de adotar Sincronização de Arquivos do Azure. [Serviço de migração de armazenamento](https://aka.ms/storagemigrationservice) (SMS) pode ajudar com isso. Se você precisa migrar para uma versão de sistema operacional do servidor com suporte pelo Sincronização de Arquivos do Azure (Windows Server 2012R2 e up) ou simplesmente precisa migrar porque você está comprando um novo sistema para Sincronização de Arquivos do Azure, o SMS tem vários recursos e vantagens que ajudarão a obter seu MIGR feito sem problemas.
 
 ## <a name="benefits-of-using-a-tool-to-transfer-data-offline"></a>Benefícios de usar uma ferramenta para transferir dados offline
 Aqui estão os principais benefícios do uso de uma ferramenta de transferência como Data Box para a migração offline:
@@ -85,6 +86,6 @@ Desabilite o modo de transferência de dados offline somente quando o estado for
 > [!IMPORTANT]
 > Depois de desabilitar o modo de transferência de dados offline, você não poderá habilitá-lo novamente, mesmo que o compartilhamento de preparo da migração em massa ainda esteja disponível.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Planejar uma implantação de Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 - [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 134302bffdadc27cf202a43e7dc4cc94704bb5b3
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: ddce94cab0067c34ad056a40251d79c5470ba460
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69557877"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996575"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Copiar dados do Teradata usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -142,7 +142,7 @@ Para copiar dados do Teradata, há suporte para as seguintes propriedades:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida `TeradataTable`como. | Sim |
-| database | O nome do banco de dados Teradata. | Não (se for especificada "consulta" na origem de atividade) |
+| database | O nome do banco de dados Teradata. | Não (se for especificada "query" na origem de atividade) |
 | table | O nome da tabela no banco de dados Teradata. | Não (se for especificada "query" na origem de atividade) |
 
 **Example:**
@@ -189,7 +189,7 @@ Esta seção fornece uma lista das propriedades com suporte pela fonte Teradata.
 ### <a name="teradata-as-source"></a>Teradata como fonte
 
 >[!TIP]
->Para carregar dados do Teradata com eficiência usando o particionamento de dados, consulte a seção [cópia paralela da Teradata](#parallel-copy-from-teradata) .
+>Para carregar dados do Teradata com eficiência usando o particionamento de dados, saiba mais na seção [cópia paralela da Teradata](#parallel-copy-from-teradata) .
 
 Para copiar dados do Teradata, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
@@ -245,9 +245,9 @@ O conector do Data Factory Teradata fornece particionamento de dados interno par
 
 ![Captura de tela das opções de partição](./media/connector-teradata/connector-teradata-partition-options.png)
 
-Quando você habilita a cópia particionada, o Data Factory executa consultas paralelas em sua fonte Teradata para carregar dados por partições. O grau paralelo é controlado pela [`parallelCopies`](copy-activity-performance.md#parallel-copy) configuração na atividade de cópia. Por exemplo, se você definir `parallelCopies` como quatro, data Factory gerar e executar quatro consultas simultaneamente com base na opção de partição e nas configurações especificadas. Cada consulta recupera uma parte dos dados do seu banco de dado Teradata.
+Quando você habilita a cópia particionada, o Data Factory executa consultas paralelas em sua fonte Teradata para carregar dados por partições. O grau paralelo é controlado pela [`parallelCopies`](copy-activity-performance.md#parallel-copy) configuração na atividade de cópia. Por exemplo, se você definir `parallelCopies` como quatro, data Factory gera e executa quatro consultas de maneira simultânea com base na opção de partição e nas configurações especificadas, e cada consulta recupera uma parte dos dados do seu banco de dados Teradata.
 
-É uma boa ideia habilitar a cópia paralela com o particionamento de dados, especialmente quando você carrega grandes quantidades de dados de seu banco de dados Teradata. Veja a seguir as configurações sugeridas para cenários diferentes:
+É uma boa ideia habilitar a cópia paralela com o particionamento de dados, especialmente quando você carrega grandes quantidades de dados de seu banco de dados Teradata. Veja a seguir as configurações sugeridas para cenários diferentes. Ao copiar dados para o armazenamento de dados baseado em arquivo, ele é redirecionado para gravar em uma pasta como vários arquivos (apenas especifique o nome da pasta). nesse caso, o desempenho é melhor do que gravar em um único arquivo.
 
 | Cenário                                                     | Configurações sugeridas                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -313,7 +313,7 @@ Quando você copia dados do Teradata, os mapeamentos a seguir se aplicam. Para s
 | Interval Second |Não suportado. Aplicar conversão explícita na consulta de origem. |
 | Interval Year |Não suportado. Aplicar conversão explícita na consulta de origem. |
 | Interval Year To Month |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Número |Double |
+| Number |Double |
 | Período (Data) |Não suportado. Aplicar conversão explícita na consulta de origem. |
 | Período (hora) |Não suportado. Aplicar conversão explícita na consulta de origem. |
 | Período (hora com fuso horário) |Não suportado. Aplicar conversão explícita na consulta de origem. |

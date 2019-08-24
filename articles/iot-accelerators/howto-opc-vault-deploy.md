@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b626f906738e3a6e65053408cfdc2002d459a6e2
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
-ms.translationtype: MT
+ms.openlocfilehash: 347e7c2aa2ff4fb4f188847b81d03006c1909166
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69973860"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997651"
 ---
-# <a name="build-and-deploy-the-opc-ua-certificate-management-service"></a>Compilar e implantar o serviço de gerenciamento de certificados do OPC UA
+# <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Compilar e implantar o serviço de gerenciamento de certificados do compartimento OPC
 
-Este artigo explica como implantar o serviço de gerenciamento de certificados OPC UA no Azure.
+Este artigo explica como implantar o serviço de gerenciamento de certificados do Vault do OPC no Azure.
 
 > [!NOTE]
 > Para obter mais informações sobre detalhes de implantação e instruções, consulte o [repositório do cofre OPC](https://github.com/Azure/azure-iiot-opc-vault-service)do github.
@@ -59,20 +59,20 @@ ou insira uma linha de comando completa:
 7. Se você planeja desenvolver com essa implantação, adicione `-development 1` para habilitar a interface do usuário do Swagger e implantar compilações de depuração.
 6. Siga as instruções no script para entrar em sua assinatura e fornecer informações adicionais.
 9. Após uma operação de compilação e implantação bem-sucedida, você deverá ver a seguinte mensagem:
+   ```
+   To access the web client go to:
+   https://myResourceGroup.azurewebsites.net
 
-```
-To access the web client go to:
-https://myResourceGroup.azurewebsites.net
+   To access the web service go to:
+   https://myResourceGroup-service.azurewebsites.net
 
-To access the web service go to:
-https://myResourceGroup-service.azurewebsites.net
+   To start the local docker GDS server:
+   .\myResourceGroup-dockergds.cmd
 
-To start the local docker GDS server:
-.\myResourceGroup-dockergds.cmd
+   To start the local dotnet GDS server:
+   .\myResourceGroup-gds.cmd
+   ```
 
-To start the local dotnet GDS server:
-.\myResourceGroup-gds.cmd
-```
 Caso você tenha problemas, siga as etapas [abaixo](#troubleshooting-deployment-failures).
 
 8. Abra seu navegador favorito e abra a página do aplicativo:`https://myResourceGroup.azurewebsites.net`
@@ -86,7 +86,7 @@ Também é possível reimplantar apenas os binários do aplicativo Web. Com o pa
 
 Após a implantação bem-sucedida, sinta-se à vontade para começar a usar os serviços: [Como gerenciar o serviço de gerenciamento de certificados do compartimento OPC](howto-opc-vault-manage.md)
 
-## <a name="delete-the-certificate-management-services-from-the-subscription"></a>Excluir os serviços de gerenciamento de certificados da assinatura
+## <a name="delete-the-certificate-management-service-from-the-subscription"></a>Excluir o serviço de gerenciamento de certificados da assinatura
 
 1. Entre no portal do Azure: `https://portal.azure.com`.
 2. Vá para o grupo de recursos no qual o serviço foi implantado.
@@ -173,7 +173,7 @@ Opcional, para recompilar e reimplantar apenas os aplicativos Web e recriar os c
 [docker-url]: https://www.docker.com/
 [dotnet-install]: https://www.microsoft.com/net/learn/get-started
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você aprendeu a implantar o cofre OPC do zero, aqui está a próxima etapa sugerida:
 

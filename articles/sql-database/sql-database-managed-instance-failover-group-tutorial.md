@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: e4b7de3931c0d3508e5af6aa6bf85dfa18641aee
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 059a614dff7fc0eab5419e3e2ffdeaeecb79ad99
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624974"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981374"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutorial: Adicionar uma instância gerenciada do banco de dados SQL a um grupo de failover
 
@@ -47,7 +47,7 @@ Nesta etapa, você criará o grupo de recursos e a instância gerenciada primár
 1. Selecione **criar** para iniciar a página de criação da **instância gerenciada do SQL** . 
 1. Na página **criar instância gerenciada do banco de dados SQL do Azure** , na guia **noções básicas**
     1. Em **detalhes do projeto**, selecione sua **assinatura** na lista suspensa e, em seguida, escolha **criar novo** grupo de recursos. Digite um nome para seu grupo de recursos, como `myResourceGroup`. 
-    1. Em **detalhes do instância gerenciada**, forneça o nome da sua instância gerenciada e a região em que você deseja implantar sua instância gerenciada. Certifique-se de selecionar uma região com uma [região emparelhada](/azure/best-practices-availability-paired-regions). Deixe o **armazenamento de computação +** em valores padrão. 
+    1. Em **detalhes do instância gerenciada**, forneça o nome da sua instância gerenciada e a região em que você deseja implantar sua instância gerenciada. Deixe o **armazenamento de computação +** em valores padrão. 
     1. Em **conta de administrador**, forneça um logon de administrador, `azureuser`como e uma senha de administrador complexa. 
 
     ![Criar MI primário](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
@@ -79,7 +79,7 @@ Para criar uma rede virtual, siga estas etapas:
     | **Name** |  O nome da rede virtual a ser usada pela instância gerenciada secundária, `vnet-sql-mi-secondary`como. |
     | **Espaço de endereços** | O espaço de endereço para sua rede virtual, `10.128.0.0/16`como. | 
     | **Subscrição** | A assinatura em que reside a instância gerenciada primária e o grupo de recursos. |
-    | **Região** | O local onde você vai implantar sua instância gerenciada secundária; Isso deve estar em uma [região emparelhada](/azure/best-practices-availability-paired-regions) para a instância gerenciada primária.  |
+    | **Região** | O local onde você vai implantar sua instância gerenciada secundária. |
     | **Sub-rede** | O nome da sua sub-rede. `default`é fornecido para você por padrão. |
     | **Intervalo de endereços**| O intervalo de endereços da sua sub-rede. Isso deve ser diferente do intervalo de endereços de sub-rede usado pela rede virtual de sua instância gerenciada primária, `10.128.0.0/24`como.  |
     | &nbsp; | &nbsp; |
@@ -92,7 +92,6 @@ Nesta etapa, você criará uma instância gerenciada secundária no portal do Az
 
 Sua segunda instância gerenciada deve:
 - Ficar vazio. 
-- Estar localizado em uma [região emparelhada](/azure/best-practices-availability-paired-regions) com seu equivalente de instância gerenciada primária. 
 - Ter uma sub-rede e um intervalo de IPS diferentes da instância gerenciada primária. 
 
 Para criar sua instância gerenciada secundária, siga estas etapas: 
@@ -108,7 +107,7 @@ Para criar sua instância gerenciada secundária, siga estas etapas:
     | **Subscrição** |  A assinatura na qual a instância gerenciada primária é. |
     | **Grupo de recursos**| O grupo de recursos em que a instância gerenciada primária é. |
     | **Nome da instância gerida** | O nome da sua nova instância gerenciada secundária, como`sql-mi-secondary`  | 
-    | **Região**| O local da [região emparelhada](/azure/best-practices-availability-paired-regions) para sua instância gerenciada secundária.  |
+    | **Região**| O local da sua instância gerenciada secundária.  |
     | **Início de sessão de administração da instância gerida** | O logon que você deseja usar para a nova instância gerenciada secundária, `azureuser`como. |
     | **Palavra-passe** | Uma senha complexa que será usada pelo logon de administrador para a nova instância gerenciada secundária.  |
     | &nbsp; | &nbsp; |

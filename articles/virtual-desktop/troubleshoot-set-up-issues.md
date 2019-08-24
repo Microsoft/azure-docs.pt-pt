@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: efc721f7852d50e431be38f52e27d72ad7f3ae76
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 93f111eb4439b89ac367ad7e7b951e26cecb86e4
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877574"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981084"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação de inquilinos e conjuntos de anfitriões
 
@@ -53,7 +53,7 @@ Exemplo de erro bruto:
 
 **Faz** O usuário que está conectado não recebeu a função TenantCreator em seu Azure Active Directory.
 
-**Soluciona** Siga as instruções em [atribuir a função de aplicativo TenantCreator a um usuário em seu locatário Azure Active Directory](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant). Depois de seguir as instruções, você terá um usuário atribuído à função TenantCreator.
+**Soluciona** Siga as instruções em [atribuir a função de aplicativo TenantCreator a um usuário em seu locatário Azure Active Directory](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role). Depois de seguir as instruções, você terá um usuário atribuído à função TenantCreator.
 
 ![Captura de tela da função TenantCreator atribuída.](media/TenantCreatorRoleAssigned.png)
 
@@ -342,7 +342,7 @@ Se você estiver executando o modelo de Azure Resource Manager do GitHub, forne�
 - IsServicePrincipal: **true**
 - AadTenantId: A ID de locatário do Azure AD da entidade de serviço que você criou
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
 - Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).

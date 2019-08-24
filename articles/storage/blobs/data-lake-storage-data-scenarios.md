@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: cafe761d2b566a7bddce503765c11bf9f8e00f2a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2954f0bfcfe78243c2df12182f45034f46c8391d
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847443"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991901"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Usando Azure Data Lake Storage Gen2 para requisitos de Big Data
 
@@ -25,7 +25,7 @@ Há quatro estágios principais no processamento de Big Data:
 > * Baixando os dados
 > * Visualizando os dados
 
-Comece criando uma conta de armazenamento e um sistema de arquivos. Em seguida, conceda acesso aos dados. As primeiras seções deste artigo o ajudarão a realizar essas tarefas. Nas seções restantes, destacaremos as opções e as ferramentas para cada fase de processamento.
+Comece criando uma conta de armazenamento e um contêiner. Em seguida, conceda acesso aos dados. As primeiras seções deste artigo o ajudarão a realizar essas tarefas. Nas seções restantes, destacaremos as opções e as ferramentas para cada fase de processamento.
 
 ## <a name="create-a-data-lake-storage-gen2-account"></a>Criar uma conta de Data Lake Storage Gen2
 
@@ -33,16 +33,16 @@ Uma conta de Data Lake Storage Gen2 é uma conta de armazenamento que tem um nam
 
 Para criar um, consulte [início rápido: Crie uma conta](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)de armazenamento Azure data Lake Storage Gen2.
 
-## <a name="create-a-file-system"></a>Criar um sistema de arquivos
+## <a name="create-a-container"></a>Criar um contentor
 
-Um *sistema de arquivos* é um contêiner para pastas e arquivos. Você precisa de pelo menos um deles para começar a ingerir dados em sua conta de armazenamento.  Aqui está uma lista de ferramentas que você pode usar para criá-las.
+Aqui está uma lista de ferramentas que você pode usar para criar um contêiner para seus arquivos.
 
 |Ferramenta | Orientação |
 |---|--|
-|Explorador do Storage do Azure | [Criar um sistema de arquivos usando Gerenciador de Armazenamento](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|Explorador do Storage do Azure | [Criar um contêiner usando Gerenciador de Armazenamento](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
 |AzCopy | [Criar um contêiner de BLOB ou compartilhamento de arquivos usando AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
-|CLI (interface de linha de comando) do sistema de arquivos Hadoop (HDFS) com o HDInsight |[Criar um sistema de arquivos usando o HDFS com o HDInsight](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
-|Código em um bloco de anotações Azure Databricks|[Criar um sistema de arquivos de conta de armazenamento (escala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [Criar um sistema de arquivos e montá-lo (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
+|CLI (interface de linha de comando) de contêiner do Hadoop (HDFS) com o HDInsight |[Criar um contêiner usando o HDFS com o HDInsight](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
+|Código em um bloco de anotações Azure Databricks|[Criar um contêiner de conta de armazenamento (escala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [Criar um contêiner e montá-lo (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
 
 É mais fácil criar sistemas de arquivos usando Gerenciador de Armazenamento ou AzCopy. É necessário um pouco mais de trabalho para criar sistemas de arquivos usando o HDInsight e o databricks. No entanto, se você estiver planejando usar clusters HDInsight ou databricks para processar seus dados de qualquer forma, poderá criar seus clusters primeiro e usar a CLI do HDFS para criar sistemas de arquivos.  
 

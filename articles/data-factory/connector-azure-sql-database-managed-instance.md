@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/21/2019
 ms.author: jingwang
-ms.openlocfilehash: 1baa28dd1c9cc323e3dc7ca6fc5fbe2eac54652a
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 0cc7313531e92aa0f57b09a9252902848297bdbf
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68829154"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996653"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiar dados de e para Instância Gerenciada do Banco de Dados SQL do Azure usando Azure Data Factory
 
@@ -126,31 +126,33 @@ Para tipos de autenticação diferentes, consulte as secções seguintes em pré
 
 Para usar uma autenticação de token de aplicativo do Azure AD baseada na entidade de serviço, siga estas etapas:
 
-1. [Crie um aplicativo Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) do portal do Azure. Tome nota do nome da aplicação e os valores seguintes que definem o serviço ligado:
+1. Siga as etapas para [provisionar um administrador de Azure Active Directory para seu instância gerenciada](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
+
+2. [Crie um aplicativo Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) do portal do Azure. Tome nota do nome da aplicação e os valores seguintes que definem o serviço ligado:
 
     - ID da aplicação
     - Chave da aplicação
     - ID do inquilino
 
-2. [Crie logons](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) para a identidade gerenciada Azure data Factory. No SQL Server Management Studio (SSMS), conecte-se ao seu Instância Gerenciada usando uma conta de SQL Server que seja um **sysadmin**. No banco de dados **mestre** , execute o seguinte T-SQL:
+3. [Crie logons](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) para a identidade gerenciada Azure data Factory. No SQL Server Management Studio (SSMS), conecte-se ao seu Instância Gerenciada usando uma conta de SQL Server que seja um **sysadmin**. No banco de dados **mestre** , execute o seguinte T-SQL:
 
     ```sql
     CREATE LOGIN [your application name] FROM EXTERNAL PROVIDER
     ```
 
-2. [Crie usuários de banco de dados independente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) para a identidade gerenciada Azure data Factory. Conecte-se ao banco de dados a partir do ou para o qual você deseja copiar os dados, execute o T-SQL a seguir: 
+4. [Crie usuários de banco de dados independente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) para a identidade gerenciada Azure data Factory. Conecte-se ao banco de dados a partir do ou para o qual você deseja copiar os dados, execute o T-SQL a seguir: 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER
     ```
 
-3. Conceda à identidade gerenciada Data Factory permissões necessárias como faria normalmente para usuários do SQL e outros. Execute o seguinte código. Para obter mais opções, consulte [este documento](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
+5. Conceda à identidade gerenciada Data Factory permissões necessárias como faria normalmente para usuários do SQL e outros. Execute o seguinte código. Para obter mais opções, consulte [este documento](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your application name]
     ```
 
-4. Configure um serviço vinculado Instância Gerenciada do Banco de Dados SQL do Azure no Azure Data Factory.
+6. Configure um serviço vinculado Instância Gerenciada do Banco de Dados SQL do Azure no Azure Data Factory.
 
 **Exemplo: usar a autenticação de entidade de serviço**
 
@@ -185,25 +187,27 @@ Um data factory pode ser associado a uma [identidade gerenciada para recursos do
 
 Para usar a autenticação de identidade gerenciada, siga estas etapas.
 
-1. [Crie logons](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) para a identidade gerenciada Azure data Factory. No SQL Server Management Studio (SSMS), conecte-se ao seu Instância Gerenciada usando uma conta de SQL Server que seja um **sysadmin**. No banco de dados **mestre** , execute o seguinte T-SQL:
+1. Siga as etapas para [provisionar um administrador de Azure Active Directory para seu instância gerenciada](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
+
+2. [Crie logons](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) para a identidade gerenciada Azure data Factory. No SQL Server Management Studio (SSMS), conecte-se ao seu Instância Gerenciada usando uma conta de SQL Server que seja um **sysadmin**. No banco de dados **mestre** , execute o seguinte T-SQL:
 
     ```sql
     CREATE LOGIN [your Data Factory name] FROM EXTERNAL PROVIDER
     ```
 
-2. [Crie usuários de banco de dados independente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) para a identidade gerenciada Azure data Factory. Conecte-se ao banco de dados a partir do ou para o qual você deseja copiar os dados, execute o T-SQL a seguir: 
+3. [Crie usuários de banco de dados independente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) para a identidade gerenciada Azure data Factory. Conecte-se ao banco de dados a partir do ou para o qual você deseja copiar os dados, execute o T-SQL a seguir: 
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER
     ```
 
-3. Conceda à identidade gerenciada Data Factory permissões necessárias como faria normalmente para usuários do SQL e outros. Execute o seguinte código. Para obter mais opções, consulte [este documento](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
+4. Conceda à identidade gerenciada Data Factory permissões necessárias como faria normalmente para usuários do SQL e outros. Execute o seguinte código. Para obter mais opções, consulte [este documento](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your Data Factory name]
     ```
 
-4. Configure um serviço vinculado Instância Gerenciada do Banco de Dados SQL do Azure no Azure Data Factory.
+5. Configure um serviço vinculado Instância Gerenciada do Banco de Dados SQL do Azure no Azure Data Factory.
 
 **Exemplo: usa a autenticação de identidade gerenciada**
 

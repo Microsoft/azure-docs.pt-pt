@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: e73a64a9782535da31e2eacbaa2740007707c774
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
-ms.translationtype: MT
+ms.openlocfilehash: 7d9d6dc8a980c543aa1a94c0ed4e9ae845769567
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872418"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997893"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação de preparação de modelos 
 
@@ -433,7 +433,7 @@ Ou você pode:
 * Envie um experimento [usando a extensão da CLI](reference-azure-machine-learning-cli.md#experiments).
 * Envie um experimento por meio da [extensão vs Code](how-to-vscode-tools.md#train-and-tune-models).
 
-## <a name="github-tracking-and-integration"></a>Acompanhamento e integração do GitHub
+## <a name="git-tracking-and-integration"></a>Acompanhamento e integração de git
 
 Quando você inicia uma execução de treinamento onde o diretório de origem é um repositório git local, as informações sobre o repositório são armazenadas no histórico de execuções. Por exemplo, a ID de confirmação atual para o repositório é registrada como parte do histórico.
 

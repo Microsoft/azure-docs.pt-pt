@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 3d10814858d38d61e5346a4eb0dfb3d3d24ad4c0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 286fa60fef8de5240fb2ccd0f14ced0c4e38ff73
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568326"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981356"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Atualizar um aplicativo para usar a biblioteca de cliente de banco de dados elástico mais recente
 
-Novas versões da [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md) estão disponíveis por meio do NuGet e na interface do da Manager no Visual Studio. As atualizações contêm correções de bugs e suporte para novos recursos da biblioteca de cliente.
+Novas versões da [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md) estão disponíveis por meio do NuGet e da interface do Gerenciador de pacotes NuGet no Visual Studio. As atualizações contêm correções de bugs e suporte para novos recursos da biblioteca de cliente.
 
 **Para obter a versão mais recente:** Vá para [Microsoft. Azure. SQLDatabase. ElasticScale. Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 3b50b0e81103f0b4c8ffa757673c9ec0ef652fc0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 45f7db943499b8a722b8e203d676d1d80eb5091e
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614121"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996682"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure SQL Data Warehouse com o Azure Data Factory 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -431,12 +431,14 @@ Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definiç
 2. O **formato de dados de origem** é de **parquet**, **Orc**ou **texto delimitado**, com as seguintes configurações:
 
    1. O caminho da pasta não contém o filtro curinga.
-   2. O nome do arquivo aponta para um único arquivo `*` ou `*.*`é ou.
-   3. `rowDelimiter` tem de ser **\n**.
-   4. `nullValue` é definido **vazio a cadeia de caracteres** ("") ou à esquerda como padrão, e `treatEmptyAsNull` é deixado como predefinido ou definido como true.
-   5. `encodingName` está definido como **utf-8**, que é o valor predefinido.
+   2. O nome do arquivo está vazio ou aponta para um único arquivo. Se você especificar o nome de arquivo curinga na atividade de cópia, ele `*` só `*.*`poderá ser ou.
+   3. `rowDelimiter`é **Default**, **\n**, **\r\n**ou **\r**.
+   4. `nullValue`é deixado como padrão ou definido como **cadeia de caracteres vazia** ("") `treatEmptyAsNull` e é deixado como padrão ou definido como true.
+   5. `encodingName`é deixado como padrão ou definido como **UTF-8**.
    6. `quoteChar`, `escapeChar`, e `skipLineCount` não são especificados. Suporte de PolyBase ignorar a linha de cabeçalho que pode ser configurada como `firstRowAsHeader` no ADF.
    7. `compression` pode ser **sem compressão**, **GZip**, ou **Deflate**.
+
+3. Se sua origem for uma pasta, `recursive` na atividade de cópia deverá ser definida como true.
 
 ```json
 "activities":[
@@ -445,7 +447,7 @@ Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definiç
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "BlobDataset",
+                "referenceName": "ParquetDataset",
                 "type": "DatasetReference"
             }
         ],
@@ -457,7 +459,11 @@ Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definiç
         ],
         "typeProperties": {
             "source": {
-                "type": "BlobSource",
+                "type": "ParquetSource",
+                "storeSettings":{
+                    "type": "AzureBlobStorageReadSetting",
+                    "recursive": true
+                }
             },
             "sink": {
                 "type": "SqlDWSink",

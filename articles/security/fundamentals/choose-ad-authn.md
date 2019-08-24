@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 22a5a2e157c0b2095673e75e7a3bc9ccb80f8ffd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ba9cda5aeebaf0764068a463cdb55f3ef5542ea3
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928038"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997807"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para sua solução de identidade híbrida Azure Active Directory 
 
@@ -67,6 +67,9 @@ A seção a seguir ajuda você a decidir qual método de autenticação é adequ
 
 ## <a name="decision-tree"></a>Árvore de decisões
 
+> [!NOTE]
+> PTA só funciona com uma ID alternativa quando UserPrincipalName é escolhido como a ID alternativa. Somente então o UserPrincipalName local será sincronizado do AD para o AAD. Para obter mais informações, consulte [a autenticação de passagem dá suporte à "ID alternativa" como o nome de usuário, em vez de "userPrincipalName"?](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname).
+
 ![Árvore de decisão de autenticação do Azure AD](./media/choose-ad-authn/azure-ad-authn-image1.png)
 
 Detalhes sobre perguntas de decisão:
@@ -108,7 +111,7 @@ Detalhes sobre perguntas de decisão:
 
 Consulte Implementando a [sincronização de hash de senha](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) para obter as etapas de implantação.
 
-### <a name="cloud-authentication-pass-through-authentication"></a>Autenticação na nuvem: Autenticação Pass-through  
+### <a name="cloud-authentication-pass-through-authentication"></a>Autenticação na nuvem: Autenticação pass-through  
 
 * **Esforço**. Para autenticação de passagem, você precisa de um ou mais agentes leves (recomendamos três) instalados nos servidores existentes. Esses agentes devem ter acesso ao seu Active Directory Domain Services local, incluindo os controladores de domínio do AD local. Eles precisam de acesso de saída à Internet e ao acesso aos controladores de domínio. Por esse motivo, não há suporte para implantar os agentes em uma rede de perímetro. 
 
@@ -176,7 +179,7 @@ Os diagramas a seguir descrevem os componentes de arquitetura de alto nível nec
 
 |Reflexão|Sincronização de hash de senha + SSO contínuo|Autenticação de passagem + SSO contínuo|Federação com o AD FS|
 |:-----|:-----|:-----|:-----|
-|Onde ocorre a autenticação?|Na cloud|Na nuvem após uma troca de verificação de senha segura com o agente de autenticação local|No local|
+|Onde ocorre a autenticação?|Na cloud|Na nuvem após uma troca de verificação de senha segura com o agente de autenticação local|Local|
 |Quais são os requisitos de servidor local além do sistema de provisionamento: Azure AD Connect?|Nenhum|Um servidor para cada agente de autenticação adicional|Dois ou mais servidores AD FS<br><br>Dois ou mais servidores WAP na rede de perímetro/DMZ|
 |Quais são os requisitos para Internet e rede local além do sistema de provisionamento?|Nenhum|[Acesso de Internet de saída](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) dos servidores que executam agentes de autenticação|[Acesso de Internet de entrada](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) a servidores WAP no perímetro<br><br>Acesso à rede de entrada para AD FS servidores de servidores WAP no perímetro<br><br>Balanceamento de carga de rede|
 |Há um requisito de certificado SSL?|Não|Não|Sim|

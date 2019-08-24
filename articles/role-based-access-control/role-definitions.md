@@ -15,12 +15,12 @@ ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: ece5d8f9733dde57c2990bfbb6bb90305d8bc37d
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 2ec3872b9e11830f7891e98f5fc0182b99e1586d
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977188"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997333"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Entender as definições de função dos recursos do Azure
 
@@ -88,7 +88,7 @@ O `Actions` controle de acesso baseado em função para operações de gerenciam
 - Criar, atualizar ou excluir um contêiner de BLOBs
 - Excluir um grupo de recursos e todos os seus recursos
 
-O acesso de gerenciamento não é herdado para seus dados. Essa separação impede que funções com curingas`*`() tenham acesso irrestrito aos seus dados. Por exemplo, se um usuário tiver uma função de [leitor](built-in-roles.md#reader) em uma assinatura, ele poderá exibir a conta de armazenamento, mas, por padrão, eles não poderão exibir os dados subjacentes.
+O acesso de gerenciamento não é herdado para seus dados desde que o método de autenticação de contêiner esteja definido como "conta de usuário do Azure AD" e não "chave de acesso". Essa separação impede que funções com curingas`*`() tenham acesso irrestrito aos seus dados. Por exemplo, se um usuário tiver uma função de [leitor](built-in-roles.md#reader) em uma assinatura, ele poderá exibir a conta de armazenamento, mas, por padrão, eles não poderão exibir os dados subjacentes.
 
 Anteriormente, o controle de acesso baseado em função não era usado para operações de dados. Autorização para operações de dados variadas entre provedores de recursos. O mesmo modelo de autorização de controle de acesso baseado em função usado para operações de gerenciamento foi estendido para operações de dados.
 

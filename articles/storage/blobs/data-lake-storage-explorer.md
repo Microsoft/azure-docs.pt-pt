@@ -1,6 +1,6 @@
 ---
 title: Use Gerenciador de Armazenamento do Azure para gerenciar dados no Azure Data Lake Storage Gen2
-description: Neste guia de início rápido, você aprende a usar Gerenciador de Armazenamento do Azure para criar um sistema de arquivos em uma conta do Azure Data Lake Storage Gen2, bem como um diretório e um arquivo. Em seguida, você aprende a baixar o arquivo em seu computador local e a exibir todo o arquivo em um diretório.
+description: Neste guia de início rápido, você aprende a usar Gerenciador de Armazenamento do Azure para criar um contêiner em uma conta de Azure Data Lake Storage Gen2, bem como um diretório e um arquivo. Em seguida, você aprende a baixar o arquivo em seu computador local e a exibir todo o arquivo em um diretório.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 3450de26c12d91f4be00fe39bd5703564c786190
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 95d7a58c8188e8c6633f6be50af608aed437edff
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855617"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991423"
 ---
 # <a name="use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Usar Gerenciador de Armazenamento do Azure para gerenciar dados em uma conta de Azure Data Lake Storage Gen2
 
@@ -41,13 +41,13 @@ Quando a ligação for concluída, o Explorador de Armazenamento do Azure é car
 
 ![Explorador de Armazenamento do Microsoft Azure – Janela Ligar](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
-## <a name="create-a-file-system"></a>Criar um sistema de arquivos
+## <a name="create-a-container"></a>Criar um contentor
 
 Os BLOBs são sempre carregados em um diretório. Isto permite organizar grupos de blobs, como organiza os ficheiros em pastas no seu computador.
 
-Para criar um diretório, expanda a conta de armazenamento que você criou na etapa de continuação. Selecione **contêiner de blob**, clique com o botão direito do mouse e selecione **criar contêiner de blob**. Insira o nome do sistema de arquivos. Ao concluir, pressione **Enter** para criar o sistema de arquivos. Depois que o diretório de blob tiver sido criado com êxito, ele será exibido na pasta **contêiner de blob** para a conta de armazenamento selecionada.
+Para criar um diretório, expanda a conta de armazenamento que você criou na etapa de continuação. Selecione **contêiner de blob**, clique com o botão direito do mouse e selecione **criar contêiner de blob**. Insira o nome do seu contêiner. Ao concluir, pressione **Enter** para criar o contêiner. Depois que o diretório de blob tiver sido criado com êxito, ele será exibido na pasta **contêiner de blob** para a conta de armazenamento selecionada.
 
-![Gerenciador de Armazenamento do Microsoft Azure-criando um sistema de arquivos](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
+![Gerenciador de Armazenamento do Microsoft Azure-criando um contêiner](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
 
 ## <a name="upload-blobs-to-the-directory"></a>Carregar BLOBs para o diretório
 

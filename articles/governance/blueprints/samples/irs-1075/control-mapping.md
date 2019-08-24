@@ -7,12 +7,12 @@ ms.date: 08/07/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d7419f6133ab32cdea3f44a8def1f736f48c1c4e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1f12545bce29d0ca32c7c7a62c56b8c9604c4268
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934148"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983135"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Mapeamento de controle da amostra do IRS 1075 Blueprint
 
@@ -35,7 +35,7 @@ Este projeto ajuda você a examinar as contas que podem não estar em conformida
 O Azure implementa o RBAC ( [controle de acesso baseado em função](../../../../role-based-access-control/overview.md) ) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode revisar quem tem acesso aos recursos do Azure e suas permissões. Esse projeto também atribui definições de [Azure Policy](../../../policy/overview.md) para auditar o uso de autenticação de Azure Active Directory para SQL Servers e Service Fabric. Usar Azure Active Directory autenticação permite o gerenciamento de permissões simplificado e o gerenciamento centralizado de identidades de usuários de banco de dados e outros serviços da Microsoft. Além disso, esse plano gráfico atribui uma definição de Azure Policy para auditar o uso de regras personalizadas de RBAC. Entender onde as regras personalizadas do RBAC são implementadas pode ajudá-lo a verificar a necessidade e a implementação adequada, pois as regras personalizadas de RBAC são propensas a erros.
 
 - Um administrador de Azure Active Directory deve ser provisionado para servidores SQL
-- Auditar utilização das regras RBAC personalizadas
+- Auditar o uso de regras personalizadas de RBAC
 - Clusters de Service Fabric só devem usar Azure Active Directory para autenticação de cliente
 
 ## <a name="9321-ac-2-12-account-management--account-monitoring--atypical-usage"></a>Gerenciamento de conta do 9.3.2.1 AC-2 (12) | Monitoramento de conta/uso de atípicos
@@ -49,7 +49,7 @@ O acesso à máquina virtual JIT (just-in-time) bloqueia o tráfego de entrada p
 O CORS (compartilhamento de recursos entre origens) pode permitir que os recursos dos serviços de aplicativos sejam solicitados de um domínio externo. A Microsoft recomenda que você permita que apenas os domínios necessários interajam com a API, a função e os aplicativos Web. Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) para ajudá-lo a monitorar as restrições de acesso de recursos CORS na central de segurança do Azure.
 Entender as implementações de CORS pode ajudá-lo a verificar se os controles de fluxo de informações são implementados.
 
-- O CORS não deve permitir a todos os recursos o acesso à sua Aplicação Web
+- O CORS não deve permitir que todos os recursos acessem seu aplicativo Web
 
 ## <a name="9315-ac-5-separation-of-duties"></a>9.3.1.5 AC-5 separação de tarefas
 
@@ -79,9 +79,9 @@ Este projeto ajuda você a monitorar e controlar o acesso remoto atribuindo defi
 
 - \[Versão\]prévia: Auditar VMs do Linux que permitem conexões remotas de contas sem senhas
 - \[Versão\]prévia: Implantar requisitos para auditar VMs Linux que permitem conexões remotas de contas sem senhas
-- Auditar o acesso sem restrições à rede para as contas de armazenamento
-- A depuração remota deve estar desativada para a Aplicação API
-- A depuração remota deve estar desativada para a Function App
+- Auditar o acesso irrestrito à rede para contas de armazenamento
+- A depuração remota deve ser desativada para o aplicativo de API
+- A depuração remota deve ser desativada para Aplicativo de funções
 - Depuração remota deve ser desativada para a aplicação Web
 
 ## <a name="9313-au-3-2-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>9.3.1.3 AU-3 (2) conteúdo dos registros de auditoria | Gerenciamento centralizado de conteúdo de registro de auditoria planejado
@@ -101,7 +101,7 @@ Os dados de log coletados pelo Azure Monitor são armazenados em um espaço de t
 Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que monitoram as configurações de log de eventos e auditoria. O monitoramento dessas configurações pode fornecer um indicador de uma falha do sistema de auditoria ou configuração incorreta e ajudá-lo a tomar uma ação corretiva.
 
 - Definição de diagnóstico de auditoria
-- Auditar as Definições de auditoria ao nível do servidor SQL
+- Auditar configurações de auditoria no nível do SQL Server
 - A segurança de dados avançada deve ser habilitada em suas instâncias gerenciadas
 - A segurança de dados avançada deve estar ativada nos seus servidores SQL
 
@@ -129,7 +129,7 @@ Este projeto ajuda a garantir que os eventos do sistema sejam registrados por me
 - \[Versão\]prévia: Implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
 - \[Versão\]prévia: Implantar o agente de Log Analytics para VMs do Windows
 - Definição de diagnóstico de auditoria
-- Auditar as Definições de auditoria ao nível do servidor SQL
+- Auditar configurações de auditoria no nível do SQL Server
 - A segurança de dados avançada deve ser habilitada em suas instâncias gerenciadas
 - A segurança de dados avançada deve estar ativada nos seus servidores SQL
 - Implantar a segurança de dados avançada em servidores SQL
@@ -158,7 +158,7 @@ O controle de aplicativo adaptável na central de segurança do Azure é uma sol
 
 Azure Site Recovery Replica as cargas de trabalho em execução em máquinas virtuais de um local primário para um local secundário. Se ocorrer uma interrupção no site primário, a carga de trabalho falhará no local secundário. Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que audita as máquinas virtuais sem a recuperação de desastres configurada. O monitoramento desse indicador pode ajudá-lo a garantir que os controles de contingência necessários estejam em vigor.
 
-- Máquinas virtuais de auditoria sem recuperação após desastre configurada
+- Auditar máquinas virtuais sem recuperação de desastres configuradas
 
 ## <a name="9372-ia-2-1-identification-and-authentication-organizational-users--network-access-to-privileged-accounts"></a>9.3.7.2 IA-2 (1) identificação e autenticação (usuários organizacionais) | Acesso à rede para contas com privilégios
 
@@ -227,7 +227,7 @@ Além disso, esse Blueprint também atribui definições de política que monito
 - As regras do grupo de segurança de rede para máquinas virtuais voltadas para a Internet devem ser protegidas
 - O acesso pelo ponto de extremidade voltado para a Internet deve ser restrito
 - As regras de NSGs para aplicativos Web em IaaS devem ser protegidas
-- Auditar o acesso sem restrições à rede para as contas de armazenamento
+- Auditar o acesso irrestrito à rede para contas de armazenamento
 
 ## <a name="93165-sc-7-3-boundary-protection--access-points"></a>Proteção de limite do 9.3.16.5 SC-7 (3) | Pontos de acesso
 
@@ -245,7 +245,7 @@ O acesso à máquina virtual JIT (just-in-time) bloqueia o tráfego de entrada p
 
 Este projeto ajuda a proteger a confidencialidade e a integridade das informações transmitidas atribuindo definições de [Azure Policy](../../../policy/overview.md) que ajudam a monitorar o mecanismo criptográfico implementado para protocolos de comunicação. Garantir que as comunicações sejam criptografadas corretamente pode ajudá-lo a atender aos requisitos da sua organização ou a proteger as informações contra a divulgação e a modificação não autorizadas.
 
-- A Aplicação API deve ser acessível apenas através de HTTPS
+- O aplicativo de API só deve ser acessível via HTTPS
 - Auditar servidores Web do Windows que não estão usando protocolos de comunicação segura
 - Implantar requisitos para auditar servidores Web do Windows que não usam protocolos de comunicação segura
 - Função de aplicação só deve estar acessível através de HTTPS
@@ -260,7 +260,7 @@ Este projeto ajuda a reforçar a política sobre o uso de controles cryptograph 
 - A segurança de dados avançada deve ser habilitada em suas instâncias gerenciadas
 - A segurança de dados avançada deve estar ativada nos seus servidores SQL
 - Implantar a segurança de dados avançada em servidores SQL
-- Implementar a encriptação de dados transparente de BD SQL
+- Implantar a Transparent Data Encryption do banco de dados SQL
 - A criptografia de disco deve ser aplicada em máquinas virtuais
 - Exigir criptografia em contas de Data Lake Store
 - Transparent Data Encryption em bancos de dados SQL devem ser habilitadas
@@ -281,7 +281,7 @@ Este projeto ajuda a gerenciar falhas do sistema de informações atribuindo def
 
 Este projeto ajuda a gerenciar o Endpoint Protection, incluindo a proteção de código mal-intencionado, atribuindo definições de [Azure Policy](../../../policy/overview.md) que monitorem a proteção de ponto de extremidade ausente em máquinas virtuais na central de segurança do Azure e impõem a Microsoft solução antimalware em máquinas virtuais do Windows.
 
-- Implementar a extensão Microsoft IaaSAntimalware predefinida para o Windows Server
+- Implantar a extensão padrão do Microsoft Iaasantimalware da para Windows Server
 - A solução Endpoint Protection deve ser instalada em conjuntos de dimensionamento de máquinas virtuais
 - Monitorar Endpoint Protection ausentes na central de segurança do Azure
 
@@ -308,8 +308,8 @@ Este projeto ajuda você a monitorar o sistema ao auditar e impor o registro em 
 - Implantar a segurança de dados avançada em servidores SQL
 - Implantar a proteção avançada contra ameaças em contas de armazenamento
 - Implementar a Auditoria em servidores SQL
-- Implementar o observador de rede quando forem criadas redes virtuais
-- Implementar a Deteção de Ameaças em servidores SQL
+- Implantar o observador de rede quando redes virtuais forem criadas
+- Implantar a detecção de ameaças em servidores SQL
 
 ## <a name="93174-si-4-18-information-system-monitoring--analyze-traffic--covert-exfiltration"></a>9.3.17.4 SI-4 (18) monitoramento do sistema de informações | Analisar o tráfego/cobrir vazamento
 
@@ -318,9 +318,9 @@ A proteção avançada contra ameaças para o armazenamento do Azure detecta ten
 - Implantar a proteção avançada contra ameaças em contas de armazenamento
 
 > [!NOTE]
-> A disponibilidade de Azure Policy específicos do definições pode variar no Azure governamental e em outras nuvens nacionais. 
+> A disponibilidade de definições de Azure Policy específicas pode variar no Azure governamental e em outras nuvens nacionais. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou o mapeamento de controle do plano gráfico IRS 1075, visite os artigos a seguir para saber mais sobre o plano gráfico e como implantar esse exemplo:
 

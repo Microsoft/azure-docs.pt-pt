@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d58cec644c75baaac37862f445477da92075c44d
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 877769041d1587c6c1b0f4dbaff51d5a1a7924b5
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907342"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997717"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-preview-features"></a>Tutorial: Definir um novo tipo de dispositivo no aplicativo de IoT Central do Azure (recursos de visualização)
 
@@ -70,7 +70,7 @@ Para criar um novo aplicativo de IoT Central do Azure que usa recursos de visual
 
     Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
-Você também precisa de uma cópia local do arquivo **EnvironmentalSensorInline. capabilitymodel. JSON** que contém o modelo de recurso de dispositivo de [plug and Play de IOT](https://aka.ms/iot-pnp-docs) . Você pode baixá-lo [aqui](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json). Clique com o botão direito do mouse na página e selecione **salvar como**.
+Você também precisa de uma cópia local do arquivo **EnvironmentalSensorInline. capabilitymodel. JSON** que contém o modelo de recurso de dispositivo de [plug and Play de IOT](../iot-pnp/overview-iot-plug-and-play.md) . Você pode baixá-lo [aqui](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json). Clique com o botão direito do mouse na página e selecione **salvar como**.
 
 Depois de baixar o arquivo, abra-o em um editor de texto e substitua as duas instâncias `<YOUR_COMPANY_NAME_HERE>` do pelo seu nome. Use somente os caracteres a-z, A-Z, 0-9 e sublinhado.
 
@@ -189,7 +189,7 @@ Para publicar um modelo de dispositivo:
 
 Depois que um modelo de dispositivo é publicado, ele fica visível na página **dispositivos** e no operador. Em um modelo de dispositivo publicado, você não pode editar um modelo de capacidade de dispositivo sem criar uma nova versão. No entanto, você pode fazer atualizações nas propriedades de nuvem, personalizações e exibições, em um modelo de dispositivo publicado sem controle de versão. Depois de fazer alterações, selecione **publicar** para enviar por push essas alterações para o operador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

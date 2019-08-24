@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: c1f3d1ec7bb9e9f449cea3f9aa36ca8f80348c6e
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: dc76d9a0d492d8ef0e37c0c34173216ff4c75164
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612812"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990570"
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual CoreOS Linux em um domínio gerenciado
 Este artigo mostra como unir uma máquina virtual CoreOS Linux no Azure a um Azure AD Domain Services domínio gerenciado.
@@ -79,9 +79,9 @@ Em seguida, atualize seu arquivo de configuração do SSSD no ('/etc/SSSD/SSSD.c
 [sssd]
 config_file_version = 2
 services = nss, pam
-domains = contoso.COM
+domains = CONTOSO.COM
 
-[domain/contoso.COM]
+[domain/CONTOSO.COM]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad
@@ -99,17 +99,17 @@ ldap_force_upper_case_realm = true
 fallback_homedir = /home/%d/%u
 
 krb5_server = contoso.com
-krb5_realm = contoso.COM
+krb5_realm = CONTOSO.COM
 ```
 
-Substitua "contoso. COM ' com o nome de domínio DNS do seu domínio gerenciado. Certifique-se de especificar o nome de domínio em maiúsculas no arquivo conf.
+Substitua "CONTOSO. COM ' com o nome de domínio DNS do seu domínio gerenciado. Certifique-se de especificar o nome de domínio em maiúsculas no arquivo conf.
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Ingresse a máquina virtual Linux no domínio gerenciado
 Agora que os pacotes necessários estão instalados na máquina virtual Linux, a próxima tarefa é unir a máquina virtual ao domínio gerenciado.
 
 ```console
-sudo adcli join -D contoso.COM -U bob@contoso.COM -K /etc/krb5.keytab -H contoso-coreos.contoso.com -N coreos
+sudo adcli join -D CONTOSO.COM -U bob@CONTOSO.COM -K /etc/krb5.keytab -H contoso-coreos.contoso.com -N coreos
 ```
 
 
@@ -129,10 +129,10 @@ sudo systemctl start sssd.service
 ## <a name="verify-domain-join"></a>Verificar ingresso no domínio
 Verifique se o computador foi ingressado com êxito no domínio gerenciado. Conecte-se à VM CoreOS ingressada no domínio usando uma conexão SSH diferente. Use uma conta de usuário de domínio e verifique se a conta de usuário foi resolvida corretamente.
 
-1. No terminal SSH, digite o seguinte comando para se conectar à máquina virtual CoreOS ingressada no domínio usando SSH. Use uma conta de domínio que pertença ao domínio gerenciado (por exemplo,bob@contoso.COM' ' neste caso).
+1. No terminal SSH, digite o seguinte comando para se conectar à máquina virtual CoreOS ingressada no domínio usando SSH. Use uma conta de domínio que pertença ao domínio gerenciado (por exemplo,bob@CONTOSO.COM' ' neste caso).
     
     ```console
-    ssh -l bob@contoso.COM contoso-coreos.contoso.com
+    ssh -l bob@CONTOSO.COM contoso-coreos.contoso.com
     ```
 
 2. No terminal SSH, digite o seguinte comando para ver se o diretório base foi inicializado corretamente.

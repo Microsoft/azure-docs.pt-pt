@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 2fd9ccff68eb368107a299af02a54ae6fc6cc0e2
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: edb9e50cceed95d8ca77567e7c1228704b5f177d
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946152"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982367"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Início rápido: Criar um projeto de classificação de imagem com o Visão Personalizada SDK do node. js
 
@@ -45,7 +45,7 @@ Crie um novo arquivo chamado *Sample. js* em seu diretório de projeto preferenc
 
 ### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do serviço de Visão Personalizada
 
-Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas.
+Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira suas chaves de assinatura nas definições apropriadas e defina o valor do caminho sampleDataRoot para o caminho da pasta de imagem. Verifique se o valor do ponto de extremidade corresponde aos pontos de extremidades de treinamento e previsão que você criou em [Customvision.ai](https://www.customvision.ai/).
 
 ```javascript
 const util = require('util');

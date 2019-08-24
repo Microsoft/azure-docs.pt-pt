@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
-ms.openlocfilehash: b7d9ff760bac06602d8d770a358c8a2e22a72c81
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1e0e9a0d76e644ec48ecd423a105dd89629d290c
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849204"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997694"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solução de análise de Azure Key Vault no Azure Monitor
 
@@ -105,26 +105,26 @@ A solução de Azure Key Vault analisa os registros que têm um tipo de **cofre*
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Type |*AzureDiagnostics* |
-| SourceSystem |*Azure* |
-| CallerIpAddress |Endereço IP do cliente que fez a solicitação |
-| Category | *AuditEvent* |
-| CorrelationId |Um GUID opcional que o cliente pode passar para correlacionar os registos do lado do cliente com os registos do lado do serviço (Cofre de Chaves). |
-| DurationMs |Tempo necessário para o processamento do pedido de API REST, em milissegundos. Esse tempo não inclui a latência de rede, portanto, o tempo que você mede no lado do cliente pode não corresponder a esse tempo. |
-| httpStatusCode_d |Código de status HTTP retornado pela solicitação (por exemplo, *200*) |
-| id_s |ID exclusiva da solicitação |
-| identity_claim_appid_g | GUID para a ID do aplicativo |
-| OperationName |Nome da operação, conforme documentado em [log de Azure Key Vault](../../key-vault/key-vault-logging.md) |
-| OperationVersion |Versão da API REST solicitada pelo cliente (por exemplo, *2015-06-01*) |
-| requestUri_s |URI da solicitação |
-| Resource |Nome do cofre de chaves |
-| GrupoRecursos |Grupo de recursos do cofre de chaves |
-| ResourceId |ID do Recurso do Azure Resource Manager Para logs de Key Vault, essa é a ID de recurso de Key Vault. |
-| ResourceProvider |*MICROSOFT.KEYVAULT* |
-| ResourceType | *VAULTS* |
-| ResultSignature |Status HTTP (por exemplo, *OK*) |
-| ResultType |Resultado da solicitação da API REST (por exemplo, *êxito*) |
-| SubscriptionId |ID de assinatura do Azure da assinatura que contém o Key Vault |
+| `Type` |*AzureDiagnostics* |
+| `SourceSystem` |*Azure* |
+| `CallerIpAddress` |Endereço IP do cliente que fez a solicitação |
+| `Category` | *AuditEvent* |
+| `CorrelationId` |Um GUID opcional que o cliente pode passar para correlacionar os registos do lado do cliente com os registos do lado do serviço (Cofre de Chaves). |
+| `DurationMs` |Tempo necessário para o processamento do pedido de API REST, em milissegundos. Esse tempo não inclui a latência de rede, portanto, o tempo que você mede no lado do cliente pode não corresponder a esse tempo. |
+| `httpStatusCode_d` |Código de status HTTP retornado pela solicitação (por exemplo, *200*) |
+| `id_s` |ID exclusiva da solicitação |
+| `identity_claim_appid_g` | GUID para a ID do aplicativo |
+| `OperationName` |Nome da operação, conforme documentado em [log de Azure Key Vault](../../key-vault/key-vault-logging.md) |
+| `OperationVersion` |Versão da API REST solicitada pelo cliente (por exemplo, *2015-06-01*) |
+| `requestUri_s` |URI da solicitação |
+| `Resource` |Nome do cofre de chaves |
+| `ResourceGroup` |Grupo de recursos do cofre de chaves |
+| `ResourceId` |ID do Recurso do Azure Resource Manager Para logs de Key Vault, essa é a ID de recurso de Key Vault. |
+| `ResourceProvider` |*MICROSOFT.KEYVAULT* |
+| `ResourceType` | *VAULTS* |
+| `ResultSignature` |Status HTTP (por exemplo, *OK*) |
+| `ResultType` |Resultado da solicitação da API REST (por exemplo, *êxito*) |
+| `SubscriptionId` |ID de assinatura do Azure da assinatura que contém o Key Vault |
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>Migrando da solução de Key Vault antiga
 Em janeiro de 2017, o modo com suporte de envio de logs de Key Vault para Log Analytics alterado. Essas alterações oferecem as seguintes vantagens:

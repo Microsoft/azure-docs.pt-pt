@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/17/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: f22273a28d5e4207712bdba71ef788629d51916e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0ad01d76e93c731ed5faed268a0537cada787952
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321675"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996820"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado da CDN do Azure
 
@@ -130,7 +130,7 @@ Dê permissão à CDN do Azure para aceder aos certificados (segredos) na conta 
 
     ![Definições da política de acesso](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
-3. Em **Permissões secretas**, selecione **Obter** para permitir que a CDN efetue estas permissões para obter e listar os certificados. 
+3. Selecione **obter permissões secretas** e, em seguida, obter e listar **permissões de certificado** para permitir que a CDN execute essas permissões para obter e listar os certificados. 
 
 4. Selecione **OK**. 
 
@@ -174,7 +174,7 @@ Se utilizar o seu próprio certificado, a validação de domínio não é necess
 
 O registo CNAME deve estar no seguinte formato, em que *Nome* é o nome do seu domínio personalizado e *Valor* é o nome de anfitrião do ponto final da CDN:
 
-| Nome            | Tipo  | Value                 |
+| Name            | Tipo  | Value                 |
 |-----------------|-------|-----------------------|
 | < www. contoso. com > | CNAME | contoso.azureedge.net |
 

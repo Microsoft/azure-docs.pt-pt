@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 5991aec681b00583a9c66328aed601593c864c63
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: ce663dec47f99b6ba4751e23e7ac7f13de866a5d
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517204"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982970"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectar-se a redes virtuais do Azure de aplicativos lógicos do Azure usando um ISE (ambiente do serviço de integração)
 
@@ -117,7 +117,7 @@ Na caixa de pesquisa, digite "ambiente do serviço de integração" como seu fil
    |----------|----------|-------|-------------|
    | **Subscrição** | Sim | <*Azure-subscription-name*> | A assinatura do Azure a ser usada para seu ambiente |
    | **Grupo de recursos** | Sim | <*Azure-resource-group-name*> | O grupo de recursos do Azure em que você deseja criar seu ambiente |
-   | **Nome do Ambiente de Serviço de Integração** | Sim | <*environment-name*> | O nome para dar seu ambiente |
+   | **Nome do ambiente do serviço de integração** | Sim | <*environment-name*> | O nome do ISE, que pode conter apenas letras, números, hifens`-`(), sublinhados`_`() e pontos (`.`). |
    | **Location** | Sim | <*Azure-datacenter-region*> | A região do datacenter do Azure onde implantar seu ambiente |
    | **SKU** | Sim | **Premium** ou **desenvolvedor (sem SLA)** | A SKU do ISE a ser criada e usada. Para diferenças entre essas SKUs, consulte [SKUs do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Importante**: Essa opção está disponível somente na criação do ISE e não pode ser alterada posteriormente. |
    | **Capacidade adicional** | Especiais <br>Sim <p><p>Programador: <br>Não aplicável | Especiais <br>0 a 10 <p><p>Programador: <br>Não aplicável | O número de unidades de processamento adicionais a serem usadas para este recurso do ISE. Para adicionar capacidade após a criação, consulte [adicionar capacidade do ISE](#add-capacity). |

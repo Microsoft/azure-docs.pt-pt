@@ -1,145 +1,145 @@
 ---
-title: Verificar o estado de publicação da sua oferta do Marketplace comercial
-description: Verifique o estado da validação, certificação e passos de pré-visualização necessárias para publicar uma oferta através do Marketplace comerciais na Microsoft Partner Center.
+title: Verificar o status de publicação da sua oferta do Marketplace comercial
+description: Verifique o status das etapas de validação, certificação e visualização necessárias para publicar uma oferta por meio do Marketplace comercial no Microsoft Partner Center.
 author: mattwojo
 manager: evansma
 ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: ae4840877ae461244a76984ed8ac3edc82d57a38
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: c547ad256e6ba44da4ef81aa2a3aa2c77ba24815
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653989"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982740"
 ---
-# <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Verificar o estado de publicação da sua oferta do Marketplace comercial
+# <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Verificar o status de publicação da sua oferta do Marketplace comercial
 
-Pode ver o seu atual **estado de publicação** no **descrição geral da oferta** separador do [portal Marketplace comerciais](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) no Centro de parceiros.
+Você pode exibir seu **status de publicação** atual na guia **visão geral da oferta** do portal do [Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) no Partner Center.
 
-Um dos indicadores de estado seguintes deve ser exibido para cada oferta.
+Um dos seguintes indicadores de status deve ser exibido para cada oferta.
 
 | **Estado**    | **Descrição**  |
 | :---------- | :-------------------|
-| **Rascunho** | Oferta foi criada, mas ele não está a ser publicado. |
-| **Publicar em curso** | Plano de oferta/está a funcionar ao percorrer os passos do processo de publicação. |
-| **Atenção necessária** | Uma questão crítica foi descoberta durante a certificação da Microsoft ou de qualquer uma das etapas de publicação. |
-| **Pré-visualização** | A oferta foi certificada pela Microsoft e agora awaits uma verificação final pelo editor. Selecione vai direto para tornar a oferta em direto. |
-| **Live** | Oferta está em direta no marketplace e pode ser vista e adquirida por parte dos clientes. |
-| **Venda de paragem pendente** | Publicador selecionada "parar venda" na oferta ou plano, mas ainda não foi concluída a ação. |
-| **Não está disponível no marketplace** | Foi removido um publicadas anteriormente/plano de oferta no marketplace. |
+| **Esboça** | A oferta foi criada, mas não está sendo publicada. |
+| **Publicação em andamento** | A oferta/plano está trabalhando de sua maneira por meio das etapas do processo de publicação. |
+| **Atenção necessária** | Um problema crítico foi descoberto durante a certificação pela Microsoft ou por qualquer uma das etapas de publicação. |
+| **Pré-visualização** | A oferta foi certificada pela Microsoft e agora aguarda uma verificação final pelo Publicador. Selecione entrar em tempo real para tornar a oferta ativa. |
+| **Live** | A oferta está ativa no Marketplace e pode ser vista e adquirida pelos clientes. |
+| **Venda de parada pendente** | O Publicador selecionou "parar venda" na oferta ou no plano, mas a ação ainda não foi concluída. |
+| **Não disponível no Marketplace** | Uma oferta/plano publicado anteriormente no Marketplace foi removido. |
 
-## <a name="automated-validation"></a>Validação automáticos
+## <a name="automated-validation"></a>Validação automatizada
 
-A primeira etapa no processo de publicação é um conjunto de validações automatizadas. Cada etapa de validação corresponde a um recurso que escolheu para ativar na criação da sua oferta. Se essa funcionalidade não foi ativada, a validação ignora-se em frente para a próxima etapa de publicação. Cada verificação de validação deve ser concluída antes do Estado de publicação é aprovado.
+A primeira etapa no processo de publicação é um conjunto de validações automatizadas. Cada etapa de validação corresponde a um recurso que você optou por habilitar na criação de sua oferta. Se esse recurso não tiver sido habilitado, a validação passará para a próxima etapa de publicação. Cada verificação de validação deve ser concluída antes que o status de publicação seja aprovado.
 
-- **Configuração de fluxo de compra da oferta (< 10 min)**
+- **Instalação do fluxo de compra da oferta (< 10 min)**
 
-Neste passo, podemos assegurar que a sua oferta pode ser concluída se forem comprados pelos clientes através do portal do Azure. Este passo só é aplicável para ofertas que está a ser vendidas através do Microsoft.
+Nesta etapa, garantimos que sua oferta pode ser atendida quando adquirida por clientes por meio do portal do Azure. Esta etapa só é aplicável para ofertas vendidas pela Microsoft.
 
-- **Teste de validação de dados de unidade (~ 5 min)**
+- **Validação de dados do Test Drive (aproximadamente 5 min)**
 
-Neste passo, iremos validar os dados fornecidos na seção de configuração técnica da oferta de unidade de teste. Funcionalidade de teste de unidade é testada e aprovada. Este passo só é aplicável para ofertas com um test-drive ativado.
+Nesta etapa, validamos os dados fornecidos na seção de configuração técnica test drive da oferta. A funcionalidade do Test Drive é testada e aprovada. Esta etapa é aplicável somente para ofertas com um test drive habilitado.
 
-- **Testar a unidade de aprovisionamento (aproximadamente 30 min)**
+- **Provisionamento de drive de teste (~ 30 min)**
 
-Neste passo, após validar os dados e a funcionalidade da sua versão de teste no passo anterior, implemente e replicar as instâncias da sua versão de teste para que eles estão prontos para uso do cliente.  Este passo só é aplicável para ofertas com um test-drive ativado.
+Nesta etapa, depois de validar os dados e a funcionalidade do seu test drive na etapa anterior, implantamos e replicamos instâncias do seu test drive para que elas estejam prontas para uso do cliente.  Esta etapa é aplicável somente para ofertas com um test drive habilitado.
 
-- **Levar a validação de gestão e de registo (< 15 min)**
+- **Validação e registro de gerenciamento de leads (< 15 min)**
 
-Neste passo, vamos confirmar que o seu sistema de gestão de oportunidades potenciais pode receber oportunidades potenciais com base nos detalhes fornecidos na configuração da oferta. Este passo só é aplicável para ofertas com a gestão de oportunidades potenciais ativada.
+Nesta etapa, confirmamos que o seu sistema de gerenciamento de leads pode receber clientes potenciais com base nos detalhes fornecidos na configuração da oferta. Esta etapa só é aplicável para ofertas com gerenciamento de Lead habilitado.
 
 ## <a name="certification"></a>Certificação
 
-Antes de serem publicados, devem ser certificadas submetidas para o mercado comercial no Centro de parceiros de ofertas. Submetido a ofertas de passar por testes rigorosos, algumas automatizadas e manuais, incluindo uma verificação em relação a outras pessoas a [políticas de certificação do Azure Marketplace](https://docs.microsoft.com/legal/marketplace/general-policies). As submissões devem ser marcadas elegíveis para a certificação antes de eles avançam para o passo seguinte no fluxo de publicação da oferta.
+Antes de ser publicado, as ofertas enviadas para o mercado comercial no Partner Center devem ser certificadas. As ofertas enviadas passam por testes rigorosos, alguns manuais automatizados e outros, incluindo uma verificação nas [políticas de certificação do Azure Marketplace](https://docs.microsoft.com/legal/marketplace/general-policies). Os envios de oferta devem ser marcados como qualificados para certificação antes de passar para a próxima etapa no fluxo de publicação.
 
 ### <a name="types-of-validation-that-take-place-during-certification"></a>Tipos de validação que ocorrem durante a certificação
 
-Existem três níveis de validação incluídos no processo de certificação para cada oferta submetido.
+Há três níveis de validação incluídos no processo de certificação para cada oferta enviada.
 
-- Elegibilidade de negócios do publicador
-- Validação de conteúdos
+- Elegibilidade de negócios do Publicador
+- Validação de conteúdo
 - Validação técnica
 
-#### <a name="publisher-business-eligibility"></a>Elegibilidade de negócios do publicador
+#### <a name="publisher-business-eligibility"></a>Elegibilidade de negócios do Publicador
 
-Cada tipo de oferta verifica um conjunto de critérios de elegibilidade de base que o publicador tem de cumprir. Os critérios de qualificação podem incluir o estado da MPN do publicador, competências mantidas, níveis de competência, etc.
+Cada tipo de oferta verifica um conjunto de critérios de qualificação base que o Publicador deve atender. Os critérios de qualificação podem incluir o status do MPN do editor, as competências mantidas, os níveis de competência, etc.
 
-#### <a name="content-validation"></a>Validação de conteúdos
+#### <a name="content-validation"></a>Validação de conteúdo
 
-Durante a validação de conteúdos, as informações que introduziu quando criou a sua oferta são verificados relativamente à qualidade e relevância. Estas verificações rever as suas entradas para o mercado de listagem a obter detalhes, preços, disponibilidade, planos de associados, etc. De acordo com o Azure Marketplace e/ou o AppSource critérios de listagem, iremos validar que a sua oferta inclui:
+Durante a validação de conteúdo, as informações inseridas quando você criou sua oferta são verificadas quanto à qualidade e relevância. Essas verificações revisarão suas entradas para o Marketplace listar detalhes, preços, disponibilidade, planos associados etc. Para atender aos critérios de listagem do Azure Marketplace e/ou AppSource, validaremos que sua oferta inclui:
 
 - um título que descreve com precisão a oferta;
 - descrições bem escritas que fornecem uma visão geral completa e uma proposta de valor;
-- capturas de ecrã de qualidade e que acompanha vídeos; e
-- uma explicação de como a oferta utiliza as ferramentas e plataformas da Microsoft.
+- capturas de tela de qualidade e vídeos de acompanhamento; e
+- uma explicação de como a oferta utiliza plataformas e ferramentas da Microsoft.
 
-Saiba mais sobre os critérios de validação de conteúdo ao ler o [listagem políticas gerais](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general-policies).
+Saiba mais sobre os critérios de validação de conteúdo lendo as [políticas de listagem geral](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general).
 
 #### <a name="technical-validation"></a>Validação técnica
 
-Durante a validação técnica, a oferta (pacote ou binário) passa pelas seguintes verificações.
-- Analisados relativamente a software maligno
-- Chamadas de rede monitorizadas
+Durante a validação técnica, a oferta (pacote ou binário) passa pelas verificações a seguir.
+- Verificação de malware
+- Chamadas de rede monitoradas
 - Pacote analisado
-- Análise completa de funcionalidade de real da oferta
+- Verificação completa da funcionalidade real da oferta
 
-A oferta é testada em várias plataformas e versões para garantir que é robusto.
+A oferta é testada em várias plataformas e versões a fim de garantir que ela seja robusta.
 
-Reveja os detalhes de configuração específica necessários para a sua oferta na seção de configuração técnicas deste documento.
+Examine os detalhes de configuração específicos necessários para sua oferta na seção de configuração técnica deste documento.
 
 ### <a name="certification-failure-report"></a>Relatório de falha de certificação
 
-Após a conclusão da revisão, se a sua oferta passou a certificação, em seguida, ele passa ao longo para o passo seguinte no processo de publicação. Se a sua oferta falhou qualquer uma das verificações de listagem, a técnica ou a política, ou se não é elegível para submeter uma oferta desse tipo, um relatório de falha de certificação é gerado e enviados por e-mail para si.
+Após a conclusão da revisão, se sua oferta tiver passado para a certificação, ela passará para a próxima etapa no processo de publicação. Se sua oferta falhou em qualquer uma das listas, técnicas ou verificações de política, ou se você não estiver qualificado para enviar uma oferta desse tipo, um relatório de falha de certificação será gerado e enviado por email para você.
 
-Este relatório contém descrições de todas as políticas que falhou, juntamente com as notas de revisão. Reveja este relatório de correio eletrónico, resolva problemas, fazer atualizações para a sua oferta em que for necessário e volte a submeter a oferta através do [portal Marketplace comerciais](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) no Centro de parceiros. (Pode submeter novamente a oferta quantas vezes conforme necessário até passar certificação).
+Este relatório contém descrições de todas as políticas que falharam, juntamente com as notas de revisão. Examine este relatório de email, resolva quaisquer problemas, faça atualizações em sua oferta quando necessário e reenvie a oferta usando o [portal do Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) no Partner Center. (Você pode reenviar a oferta quantas vezes forem necessárias até a aprovação da certificação).
 
-## <a name="preview-creation"></a>Criação de pré-visualização
+## <a name="preview-creation"></a>Criação de visualização
 
-Durante a **pré-visualizar criação** passo, vamos criar uma versão da sua oferta acessível para apenas o público-alvo que especificou na secção pré-visualização da sua oferta.
+Durante a etapa de **criação de visualização** , criamos uma versão de sua oferta acessível apenas para o público que você especificou na seção de visualização de sua oferta.
 
-## <a name="publisher-approval"></a>Aprovação do publicador
+## <a name="publisher-approval"></a>Aprovação do Publicador
 
-Neste passo, vai ser enviado por e-mail com um pedido para rever e aprovar a versão de demonstração de oferta antes da última etapa de publicação.
+Nesta etapa, você receberá um email com uma solicitação para revisar e aprovar sua versão prévia da oferta antes da etapa de publicação final.
 
-Se tiver selecionado para vender a sua oferta através da Microsoft, será capaz de testar a aquisição e a implantação da sua oferta para assegurar que cumpre os requisitos durante esta fase de aprovação de pré-visualização. A oferta não ainda estará disponível no marketplace públicas. Depois de testar e aprovar esta pré-visualização, terá de selecionar **Go-Live** sobre o [ **descrição geral da oferta** ](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dashboard.
+Se você tiver optado por vender sua oferta pela Microsoft, poderá testar a aquisição e a implantação de sua oferta para garantir que ela atenda aos seus requisitos durante este estágio de aprovação de visualização. Sua oferta ainda não estará disponível no Marketplace público. Depois de testar e aprovar essa visualização, será necessário selecionar **Go-Live** no painel [**visão geral da oferta**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) .
 
-Se desejar fazer alterações para a oferta durante esta fase de pré-visualização, pode editar e volte a submeter para publicar uma nova pré-visualização. Consulte o artigo [atualização existente marketplace oferece](#update-existing-marketplace-offers) para obter detalhes sobre mais alterações.
+Se desejar fazer alterações na oferta durante esse estágio de visualização, você poderá editar e reenviar para publicar uma nova visualização. Consulte o artigo [Atualizar ofertas existentes do Marketplace](#update-existing-marketplace-offers) para obter detalhes sobre mais alterações.
 
-Se a sua oferta já está em direto e disponibilizado ao público no marketplace, as atualizações feitas não entrar em direto até selecionar **Go-live** sobre o [ **descrição geral da oferta** ](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dashboard.
+Se sua oferta já estiver ativa e disponível para o público no Marketplace, todas as atualizações feitas não entrarão em funcionamento até que você selecione **Go-Live** no painel [**visão geral da oferta**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) .
 
-### <a name="publish-offer-to-the-public"></a>Publicar oferta para o público
+### <a name="publish-offer-to-the-public"></a>Publicar oferta no público
 
-Inicie sessão no Centro de parceiros e aceder à oferta. Será redirecionado para o **descrição geral da oferta** página. Na parte superior desta página, verá uma opção para **implemente**. Selecione **ativação online,** e depois de confirmar, a oferta passarão a ser publicado para o público. Receberá uma notificação por e-mail quando a oferta está em direto.
+Entre no Partner Center e acesse a oferta. Você será redirecionado para a página **visão geral da oferta** . Na parte superior desta página, você verá uma opção para entrar no **ar**. Selecione **Go Live** e, depois de confirmar, a oferta começará a ser publicada no público. Você receberá uma notificação por email quando a oferta estiver ativa.
 
 ## <a name="publish"></a>Publicar
 
-Agora que selecionou a **implemente** na sua oferta, tornando-a disponível no marketplace, há uma série de verificações de validação final que irá ser apresentou para se certificar de que a oferta em direto é configurada como a pré-visualização versão da oferta.
+Agora que você optou por **entrar em funcionamento** com sua oferta, disponibilizando-a no Marketplace, há uma série de verificações finais de validação que serão percorridas para garantir que a oferta ao vivo seja configurada da mesma forma que a versão prévia da oferta.
 
-- **Configuração de fluxo de compra da oferta (> 10 min)**
+- **Instalação do fluxo de compra da oferta (> 10 min)**
 
-Neste passo, podemos assegurar que a sua oferta pode ser concluída se forem comprados pelos clientes através do portal do Azure. Este passo só é aplicável para ofertas que está a ser vendidas através do Microsoft.
+Nesta etapa, garantimos que sua oferta pode ser atendida quando adquirida por clientes por meio do portal do Azure. Esta etapa só é aplicável para ofertas vendidas pela Microsoft.
 
-- **Teste de validação de dados de unidade (~ 5 min)**
+- **Validação de dados do Test Drive (aproximadamente 5 min)**
 
-Neste passo, iremos validar os dados fornecidos na seção de configuração técnica da oferta de unidade de teste. Funcionalidade de teste de unidade é testada e aprovada. Este passo só é aplicável para ofertas com um test-drive ativado.
+Nesta etapa, validamos os dados fornecidos na seção de configuração técnica test drive da oferta. A funcionalidade do Test Drive é testada e aprovada. Esta etapa é aplicável somente para ofertas com um test drive habilitado.
 
-- **Testar a unidade de aprovisionamento (aproximadamente 30 min)**
+- **Provisionamento de drive de teste (~ 30 min)**
 
-Neste passo, implemente e replicar as instâncias da sua versão de teste para que eles estão prontos para uso do cliente.  Este passo só é aplicável para ofertas com um test-drive ativado.
+Nesta etapa, implantamos e replicamos instâncias do seu test drive para que elas estejam prontas para uso do cliente.  Esta etapa é aplicável somente para ofertas com um test drive habilitado.
 
-- **Levar a validação de gestão e de registo (> 15 min)**
+- **Validação e registro de gerenciamento de leads (> 15 min)**
 
-Neste passo, vamos confirmar que o seu sistema de gestão de oportunidades potenciais pode receber oportunidades potenciais com base nos detalhes fornecidos na configuração da oferta. Este passo só é aplicável para ofertas com a gestão de oportunidades potenciais ativada.
+Nesta etapa, confirmamos que o seu sistema de gerenciamento de leads pode receber clientes potenciais com base nos detalhes fornecidos na configuração da oferta. Esta etapa só é aplicável para ofertas com gerenciamento de Lead habilitado.
 
-- **Publicar final (> 30 minutos)**
+- **Publicação final (> 30 minutos)**
 
-Neste passo, podemos assegurar que fica publicamente disponível a sua oferta no marketplace.
+Nesta etapa, garantimos que sua oferta se torne publicamente disponível no Marketplace.
 
-## <a name="update-existing-marketplace-offers"></a>Atualizar existente ofertas do marketplace
+## <a name="update-existing-marketplace-offers"></a>Atualizar ofertas existentes do Marketplace
 
-Se pretender efetuar alterações a uma oferta que já publicou, terá primeiro de atualizar a oferta existente e, em seguida, publicá-lo novamente.
+Se você quiser fazer alterações em uma oferta que já publicou, precisará primeiro atualizar a oferta existente e, em seguida, publicá-la novamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

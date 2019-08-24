@@ -1,5 +1,5 @@
 ---
-title: Escolha as colunas de distribuição na base de dados do Azure para PostgreSQL – Hiperescala (Citus) (pré-visualização)
+title: Escolher colunas de distribuição no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
 description: Boas opções para colunas de distribuição em cenários comuns de hiperescala
 author: jonels-msft
 ms.author: jonels
@@ -7,72 +7,72 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: e9fba14b8979f739fd29bc277e32fb544221d08a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0d1f343aa9b125ab0a5a9ab559d0788253037aa
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65078989"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998197"
 ---
-# <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus-preview"></a>Escolha as colunas de distribuição na base de dados do Azure para PostgreSQL – Hiperescala (Citus) (pré-visualização)
+# <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Escolher colunas de distribuição no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
 
-Escolher coluna de distribuição de cada tabela é **uma das mais importantes** decisões de modelagem. Hiperescala armazena linhas em partições horizontais com base no valor de coluna de distribuição das linhas.
+Escolher a coluna de distribuição de cada tabela é uma das decisões de modelagem mais importantes que você fará. Banco de dados do Azure para PostgreSQL – a visualização de hiperescala (Citus) armazena linhas em fragmentos com base no valor da coluna de distribuição de linhas.
 
-Os grupos de opção correta relacionados a consulta de dados em conjunto em nós físicos de mesmas, tornando rápido e adicionando suporte para todas as funcionalidades do SQL. Faz uma seleção incorreta o sistema será executado lentamente e não dará suporte a todas as funcionalidades do SQL em todos os nós.
+A opção correta agrupa os dados relacionados nos mesmos nós físicos, o que torna as consultas rápidas e adiciona suporte a todos os recursos do SQL. Uma opção incorreta faz com que o sistema seja executado lentamente e não dará suporte a todos os recursos do SQL entre nós.
 
-Esta secção fornece distribuição dicas de coluna para dois cenários mais comuns de Hiperescala.
+Este artigo fornece dicas de coluna de distribuição para os dois cenários mais comuns de hiperescala (Citus).
 
 ### <a name="multi-tenant-apps"></a>Aplicações multi-inquilino
 
-A arquitetura de multi-inquilino utiliza um formulário da base de dados hierárquica de modelagem para distribuir consultas em todos os nós no grupo de servidor.  Parte superior da hierarquia de dados é conhecida como o *ID de inquilino*e tem de ser armazenada numa coluna em cada tabela.
+A arquitetura multilocatário usa uma forma de modelagem de banco de dados hierárquica para distribuir consultas entre nós no grupo de servidores. A parte superior da hierarquia de dados é conhecida como a *ID do locatário* e precisa ser armazenada em uma coluna em cada tabela.
 
-Hiperescala inspeciona consultas para ver qual ID do inquilino que envolvem e localiza a correspondência das partições horizontais de tabela. Encaminha a consulta para um nó de trabalho única que contém a partição horizontal. Executar uma consulta com todos os dados relevantes colocados no mesmo nó é chamado de colocalização.
+O Citus (hiperscale) inspeciona consultas para ver qual ID de locatário eles envolvem e localiza o fragmento de tabela correspondente. Ele roteia a consulta para um único nó de trabalho que contém o fragmento. A execução de uma consulta com todos os dados relevantes colocados no mesmo nó é chamada de colocalização.
 
-O diagrama seguinte ilustra a colocalização no modelo de dados de multi-inquilino. Ele contém duas tabelas, contas e campanhas, cada distribuído por `account_id`. As caixas sombreadas representam as partições horizontais, cada um dos cuja cor representa o nó de trabalho contém-lo. As partições horizontais verde são armazenadas no nó de um trabalho e azul em outro. Observe como uma consulta de junção entre as contas e campanhas de ter todos os dados necessários em conjunto num nó quando restringir ambas as tabelas para a mesma conta\_id.
+O diagrama a seguir ilustra a colocação no modelo de dados multilocatário. Ele contém duas tabelas, contas e campanhas, cada uma distribuída pelo `account_id`. As caixas sombreadas representam fragmentos. Os fragmentos verdes são armazenados juntos em um nó de trabalho, e os fragmentos azuis são armazenados em outro nó de trabalho. Observe como uma consulta de junção entre contas e campanhas tem todos os dados necessários juntos em um nó quando ambas as tabelas são restritas à\_mesma ID de conta.
 
-![colocalização de multi-inquilino](media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
+![Colocalização multilocatário](media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
 
-Para aplicar esta estrutura no seu próprio esquema, identifique o que constitui um inquilino na sua aplicação. Instâncias de comuns incluem a empresa, conta, organização ou cliente. O nome da coluna será algo como `company_id` ou `customer_id`. Examinar cada uma das suas consultas e pergunte-se: funcionaria se ele tivesse adicionais cláusulas WHERE para restringir a todas as tabelas envolvidas a linhas com o mesmo ID de inquilino?
-Consultas no modelo de multi-inquilino estão confinadas a um inquilino, por exemplo seriam confinar consultas em vendas ou de inventário num determinado arquivo.
-
-#### <a name="best-practices"></a>Melhores práticas
-
--   **Partição distribuídas a tabelas por um inquilino comuns\_coluna de id.** Por exemplo, numa aplicação SaaS em que os inquilinos são as empresas, o inquilino\_id deverá ser empresa\_id.
--   **Converta tabelas de entre inquilinos pequenas às tabelas de referência.** Quando vários inquilinos partilham uma pequena tabela de informações, distribuí-la como uma tabela de referência.
--   **Restringir o filtro de consulta de todos os aplicativos por inquilino\_id.** Cada consulta deve solicitar informações para um inquilino ao mesmo tempo.
-
-Leitura a [multi-inquilino tutorial](./tutorial-design-database-hyperscale-multi-tenant.md) para obter um exemplo de criar esse tipo de aplicativo.
-
-### <a name="real-time-apps"></a>Aplicações em tempo real
-
-A arquitetura de multi-inquilino apresenta uma estrutura hierárquica e utiliza a colocalização de dados para consultas de rota por inquilino. Por outro lado, as arquiteturas em tempo real dependem das propriedades de distribuição específico dos seus dados para alcançar o processamento altamente paralelo.
-
-Utilizamos "ID de entidade" como um termo para colunas de distribuição no modelo em tempo real. As entidades típicas são usuários, anfitriões ou dispositivos.
-
-Consultas em tempo real, normalmente, solicite ao agregações numéricas agrupadas por data ou categoria. Hiperescala envia estas consultas para cada partição horizontal para resultados parciais e monta a resposta final no nó coordenador. As consultas são executadas mais rápida quando vários nós contribuem possível e quando nenhum nó único deve fazer uma quantidade desproporcionada de trabalho.
+Para aplicar esse design em seu próprio esquema, identifique o que constitui um locatário em seu aplicativo. As instâncias comuns incluem empresa, conta, organização ou cliente. O nome da coluna será algo como `company_id` ou `customer_id`. Examinar cada uma de suas consultas e se perguntar, ele funcionaria se tivesse cláusulas WHERE adicionais para restringir todas as tabelas envolvidas em linhas com a mesma ID de locatário?
+As consultas no modelo multilocatário estão no escopo de um locatário. Por exemplo, as consultas de vendas ou de inventário estão no escopo de uma determinada loja.
 
 #### <a name="best-practices"></a>Melhores práticas
 
--   **Escolha uma coluna com cardinalidade elevada, como a coluna de distribuição.** Para comparação, um \"estado\" campo numa tabela de ordem com valores de "new", "paga" e "enviado" é uma escolha fraca de coluna de distribuição. Presume que esses valores alguns, que limita o número de partições horizontais que pode conter os dados e o número de nós que pode processá-lo. Entre colunas com cardinalidade elevada, é bom, além disso escolher as que são usados com freqüência em cláusulas group by ou como chaves de associação.
--   **Escolha uma coluna com a distribuição uniforme.** Se distribuir uma tabela numa coluna inclinada para determinados valores comuns, em seguida, dados na tabela serão tendem a se acumular em determinadas as partições horizontais. Os nós que contém nessas partições horizontais acabará fazendo o trabalho mais do que outros nós.
--   **Distribua tabelas de fatos e dimensão em suas colunas comuns.**
-    A tabela de fatos pode ter apenas uma chave de distribuição. Tabelas que se Junte-se no outra chave não será foi colocalizadas com a tabela de fatos. Escolha uma dimensão colocalizar com base na frequência com a qual está associado e o tamanho das linhas da junção.
--   **Altere algumas tabelas de dimensão para tabelas de referência.** Se uma tabela de dimensão não é possível colocalizar com a tabela de fatos, pode melhorar o desempenho das consultas ao distribuir cópias da tabela de dimensão para todos os nós sob a forma de uma tabela de referência.
+-   **Particione tabelas distribuídas por uma\_coluna de ID de locatário comum.** Por exemplo, em um aplicativo SaaS em que os locatários são empresas,\_a ID do locatário provavelmente será a\_ID da empresa.
+-   **Converta pequenas tabelas de locatário cruzado para tabelas de referência.** Quando vários locatários compartilham uma pequena tabela de informações, distribua-o como uma tabela de referência.
+-   **Restringir o filtro de todas as consultas\_de aplicativo por ID de locatário.** Cada consulta deve solicitar informações para um locatário por vez.
 
-Leitura a [tutorial de dashboard em tempo real](./tutorial-design-database-hyperscale-realtime.md) para obter um exemplo de criar esse tipo de aplicativo.
+Leia o [tutorial de vários locatários](./tutorial-design-database-hyperscale-multi-tenant.md) para obter um exemplo de como criar esse tipo de aplicativo.
 
-### <a name="timeseries-data"></a>Dados de série de tempo
+### <a name="real-time-apps"></a>Aplicativos em tempo real
 
-Na carga de trabalho série de tempo, aplicativos consultar informações recentes ao arquivamento informações antigas.
+A arquitetura multilocatário introduz uma estrutura hierárquica e usa o local de dados para rotear consultas por locatário. Por outro lado, as arquiteturas em tempo real dependem de propriedades de distribuição específicas de seus dados para obter um processamento altamente paralelo.
 
-O erro mais comum na modelagem de informações de série de tempo em Hiperescala está a utilizar o carimbo de hora como uma coluna de distribuição. Uma distribuição de hash com base no tempo vai distribuir vezes aparentemente aleatoriamente em partições horizontais diferentes, em vez de manter os intervalos de tempo em conjunto em partições horizontais. Intervalos de tempo de referência de consultas que em geral, envolvem tempo (por exemplo os dados mais recentes), portanto, esse uma distribuição hash poderia levar a rede sobrecarga.
+Usamos "ID da entidade" como um termo para colunas de distribuição no modelo em tempo real. As entidades típicas são usuários, hosts ou dispositivos.
+
+As consultas em tempo real normalmente solicitam agregações numéricas agrupadas por data ou categoria. O Citus (subscale) envia essas consultas a cada fragmento para resultados parciais e monta a resposta final no nó de coordenador. As consultas são executadas mais rapidamente quando muitos nós contribuem o máximo possível e quando nenhum nó deve fazer uma quantidade desproporcional de trabalho.
 
 #### <a name="best-practices"></a>Melhores práticas
 
--   **Não escolha um carimbo como a coluna de distribuição.** Escolha uma coluna de distribuição diferente. Numa aplicação multi-inquilino, utilize o ID de inquilino ou numa aplicação em tempo real, utilize o ID de entidade.
--   **Utilize PostgreSQL particionamento de tabela para a hora em vez disso.** Use o particionamento de tabela para dividir uma grande tabela de dados ordenados por tempo em várias tabelas herdadas com cada um contendo os intervalos de tempo diferentes.  Distribuição de uma tabela particionada Postgres numa Hiperescala cria partições horizontais para as tabelas herdadas.
+-   **Escolha uma coluna com alta cardinalidade como a coluna de distribuição.** Para comparação, um campo de status em uma tabela de pedidos com valores novos, pagos e enviados é uma opção inadequada da coluna de distribuição. Ele assume apenas esses poucos valores, o que limita o número de fragmentos que podem conter os dados e o número de nós que podem processá-lo. Entre colunas com alta cardinalidade, também é bom escolher as colunas que são usadas com frequência em cláusulas Group by ou como chaves de junção.
+-   **Escolha uma coluna com distribuição uniforme.** Se você distribuir uma tabela em uma coluna distorcida para determinados valores comuns, os dados na tabela tendem a ser acumulados em determinados fragmentos. Os nós que mantêm esses fragmentos acabam fazendo mais trabalho do que outros nós.
+-   **Distribua tabelas de fatos e dimensões em suas colunas comuns.**
+    Sua tabela de fatos pode ter apenas uma chave de distribuição. As tabelas que ingressam em outra chave não serão colocalizadas com a tabela de fatos. Escolha uma dimensão a ser colocalizada com base na frequência com que ela é unida e no tamanho das linhas de junção.
+-   **Altere algumas tabelas de dimensões para tabelas de referência.** Se uma tabela de dimensões não puder ser colocalizada com a tabela de fatos, você poderá melhorar o desempenho da consulta distribuindo cópias da tabela de dimensões para todos os nós na forma de uma tabela de referência.
 
-Leitura a [tutorial da série de tempo](https://aka.ms/hyperscale-tutorial-timeseries) para obter um exemplo de criar esse tipo de aplicativo.
+Leia o [tutorial do painel em tempo real](./tutorial-design-database-hyperscale-realtime.md) para obter um exemplo de como criar esse tipo de aplicativo.
 
-## <a name="next-steps"></a>Passos Seguintes
-- Saiba como [colocalização](concepts-hyperscale-colocation.md) entre as consultas são executadas rapidamente de ajuda de dados distribuídos
+### <a name="time-series-data"></a>Dados de série temporal
+
+Em uma carga de trabalho de série temporal, os aplicativos consultam informações recentes enquanto arquivam informações antigas.
+
+O erro mais comum em modelar informações de série temporal em Citus (hiperescala) é usar o carimbo de data/hora em si como uma coluna de distribuição. Uma distribuição de hash com base no tempo distribui os tempos de forma aleatória em fragmentos diferentes, em vez de manter intervalos de tempo juntos em fragmentos. As consultas que envolvem o tempo geralmente fazem referência a intervalos de tempo, por exemplo, os dados mais recentes. Esse tipo de distribuição de hash leva à sobrecarga da rede.
+
+#### <a name="best-practices"></a>Melhores práticas
+
+-   **Não escolha um carimbo de data/hora como a coluna de distribuição.** Escolha uma coluna de distribuição diferente. Em um aplicativo multilocatário, use a ID do locatário ou em um aplicativo em tempo real, use a ID da entidade.
+-   **Em vez disso, use o particionamento de tabela do PostgreSQL para o tempo.** Use o particionamento de tabela para dividir uma grande tabela de dados ordenados por tempo em várias tabelas herdadas com cada tabela que contém intervalos de tempo diferentes. A distribuição de uma tabela postgres em hiperescala (Citus) cria fragmentos para as tabelas herdadas.
+
+Leia o [tutorial de série temporal](https://aka.ms/hyperscale-tutorial-timeseries) para obter um exemplo de como criar esse tipo de aplicativo.
+
+## <a name="next-steps"></a>Passos seguintes
+- Saiba como [](concepts-hyperscale-colocation.md) a colocalização entre os dados distribuídos ajuda as consultas a serem executadas rapidamente.

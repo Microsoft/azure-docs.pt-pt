@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: bf9bb7adfa25ea16498a32b57d4927de7e81c007
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 98b97abf9fe0d8e71f93022dcbfeff0a5339d5a1
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826913"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983073"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrar Apache Spark e Apache Hive com o conector do depósito do hive
 
@@ -51,7 +51,7 @@ Siga estas etapas para configurar o conector de depósito do hive entre um Spark
 
         ![Configuração do Spark2 Ambari](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-    1. Defina `spark.hadoop.hive.llap.daemon.service.hosts` com o mesmo valor que o **nome do aplicativo LLAP** da propriedade em **Hive-Interactive-env avançado**. Por exemplo, `llap0`
+    1. Defina `spark.hadoop.hive.llap.daemon.service.hosts` com o mesmo valor da propriedade **Hive. LLAP. daemon. Service. hosts** em * * Hive avançado-interativo-site * *. Por exemplo, `@llap0`
 
     1. Defina `spark.sql.hive.hiveserver2.jdbc.url` como a cadeia de conexão JDBC, que se conecta ao Hiveserver2 no cluster de consulta interativa. A cadeia de conexão para o cluster se parecerá com o URI abaixo. `CLUSTERNAME`é o nome do cluster Spark e os `user` parâmetros e `password` são definidos com os valores corretos para o cluster.
 

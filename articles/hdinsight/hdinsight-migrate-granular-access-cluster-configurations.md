@@ -6,23 +6,23 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/09/2019
-ms.openlocfilehash: a77310d0e45f095260d77ead0cfe14a3ce0ebd8e
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.date: 08/22/2019
+ms.openlocfilehash: 03bea7b9df929914e25ca97b382dc5c120b5a769
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623848"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983023"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrar para o acesso granular baseado em funções para as configurações de cluster
 
-Estamos introduzindo algumas alterações importantes para dar suporte ao acesso mais refinado baseado em função para obter informações confidenciais. Como parte dessas alterações, algumas **ações poderão ser necessárias** se você estiver usando uma das [entidades/cenários afetados](#am-i-affected-by-these-changes).
+Estamos introduzindo algumas alterações importantes para dar suporte ao acesso mais refinado baseado em função para obter informações confidenciais. Como parte dessas alterações, algumas ações podem ser necessárias **até 3 de setembro de 2019** se você estiver usando uma das [entidades/cenários afetados](#am-i-affected-by-these-changes).
 
 ## <a name="what-is-changing"></a>O que está mudando?
 
 Anteriormente, os segredos poderiam ser obtidos por meio da API do HDInsight por usuários de cluster que possuam as funções de proprietário, colaborador ou de [RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)do leitor, pois `*/read` estavam disponíveis para qualquer pessoa com a permissão. Os segredos são definidos como valores que podem ser usados para obter acesso mais elevado do que a função de um usuário deve permitir. Isso inclui valores como credenciais HTTP de gateway de cluster, chaves de conta de armazenamento e credenciais de banco de dados.
 
-No futuro, o acesso a esses segredos exigirá a permissão, o `Microsoft.HDInsight/clusters/configurations/action` que significa que eles não podem mais ser acessados por usuários com a função leitor. As funções que têm essa permissão são colaborador, proprietário e a nova função de operador de cluster HDInsight (mais informações sobre isso abaixo).
+A partir de 3 de setembro de 2019, o acesso a esses `Microsoft.HDInsight/clusters/configurations/action` segredos exigirá a permissão, o que significa que eles não podem mais ser acessados por usuários com a função leitor. As funções que têm essa permissão são colaborador, proprietário e a nova função de operador de cluster HDInsight (mais informações sobre isso abaixo).
 
 Também estamos introduzindo uma nova função de [operador de cluster HDInsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) que poderá recuperar segredos sem receber as permissões administrativas de colaborador ou proprietário. Para resumir:
 
@@ -59,13 +59,13 @@ As seguintes APIs serão alteradas ou preteridas:
 
 - [**Obter/Configurations/{ConfigurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (informações confidenciais removidas)
     - Usado anteriormente para obter tipos de configuração individuais (incluindo segredos).
-    - Essa chamada à API agora retornará tipos de configuração individuais com segredos omitidos. Para obter todas as configurações, incluindo segredos, use a nova chamada POST/Configurations. Para obter apenas as configurações de gateway, use a nova chamada POST/getGatewaySettings.
+    - A partir de 3 de setembro de 2019, essa chamada à API agora retornará tipos de configuração individuais com segredos omitidos. Para obter todas as configurações, incluindo segredos, use a nova chamada POST/Configurations. Para obter apenas as configurações de gateway, use a nova chamada POST/getGatewaySettings.
 - [**Obter/Configurations**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) preterido
     - Usado anteriormente para obter todas as configurações (incluindo segredos)
-    - Esta chamada à API não terá mais suporte. Para obter todas as configurações no futuro, use a nova chamada POST/Configurations. Para obter configurações com parâmetros confidenciais omitidos, use a chamada GET/configurations/{configurationName}.
+    - A partir de 3 de setembro de 2019, essa chamada à API será preterida e não terá mais suporte. Para obter todas as configurações no futuro, use a nova chamada POST/Configurations. Para obter configurações com parâmetros confidenciais omitidos, use a chamada GET/configurations/{configurationName}.
 - [**Postar/Configurations/{ConfigurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings) preterido
     - Usado anteriormente para atualizar as credenciais do gateway.
-    - Esta chamada à API será preterida e não terá mais suporte. Em vez disso, use a nova POSTAgem/updateGatewaySettings.
+    - A partir de 3 de setembro de 2019, essa chamada à API será preterida e não terá mais suporte. Em vez disso, use a nova POSTAgem/updateGatewaySettings.
 
 As seguintes APIs de substituição foram adicionadas:</span>
 
@@ -201,7 +201,7 @@ Se isso ainda não funcionar, entre em contato com o administrador do AAD para a
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>O que acontecerá se eu não executar nenhuma ação?
 
-As `GET /configurations` chamadas `POST /configurations/gateway` e não retornarão mais nenhuma informação e a `GET /configurations/{configurationName}` chamada não retornará mais parâmetros confidenciais, como chaves de conta de armazenamento ou a senha do cluster. O mesmo acontece com os métodos do SDK e os cmdlets do PowerShell correspondentes.
+A partir de 3 de setembro de `GET /configurations` 2019 `POST /configurations/gateway` , e as chamadas não retornarão mais nenhuma `GET /configurations/{configurationName}` informação e a chamada não retornará mais parâmetros confidenciais, como chaves de conta de armazenamento ou a senha do cluster. O mesmo acontece com os métodos do SDK e os cmdlets do PowerShell correspondentes.
 
 Se você estiver usando uma versão mais antiga de uma das ferramentas para Visual Studio, VSCode, IntelliJ ou Eclipse mencionado acima, elas não funcionarão mais até que você atualize o.
 

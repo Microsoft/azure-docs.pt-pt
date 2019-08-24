@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 08/15/2019
 ms.author: maquaran
-ms.openlocfilehash: f72a3bfcfd6b4f480977510963f49f73a7207e1f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 82e5bb547d025d25aa6720d2b7a603d53a921c57
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615283"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991963"
 ---
 # <a name="use-the-change-feed-estimator"></a>Usar o estimador do feed de alterações
 
@@ -55,7 +55,7 @@ Você pode enviar essa estimativa para sua solução de monitoramento e usá-la 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [SDK do Azure Cosmos DB](sql-api-sdk-dotnet.md)
-* [Exemplos de uso no GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
+* [Exemplos de uso no GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Exemplos adicionais no GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Passos Seguintes

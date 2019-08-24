@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 090c229c5e97ede8eb7a397ce8f4d13d8735a346
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 8eb244a0eff1569ac27feae68104db613373463a
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404601"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992328"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeando o guia de desempenho e ajuste do fluxo de dados
 
@@ -117,6 +117,10 @@ Clicar nesse ícone exibirá o plano de execução e o perfil de desempenho subs
 * Você pode controlar quantas partições serão usadas pelo ADF. Em cada fonte & transformação do coletor, bem como cada transformação individual, você pode definir um esquema de particionamento. Para arquivos menores, você pode achar que a seleção de "partição única" às vezes pode funcionar melhor e mais rápido do que pedir ao Spark para particionar seus arquivos pequenos.
 * Se você não tiver informações suficientes sobre seus dados de origem, poderá escolher particionamento "Round Robin" e definir o número de partições.
 * Se você explorar seus dados e achar que tem colunas que podem ser boas chaves de hash, use a opção de particionamento hash.
+* Ao depurar em visualização de dados e depuração de pipeline, observe que os tamanhos de limite e amostragem para conjuntos de dados de origem baseados em arquivo se aplicam apenas ao número de linhas retornadas, e não ao número de linhas lidas. Isso é importante para observar porque ele pode afetar o desempenho de suas execuções de depuração e possivelmente fazer com que o fluxo falhe.
+* Lembre-se de que os clusters de depuração são pequenos clusters de nó único por padrão, portanto, use arquivos pequenos temporários para depuração. Vá para configurações de depuração e aponte para um pequeno subconjunto de dados usando um arquivo temporário.
+
+![Configurações de depuração](media/data-flow/debugsettings3.png "Configurações de depuração")
 
 ### <a name="file-naming-options"></a>Opções de nomenclatura de arquivo
 

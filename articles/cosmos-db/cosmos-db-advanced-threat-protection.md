@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: v-mohabe
 ms.custom: seodec18
-ms.openlocfilehash: 0504da45cbbd60629954d3e3ca3230e05761c1d6
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e22e05618c8b8977ba8b03afd3b654d27d4fa6bd
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640360"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981740"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Proteção avançada contra ameaças para Azure Cosmos DB
 
 A proteção avançada contra ameaças para Azure Cosmos DB fornece uma camada adicional de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de Azure Cosmos DB. Essa camada de proteção permite que você resolva as ameaças, mesmo sem ser um especialista em segurança, e integre-as aos sistemas de monitoramento de segurança central.
 
-Os alertas de segurança são disparados quando ocorrem anomalias na atividade. Esses alertas de segurança são integrados à  [central de segurança do Azure](https://azure.microsoft.com/services/security-center/)e também são enviados por email para administradores de assinatura, com detalhes da atividade suspeita e recomendações sobre como investigar e corrigir as ameaças.
+Os alertas de segurança são disparados quando ocorrem anomalias na atividade. Esses alertas de segurança são integrados à [central de segurança do Azure](https://azure.microsoft.com/services/security-center/)e também são enviados por email para administradores de assinatura, com detalhes da atividade suspeita e recomendações sobre como investigar e corrigir as ameaças.
 
 > [!NOTE]
 >
@@ -31,16 +31,16 @@ Para uma experiência de investigação completa dos alertas de segurança, reco
 
 ### <a name="set-up-atp-using-the-portal"></a>Configurar ATP usando o portal
 
-1. Inicie o portal do Azure em  [https://portal.azure.com](https://portal.azure.com/).
+1. Inicie o portal do Azure em [https://portal.azure.com](https://portal.azure.com/).
 
 2. Na conta Azure Cosmos DB, no menu **configurações** , selecione **segurança avançada**.
 
     ![Configurar ATP](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp.png)
 
-3. Na folha configuração de **segurança avançada** :
+3. Na folha configuração de **segurança avançada** :
 
     * Clique na opção **proteção avançada contra ameaças** para defini-la como ativada.
-    * Clique em **salvar** para salvar a política de proteção avançada contra ameaças nova ou atualizada.   
+    * Clique em **salvar** para salvar a política de proteção avançada contra ameaças nova ou atualizada.   
 
 ### <a name="set-up-atp-using-rest-api"></a>Configurar ATP usando a API REST
 
@@ -73,7 +73,7 @@ Uma notificação por email também é enviada com os detalhes do alerta e as a�
 
  Para ver uma lista dos alertas gerados durante o monitoramento de contas Azure Cosmos DB, consulte a seção [alertas de Cosmos DB](../security-center/security-center-alerts-data-services.md#cosmos-db) na documentação da central de segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre o [log de diagnóstico no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging#turn-on-logging-in-the-azure-portal)
-* Saiba mais sobre a [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Saiba mais sobre o [log de diagnóstico no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging#turn-on-logging-in-the-azure-portal)
+* Saiba mais sobre a [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: normesta
 ms.reviewer: bensack
-ms.openlocfilehash: cb82d47be11570baf7865468c804162a20a7685f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 59574f0a07f4ecc145f2b0efd430e65cbdebcc65
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855474"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991564"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen2-by-using-power-bi"></a>Analisar dados em Azure Data Lake Storage Gen2 usando Power BI
 
@@ -39,7 +39,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
 
     ![Página obter dados](media/data-lake-storage-use-power-bi/get-data-page.png)
 
-4. Na caixa de diálogo **Azure data Lake Storage Gen2** , você pode fornecer a URL para sua conta de Azure data Lake Storage Gen2, sistema de arquivos ou subpasta usando o formato de ponto de extremidade do sistema de arquivos. As URLs para data Lake Storage Gen2 têm o seguinte `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` padrão e, em seguida, clicam em **OK**.
+4. Na caixa de diálogo **Azure data Lake Storage Gen2** , você pode fornecer a URL para sua conta de Azure data Lake Storage Gen2, sistema de arquivos ou subpasta usando o formato de ponto de extremidade do contêiner. As URLs para data Lake Storage Gen2 têm o seguinte `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` padrão e, em seguida, clicam em **OK**.
 
     ![URL](media/data-lake-storage-use-power-bi/adls-url.png)
 

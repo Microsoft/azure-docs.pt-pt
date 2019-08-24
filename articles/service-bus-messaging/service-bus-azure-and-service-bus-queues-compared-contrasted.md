@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 32c903e5d469a9a3e7b98bd406b5512d752bb210
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
-ms.translationtype: MT
+ms.openlocfilehash: 0ebf18fe2dc6906bc2c06d94388d126fb55c6024
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017799"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981407"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas de armazenamento e filas do barramento de serviço – comparações e contrastes
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas oferecidos pelo Microsoft Azure hoje: Filas de armazenamento e filas do barramento de serviço. A utilização destas informações permite-lhe comparar e contrastar as respetivas tecnologias, e tomar uma decisão mais informada quanto à solução que melhor responde às suas necessidades.
@@ -68,7 +68,7 @@ Esta seção compara alguns dos recursos fundamentais de enfileiramento fornecid
 | Critérios de comparação | Filas de armazenamento | Filas do Service Bus |
 | --- | --- | --- |
 | Garantia de pedidos |**Não** <br/><br>Para obter mais informações, consulte a primeira observação na seção "informações adicionais".</br> |**Sim, primeiro a entrar, primeiro a sair (FIFO)**<br/><br>(com o uso de sessões de mensagens) |
-| Garantia de entrega |**Pelo menos uma vez** |**Pelo menos uma vez**<br/><br/>**No máximo uma vez** |
+| Garantia de entrega |**Pelo menos uma vez** |**Pelo menos uma vez** (usando o modo de recebimento PeekLock-esse é o padrão) <br/><br/>**No máximo uma vez** (usando o modo de recebimento ReceiveAndDelete) <br/> <br/> Saiba mais sobre vários [modos de recebimento](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Suporte a operações atômicas |**Não** |**Sim**<br/><br/> |
 | Comportamento de recebimento |**Sem bloqueio**<br/><br/>(será concluído imediatamente se nenhuma mensagem nova for encontrada) |**Bloqueio com/sem tempo limite**<br/><br/>(oferece sondagem longa ou a ["técnica de Comet"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Sem bloqueio**<br/><br/>(somente com o uso da API gerenciada do .NET) |
 | API de estilo push |**Não** |**Sim**<br/><br/>[](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) API do .NET e sessões onMessage. |
@@ -187,7 +187,7 @@ Ao obter uma compreensão mais profunda das duas tecnologias, você poderá toma
 
 Como as filas do barramento de serviço fornecem uma série de recursos avançados, como sessões, transações, detecção de duplicidades, mensagens mortas automáticas e recursos de publicação/assinatura duráveis, eles podem ser uma opção preferida se você estiver criando um híbrido ou, caso contrário, o aplicativo exige esses recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Os artigos a seguir fornecem mais orientações e informações sobre como usar filas de armazenamento ou filas do barramento de serviço.
 
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)

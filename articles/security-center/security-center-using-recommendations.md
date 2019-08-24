@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 8/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 79a5f9a1269bdfc63d9d0b6fffd8458d011b777b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 13d6eb64b2089cf93f08c294cc9b6a2034b64fa0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640864"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990550"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Usar as recomendações da central de segurança do Azure para aumentar a segurança
 Você pode reduzir as chances de um evento de segurança significativo Configurando uma política de segurança e, em seguida, implementando as recomendações fornecidas pela central de segurança do Azure. Este artigo mostra como usar as políticas de segurança e recomendações na central de segurança para ajudar a mitigar um ataque de segurança. 
@@ -75,6 +75,6 @@ As recomendações de monitoramento na central de segurança ajudam a eliminar v
 ## <a name="next-steps"></a>Passos Seguintes
 Certifique-se de que você tenha um processo de monitoramento em vigor, no qual você verifica regularmente as recomendações na central de segurança para que você possa garantir que seus recursos sejam protegidos ao longo do tempo.
 
-Este cenário mostrou como usar políticas de segurança e recomendações na central de segurança para ajudar a mitigar um ataque de segurança. Consulte o [cenário de resposta a incidentes](security-center-incident-response.md) para saber como ter um plano de resposta a incidentes em vigor antes que ocorra um ataque.
+Este cenário mostrou como usar políticas de segurança e recomendações na central de segurança para ajudar a mitigar um ataque de segurança.
 
-Saiba como responder a ameaças com [resposta a incidentes](security-center-incident-response.md).
+Saiba como responder a ameaças com [Gerenciamento e resposta a alertas de segurança](security-center-managing-and-responding-alerts.md).

@@ -1,6 +1,6 @@
 ---
-title: Recolher e analisar registos de eventos do Windows no Azure Monitor | Documentos da Microsoft
-description: Descreve como configurar a coleção de registos de eventos do Windows pelo Azure Monitor e detalhes dos registos que criaram.
+title: Coletar e analisar logs de eventos do Windows no Azure Monitor | Microsoft Docs
+description: Descreve como configurar a coleta de logs de eventos do Windows por Azure Monitor e detalhes dos registros que eles criam.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,66 +13,69 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc81a8d8023d0724f4ecb71c157e8f575aa9edc8
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236924"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997477"
 ---
-# <a name="windows-event-log-data-sources-in-azure-monitor"></a>Origens de dados de registo de eventos Windows no Azure Monitor
-Registos de eventos do Windows são uma das mais comuns [origens de dados](agent-data-sources.md) para a recolha de dados através de agentes do Windows, uma vez que muitos aplicativos escrevem no registo de eventos do Windows.  Pode recolher eventos de registos standard como sistema e da aplicação, além de especificar quaisquer registos personalizados criados por aplicativos que tem de monitorizar.
+# <a name="windows-event-log-data-sources-in-azure-monitor"></a>Fontes de dados de log de eventos do Windows no Azure Monitor
+Os logs de eventos do Windows são uma das [fontes de dados](agent-data-sources.md) mais comuns para coletar dados usando agentes do Windows, já que muitos aplicativos gravam no log de eventos do Windows.  Você pode coletar eventos de logs padrão, como sistema e aplicativo, além de especificar quaisquer logs personalizados criados por aplicativos que você precisa monitorar.
 
 ![Eventos do Windows](media/data-sources-windows-events/overview.png)     
 
-## <a name="configuring-windows-event-logs"></a>Os logs de eventos do Windows configuração
-Configurar registos de eventos do Windows a partir da [menu de dados nas definições avançadas](agent-data-sources.md#configuring-data-sources).
+## <a name="configuring-windows-event-logs"></a>Configurando logs de eventos do Windows
+Configure logs de eventos do Windows no [menu dados em configurações avançadas](agent-data-sources.md#configuring-data-sources).
 
-O Azure Monitor apenas recolhe os eventos dos logs de eventos Windows que são especificados nas definições.  Pode adicionar um registo de eventos ao escrever o nome do registo e clicar em **+** .  Para cada registo, apenas os eventos com as gravidades selecionados são recolhidos.  Verifique as gravidades para o log específico que pretende recolher.  Não pode fornecer qualquer critérios adicionais para filtrar eventos.
+Azure Monitor coleta apenas eventos dos logs de eventos do Windows especificados nas configurações.  Você pode adicionar um log de eventos digitando o nome do log e clicando **+** em.  Para cada log, somente os eventos com as severidades selecionadas são coletados.  Verifique as severidades para o log específico que você deseja coletar.  Você não pode fornecer nenhum critério adicional para filtrar eventos.
 
-À medida que escreve o nome de um registo de eventos, o Azure Monitor fornece sugestões de nomes de registo de eventos comuns. Se o registo que pretende adicionar não aparecer na lista, ainda pode adicioná-lo ao escrever o nome completo do registo. Pode encontrar o nome completo do registo utilizando o Visualizador de eventos. No Visualizador de eventos, abra a *propriedades* página para o log e copie a cadeia a partir do *nome completo* campo.
+À medida que você digita o nome de um log de eventos, Azure Monitor fornece sugestões de nomes de log de eventos comuns. Se o log que você deseja adicionar não aparecer na lista, você ainda poderá adicioná-lo digitando o nome completo do log. Você pode encontrar o nome completo do log usando o Visualizador de eventos. No Visualizador de eventos, abra a página de *Propriedades* do log e copie a cadeia de caracteres do campo *nome completo* .
 
 ![Configurar eventos do Windows](media/data-sources-windows-events/configure.png)
 
+> [!NOTE]
+> Os eventos críticos do log de eventos do Windows terão uma severidade de "erro" nos logs de Azure Monitor.
+
 ## <a name="data-collection"></a>Recolha de dados
-Monitor do Azure recolhe cada evento que corresponde a uma gravidade selecionada de um registo de eventos monitorado, como o evento é criado.  O agente registra seu lugar em cada registo de eventos recolhidos dos.  Se o agente ficar offline durante um período de tempo, em seguida, recolhidos eventos dos onde pela última vez parou, mesmo que esses eventos foram criados, enquanto o agente estava offline.  Existe um potencial para esses eventos para não ser recolhidos se o registo de eventos encapsula num wrapper com eventos uncollected seja substituídos enquanto o agente estiver offline.
+Azure Monitor coleta cada evento que corresponde a uma severidade selecionada de um log de eventos monitorado conforme o evento é criado.  O agente registra seu local em cada log de eventos do qual ele coleta.  Se o agente ficar offline por um período de tempo, ele coletará eventos de onde ele parou por último, mesmo que esses eventos tenham sido criados enquanto o agente estava offline.  Há um potencial para esses eventos não serem coletados se o log de eventos encapsular com eventos não coletados sendo substituídos enquanto o agente estiver offline.
 
 >[!NOTE]
->O Azure Monitor não recolhe os eventos de auditoria criados pelo SQL Server de origem *MSSQLSERVER* com o ID de evento 18453 que contém as palavras-chave - *clássico* ou *sucesso de auditoria* e palavra-chave *0xa0000000000000*.
+>Azure Monitor não coleta eventos de auditoria criados por SQL Server da origem *MSSQLSERVER* com a ID de evento 18453 que contém palavras-chave- *clássico* ou *êxito de auditoria* e palavra-chave *0xa0000000000000*.
 >
 
-## <a name="windows-event-records-properties"></a>Propriedades de registos de eventos do Windows
-Registos de eventos do Windows têm um tipo de **evento** e ter as propriedades na tabela a seguir:
+## <a name="windows-event-records-properties"></a>Propriedades de registros de eventos do Windows
+Os registros de eventos do Windows têm um tipo de **evento** e têm as propriedades na tabela a seguir:
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Computador |Nome do computador que o evento foi recolhido a partir de. |
-| Se nos |Categoria do evento. |
-| EventData |Todos os dados de eventos em formato não processado. |
-| EventID |Número do evento. |
-| EventLevel |Gravidade do evento no formato numérico. |
-| EventLevelName |Gravidade do evento na forma de texto. |
-| EventLog |Nome do registo de eventos que o evento foi recolhido a partir de. |
-| ParameterXml |Valores de parâmetros de evento no formato XML. |
-| ManagementGroupName |Nome do grupo de gestão para agentes do System Center Operations Manager.  Para outros agentes, este valor é `AOI-<workspace ID>` |
-| RenderedDescription |Descrição do evento com valores de parâmetros |
-| source |Origem do evento. |
-| SourceSystem |Tipo do evento foi recolhido a partir do agente. <br> Ligar OpsManager – agente de Windows, direta ou gerido do Operations Manager <br> Linux – todos os agentes do Linux  <br> AzureStorage – diagnósticos do Azure |
-| TimeGenerated |Data e hora que do evento foi criado no Windows. |
-| UserName |Nome de utilizador da conta que registou o evento. |
+| Computer |Nome do computador do qual o evento foi coletado. |
+| EventCategory |Categoria do evento. |
+| EventData |Todos os dados de evento em formato bruto. |
+| 1008 |Número do evento. |
+| EventLevel |Severidade do evento em formato numérico. |
+| EventLevelName |Severidade do evento na forma de texto. |
+| EventLog |Nome do log de eventos do qual o evento foi coletado. |
+| ParameterXml |Valores de parâmetro de evento em formato XML. |
+| ManagementGroupName |Nome do grupo de gerenciamento para agentes de System Center Operations Manager.  Para outros agentes, esse valor é`AOI-<workspace ID>` |
+| RenderedDescription |Descrição do evento com valores de parâmetro |
+| Source |Origem do evento. |
+| SourceSystem |Tipo de agente do qual o evento foi coletado. <br> OpsManager – agente do Windows, conexão direta ou Operations Manager gerenciado <br> Linux – todos os agentes do Linux  <br> AzureStorage – Diagnóstico do Azure |
+| TimeGenerated |Data e hora em que o evento foi criado no Windows. |
+| UserName |Nome de usuário da conta que registrou o evento. |
 
-## <a name="log-queries-with-windows-events"></a>Consultas de registo com eventos do Windows
-A tabela seguinte fornece exemplos diferentes de consultas de registo que obter registos de eventos do Windows.
+## <a name="log-queries-with-windows-events"></a>Consultas de log com eventos do Windows
+A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros de eventos do Windows.
 
 | Consulta | Descrição |
 |:---|:---|
 | Evento |Todos os eventos do Windows. |
-| Event &#124; where EventLevelName == "error" |Todos os eventos do Windows com a gravidade do erro. |
-| Evento &#124; resumir contagem () por origem |Eventos de contagem do Windows pela origem. |
-| Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |Eventos de erro de contagem do Windows pela origem. |
+| Evento &#124; em que EventLevelName = = "Error" |Todos os eventos do Windows com severidade de erro. |
+| Contagem &#124; de Resumo de eventos () por origem |Contagem de eventos do Windows por origem. |
+| Evento &#124; em que EventLevelName = = "Error &#124; " resume Count () por origem |Contagem de eventos de erro do Windows por origem. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Configurar o Log Analytics para recolher outros [origens de dados](agent-data-sources.md) para análise.
+* Configure Log Analytics para coletar outras [fontes de dados](agent-data-sources.md) para análise.
 * Saiba mais sobre [registar as consultas](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
-* Configurar [recolha de contadores de desempenho de](data-sources-performance-counters.md) dos seus agentes do Windows.
+* Configure a [coleta de contadores de desempenho](data-sources-performance-counters.md) de seus agentes do Windows.

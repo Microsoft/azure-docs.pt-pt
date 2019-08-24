@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: abc09ac1a13537c31fe96fae14edefd0d06b6aef
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: fab65828228bdea8f0367f8928b83934bf0a7a4f
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880257"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995880"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Arquitetura de IoT Central do Azure (recursos de visualização)
 
@@ -73,7 +73,7 @@ Em um aplicativo IoT Central do Azure, os modelos de dispositivo definem o compo
 
 Em um modelo de dispositivo de aplicativo IoT Central Preview:
 
-- Os **modelos de capacidade de dispositivo** especificam os recursos de um dispositivo, como a telemetria que ele envia, as propriedades que definem o estado do dispositivo e os comandos que o dispositivo responde. Os recursos do dispositivo são organizados em uma ou mais interfaces. Para obter mais informações sobre modelos de capacidade de dispositivo, consulte a documentação do [plug and Play IOT](https://aka.ms/iot-pnp-docs) .
+- Os **modelos de capacidade de dispositivo** especificam os recursos de um dispositivo, como a telemetria que ele envia, as propriedades que definem o estado do dispositivo e os comandos que o dispositivo responde. Os recursos do dispositivo são organizados em uma ou mais interfaces. Para obter mais informações sobre modelos de capacidade de dispositivo, consulte a documentação do [plug and Play IOT](../iot-pnp/overview-iot-plug-and-play.md) .
 - **Propriedades de nuvem** especifique as propriedades IOT central repositórios para um dispositivo. Essas propriedades são armazenadas somente em IoT Central e nunca são enviadas a um dispositivo.
 - As exibições especificam os painéis e formulários criados pelo construtor para permitir que o operador monitore e gerencie os dispositivos.
 - As personalizações permitem que o Construtor substitua algumas das definições no modelo de funcionalidade do dispositivo para torná-las mais relevantes para o aplicativo IOT central.

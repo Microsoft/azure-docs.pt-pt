@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 90a9c67a11b54490b801ec65f691b4ae853ab4f2
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 4c26431ee0d506dda547fb4027845baa15c9a134
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972215"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997889"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usar o emulador Cosmos do Azure para desenvolvimento e teste local
 
@@ -254,11 +254,11 @@ Para ver a lista de opções, escreva `CosmosDB.Emulator.exe /?` na linha de com
 |EnableTableEndpoint | Habilita o Azure API de Tabela | CosmosDB.Emulator.exe /EnableTableEndpoint | |
 |TablePort | Número da porta a ser usada para o ponto de extremidade de tabela do Azure. O valor padrão é 8902. | CosmosDB. Emulator. exe/TablePort =\<Port\> | \<porta\>: Número da porta única|
 | KeyFile | Ler a chave de autorização do arquivo especificado. Use a opção/GenKeyFile para gerar um keyfile | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<nome_do_arquivo\>: Caminho para o arquivo |
-| ResetDataPath | Remove recursivamente todos os arquivos no caminho especificado. Se você não especificar um caminho, o padrão será%LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=\<path>] | \<path\>: Caminho do ficheiro  |
+| ResetDataPath | Remove recursivamente todos os arquivos no caminho especificado. Se você não especificar um caminho, o padrão será%LOCALAPPDATA%\CosmosDbEmulator | CosmosDB. Emulator. exe/ResetDataPath =\<Path > | \<path\>: Caminho do ficheiro  |
 | StartTraces  |  Comece coletando logs de rastreamento de depuração. | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | Parar coleta de logs de rastreamento de depuração. | CosmosDB.Emulator.exe /StopTraces  | |
 |FailOnSslCertificateNameMismatch | Por padrão, o emulador regenera seu certificado SSL autoassinado, se o SAN do certificado não incluir o nome de domínio do host do emulador, endereço IPv4 local, ' localhost ' e ' 127.0.0.1 '. Com essa opção, o emulador falhará na inicialização em vez disso. Em seguida, você deve usar a opção/GenCert para criar e instalar um novo certificado SSL autoassinado. | CosmosDB.Emulator.exe /FailOnSslCertificateNameMismatch  | |
-| GenCert | Gere e instale um novo certificado SSL autoassinado. Opcionalmente, incluindo uma lista separada por vírgulas de nomes DNS adicionais para acessar o emulador pela rede. | CosmosDB. Emulator. exe/GenCert [ \<lista separada por vírgulas de nomes\>DNS adicionais] | |
+| GenCert | Gere e instale um novo certificado SSL autoassinado. Opcionalmente, incluindo uma lista separada por vírgulas de nomes DNS adicionais para acessar o emulador pela rede. | CosmosDB. Emulator. exe/GenCert =\<DNS-Names\> |\<nomes\>DNS: Lista separada por vírgulas opcional de nomes DNS adicionais  |
 | DirectPorts |Especifica as portas a utilizar para conectividade direta. As predefinições são 10251,10252,10253,10254. | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<portasdiretas\>: Lista delimitada por vírgula de 4 portas |
 | Chave |Chave de autorização para o emulador. A chave tem de ser a codificação base 64 de um vetor de 64 bytes. | CosmosDB.Emulator.exe /Key:\<key\> | \<chave\>: A chave deve ser a codificação base-64 de um vetor de 64 bytes|
 | EnableRateLimiting | Especifica que o comportamento de limitação da taxa de pedidos está ativado. |CosmosDB.Emulator.exe /EnableRateLimiting | |
