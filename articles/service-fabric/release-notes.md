@@ -11,7 +11,7 @@ hide_comments: true
 hideEdit: true
 ms.openlocfilehash: 636518688aec1f514b551e34219acfc1c9e81aec
 ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/13/2019
 ms.locfileid: "68965388"
