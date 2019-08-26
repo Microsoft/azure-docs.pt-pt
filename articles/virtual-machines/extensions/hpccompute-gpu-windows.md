@@ -75,8 +75,8 @@ O JSON seguinte mostra o esquema para a extensão.
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | cadeia |
-| type | NvidiaGpuDriverWindows | cadeia |
+| publisher | Microsoft.HpcCompute | string |
+| type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
 
