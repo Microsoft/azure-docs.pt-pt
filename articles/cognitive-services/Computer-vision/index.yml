@@ -2,15 +2,14 @@
 documentType: LandingData
 title: Documentação da API de Imagem Digitalizada
 metadata:
-  title: Documentação da API - Imagem Digitalizada - Serviços Cognitivos do Azure | Microsoft Docs
+  title: Documentação da API – Imagem Digitalizada
+  titleSuffix: Azure Cognitive Services
   description: Saiba como utilizar a Imagem Digitalizada para processar imagens e devolver informações. Os tutoriais mostram-lhe como criar aplicações que utilizam a API.
   services: cognitive-services
   author: nitinme
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: computer-vision
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 02/26/2019
   ms.author: nitinme

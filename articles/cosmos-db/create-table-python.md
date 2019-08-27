@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Tabela de API com Python - Azure Cosmos DB'
+title: 'Início rápido: API de Tabela com Python-Azure Cosmos DB'
 description: Este guia de introdução mostra como utilizar a API de Tabela do Azure Cosmos DB para criar uma aplicação com o portal do Azure e Python
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 2425d14e43abd98d80bef8ce01e1c1c5f73a78a0
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 358f55594037f4a468d31265f4e65a6ec4d7ef28
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833069"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020140"
 ---
-# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Início rápido: Criar uma aplicação de API com Python e Azure Cosmos DB tabela
+# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Início rápido: Criar um aplicativo API de Tabela com Python e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -35,7 +35,7 @@ O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distr
 
 Além disso:
 
-* Se ainda não tiver o Visual Studio 2019, instalado, pode transferir e utilizar o **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Confirme que seleciona as cargas de trabalho de **Desenvolvimento do Azure** e **Desenvolvimento do Python** durante a configuração do Visual Studio.
+* Se você ainda não tiver o Visual Studio 2019 instalado, poderá baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)gratuito. Confirme que seleciona as cargas de trabalho de **Desenvolvimento do Azure** e **Desenvolvimento do Python** durante a configuração do Visual Studio.
 * Selecione também a opção do Python 2 de optar ativamente por participar na carga de trabalho de **Desenvolvimento do Python** ou transfira o Python 2.7 em [python.org](https://www.python.org/downloads/release/python-2712/).
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
@@ -82,7 +82,7 @@ Agora, vamos clonar uma aplicação de Tabela a partir do GitHub, definir a cade
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. Isto permite à aplicação comunicar com a base de dados alojada. 
 
-1. No [portal do Azure](https://portal.azure.com/), clique em **Cadeia de ligação**. 
+1. No [portal do Azure](https://portal.azure.com/), clique em **Cadeia de Ligação**. 
 
     ![Ver e copiar a CADEIA DE LIGAÇÃO no painel Cadeia de Ligação](./media/create-table-python/connection-string.png)
 
@@ -100,7 +100,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 1. No Visual Studio, clique com o botão direito do rato no projeto no **Explorador de Soluções**, selecione o ambiente de Python atual e clique com o botão direito do rato.
 
-2. Selecione Instalar Pacote Python e escreva **azure-storage-table**
+2. Selecione instalar pacote do Python e, em seguida, insira **Azure-Storage-Table**
 
 3. Prima F5 para executar a aplicação. A aplicação é apresentada no browser. 
 
