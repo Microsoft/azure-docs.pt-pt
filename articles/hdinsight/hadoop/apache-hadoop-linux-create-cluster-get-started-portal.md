@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Introdução ao Apache Hadoop e Apache Hive com o portal do Azure - Azure HDInsight'
-description: Neste início rápido, vai utilizar o portal do Azure para criar um cluster HDInsight Hadoop
+title: 'Início rápido: Introdução ao Apache Hadoop e Apache Hive usando o portal do Azure HDInsight do Azure'
+description: Neste guia de início rápido, você usa o portal do Azure para criar um cluster HDInsight Hadoop
 keywords: guia de introdução do hadoop, hadoop linux, início rápido do hadoop, introdução do hive, início rápido do hive
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,49 +9,49 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: f92cb247afb25562a96373c28534549a2f16d8c9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 0e3ee1620d9dc004f3b3b0804fc42cc0d427a7ef
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67805594"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036411"
 ---
-# <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Início rápido: Criar cluster do Apache Hadoop no HDInsight do Azure através do portal do Azure
+# <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Início rápido: Criar Apache Hadoop cluster no Azure HDInsight usando portal do Azure
 
-Neste artigo, irá aprender a criar [Apache Hadoop](https://hadoop.apache.org/) clusters no HDInsight com o portal do Azure e, em seguida, executar tarefas de Apache Hive no HDInsight. A maioria das tarefas do Hadoop são tarefas de lote. Cria um cluster, executa algumas tarefas e, em seguida, elimina o cluster. Neste artigo, irá realizar as três tarefas.
+Neste artigo, você aprenderá a criar [Apache Hadoop](https://hadoop.apache.org/) clusters no hdinsight usando portal do Azure e, em seguida, executar trabalhos de Apache Hive no hdinsight. A maioria das tarefas do Hadoop são tarefas de lote. Cria um cluster, executa algumas tarefas e, em seguida, elimina o cluster. Neste artigo, irá realizar as três tarefas.
 
 Neste guia de início rápido, irá utilizar o portal do Azure para criar um cluster do Hadoop no HDInsight. Também pode criar um cluster através do [modelo Azure Resource Manager](apache-hadoop-linux-tutorial-get-started.md).
 
-Atualmente, o HDInsight inclui [sete tipos diferentes de cluster](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Cada tipo de cluster suporta um conjunto diferente de componentes. Todos os tipos de cluster suportam o Hive. Para obter uma lista dos componentes suportados no HDInsight, consulte [quais são as novidades nas versões de cluster do Apache Hadoop fornecidas pelo HDInsight?](../hdinsight-component-versioning.md)  
+Atualmente, o HDInsight inclui [sete tipos diferentes de cluster](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Cada tipo de cluster suporta um conjunto diferente de componentes. Todos os tipos de cluster suportam o Hive. Para obter uma lista de componentes com suporte no HDInsight, consulte [novidades nas versões de cluster apache Hadoop fornecidas pelo HDInsight?](../hdinsight-component-versioning.md)  
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-an-apache-hadoop-cluster"></a>Criar um cluster do Apache Hadoop
+## <a name="create-an-apache-hadoop-cluster"></a>Criar um cluster Apache Hadoop
 
 Nesta secção, irá criar um cluster do Hadoop no HDInsight através do portal do Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. A partir do portal do Azure, navegue para **criar um recurso** > **análise** > **HDInsight**.
+1. No portal do Azure, vá para **criar uma** > **análise** > de recursos**HDInsight**.
 
     ![Databricks no portal do Azure](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight.png "Databricks no portal do Azure")
 
-1. Sob **HDInsight** > **criação rápida** > **Noções básicas**, introduza ou selecione os seguintes valores:
+1. Em**noções básicas**de**criação** > rápida do **HDInsight** > , insira ou selecione os seguintes valores:
 
     |Propriedade  |Descrição  |
     |---------|---------|
-    |Nome do cluster   | Introduza um nome para o cluster do Hadoop. Uma vez que todos os clusters no HDInsight partilham o mesmo espaço de nomes DNS, este nome tem de ser único. O nome pode consistir em máximo de 59 carateres, incluindo letras, números e hífenes. O primeiro e último carateres do nome não podem ser hífenes. |
+    |Nome do cluster   | Introduza um nome para o cluster do Hadoop. Uma vez que todos os clusters no HDInsight partilham o mesmo espaço de nomes DNS, este nome tem de ser único. O nome pode conter até 59 caracteres, incluindo letras, números e hifens. O primeiro e último carateres do nome não podem ser hífenes. |
     |Subscription    |  Selecione a sua subscrição do Azure. |
     |Tipo de cluster     | Ignorar por agora. Irá fornecer estas informações no próximo passo deste procedimento.|
-    |Nome de utilizador de início de sessão de cluster e a palavra-passe    | O nome de início de sessão predefinido é **admin**. A palavra-passe tem de ter no mínimo 10 carateres e tem de conter, pelo menos, um número, uma letra maiúscula e uma letra minúscula, e um caráter não alfanumérico (exceto os carateres ' " `\). Certifique-se de que **não escolhe** uma palavra-passe comum, tal como "Pass@word1".|
+    |Nome de usuário e senha de logon do cluster    | O nome de início de sessão predefinido é **admin**. A palavra-passe tem de ter no mínimo 10 carateres e tem de conter, pelo menos, um número, uma letra maiúscula e uma letra minúscula, e um caráter não alfanumérico (exceto os carateres ' " `\). Certifique-se de que **não escolhe** uma palavra-passe comum, tal como "Pass@word1".|
     |Nome de utilizador de Secure Shell (SSH) | O nome de utilizador predefinido é **sshuser**.  Pode indicar outro nome de utilizador SSH. |
-    |Utilize a palavra-passe de início de sessão do cluster para SSH| Selecione esta caixa de verificação para utilizar a mesma palavra-passe de utilizador SSH que forneceu para o utilizador de início de sessão do cluster.|
+    |Usar senha de logon do cluster para SSH| Marque essa caixa de seleção para usar a mesma senha para o usuário SSH como aquela que você forneceu para o usuário de logon do cluster.|
     |Resource group     | Crie um grupo de recursos ou selecione um existente.  Um grupo de recursos é um contentor de componentes do Azure.  Neste caso, o grupo de recursos contém o cluster do HDInsight e a conta de armazenamento do Azure dependente. |
     |Location    | Selecione uma localização do Azure onde quer criar o cluster.  Selecione uma localização mais próxima de si para obter um melhor desempenho. |
 
     ![Introdução ao fornecimento de valores básicos do cluster no HDInsight com Linux](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-basics.png "Fornecer valores básicos para criar um cluster do HDInsight")
 
-1. Selecione **tipo de Cluster** para abrir o **configuração de Cluster** página e, em seguida, forneça os valores seguintes:
+1. Selecione **tipo de cluster** para abrir a página **configuração de cluster** e forneça os seguintes valores:
 
     |Propriedade  |Descrição  |
     |---------|---------|
@@ -60,21 +60,21 @@ Nesta secção, irá criar um cluster do Hadoop no HDInsight através do portal 
 
     ![Introdução ao fornecimento de valores básicos do cluster no HDInsight com Linux](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-configuration-hadoop.png "Fornecer valores básicos para criar um cluster do HDInsight")
 
-    Selecione **selecionar** e, em seguida, selecione **próxima** para avançar para as definições de armazenamento.
+    Selecione **selecionar** e selecione **Avançar** para avançar para as configurações de armazenamento.
 
-1. Partir do **armazenamento** separador, forneça os valores seguintes:
+1. Na guia **armazenamento** , forneça os seguintes valores:
 
     |Propriedade  |Descrição  |
     |---------|---------|
-    |Tipo de armazenamento primário    | Neste artigo, selecione o armazenamento do Azure para utilizar o Azure Storage Blob como conta de armazenamento predefinida. Também pode utilizar o Azure Data Lake Storage como armazenamento predefinido. |
+    |Tipo de armazenamento primário    | Para este artigo, selecione armazenamento do Azure para usar Azure Storage Blob como a conta de armazenamento padrão. Também pode utilizar o Azure Data Lake Storage como armazenamento predefinido. |
     |Método de seleção     |  Para este artigo, selecione **As minhas subscrições** para utilizar uma conta de armazenamento da sua subscrição do Azure. Para utilizar a conta de armazenamento de outras subscrições, selecione **Chave de acesso** e, em seguida, forneça a chave de acesso dessa conta. |
-    |Selecione uma conta de armazenamento   | Selecione **Selecione uma conta de armazenamento** para selecionar uma conta de armazenamento existente ou selecione **criar nova**. Se criar uma nova conta, o nome tem de ter entre 3 e 24 carateres de comprimento e pode incluir apenas letras minúsculas e números.|
+    |Selecione uma conta de Armazenamento   | Selecione **selecionar uma conta de armazenamento** para selecionar uma conta de armazenamento existente ou selecione **criar nova**. Se você criar uma nova conta, o nome deverá ter entre 3 e 24 caracteres de comprimento e só poderá incluir números e letras minúsculas.|
 
-    Aceite todos os outros valores predefinidos e, em seguida, selecione **seguinte** para avançar para a página de resumo.
+    Aceite todos os outros valores padrão e, em seguida, selecione **Avançar** para ir para a página Resumo.
 
     ![Introdução ao fornecimento de valores de armazenamento do cluster no HDInsight com Linux](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-storage.png "Fornecer valores de armazenamento para criar um cluster no HDInsight")
 
-1. Partir do **resumo** separador, verifique se os valores selecionados nos passos anteriores.
+1. Na guia **Resumo** , verifique os valores que você selecionou nas etapas anteriores.
 
     ![Introdução ao resumo do cluster no HDInsight com Linux](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-summary.png "Introdução ao resumo do cluster no HDInsight com Linux")
 
@@ -84,16 +84,16 @@ Nesta secção, irá criar um cluster do Hadoop no HDInsight através do portal 
 
     ![Introdução às definições do cluster no HDInsight com Linux](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-overview.png "Propriedades do cluster no HDInsight")    
 
-    Cada cluster tem uma dependência de [conta do Armazenamento do Azure](../hdinsight-hadoop-use-blob-storage.md) ou de [conta do Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). É designada de conta de armazenamento predefinida. Cluster do HDInsight e a sua conta do storage predefinida tem de ser colocalizados na mesma região do Azure. A eliminação dos clusters não elimina a conta de armazenamento.
+    Cada cluster tem uma dependência de [conta do Armazenamento do Azure](../hdinsight-hadoop-use-blob-storage.md) ou de [conta do Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). É designada de conta de armazenamento predefinida. O cluster HDInsight e sua conta de armazenamento padrão devem estar colocalizados na mesma região do Azure. A eliminação dos clusters não elimina a conta de armazenamento.
 
     > [!NOTE]  
-    > Para outros métodos de criação de clusters e compreender as propriedades utilizadas neste guia de introdução, consulte [clusters do HDInsight criar](../hdinsight-hadoop-provision-linux-clusters.md).
+    > Para outros métodos de criação de cluster e noções básicas sobre as propriedades usadas neste guia de início rápido, consulte [Criar clusters HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="run-apache-hive-queries"></a>Executar consultas do Apache Hive
+## <a name="run-apache-hive-queries"></a>Executar Apache Hive consultas
 
-O [Apache Hive](hdinsight-use-hive.md) é o componente mais popular utilizado no HDInsight. Existem várias formas de executar tarefas do Hive no HDInsight. Neste início rápido, vai utilizar a vista Ambari Hive do portal. Para conhecer outros métodos de submissão de tarefas do Hive, consulte [Utilizar o Hive no HDInsight](hdinsight-use-hive.md).
+O [Apache Hive](hdinsight-use-hive.md) é o componente mais popular utilizado no HDInsight. Existem várias formas de executar tarefas do Hive no HDInsight. Neste guia de início rápido, você usa a exibição do Ambari Hive no Portal. Para conhecer outros métodos de submissão de tarefas do Hive, consulte [Utilizar o Hive no HDInsight](hdinsight-use-hive.md).
 
-1. Para abrir o Ambari, a partir da captura de ecrã anterior, selecione **Dashboard de Clusters**.  Também pode navegar até `https://ClusterName.azurehdinsight.net`, onde `ClusterName` é o cluster que criou na secção anterior.
+1. Para abrir o Ambari, a partir da captura de ecrã anterior, selecione **Dashboard de Clusters**.  Você também pode navegar até `https://ClusterName.azurehdinsight.net`, onde `ClusterName` é o cluster que você criou na seção anterior.
 
     ![Introdução ao dashboard de clusters no HDInsight com Linux](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-open-cluster-dashboard.png "Introdução ao dashboard de clusters no HDInsight com Linux")
 
@@ -113,7 +113,7 @@ O [Apache Hive](hdinsight-use-hive.md) é o componente mais popular utilizado no
 
 5. Selecione **Executar**. O separador **RESULTADOS** aparece por baixo do separador **CONSULTA** e apresenta informações sobre a tarefa. 
 
-    Assim que a consulta estiver concluída, o **consulta** guia exibe os resultados da operação. Deverá ver uma tabela denomizada **hivesampletable**. Esta tabela do Hive de exemplo inclui todos os clusters do HDInsight.
+    Depois que a consulta for concluída, a guia **consulta** exibirá os resultados da operação. Deverá ver uma tabela denomizada **hivesampletable**. Esta tabela do Hive de exemplo inclui todos os clusters do HDInsight.
 
     ![Vistas do Hive do HDInsight](./media/apache-hadoop-linux-tutorial-get-started/hiveview.png "Editor de Consulta do Hive View do HDInsight")
 
@@ -127,14 +127,14 @@ O [Apache Hive](hdinsight-use-hive.md) é o componente mais popular utilizado no
 
     ![Guardar o resultado da consulta do Hive](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-hive-view-save-results.png "Guardar o resultado da consulta do Hive")
 
-Depois de concluir uma tarefa deo Hive, pode [exportar os resultados para a Base de Dados SQL do Azure ou a base de dados do SQL Server](apache-hadoop-use-sqoop-mac-linux.md). Do mesmo modo, pode [visualizar os resultados com o Excel](apache-hadoop-connect-excel-power-query.md). Para obter mais informações sobre como utilizar o Hive no HDInsight, consulte [utilizar o Apache Hive e o HiveQL com o Apache Hadoop no HDInsight, para analisar um ficheiro de exemplo Apache log4j](hdinsight-use-hive.md).
+Depois de concluir uma tarefa deo Hive, pode [exportar os resultados para a Base de Dados SQL do Azure ou a base de dados do SQL Server](apache-hadoop-use-sqoop-mac-linux.md). Do mesmo modo, pode [visualizar os resultados com o Excel](apache-hadoop-connect-excel-power-query.md). Para obter mais informações sobre como usar o hive no HDInsight, consulte [usar Apache Hive e HiveQL com Apache Hadoop no HDInsight para analisar um arquivo Apache Log4J de exemplo](hdinsight-use-hive.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de concluir o início rápido, pode querer eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados.
+Depois de concluir o início rápido, talvez você queira excluir o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados.
 
 > [!NOTE]  
-> Se estiver *imediatamente* prosseguir para o artigo seguinte para saber como executar operações de ETL, usando o Hadoop no HDInsight, talvez queira manter o cluster em execução. Isto acontece porque o tutorial tem de criar um cluster do Hadoop novamente. No entanto, se não passam pelo próximo artigo imediatamente, tem de eliminar o cluster agora.
+> Se você estiver *imediatamente* no próximo artigo para saber como executar operações de ETL usando o Hadoop no HDInsight, talvez você queira manter o cluster em execução. Isso ocorre porque, no tutorial, você precisa criar um cluster Hadoop novamente. No entanto, se você não estiver passando pelo próximo artigo imediatamente, deverá excluir o cluster agora.
 
 ### <a name="to-delete-the-cluster-andor-the-default-storage-account"></a>Para eliminar o cluster e/ou a conta do Storage predefinida
 
@@ -148,7 +148,7 @@ Depois de concluir o início rápido, pode querer eliminar o cluster. Com o HDIn
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, aprendeu como criar um cluster do HDInsight baseado em Linux com um modelo do Resource Manager e como executar consultas do Hive básicas. No artigo seguinte, irá saber como executar uma operação de ETL (extração, transformação e carregamento) com o Hadoop no HDInsight.
+Neste guia de início rápido, você aprendeu como criar um cluster HDInsight baseado em Linux usando um modelo do Resource Manager e como executar consultas básicas do hive. No artigo seguinte, irá saber como executar uma operação de ETL (extração, transformação e carregamento) com o Hadoop no HDInsight.
 
 > [!div class="nextstepaction"]
->[Extrair, transformar e carregar dados com o Interactive Query no HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+>[Extrair, transformar e carregar dados usando a consulta interativa no HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

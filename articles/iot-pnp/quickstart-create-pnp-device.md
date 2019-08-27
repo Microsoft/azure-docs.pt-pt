@@ -1,5 +1,5 @@
 ---
-title: Criar um dispositivo de visualização de Plug and Play do Azure IoT | Microsoft Docs
+title: Criar um dispositivo de visualização de Plug and Play de IoT | Microsoft Docs
 description: Use um modelo de funcionalidade de dispositivo para gerar o código do dispositivo. Em seguida, execute o código do dispositivo e veja o dispositivo conectar-se ao Hub IoT.
 author: miagdp
 ms.author: miag
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 7cfa6e63f74233e9a3fab8f235584fdbe01e67d9
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 386c2fa23e8d01f696ef3cf6078bac5fcec58f05
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878216"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050130"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device"></a>Início rápido: Usar um modelo de capacidade de dispositivo para criar um dispositivo de Plug and Play de IoT
 
@@ -223,7 +223,7 @@ Para validar o código do dispositivo com o **Azure IOT Explorer**, você precis
 
 1. Vá para o dispositivo simulado para verificar se o comando foi executado conforme o esperado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você aprendeu a criar um dispositivo de Plug and Play de IoT usando um DCM.
 

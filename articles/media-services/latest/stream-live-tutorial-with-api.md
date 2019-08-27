@@ -1,6 +1,6 @@
 ---
-title: Stream em direto com Media Services do Azure v3 | Documentos da Microsoft
-description: Este tutorial orienta-o pelos passos de transmissão em fluxo em direto com serviços de multimédia v3.
+title: Transmitir ao vivo com os serviços de mídia do Azure v3 | Microsoft Docs
+description: Este tutorial orienta você pelas etapas de streaming Live com os serviços de mídia v3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,24 +14,24 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 5028fd4179f19634b41bb46a5f6df40f36cc8e29
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b69bd62cb9bbe44fb37b3f3660c2f20f3965384e
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275564"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051572"
 ---
-# <a name="tutorial-stream-live-with-media-services"></a>Tutorial: Stream em direto com Media Services
+# <a name="tutorial-stream-live-with-media-services"></a>Tutorial: Transmitir ao vivo com os serviços de mídia
 
 > [!NOTE]
-> Mesmo que o tutorial utiliza a [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) exemplos, os passos gerais são os mesmos para [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), ou outro suportado [SDKs](media-services-apis-overview.md#sdks) .
+> Embora o tutorial use os exemplos do [SDK do .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , as etapas gerais são as mesmas para a [API REST](https://docs.microsoft.com/rest/api/media/liveevents), a [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)ou outros [SDKs](media-services-apis-overview.md#sdks)com suporte.
 
-Nos serviços de multimédia do Azure, [eventos ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis por processar o conteúdo de transmissão em fluxo em direto. Um evento em direto fornece um ponto de final de entrada (URL de ingestão) que, em seguida, forneça a um codificador em direto. O evento Live recebe a transmissão em direto de entrada do codificador em direto e disponibiliza-o para transmissão em fluxo através de um ou mais [pontos finais de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingendpoints). Eventos em direto também fornecem um ponto de extremidade pré-visualização (URL de pré-visualização) que utilizar para pré-visualizar e validar a sua transmissão antes de mais processamentos e entregas. Este tutorial mostra como utilizar um canal .NET Core para criar um evento em direto do tipo **pass-through**. 
+Nos serviços de mídia do Azure, os [eventos ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pelo processamento de conteúdo de transmissão ao vivo. Um evento ao vivo fornece um ponto de extremidade de entrada (URL de ingestão) que você então fornece a um codificador ao vivo. O evento ao vivo recebe fluxos de entrada ao vivo do codificador ao vivo e os disponibiliza para streaming por meio de um ou mais [pontos de extremidade de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Eventos ao vivo também fornecem um ponto de extremidade de visualização (URL de visualização) que você usa para visualizar e validar seu fluxo antes de processar e entregar. Este tutorial mostra como utilizar um canal .NET Core para criar um evento em direto do tipo **pass-through**. 
 
 Este tutorial mostra-lhe como:    
 
 > [!div class="checklist"]
-> * Transferir a aplicação de exemplo descrita no tópico
+> * Baixe o aplicativo de exemplo descrito no tópico
 > * Examinar o código que efetua a transmissão em fluxo em direto
 > * Observar o evento com o [Leitor de Multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) em https://ampdemo.azureedge.net
 > * Limpar recursos
@@ -43,15 +43,15 @@ Este tutorial mostra-lhe como:
 O seguinte é necessário para concluir o tutorial.
 
 - Instale o Visual Studio Code ou o Visual Studio.
-- [Criar uma conta de Media Services](create-account-cli-how-to.md).<br/>Lembre-se de que não se esqueça dos valores que utilizou para o nome do grupo de recursos e o nome de conta de serviços de multimédia.
-- Siga os passos em [acesso à API de serviços de multimédia do Azure com a CLI do Azure](access-api-cli-how-to.md) e guarde as credenciais. Terá de utilizá-los para aceder à API.
+- [Criar uma conta de Media Services](create-account-cli-how-to.md).<br/>Lembre-se de lembrar os valores que você usou para o nome do grupo de recursos e o nome da conta dos serviços de mídia.
+- Siga as etapas em [acessar a API dos serviços de mídia do Azure com o CLI do Azure](access-api-cli-how-to.md) e salve as credenciais. Você precisará usá-las para acessar a API.
 - Uma câmara ou um dispositivo (como um computador portátil) que é utilizado para transmitir um evento.
 - Um codificador em direto no local que converte sinais da câmara para transmissões em fluxos que são enviadas para o serviço de transmissão em fluxo em direto dos Serviços de Multimédia. O fluxo tem de ser em formato **RTMP** ou de **transmissão em fluxo uniforme**.
 
 > [!TIP]
 > Certifique-se de que revê [Transmissão em fluxo em direto com os Serviços de Multimédia v3](live-streaming-overview.md) antes de continuar. 
 
-## <a name="download-and-configure-the-sample"></a>Transferir e configurar o exemplo
+## <a name="download-and-configure-the-sample"></a>Baixar e configurar o exemplo
 
 Clone o repositório do GitHub que contém o exemplo de .NET de transmissão para o computador com o comando seguinte:  
 
@@ -61,10 +61,10 @@ Clone o repositório do GitHub que contém o exemplo de .NET de transmissão par
 
 O exemplo de transmissão em fluxo em direto está localizado na pasta [Dinâmica](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live/MediaV3LiveApp).
 
-Open [appSettings](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) no que transferiu o projeto. Substitua os valores com as credenciais que obteve da [aceder a APIs](access-api-cli-how-to.md).
+Abra [appSettings. JSON](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) no projeto baixado. Substitua os valores por credenciais obtidas de [acessar APIs](access-api-cli-how-to.md).
 
 > [!IMPORTANT]
-> Este exemplo utiliza o sufixo exclusivo para cada recurso. Se cancelar a depuração ou encerrar o aplicativo sem a executá-lo por meio, acabará com vários eventos em direto na sua conta. <br/>Certifique-se parar os eventos em direto em execução. Se não o fizer, estes ser-lhe-ão **faturados**!
+> Este exemplo utiliza o sufixo exclusivo para cada recurso. Se você cancelar a depuração ou encerrar o aplicativo sem executá-lo, você acabará com vários eventos ao vivo em sua conta. <br/>Certifique-se de interromper os eventos ao vivo em execução. Se não o fizer, estes ser-lhe-ão **faturados**!
 
 ## <a name="examine-the-code-that-performs-live-streaming"></a>Examinar o código que efetua a transmissão em fluxo em direto
 
@@ -73,8 +73,8 @@ Esta secção examina funções definidas no ficheiro [Program.cs](https://githu
 O exemplo cria um sufixo exclusivo para cada recurso para não ocorrerem colisões de nomes, se executar o exemplo várias vezes sem proceder a uma limpeza.
 
 > [!IMPORTANT]
-> Este exemplo utiliza o sufixo exclusivo para cada recurso. Se cancelar a depuração ou encerrar o aplicativo sem a executá-lo por meio, acabará com vários eventos em direto na sua conta. <br/>
-> Certifique-se parar os eventos em direto em execução. Se não o fizer, estes ser-lhe-ão **faturados**!
+> Este exemplo utiliza o sufixo exclusivo para cada recurso. Se você cancelar a depuração ou encerrar o aplicativo sem executá-lo, você acabará com vários eventos ao vivo em sua conta. <br/>
+> Certifique-se de interromper os eventos ao vivo em execução. Se não o fizer, estes ser-lhe-ão **faturados**!
  
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Começar a utilizar as APIs dos Serviços de Multimédia com o SDK .NET
 
@@ -82,23 +82,23 @@ Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateMediaServicesClient)]
 
-### <a name="create-a-live-event"></a>Criar um evento em direto
+### <a name="create-a-live-event"></a>Criar evento live
 
-Esta secção mostra como criar uma **pass-through** tipo de evento em direto (LiveEventEncodingType definida como None). Para obter mais informações sobre os tipos de eventos em direto disponíveis, consulte [tipos de evento em direto](live-events-outputs-concept.md#live-event-types). 
+Esta seção mostra como criar um tipo de **passagem** de evento ao vivo (LiveEventEncodingType definido como None). Para obter mais informações sobre os tipos disponíveis de eventos ao vivo, consulte [tipos de eventos ao vivo](live-events-outputs-concept.md#live-event-types). 
  
-Algumas coisas que talvez queira especificar ao criar o evento em direto são:
+Algumas coisas que você pode querer especificar ao criar o evento ao vivo são:
 
 * A localização dos Serviços de Multimédia 
-* O protocolo de transmissão em fluxo para o evento em direto (atualmente, são suportados os protocolos RTMP e Smooth Streaming).<br/>Não é possível alterar a opção de protocolo enquanto o evento em direto ou suas saídas associadas em direto estão em execução. Se necessitar de protocolos diferentes, deve criar evento Live separado para cada protocolo de transmissão em fluxo.  
-* Restrições de IP na ingestão e na pré-visualização. Pode definir os endereços IP que estão autorizados a ingerir um vídeo para este evento em direto. Os endereços IP permitidos podem ser especificados como um endereço IP único (por exemplo "10.0.0.1"), um intervalo de IP com um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ' 10.0.0.1/22') ou um intervalo de IP com um endereço IP e uma máscara de sub-rede de ponto decimal (por exemplo , ' 10.0.0.1(255.255.252.0)').<br/>Se não for especificado qualquer endereço IP e se não existir nenhuma definição de regra, não será permitido nenhum endereço IP. Para permitir um endereço IP, crie uma regra e defina 0.0.0.0/0.<br/>Os endereços IP tem de estar em um dos seguintes formatos: Endereço IpV4 com 4 números, o intervalo de endereços CIDR.
-* Ao criar o evento, poderá especificar o início automático do mesmo. <br/>Quando o início automático está definido como true, o evento em direto será iniciado após a criação. Isso significa que, a faturação é iniciada assim que o evento Live começa a ser executado. Tem de chamar explicitamente Stop do recurso de evento em direto para parar a faturação ainda mais. Para obter mais informações, consulte [Estados de evento em direto e de faturação](live-event-states-billing.md).
-* Para um URL de inserção ser preditiva, defina o modo de "personalizado". Para obter informações detalhadas, consulte [URLs de inserção de evento em direto](live-events-outputs-concept.md#live-event-ingest-urls).
+* O protocolo de streaming para o evento ao vivo (atualmente, há suporte para os protocolos RTMP e Smooth Streaming).<br/>Você não pode alterar a opção de protocolo enquanto o evento ao vivo ou suas saídas dinâmicas associadas estiverem em execução. Se você precisar de protocolos diferentes, deverá criar um evento ao vivo separado para cada protocolo de streaming.  
+* Restrições de IP na ingestão e na pré-visualização. Você pode definir os endereços IP que têm permissão para ingerir um vídeo para esse evento ao vivo. Os endereços IP permitidos podem ser especificados como um endereço IP único (por exemplo "10.0.0.1"), um intervalo de IP com um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ' 10.0.0.1/22') ou um intervalo de IP com um endereço IP e uma máscara de sub-rede de ponto decimal (por exemplo , ' 10.0.0.1(255.255.252.0)').<br/>Se não for especificado qualquer endereço IP e se não existir nenhuma definição de regra, não será permitido nenhum endereço IP. Para permitir um endereço IP, crie uma regra e defina 0.0.0.0/0.<br/>Os endereços IP devem estar em um dos seguintes formatos: Endereço IpV4 com 4 números, intervalo de endereços CIDR.
+* Ao criar o evento, poderá especificar o início automático do mesmo. <br/>Quando AutoStart é definido como true, o evento ao vivo será iniciado após a criação. Isso significa que a cobrança começa assim que o evento ao vivo começa a ser executado. Você deve chamar Stop explicitamente no recurso de evento ao vivo para interromper mais cobranças. Para obter mais informações, consulte [Live Event States e Billing](live-event-states-billing.md).
+* Para que uma URL de ingestão seja preditiva, defina o modo "intuitivo". Para obter informações detalhadas, consulte URLs de ingestão de [eventos ao vivo](live-events-outputs-concept.md#live-event-ingest-urls).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 
 ### <a name="get-ingest-urls"></a>Obter URLs de inserção
 
-Depois de criar o evento em direto, pode obter URLs de inserção que fornecerá ao codificador em direto. O codificador utiliza estes URLs para exibir uma transmissão um fluxo direto.
+Depois que o evento ao vivo for criado, você poderá obter URLs de ingestão que serão fornecidas ao codificador ao vivo. O codificador utiliza estes URLs para exibir uma transmissão um fluxo direto.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetIngestURL)]
 
@@ -111,28 +111,28 @@ Utilize o previewEndpoint para pré-visualizar e certifique-se de que a entrada 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetPreviewURLs)]
 
-### <a name="create-and-manage-live-events-and-live-outputs"></a>Criar e gerir eventos ao vivo e saídas em direto
+### <a name="create-and-manage-live-events-and-live-outputs"></a>Criar e gerenciar eventos ao vivo e saídas ao vivo
 
-Assim que tiver o fluxo a ser encaminhados para o evento em direto, pode começar o evento de transmissão em fluxo através da criação de um recurso, a saída de Live e o localizador de transmissão em fluxo. Isto irá arquivar a transmissão em fluxo e torná-la disponível para os espetadores através do Ponto Final de Transmissão em Fluxo. 
+Depois que o fluxo fluir para o evento ao vivo, você poderá iniciar o evento de streaming criando um ativo, uma saída ao vivo e um localizador de streaming. Isto irá arquivar a transmissão em fluxo e torná-la disponível para os espetadores através do Ponto Final de Transmissão em Fluxo. 
 
 #### <a name="create-an-asset"></a>Criar um Elemento
 
-Crie um elemento para a saída em direto utilizar.
+Crie um ativo para a saída em tempo real a ser usado.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateAsset)]
 
-#### <a name="create-a-live-output"></a>Criar uma saída em direto
+#### <a name="create-a-live-output"></a>Criar uma saída ao vivo
 
-Início de saídas após a criação do Live e param quando eliminado. Ao eliminar a saída em direto, não serão eliminados os ativos e conteúdo no elemento subjacente.
+As saídas ao vivo começam na criação e param quando excluídas. Ao excluir a saída ao vivo, você não está excluindo o ativo subjacente e o conteúdo no ativo.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveOutput)]
 
-#### <a name="create-a-streaming-locator"></a>Criar um localizador de transmissão em fluxo
+#### <a name="create-a-streaming-locator"></a>Criar um localizador de streaming
 
 > [!NOTE]
-> Quando a conta dos Serviços de Multimédia é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à mesma, no estado **Parado**. Para iniciar o seu conteúdo de transmissão em fluxo e tirar partido das [empacotamento dinâmico](dynamic-packaging-overview.md) e a encriptação dinâmica, o ponto final de transmissão em fluxo do qual pretende transmitir conteúdo tem de estar no **em execução** estado. 
+> Quando a conta dos Serviços de Multimédia é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à mesma, no estado **Parado**. Para começar a transmitir seu conteúdo e aproveitar o [empacotamento dinâmico](dynamic-packaging-overview.md) e a criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **executando** . 
 
-Quando publica o elemento de saída em direto com um localizador de transmissão em fluxo, o evento em direto (até o tamanho de janela DVR) irá continuar a ser visualizado até expiração o localizador de transmissão em fluxo ou eliminação, o que ocorrer primeiro.
+Quando você publicar o ativo de saída ao vivo usando um localizador de streaming, o evento ao vivo (até o comprimento da janela DVR) continuará a ser exibido até a expiração ou a exclusão do localizador de streaming, o que ocorrer primeiro.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateStreamingLocator)]
 
@@ -157,22 +157,18 @@ foreach (StreamingPath path in paths.StreamingPaths)
 Se terminar a transmissão em fluxo de eventos e pretende limpar os recursos aprovisionados anteriormente, siga o procedimento seguinte.
 
 * Termine o envio da transmissão em fluxo do codificador.
-* Pare o evento em direto. Assim que o evento Live é parado, não será cobrado qualquer custo. Quando quiser reiniciar a transmissão, esta terá o mesmo URL de inserção, desta forma, não terá de reconfigurar o codificador.
-* Pode parar o seu Ponto Final de Transmissão em Fluxo, a menos que pretenda continuar a fornecer o arquivo do seu evento em direto como uma transmissão em fluxo a pedido. Se o evento em direto está no estado parado, não será cobrado qualquer custo.
+* Pare o evento ao vivo. Depois que o evento ao vivo for interrompido, ele não incorrerá em nenhum encargo. Quando quiser reiniciar a transmissão, esta terá o mesmo URL de inserção, desta forma, não terá de reconfigurar o codificador.
+* Pode parar o seu Ponto Final de Transmissão em Fluxo, a menos que pretenda continuar a fornecer o arquivo do seu evento em direto como uma transmissão em fluxo a pedido. Se o evento ao vivo estiver no estado parado, ele não incorrerá em nenhum encargo.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLiveEventAndOutput)]
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLocatorAssetAndStreamingEndpoint)]
 
-O código seguinte mostra como limpar a sua conta de todos os eventos em direto:
-
-[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupAccount)]   
-
 ## <a name="watch-the-event"></a>Ver o evento
 
-Para ver o evento, copie o URL de transmissão em fluxo que obteve quando executou o código descrito em criar um localizador de transmissão em fluxo e utilize um leitor da sua preferência. Pode utilizar o [Leitor de Multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) para testar a sua transmissão em fluxo em https://ampdemo.azureedge.net. 
+Para assistir ao evento, copie a URL de streaming que você obteve quando executou o código descrito em criar um localizador de streaming e use um jogador de sua escolha. Pode utilizar o [Leitor de Multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) para testar a sua transmissão em fluxo em https://ampdemo.azureedge.net. 
 
-Evento em direto converte automaticamente os eventos para conteúdo a pedido quando parado. Mesmo depois de parar e eliminar o evento, os utilizadores conseguirão transmitir o seu conteúdo arquivado como um vídeo a pedido, desde que não elimine o elemento. Não é possível eliminar um elemento se este é utilizado por um evento; o evento deve ser eliminado primeiro. 
+O evento ao vivo converte automaticamente os eventos em conteúdo sob demanda quando interrompido. Mesmo depois de parar e eliminar o evento, os utilizadores conseguirão transmitir o seu conteúdo arquivado como um vídeo a pedido, desde que não elimine o elemento. Não é possível eliminar um elemento se este é utilizado por um evento; o evento deve ser eliminado primeiro. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -185,11 +181,11 @@ az group delete --name amsResourceGroup
 ```
 
 > [!IMPORTANT]
-> Deixar o evento em direto em execução, incorre em custos de faturas. Tenha em atenção, se o programa/projeto falhar ou for fechado por qualquer motivo, que pode deixar o evento em direto em execução num Estado de faturação.
+> Deixar a execução do evento ao vivo gera custos de cobrança. Lembre-se de que, se o projeto/programa falhar ou for fechado por qualquer motivo, ele poderá deixar o evento ao vivo em execução em um estado de cobrança.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, comentários, obter atualizações
+## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, envie comentários, obtenha atualizações
 
-Veja a [Comunidade dos serviços de multimédia do Azure](media-services-community.md) artigo para ver formas diferentes, pode fazer perguntas, comentários e obter atualizações sobre os serviços de multimédia.
+Confira o artigo [da Comunidade dos serviços de mídia do Azure](media-services-community.md) para ver diferentes maneiras que você pode fazer perguntas, fornecer comentários e obter atualizações sobre os serviços de mídia.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

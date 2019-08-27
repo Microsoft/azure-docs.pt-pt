@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: a4146e20efae87287b77687e4a1d3b0196cb1c95
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 7f856c0b69788c3d0b711d567777aba6cb4c6918
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997944"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036096"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -78,12 +78,29 @@ Os trechos de código nesta seção demonstram o registro de um modelo de uma ex
 
 + **Usando o SDK**
 
-  ```python
-  model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
-  print(model.name, model.id, model.version, sep='\t')
-  ```
+  Ao usar o SDK para treinar um modelo, você pode receber um objeto [Run](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master) ou [AutoMLRun](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master) , dependendo de como você treinou o modelo. Cada objeto pode ser usado para registrar um modelo criado por uma execução de experimento.
 
-  O `model_path` refere-se ao local da nuvem do modelo. Neste exemplo, o caminho para um único arquivo é usado. Para incluir vários arquivos no registro do modelo, defina `model_path` para o diretório que contém os arquivos.
+  + Registrar um modelo de um `azureml.core.Run` objeto:
+ 
+    ```python
+    model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
+    print(model.name, model.id, model.version, sep='\t')
+    ```
+
+    O `model_path` refere-se ao local da nuvem do modelo. Neste exemplo, o caminho para um único arquivo é usado. Para incluir vários arquivos no registro do modelo, defina `model_path` para o diretório que contém os arquivos. Para obter mais informações, consulte a referência de [Run. register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-) .
+
+  + Registrar um modelo de um `azureml.train.automl.run.AutoMLRun` objeto:
+
+    ```python
+        description = 'My AutoML Model'
+        model = run.register_model(description = description)
+
+        print(run.model_id)
+    ```
+
+    Neste exemplo, os `metric` parâmetros e `iteration` não são especificados, o que faz com que a iteração com a melhor métrica primária seja registrada. O `model_id` valor retornado da execução é usado em vez de um nome de modelo.
+
+    Para obter mais informações, consulte a referência de [AutoMLRun. register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-) .
 
 + **Usando a CLI**
 
@@ -184,6 +201,9 @@ O script contém duas funções que carregam e executam o modelo:
 Ao registrar um modelo, você fornece um nome de modelo usado para gerenciar o modelo no registro. Use esse nome com o [modelo. Obtenha _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) para recuperar o caminho dos arquivos de modelo no sistema de arquivos local. Se você registrar uma pasta ou uma coleção de arquivos, essa API retornará o caminho para o diretório que contém esses arquivos.
 
 Ao registrar um modelo, você fornece um nome, que corresponde a onde o modelo é colocado, seja localmente ou durante a implantação do serviço.
+
+> [!IMPORTANT]
+> Se você treinasse um modelo usando o Machine Learning automatizado, um `model_id` valor será usado como o nome do modelo. Para obter um exemplo de registro e implantação de um modelo treinado com o ml automatizado [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment), consulte.
 
 O exemplo abaixo retornará um caminho para um único arquivo chamado `sklearn_mnist_model.pkl` (que foi registrado com o nome `sklearn_mnist`):
 

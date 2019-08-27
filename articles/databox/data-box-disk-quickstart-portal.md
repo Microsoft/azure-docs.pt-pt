@@ -6,16 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.localizationpriority: high
-ms.date: 02/26/2019
+ms.date: 08/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 983edcc19a27b91599ea1e312268934b37f8b0ca
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 9664fd35462ab6084b203fe4ccd3c10435d64991
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012884"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035629"
 ---
 ::: zone target="docs"
 
@@ -65,6 +64,7 @@ Inicie sessão no Portal do Azure em [https://aka.ms/azuredataboxfromdiskdocs](h
 
 - Você colocou seu pedido para disco do data box usando o [tutorial: Order Disco do Azure Data Box](data-box-disk-deploy-ordered.md).
 - Recebeu os seus discos e o estado da tarefa no portal foi atualizado para **Entregue**.
+- Você verificou o número de discos recebidos e tem um cabo de conexão por disco.
 - Você tem um computador cliente disponível do qual você pode copiar os dados. O computador cliente tem de:
 
     - Execute um [sistema operacional com suporte](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).

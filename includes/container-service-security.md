@@ -4,14 +4,14 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: 39bb75a6f834789f91cb590ffebb72f45624eb25
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c7b9e3a9eb5c906fa598da9c8c547cb542ecb719
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184812"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036760"
 ---
-# <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(PRETERIDO) Proteger contentores do Docker no Azure Container Service
+# <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>PRETERIDO Protegendo os contêineres do Docker no serviço de contêiner do Azure
 
 [!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
@@ -34,7 +34,7 @@ As empresas preocupam-se bastante com a segurança e, para se protegerem de ataq
 
 Mesmo se utilizar um registo privado, é útil utilizar soluções de análise de imagens para confirmar a segurança. Cada camada de software numa imagem de contentor é potencialmente suscetível a vulnerabilidades, independentemente das outras camadas da imagem do contentor. À medida que cada vez mais empresas começam a implementar as cargas de trabalho de produção baseadas em tecnologias de contentores, a análise das imagens assume uma importância para garantir a prevenção de ameaças à segurança. 
 
-As soluções de monitorização de segurança e de análise, como o [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry) e [Aqua Security](http://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry), entre outros, podem ser utilizados para analisar imagens de contentores em registos privados e identificar potenciais vulnerabilidades. É importante compreender a profundidade das análises de cada solução. Por exemplo, algumas podem fazer apenas verificações cruzadas de camadas das imagens relativamente a vulnerabilidades conhecidas. Estas soluções poderão não conseguir verificar o software de camadas de imagens criado através de determinado software de gestor de pacotes. Outras soluções têm uma integração de análises mais profunda e podem encontrar vulnerabilidades em qualquer software de pacotes.
+As soluções de monitorização de segurança e de análise, como o [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry) e [Aqua Security](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry), entre outros, podem ser utilizados para analisar imagens de contentores em registos privados e identificar potenciais vulnerabilidades. É importante compreender a profundidade das análises de cada solução. Por exemplo, algumas podem fazer apenas verificações cruzadas de camadas das imagens relativamente a vulnerabilidades conhecidas. Estas soluções poderão não conseguir verificar o software de camadas de imagens criado através de determinado software de gestor de pacotes. Outras soluções têm uma integração de análises mais profunda e podem encontrar vulnerabilidades em qualquer software de pacotes.
 
 ### <a name="production-deployment-rules-and-audit"></a>Regras de implementação e auditoria de produção
 Quando uma aplicação é implementada em produção, é essencial definir algumas regras para garantir que as imagens utilizadas nos ambientes de produção são seguras e não contêm vulnerabilidades.
@@ -58,13 +58,13 @@ Cada orquestrador disponível no Azure Container Service tem as suas próprias c
 
 Para obter informações adicionais sobre a segurança específica de cada orquestrador, veja os recursos seguintes:
 
-* **Kubernetes**: [Melhores práticas de segurança para a implementação do Kubernetes](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/)
+* **Kubernetes**: [Práticas recomendadas de segurança para a implantação do kubernetes](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/)
 
-* **DC/OS**: [Proteger o seu Cluster](http://docs.mesosphere.com/1.12/administering-clusters/securing-your-cluster)
+* **DC/OS**: [Protegendo seu cluster](http://docs.mesosphere.com/1.12/administering-clusters/securing-your-cluster)
 
-* **O docker Swarm**: [Segurança de docker](https://www.docker.com/docker-security)
+* **Docker Swarm**: [Segurança do Docker](https://www.docker.com/docker-security)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a arquitetura do Docker e a segurança dos contentores, veja [Introduction to Container Security](https://www.docker.com/sites/default/files/WP_IntrotoContainerSecurity_08.19.2016.pdf) (Introdução à Segurança dos Contentores).
 

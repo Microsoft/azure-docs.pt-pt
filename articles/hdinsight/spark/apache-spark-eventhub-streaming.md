@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: fef551c254eb4fa212333a55bde3d642645a16b6
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 0d47c3f0838e22ad8c5185a42f5f0c748335dfa8
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489797"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70049488"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Tutorial: Processar tweets usando hubs de eventos do Azure e Apache Spark no HDInsight
 
@@ -44,9 +44,9 @@ Para receber um fluxo de tweets, crie uma aplicação no Twitter. Siga as instru
 
 1. Forneça os seguintes valores:
 
-    |Propriedade |Valor |
+    |Propriedade |Value |
     |---|---|
-    |Nome|Forneça o nome do aplicativo. O valor usado para este tutorial é **HDISparkStreamApp0423**. Esse nome deve ser um nome exclusivo.|
+    |Name|Forneça o nome do aplicativo. O valor usado para este tutorial é **HDISparkStreamApp0423**. Esse nome deve ser um nome exclusivo.|
     |Descrição|Forneça uma breve descrição do aplicativo. O valor usado para este tutorial é **um aplicativo simples de streaming do HDInsight Spark**.|
     |Web site|Forneça o site do aplicativo. Ele não precisa ser um site válido.  O valor usado para este tutorial é `http://www.contoso.com`.|
     |Url de chamada de retorno|Você pode deixá-lo em branco.|
@@ -82,7 +82,7 @@ Você usa esse Hub de eventos para armazenar tweets.
 
     |Propriedade |Value |
     |---|---|
-    |Nome|Insira um nome para o Hub de eventos.  O valor usado para este tutorial é **myeventhubns20180403**.|
+    |Name|Insira um nome para o Hub de eventos.  O valor usado para este tutorial é **myeventhubns20180403**.|
     |Escalão de preço|Selecione **padrão**.|
     |Subscription|Selecione sua assinatura apropriada.|
     |Resource group|Selecione um grupo de recursos existente na lista suspensa ou selecione **criar novo** para criar um novo grupo de recursos.|
@@ -135,7 +135,7 @@ Crie um notebook Jupyter e nomeie-o **SendTweetsToEventHub**.
 
     ```
     %%configure
-    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0,org.twitter4j:twitter4j-core:4.0.6"}}
+    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13,org.twitter4j:twitter4j-core:4.0.6"}}
     ```
 
 2. Edite o código a seguir `<Event hub name>`substituindo `<CONSUMER KEY>`, `<CONSUMER SECRET>` `<Event hub namespace connection string>`, `<ACCESS TOKEN>`,, `<TOKEN SECRET>` e pelos valores apropriados. Execute o código editado para enviar Tweets para o Hub de eventos:
@@ -217,7 +217,7 @@ Crie outro Notebook Jupyter e nomeie-o **ReadTweetsFromEventHub**.
 
     ```
     %%configure -f
-    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0"}}
+    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13"}}
     ```
 
 2. Edite o código abaixo substituindo `<Event hub name>`e `<Event hub namespace connection string>` pelos valores apropriados. Execute o código editado para ler tweets do seu hub de eventos:

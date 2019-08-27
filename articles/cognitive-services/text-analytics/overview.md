@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/30/2019
+ms.date: 08/26/2019
 ms.author: aahi
-ms.openlocfilehash: ee4551f6a31436ef2322fcea3a0c479b45036993
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 8c5df8461c74d48c0712ab1947e29813e7e1ea3f
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697622"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032684"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
@@ -81,9 +81,9 @@ Esta secção foi movida para um artigo separado para melhor deteção. Consulte
 
 ## <a name="data-limits"></a>Limites de dados
 
-Todos os pontos finais da API de Análise de Texto aceitam dados de texto não processados. O limite atual é de 5.120 caracteres para cada documento; Se você precisar analisar documentos maiores, poderá dividi-los em partes menores. Se necessitar de um limite maior, [contacte-nos](https://azure.microsoft.com/overview/sales-number/), para que possamos analisar os seus requisitos.
+Todos os pontos finais da API de Análise de Texto aceitam dados de texto não processados. O limite atual é de 5.120 caracteres para cada documento; Se você precisar analisar documentos maiores, poderá dividi-los em partes menores.
 
-| Limite | Valor |
+| Limite | Value |
 |------------------------|---------------|
 | Tamanho máximo de um documento único | 5\.120 caracteres conforme medido [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements)por. |
 | Tamanho máximo do pedido completo | 1 MB |
@@ -93,7 +93,7 @@ Seu limite de taxa variará com o tipo de preço.
 
 | Escalão          | Solicitações por segundo | Solicitações por minuto |
 |---------------|---------------------|---------------------|
-| Vários serviços | 1000                | 1000                |
+| S/multi-serviço | 1000                | 1000                |
 | S0/F0         | 100                 | 300                 |
 | S1            | 200                 | 300                 |
 | S2            | 300                 | 300                 |

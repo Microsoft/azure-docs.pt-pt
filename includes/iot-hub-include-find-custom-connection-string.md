@@ -8,30 +8,30 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 55dc712d323c43849fa3de23c83e29fc348a0f1e
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 6f43bbcd83861f7d39de2aa89bbe035c2ff5b809
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68403952"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050383"
 ---
 <!-- This tells how to create a custom shared access policy for your IoT hub and get the connection string for it-->
 
 Para criar uma política de acesso compartilhado que conceda permissões de **leitura do registro** e **conexão de serviço** e obtenha uma cadeia de conexão para essa política, siga estas etapas:
 
-1. Abra o Hub IoT no [portal do Azure](https://portal.azure.com). A maneira mais fácil de acessar o Hub IoT é selecionar grupos de **recursos**, selecionar o grupo de recursos onde o Hub IOT está localizado e, em seguida, selecionar o Hub IOT na lista de recursos.
+1. Na [portal do Azure](https://portal.azure.com), selecione **grupos de recursos**. Selecione o grupo de recursos onde o Hub está localizado e, em seguida, selecione o Hub na lista de recursos.
 
-2. No painel do lado esquerdo do Hub IoT, selecione políticas de **acesso compartilhado**.
+1. No painel do lado esquerdo do Hub, selecione políticas de **acesso compartilhado**.
 
-3. No menu superior acima da lista de políticas, selecione **Adicionar**.
+1. No menu superior acima da lista de políticas, selecione **Adicionar**.
 
-4. No painel **Adicionar uma política de acesso compartilhado** , insira um nome descritivo para a política; por exemplo: *serviceAndRegistryRead*. Em **permissões**, selecione **registro ler** e **serviço conectar**e, em seguida, selecione **criar**.
+1. Em **Adicionar uma política de acesso compartilhado**, insira um nome descritivo para sua política, como *serviceAndRegistryRead*. Em **permissões**, selecione **registro ler** e **serviço conectar**e, em seguida, selecione **criar**.
 
     ![Mostrar como adicionar uma nova política de acesso compartilhado](./media/iot-hub-include-find-custom-connection-string/iot-hub-add-custom-policy.png)
 
-5. De volta ao painel **políticas de acesso compartilhado** , selecione sua nova política na lista de políticas.
+1. Selecione sua nova política na lista de políticas.
 
-6. Em **chaves de acesso compartilhado**, selecione o ícone de cópia para a **cadeia de conexão--chave primária** e salve o valor.
+1. Em **chaves de acesso compartilhado**, selecione o ícone de cópia para a **cadeia de conexão--chave primária** e salve o valor.
 
     ![Mostrar como recuperar a cadeia de conexão](./media/iot-hub-include-find-custom-connection-string/iot-hub-get-connection-string.png)
 

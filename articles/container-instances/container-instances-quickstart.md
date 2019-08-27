@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7a4a1c24211e644a796b4e60537978c327501383
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b344e5fefdef6cd25dcafc0577b9fbbd7f0e398d
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325775"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050623"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Início rápido: Implantar uma instância de contêiner no Azure usando o CLI do Azure
 
@@ -34,7 +34,7 @@ Pode utilizar o Azure Cloud Shell ou uma instalação local da CLI do Azure para
 
 O Azure Container Instances, como todos os recursos do Azure, tem de ser implementados num grupo de recursos. Os grupos de recursos permitem organizar e gerir recursos relacionados do Azure.
 
-Primeiro, crie um grupo de recursos  chamado MyResource Group no  local eastus com o seguinte comando [AZ Group Create][az-group-create] :
+Primeiro, crie um grupo de recursos chamado MyResource Group no local eastus com o seguinte comando [AZ Group Create][az-group-create] :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -67,7 +67,7 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Se o estado do contentor `ProvisioningState` passar a **Com êxito**, navegue para o respetivo FQDN no seu browser. Se lhe for apresentada uma página Web semelhante à seguinte, parabéns! Implementou com êxito uma aplicação em execução num contentor de Docker para Azure.
+Se o contêiner `ProvisioningState` for **bem-sucedido**, vá para seu FQDN no navegador. Se lhe for apresentada uma página Web semelhante à seguinte, parabéns! Implementou com êxito uma aplicação em execução num contentor de Docker para Azure.
 
 ![Captura de ecrã do browser a mostrar a aplicação em execução numa instância do contentor do Azure][aci-app-browser]
 
@@ -139,13 +139,13 @@ az container list --resource-group myResourceGroup --output table
 
 O contentor **mycontainer** não deve aparecer na saída do comando. Não se tiver outros contentores no grupo de recursos, não é apresentada nenhuma saída.
 
-Se você tiver feito com o  grupo de recursos MyResource Group e todos os recursos que ele contém, exclua-o com o comando [AZ Group Delete][az-group-delete] :
+Se você tiver feito com o grupo de recursos MyResource Group e todos os recursos que ele contém, exclua-o com o comando [AZ Group Delete][az-group-delete] :
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você criou uma instância de contêiner do Azure usando uma imagem pública da Microsoft. Se deseja criar uma imagem do contentor e implementá-la partir de um registo de contentor privado do Azure, prossiga para o tutorial do Azure Container Instances.
 

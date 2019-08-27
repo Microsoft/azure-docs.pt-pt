@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 08/21/2019
 ms.author: dapine
-ms.openlocfilehash: 65d88e6c201f633a260e31544444341e636e9941
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f1c42002343de1dd3b3ef6b9c9e35f458db925f4
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552260"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051123"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurar contêineres do Docker Análise de Texto
 
@@ -77,7 +77,7 @@ Os contêineres de Análise de Texto não usam montagens de entrada ou de saída
 
 A sintaxe exata da localização de montagem do anfitrião varia consoante o sistema operativo anfitrião. Além disso, o [computador anfitrião](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)da localização de montagem não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do docker e o anfitrião montar permissões de localização. 
 
-|Opcional| Nome | Tipo de dados | Descrição |
+|Opcional| Name | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
 |Não permitido| `Input` | Cadeia | Os contêineres de Análise de Texto não usam isso.|
 |Opcional| `Output` | Cadeia | O destino de montagem de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isso inclui logs de contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -93,60 +93,26 @@ Substitua {_argument_name_} pelos seus próprios valores:
 
 | Marcador de posição | Valor | Formato ou de exemplo |
 |-------------|-------|---|
-|{API_KEY} | A chave do ponto de `Text Analytics` extremidade do recurso disponível na `Text Analytics` página chaves do Azure. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-|{ENDPOINT_URI} | O valor do ponto de extremidade de cobrança está `Text Analytics` disponível na página Visão geral do Azure.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+| **{API_KEY}** | A chave do ponto de `Text Analytics` extremidade do recurso disponível na `Text Analytics` página chaves do Azure. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | O valor do ponto de extremidade de cobrança está `Text Analytics` disponível na página Visão geral do Azure.| Consulte [coletando parâmetros necessários](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters) para obter exemplos explícitos. |
 
 > [!IMPORTANT]
 > O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](how-tos/text-analytics-how-to-install-containers.md#billing).
 > O valor de ApiKey é a **chave** da página `Text Analytics` de chaves de recurso do Azure. 
 
-## <a name="key-phrase-extraction-container-docker-examples"></a>Exemplos de encaixe de contêiner de extração de frases-chave
+#### <a name="key-phrase-extractiontabkeyphrase"></a>[Extração de expressões-chave](#tab/keyphrase)
 
-Os exemplos do Docker a seguir são para o contêiner de extração de frases-chave. 
+[!INCLUDE [key-phrase-extraction-docker-examples](includes/key-phrase-extraction-docker-examples.md)]
 
-### <a name="basic-example"></a>Exemplo básico 
+#### <a name="language-detectiontablanguage"></a>[Deteção de idioma](#tab/language)
 
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} 
-  ```
+[!INCLUDE [language-detection-docker-examples](includes/language-detection-docker-examples.md)]
 
-### <a name="logging-example"></a>Exemplo de log 
+#### <a name="sentiment-analysistabsentiment"></a>[Análise de sentimentos](#tab/sentiment)
 
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} Logging:Console:LogLevel:Default=Information
-  ```
+[!INCLUDE [sentiment-analysis-docker-examples](includes/sentiment-analysis-docker-examples.md)]
 
-## <a name="language-detection-container-docker-examples"></a>Exemplos de Docker de contêiner de detecção de idioma
-
-Os exemplos do Docker a seguir são para o contêiner detecção de idioma. 
-
-### <a name="basic-example"></a>Exemplo básico
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} 
-  ```
-
-### <a name="logging-example"></a>Exemplo de log
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} Logging:Console:LogLevel:Default=Information
-  ```
- 
-## <a name="sentiment-analysis-container-docker-examples"></a>Exemplos de Docker de contêiner de análise de opiniões
-
-Os exemplos do Docker a seguir são para o contêiner de análise de sentimentos. 
-
-### <a name="basic-example"></a>Exemplo básico
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} 
-  ```
-
-### <a name="logging-example"></a>Exemplo de log
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} Logging:Console:LogLevel:Default=Information
-  ```
+***
 
 ## <a name="next-steps"></a>Passos Seguintes
 

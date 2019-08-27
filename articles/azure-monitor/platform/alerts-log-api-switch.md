@@ -1,6 +1,6 @@
 ---
-title: API de alertas de comutador de legado do Log Analytics para a nova API de alertas do Azure
-description: Descrição geral de savedSearch herdado com base em API de alerta do Log Analytics e o processo para mudar as regras de alerta para a nova API de ScheduledQueryRules, com detalhes de endereçamento preocupações mais comuns do cliente.
+title: Alternar da API de alertas de Log Analytics herdados para a nova API de alertas do Azure
+description: Visão geral do savedSearch herdado com base Log Analytics API de alerta e processo para alternar as regras de alerta para a nova API ScheduledQueryRules, com detalhes que abordam as preocupações comuns dos clientes.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,56 +8,56 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 0e8cb18b3ea4b01db6b373ebbcb55c1e17614319
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f23d19b06152b633df6688489753498c86aee27
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399157"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034790"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Trocar a preferência de API para os Alertas de Registos
 
 > [!NOTE]
-> Conteúdo indicado aplicáveis aos utilizadores apenas cloud pública do Azure e **não** para a cloud do Azure Government ou Azure China.  
+> Conteúdo declarado aplicável a usuários somente na nuvem pública do Azure e **não** para o Azure governamental ou para a nuvem do Azure China.  
 
-Até há pouco tempo, geria as regras de alerta no portal Microsoft Operations Management Suite. A nova experiência de alertas foi integrada com vários serviços no Microsoft Azure, incluindo o Log Analytics e que solicitamos [expandir as regras do alerta a partir do portal do OMS para o Azure](alerts-extend.md). Mas para garantir a mínima interrupção para os clientes, o processo não alterou a interface programática para seu consumo - [API de alerta do Log Analytics](api-alerts.md) com base em SavedSearch.
+Até há pouco tempo, geria as regras de alerta no portal Microsoft Operations Management Suite. A nova experiência de alertas foi integrada a vários serviços em Microsoft Azure, incluindo Log Analytics e solicitamos que [você estenda suas regras de alerta do portal do OMS para o Azure](alerts-extend.md). Mas, para garantir o mínimo de interrupção para os clientes, o processo não alterou a interface programática para sua [API de alerta de log Analytics](api-alerts.md) de consumo com base em SavedSearch.
 
-Mas, agora anunciar para o Log Analytics alertando usuários sobre uma verdadeira alternativa programática do Azure, [do Azure Monitor - API de ScheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), que também é reflexiva no seu [faturação do Azure – para alertas de registo](alerts-unified-log.md#pricing-and-billing-of-log-alerts). Para saber mais sobre como gerir os alertas de registo com a API, veja [gerir alertas de registo utilizando o modelo do Azure Resource](alerts-log.md#managing-log-alerts-using-azure-resource-template) e [gerir alertas de registo com o PowerShell](alerts-log.md#managing-log-alerts-using-powershell).
+Mas agora você anuncia para Log Analytics alertar os usuários uma verdadeira alternativa programática do Azure, uma [API Azure monitor-ScheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), que também é refletida em sua [cobrança do Azure – para alertas de log](alerts-unified-log.md#pricing-and-billing-of-log-alerts). Para saber mais sobre como gerenciar seus alertas de log usando a API, consulte [Gerenciando alertas de log usando o modelo de recursos do Azure](alerts-log.md#managing-log-alerts-using-azure-resource-template) e [Gerenciando alertas de log usando o PowerShell](alerts-log.md#managing-log-alerts-using-powershell).
 
 ## <a name="benefits-of-switching-to-new-azure-api"></a>Benefícios de mudar para a nova API do Azure
 
-Existem diversas vantagens de criar e gerir alertas utilizando [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) sobre [herdados API alerta para o Log Analytics](api-alerts.md); já listamos alguns dos principais abaixo:
+Há várias vantagens de criar e gerenciar alertas usando a [API do scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) sobre a [API de alerta do log Analytics herdado](api-alerts.md); Listamos alguns dos principais abaixo:
 
-- Capacidade de [cruzada pesquisa de registos de área de trabalho](../log-query/cross-workspace-query.md) em regras de alerta e span de cópia de segurança a recursos externos, como áreas de trabalho do Log Analytics ou até mesmo as aplicações de Application Insights
-- Quando vários campos utilizada para o grupo de consulta, usando [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) utilizador pode especificar que campo agregado-no portal do Azure
-- Criado através de alertas de registo [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) pode ter período definido até 48 horas e buscar dados durante mais tempo do que nunca
-- Criar regras de alerta de uma só vez como um único recurso sem a necessidade de criar três níveis de recursos, como com [herdados API de alerta do Log Analytics](api-alerts.md)
-- Interface programática única para todas as variantes de alertas de registo com base na consulta do Azure – novos [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) pode ser utilizado para gerir as regras para o Log Analytics, bem como o Application Insights
-- Gerir os alertas de registo utilizando [cmdlets do Powershell](alerts-log.md#managing-log-alerts-using-powershell)
-- Todos os novos registar funcionalidade alerta e futuro desenvolvimento estará disponível apenas através do novo [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
+- Capacidade de [fazer a pesquisa de logs de espaço de trabalho](../log-query/cross-workspace-query.md) em regras de alerta e abranger recursos externos, como espaços de trabalho log Analyticss ou até mesmo aplicativos Application insights
+- Quando vários campos usados para agrupar na consulta, o uso do usuário da [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) pode especificar em qual campo agregar no portal do Azure
+- Os alertas de log criados usando a [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) podem ter um período definido até 48 horas e buscar dados por um período maior do que antes
+- Crie regras de alerta em uma captura como um único recurso sem a necessidade de criar três níveis de recursos, como com a [API de alerta de log Analytics herdada](api-alerts.md)
+- Interface programática única para todas as variantes de alertas de log baseados em consulta no Azure – a nova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) pode ser usada para gerenciar regras para log Analytics, bem como Application insights
+- Gerenciar seus alertas de log usando cmdlets do [PowerShell](alerts-log.md#managing-log-alerts-using-powershell)
+- Todas as novas funcionalidades de alerta de log e desenvolvimento futuro estarão disponíveis somente por meio da nova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
 
-## <a name="process-of-switching-from-legacy-log-alerts-api"></a>Processo de mudança do API de alertas de registo legado
+## <a name="process-of-switching-from-legacy-log-alerts-api"></a>Processo de troca de API de alertas de log herdado
 
-Os utilizadores são gratuitos para a utilização de uma [herdados API alerta para o Log Analytics](api-alerts.md) ou no novo [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Criado por qualquer API, será de regras de alerta *ser gerenciáveis pela mesma API* – bem como do portal do Azure. Por predefinição, o Azure Monitor irá continuar a utilizar [herdados API de alerta do Log Analytics](api-alerts.md) para criar nova regra de alerta a partir do portal do Azure para áreas de trabalho existentes do Log Analytics. Como [anunciou a área de trabalho do Log nova criada em ou após 1 de Junho de 2019](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/) -usará automaticamente novos [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) predefinidos incluindo no portal do Azure.
+Os usuários são livres para usar a [API de alerta log Analytics herdada](api-alerts.md) ou a nova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). As regras de alerta criadas por qualquer API poderão *ser gerenciadas pela mesma API somente* , bem como de portal do Azure. Por padrão, Azure Monitor continuará a usar a [API de alerta log Analytics herdada](api-alerts.md) para criar qualquer nova regra de alerta de portal do Azure para os espaços de trabalho existentes do log Analytics. Conforme [anunciado novo espaço de trabalho de log criado em ou após 1º de junho de 2019,](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/) o usará automaticamente a nova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) por padrão, incluindo em portal do Azure.
 
-Os impactos do comutador de preferência para scheduledQueryRules API são compilados abaixo:
+Os impactos da mudança de preferência para a API scheduledQueryRules são compilados abaixo:
 
-- Todas as interações feitas para gerir alertas de registo por meio de interfaces de programação deve agora ser feito utilizando [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) em vez disso. Para obter mais informações, consulte, [uso de exemplo através do modelo do Azure Resource](alerts-log.md#managing-log-alerts-using-azure-resource-template) e [utilização de exemplo através do PowerShell](alerts-log.md#managing-log-alerts-using-powershell)
-- Qualquer nova regra alerta de registo criada no portal do Azure, será criada utilizando [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) apenas e permitir que os utilizadores utilizem o [funcionalidades adicionais da nova API](#benefits-of-switching-to-new-azure-api) através do portal do Azure também
-- Gravidade para regras de alerta de registo irá mudar de: *Crítico, aviso e informativo*ao *valores de gravidade de 0, 1 e 2*. Juntamente com a opção para criar ou atualizar regras de alerta com gravidade 4 também.
+- Todas as interações realizadas para gerenciar alertas de log por meio de interfaces programáticas agora devem ser feitas usando [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) . Para obter mais informações, consulte [exemplo de uso por meio do modelo de recurso do Azure](alerts-log.md#managing-log-alerts-using-azure-resource-template) e [uso de exemplo por meio do PowerShell](alerts-log.md#managing-log-alerts-using-powershell)
+- Qualquer nova regra de alerta de log criada no portal do Azure, será criada usando apenas [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e permitirá que os usuários usem a [funcionalidade adicional da nova API](#benefits-of-switching-to-new-azure-api) por meio de portal do Azure também
+- A severidade das regras de alerta de log mudará de: *Crítico, aviso &* informativo, para *valores de severidade de 0, 1 & 2*. Junto com a opção de criar/atualizar regras de alerta com a severidade 3 e 4 também.
 
-O processo de mover as regras de alerta do [herdados API de alerta do Log Analytics](api-alerts.md) não envolve alterar suas configurações de qualquer forma, consulta ou a definição do alerta. As regras do alerta e monitorização são afetado e os alertas não irão parar ou ficar parados, durante ou após a mudança. A única alteração é uma alteração na preferência de API e o acesso às suas regras por meio de uma nova API.
+O processo de mover as regras de alerta da [API de alerta de log Analytics herdado](api-alerts.md) não envolve alterar a definição, a consulta ou a configuração de alerta de forma alguma. Suas regras de alerta e o monitoramento não são afetados e os alertas não serão interrompidos ou não serão interrompidos durante ou após o comutador. A única alteração é uma alteração na preferência da API e o acesso às suas regras por meio de uma nova API.
 
 > [!NOTE]
-> Assim que um utilizador opta ativamente por participar para mudar a preferência para o novo [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), a não é possível optar por voltar ou reverter para a utilização de mais antigo [herdados API alerta para o Log Analytics](api-alerts.md).
+> Depois que um usuário opta por alternar a preferência para a nova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), não é possível optar por voltar ou reverter para usar a [API de alerta herdada](api-alerts.md)mais antiga do log Analytics.
 
-Todos os clientes que queira mudar voluntariamente para o novo [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e bloquear a utilização a partir do [herdados API de alerta do Log Analytics](api-alerts.md); pode fazê-lo com a realização de uma chamada PUT no abaixo API para mudar o alerta de todos os regras associadas com a área de trabalho do Log Analytics específica.
+Qualquer cliente que queira alternar voluntariamente para o novo [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e bloquear o uso da [API de alerta log Analytics herdada](api-alerts.md); pode fazer isso executando uma chamada PUT na API abaixo para alternar todas as regras de alerta associadas ao espaço de trabalho específico do Log Analytics.
 
 ```
 PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
-Com o corpo de pedido que contém o abaixo JSON.
+Com o corpo da solicitação que contém o JSON abaixo.
 
 ```json
 {
@@ -65,14 +65,14 @@ Com o corpo de pedido que contém o abaixo JSON.
 }
 ```
 
-A API também pode ser acessada a partir de uma linha de comandos do PowerShell através de [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comandos de código-fonte aberto que simplifica a invocar a API do Azure Resource Manager. Conforme ilustrado abaixo, na chamada PUT de exemplo usando a ferramenta de ARMclient mudar todas as regras de alerta associadas com a área de trabalho do Log Analytics específica.
+A API também pode ser acessada de uma linha de comando do PowerShell usando o [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de software livre que simplifica a invocação da API de Azure Resource Manager. Conforme ilustrado abaixo, em exemplo, colocar chamada usando a ferramenta ARMclient para alternar todas as regras de alerta associadas ao espaço de trabalho específico do Log Analytics.
 
 ```powershell
 $switchJSON = '{"scheduledQueryRulesEnabled": "true"}'
 armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
 ```
 
-Se o comutador de todas as regras de alerta na área de trabalho do Log Analytics para utilizar novos [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) é efetuada com êxito, a seguinte resposta será fornecida.
+Se a opção de todas as regras de alerta no espaço de trabalho Log Analytics para usar o New [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) for bem-sucedida, a seguinte resposta será fornecida.
 
 ```json
 {
@@ -81,19 +81,19 @@ Se o comutador de todas as regras de alerta na área de trabalho do Log Analytic
 }
 ```
 
-Os utilizadores também podem verificar o estado atual da sua área de trabalho do Log Analytics e ver se tem ou não tiver sido mudada para usar [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) apenas. Para verificar, os utilizadores podem efetuar uma chamada GET no abaixo API.
+Os usuários também podem verificar o status atual do seu espaço de trabalho Log Analytics e ver se ele tem ou não foi alternado para usar apenas [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) . Para verificar, os usuários podem executar uma chamada GET na API abaixo.
 
 ```
 GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
-Para executar o procedimento acima usando a linha de comandos do PowerShell através de [ARMClient](https://github.com/projectkudu/ARMClient) ferramenta, consulte o exemplo abaixo.
+Para executar o acima em usando a linha de comando do PowerShell usando a ferramenta [ARMClient](https://github.com/projectkudu/ARMClient) , consulte o exemplo abaixo.
 
 ```powershell
 armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
-Se a área de trabalho do Log Analytics especificada foi mudada para usar [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) apenas; em seguida, a resposta JSON será listado abaixo.
+Se o espaço de trabalho Log Analytics especificado foi alternado para usar somente [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) ; em seguida, o JSON de resposta será listado abaixo.
 
 ```json
 {
@@ -101,7 +101,7 @@ Se a área de trabalho do Log Analytics especificada foi mudada para usar [sched
     "scheduledQueryRulesEnabled" : true
 }
 ```
-Mais, se a área de trabalho de análise de registo especificada ainda não tiver sido mudada para usar [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) apenas; em seguida, a resposta JSON será listado abaixo.
+Caso contrário, se o espaço de trabalho analítico de log especificado ainda não tiver sido alternado para usar somente [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) ; em seguida, o JSON de resposta será listado abaixo.
 
 ```json
 {
@@ -112,6 +112,6 @@ Mais, se a área de trabalho de análise de registo especificada ainda não tive
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o [Monitor do Azure - alertas de registo](alerts-unified-log.md).
-- Saiba como criar [alertas de registo nos alertas do Azure](alerts-log.md).
-- Saiba mais sobre o [experiência de alertas do Azure](../../azure-monitor/platform/alerts-overview.md).
+- Saiba mais sobre os [alertas de log de Azure monitor](alerts-unified-log.md).
+- Saiba como criar [alertas de log nos alertas do Azure](alerts-log.md).
+- Saiba mais sobre a [experiência de alertas do Azure](../../azure-monitor/platform/alerts-overview.md).

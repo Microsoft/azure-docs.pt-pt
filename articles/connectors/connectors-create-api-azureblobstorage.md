@@ -1,126 +1,127 @@
 ---
-title: Ligar ao armazenamento de Blobs do Azure - Azure Logic Apps
-description: Criar e gerir os blobs no armazenamento do Azure com o Azure Logic Apps
+title: Conectar-se ao armazenamento de BLOBs do Azure-aplicativo lógico do Azure
+description: Criar e gerenciar BLOBs no armazenamento do Azure com aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: d9c29837e99d327112e6a9d648a5c56cc35e8555
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: d57ea1a881980203b1c8f216239b27b64f0d71cd
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296615"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051051"
 ---
-# <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Criar e gerir os blobs no armazenamento de Blobs do Azure com o Azure Logic Apps
+# <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Criar e gerenciar BLOBs no armazenamento de BLOBs do Azure com aplicativos lógicos do Azure
 
-Este artigo mostra como pode aceder e gerir ficheiros armazenados como blobs na sua conta de armazenamento do Azure de dentro de uma aplicação lógica com o conector do armazenamento de Blobs do Azure. Dessa forma, pode criar aplicações lógicas que automatizam as tarefas e fluxos de trabalho para gerir os seus ficheiros. Por exemplo, pode criar aplicações lógicas que criarem, obterem, atualizar e eliminar ficheiros na sua conta de armazenamento.
+Este artigo mostra como você pode acessar e gerenciar arquivos armazenados como BLOBs em sua conta de armazenamento do Azure de dentro de um aplicativo lógico com o conector de armazenamento de BLOBs do Azure. Dessa forma, você pode criar aplicativos lógicos que automatizam tarefas e fluxos de trabalho para gerenciar seus arquivos. Por exemplo, você pode criar aplicativos lógicos que criam, obtêm, atualizam e excluem arquivos em sua conta de armazenamento.
 
-Suponha que tenha uma ferramenta que é atualizada a um site do Azure. que atua como o acionador da aplicação lógica. Quando ocorre este evento, pode ter a sua aplicação lógica atualizar alguns ficheiros no contentor de armazenamento de blob, que é uma ação na sua aplicação lógica.
+Suponha que você tenha uma ferramenta que é atualizada em um site do Azure. que atua como o gatilho para seu aplicativo lógico. Quando esse evento acontece, você pode fazer com que seu aplicativo lógico atualize algum arquivo em seu contêiner de armazenamento de BLOBs, que é uma ação em seu aplicativo lógico.
 
 > [!NOTE]
-> O Logic Apps não suporta a ligação direta para contas de armazenamento do Azure através de firewalls. Para aceder a estas contas de armazenamento, utilize uma das opções aqui:
+> Os aplicativos lógicos não dão suporte à conexão direta com contas de armazenamento do Azure por meio de firewalls. Para acessar essas contas de armazenamento, use qualquer opção aqui:
 >
-> * Criar uma [ambiente do serviço de integração](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que pode ligar aos recursos numa rede virtual do Azure.
+> * Crie um [ambiente de serviço de integração](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que pode se conectar a recursos em uma rede virtual do Azure.
 >
-> * Se já utilizar a gestão de API, pode utilizar este serviço para este cenário. Para mais informações, veja [arquitetura de integração empresarial simples](https://aka.ms/aisarch).
+> * Se você já usa o gerenciamento de API, pode usar esse serviço para este cenário. Para obter mais informações, consulte [arquitetura de integração corporativa simples](https://aka.ms/aisarch).
 
-Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [início rápido: Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obter informações técnicas específicas do conector, consulte a [referência do conector do armazenamento de Blobs do Azure](/connectors/azureblobconnector/).
+Se você for novo em aplicativos lógicos, examine [o que é o](../logic-apps/logic-apps-overview.md) início [rápido e aplicativos lógicos do Azure: Crie seu primeiro aplicativo](../logic-apps/quickstart-create-first-logic-app-workflow.md)lógico. Para obter informações técnicas específicas do conector, consulte a [referência do conector de armazenamento de BLOBs do Azure](/connectors/azureblobconnector/).
 
-## <a name="limits"></a>Limits
+## <a name="limits"></a>Limites
 
-* Por predefinição, as ações de armazenamento de Blobs do Azure podem ler ou gravar arquivos que estão *50 MB ou mais pequeno*. Para lidar com mais de 50 MB, mas até 1024 MB de arquivos, ações de armazenamento de Blobs do Azure suportam [segmentação de mensagem](../logic-apps/logic-apps-handle-large-messages.md). O **conteúdo de blob de Get** ação utiliza implicitamente segmentação.
+* Por padrão, as ações do armazenamento de BLOBs do Azure podem ler ou gravar arquivos que são *50 MB ou menores*. Para lidar com arquivos com mais de 50 MB, mas até 1024 MB, as ações do armazenamento de BLOBs do Azure dão suporte ao [agrupamento de mensagens](../logic-apps/logic-apps-handle-large-messages.md). A ação **obter conteúdo do blob** usa implicitamente o agrupamento.
 
-* Acionadores do armazenamento de Blobs do Azure não suportam a segmentação. Quando solicitar o conteúdo do ficheiro, acionadores selecionar apenas os ficheiros que estão a 50 MB ou mais pequeno. Para obter os ficheiros mais de 50 MB, siga este padrão:
+* Os gatilhos do armazenamento de BLOBs do Azure não dão suporte ao agrupamento. Ao solicitar o conteúdo do arquivo, os gatilhos selecionam apenas os arquivos que são 50 MB ou menores. Para obter arquivos com mais de 50 MB, siga este padrão:
 
-  * Utilizar um acionador do armazenamento de Blobs do Azure que retorna as propriedades do ficheiro, tal como **quando um blob é adicionado ou modificado (propriedades apenas)** .
+  * Use um gatilho de armazenamento de BLOBs do Azure que retorne Propriedades de arquivo, como **quando um blob é adicionado ou modificado (somente Propriedades)** .
 
-  * Siga o acionador com o armazenamento de Blobs do Azure **conteúdo de blob de Get** ação, que lê o arquivo completo e implicitamente utiliza a segmentação.
+  * Siga o gatilho com a ação **obter conteúdo de blob** do armazenamento de BLOBs do Azure, que lê o arquivo completo e usa implicitamente o agrupamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Um [conta de armazenamento do Azure e um contentor de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md)
+* Uma [conta de armazenamento do Azure e um contêiner de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md)
 
-* A aplicação lógica em que precisa de acesso à sua conta de armazenamento de Blobs do Azure. Para começar a sua aplicação lógica com um acionador do armazenamento de Blobs do Azure, tem um [aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* O aplicativo lógico em que você precisa ter acesso à sua conta de armazenamento de BLOBs do Azure. Para iniciar seu aplicativo lógico com um gatilho do armazenamento de BLOBs do Azure, você precisa de um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="add-trigger"></a>
 
-## <a name="add-blob-storage-trigger"></a>Adicionar o acionador do armazenamento de BLOBs
+## <a name="add-blob-storage-trigger"></a>Adicionar gatilho de armazenamento de BLOBs
 
-No Azure Logic Apps, todas as aplicações lógicas têm de começar com uma [acionador](../logic-apps/logic-apps-overview.md#logic-app-concepts), que é acionado quando um evento específico acontece ou quando for cumprida uma condição específica. Sempre que o acionador é acionado, o motor do Logic Apps cria uma instância da aplicação lógica e começa a ser executado o fluxo de trabalho da sua aplicação.
+Em aplicativos lógicos do Azure, cada aplicativo lógico deve começar com um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts), que é acionado quando um evento específico ocorre ou quando uma condição específica é atendida. Cada vez que o gatilho é acionado, o mecanismo de aplicativos lógicos cria uma instância de aplicativo lógico e começa a executar o fluxo de trabalho do aplicativo.
 
-Este exemplo mostra como pode começar a um fluxo de trabalho de aplicação lógica com o **quando um blob é adicionado ou modificado (propriedades apenas)** acionador quando propriedades de um blob é adicionado ou atualizado no seu contentor de armazenamento.
+Este exemplo mostra como você pode iniciar um fluxo de trabalho de aplicativo lógico com o gatilho **quando um blob é adicionado ou modificado (somente Propriedades)** quando as propriedades de um blob são adicionadas ou atualizadas no seu contêiner de armazenamento.
 
-1. Na [portal do Azure](https://portal.azure.com) ou o Visual Studio, criar uma aplicação lógica em branco, que abre o Estruturador da aplicação lógica. Este exemplo utiliza o portal do Azure.
+1. No [portal do Azure](https://portal.azure.com) ou no Visual Studio, crie um aplicativo lógico em branco, que abre o designer de aplicativo lógico. Este exemplo usa o portal do Azure.
 
-2. Na caixa de pesquisa, introduza "BLOBs do azure" como o filtro. Na lista de disparadores, selecione o acionador que pretende.
+2. Na caixa de pesquisa, insira "blob do Azure" como seu filtro. Na lista de gatilhos, selecione o gatilho desejado.
 
-   Este exemplo utiliza este acionador: **Quando um blob é adicionado ou modificado (propriedades apenas)**
+   Este exemplo usa este gatilho: **Quando um blob é adicionado ou modificado (somente Propriedades)**
 
    ![Selecionar acionador](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
-3. Se lhe for pedido para obter detalhes de ligação, [criar a ligação de armazenamento de BLOBs agora](#create-connection). Em alternativa, se a ligação já existir, fornecer as informações necessárias para o acionador.
+3. Se você for solicitado a fornecer detalhes de conexão, [Crie sua conexão de armazenamento de BLOBs agora](#create-connection). Ou, se sua conexão já existir, forneça as informações necessárias para o gatilho.
 
-   Neste exemplo, selecione o contentor e a pasta que pretende monitorizar.
+   Para este exemplo, selecione o contêiner e a pasta que você deseja monitorar.
 
-   1. Na **contentor** caixa, selecione o ícone de pasta.
+   1. Na caixa **contêiner** , selecione o ícone de pasta.
 
-   2. Na lista de pastas, escolha o colchete de ângulo direito ( **>** ) e, em seguida, navegue até que encontre e selecione a pasta que pretende.
+   2. Na lista de pastas, escolha o colchete angular direito ( **>** ) e, em seguida, navegue até encontrar e selecione a pasta desejada.
 
       ![Selecionar pasta](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
-   3. Selecione o intervalo e a frequência para a frequência com que pretende que o acionador para verificar a pasta para que as alterações.
+   3. Selecione o intervalo e a frequência para a frequência com que você deseja que o gatilho Verifique a pasta em busca de alterações.
 
-4. Quando tiver terminado, na barra de ferramentas da estruturador, escolha **guardar**.
+4. Quando terminar, na barra de ferramentas do designer, escolha **salvar**.
 
-5. Agora continue a adicionar uma ou mais ações à sua aplicação lógica para as tarefas que pretende executar com os resultados de Acionador.
+5. Agora, continue adicionando uma ou mais ações ao seu aplicativo lógico para as tarefas que você deseja executar com os resultados do gatilho.
 
 <a name="add-action"></a>
 
 ## <a name="add-blob-storage-action"></a>Adicionar ação de armazenamento de BLOBs
 
-No Azure Logic Apps, um [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um passo no fluxo de trabalho que se segue um acionador ou outra ação. Neste exemplo, a aplicação lógica começa com o [acionador de periodicidade](../connectors/connectors-native-recurrence.md).
+Em aplicativos lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma etapa no fluxo de trabalho que segue um gatilho ou outra ação. Para este exemplo, o aplicativo lógico começa com o [gatilho](../connectors/connectors-native-recurrence.md)de recorrência.
 
-1. Na [portal do Azure](https://portal.azure.com) ou o Visual Studio, abra a aplicação lógica no Estruturador da aplicação lógica. Este exemplo utiliza o portal do Azure.
+1. No [portal do Azure](https://portal.azure.com) ou no Visual Studio, abra seu aplicativo lógico no designer de aplicativo lógico. Este exemplo usa o portal do Azure.
 
-2. No Estruturador da aplicação lógica, sob o acionador ou ação, escolha **novo passo**.
+2. No designer do aplicativo lógico, no gatilho ou na ação, escolha **nova etapa**.
 
    ![Adicionar uma ação](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
-   Para adicionar uma ação entre os passos existentes, mova o rato por cima da seta de ligação. Selecione o sinal de adição ( **+** ) que aparece e selecione **adicionar uma ação**.
+   Para adicionar uma ação entre as etapas existentes, mova o mouse sobre a seta de conexão. Escolha o sinal de adição **+** () que aparece e selecione **Adicionar uma ação**.
 
-3. Na caixa de pesquisa, introduza "BLOBs do azure" como o filtro. Na lista de ações, selecione a ação que pretende.
+3. Na caixa de pesquisa, insira "blob do Azure" como seu filtro. Na lista ações, selecione a ação desejada.
 
-   Este exemplo utiliza esta ação: **Obter conteúdo do blob**
+   Este exemplo usa esta ação: **Obter conteúdo do blob**
 
-   ![Ação de seleção](./media/connectors-create-api-azureblobstorage/azure-blob-action.png)
+   ![Selecionar ação](./media/connectors-create-api-azureblobstorage/azure-blob-action.png)
 
-4. Se lhe for pedido para obter detalhes de ligação, [criar a ligação de armazenamento de Blobs do Azure agora](#create-connection).
-Em alternativa, se a ligação já existir, fornecer as informações necessárias para a ação.
+4. Se você for solicitado a fornecer detalhes de conexão, [Crie sua conexão de armazenamento de BLOBs do Azure agora](#create-connection).
+Ou, se sua conexão já existir, forneça as informações necessárias para a ação.
 
-   Neste exemplo, selecione o ficheiro que pretende.
+   Para este exemplo, selecione o arquivo desejado.
 
-   1. Partir do **BLOBs** caixa, selecione o ícone de pasta.
+   1. Na caixa **blob** , selecione o ícone de pasta.
   
       ![Selecionar pasta](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
-   2. Localize e selecione o ficheiro que pretende com base no blob **Id** número. Pode encontrar isto **Id** número nos metadados do blob que é devolvido pelo acionador do armazenamento de BLOBs descrito anteriormente.
+   2. Localize e selecione o arquivo desejado com base no número de **ID** do blob. Você pode encontrar esse número de **ID** nos metadados do blob que são retornados pelo gatilho de armazenamento de blob descrito anteriormente.
 
-5. Quando tiver terminado, na barra de ferramentas da estruturador, escolha **guardar**.
-Para testar a aplicação lógica, certifique-se de que a pasta selecionada contém um blob.
+5. Quando terminar, na barra de ferramentas do designer, escolha **salvar**.
+Para testar seu aplicativo lógico, verifique se a pasta selecionada contém um blob.
 
-Neste exemplo obtém apenas o conteúdo para um blob. Para ver os conteúdos, adicione outra ação que cria um ficheiro com o blob com outro conector. Por exemplo, adicione uma ação do OneDrive que cria um ficheiro com base no conteúdo do blob.
+Este exemplo só Obtém o conteúdo de um blob. Para exibir o conteúdo, adicione outra ação que cria um arquivo com o blob usando outro conector. Por exemplo, adicione uma ação do OneDrive que cria um arquivo com base no conteúdo do blob.
 
 <a name="create-connection"></a>
 
-## <a name="connect-to-storage-account"></a>Ligar à conta de armazenamento
+## <a name="connect-to-storage-account"></a>Conectar-se à conta de armazenamento
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
@@ -128,8 +129,8 @@ Neste exemplo obtém apenas o conteúdo para um blob. Para ver os conteúdos, ad
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos, como disparadores, ações e limites, conforme descrito de API o conector aberta (anteriormente Swagger) de ficheiros, consulte a [página de referência do conector](/connectors/azureblobconnector/).
+Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo de API aberta do conector (anteriormente, Swagger), consulte a [página de referência do conector](/connectors/azureblobconnector/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre outras [conectores do Logic Apps](../connectors/apis-list.md)
+* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)

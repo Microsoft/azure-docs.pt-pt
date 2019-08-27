@@ -1,27 +1,27 @@
 ---
-title: Verificar a instância do contêiner de análise de sentimentos
+title: Verificar a instância de contêiner de Análise de Sentimento
 titleSuffix: Azure Cognitive Services
-description: Saiba como verificar a instância de contêiner de análise de sentimentos.
+description: Saiba como verificar a instância de contêiner de Análise de Sentimento.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 08/21/2019
 ms.author: dapine
-ms.openlocfilehash: 1303d753b1cbfabe7ddd3442e0880b0bffe089b3
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: cbc5ad63dd944eb53d3a8052e75744cb5c3709ea
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377440"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051194"
 ---
-## <a name="verify-the-sentiment-analysis-container-instance"></a>Verificar a instância do contêiner de análise de sentimentos
+## <a name="verify-the-sentiment-analysis-container-instance"></a>Verificar a instância de contêiner de Análise de Sentimento
 
 1. Selecione a guia **visão geral** e copie o endereço IP.
 1. Abra uma nova guia do navegador e insira o endereço IP. Por exemplo, digite `http://<IP-address>:5000 (http://55.55.55.55:5000`). O home page do contêiner é exibido, o que permite que você saiba que o contêiner está em execução.
 
-    ![Exibir o home page do contêiner para verificar se ele está em execução](../media/how-tos/container-instance/swagger-docs-on-container.png).
+    ![Exibir o home page do contêiner para verificar se ele está em execução](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
 1. Selecione o link de **Descrição da API de serviço** para ir para a página do Swagger do contêiner.
 
@@ -63,11 +63,11 @@ ms.locfileid: "68377440"
     }
     ```
 
-1. Defina  instats como true.
+1. Defina o de status `true`como.
 
 1. Selecione **executar** para determinar a suopinião do texto.
 
-    O modelo que é empacotado no contêiner gera uma pontuação que varia de 0 a 1, em que 0 é negativo e 1 é positivo.
+    O modelo que é empacotado no contêiner gera uma pontuação que varia de 0 a 1, em que 0 é uma opinião negativa e 1 é uma opinião positiva.
 
     A resposta JSON retornada inclui um sentimentos para a entrada de texto atualizada:
 
@@ -93,4 +93,4 @@ ms.locfileid: "68377440"
     }
     ```
 
-Agora podemos correlacionar o documento `id` dos dados JSON da carga de resposta ao documento `id`de carga de solicitação original. A pontuação de mais do `.98` que indica um sentimentos altamente positivo.
+Agora podemos correlacionar o documento `id` dos dados JSON da carga de resposta ao documento `id`de carga de solicitação original. A pontuação de mais do `0.98` que indica um sentimentos muito positivo.

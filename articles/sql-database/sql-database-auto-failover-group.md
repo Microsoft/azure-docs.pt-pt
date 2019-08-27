@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 08/16/2019
-ms.openlocfilehash: 69a3b4fc966b6dd506d91e52b33967a2e001367f
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 6357b5a477390f484a47167a0b9d2e524d37c9ac
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575792"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035779"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 
@@ -279,6 +279,9 @@ Quando você configura um grupo de failover entre instâncias gerenciadas primá
    > Regras de segurança NSG mal configuradas levam a operações de cópia de banco de dados presas.
 
 7. A instância secundária está configurada com a ID de zona DNS correta. A zona DNS é uma propriedade de uma instância gerenciada e sua ID é incluída no endereço de nome do host. A ID da zona é gerada como uma cadeia de caracteres aleatória quando a primeira instância gerenciada é criada em cada VNet e a mesma ID é atribuída a todas as outras instâncias na mesma sub-rede. Uma vez atribuída, a zona DNS não pode ser modificada. As instâncias gerenciadas incluídas no mesmo grupo de failover devem compartilhar a zona DNS. Isso é feito passando a ID da zona da instância primária como o valor do parâmetro DnsZonePartner ao criar a instância secundária. 
+
+   > [!NOTE]
+   > Para obter um tutorial detalhado sobre como configurar grupos de failover com a instância gerenciada, consulte [Adicionar uma instância gerenciada a um grupo de failover](sql-database-managed-instance-failover-group-tutorial.md).
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Atualizando ou fazendo downgrade de um banco de dados primário
 

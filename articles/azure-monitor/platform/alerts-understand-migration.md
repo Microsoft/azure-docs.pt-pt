@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: f981c14e26c51c427dab6b418cab8df46b1bb026
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 5257724add570be480063ab776248a8fd1d944c7
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302249"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034758"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Entenda como funciona a ferramenta de migração
 
@@ -75,11 +75,11 @@ Todos os alertas clássicos em métricas de Cosmos DB podem ser migrados, exceto
 
 - Média de solicitações por segundo
 - Nível de Consistência
-- 2xx http
-- 3xx http
+- Http 2xx
+- Http 3xx
 - Http 400
 - Http 401
-- Erro interno do servidor
+- Erro Interno do Servidor
 - Máximo de RUPM consumidos por minuto
 - Máximo de RUs por segundo
 - Solicitações de falha na contagem de Mongo
@@ -205,9 +205,9 @@ Por Cosmos DB, as métricas equivalentes são mostradas abaixo:
 | Métrica em alertas clássicos | Métrica equivalente em novos alertas | Comentários|
 |--------------------------|---------------------------------|---------|
 | AvailableStorage     |AvailableStorage|   |
-| Tamanho dos dados | DataUsage| |
+| Tamanho dos Dados | DataUsage| |
 | Contagem de documentos | DocumentCount||
-| Tamanho do índice | IndexUsage||
+| Tamanho do Índice | IndexUsage||
 | Encargo de solicitação de contagem de Mongo| MongoRequestCharge com a dimensão "CommandName" = "Count"||
 | Taxa de solicitação de contagem de Mongo | MongoRequestsCount com a dimensão "CommandName" = "Count"||
 | Mongo o encargo da solicitação de exclusão | MongoRequestCharge com a dimensão "CommandName" = "Delete"||
@@ -217,7 +217,7 @@ Por Cosmos DB, as métricas equivalentes são mostradas abaixo:
 | Encargo de solicitação de consulta do Mongo | MongoRequestCharge com a dimensão "CommandName" = "Find"||
 | Taxa de solicitação de consulta do Mongo | MongoRequestsCount com a dimensão "CommandName" = "Find"||
 | Encargo de solicitação de atualização do Mongo | MongoRequestCharge com a dimensão "CommandName" = "Update"||
-| Serviço indisponível| Indisponibilidade||
+| Serviço Não Disponível| Indisponibilidade||
 | TotalRequestUnits | TotalRequestUnits||
 
 ### <a name="how-equivalent-action-groups-are-created"></a>Como os grupos de ação equivalentes são criados
@@ -260,9 +260,16 @@ Depois de [disparar a migração](alerts-using-migration-tool.md), você receber
 
 Devido a algumas alterações recentes nas regras de alerta clássicas em sua assinatura, a assinatura não pode ser migrada. Esse problema é temporário. Você pode reiniciar a migração após o status de migração voltar a ficar **pronto para migração** em alguns dias.
 
-### <a name="policy-or-scope-lock-preventing-us-from-migrating-your-rules"></a>Bloqueio de política ou escopo nos impedindo de migrar suas regras
+### <a name="scope-lock-preventing-us-from-migrating-your-rules"></a>Bloqueio de escopo nos impedindo de migrar suas regras
 
-Como parte da migração, novos alertas de métrica e novos grupos de ação serão criados e as regras de alerta clássicas serão excluídas. No entanto, há uma política ou um bloqueio de escopo nos impedindo de criar recursos. Dependendo da política ou do bloqueio de escopo, algumas ou todas as regras não puderam ser migradas. Você pode resolver esse problema removendo o bloqueio de escopo ou a política temporariamente e disparando a migração novamente.
+Como parte da migração, novos alertas de métrica e novos grupos de ação serão criados e as regras de alerta clássicas serão excluídas. No entanto, um bloqueio de escopo pode impedi-lo de criar ou excluir recursos. Dependendo do bloqueio de escopo, algumas ou todas as regras não puderam ser migradas. Você pode resolver esse problema removendo o bloqueio de escopo para a assinatura, o grupo de recursos ou o recurso, que está listado na [ferramenta de migração](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)e disparando a migração novamente. O bloqueio de escopo não pode ser desabilitado e deve ser removido durante o processo de migração. [Saiba mais sobre como gerenciar bloqueios de escopo](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+
+### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>Política com o efeito ' negar ' nos impedindo de migrar suas regras
+
+Como parte da migração, novos alertas de métrica e novos grupos de ação serão criados e as regras de alerta clássicas serão excluídas. No entanto, uma política pode impedi-lo de criar recursos. Dependendo da política, algumas ou todas as regras não puderam ser migradas. As políticas que estão bloqueando o processo são listadas na [ferramenta de migração](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Resolva esse problema:
+
+- Excluindo as assinaturas ou grupos de recursos para a duração do processo de migração da atribuição de política. [Saiba mais sobre como gerenciar políticas escopo de exclusão](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
+- Remover ou alterar o efeito para ' auditoria ' ou ' acrescentar ' (que, por exemplo, pode resolver problemas relacionados a marcas ausentes). [Saiba mais sobre o efeito de gerenciamento de políticas](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -49,6 +49,8 @@
       href: ../hdinsight-version-release.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
     - name: Monitorizar a disponibilidade do cluster com os registos do Ambari e do Azure Monitor
       href: ../hdinsight-cluster-availability.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+    - name: Comparar opções de armazenamento
+      href: ../hdinsight-hadoop-compare-storage-options.md
 - name: Procedimento
   items:
     - name: Utilizar o armazenamento de cluster

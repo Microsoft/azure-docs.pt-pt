@@ -8,7 +8,7 @@ metadata:
   manager: carmonm
   ms.service: blueprints
   ms.topic: landing-page
-  ms.date: 03/26/2019
+  ms.date: 06/14/2019
   ms.author: dacoulte
 abstract:
   description: 'O Azure Blueprints ajuda-o a implementar e atualizar os ambientes de cloud de forma repetível através de artefactos compostos, como os modelos do Azure Resource Manager, para aprovisionar recursos, controlos de acesso baseado em funções e políticas.'
@@ -26,6 +26,11 @@ sections:
             text: Portal do Azure
             href: create-blueprint-portal.md
           - image:
+              alt: Azure PowerShell
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: create-blueprint-powershell.md
+          - image:
               alt: REST
               src: ./media/rest.svg
             text: REST
@@ -37,7 +42,7 @@ sections:
         className: cardsD
         items:
           - title: Linha de Comandos
-            html: '<p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>'
+            html: '<p><a href="/powershell/module/az.blueprint/#blueprint">O Azure PowerShell</a></p>'
           - title: Linguagens
             html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK for .NET</a> (Azure SDK para .NET)</p>
           - title: REST

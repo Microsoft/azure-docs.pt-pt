@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 6fe2e63138ce9e0f4e8980e4f37330228ac2bdb6
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: bd5ec1e75fa1669b0ca33e4cb4629793b09a9bad
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369501"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036129"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -82,7 +82,7 @@ ThinPrint é um provedor de serviços de valor agregado da área de trabalho vir
 A solução ezeep da ThinPrint estende o valor da área de trabalho virtual do Windows habilitando a conexão à infraestrutura de impressão empresarial existente. o ezeep dá aos usuários controle sobre a impressão na empresa, independentemente de onde estiverem. Usando o ezeep, os usuários podem preencher a lacuna entre a área de trabalho virtual do Windows e o hardware de impressão.
 
 - [Veja o resumo da solução conjunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas)
-- [Acesse o site do parceiro.](http://www.ezeep.com/wvd-printing)
+- [Acesse o site do parceiro.](https://www.ezeep.com/wvd-printing)
 
 ## <a name="workspot"></a>Workspot
 
@@ -95,7 +95,7 @@ Workspot estende o valor da área de trabalho virtual do Windows simplificando o
 - [Veja o resumo da solução conjunta.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P)
 - [Acesse o site do parceiro.](https://www.workspot.com/wvd)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Saiba mais sobre a área de trabalho virtual do Windows.](overview.md)
 - [Crie um locatário na área de trabalho virtual do Windows.](tenant-setup-azure-active-directory.md)

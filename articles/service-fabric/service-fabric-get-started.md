@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/08/2019
+ms.date: 08/22/2019
 ms.author: atsenthi
-ms.openlocfilehash: 2e19a7c267131de845143b681457966ed884a565
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 0bc8a5bbecc4e7d58265e9c10c2c8a3351fcc312
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775291"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036003"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparar o ambiente de desenvolvimento no Windows
 > [!div class="op_single_selector"]
@@ -69,8 +69,8 @@ Se apenas precisa do SDK, pode instalar este pacote:
 * [Instale o SDK do Microsoft Azure Service Fabric][core-sdk]
 
 As versões atuais são:
-* Service Fabric SDK e ferramentas 3.4.658
-* 6\.5.658 tempo de execução de Service Fabric
+* Service Fabric SDK e ferramentas 3.4.664
+* 6\.5.664 tempo de execução de Service Fabric
 * Ferramentas do Service Fabric para Visual Studio 2015 2.5.20615.1
 * O Visual Studio 2017 15,9 inclui Ferramentas do Service Fabric para Visual Studio 2.4.11024.1 
 * O Visual Studio 2019 16,1 inclui Ferramentas do Service Fabric para Visual Studio 2.5.20423.3
@@ -89,7 +89,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ## <a name="install-docker-optional"></a>Instalar o Docker (opcional)
 [Service Fabric é um orquestrador de contêiner](service-fabric-containers-overview.md) para implantar microserviços em um cluster de computadores. Para executar aplicativos de contêiner do Windows em seu cluster de desenvolvimento local, você deve primeiro instalar o Docker for Windows. Obter [Docker CE for Windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique com o botão direito do rato no ícone de tabuleiro e selecione **Mudar para os contentores do Windows**. Este passo é necessário para executar imagens do Docker baseadas no Windows.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que o ambiente de desenvolvimento está configurado, pode começar a criar e executar aplicações.
 
 * [Saiba como criar, implantar e gerenciar aplicativos](service-fabric-tutorial-create-dotnet-app.md)

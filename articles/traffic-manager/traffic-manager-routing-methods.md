@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: 305f24fc274ad48f5c60762223b7bf4e970fe083
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 06ce7fb5d18920be6f71821b034dc13061c60032
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333747"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051454"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de encaminhamento do Traffic Manager
 
@@ -118,7 +118,7 @@ O Gerenciador de tráfego lê o endereço IP de origem da consulta DNS e decide 
     >[!IMPORTANT]
     >É altamente recomendável que os clientes que usam o método de roteamento geográfico o associem aos pontos de extremidade de tipo aninhado que têm perfis filho contendo pelo menos dois pontos de extremidade dentro de cada um.
 - Se uma correspondência de ponto de extremidade for encontrada e esse ponto de extremidade estiver no estado **parado** , o Gerenciador de tráfego retornará uma resposta NODATA. Nesse caso, nenhuma pesquisa adicional é feita na hierarquia da região geográfica. Esse comportamento também se aplica a tipos de ponto de extremidade aninhados quando o perfil filho está no estado **parado** ou **desabilitado** .
-- Se um ponto de extremidade  exibir um status desabilitado, ele não será incluído no processo de correspondência de região. Esse comportamento também se aplica a tipos de ponto de extremidade aninhados quando o  ponto de extremidade está no estado desabilitado.
+- Se um ponto de extremidade exibir um status desabilitado, ele não será incluído no processo de correspondência de região. Esse comportamento também se aplica a tipos de ponto de extremidade aninhados quando o ponto de extremidade está no estado desabilitado.
 - Se uma consulta for proveniente de uma região geográfica que não tem mapeamento nesse perfil, o Gerenciador de tráfego retornará uma resposta NODATA. Portanto, é altamente recomendável que os clientes usem o roteamento geográfico com um ponto de extremidade, o ideal é que o tipo seja aninhado com pelo menos dois pontos de extremidade no perfil filho, com a região **mundo** atribuída a ele. Isso também garante que todos os endereços IP que não são mapeados para uma região são manipulados.
 
 Conforme explicado em [como funciona o Gerenciador de tráfego](traffic-manager-how-it-works.md), o Gerenciador de tráfego não recebe consultas DNS diretamente dos clientes. Em vez disso, as consultas DNS são provenientes do serviço DNS recursivo que os clientes estão configurados para usar. Portanto, o endereço IP usado para determinar a região não é o endereço IP do cliente, mas é o endereço IP do serviço DNS recursivo. Na prática, esse endereço IP é um bom proxy para o cliente.

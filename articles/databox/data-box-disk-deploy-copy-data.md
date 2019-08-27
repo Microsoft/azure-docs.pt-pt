@@ -6,16 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.localizationpriority: high
-ms.date: 07/23/2019
+ms.date: 08/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 5b9054f0be9b3098d853164e1ccf52df451f8165
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 796335fddf6107284b589d70094ff4f5a0e3acd5
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012973"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70049997"
 ---
 ::: zone target="docs"
 
@@ -302,14 +301,12 @@ Execute as etapas a seguir para conectar e copiar dados do seu computador para o
 1. Veja o conteúdo da unidade desbloqueada. A lista de pastas e subpastas criadas na unidade é diferente dependendo das opções selecionadas ao colocar a ordem de Disco do Data Box.
 2. Copie os dados para pastas que correspondem ao formato de dados apropriado. Por exemplo, copie os dados não estruturados para a pasta para a pasta *BlockBlob* , os dados VHD ou VHDX para a pasta *PageBlob* e os arquivos para o *azurefile*. Se o formato de dados não corresponder à pasta apropriada (tipo de armazenamento), em uma etapa posterior, o carregamento de dados para o Azure falhará.
 
+    - Verifique se todos os contêineres, BLOBs e arquivos estão de acordo com as [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions) e [os limites de tamanho de objeto do Azure](data-box-disk-limits.md#azure-object-size-limits). Se essas regras ou limites não forem seguidos, o carregamento de dados para o Azure falhará.
     - É criado um contentor na conta de armazenamento do Azure para cada subpasta nas pastas BlockBlob e PageBlob. Todos os arquivos em pastas *BlockBlob* e *PageBlob* são copiados em um contêiner padrão $root na conta de armazenamento do Azure. 
     - Todos os arquivos no contêiner de $root são sempre carregados como BLOBs de blocos.
     - Copie os arquivos para uma pasta na pasta *do azurefile* . Uma subpasta na pasta *do azurefile* cria um compartilhamento de itens. Os arquivos copiados diretamente para a pasta *do azurefile* falham e são carregados como BLOBs de blocos.
     - Se existirem ficheiros e pastas no diretório de raiz, tem de movê-los para uma pasta diferente antes de iniciar a cópia de dados.
     - Se seu pedido tiver Managed Disks como um dos destinos de armazenamento, consulte as convenções de nomenclatura para [Managed disks](data-box-disk-limits.md#managed-disk-naming-conventions).
-
-    > [!IMPORTANT]
-    > Todos os contêineres, BLOBs e arquivos devem estar em conformidade com as [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions) e [os limites de tamanho de objeto do Azure](data-box-disk-limits.md#azure-object-size-limits). Se essas regras ou limites não forem seguidos, o carregamento de dados para o Azure falhará.
 
 3. Use o recurso de arrastar e soltar com o explorador de arquivos ou qualquer ferramenta de cópia de arquivo compatível com SMB, como o Robocopy, para copiar seus dados. Vários trabalhos de cópia podem ser iniciados usando o seguinte comando:
 
@@ -327,6 +324,6 @@ Execute as etapas a seguir para verificar os dados.
 1. Execute o `DataBoxDiskValidation.cmd` para validação da soma de verificação na pasta *DataBoxDiskImport* da unidade.
 2. Use a opção 2 para validar seus arquivos e gerar somas de verificação. Consoante o tamanho dos dados, este passo pode demorar algum tempo. Se correrem erros durante a validação e a geração da soma de verificação, será notificado e também é fornecida uma ligação para os registos de erros.
 
-    Se você encontrar erros durante a validação, consulte [solucionar problemas de erros de validação](data-box-disk-troubleshoot.md).
+    Para obter mais informações sobre validação de dados, consulte [Validate data](data-box-disk-deploy-copy-data.md#validate-data). Se você tiver erros durante a validação, consulte [solucionar problemas de erros de validação](data-box-disk-troubleshoot.md).
 
 ::: zone-end

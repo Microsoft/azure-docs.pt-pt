@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe2b4ed91969248bc0818f98306a108555eac424
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 77309a73f3c5641aa8a7667015ed02808e376348
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853058"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032883"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar senhas inadequadas em sua organização
 
@@ -39,7 +39,7 @@ Sempre que uma nova senha for alterada ou redefinida para qualquer usuário em q
 > [!NOTE]
 > Os criminosos virtuais também usam estratégias semelhantes em seus ataques. Portanto, a Microsoft não publica o conteúdo dessa lista publicamente.
 
-## <a name="custom-banned-password-list"></a>Lista personalizada de senhas banidas
+## <a name="custom-banned-password-list"></a>Lista de palavras-passe banidas personalizada
 
 Algumas organizações talvez queiram melhorar ainda mais a segurança adicionando suas próprias personalizações sobre a lista de senhas globais banidas, em que a Microsoft chama a lista personalizada de senhas banidas. A Microsoft recomenda que os termos adicionados a essa lista se concentram principalmente em termos específicos da organização, como:
 
@@ -121,7 +121,7 @@ A correspondência difusa é usada na senha normalizada para identificar se ela 
 
 Exemplo: Suponha que a senha "abcdef" seja banida e um usuário tente alterar sua senha para uma das seguintes opções:
 
-' abcdeg '    *(último caractere alterado de ' f ' para ' g ')* ' abcdefg '   *' (g ' acrescentado ao final)* ' abcde '     *(' f ' à direita foi excluído do final)*
+' abcdeg ' *(último caractere alterado de ' f ' para ' g ')* ' abcdefg ' *' (g ' acrescentado ao final)* ' abcde ' *(' f ' à direita foi excluído do final)*
 
 Cada uma das senhas acima não corresponde especificamente à senha banida "abcdef". No entanto, como cada exemplo está dentro de uma distância de edição de 1 do termo banido ' abcdef ', eles são considerados como uma correspondência para "abcdef".
 
@@ -174,7 +174,7 @@ Quando um usuário tenta redefinir uma senha para algo que seria banido, ele vê
 
 Infelizmente, sua senha contém uma palavra, frase ou padrão que torna sua senha facilmente adivinhada. Tente novamente com uma senha diferente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Configurar a lista personalizada de senhas banidas](howto-password-ban-bad.md)
 - [Habilitar agentes de proteção de senha do Azure AD no local](howto-password-ban-bad-on-premises-deploy.md)

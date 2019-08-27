@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de/para um sistema de ficheiros com o Azure Data Factory | Documentos da Microsoft
-description: Saiba como copiar dados de e para um sistema de ficheiros no local com o Azure Data Factory.
+title: Copiar dados de/para um sistema de arquivos usando Azure Data Factory | Microsoft Docs
+description: Saiba como copiar dados de e para um sistema de arquivos local usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,84 +13,84 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4d3816eebe85f01301c770a50a618142bcbfbb21
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 92274f63db78d53bdd0fa3fd440977422be3b4a1
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839972"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036290"
 ---
-# <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copiar dados de e para um sistema de ficheiros no local com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
+# <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copiar dados de e para um sistema de arquivos local usando Azure Data Factory
+> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](data-factory-onprem-file-system-connector.md)
 > * [Versão 2 (versão atual)](../connector-file-system.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [conector de sistema de ficheiros no V2](../connector-file-system.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço de Data Factory, consulte [conector do sistema de arquivos na v2](../connector-file-system.md).
 
 
-Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para copiar dados de/para um sistema de ficheiros no local. Ele se baseia no [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma visão geral do movimento de dados com a atividade de cópia.
+Este artigo explica como usar a atividade de cópia no Azure Data Factory para copiar dados de/para um sistema de arquivos local. Ele se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md) , que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="supported-scenarios"></a>Cenários suportados
-Pode copiar dados **de um sistema de ficheiros no local** para os seguintes dados armazena:
+Você pode copiar dados **de um sistema de arquivos local** para os seguintes armazenamentos de dados:
 
 [!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
 
-Pode copiar dados de arquivos de dados seguintes **para um sistema de ficheiros no local**:
+Você pode copiar dados dos seguintes repositórios de dados **para um sistema de arquivos local**:
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!NOTE]
-> Atividade de cópia não elimina o ficheiro de origem após ser copiada com êxito para o destino. Se tiver de eliminar o ficheiro de origem depois de uma cópia com êxito, crie uma atividade personalizada para excluir o arquivo e usar a atividade no pipeline.
+> A atividade de cópia não exclui o arquivo de origem depois que ele é copiado com êxito para o destino. Se você precisar excluir o arquivo de origem após uma cópia bem-sucedida, crie uma atividade personalizada para excluir o arquivo e use a atividade no pipeline.
 
-## <a name="enabling-connectivity"></a>Ativar a conectividade
-Fábrica de dados suporta a ligação de e para um sistema de ficheiros no local através de **Data Management Gateway**. Tem de instalar o Data Management Gateway no seu ambiente no local para o serviço fábrica de dados ligar a nenhum repositório de dados local suportada, incluindo o sistema de ficheiros. Para saber mais sobre o Gateway de gestão de dados e para obter instruções passo a passo sobre como configurar o gateway, veja [mover dados entre origens no local e a nuvem com o Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md). Para além dos Data Management Gateway, não existem outros arquivos binários precisam ser instalados para comunicar de e para um sistema de ficheiros no local. Tem de instalar e utilizar o Gateway de gestão de dados, mesmo que o sistema de ficheiros é na VM de IaaS do Azure. Para obter informações detalhadas sobre o gateway, consulte [Data Management Gateway](data-factory-data-management-gateway.md).
+## <a name="enabling-connectivity"></a>Habilitando a conectividade
+O Data Factory dá suporte à conexão de e para um sistema de arquivos local por meio do **Gateway de gerenciamento de dados**. Você deve instalar o gateway de Gerenciamento de Dados no seu ambiente local para que o serviço de Data Factory se conecte a qualquer armazenamento de dados local com suporte, incluindo o sistema de arquivos. Para saber mais sobre Gerenciamento de Dados gateway e instruções passo a passo sobre como configurar o gateway, consulte [mover dados entre fontes locais e a nuvem com gerenciamento de dados gateway](data-factory-move-data-between-onprem-and-cloud.md). Além do gateway de Gerenciamento de Dados, nenhum outro arquivo binário precisa ser instalado para se comunicar de e para um sistema de arquivos local. Você deve instalar e usar o gateway Gerenciamento de Dados mesmo se o sistema de arquivos estiver na VM IaaS do Azure. Para obter informações detalhadas sobre o gateway, consulte [Gerenciamento de dados gateway](data-factory-data-management-gateway.md).
 
-Para utilizar uma partilha de ficheiros do Linux, instale [Samba](https://www.samba.org/) no seu servidor Linux e instalar o Data Management Gateway num servidor Windows. Instalar o Data Management Gateway num servidor Linux não é suportada.
+Para usar um compartilhamento de arquivos do Linux, instale o [samba](https://www.samba.org/) em seu servidor Linux e instale gerenciamento de dados gateway em um Windows Server. Não há suporte para a instalação do gateway de Gerenciamento de Dados em um servidor Linux.
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com uma atividade de cópia que move os dados de/para um sistema de ficheiros ao utilizar ferramentas/APIs diferentes.
+Você pode criar um pipeline com uma atividade de cópia que move dados de/para um sistema de arquivos usando diferentes ferramentas/APIs.
 
-A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
+A maneira mais fácil de criar um pipeline é usar o **Assistente de cópia**. Consulte [o tutorial: Crie um pipeline usando o assistente](data-factory-copy-data-wizard-tutorial.md) de cópia para obter uma explicação rápida sobre como criar um pipeline usando o assistente para copiar dados.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
-Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
+Se você usar as ferramentas ou APIs, execute as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
-1. Criar uma **fábrica de dados**. Uma fábrica de dados pode conter um ou mais pipelines.
-2. Crie **serviços ligados** para ligar a dados de entrada e saídos armazena à fábrica de dados. Por exemplo, se estiver a copiar dados de um armazenamento de Blobs do Azure para um sistema de ficheiros no local, crie dois serviços ligados para ligar o seu sistema de ficheiros no local e a conta de armazenamento do Azure à fábrica de dados. Para as propriedades do serviço ligado que são específicas para um sistema de ficheiros no local, consulte [propriedades do serviço ligado](#linked-service-properties) secção.
-3. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. O exemplo mencionado no último passo, vai criar um conjunto de dados para especificar o contentor de BLOBs e a pasta que contém os dados de entrada. Além disso, crie outro conjunto de dados para especificar a pasta e o nome de ficheiro (opcional) no seu sistema de ficheiros. Para as propriedades do conjunto de dados que são específicas para o sistema de ficheiros no local, consulte [propriedades do conjunto de dados](#dataset-properties) secção.
-4. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. No exemplo mencionado anteriormente, vai utilizar BlobSource como uma origem e FileSystemSink como sink para a atividade de cópia. Da mesma forma, se estiver a copiar do sistema de arquivos no local para o armazenamento de Blobs do Azure, utilize FileSystemSource e BlobSink a atividade de cópia. Para propriedades de atividade de cópia que são específicas para o sistema de ficheiros no local, consulte [propriedades da atividade copy](#copy-activity-properties) secção. Para obter detalhes sobre como usar um arquivo de dados como uma origem ou sink, clique na ligação na secção anterior para seu armazenamento de dados.
+1. Crie um **Data Factory**. Um data factory pode conter um ou mais pipelines.
+2. Crie **Serviços vinculados** para vincular armazenamentos de dados de entrada e saída ao seu data Factory. Por exemplo, se você estiver copiando dados de um armazenamento de BLOBs do Azure para um sistema de arquivos local, crie dois serviços vinculados para vincular seu sistema de arquivos local e a conta de armazenamento do Azure ao seu data factory. Para propriedades do serviço vinculado que são específicas para um sistema de arquivos local, consulte a seção [Propriedades do serviço vinculado](#linked-service-properties) .
+3. Crie **conjuntos** de dados para representar o dado de entrada e saída para a operação de cópia. No exemplo mencionado na última etapa, você cria um conjunto de dados para especificar o contêiner de BLOBs e a pasta que contém o dado de entrada. E, você cria outro conjunto de um para especificar o nome da pasta e do arquivo (opcional) no sistema de arquivos. Para propriedades do conjunto de informações que são específicas do sistema de arquivos local, consulte a seção [Propriedades do conjunto](#dataset-properties) de informações.
+4. Crie um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto como uma saída. No exemplo mencionado anteriormente, você usa o Blobname como uma origem e FileSystemSink como um coletor para a atividade de cópia. Da mesma forma, se você estiver copiando do sistema de arquivos local para o armazenamento de BLOBs do Azure, use o BlobSink e o Microsoft na atividade de cópia. Para propriedades da atividade de cópia que são específicas para o sistema de arquivos local, consulte a seção [Propriedades da atividade de cópia](#copy-activity-properties) . Para obter detalhes sobre como usar um armazenamento de dados como uma origem ou um coletor, clique no link na seção anterior para seu armazenamento de dados.
 
-Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para exemplos com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de/para um sistema de ficheiros, consulte [exemplos JSON](#json-examples-for-copying-data-to-and-from-file-system) seção deste artigo.
+Quando você usa o assistente, as definições de JSON para essas entidades de Data Factory (serviços vinculados, conjuntos de valores e o Pipeline) são criadas automaticamente para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades de Data Factory usando o formato JSON.  Para obter exemplos com definições de JSON para Data Factory entidades usadas para copiar dados de/para um sistema de arquivos, consulte a seção [exemplos de JSON](#json-examples-for-copying-data-to-and-from-file-system) deste artigo.
 
-As secções seguintes fornecem detalhes sobre as propriedades JSON utilizadas para definir entidades do Data Factory específicas ao sistema de ficheiros:
+As seções a seguir fornecem detalhes sobre as propriedades JSON que são usadas para definir Data Factory entidades específicas ao sistema de arquivos:
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
-Pode ligar um sistema de ficheiros no local a uma fábrica de dados do Azure com o **servidor de ficheiros no local** serviço ligado. A tabela seguinte fornece descrições para os elementos JSON que são específicas para o serviço de servidor de ficheiros no local ligado.
+Você pode vincular um sistema de arquivos local a um data factory do Azure com o serviço vinculado do **servidor de arquivos local** . A tabela a seguir fornece descrições para elementos JSON que são específicos para o serviço vinculado do servidor de arquivos local.
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| type |Certifique-se de que a propriedade de tipo é definida como **OnPremisesFileServer**. |Sim |
-| host |Especifica o caminho de raiz da pasta que pretende copiar. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver [exemplo ligado as definições de serviço e o conjunto de dados](#sample-linked-service-and-dataset-definitions) para obter exemplos. |Sim |
-| userid |Especifica o ID de utilizador que tem acesso ao servidor. |Não (se escolher encryptedCredential) |
-| password |Especifique a palavra-passe para o utilizador (ID de utilizador). |Não (se escolher encryptedCredential |
-| encryptedCredential |Especifique as credenciais encriptadas que pode obter ao executar o cmdlet New-AzDataFactoryEncryptValue. |Não (se optar por especificar o ID de utilizador e palavra-passe em texto simples) |
-| gatewayName |Especifica o nome do gateway que o Data Factory deve utilizar para ligar ao servidor de ficheiros no local. |Sim |
+| type |Verifique se a propriedade Type está definida como **OnPremisesFileServer**. |Sim |
+| host |Especifica o caminho de raiz da pasta que pretende copiar. Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres. Ver [exemplo ligado as definições de serviço e o conjunto de dados](#sample-linked-service-and-dataset-definitions) para obter exemplos. |Sim |
+| userid |Especifica o ID de utilizador que tem acesso ao servidor. |Não (se você escolher encryptedCredential) |
+| password |Especifique a palavra-passe para o utilizador (ID de utilizador). |Não (se você escolher encryptedCredential |
+| encryptedCredential |Especifique as credenciais criptografadas que você pode obter executando o cmdlet New-AzDataFactoryEncryptValue. |Não (se você optar por especificar userid e password em texto sem formatação) |
+| gatewayName |Especifica o nome do gateway que Data Factory deve usar para se conectar ao servidor de arquivos local. |Sim |
 
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Serviço ligado e as definições do conjunto de dados de exemplo
-| Cenário | Alojar na definição de serviço ligado | folderPath na definição do conjunto de dados |
+| Cenário | Host na definição de serviço vinculado | folderPath na definição de DataSet |
 | --- | --- | --- |
-| Pasta local no computador Gateway de gestão de dados: <br/><br/>Exemplos: D:\\ \* ou D:\folder\subfolder\\* |D:\\ \\ (para o Data Management Gateway 2.0 e versões posteriores) <br/><br/> host local (para versões anteriores que o Data Management Gateway 2.0) |. \\ \\ ou pasta\\\\subpasta (para o Data Management Gateway 2.0 e versões posteriores) <br/><br/>D:\\ \\ ou d:\\\\pasta\\\\subpasta (para a versão do gateway abaixo 2.0) |
-| Pasta remota partilhada: <br/><br/>Exemplos: \\ \\myserver\\partilhar\\ \* ou \\ \\myserver\\partilhar\\pasta\\subpasta\\* |\\\\\\\\myserver\\\\share |. \\ \\ ou pasta\\\\subpasta |
+| Pasta local no computador do gateway de Gerenciamento de Dados: <br/><br/>Exemplos: D:\\ \* ou D:\folder\subfolder\\\* |D:\\ \\ (para gerenciamento de dados gateway 2,0 e versões posteriores) <br/><br/> localhost (para versões anteriores do que Gerenciamento de Dados gateway 2,0) |. \\ oupasta\\subpasta (para gerenciamento de dados gateway 2,0 e versões posteriores)\\ \\ <br/><br/>D:\\ \\\\ou d:\\subpasta dapasta\\(para a versão do gateway abaixo de 2,0)\\ |
+| Pasta remota partilhada: <br/><br/>Exemplos: \\ \\meuservidorshare\\ *ou\\meuservidorshare\\Foldersubpasta\\\\\\ \\\\\\* |\\\\\\\\compartilhamento\\de meuservidor\\ |. \\ oupasta\\subpasta \\ \\ |
 
 >[!NOTE]
 >Durante a criação de através da interface do Usuário, não precisa de barra invertida duplo de entrada (`\\`) para o escape tal como faz via JSON, especifique a barra invertida única.
 
-### <a name="example-using-username-and-password-in-plain-text"></a>Exemplo: Usando o nome de utilizador e palavra-passe em texto simples
+### <a name="example-using-username-and-password-in-plain-text"></a>Exemplo: Usando nome de usuário e senha em texto sem formatação
 
 ```JSON
 {
@@ -124,26 +124,26 @@ Pode ligar um sistema de ficheiros no local a uma fábrica de dados do Azure com
 ```
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para obter uma lista completa de seções e as propriedades que estão disponíveis para definir conjuntos de dados, consulte [criar conjuntos de dados](data-factory-create-datasets.md). Seções, como a estrutura, disponibilidade e a política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados.
+Para obter uma lista completa das seções e propriedades que estão disponíveis para definir conjuntos de os, consulte [criando conjuntos](data-factory-create-datasets.md)de os. As seções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados.
 
-A secção typeProperties é diferente para cada tipo de conjunto de dados. Ele fornece informações como a localização e o formato dos dados no arquivo de dados. Os typeProperties secção para o conjunto de dados do tipo **partilha de ficheiros** tem as seguintes propriedades:
+A seção typeproperties é diferente para cada tipo de conjunto de texto. Ele fornece informações como o local e o formato dos dados no armazenamento de dados. A seção typeproperties do conjunto de um do tipo **FileShare** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Requerido |
 | --- | --- | --- |
-| folderPath |Especifica o Subcaminho para a pasta. Utilizar o caráter de escape '\' para carateres especiais na cadeia de caracteres. Não é suportado o filtro de carateres universais. Ver [exemplo ligado as definições de serviço e o conjunto de dados](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Pode combinar essa propriedade com o **partitionBy** ter pasta caminhos baseados no setor de início/fim datas-horas. |Sim |
-| fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando **fileName** não está especificado para um conjunto de dados de saída e **preserveHierarchy** não está especificado no sink de atividade, o nome do ficheiro gerado é no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
-| fileFilter |Especifique um filtro para ser usado para selecionar um subconjunto de ficheiros em folderPath em vez de todos os ficheiros. <br/><br/>Valores permitidos são: `*` (vários carateres) e `?` (caráter individual).<br/><br/>Exemplo 1: "fileFilter": "*. log"<br/>Exemplo 2: "fileFilter": -1 - de 2014?. txt"<br/><br/>Tenha em atenção que fileFilter se aplica a um conjunto de dados de partilha de ficheiros de entrada. |Não |
-| partitionedBy |Pode usar partitionedBy para especificar um folderPath/nome de ficheiro dinâmica para dados de séries temporais. Um exemplo é folderPath parametrizado por cada hora de dados. |Não |
-| format | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
-| compression | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Ideal** e **mais rápida**. ver [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| folderPath |Especifica o subcaminho para a pasta. Use o caractere de escape\' ' para caracteres especiais na cadeia de caracteres. Não é suportado o filtro de carateres universais. Ver [exemplo ligado as definições de serviço e o conjunto de dados](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pasta com base em data/hora de início/término da fatia. |Sim |
+| fileName |Especifique o nome do arquivo no **FolderPath** se você quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar nenhum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando **filename** não for especificado para um conjunto de resultados de saída e **preserveHierarchy** não for especificado no coletor de atividade, o nome do arquivo gerado estará no seguinte formato: <br/><br/>`Data.<Guid>.txt`Exemplo Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
+| fileFilter |Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos. <br/><br/>Os valores permitidos são `*` : (vários caracteres) `?` e (caractere único).<br/><br/>Exemplo 1: "FileFilter": "*. log"<br/>Exemplo 2: "FileFilter": 2014-1-?. localizado<br/><br/>Observe que FileFilter é aplicável a um conjunto de dados de FileShare de entrada. |Não |
+| partitionedBy |Você pode usar partitionedBy para especificar um folderPath/fileName dinâmico para dados de série temporal. Um exemplo é folderPath parametrizado para cada hora dos dados. |Não |
+| format | Há suporte para os seguintes tipos de formato:TextFormat **, JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
+| compression | Especifica o tipo e o nível de compressão dos dados. Os tipos com suporte são: **Gzip**,deflate, **bzip2**e **ZipDeflate**. Os níveis com suporte são: **Ideal** e **mais rápido**. consulte [formatos de arquivo e compactação em Azure data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 > [!NOTE]
-> Não é possível utilizar nome de ficheiro e fileFilter em simultâneo.
+> Você não pode usar fileName e FileFilter simultaneamente.
 
-### <a name="using-partitionedby-property"></a>Usando a propriedade de partitionedBy
-Conforme mencionado na secção anterior, pode especificar um folderPath dinâmico e o nome do ficheiro de dados de séries de tempo com o **partitionedBy** propriedade, [funções de fábrica de dados e as variáveis do sistema](data-factory-functions-variables.md).
+### <a name="using-partitionedby-property"></a>Usando a propriedade partitionedBy
+Conforme mencionado na seção anterior, você pode especificar um folderPath e um nome de arquivo dinâmico para dados de série temporal com a propriedade **partitionedBy** , [funções de data Factory e as variáveis de sistema](data-factory-functions-variables.md).
 
-Para obter mais detalhes sobre os conjuntos de dados de séries temporais, agendamento e setores de compreender, veja [criar conjuntos de dados](data-factory-create-datasets.md), [agendamento e execução](data-factory-scheduling-and-execution.md), e [Criar pipelines](data-factory-create-pipelines.md).
+Para entender mais detalhes sobre conjuntos de data de série temporal, agendamento e fatias, confira [criando conjuntos](data-factory-create-datasets.md)de, [agendando e execução](data-factory-scheduling-and-execution.md)e [criando pipelines](data-factory-create-pipelines.md).
 
 #### <a name="sample-1"></a>Exemplo 1:
 
@@ -155,7 +155,7 @@ Para obter mais detalhes sobre os conjuntos de dados de séries temporais, agend
 ],
 ```
 
-Neste exemplo, {setor} é substituído pelo valor da variável de sistema SliceStart de fábrica de dados no formato (YYYYMMDDHH). SliceStart refere-se para iniciar a hora do setor. FolderPath é diferente para cada setor. Por exemplo: deverá/wikisampledataout/2014100103 ou deverá/wikisampledataout/2014100104.
+Neste exemplo, {Slice} é substituído pelo valor da variável de sistema Data Factory SliceStart no formato (AAAAMMDDHH). SliceStart refere-se à hora de início da fatia. FolderPath é diferente para cada fatia. Por exemplo: wikidatagateway/wikisampledataout/2014100103 ou wikidatagateway/wikisampledataout/2014100104.
 
 #### <a name="sample-2"></a>Exemplo 2:
 
@@ -171,57 +171,57 @@ Neste exemplo, {setor} é substituído pelo valor da variável de sistema SliceS
 ],
 ```
 
-Neste exemplo, ano, mês, dia e hora do SliceStart são extraídos em variáveis separadas que utilizam as propriedades de folderPath e nome de ficheiro.
+Neste exemplo, ano, mês, dia e hora de SliceStart são extraídos em variáveis separadas que as propriedades folderPath e fileName usam.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades como nome, descrição, entrada e saída de conjuntos de dados e as políticas estão disponíveis para todos os tipos de atividades. Ao passo que, propriedades disponíveis no **typeProperties** secção da atividade varia com cada tipo de atividade.
+Para obter uma lista completa das seções & propriedades disponíveis para definir as atividades, consulte o artigo [criando pipelines](data-factory-create-pipelines.md) . Propriedades como nome, descrição, conjuntos de dados de entrada e saída e políticas estão disponíveis para todos os tipos de atividades. Enquanto que as propriedades disponíveis na seção typeproperties da atividade variam de acordo com cada tipo de atividade.
 
-Para a atividade de cópia, elas variam consoante os tipos de origens e sinks. Se estiver a mover dados de um sistema de ficheiros no local, defina o tipo de origem na atividade de cópia para **FileSystemSource**. Da mesma forma, se estiver a mover dados para um sistema de ficheiros no local, é definir o tipo de sink na atividade de cópia para **FileSystemSink**. Esta seção fornece uma lista de propriedades suportadas pelo FileSystemSource e FileSystemSink.
+Para a atividade de cópia, elas variam de acordo com os tipos de fontes e coletores. Se você estiver movendo dados de um sistema de arquivos local, defina o tipo de origem na atividade de cópia como FileSystemName. Da mesma forma, se você estiver movendo dados para um sistema de arquivos local, defina o tipo de coletor na atividade de cópia como **FileSystemSink**. Esta seção fornece uma lista das propriedades com suporte por FileSystemName e FileSystemSink.
 
-**FileSystemSource** suporta as seguintes propriedades:
+O FileSystemName dá suporte às seguintes propriedades:
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Requerido |
 | --- | --- | --- | --- |
-| recursive |Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. |TRUE, False (predefinição) |Não |
+| recursive |Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. |True, false (padrão) |Não |
 
-**FileSystemSink** suporta as seguintes propriedades:
+O **FileSystemSink** dá suporte às seguintes propriedades:
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Requerido |
 | --- | --- | --- | --- |
-| copyBehavior |Define o comportamento de cópia quando a origem é BlobSource ou sistema de ficheiros. |**PreserveHierarchy:** Preserva a hierarquia de ficheiros na pasta de destino. Ou seja, o caminho relativo do ficheiro de origem para a pasta de origem é o mesmo que o caminho relativo do ficheiro de destino para a pasta de destino.<br/><br/>**FlattenHierarchy:** Todos os ficheiros da pasta de origem são criados no primeiro nível de pasta de destino. Os ficheiros de destino são criados com um nome gerado automaticamente.<br/><br/>**MergeFiles:** Une todos os ficheiros da pasta de origem para um ficheiro. Se não for especificado o nome de blob/nome de ficheiro, o nome de ficheiro mesclada é o nome especificado. Caso contrário, ele é um nome de ficheiro gerado automaticamente. |Não |
+| copyBehavior |Define o comportamento de cópia quando a origem é BLOB ou FileSystem. |**PreserveHierarchy** Preserva a hierarquia de arquivos na pasta de destino. Ou seja, o caminho relativo do arquivo de origem para a pasta de origem é o mesmo que o caminho relativo do arquivo de destino para a pasta de destino.<br/><br/>**FlattenHierarchy** Todos os arquivos da pasta de origem são criados no primeiro nível da pasta de destino. Os arquivos de destino são criados com um nome gerado automaticamente.<br/><br/>**MergeFiles** Mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/nome do blob for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, será um nome de arquivo gerado automaticamente. |Não |
 
 ### <a name="recursive-and-copybehavior-examples"></a>Exemplos de recursiva e copyBehavior
-Esta secção descreve o comportamento resultante da operação de cópia para diferentes combinações de valores para as propriedades de recursiva e copyBehavior.
+Esta seção descreve o comportamento resultante da operação de cópia para diferentes combinações de valores para as propriedades recursiva e copyBehavior.
 
-| valor de recursiva | valor de copyBehavior | Comportamento resultante |
+| valor recursivo | valor de copyBehavior | Comportamento resultante |
 | --- | --- | --- |
-| true |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a mesma estrutura de origem:<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
-| true |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>O destino Pasta1 é criada com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File5 |
-| true |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>O destino Pasta1 é criada com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + 5 ficheiro de conteúdo é mesclado num ficheiro com um nome de ficheiro gerado automaticamente. |
-| false |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura:<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
-| false |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura:<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
-| false |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura:<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 conteúdo é mesclado num arquivo com um nome de ficheiro gerado automaticamente.<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para File1<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
+| true |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a mesma estrutura que a origem:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
+| true |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>o Pasta1 de destino é criado com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File5 |
+| true |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>o Pasta1 de destino é criado com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos de arquivo1 + arquivo2 + arquivo3 + Arquivo4 + arquivo 5 são mesclados em um arquivo com um nome de arquivo gerado automaticamente. |
+| false |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
+| false |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
+| false |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura,<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos de arquivo1 + arquivo2 são mesclados em um arquivo com um nome de arquivo gerado automaticamente.<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para file1<br/><br/>Não é capturado Subfolder1 com File3, File4 e File5. |
 
-## <a name="supported-file-and-compression-formats"></a>Formatos de ficheiro e de compressão suportados
-Ver [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artigo em detalhes.
+## <a name="supported-file-and-compression-formats"></a>Formatos de arquivo e compactação com suporte
+Consulte [formatos de arquivo e compactação no artigo Azure data Factory](data-factory-supported-file-and-compression-formats.md) sobre detalhes.
 
-## <a name="json-examples-for-copying-data-to-and-from-file-system"></a>Exemplos JSON para copiar dados de e para sistema de ficheiros
-Os exemplos seguintes fornecem definições de JSON de exemplo que pode utilizar para criar um pipeline com [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados entre um sistema de ficheiros no local e o armazenamento de Blobs do Azure. No entanto, pode copiar dados *diretamente* de qualquer uma das origens qualquer um dos sinks listados na [suportado origens e sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) através da atividade de cópia no Azure Data Factory.
+## <a name="json-examples-for-copying-data-to-and-from-file-system"></a>Exemplos de JSON para copiar dados de e para o sistema de arquivos
+Os exemplos a seguir fornecem exemplos de definições de JSON que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados de e para um sistema de arquivos local e o armazenamento de BLOBs do Azure. No entanto, você pode copiar dados *diretamente* de qualquer uma das fontes para qualquer um dos coletores listados em [fontes com suporte e coletores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure data Factory.
 
-### <a name="example-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>Exemplo: Copiar dados de um sistema de ficheiros no local para o armazenamento de Blobs do Azure
-Este exemplo mostra como copiar dados de um sistema de ficheiros no local para o armazenamento de Blobs do Azure. O exemplo possui as seguintes entidades do Data Factory:
+### <a name="example-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>Exemplo: Copiar dados de um sistema de arquivos local para o armazenamento de BLOBs do Azure
+Este exemplo mostra como copiar dados de um sistema de arquivos local para o armazenamento de BLOBs do Azure. O exemplo tem as seguintes entidades de Data Factory:
 
-* Um serviço ligado do tipo [OnPremisesFileServer](#linked-service-properties).
-* Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-* Entrada [conjunto de dados](data-factory-create-datasets.md) do tipo [partilha de ficheiros](#dataset-properties).
-* Uma saída [conjunto de dados](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-* R [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que utiliza [FileSystemSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+* Um serviço vinculado do tipo [OnPremisesFileServer](#linked-service-properties).
+* Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+* Um [conjunto](data-factory-create-datasets.md) de dados de entrada do tipo [FileShare](#dataset-properties).
+* Um [conjunto](data-factory-create-datasets.md) de uma saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* Um [pipeline](data-factory-create-pipelines.md) com a atividade de cópia [](#copy-activity-properties) que usa o FileSystemName e o [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-O exemplo seguinte copia dados de séries de tempo de um sistema de ficheiros no local para o armazenamento de Blobs do Azure a cada hora. As propriedades JSON utilizadas nestes exemplos são descritas nas secções após os exemplos.
+O exemplo a seguir copia dados de série temporal de um sistema de arquivos local para o armazenamento de BLOBs do Azure a cada hora. As propriedades JSON que são usadas nesses exemplos são descritas nas seções após os exemplos.
 
-Como primeiro passo, configurar o Gateway de gestão de dados de acordo com as instruções em [mover dados entre origens no local e a nuvem com o Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
+Como uma primeira etapa, configure Gerenciamento de Dados gateway de acordo com as instruções em [mover dados entre fontes locais e a nuvem com gerenciamento de dados gateway](data-factory-move-data-between-onprem-and-cloud.md).
 
-**Serviço ligado do servidor de ficheiros no local:**
+**Serviço vinculado do servidor de arquivos local:**
 
 ```JSON
 {
@@ -238,9 +238,9 @@ Como primeiro passo, configurar o Gateway de gestão de dados de acordo com as i
 }
 ```
 
-Recomendamos que utilize o **encryptedCredential** propriedade em vez disso, o **userid** e **palavra-passe** propriedades. Ver [serviço do servidor de ficheiros ligado](#linked-service-properties) para obter detalhes sobre este serviço ligado.
+É recomendável usar a propriedade **encryptedCredential** em vez disso, as propriedades **userid** e **password** . Consulte [serviço vinculado do servidor de arquivos](#linked-service-properties) para obter detalhes sobre esse serviço vinculado.
 
-**Serviço ligado do armazenamento do Azure:**
+**Serviço vinculado do armazenamento do Azure:**
 
 ```JSON
 {
@@ -254,11 +254,11 @@ Recomendamos que utilize o **encryptedCredential** propriedade em vez disso, o *
 }
 ```
 
-**Conjunto de dados de entrada de sistema de ficheiros no local:**
+**Conjunto de dados de entrada do sistema de arquivos local:**
 
-Dados são captados um novo ficheiro a cada hora. As propriedades de folderPath e nome de ficheiro são determinadas com base na hora de início do setor.
+Os dados são coletados de um novo arquivo a cada hora. As propriedades folderPath e fileName são determinadas com base na hora de início da fatia.
 
-Definição `"external": "true"` informa a fábrica de dados que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
+A `"external": "true"` configuração informa data Factory que o DataSet é externo ao data Factory e não é produzido por uma atividade no data Factory.
 
 ```JSON
 {
@@ -320,9 +320,9 @@ Definição `"external": "true"` informa a fábrica de dados que o conjunto de d
 }
 ```
 
-**Conjunto de dados de saída de armazenamento de Blobs do Azure:**
+**Conjunto de resultados do armazenamento de BLOBs do Azure:**
 
-Os dados são escritos para um blob novo a cada hora (frequência: hora, intervalo: 1). O caminho da pasta para o blob é avaliado dinamicamente com base na hora de início do setor que está a ser processado. O caminho da pasta utiliza o ano, mês, dia e partes de hora da hora de início.
+Os dados são gravados em um novo BLOB a cada hora (frequência: hora, intervalo: 1). O caminho da pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes de ano, mês, dia e hora da hora de início.
 
 ```JSON
 {
@@ -380,9 +380,9 @@ Os dados são escritos para um blob novo a cada hora (frequência: hora, interva
 }
 ```
 
-**Uma atividade de cópia num pipeline com a origem de sistema de ficheiros e de sink do Blob:**
+**Uma atividade de cópia em um pipeline com origem do sistema de arquivos e coletor de blob:**
 
-O pipeline contém uma atividade de cópia que está configurada para utilizar os conjuntos de dados de entrada e saídos e é agendada para ser executada a cada hora. No pipeline de definição de JSON, o **origem** tipo está definido como **FileSystemSource**, e **sink** tipo está definido como **BlobSink**.
+O pipeline contém uma atividade de cópia que é configurada para usar os conjuntos de dados de entrada e saída e está agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo de **origem** é definido como FileSystemName e o tipo de **coletor** é definido como **BlobSink**.
 
 ```JSON
 {
@@ -430,18 +430,18 @@ O pipeline contém uma atividade de cópia que está configurada para utilizar o
 }
 ```
 
-### <a name="example-copy-data-from-azure-sql-database-to-an-on-premises-file-system"></a>Exemplo: Copiar dados de base de dados do Azure SQL para um sistema de ficheiros no local
+### <a name="example-copy-data-from-azure-sql-database-to-an-on-premises-file-system"></a>Exemplo: Copiar dados do banco de dados SQL do Azure para um sistema de arquivos local
 O exemplo a seguir mostra:
 
-* Um serviço ligado do tipo [AzureSqlDatabase.](data-factory-azure-sql-connector.md#linked-service-properties)
-* Um serviço ligado do tipo [OnPremisesFileServer](#linked-service-properties).
+* Um serviço vinculado do tipo [AzureSqlDatabase.](data-factory-azure-sql-connector.md#linked-service-properties)
+* Um serviço vinculado do tipo [OnPremisesFileServer](#linked-service-properties).
 * Um conjunto de dados de entrada do tipo [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties).
-* Um conjunto de dados de saída do tipo [partilha de ficheiros](#dataset-properties).
-* Um pipeline com uma atividade de cópia que utiliza [SqlSource](data-factory-azure-sql-connector.md##copy-activity-properties) e [FileSystemSink](#copy-activity-properties).
+* Um conjunto de uma saída do tipo [FileShare](#dataset-properties).
+* Um pipeline com uma atividade de cópia que [](data-factory-azure-sql-connector.md##copy-activity-properties) usa sqlsource e [FileSystemSink](#copy-activity-properties).
 
-O exemplo copia dados de séries de tempo de uma tabela do SQL do Azure para um sistema de ficheiros no local a cada hora. As propriedades JSON utilizadas nestes exemplos são descritas nas secções após os exemplos.
+O exemplo copia dados de série temporal de uma tabela SQL do Azure para um sistema de arquivos local a cada hora. As propriedades JSON que são usadas nesses exemplos são descritas em seções após os exemplos.
 
-**Serviço de ligado de base de dados SQL do Azure:**
+**Serviço vinculado do banco de dados SQL do Azure:**
 
 ```JSON
 {
@@ -455,7 +455,7 @@ O exemplo copia dados de séries de tempo de uma tabela do SQL do Azure para um 
 }
 ```
 
-**Serviço ligado do servidor de ficheiros no local:**
+**Serviço vinculado do servidor de arquivos local:**
 
 ```JSON
 {
@@ -472,13 +472,13 @@ O exemplo copia dados de séries de tempo de uma tabela do SQL do Azure para um 
 }
 ```
 
-Recomendamos que utilize o **encryptedCredential** propriedade em vez de usar o **userid** e **palavra-passe** propriedades. Ver [serviço ligado do sistema de ficheiros](#linked-service-properties) para obter detalhes sobre este serviço ligado.
+É recomendável usar a propriedade **encryptedCredential** em vez de usar as propriedades **userid** e **password** . Consulte [serviço vinculado do sistema de arquivos](#linked-service-properties) para obter detalhes sobre esse serviço vinculado.
 
-**Conjunto de dados de entrada SQL do Azure:**
+**Conjunto de dados de entrada do SQL Azure:**
 
-O exemplo assume que criou uma tabela "MyTable" no Azure SQL e contém uma coluna chamada "timestampcolumn" para dados de séries temporais.
+O exemplo supõe que você criou uma tabela "MyTable" no SQL do Azure e que ela contém uma coluna chamada "timestampcolumn" para dados de série temporal.
 
-Definição ``“external”: ”true”`` informa a fábrica de dados que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
+A ``“external”: ”true”`` configuração informa data Factory que o DataSet é externo ao data Factory e não é produzido por uma atividade no data Factory.
 
 ```JSON
 {
@@ -505,9 +505,9 @@ Definição ``“external”: ”true”`` informa a fábrica de dados que o con
 }
 ```
 
-**Conjunto de dados de saída de sistema de ficheiros no local:**
+**Conjunto de entrada do sistema de arquivos local:**
 
-Dados são copiados para um novo ficheiro a cada hora. O nome de ficheiro para o blob e folderPath são determinados com base na hora de início do setor.
+Os dados são copiados para um novo arquivo a cada hora. FolderPath e fileName para o blob são determinados com base na hora de início da fatia.
 
 ```JSON
 {
@@ -569,9 +569,9 @@ Dados são copiados para um novo ficheiro a cada hora. O nome de ficheiro para o
 }
 ```
 
-**Uma atividade de cópia num pipeline com a origem SQL e de sink de sistema de ficheiros:**
+**Uma atividade de cópia em um pipeline com fonte SQL e coletor de sistema de arquivos:**
 
-O pipeline contém uma atividade de cópia que está configurada para utilizar os conjuntos de dados de entrada e saídos e é agendada para ser executada a cada hora. No pipeline de definição de JSON, o **origem** tipo está definido como **SqlSource**e o **sink** tipo está definido como **FileSystemSink**. A consulta SQL especificado para o **SqlReaderQuery** propriedade seleciona os dados na hora anterior para copiar.
+O pipeline contém uma atividade de cópia que é configurada para usar os conjuntos de dados de entrada e saída e está agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo de **origem** é definido como sqlsource e o tipo de **coletor** é definido como **FileSystemSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na última hora a serem copiados.
 
 ```JSON
 {
@@ -620,7 +620,7 @@ O pipeline contém uma atividade de cópia que está configurada para utilizar o
 }
 ```
 
-Também pode mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de sink na definição da atividade de cópia. Para obter detalhes, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
+Você também pode mapear colunas do conjunto de fonte de origem para colunas do conjunto de coleta da atividade de cópia. Para obter detalhes, consulte [mapeando colunas do conjunto de informações em Azure data Factory](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Desempenho e otimização
- Para saber mais sobre os principais fatores que afetam o desempenho de movimento de dados (atividade de cópia) no Azure Data Factory e diversas maneiras para otimizá-lo, consulte a [guia de sintonização de desempenho de atividade de cópia e](data-factory-copy-activity-performance.md).
+ Para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (atividade de cópia) no Azure Data Factory e várias maneiras de otimizá-lo, consulte o [Guia de desempenho e ajuste da atividade de cópia](data-factory-copy-activity-performance.md).

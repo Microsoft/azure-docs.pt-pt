@@ -1,199 +1,195 @@
 ---
-title: Ligar ao Dynamics 365 - Azure Logic Apps
-description: Criar e gerir os registos com APIs de REST do Dynamics 365 (online) e o Azure Logic Apps
+title: Conectar-se ao Dynamics 365 – aplicativos lógicos do Azure
+description: Criar e gerenciar registros com APIs REST do Dynamics 365 (online) e aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: Mattp123
 ms.author: matp
+manager: carmonm
 ms.reviewer: estfan, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce83e6b1847a8f08467cb7877e517bdaace27953
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60313749"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051022"
 ---
-# <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gerir registos do Dynamics 365 com o Azure Logic Apps
+# <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gerenciar registros do Dynamics 365 com aplicativos lógicos do Azure
 
-Com o Azure Logic Apps e o conector do Dynamics 365, pode criar tarefas automatizadas e fluxos de trabalho com base nos seus registos no Dynamics 365. Os fluxos de trabalho podem criar registos, itens de atualização, registos de retornados e muito mais na sua conta do Dynamics 365. Pode incluir ações nas suas aplicações lógicas que obtém respostas a partir do Dynamics 365 e disponibilizar a saída para outras ações. Por exemplo, quando um item é atualizado no Dynamics 365, pode enviar um e-mail com o Office 365.
+Com as Azure Logic Apps e o conector do Dynamics 365, pode criar tarefas e fluxos de trabalho automatizados com base nos seus registos no Dynamics 365. Os seus fluxos de trabalho podem criar registos, atualizar itens, devolver registos e muito mais na sua conta do Dynamics 365. Você pode incluir ações em seus aplicativos lógicos que obtêm respostas do Dynamics 365 e disponibilizar a saída para outras ações. Por exemplo, quando um item é atualizado no Dynamics 365, você pode enviar um email usando o Office 365.
 
-Este artigo mostra como criar uma aplicação lógica que cria uma tarefa no Dynamics 365, sempre que for criado um novo registo de oportunidades potenciais do Dynamics 365.
-Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
+Este artigo mostra como você pode criar um aplicativo lógico que cria uma tarefa no Dynamics 365 sempre que um novo registro de Lead é criado no Dynamics 365.
+Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>.
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* A [conta Dynamics 365](https://dynamics.microsoft.com)
+* Uma [conta do Dynamics 365](https://dynamics.microsoft.com)
 
-* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* A aplicação de lógica onde pretende aceder à sua conta do Dynamics 365. Para começar a sua aplicação lógica com um acionador do Dynamics 365, tem um [aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* O aplicativo lógico no qual você deseja acessar sua conta do Dynamics 365. Para iniciar seu aplicativo lógico com um gatilho do Dynamics 365, você precisa de um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="add-dynamics-365-trigger"></a>Adicionar o acionador do Dynamics 365
+## <a name="add-dynamics-365-trigger"></a>Adicionar gatilho do Dynamics 365
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-Primeiro, adicione um acionador do Dynamics 365 que é acionado quando é apresentado um novo registo de oportunidades potenciais no Dynamics 365.
+Primeiro, adicione um gatilho do Dynamics 365 que é acionado quando um novo registro de Lead aparece no Dynamics 365.
 
-1. Na [portal do Azure](https://portal.azure.com), abra a aplicação lógica em branco no Estruturador da aplicação lógica, se não estiver já abrir.
+1. No [portal do Azure](https://portal.azure.com), abra seu aplicativo lógico em branco no designer de aplicativo lógico, se ainda não estiver aberto.
 
-1. Na caixa de pesquisa, introduza "Dynamics 365" como o filtro. Neste exemplo, abaixo da lista de disparadores, selecione este acionador: **Quando é criado um registo**
+1. Na caixa de pesquisa, insira "Dynamics 365" como seu filtro. Para este exemplo, na lista de gatilhos, selecione este gatilho: **Quando um registro é criado**
 
    ![Selecionar acionador](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
-1. Se lhe for pedido para iniciar sessão no Dynamics 365, inicie sessão agora.
+1. Se você for solicitado a entrar no Dynamics 365, entre agora.
 
-1. Forneça estes detalhes do acionador:
+1. Forneça estes detalhes do gatilho:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Requerido | Descrição |
    |----------|----------|-------------|
-   | **Nome da organização** | Sim | O nome da instância do Dynamics 365 da sua organização a monitorizar, por exemplo, "Contoso" |
-   | **Nome da entidade** | Sim | O nome da entidade monitorizar, por exemplo, "leva" | 
-   | **Frequência** | Sim | A unidade de tempo para utilizar com intervalos de, quando a verificação de atualizações relacionados com o acionador |
-   | **Intervalo** | Sim | O número de segundos, minutos, horas, dias, semanas ou meses que passar antes da verificação seguinte |
+   | **Nome da organização** | Sim | O nome da instância do Dynamics 365 da sua organização a ser monitorada, por exemplo, "contoso" |
+   | **Nome da entidade** | Sim | O nome da entidade a ser monitorada, por exemplo, "leads" | 
+   | **Frequência** | Sim | A unidade de tempo a ser usada com intervalos ao verificar se há atualizações relacionadas ao gatilho |
+   | **Intervalo** | Sim | O número de segundos, minutos, horas, dias, semanas ou meses que passa antes da próxima verificação |
    ||| 
 
-   ![Detalhes do acionador](./media/connectors-create-api-crmonline/trigger-details.png)
+   ![Detalhes do gatilho](./media/connectors-create-api-crmonline/trigger-details.png)
 
 ## <a name="add-dynamics-365-action"></a>Adicionar ação do Dynamics 365
 
-Agora, adicione a ação de Dynamics 365 que cria um registo de tarefas para o novo registro de oportunidades potenciais.
+Agora, adicione a ação do Dynamics 365 que cria um registro de tarefa para o novo registro de Lead.
 
-1. No acionador, escolha **novo passo**.
+1. Em seu gatilho, escolha **nova etapa**.
 
-1. Na caixa de pesquisa, introduza "Dynamics 365" como o filtro. Na lista de ações, selecione a ação: **Criar um novo registo**
+1. Na caixa de pesquisa, insira "Dynamics 365" como seu filtro. Na lista ações, selecione esta ação: **Criar um novo registro**
 
-   ![Ação de seleção](./media/connectors-create-api-crmonline/select-action.png)
+   ![Selecionar ação](./media/connectors-create-api-crmonline/select-action.png)
 
-1. Forneça estes detalhes da ação:
+1. Forneça estes detalhes de ação:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Requerido | Descrição |
    |----------|----------|-------------|
-   | **Nome da organização** | Sim | A instância do Dynamics 365 onde pretende criar o registo, que não tem de ser a mesma no seu acionador, mas é "Contoso" neste exemplo |
-   | **Nome da entidade** | Sim | A entidade em que pretende criar o registo, por exemplo, "Tarefas" |
+   | **Nome da organização** | Sim | A instância do Dynamics 365 em que você deseja criar o registro, que não precisa ser a mesma instância em seu gatilho, mas é "contoso" neste exemplo |
+   | **Nome da entidade** | Sim | A entidade na qual você deseja criar o registro, por exemplo, "tarefas" |
    | | |
 
    ![Detalhes da ação](./media/connectors-create-api-crmonline/action-details.png)
 
-1. Quando o **assunto** é apresentada a caixa na sua ação, clique no interior da **assunto** caixa para que a lista de conteúdo dinâmico apareça. Nesta lista, selecione os valores de campo para incluir no registo de tarefa associado com o novo registro de oportunidades potenciais:
+1. Quando a caixa **assunto** aparecer em sua ação, clique dentro da caixa **assunto** para que a lista de conteúdo dinâmico seja exibida. Nessa lista, selecione os valores de campo a serem incluídos no registro de tarefa associado ao novo registro de Lead:
 
    | Campo | Descrição |
    |-------|-------------|
-   | **Apelido** | O apelido da oportunidade potencial, como o contacto principal no registo |
-   | **Tópico** | O nome descritivo para o líder no registo |
+   | **Sobrenome** | O último nome do cliente potencial como o contato principal no registro |
+   | **Tópico** | O nome descritivo do cliente potencial no registro |
    | | |
 
-   ![Detalhes de registo da tarefa](./media/connectors-create-api-crmonline/create-record-details.png)
+   ![Detalhes do registro de tarefa](./media/connectors-create-api-crmonline/create-record-details.png)
 
-1. Na barra de ferramentas da estruturador, escolha **guardar** para a aplicação lógica. 
+1. Na barra de ferramentas do designer, escolha **salvar** para seu aplicativo lógico. 
 
-1. Para iniciar manualmente a aplicação lógica, na barra de ferramentas da estruturador, escolha **executar**.
+1. Para iniciar manualmente o aplicativo lógico, na barra de ferramentas do designer, escolha **executar**.
 
-   ![Executar a aplicação lógica](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
+   ![Executar aplicação lógica](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
 
-1. Agora, crie um registo de oportunidades potenciais no Dynamics 365 para que pode acionar o fluxo de trabalho da sua aplicação lógica.
+1. Agora, crie um registro de Lead no Dynamics 365 para que você possa disparar o fluxo de trabalho do aplicativo lógico.
 
-## <a name="add-filter-or-query"></a>Adicionar filtro ou de consulta
+## <a name="add-filter-or-query"></a>Adicionar filtro ou consulta
 
-Para especificar como filtrar dados numa ação do Dynamics 365, escolha **Mostrar opções avançadas** em ação. Em seguida, pode adicionar um filtro ou a ordem pela consulta.
-Por exemplo, pode utilizar uma consulta de filtro para obter apenas as contas do Active Directory e ordenar os registos por nome da conta. Para essa tarefa, siga estes passos:
+Para especificar como filtrar dados em uma ação do Dynamics 365, escolha **Mostrar opções avançadas** nessa ação. Em seguida, você pode adicionar uma consulta de filtro ou ordenar por.
+Por exemplo, você pode usar uma consulta de filtro para obter apenas as contas ativas e ordenar esses registros por nome de conta. Para essa tarefa, siga estas etapas:
 
-1. Sob **consulta de filtro**, introduza esta consulta de filtro de OData: `statuscode eq 1`
+1. Em **consulta de filtro**, insira esta consulta de filtro OData:`statuscode eq 1`
 
-2. Sob **Order By**, quando for apresentada a lista de conteúdo dinâmico, selecione **nome da conta**. 
+2. Em **ordenar por**, quando a lista de conteúdo dinâmico for exibida, selecione **nome da conta**. 
 
-   ![Especifique o filtro e ordem](./media/connectors-create-api-crmonline/advanced-options.png)
+   ![Especificar filtro e ordem](./media/connectors-create-api-crmonline/advanced-options.png)
 
-Para obter mais informações, consulte estas opções de consulta de sistema do Dynamics 365 Customer Engagement Web API:
+Para obter mais informações, consulte essas opções de consulta do sistema de API Web do engajamento do cliente Dynamics 365:
 
 * [$filter](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#filter-results)
 * [$orderby](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#order-results)
 
-### <a name="best-practices-for-advanced-options"></a>Melhores práticas para as opções avançadas
+### <a name="best-practices-for-advanced-options"></a>Práticas recomendadas para opções avançadas
 
-Quando especificar um valor para um campo de uma ação ou acionador, o tipo de dados do valor tem de corresponder o tipo de campo se introduzir o valor ou selecione o valor da lista de conteúdo dinâmico manualmente.
+Quando você especifica um valor para um campo em uma ação ou gatilho, o tipo de dados do valor deve corresponder ao tipo de campo, independentemente de você inserir manualmente o valor ou selecionar o valor da lista de conteúdo dinâmico.
 
-A tabela seguinte descreve alguns dos tipos de campo e os tipos de dados necessários para seus valores.
+Esta tabela descreve alguns dos tipos de campo e os tipos de dados necessários para seus valores.
 
-| Tipo de campo | Tipo de dados obrigatório | Descrição | 
+| Tipo de campo | Tipo de dados necessário | Descrição | 
 |------------|--------------------|-------------|
-| Campos de texto | Uma linha de texto | Estes campos requerem uma única linha de texto ou conteúdo dinâmico, que tem o tipo de texto. <p><p>*Campos de exemplo*: **Descrição** e **categoria** | 
-| Campos de número inteiro | Número inteiro | Alguns campos requerem o número inteiro ou conteúdo dinâmico, que tem o tipo de número inteiro. <p><p>*Campos de exemplo*: **Percentagem de conclusão** e **duração** | 
-| Campos de data | Data e hora | Alguns campos requerem uma data com o formato dd/mm/aaaa ou conteúdo dinâmico, que tem o tipo de data. <p><p>*Campos de exemplo*: **Criado em**, **data de início**, **início real**, **fim real**, e **data de vencimento** | 
-| Tipo de campos que requerem um ID de registo e a pesquisa | Chave primária | Alguns campos que fazem referência a outro registo de entidade requerem um ID de registo e um tipo de pesquisa. | 
+| Campos de texto | Linha única de texto | Esses campos exigem uma única linha de texto ou conteúdo dinâmico que tenha o tipo de texto. <p><p>*Campos de exemplo*: **Descrição** e **categoria** | 
+| Campos de inteiro | Número inteiro | Alguns campos exigem conteúdo inteiro ou dinâmico que tenha o tipo de inteiro. <p><p>*Campos de exemplo*: **Porcentagem concluída** e **duração** | 
+| Campos de data | Data e hora | Alguns campos exigem uma data com o formato mm/dd/aaaa ou conteúdo dinâmico que tenha o tipo de data. <p><p>*Campos de exemplo*: **Criado em**, **data de início**, **início real**, **fim real**e **data de vencimento** | 
+| Campos que exigem uma ID de registro e um tipo de pesquisa | Chave primária | Alguns campos que fazem referência a outro registro de entidade exigem uma ID de registro e um tipo de pesquisa. | 
 ||||
 
-Expandindo esses tipos de campo, seguem-se os campos de exemplo no Dynamics 365 acionadores e ações que requerem um ID de registo e o tipo de pesquisa. Este requisito significa que os valores que selecionou na lista de dinâmico não funcionarão.
+Expandindo esses tipos de campo, aqui estão campos de exemplo em gatilhos e ações do Dynamics 365 que exigem uma ID de registro e o tipo de pesquisa. Esse requisito significa que os valores que você selecionar na lista dinâmica não funcionarão.
 
 | Campo | Descrição |
 |-------|-------------|
-| **Proprietário** | Tem de ser um ID de utilizador válido ou da Equipe do ID de registo. |
-| **Tipo de proprietário** | Tem de ser **systemusers** ou **equipes**. |
-| **Relativamente à** | Tem de ser um ID de registo válido, por exemplo, um ID de conta ou contacte o ID de registo. |
-| **Tipo de relativamente** | Tem de ser um tipo de pesquisa, tal como **contas** ou **contactos**. |
-| **Cliente** | Tem de ser um ID de registo válido, por exemplo, um ID de conta ou contacte o ID de registo. |
-| **Tipo de cliente** | Tem de ser o tipo de pesquisa, tal como **contas** ou **contactos**. |
+| **Proprietário** | Deve ser uma ID de usuário válida ou ID de registro de equipe. |
+| **Tipo de proprietário** | Deve ser `systemusers` ou `teams`. |
+| **Cerne** | Deve ser uma ID de registro válida, como uma ID de conta ou ID de registro de contato. |
+| **Tipo referente a** | Deve ser um tipo de pesquisa, `accounts` como ou. `contacts` |
+| **Cliente** | Deve ser uma ID de registro válida, como uma ID de conta ou ID de registro de contato. |
+| **Tipo de cliente** | Deve ser o tipo de pesquisa, `accounts` como ou. `contacts` |
 |||
 
-Neste exemplo, a ação com o nome **criar um novo registo** cria um novo registo de tarefas:
+Neste exemplo, a ação chamada **criar um novo registro** cria um novo registro de tarefa:
 
-![Criar registo de tarefas com IDs de registo e tipos de pesquisa](./media/connectors-create-api-crmonline/create-record-advanced.png)
+![Criar registro de tarefa com IDs de registro e tipos de pesquisa](./media/connectors-create-api-crmonline/create-record-advanced.png)
 
-Esta ação atribui o registo de tarefas para um ID de utilizador específico ou o ID de registo de equipe, com base no ID de registo no **proprietário** campo e a pesquisa de digitar a **tipo de proprietário** campo:
+Essa ação atribui o registro de tarefa a uma ID de usuário específica ou ID de registro de equipe, com base na ID de registro no campo **proprietário** e no tipo de pesquisa no campo **tipo de proprietário** :
 
-![Tipo de ID e a pesquisa de registo no proprietário](./media/connectors-create-api-crmonline/owner-record-id-and-lookup-type.png)
+![ID de registro do proprietário e tipo de pesquisa](./media/connectors-create-api-crmonline/owner-record-id-and-lookup-type.png)
 
-Esta ação também adiciona um registo de conta que está associada o registo ID adicionado na **relativamente à** campo e a pesquisa de digitar a **relativamente ao tipo** campo:
+Essa ação também adiciona um registro de conta associado à ID de registro adicionada no campo **referente** e o tipo de pesquisa no campo **tipo referente** :
 
-![Escreva sobre pesquisa e ID de registo](./media/connectors-create-api-crmonline/regarding-record-id-lookup-type-account.png)
+![Em relação à ID de registro e ao tipo de pesquisa](./media/connectors-create-api-crmonline/regarding-record-id-lookup-type-account.png)
 
-## <a name="find-record-id"></a>Localizar o ID de registo
+## <a name="find-record-id"></a>Localizar ID de registro
 
-Para localizar um ID de registo, siga estes passos:
+Para localizar uma ID de registro, siga estas etapas:
 
-1. No Dynamics 365, abra um registo, como um registo de conta.
+1. No Dynamics 365, abra um registro, como um registro de conta.
 
-2. Na barra de ferramentas de ações, escolha um destes passos:
+2. Na barra de ferramentas ações, escolha uma destas etapas:
 
-   * Escolher **destacar**. ![destacar registo](./media/connectors-create-api-crmonline/popout-record.png) 
-   * Escolher **enviar uma ligação** pelo que pode copiar o URL completo para o programa de e-mail predefinido.
+   * Escolha **pop-out**. ![registro de popout](./media/connectors-create-api-crmonline/popout-record.png) 
+   * Escolha **enviar um link por email** para que você possa copiar a URL completa para seu programa de email padrão.
 
-   O registo ID aparece no URL entre o `%7b` e `%7d` codificação de caracteres:
+   A ID do registro aparece na URL entre os `%7b` caracteres `%7d` de codificação e:
 
-   ![Localizar o ID de registo](./media/connectors-create-api-crmonline/find-record-ID.png)
+   ![Localizar ID de registro](./media/connectors-create-api-crmonline/find-record-ID.png)
 
-## <a name="troubleshoot-failed-runs"></a>Resolver problemas relacionados com execuções falhadas
+## <a name="troubleshoot-failed-runs"></a>Solucionar problemas de execuções com falha
 
-Para localizar e reveja os passos falhados na sua aplicação lógica, pode ver o histórico de execuções da sua aplicação lógica, estado, entradas, saídas e assim por diante.
+Para localizar e revisar as etapas com falha em seu aplicativo lógico, você pode exibir o histórico de execuções, o status, as entradas, as saídas e assim por diante do aplicativo lógico.
 
-1. No portal do Azure, no menu principal da sua aplicação lógica, selecione **descrição geral**. Na **histórico de execuções** seção, que mostra todos os Estados de execução para a aplicação lógica, selecione uma execução falhada para obter mais informações.
+1. No portal do Azure, no menu principal do aplicativo lógico, selecione **visão geral**. Na seção **histórico** de execuções, que mostra todos os status de execução para seu aplicativo lógico, selecione uma execução com falha para obter mais informações.
 
-   ![Estado de execução da aplicação lógica](./media/connectors-create-api-crmonline/run-history.png)
+   ![Status de execução do aplicativo lógico](./media/connectors-create-api-crmonline/run-history.png)
 
-1. Expanda um passo falhado para que pode ver mais detalhes.
+1. Expanda uma etapa com falha para que você possa exibir mais detalhes.
 
-   ![Expanda o passo falhado](./media/connectors-create-api-crmonline/expand-failed-step.png)
+   ![Expandir etapa com falha](./media/connectors-create-api-crmonline/expand-failed-step.png)
 
-1. Reveja os detalhes de um passo, como as entradas e saídas, que podem ajudar a encontrar a causa da falha.
+1. Examine os detalhes da etapa, como entradas e saídas, que podem ajudá-lo a encontrar a causa por trás da falha.
 
-   ![Passo falhado - entradas e saídas](./media/connectors-create-api-crmonline/expand-failed-step-inputs-outputs.png)
+   ![Falha na etapa-entradas e saídas](./media/connectors-create-api-crmonline/expand-failed-step-inputs-outputs.png)
 
-Para obter mais informações sobre resolução de problemas de aplicações lógicas, consulte [diagnosticar falhas de aplicação lógica](../logic-apps/logic-apps-diagnosing-failures.md).
+Para obter mais informações sobre como solucionar problemas de aplicativos lógicos, consulte [Diagnosticando falhas de aplicativo lógico](../logic-apps/logic-apps-diagnosing-failures.md).
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos, como disparadores, ações e limites, conforme descrito pelo OpenAPI do conector (anteriormente Swagger) de ficheiros, consulte a [página de referência do conector](/connectors/dynamicscrmonline/).
-
-## <a name="get-support"></a>Obter suporte
-
-* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
+Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/dynamicscrmonline/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre outras [conectores do Logic Apps](../connectors/apis-list.md)
+* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)

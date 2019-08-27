@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: e5088cfa417c76933be6785188f2b173b7b461d0
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 2ea124ecf6786142ac1703dab1e267b225751079
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772581"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035948"
 ---
 # <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>Explore Azure Machine Learning serviço com blocos de anotações do Jupyter
 
@@ -61,10 +61,10 @@ No [Azure notebooks](https://notebooks.azure.com/), o SDK e o servidor de notebo
 
 Para acessar o repositório de exemplo no Azure Notebooks, navegue até o espaço de trabalho Azure Machine Learning por meio do [portal do Azure](https://portal.azure.com). Na seção **visão geral** , selecione **introdução em Azure notebooks**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Explore os [notebooks de exemplo](https://aka.ms/aml-notebooks) para descobrir o que Azure Machine Learning serviço pode fazer ou Experimente estes tutoriais:
 
 - [Preparar e implementar um modelo de classificação de imagem com MNIST](tutorial-train-models-with-aml.md)
 
-- [Preparar dados e utilizar automatizada de machine learning para preparar um modelo de regressão com o conjunto de dados de táxis NYC](tutorial-data-prep.md)
+- [Preparar dados e utilizar automatizada de machine learning para preparar um modelo de regressão com o conjunto de dados de táxis NYC](tutorial-auto-train-models.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
-ms.openlocfilehash: c350ca3cd8cbfb5e550fccd0bae0df53168de178
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 80bca606a2b06d85afc8a2115133f44d738f7e0a
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312082"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035238"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Monitor de Desempenho de Rede solução no Azure
 
@@ -71,7 +71,7 @@ Use os processos básicos para instalar agentes em [conectar computadores Window
 
 * **Monitor de conectividade de serviço**: Instale um agente de Log Analytics em cada nó do qual você deseja monitorar a conectividade de rede com o ponto de extremidade de serviço. Um exemplo é se você deseja monitorar a conectividade de rede para o Office 365 de seus sites do Office rotulados como O1, O2 e O3. Instale o agente de Log Analytics em pelo menos um nó em O1, O2 e O3. 
 
-* **Monitor do ExpressRoute**: Instale pelo menos um agente de Log Analytics em sua rede virtual do Azure. Instale também pelo menos um agente em sua sub-rede local, que é conectada por meio do emparelhamento privado do ExpressRoute.  
+* **Monitor do ExpressRoute**: Instale pelo menos um agente de Log Analytics em sua rede virtual do Azure. Instale também pelo menos um agente em sua sub-rede local, que é conectada por meio do emparelhamento privado do ExpressRoute.  
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>Configurar agentes de Log Analytics para monitoramento 
 
@@ -105,7 +105,7 @@ Monitor de Desempenho de Rede usa transações sintéticas para monitorar o dese
 
 1. Adicione a solução Monitor de Desempenho de Rede ao seu espaço de trabalho do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Você também pode usar o processo descrito em [Adicionar soluções de Azure monitor do Galeria de soluções](../../azure-monitor/insights/solutions.md). 
 2. Abra seu espaço de trabalho Log Analytics e selecione o bloco **visão geral** . 
-3. Selecione o bloco **Monitor de desempenho de rede** com a mensagem a *solução requer configuração adicional*.
+3. Selecione o bloco **Monitor de desempenho de rede** com a mensagem a *solução requer configuração adicional*.
 
    ![Bloco Monitor de Desempenho de Rede](media/network-performance-monitor/npm-config.png)
 
@@ -133,7 +133,7 @@ Após a conclusão da instalação, levará 30 minutos a uma hora para que os da
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>Editar configurações de monitoramento para sub-redes e nós 
 
-Todas as sub-redes com pelo menos um agente instalado são listadas na guia  **sub-redes**  na página configuração. 
+Todas as sub-redes com pelo menos um agente instalado são listadas na guia sub- **redes** na página configuração. 
 
 
 Para habilitar ou desabilitar o monitoramento de sub-redes específicas:
@@ -193,7 +193,7 @@ Depois de habilitar a solução Monitor de Desempenho de Rede, o bloco solução
 
 * **Monitor de conectividade de serviço**: Esta página fornece resumos de integridade para os diferentes testes que você criou. O bloco **topologia** mostra o número de pontos de extremidade que são monitorados. Selecione este bloco para ir para a exibição de **topologia** .
 
-* **Monitor de desempenho**: Esta página fornece resumos de integridade para os links de **rede** **e links** de sub-rede que a solução monitora. O bloco **topologia** mostra o número de caminhos de rede que são monitorados em sua rede. Selecione este bloco para ir para a exibição de **topologia** . 
+* **Monitor de desempenho**: Esta página fornece resumos de integridade para os links de **rede** e links de sub-rede que a solução monitora. O bloco **topologia** mostra o número de caminhos de rede que são monitorados em sua rede. Selecione este bloco para ir para a exibição de **topologia** . 
 
 * **Consultas comuns**: Esta página contém um conjunto de consultas de pesquisa que buscam dados brutos de monitoramento de rede diretamente. Você pode usar essas consultas como um ponto de partida para criar suas próprias consultas para relatórios personalizados. 
 
@@ -203,9 +203,9 @@ Depois de habilitar a solução Monitor de Desempenho de Rede, o bloco solução
 
 ### <a name="drill-down-for-depth"></a>Detalhar para profundidade 
 
-Você pode selecionar vários links no painel de solução para fazer uma busca detalhada em qualquer área de interesse. Por exemplo, quando você vir um alerta ou um link de rede não íntegro aparecer no painel, selecione-o para investigar ainda mais. Uma página lista todos os links de sub-rede para o link de rede específico. Você pode ver a perda, a latência e o status de integridade de cada link de sub-rede. Você pode descobrir rapidamente qual link de sub-rede causa problemas. Selecione **exibir links** de nó para ver todos os links de nó para o link de sub-rede não íntegro. Em seguida, você pode ver links individuais de nó para nó e encontrar os links de nó não íntegros. 
+Você pode selecionar vários links no painel de solução para fazer uma busca detalhada em qualquer área de interesse. Por exemplo, quando você vir um alerta ou um link de rede não íntegro aparecer no painel, selecione-o para investigar ainda mais. Uma página lista todos os links de sub-rede para o link de rede específico. Você pode ver a perda, a latência e o status de integridade de cada link de sub-rede. Você pode descobrir rapidamente qual link de sub-rede causa problemas. Selecione **exibir links de nó** para ver todos os links de nó para o link de sub-rede não íntegro. Em seguida, você pode ver links individuais de nó para nó e encontrar os links de nó não íntegros. 
 
-Selecione **Exibir topologia** para exibir a topologia de salto a salto das rotas entre os nós de origem e de destino. As rotas não íntegras aparecem em vermelho. Você pode exibir a latência contribuída por cada salto para que possa identificar rapidamente o problema para uma parte específica da rede.
+Selecione **Exibir topologia** para exibir a topologia de salto a salto das rotas entre os nós de origem e de destino. As rotas não íntegras aparecem em vermelho. Você pode exibir a latência contribuída por cada salto para que possa identificar rapidamente o problema para uma parte específica da rede.
 
  
 
@@ -245,7 +245,7 @@ A topologia mostrada no mapa é a topologia de camada 3 e não contém dispositi
 
 ## <a name="log-queries-in-azure-monitor"></a>Consultas de log em Azure Monitor
 
-Todos os dados expostos graficamente por meio do painel de Monitor de Desempenho de Rede e das páginas de busca detalhada também estão disponíveis nativamente em [consultas de log](../log-query/log-query-overview.md). Você pode executar a análise interativa de dados no repositório e correlacionar dados de diferentes fontes. Você também pode criar alertas e exibições personalizados e exportar os dados para o Excel, Power BI ou um link compartilhável. A área **consultas** comuns no painel tem algumas consultas úteis que você pode usar como ponto de partida para criar suas próprias consultas e relatórios. 
+Todos os dados expostos graficamente por meio do painel de Monitor de Desempenho de Rede e das páginas de busca detalhada também estão disponíveis nativamente em [consultas de log](../log-query/log-query-overview.md). Você pode executar a análise interativa de dados no repositório e correlacionar dados de diferentes fontes. Você também pode criar alertas e exibições personalizados e exportar os dados para o Excel, Power BI ou um link compartilhável. A área **consultas comuns** no painel tem algumas consultas úteis que você pode usar como ponto de partida para criar suas próprias consultas e relatórios. 
 
 ## <a name="alerts"></a>Alertas
 
@@ -277,7 +277,7 @@ Informações sobre preços estão disponíveis [online](network-performance-mon
 
 * **UserVoice** Você pode postar suas ideias para Monitor de Desempenho de Rede recursos nos quais você deseja trabalhar. Visite a [página uservoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 
-* **Junte-se a nosso coorte:** Estamos sempre interessados em fazer novos clientes ingressarem em nosso coorte. Como parte dele, você obtém acesso antecipado a novos recursos e uma oportunidade para nos ajudar a melhorar o Monitor de Desempenho de Rede. Se você estiver interessado em ingressar, preencha esta [pesquisa rápida](https://aka.ms/npmcohort). 
+* **Junte-se a nosso coorte:** Estamos sempre interessados em fazer novos clientes ingressarem em nosso coorte. Como parte dele, você obtém acesso antecipado a novos recursos e uma oportunidade para nos ajudar a melhorar o Monitor de Desempenho de Rede. Se você estiver interessado em ingressar, preencha esta [pesquisa rápida](https://aka.ms/npmcohort). 
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 Saiba mais sobre o monitor de [desempenho](network-performance-monitor-performance-monitor.md), o [Monitor de conectividade de serviço](network-performance-monitor-performance-monitor.md)e o monitor do [ExpressRoute](network-performance-monitor-expressroute.md). 

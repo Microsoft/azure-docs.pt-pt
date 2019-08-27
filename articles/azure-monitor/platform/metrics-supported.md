@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 49780ec342ea168d27ab8a029c41a1c18a6ffcc4
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: dbbe5a667b8d467b416e4a4a571d8d3599ec45b6
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019055"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051814"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas com suporte com Azure Monitor
 
@@ -52,9 +52,9 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |QuotaBlocked|Memória: Cota bloqueada|Count|Average|Número atual de solicitações de cota que são bloqueadas até que outras cotas de memória sejam liberadas.|ServerResourceType|
 |VertiPaqNonpaged|Memória: VertiPaq não paginável|Bytes|Average|Bytes de memória bloqueados no conjunto de trabalho para uso pelo mecanismo na memória.|ServerResourceType|
 |VertiPaqPaged|Memória: VertiPaq paginado|Bytes|Average|Bytes de memória paginável em uso para dados na memória.|ServerResourceType|
-|RowsReadPerSec|A processar: Linhas lidas por segundo|CountPerSecond|Average|Taxa de linhas lidas de todos os bancos de dados relacionais.|ServerResourceType|
-|RowsConvertedPerSec|A processar: Linhas convertidas por segundo|CountPerSecond|Average|Taxa de linhas convertidas durante o processamento.|ServerResourceType|
-|RowsWrittenPerSec|A processar: Linhas gravadas por segundo|CountPerSecond|Average|Taxa de linhas gravadas durante o processamento.|ServerResourceType|
+|RowsReadPerSec|Processamento Linhas lidas por segundo|CountPerSecond|Average|Taxa de linhas lidas de todos os bancos de dados relacionais.|ServerResourceType|
+|RowsConvertedPerSec|Processamento Linhas convertidas por segundo|CountPerSecond|Average|Taxa de linhas convertidas durante o processamento.|ServerResourceType|
+|RowsWrittenPerSec|Processamento Linhas gravadas por segundo|CountPerSecond|Average|Taxa de linhas gravadas durante o processamento.|ServerResourceType|
 |CommandPoolBusyThreads|Threads Threads ocupados do pool de comandos|Count|Average|Número de threads ocupados no pool de threads de comando.|ServerResourceType|
 |CommandPoolIdleThreads|Threads Threads ociosos do pool de comandos|Count|Average|Número de threads ociosos no pool de threads de comando.|ServerResourceType|
 |LongParsingBusyThreads|Threads Threads ocupados da análise longa|Count|Average|Número de threads ocupados no pool de threads da análise longa.|ServerResourceType|
@@ -328,42 +328,42 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Percentagem da CPU|Percentagem da CPU|Percentagem|Average|A percentagem de unidades do computador alocadas que estão atualmente em utilização pela Máquina Virtual ou Máquinas Virtuais.|Nenhuma dimensão|
-|Entrada de Rede|Entrada de Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual ou Máquinas Virtuais (Tráfego de Entrada).|Nenhuma dimensão|
-|Saída de Rede|Saída de Rede|Bytes|Total|O número de bytes saídos de todas as interfaces de rede pela(s) Máquina(s) Virtual(is) (Tráfego de Saída).|Nenhuma dimensão|
-|Bytes Lidos de Disco/Seg|Leitura de Disco|BytesPerSecond|Average|Média de bytes lidos do disco durante o período de monitorização.|Nenhuma dimensão|
-|Bytes Escritos em Disco/Seg|Escrita de Disco|BytesPerSecond|Average|Média de bytes escritos no disco durante o período de monitorização.|Nenhuma dimensão|
-|Operações/Seg de Leitura do Disco|Operações/Seg de Leitura do Disco|CountPerSecond|Average|IOPS de Leitura do Disco.|Nenhuma dimensão|
-|Operações/Seg de Escrita de Disco|Operações/Seg de Escrita de Disco|CountPerSecond|Average|IOPS de Escrita de Disco.|Nenhuma dimensão|
+|Percentagem da CPU|Percentagem da CPU|Percentagem|Average|A porcentagem de unidades de computação alocadas que estão atualmente em uso pelas máquinas virtuais.|Nenhuma dimensão|
+|Entrada de Rede|Entrada de Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pelas máquinas virtuais (tráfego de entrada).|Nenhuma dimensão|
+|Saída de Rede|Saída de Rede|Bytes|Total|O número de bytes de saída em todas as interfaces de rede pelas máquinas virtuais (tráfego de saída).|Nenhuma dimensão|
+|Bytes de leitura de disco/s|Leitura de Disco|BytesPerSecond|Average|Média de bytes lidos do disco durante o período de monitoramento.|Nenhuma dimensão|
+|Bytes de gravação no disco/s|Escrita de Disco|BytesPerSecond|Average|Média de bytes gravados no disco durante o período de monitoramento.|Nenhuma dimensão|
+|Operações de leitura de disco/s|Operações de leitura de disco/s|CountPerSecond|Average|IOPS de leitura de disco.|Nenhuma dimensão|
+|Operações de gravação de disco/s|Operações de gravação de disco/s|CountPerSecond|Average|IOPS de gravação de disco.|Nenhuma dimensão|
 
 ## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft.ClassicCompute/domainNames/slots/roles
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Percentagem da CPU|Percentagem da CPU|Percentagem|Average|A percentagem de unidades do computador alocadas que estão atualmente em utilização pela Máquina Virtual ou Máquinas Virtuais.|RoleInstanceId|
-|Entrada de Rede|Entrada de Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual ou Máquinas Virtuais (Tráfego de Entrada).|RoleInstanceId|
-|Saída de Rede|Saída de Rede|Bytes|Total|O número de bytes saídos de todas as interfaces de rede pela(s) Máquina(s) Virtual(is) (Tráfego de Saída).|RoleInstanceId|
-|Bytes Lidos de Disco/Seg|Leitura de Disco|BytesPerSecond|Average|Média de bytes lidos do disco durante o período de monitorização.|RoleInstanceId|
-|Bytes Escritos em Disco/Seg|Escrita de Disco|BytesPerSecond|Average|Média de bytes escritos no disco durante o período de monitorização.|RoleInstanceId|
-|Operações/Seg de Leitura do Disco|Operações/Seg de Leitura do Disco|CountPerSecond|Average|IOPS de Leitura do Disco.|RoleInstanceId|
-|Operações/Seg de Escrita de Disco|Operações/Seg de Escrita de Disco|CountPerSecond|Average|IOPS de Escrita de Disco.|RoleInstanceId|
+|Percentagem da CPU|Percentagem da CPU|Percentagem|Average|A porcentagem de unidades de computação alocadas que estão atualmente em uso pelas máquinas virtuais.|RoleInstanceId|
+|Entrada de Rede|Entrada de Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pelas máquinas virtuais (tráfego de entrada).|RoleInstanceId|
+|Saída de Rede|Saída de Rede|Bytes|Total|O número de bytes de saída em todas as interfaces de rede pelas máquinas virtuais (tráfego de saída).|RoleInstanceId|
+|Bytes de leitura de disco/s|Leitura de Disco|BytesPerSecond|Average|Média de bytes lidos do disco durante o período de monitoramento.|RoleInstanceId|
+|Bytes de gravação no disco/s|Escrita de Disco|BytesPerSecond|Average|Média de bytes gravados no disco durante o período de monitoramento.|RoleInstanceId|
+|Operações de leitura de disco/s|Operações de leitura de disco/s|CountPerSecond|Average|IOPS de leitura de disco.|RoleInstanceId|
+|Operações de gravação de disco/s|Operações de gravação de disco/s|CountPerSecond|Average|IOPS de gravação de disco.|RoleInstanceId|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |TotalCalls|Total de Chamadas|Count|Total|Número total de chamadas.|ApiName, OperationName, região|
-|SuccessfulCalls|Chamadas com êxito|Count|Total|Número de chamadas com êxito.|ApiName, OperationName, região|
+|SuccessfulCalls|Chamadas com êxito|Count|Total|Número de chamadas bem-sucedidas.|ApiName, OperationName, região|
 |TotalErrors|Total de Erros|Count|Total|Número total de chamadas com resposta de erro (código de resposta HTTP 4xx ou 5xx).|ApiName, OperationName, região|
-|BlockedCalls|Chamadas Bloqueadas|Count|Total|Número de chamadas que excederam o limite da tarifa ou quota.|ApiName, OperationName, região|
+|BlockedCalls|Chamadas Bloqueadas|Count|Total|Número de chamadas que excederam a taxa ou o limite de cota.|ApiName, OperationName, região|
 |ServerErrors|Erros no Servidor|Count|Total|Número de chamadas com erro interno do serviço (código de resposta HTTP 5xx).|ApiName, OperationName, região|
 |ClientErrors|Erros do Cliente|Count|Total|Número de chamadas com erro do lado do cliente (código de resposta HTTP 4xx).|ApiName, OperationName, região|
-|Dados de|Entrada de Dados|Bytes|Total|Tamanho dos dados recebidos em bytes.|ApiName, OperationName, região|
-|DataOut|Saída de Dados|Bytes|Total|Tamanho dos dados enviados em bytes.|ApiName, OperationName, região|
-|Latência|Latência|Milissegundos|Average|Latência em milisegundos.|ApiName, OperationName, região|
-|CharactersTranslated|Carateres Traduzidos|Count|Total|Número total de carateres na receção do pedido de texto.|ApiName, OperationName, região|
+|Dados de|Entrada de Dados|Bytes|Total|Tamanho dos dados de entrada em bytes.|ApiName, OperationName, região|
+|DataOut|Saída de Dados|Bytes|Total|Tamanho dos dados de saída em bytes.|ApiName, OperationName, região|
+|Latência|Latência|Milissegundos|Average|Latência em milissegundos.|ApiName, OperationName, região|
+|CharactersTranslated|Carateres Traduzidos|Count|Total|Número total de caracteres na solicitação de texto de entrada.|ApiName, OperationName, região|
 |CharactersTrained|Caracteres treinados|Count|Total|Número total de caracteres treinados.|ApiName, OperationName, região|
-|SpeechSessionDuration|Duração da Sessão de Voz|Segundos|Total|Duração total da sessão de voz em segundos.|ApiName, OperationName, região|
+|SpeechSessionDuration|Duração da Sessão de Voz|Segundos|Total|Duração total da sessão de fala em segundos.|ApiName, OperationName, região|
 |TotalTransactions|Total de Transações|Count|Total|Número total de transações.|Nenhuma dimensão|
 |TotalTokenCalls|Chamadas de Token Totais|Count|Total|Número total de chamadas de token.|ApiName, OperationName, região|
 
@@ -374,42 +374,42 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades do computador alocadas que estão atualmente em utilização pela Máquina Virtual ou Máquinas Virtuais|Nenhuma dimensão|
 |Entrada de Rede|Rede em Faturável|Bytes|Total|O número de bytes faturáveis recebidos em todas as interfaces de rede pelas máquinas virtuais (tráfego de entrada)|Nenhuma dimensão|
 |Saída de Rede|Saída de rede Faturável|Bytes|Total|O número de bytes faturáveis de saída em todas as interfaces de rede pelas máquinas virtuais (tráfego de saída)|Nenhuma dimensão|
-|Bytes de Leitura do Disco|Bytes de Leitura do Disco|Bytes|Total|Bytes lidos a partir do disco durante o período de monitorização|Nenhuma dimensão|
-|Bytes de Escrita de Disco|Bytes de Escrita de Disco|Bytes|Total|Bytes escritos no disco durante o período de monitorização|Nenhuma dimensão|
-|Operações/Seg de Leitura do Disco|Operações/Seg de Leitura do Disco|CountPerSecond|Average|IOPS de Leitura do Disco|Nenhuma dimensão|
-|Operações/Seg de Escrita de Disco|Operações/Seg de Escrita de Disco|CountPerSecond|Average|IOPS de Escrita de Disco|Nenhuma dimensão|
-|Créditos CPU Restantes|Créditos CPU Restantes|Count|Average|Número total de créditos disponíveis para rajada|Nenhuma dimensão|
-|Créditos CPU Consumidos|Créditos CPU Consumidos|Count|Average|Número total de créditos consumidos pela Máquina Virtual|Nenhuma dimensão|
-|Bytes Lidos por Disco/seg|Bytes Lidos do Disco de Dados/seg (Preterido)|CountPerSecond|Average|Bytes/Seg lidos a partir de um único disco durante o período de monitorização|SlotId|
-|Bytes Escritos por Disco/seg|Bytes Escritos do Disco de Dados/Seg (Preterido)|CountPerSecond|Average|Bytes/Seg escritos para um único disco durante o período de monitorização|SlotId|
-|Operações de Leitura Por Disco/Seg|Operações de Leitura do Disco de Dados/Seg (Preterido)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitorização|SlotId|
-|Operações de Escrita Por Disco/Seg|Operações de Escrita do Disco de Dados/Seg (Preterido)|CountPerSecond|Average|Escreva IOPS de um único disco durante o período de monitorização|SlotId|
-|Por Disco de QD|Disco de Dados QD (Preterido)|Count|Average|Profundidade da Fila do Disco de Dados (ou Comprimento da Fila)|SlotId|
-|Bytes de Leitura por Disco de SO/Seg.|Bytes/Seg da Leitura de Discos do SO (Preterido)|CountPerSecond|Average|Bytes/Seg lidos a partir de um único disco durante o período de monitorização para o disco do SO|Nenhuma dimensão|
-|Bytes de Escrita por Disco de SO/Seg.|Bytes/Seg Escrita de Discos do SO (Preterido)|CountPerSecond|Average|Bytes/Seg escritos para um único disco durante o período de monitorização para o disco do SO|Nenhuma dimensão|
-|Operações de Leitura por Disco de SO/seg|Operações/ Seg. da Leitura de Discos do SO (Preterido)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitorização para o disco do SO|Nenhuma dimensão|
-|Operações de Escrita Por Disco de SO/Seg|Operações/Seg Escrita de Discos do SO (Preterido)|CountPerSecond|Average|Escreva IOPS de um único disco durante o período de monitorização para o disco do SO|Nenhuma dimensão|
-|Por Disco de Sistema Operativo QD|Disco do SO QD (Preterido)|Count|Average|Profundidade da Fila de Disco de Sistema Operativo (ou Comprimento da Fila)|Nenhuma dimensão|
-|Bytes Lidos do Disco de Dados/seg|Bytes de Leitura de Disco de Dados/Seg (Pré-visualização)|CountPerSecond|Average|Bytes/Seg lidos a partir de um único disco durante o período de monitorização|LUN|
-|Bytes Escritos do Disco de Dados/seg|Bytes de Escrita de Disco de Dados/Seg (Pré-visualização)|CountPerSecond|Average|Bytes/Seg escritos para um único disco durante o período de monitorização|LUN|
-|Operações de Leitura em Disco de Dados/Seg|Operações de Leitura de Disco de Dados/Seg (Pré-visualização)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitorização|LUN|
-|Operações de Escrita em Disco de Dados/Seg|Operações de Escrita de Disco de Dados/Seg (Pré-visualização)|CountPerSecond|Average|Escreva IOPS de um único disco durante o período de monitorização|LUN|
-|Profundidade da Fila do Disco de Dados|Profundidade da Fila do Discos de Dados (Pré-visualização)|Count|Average|Profundidade da Fila do Disco de Dados (ou Comprimento da Fila)|LUN|
-|Bytes/seg da Leitura de Discos do SO|Bytes de Leitura de Disco de SO/Seg (Pré-visualização)|CountPerSecond|Average|Bytes/Seg lidos a partir de um único disco durante o período de monitorização para o disco do SO|Nenhuma dimensão|
-|Bytes/sec da Escrita de Discos do SO|Bytes de Escrita de Disco de SO/Seg (Pré-visualização)|CountPerSecond|Average|Bytes/Seg escritos para um único disco durante o período de monitorização para o disco do SO|Nenhuma dimensão|
-|Operações de Leitura de Disco de SO/Seg.|Operações de Leitura de Disco de SO/Seg (Pré-visualização)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitorização para o disco do SO|Nenhuma dimensão|
-|Operações de Escrita de Disco de SO/Seg|Operações de Escrita de Disco de SO/Seg (Pré-visualização)|CountPerSecond|Average|Escreva IOPS de um único disco durante o período de monitorização para o disco do SO|Nenhuma dimensão|
-|Profundidade da Fila do Disco do SO|Profundidade da Fila do Disco do SO (Pré-visualização)|Count|Average|Profundidade da Fila de Disco de Sistema Operativo (ou Comprimento da Fila)|Nenhuma dimensão|
-|Fluxos de Entrada|Fluxos de Entrada (Pré-visualização)|Count|Average|Os Fluxos de Entrada são o número de fluxos atuais na direção de entrada (tráfego a entrar da VM)|Nenhuma dimensão|
-|Fluxos de Saída|Fluxos de Saída (Pré-visualização)|Count|Average|Os Fluxos de Saída são o número de fluxos atuais na direção de saída (tráfego a sair da VM)|Nenhuma dimensão|
-|Taxa de Criação Máxima de Fluxos de Entrada|Taxa de Criação Máxima de Fluxos de Entrada (Pré-visualização)|CountPerSecond|Average|A taxa de criação máxima de fluxos de entrada (tráfego que vai para a VM)|Nenhuma dimensão|
-|Taxa de Criação Máxima de Fluxos de Saída|Taxa de Criação Máxima de Fluxos de Saída (Pré-visualização)|CountPerSecond|Average|A taxa de criação máxima de fluxos de saída (tráfego que sai da VM)|Nenhuma dimensão|
-|Acerto de Leitura na Cache do Disco de Dados Premium|Acerto de Leitura na Cache do Disco de Dados Premium (Pré-visualização)|Percent|Average|Acerto de Leitura na Cache do Disco de Dados Premium|LUN|
-|Falha de Acerto de Leitura na Cache do Disco de Dados Premium|Falha de Acerto de Leitura na Cache do Disco de Dados Premium (Pré-visualização)|Percent|Average|Falha de Acerto de Leitura na Cache do Disco de Dados Premium|LUN|
-|Acerto de Leitura na Cache do Disco do SO Premium|Acerto de Leitura na Cache do Disco do SO Premium (Pré-visualização)|Percent|Average|Acerto de Leitura na Cache do Disco do SO Premium|Nenhuma dimensão|
-|Falha de Acerto de Leitura na Cache do Disco do SO Premium|Falha de Acerto de Leitura na Cache do Disco do SO Premium (Pré-visualização)|Percent|Average|Falha de Acerto de Leitura na Cache do Disco do SO Premium|Nenhuma dimensão|
-|Total de rede|Total de rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual ou Máquinas Virtuais (Tráfego de Entrada)|Nenhuma dimensão|
-|Total de saída de rede|Total de saída de rede|Bytes|Total|O número de bytes saídos de todas as interfaces de rede pela(s) Máquina(s) Virtual(is) (Tráfego de Saída)|Nenhuma dimensão|
+|Bytes de Leitura do Disco|Bytes de Leitura do Disco|Bytes|Total|Bytes lidos do disco durante o período de monitoramento|Nenhuma dimensão|
+|Bytes de Escrita de Disco|Bytes de Escrita de Disco|Bytes|Total|Bytes gravados no disco durante o período de monitoramento|Nenhuma dimensão|
+|Operações de leitura de disco/s|Operações de leitura de disco/s|CountPerSecond|Average|IOPS de Leitura do Disco|Nenhuma dimensão|
+|Operações de gravação de disco/s|Operações de gravação de disco/s|CountPerSecond|Average|IOPS de Escrita de Disco|Nenhuma dimensão|
+|Créditos CPU Restantes|Créditos CPU Restantes|Count|Average|Número total de créditos disponíveis para intermitência|Nenhuma dimensão|
+|Créditos CPU Consumidos|Créditos CPU Consumidos|Count|Average|Número total de créditos consumidos pela máquina virtual|Nenhuma dimensão|
+|Bytes de leitura por disco/s|Bytes de leitura do disco de dados/s (preterido)|CountPerSecond|Average|Bytes/s lidos de um único disco durante o período de monitoramento|SlotId|
+|Bytes de gravação por disco/s|Bytes de gravação do disco de dados/s (preterido)|CountPerSecond|Average|Bytes/s gravados em um único disco durante o período de monitoramento|SlotId|
+|Operações de leitura por disco/s|Operações de leitura de disco de dados/s (preterido)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitoramento|SlotId|
+|Operações de gravação por disco/s|Operações de gravação do disco de dados/s (preterido)|CountPerSecond|Average|Gravar IOPS de um único disco durante o período de monitoramento|SlotId|
+|Por Disco de QD|Disco de dados QD (preterido)|Count|Average|Profundidade da fila do disco de dados (ou comprimento da fila)|SlotId|
+|Bytes de leitura por disco do so/s|Bytes de leitura do disco do so/s (preterido)|CountPerSecond|Average|Bytes/s lidos de um único disco durante o período de monitoramento para o disco do sistema operacional|Nenhuma dimensão|
+|Bytes de gravação por disco do so/s|Bytes de gravação de disco do sistema operacional/s (preterido)|CountPerSecond|Average|Bytes/s gravados em um único disco durante o período de monitoramento do disco do sistema operacional|Nenhuma dimensão|
+|Operações de leitura de so por disco/s|Operações de leitura de disco do so/s (preterido)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|Nenhuma dimensão|
+|Operações de gravação de so por disco/s|Operações de gravação de disco do sistema operacional/s (preterido)|CountPerSecond|Average|Gravar IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|Nenhuma dimensão|
+|Por Disco de Sistema Operativo QD|Disco do so QD (preterido)|Count|Average|Profundidade da fila de disco do so (ou comprimento da fila)|Nenhuma dimensão|
+|Bytes de leitura do disco de dados/s|Bytes de leitura do disco de dados/s (visualização)|CountPerSecond|Average|Bytes/s lidos de um único disco durante o período de monitoramento|LUN|
+|Bytes de gravação do disco de dados/s|Bytes de gravação do disco de dados/s (visualização)|CountPerSecond|Average|Bytes/s gravados em um único disco durante o período de monitoramento|LUN|
+|Operações de leitura de disco de dados/s|Operações de leitura de disco de dados/s (visualização)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitoramento|LUN|
+|Operações de gravação do disco de dados/s|Operações de gravação do disco de dados/s (visualização)|CountPerSecond|Average|Gravar IOPS de um único disco durante o período de monitoramento|LUN|
+|Profundidade da Fila do Disco de Dados|Profundidade da fila do disco de dados (visualização)|Count|Average|Profundidade da fila do disco de dados (ou comprimento da fila)|LUN|
+|Bytes de leitura do disco do so/s|Bytes de leitura do disco do so/s (visualização)|CountPerSecond|Average|Bytes/s lidos de um único disco durante o período de monitoramento para o disco do sistema operacional|Nenhuma dimensão|
+|Bytes de gravação de disco do sistema operacional/s|Bytes de gravação de disco do sistema operacional/s (visualização)|CountPerSecond|Average|Bytes/s gravados em um único disco durante o período de monitoramento do disco do sistema operacional|Nenhuma dimensão|
+|Operações de leitura de disco do so/s|Operações de leitura de disco do so/s (visualização)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|Nenhuma dimensão|
+|Operações de gravação de disco do so/s|Operações de gravação de disco do so/s (visualização)|CountPerSecond|Average|Gravar IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|Nenhuma dimensão|
+|Profundidade da Fila do Disco do SO|Profundidade da fila de disco do so (visualização)|Count|Average|Profundidade da fila de disco do so (ou comprimento da fila)|Nenhuma dimensão|
+|Fluxos de Entrada|Fluxos de entrada (visualização)|Count|Average|Os fluxos de entrada são o número de fluxos atuais na direção de entrada (tráfego entrando na VM)|Nenhuma dimensão|
+|Fluxos de Saída|Fluxos de saída (visualização)|Count|Average|Fluxos de saída são o número de fluxos atuais na direção de saída (tráfego saindo da VM)|Nenhuma dimensão|
+|Taxa de Criação Máxima de Fluxos de Entrada|Taxa máxima de criação de fluxos de entrada (visualização)|CountPerSecond|Average|A taxa de criação máxima de fluxos de entrada (tráfego entrando na VM)|Nenhuma dimensão|
+|Taxa de Criação Máxima de Fluxos de Saída|Taxa máxima de criação de fluxos de saída (versão prévia)|CountPerSecond|Average|A taxa de criação máxima de fluxos de saída (tráfego saindo da VM)|Nenhuma dimensão|
+|Cache do disco de dados Premium-acesso de leitura|Leitura do cache do disco de dados Premium (versão prévia)|Percent|Average|Cache do disco de dados Premium-acesso de leitura|LUN|
+|Erro de leitura do cache do disco de dados Premium|Cache do disco de dados Premium-erro de leitura (visualização)|Percent|Average|Erro de leitura do cache do disco de dados Premium|LUN|
+|Cache de disco do sistema operacional Premium-acesso de leitura|Cache de disco do sistema operacional Premium-acesso de leitura (versão prévia)|Percent|Average|Cache de disco do sistema operacional Premium-acesso de leitura|Nenhuma dimensão|
+|Erro de leitura do cache de disco do so premium|Erro de leitura do cache de disco do so premium (visualização)|Percent|Average|Erro de leitura do cache de disco do so premium|Nenhuma dimensão|
+|Total de rede|Total de rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pelas máquinas virtuais (tráfego de entrada)|Nenhuma dimensão|
+|Total de saída de rede|Total de saída de rede|Bytes|Total|O número de bytes de saída em todas as interfaces de rede pelas máquinas virtuais (tráfego de saída)|Nenhuma dimensão|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
@@ -418,49 +418,49 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades do computador alocadas que estão atualmente em utilização pela Máquina Virtual ou Máquinas Virtuais|VMName|
 |Entrada de Rede|Rede em Faturável|Bytes|Total|O número de bytes faturáveis recebidos em todas as interfaces de rede pelas máquinas virtuais (tráfego de entrada)|VMName|
 |Saída de Rede|Saída de rede Faturável|Bytes|Total|O número de bytes faturáveis de saída em todas as interfaces de rede pelas máquinas virtuais (tráfego de saída)|VMName|
-|Bytes de Leitura do Disco|Bytes de Leitura do Disco|Bytes|Total|Bytes lidos a partir do disco durante o período de monitorização|VMName|
-|Bytes de Escrita de Disco|Bytes de Escrita de Disco|Bytes|Total|Bytes escritos no disco durante o período de monitorização|VMName|
-|Operações/Seg de Leitura do Disco|Operações/Seg de Leitura do Disco|CountPerSecond|Average|IOPS de Leitura do Disco|VMName|
-|Operações/Seg de Escrita de Disco|Operações/Seg de Escrita de Disco|CountPerSecond|Average|IOPS de Escrita de Disco|VMName|
-|Créditos CPU Restantes|Créditos CPU Restantes|Count|Average|Número total de créditos disponíveis para rajada|Nenhuma dimensão|
-|Créditos CPU Consumidos|Créditos CPU Consumidos|Count|Average|Número total de créditos consumidos pela Máquina Virtual|Nenhuma dimensão|
-|Bytes Lidos por Disco/seg|Bytes Lidos do Disco de Dados/seg (Preterido)|CountPerSecond|Average|Bytes/Seg lidos a partir de um único disco durante o período de monitorização|SlotId|
-|Bytes Escritos por Disco/seg|Bytes Escritos do Disco de Dados/Seg (Preterido)|CountPerSecond|Average|Bytes/Seg escritos para um único disco durante o período de monitorização|SlotId|
-|Operações de Leitura Por Disco/Seg|Operações de Leitura do Disco de Dados/Seg (Preterido)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitorização|SlotId|
-|Operações de Escrita Por Disco/Seg|Operações de Escrita do Disco de Dados/Seg (Preterido)|CountPerSecond|Average|Escreva IOPS de um único disco durante o período de monitorização|SlotId|
-|Por Disco de QD|Disco de Dados QD (Preterido)|Count|Average|Profundidade da Fila do Disco de Dados (ou Comprimento da Fila)|SlotId|
-|Bytes de Leitura por Disco de SO/Seg.|Bytes/Seg da Leitura de Discos do SO (Preterido)|CountPerSecond|Average|Bytes/Seg lidos a partir de um único disco durante o período de monitorização para o disco do SO|Nenhuma dimensão|
-|Bytes de Escrita por Disco de SO/Seg.|Bytes/Seg Escrita de Discos do SO (Preterido)|CountPerSecond|Average|Bytes/Seg escritos para um único disco durante o período de monitorização para o disco do SO|Nenhuma dimensão|
-|Operações de Leitura por Disco de SO/seg|Operações/ Seg. da Leitura de Discos do SO (Preterido)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitorização para o disco do SO|Nenhuma dimensão|
-|Operações de Escrita Por Disco de SO/Seg|Operações/Seg Escrita de Discos do SO (Preterido)|CountPerSecond|Average|Escreva IOPS de um único disco durante o período de monitorização para o disco do SO|Nenhuma dimensão|
-|Por Disco de Sistema Operativo QD|Disco do SO QD (Preterido)|Count|Average|Profundidade da Fila de Disco de Sistema Operativo (ou Comprimento da Fila)|Nenhuma dimensão|
-|Bytes Lidos do Disco de Dados/seg|Bytes de Leitura de Disco de Dados/Seg (Pré-visualização)|CountPerSecond|Average|Bytes/Seg lidos a partir de um único disco durante o período de monitorização|LUN, VMName|
-|Bytes Escritos do Disco de Dados/seg|Bytes de Escrita de Disco de Dados/Seg (Pré-visualização)|CountPerSecond|Average|Bytes/Seg escritos para um único disco durante o período de monitorização|LUN, VMName|
-|Operações de Leitura em Disco de Dados/Seg|Operações de Leitura de Disco de Dados/Seg (Pré-visualização)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitorização|LUN, VMName|
-|Operações de Escrita em Disco de Dados/Seg|Operações de Escrita de Disco de Dados/Seg (Pré-visualização)|CountPerSecond|Average|Escreva IOPS de um único disco durante o período de monitorização|LUN, VMName|
-|Profundidade da Fila do Disco de Dados|Profundidade da Fila do Discos de Dados (Pré-visualização)|Count|Average|Profundidade da Fila do Disco de Dados (ou Comprimento da Fila)|LUN, VMName|
-|Bytes/seg da Leitura de Discos do SO|Bytes de Leitura de Disco de SO/Seg (Pré-visualização)|CountPerSecond|Average|Bytes/Seg lidos a partir de um único disco durante o período de monitorização para o disco do SO|VMName|
-|Bytes/sec da Escrita de Discos do SO|Bytes de Escrita de Disco de SO/Seg (Pré-visualização)|CountPerSecond|Average|Bytes/Seg escritos para um único disco durante o período de monitorização para o disco do SO|VMName|
-|Operações de Leitura de Disco de SO/Seg.|Operações de Leitura de Disco de SO/Seg (Pré-visualização)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitorização para o disco do SO|VMName|
-|Operações de Escrita de Disco de SO/Seg|Operações de Escrita de Disco de SO/Seg (Pré-visualização)|CountPerSecond|Average|Escreva IOPS de um único disco durante o período de monitorização para o disco do SO|VMName|
-|Profundidade da Fila do Disco do SO|Profundidade da Fila do Disco do SO (Pré-visualização)|Count|Average|Profundidade da Fila de Disco de Sistema Operativo (ou Comprimento da Fila)|VMName|
-|Fluxos de Entrada|Fluxos de Entrada (Pré-visualização)|Count|Average|Os Fluxos de Entrada são o número de fluxos atuais na direção de entrada (tráfego a entrar da VM)|VMName|
-|Fluxos de Saída|Fluxos de Saída (Pré-visualização)|Count|Average|Os Fluxos de Saída são o número de fluxos atuais na direção de saída (tráfego a sair da VM)|VMName|
-|Taxa de Criação Máxima de Fluxos de Entrada|Taxa de Criação Máxima de Fluxos de Entrada (Pré-visualização)|CountPerSecond|Average|A taxa de criação máxima de fluxos de entrada (tráfego que vai para a VM)|VMName|
-|Taxa de Criação Máxima de Fluxos de Saída|Taxa de Criação Máxima de Fluxos de Saída (Pré-visualização)|CountPerSecond|Average|A taxa de criação máxima de fluxos de saída (tráfego que sai da VM)|VMName|
-|Acerto de Leitura na Cache do Disco de Dados Premium|Acerto de Leitura na Cache do Disco de Dados Premium (Pré-visualização)|Percent|Average|Acerto de Leitura na Cache do Disco de Dados Premium|LUN, VMName|
-|Falha de Acerto de Leitura na Cache do Disco de Dados Premium|Falha de Acerto de Leitura na Cache do Disco de Dados Premium (Pré-visualização)|Percent|Average|Falha de Acerto de Leitura na Cache do Disco de Dados Premium|LUN, VMName|
-|Acerto de Leitura na Cache do Disco do SO Premium|Acerto de Leitura na Cache do Disco do SO Premium (Pré-visualização)|Percent|Average|Acerto de Leitura na Cache do Disco do SO Premium|VMName|
-|Falha de Acerto de Leitura na Cache do Disco do SO Premium|Falha de Acerto de Leitura na Cache do Disco do SO Premium (Pré-visualização)|Percent|Average|Falha de Acerto de Leitura na Cache do Disco do SO Premium|VMName|
-|Total de rede|Total de rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual ou Máquinas Virtuais (Tráfego de Entrada)|VMName|
-|Total de saída de rede|Total de saída de rede|Bytes|Total|O número de bytes saídos de todas as interfaces de rede pela(s) Máquina(s) Virtual(is) (Tráfego de Saída)|VMName|
+|Bytes de Leitura do Disco|Bytes de Leitura do Disco|Bytes|Total|Bytes lidos do disco durante o período de monitoramento|VMName|
+|Bytes de Escrita de Disco|Bytes de Escrita de Disco|Bytes|Total|Bytes gravados no disco durante o período de monitoramento|VMName|
+|Operações de leitura de disco/s|Operações de leitura de disco/s|CountPerSecond|Average|IOPS de Leitura do Disco|VMName|
+|Operações de gravação de disco/s|Operações de gravação de disco/s|CountPerSecond|Average|IOPS de Escrita de Disco|VMName|
+|Créditos CPU Restantes|Créditos CPU Restantes|Count|Average|Número total de créditos disponíveis para intermitência|Nenhuma dimensão|
+|Créditos CPU Consumidos|Créditos CPU Consumidos|Count|Average|Número total de créditos consumidos pela máquina virtual|Nenhuma dimensão|
+|Bytes de leitura por disco/s|Bytes de leitura do disco de dados/s (preterido)|CountPerSecond|Average|Bytes/s lidos de um único disco durante o período de monitoramento|SlotId|
+|Bytes de gravação por disco/s|Bytes de gravação do disco de dados/s (preterido)|CountPerSecond|Average|Bytes/s gravados em um único disco durante o período de monitoramento|SlotId|
+|Operações de leitura por disco/s|Operações de leitura de disco de dados/s (preterido)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitoramento|SlotId|
+|Operações de gravação por disco/s|Operações de gravação do disco de dados/s (preterido)|CountPerSecond|Average|Gravar IOPS de um único disco durante o período de monitoramento|SlotId|
+|Por Disco de QD|Disco de dados QD (preterido)|Count|Average|Profundidade da fila do disco de dados (ou comprimento da fila)|SlotId|
+|Bytes de leitura por disco do so/s|Bytes de leitura do disco do so/s (preterido)|CountPerSecond|Average|Bytes/s lidos de um único disco durante o período de monitoramento para o disco do sistema operacional|Nenhuma dimensão|
+|Bytes de gravação por disco do so/s|Bytes de gravação de disco do sistema operacional/s (preterido)|CountPerSecond|Average|Bytes/s gravados em um único disco durante o período de monitoramento do disco do sistema operacional|Nenhuma dimensão|
+|Operações de leitura de so por disco/s|Operações de leitura de disco do so/s (preterido)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|Nenhuma dimensão|
+|Operações de gravação de so por disco/s|Operações de gravação de disco do sistema operacional/s (preterido)|CountPerSecond|Average|Gravar IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|Nenhuma dimensão|
+|Por Disco de Sistema Operativo QD|Disco do so QD (preterido)|Count|Average|Profundidade da fila de disco do so (ou comprimento da fila)|Nenhuma dimensão|
+|Bytes de leitura do disco de dados/s|Bytes de leitura do disco de dados/s (visualização)|CountPerSecond|Average|Bytes/s lidos de um único disco durante o período de monitoramento|LUN, VMName|
+|Bytes de gravação do disco de dados/s|Bytes de gravação do disco de dados/s (visualização)|CountPerSecond|Average|Bytes/s gravados em um único disco durante o período de monitoramento|LUN, VMName|
+|Operações de leitura de disco de dados/s|Operações de leitura de disco de dados/s (visualização)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitoramento|LUN, VMName|
+|Operações de gravação do disco de dados/s|Operações de gravação do disco de dados/s (visualização)|CountPerSecond|Average|Gravar IOPS de um único disco durante o período de monitoramento|LUN, VMName|
+|Profundidade da Fila do Disco de Dados|Profundidade da fila do disco de dados (visualização)|Count|Average|Profundidade da fila do disco de dados (ou comprimento da fila)|LUN, VMName|
+|Bytes de leitura do disco do so/s|Bytes de leitura do disco do so/s (visualização)|CountPerSecond|Average|Bytes/s lidos de um único disco durante o período de monitoramento para o disco do sistema operacional|VMName|
+|Bytes de gravação de disco do sistema operacional/s|Bytes de gravação de disco do sistema operacional/s (visualização)|CountPerSecond|Average|Bytes/s gravados em um único disco durante o período de monitoramento do disco do sistema operacional|VMName|
+|Operações de leitura de disco do so/s|Operações de leitura de disco do so/s (visualização)|CountPerSecond|Average|Ler IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|VMName|
+|Operações de gravação de disco do so/s|Operações de gravação de disco do so/s (visualização)|CountPerSecond|Average|Gravar IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|VMName|
+|Profundidade da Fila do Disco do SO|Profundidade da fila de disco do so (visualização)|Count|Average|Profundidade da fila de disco do so (ou comprimento da fila)|VMName|
+|Fluxos de Entrada|Fluxos de entrada (visualização)|Count|Average|Os fluxos de entrada são o número de fluxos atuais na direção de entrada (tráfego entrando na VM)|VMName|
+|Fluxos de Saída|Fluxos de saída (visualização)|Count|Average|Fluxos de saída são o número de fluxos atuais na direção de saída (tráfego saindo da VM)|VMName|
+|Taxa de Criação Máxima de Fluxos de Entrada|Taxa máxima de criação de fluxos de entrada (visualização)|CountPerSecond|Average|A taxa de criação máxima de fluxos de entrada (tráfego entrando na VM)|VMName|
+|Taxa de Criação Máxima de Fluxos de Saída|Taxa máxima de criação de fluxos de saída (versão prévia)|CountPerSecond|Average|A taxa de criação máxima de fluxos de saída (tráfego saindo da VM)|VMName|
+|Cache do disco de dados Premium-acesso de leitura|Leitura do cache do disco de dados Premium (versão prévia)|Percent|Average|Cache do disco de dados Premium-acesso de leitura|LUN, VMName|
+|Erro de leitura do cache do disco de dados Premium|Cache do disco de dados Premium-erro de leitura (visualização)|Percent|Average|Erro de leitura do cache do disco de dados Premium|LUN, VMName|
+|Cache de disco do sistema operacional Premium-acesso de leitura|Cache de disco do sistema operacional Premium-acesso de leitura (versão prévia)|Percent|Average|Cache de disco do sistema operacional Premium-acesso de leitura|VMName|
+|Erro de leitura do cache de disco do so premium|Erro de leitura do cache de disco do so premium (visualização)|Percent|Average|Erro de leitura do cache de disco do so premium|VMName|
+|Total de rede|Total de rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pelas máquinas virtuais (tráfego de entrada)|VMName|
+|Total de saída de rede|Total de saída de rede|Bytes|Total|O número de bytes de saída em todas as interfaces de rede pelas máquinas virtuais (tráfego de saída)|VMName|
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Os|Utilização da CPU|Count|Average|Utilização da CPU em todos os núcleos em milinúcleos.|containerName|
-|MemoryUsage|Utilização da Memória|Bytes|Average|Utilização da memória total em bytes.|containerName|
+|Os|Utilização da CPU|Count|Average|Uso da CPU em todos os núcleos em milicores.|containerName|
+|MemoryUsage|Utilização da Memória|Bytes|Average|Uso total de memória em byte.|containerName|
 |NetworkBytesReceivedPerSecond|Bytes de Rede Recebidos Por Segundo|Bytes|Average|Os bytes de rede recebidos por segundo.|Nenhuma dimensão|
 |NetworkBytesTransmittedPerSecond|Bytes de Rede Transmitidos por Segundo|Bytes|Average|Os bytes de rede transmitidos por segundo.|Nenhuma dimensão|
 
@@ -523,18 +523,18 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|NICReadThroughput|Débito de Leitura (Rede)|BytesPerSecond|Average|A taxa de transferência de leitura da interface de rede no dispositivo no período de relatório para todos os volumes no gateway.|InstanceName|
-|NICWriteThroughput|Escrever Débito (Rede)|BytesPerSecond|Average|A taxa de transferência de gravação da interface de rede no dispositivo no período de relatório para todos os volumes no gateway.|InstanceName|
-|CloudReadThroughputPerShare|Débito de Transferência na Cloud (Partilha)|BytesPerSecond|Average|A taxa de transferência de download para o Azure de um compartilhamento durante o período de relatório.|Partilhar|
-|CloudUploadThroughputPerShare|Débito de Carregamento na Cloud (Partilha)|BytesPerSecond|Average|A taxa de transferência de upload para o Azure de um compartilhamento durante o período de relatório.|Partilhar|
-|BytesUploadedToCloudPerShare|Bytes Carregados na Cloud (Partilha)|Bytes|Average|O número total de bytes que são carregados no Azure de um compartilhamento durante o período de relatório.|Partilhar|
+|NICReadThroughput|Taxa de transferência de leitura (rede)|BytesPerSecond|Average|A taxa de transferência de leitura da interface de rede no dispositivo no período de relatório para todos os volumes no gateway.|InstanceName|
+|NICWriteThroughput|Taxa de transferência de gravação (rede)|BytesPerSecond|Average|A taxa de transferência de gravação da interface de rede no dispositivo no período de relatório para todos os volumes no gateway.|InstanceName|
+|CloudReadThroughputPerShare|Taxa de transferência de download de nuvem (compartilhamento)|BytesPerSecond|Average|A taxa de transferência de download para o Azure de um compartilhamento durante o período de relatório.|Partilhar|
+|CloudUploadThroughputPerShare|Taxa de transferência de upload de nuvem (compartilhamento)|BytesPerSecond|Average|A taxa de transferência de upload para o Azure de um compartilhamento durante o período de relatório.|Partilhar|
+|BytesUploadedToCloudPerShare|Bytes de nuvem carregados (compartilhamento)|Bytes|Average|O número total de bytes que são carregados no Azure de um compartilhamento durante o período de relatório.|Partilhar|
 |TotalCapacity|Capacidade Total|Bytes|Average|Capacidade Total|Nenhuma dimensão|
-|AvailableCapacity|Capacidade Disponível|Bytes|Average|A capacidade disponível em bytes durante o período de relatórios.|Nenhuma dimensão|
+|AvailableCapacity|Capacidade Disponível|Bytes|Average|A capacidade disponível em bytes durante o período de relatório.|Nenhuma dimensão|
 |CloudUploadThroughput|Débito de Carregamento na Cloud|BytesPerSecond|Average|A taxa de transferência de upload de nuvem para o Azure durante o período de relatório.|Nenhuma dimensão|
 |CloudReadThroughput|Taxa de transferência de download da nuvem|BytesPerSecond|Average|A taxa de transferência de download de nuvem para o Azure durante o período de relatório.|Nenhuma dimensão|
-|BytesUploadedToCloud|Bytes Carregados na Cloud (Dispositivo)|Bytes|Average|O número total de bytes que são carregados no Azure de um dispositivo durante o período de relatório.|Nenhuma dimensão|
-|HyperVVirtualProcessorUtilization|Computação Edge - Percentagem da CPU|Percent|Average|Percentagem de utilização da CPU|InstanceName|
-|HyperVMemoryUtilization|Computação Edge - Utilização de Memória|Percent|Average|Quantidade de RAM em Utilização|InstanceName|
+|BytesUploadedToCloud|Bytes de nuvem carregados (dispositivo)|Bytes|Average|O número total de bytes que são carregados no Azure de um dispositivo durante o período de relatório.|Nenhuma dimensão|
+|HyperVVirtualProcessorUtilization|Computação de borda – percentual de CPU|Percent|Average|Percentagem de utilização da CPU|InstanceName|
+|HyperVMemoryUtilization|Computação de borda-uso de memória|Percent|Average|Quantidade de RAM em Utilização|InstanceName|
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
 
@@ -785,23 +785,23 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|SuccessfulRequests|Pedidos com Êxito|Count|Total|Pedidos Com Êxito do Microsoft.EventHub.|EntityName |
-|ServerErrors|Erros de Servidor.|Count|Total|Erros de Servidor do Microsoft.EventHub.|EntityName |
-|UserErrors|Erros do Utilizador.|Count|Total|Erros de Utilizador do Microsoft.EventHub.|EntityName |
-|QuotaExceededErrors|Erros de Exceção de Quota.|Count|Total|Erros de Quota Excedida do Microsoft.EventHub.|EntityName |
-|ThrottledRequests|Pedidos Limitados.|Count|Total|Pedidos Limitados do Microsoft.EventHub.|EntityName |
-|IncomingRequests|Pedidos Recebidos|Count|Total|Pedidos Recebidos do Microsoft.EventHub.|EntityName|
-|IncomingMessages|Mensagens Recebidas|Count|Total|Mensagens Recebidas do Microsoft.EventHub.|EntityName|
-|OutgoingMessages|Mensagens Enviadas|Count|Total|Mensagens Enviadas do Microsoft.EventHub.|EntityName|
-|IncomingBytes|Bytes Recebidos.|Bytes|Total|Bytes Recebidos do Microsoft.EventHub.|EntityName|
-|OutgoingBytes|Bytes Enviados.|Bytes|Total|Bytes Enviados do Microsoft.EventHub.|EntityName|
-|ActiveConnections|ActiveConnections|Count|Average|Total de Ligações Ativas do Microsoft.EventHub.|Nenhuma dimensão|
-|ConnectionsOpened|Ligações Abertas.|Count|Average|Ligações Abertas do Microsoft.EventHub.|EntityName|
-|ConnectionsClosed|Ligações Fechadas.|Count|Average|Ligações Fechadas do Microsoft.EventHub.|EntityName|
-|CaptureBacklog|Registo de tarefas pendentes de Recolha.|Count|Total|Registo de tarefas pendentes de Recolha do Microsoft.EventHub.|EntityName|
-|CapturedMessages|Mensagens Recolhidas.|Count|Total|Mensagens Recolhidas do Microsoft.EventHub.|EntityName|
-|CapturedBytes|Bytes Recolhidos.|Bytes|Total|Bytes Recolhidos do Microsoft.EventHub.|EntityName|
-|Size|Size|Bytes|Average|Tamanho de um EventHub em Bytes.|EntityName|
+|SuccessfulRequests|Pedidos com Êxito|Count|Total|Solicitações bem-sucedidas para o Microsoft. EventHub.|EntityName |
+|ServerErrors|Erros do servidor.|Count|Total|Erros de servidor para Microsoft. EventHub.|EntityName |
+|UserErrors|Erros do usuário.|Count|Total|Erros de usuário para Microsoft. EventHub.|EntityName |
+|QuotaExceededErrors|A cota excedeu erros.|Count|Total|A cota excedeu erros para o Microsoft. EventHub.|EntityName |
+|ThrottledRequests|Solicitações limitadas.|Count|Total|Solicitações limitadas para Microsoft. EventHub.|EntityName |
+|IncomingRequests|Pedidos Recebidos|Count|Total|Solicitações de entrada para o Microsoft. EventHub.|EntityName|
+|IncomingMessages|Mensagens Recebidas|Count|Total|Mensagens de entrada para o Microsoft. EventHub.|EntityName|
+|OutgoingMessages|Mensagens Enviadas|Count|Total|Mensagens de saída para o Microsoft. EventHub.|EntityName|
+|IncomingBytes|Bytes de entrada.|Bytes|Total|Bytes de entrada para o Microsoft. EventHub.|EntityName|
+|OutgoingBytes|Bytes de saída.|Bytes|Total|Bytes de saída para o Microsoft. EventHub.|EntityName|
+|ActiveConnections|ActiveConnections|Count|Average|Total de conexões ativas para o Microsoft. EventHub.|Nenhuma dimensão|
+|ConnectionsOpened|Conexões abertas.|Count|Average|Conexões abertas para Microsoft. EventHub.|EntityName|
+|ConnectionsClosed|Conexões fechadas.|Count|Average|Conexões fechadas para o Microsoft. EventHub.|EntityName|
+|CaptureBacklog|Capturar registro posterior.|Count|Total|Capturar pendências para Microsoft. EventHub.|EntityName|
+|CapturedMessages|Mensagens capturadas.|Count|Total|Mensagens capturadas para o Microsoft. EventHub.|EntityName|
+|CapturedBytes|Bytes capturados.|Bytes|Total|Bytes capturados para o Microsoft. EventHub.|EntityName|
+|Size|Size|Bytes|Average|Tamanho de um EventHub em bytes.|EntityName|
 |INREQS|Solicitações de entrada (preteridas)|Count|Total|Total de solicitações de envio de entrada para um namespace (preterido)|Nenhuma dimensão|
 |SUCCREQ|Solicitações com êxito (preteridas)|Count|Total|Total de solicitações bem-sucedidas para um namespace (preterido)|Nenhuma dimensão|
 |FAILREQ|Solicitações com falha (preteridas)|Count|Total|Total de solicitações com falha para um namespace (preterido)|Nenhuma dimensão|
@@ -809,13 +809,13 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |INTERR|Erros de servidor interno (preterido)|Count|Total|Total de erros internos do servidor para um namespace (preterido)|Nenhuma dimensão|
 |MISCERR|Outros erros (preterido)|Count|Total|Total de solicitações com falha para um namespace (preterido)|Nenhuma dimensão|
 |INMSGS|Mensagens de entrada (preteridas) (preteridas)|Count|Total|Total de mensagens de entrada para um namespace. Essa métrica foi preterida. Use a métrica de mensagens de entrada em vez disso (preterido)|Nenhuma dimensão|
-|EHINMSGS|Mensagens Recebidas (preteridas)|Count|Total|Total de mensagens de entrada para um namespace (preterido)|Nenhuma dimensão|
+|EHINMSGS|Mensagens de entrada (preteridas)|Count|Total|Total de mensagens de entrada para um namespace (preterido)|Nenhuma dimensão|
 |MENSAGENS INENVIADAS|Mensagens de saída (preteridas) (preteridas)|Count|Total|Total de mensagens de saída para um namespace. Essa métrica foi preterida. Use a métrica de mensagens de saída em vez disso (preterido)|Nenhuma dimensão|
-|EHOUTMSGS|Mensagens Enviadas (preteridas)|Count|Total|Total de mensagens de saída para um namespace (preterido)|Nenhuma dimensão|
+|EHOUTMSGS|Mensagens de saída (preteridas)|Count|Total|Total de mensagens de saída para um namespace (preterido)|Nenhuma dimensão|
 |EHINMBS|Bytes de entrada (preterido) (preterido)|Bytes|Total|Taxa de transferência de mensagem de entrada do hub de eventos para um namespace. Essa métrica foi preterida. Use a métrica de bytes de entrada em vez disso (preterido)|Nenhuma dimensão|
-|EHINBYTES|Bytes recebidos (preteridos)|Bytes|Total|Taxa de transferência de mensagem de entrada do hub de eventos para um namespace (preterido)|Nenhuma dimensão|
+|EHINBYTES|Bytes de entrada (preterido)|Bytes|Total|Taxa de transferência de mensagem de entrada do hub de eventos para um namespace (preterido)|Nenhuma dimensão|
 |EHOUTMBS|Bytes de saída (preteridos) (preterido)|Bytes|Total|Taxa de transferência de mensagem de saída do hub de eventos para um namespace. Essa métrica foi preterida. Use a métrica de bytes de saída em vez disso (preterido)|Nenhuma dimensão|
-|EHOUTBYTES|Bytes Enviados (preteridos)|Bytes|Total|Taxa de transferência de mensagem de saída do hub de eventos para um namespace (preterido)|Nenhuma dimensão|
+|EHOUTBYTES|Bytes de saída (preteridos)|Bytes|Total|Taxa de transferência de mensagem de saída do hub de eventos para um namespace (preterido)|Nenhuma dimensão|
 |EHABL|Arquivar mensagens de pendências (preterido)|Count|Total|Mensagens de arquivamento do hub de eventos no backlog para um namespace (preterido)|Nenhuma dimensão|
 |EHAMSGS|Arquivar mensagens (preterido)|Count|Total|Mensagens arquivadas do hub de eventos em um namespace (preterido)|Nenhuma dimensão|
 |EHAMBS|Taxa de transferência de mensagem de arquivamento (preterido)|Bytes|Total|Taxa de transferência de mensagem arquivada do hub de eventos em um namespace (preterido)|Nenhuma dimensão|
@@ -824,24 +824,24 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|SuccessfulRequests|Solicitações com êxito (versão prévia)|Count|Total|Pedidos Com Êxito do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|ServerErrors|Erros de Servidor. (Pré-visualização)|Count|Total|Erros de Servidor do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|UserErrors|Erros do Utilizador. (Pré-visualização)|Count|Total|Erros de Utilizador do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|QuotaExceededErrors|Erros de Exceção de Quota. (Pré-visualização)|Count|Total|Erros de Quota Excedida do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|ThrottledRequests|Pedidos Limitados. (Pré-visualização)|Count|Total|Pedidos Limitados do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|IncomingRequests|Solicitações de entrada (versão prévia)|Count|Total|Pedidos Recebidos do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|IncomingMessages|Mensagens de entrada (versão prévia)|Count|Total|Mensagens Recebidas do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|OutgoingMessages|Mensagens de saída (versão prévia)|Count|Total|Mensagens Enviadas do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|IncomingBytes|Bytes Recebidos. (Pré-visualização)|Bytes|Total|Bytes Recebidos do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|OutgoingBytes|Bytes Enviados. (Pré-visualização)|Bytes|Total|Bytes Enviados do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|ActiveConnections|ActiveConnections (visualização)|Count|Average|Total de Ligações Ativas do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|ConnectionsOpened|Ligações Abertas. (Pré-visualização)|Count|Average|Ligações Abertas do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|ConnectionsClosed|Ligações Fechadas. (Pré-visualização)|Count|Average|Ligações Fechadas do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|CaptureBacklog|Registo de tarefas pendentes de Recolha. (Pré-visualização)|Count|Total|Registo de tarefas pendentes de Recolha do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|CapturedMessages|Mensagens Recolhidas. (Pré-visualização)|Count|Total|Mensagens Recolhidas do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|CapturedBytes|Bytes Recolhidos. (Pré-visualização)|Bytes|Total|Bytes Recolhidos do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|CPU|CPU (versão prévia)|Percent|Máximo|Utilização da CPU para o Cluster de Hub de Eventos enquanto percentagem|Role|
-|AvailableMemory|Memória disponível (versão prévia)|Count|Máximo|Memória disponível para o Cluster de Hub de Eventos em bytes|Role|
+|SuccessfulRequests|Solicitações com êxito (versão prévia)|Count|Total|Solicitações bem-sucedidas para o Microsoft. EventHub. (Pré-visualização)|Nenhuma dimensão|
+|ServerErrors|Erros do servidor. (Pré-visualização)|Count|Total|Erros de servidor para Microsoft. EventHub. (Pré-visualização)|Nenhuma dimensão|
+|UserErrors|Erros do usuário. (Pré-visualização)|Count|Total|Erros de usuário para Microsoft. EventHub. (Pré-visualização)|Nenhuma dimensão|
+|QuotaExceededErrors|A cota excedeu erros. (Pré-visualização)|Count|Total|A cota excedeu erros para o Microsoft. EventHub. (Pré-visualização)|Nenhuma dimensão|
+|ThrottledRequests|Solicitações limitadas. (Pré-visualização)|Count|Total|Solicitações limitadas para Microsoft. EventHub. (Pré-visualização)|Nenhuma dimensão|
+|IncomingRequests|Solicitações de entrada (versão prévia)|Count|Total|Solicitações de entrada para o Microsoft. EventHub. (Pré-visualização)|Nenhuma dimensão|
+|IncomingMessages|Mensagens de entrada (versão prévia)|Count|Total|Mensagens de entrada para o Microsoft. EventHub. (Pré-visualização)|Nenhuma dimensão|
+|OutgoingMessages|Mensagens de saída (versão prévia)|Count|Total|Mensagens de saída para o Microsoft. EventHub. (Pré-visualização)|Nenhuma dimensão|
+|IncomingBytes|Bytes de entrada. (Pré-visualização)|Bytes|Total|Bytes de entrada para o Microsoft. EventHub. (Pré-visualização)|Nenhuma dimensão|
+|OutgoingBytes|Bytes de saída. (Pré-visualização)|Bytes|Total|Bytes de saída para o Microsoft. EventHub. (Pré-visualização)|Nenhuma dimensão|
+|ActiveConnections|ActiveConnections (visualização)|Count|Average|Total de conexões ativas para o Microsoft. EventHub. (Pré-visualização)|Nenhuma dimensão|
+|ConnectionsOpened|Conexões abertas. (Pré-visualização)|Count|Average|Conexões abertas para Microsoft. EventHub. (Pré-visualização)|Nenhuma dimensão|
+|ConnectionsClosed|Conexões fechadas. (Pré-visualização)|Count|Average|Conexões fechadas para o Microsoft. EventHub. (Pré-visualização)|Nenhuma dimensão|
+|CaptureBacklog|Capturar registro posterior. (Pré-visualização)|Count|Total|Capturar pendências para Microsoft. EventHub. (Pré-visualização)|Nenhuma dimensão|
+|CapturedMessages|Mensagens capturadas. (Pré-visualização)|Count|Total|Mensagens capturadas para o Microsoft. EventHub. (Pré-visualização)|Nenhuma dimensão|
+|CapturedBytes|Bytes capturados. (Pré-visualização)|Bytes|Total|Bytes capturados para o Microsoft. EventHub. (Pré-visualização)|Nenhuma dimensão|
+|CPU|CPU (versão prévia)|Percent|Máximo|Utilização da CPU para o cluster do hub de eventos como uma porcentagem|Role|
+|AvailableMemory|Memória disponível (versão prévia)|Count|Máximo|Memória disponível para o cluster do hub de eventos em bytes|Role|
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft. HDInsight/clusters
 
@@ -855,9 +855,9 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ObservedMetricValue|Valor de Métrica observado|Count|Average|O valor calculado pelo dimensionamento automático quando este foi executado|MetricTriggerSource|
-|MetricThreshold|Limiar de Métrica|Count|Average|O limiar de dimensionamento automático configurado quando este foi executado.|MetricTriggerRule|
-|ObservedCapacity|Capacidade observada|Count|Average|A capacidade reportada para dimensionamento automático quando este foi executado.|Nenhuma dimensão|
+|ObservedMetricValue|Valor de Métrica observado|Count|Average|O valor calculado por autoescala quando executado|MetricTriggerSource|
+|MetricThreshold|Limiar de Métrica|Count|Average|O limite de dimensionamento automático configurado quando o dimensionamento automático foi executado.|MetricTriggerRule|
+|ObservedCapacity|Capacidade observada|Count|Average|A capacidade relatada para dimensionamento automático quando executada.|Nenhuma dimensão|
 |ScaleActionsInitiated|Ações de Dimensionamento Iniciadas|Count|Total|A direção da operação de dimensionamento.|ScaleDirection|
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
@@ -871,39 +871,39 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |availabilityResults/duration|Duração do teste de disponibilidade|Milissegundos|Average|Duração do teste de disponibilidade|availabilityResult/nome, availabilityResult/local, availabilityResult/êxito|
 |browserTimings/networkDuration|Tempo de ligação da rede de carregamento de páginas|Milissegundos|Average|Tempo entre a solicitação de usuário e a conexão de rede. Inclui a pesquisa de DNS e a conexão de transporte.|Nenhuma dimensão|
 |browserTimings/processingDuration|Tempo de processamento do cliente|Milissegundos|Average|Tempo entre o recebimento do último byte de um documento até que o DOM seja carregado. As solicitações assíncronas ainda podem estar sendo processadas.|Nenhuma dimensão|
-|browserTimings/receiveDuration|Tempo de resposta de receção|Milissegundos|Average|Tempo entre o primeiro e último bytes ou até à interrupção da ligação.|Nenhuma dimensão|
-|browserTimings/sendDuration|Tempo de resposta de envio|Milissegundos|Average|Tempo entre a ligação de rede e a receção do primeiro byte.|Nenhuma dimensão|
-|browserTimings/totalDuration|Tempo de carregamento de páginas do browser|Milissegundos|Average|Tempo entre o pedido do utilizador e o carregamento de DOM, de folhas de estilos, de scripts e de imagens.|Nenhuma dimensão|
-|dependências/contagem|Chamadas de dependência|Count|Count|Número de chamadas efetuadas pela aplicação aos recursos externos.|dependência/tipo, dependência/performanceBucket, dependência/êxito, operação/sintética, nuvem/roleInstance, nuvem/roleName|
-|dependências/duração|Duração da dependência|Milissegundos|Average|Duração das chamadas efetuadas pela aplicação aos recursos externos.|dependência/tipo, dependência/performanceBucket, dependência/êxito, operação/sintética, nuvem/roleInstance, nuvem/roleName|
-|dependências/com falha|Falhas de chamada de dependência|Count|Count|Número de chamadas de dependência falhadas efetuadas pela aplicação para os recursos externos.|dependência/tipo, dependência/performanceBucket, operação/sintética, nuvem/roleInstance, nuvem/roleName|
-|pageViews/contagem|Visualizações da página|Count|Count|Número de vistas de página.|operação/sintética|
+|browserTimings/receiveDuration|Tempo de resposta de receção|Milissegundos|Average|Tempo entre o primeiro e o último byte, ou até a desconexão.|Nenhuma dimensão|
+|browserTimings/sendDuration|Tempo de resposta de envio|Milissegundos|Average|Tempo entre a conexão de rede e o recebimento do primeiro byte.|Nenhuma dimensão|
+|browserTimings/totalDuration|Tempo de carregamento de páginas do browser|Milissegundos|Average|Tempo desde a solicitação do usuário até que DOM, folhas de estilo, scripts e imagens sejam carregados.|Nenhuma dimensão|
+|dependências/contagem|Chamadas de dependência|Count|Count|Contagem de chamadas feitas pelo aplicativo para recursos externos.|dependência/tipo, dependência/performanceBucket, dependência/êxito, operação/sintética, nuvem/roleInstance, nuvem/roleName|
+|dependências/duração|Duração da dependência|Milissegundos|Average|Duração das chamadas feitas pelo aplicativo para recursos externos.|dependência/tipo, dependência/performanceBucket, dependência/êxito, operação/sintética, nuvem/roleInstance, nuvem/roleName|
+|dependências/com falha|Falhas de chamada de dependência|Count|Count|Contagem de chamadas de dependência com falha feitas pelo aplicativo para recursos externos.|dependência/tipo, dependência/performanceBucket, operação/sintética, nuvem/roleInstance, nuvem/roleName|
+|pageViews/contagem|Visualizações da página|Count|Count|Contagem de exibições de página.|operação/sintética|
 |pageViews/duração|Duração de carregamento da visualização de página|Milissegundos|Average|Duração de carregamento da visualização de página|operação/sintética|
-|performanceCounters/requestExecutionTime|Tempo de execução do pedido HTTP|Milissegundos|Average|Tempo de execução do pedido mais recente.|cloud/roleInstance|
-|performanceCounters/requestsInQueue|Pedidos HTTP na fila de aplicação|Count|Average|Tamanho da fila de pedidos da aplicação.|cloud/roleInstance|
-|performanceCounters/requestsPerSecond|Taxa de pedido HTTP|CountPerSecond|Average|Classificação de todos os pedidos da aplicação por segundo do ASP.NET.|cloud/roleInstance|
-|performanceCounters/exceptionsPerSecond|Taxa de exceção|CountPerSecond|Average|Contagem de exceções processadas e não processadas comunicadas ao Windows, incluindo exceções .NET e exceções não geridas que foram convertidas em exceções .NET.|cloud/roleInstance|
-|performanceCounters/processIOBytesPerSecond|Velocidade de E/S do processo|BytesPerSecond|Average|Total de bytes por segundo lidos e escritos em ficheiros, na rede e em dispositivos.|cloud/roleInstance|
+|performanceCounters/requestExecutionTime|Tempo de execução do pedido HTTP|Milissegundos|Average|Tempo de execução da solicitação mais recente.|cloud/roleInstance|
+|performanceCounters/requestsInQueue|Pedidos HTTP na fila de aplicação|Count|Average|Comprimento da fila de solicitações do aplicativo.|cloud/roleInstance|
+|performanceCounters/requestsPerSecond|Taxa de pedido HTTP|CountPerSecond|Average|Taxa de todas as solicitações para o aplicativo por segundo de ASP.NET.|cloud/roleInstance|
+|performanceCounters/exceptionsPerSecond|Taxa de exceção|CountPerSecond|Average|Contagem de exceções manipuladas e não tratadas relatadas ao Windows, incluindo exceções .NET e exceções não gerenciadas que são convertidas em exceções .NET.|cloud/roleInstance|
+|performanceCounters/processIOBytesPerSecond|Velocidade de E/S do processo|BytesPerSecond|Average|Total de bytes por segundo lidos e gravados em arquivos, rede e dispositivos.|cloud/roleInstance|
 |performanceCounters/processCpuPercentage|CPU do processo|Percent|Average|A porcentagem de tempo decorrido em que todos os threads de processo usaram o processador para executar instruções. Isso pode variar entre 0 e 100. Essa métrica indica o desempenho apenas do processo W3wp.|cloud/roleInstance|
-|performanceCounters/processorCpuPercentage|Tempo do processador|Percent|Average|Percentagem de tempo que o processador despende em threads não inativos.|cloud/roleInstance|
-|performanceCounters/memoryAvailableBytes|Memória disponível|Bytes|Average|Memória física imediatamente disponível para alocação a um processo ou para utilização do sistema.|cloud/roleInstance|
-|performanceCounters/processPrivateBytes|Bytes privados do processo|Bytes|Average|Memória atribuída exclusivamente aos processos da aplicação monitorizada.|cloud/roleInstance|
-|solicitações/duração|Tempo de resposta do servidor|Milissegundos|Average|Tempo entre a receção de um pedido HTTP e a conclusão do envio da resposta.|solicitação/performanceBucket, solicitação/resultCode, operação/sintética, nuvem/roleInstance, solicitação/êxito, nuvem/roleName|
-|solicitações/contagem|Pedidos ao servidor|Count|Count|Número de pedidos HTTP concluídos.|solicitação/performanceBucket, solicitação/resultCode, operação/sintética, nuvem/roleInstance, solicitação/êxito, nuvem/roleName|
+|performanceCounters/processorCpuPercentage|Tempo do processador|Percent|Average|A porcentagem de tempo que o processador gasta em threads não ociosos.|cloud/roleInstance|
+|performanceCounters/memoryAvailableBytes|Memória disponível|Bytes|Average|Memória física disponível imediatamente para alocação para um processo ou para uso do sistema.|cloud/roleInstance|
+|performanceCounters/processPrivateBytes|Bytes privados do processo|Bytes|Average|Memória atribuída exclusivamente aos processos do aplicativo monitorado.|cloud/roleInstance|
+|solicitações/duração|Tempo de resposta do servidor|Milissegundos|Average|Tempo entre o recebimento de uma solicitação HTTP e a conclusão do envio da resposta.|solicitação/performanceBucket, solicitação/resultCode, operação/sintética, nuvem/roleInstance, solicitação/êxito, nuvem/roleName|
+|solicitações/contagem|Pedidos ao servidor|Count|Count|Contagem de solicitações HTTP concluída.|solicitação/performanceBucket, solicitação/resultCode, operação/sintética, nuvem/roleInstance, solicitação/êxito, nuvem/roleName|
 |solicitações/com falha|Pedidos falhados|Count|Count|Contagem de solicitações HTTP marcadas como com falha. Na maioria dos casos, essas são solicitações com um código de resposta > = 400 e não iguais a 401.|solicitação/performanceBucket, solicitação/resultCode, operação/sintética, nuvem/roleInstance, nuvem/roleName|
 |solicitações/taxa|Taxa de solicitações do servidor|CountPerSecond|Average|Taxa de solicitações de servidor por segundo|solicitação/performanceBucket, solicitação/resultCode, operação/sintética, nuvem/roleInstance, solicitação/êxito, nuvem/roleName|
-|exceções/contagem|Exceções|Count|Count|Contagem combinada de todas as exceções não identificadas.|Cloud/roleName, nuvem/roleInstance, cliente/tipo|
-|exceções/navegador|Exceções do browser|Count|Count|Número de exceções não identificadas emitidas no browser.|Nenhuma dimensão|
-|exceções/servidor|Exceções de servidor|Count|Count|Número de exceções não identificadas emitidas na aplicação de servidor.|Cloud/roleName, nuvem/roleInstance|
+|exceções/contagem|Exceções|Count|Count|Contagem combinada de todas as exceções não capturadas.|Cloud/roleName, nuvem/roleInstance, cliente/tipo|
+|exceções/navegador|Exceções do browser|Count|Count|Contagem de exceções não capturadas lançadas no navegador.|Nenhuma dimensão|
+|exceções/servidor|Exceções de servidor|Count|Count|Contagem de exceções não capturadas lançadas no aplicativo de servidor.|Cloud/roleName, nuvem/roleInstance|
 |rastreamentos/contagem|Rastreios|Count|Count|Contagem do documento de rastreio|Trace/nível, operação/sintético, nuvem/roleName, nuvem/roleInstance|
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ServiceApiHit|Total de Cliques na API do Serviço|Count|Count|Número total de cliques na API do serviço|ActivityType, ActivityName|
-|ServiceApiLatency|Latência Global da API do Serviço|Milissegundos|Average|Latência global dos pedidos da API do serviço|ActivityType, ActivityName, StatusCode|
-|ServiceApiResult|Resultados de Api de Serviço Total|Count|Count|Número total de resultados da API do serviço|ActivityType, ActivityName, StatusCode|
+|ServiceApiHit|Total de Cliques na API do Serviço|Count|Count|Número total de acertos da API de serviço|ActivityType, ActivityName|
+|ServiceApiLatency|Latência Global da API do Serviço|Milissegundos|Average|Latência geral de solicitações de API de serviço|ActivityType, ActivityName, StatusCode|
+|ServiceApiResult|Resultados de Api de Serviço Total|Count|Count|Número total de resultados da API de serviço|ActivityType, ActivityName, StatusCode|
 
 ## <a name="microsoftkustoclusters"></a>Microsoft. Kusto/clusters
 
@@ -916,7 +916,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |IngestionVolumeInMB|Volume de ingestão (em MB)|Count|Total|Volume geral de dados ingeridos para o cluster (em MB)|Base de Dados|
 |IngestionLatencyInSeconds|Latência de ingestão (em segundos)|Segundos|Average|O tempo de ingestão da origem (por exemplo, a mensagem está no EventHub) para o cluster em segundos|Nenhum|
 |EventProcessedForEventHubs|Eventos processados (para hubs de eventos)|Count|Total|Número de eventos processados pelo cluster ao ingerir o Hub de eventos|Nenhum|
-|IngestionResult|Resultado da ingestão|Count|Count|Número de operações de ingestão|Estado|
+|IngestionResult|Resultado da ingestão|Count|Count|Número de operações de ingestão|State|
 |CPU|CPU|Percent|Average|Nível de utilização da CPU|Nenhum|
 | ContinuousExportNumOfRecordsExported | Número de registros exportados na exportação contínua | Count | Total | Número de registros exportados para cada artefato de armazenamento gravado durante a operação de exportação  | Nenhum |
 | ExportUtilization | Utilização da exportação | Percent | Máximo | Utilização da exportação | Nenhum |
@@ -935,40 +935,40 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |---|---|---|---|---|---|
 |RunsStarted|Execuções Iniciadas|Count|Total|Número de execuções de fluxo de trabalho iniciadas.|Nenhuma dimensão|
 |RunsCompleted|Execuções Concluídas|Count|Total|Número de execuções de fluxo de trabalho concluídas.|Nenhuma dimensão|
-|RunsSucceeded|Execuções com Êxito|Count|Total|Número de execuções de fluxo de trabalho com êxito.|Nenhuma dimensão|
-|RunsFailed|Execuções Falhadas|Count|Total|Número de execuções de fluxo de trabalho falhadas.|Nenhuma dimensão|
+|RunsSucceeded|Execuções com Êxito|Count|Total|Número de execuções de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
+|RunsFailed|Execuções Falhadas|Count|Total|Número de execuções de fluxo de trabalho com falha.|Nenhuma dimensão|
 |RunsCancelled|Execuções canceladas|Count|Total|Número de execuções de fluxo de trabalho canceladas.|Nenhuma dimensão|
 |RunLatency|Latência de Execução|Segundos|Average|Latência de execuções de fluxo de trabalho concluídas.|Nenhuma dimensão|
-|RunSuccessLatency|Latência de Execução com Êxito|Segundos|Average|Latência de execuções de fluxo de trabalho com êxito.|Nenhuma dimensão|
-|RunThrottledEvents|Eventos Limitados em relação à Execução|Count|Total|Número de eventos limitados em relação à ação ou acionador de fluxo de trabalho.|Nenhuma dimensão|
-|RunFailurePercentage|Percentagem da Falha de Execução|Percent|Total|Percentagem das execuções de fluxo de trabalho falhadas.|Nenhuma dimensão|
+|RunSuccessLatency|Latência de Execução com Êxito|Segundos|Average|Latência de execuções de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
+|RunThrottledEvents|Eventos Limitados em relação à Execução|Count|Total|Número de ações de fluxo de trabalho ou eventos restringidos de gatilho.|Nenhuma dimensão|
+|RunFailurePercentage|Percentagem da Falha de Execução|Percent|Total|Falha na porcentagem de execuções de fluxo de trabalho.|Nenhuma dimensão|
 |ActionsStarted|Ações Iniciadas |Count|Total|Número de ações de fluxo de trabalho iniciadas.|Nenhuma dimensão|
 |ActionsCompleted|Ações Concluídas |Count|Total|Número de ações de fluxo de trabalho concluídas.|Nenhuma dimensão|
-|ActionsSucceeded|Ações com Êxito |Count|Total|Número de ações de fluxo de trabalho com êxito.|Nenhuma dimensão|
-|ActionsFailed|Ações Falhadas|Count|Total|Número de ações de fluxo de trabalho falhadas.|Nenhuma dimensão|
+|ActionsSucceeded|Ações com Êxito |Count|Total|Número de ações de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
+|ActionsFailed|Ações Falhadas|Count|Total|Número de ações de fluxo de trabalho com falha.|Nenhuma dimensão|
 |ActionsSkipped|Ações Ignoradas |Count|Total|Número de ações de fluxo de trabalho ignoradas.|Nenhuma dimensão|
-|ActionLatency|Latência da Ação |Segundos|Average|Latência das ações de fluxo de trabalho concluídas.|Nenhuma dimensão|
-|ActionSuccessLatency|Latência de Ações com Êxito |Segundos|Average|Latência de ações de fluxo de trabalho com êxito.|Nenhuma dimensão|
-|ActionThrottledEvents|Eventos Limitados em relação a Ação|Count|Total|Número de eventos limitados em relação à ação de fluxo de trabalho.|Nenhuma dimensão|
-|TriggersStarted|Acionadores Iniciados |Count|Total|Número de acionadores de fluxo de trabalho iniciados.|Nenhuma dimensão|
-|TriggersCompleted|Acionadores Concluídos |Count|Total|Número de acionadores de fluxo de trabalho concluídos.|Nenhuma dimensão|
-|TriggersSucceeded|Acionadores Com Êxito |Count|Total|Número de acionadores de fluxo de trabalho com êxito.|Nenhuma dimensão|
-|TriggersFailed|Acionadores Com Falha |Count|Total|Número de acionadores de fluxo de trabalho falhados.|Nenhuma dimensão|
-|TriggersSkipped|Acionadores Ignorados|Count|Total|Número de acionadores de fluxo de trabalho ignorados.|Nenhuma dimensão|
-|TriggersFired|Acionadores Disparados |Count|Total|Número de acionadores de fluxo de trabalho desencadeados.|Nenhuma dimensão|
-|TriggerLatency|Latência de Acionador |Segundos|Average|Latência de acionadores de fluxo de trabalho concluídos.|Nenhuma dimensão|
-|TriggerFireLatency|Latência de Disparo de Acionador |Segundos|Average|Latência de acionadores de fluxo de trabalho desencadeados.|Nenhuma dimensão|
-|TriggerSuccessLatency|Latência de Êxito de Acionador |Segundos|Average|Latência de acionadores de fluxo de trabalho com êxito.|Nenhuma dimensão|
-|TriggerThrottledEvents|Eventos Limitados de Acionador|Count|Total|Número de eventos limitados em relação ao acionador de fluxo de trabalho.|Nenhuma dimensão|
-|BillableActionExecutions|Execuções de Ação a Cobrar|Count|Total|Número de execuções de ação de fluxo de trabalho a serem faturadas.|Nenhuma dimensão|
-|BillableTriggerExecutions|Execuções de Acionador a Cobrar|Count|Total|Número de execuções do acionador de fluxo de trabalho a serem faturadas.|Nenhuma dimensão|
-|TotalBillableExecutions|Total de Execuções a Cobrar|Count|Total|Número de execuções de fluxo de trabalho a serem faturadas.|Nenhuma dimensão|
-|BillingUsageNativeOperation|Utilização da Faturação para Execuções de Operações Nativas|Count|Total|Número de execuções de operações nativas que estão a ser faturadas.|Nenhuma dimensão|
-|BillingUsageStandardConnector|Utilização da Faturação para Execuções de Conector Standard|Count|Total|Número de execuções de conector standard que estão a ser faturadas.|Nenhuma dimensão|
-|BillingUsageStorageConsumption|Utilização da Faturação para Execuções de Consumo de Armazenamento|Count|Total|Número de execuções de consumo de armazenamento a serem faturadas.|Nenhuma dimensão|
-|BillingUsageNativeOperation|Utilização da Faturação para Execuções de Operações Nativas|Count|Total|Número de execuções de operações nativas que estão a ser faturadas.|Nenhuma dimensão|
-|BillingUsageStandardConnector|Utilização da Faturação para Execuções de Conector Standard|Count|Total|Número de execuções de conector standard que estão a ser faturadas.|Nenhuma dimensão|
-|BillingUsageStorageConsumption|Utilização da Faturação para Execuções de Consumo de Armazenamento|Count|Total|Número de execuções de consumo de armazenamento a serem faturadas.|Nenhuma dimensão|
+|ActionLatency|Latência da Ação |Segundos|Average|Latência de ações de fluxo de trabalho concluídas.|Nenhuma dimensão|
+|ActionSuccessLatency|Latência de Ações com Êxito |Segundos|Average|Latência de ações de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
+|ActionThrottledEvents|Eventos Limitados em relação a Ação|Count|Total|Número de eventos restritos da ação de fluxo de trabalho.|Nenhuma dimensão|
+|TriggersStarted|Acionadores Iniciados |Count|Total|Número de gatilhos de fluxo de trabalho iniciados.|Nenhuma dimensão|
+|TriggersCompleted|Acionadores Concluídos |Count|Total|Número de gatilhos de fluxo de trabalho concluídos.|Nenhuma dimensão|
+|TriggersSucceeded|Acionadores Com Êxito |Count|Total|Número de gatilhos de fluxo de trabalho bem-sucedidos.|Nenhuma dimensão|
+|TriggersFailed|Acionadores Com Falha |Count|Total|Número de gatilhos de fluxo de trabalho com falha.|Nenhuma dimensão|
+|TriggersSkipped|Acionadores Ignorados|Count|Total|Número de gatilhos de fluxo de trabalho ignorados.|Nenhuma dimensão|
+|TriggersFired|Acionadores Disparados |Count|Total|Número de gatilhos de fluxo de trabalho acionados.|Nenhuma dimensão|
+|TriggerLatency|Latência de Acionador |Segundos|Average|Latência de gatilhos de fluxo de trabalho concluídos.|Nenhuma dimensão|
+|TriggerFireLatency|Latência de Disparo de Acionador |Segundos|Average|Latência de gatilhos de fluxo de trabalho acionados.|Nenhuma dimensão|
+|TriggerSuccessLatency|Latência de Êxito de Acionador |Segundos|Average|Latência de gatilhos de fluxo de trabalho bem-sucedidos.|Nenhuma dimensão|
+|TriggerThrottledEvents|Eventos Limitados de Acionador|Count|Total|Número de eventos restringidos do gatilho de fluxo de trabalho.|Nenhuma dimensão|
+|BillableActionExecutions|Execuções de Ação a Cobrar|Count|Total|Número de execuções de ação de fluxo de trabalho sendo faturadas.|Nenhuma dimensão|
+|BillableTriggerExecutions|Execuções de Acionador a Cobrar|Count|Total|Número de execuções de gatilho de fluxo de trabalho sendo cobradas.|Nenhuma dimensão|
+|TotalBillableExecutions|Total de Execuções a Cobrar|Count|Total|Número de execuções de fluxo de trabalho sendo cobradas.|Nenhuma dimensão|
+|BillingUsageNativeOperation|Uso de cobrança para execuções de operação nativa|Count|Total|Número de execuções de operações nativas sendo cobradas.|Nenhuma dimensão|
+|BillingUsageStandardConnector|Uso de cobrança para execuções de conector padrão|Count|Total|Número de execuções de conector padrão sendo cobradas.|Nenhuma dimensão|
+|BillingUsageStorageConsumption|Uso de cobrança para execuções de consumo de armazenamento|Count|Total|Número de execuções de consumo de armazenamento sendo cobradas.|Nenhuma dimensão|
+|BillingUsageNativeOperation|Uso de cobrança para execuções de operação nativa|Count|Total|Número de execuções de operações nativas sendo cobradas.|Nenhuma dimensão|
+|BillingUsageStandardConnector|Uso de cobrança para execuções de conector padrão|Count|Total|Número de execuções de conector padrão sendo cobradas.|Nenhuma dimensão|
+|BillingUsageStorageConsumption|Uso de cobrança para execuções de consumo de armazenamento|Count|Total|Número de execuções de consumo de armazenamento sendo cobradas.|Nenhuma dimensão|
 
 ## <a name="microsoftlogicintegrationserviceenvironments"></a>Microsoft.Logic/integrationServiceEnvironments
 
@@ -976,36 +976,36 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |---|---|---|---|---|---|
 |RunsStarted|Execuções Iniciadas|Count|Total|Número de execuções de fluxo de trabalho iniciadas.|Nenhuma dimensão|
 |RunsCompleted|Execuções Concluídas|Count|Total|Número de execuções de fluxo de trabalho concluídas.|Nenhuma dimensão|
-|RunsSucceeded|Execuções com Êxito|Count|Total|Número de execuções de fluxo de trabalho com êxito.|Nenhuma dimensão|
-|RunsFailed|Execuções Falhadas|Count|Total|Número de execuções de fluxo de trabalho falhadas.|Nenhuma dimensão|
+|RunsSucceeded|Execuções com Êxito|Count|Total|Número de execuções de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
+|RunsFailed|Execuções Falhadas|Count|Total|Número de execuções de fluxo de trabalho com falha.|Nenhuma dimensão|
 |RunsCancelled|Execuções canceladas|Count|Total|Número de execuções de fluxo de trabalho canceladas.|Nenhuma dimensão|
 |RunLatency|Latência de Execução|Segundos|Average|Latência de execuções de fluxo de trabalho concluídas.|Nenhuma dimensão|
-|RunSuccessLatency|Latência de Execução com Êxito|Segundos|Average|Latência de execuções de fluxo de trabalho com êxito.|Nenhuma dimensão|
-|RunThrottledEvents|Eventos Limitados em relação à Execução|Count|Total|Número de eventos limitados em relação à ação ou acionador de fluxo de trabalho.|Nenhuma dimensão|
+|RunSuccessLatency|Latência de Execução com Êxito|Segundos|Average|Latência de execuções de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
+|RunThrottledEvents|Eventos Limitados em relação à Execução|Count|Total|Número de ações de fluxo de trabalho ou eventos restringidos de gatilho.|Nenhuma dimensão|
 |RunStartThrottledEvents|Executar eventos restritos de início|Count|Total|Número de eventos restritos de início de fluxo de trabalho.|Nenhuma dimensão|
-|RunFailurePercentage|Percentagem da Falha de Execução|Percent|Total|Percentagem das execuções de fluxo de trabalho falhadas.|Nenhuma dimensão|
+|RunFailurePercentage|Percentagem da Falha de Execução|Percent|Total|Falha na porcentagem de execuções de fluxo de trabalho.|Nenhuma dimensão|
 |ActionsStarted|Ações Iniciadas |Count|Total|Número de ações de fluxo de trabalho iniciadas.|Nenhuma dimensão|
 |ActionsCompleted|Ações Concluídas |Count|Total|Número de ações de fluxo de trabalho concluídas.|Nenhuma dimensão|
-|ActionsSucceeded|Ações com Êxito |Count|Total|Número de ações de fluxo de trabalho com êxito.|Nenhuma dimensão|
-|ActionsFailed|Ações Falhadas |Count|Total|Número de ações de fluxo de trabalho falhadas.|Nenhuma dimensão|
+|ActionsSucceeded|Ações com Êxito |Count|Total|Número de ações de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
+|ActionsFailed|Ações Falhadas |Count|Total|Número de ações de fluxo de trabalho com falha.|Nenhuma dimensão|
 |ActionsSkipped|Ações Ignoradas |Count|Total|Número de ações de fluxo de trabalho ignoradas.|Nenhuma dimensão|
-|ActionLatency|Latência da Ação |Segundos|Average|Latência das ações de fluxo de trabalho concluídas.|Nenhuma dimensão|
-|ActionSuccessLatency|Latência de Ações com Êxito |Segundos|Average|Latência de ações de fluxo de trabalho com êxito.|Nenhuma dimensão|
-|ActionThrottledEvents|Eventos Limitados em relação a Ação|Count|Total|Número de eventos limitados em relação à ação de fluxo de trabalho.|Nenhuma dimensão|
-|TriggersStarted|Acionadores Iniciados |Count|Total|Número de acionadores de fluxo de trabalho iniciados.|Nenhuma dimensão|
-|TriggersCompleted|Acionadores Concluídos |Count|Total|Número de acionadores de fluxo de trabalho concluídos.|Nenhuma dimensão|
-|TriggersSucceeded|Acionadores Com Êxito |Count|Total|Número de acionadores de fluxo de trabalho com êxito.|Nenhuma dimensão|
-|TriggersFailed|Acionadores Com Falha |Count|Total|Número de acionadores de fluxo de trabalho falhados.|Nenhuma dimensão|
-|TriggersSkipped|Acionadores Ignorados|Count|Total|Número de acionadores de fluxo de trabalho ignorados.|Nenhuma dimensão|
-|TriggersFired|Acionadores Disparados |Count|Total|Número de acionadores de fluxo de trabalho desencadeados.|Nenhuma dimensão|
-|TriggerLatency|Latência de Acionador |Segundos|Average|Latência de acionadores de fluxo de trabalho concluídos.|Nenhuma dimensão|
-|TriggerFireLatency|Latência de Disparo de Acionador |Segundos|Average|Latência de acionadores de fluxo de trabalho desencadeados.|Nenhuma dimensão|
-|TriggerSuccessLatency|Latência de Êxito de Acionador |Segundos|Average|Latência de acionadores de fluxo de trabalho com êxito.|Nenhuma dimensão|
-|TriggerThrottledEvents|Eventos Limitados de Acionador|Count|Total|Número de eventos limitados em relação ao acionador de fluxo de trabalho.|Nenhuma dimensão|
-|IntegrationServiceEnvironmentWorkflowProcessorUsage|Utilização do Processador de Fluxo de Trabalho para o Ambiente de Serviço de Integração|Percent|Average|Utilização do processador de fluxo de trabalho para o ambiente de serviço de integração.|Nenhuma dimensão|
-|IntegrationServiceEnvironmentWorkflowMemoryUsage|Utilização da Memória de Fluxo de Trabalho para o Ambiente de Serviço de Integração|Percent|Average|Utilização da memória de fluxo de trabalho para o ambiente de serviço de integração.|Nenhuma dimensão|
-|IntegrationServiceEnvironmentConnectorProcessorUsage|Utilização do Processador do Conector para o Ambiente de Serviço de Integração|Percent|Average|Utilização do processador do conector para o ambiente de serviço de integração.|Nenhuma dimensão|
-|IntegrationServiceEnvironmentConnectorMemoryUsage|Utilização da Memória do Conector para o Ambiente de Serviço de Integração|Percent|Average|Utilização da memória do conector para o ambiente de serviço de integração.|Nenhuma dimensão|
+|ActionLatency|Latência da Ação |Segundos|Average|Latência de ações de fluxo de trabalho concluídas.|Nenhuma dimensão|
+|ActionSuccessLatency|Latência de Ações com Êxito |Segundos|Average|Latência de ações de fluxo de trabalho bem-sucedidas.|Nenhuma dimensão|
+|ActionThrottledEvents|Eventos Limitados em relação a Ação|Count|Total|Número de eventos restritos da ação de fluxo de trabalho.|Nenhuma dimensão|
+|TriggersStarted|Acionadores Iniciados |Count|Total|Número de gatilhos de fluxo de trabalho iniciados.|Nenhuma dimensão|
+|TriggersCompleted|Acionadores Concluídos |Count|Total|Número de gatilhos de fluxo de trabalho concluídos.|Nenhuma dimensão|
+|TriggersSucceeded|Acionadores Com Êxito |Count|Total|Número de gatilhos de fluxo de trabalho bem-sucedidos.|Nenhuma dimensão|
+|TriggersFailed|Acionadores Com Falha |Count|Total|Número de gatilhos de fluxo de trabalho com falha.|Nenhuma dimensão|
+|TriggersSkipped|Acionadores Ignorados|Count|Total|Número de gatilhos de fluxo de trabalho ignorados.|Nenhuma dimensão|
+|TriggersFired|Acionadores Disparados |Count|Total|Número de gatilhos de fluxo de trabalho acionados.|Nenhuma dimensão|
+|TriggerLatency|Latência de Acionador |Segundos|Average|Latência de gatilhos de fluxo de trabalho concluídos.|Nenhuma dimensão|
+|TriggerFireLatency|Latência de Disparo de Acionador |Segundos|Average|Latência de gatilhos de fluxo de trabalho acionados.|Nenhuma dimensão|
+|TriggerSuccessLatency|Latência de Êxito de Acionador |Segundos|Average|Latência de gatilhos de fluxo de trabalho bem-sucedidos.|Nenhuma dimensão|
+|TriggerThrottledEvents|Eventos Limitados de Acionador|Count|Total|Número de eventos restringidos do gatilho de fluxo de trabalho.|Nenhuma dimensão|
+|IntegrationServiceEnvironmentWorkflowProcessorUsage|Uso do processador de fluxo de trabalho para Ambiente de Serviço de Integração|Percent|Average|Uso do processador do fluxo de trabalho para o ambiente do serviço de integração.|Nenhuma dimensão|
+|IntegrationServiceEnvironmentWorkflowMemoryUsage|Uso de memória do fluxo de trabalho para Ambiente de Serviço de Integração|Percent|Average|Uso de memória do fluxo de trabalho para o ambiente do serviço de integração.|Nenhuma dimensão|
+|IntegrationServiceEnvironmentConnectorProcessorUsage|Uso do processador do conector para Ambiente de Serviço de Integração|Percent|Average|Uso do processador do conector para o ambiente do serviço de integração.|Nenhuma dimensão|
+|IntegrationServiceEnvironmentConnectorMemoryUsage|Uso de memória do conector para Ambiente de Serviço de Integração|Percent|Average|Uso de memória do conector para o ambiente do serviço de integração.|Nenhuma dimensão|
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
 
@@ -1207,12 +1207,12 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|registration.all|Operações de Registo|Count|Total|Contagem de todas as operações de registo com êxito (consultas e eliminações de atualizações de criações). |Nenhuma dimensão|
-|registration.create|Operações de Criação de Registo|Count|Total|Contagem de todas as criações de registo com êxito.|Nenhuma dimensão|
-|registration.update|Operações de Atualização de Registo|Count|Total|Contagem de todas as atualizações de registo com êxito.|Nenhuma dimensão|
-|registration.get|Operações de Leitura de Registo|Count|Total|Contagem de todas as consultas de registo com êxito.|Nenhuma dimensão|
-|registration.delete|Operações de Eliminação de Registo|Count|Total|Contagem de todas as eliminações de registo com êxito.|Nenhuma dimensão|
-|recebidos|Mensagens Recebidas|Count|Total|Contagem de todas as chamadas à API enviadas com êxito. |Nenhuma dimensão|
+|registration.all|Operações de Registo|Count|Total|A contagem de todas as operações de registro bem-sucedidas (cria consultas e exclusões de atualizações). |Nenhuma dimensão|
+|registration.create|Operações de Criação de Registo|Count|Total|A contagem de todas as criações de registro bem-sucedidas.|Nenhuma dimensão|
+|registration.update|Operações de Atualização de Registo|Count|Total|A contagem de todas as atualizações de registro bem-sucedidas.|Nenhuma dimensão|
+|registration.get|Operações de Leitura de Registo|Count|Total|A contagem de todas as consultas de registro bem-sucedidas.|Nenhuma dimensão|
+|registration.delete|Operações de Eliminação de Registo|Count|Total|A contagem de todas as exclusões de registro bem-sucedidas.|Nenhuma dimensão|
+|recebidos|Mensagens Recebidas|Count|Total|A contagem de todas as chamadas de API de envio bem-sucedidas. |Nenhuma dimensão|
 |incoming.scheduled|Notificações Push Agendadas Enviadas|Count|Total|Notificações por push agendadas canceladas|Nenhuma dimensão|
 |incoming.scheduled.cancel|Notificações por push agendadas canceladas|Count|Total|Notificações por push agendadas canceladas|Nenhuma dimensão|
 |agendado. pendente|Notificações Agendadas Pendentes|Count|Total|Notificações Agendadas Pendentes|Nenhuma dimensão|
@@ -1221,54 +1221,54 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |installation.upsert|Criar ou Atualizar Operações de Instalação|Count|Total|Criar ou Atualizar Operações de Instalação|Nenhuma dimensão|
 |installation.patch|Corrigir Operações de Instalação|Count|Total|Corrigir Operações de Instalação|Nenhuma dimensão|
 |installation.delete|Eliminar Operações de Instalação|Count|Total|Eliminar Operações de Instalação|Nenhuma dimensão|
-|outgoing.allpns.success|Notificações com êxito|Count|Total|Contagem de todas as notificações com êxito.|Nenhuma dimensão|
-|outgoing.allpns.invalidpayload|Erros de Payload|Count|Total|Contagem de pushes falhados porque o PNS devolveu um erro de payload inválido.|Nenhuma dimensão|
-|outgoing.allpns.pnserror|Erros de Sistema de Notificação Externos|Count|Total|Contagem de pushes falhados porque ocorreu um problema ao comunicar com o PNS (excluindo problemas de autenticação).|Nenhuma dimensão|
-|outgoing.allpns.channelerror|Erros de Canal|Count|Total|Contagem de pushes falhados porque o canal era inválido, não estava associado à aplicação correta, sofreu limitações ou expirou.|Nenhuma dimensão|
-|outgoing.allpns.badorexpiredchannel|Erros de Canal Incorreto ou Expirado|Count|Total|Contagem de pushes falhados porque o canal/token/registrationId no registo expirou ou era inválido.|Nenhuma dimensão|
-|outgoing.wns.success|Notificações com Êxito do WNS|Count|Total|Contagem de todas as notificações com êxito.|Nenhuma dimensão|
-|outgoing.wns.invalidcredentials|Erros de Autorização do WNS (Credenciais Inválidas)|Count|Total|Contagem de pushes falhados porque o PNS não aceitou as credenciais fornecidas ou porque as credenciais estão bloqueadas. (O Windows Live não reconhece as credenciais).|Nenhuma dimensão|
+|outgoing.allpns.success|Notificações com êxito|Count|Total|A contagem de todas as notificações bem-sucedidas.|Nenhuma dimensão|
+|outgoing.allpns.invalidpayload|Erros de Payload|Count|Total|A contagem de Pushes que falharam porque o PNS retornou um erro de carga inadequada.|Nenhuma dimensão|
+|outgoing.allpns.pnserror|Erros de Sistema de Notificação Externos|Count|Total|A contagem de Pushes que falharam porque houve um problema de comunicação com o PNS (exclui problemas de autenticação).|Nenhuma dimensão|
+|outgoing.allpns.channelerror|Erros de Canal|Count|Total|A contagem de Pushes que falharam porque o canal era inválido não associado ao aplicativo correto limitado ou expirou.|Nenhuma dimensão|
+|outgoing.allpns.badorexpiredchannel|Erros de Canal Incorreto ou Expirado|Count|Total|A contagem de Pushes que falharam porque o canal/token/RegistrationId no registro expirou ou é inválido.|Nenhuma dimensão|
+|outgoing.wns.success|Notificações com Êxito do WNS|Count|Total|A contagem de todas as notificações bem-sucedidas.|Nenhuma dimensão|
+|outgoing.wns.invalidcredentials|Erros de autorização do WNS (credenciais inválidas)|Count|Total|A contagem de Pushes que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas. (O Windows Live não reconhece as credenciais).|Nenhuma dimensão|
 |outgoing.wns.badchannel|Erro de Canal Incorreto do WNS|Count|Total|A contagem de Pushes que falharam porque o ChannelURI no registro não foi reconhecido (status do WNS: 404 não encontrado).|Nenhuma dimensão|
 |outgoing.wns.expiredchannel|Erro de Canal Expirado do WNS|Count|Total|A contagem de Pushes que falharam porque o ChannelURI está expirado (status do WNS: 410).|Nenhuma dimensão|
 |outgoing.wns.throttled|Notificações Limitadas do WNS|Count|Total|A contagem de Pushes que falharam porque o WNS está limitando este aplicativo (status do WNS: 406 não aceitável).|Nenhuma dimensão|
-|outgoing.wns.tokenproviderunreachable|Erros de Autorização do WNS (Inacessível)|Count|Total|O Windows Live não está acessível.|Nenhuma dimensão|
-|outgoing.wns.invalidtoken|Erros de Autorização do WNS (Token Inválido)|Count|Total|O token fornecido ao WNS não é válido (status do WNS: 401 não autorizado).|Nenhuma dimensão|
-|outgoing.wns.wrongtoken|Erros de Autorização do WNS (Token Incorreto)|Count|Total|O token fornecido ao WNS é válido, mas para outro aplicativo (status do WNS: 403 Proibido). Isso pode acontecer se o ChannelURI no registro estiver associado a outro aplicativo. Verifique se o aplicativo cliente está associado ao mesmo aplicativo cujas credenciais estão no Hub de notificação.|Nenhuma dimensão|
+|outgoing.wns.tokenproviderunreachable|Erros de autorização do WNS (inacessível)|Count|Total|O Windows Live não está acessível.|Nenhuma dimensão|
+|outgoing.wns.invalidtoken|Erros de autorização do WNS (token inválido)|Count|Total|O token fornecido ao WNS não é válido (status do WNS: 401 não autorizado).|Nenhuma dimensão|
+|outgoing.wns.wrongtoken|Erros de autorização do WNS (token incorreto)|Count|Total|O token fornecido ao WNS é válido, mas para outro aplicativo (status do WNS: 403 Proibido). Isso pode acontecer se o ChannelURI no registro estiver associado a outro aplicativo. Verifique se o aplicativo cliente está associado ao mesmo aplicativo cujas credenciais estão no Hub de notificação.|Nenhuma dimensão|
 |outgoing.wns.invalidnotificationformat|Formato de Notificação Inválido do WNS|Count|Total|O formato da notificação é inválido (status do WNS: 400). Observe que o WNS não rejeita todas as cargas inválidas.|Nenhuma dimensão|
 |outgoing.wns.invalidnotificationsize|Erro de Tamanho de Notificação Inválido do WNS|Count|Total|A carga de notificação é muito grande (status do WNS: 413).|Nenhuma dimensão|
 |outgoing.wns.channelthrottled|Canal do WNS Limitado|Count|Total|A notificação foi descartada porque o ChannelURI no registro está limitado (cabeçalho de resposta do WNS: X-WNS-NotificationStatus: channelThrottled).|Nenhuma dimensão|
 |outgoing.wns.channeldisconnected|Canal do WNS Desligado|Count|Total|A notificação foi descartada porque o ChannelURI no registro está limitado (cabeçalho de resposta do WNS: X-WNS-DeviceConnectionStatus: desconectado).|Nenhuma dimensão|
-|outgoing.wns.dropped|Notificações Removidas do WNS|Count|Total|A notificação foi removida porque o ChannelURI do registo está limitado (X-WNS-NotificationStatus: removido mas não X-WNS-DeviceConnectionStatus: desligado).|Nenhuma dimensão|
-|outgoing.wns.pnserror|Erros do WNS|Count|Total|As notificações não foram entregues devido a erros de comunicação com o WNS.|Nenhuma dimensão|
-|outgoing.wns.authenticationerror|Erros de Autenticação do WNS|Count|Total|Notificação não entregue devido a erros de comunicação com o Windows Live, com credenciais inválidas ou token errado.|Nenhuma dimensão|
-|outgoing.apns.success|Notificações com Êxito do APNS|Count|Total|Contagem de todas as notificações com êxito.|Nenhuma dimensão|
-|outgoing.apns.invalidcredentials|Erros de Autorização do APNS|Count|Total|Contagem de pushes falhados porque o PNS não aceitou as credenciais fornecidas ou porque as credenciais estão bloqueadas.|Nenhuma dimensão|
+|outgoing.wns.dropped|Notificações Removidas do WNS|Count|Total|A notificação foi descartada porque o ChannelURI no registro está limitado (X-WNS-NotificationStatus: descartado, mas não X-WNS-DeviceConnectionStatus: desconectado).|Nenhuma dimensão|
+|outgoing.wns.pnserror|Erros do WNS|Count|Total|Notificação não entregue devido a erros de comunicação com o WNS.|Nenhuma dimensão|
+|outgoing.wns.authenticationerror|Erros de Autenticação do WNS|Count|Total|Notificação não entregue devido a erros de comunicação com credenciais inválidas do Windows Live ou token incorreto.|Nenhuma dimensão|
+|outgoing.apns.success|Notificações com Êxito do APNS|Count|Total|A contagem de todas as notificações bem-sucedidas.|Nenhuma dimensão|
+|outgoing.apns.invalidcredentials|Erros de Autorização do APNS|Count|Total|A contagem de Pushes que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhuma dimensão|
 |outgoing.apns.badchannel|Erro de Canal Incorreto do APNS|Count|Total|A contagem de Pushes que falharam porque o token é inválido (código de status do protocolo binário APNS: 8. Código de status do protocolo HTTP APNS: 400 com "BadDeviceToken").|Nenhuma dimensão|
-|outgoing.apns.expiredchannel|Erro de Canal Expirado do APNS|Count|Total|Contagem de tokens invalidados pelo canal de relatórios do APNS.|Nenhuma dimensão|
+|outgoing.apns.expiredchannel|Erro de Canal Expirado do APNS|Count|Total|A contagem de tokens que foram invalidados pelo canal de comentários do APNS.|Nenhuma dimensão|
 |outgoing.apns.invalidnotificationsize|Erro de Tamanho de Notificação Inválido do APNS|Count|Total|A contagem de Pushes que falharam porque o conteúdo era muito grande (código de status do protocolo binário APNS: 7).|Nenhuma dimensão|
-|outgoing.apns.pnserror|Erros do APNS|Count|Total|Contagem de pushes falhados devido a erros de comunicação com o APNS.|Nenhuma dimensão|
-|outgoing.gcm.success|Notificações com Êxito do GCM|Count|Total|Contagem de todas as notificações com êxito.|Nenhuma dimensão|
-|outgoing.gcm.invalidcredentials|Erros de Autorização do GCM (Credenciais Inválidas)|Count|Total|Contagem de pushes falhados porque o PNS não aceitou as credenciais fornecidas ou porque as credenciais estão bloqueadas.|Nenhuma dimensão|
+|outgoing.apns.pnserror|Erros do APNS|Count|Total|A contagem de Pushes que falharam devido a erros de comunicação com o APNS.|Nenhuma dimensão|
+|outgoing.gcm.success|Notificações com Êxito do GCM|Count|Total|A contagem de todas as notificações bem-sucedidas.|Nenhuma dimensão|
+|outgoing.gcm.invalidcredentials|Erros de autorização do GCM (credenciais inválidas)|Count|Total|A contagem de Pushes que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhuma dimensão|
 |outgoing.gcm.badchannel|Erro de Canal Incorreto do GCM|Count|Total|A contagem de Pushes que falharam porque o RegistrationId no registro não foi reconhecido (resultado do GCM: Registro inválido).|Nenhuma dimensão|
 |outgoing.gcm.expiredchannel|Erro de Canal Expirado do GCM|Count|Total|A contagem de Pushes que falharam porque o RegistrationId no registro expirou (resultado do GCM: Não registrado).|Nenhuma dimensão|
 |outgoing.gcm.throttled|Notificações Limitadas do GCM|Count|Total|A contagem de Pushes que falharam porque o GCM restringiu este aplicativo (código de status do GCM: 501-599 ou resultado: não disponível).|Nenhuma dimensão|
 |outgoing.gcm.invalidnotificationformat|Formato de Notificação Inválido do GCM|Count|Total|A contagem de Pushes que falharam porque a carga não foi formatada corretamente (resultado do GCM: InvalidDataKey ou InvalidTtl).|Nenhuma dimensão|
 |outgoing.gcm.invalidnotificationsize|Erro de Tamanho de Notificação Inválido do GCM|Count|Total|A contagem de Pushes que falharam porque o conteúdo era muito grande (resultado do GCM: MessageTooBig).|Nenhuma dimensão|
 |outgoing.gcm.wrongchannel|Erro de Canal Errado do GCM|Count|Total|A contagem de Pushes que falharam porque o RegistrationId no registro não está associado ao aplicativo atual (resultado do GCM: InvalidPackageName).|Nenhuma dimensão|
-|outgoing.gcm.pnserror|Erros do GCM|Count|Total|Contagem de pushes falhados devido a erros de comunicação com o GCM.|Nenhuma dimensão|
+|outgoing.gcm.pnserror|Erros do GCM|Count|Total|A contagem de Pushes que falharam devido a erros de comunicação com o GCM.|Nenhuma dimensão|
 |outgoing.gcm.authenticationerror|Erros de Autenticação do GCM|Count|Total|A contagem de Pushes que falharam porque o PNS não aceitou as credenciais fornecidas as credenciais estão bloqueadas ou a SenderId não está configurada corretamente no aplicativo (resultado do GCM: MismatchedSenderId).|Nenhuma dimensão|
-|outgoing.mpns.success|Notificações com Êxito do MPNS|Count|Total|Contagem de todas as notificações com êxito.|Nenhuma dimensão|
-|outgoing.mpns.invalidcredentials|Credenciais Inválidas do MPNS|Count|Total|Contagem de pushes falhados porque o PNS não aceitou as credenciais fornecidas ou porque as credenciais estão bloqueadas.|Nenhuma dimensão|
+|outgoing.mpns.success|Notificações com Êxito do MPNS|Count|Total|A contagem de todas as notificações bem-sucedidas.|Nenhuma dimensão|
+|outgoing.mpns.invalidcredentials|Credenciais Inválidas do MPNS|Count|Total|A contagem de Pushes que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhuma dimensão|
 |outgoing.mpns.badchannel|Erro de Canal Incorreto do MPNS|Count|Total|A contagem de Pushes que falharam porque o ChannelURI no registro não foi reconhecido (status do MPNS: 404 não encontrado).|Nenhuma dimensão|
 |outgoing.mpns.throttled|Notificações Limitadas do MPNS|Count|Total|A contagem de Pushes que falharam porque o MPNS está limitando este aplicativo (WNS MPNS: 406 não aceitável).|Nenhuma dimensão|
-|outgoing.mpns.invalidnotificationformat|Formato de Notificação Inválido do MPNS|Count|Total|Contagem de pushes falhados porque o payload da notificação era demasiado grande.|Nenhuma dimensão|
+|outgoing.mpns.invalidnotificationformat|Formato de Notificação Inválido do MPNS|Count|Total|A contagem de Pushes que falharam porque a carga da notificação era muito grande.|Nenhuma dimensão|
 |outgoing.mpns.channeldisconnected|Canal do MPNS Desligado|Count|Total|A contagem de Pushes que falharam porque o ChannelURI no registro foi desconectado (status do MPNS: 412 não encontrado).|Nenhuma dimensão|
 |outgoing.mpns.dropped|Notificações Removidas do MPNS|Count|Total|A contagem de Pushes que foram descartados pelo MPNS (cabeçalho de resposta MPNS: X-NotificationStatus: QueueFull ou suprimido).|Nenhuma dimensão|
-|outgoing.mpns.pnserror|Erros do MPNS|Count|Total|Contagem de pushes falhados devido a erros de comunicação com o MPNS.|Nenhuma dimensão|
-|outgoing.mpns.authenticationerror|Erros de Autenticação do MPNS|Count|Total|Contagem de pushes falhados porque o PNS não aceitou as credenciais fornecidas ou porque as credenciais estão bloqueadas.|Nenhuma dimensão|
-|notificationhub.pushes|Todas as Notificações Enviadas|Count|Total|Todas as notificações enviadas do hub de notificações|Nenhuma dimensão|
-|incoming.all.requests|Todos os Pedidos Recebidos|Count|Total|Total de pedidos recebidos de um hub de notificações|Nenhuma dimensão|
-|incoming.all.failedrequests|Todos os Pedidos Falhados Recebidos|Count|Total|Total de pedidos falhados recebidos de um hub de notificações|Nenhuma dimensão|
+|outgoing.mpns.pnserror|Erros do MPNS|Count|Total|A contagem de Pushes que falharam devido a erros de comunicação com o MPNS.|Nenhuma dimensão|
+|outgoing.mpns.authenticationerror|Erros de Autenticação do MPNS|Count|Total|A contagem de Pushes que falharam porque o PNS não aceitou as credenciais fornecidas ou as credenciais estão bloqueadas.|Nenhuma dimensão|
+|notificationhub.pushes|Todas as Notificações Enviadas|Count|Total|Todas as notificações de saída do hub de notificação|Nenhuma dimensão|
+|incoming.all.requests|Todos os Pedidos Recebidos|Count|Total|Total de solicitações de entrada para um hub de notificação|Nenhuma dimensão|
+|incoming.all.failedrequests|Todos os Pedidos Falhados Recebidos|Count|Total|Total de solicitações de entrada com falha para um hub de notificação|Nenhuma dimensão|
 
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
 
@@ -1360,19 +1360,19 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ListenerConnections-Success|ListenerConnections-Success|Count|Total|ListenerConnections com êxito do Microsoft.Relay.|EntityName|
-|ListenerConnections-ClientError|ListenerConnections-ClientError|Count|Total|ClientError em ListenerConnections do Microsoft.Relay.|EntityName|
-|ListenerConnections-ServerError|ListenerConnections-ServerError|Count|Total|ServerError em ListenerConnections do Microsoft.Relay.|EntityName|
-|SenderConnections-Success|SenderConnections-Success|Count|Total|SenderConnections com êxito do Microsoft.Relay.|EntityName|
-|SenderConnections-ClientError|SenderConnections-ClientError|Count|Total|ClientError em SenderConnections do Microsoft.Relay.|EntityName|
-|SenderConnections-ServerError|SenderConnections-ServerError|Count|Total|ServerError em SenderConnections do Microsoft.Relay.|EntityName|
-|ListenerConnections-TotalRequests|ListenerConnections-TotalRequests|Count|Total|ListenerConnections totais do Microsoft.Relay.|EntityName|
-|SenderConnections-TotalRequests|SenderConnections-TotalRequests|Count|Total|Pedidos de SenderConnections totais do Microsoft.Relay.|EntityName|
-|ActiveConnections|ActiveConnections|Count|Total|ActiveConnections totais do Microsoft.Relay.|EntityName|
-|ActiveListeners|ActiveListeners|Count|Total|ActiveListeners totais do Microsoft.Relay.|EntityName|
-|BytesTransferred|BytesTransferred|Count|Total|BytesTransferred totais do Microsoft.Relay.|EntityName|
-|ListenerDisconnects|ListenerDisconnects|Count|Total|ListenerDisconnects totais do Microsoft.Relay.|EntityName|
-|SenderDisconnects|SenderDisconnects|Count|Total|SenderDisconnects totais do Microsoft.Relay.|EntityName|
+|ListenerConnections-Success|ListenerConnections-Success|Count|Total|ListenerConnections com êxito para Microsoft. Relay.|EntityName|
+|ListenerConnections-ClientError|ListenerConnections-ClientError|Count|Total|ClientError em ListenerConnections para Microsoft. Relay.|EntityName|
+|ListenerConnections-ServerError|ListenerConnections-ServerError|Count|Total|ServerError em ListenerConnections para Microsoft. Relay.|EntityName|
+|SenderConnections-Success|SenderConnections-Success|Count|Total|SenderConnections com êxito para Microsoft. Relay.|EntityName|
+|SenderConnections-ClientError|SenderConnections-ClientError|Count|Total|ClientError em SenderConnections para Microsoft. Relay.|EntityName|
+|SenderConnections-ServerError|SenderConnections-ServerError|Count|Total|ServerError em SenderConnections para Microsoft. Relay.|EntityName|
+|ListenerConnections-TotalRequests|ListenerConnections-TotalRequests|Count|Total|Total de ListenerConnections para Microsoft. Relay.|EntityName|
+|SenderConnections-TotalRequests|SenderConnections-TotalRequests|Count|Total|Total de solicitações SenderConnections para Microsoft. Relay.|EntityName|
+|ActiveConnections|ActiveConnections|Count|Total|Total de ActiveConnections para Microsoft. Relay.|EntityName|
+|ActiveListeners|ActiveListeners|Count|Total|Total de ActiveListeners para Microsoft. Relay.|EntityName|
+|BytesTransferred|BytesTransferred|Count|Total|Total de BytesTransferred para Microsoft. Relay.|EntityName|
+|ListenerDisconnects|ListenerDisconnects|Count|Total|Total de ListenerDisconnects para Microsoft. Relay.|EntityName|
+|SenderDisconnects|SenderDisconnects|Count|Total|Total de SenderDisconnects para Microsoft. Relay.|EntityName|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
@@ -1387,20 +1387,20 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |SuccessfulRequests|Solicitações com êxito (versão prévia)|Count|Total|Total de solicitações bem-sucedidas para um namespace (versão prévia)|EntityName|
-|ServerErrors|Erros de Servidor. (Pré-visualização)|Count|Total|Erros de Servidor do Microsoft.ServiceBus. (Pré-visualização)|EntityName|
-|UserErrors|Erros do Utilizador. (Pré-visualização)|Count|Total|Erros de Utilizador do Microsoft.ServiceBus. (Pré-visualização)|EntityName|
-|ThrottledRequests|Pedidos Limitados. (Pré-visualização)|Count|Total|Pedidos Limitados do Microsoft.ServiceBus. (Pré-visualização)|EntityName|
-|IncomingRequests|Solicitações de entrada (versão prévia)|Count|Total|Pedidos Recebidos do Microsoft.ServiceBus. (Pré-visualização)|EntityName|
-|IncomingMessages|Mensagens de entrada (versão prévia)|Count|Total|Mensagens Recebidas do Microsoft.ServiceBus. (Pré-visualização)|EntityName|
-|OutgoingMessages|Mensagens de saída (versão prévia)|Count|Total|Mensagens Enviadas do Microsoft.ServiceBus. (Pré-visualização)|EntityName|
-|ActiveConnections|ActiveConnections (visualização)|Count|Total|Total de Ligações Ativas do Microsoft.ServiceBus. (Pré-visualização)|Nenhuma dimensão|
-|Size|Tamanho (versão prévia)|Bytes|Average|Tamanho de um(a) Fila/Tópico em Bytes. (Pré-visualização)|EntityName|
-|Mensagens|Contagem de mensagens num(a) Fila/Tópico. (Pré-visualização)|Count|Average|Contagem de mensagens num(a) Fila/Tópico. (Pré-visualização)|EntityName|
-|ActiveMessages|Contagem de mensagens ativas num(a) Fila/Tópico. (Pré-visualização)|Count|Average|Contagem de mensagens ativas num(a) Fila/Tópico. (Pré-visualização)|EntityName|
-|DeadletteredMessages|Contagem de mensagens não entregues num Fila/Tópico. (Pré-visualização)|Count|Average|Contagem de mensagens não entregues num Fila/Tópico. (Pré-visualização)|EntityName|
-|ScheduledMessages|Contagem de mensagens agendadas numa Fila/Tópico. (Pré-visualização)|Count|Average|Contagem de mensagens agendadas numa Fila/Tópico. (Pré-visualização)|EntityName|
-|CPUXNS|Utilização da CPU por espaço de nomes|Percent|Máximo|Métrica de utilização do espaço de nomes da CPU do service bus premium|Nenhuma dimensão|
-|WSXNS|Utilização do tamanho da memória por espaço de nomes|Percent|Máximo|Métrica de utilização de memória do espaço de nomes do service bus premium|Nenhuma dimensão|
+|ServerErrors|Erros do servidor. (Pré-visualização)|Count|Total|Erros de servidor para Microsoft. ServiceBus. (Pré-visualização)|EntityName|
+|UserErrors|Erros do usuário. (Pré-visualização)|Count|Total|Erros de usuário para Microsoft. ServiceBus. (Pré-visualização)|EntityName|
+|ThrottledRequests|Solicitações limitadas. (Pré-visualização)|Count|Total|Solicitações limitadas para Microsoft. ServiceBus. (Pré-visualização)|EntityName|
+|IncomingRequests|Solicitações de entrada (versão prévia)|Count|Total|Solicitações de entrada para Microsoft. ServiceBus. (Pré-visualização)|EntityName|
+|IncomingMessages|Mensagens de entrada (versão prévia)|Count|Total|Mensagens de entrada para Microsoft. ServiceBus. (Pré-visualização)|EntityName|
+|OutgoingMessages|Mensagens de saída (versão prévia)|Count|Total|Mensagens de saída para Microsoft. ServiceBus. (Pré-visualização)|EntityName|
+|ActiveConnections|ActiveConnections (visualização)|Count|Total|Total de conexões ativas para Microsoft. ServiceBus. (Pré-visualização)|Nenhuma dimensão|
+|Size|Tamanho (versão prévia)|Bytes|Average|Tamanho de uma fila/tópico em bytes. (Pré-visualização)|EntityName|
+|Mensagens|Contagem de mensagens em uma fila/tópico. (Pré-visualização)|Count|Average|Contagem de mensagens em uma fila/tópico. (Pré-visualização)|EntityName|
+|ActiveMessages|Contagem de mensagens ativas em uma fila/tópico. (Pré-visualização)|Count|Average|Contagem de mensagens ativas em uma fila/tópico. (Pré-visualização)|EntityName|
+|DeadletteredMessages|Contagem de mensagens mortas em uma fila/tópico. (Pré-visualização)|Count|Average|Contagem de mensagens mortas em uma fila/tópico. (Pré-visualização)|EntityName|
+|ScheduledMessages|Contagem de mensagens agendadas em uma fila/tópico. (Pré-visualização)|Count|Average|Contagem de mensagens agendadas em uma fila/tópico. (Pré-visualização)|EntityName|
+|CPUXNS|Utilização da CPU por espaço de nomes|Percent|Máximo|Métrica de uso de CPU do namespace Premium do barramento de serviço|Nenhuma dimensão|
+|WSXNS|Utilização do tamanho da memória por espaço de nomes|Percent|Máximo|Métrica de uso de memória do namespace Premium do barramento de serviço|Nenhuma dimensão|
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
 
@@ -1435,33 +1435,33 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |---|---|---|---|---|---|
 |cpu_percent|Percentagem de CPU|Percent|Average|Percentagem de CPU|Nenhuma dimensão|
 |physical_data_read_percent|Percentagem de E/S de Dados|Percent|Average|Percentagem de E/S de Dados|Nenhuma dimensão|
-|log_write_percent|Percentagem de E/S de Registo|Percent|Average|Percentagem de E/S de Registo|Nenhuma dimensão|
-|dtu_consumption_percent|Percentagem de DTU|Percent|Average|Percentagem de DTU|Nenhuma dimensão|
-|armazenamento|Espaço de dados utilizado|Bytes|Máximo|Tamanho total do banco de dados|Nenhuma dimensão|
+|log_write_percent|Percentagem de E/S de Registo|Percent|Average|Percentual de e/s de log. Não aplicável a data warehouses.|Nenhuma dimensão|
+|dtu_consumption_percent|Percentagem de DTU|Percent|Average|Porcentagem de DTU. Aplica-se a bancos de dados baseados em DTU.|Nenhuma dimensão|
+|armazenamento|Espaço de dados utilizado|Bytes|Máximo|Tamanho total do banco de dados. Não aplicável a data warehouses.|Nenhuma dimensão|
 |connection_successful|Conexões com êxito|Count|Total|Conexões com êxito|Nenhuma dimensão|
 |connection_failed|Ligações com Falhas|Count|Total|Ligações com Falhas|Nenhuma dimensão|
 |blocked_by_firewall|Bloqueado pelo firewall|Count|Total|Bloqueado pelo firewall|Nenhuma dimensão|
-|bloqueado|Impasses|Count|Total|Impasses|Nenhuma dimensão|
-|storage_percent|Porcentagem de espaço de dados usada|Percent|Máximo|Percentagem de tamanho da Base de Dados|Nenhuma dimensão|
-|xtp_storage_percent|Porcentagem de armazenamento OLTP na memória|Percent|Average|Porcentagem de armazenamento OLTP na memória|Nenhuma dimensão|
-|workers_percent|Porcentagem de trabalhadores|Percent|Average|Porcentagem de trabalhadores|Nenhuma dimensão|
-|sessions_percent|Porcentagem de sessões|Percent|Average|Porcentagem de sessões|Nenhuma dimensão|
-|dtu_limit|Limite de DTU|Count|Average|Limite de DTU|Nenhuma dimensão|
-|dtu_used|DTU usado|Count|Average|DTU usado|Nenhuma dimensão|
-|cpu_limit|Limite de CPU|Count|Average|Limite de CPU|Nenhuma dimensão|
-|cpu_used|CPU usada|Count|Average|CPU usada|Nenhuma dimensão|
-|dwu_limit|Limite de DWU|Count|Máximo|Limite de DWU|Nenhuma dimensão|
-|dwu_consumption_percent|Porcentagem de DWU|Percent|Máximo|Porcentagem de DWU|Nenhuma dimensão|
-|dwu_used|DWU usado|Count|Máximo|DWU usado|Nenhuma dimensão|
+|bloqueado|Impasses|Count|Total|Deadlocks. Não aplicável a data warehouses.|Nenhuma dimensão|
+|storage_percent|Porcentagem de espaço de dados usada|Percent|Máximo|Porcentagem de tamanho do banco de dados. Não aplicável a data warehouses ou a bancos de dados de hiperescala.|Nenhuma dimensão|
+|xtp_storage_percent|Porcentagem de armazenamento OLTP na memória|Percent|Average|Porcentagem de armazenamento OLTP na memória. Não aplicável a data warehouses.|Nenhuma dimensão|
+|workers_percent|Porcentagem de trabalhadores|Percent|Average|Porcentagem de trabalhadores. Não aplicável a data warehouses.|Nenhuma dimensão|
+|sessions_percent|Porcentagem de sessões|Percent|Average|Porcentagem de sessões. Não aplicável a data warehouses.|Nenhuma dimensão|
+|dtu_limit|Limite de DTU|Count|Average|Limite de DTU. Aplica-se a bancos de dados baseados em DTU.|Nenhuma dimensão|
+|dtu_used|DTU usado|Count|Average|DTU usado. Aplica-se a bancos de dados baseados em DTU.|Nenhuma dimensão|
+|cpu_limit|Limite de CPU|Count|Average|Limite de CPU. Aplica-se a bancos de dados baseados em vCore.|Nenhuma dimensão|
+|cpu_used|CPU usada|Count|Average|CPU usada. Aplica-se a bancos de dados baseados em vCore.|Nenhuma dimensão|
+|dwu_limit|Limite de DWU|Count|Máximo|Limite de DWU. Aplica-se somente a data warehouses.|Nenhuma dimensão|
+|dwu_consumption_percent|Porcentagem de DWU|Percent|Máximo|Porcentagem de DWU. Aplica-se somente a data warehouses.|Nenhuma dimensão|
+|dwu_used|DWU usado|Count|Máximo|DWU usado. Aplica-se somente a data warehouses.|Nenhuma dimensão|
 |dw_cpu_percent|Percentual de CPU no nível de nó DW|Percent|Average|Percentual de CPU no nível de nó DW|DwLogicalNodeId|
 |dw_physical_data_read_percent|Porcentagem de e/s de dados de nível de nó DW|Percent|Average|Porcentagem de e/s de dados de nível de nó DW|DwLogicalNodeId|
-    |cache_hit_percent|Porcentagem de acesso ao cache|Percent|Máximo|Porcentagem de acesso ao cache|Nenhuma dimensão|
-|cache_used_percent|Percentual de cache usado|Percent|Máximo|Percentual de cache usado|Nenhuma dimensão|
-|local_tempdb_usage_percent|Porcentagem de tempdb local|Percent|Average|Porcentagem de tempdb local|Nenhuma dimensão|
-|app_cpu_billed|CPU do aplicativo cobrada|Count|Total|CPU do aplicativo cobrada|Nenhuma dimensão|
-|app_cpu_percent|Porcentagem de CPU do aplicativo|Percent|Average|Porcentagem de CPU do aplicativo|Nenhuma dimensão|
-|app_memory_percent|Porcentagem de memória usada do aplicativo|Percent|Average|Porcentagem de memória usada do aplicativo|Nenhuma dimensão|
-|allocated_data_storage|Espaço de dados atribuído|Bytes|Average|Espaço de dados atribuído|Nenhuma dimensão|
+|cache_hit_percent|Porcentagem de acesso ao cache|Percent|Máximo|Porcentagem de acesso ao cache. Aplica-se somente a data warehouses.|Nenhuma dimensão|
+|cache_used_percent|Percentual de cache usado|Percent|Máximo|Percentual de cache usado. Aplica-se somente a data warehouses.|Nenhuma dimensão|
+|local_tempdb_usage_percent|Porcentagem de tempdb local|Percent|Average|Porcentagem de tempdb local. Aplica-se somente a data warehouses.|Nenhuma dimensão|
+|app_cpu_billed|CPU do aplicativo cobrada|Count|Total|CPU do aplicativo cobrada. Aplica-se a bancos de dados sem servidor.|Nenhuma dimensão|
+|app_cpu_percent|Porcentagem de CPU do aplicativo|Percent|Average|Porcentagem de CPU do aplicativo. Aplica-se a bancos de dados sem servidor.|Nenhuma dimensão|
+|app_memory_percent|Porcentagem de memória usada do aplicativo|Percent|Average|Porcentagem de memória usada do aplicativo. Aplica-se a bancos de dados sem servidor.|Nenhuma dimensão|
+|allocated_data_storage|Espaço de dados atribuído|Bytes|Average|Espaço de dados alocado. Não aplicável a data warehouses.|Nenhuma dimensão|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
@@ -1470,17 +1470,17 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |cpu_percent|Percentagem de CPU|Percent|Average|Percentagem de CPU|Nenhuma dimensão|
 |physical_data_read_percent|Percentagem de E/S de Dados|Percent|Average|Percentagem de E/S de Dados|Nenhuma dimensão|
 |log_write_percent|Percentagem de E/S de Registo|Percent|Average|Percentagem de E/S de Registo|Nenhuma dimensão|
-|dtu_consumption_percent|Percentagem de DTU|Percent|Average|Percentagem de DTU|Nenhuma dimensão|
+|dtu_consumption_percent|Percentagem de DTU|Percent|Average|Porcentagem de DTU. Aplica-se a pools elásticos baseados em DTU.|Nenhuma dimensão|
 |storage_percent|Porcentagem de espaço de dados usada||Percent|Average|Porcentagem de armazenamento|Nenhuma dimensão|
 |workers_percent|Porcentagem de trabalhadores|Percent|Average|Porcentagem de trabalhadores|Nenhuma dimensão|
 |sessions_percent|Porcentagem de sessões|Percent|Average|Porcentagem de sessões|Nenhuma dimensão|
-|eDTU_limit|limite de eDTU|Count|Average|limite de eDTU|Nenhuma dimensão|
+|eDTU_limit|limite de eDTU|Count|Average|limite de eDTU. Aplica-se a pools elásticos baseados em DTU.|Nenhuma dimensão|
 |storage_limit|Tamanho máximo de dados|Bytes|Average|Limite de armazenamento|Nenhuma dimensão|
-|eDTU_used|eDTU usado|Count|Average|eDTU usado|Nenhuma dimensão|
+|eDTU_used|eDTU usado|Count|Average|eDTU usado. Aplica-se a pools elásticos baseados em DTU.|Nenhuma dimensão|
 |storage_used|Espaço de dados utilizado|Bytes|Average|Armazenamento utilizado|Nenhuma dimensão|
 |xtp_storage_percent|Porcentagem de armazenamento OLTP na memória|Percent|Average|Porcentagem de armazenamento OLTP na memória|Nenhuma dimensão|
-|cpu_limit|Limite de CPU|Count|Average|Limite de CPU|Nenhuma dimensão|
-|cpu_used|CPU usada|Count|Average|CPU usada|Nenhuma dimensão|
+|cpu_limit|Limite de CPU|Count|Average|Limite de CPU. Aplica-se a pools elásticos baseados em vCore.|Nenhuma dimensão|
+|cpu_used|CPU usada|Count|Average|CPU usada. Aplica-se a pools elásticos baseados em vCore.|Nenhuma dimensão|
 |allocated_data_storage|Espaço de dados atribuído|Bytes|Average|Espaço de dados atribuído|Nenhuma dimensão|
 |allocated_data_storage_percent|Porcentagem alocada de espaço de dados|Percent|Máximo|Porcentagem alocada de espaço de dados|Nenhuma dimensão|
 
@@ -1515,7 +1515,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |BlobCapacity|Capacidade do Blob|Bytes|Average|A quantidade de armazenamento utilizada pelo serviço Blob a conta de armazenamento, em bytes.|BlobType, camada|
 |BlobCount|Contagem de Blobs|Contagem|Total|O número de blobs no serviço Blob da conta de armazenamento.|BlobType|       |BlobCount|Contagem de Blobs|Count|Average|O número de blobs no serviço Blob da conta de armazenamento.|BlobType, camada|
 |ContainerCount|Contagem do Contentor de Blobs|Contagem|Média|O número de contentores no serviço Blob da conta de armazenamento.|Nenhuma dimensão|
-|IndexCapacity|Capacidade de Índice|Bytes|Average|A quantidade de armazenamento utilizada pelo Índice do ADLS Gen2 (Hierárquico) em bytes.|Nenhuma dimensão|
+|IndexCapacity|Capacidade de Índice|Bytes|Average|A quantidade de armazenamento usada pelo índice ADLS Gen2 (hierárquico) em bytes.|Nenhuma dimensão|
 |Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como pedidos que produziram erros. Utilize a dimensão ResponseType para o número de tipos de resposta diferente.|ResponseType, GeoType, ApiName, autenticação|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|Geotipo, ApiName, autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|Geotipo, ApiName, autenticação|
@@ -1527,9 +1527,9 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Capacidade de|Capacidade de Ficheiros|Bytes|Average|A quantidade de armazenamento utilizada pelo serviço Ficheiro a conta de armazenamento, em bytes.|Nenhuma dimensão|
-|FileCount|Contagem de ficheiros|Count|Average|O número de ficheiros no serviço Ficheiro da conta de armazenamento.|Nenhuma dimensão|
-|FileShareCount|Contagem de Partilha de Ficheiros|Count|Average|O número de partilhas de ficheiros no serviço Ficheiro da conta de armazenamento.|Nenhuma dimensão|
+|Capacidade de|Capacidade de Ficheiros|Bytes|Average|A quantidade de armazenamento usada pelo serviço de arquivo da conta de armazenamento em bytes.|Nenhuma dimensão|
+|FileCount|Contagem de ficheiros|Count|Average|O número de arquivos no serviço de arquivo da conta de armazenamento.|Nenhuma dimensão|
+|FileShareCount|Contagem de Partilha de Ficheiros|Count|Average|O número de compartilhamentos de arquivos no serviço de arquivo da conta de armazenamento.|Nenhuma dimensão|
 |Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como pedidos que produziram erros. Utilize a dimensão ResponseType para o número de tipos de resposta diferente.|ResponseType, GeoType, ApiName, autenticação|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|Geotipo, ApiName, autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|Geotipo, ApiName, autenticação|
@@ -1629,14 +1629,14 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|DiskReadBytesPerSecond|Bytes Lidos de Disco/Seg|BytesPerSecond|Average|Taxa de transferência média do disco devido a operações de leitura no período de exemplo.|Nenhuma dimensão|
-|DiskWriteBytesPerSecond|Bytes Escritos em Disco/Seg|BytesPerSecond|Average|Taxa de transferência média do disco devido a operações de gravação no período de exemplo.|Nenhuma dimensão|
+|DiskReadBytesPerSecond|Bytes de leitura de disco/s|BytesPerSecond|Average|Taxa de transferência média do disco devido a operações de leitura no período de exemplo.|Nenhuma dimensão|
+|DiskWriteBytesPerSecond|Bytes de gravação no disco/s|BytesPerSecond|Average|Taxa de transferência média do disco devido a operações de gravação no período de exemplo.|Nenhuma dimensão|
 |Bytes de Leitura do Disco|Bytes de Leitura do Disco|Bytes|Total|Taxa de transferência total do disco devido a operações de leitura no período de exemplo.|Nenhuma dimensão|
 |Bytes de Escrita de Disco|Bytes de Escrita de Disco|Bytes|Total|Taxa de transferência total do disco devido a operações de gravação no período de exemplo.|Nenhuma dimensão|
 |DiskReadOperations|Operações de leitura de disco|Count|Total|O número de operações de leitura de e/s no período de exemplo anterior. Observe que essas operações podem ser de tamanho variável.|Nenhuma dimensão|
 |DiskWriteOperations|Operações de gravação de disco|Count|Total|O número de operações de gravação de e/s no período de exemplo anterior. Observe que essas operações podem ser de tamanho variável.|Nenhuma dimensão|
-|Operações/Seg de Leitura do Disco|Operações/Seg de Leitura do Disco|CountPerSecond|Average|O número médio de operações de leitura de e/s no período de exemplo anterior. Observe que essas operações podem ser de tamanho variável.|Nenhuma dimensão|
-|Operações/Seg de Escrita de Disco|Operações/Seg de Escrita de Disco|CountPerSecond|Average|O número médio de operações de gravação de e/s no período de exemplo anterior. Observe que essas operações podem ser de tamanho variável.|Nenhuma dimensão|
+|Operações de leitura de disco/s|Operações de leitura de disco/s|CountPerSecond|Average|O número médio de operações de leitura de e/s no período de exemplo anterior. Observe que essas operações podem ser de tamanho variável.|Nenhuma dimensão|
+|Operações de gravação de disco/s|Operações de gravação de disco/s|CountPerSecond|Average|O número médio de operações de gravação de e/s no período de exemplo anterior. Observe que essas operações podem ser de tamanho variável.|Nenhuma dimensão|
 |DiskReadLatency|Latência de leitura de disco|Milissegundos|Average|Latência de leitura total. A soma das latências de leitura do dispositivo e do kernel.|Nenhuma dimensão|
 |DiskWriteLatency|Latência de gravação de disco|Milissegundos|Average|Latência de gravação total. A soma das latências de gravação do kernel e do dispositivo.|Nenhuma dimensão|
 |NetworkInBytesPerSecond|Rede em bytes/s|BytesPerSecond|Average|Taxa de transferência média de rede para o tráfego recebido.|Nenhuma dimensão|

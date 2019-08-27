@@ -5,14 +5,14 @@ services: log-analytics
 author: bwren
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 06/16/2019
+ms.date: 08/22/2019
 ms.author: bwren
-ms.openlocfilehash: 6f5ae426018c9e7fa2ac586a2886c8e5e609069b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b1d22729724c2d1a8e3705e017762dcef588245e
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813859"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034877"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Estrutura de logs de Azure Monitor
 A capacidade de obter informações rapidamente sobre seus dados usando uma consulta de [log](log-query-overview.md) é um recurso poderoso de Azure monitor. Para criar consultas eficientes e úteis, você deve entender alguns conceitos básicos, como onde estão localizados os dados desejados e como eles são estruturados. Este artigo fornece os conceitos básicos de que você precisa para começar.
@@ -46,7 +46,7 @@ union withsource = table *
 Consulte a documentação para cada fonte de dados para obter detalhes das tabelas que eles criam. Os exemplos incluem artigos para [fontes de dados do Agent](../platform/agent-data-sources.md), logs de [diagnóstico](../platform/diagnostic-logs-schema.md)e soluções de [monitoramento](../insights/solutions-inventory.md).
 
 ### <a name="workspace-permissions"></a>Permissões do espaço de trabalho
-Consulte [permissões e escopo do espaço de trabalho](../platform/manage-access.md#manage-accounts-and-users) para obter detalhes sobre como fornecer acesso aos dados em um espaço de trabalho. Além de conceder acesso ao próprio espaço de trabalho, você pode limitar o acesso a tabelas individuais usando o [RBAC de nível de tabela](../platform/manage-access.md#table-level-rbac).
+Consulte [criando uma implantação de logs de Azure monitor](../platform/design-logs-deployment.md) para entender a estratégia de controle de acesso e as recomendações para fornecer acesso aos dados em um espaço de trabalho. Além de conceder acesso ao próprio espaço de trabalho, você pode limitar o acesso a tabelas individuais usando o [RBAC de nível de tabela](../platform/manage-access.md#table-level-rbac).
 
 ## <a name="application-insights-application"></a>Application Insights aplicativo
 Quando você cria um aplicativo no Application Insights, um aplicativo correspondente é criado automaticamente em logs de Azure Monitor. Nenhuma configuração é necessária para coletar dados e o aplicativo irá gravar dados de monitoramento automaticamente, como exibições de página, solicitações e exceções.

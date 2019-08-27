@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: 0d6721c2ef24665035cc4a99c9bf3804b312fe75
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/26/2019
+ms.openlocfilehash: e127d937dfaeb8afaad6b9a95383f0008f5ea898
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900166"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033270"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Criar uma nova oferta do Dynamics 365 Business central
 
@@ -354,7 +354,7 @@ A opção de **listagem do Marketplace** encontrada na guia **Test Drive** exibe
 
 ## <a name="supplemental-content"></a>Conteúdo complementar
 
-Esta página permite que você forneça informações adicionais necessárias sobre sua oferta.
+Esta página permite que você forneça informações adicionais sobre sua oferta para nos ajudar a validar sua oferta. Essas informações não são mostradas aos clientes ou publicadas no Marketplace.
 
 ### <a name="target-release"></a>Versão de destino
 
@@ -362,19 +362,19 @@ Indique qual versão do Microsoft Dynamics Business central sua solução se des
 
 ### <a name="supported-editions"></a>Edições suportadas
 
-Indique se sua solução dá suporte à edição Essentials e/ou Premium do Microsoft Dynamics 365 Business central. Pelo menos um valor deve ser selecionado.
+Se sua oferta exigir a edição Premium do Microsoft Dynamics 365 Business central, selecione somente **Premium** . Caso contrário, selecione **Essentials** e **Premium**.
 
 ### <a name="key-usage-scenario"></a>Cenário de uso de chave
 
-Carregue um `.pdf` arquivo que lista os principais cenários de uso da sua oferta listados em um documento (formato. pdf). Todos os cenários listados aqui podem ser verificados por nossa equipe de validação antes de aprovarmos sua oferta para o Marketplace.
+Você deve carregar um `.pdf` arquivo que lista os principais cenários de uso de sua oferta listados em um documento (formato. pdf). Todos os cenários listados aqui podem ser verificados por nossa equipe de validação antes de aprovarmos sua oferta para o Marketplace.
 
 ### <a name="app-tests-automation"></a>Automação de testes de aplicativo
 
-Também carregue um arquivo de **automação de testes de aplicativo** aqui (. app).
+Opcionalmente, você pode carregar um arquivo de **automação de testes de aplicativo** aqui (. app).
 
 ### <a name="test-accounts"></a>Contas de teste
 
-Se uma conta de teste for necessária para que nossa equipe de certificação examine corretamente sua oferta, carregue um arquivo. pdf,. doc ou. docx com suas informações de **contas de teste** .
+Se uma conta de teste for necessária para que nossa equipe de certificação examine corretamente sua oferta, carregue um arquivo. pdf,. doc ou. docx com as informações de suas **contas de teste** .
 
 ## <a name="publish"></a>Publicar
 

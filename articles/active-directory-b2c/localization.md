@@ -1,30 +1,30 @@
 ---
-title: Localização – o Azure Active Directory B2C | Documentos da Microsoft
-description: Especifique o elemento de localização de uma política personalizada no Azure Active Directory B2C.
+title: Azure Active Directory B2C de localização
+description: Especifique o elemento de localização de uma política personalizada em Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 08/27/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a02983c5019870e8b17db48184b2f238a82f8a40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec9b4e7ce761d524d047f4d12cab9e5b782e6032
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510584"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033452"
 ---
 # <a name="localization"></a>Localização
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O **localização** elemento permite-lhe dar suporte a várias localidades ou idiomas na política para as jornadas de utilizador. O suporte de localização em políticas permite-lhe:
+O elemento de **localização** permite que você ofereça suporte a várias localidades ou idiomas na política para os percursos do usuário. O suporte à localização em políticas permite que você:
 
-- Configurar a lista explícita dos idiomas com suporte de uma política e escolha um idioma padrão.
-- Forneça cadeias de caracteres do idioma específico e coleções.
+- Configure a lista explícita dos idiomas com suporte em uma política e escolha um idioma padrão.
+- Forneça cadeias de caracteres e coleções específicas a um idioma.
 
 ```XML
 <Localization Enabled="true">
@@ -37,83 +37,84 @@ O **localização** elemento permite-lhe dar suporte a várias localidades ou id
   ...
 ```
 
-O **localização** elemento contém os seguintes atributos:
+O elemento de **localização** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Requerido | Descrição |
 | --------- | -------- | ----------- |
 | Enabled | Não | Valores possíveis: `true` ou `false`. |
 
-O **localização** elemento contém seguintes elementos XML
+O elemento de **localização** contém os seguintes elementos XML
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| SupportedLanguages | 1:n | Lista de idiomas suportados. | 
-| LocalizedResources | 0:n | Lista de recursos localizados. |
+| SupportedLanguages | 1: n | Lista de idiomas com suporte. |
+| LocalizedResources | 0: n | Lista de recursos localizados. |
 
 ## <a name="supportedlanguages"></a>SupportedLanguages
 
-O **SupportedLanguages** elemento contém os seguintes atributos:
+O elemento **SupportedLanguages** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Requerido | Descrição |
 | --------- | -------- | ----------- |
-| DefaultLanguage | Sim | O idioma a ser utilizada como predefinição para recursos localizados. |
-| MergeBehavior | Não | Um valores de enumeração de valores que são mesclados em conjunto com qualquer ClaimType presente uma política de principal com o mesmo identificador. Use este atributo quando substituir uma afirmação especificada na política base. Valores possíveis: `Append`, `Prepend`, ou `ReplaceAll`. O `Append` valor Especifica que a recolha de dados presentes deve ser acrescentada ao fim da coleção especificada na política de principal. O `Prepend` valor Especifica que a recolha de dados presentes deve ser adicionada antes da coleção especificada na política do principal. O `ReplaceAll` valor Especifica que a recolha de dados definidos na política de principal deve ser ignorada, usando, em vez disso, os dados definidos na política atual. |
+| DefaultLanguage | Sim | O idioma a ser usado como o padrão para recursos localizados. |
+| MergeBehavior | Não | Valores de enumeração de valores que são mesclados junto com qualquer ClaimType presente em uma política pai com o mesmo identificador. Use esse atributo quando você substituir uma declaração especificada na política de base. Valores possíveis: `Append`, `Prepend`ou `ReplaceAll`. O `Append` valor especifica que a coleção de dados presentes deve ser anexada ao final da coleção especificada na política pai. O `Prepend` valor especifica que a coleção de dados presentes deve ser adicionada antes da coleção especificada na política pai. O `ReplaceAll` valor especifica que a coleção de dados definida na política pai deve ser ignorada, usando em vez disso os dados definidos na política atual. |
 
 ### <a name="supportedlanguages"></a>SupportedLanguages
 
-O **SupportedLanguages** elemento contém os seguintes elementos:
+O elemento **SupportedLanguages** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| SupportedLanguage | 1:n | Apresenta o conteúdo que está em conformidade com a uma etiqueta de idioma por RFC 5646 - etiquetas para identificar idiomas. | 
+| SupportedLanguage | 1: n | Exibe o conteúdo que está em conformidade com uma marca de idioma por RFC 5646 – marcas para identificar idiomas. |
 
 ## <a name="localizedresources"></a>LocalizedResources
 
-O **LocalizedResources** elemento contém os seguintes atributos:
+O elemento **LocalizedResources** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Requerido | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é utilizado para identificar exclusivamente os recursos localizados. |
+| ID | Sim | Um identificador que é usado para identificar exclusivamente os recursos localizados. |
 
-O **LocalizedResources** elemento contém os seguintes elementos:
+O elemento **LocalizedResources** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| LocalizedCollections | 0:n | Define coleções inteiras em várias culturas. Uma coleção pode ter um número diferente de itens e as cadeias de caracteres diferentes para várias culturas. Exemplos de coleções incluem as enumerações que aparecem em tipos de afirmação. Por exemplo, é apresentada uma lista de país/região para o usuário numa lista pendente. |
-| LocalizedStrings | 0:n | Define todas as cadeias de caracteres, exceto essas cadeias de caracteres que aparecem em coleções, em várias culturas. |
+| LocalizedCollections | 0: n | Define coleções inteiras em várias culturas. Uma coleção pode ter um número diferente de itens e diferentes cadeias de caracteres para várias culturas. Exemplos de coleções incluem as enumerações que aparecem em tipos de declaração. Por exemplo, uma lista de país/região é mostrada para o usuário em uma lista suspensa. |
+| LocalizedStrings | 0: n | Define todas as cadeias de caracteres, exceto aquelas que aparecem em coleções, em várias culturas. |
 
 ### <a name="localizedcollections"></a>LocalizedCollections
 
-O **LocalizedCollections** elemento contém os seguintes elementos:
+O elemento **LocalizedCollections** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| LocalizedCollection | 1:n | Lista de idiomas suportados. |
+| Localizadacollection | 1: n | Lista de idiomas com suporte. |
 
-#### <a name="localizedcollection"></a>LocalizedCollection
+#### <a name="localizedcollection"></a>Localizadacollection
 
-O **LocalizedCollection** elemento contém os seguintes atributos:
+O elemento **localizado** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Requerido | Descrição |
 | --------- | -------- | ----------- |
-| ElementType | Sim | Referencia um elemento de ClaimType ou um elemento de interface de utilizador no ficheiro de política. |
-| ElementId | Sim | Uma cadeia que contém uma referência a um tipo de afirmação já definidos na secção ClaimsSchema que é utilizada se **ElementType** está definido como um ClaimType. |
+| ElementType | Sim | Faz referência a um elemento ClaimType ou um elemento de interface do usuário no arquivo de política. |
+| ElementId | Sim | Uma cadeia de caracteres que contém uma referência a um tipo de declaração já definida na seção ClaimsSchema que será usada se **ElementType** estiver definida como um ClaimType. |
 | TargetCollection | Sim | A coleção de destino. |
 
-O **LocalizedCollection** elemento contém os seguintes elementos:
+O elemento **localizado** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Item | 0:n | Define uma opção disponível para o utilizador selecionar para uma afirmação na interface do usuário, como um valor numa lista pendente. |
+| Item | 0: n | Define uma opção disponível para o usuário selecionar para uma declaração na interface do usuário, como um valor em uma lista suspensa. |
 
-O **Item** elemento contém os seguintes atributos:
+O elemento **Item** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Requerido | Descrição |
 | --------- | -------- | ----------- |
-| Text | Sim | A cadeia de apresentação amigável de utilizador que deve ser apresentada ao usuário na interface do usuário para esta opção. |
-| Value | Sim | A cadeia de caracteres de afirmação valor associado a seleção desta opção. |
+| Text | Sim | A cadeia de caracteres de exibição amigável que deve ser mostrada para o usuário na interface do usuário para essa opção. |
+| Value | Sim | O valor de declaração da cadeia de caracteres associado à seleção dessa opção. |
+| SelectByDefault | Não | Indica se essa opção deve ou não ser selecionada por padrão na interface do usuário. Valores possíveis: VERDADEIRO ou FALSO. |
 
-O exemplo seguinte mostra a utilização do **LocalizedCollections** elemento. Ele contém dois **LocalizedCollection** elementos, um para inglês e outro para espanhol. Ambos definidos os **restrição** coleção da afirmação `Gender` com uma lista de itens para inglês e espanhol.
+O exemplo a seguir mostra o uso do elemento **LocalizedCollections** . Ele contém dois elementos localizadas, um para inglês e outro para espanhol. Ambas definem a coleção de **restrições** da `Gender` declaração com uma lista de itens para inglês e espanhol.
 
 ```XML
 <LocalizedResources Id="api.selfasserted.en">
@@ -131,27 +132,26 @@ O exemplo seguinte mostra a utilização do **LocalizedCollections** elemento. E
       <Item Text="Masculino" Value="M" />
     </LocalizedCollection>
 </LocalizedCollections>
-
 ```
 
 ### <a name="localizedstrings"></a>LocalizedStrings
 
-O **LocalizedStrings** elemento contém os seguintes elementos:
+O elemento **LocalizedStrings** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| LocalizedString | 1:n | Uma cadeia de caracteres localizada. |
+| Localizadastring | 1: n | Uma cadeia de caracteres localizada. |
 
-O **LocalizedString** elemento contém os seguintes atributos:
+O elemento localizadastring contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Requerido | Descrição |
 | --------- | -------- | ----------- |
-| ElementType | Sim | Uma referência a um elemento do tipo de afirmação ou um elemento de interface do usuário na política. Valores possíveis: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`, ou. O `ClaimType` valor é utilizado para localizar um dos atributos de afirmação, conforme especificado no StringId. O `UxElement` valor é utilizado para localizar um dos elementos de interface de utilizador conforme especificado no StringId. O `ErrorMessage` valor é utilizado para localizar uma das mensagens de erro de sistema conforme especificado no StringId. O `Predicate` valor é utilizado para localizar um da [predicado](predicates.md) mensagens de erro, conforme especificado no StringId. O `InputValidation` valor é utilizado para localizar um da [PredicateValidation](predicates.md) mensagens de erro, conforme especificado no StringId de grupo. |
-| ElementId | Sim | Se **ElementType** está definida como `ClaimType`, `Predicate`, ou `InputValidation`, esse elemento contém uma referência a um tipo de afirmação já definido na secção ClaimsSchema. | 
-| StringId | Sim | Se **ElementType** está definida como `ClaimType`, esse elemento contém uma referência a um atributo de um tipo de afirmação. Valores possíveis: `DisplayName`, `AdminHelpText`, ou `PatternHelpText`. O `DisplayName` valor é usado para definir o nome de exibição de afirmação. O `AdminHelpText` valor é utilizado para definir o nome de texto de ajuda do utilizador de afirmação. O `PatternHelpText` valor é utilizado para definir o texto de ajuda do padrão de afirmação. Se **ElementType** está definida como `UxElement`, esse elemento contém uma referência a um atributo de um elemento de interface do usuário. Se **ElementType** está definida como `ErrorMessage`, esse elemento Especifica o identificador de uma mensagem de erro. Ver [cadeia de caracteres de localização IDs](localization-string-ids.md) para obter uma lista completa da `UxElement` identificadores.|
+| ElementType | Sim | Uma referência a um elemento de tipo de declaração ou a um elemento de interface do usuário na política. Valores possíveis: `ClaimType` `UxElement` ,`Predicate`,, ou. `ErrorMessage` O `ClaimType` valor é usado para localizar um dos atributos de declaração, conforme especificado na stringid. O `UxElement` valor é usado para localizar um dos elementos da interface do usuário, conforme especificado na stringid. O `ErrorMessage` valor é usado para localizar uma das mensagens de erro do sistema, conforme especificado na stringid. O `Predicate` valor é usado para localizar uma das mensagens [](predicates.md) de erro de predicado, conforme especificado na stringid. O `InputValidation` valor é usado para localizar uma das mensagens de erro do grupo [PredicateValidation](predicates.md) conforme especificado na stringid. |
+| ElementId | Sim | Se **ElementType** for definido como `ClaimType`, `Predicate`ou `InputValidation`, esse elemento conterá uma referência a um tipo de declaração já definido na seção ClaimsSchema. |
+| StringId | Sim | Se **ElementType** for definido como `ClaimType`, esse elemento conterá uma referência a um atributo de um tipo de declaração. Valores possíveis: `DisplayName`, `AdminHelpText`ou `PatternHelpText`. O `DisplayName` valor é usado para definir o nome de exibição da declaração. O `AdminHelpText` valor é usado para definir o nome do texto de ajuda do usuário da declaração. O `PatternHelpText` valor é usado para definir o texto de ajuda padrão de declaração. Se **ElementType** for definido como `UxElement`, esse elemento conterá uma referência a um atributo de um elemento de interface do usuário. Se **ElementType** for definido como `ErrorMessage`, esse elemento especificará o identificador de uma mensagem de erro. Consulte [IDs de cadeia de caracteres de localização](localization-string-ids.md) para obter `UxElement` uma lista completa dos identificadores.|
 
 
-O exemplo seguinte mostra uma página de inscrição localizada. Os três primeiros **LocalizedString** valores definir o atributo de afirmação. A terceira altera o valor do botão continuar. A última que foi alterado a mensagem de erro.
+O exemplo a seguir mostra uma página de inscrição localizada. Os três primeiros valores de localizadastring definem o atributo de declaração. O terceiro altera o valor do botão continuar. O último altera a mensagem de erro.
 
 ```XML
 <LocalizedResources Id="api.selfasserted.en">
@@ -165,7 +165,7 @@ O exemplo seguinte mostra uma página de inscrição localizada. Os três primei
 </LocalizedResources>
 ```
 
-O exemplo seguinte mostra um localizada a **UserHelpText** dos **predicado** com o Id `IsLengthBetween8And64`. E um localizada **UserHelpText** dos **PredicateGroup** com o Id `CharacterClasses` de **PredicateValidation** com o Id `StrongPassword`.
+O exemplo a seguir mostra uma localização de userhelptext do predicado com ID. `IsLengthBetween8And64` E um userhelptext localizado de **Predicate** com `CharacterClasses` ID de **PredicateValidation** com ID `StrongPassword`.
 
 ```XML
 <PredicateValidation Id="StrongPassword">
@@ -187,16 +187,16 @@ O exemplo seguinte mostra um localizada a **UserHelpText** dos **predicado** com
 
 <LocalizedString ElementType="InputValidation" ElementId="StrongPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
 
-<LocalizedString ElementType="Predicate" ElementId="IsLengthBetween8And64" StringId="HelpText">The password must be between 8 and 64 characters.</LocalizedString>              
+<LocalizedString ElementType="Predicate" ElementId="IsLengthBetween8And64" StringId="HelpText">The password must be between 8 and 64 characters.</LocalizedString>
 ```
 
 ## <a name="set-up-localization"></a>Configurar localização
 
-Este artigo mostra-lhe como suportar várias localidades ou idiomas na política para jornadas de utilizador. Localização requer três passos: configuração explícita lista dos idiomas com suporte, forneça cadeias de caracteres do idioma específico e coleções e editar ContentDefinition para a página.
+Este artigo mostra como dar suporte a várias localidades ou idiomas na política para viagens do usuário. A localização requer três etapas: configurar a lista explícita dos idiomas com suporte, fornecer cadeias de caracteres e coleções específicas do idioma e editar o ContentDefinition da página.
 
-### <a name="set-up-the-explicit-list-of-supported-languages"></a>Configurar a lista explícita de idiomas suportados
+### <a name="set-up-the-explicit-list-of-supported-languages"></a>Configurar a lista explícita de idiomas com suporte
 
-Sob o **BuildingBlocks** elemento, adicione o **localização** elemento com a lista de idiomas suportados. O exemplo seguinte mostra como definir o suporte de localização para inglês (predefinição) e espanhol:
+No elemento **BuildingBlocks** , adicione o elemento de **localização** com a lista de idiomas com suporte. O exemplo a seguir mostra como definir o suporte à localização para inglês (padrão) e espanhol:
 
 ```XML
 <Localization Enabled="true">
@@ -207,22 +207,23 @@ Sob o **BuildingBlocks** elemento, adicione o **localização** elemento com a l
 </Localization>
 ```
 
-### <a name="provide-language-specific-strings-and-collections"></a>Forneça cadeias de caracteres do idioma específico e coleções 
+### <a name="provide-language-specific-strings-and-collections"></a>Fornecer cadeias de caracteres e coleções específicas a um idioma
 
-Adicione **LocalizedResources** elementos dentro do **localização** elemento após o fecho do **SupportedLanguages** elemento. Adiciona **LocalizedResources** elementos para cada página (definição de conteúdo) e qualquer linguagem que pretende suportar. Para personalizar a página de inscrição ou início de sessão unificada, páginas de inscrição e o multi-factor authentication (MFA) para inglês, espanhol e França, adicione as seguintes **LocalizedResources** elementos.  
-- A unificação da página de inscrição ou início de sessão, inglês `<LocalizedResources Id="api.signuporsignin.en">`
-- A unificação da página de inscrição ou início de sessão, espanhol `<LocalizedResources Id="api.signuporsignin.es">`
-- A unificação da página de inscrição ou início de sessão, França `<LocalizedResources Id="api.signuporsignin.fr">` 
-- Inscreva-se, em inglês `<LocalizedResources Id="api.localaccountsignup.en">`
-- Inscreva-se, espanhol `<LocalizedResources Id="api.localaccountsignup.es">`
-- Inscreva-se, França `<LocalizedResources Id="api.localaccountsignup.fr">`
-- MFA, inglês `<LocalizedResources Id="api.phonefactor.en">`
-- MFA, espanhol `<LocalizedResources Id="api.phonefactor.es">`
-- MFA, França `<LocalizedResources Id="api.phonefactor.fr">`
+Adicione elementos **LocalizedResources** dentro do elemento de **localização** após o fechamento do elemento **SupportedLanguages** . Você adiciona elementos **LocalizedResources** para cada página (definição de conteúdo) e qualquer idioma ao qual você deseja dar suporte. Para personalizar a página de inscrição ou entrada unificada, as páginas de entrada e autenticação multifator (MFA) para inglês, espanhol e França, você adiciona os seguintes elementos **LocalizedResources** .
 
-Cada **LocalizedResources** elemento contém todo o necessário **LocalizedStrings** elementos com múltiplos **LocalizedString** elementos e  **LocalizedCollections** elementos com múltiplos **LocalizedCollection** elementos.  O exemplo seguinte adiciona a localização em inglês de página de inscrição: 
+- Página de inscrição ou entrada unificada, inglês`<LocalizedResources Id="api.signuporsignin.en">`
+- Página de inscrição ou entrada unificada, espanhol`<LocalizedResources Id="api.signuporsignin.es">`
+- Página de inscrição ou entrada unificada, França`<LocalizedResources Id="api.signuporsignin.fr">`
+- Inscreva-se, inglês`<LocalizedResources Id="api.localaccountsignup.en">`
+- Inscreva-se, espanhol`<LocalizedResources Id="api.localaccountsignup.es">`
+- Inscreva-se, França`<LocalizedResources Id="api.localaccountsignup.fr">`
+- MFA, inglês`<LocalizedResources Id="api.phonefactor.en">`
+- MFA, espanhol`<LocalizedResources Id="api.phonefactor.es">`
+- MFA, França`<LocalizedResources Id="api.phonefactor.fr">`
 
-Nota: Este exemplo faz uma referência ao `Gender` e `City` tipos de afirmação. Para utilizar neste exemplo, certifique-se de que define essas declarações. Para obter mais informações, consulte [ClaimsSchema](claimsschema.md).
+Cada elemento **LocalizedResources** contém todos os elementos **LocalizedStrings** necessários com vários elementos **localizadas** e elementos **LocalizedCollections** com várias **localizadas** elementos.  O exemplo a seguir adiciona a página de inscrição em inglês:
+
+Nota: Este exemplo faz uma referência aos `Gender` tipos `City` de declaração e. Para usar este exemplo, certifique-se de definir essas declarações. Para obter mais informações, consulte [ClaimsSchema](claimsschema.md).
 
 ```XML
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -276,11 +277,11 @@ A localização da página de inscrição para espanhol.
 </LocalizedResources>
 ```
 
-### <a name="edit-the-contentdefinition-for-the-page"></a>Editar ContentDefinition para a página 
+### <a name="edit-the-contentdefinition-for-the-page"></a>Editar o ContentDefinition da página
 
-Para cada página que deseja localizar, especifique os códigos de idioma devem ser procuradas na **ContentDefinition**.
+Para cada página que você deseja localizar, especifique os códigos de idioma a serem procurados no **ContentDefinition**.
 
-No exemplo a seguir, inglês (en) e as cadeias de caracteres personalizadas Espanhol (es) são adicionadas à página de inscrição. O **LocalizedResourcesReferenceId** para cada **LocalizedResourcesReference** é o mesmo que a Localidade, mas pode usar qualquer cadeia de caracteres como o identificador. Para cada combinação de idioma e página, apontar para o correspondente **LocalizedResources** que criou anteriormente.
+No exemplo a seguir, as cadeias de caracteres personalizadas em inglês (EN) e espanhol (es) são adicionadas à página de inscrição. O **LocalizedResourcesReferenceId** para cada **LocalizedResourcesReference** é o mesmo que sua localidade, mas você pode usar qualquer cadeia de caracteres como o identificador. Para cada combinação de idioma e página, aponte para o **LocalizedResources** correspondente que você criou anteriormente.
 
 ```XML
 <ContentDefinition Id="api.localaccountsignup">
@@ -292,7 +293,7 @@ No exemplo a seguir, inglês (en) e as cadeias de caracteres personalizadas Espa
 </ContentDefinition>
 ```
 
-O exemplo seguinte mostra o XML final:
+O exemplo a seguir mostra o XML final:
 
 ```XML
 <BuildingBlocks>
@@ -363,7 +364,3 @@ O exemplo seguinte mostra o XML final:
   </Localization>
 </BuildingBlocks>
 ```
-
-
-
-

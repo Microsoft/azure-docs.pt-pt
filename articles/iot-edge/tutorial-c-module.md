@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 04/23/2019
+ms.date: 08/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: fa8730c43adb37fa9f62682beec9baeb7e95dfcf
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 32b050c86c2a170b1f95943a873c67d15f947c93
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839592"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035673"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver um módulo C IoT Edge para dispositivos Linux
 
@@ -133,20 +133,20 @@ O código de módulo padrão recebe mensagens em uma fila de entrada e as passa 
 1. Localize a `CreateMessageInstance` função em Main. c. Substitua a instrução if-else interna pelo código a seguir que adiciona algumas linhas de funcionalidade: 
 
    ```c
-   if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
-   {
-       free(messageInstance);
-       messageInstance = NULL;
-   }
-   else
-   {
-       messageInstance->messageTrackingId = messagesReceivedByInput1Queue;
-       MAP_HANDLE propMap = IoTHubMessage_Properties(messageInstance->messageHandle);
-       if (Map_AddOrUpdate(propMap, "MessageType", "Alert") != MAP_OK)
+       if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
        {
-          printf("ERROR: Map_AddOrUpdate Failed!\r\n");
+           free(messageInstance);
+           messageInstance = NULL;
        }
-   }
+       else
+       {
+           messageInstance->messageTrackingId = messagesReceivedByInput1Queue;
+           MAP_HANDLE propMap = IoTHubMessage_Properties(messageInstance->messageHandle);
+           if (Map_AddOrUpdate(propMap, "MessageType", "Alert") != MAP_OK)
+           {
+              printf("ERROR: Map_AddOrUpdate Failed!\r\n");
+           }
+       }
    ```
 
    As novas linhas de código na instrução else adicionam uma nova propriedade à mensagem, que rotula a mensagem como um alerta. Esse código rotula todas as mensagens como alertas, pois adicionaremos funcionalidade que só envia mensagens ao Hub IoT se elas relatarem temperaturas altas. 
@@ -220,7 +220,7 @@ O código de módulo padrão recebe mensagens em uma fila de entrada e as passa 
     static void moduleTwinCallback(DEVICE_TWIN_UPDATE_STATE update_state, const unsigned char* payLoad, size_t size, void* userContextCallback)
     {
         printf("\r\nTwin callback called with (state=%s, size=%zu):\r\n%s\r\n",
-            ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
+            MU_ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
         JSON_Value *root_value = json_parse_string(payLoad);
         JSON_Object *root_object = json_value_get_object(root_value);
         if (json_object_dotget_value(root_object, "desired.TemperatureThreshold") != NULL) {
@@ -242,12 +242,12 @@ O código de módulo padrão recebe mensagens em uma fila de entrada e as passa 
        if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
        {
            printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
-           ret = __FAILURE__;
+           ret = 1;
        }
        else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
        {
            printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
-           ret = __FAILURE__;
+           ret = 1;
        }
        else
        {
@@ -345,7 +345,7 @@ Caso contrário, você pode excluir as configurações locais e os recursos do A
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou uma função do módulo do IoT Edge que contém código para filtrar dados não processados gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar seus próprios módulos, você pode aprender mais sobre como [desenvolver seus próprios módulos IOT Edge](module-development.md) ou como [desenvolver módulos com Visual Studio Code](how-to-vs-code-develop-module.md). Você pode continuar nos próximos tutoriais para saber como Azure IoT Edge pode ajudá-lo a implantar os serviços de nuvem do Azure para processar e analisar dados na borda.
 

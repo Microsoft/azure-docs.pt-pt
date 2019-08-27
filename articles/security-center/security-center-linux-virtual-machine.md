@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: 725ac79414a9f94a40675bffe28a6972120c0cbf
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 402406f8aa677348d30551937cfca1e2726efba1
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515503"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033952"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Centro de Segurança do Azure e Máquinas Virtuais do Azure com Linux
 O [Centro de Segurança do Azure](https://azure.microsoft.com/services/security-center/) ajuda-o a evitar, detetar e responder a ameaças. Fornece gestão de políticas e monitorização de segurança integrada nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança.
@@ -85,7 +85,7 @@ Depois de ativar [políticas de segurança](tutorial-security-policy.md) para os
 ![Estado de funcionamento da segurança](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
 ## <a name="manage-and-respond-to-security-alerts"></a>Gerir e responder a alertas de segurança
-O Centro de Segurança recolhe, analisa e integra automaticamente dados de registo a partir dos seus recursos do Azure, da rede e soluções de parceiros ligadas, (como soluções de proteção de ponto final e firewall), para detetar ameaças reais e reduzir os falsos positivos. Ao tirar partido de uma agregação diversa de [capacidades de deteção](security-center-detection-capabilities.md), o Centro de Segurança pode gerar alertas de segurança prioritários para o ajudar a investigar rapidamente o problema e fornecer recomendações para saber como corrigir possíveis ataques.
+O Centro de Segurança recolhe, analisa e integra automaticamente dados de registo a partir dos seus recursos do Azure, da rede e soluções de parceiros ligadas, (como soluções de proteção de ponto final e firewall), para detetar ameaças reais e reduzir os falsos positivos. Ao tirar partido de uma agregação diversa de [capacidades de deteção](security-center-alerts-overview.md#detect-threats), o Centro de Segurança pode gerar alertas de segurança prioritários para o ajudar a investigar rapidamente o problema e fornecer recomendações para saber como corrigir possíveis ataques.
 
 ![Alertas de segurança](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 

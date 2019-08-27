@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d18c74e908f6d5c4c3d2eefb0518add380fa1324
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 3b0c91357e5ab15b88c92b04fd0896b989e83953
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561318"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051440"
 ---
 # <a name="what-are-authentication-methods"></a>O que são métodos de autenticação?
 
@@ -60,41 +60,41 @@ Se você usar perguntas de segurança, é recomendável usá-las em conjunto com
 
 ### <a name="predefined-questions"></a>Perguntas predefinidas
 
-* Em que localidade conheceu o seu primeiro cônjuge/companheiro(a)?
-* Em que localidade se conheceram os seus pais?
-* Em que localidade mora o seu irmão/irmã mais próximo?
-* Em que localidade nasceu o seu pai?
-* Em que localidade teve o seu primeiro emprego?
-* Em que localidade nasceu a sua mãe?
-* Onde estava (localidade) na Passagem de Ano de 2000?
-* Qual é o apelido do seu professor/professora preferido na secundária?
-* Qual é o nome de uma universidade a que se candidatou, mas que não frequentou?
-* Qual é o nome do local onde organizou a sua primeira festa de casamento?
+* Em qual cidade você atendia ao seu primeiro cônjuge/parceiro?
+* Em que cidade seus pais se encontram?
+* Em qual cidade seu irmão mais próximo vive?
+* Em qual cidade seu pai nasceu?
+* Em qual cidade seu primeiro trabalho foi?
+* Em qual cidade sua mãe nasceu?
+* Em que cidade você estava na 2000 do ano novo?
+* Qual é o sobrenome de seu professor favorito na escola alta?
+* Qual é o nome de uma faculdade à qual você se aplicou, mas não participou?
+* Qual é o nome do local em que você ocupou sua primeira recepção de casamento?
 * Qual é o segundo nome do seu pai?
-* Qual é o seu prato preferido?
-* Qual é o primeiro e último nome da sua avó materna?
+* Qual é sua comida favorita?
+* Qual é o nome e sobrenome de seu materna avó?
 * Qual é o segundo nome da sua mãe?
 * Qual é o mês e o ano de aniversário de seu irmão mais antigo? (por exemplo, novembro de 1985)
-* Qual é o segundo nome do seu irmão/irmã mais velho?
-* Qual é o primeiro e último nome do seu avô paterno?
-* Qual é o segundo nome do seu irmão/irmã mais novo?
-* Qual foi a escola que frequentou durante o sexto ano?
-* Qual era o primeiro e último nome do seu melhor amigo de infância?
-* Qual era o primeiro e último nome do seu primeiro amor?
-* Qual era o apelido do seu professor/professora preferido da primária?
-* Qual era a marca e modelo do seu primeiro carro ou motociclo?
-* Como se chamava a primeira escola que frequentou?
-* Qual era o nome do hospital em que nasceu?
-* Qual era o nome da rua da sua primeira casa de infância?
-* Qual era o nome do seu herói de infância?
-* Qual era o nome do seu peluche preferido?
-* Qual era o nome do seu primeiro animal de estimação?
-* Qual era a sua alcunha de infância?
-* Qual era o seu desporto preferido na secundária?
-* Qual foi o seu primeiro emprego?
-* Quais eram os quatro últimos algarismos do seu número de telefone de infância?
-* Quando era criança, o que queria ser quando crescesse?
-* Como se chama a maior celebridade que já conheceu?
+* Qual é o segundo nome de seu irmão mais antigo?
+* Qual é o nome e sobrenome de seu avô paterno?
+* Qual é o segundo nome de seu irmão mais jovem?
+* Que escola você participou da sexta série?
+* Qual o nome e sobrenome de seu melhor amigo de infância?
+* Qual o nome e o sobrenome de seu primeiro e mais importante?
+* Qual foi o sobrenome de seu professor de estudante de sua série favorita?
+* Qual era a marca e o modelo de seu primeiro carro ou Motorcycle?
+* Qual o nome da primeira escola que você participou?
+* Qual foi o nome do hospital no qual você nasceu?
+* Qual o nome da rua de sua primeira infância doméstica?
+* Qual é o nome do seu herói de infância?
+* Qual o nome do seu animal de inserida favorito?
+* Qual é o nome do seu primeiro animal de estimação?
+* Qual é seu apelido de infância?
+* Qual era seu esporte favorito na escola alta?
+* Qual foi seu primeiro trabalho?
+* Quais foram os últimos quatro dígitos de seu número de telefone de infância?
+* Quando você era jovem, o que você gostaria de ter quando cresceu?
+* Quem é a pessoa mais famosa que você já conheceu?
 
 Todas as perguntas de segurança predefinidas são traduzidas e localizadas no conjunto completo de idiomas do Office 365 com base na localidade do navegador do usuário.
 
@@ -194,6 +194,8 @@ Para funcionar corretamente, os números de telefone devem estar no formato *+ C
 > Precisa haver um espaço entre o código do país e o número de telefone.
 >
 > A redefinição de senha não dá suporte a extensões de telefone. Mesmo no formato + 1 4255551234X12345, as extensões são removidas antes de a chamada ser colocada.
+
+A Microsoft não garante a entrega de prompt de autenticação multifator baseada em voz ou SMS consistente pelo mesmo número. Ao interesse de nossos usuários, a Microsoft pode adicionar ou remover códigos curtos a qualquer momento à medida que fizermos ajustes de rota para melhorar a entrega do SMS. A Microsoft não oferece suporte a códigos curtos para países/regiões além do Estados Unidos e do Canadá.
 
 #### <a name="text-message"></a>Mensagem SMS
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 7d4f36be51591d6be2b4c42eb8a8950ab52a0258
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 2a88e778458da3c5faace401863998dda746ac75
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782567"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051485"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection para o Armazenamento do Microsoft Azure
 
@@ -111,7 +111,7 @@ O email também inclui detalhes sobre as possíveis causas e as ações recomend
 
 ![Email de alerta da proteção avançada contra ameaças do armazenamento do Azure](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert-email.png)
 
-Você pode examinar e gerenciar seus alertas de segurança atuais no [bloco alertas de segurança](../../security-center/security-center-managing-and-responding-alerts.md#managing-security-alerts)da central de segurança do Azure. Clicar em um alerta específico fornece detalhes e ações para investigar a ameaça atual e tratar futuras ameaças.
+Você pode examinar e gerenciar seus alertas de segurança atuais no [bloco alertas de segurança](../../security-center/security-center-managing-and-responding-alerts.md)da central de segurança do Azure. Clicar em um alerta específico fornece detalhes e ações para investigar a ameaça atual e tratar futuras ameaças.
 
 ![Email de alerta da proteção avançada contra ameaças do armazenamento do Azure](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert.png)
 
@@ -119,7 +119,7 @@ Você pode examinar e gerenciar seus alertas de segurança atuais no [bloco aler
 
 Os alertas são gerados por tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Para obter uma lista desses alertas, consulte alertas [do armazenamento do Azure](../../security-center/security-center-alerts-data-services.md#azure-storage)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [logs em contas de armazenamento do Azure](/rest/api/storageservices/About-Storage-Analytics-Logging)
 

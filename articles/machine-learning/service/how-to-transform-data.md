@@ -12,19 +12,20 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: add5584ccf3d9d6837e328bbf70d71598e5c0839
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 339a4f93d45b3d3b3e242aa735ce4b737a9292f0
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694316"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035964"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformar dados com o SDK de preparação de dados do Azure Machine Learning
 
 Neste artigo, você aprenderá métodos diferentes para transformar dados usando o `azureml-dataprep` pacote. O pacote oferece funções que tornam simples a adição de colunas, o filtro de linhas ou colunas indesejadas e a imputar de valores ausentes. Consulte a documentação de referência completa para o [pacote azureml-dataprep](https://aka.ms/data-prep-sdk).
 
 > [!Important]
-> Se você estiver criando uma nova solução, experimente os [conjuntos](how-to-explore-prepare-data.md) de dados Azure Machine Learning (versão prévia) para transformar seus dados, fazer instantâneos e armazenar as definições de conjunto de dados com controle de versão. Conjuntos de dados é a próxima versão do data Prep SDK, oferecendo funcionalidade expandida para o gerenciamento de conjuntos de dados em soluções de ia. Se você usar o `azureml-dataprep` pacote para criar um fluxo de os com suas transformações em vez `azureml-datasets` de usar o pacote para criar um conjunto de um, não será possível usar instantâneos ou conjuntos de valores com controle de versão mais tarde.
+> Se você estiver criando uma nova solução, experimente os [conjuntos](how-to-explore-prepare-data.md) de dados Azure Machine Learning (versão prévia) para transformar seus dados, fazer instantâneos e armazenar as definições de conjunto de dados com controle de versão. Conjuntos de dados é a próxima versão do data Prep SDK, oferecendo funcionalidade expandida para o gerenciamento de conjuntos de dados em soluções de ia.
+> Se você usar o `azureml-dataprep` pacote para criar um fluxo de os com suas transformações em vez `azureml-datasets` de usar o pacote para criar um conjunto de um, não será possível usar instantâneos ou conjuntos de valores com controle de versão mais tarde.
 
 Este "como" mostra exemplos para as seguintes tarefas:
 
@@ -236,7 +237,7 @@ builder.preview(skip=75, count=5)
 |1|1/3/2015 7:54|3 de janeiro de 2015 6h – 8:00|
 |2|1/29/2015 6:54|Nenhum|
 |3|1/29/2015 7:00|Nenhum|
-|4|1/29/2015 7:54|Nenhuma|
+|4|1/29/2015 7:54|Nenhum|
 
 ```python
 builder.add_example(
@@ -345,7 +346,7 @@ Utilizar o construtor de expressões `col`, especifique o nome da coluna como ar
 
 Neste exemplo, `dflow.filter(col('Tip_amount') > 0)` retorna um novo fluxo de dados com as linhas em que o valor de `Tip_amount` for maior que 0.
 
-> [!NOTE] 
+> [!NOTE]
 > `Tip_amount` em primeiro lugar é convertido em numérico, o que nos permite criar uma expressão compará-lo em relação a outros valores numéricos.
 
 ```python
@@ -515,6 +516,6 @@ dflow.head(2)
 |0|ALABAMA|CONDADO Jefferson|CONDADO Jefferson, Alabama|1.019200e + 10|1.0|
 |1|ALABAMA|CONDADO Jefferson|CONDADO Jefferson, Alabama|1.019200e + 10|0.0|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Consulte o [tutorial](tutorial-data-prep.md) Azure Machine Learning data Prep SDK para obter um exemplo de como resolver um cenário específico
+* Consulte a [documentação de referência](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#dataprep) do SDK do Azure Machine Learning data Prep para obter mais detalhes.

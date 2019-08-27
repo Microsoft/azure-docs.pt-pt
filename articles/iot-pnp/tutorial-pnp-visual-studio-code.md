@@ -1,5 +1,5 @@
 ---
-title: Criar e testar um dispositivo de visualização de Plug and Play do Azure IoT | Microsoft Docs
+title: Criar e testar um dispositivo de visualização de Plug and Play de IoT | Microsoft Docs
 description: Como desenvolvedor de dispositivos, saiba como usar VS Code para criar e testar um novo modelo de capacidade de dispositivo para um dispositivo de visualização de IoT Plug and Play.
 author: dominicbetts
 ms.author: dobett
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 5a03eea84d0d68f06b432014fc4374e799914d67
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 10eb9655371177a52d1c1a5a9118665015076b35
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878076"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047994"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Tutorial: Criar e testar um modelo de capacidade de dispositivo usando Visual Studio Code
 

@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 2b28c38d2444f227d26df1f9ca2d70876ff41064
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 016d004a538a1313ca31f36b46e961098051785c
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260602"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051723"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Gerir pedidos de listas de correio com o Azure Logic Apps
 
@@ -37,17 +38,17 @@ Quando terminar, a aplicação lógica é semelhante a este fluxo de trabalho a 
 
 ![Aplicação lógica concluída de alto nível](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-overview.png)
 
-Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se numa conta do Azure gratuita</a> antes de começar.
+Se não tiver uma subscrição do Azure, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta do MailChimp. Crie uma lista com o nome "test-members-ML", em que a aplicação lógica pode adicionar endereços de e-mail dos membros aprovados. Se não tiver uma conta, [inscreva-se numa conta gratuita](https://login.mailchimp.com/signup/) e [saiba como criar listas](https://us17.admin.mailchimp.com/lists/#). 
 
-* Uma conta de e-mail com o Outlook do Office 365 ou o Outlook.com, que suporte fluxos de trabalho de aprovação. Este artigo utiliza o Outlook do Office 365. Se utilizar outra conta de e-mail, os passos gerais são os mesmos, mas a IU poderá ser ligeiramente diferente.
+* Uma conta de email com o Office 365 Outlook ou Outlook.com, que dá suporte a fluxos de trabalho de aprovação. Este artigo utiliza o Outlook do Office 365. Se utilizar outra conta de e-mail, os passos gerais são os mesmos, mas a IU poderá ser ligeiramente diferente.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> com as credenciais da sua conta do Azure.
+Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais da sua conta do Azure.
 
 ## <a name="create-your-logic-app"></a>Criar uma aplicação lógica
 
@@ -79,7 +80,7 @@ Todas as aplicações lógicas têm de ser iniciadas com um acionador, que é ac
 
 1. No estruturador, introduza "when email arrives" (quando chegarem e-mails) na caixa de pesquisa. Selecione o acionador para o seu fornecedor de e-mail: **<*fornecedor_de_e-mail*> - When a new email arrives** (Quando é recebido um e-mail novo)
    
-   ![Selecione este acionador para o fornecedor de e-mail: "Quando a new email arrives"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-new-email.png)
+   ![Selecione este gatilho para o provedor de email: "Quando um novo email chegar"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-new-email.png)
 
    * Relativamente a contas escolares ou profissionais do Azure, selecione Office 365 Outlook (Outlook do Office 365).
    * Quanto a contas Microsoft pessoais, selecione Outlook.com.
@@ -112,7 +113,7 @@ Todas as aplicações lógicas têm de ser iniciadas com um acionador, que é ac
    A sua aplicação lógica está agora ativa, mas não faz mais nada que não verificar os e-mails recebidos. 
    Por isso, adicione uma ação que responde quando o acionador é acionado.
 
-## <a name="send-approval-email"></a>Enviar o e-mail de aprovação
+## <a name="send-approval-email"></a>Enviar mensagem de e-mail de aprovação
 
 Agora que tem um acionador, adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) que envia um e-mail para aprovar ou rejeitar o pedido. 
 
@@ -183,7 +184,7 @@ Em seguida, especifique a ação que a sua aplicação lógica executa quando o 
 Agora, adicione uma ação que adiciona o membro aprovado à sua lista de correio.
 
 1. Dentro do ramo **Se verdadeiro** da condição, escolha **Adicionar uma ação**.
-Procure "mailchimp" e selecione a ação: **MailChimp - Adicionar membro à lista**
+Pesquise por "MailChimp" e selecione esta ação: **MailChimp-Adicionar membro à lista**
 
    ![Selecione "MailChimp - Add member to list"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member.png)
 
@@ -196,7 +197,7 @@ Procure "mailchimp" e selecione a ação: **MailChimp - Adicionar membro à list
    | Definição | Valor | Descrição | 
    | ------- | ----- | ----------- | 
    | **ID da Lista** | test-members-ML | O nome da sua lista de correio do MailChimp | 
-   | **Estado** | subscrito | O estado da subscrição do membro novo. Para obter mais informações, veja <a href="https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/" target="_blank">Manage subscribers with the MailChimp API</a> (Grir subscritores com a API do MailChimp). | 
+   | **Estado** | subscrito | O estado da subscrição do membro novo. Para obter mais informações, veja [Manage subscribers with the MailChimp API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/) (Grir subscritores com a API do MailChimp). | 
    | **Endereço de E-mail** | <*new-member-email-address*> | Na lista de parâmetros ou na lista de conteúdo dinâmico, selecione **De** em **When a new email arrives**, o que transmite o endereço de e-mail do membro novo. 
    |  |  |  | 
 
@@ -248,8 +249,8 @@ Depois, configure os e-mails que vão ser enviados quando a associação do memb
    | Definição | Valor | Descrição | 
    | ------- | ----- | ----------- | 
    | **To** | <*your-email-address*> | O endereço de e-mail para onde enviar o e-mail de êxito. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. | 
-   | **Subject** | <*subject-for-success-email*> | O assunto do e-mail de êxito. Neste tutorial, introduza este texto e selecione o campo especificado em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico: <p>"Êxito! Membro adicionado a 'test-members-ML': **Endereço de e-mail**" | 
-   | **Corpo** | <*body-for-success-email*> | O conteúdo do corpo do e-mail de êxito. Neste tutorial, introduza este texto e selecione os campos especificados em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico:  <p>"Membro novo foi associado a 'test-members-ML': **Endereço de e-mail**"</br>"Estado de optar ativamente por participar no membro: **Estado**" | 
+   | **Subject** | <*subject-for-success-email*> | O assunto do e-mail de êxito. Neste tutorial, introduza este texto e selecione o campo especificado em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico: <p>"Êxito! Membro adicionado a ' test-Members-ML ': **Endereço de email**" | 
+   | **Corpo** | <*body-for-success-email*> | O conteúdo do corpo do e-mail de êxito. Neste tutorial, introduza este texto e selecione os campos especificados em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico:  <p>"Novo membro ingressou em ' test-Members-ML ': **Endereço de email**"</br>"Status de aceitação do membro: **Status**" | 
    | | | | 
 
 5. Guarde a aplicação lógica.
@@ -273,7 +274,7 @@ Depois, configure os e-mails que vão ser enviados quando a associação do memb
    | Definição | Valor | Descrição | 
    | ------- | ----- | ----------- | 
    | **To** | <*your-email-address*> | O endereço de e-mail para onde enviar o e-mail de falha. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. | 
-   | **Subject** | <*subject-for-failure-email*> | O assunto do e-mail de falha. Neste tutorial, introduza este texto e selecione o campo especificado em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico: <p>"Falha, membro não adicionado a 'test-members-ML': **Endereço de e-mail**" | 
+   | **Subject** | <*subject-for-failure-email*> | O assunto do e-mail de falha. Neste tutorial, introduza este texto e selecione o campo especificado em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico: <p>"Com falha, membro não adicionado a ' test-Members-ML ': **Endereço de email**" | 
    | **Corpo** | <*body-for-failure-email*> | O conteúdo do corpo do e-mail de falha. Neste tutorial, introduza este texto: <p>"É possível que o membro já exista. Verifique a sua conta do MailChimp." | 
    | | | | 
 

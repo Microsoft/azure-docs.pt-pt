@@ -1,76 +1,72 @@
 ---
-title: Ligar ao Excel Online - Azure Logic Apps
-description: Gerir dados com APIs de REST do Excel Online e o Azure Logic Apps
+title: Conectar-se ao Excel online-aplicativos lógicos do Azure
+description: Gerenciar dados com APIs REST do Excel online e aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-tags: connectors
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/23/2018
-ms.openlocfilehash: 28739ad65462acc9f2d2ed7db1e9ed14d19f032c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+tags: connectors
+ms.openlocfilehash: 5d0d276096441c780dee4f8b1e95442a1d7e7b25
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311969"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050910"
 ---
-# <a name="manage-excel-online-data-with-azure-logic-apps"></a>Gerir os dados do Excel Online com o Azure Logic Apps
+# <a name="manage-excel-online-data-with-azure-logic-apps"></a>Gerenciar dados do Excel online com aplicativos lógicos do Azure
 
-Com o Azure Logic Apps e o conector do Excel Online, pode criar tarefas automatizadas e fluxos de trabalho com base nos seus dados no Excel Online para empresas ou o OneDrive. Este conector fornece ações que o ajudam a trabalhar com os seus dados e gerir folhas de cálculo, por exemplo:
+Com os aplicativos lógicos do Azure e o conector do Excel online, você pode criar tarefas e fluxos de trabalho automatizados com base em seus dados no Excel online for Business ou OneDrive. Esse conector fornece ações que ajudam você a trabalhar com seus dados e gerenciar planilhas, por exemplo:
 
-* Crie tabelas e folhas de cálculo nova.
-* Obter e gerir folhas de cálculo, tabelas e linhas.
-* Adicione únicas linhas e colunas de chave.
+* Crie novas planilhas e tabelas.
+* Obtenha e gerencie planilhas, tabelas e linhas.
+* Adicione linhas únicas e colunas de chave.
 
-Em seguida, pode utilizar as saídas dessas ações com as ações para outros serviços. Por exemplo, se utilizar uma ação que cria folhas de cálculo de todas as semanas, pode utilizar outra ação que envia um e-mail de confirmação utilizando o conector do Outlook do Office 365.
+Você pode usar as saídas dessas ações com ações para outros serviços. Por exemplo, se você usar uma ação que cria planilhas por semana, poderá usar outra ação que envia emails de confirmação usando o conector do Outlook para Office 365.
 
-Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
-> O [Excel Online para empresas](/connectors/excelonlinebusiness/) e [Excel Online para o OneDrive](/connectors/excelonline/) conectores trabalham com o Azure Logic Apps e ser diferente do [conector do Excel para PowerApps](/connectors/excel/).
+> O [Excel online for Business](/connectors/excelonlinebusiness/) e o [Excel online para](/connectors/excelonline/) conectores do onedrive funcionam com aplicativos lógicos do Azure e diferem do [conector do Excel para PowerApps](/connectors/excel/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>.
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Uma [conta do Office 365](https://www.office.com/) para a sua conta profissional ou uma conta Microsoft pessoal
+* Uma [conta do Office 365](https://www.office.com/) para sua conta corporativa ou conta Microsoft pessoais
 
-  Os dados do Excel podem existir como um ficheiro de valores separados por vírgulas (CSV) numa pasta de armazenamento, por exemplo, no OneDrive. 
-  Também pode utilizar o mesmo ficheiro CSV com o [conector de arquivos simples](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
+  Os dados do Excel podem existir como um arquivo CSV (valores separados por vírgula) em uma pasta de armazenamento, por exemplo, no OneDrive. 
+  Você também pode usar o mesmo arquivo CSV com o [conector de arquivo simples](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
 
-* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* A aplicação de lógica onde pretende aceder aos dados do Excel Online. Este conector proporciona apenas ações como, por isso, para iniciar a sua aplicação lógica, selecione um acionador separado, por exemplo, o **periodicidade** acionador.
+* O aplicativo lógico no qual você deseja acessar seus dados do Excel online. Esse conector fornece apenas ações, portanto, para iniciar seu aplicativo lógico, selecione um gatilho separado, por exemplo, o gatilho de recorrência.
 
-## <a name="add-excel-action"></a>Adicionar ação de Excel
+## <a name="add-excel-action"></a>Adicionar ação do Excel
 
-1. Na [portal do Azure](https://portal.azure.com), abra a aplicação lógica no Estruturador da aplicação lógica, se não estiver já abrir.
+1. No [portal do Azure](https://portal.azure.com), abra seu aplicativo lógico no designer do aplicativo lógico, se ainda não estiver aberto.
 
-1. No acionador, escolha **novo passo**.
+1. No gatilho, escolha **nova etapa**.
 
-1. Na caixa de pesquisa, introduza "excel" como o filtro. Abaixo da lista de ações, selecione a ação que pretende.
+1. Na caixa de pesquisa, digite "Excel" como filtro. Na lista ações, selecione a ação desejada.
 
-1. Se lhe for pedido para iniciar sessão na sua conta Office 365, escolha **iniciar sessão**.
+1. Se solicitado, entre na sua conta do Office 365.
 
-   As suas credenciais autorizar a aplicação lógica para criar uma ligação para o Excel Online e aceder aos seus dados.
+   Suas credenciais autorizam seu aplicativo lógico a criar uma conexão com o Excel online e acessar seus dados.
 
-1. Continue a fornecer os detalhes necessários para a ação selecionada e a criação de fluxo de trabalho da sua aplicação lógica.
+1. Continue fornecendo os detalhes necessários para a ação selecionada e criando o fluxo de trabalho do aplicativo lógico.
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos, como disparadores, ações e limites, conforme descrito pelo OpenAPI do conector (anteriormente Swagger) arquivos, essas páginas de referência do conector, consulte:
+Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelos arquivos OpenAPI (anteriormente Swagger) do conector, consulte estas páginas de referência do conector:
 
-* [Excel Online para empresas](/connectors/excelonlinebusiness/)
-* [Excel Online para o OneDrive](/connectors/excelonline/)
-
-## <a name="get-support"></a>Obter suporte
-
-* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
+* [Excel online para empresas](/connectors/excelonlinebusiness/)
+* [Excel online para OneDrive](/connectors/excelonline/)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre outras [conectores do Logic Apps](../connectors/apis-list.md)
+* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)

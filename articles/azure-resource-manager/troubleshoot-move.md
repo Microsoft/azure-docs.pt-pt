@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 445ee2784a74a366089a49a0e2f2f17d51ef93bf
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: b688218b871a5f652e7f4de172d23f1b1fb0aa5c
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624307"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035508"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Solucionar problemas de movimentação de recursos do Azure para novo grupo de recursos ou assinatura
 
@@ -43,8 +43,10 @@ Sempre que possível, quebra de grandes passa para operações de movimentação
 
 ## <a name="resource-not-in-succeeded-state"></a>Recurso que não está no estado com êxito
 
-Se você receber uma mensagem de erro que indica que um recurso não pode ser movido porque não está em um estado de êxito, ele poderá, na verdade, ser um recurso dependente que está bloqueando a movimentação. Consulte [estado dos recursos dependentes](./move-limitations/networking-move-limitations.md#state-of-dependent-resources).
+Quando você recebe uma mensagem de erro que indica que um recurso não pode ser movido porque não está em um estado bem-sucedido, ele pode, na verdade, ser um recurso dependente que está bloqueando a movimentação.
 
-## <a name="next-steps"></a>Passos Seguintes
+Se o grupo de recursos de origem ou de destino contiver uma rede virtual, os Estados de todos os recursos dependentes da rede virtual serão verificados durante a movimentação. Se qualquer um desses recursos estiver em um estado de falha, a movimentação será bloqueada. Por exemplo, se uma máquina virtual que usa a rede virtual falhou, a movimentação será bloqueada. A movimentação é bloqueada mesmo quando a máquina virtual não é um dos recursos que estão sendo movidos e não está em um dos grupos de recursos para a movimentação. Para evitar esse problema, mova seus recursos para um grupo de recursos que não tem uma rede virtual.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter comandos para mover recursos, consulte [mover recursos para um novo grupo de recursos ou assinatura](resource-group-move-resources.md).

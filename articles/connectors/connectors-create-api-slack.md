@@ -1,6 +1,6 @@
 ---
-title: Ligar ao Slack a partir do Azure Logic Apps | Documentos da Microsoft
-description: Automatizar tarefas e fluxos de trabalho que arquivos de monitorizar e gerem canais, grupos e mensagens na sua conta do Slack com o Azure Logic Apps
+title: Conectar-se à margem de atraso dos aplicativos lógicos do Azure | Microsoft Docs
+description: Automatizar tarefas e fluxos de trabalho que monitoram arquivos e gerenciam canais, grupos e mensagens em sua conta de margem de atraso usando aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,66 +11,66 @@ ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 675e37120b06af3add58b564495f22875647a0fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2606fdc15194264bc3d84496d2de258adfc314be
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105654"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050791"
 ---
-# <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Monitorizar e gerir o Slack com o Azure Logic Apps
+# <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Monitorar e gerenciar a margem de atraso com os aplicativos lógicos do Azure
 
-Com o Azure Logic Apps e o conector do Slack, pode criar tarefas automatizadas e fluxos de trabalho que seus arquivos Slack de monitorizar e gerir os seus canais Slack, mensagens, grupos e assim por diante, por exemplo:
+Com os aplicativos lógicos do Azure e o conector de margem de atraso, você pode criar tarefas e fluxos de trabalho automatizados que monitorem seus arquivos de margem de atraso e gerenciem seus canais de margem de atraso, mensagens, grupos e assim por diante, por exemplo:
 
-* Monitor quando são criados novos ficheiros.
-* Criar, listar e Junte-se de canais 
-* Publicar mensagens.
-* Criar grupos e o conjunto não incomodar.
+* Monitor quando novos arquivos são criados.
+* Criar, listar e unir canais 
+* Postar mensagens.
+* Crie grupos e defina não incomodar.
 
-Pode usar acionadores que obtém as respostas da sua conta do Slack e disponibilizar a saída para outras ações. Pode utilizar as ações que executam tarefas com a sua conta do Slack. Pode também ter outras ações utilizar a saída de ações Slack. Por exemplo, quando um novo ficheiro é criado, pode enviar e-mails com o conector do Outlook do Office 365. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Você pode usar gatilhos que obtêm respostas de sua conta de margem de atraso e disponibilizam a saída para outras ações. Você pode usar ações que executam tarefas com sua conta de margem de atraso. Você também pode fazer com que outras ações usem a saída das ações de margem de atraso. Por exemplo, quando um novo arquivo é criado, você pode enviar email com o conector do Outlook para Office 365. Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. 
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
-* Sua [Slack](https://slack.com/) credenciais de conta e de utilizador
+* Sua conta de [margem de atraso](https://slack.com/) e as credenciais do usuário
 
-  As suas credenciais autorizar a aplicação lógica para criar uma ligação e aceder à sua conta do Slack.
+  Suas credenciais autorizam seu aplicativo lógico a criar uma conexão e acessar sua conta de margem de atraso.
 
-* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* A aplicação de lógica onde pretende aceder à sua conta do Slack. Para começar com um acionador Slack, [criar uma aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para utilizar uma ação Slack, iniciar a aplicação lógica com um acionador, tal como um acionador Slack ou outro acionador, tal como o **periodicidade** acionador.
+* O aplicativo lógico no qual você deseja acessar sua conta de margem de atraso. Para começar com um gatilho de margem de atraso, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação de margem de atraso, inicie seu aplicativo lógico com um gatilho, como um gatilho de margem de atraso ou outro gatilho, como o gatilho de recorrência.
 
-## <a name="connect-to-slack"></a>Ligue-se ao Slack
+## <a name="connect-to-slack"></a>Conectar à margem de atraso
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e abra a aplicação lógica no Estruturador da aplicação lógica, se não estiver já abrir.
+1. Entre no [portal do Azure](https://portal.azure.com)e abra seu aplicativo lógico no designer de aplicativo lógico, se ainda não estiver aberto.
 
-1. Para aplicações de lógica em branco, na caixa de pesquisa, introduza "slack" como o filtro. Abaixo da lista de disparadores, selecione o acionador que pretende. 
+1. Para aplicativos lógicos em branco, na caixa de pesquisa, digite "margem de atraso" como filtro. Na lista de gatilhos, selecione o gatilho desejado. 
 
    -ou-
 
-   Para logic apps existentes, sob a última etapa em que pretende adicionar uma ação, escolha **novo passo**. 
-   Na caixa de pesquisa, introduza "slack" como o filtro. 
-   Abaixo da lista de ações, selecione a ação que pretende.
+   Para os aplicativos lógicos existentes, na última etapa em que você deseja adicionar uma ação, escolha **nova etapa**. 
+   Na caixa de pesquisa, insira "margem de atraso" como filtro. 
+   Na lista ações, selecione a ação desejada.
 
-   Para adicionar uma ação entre passos, mova o ponteiro do mouse sobre a seta entre passos. 
-   Selecione o sinal de adição ( **+** ) que é apresentada e, em seguida, selecione **adicionar uma ação**.
+   Para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre as etapas. 
+   Escolha o sinal de adição **+** () que aparece e, em seguida, selecione **Adicionar uma ação**.
 
-1. Se lhe for pedido para iniciar sessão no Slack, inicie sessão na sua área de trabalho Slack. 
+1. Se você for solicitado a entrar na margem de atraso, entre no espaço de trabalho de margem de atraso. 
 
-   ![Inicie sessão no Slack espaço de trabalho](./media/connectors-create-api-slack/slack-sign-in-workspace.png)
+   ![Espaço de trabalho entrar em margem de atraso](./media/connectors-create-api-slack/slack-sign-in-workspace.png)
 
-1. Autorize o acesso para a aplicação lógica.
+1. Autorize o acesso para seu aplicativo lógico.
 
-   ![Autorizar o acesso ao Slack](./media/connectors-create-api-slack/slack-authorize-access.png)
+   ![Autorizar o acesso à margem de atraso](./media/connectors-create-api-slack/slack-authorize-access.png)
 
-1. Forneça os detalhes necessários para o acionador selecionado ou ação. Para continuar a criar o fluxo de trabalho da sua aplicação lógica, adicione mais ações.
+1. Forneça os detalhes necessários para o gatilho ou a ação selecionada. Para continuar criando o fluxo de trabalho do aplicativo lógico, adicione mais ações.
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos sobre os limites, ações e acionadores, que é descrito através OpenAPI do conector (anteriormente Swagger) descrição, reveja o conector [página de referência](/connectors/slack/).
+Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição de OpenAPI (anteriormente, Swagger) do conector, examine a [página de referência](/connectors/slack/)do conector.
 
 ## <a name="get-support"></a>Obter suporte
 
@@ -79,4 +79,4 @@ Para obter detalhes técnicos sobre os limites, ações e acionadores, que é de
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre outras [conectores do Logic Apps](../connectors/apis-list.md)
+* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)

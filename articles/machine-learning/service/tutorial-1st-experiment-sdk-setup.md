@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 54fc87f02ca058e17de3a65627bc76fd7d9cac11
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 7ed81375912613995d573b110607e7913adfd10f
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971558"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051658"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment"></a>Tutorial: Introdução à criação de seu primeiro experimento do ML
 
@@ -73,7 +73,10 @@ Depois que a VM estiver em execução, use a seção de **VMs do notebook** para
     > [!TIP]
     > Essa pasta está localizada no [contêiner de armazenamento](concept-workspace.md#resources) em seu espaço de trabalho em vez de na própria VM do bloco de anotações.  Você pode excluir a VM do notebook e ainda manter todo o seu trabalho.  Quando você criar uma nova VM de bloco de anotações mais tarde, ela carregará essa mesma pasta. Se você compartilhar seu espaço de trabalho com outras pessoas, ele verá sua pasta e você verá seus.
 
-1. Abra o `samples-*` subdiretório e, em seguida, abra`tutorials/tutorial-1st-experiment-sdk-train.ipynb` 
+1. Abra o `samples-*` subdiretório e, em seguida, abra`tutorials/tutorial-1st-experiment-sdk-train.ipynb`
+
+> [!Warning]
+> Certifique-se de `tutorial-1st-experiment-sdk-train.ipynb` abrir o arquivo, `.yml` **não** o arquivo do > mesmo nome. 
 
 Na **parte dois** do tutorial, você executa o código `tutorial-1st-experiment-sdk-train.ipynb` para treinar um modelo de aprendizado de máquina.
 
@@ -101,7 +104,7 @@ Se você usou um servidor de bloco de anotações de nuvem, pare a VM quando nã
 
 Você também pode manter o grupo de recursos, mas excluir um único espaço de trabalho. Exiba as propriedades do espaço de trabalho e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você concluiu estas tarefas:
 

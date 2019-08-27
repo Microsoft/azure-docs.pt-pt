@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: aa3a9bdb51e1137cde2ca29e2b5db55ba621cf8c
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: cee5801826c78bdee51ba5afb14d6776a1191702
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972494"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051624"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treinar seu primeiro modelo de ML
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprende as seguintes tarefas:
 
 O único pré-requisito é executar a parte um deste tutorial, o [ambiente de instalação e o espaço de trabalho](tutorial-1st-experiment-sdk-setup.md).
 
-Nesta parte do tutorial, você executa o código no bloco de anotações Jupyter de exemplo aberto no final da parte 1. Este artigo percorre o mesmo código que está no bloco de anotações.
+Nesta parte do tutorial, você executa o código no bloco de anotações `tutorials/tutorial-1st-experiment-sdk-train.ipynb` Jupyter de exemplo aberto no final da parte 1. Este artigo percorre o mesmo código que está no bloco de anotações.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Conectar espaço de trabalho e criar experimento
 
@@ -41,6 +41,8 @@ Importe a `Workspace` classe e carregue as informações de assinatura do arquiv
 
 Se o código a seguir solicitar autenticação adicional, basta colar o link em um navegador e inserir o token de autenticação.
 
+> [!TIP]
+> Se você for novo no Jupyter notebooks, execute o código clicando em uma célula de código e pressionando **Shift + Enter** para executar as células uma de cada vez. Como alternativa, para executar todo o bloco de anotações ao mesmo tempo, clique em **célula** na barra de menus superior e, em seguida, clique em **executar tudo**.
 
 ```python
 from azureml.core import Workspace

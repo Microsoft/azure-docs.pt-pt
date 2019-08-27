@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: bf63a9fb552b2a41ce7b9945faeda362592d8efb
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: dc31abaadf3f39d31a4c1b04f9911b5ce1677916
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558770"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70048583"
 ---
 Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://portal.azure.com).
 
@@ -25,7 +25,7 @@ Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://p
 
 1. Na guia **noções básicas** , preencha os campos da seguinte maneira:
 
-   - **Assinatura**: Selecione a assinatura a ser usada para o Hub.
+   - **Subscrição**: Selecione a assinatura a ser usada para o Hub.
 
    - **Grupo de recursos**: Selecione um grupo de recursos ou crie um novo. Para criar um novo, selecione **criar novo** e preencha o nome que você deseja usar. Para usar um grupo de recursos existente, selecione esse grupo de recursos. Para obter mais informações, consulte [Manage Azure Resource Manager Resource groups](../articles/azure-resource-manager/manage-resource-groups-portal.md).
 
@@ -43,12 +43,12 @@ Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://p
 
     Esta tela permite que você defina os seguintes valores:
 
-    - **Camada de preços e escala**: Sua camada selecionada. Você pode escolher entre várias camadas dependendo de quantos recursos você deseja e quantas mensagens você envia por meio de sua solução por dia. A camada gratuita destina-se a testes e avaliação. Ele permite que os dispositivos 500 sejam conectados ao Hub e até 8.000 mensagens por dia. Cada assinatura do Azure pode criar um hub IoT na camada gratuita.
+    - **Camada de preços e escala**: Sua camada selecionada. Você pode escolher entre várias camadas, dependendo de quantos recursos você deseja e quantas mensagens você envia por meio de sua solução por dia. A camada gratuita destina-se a testes e avaliação. Ele permite que os dispositivos 500 sejam conectados ao Hub e até 8.000 mensagens por dia. Cada assinatura do Azure pode criar um hub IoT na camada gratuita.
 
     - **Unidades do Hub IOT**: O número de mensagens permitidas por unidade por dia depende do tipo de preço do seu hub. Por exemplo, se você quiser que o Hub dê suporte à entrada de 700.000 mensagens, escolha duas unidades de camada S1.
     Para obter detalhes sobre as outras opções de camada, consulte [escolhendo a camada certa do Hub IOT](../articles/iot-hub/iot-hub-scaling.md).
 
-    - Configurações > avançadas**partições de dispositivo para nuvem**: Essa propriedade relaciona as mensagens do dispositivo para a nuvem com o número de leitores simultâneos das mensagens. A maioria dos hubs só precisa de quatro partições.
+    - Configurações > avançadas**partições de dispositivo para nuvem**: Essa propriedade relaciona as mensagens do dispositivo para a nuvem com o número de leitores simultâneos das mensagens. A maioria dos hubs precisa de apenas quatro partições.
 
 1. Para este tutorial, aceite as opções padrão e, em seguida, selecione revisar **+ criar** para revisar suas escolhas. Você verá algo semelhante a esta tela.
 

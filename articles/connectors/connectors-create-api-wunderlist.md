@@ -1,6 +1,6 @@
 ---
-title: Ligar ao Wunderlist a partir do Azure Logic Apps | Documentos da Microsoft
-description: Automatizar tarefas e fluxos de trabalho que monitorizar e gerem listas, tarefas, lembretes e muito mais na sua conta de Wunderlist com o Azure Logic Apps
+title: Conectar-se ao Wunderlist de aplicativos lógicos do Azure | Microsoft Docs
+description: Automatizar tarefas e fluxos de trabalho que monitoram e gerenciam listas, tarefas, lembretes e muito mais em sua conta do Wunderlist usando aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,74 +11,74 @@ ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: e3570ab1227ca388ac62bffdc74bb68b1ddc41d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d57ab4a7b655a7d49a7120d358dccc627099e5fd
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105671"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050659"
 ---
-# <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Monitorizar e gerir o Wunderlist com o Azure Logic Apps
+# <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Monitorar e gerenciar o Wunderlist usando aplicativos lógicos do Azure
 
-Com o Azure Logic Apps e o conector Wunderlist, pode criar tarefas automatizadas e fluxos de trabalho que monitorizar e gerir listas de tarefas, tarefas, lembretes e muito mais na sua conta do Wunderlist, juntamente com outras ações, por exemplo:
+Com os aplicativos lógicos do Azure e o conector do Wunderlist, você pode criar tarefas e fluxos de trabalho automatizados que monitoram e gerenciam listas, tarefas, lembretes e muito mais em sua conta do Wunderlist, juntamente com outras ações, por exemplo:
 
-* Monitor quando novas tarefas criadas, se as tarefas são devidas ou lembretes acontecem.
-* Criar e gerir listas, anotações, tarefas, subtarefas e muito mais.
+* Monitore quando novas tarefas são criadas, quando as tarefas são concluídas ou lembretes acontecem.
+* Crie e gerencie listas, anotações, tarefas, subtarefas e muito mais.
 * Definir lembretes.
-* Obter listas, tarefas, subtarefas, lembretes, ficheiros, notas, comentários e muito mais.
+* Obtenha listas, tarefas, subtarefas, lembretes, arquivos, observações, comentários e muito mais.
 
-[Wunderlist](https://www.wunderlist.com/) é um serviço que ajuda a planejar, gerenciar e concluir os seus projetos, listas de tarefas e tarefas - em qualquer dispositivo, em qualquer lugar. Pode usar acionadores que obtém respostas a partir da sua conta de Wunderlist e disponibilizar a saída para outras ações. Pode utilizar as ações que executam tarefas com a sua conta de Wunderlist. Pode também ter outras ações utilizar a saída de ações de Wunderlist. Por exemplo, quando novas tarefas são devidas, pode postar mensagens com o conector do Slack. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+O [Wunderlist](https://www.wunderlist.com/) é um serviço que ajuda você a planejar, gerenciar e concluir seus projetos, as listas de tarefas pendentes, bem como qualquer dispositivo, em qualquer lugar. Você pode usar gatilhos que obtêm respostas de sua conta do Wunderlist e disponibilizam a saída para outras ações. Você pode usar ações que executam tarefas com sua conta do Wunderlist. Você também pode fazer com que outras ações usem a saída de ações do Wunderlist. Por exemplo, quando novas tarefas são concluídas, você pode postar mensagens com o conector de margem de atraso. Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. 
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
-* As credenciais de conta e do usuário do Wunderlist
+* Sua conta e as credenciais de usuário do Wunderlist
 
-   As suas credenciais autorizar a aplicação lógica para criar uma ligação e aceder à sua conta de Wunderlist.
+   Suas credenciais autorizam seu aplicativo lógico a criar uma conexão e acessar sua conta do Wunderlist.
 
-* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* A aplicação de lógica onde pretende aceder à sua conta do Yammer. Para começar com um acionador de Wunderlist [criar uma aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para utilizar uma ação de Wunderlist, inicie a aplicação lógica com outro acionador, por exemplo, o **periodicidade** acionador.
+* O aplicativo lógico no qual você deseja acessar sua conta do Yammer. Para começar com um gatilho do Wunderlist, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação do Wunderlist, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho de recorrência.
 
-## <a name="connect-to-wunderlist"></a>Ligue ao Wunderlist
+## <a name="connect-to-wunderlist"></a>Conectar-se ao Wunderlist
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e abra a aplicação lógica no Estruturador da aplicação lógica, se não estiver já abrir.
+1. Entre no [portal do Azure](https://portal.azure.com)e abra seu aplicativo lógico no designer de aplicativo lógico, se ainda não estiver aberto.
 
 1. Escolha um caminho: 
 
-   * Para aplicações de lógica em branco, na caixa de pesquisa, introduza "wunderlist" como o filtro. 
-   Abaixo da lista de disparadores, selecione o acionador que pretende. 
+   * Para aplicativos lógicos em branco, na caixa de pesquisa, digite "Wunderlist" como filtro. 
+   Na lista de gatilhos, selecione o gatilho desejado. 
 
      -ou-
 
-   * Para o logic apps existentes: 
+   * Para aplicativos lógicos existentes: 
    
-     * Na última etapa em que pretende adicionar uma ação, escolha **novo passo**. 
+     * Na última etapa em que você deseja adicionar uma ação, escolha **nova etapa**. 
 
        -ou-
 
-     * Entre os passos em que pretende adicionar uma ação, mova o ponteiro do mouse sobre a seta entre passos. 
-     Selecione o sinal de adição ( **+** ) que é apresentada e, em seguida, selecione **adicionar uma ação**.
+     * Entre as etapas em que você deseja adicionar uma ação, mova o ponteiro sobre a seta entre as etapas. 
+     Escolha o sinal de adição **+** () que aparece e, em seguida, selecione **Adicionar uma ação**.
      
-       Na caixa de pesquisa, introduza "wunderlist" como o filtro. 
-       Abaixo da lista de ações, selecione a ação que pretende.
+       Na caixa de pesquisa, insira "Wunderlist" como seu filtro. 
+       Na lista ações, selecione a ação desejada.
 
-1. Se lhe for pedido para iniciar sessão no Wunderlist, inicie sessão agora para que pode permitir o acesso.
+1. Se você for solicitado a entrar no Wunderlist, entre agora para poder permitir o acesso.
 
-1. Forneça os detalhes necessários para o seu acionador selecionado ou a ação e continuar a criar o fluxo de trabalho da sua aplicação lógica.
+1. Forneça os detalhes necessários para o gatilho ou ação selecionado e continue criando o fluxo de trabalho do aplicativo lógico.
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos sobre os limites, ações e acionadores, que é descrito através OpenAPI do conector (anteriormente Swagger) descrição, reveja o conector [página de referência](/connectors/wunderlist/).
+Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição de OpenAPI (anteriormente, Swagger) do conector, examine a [página de referência](/connectors/wunderlist/)do conector.
 
 ## <a name="get-support"></a>Obter suporte
 
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outras [conectores do Logic Apps](../connectors/apis-list.md)
+* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)

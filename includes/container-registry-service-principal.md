@@ -8,31 +8,31 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 69951693f9d3bacb556453aba954620815884d43
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9e4f2e355240ba8682cbe9f86f2be94e7dd0d92d
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184906"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032352"
 ---
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-Para criar um principal de serviço com acesso ao seu registo de contentor, execute o seguinte script [Azure Cloud Shell](../articles/cloud-shell/overview.md) ou uma instalação local dos [CLI do Azure](/cli/azure/install-azure-cli). O script é formatado para o shell de Bash.
+Para criar uma entidade de serviço com acesso ao registro de contêiner, execute o seguinte script no [Azure cloud Shell](../articles/cloud-shell/overview.md) ou em uma instalação local do [CLI do Azure](/cli/azure/install-azure-cli). O script é formatado para o shell bash.
 
-Antes de executar o script, atualize o `ACR_NAME` variável com o nome do seu registo de contentor. O `SERVICE_PRINCIPAL_NAME` valor tem de ser exclusivo no seu inquilino do Azure Active Directory. Se receber um "`'http://acr-service-principal' already exists.`" erro, especifique um nome diferente para o principal de serviço.
+Antes de executar o script, atualize `ACR_NAME` a variável com o nome do registro de contêiner. O `SERVICE_PRINCIPAL_NAME` valor deve ser exclusivo dentro de seu locatário de Azure Active Directory. Se você receber um erro`'http://acr-service-principal' already exists.`"", especifique um nome diferente para a entidade de serviço.
 
-Opcionalmente, pode modificar os `--role` valor no [az ad sp create-for-rbac] [ az-ad-sp-create-for-rbac] comando se pretende conceder permissões diferentes. Para obter uma lista completa de funções, consulte [ACR funções e permissões](https://github.com/Azure/acr/blob/master/docs/roles-and-permissions.md).
+Opcionalmente, você pode modificar `--role` o valor no comando [AZ ad SP Create-for-RBAC][az-ad-sp-create-for-rbac] se quiser conceder permissões diferentes. Para obter uma lista completa de funções, consulte [funções e permissões de ACR](https://github.com/Azure/acr/blob/master/docs/roles-and-permissions.md).
 
-Depois de executar o script, tome nota do principal de serviço **ID** e **palavra-passe**. Depois de ter as respetivas credenciais, pode configurar seus aplicativos e serviços para autenticar para o seu registo de contentor, como o principal de serviço.
+Depois de executar o script, anote a **ID** e a **senha**da entidade de serviço. Depois de ter suas credenciais, você pode configurar seus aplicativos e serviços para autenticar o registro de contêiner como a entidade de serviço.
 
 <!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh -->
 [!code-azurecli-interactive[acr-sp-create](~/cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
 
-## <a name="use-an-existing-service-principal"></a>Utilizar um principal de serviço existente
+### <a name="use-an-existing-service-principal"></a>Usar uma entidade de serviço existente
 
-Para conceder acesso de registo para um principal de serviço, tem de atribuir uma nova função ao principal de serviço. Como com a criação de um novo serviço principal, pode conceder a solicitação, push e pull e acesso de proprietário, entre outros.
+Para conceder acesso de registro a uma entidade de serviço existente, você deve atribuir uma nova função à entidade de serviço. Assim como na criação de uma nova entidade de serviço, você pode conceder acesso de pull, push e pull e proprietário, entre outras.
 
-O script seguinte utiliza a [criação da atribuição de função de az] [ az-role-assignment-create] comando para conceder *pull* permissões para um principal de serviço que especificar no `SERVICE_PRINCIPAL_ID` variável. Ajustar o `--role` valor se desejar conceder um nível diferente de acesso.
+O script a seguir usa o comando [AZ role Assignment Create][az-role-assignment-create] para conceder permissões de *pull* a uma entidade de serviço que `SERVICE_PRINCIPAL_ID` você especifica na variável. Ajuste o `--role` valor se desejar conceder um nível diferente de acesso.
 
 
 <!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-assign-role/service-principal-assign-role.sh -->

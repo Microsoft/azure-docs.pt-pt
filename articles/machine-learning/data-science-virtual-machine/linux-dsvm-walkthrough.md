@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: vijetaj
-ms.openlocfilehash: 95d128a7af60a1504d05fb5316969fccc49c397f
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 8100108adc7115921948d3e8f10e415bc2705fbd
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574975"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051643"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Data Science Máquina Virtual do Linux no Azure
 Estas instruções mostram como realizar várias tarefas de ciência de dados comuns com a VM de ciência de dados do Linux. A Máquina Virtual de ciência de dados de Linux (DSVM) é uma imagem de máquina virtual disponível no Azure que está pré-instalado com uma coleção de ferramentas utilizadas para análise de dados e machine learning. Os componentes de software importantes estão descritos a [aprovisionar a máquina de Virtual de ciência de dados do Linux](linux-dsvm-intro.md) tópico. A imagem de VM torna mais fácil começar a fazer ciência de dados em minutos, sem ter de instalar e configurar cada uma das ferramentas individualmente. Pode facilmente aumentar verticalmente a VM, se necessário e pará-la quando não está em utilização. Portanto, este recurso é económico e flexível.
@@ -36,7 +36,7 @@ Antes de poder utilizar uma máquina de Virtual de ciência de dados do Linux, t
 
 * Uma **subscrição do Azure**. Se ainda não tiver uma, veja [crie hoje a sua conta gratuita do Azure](https://azure.microsoft.com/free/).
 * R [ **VM de ciência de dados do Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Para obter informações sobre esta VM de aprovisionamento, consulte [aprovisionar a máquina de Virtual de ciência de dados do Linux](linux-dsvm-intro.md).
-* [X2Go](https://wiki.x2go.org/doku.php) instalado no seu computador e abrir uma sessão XFCE. Para obter informações sobre como instalar e configurar uma **cliente X2Go**, consulte [instalar e configurar o cliente de X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+* [X2Go](https://wiki.x2go.org/doku.php) instalado no seu computador e abrir uma sessão XFCE. Para obter informações sobre como instalar e configurar um **cliente do X2Go**, consulte [instalar e configurar o cliente do X2Go](linux-dsvm-intro.md#install-and-configure-the-x2go-client).
 * Para uma experiência de rolagem mais suave, alterne o sinalizador de gfx.xrender.enabled no sobre: configuração no navegador FireFox de VMs. [Veja mais aqui. ](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere também a alternar *mousewheel.enable_pixel_scrolling* como False. [Instruções aqui.](https://support.mozilla.org/questions/981140)
 * Uma **AzureML conta**. Se ainda não tiver uma, inscreva-se um novo aos [home page do AzureML](https://studio.azureml.net/). Existe um escalão de utilização gratuita para o ajudar a começar a utilizar.
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dapine
-ms.openlocfilehash: 2b87f9bcbaa0fd9d8a23d774e0765e1eb5b56633
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: eaf689ecb8fd64dca15570179733b7d7539a352e
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563906"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050088"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar contêineres do Docker LUIS
  
@@ -187,7 +187,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Marcador de posição | Valor |
+| Marcador de posição | Value |
 |-------------|-------|
 |{APPLICATION_ID} | A ID do aplicativo LUIS treinado. |
 |{APPLICATION_VERSION} | A versão do aplicativo do aplicativo LUIS treinado. |
@@ -248,7 +248,7 @@ As versões V2 e [v3 (versão prévia)](luis-migration-api-v3.md) da API estão 
 
 O contêiner fornece APIs de ponto de extremidade de previsão de consulta baseadas em REST. Os pontos de extremidade para aplicativos publicados (de preparo ou produção) têm uma rota _diferente_ de pontos de extremidade para aplicativos treinados. 
 
-Use o host, `https://localhost:5000`, para APIs de contêiner. 
+Use o host, `http://localhost:5000`, para APIs de contêiner. 
 
 |Tipo de pacote|Método|Encaminhar|Parâmetros de consulta|
 |--|--|--|--|
@@ -259,7 +259,7 @@ Os parâmetros de consulta configuram como e o que é retornado na resposta da c
 
 |Parâmetro de consulta|Type|Objetivo|
 |--|--|--|
-|`q`|cadeia|O expressão do usuário.|
+|`q`|Cadeia de caracteres|O expressão do usuário.|
 |`timezoneOffset`|número|O timezoneOffset permite que você [altere o fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usado pela entidade predefinida datetimeV2.|
 |`verbose`|boolean|Retorna todas as intenções e suas pontuações quando definidas como true. O padrão é false, que retorna apenas a intenção mais.|
 |`staging`|boolean|Retorna a consulta de resultados do ambiente de preparo se definido como true. |

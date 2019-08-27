@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: mlearned
-ms.openlocfilehash: ec017901e36a01042485e9aeca2431c8a6838ab8
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 6c06453d479ae55ceb1c05a7ee8a29ce19a7a13b
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69536758"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034980"
 ---
 # <a name="preview---authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Visualização-autenticar com o registro de contêiner do Azure do serviço kubernetes do Azure
 
@@ -46,11 +46,15 @@ az extension add -y --name aks-preview
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Criar um novo cluster AKS com integração com ACR
 
-Você pode configurar a integração de AKS e ACR durante a criação inicial do cluster AKS.  Para permitir que um cluster AKS interaja com o ACR, é usada uma **entidade de serviço** Azure Active Directory. O comando da CLI a seguir cria um ACR no grupo de recursos que você especifica e configura a função **ACRPull** apropriada para a entidade de serviço. Se o *nome do ACR* não existir, um nome de `aks<resource-group>acr` ACR padrão será criado automaticamente.  Forneça valores válidos para os parâmetros abaixo.  Os parâmetros entre colchetes são opcionais.
+Você pode configurar a integração de AKS e ACR durante a criação inicial do cluster AKS.  Para permitir que um cluster AKS interaja com o ACR, é usada uma **entidade de serviço** Azure Active Directory. O comando da CLI a seguir cria um ACR no grupo de recursos que você especifica e configura a função **ACRPull** apropriada para a entidade de serviço. Se o *nome de ACR* não existir no grupo de recursos que você especificar, um nome de `aks<resource-group>acr` ACR padrão será criado automaticamente.  Forneça valores válidos para os parâmetros abaixo.  Os parâmetros entre colchetes são opcionais.
 ```azurecli
 az login
 az aks create -n myAKSCluster -g myResourceGroup --enable-acr [--acr <acr-name-or-resource-id>]
 ```
+\* * Uma ID de recurso ACR tem o seguinte formato: 
+
+/subscriptions/< Subscription-d >/resourceGroups/< Resource-Group-Name >/providers/Microsoft.ContainerRegistry/registries/<name> 
+  
 Esta etapa pode levar vários minutos para ser concluída.
 
 ## <a name="create-acr-integration-for-existing-aks-clusters"></a>Criar integração de ACR para clusters AKS existentes

@@ -1,20 +1,20 @@
 ---
-title: Ferramentas para trabalhar com o armazenamento do Azure | Microsoft Docs
-description: Uma lista de ferramentas que permitem exibir/interagir com os dados do armazenamento do Azure.
+title: Ferramentas para trabalhar com o armazenamento do Azure
+description: Uma lista de ferramentas que permitem exibir e interagir com os dados do armazenamento do Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 08/26/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 14cbc076f4c9eebd2647cd667acc856b393e4d93
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 11838a50d70d1b9a0216505e9ef0958d3b18bdac
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68665741"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035253"
 ---
 # <a name="azure-storage-client-tools"></a>Ferramentas de Cliente do Armazenamento do Azure
 Os usuários do armazenamento do Azure geralmente desejam poder exibir/interagir com seus dados usando uma ferramenta de cliente de armazenamento do Azure. Nas tabelas a seguir, listamos várias ferramentas que permitem que você faça isso. Colocamos um "X" em cada bloco se ele fornece a capacidade de enumerar e/ou acessar a abstração de dados. A tabela também mostra se as ferramentas estão livres ou não. "Avaliação" indica que há uma avaliação gratuita, mas o produto completo não é gratuito. "Y/N" indica que uma versão está disponível gratuitamente, enquanto uma versão diferente está disponível para compra.
@@ -116,20 +116,6 @@ Não verificamos a funcionalidade ou a qualidade reivindicada pelas seguintes fe
     <td>X</td>
     <td>X</td>
     <td>Avaliação</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgate Gerenciador do Azure</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>S</td>
     <td></td>
     <td>X</td>
     <td></td>

@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 08/27/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c347a5740a13d071d4bb06daf43463f974198e5d
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 2b33c35b1e4f83c30e2efdf64aed0b5f2035c79b
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980804"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032083"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Active Directory B2C (Azure AD) B2C emite vários tipos de tokens de segurança enquanto processa cada [fluxo de autenticação](active-directory-b2c-apps.md). Este documento descreve o formato, as características de segurança e o conteúdo de cada tipo de token.
+Azure Active Directory B2C (Azure AD B2C) emite vários tipos de tokens de segurança à medida que processa cada [fluxo de autenticação](active-directory-b2c-apps.md). Este documento descreve o formato, as características de segurança e o conteúdo de cada tipo de token.
 
 ## <a name="token-types"></a>Tipos de token
 
@@ -40,7 +40,7 @@ Um [aplicativo registrado](tutorial-register-applications.md) recebe tokens e se
 - `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize`
 - `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token`
 
-Os tokens de segurança que seu aplicativo recebe do Azure ad B2C podem `/authorize` vir `/token` dos pontos de extremidade ou. Quando os tokens de ID são `/authorize` adquiridos do ponto de extremidade, eles são feitos usando o [fluxo implícito](active-directory-b2c-reference-spa.md), que geralmente é usado para os usuários que se conectam a aplicativos Web baseados em JavaScript. Quando os tokens de ID são `/token` adquiridos do ponto de extremidade, eles são feitos usando o [fluxo de código confidencial](active-directory-b2c-reference-oidc.md), que mantém o token oculto do navegador.
+Os tokens de segurança que seu aplicativo recebe do Azure ad B2C podem `/authorize` vir `/token` dos pontos de extremidade ou. Quando os tokens de ID são `/authorize` adquiridos do ponto de extremidade, ele é feito usando o [fluxo implícito](active-directory-b2c-reference-spa.md), que geralmente é usado para usuários que entram em aplicativos Web baseados em JavaScript. Quando os tokens de ID são `/token` adquiridos do ponto de extremidade, ele é feito usando o [fluxo do código de autorização](active-directory-b2c-reference-oidc.md#get-a-token), o que mantém o token oculto do navegador.
 
 ## <a name="claims"></a>Afirmações
 
@@ -149,7 +149,7 @@ Quando seus aplicativos ou API recebem um token de ID, ele também deve executar
 
 Para obter uma lista completa de validações que seu aplicativo deve executar, consulte a [especificação do OpenID Connect](https://openid.net).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [usar tokens de acesso](active-directory-b2c-access-tokens.md).
 

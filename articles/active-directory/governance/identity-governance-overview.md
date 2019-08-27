@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/29/2019
+ms.date: 08/25/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f09a8c2f8caae3cbb182cf2dc4621deb95f7e5c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 014a2c3cff3804657e4e2bf624b97eceef4bf4b2
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499667"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033328"
 ---
-# <a name="what-is-azure-ad-identity-governance"></a>O que é Azure AD Identity Governance?
+# <a name="what-is-azure-ad-identity-governance"></a>O que é o Azure AD Identity Governance?
 
 A governança de identidade Azure Active Directory (Azure AD) permite equilibrar a necessidade da sua organização de segurança e produtividade dos funcionários com os processos e a visibilidade certos. Ele fornece recursos para garantir que os usuários certos tenham o acesso certo aos recursos certos, além de permitir que você proteja, monitore e audite o acesso a ativos críticos, garantindo, ao mesmo tempo, a produtividade dos funcionários.  
 
@@ -80,6 +80,8 @@ Embora não haja uma solução perfeita ou recomendação para cada cliente, as 
 Você também pode conferir a guia introdução do **controle de identidade** no portal do Azure para começar a usar o gerenciamento de direitos, revisões de acesso, Privileged Identity Management e termos de uso.
 
 ![Introdução à governança de identidade](./media/identity-governance-overview/getting-started.png)
+
+Se você tiver algum comentário sobre os recursos de governança de identidade, clique em **comentários obtidos?** no portal do Azure para enviar seus comentários. A equipe revisa seus comentários regularmente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

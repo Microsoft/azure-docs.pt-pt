@@ -1,44 +1,44 @@
 ---
-title: Exemplos de transformação de afirmações geral para a identidade experiência de estrutura de esquema do Azure Active Directory B2C | Documentos da Microsoft
-description: Exemplos de transformação de afirmações geral para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
+title: Exemplos de transformação de declarações gerais para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C
+description: Exemplos de transformação de declarações gerais para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 08/27/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a5f8068ea7e97343749c719d2d0800e20701079c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7cea33cb61f8f8d0fe305a757f11c80bc5da24ca
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510990"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032889"
 ---
-# <a name="general-claims-transformations"></a>Transformações de afirmações geral
+# <a name="general-claims-transformations"></a>Transformações de declarações gerais
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo fornece exemplos para a utilização de transformações de afirmações geral do esquema de arquitetura de experiências de identidade no Azure Active Directory (Azure AD) B2C. Para obter mais informações, consulte [ClaimsTransformations](claimstransformations.md).
+Este artigo fornece exemplos de como usar as transformações de declarações gerais do esquema de estrutura de experiência de identidade em Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, consulte [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="doesclaimexist"></a>DoesClaimExist
 
-Verifica se o **inputClaim** existe ou não e define **outputClaim** como verdadeira ou falsa em conformidade.
+Verifica se o **inputClaim** existe ou não e define **outputClaim** como verdadeiro ou falso de acordo.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |Qualquer | A afirmação de entrada cuja existência tem de ser verificado. |
-| OutputClaim | outputClaim | boolean | ClaimType produzido este ClaimsTransformation po vyvolání. |
+| InputClaim | inputClaim |Any | A declaração de entrada cuja existência precisa ser verificada. |
+| OutputClaim | outputClaim | boolean | O ClaimType que é produzido após esse ClaimsTransformation foi invocado. |
 
-Utilize que este afirmações de transformação para verificar se uma afirmação existe ou contém qualquer valor. O valor de retorno é um valor booleano que indica se a afirmação existe. Exemplo a seguir verifica se existe o endereço de e-mail.
+Use essa transformação de declarações para verificar se uma declaração existe ou contém qualquer valor. O valor de retorno é um booliano que indica se a declaração existe. O exemplo a seguir verifica se o endereço de email existe.
 
 ```XML
 <ClaimsTransformation Id="CheckIfEmailPresent" TransformationMethod="DoesClaimExist">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="inputClaim" />
-  </InputClaims>                    
+  </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isEmailPresent" TransformationClaimType="outputClaim" />
   </OutputClaims>
@@ -47,21 +47,21 @@ Utilize que este afirmações de transformação para verificar se uma afirmaç�
 
 ### <a name="example"></a>Exemplo
 
-- Afirmações de entrada:
-  - **inputClaim**: someone@contoso.com
-- Afirmações de saída: 
-    - **outputClaim**: true
+- Declarações de entrada:
+  - **inputClaim**:someone@contoso.com
+- Declarações de saída:
+  - **outputClaim**: true
 
 ## <a name="hash"></a>Hash
 
-O texto sem formatação fornecido com o salt e um segredo de hash.
+Hash do texto sem formatação fornecido usando o Salt e um segredo. O algoritmo de hash usado é SHA-256.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | texto sem formatação | string | A afirmação de entrada sejam encriptados |
-| InputClaim | Salt | string | O parâmetro de salt. Pode criar um aleatório de valor, usando `CreateRandomString` transformação de afirmações. |
-| InputParameter | randomizerSecret | string | Aponta para um existente do Azure AD B2C **chaves de política**. Para criar um novo: No seu inquilino do Azure AD B2C, selecione **definições do B2C > Framework de experiência de identidade**. Selecione **chaves de política** para exibir as chaves que estão disponíveis no seu inquilino. Selecione **Adicionar**. Para **opções**, selecione **Manual**. Forneça um nome (prefixo B2C_1A_ podem ser adicionados automaticamente.). Na caixa de segredo, introduza qualquer segredo que pretende utilizar, como 1234567890. Para utilização de chave, selecione **segredo**. Selecione **Criar**. |
-| OutputClaim | Hash | string | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. A afirmação configurada no `plaintext` inputClaim. |
+| InputClaim | comum | Cadeia de caracteres | A declaração de entrada a ser criptografada |
+| InputClaim | Salt | Cadeia de caracteres | O parâmetro Salt. Você pode criar um valor aleatório usando `CreateRandomString` a transformação declarações. |
+| InputParameter | randomizerSecret | Cadeia de caracteres | Aponta para uma chave de **política**de Azure ad B2C existente. Para criar uma nova chave de política: No locatário do Azure AD B2C, em **gerenciar**, selecione **estrutura de experiência de identidade**. Selecione **chaves de política** para exibir as chaves que estão disponíveis em seu locatário. Selecione **Adicionar**. Para **Opções**, selecione **manual**. Forneça um nome (o prefixo *B2C_1A_* pode ser adicionado automaticamente.). Na caixa de texto **segredo** , insira qualquer segredo que você queira usar, como 1234567890. Para **uso de chave**, selecione **assinatura**. Selecione **Criar**. |
+| OutputClaim | tralha | Cadeia de caracteres | O ClaimType que é produzido depois que essa transformação de declarações foi invocada. A declaração configurada `plaintext` no inputClaim. |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">
@@ -80,12 +80,9 @@ O texto sem formatação fornecido com o salt e um segredo de hash.
 
 ### <a name="example"></a>Exemplo
 
-- Afirmações de entrada:
-    - **texto sem formatação**: MyPass@word1
-    - **salt**: 487624568
-    - **randomizerSecret**: B2C_1A_AccountTransformSecret
-- Afirmações de saída: 
-    - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U=
-
-
-
+- Declarações de entrada:
+  - **texto sem formatação**:MyPass@word1
+  - **salt**: 487624568
+  - **randomizerSecret**: B2C_1A_AccountTransformSecret
+- Declarações de saída:
+  - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U=

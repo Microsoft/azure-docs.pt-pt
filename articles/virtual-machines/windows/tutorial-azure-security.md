@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3f45389cd4cef160f8778ea6ba6e530a970dac07
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: a601792198b6efb1b3c24e3a3270c3faf78f2635
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69908037"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036354"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutorial: Usar a central de segurança do Azure para monitorar máquinas virtuais do Windows
 
@@ -105,7 +105,7 @@ Em muitos casos, o Centro de Segurança fornece passos acionáveis que pode segu
 
 ## <a name="view-detected-threats"></a>Ver as ameaças detetadas
 
-Além das recomendações de configuração de recursos, o Centro de Segurança apresenta os alertas de deteção de ameaças. A funcionalidade de alertas de segurança agrega os dados recolhidos de cada VM, os registos de rede do Azure e as soluções de parceiros ligadas para detetar ameaças de segurança relativamente aos recursos do Azure. Para obter informações aprofundadas sobre as capacidades de deteção do Centro de Segurança, veja [Capacidades de deteção do Centro de Segurança do Azure](../../security-center/security-center-detection-capabilities.md).
+Além das recomendações de configuração de recursos, o Centro de Segurança apresenta os alertas de deteção de ameaças. A funcionalidade de alertas de segurança agrega os dados recolhidos de cada VM, os registos de rede do Azure e as soluções de parceiros ligadas para detetar ameaças de segurança relativamente aos recursos do Azure. Para obter informações detalhadas sobre os recursos de detecção de ameaças da central de segurança, consulte [como a central de segurança detecta ameaças?](../../security-center/security-center-alerts-overview.md#detect-threats).
 
 A funcionalidade de alertas de segurança requer que o escalão de preço do Centro de Segurança seja aumentado de *Gratuito* para *Standard*. Uma **avaliação gratuita** está disponível quando você passa para esse tipo de preço mais alto. 
 
@@ -124,7 +124,7 @@ Selecione um alerta para ver as informações. Por exemplo, pode ver uma descri�
 
 ![Ataque RDP](./media/tutorial-azure-security/rdp-attack.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, configurou o Centro de Segurança do Azure e, em seguida, reviu VMs no Centro de Segurança. Aprendeu a:
 
 > [!div class="checklist"]

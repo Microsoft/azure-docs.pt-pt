@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: d34040722ac8793fd4bbb02f2d3fa59247f8267c
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 9b4e7ce714d0a1f65e0a35b9c493e99200c668c6
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639639"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034853"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportar o log de atividades do Azure para o armazenamento ou hubs de eventos do Azure
 O [log de atividades do Azure](activity-logs-overview.md) fornece informações sobre eventos no nível da assinatura que ocorreram em sua assinatura do Azure. Além de exibir o log de atividades no portal do Azure ou copiá-lo para um espaço de trabalho Log Analytics onde ele pode ser analisado com outros dados coletados pelo Azure Monitor, você pode criar um perfil de log para arquivar o log de atividades em uma conta de armazenamento do Azure ou transmiti-lo para um  Hub de eventos.
@@ -55,7 +55,7 @@ O perfil de log define o seguinte.
 
 **Quais regiões (locais) devem ser exportadas.** Você deve incluir todos os locais, pois muitos eventos no log de atividades são eventos globais.
 
-**Por quanto tempo o log de atividades deve ser retido em uma conta de armazenamento.** A retenção de zero dias significa que os registos são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 2147483647.
+**Por quanto tempo o log de atividades deve ser retido em uma conta de armazenamento.** A retenção de zero dias significa que os registos são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 365.
 
 Se as políticas de retenção forem definidas, mas o armazenamento de logs em uma conta de armazenamento estiver desabilitado, as políticas de retenção não terão nenhum efeito. Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além de retenção de política são eliminadas. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento.
 
@@ -117,7 +117,7 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
     | StorageAccountId |Não |ID de recurso da conta de armazenamento em que o log de atividades deve ser salvo. |
     | serviceBusRuleId |Não |ID da regra do barramento de serviço para o namespace do barramento de serviço no qual você gostaria que os hubs de eventos fossem criados. Esta é uma cadeia de caracteres com o `{service bus resource ID}/authorizationrules/{key name}`formato:. |
     | Location |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do log de atividades. |
-    | RetentionInDays |Sim |Número de dias pelos quais os eventos devem ser retidos na conta de armazenamento, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente. |
+    | RetentionInDays |Sim |Número de dias pelos quais os eventos devem ser retidos na conta de armazenamento, entre 1 e 365. Um valor de zero armazena os logs indefinidamente. |
     | Category |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletadas. Os valores possíveis são _gravação_, _exclusão_e _ação_. |
 
 ### <a name="example-script"></a>Script de exemplo

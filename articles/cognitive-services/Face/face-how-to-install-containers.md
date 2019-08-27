@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 93a6d0a42d6d7f07dd8947ce9f8ae99a39d44475
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7ab921d889c48ccd8be469328e2690cb1cb2d8b2
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564134"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050024"
 ---
 # <a name="install-and-run-face-containers"></a>Instalar e executar contêineres de face
 
@@ -82,7 +82,7 @@ Depois que o contêiner estiver no [computador host](#the-host-computer), use o 
 
 Use o comando [Docker execute](https://docs.docker.com/engine/reference/commandline/run/) para executar qualquer um dos três contêineres. O comando usa os parâmetros a seguir.
 
-| Marcador de posição | Valor |
+| Marcador de posição | Value |
 |-------------|-------|
 |{API_KEY} | Essa chave é usada para iniciar o contêiner e está disponível na página de `Cognitive Services` **chaves** do Azure. |
 |{ENDPOINT_URI} | O valor do URI do ponto de extremidade de cobrança `Cognitive Services` está disponível na página **visão geral** do Azure. Um exemplo é `https://westus.api.cognitive.microsoft.com/face/v1.0`.|
@@ -118,7 +118,7 @@ Mais [exemplos](./face-resource-container-config.md#example-docker-run-commands)
 
 O contêiner fornece APIs de ponto de extremidade de previsão de consulta baseadas em REST. 
 
-Use o host, `https://localhost:5000`, para APIs de contêiner.
+Use o host, `http://localhost:5000`, para APIs de contêiner.
 
 
 <!--  ## Validate container is running -->

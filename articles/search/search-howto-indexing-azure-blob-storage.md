@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c72a60dfb19c71ee039e2fcdb278581e41117b93
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: ce268f03f53378544b8c329ee69a2bcb8dcc232d
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656659"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032126"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexação de documentos no armazenamento de BLOBs do Azure com Azure Search
 Este artigo mostra como usar Azure Search para indexar documentos (como, por exemplo, PDFs, Microsoft Office documentos e vários outros formatos comuns) armazenados no armazenamento de BLOBs do Azure. Primeiro, ele explica as noções básicas de configuração e configuração de um indexador de BLOB. Em seguida, ele oferece uma exploração mais profunda dos comportamentos e cenários que você provavelmente encontrará.
@@ -375,13 +375,13 @@ A tabela a seguir resume o processamento feito para cada formato de documento e 
 | XLS (application/vnd. MS-Excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Extrair texto, incluindo documentos inseridos |
 | PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extrair texto, incluindo documentos inseridos |
 | PPT (application/vnd. ms-PowerPoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extrair texto, incluindo documentos inseridos |
-| MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extrair texto, incluindo anexos |
+| MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extrair texto, incluindo anexos |
 | ZIP (aplicativo/zip) |`metadata_content_type` |Extrair texto de todos os documentos no arquivo |
-| XML (aplicativo/XML) |`metadata_content_type`</br>`metadata_content_encoding`</br> |Dividir marcação XML e extrair texto |
-| JSON (aplicativo/JSON) |`metadata_content_type`</br>`metadata_content_encoding` |Extrair texto<br/>NOTA: Se você precisar extrair vários campos de documento de um blob JSON, consulte [indexando BLOBs JSON](search-howto-index-json-blobs.md) para obter detalhes |
+| XML (aplicativo/XML) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> |Dividir marcação XML e extrair texto |
+| JSON (aplicativo/JSON) |`metadata_content_type`<br/>`metadata_content_encoding` |Extrair texto<br/>NOTA: Se você precisar extrair vários campos de documento de um blob JSON, consulte [indexando BLOBs JSON](search-howto-index-json-blobs.md) para obter detalhes |
 | EML (mensagem/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Extrair texto, incluindo anexos |
-| RTF (aplicativo/RTF) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Extrair texto|
-| Texto sem formatação (texto/simples) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Extrair texto|
+| RTF (aplicativo/RTF) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_page_count`<br/>`metadata_word_count`<br/> | Extrair texto|
+| Texto sem formatação (texto/simples) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | Extrair texto|
 
 
 ## <a name="help-us-make-azure-search-better"></a>Ajude-nos a tornar Azure Search melhor

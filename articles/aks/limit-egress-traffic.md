@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 369729f10de4a55cd14bb866795ea1aa15b3d9da
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 9476290669606f6eb6c56b51497f3026b9613698
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639790"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034950"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Visualização-limite o tráfego de saída para nós de cluster e controle o acesso a portas e serviços necessários no AKS (serviço kubernetes do Azure)
 
@@ -85,15 +85,13 @@ As seguintes regras de FQDN/aplicativo são necessárias:
 |----------------------------|-----------|----------|
 | *. HCP. \<local\>. azmk8s.Io | HTTPS:443, TCP:22, TCP:9000 | Esse endereço é o ponto de extremidade do servidor de API. *Substitua\<olocal\>* pela região onde o cluster AKs está implantado. |
 | *. Execute. \<local\>. azmk8s.Io | HTTPS:443, TCP:22, TCP:9000 | Esse endereço é o ponto de extremidade do servidor de API. *Substitua\<olocal\>* pela região onde o cluster AKs está implantado. |
-| aksrepos.azurecr.io        | HTTPS:443 | Esse endereço é necessário para acessar imagens no ACR (registro de contêiner do Azure). |
+| aksrepos.azurecr.io        | HTTPS:443 | Esse endereço é necessário para acessar imagens no ACR (registro de contêiner do Azure). Esse registro contém gráficos/imagens de terceiros (por exemplo, servidor de métricas, DNS principal, etc.) necessários para o funcionamento do cluster durante a atualização e a escala do cluster|
 | *.blob.core.windows.net    | HTTPS:443 | Esse endereço é o armazenamento de back-end para imagens armazenadas no ACR. |
-| mcr.microsoft.com          | HTTPS:443 | Esse endereço é necessário para acessar imagens no registro de contêiner da Microsoft (MCR). |
+| mcr.microsoft.com          | HTTPS:443 | Esse endereço é necessário para acessar imagens no registro de contêiner da Microsoft (MCR). Esse registro contém gráficos/imagens de terceiros (por exemplo, Moby, etc.) necessários para o funcionamento do cluster durante a atualização e a escala do cluster |
 | *.cdn.mscr.io              | HTTPS:443 | Esse endereço é necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
 | management.azure.com       | HTTPS:443 | Esse endereço é necessário para operações GET/PUT do kubernetes. |
 | login.microsoftonline.com  | HTTPS:443 | Esse endereço é necessário para Azure Active Directory autenticação. |
-| api.snapcraft.io           | HTTPS:443, HTTP:80 | Esse endereço é necessário para instalar pacotes snap em nós do Linux. |
 | ntp.ubuntu.com             | UDP:123   | Esse endereço é necessário para a sincronização de horário do NTP em nós do Linux. |
-| *. docker.io                | HTTPS:443 | Esse endereço é necessário para efetuar pull das imagens de contêiner necessárias para a frente do túnel. |
 
 ## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>Portas e endereços recomendados opcionais para clusters AKS
 
@@ -103,7 +101,7 @@ As seguintes regras de FQDN/aplicativo são recomendadas para que os clusters AK
 
 | FQDN                                    | Port      | Utilizar      |
 |-----------------------------------------|-----------|----------|
-| *.ubuntu.com                            | HTTP:80   | Esse endereço permite que os nós de cluster do Linux baixem as atualizações e os patches de segurança necessários. |
+| security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com                           | HTTP:80   | Esse endereço permite que os nós de cluster do Linux baixem as atualizações e os patches de segurança necessários. |
 | packages.microsoft.com                  | HTTPS:443 | Esse endereço é o repositório de pacotes da Microsoft usado para operações *apt-get* em cache. |
 | dc.services.visualstudio.com            | HTTPS:443 | Recomendado para métricas e monitoramentos corretos usando Azure Monitor. |
 | *.opinsights.azure.com                  | HTTPS:443 | Recomendado para métricas e monitoramentos corretos usando Azure Monitor. |
@@ -112,7 +110,7 @@ As seguintes regras de FQDN/aplicativo são recomendadas para que os clusters AK
 | apt.dockerproject.org                   | HTTPS:443 | Esse endereço é usado para a instalação e operação corretas do driver em nós baseados em GPU. |
 | nvidia.github.io                        | HTTPS:443 | Esse endereço é usado para a instalação e operação corretas do driver em nós baseados em GPU. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, você aprendeu quais portas e endereços permitir se você restringir o tráfego de saída para o cluster. Você também pode definir como o próprio pods pode se comunicar e quais restrições eles têm dentro do cluster. Para obter mais informações, consulte [proteger o tráfego entre pods usando as políticas de rede no AKs][network-policy].
 

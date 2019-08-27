@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62496aceb1454283449e952c0ed86623597e9e66
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 1431a46bf0981ee7ca3ecd06be9d7ebc35f05982
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011675"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032731"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planejar sua implementação de junção de Azure Active Directory híbrida
 
@@ -35,7 +35,7 @@ Se você tiver um ambiente de Active Directory local (AD) e desejar ingressar se
 Este artigo pressupõe que você esteja familiarizado com a [introdução ao gerenciamento de identidade do dispositivo no Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> Os níveis mínimos funcionais e funcionais de floresta necessários do domínio para o ingresso no Azure AD híbrido do Windows 10 é o Windows Server 2008 R2.
+> A versão mínima necessária do controlador de domínio para o ingresso no Azure AD híbrido do Windows 10 é o Windows Server 2008 R2.
 
 ## <a name="plan-your-implementation"></a>Planeie a sua implementação
 
@@ -152,7 +152,7 @@ A tabela a seguir fornece detalhes sobre o suporte para esses UPNs locais do AD 
 | Podem | Managed | Não suportado | |
 | Não roteável | Managed | Não suportado | |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Configurar junção de Azure Active Directory híbrida para federado ambiente](hybrid-azuread-join-federated-domains.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8aeb32ecddc0ef368b615a201179f17178ececad
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: abee645f8929c10856f662b1504b163b58d953a5
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817241"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036033"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho do aplicativo
 
@@ -111,7 +111,7 @@ Saiba mais sobre [iostat](https://linux.die.net/man/1/iostat) e [Perfmon](https:
 
 Os principais fatores que influenciam o desempenho de um aplicativo em execução no armazenamento Premium são a natureza das solicitações de e/s, tamanho da VM, tamanho do disco, número de discos, cache de disco, multithread e profundidade da fila. Você pode controlar alguns desses fatores com botões fornecidos pelo sistema. A maioria dos aplicativos pode não lhe dar a opção de alterar o tamanho da e/s e a profundidade da fila diretamente. Por exemplo, se você estiver usando SQL Server, não será possível escolher o tamanho da e/s e a profundidade da fila. SQL Server escolhe o tamanho ideal de e/s e os valores de profundidade da fila para obter o máximo de desempenho. É importante entender os efeitos de ambos os tipos de fatores no desempenho do aplicativo, para que você possa provisionar os recursos apropriados para atender às necessidades de desempenho.
 
-Ao longo desta seção, consulte a lista de verificação de requisitos do aplicativo que você criou, para identificar quanto você precisa para otimizar o desempenho do aplicativo. Com base nele, você poderá determinar quais fatores dessa seção precisará ajustar. Para testemunhar os efeitos de cada fator no desempenho do aplicativo, execute as ferramentas de benchmark na configuração do aplicativo. Consulte a seção de parâmetros de comparação no final deste artigo para obter as etapas para executar ferramentas comuns de benchmark em VMs Windows e Linux.
+Ao longo desta seção, consulte a lista de verificação de requisitos do aplicativo que você criou, para identificar quanto você precisa para otimizar o desempenho do aplicativo. Com base nele, você poderá determinar quais fatores dessa seção precisará ajustar. Para testemunhar os efeitos de cada fator no desempenho do aplicativo, execute as ferramentas de benchmark na configuração do aplicativo. Consulte o artigo de benchmarking, vinculado ao final, para obter as etapas para executar ferramentas comuns de benchmark em VMs Windows e Linux.
 
 ### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>Otimizar o IOPS, a taxa de transferência e a latência em um relance
 
@@ -166,7 +166,7 @@ Para obter IOPS e largura de banda maiores que o valor máximo de um único disc
 > [!NOTE]
 > À medida que você aumenta o IOPS ou a taxa de transferência, o outro também aumenta, certifique-se de não atingir os limites de taxa de transferência ou de IOPS do disco ou da VM ao aumentar um deles.
 
-Para testemunhar os efeitos do tamanho de e/s no desempenho do aplicativo, você pode executar ferramentas de benchmark em sua VM e discos. Crie várias execuções de teste e use o tamanho de e/s diferente para cada execução para ver o impacto. Consulte a seção de parâmetros de comparação no final deste artigo para obter mais detalhes.
+Para testemunhar os efeitos do tamanho de e/s no desempenho do aplicativo, você pode executar ferramentas de benchmark em sua VM e discos. Crie várias execuções de teste e use o tamanho de e/s diferente para cada execução para ver o impacto. Consulte o artigo de benchmarking, vinculado ao final, para obter mais detalhes.
 
 ## <a name="high-scale-vm-sizes"></a>Tamanhos de VM de alta escala
 
@@ -387,11 +387,3 @@ O armazenamento Premium do Azure provisiona o número especificado de IOPS e tax
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre os tipos de disco disponíveis:
-
-* [Selecionar um tipo de disco](../articles/virtual-machines/windows/disks-types.md)  
-
-Para SQL Server usuários, leia os artigos sobre práticas recomendadas de desempenho para SQL Server:
-
-* [Práticas recomendadas de desempenho para SQL Server em máquinas virtuais do Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [O armazenamento Premium do Azure fornece o melhor desempenho para SQL Server na VM do Azure](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

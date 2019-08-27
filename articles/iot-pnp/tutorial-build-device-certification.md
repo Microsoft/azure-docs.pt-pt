@@ -1,5 +1,5 @@
 ---
-title: Criar um dispositivo de visualização de Plug and Play do Azure IoT pronto para certificação | Microsoft Docs
+title: Criar um dispositivo de visualização de Plug and Play IoT pronto para certificação | Microsoft Docs
 description: Como desenvolvedor de dispositivos, saiba como você pode criar um dispositivo de visualização de IoT Plug and Play que está pronto para a certificação.
 author: tbhagwat3
 ms.author: tanmayb
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: bfa611eba8e7a990626fbace8b930962615e0594
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 151f6609375063a68a848f4c799af0b459124f23
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878097"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047901"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Criar um dispositivo de visualização de Plug and Play IoT pronto para certificação
 
@@ -124,7 +124,7 @@ Para certificar o dispositivo, ele deve habilitar o provisionamento por meio do 
 
 #### <a name="implement-the-model-information-and-sdk-information-interfaces"></a>Implementar as informações do modelo e as interfaces de informações do SDK
 
-O SDK do dispositivo IoT do Azure implementa as informações do modelo e as interfaces de informações do SDK. Se você usar a função de geração de código no VS Code, o código do dispositivo usará o SDK do dispositivo do Azure IoT Plug and Play.
+O SDK do dispositivo IoT do Azure implementa as informações do modelo e as interfaces de informações do SDK. Se você usar a função de geração de código no VS Code, o código do dispositivo usará o SDK do dispositivo do IoT Plug and Play.
 
 Se você optar por não usar o SDK do dispositivo IoT do Azure, poderá usar o código-fonte do SDK como referência para sua própria implementação.
 

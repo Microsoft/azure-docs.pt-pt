@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 114e0d8e935aa8e6ac3f70a34a8050b19758fb42
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 69cd6031111c72d54cb87975c2040078a9965821
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624563"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035556"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou assinatura
 
@@ -35,8 +35,6 @@ Há algumas etapas importantes a serem adotadas antes de mover um recurso. Ao co
    * [Diretrizes de movimentação de rede](./move-limitations/networking-move-limitations.md)
    * [Diretrizes de movimentação dos serviços de recuperação](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Diretrizes de movimentação de máquinas virtuais](./move-limitations/virtual-machines-move-limitations.md)
-
-   Se o grupo de recursos de destino contiver uma rede virtual, o estado de seus recursos dependentes poderá bloquear a movimentação, mesmo quando esses recursos não estiverem envolvidos na movimentação. Para obter mais informações, consulte [diretrizes de movimentação de rede](./move-limitations/virtual-network-move-limitations.md).
 
 1. As assinaturas de origem e de destino devem estar ativas. Se você tiver problemas para habilitar uma conta que foi desabilitada, [crie uma solicitação de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md). Selecione **gestão de subscrições** para o tipo de problema.
 
@@ -236,6 +234,6 @@ No corpo do pedido, especifique o grupo de recursos de destino e os recursos par
 
 Se você receber um erro, consulte [solucionar problemas de movimentação de recursos do Azure para novo grupo de recursos ou assinatura](troubleshoot-move.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter uma lista dos recursos que dão suporte à movimentação, consulte [mover suporte de operação para recursos](move-support-resources.md).

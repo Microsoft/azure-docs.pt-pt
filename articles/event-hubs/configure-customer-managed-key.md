@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 794f8f136521acbb51139b9e781a30c71a1560e6
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 311f69ffa436eebb261fb8aa5ee72886ad9fe9d0
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992760"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035899"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados de hubs de eventos do Azure em repouso usando o portal do Azure
 Os hubs de eventos do Azure fornecem criptografia de dados em repouso com o Criptografia do Serviço de Armazenamento do Azure (Azure SSE). Os hubs de eventos dependem do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. 
@@ -170,7 +170,7 @@ Veja a seguir os códigos de erros comuns a serem procurados quando a criptograf
 > Para habilitar o geo-DR em um namespace que está usando a criptografia BYOK, o namespace secundário para emparelhamento deve estar em um cluster dedicado e deve ter uma identidade gerenciada atribuída ao sistema habilitada nele. Para saber mais, confira [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!NOTE]
-> Para namespaces de hubs de eventos criptografados BYOK, os pontos de extremidade de serviço de rede virtual (VNet) não têm suporte na versão de visualização. 
+> Se os pontos de extremidade de serviço de rede virtual (VNet) estiverem configurados em Azure Key Vault para seu namespace de hubs de eventos, não haverá suporte para BYOK. 
 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -3,21 +3,22 @@ title: 'Início rápido do Java: Criar, carregar e consultar índices em Java'
 description: Explica como criar um índice, carregar dados e executar consultas usando Java e as APIs REST do Azure Search.
 author: lisaleib
 manager: cgronlun
-ms.author: v-lilei
+ms.author: jjed
 tags: azure-portal
 services: search
 ms.service: search
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/11/2019
-ms.openlocfilehash: b7e5986ad156fe09dc3caa07d952abf85896c5ba
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: eff5674f2675d7764a068f72f7d7aa35660b62e4
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019205"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047675"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-java"></a>Início rápido: Criar um índice de Azure Search em Java
+# <a name="quickstart-create-load-and-query-indexes-using-azure-search-rest-apis-with-java"></a>Início rápido: Criar, carregar e consultar índices usando Azure Search APIs REST com Java
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -826,7 +827,7 @@ Você pode encontrar e gerenciar recursos no portal, usando o link **todos os re
 
 Se você estiver usando um serviço gratuito, lembre-se de que você está limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido do Java, você trabalhou em uma série de tarefas para criar um índice, carregá-lo com documentos e executar consultas. Se você estiver familiarizado com os conceitos básicos, recomendamos os seguintes artigos para um aprendizado mais profundo.
 

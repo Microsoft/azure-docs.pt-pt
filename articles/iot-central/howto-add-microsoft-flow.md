@@ -4,16 +4,16 @@ description: Use o conector de IoT Central no Microsoft Flow para disparar fluxo
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 04/25/2019
+ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 5f5353d0d85d6af4e74c48c80c790449852b43ef
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: a972ab52f64a37ac6876194202324b4380460817
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876293"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050575"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Crie fluxos de trabalho com o conector de IoT Central no Microsoft Flow
 
@@ -173,7 +173,7 @@ Se você estiver tendo problemas para criar uma conexão com o conector de IoT C
     New-AzureADServicePrincipal -AppId 9edfcdd9-0bc5-4bd4-b287-c3afc716aac7 -DisplayName "Azure IoT Central"
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você aprendeu a usar Microsoft Flow para criar fluxos de trabalho, a próxima etapa sugerida é [gerenciar dispositivos](howto-manage-devices.md).
 

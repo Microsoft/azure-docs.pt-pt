@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 428c470eb633c7727f65c5a9a3afa76bce50b177
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: f0cbb8d19d2a7d60fdfd3c10a8c9914ffa79e0a3
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647252"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034910"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Linux para o serviço Azure App
 
@@ -402,7 +402,7 @@ Por fim, coloque os JARs do driver no classpath do Tomcat e reinicie o serviço 
 
     Como alternativa, você pode usar um cliente FTP para carregar o driver JDBC. Siga estas [instruções para obter suas credenciais de FTP](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
-2. Se você criou uma fonte de dados no nível do servidor, reinicie o aplicativo Linux do serviço de aplicativo. O Tomcat será `CATALINA_HOME` redefinido para `/home/tomcat/conf` e usará a configuração atualizada.
+2. Se você criou uma fonte de dados no nível do servidor, reinicie o aplicativo Linux do serviço de aplicativo. O Tomcat será `CATALINA_BASE` redefinido para `/home/tomcat` e usará a configuração atualizada.
 
 ### <a name="spring-boot"></a>Spring Boot
 

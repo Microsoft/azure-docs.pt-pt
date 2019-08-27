@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 059a614dff7fc0eab5419e3e2ffdeaeecb79ad99
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 5169fe5eef416812c399b421f59305f6cb1e7b62
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981374"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035790"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutorial: Adicionar uma instância gerenciada do banco de dados SQL a um grupo de failover
 
@@ -29,7 +29,9 @@ Adicione uma instância gerenciada do banco de dados SQL a um grupo de failover.
 > - Ativação pós-falha de teste
 
   > [!NOTE]
-  > A criação de uma instância gerenciada pode levar uma quantidade significativa de tempo. Como resultado, este tutorial pode levar várias horas para ser concluído. Para obter mais informações sobre os tempos de provisionamento, consulte [operações gerenciadas de gerenciamento de instância](sql-database-managed-instance.md#managed-instance-management-operations). O uso de grupos de failover com instâncias gerenciadas está atualmente em visualização. 
+  > - Ao percorrer este tutorial, verifique se você está configurando seus recursos com os [pré-requisitos para configurar grupos de failover para instância gerenciada](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
+  > - A criação de uma instância gerenciada pode levar uma quantidade significativa de tempo. Como resultado, este tutorial pode levar várias horas para ser concluído. Para obter mais informações sobre os tempos de provisionamento, consulte [operações gerenciadas de gerenciamento de instância](sql-database-managed-instance.md#managed-instance-management-operations). 
+  > - O uso de grupos de failover com instâncias gerenciadas está atualmente em visualização. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -96,7 +98,7 @@ Sua segunda instância gerenciada deve:
 
 Para criar sua instância gerenciada secundária, siga estas etapas: 
 
-1. Na [portal do Azure](http://portal.azure.com), selecione **criar um recurso** e pesquise *instância gerenciada do Azure SQL*. 
+1. Na [portal do Azure](https://portal.azure.com), selecione **criar um recurso** e pesquise *instância gerenciada do Azure SQL*. 
 1. Selecione a opção de **instância gerenciada do SQL do Azure** publicada pela Microsoft e, em seguida, selecione **criar** na próxima página.
 1. Na guia **noções básicas** da página **criar instância gerenciada do banco de dados SQL do Azure** , preencha os campos obrigatórios para configurar sua instância gerenciada secundária. 
 

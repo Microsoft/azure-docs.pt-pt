@@ -69,15 +69,9 @@
         - name: Configurar contentores
           href: text-analytics-resource-container-config.md
         - name: Utilizar instâncias de contentor
-          items:
-            - name: Análise de sentimentos
-              href: how-tos/deploy-sentiment-analysis-on-container-instances.md
+          href: how-tos/text-analytics-how-to-use-container-instances.md
         - name: Utilizar o serviço do Kubernetes (AKS)
-          items:
-            - name: Deteção de idioma
-              href: how-tos/use-language-detection-on-aks.md
-            - name: Análise de sentimentos
-              href: how-tos/use-sentiment-analysis-on-aks.md
+          href: how-tos/text-analytics-how-to-use-kubernetes-service.md
     - name: Utilizar o Serviço Ligado de Análise de Texto
       href: vs-text-connected-service.md
 - name: Referência

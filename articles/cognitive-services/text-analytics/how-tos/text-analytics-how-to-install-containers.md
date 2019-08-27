@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: dapine
-ms.openlocfilehash: ff0be2e9dada758cce96ba7c5eebbf03b00f56c6
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 8664d0f727c47da1b70b8060f879a49fbbd8c7c5
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971452"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051266"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contêineres de Análise de Texto
 
@@ -32,7 +32,7 @@ Para executar qualquer um dos contêineres de Análise de Texto, você deve ter 
 
 Tem de cumprir os seguintes pré-requisitos antes de utilizar contentores de análise de texto:
 
-|Obrigatória|Objetivo|
+|Requerido|Objetivo|
 |--|--|
 |Mecanismo do Docker| Você precisa do mecanismo do Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/)e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | Você deve ter uma compreensão básica dos conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como o conhecimento de comandos `docker` básicos.| 
@@ -48,54 +48,38 @@ Tem de cumprir os seguintes pré-requisitos antes de utilizar contentores de an�
 
 A tabela seguinte descreve os núcleos de CPU mínimos e recomendados, pelo menos 2,6 GHz (gigahertz) ou mais rápida e memória, em gigabytes (GB), ao alocar para cada contentor de análise de texto.
 
-| Contentor | Mínimo | Recomendado | TPS<br>(Mínimo, máximo)|
-|-----------|---------|-------------|--|
-|Extração de Expressões-Chave | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
-|Deteção de Idioma | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
-|Análise de Sentimentos | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
+#### <a name="key-phrase-extractiontabkeyphrase"></a>[Extração de expressões-chave](#tab/keyphrase)
+
+[!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
+
+#### <a name="language-detectiontablanguage"></a>[Deteção de idioma](#tab/language)
+
+[!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
+
+#### <a name="sentiment-analysistabsentiment"></a>[Análise de sentimentos](#tab/sentiment)
+
+[!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
+
+***
 
 * Cada núcleo deve ter pelo menos 2,6 gigahertz (GHz) ou mais rápido.
 * TPS-transações por segundo
 
 O núcleo e a `--cpus` memória correspondem às configurações e `--memory` , que são `docker run` usadas como parte do comando.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contêiner com`docker pull`
+#### <a name="key-phrase-extractiontabkeyphrase"></a>[Extração de expressões-chave](#tab/keyphrase)
 
-Imagens de contentor para análise de texto estão disponíveis a partir do registo de contentor do Microsoft.
+[!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-| Contentor | Repositório |
-|-----------|------------|
-|Extração de Expressões-Chave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-|Deteção de Idioma | `mcr.microsoft.com/azure-cognitive-services/language` |
-|Análise de Sentimentos| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+#### <a name="language-detectiontablanguage"></a>[Deteção de idioma](#tab/language)
 
-Use o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para baixar uma imagem de contêiner do registro de contêiner da Microsoft.
+[!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-Para obter uma descrição completa de etiquetas disponíveis para os contentores de análise de texto, consulte os seguintes contentores sobre o Docker Hub:
+#### <a name="sentiment-analysistabsentiment"></a>[Análise de sentimentos](#tab/sentiment)
 
-* [Extração de expressões-chave](https://go.microsoft.com/fwlink/?linkid=2018757)
-* [Deteção de idioma](https://go.microsoft.com/fwlink/?linkid=2018759)
-* [Análise de sentimentos](https://go.microsoft.com/fwlink/?linkid=2018654)
+[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
-Use o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para baixar uma imagem de contêiner.
-
-### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Pull do Docker para o contêiner de extração de frases-chave
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
-```
-
-### <a name="docker-pull-for-the-language-detection-container"></a>Pull do Docker para o contêiner de detecção de idioma
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
-```
-
-### <a name="docker-pull-for-the-sentiment-container"></a>Pull do Docker para o contêiner de sentimentos
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
-```
+***
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -112,23 +96,19 @@ Use o comando [Docker execute](https://docs.docker.com/engine/reference/commandl
 
 [Exemplos](../text-analytics-resource-container-config.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
 
-### <a name="run-container-example-of-docker-run-command"></a>Exemplo de execução de contêiner do comando de execução do Docker
+#### <a name="key-phrase-extractiontabkeyphrase"></a>[Extração de expressões-chave](#tab/keyphrase)
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/keyphrase \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
+[!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-Este comando:
+#### <a name="language-detectiontablanguage"></a>[Deteção de idioma](#tab/language)
 
-* Executa um contêiner de frase-chave da imagem de contêiner
-* Aloca um núcleo de CPU e 4 gigabytes (GB) de memória
-* Expõe a porta TCP 5000 e aloca um TTY pseudo para o contentor
-* Remove automaticamente o contêiner depois que ele é encerrado. A imagem de contêiner ainda está disponível no computador host.
+[!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
+#### <a name="sentiment-analysistabsentiment"></a>[Análise de sentimentos](#tab/sentiment)
+
+[!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
+
+***
 
 > [!IMPORTANT]
 > O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](#billing).

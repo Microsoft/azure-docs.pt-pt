@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: c41ab1c3309243fa3a96d907f620ffeff10376a1
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 6ad7f32704d8cb73999a6e3cf60cb2a238268242
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69626265"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034554"
 ---
 # <a name="move-guidance-for-networking-resources"></a>Mover diretrizes para recursos de rede
 
@@ -22,10 +22,6 @@ Este artigo descreve como mover redes virtuais e outros recursos de rede para ce
 Ao mover uma rede virtual, também tem de mover os recursos dependentes. Para Gateways de VPN, tem de mover os endereços IP, gateways de rede virtual e todos os recursos de ligação associada. Gateways de rede local podem estar num grupo de recursos diferente.
 
 Para mover uma máquina virtual com uma placa de interface de rede, você deve mover todos os recursos dependentes. Mova a rede virtual para a placa de interface de rede, todas as outras placas de interface de rede para a rede virtual e os gateways de VPN.
-
-## <a name="state-of-dependent-resources"></a>Estado dos recursos dependentes
-
-Se o grupo de recursos de origem ou de destino contiver uma rede virtual, os Estados de todos os recursos dependentes da rede virtual serão verificados durante a movimentação. Se qualquer um desses recursos estiver em um estado de falha, a movimentação será bloqueada. Por exemplo, se uma máquina virtual que usa a rede virtual falhou, a movimentação será bloqueada. A movimentação é bloqueada mesmo quando a máquina virtual não é um dos recursos que estão sendo movidos e não está em um dos grupos de recursos para a movimentação. Para evitar esse problema, mova seus recursos para um grupo de recursos que não tem uma rede virtual.
 
 ## <a name="peered-virtual-network"></a>Rede virtual emparelhada
 

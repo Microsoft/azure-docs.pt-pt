@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: fd1be6e2354a87bfb0de87b85fe46a1feb42100c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 56a73449c69010bc97122023f7dcbc9e3a9df154
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878258"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70048000"
 ---
-# <a name="what-is-azure-iot-plug-and-play-preview"></a>O que é a versão prévia do Azure IoT Plug and Play?
+# <a name="what-is-iot-plug-and-play-preview"></a>O que é o IoT Plug and Play Preview?
 
 A visualização da IoT Plug and Play permite que os desenvolvedores de soluções integrem dispositivos a suas soluções sem escrever nenhum código embutido. No núcleo do Plug and Play IoT está um esquema de _modelo de capacidade de dispositivo_ que descreve os recursos do dispositivo. Esse esquema é um documento JSON estruturado como um conjunto de interfaces que incluem definições de:
 

@@ -1,6 +1,6 @@
 ---
-title: Configurar notificações de manutenção para suas VMs do Windows no Azure | Microsoft Docs
-description: Saiba como configurar notificações de manutenção agendada para suas máquinas virtuais do Azure.
+title: Monitorar eventos agendados para suas VMs do Windows no Azure | Microsoft Docs
+description: Saiba como monitorar suas máquinas virtuais do Azure para eventos agendados.
 services: virtual-machines-windows
 documentationcenter: ''
 author: mysarn
@@ -10,14 +10,14 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: 18b46b848946bb2450604bdf0650a004e21778d9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 49c82339e5a3774cd286d700d709371d46cf0571
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657414"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051851"
 ---
-# <a name="set-up-notifications-about-maintenance-affecting-your-vm"></a>Configurar notificações sobre a manutenção que afeta sua VM
+# <a name="monitoring-scheduled-events"></a>Eventos Agendados de monitoramento
 
 As atualizações são aplicadas a diferentes partes do Azure todos os dias, para manter os serviços em execução neles seguros e atualizados. Além das atualizações planejadas, eventos não planejados também podem ocorrer. Por exemplo, se alguma degradação ou falha de hardware for detectada, os serviços do Azure talvez precisem executar a manutenção não planejada. Usando a migração dinâmica, preservando as atualizações de memória e geralmente mantendo uma barra estrita sobre o impacto das atualizações, na maioria dos casos esses eventos são quase transparentes para os clientes e não têm impacto ou, no máximo, causam alguns segundos de congelamento da máquina virtual. No entanto, para alguns aplicativos, até alguns segundos de congelamento da máquina virtual podem causar um impacto. Saber com antecedência sobre a futura manutenção do Azure é importante, para garantir a melhor experiência para esses aplicativos. [Eventos agendados serviço](scheduled-events.md) fornece uma interface programática para ser notificada sobre a manutenção futura e permite que você manipule a manutenção normalmente. 
 

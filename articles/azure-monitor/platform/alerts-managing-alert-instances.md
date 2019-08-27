@@ -1,6 +1,6 @@
 ---
 title: Gerir instâncias de alertas
-description: Gestão das instâncias do alerta em todo o Azure
+description: Gerenciando instâncias de alerta no Azure
 author: anantr
 services: monitoring
 ms.service: azure-monitor
@@ -8,39 +8,42 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: cb93f38c05156d7ab5acb89ffff810949583e507
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dbc7d37ce311d203ee051b5a23632d2bf401e27a
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551877"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034832"
 ---
 # <a name="manage-alert-instances"></a>Gerir instâncias de alertas
-Com o [experiência de alertas unificada](https://aka.ms/azure-alerts-overview) no Azure Monitor, agora, pode ver todos os diferentes tipos de alertas no Azure, que abrange várias subscrições, num único painel de vidro. Este artigo explica-lhe como pode ver as instâncias de alerta e como aprofundada sobre o portal para encontrar instâncias específicas de alerta de resolução de problemas.
+Com a [experiência de alertas](https://aka.ms/azure-alerts-overview) unificados no Azure monitor, agora você pode ver todos os seus diferentes tipos de alertas no Azure, abrangendo várias assinaturas, em um único painel de vidro. Este artigo explica como você pode exibir suas instâncias de alerta e como aprofundar-se no portal para encontrar instâncias de alerta específicas para solução de problemas.
 
-1. Existem três formas de direcionado para a página de alertas
+> [!NOTE]
+   >  Somente os alertas gerados nos últimos 30 dias podem ser acessados na UX ou por meio das APIs REST.
 
-   + Na [portal](https://portal.azure.com/), selecione **Monitor** e, na secção Monitor - escolher **alertas**.  
+1. Há três maneiras de chegar à página de alertas
+
+   + No [portal](https://portal.azure.com/), selecione **Monitor** e, na seção monitor, escolha **alertas**.  
      ![Monitorização](media/alerts-managing-alert-instances/monitoring-alerts-managing-alert-instances-toc.jpg)
   
-   + Pode navegar para alertas a partir de dentro do contexto de um específico **recursos**. Depois de um recurso for aberto, navegue por meio de sua tabela de conteúdos para a secção de monitorização e escolha **alertas**, com a página de aterrissagem previamente a ser filtrada para alertas nesse recurso específico.
+   + Você pode navegar até alertas de dentro do contexto de um **recurso**específico. Quando um recurso for aberto, navegue pelo seu Sumário para a seção monitoramento e escolha **alertas**, com a página de aterrissagem filtrada previamente para alertas nesse recurso específico.
    
      ![Monitorização](media/alerts-managing-alert-instances/alert-resource.JPG)
     
-   + Pode navegar para alertas a partir de dentro do contexto de um específico **grupo de recursos**. Depois de um grupo de recursos é aberto, navegue por meio de sua tabela de conteúdos para a secção de monitorização e escolha **alertas**, com a página de destino que está a ser previamente filtrada para os alertas no grupo de recursos específico.    
+   + Você pode navegar até alertas de dentro do contexto de um **grupo de recursos**específico. Depois que um grupo de recursos for aberto, navegue pelo seu Sumário para a seção monitoramento e escolha **alertas**, com a página de aterrissagem filtrada previamente para alertas nesse grupo de recursos específico.    
    
      ![Monitorização](media/alerts-managing-alert-instances/alert-rg.JPG)
 
-1. Será direcionado para o **resumo de alertas** página, o que lhe dá uma visão geral de todas as instâncias de alerta em todo o Azure. Pode modificar a vista de resumo, selecionando **várias subscrições** (um máximo de 5) ou ao filtrar em **grupos de recursos**específico **recursos**, ou **intervalos de tempo**. Clique no Total de alertas ou qualquer uma das bandas de gravidade para ir para a vista de lista para os alertas.     
+1. Você chegará à página de **Resumo de alertas** , que fornece uma visão geral de todas as suas instâncias de alerta no Azure. Você pode modificar o modo de exibição de resumo selecionando **várias assinaturas** (no máximo 5) ou filtrando entre **grupos de recursos**, **recursos**específicos ou **intervalos de tempo**. Clique em um total de alertas ou em qualquer uma das faixas de severidade para ir para a exibição de lista para seus alertas.     
    ![Resumo de alertas](media/alerts-managing-alert-instances/alerts-summary.jpg)
  
-1. Será direcionado para o **todos os alertas** página, onde poderá ver todas as instâncias de alerta em todo o Azure listado. Se estiver vindo para o portal de uma notificação de alerta, pode utilizar os filtros disponíveis para restringir essa instância de alerta específica. (**Nota**: se veio até a página clicando em qualquer uma das bandas de gravidade, a lista será previamente filtrada para esse gravidade quando é apresentado). Para além dos filtros disponíveis na página anterior, agora também pode filtrar com base no monitor de serviço (por exemplo, a plataforma para métricas), condição do monitor (disparado ou resolvidos), gravidade, estado de alerta (novo/confirmados/fechado) ou o ID do grupo inteligente.
+1. Você vai para a página **todos os alertas** , em que verá todas as instâncias de alerta no Azure listadas. Se você estiver entrando no portal de uma notificação de alerta, poderá usar os filtros disponíveis para restringir essa instância de alerta específica. (**Observação**: se você chegou à página clicando em qualquer uma das faixas de severidade, a lista será previamente filtrada para essa gravidade quando você chegar). Além dos filtros disponíveis na página anterior, agora você também pode filtrar a base do serviço monitor (por exemplo, plataforma para métricas), condição do monitor (disparado ou resolvido), severidade, estado do alerta (novo/confirmado/fechado) ou a ID do grupo inteligente.
 
-   ![Todos os alertas](media/alerts-managing-alert-instances/all-alerts.jpg)
+   ![Todos os Alertas](media/alerts-managing-alert-instances/all-alerts.jpg)
 
    > [!NOTE]
-   >  Se veio para a página clicando em qualquer uma das bandas de gravidade, a lista será previamente filtrada para esse gravidade, quando é apresentado nesta página.
+   >  Se você vier à página clicando em qualquer uma das faixas de severidade, a lista será previamente filtrada para essa gravidade quando você chegar nessa página.
  
-1. Clicar em qualquer instância de alerta abre o **detalhes do alerta** página, permitindo que aprofundadas para obter informações sobre essa instância de alerta específica.   
+1. Clicar em qualquer instância de alerta abre a página **detalhes do alerta** , permitindo que você Aprofunde-se nas informações sobre essa instância de alerta específica.   
    ![Detalhes do alerta](media/alerts-managing-alert-instances/alert-details.jpg)  
 

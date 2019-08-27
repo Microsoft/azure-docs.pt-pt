@@ -1,6 +1,6 @@
 ---
-title: Criar vistas para analisar dados de registo no Azure Monitor | Documentos da Microsoft
-description: Ao utilizar o estruturador de vistas no Azure Monitor, pode criar vistas personalizadas que são apresentadas no portal do Azure e contêm uma variedade de visualizações nos dados na área de trabalho do Log Analytics. Este artigo contém uma descrição geral do estruturador de vistas e apresenta os procedimentos para criação e edição de exibições personalizadas.
+title: Criar exibições para analisar dados de log em Azure Monitor | Microsoft Docs
+description: Usando o designer de exibição no Azure Monitor, você pode criar exibições personalizadas que são exibidas na portal do Azure e conter uma variedade de visualizações nos dados no espaço de trabalho Log Analytics. Este artigo contém uma visão geral do designer de exibição e apresenta procedimentos para criar e editar exibições personalizadas.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,103 +13,103 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33930823fbeb42011d8e2a368d17c9a21070a243
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61342137"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035603"
 ---
-# <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Criar vistas personalizadas com o estruturador de vistas no Azure Monitor
-Ao utilizar o estruturador de vistas no Azure Monitor, pode criar diversas exibições personalizadas no portal do Azure pode ajudá-lo a visualizar os dados na sua área de trabalho do Log Analytics. Este artigo apresenta uma visão geral do estruturador de vistas e procedimentos para criação e edição de exibições personalizadas.
+# <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Criar exibições personalizadas usando o designer de exibição no Azure Monitor
+Usando o designer de exibição no Azure Monitor, você pode criar uma variedade de exibições personalizadas na portal do Azure que podem ajudá-lo a Visualizar dados em seu espaço de trabalho do Log Analytics. Este artigo apresenta uma visão geral do designer de exibição e dos procedimentos para criar e editar exibições personalizadas.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Para obter mais informações sobre o estruturador de vistas, consulte:
+Para obter mais informações sobre o designer de exibição, consulte:
 
-* [Referência de mosaico](view-designer-tiles.md): Fornece um guia de referência para as definições para cada um dos mosaicos disponíveis nas suas vistas personalizadas.
-* [Referência de parte da visualização](view-designer-parts.md): Fornece um guia de referência para as definições para as partes de visualização que estão disponíveis em suas vistas personalizadas.
+* [Referência de bloco](view-designer-tiles.md): Fornece um guia de referência para as configurações de cada um dos blocos disponíveis em suas exibições personalizadas.
+* [Referência da parte de visualização](view-designer-parts.md): Fornece um guia de referência para as configurações para as partes de visualização que estão disponíveis em suas exibições personalizadas.
 
 
 ## <a name="concepts"></a>Conceitos
-Modos de exibição são apresentados no Azure Monitor **descrição geral** página no portal do Azure. Abra a página do **do Azure Monitor** menu clicando **mais** sob o **Insights** secção. Os mosaicos em cada modo de exibição personalizado são apresentados por ordem alfabética e os mosaicos para as soluções de monitorização são instalados a mesma área de trabalho.
+As exibições são exibidas na página de **visão geral** Azure Monitor no portal do Azure. Abra essa página no menu **Azure monitor** clicando em **mais** na seção insights. Os blocos em cada exibição personalizada são exibidos em ordem alfabética e os blocos para as soluções de monitoramento são instalados no mesmo espaço de trabalho.
 
-![Página de descrição geral](media/view-designer/overview-page.png)
+![Página de visão geral](media/view-designer/overview-page.png)
 
-As vistas que criar com o estruturador de vistas contêm os elementos que são descritos na tabela a seguir:
+As exibições criadas com o designer de exibição contêm os elementos descritos na tabela a seguir:
 
 | Parte | Descrição |
 |:--- |:--- |
-| Mosaicos | São apresentados no seu Azure Monitor **descrição geral** página. Cada mosaico mostra um resumo visual do modo de exibição personalizado, que ele representa. Cada tipo de mosaico fornece uma visualização diferente de seus registros. Selecionar um mosaico para apresentar uma vista personalizada. |
-| Vista personalizada | Apresentado quando seleciona um mosaico. Cada vista contém um ou mais partes de visualização. |
-| Partes de visualização | Apresentar uma visualização de dados na área de trabalho do Log Analytics com base num ou vários [registar as consultas](../log-query/log-query-overview.md). A maioria das partes incluem um cabeçalho, que fornece uma visualização de alto nível, e uma lista, que apresenta os principais resultados. Cada tipo de parte fornece uma visualização diferente dos registos na área de trabalho do Log Analytics. Selecionar elementos na parte ao executar uma consulta de registo que fornece registos detalhados. |
+| Mosaicos | São exibidos na sua página de **visão geral** do Azure monitor. Cada bloco exibe um resumo Visual da exibição personalizada que ele representa. Cada tipo de peça fornece uma visualização diferente de seus registros. Selecione um bloco para exibir uma exibição personalizada. |
+| Exibição personalizada | Exibido quando você seleciona um bloco. Cada exibição contém uma ou mais partes de visualização. |
+| Partes de visualização | Apresente uma visualização dos dados no espaço de trabalho Log Analytics com base em uma ou mais [consultas de log](../log-query/log-query-overview.md). A maioria das partes inclui um cabeçalho, que fornece uma visualização de alto nível e uma lista, que exibe os resultados principais. Cada tipo de parte fornece uma visualização diferente dos registros no espaço de trabalho Log Analytics. Você seleciona elementos na parte para executar uma consulta de log que fornece registros detalhados. |
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
-Exigir pelo menos [permissões ao nível do Contribuidor](manage-access.md#manage-accounts-and-users) na área de trabalho do Log Analytics para criar ou modificar vistas. Se não tiver esta permissão, a opção de exibir Designer não ser apresentada no menu.
+Você precisa de pelo menos [permissões de nível de colaborador](manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho log Analytics para criar ou modificar modos de exibição. Se você não tiver essa permissão, a opção designer de exibição não será exibida no menu.
 
 
-## <a name="work-with-an-existing-view"></a>Trabalhar com uma vista existente
-Vistas que foram criadas com o estruturador de vistas apresentam as seguintes opções:
+## <a name="work-with-an-existing-view"></a>Trabalhar com uma exibição existente
+As exibições criadas com o designer de exibição exibem as seguintes opções:
 
-![Menu de descrição geral](media/view-designer/overview-menu.png)
+![Menu visão geral](media/view-designer/overview-menu.png)
 
 As opções são descritas na tabela a seguir:
 
 | Opção | Descrição |
 |:--|:--|
 | Atualizar   | Atualiza a exibição com os dados mais recentes. | 
-| Registos      | Abre o [do Log Analytics](../log-query/portals.md) para analisar dados com consultas de registo. |
-| Editar       | Abre a vista no estruturador de vista para editar o seu conteúdo e configuração.  |
-| Clone      | Cria uma nova vista e abre-a no estruturador de vistas. O nome do novo modo de exibição é o mesmo que o nome original, mas com *cópia* acrescentado. |
-| Intervalo de datas | Defina o filtro de intervalo de data e hora para os dados que estão incluídos na vista. Este intervalo de datas é aplicado antes de quaisquer intervalos de data definidos em consultas na vista.  |
-| +          | Defina um filtro personalizado que está definido para a vista. |
+| Registos      | Abre o [log Analytics](../log-query/portals.md) para analisar dados com consultas de log. |
+| Editar       | Abre o modo de exibição no designer de exibição para editar seu conteúdo e configuração.  |
+| Clone      | Cria uma nova exibição e a abre no designer de exibição. O nome da nova exibição é o mesmo que o nome original, mas com *cópia* acrescentada a ela. |
+| Intervalo de datas | Defina o filtro de intervalo de data e hora para os dados que estão incluídos na exibição. Esse intervalo de datas é aplicado antes de quaisquer intervalos de datas definidos em consultas na exibição.  |
+| +          | Defina um filtro personalizado que é definido para a exibição. |
 
 
 ## <a name="create-a-new-view"></a>Criar uma nova vista
-Pode criar uma nova vista no estruturador de vistas, selecionando **estruturador de vistas** no menu da sua área de trabalho do Log Analytics.
+Você pode criar um novo modo de exibição no designer de exibição selecionando o **Designer de exibição** no menu do seu espaço de trabalho do log Analytics.
 
-![Ver o mosaico do Designer](media/view-designer/view-designer-tile.png)
+![Bloco do designer de exibição](media/view-designer/view-designer-tile.png)
 
 
-## <a name="work-with-view-designer"></a>Trabalhar com o estruturador de vistas
-Utilize o estruturador de vistas para criar novas vistas ou editar as já existentes. 
+## <a name="work-with-view-designer"></a>Trabalhar com o designer de exibição
+Use o designer de exibição para criar novas exibições ou editar as existentes. 
 
-Estruturador de vistas tem três painéis: 
-* **Design**: Contém a vista personalizada que está a criar ou a editar. 
-* **Controles**: Contém os mosaicos e partes que adicionar à **Design** painel. 
-* **Propriedades**: Apresenta as propriedades dos mosaicos ou partes selecionados.
+O designer de exibição tem três painéis: 
+* **Design**: Contém a exibição personalizada que você está criando ou editando. 
+* **Controles**: Contém os blocos e as partes que você adiciona ao painel **design** . 
+* **Propriedades**: Exibe as propriedades dos blocos ou das partes selecionadas.
 
 ![Estruturador de Vista](media/view-designer/view-designer-screenshot.png)
 
-### <a name="configure-the-view-tile"></a>Configurar o mosaico de vista
-Uma vista personalizada pode ter apenas um único mosaico. Para ver o mosaico atual ou selecione um alternativo, selecione o **mosaico** separador a **controle** painel. O **propriedades** painel apresenta as propriedades do mosaico atual. 
+### <a name="configure-the-view-tile"></a>Configurar o bloco de exibição
+Uma exibição personalizada pode ter apenas um único bloco. Para exibir o bloco atual ou selecionar um alternativo, selecione a guia **bloco** no painel de **controle** . O painel **Propriedades** exibe as propriedades do bloco atual. 
 
-Pode configurar as propriedades de mosaico, de acordo com as informações a [referência de mosaico](view-designer-tiles.md) e, em seguida, clique em **aplicar** para guardar as alterações.
+Você pode configurar as propriedades do bloco de acordo com as informações na [referência de bloco](view-designer-tiles.md) e, em seguida, clicar em **aplicar** para salvar as alterações.
 
 ### <a name="configure-the-visualization-parts"></a>Configurar as partes de visualização
-Uma vista pode incluir qualquer número de partes de visualização. Para adicionar partes a uma vista, selecione o **vista** separador e, em seguida, selecione uma parte da visualização. O **propriedades** painel apresenta as propriedades da parte selecionada. 
+Uma exibição pode incluir qualquer número de partes de visualização. Para adicionar partes a uma exibição, selecione a guia **Exibir** e, em seguida, selecione uma parte de visualização. O painel **Propriedades** exibe as propriedades da parte selecionada. 
 
-Pode configurar as propriedades de exibição, de acordo com as informações a [referência de parte da visualização](view-designer-parts.md) e, em seguida, clique em **aplicar** para guardar as alterações.
+Você pode configurar as propriedades da exibição de acordo com as informações na [referência da parte de visualização](view-designer-parts.md) e, em seguida, clicar em **aplicar** para salvar as alterações.
 
-As vistas têm apenas uma linha de partes de visualização. Pode reorganizar as partes existentes ao arrastá-los para uma nova localização.
+As exibições têm apenas uma linha de partes de visualização. Você pode reorganizar as partes existentes arrastando-as para um novo local.
 
-Pode remover uma parte da visualização do vista ao selecionar o **X** na parte superior direita da parte.
+Você pode remover uma parte de visualização do modo de exibição selecionando o **X** na parte superior direita da parte.
 
 
 ### <a name="menu-options"></a>Opções de menu
-As opções para trabalhar com modos de exibição no modo de edição são descritas na tabela seguinte.
+As opções para trabalhar com modos de exibição no modo de edição são descritas na tabela a seguir.
 
 ![Menu Editar](media/view-designer/edit-menu.png)
 
 | Opção | Descrição |
 |:--|:--|
-| Guardar        | Guarda as alterações e fecha o modo de exibição. |
-| Cancelar      | Elimina as suas alterações e fecha o modo de exibição. |
-| Eliminar vista | Elimina a vista. |
-| Exportar      | Exporta a exibição para um [modelo Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) que pode importar para outra área de trabalho. O nome do ficheiro é o nome da vista e tem um *omsview* extensão. |
-| Importar      | Importa os *omsview* ficheiro que exportou a partir da outra área de trabalho. Esta ação substitui a configuração da vista existente. |
-| Clone       | Cria uma nova vista e abre-a no estruturador de vistas. O nome do novo modo de exibição é o mesmo que o nome original, mas com *cópia* acrescentado. |
+| Guardar        | Salva as alterações e fecha a exibição. |
+| Cancelar      | Descarta as alterações e fecha a exibição. |
+| Eliminar Vista | Exclui a exibição. |
+| Exportar      | Exporta a exibição para um [modelo de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) que você pode importar para outro espaço de trabalho. O nome do arquivo é o nome da exibição e tem uma extensão *omsview* . |
+| Importar      | Importa o arquivo *omsview* que você exportou de outro espaço de trabalho. Essa ação substitui a configuração da exibição existente. |
+| Clone       | Cria uma nova exibição e a abre no designer de exibição. O nome da nova exibição é o mesmo que o nome original, mas com *cópia* acrescentada a ela. |
 
-## <a name="next-steps"></a>Passos Seguintes
-* Adicione [mosaicos](view-designer-tiles.md) à sua vista personalizada.
-* Adicione [partes de visualização](view-designer-parts.md) à sua vista personalizada.
+## <a name="next-steps"></a>Passos seguintes
+* Adicione [blocos](view-designer-tiles.md) à exibição personalizada.
+* Adicione [partes de visualização](view-designer-parts.md) à sua exibição personalizada.

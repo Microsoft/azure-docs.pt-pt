@@ -3,19 +3,20 @@ title: Tutorial-automatizar o processamento de emails e anexos-aplicativos lógi
 description: Tutorial-criar fluxos de trabalho automatizados que lidam com emails e anexos com aplicativos lógicos do Azure, armazenamento do Azure e Azure Functions
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
-manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: d203f5f10c7a24b63693a7fe5d6387be284d5034
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: e7c27d284ef93d15c5ac9a6228205e79518f2ffa
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982988"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051785"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Tutorial: Automatizar o tratamento de emails e anexos com aplicativos lógicos do Azure
 

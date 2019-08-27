@@ -3,26 +3,27 @@ title: Diretrizes de imagem corporativa para aplicações | Microsoft Docs
 description: Um guia completo de recursos orientados para programadores do Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 6edcd5b3df7c3c58c6568434f82fbc52cb9e28df
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 92770acb19bf95d6a19507184bd8bea10806d5b7
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47068735"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "70053248"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de imagem corporativa para aplicações
 
@@ -59,9 +60,9 @@ Numa versão anterior destas diretrizes, recomendámos utilizar um pictograma de
 
 A sua aplicação pode apresentar caminhos diferentes para inscrição e início de sessão e as secções seguintes fornecem orientação visual para ambos os cenários.
 
-**Se a aplicação suportar a inscrição de utilizadores finais (por exemplo, modelo Freemium ou de avaliação gratuita)**: pode mostrar um botão de **início de sessão** que permite aos utilizadores acederem à aplicação com a sua conta profissional ou a sua conta pessoal. O Azure AD irá mostrar um pedido de consentimento na primeira vez que acederem à aplicação.
+**Se seu aplicativo der suporte à inscrição do usuário final (por exemplo, gratuito para avaliação ou modelo freemium)** : Você pode mostrar um botão de **conexão** que permite aos usuários acessar seu aplicativo com sua conta corporativa ou sua conta pessoal. O Azure AD irá mostrar um pedido de consentimento na primeira vez que acederem à aplicação.
 
-**Se a aplicação exigir permissões a que apenas os administradores podem dar consentimento ou se a aplicação exigir licenciamento organizacional**: separe a aquisição de administrador do início de sessão do utilizador. O **botão "obter esta aplicação"** redireciona os administradores para o início de sessão e, em seguida, pede-lhes para darem consentimento em nome dos utilizadores na respetiva organização, o que tem o benefício adicional de suprimir os pedidos de consentimento do utilizador final para a sua aplicação.
+**Se seu aplicativo exigir permissões que somente os administradores possam consentir, ou se seu aplicativo exigir licenciamento organizacional**: A aquisição de administrador separada da entrada do usuário. O **botão "obter esta aplicação"** redireciona os administradores para o início de sessão e, em seguida, pede-lhes para darem consentimento em nome dos utilizadores na respetiva organização, o que tem o benefício adicional de suprimir os pedidos de consentimento do utilizador final para a sua aplicação.
 
 ## <a name="visual-guidance-for-app-acquisition"></a>Documentação de orientação visual para aquisição de aplicações
 
@@ -69,7 +70,7 @@ A hiperligação "obter a aplicação" tem de redirecionar o utilizador para a p
 
 Após o consentimento dos administradores para a sua aplicação, estes podem optar por adicioná-la à experiência do iniciador de aplicações do Office 365 dos respetivos utilizadores (acessível a partir do ícone de waffle e de [https://portal.office.com/myapps](https://portal.office.com/myapps)). Se quiser anunciar esta capacidade, pode utilizar termos como "Adicionar esta aplicação à sua organização" e mostrar um botão como no exemplo seguinte:
 
-![Tipos de Aplicação e cenários](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
+![Botão mostrando o logotipo da Microsoft e o texto "adicionar à minha organização"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
 No entanto, recomendamos que escreva um texto explicativo em vez de utilizar botões. Por exemplo:
 
@@ -79,7 +80,7 @@ Para transferir o logótipo oficial da Microsoft para utilizar na sua aplicaçã
 
 | Recurso                                | Formato PNG | Formato SVG |
 | ------------------------------------ | ---------- | ---------- |
-| Logótipo da Microsoft  | ![PNG do logótipo da Microsoft](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![SVG do logótipo da Microsoft](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
+| Logótipo da Microsoft  | ![Logotipo da Microsoft para download no formato PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Logotipo da Microsoft para download no formato SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
 ## <a name="visual-guidance-for-sign-in"></a>Orientação visual para início de sessão
 
@@ -91,16 +92,16 @@ A sua aplicação deve apresentar um botão de início de sessão que redirecion
 
 O diagrama seguinte mostra as marcas de revisão recomendadas pela Microsoft ao utilizar os recursos com a sua aplicação. As marcas de revisão aplicam-se a "Iniciar sessão com a Microsoft" ou à versão "Iniciar sessão" mais curta.
 
-![Marcas de revisão de Iniciar sessão com a Microsoft](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
+![Mostra o Redlines "Entrar com a conta da Microsoft"](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
 Para transferir as imagens oficiais da Microsoft para utilizar na sua aplicação, clique com o botão direito do rato naquela que pretende utilizar e, em seguida, guarde-a no seu computador.
 
 | Recurso                                | Formato PNG | Formato SVG |
 | ------------------------------------ | ---------- | ---------- |
-| Iniciar sessão com a Microsoft (tema escuro)  | ![PNG do tema escuro do botão Iniciar sessão](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![SVG do tema escuro do botão Iniciar sessão com a Microsoft](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
-| Iniciar sessão com a Microsoft (tema claro) | ![PNG do tema claro do botão Iniciar sessão](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![SVG do tema claro do botão Iniciar sessão com a Microsoft](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
-| Iniciar sessão (tema escuro)                 | ![PNG do tema escuro do botão abreviado Iniciar sessão](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![SVG do tema escuro do botão abreviado Iniciar sessão](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
-| Iniciar sessão (tema claro)                | ![PNG do tema claro do botão abreviado Iniciar sessão](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![SVG do tema claro do botão abreviado Iniciar sessão](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
+| Iniciar sessão com a Microsoft (tema escuro)  | ![Botão "Entrar com a conta da Microsoft" para download-PNG de tema escuro](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Botão "Entrar com a conta da Microsoft" para download SVG de tema escuro](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Iniciar sessão com a Microsoft (tema claro) | ![Botão "Entrar com a conta da Microsoft" para download-PNG de tema claro](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Botão "Entrar com a conta da Microsoft" para download SVG de tema claro](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| Iniciar sessão (tema escuro)                 | ![PNG de tema curto do botão "entrar" para download](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Tema pequeno do botão curto para download, SVG-escuro](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| Iniciar sessão (tema claro)                | ![PNG "entrar" de tema leve do botão curto do download](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Tema de luz de botão curto para download "entrar" SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 ## <a name="branding-dos-and-donts"></a>O que fazer e não fazer com a imagem corporativa
 

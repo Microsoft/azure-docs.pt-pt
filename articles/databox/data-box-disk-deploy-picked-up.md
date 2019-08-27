@@ -6,17 +6,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.localizationpriority: high
-ms.date: 08/23/2019
+ms.date: 08/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 6dcd55cc2c269024179e450d789df544bb8ff9a9
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 1c102d05d4c570f9415fad18c004847de11d50cc
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012925"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035710"
 ---
+::: zone target="chromeless"
+
+# <a name="return-azure-data-box-disk"></a>Disco do Azure Data Box de retorno 
+
+::: zone-end
+
 ::: zone target="docs"
 
 # <a name="tutorial-return-azure-data-box-disk"></a>Tutorial: Disco do Azure Data Box de retorno 
@@ -29,13 +34,14 @@ Neste tutorial, vai aprender a:
 > * Enviar o Data Box Disk para a Microsoft
 > * Pegue Disco do Data Box em regiões diferentes
 
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se você concluiu o [tutorial: Copie dados para Disco do Azure Data Box e verifique](data-box-disk-deploy-copy-data.md).
 
 
 ## <a name="ship-data-box-disk-back"></a>Enviar o Data Box Disk de volta
+
+::: zone-end
 
 1. Após a validação de dados ser concluída, desligue os discos. Remova os cabos de ligação.
 2. Embrulhe todos os discos e os cabos de ligação em plástico-bolha e coloque-os na caixa de envio. Os encargos poderão ser aplicados se os acessórios estiverem ausentes.
@@ -45,15 +51,25 @@ Antes de começar, verifique se você concluiu o [tutorial: Copie dados para Dis
 
 As próximas etapas são determinadas por onde você está retornando o dispositivo.
 
+
+
+- [Agende uma retirada com UPS se retornar o dispositivo nos EUA e no Canadá](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
+- [Agende uma retirada com a DHL para a Europa](data-box-disk-deploy-picked-up.md#pick-up-in-europe) visitando seu site e especificando o número de Bill aéreo.
+- [Agendar uma retirada na Austrália](data-box-disk-deploy-picked-up.md#pick-up-in-australia).
+- [Agende uma retirada para países na Ásia](data-box-disk-deploy-picked-up.md#pick-up-in-asia) , como Japão, Coreia e Cingapura.
+
+::: zone target="chromeless"
+
+Depois que os discos são coletados pela sua operadora, o status do pedido no portal é atualizado e uma ID de rastreamento é exibida.
+
+::: zone-end
+
 ## <a name="pick-up-in-us-canada"></a>Escolha nos EUA, Canadá
 
 Execute as etapas a seguir se retornar o dispositivo nos EUA ou no Canadá.
 
 1. Utilize a etiqueta de envio para devolução, na capa de plástico afixada na caixa. Se o rótulo estiver danificado ou perdido:
     - Acesse **visão geral > baixar o rótulo de envio** e baixar um rótulo de remessa de retorno.
-
-        ![Transferir etiqueta de envio](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - Afixar o rótulo no dispositivo.
 
 2. Feche a caixa de envio e certifique-se de que a etiqueta para envio de devolução se encontra visível.
@@ -64,33 +80,20 @@ Execute as etapas a seguir se retornar o dispositivo nos EUA ou no Canadá.
     - Se o número de rastreamento não estiver entre aspas, o UPS exigirá que você pague um encargo adicional durante a retirada.
     - Em vez de agendar a retirada, você também pode remover o Disco do Data Box no local de distribuição mais próximo.
 
-
 ## <a name="pick-up-in-europe"></a>Escolha na Europa
 
 Execute as etapas a seguir se retornar o dispositivo na Europa.
 
 1. Utilize a etiqueta de envio para devolução, na capa de plástico afixada na caixa. Se o rótulo estiver danificado ou perdido:
     - Acesse **visão geral > baixar o rótulo de envio** e baixar um rótulo de remessa de retorno.
-
-        ![Transferir etiqueta de envio](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - Afixar o rótulo no dispositivo.
 
 2. Feche a caixa de envio e certifique-se de que a etiqueta para envio de devolução se encontra visível.
 3. Se estiver a devolver o dispositivo na Europa com a DHL, solicite uma recolha à DHL acedendo ao respetivo site e especificando o número de carta de porte aéreo.
-4. Vá para o site país/região DHL Express e escolha **agendar uma coleção do Courier > remessa do eReturn**.
-
-    ![A DHL retorna a remessa](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
-    
+4. Vá para o site país/região DHL Express e escolha **agendar uma coleção do Courier > remessa do eReturn**.    
 3. Especifique o número de carta de porte aéreo e clique em **Schedule Pickup (Agendar Recolha)** para marcar uma recolha.
 
-      ![Agendar recolha](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
-
-## <a name="pick-up-in-asia-pacific"></a>Escolha na Ásia-Pacífico
-
-Esta região inclui instruções para retirada no Japão, na Coreia, na Austrália e na Cingapura.
-
-### <a name="pick-up-in-australia"></a>Escolha na Austrália
+## <a name="pick-up-in-australia"></a>Escolha na Austrália
 
 Os data centers do Azure na Austrália têm uma notificação de segurança adicional. Todas as remessas de entrada devem ter uma notificação avançada. Execute as etapas a seguir para a retirada na Austrália.
 
@@ -100,6 +103,10 @@ Os data centers do Azure na Austrália têm uma notificação de segurança adic
     - Nome do pedido
     - Endereço
     - Nome do contacto
+
+## <a name="pick-up-in-asia"></a>Escolha na Ásia
+
+As instruções de retirada são diferentes para o Japão, a Coreia e a Cingapura.
 
 ### <a name="pick-up-in-japan"></a>Escolha no Japão
 
@@ -159,7 +166,9 @@ Se necessário, você pode entrar em contato com o suporte da solução Quantium
 3. Passe para a Courier. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+::: zone target="docs"
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box Disk, como:
 
@@ -175,24 +184,5 @@ Avance para o próximo passo para saber como verificar o carregamento de dados d
 ::: zone-end
 
 
-::: zone target="chromeless"
-
-# <a name="return-the-disk-to-azure"></a>Retornar o disco para o Azure
-
-1. Depois que a validação de dados for concluída, desconecte os discos. Remova os cabos de ligação.
-2. Embrulhe todos os discos e os cabos de ligação em plástico-bolha e coloque-os na caixa de envio. Os encargos poderão ser aplicados se os acessórios estiverem ausentes.
-    - Reutilize o empacotamento da remessa inicial.  
-    - É recomendável que você empacote os discos usando um encapsulamento bolha bem protegido.
-    - Certifique-se de que o ajuste esteja ajustado para reduzir os movimentos na caixa.
-
-3. As próximas etapas são determinadas por onde você está retornando o dispositivo.
-
-    - [Agende uma retirada com UPS se retornar o dispositivo nos EUA e no Canadá](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
-    - [Agende uma retirada com a DHL para a Europa](data-box-disk-deploy-picked-up.md#pick-up-in-europe) visitando seu site e especificando o número de Bill aéreo.
-    - [Agendar uma retirada para países na Austrália do Pacífico](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific) , como Austrália, Japão, Coreia e Cingapura.
-
-Depois que os discos são coletados pela sua operadora, o status do pedido no portal é atualizado e uma ID de rastreamento é exibida.
-
-::: zone-end
 
 

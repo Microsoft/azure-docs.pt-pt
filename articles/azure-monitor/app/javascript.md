@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 77c5285462c4368badd63d7cdbf6589c7ad03c8d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f72feeefeb896c9006f767f8724d9ca3b3640c1e
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534560"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035220"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -36,7 +36,7 @@ O Application Insights pode ser utilizado com quaisquer páginas Web - basta adi
 > [!IMPORTANT]
 > Você só precisa usar um dos métodos abaixo para adicionar o SDK Application Insights JavaScript ao seu aplicativo. Se você usar a configuração baseada em NPM, não use a configuração baseada em trechos de código. O mesmo vale para o cenário inverso ao usar a abordagem baseada em trechos de código, não use também a configuração baseada em NPM. 
 
-### <a name="npm-based-setup"></a>Configuração baseada em NPM 
+### <a name="npm-based-setup"></a>Configuração baseada em NPM
 
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -198,7 +198,7 @@ A pilha de chamadas reduzidos da sua telemetria de exceção pode ser unminified
 2. Identifique quais mapas de origem correspondem a esta pilha de chamadas. O mapa de origem deve corresponder ao arquivo de origem de um quadro de pilha, mas com sufixo`.map`
 3. Arraste e solte os mapas de origem na pilha de chamadas na portal do Azure![](https://i.imgur.com/Efue9nU.gif)
 
-## <a name="application-insights-web-basic"></a>Application Insights Web Basic
+### <a name="application-insights-web-basic"></a>Application Insights Web Basic
 
 Para uma experiência leve, você pode instalar a versão básica do Application Insights
 ```

@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
+author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 07/05/2019
-ms.openlocfilehash: 67e877609eec98e7100b34ab477dbab7c5577772
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.date: 08/26/2019
+ms.openlocfilehash: 418ca6f8d6258b826bb126252d7cf7b1c5fee299
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515292"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035713"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Banco de dados SQL do Azure sem servidor (visualização)
 
@@ -136,7 +136,7 @@ A retomada será disparada se qualquer uma das seguintes condições for verdade
 |Cópia de banco de dados|Criar banco de dados como cópia.<br>Exportar para um arquivo BACPAC.|
 |Sincronização de dados SQL|Sincronização entre bancos de dados de Hub e membro que são executados em um agendamento configurável ou são executados manualmente|
 |Modificando determinados metadados de banco de dados|Adicionando novas marcas de banco de dados.<br>Alterando Max vCores, min vCores ou atraso de autopausa.|
-|SQL Server Management Studio (SSMS)|O uso da versão 18 do SSMS e a abertura de uma nova janela de consulta para qualquer banco de dados no servidor retomará qualquer banco de dados pausado automaticamente no mesmo servidor. Esse comportamento não ocorrerá se você estiver usando o SSMS versão 17.9.1 com o IntelliSense desativado.|
+|SQL Server Management Studio (SSMS)|O uso de versões do SSMS anteriores a 18,1 e a abertura de uma nova janela de consulta para qualquer banco de dados no servidor retomará qualquer banco de dados pausado automaticamente no mesmo servidor. Esse comportamento não ocorrerá se você estiver usando o SSMS versão 18,1 ou posterior.|
 
 O reinício retomado também é disparado durante a implantação de algumas atualizações de serviço que exigem que o banco de dados esteja online.
 
@@ -165,7 +165,7 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
    |Parâmetro|Opções de valor|Valor predefinido|
    |---|---|---|---|
    |vCores mín.|Qualquer um de {0,5, 1, 2, 4} não excedendo o máximo de vCores|0,5 vCores|
-   |Atraso de autopausa|Mínimo: 60 minutos (1 hora)<br>Máximo: 10080 minutos (7 dias)<br>Incrementos 60 minutos<br>Desabilitar autopausa:-1|60 minutos|
+   |Atraso de autopausa|Máximo 60 minutos (1 hora)<br>Maior 10080 minutos (7 dias)<br>Incrementos 60 minutos<br>Desabilitar autopausa:-1|60 minutos|
 
 > [!NOTE]
 > O uso do T-SQL para mover um banco de dados existente para o sem servidor ou alterar seu tamanho de computação não tem suporte no momento, mas pode ser feito por meio do portal do Azure ou do PowerShell.
@@ -321,7 +321,7 @@ Suponha que o preço unitário de computação seja $0.000073/vCore/segundo.  Em
 
 A camada de computação sem servidor está disponível em todo o mundo, exceto as seguintes regiões: Austrália Central, Leste da China, Norte da China, sul da França, Alemanha central, Alemanha nordeste, Índia ocidental, sul da Coreia, oeste da África do Sul, Norte do Reino Unido, Sul do Reino Unido, Oeste do Reino Unido e EUA Central ocidental.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para começar, consulte [início rápido: Crie um banco de dados individual no banco de dados SQL](sql-database-single-database-get-started.md)do Azure usando o portal do Azure.
 - Para limites de recursos, consulte [limites de recursos da camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).

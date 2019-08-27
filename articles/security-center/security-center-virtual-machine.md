@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
-ms.openlocfilehash: aad42ea891b671bd481322d8b499d375ca06a7dc
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 5d13e7375c9e3cd874bc61b686ff2549c38da1f3
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512634"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036371"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Centro de Segurança do Azure e Máquinas Virtuais do Azure
 O [Centro de Segurança do Azure](https://azure.microsoft.com/services/security-center/) ajuda-o a evitar, detetar e responder a ameaças. Fornece gestão de políticas e monitorização de segurança integrada nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança.
@@ -59,8 +59,6 @@ Uma política de segurança define o conjunto de controlos que são recomendados
 
 > [!NOTE]
 > Para saber mais sobre cada **Política de prevenção** disponível, consulte o artigo [Set security policies (Definir políticas de segurança)](tutorial-security-policy.md).
-> 
-> 
 
 ## <a name="manage-security-recommendations"></a>Gerir recomendações de segurança
 O Centro de Segurança analisa o estado de segurança dos seus recursos do Azure. Quando o Centro de Segurança identifica potenciais vulnerabilidades de segurança, cria recomendações. As recomendações orientam-no no processo de configuração de controlos necessários.
@@ -90,7 +88,7 @@ Depois de ativar [políticas de segurança](tutorial-security-policy.md) para os
 ![Estado de funcionamento da segurança](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
 ## <a name="manage-and-respond-to-security-alerts"></a>Gerir e responder a alertas de segurança
-O Centro de Segurança recolhe, analisa e integra automaticamente dados de registo a partir dos seus recursos do Azure, da rede e soluções de parceiros ligadas, (como soluções de proteção de ponto final e firewall), para detetar ameaças reais e reduzir os falsos positivos. Ao tirar partido de uma agregação diversa de [capacidades de deteção](security-center-detection-capabilities.md), o Centro de Segurança pode gerar alertas de segurança prioritários para o ajudar a investigar rapidamente o problema e fornecer recomendações para saber como corrigir possíveis ataques.
+O Centro de Segurança recolhe, analisa e integra automaticamente dados de registo a partir dos seus recursos do Azure, da rede e soluções de parceiros ligadas, (como soluções de proteção de ponto final e firewall), para detetar ameaças reais e reduzir os falsos positivos. Ao tirar partido de uma agregação diversa de [capacidades de deteção](security-center-alerts-overview.md#detect-threats), o Centro de Segurança pode gerar alertas de segurança prioritários para o ajudar a investigar rapidamente o problema e fornecer recomendações para saber como corrigir possíveis ataques.
 
 ![Alertas de segurança](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 

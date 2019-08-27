@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dea5e174c66685f889595ab15b3edf57dd02493
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: a8e19c89cec00bba05eb74e752268e1da43a1ac0
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018236"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035859"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>O que é o serviço Azure Machine Learning?
 
@@ -103,13 +103,14 @@ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de co
 
 Receberá créditos para gastar em serviços do Azure. Depois de serem utilizados, pode manter a conta e utilizar os [serviços gratuitos do Azure](https://azure.microsoft.com/free/). O seu cartão de crédito não será cobrado, a menos que altere explicitamente as suas definições e peça para ser cobrado. Ou [ative os benefícios](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)para assinantes do MSDN, que fornecem créditos todos os meses que você pode usar para serviços pagos do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Crie um Machine Learning espaço de trabalho de serviço](how-to-manage-workspace.md) para começar.
 
 - Siga os tutoriais de tamanho completo:
+  + [Criar um espaço de trabalho e treinar seu primeiro modelo de ML](tutorial-1st-experiment-sdk-setup.md)
   + [Treinar um modelo de classificação de imagem com o serviço Azure Machine Learning](tutorial-train-models-with-aml.md)
-  + [Preparar dados e usar o aprendizado de máquina automatizado para treinar automaticamente um modelo de regressão](tutorial-data-prep.md)
+
 
 - Saiba mais sobre [pipelines de aprendizagem automática](/azure/machine-learning/service/concept-ml-pipelines) para criar, otimizar e gerir cenários da aprendizagem automática.
 

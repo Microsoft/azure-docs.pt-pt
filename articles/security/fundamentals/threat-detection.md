@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c7a31337888dcdc2a8f8b95c5203cc659882b038
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 86b17efdb811e9e4040b8b267c161b950f6de5fd
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927870"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036184"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detecção avançada de ameaças do Azure
 
@@ -382,8 +382,8 @@ O Firewall do aplicativo Web oferece os seguintes benefícios:
 
 Para obter exemplos de firewalls do aplicativo Web que estão disponíveis no Azure Marketplace, consulte [Barracuda WAF, vWAF (firewall do aplicativo Web virtual) da Brocade, Imperva SecureSphere e o firewall de IP do ThreatSTOP](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Recursos de detecção da central de segurança do Azure](../../security-center/security-center-detection-capabilities.md): Ajuda a identificar ameaças ativas direcionadas aos recursos do Azure e fornece as informações que você precisa responder rapidamente.
+- [Respondendo às ameaças atuais](../../security-center/security-center-alerts-overview.md#respond-threats): Ajuda a identificar ameaças ativas direcionadas aos recursos do Azure e fornece as informações que você precisa responder rapidamente.
 
 - [Detecção de ameaças do banco de dados SQL do Azure](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): Ajuda a resolver suas preocupações sobre ameaças potenciais para seus bancos de dados.

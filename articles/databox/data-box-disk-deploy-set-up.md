@@ -6,16 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.localizationpriority: high
-ms.date: 07/23/2019
+ms.date: 08/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 483288869e0eda20010108b8293c5964ff9571c2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: b062f484a48d8376bbbb8fa9dd5bd3e39bbba14f
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012896"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70049972"
 ---
 ::: zone target="docs"
 
@@ -30,6 +29,16 @@ Neste tutorial, ficará a saber como:
 > * Ligar a discos e obter a chave de acesso
 > * Desbloquear discos no cliente Windows
 > * Desbloquear discos no cliente Linux
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="unpack-connect-and-unlock-azure-data-box-disk"></a>Desempacotar, conectar e desbloquear Disco do Azure Data Box
+
+::: zone-end
+
+::: zone target="docs"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -283,7 +292,7 @@ Se você encontrar algum problema ao desbloquear os discos, consulte Como soluci
         ``` 
         .\DataBoxDiskUnlock.exe
         ```
-    -  Forneça a chave de acesso obtida do **geral > detalhes do dispositivo** no portal do Azure. A letra de unidade atribuída ao disco é apresentada. 
+    -  Obtenha a chave de acesso em **geral > detalhes do dispositivo** no portal do Azure e forneça-a aqui. A letra de unidade atribuída ao disco é apresentada. 
 4. Para desbloquear os discos em um cliente Linux, abra um terminal. Vá para a pasta onde você baixou o software. Digite os seguintes comandos para alterar as permissões de arquivo para que você possa executar esses arquivos: 
 
     ```
@@ -295,7 +304,7 @@ Se você encontrar algum problema ao desbloquear os discos, consulte Como soluci
     ```
     sudo ./DataBoxDiskUnlock_Prep.sh
     ```
-    Execute a ferramenta de Desbloqueio do Data Box Disk. Forneça a chave de acesso da portal do Azure acessando **geral > detalhes do dispositivo**. Opcionalmente, especifique uma lista de volumes criptografados do BitLocker dentro de aspas simples para desbloquear.
+    Execute a ferramenta de Desbloqueio do Data Box Disk. Obtenha a chave de acesso em **geral > detalhes do dispositivo** no portal do Azure e forneça-a aqui. Opcionalmente, especifique uma lista de volumes criptografados do BitLocker dentro de aspas simples para desbloquear.
 
     ```
     sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’

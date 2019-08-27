@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 27e6806fbdf6884ec969d6c9389c10592cb71fff
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: d1beae9ebd86035e075f75b088618ec55595e876
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034274"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035690"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo C IoT Edge para dispositivos Windows
 
@@ -243,7 +243,7 @@ O código de módulo padrão recebe mensagens em uma fila de entrada e as passa 
     static void moduleTwinCallback(DEVICE_TWIN_UPDATE_STATE update_state, const unsigned char* payLoad, size_t size, void* userContextCallback)
     {
         printf("\r\nTwin callback called with (state=%s, size=%zu):\r\n%s\r\n",
-            ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
+            MU_ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
         JSON_Value *root_value = json_parse_string(payLoad);
         JSON_Object *root_object = json_value_get_object(root_value);
         if (json_object_dotget_value(root_object, "desired.TemperatureThreshold") != NULL) {
@@ -265,12 +265,12 @@ O código de módulo padrão recebe mensagens em uma fila de entrada e as passa 
        if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
        {
            printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
-           ret = __FAILURE__;
+           ret = 1;
        }
        else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
        {
            printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
-           ret = __FAILURE__;
+           ret = 1;
        }
        else
        {
