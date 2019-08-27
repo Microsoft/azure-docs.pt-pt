@@ -3,15 +3,14 @@ documentType: LandingData
 title: Documentação da API de Pesquisa na Web do Bing
 metadata:
   document_id: 6111ada8-aec2-11e7-abc4-cec278b6b50a
-  title: 'Documentação da API de Pesquisa na Web do Bing – Tutoriais, inícios rápidos, referências de API | Microsoft Docs'
+  title: 'Documentação da API da Pesquisa na Web do Bing – Tutoriais, inícios rápidos, referências da API'
+  titleSuffix: Azure Cognitive Services
   description: 'Saiba como utilizar a API de Pesquisa na Web do Bing para pesquisar páginas Web, imagens, vídeos, notícias e muito mais na Web.'
   services: cognitive-services
   author: nitinme
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-web-search
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 7/25/2019
   ms.author: nitinme

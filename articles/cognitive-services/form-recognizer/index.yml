@@ -2,15 +2,14 @@
 documentType: LandingData
 title: Documentação do Reconhecedor de Formato
 metadata:
-  title: Documentação da API – Reconhecedor de Formato – Serviços Cognitivos do Azure | Microsoft Docs
+  title: Documentação da API – Reconhecedor de Formato
+  titleSuffix: Azure Cognitive Services
   description: Saiba como utilizar o Reconhecedor de Formato para extrair dados de chave-valor de forma inteligente dos seus documentos de formulário.
   services: cognitive-services
   author: PatrickFarley
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: forms-recognizer
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/16/2019
   ms.author: pafarley

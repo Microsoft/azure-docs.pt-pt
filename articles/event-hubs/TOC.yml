@@ -71,12 +71,24 @@
           href: event-hubs-geo-dr.md
     - name: Segurança
       items:
-        - name: Identidade gerida dos recursos do Azure
-          href: event-hubs-managed-service-identity.md
-        - name: Controlo de Acesso Baseado em Funções (pré-visualização)
-          href: event-hubs-role-based-access-control.md
-        - name: Descrição geral do modelo de autenticação e segurança
-          href: event-hubs-authentication-and-security-model-overview.md
+        - name: Autorização
+          items:
+            - name: Autorizar o acesso aos Hubs de Eventos do Azure
+              href: authorize-access-event-hubs.md
+            - name: Autorizar o acesso com o Azure Active Directory
+              href: authorize-access-azure-active-directory.md
+            - name: Autorizar o acesso com uma assinatura de acesso partilhado
+              href: authorize-access-shared-access-signature.md
+        - name: Autenticação
+          items:
+            - name: Autenticar com o Azure Active Directory
+              items:
+                - name: Autenticar com uma identidade gerida
+                  href: authenticate-managed-identity.md
+                - name: Autenticar a partir de uma aplicação
+                  href: authenticate-application.md
+            - name: Autenticar com uma assinatura de acesso partilhado
+              href: authenticate-shared-access-signature.md
         - name: Atributos de Segurança
           href: event-hubs-security-attributes.md
     - name: Guia do protocolo AMQP 1.0
@@ -166,6 +178,8 @@
           href: event-hubs-service-endpoints.md
         - name: Ativar a Integração e as Firewalls das Redes Virtuais no Espaço de Nomes dos Hubs de Eventos
           href: event-hubs-tutorial-virtual-networks-firewalls.md
+        - name: Configurar chaves geridas pelo cliente para a encriptação de dados inativos
+          href: configure-customer-managed-key.md
     - name: Resolução de problemas
       items:
         - name: Exceções

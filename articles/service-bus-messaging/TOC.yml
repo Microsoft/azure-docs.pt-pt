@@ -79,10 +79,6 @@
       href: service-bus-samples.md
 - name: Conceitos
   items:
-    - name: Identidades geridas para os recursos do Azure
-      href: service-bus-managed-service-identity.md
-    - name: Controlo de Acesso Baseado em Funções (pré-visualização)
-      href: service-bus-role-based-access-control.md
     - name: Mensagens premium
       href: service-bus-premium-messaging.md
     - name: Comparar Filas do Azure e filas do Service Bus
@@ -95,8 +91,25 @@
       href: service-bus-async-messaging.md
     - name: Lidar com interrupções e desastres
       href: service-bus-outages-disasters.md
-    - name: Atributos de segurança comuns do Azure
-      href: service-bus-messaging-security-attributes.md
+    - name: Segurança
+      items:
+        - name: Autenticação e autorização
+          href: service-bus-authentication-and-authorization.md
+          items:
+            - name: Utilizar Assinaturas de Acesso Partilhado
+              items:
+                - name: Migrar do ACS para SAS
+                  href: service-bus-migrate-acs-sas.md
+                - name: Autenticação com Assinaturas de Acesso Partilhado
+                  href: service-bus-sas.md
+            - name: Utilizar o Azure Active Directory
+              items:
+                - name: Autenticar com identidades geridas para os recursos do Azure
+                  href: service-bus-managed-service-identity.md
+                - name: Autenticar a partir de uma aplicação
+                  href: authenticate-application.md
+        - name: Atributos de segurança comuns do Azure
+          href: service-bus-messaging-security-attributes.md
 - name: Guias de procedimentos
   items:
     - name: Criar um espaço de nomes
@@ -119,13 +132,6 @@
               href: service-bus-to-event-grid-integration-concept.md
             - name: Exemplos do Azure Event Grid
               href: service-bus-to-event-grid-integration-example.md
-        - name: Autenticação e autorização
-          href: service-bus-authentication-and-authorization.md
-          items:
-            - name: Migrar do ACS para SAS
-              href: service-bus-migrate-acs-sas.md
-            - name: Autenticação com Assinaturas de Acesso Partilhado
-              href: service-bus-sas.md
         - name: Filtros de tópico e ações
           href: topic-filters.md
         - name: Migrar de espaços de nomes Standard para Premium

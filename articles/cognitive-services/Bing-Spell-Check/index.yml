@@ -3,15 +3,14 @@ documentType: LandingData
 title: Documentação da API de Verificação Ortográfica do Bing
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: 'Documentação da API de Verificação de Ortografia do Bing – Tutoriais, Referência da API – Serviços Cognitivos do Azure | Microsoft Docs'
+  title: 'Documentação da API de Verificação de Ortografia do Bing – Tutoriais, Referência da API'
+  titleSuffix: Azure Cognitive Services
   description: Saiba como utilizar a API de Verificação de Ortografia do Bing para obter as correções sugeridas para documentos de texto. Os tutoriais mostram-lhe como criar aplicações que utilizam a API.
   services: cognitive-services
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-spell-check
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: aahi
