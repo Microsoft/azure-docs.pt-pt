@@ -179,6 +179,9 @@
         - name: Otimizar hiperparâmetros
           displayName: parameter
           href: how-to-tune-hyperparameters.md
+        - name: Utilizar o Key Vault durante a preparação
+          displayName: secrets keyvault
+          href: how-to-use-secrets-in-runs.md
     - name: Controlar e monitorizar experimentações
       items:
         - name: 'Comece, monitorize ou cancele execuções'

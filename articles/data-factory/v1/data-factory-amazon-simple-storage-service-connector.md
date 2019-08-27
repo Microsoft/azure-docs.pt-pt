@@ -65,7 +65,7 @@ Um serviço vinculado vincula um armazenamento de dados a um data factory. Você
 
 | Propriedade | Descrição | Valores permitidos | Requerido |
 | --- | --- | --- | --- |
-| accessKeyID |ID da chave de acesso a segredos. |Cadeia de caracteres |Sim |
+| accessKeyID |ID da chave de acesso a segredos. |string |Sim |
 | secretAccessKey |A chave de acesso a segredos em si. |Cadeia de caracteres secreta criptografada |Sim |
 
 >[!NOTE]
@@ -94,10 +94,10 @@ As seções, como estrutura, disponibilidade e política são semelhantes para t
 
 | Propriedade | Descrição | Valores permitidos | Requerido |
 | --- | --- | --- | --- |
-| bucketName |O nome do registo de S3. |Cadeia |Sim |
-| key |A chave do objeto S3. |Cadeia |Não |
-| prefix |Prefixo para a chave de objeto de S3. Objetos cujas chaves iniciados com este prefixo estão selecionados. Aplica-se somente quando a chave está vazia. |Cadeia |Não |
-| version |A versão do objeto, S3, se o controlo de versões de S3 está ativado. |Cadeia |Não |
+| bucketName |O nome do registo de S3. |String |Sim |
+| key |A chave do objeto S3. |String |Não |
+| prefix |Prefixo para a chave de objeto de S3. Objetos cujas chaves iniciados com este prefixo estão selecionados. Aplica-se somente quando a chave está vazia. |String |Não |
+| version |A versão do objeto, S3, se o controlo de versões de S3 está ativado. |String |Não |
 | format | Há suporte para os seguintes tipos de formato:TextFormat **, JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte a [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet ](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção formato nas definições do conjunto de dados de entrada e saída. | |Não |
 | compression | Especifica o tipo e o nível de compressão dos dados. Os tipos com suporte são: **Gzip**,deflate, **bzip2**e **ZipDeflate**. Os níveis com suporte são: **Ideal** e **mais rápido**. Para obter mais informações, consulte [formatos de arquivo e compactação em Azure data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). | |Não |
 

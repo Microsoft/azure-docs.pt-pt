@@ -176,7 +176,7 @@ Nesta secção, vai criar um utilizador de teste no portal do Azure.
 
     1. Na **Name** , insira **BrittaSimon**.
   
-    1. Na **nome de utilizador** campo, introduza **brittasimon @* yourcompanydomain.extension* **. Por exemplo, introduza  **BrittaSimon@contoso.<i> </i>com**.
+    1. Na **nome de utilizador** campo, introduza **brittasimon@* yourcompanydomain.extension* **. Por exemplo, introduza  **BrittaSimon@contoso.<i> </i>com**.
 
     1. Selecione o **palavra-passe de Show** caixa de verificação. Em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
