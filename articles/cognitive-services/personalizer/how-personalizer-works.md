@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: diberry
-ms.openlocfilehash: e55ccb508760c4473f71245c183948219f31985c
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c258799b1305c4204d08d66aa36a0be7c71a4944
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663919"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034379"
 ---
 # <a name="how-personalizer-works"></a>Como funciona o Personalizador
 
@@ -163,7 +163,7 @@ Você pode usar os mecanismos de recomendação com o personalizador:
 
 ## <a name="adding-content-safeguards-to-your-application"></a>Adicionando proteções de conteúdo ao seu aplicativo
 
-Se o seu aplicativo permitir grandes variações no conteúdo mostrado aos usuários, e algum desses conteúdos pode não ser seguro ou inadequado para alguns usuários, você deve planejar com antecedência para garantir que as proteções certas estejam em vigor para impedir que os usuários vejam inaceitáveis disputa. O melhor padrão para implementar proteções é: O melhor padrão para implementar proteções é:
+Se o seu aplicativo permitir grandes variações no conteúdo mostrado aos usuários, e algum desses conteúdos pode não ser seguro ou inadequado para alguns usuários, você deve planejar com antecedência para garantir que as proteções certas estejam em vigor para impedir que os usuários vejam inaceitáveis disputa. O melhor padrão para implementar proteções é:
     * Obtenha a lista de ações a serem classificadas.
     * Filtre aqueles que não são viáveis para o público.
     * Classifique somente essas ações viáveis.

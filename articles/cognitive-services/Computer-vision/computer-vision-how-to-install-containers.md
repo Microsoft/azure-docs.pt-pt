@@ -11,16 +11,17 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: afccce5ca9101ed1e30f69264abae7ad85b4902b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cbf199c391b49518bb595d7d1a0ed47147903a85
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564585"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034493"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Instalar e executar contêineres de Reconhecimento de Texto
 
-A parte de reconhecer texto de imagem digitalizada também está disponível como um contentor do Docker. Permite-lhe detetar e extrair texto impresso de imagens de vários objetos com diferentes superfícies e fundos, como recibos, pôsteres e cartões de visita.  
+A parte de reconhecer texto de imagem digitalizada também está disponível como um contentor do Docker. Permite-lhe detetar e extrair texto impresso de imagens de vários objetos com diferentes superfícies e fundos, como recibos, pôsteres e cartões de visita.
+
 > [!IMPORTANT]
 > O contentor de reconhecer texto atualmente funciona apenas com o inglês.
 
@@ -38,7 +39,7 @@ Você deve atender aos seguintes pré-requisitos antes de usar contêineres de R
 
 ## <a name="request-access-to-the-private-container-registry"></a>Pedir acesso para o registo de contentor privado
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>O computador host
 
@@ -46,16 +47,7 @@ Você deve atender aos seguintes pré-requisitos antes de usar contêineres de R
 
 ### <a name="container-requirements-and-recommendations"></a>Requisitos do contentor e recomendações
 
-A tabela a seguir descreve os núcleos de CPU mínimos e recomendados e a memória a ser alocada para cada contêiner de Reconhecimento de Texto.
-
-| Contentor | Mínimo | Recomendado |TPS<br>(Mínimo, máximo)|
-|-----------|---------|-------------|--|
-|Reconhecimento de Texto|1 núcleo, 8 GB de memória, 0,5 TPS|2 núcleos, 8 GB de memória, 1 TPS|0,5, 1|
-
-* Cada núcleo deve ter pelo menos 2,6 gigahertz (GHz) ou mais rápido.
-* TPS-transações por segundo
-
-O núcleo e a `--cpus` memória correspondem às configurações e `--memory` , que são `docker run` usadas como parte do comando.
+[!INCLUDE [Container requirements and recommendations](includes/container-requirements-and-recommendations.md)]
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contêiner com`docker pull`
 
@@ -87,7 +79,7 @@ Depois que o contêiner estiver no [computador host](#the-host-computer), use o 
 
 Use o comando [Docker execute](https://docs.docker.com/engine/reference/commandline/run/) para executar o contêiner. O comando usa os seguintes parâmetros:
 
-| Marcador de posição | Valor |
+| Marcador de posição | Value |
 |-------------|-------|
 |{API_KEY} | Essa chave é usada para iniciar o contêiner e está disponível na página chaves do `Cognitive Services` Azure.  |
 |{ENDPOINT_URI} | O valor do URI do ponto de extremidade de cobrança. O exemplo é:`https://westus.api.cognitive.microsoft.com/vision/v2.0`|
