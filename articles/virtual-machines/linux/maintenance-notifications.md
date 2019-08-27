@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 08/22/2019
 ms.author: shants
-ms.openlocfilehash: c82bacfdff1c9d939016b48735f7917e7d34b47f
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 347df9567817cdaea731e06646196142885757b1
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849688"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018829"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Lidando com notificações de manutenção planejada para máquinas virtuais do Linux
 
@@ -27,13 +27,13 @@ O Azure realiza periodicamente atualizações para melhorar a fiabilidade, o des
 
 - Se a manutenção não exigir uma reinicialização, o Azure usará a migração in-loco para pausar a VM enquanto o host for atualizado. Essas operações de manutenção não reinicializadas são aplicadas ao domínio de falha por domínio de falha e o progresso é interrompido se forem recebidos sinais de integridade de aviso.
 
-- Se a manutenção exigir uma reinicialização, você receberá um aviso quando a manutenção for planejada. Nesses casos, você recebe uma janela de tempo que normalmente é de 30 dias, em que você pode iniciar a manutenção por conta própria, quando ela funciona para você.
+- Se a manutenção exigir uma reinicialização, você receberá um aviso quando a manutenção for planejada. Nesses casos, você recebe uma janela de tempo que normalmente é de 35 dias em que você pode iniciar a manutenção por conta própria, quando ela funciona para você.
 
 
 A manutenção planejada que exige uma reinicialização é agendada em ondas. Cada onda tem escopo diferente (regiões).
 
 - Uma onda começa com uma notificação para os clientes. Por padrão, a notificação é enviada para o proprietário e os coproprietários da assinatura. Você pode adicionar mais destinatários e opções de mensagens, como email, SMS e WebHooks, às notificações usando [alertas do log de atividades](../../azure-monitor/platform/activity-logs-overview.md)do Azure.  
-- No momento da notificação, uma janela de *autoatendimento* é disponibilizada. Durante essa janela que normalmente é de 30 dias, você pode encontrar quais máquinas virtuais estão incluídas nessa onda e iniciar de forma proativa a manutenção de acordo com suas necessidades de agendamento.
+- No momento da notificação, uma janela de *autoatendimento* é disponibilizada. Durante essa janela que normalmente é de 35 dias, você pode encontrar quais máquinas virtuais estão incluídas nessa onda e iniciar de forma proativa a manutenção de acordo com suas necessidades de agendamento.
 - Após a janela de autoatendimento, uma *janela de manutenção agendada* é iniciada. Em algum momento durante essa janela, o Azure agenda e aplica a manutenção necessária à sua máquina virtual. 
 
 O objetivo de ter duas janelas é fornecer tempo suficiente para iniciar a manutenção e reinicializar sua máquina virtual enquanto souber quando o Azure iniciará automaticamente a manutenção.
@@ -84,7 +84,7 @@ az vm get-instance-view -g rgName -n vmName
 
 Os valores a seguir são retornados em MaintenanceRedeployStatus: 
 
-| Valor | Descrição   |
+| Value | Descrição   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se você pode iniciar a manutenção na VM no momento |
 | PreMaintenanceWindowStartTime         | O início da janela de autoatendimento de manutenção quando você pode iniciar a manutenção em sua VM |
@@ -177,11 +177,11 @@ Para obter mais informações sobre alta disponibilidade, consulte [disponibilid
 
 **R:** Existem vários casos de utilização em que verá a sua VM agendada para manutenção depois de já ter concluído a reimplementação da manutenção:
 1.  Cancelamos a onda de manutenção e a reiniciamos com uma carga diferente. Pode ser que detectamos uma carga com falha e simplesmente precisamos implantar uma carga adicional.
-2.  Sua *VM foi* reparada para outro nó devido a uma falha de hardware.
+2.  Sua VM foi reparada para outro nó devido a uma falha de hardware.
 3.  Você optou por parar (desalocar) e reiniciar a VM.
 4.  Você tem o desligamento **automático** ativado para a VM.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como você pode se registrar para eventos de manutenção de dentro da VM usando [eventos agendados](scheduled-events.md).

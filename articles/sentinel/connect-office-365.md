@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0013540bf0ca921b2f41260dea185f6aa32567d7
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 39245cb43dacfeec2b647936d5e5790d4a185467
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679268"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019005"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Conectar dados de logs do Office 365
 
@@ -37,6 +37,9 @@ Você pode transmitir logs de auditoria do [Office 365](https://docs.microsoft.c
 
 - Você deve ser um administrador global ou administrador de segurança em seu locatário
 - No computador, do qual você fez logon no Azure Sentinel para criar a conexão, verifique se a porta 4433 está aberta para o tráfego da Web.
+- Se seu locatário não tiver uma licença do Office 365 E3 ou do Office 365 e5, você deverá habilitar a auditoria unificada em seu tipo de processo por meio de um desses processos:
+    - [Usando o cmdlet Set-AdminAuditLogConfig](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) e habilitar o parâmetro "UnifiedAuditLogIngestionEnabled").
+    - [Ou usando a interface do usuário do centro de conformidade e segurança](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
 
 ## <a name="connect-to-office-365"></a>Ligar ao Office 365
 

@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 08/20/2019
 ms.author: shants
-ms.openlocfilehash: 2ba1bb914dfc2edbe17d12cc58df097b60d1f94c
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 413301fd8b6b4b2a3b60501378cf6da23cc38d81
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849736"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018850"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificações de manutenção planejada para conjuntos de dimensionamento de máquinas virtuais
 
@@ -28,13 +28,13 @@ Periodicamente, o Azure realiza atualizações para melhorar a confiabilidade, o
 
 - Se a manutenção não exigir uma reinicialização, o Azure usará a migração in-loco para pausar a VM enquanto o host for atualizado. As operações de manutenção que não exigem uma reinicialização são aplicadas ao domínio de falha por domínio de falha. O progresso será interrompido se forem recebidos sinais de integridade de aviso.
 
-- Se a manutenção exigir uma reinicialização, você receberá uma notificação que mostra quando a manutenção está planejada. Nesses casos, você recebe uma janela de tempo na qual você pode iniciar a manutenção por conta própria quando ela funciona melhor para você.
+- Se a manutenção exigir uma reinicialização, você receberá um aviso quando a manutenção for planejada. Nesses casos, você recebe uma janela de tempo que normalmente é de 35 dias em que você pode iniciar a manutenção por conta própria, quando ela funciona para você.
 
 
 A manutenção planejada que exige uma reinicialização é agendada em ondas. Cada onda tem escopo diferente (regiões):
 
 - Uma onda começa com uma notificação para os clientes. Por padrão, a notificação é enviada para o proprietário e os coproprietários da assinatura. Você pode adicionar destinatários e opções de mensagens como email, SMS e WebHooks às notificações usando [alertas do log de atividades](../azure-monitor/platform/activity-logs-overview.md)do Azure.  
-- Com a notificação, uma *janela* de autoatendimento é disponibilizada. Durante essa janela, você pode encontrar quais das suas VMs estão incluídas na onda. Você pode iniciar a manutenção proativamente de acordo com suas necessidades de agendamento.
+- Com a notificação, uma *janela* de autoatendimento é disponibilizada. Durante essa janela que normalmente é de 35 dias, você pode encontrar quais das suas VMs estão incluídas na onda. Você pode iniciar a manutenção proativamente de acordo com suas necessidades de agendamento.
 - Após a janela de autoatendimento, uma *janela de manutenção agendada* é iniciada. Em algum momento durante essa janela, o Azure agenda e aplica a manutenção necessária à sua VM. 
 
 O objetivo de ter duas janelas é fornecer tempo suficiente para iniciar a manutenção e reinicializar sua VM, sabendo quando o Azure iniciará automaticamente a manutenção.
@@ -63,7 +63,7 @@ A manutenção de autoatendimento não é recomendada para implantações que us
 - Se você redimensionar sua VM com frequência. Esse cenário pode reverter o status de manutenção. 
 - Se você adotou eventos agendados que habilitam o failover proativo ou o desligamento normal da carga de trabalho 15 minutos antes do desligamento da manutenção, comece.
 
-**Use a** manutenção de autoatendimento se você planeja executar a VM sem interrupção durante a fase de manutenção agendada e nenhuma das contraindicações anteriores se aplicar. 
+Use a manutenção de autoatendimento se você planeja executar a VM sem interrupção durante a fase de manutenção agendada e nenhuma das contraindicações anteriores se aplicar. 
 
 É melhor usar a manutenção de autoatendimento nos seguintes casos:
 
@@ -100,7 +100,7 @@ O Azure comunica uma agenda para manutenção planejada enviando um email para o
 2. No menu à esquerda, selecione **Monitor**. 
 3. No painel **monitorar alertas (clássico)** , selecione **+ adicionar alerta do log de atividades**.
 4. Na página **adicionar alerta do log de atividades** , selecione ou insira as informações solicitadas. Em **critérios**, certifique-se de definir os seguintes valores:
-   - **Categoria do evento**: Selecione **integridade do serviço**.
+   - **Categoria do evento**: Selecione **Service Health**.
    - **Serviços**: Selecione **conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais**.
    - **Tipo**: Selecione **manutenção planejada**. 
     
@@ -127,7 +127,7 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 
 As propriedades a seguir são retornadas em **MaintenanceRedeployStatus**: 
 
-| Valor | Descrição   |
+| Value | Descrição   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se você pode iniciar a manutenção na VM no momento. |
 | PreMaintenanceWindowStartTime         | O início da janela de autoatendimento de manutenção quando você pode iniciar a manutenção em sua VM. |
@@ -215,10 +215,10 @@ Para obter mais informações sobre alta disponibilidade, consulte [regiões e d
 
 **R:** Em vários casos de uso, sua VM está agendada para manutenção depois que você já tiver concluído sua manutenção e reimplantada:
    - Cancelamos a onda de manutenção e a reiniciamos com uma carga diferente. Pode ser que detectamos uma carga com falha e simplesmente precisamos implantar uma carga adicional.
-   - Sua *VM foi* reparada para outro nó devido a uma falha de hardware.
+   - Sua VM foi reparada para outro nó devido a uma falha de hardware.
    - Você optou por parar (desalocar) e reiniciar a VM.
    - Você tem o desligamento **automático** ativado para a VM.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como registrar-se para eventos de manutenção de dentro da VM usando [eventos agendados](../virtual-machines/windows/scheduled-events.md).

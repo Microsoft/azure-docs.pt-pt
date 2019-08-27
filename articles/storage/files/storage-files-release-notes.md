@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/14/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 45f383691a52d841f35ed9b67d4658341de18afc
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: f4ea820eb116c4efe550997cbe7c9ed69713c965
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036252"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019120"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente de Sincronização de Arquivos do Azure
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -23,7 +23,7 @@ Este artigo disponibiliza as notas de versão das versões suportadas do agente 
 ## <a name="supported-versions"></a>Versões suportadas
 São suportadas as seguintes versões para o agente do Azure File Sync:
 
-| Principais | Número de versão do agente | Data de lançamento | Estado |
+| Principais | Número de versão do agente | Data de lançamento | State |
 |----|----------------------|--------------|------------------|
 | Pacote cumulativo de atualizações de julho de 2019- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 de julho de 2019 | Suportadas |
 | Pacote cumulativo de atualizações de julho de 2019- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 de julho de 2019 | Suportadas |
@@ -71,6 +71,12 @@ As notas de versão a seguir são para a versão 7.0.0.0 do agente de Sincroniza
 
 - Suporte para tamanhos maiores de compartilhamento de arquivos
     - Com a visualização de grandes compartilhamentos de arquivos do Azure, estamos aumentando nossos limites de suporte para sincronização de arquivos também. Nesta primeira etapa, Sincronização de Arquivos do Azure agora dá suporte a até arquivos 25TB e 50million em um único namespace de sincronização. Para aplicar a visualização de compartilhamento de arquivo grande, preencha este formulário https://aka.ms/azurefilesatscalesurvey. 
+- Suporte para configuração de rede virtual e firewall em contas de armazenamento
+    - O Sincronização de Arquivos do Azure agora dá suporte à configuração de firewall e rede virtual em contas de armazenamento. Para configurar sua implantação para trabalhar com a configuração de rede virtual e firewall, consulte [definir configurações de firewall e rede virtual](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings).
+- Cmdlet do PowerShell para sincronizar imediatamente os arquivos alterados no compartilhamento de arquivos do Azure
+    - Para sincronizar imediatamente os arquivos que são alterados no compartilhamento de arquivos do Azure, o cmdlet Invoke-AzStorageSyncChangeDetection do PowerShell pode ser usado para iniciar manualmente a detecção de alterações no compartilhamento de arquivos do Azure. Esse cmdlet destina-se a cenários em que algum tipo de processo automatizado está fazendo alterações no compartilhamento de arquivos do Azure ou as alterações são feitas por um administrador (como mover arquivos e diretórios para o compartilhamento). Para alterações do usuário final, a recomendação é instalar o agente de Sincronização de Arquivos do Azure em uma VM IaaS e fazer com que os usuários finais acessem o compartilhamento de arquivos por meio da VM IaaS. Dessa forma, todas as alterações serão rapidamente sincronizadas com outros agentes sem a necessidade de usar o cmdlet Invoke-AzStorageSyncChangeDetection. Para saber mais, confira a documentação do [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) .
+- Experiência de portal aprimorada se você encontrar arquivos que não estão sincronizando
+    - Se você tiver arquivos que estão falhando na sincronização, agora diferenciaremos os erros transitórios e persistentes no Portal. Normalmente, os erros transitórios se resolvem sem a necessidade de ação de administrador. Por exemplo, um arquivo que está em uso no momento não será sincronizado até que o identificador do arquivo seja fechado. Para erros persistentes, agora mostramos o número de arquivos afetados por cada erro. A contagem de erros persistentes também é exibida na coluna arquivos não Sincronizando de todos os pontos de extremidade do servidor em um grupo de sincronização.
 - Restauração em nível de arquivo de backup do Azure aprimorada
     - Arquivos individuais restaurados usando o backup do Azure agora são detectados e sincronizados com o ponto de extremidade do servidor mais rapidamente.
 - Melhoria na confiabilidade do cmdlet de recuperação de camadas de nuvem 

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
-ms.openlocfilehash: a7950d80bd5aa21b26a7724845f10515a65c033d
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: cbf039a932c16269f703818e9f0ffef4ce852686
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512702"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018750"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Início rápido: Criar um aplicativo de console .NET para gerenciar Azure Cosmos DB recursos da API do SQL
 
@@ -190,6 +190,7 @@ namespace todo
         public Child[] Children { get; set; }
         public Address Address { get; set; }
         public bool IsRegistered { get; set; }
+        // The ToString() method is used to format the output, it's used for demo purpose only. It's not required by Azure Cosmos DB
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);
@@ -479,7 +480,7 @@ Quando não for mais necessário, você poderá usar o CLI do Azure ou Azure Pow
 az group delete -g "myResourceGroup" -l "southcentralus"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você aprendeu a criar uma conta do Azure Cosmos, criar um banco de dados e um contêiner usando um aplicativo .NET Core. Agora você pode importar dados adicionais para sua conta do Azure cosmos com as instruções int no seguinte artigo. 
 

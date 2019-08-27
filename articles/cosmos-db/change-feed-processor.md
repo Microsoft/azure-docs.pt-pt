@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: aecad80bb1b1e95b07b9df4105547406ff76b84c
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 2f0f3d70d51ff35e37506eab1082fc07b16e711c
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991544"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018786"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB 
 
@@ -76,7 +76,9 @@ Conforme mencionado durante a introdução, o processador do feed de alteraçõe
 
 Se se aplicarem a essas três condições, o processador do feed de alterações usará um algoritmo de distribuição igual, distribuirá todas as concessões no contêiner de concessão em todas as instâncias em execução e paralelizará a computação. Uma concessão só pode pertencer a uma instância em um determinado momento, portanto, o número máximo de instâncias é igual ao número de concessões.
 
-As instâncias podem aumentar e diminuir, e o processador do feed de alterações ajustará dinamicamente a carga redistribuindo-se de acordo.
+O número de instâncias pode aumentar e diminuir, e o processador do feed de alterações ajustará dinamicamente a carga redistribuindo-se adequadamente.
+
+Além disso, o processador do feed de alterações pode se ajustar dinamicamente à escala dos contêineres devido a aumentos de taxa de transferência ou armazenamento. Quando o contêiner cresce, o processador do feed de alterações manipula esses cenários de forma transparente, aumentando dinamicamente as concessões e distribuindo as novas concessões entre as instâncias existentes.
 
 ## <a name="change-feed-and-provisioned-throughput"></a>Feed de alterações e taxa de transferência provisionada
 

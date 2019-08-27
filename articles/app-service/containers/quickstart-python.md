@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
-ms.openlocfilehash: 2ff4364fdb0f24ca08a77279d569c0f03de9bb24
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: c7306de4af7f958ef8f89dac41a5e08209916432
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996848"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020199"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Python no serviço de Azure App no Linux
 
@@ -37,7 +37,7 @@ Para concluir este guia de início rápido:
 
 ## <a name="download-the-sample-locally"></a>Transferir o exemplo localmente
 
-Numa janela de terminal, execute os seguintes comandos para clonar a aplicação de exemplo no seu computador local e navegue para o diretório com o código de exemplo.
+Em uma janela de terminal, execute os seguintes comandos para clonar o aplicativo de exemplo em seu computador local e vá para o diretório com o código de exemplo.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
@@ -65,7 +65,7 @@ Set-Item Env:FLASK_APP ".\application.py"
 flask run
 ```
 
-Abra um browser e navegue para a aplicação de exemplo em `http://localhost:5000/`.
+Abra um navegador da Web e vá para o aplicativo de exemplo `http://localhost:5000/`em.
 
 Pode ver a mensagem **Olá, mundo!** da aplicação de exemplo apresentada na página.
 
@@ -184,7 +184,7 @@ Depois de concluída a implementação, volte para a janela do browser aberta qu
 
 Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo que você criou.
 
-No menu à esquerda, clique em **serviços de aplicativos**e, em seguida, clique no nome do seu aplicativo do Azure.
+No menu à esquerda, selecione **serviços de aplicativos**e, em seguida, selecione o nome do seu aplicativo do Azure.
 
 ![Navegação do portal para a aplicação do Azure](./media/quickstart-python/app-service-list.png)
 

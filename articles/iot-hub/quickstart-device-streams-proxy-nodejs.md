@@ -1,6 +1,6 @@
 ---
-title: Guia de introdução do node. js de fluxos de dispositivos no IoT Hub do Azure para SSH e RDP (pré-visualização) | Documentos da Microsoft
-description: Neste início rápido, irá executar uma aplicação de node. js de exemplo que age como um proxy para ativar cenários RDP e SSH ao longo do IoT Hub fluxos de dispositivo.
+title: Início rápido do node. js de fluxos de dispositivos do Hub IoT do Azure para SSH e RDP (visualização) | Microsoft Docs
+description: Neste guia de início rápido, você executa um aplicativo node. js de exemplo que atua como um proxy para habilitar cenários SSH e RDP em fluxos de dispositivo do Hub IoT.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -10,28 +10,28 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
 ms.openlocfilehash: 83339273d9161c3947df191d10e788980db39b28
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 08/26/2019
 ms.locfileid: "67445978"
 ---
-# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Início rápido: Ativar o RDP e SSH ao longo de um fluxo de dispositivo do IoT Hub utilizando uma aplicação de proxy do node. js (pré-visualização)
+# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Início rápido: Habilitar SSH e RDP em um fluxo de dispositivo do Hub IoT usando um aplicativo de proxy do node. js (versão prévia)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
-Atualmente, o IoT Hub do Microsoft Azure suporta fluxos de dispositivo como uma [funcionalidade de pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Microsoft Azure Hub IoT atualmente dá suporte a fluxos de dispositivo como um [recurso de visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[Fluxos de dispositivo do IoT Hub](./iot-hub-device-streams-overview.md) permitem que os aplicativos de serviço e dispositivo comunicar de forma segura e compatível com firewall. 
+Os [fluxos de dispositivo do Hub IOT](./iot-hub-device-streams-overview.md) permitem que aplicativos de serviço e de dispositivo se comuniquem de maneira segura e amigável ao firewall. 
 
-Este início rápido descreve a execução de um aplicativo de proxy de node. js que está em execução no lado do serviço para ativar o Secure Shell (SSH) e tráfego de protocolo de ambiente de trabalho remoto (RDP) a serem enviados para o dispositivo através de um fluxo de dispositivo. Para uma descrição geral da configuração, consulte [exemplo de Proxy Local](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp). 
+Este guia de início rápido descreve a execução de um aplicativo de proxy node. js em execução no lado do serviço para habilitar o tráfego de Secure Shell (SSH) e protocolo RDP (RDP) a ser enviado ao dispositivo por meio de um fluxo de dispositivo. Para obter uma visão geral da configuração, consulte [exemplo de proxy local](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp). 
 
-Durante a pré-visualização pública, o SDK de node. js suporta fluxos de dispositivo no lado do serviço apenas. Como resultado, este Guia Rápido abrange as instruções para executar apenas a aplicação do proxy de serviço local. Para executar a aplicação do proxy de dispositivo local, consulte:  
+Durante a visualização pública, o SDK do node. js dá suporte a fluxos de dispositivo somente no lado do serviço. Como resultado, este guia de início rápido aborda instruções para executar apenas o aplicativo de proxy de serviço local. Para executar o aplicativo de proxy de dispositivo local, consulte:  
 
-   * [Permitir RDP e SSH sobre fluxos de dispositivo do IoT Hub através de uma aplicação de proxy C](./quickstart-device-streams-proxy-c.md)
-   * [Permitir RDP e SSH sobre fluxos de dispositivo do IoT Hub através de um C# proxy de aplicações](./quickstart-device-streams-proxy-csharp.md)
+   * [Habilitar o SSH e o RDP em fluxos de dispositivo do Hub IoT usando um aplicativo de proxy C](./quickstart-device-streams-proxy-c.md)
+   * [Habilitar o SSH e o RDP em fluxos de dispositivo do Hub C# IOT usando um aplicativo proxy](./quickstart-device-streams-proxy-csharp.md)
 
-Este artigo descreve a configuração de SSH (ao utilizar a porta 22) e, em seguida, descreve como modificar a configuração de RDP (que utiliza a porta 3389). Como os fluxos de dispositivo são aplicações - e indiferente a protocolo, pode modificar o mesmo exemplo para acomodar outros tipos de tráfego de aplicativo de cliente-servidor, normalmente, ao modificar a porta de comunicação.
+Este artigo descreve a configuração para SSH (usando a porta 22) e descreve como modificar a configuração para RDP (que usa a porta 3389). Como os fluxos de dispositivo são independentes de aplicativo e de protocolo, você pode modificar o mesmo exemplo para acomodar outros tipos de tráfego de aplicativo cliente-servidor, geralmente modificando a porta de comunicação.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -39,80 +39,80 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A pré-visualização de fluxos de dispositivo é atualmente suportada apenas para os hubs IoT que são criados nas seguintes regiões:
+* Atualmente, há suporte para a visualização de fluxos de dispositivo apenas para os hubs IoT criados nas seguintes regiões:
 
   * EUA Central
-  * E.U.A. central EUAP
+  * E.U.A. Central EUAP
 
-* Para executar a aplicação de serviço local neste início rápido, terá de node. js v10.x.x ou posterior no seu computador de desenvolvimento.
-  * Baixe [node. js](https://nodejs.org) para várias plataformas.
-  * Verificar a versão atual do node. js no computador de desenvolvimento com o seguinte comando:
+* Para executar o aplicativo de serviço local neste guia de início rápido, você precisa do node. js v10. x. x ou posterior em seu computador de desenvolvimento.
+  * Baixe o [node. js](https://nodejs.org) para várias plataformas.
+  * Verifique a versão atual do node. js em seu computador de desenvolvimento usando o seguinte comando:
 
    ```
    node --version
    ```
 
-* Adicione a extensão de IoT do Azure para a CLI do Azure à sua instância do Cloud Shell, executando o seguinte comando. A extensão de IOT adiciona o IoT Hub, o IoT Edge e o serviço aprovisionamento de dispositivos IoT (DPS)-comandos específicos para a CLI do Azure.
+* Adicione a extensão do Azure IoT para CLI do Azure à instância do Cloud Shell executando o comando a seguir. A extensão de IOT adiciona comandos específicos do serviço de provisionamento de dispositivos IOT, IoT Edge e do Hub IoT ao CLI do Azure.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     ```
 
-* Se ainda não fez isso, [transfira o projeto de node. js de exemplo](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip) e extraia o arquivo ZIP.
+* Se você ainda não fez isso, [Baixe o projeto Node. js de exemplo](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip) e extraia o arquivo zip.
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-Se concluiu o anterior [início rápido: Enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md), pode ignorar este passo.
+Se você concluiu o [início rápido anterior: Enviar telemetria de um dispositivo para um hub](quickstart-send-telemetry-node.md)IOT, você pode ignorar esta etapa.
 
 [!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
-Se concluiu [início rápido: Enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md), pode ignorar este passo.
+Se você concluiu [o início rápido: Enviar telemetria de um dispositivo para um hub](quickstart-send-telemetry-node.md)IOT, você pode ignorar esta etapa.
 
-É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Nesta secção, utilize o Azure Cloud Shell para registar um dispositivo simulado.
+É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Nesta seção, você usará Azure Cloud Shell para registrar um dispositivo simulado.
 
-1. Para criar a identidade de dispositivo, execute o seguinte comando no Cloud Shell:
+1. Para criar a identidade do dispositivo, execute o seguinte comando no Cloud Shell:
 
    > [!NOTE]
-   > * Substitua a *YourIoTHubName* espaço reservado com o nome que escolher para o seu hub IoT.
-   > * Uso *MyDevice*, conforme mostrado. É o nome fornecido para o dispositivo registado. Se escolher um nome diferente para o seu dispositivo, utilize esse nome ao longo deste artigo e atualizar o nome do dispositivo em aplicativos de exemplo, antes de gerá-los.
+   > * Substitua o espaço reservado *nomedoseuhubiot* pelo nome que você escolher para o Hub IOT.
+   > * Use *MyDevice*, conforme mostrado. É o nome fornecido para o dispositivo registrado. Se você escolher um nome diferente para seu dispositivo, use esse nome em todo este artigo e atualize o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-1. Para ativar a aplicação de back-end para se ligar ao seu hub IoT e obter as mensagens, também tem um *cadeia de ligação de serviço*. O comando seguinte obtém a cadeia de caracteres para o seu hub IoT:
+1. Para permitir que o aplicativo de back-end se conecte ao seu hub IoT e recupere as mensagens, você também precisa de uma *cadeia de conexão de serviço*. O comando a seguir recupera a cadeia de caracteres para o Hub IoT:
 
    > [!NOTE]
-   > Substitua a *YourIoTHubName* espaço reservado com o nome que escolher para o seu hub IoT.
+   > Substitua o espaço reservado *nomedoseuhubiot* pelo nome que você escolher para o Hub IOT.
 
     ```azurecli-interactive
     az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
-    Tenha em atenção o valor devolvido para utilizar mais tarde neste início rápido. O aspeto é igual ao do exemplo abaixo:
+    Observe o valor retornado para uso posterior neste guia de início rápido. O aspeto é igual ao do exemplo abaixo:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
 ## <a name="ssh-to-a-device-via-device-streams"></a>SSH para um dispositivo por meio de fluxos de dispositivo
 
-Nesta secção, estabelecer um fluxo de ponto-a-ponto para encaminhar o tráfego SSH.
+Nesta seção, você estabelece um fluxo de ponta a ponta para encapsular o tráfego SSH.
 
-### <a name="run-the-device-local-proxy-application"></a>Executar a aplicação de proxy local do dispositivo
+### <a name="run-the-device-local-proxy-application"></a>Executar o aplicativo de proxy de dispositivo local
 
-Como mencionado anteriormente, o SDK de node. js do Hub IoT suporta fluxos de dispositivo no lado do serviço apenas. Para a aplicação de dispositivo local, utilize uma aplicação de proxy de dispositivo que está disponível dos inícios rápidos:
+Como mencionado anteriormente, o SDK node. js do Hub IoT dá suporte a fluxos de dispositivo somente no lado do serviço. Para o aplicativo de dispositivo local, use um aplicativo de proxy de dispositivo que esteja disponível em um dos seguintes guias de início rápido:
 
-   * [Permitir RDP e SSH sobre fluxos de dispositivo do IoT Hub através de uma aplicação de proxy C](./quickstart-device-streams-proxy-c.md)
-   * [Permitir RDP e SSH sobre fluxos de dispositivo do IoT Hub através de um C# proxy de aplicações](./quickstart-device-streams-proxy-csharp.md) 
+   * [Habilitar o SSH e o RDP em fluxos de dispositivo do Hub IoT usando um aplicativo de proxy C](./quickstart-device-streams-proxy-c.md)
+   * [Habilitar o SSH e o RDP em fluxos de dispositivo do Hub C# IOT usando um aplicativo proxy](./quickstart-device-streams-proxy-csharp.md) 
 
-Antes de avançar para o próximo passo, certifique-se de que a aplicação do proxy de dispositivo local está em execução.
+Antes de prosseguir para a próxima etapa, verifique se o aplicativo de proxy local do dispositivo está em execução.
 
-### <a name="run-the-service-local-proxy-application"></a>Executar a aplicação do proxy de serviço local
+### <a name="run-the-service-local-proxy-application"></a>Executar o aplicativo de proxy local de serviço
 
-Com o dispositivo local do proxy de aplicações em execução, execute a aplicação do proxy de serviço local que é escrita em node. js, fazendo o seguinte:
+Com o aplicativo de proxy de dispositivo local em execução, execute o aplicativo de proxy local de serviço que é gravado no node. js fazendo o seguinte:
 
-1. Variáveis de ambiente, forneça as credenciais do serviço, o ID de dispositivo de destino em que o daemon de SSH é executada e o número de porta para o proxy que está a executar no dispositivo.
+1. Para variáveis de ambiente, forneça suas credenciais de serviço, a ID do dispositivo de destino onde o daemon SSH é executado e o número da porta para o proxy em execução no dispositivo.
 
    ```
    # In Linux
@@ -126,9 +126,9 @@ Com o dispositivo local do proxy de aplicações em execução, execute a aplica
    SET PROXY_PORT=2222
    ```
 
-   Altere os valores anteriores para corresponder à sua cadeia de ligação e ID de dispositivo.
+   Altere os valores anteriores para corresponder à ID do dispositivo e à cadeia de conexão.
 
-1. Vá para o *inícios rápidos/dispositivo-fluxos-serviço* diretório na sua pasta do projeto descompactado e execute a aplicação do proxy de serviço local.
+1. Vá para o diretório *QuickStartES/Device-streams-Service* em sua pasta de projeto descompactada e execute o aplicativo de proxy de serviço local.
 
    ```
    cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
@@ -141,26 +141,26 @@ Com o dispositivo local do proxy de aplicações em execução, execute a aplica
    node proxy.js
    ```
 
-### <a name="ssh-to-your-device-via-device-streams"></a>SSH para o seu dispositivo por meio de fluxos de dispositivo
+### <a name="ssh-to-your-device-via-device-streams"></a>SSH para seu dispositivo por meio de fluxos de dispositivo
 
-No Linux, execute o SSH com o `ssh $USER@localhost -p 2222` num terminal. No Windows, utilize o cliente SSH favorito (por exemplo, PuTTY).
+No Linux, execute o SSH usando `ssh $USER@localhost -p 2222` o em um terminal. No Windows, use seu cliente SSH favorito (por exemplo, de saída).
 
-Resultado da consola do serviço-local após o estabelecimento de sessão SSH (a escuta de aplicação de proxy de serviço local na porta 2222):
+Saída do console no serviço-local após a sessão SSH ser estabelecida (o aplicativo proxy local do serviço escuta na porta 2222):
 
 ![Saída de terminal SSH](./media/quickstart-device-streams-proxy-nodejs/service-console-output.png)
 
-Saída da aplicação de cliente SSH da consola (cliente SSH comunica com o daemon de SSH ao ligar-se a porta 22, que a aplicação do proxy de serviço local está a escutar):
+Saída do console do aplicativo cliente SSH (o cliente SSH se comunica com o daemon SSH conectando-se à porta 22, na qual o aplicativo proxy local do serviço está escutando):
 
 ![Saída do cliente SSH](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.png)
 
-### <a name="rdp-to-your-device-via-device-streams"></a>RDP para o seu dispositivo por meio de fluxos de dispositivo
+### <a name="rdp-to-your-device-via-device-streams"></a>RDP para seu dispositivo por meio de fluxos de dispositivo
 
-Agora, utilize a sua aplicação de cliente RDP e ligar-se para o proxy de serviço na porta 2222, uma porta arbitrária escolhidos anteriormente.
+Agora, use seu aplicativo cliente RDP e conecte-se ao proxy de serviço na porta 2222, uma porta arbitrária que você escolheu anteriormente.
 
 > [!NOTE]
-> Certifique-se de que o proxy de dispositivo está configurado corretamente para RDP e configurado com a porta RDP 3389.
+> Verifique se o proxy do dispositivo está configurado corretamente para RDP e configurado com a porta RDP 3389.
 
-![O cliente RDP liga-se para a aplicação do proxy de serviço local](./media/quickstart-device-streams-proxy-nodejs/rdp-screen-capture.png)
+![O cliente RDP se conecta ao aplicativo de proxy local de serviço](./media/quickstart-device-streams-proxy-nodejs/rdp-screen-capture.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -168,9 +168,9 @@ Agora, utilize a sua aplicação de cliente RDP e ligar-se para o proxy de servi
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, configurar um hub IoT, registou um dispositivo e implementou uma aplicação de proxy de serviço para ativar o RDP e SSH num dispositivo IoT. O tráfego RDP e SSH irá ser encapsulado por meio de um fluxo do dispositivo através do hub IoT. Este processo elimina a necessidade de conectividade direta para o dispositivo.
+Neste guia de início rápido, você configurou um hub IoT, registrou um dispositivo e implantou um aplicativo de proxy de serviço para habilitar o RDP e o SSH em um dispositivo IoT. O tráfego de RDP e SSH será encapsulado por meio de um fluxo de dispositivo por meio do Hub IoT. Esse processo elimina a necessidade de conectividade direta com o dispositivo.
 
-Para saber mais sobre fluxos de dispositivo, veja:
+Para saber mais sobre fluxos de dispositivo, consulte:
 
 > [!div class="nextstepaction"]
-> [Descrição geral de fluxos de dispositivo](./iot-hub-device-streams-overview.md)
+> [Visão geral dos fluxos de dispositivo](./iot-hub-device-streams-overview.md)

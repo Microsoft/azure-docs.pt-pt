@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: sngun
-ms.openlocfilehash: b1d8d2539ae89dfdb8feb2e38f00bf4440411d8a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9824e1468604763834e37abe94290d68d81077ab
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815150"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020115"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutorial: Desenvolver um aplicativo Web ASP.NET Core MVC com Azure Cosmos DB usando o SDK do .NET 
 
@@ -120,22 +120,6 @@ Agora vamos adicionar os modelos, vistas e os controladores a esta aplicação M
    
    Os dados armazenados no Azure Cosmos DB são transmitidos e armazenados como JSON. Para controlar a maneira como os objetos são serializados/desserializados pelo JSON.NET, você pode usar o atributo jsonproperty conforme demonstrado na classe de **Item** que você criou. Você não só pode controlar o formato do nome da propriedade que vai para o JSON, também pode renomear suas propriedades do .NET como você fez com a propriedade **Completed** . 
 
-### <a name="add-a-controller"></a>Adicionar um controlador
-
-1. Do **Explorador de soluções**, com o botão direito a **controladores** pasta, selecione **Add**e, em seguida, selecione **controlador**. A caixa de diálogo **Adicionar Estrutura** é apresentada.
-
-1. Selecione **controlador MVC-vazio** e selecione **Adicionar**.
-
-   ![Captura de tela da caixa de diálogo Adicionar Scaffold com o controlador MVC – opção vazia realçada](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
-
-1. Nomeie o novo controlador, o **controlador de domínio**e substitua o código desse arquivo pelo seguinte código:
-
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
-
-   O **ValidateAntiForgeryToken** atributo é utilizado aqui para ajudar a proteger esta aplicação contra ataques de falsificação de solicitação entre sites. Há mais que apenas adicionar este atributo, seus modos de exibição devem funcionar com este token antifalsificação também. Para obter mais informações sobre o assunto e exemplos de como implementá-los corretamente, consulte impedindo falsificação de [solicitação entre sites][Preventing Cross-Site Request Forgery]. O código de origem fornecido no [GitHub][GitHub] tem a implementação completa no local.
-
-   Também utilizamos a **vincular** atributo no parâmetro do método para ajudar a proteger contra ataques de publicação excessiva. Para obter mais detalhes, consulte [operações CRUD básicas no ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
-
 ### <a name="add-views"></a>Adicionar vistas
 
 Em seguida, vamos criar as seguintes três vistas: 
@@ -190,6 +174,22 @@ E, finalmente, adicione uma vista para editar um item com os seguintes passos:
    * Selecione **Adicionar**.
 
 Em seguida, feche todos os documentos cshtml no Visual Studio como voltar a estas vistas mais tarde.
+
+### <a name="add-a-controller"></a>Adicionar um controlador
+
+1. Do **Explorador de soluções**, com o botão direito a **controladores** pasta, selecione **Add**e, em seguida, selecione **controlador**. A caixa de diálogo **Adicionar Estrutura** é apresentada.
+
+1. Selecione **controlador MVC-vazio** e selecione **Adicionar**.
+
+   ![Captura de tela da caixa de diálogo Adicionar Scaffold com o controlador MVC – opção vazia realçada](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+
+1. Nomeie o novo controlador, o **controlador de domínio**e substitua o código desse arquivo pelo seguinte código:
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
+
+   O **ValidateAntiForgeryToken** atributo é utilizado aqui para ajudar a proteger esta aplicação contra ataques de falsificação de solicitação entre sites. Há mais que apenas adicionar este atributo, seus modos de exibição devem funcionar com este token antifalsificação também. Para obter mais informações sobre o assunto e exemplos de como implementá-los corretamente, consulte impedindo falsificação de [solicitação entre sites][Preventing Cross-Site Request Forgery]. O código de origem fornecido no [GitHub][GitHub] tem a implementação completa no local.
+
+   Também utilizamos a **vincular** atributo no parâmetro do método para ajudar a proteger contra ataques de publicação excessiva. Para obter mais detalhes, consulte [operações CRUD básicas no ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 
 ## <a name="connect-to-cosmosdb"></a>Etapa 5: Ligar ao Azure Cosmos DB 
 

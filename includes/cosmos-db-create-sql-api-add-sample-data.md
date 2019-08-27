@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 08/07/2019
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 6656c374ae0ff4aae7f99fd340e9e25e5cbc67d1
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f80efbac256871af073354f23317c447d6a85f1e
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854167"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020153"
 ---
 Agora você pode adicionar dados ao seu novo contêiner usando Data Explorer.
 
-1. No **Data Explorer**, expanda o banco de dados **tarefas** , expanda o contêiner **itens** . Selecione **itens**e clique em **novo item**.
+1. No **Data Explorer**, expanda o banco de dados **tarefas** , expanda o contêiner **itens** . Selecione **itens**e, em seguida, selecione **novo item**.
 
    ![Criar documentos novos no Data Explorer no portal do Azure](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
   

@@ -11,16 +11,16 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 ms.date: 03/22/2019
-ms.openlocfilehash: a606364503172d5cb1ddcf00262eb81b9423b55b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f2b57aa517c1518929b857eff6aed2ef4e0d8ca1
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569049"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018971"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Classificação & do banco de dados SQL do Azure e SQL Data Warehouse data Discovery
 
-A & de descoberta de dados (atualmente em versão prévia) fornece recursos avançados incorporados ao banco de dados SQL do & Azure para **descobrir**, **classificar**, rotular a**proteção** das informações confidenciais em seu bancos.
+A classificação de & da descoberta de dados fornece recursos avançados incorporados ao banco de dados SQL do Azure para **descobrir**, **classificar** & , rotular a**proteção** de informações confidenciais em seus bancos.
 Descobrindo e classificando seus dados mais confidenciais (negócios, financeiros, de saúde, PII (dados de identificação pessoal) e assim por diante.) pode desempenhar uma função dinâmica em sua estatura de proteção de informações organizacionais. Ele pode servir como uma infraestrutura para:
 
 - Ajudando a atender aos padrões de privacidade de dados e aos requisitos de conformidade regulatória.
@@ -76,7 +76,7 @@ Depois que a política de todo o locatário tiver sido definida, você poderá c
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com).
 
-2. Navegue até **segurança de dados avançada** no título segurança no painel do banco de dados SQL do Azure. Clique para habilitar a segurança de dados avançada e clique no cartão de **classificação de & de descoberta de dados (versão prévia)** .
+2. Navegue até **segurança de dados avançada** no título segurança no painel do banco de dados SQL do Azure. Clique para habilitar a segurança de dados avançada e clique no cartão de **classificação & de descoberta de dados** .
 
    ![Verificar um banco de dados](./media/sql-data-discovery-and-classification/data_classification.png)
 

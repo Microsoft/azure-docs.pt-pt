@@ -1,6 +1,6 @@
 ---
-title: Restrições e problemas conhecidos na importação de API de gestão de API do Azure | Documentos da Microsoft
-description: Detalhes de problemas conhecidos e restrições à importação no usando os formatos de API aberta, WSDL ou WADL de API Management do Azure.
+title: Restrições e problemas conhecidos na importação da API de gerenciamento de API do Azure | Microsoft Docs
+description: Detalhes de problemas conhecidos e restrições sobre como importar para o gerenciamento de API do Azure usando os formatos Open API, WSDL ou WADL.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,57 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: af550d3cdf359fc79b3cc2c799e531e5ec491c4e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: bf39e508b8e4c883934b51fdc99eaef96caf1235
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613636"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018214"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 
 ## <a name="about-this-list"></a>Sobre esta lista
 
-Ao importar uma API, poderá se deparou com algumas restrições ou identificar problemas que precisam de ser retificados antes de poder importá com êxito. Documentos neste artigo, organizadas pelo formato de importação da API.
+Ao importar uma API, você pode entrar em algumas restrições ou identificar problemas que precisam ser corrigidos antes de poder importar com êxito. Este artigo documenta esses documentos, organizados pelo formato de importação da API.
 
-## <a name="open-api"> </a>OpenAPI/Swagger
+## <a name="open-api"> </a>Openapi/Swagger
 
-Se estiver a receber erros de importar o seu documento OpenAPI, certifique-se de que validar com antecedência. Pode fazer isso usando o designer no portal do Azure (Design - Front-End - Editor de especificação de OpenAPI) ou com uma ferramenta de terceiros, como <a href="https://editor.swagger.io">Swagger Editor</a>.
+Se você estiver recebendo erros ao importar o documento do OpenAPI, verifique se você o validou antecipadamente. Você pode fazer isso usando o designer no portal do Azure (design-front-end-editor de especificação OpenAPI) ou com uma ferramenta de terceiros, como o <a href="https://editor.swagger.io">Editor do Swagger</a>.
 
 ### <a name="open-api-general"> </a>Geral
 
--   Parâmetros obrigatórios no caminho e consulta tem de ter nomes exclusivos. (No OpenAPI um nome de parâmetro apenas tem de ser exclusivo dentro de um local, por exemplo, caminho, consulta e cabeçalho. No entanto, na gestão de API, podemos permitir operações a ser discriminados por parâmetros de caminho e consulta (que não suporta a OpenAPI). That's por que é necessário que os nomes de parâmetros de ser exclusivo dentro do modelo de URL completo.)
--   **\$Ref** ponteiros não podem referenciar arquivos externos.
--   **x-ms-caminhos** e **x-servers** são as extensões suportadas apenas.
--   Extensões personalizadas são ignoradas ao importar e não são guardadas ou preservadas para exportação.
--   **Recursão** -gestão de API não suporta definições definidas recursivamente (por exemplo, esquemas que faça referência a próprios).
--   URL do ficheiro de origem (se disponível) é aplicada a URLs do servidor relativo.
+-   Os parâmetros necessários no caminho e na consulta devem ter nomes exclusivos. (No OpenAPI, um nome de parâmetro só precisa ser exclusivo dentro de um local, por exemplo, caminho, consulta, cabeçalho. No entanto, no gerenciamento de API, permitimos que as operações sejam discriminadas por parâmetros de caminho e de consulta (que OpenAPI não dá suporte). É por isso que exigimos que os nomes de parâmetro sejam exclusivos no modelo de URL inteiro.)
+-   ponteiros de referência não podem referenciar arquivos externos.  **\$**
+-   **x-MS-Paths** e **x-Servers** são as únicas extensões com suporte.
+-   As extensões personalizadas são ignoradas na importação e não são salvas ou preservadas para exportação.
+-   **Recursão** -o gerenciamento de API não dá suporte a definições definidas recursivamente (por exemplo, esquemas que se referim a si mesmos).
+-   A URL do arquivo de origem (se disponível) é aplicada a URLs de servidor relativas.
+-   As definições de segurança são ignoradas.
 
-### <a name="open-api-v2"> </a>Versão 2 do OpenAPI
+### <a name="open-api-v2"> </a>Openapi versão 2
 
--   Formato JSON só é suportado.
+-   Há suporte apenas para o formato JSON.
 
-### <a name="open-api-v3"> </a>OpenAPI versão 3
+### <a name="open-api-v3"> </a>Openapi versão 3
 
--   Se muitos **servidores** forem especificados, gestão de API irá tentar selecionar o primeiro URL HTTPs. Caso não haja nenhum URL HTTPs - o primeiro URL de HTTP. Caso não haja nenhum URL de HTTP - o URL do servidor estará vazio.
--   **Exemplos** não é suportada, mas **exemplo** é.
--   **Multipart/form-data** não é suportada.
+-   Se vários **servidores** forem especificados, o gerenciamento de API tentará selecionar a primeira URL https. Se não houver nenhuma URL HTTPs-a primeira HTTP. Se não houver nenhuma URL de HTTP, ela estará vazia.
+-   Não há suporte para **exemplos** , mas o **exemplo** é.
+-   Não há suporte para **dados de várias partes/formulário** .
 
 > [!IMPORTANT]
 > Veja este [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) para obter informações importantes e sugestões relacionadas com a importação de OpenAPI.
 
 ## <a name="wsdl"> </a>WSDL
 
-Ficheiros WSDL são utilizados para criar o pass-through SOAP e APIs SOAP para REST.
+Os arquivos WSDL são usados para criar APIs de passagem SOAP e SOAP para REST.
 
--   **Enlaces de SOAP** -enlaces de apenas SOAP do estilo "documento" e a codificação de "literal" são suportados. Não há suporte para o estilo de "rpc" ou a codificação de SOAP.
--   **WSDL:import** -este atributo não é suportado. Os clientes devem mesclar as importações num documento.
--   **Mensagens com várias partes** -esses tipos de mensagens não são suportados.
--   **WCF wsHttpBinding** -serviços SOAP criados com o Windows Communication Foundation devem utilizar a basicHttpBinding, wsHttpBinding não é suportada.
--   **MTOM** - serviços usando o MTOM <em>poderá</em> trabalhar. Não é disponibilizado suporte oficial neste momento.
--   **Recursão** -tipos que são definidos recursivamente (por exemplo, consulte a uma matriz por si mesmos) não são suportadas pelo APIM.
--   **Vários espaços de nomes** - vários espaços de nomes podem ser usados num esquema, mas apenas o espaço de nomes de destino pode ser usado para definir partes das mensagens. Espaços de nomes diferente do destino que são utilizados para definir a outros elementos de entrada ou de saída não são mantidos. Embora possa ser importado um documento WSDL, todas as partes da mensagem serão necessário o espaço de nomes de destino do WSDL na exportação.
--   **As matrizes** - matrizes de suporta apenas encapsulada de transformação de SOAP para REST mostradas no exemplo abaixo:
+-   **Associações SOAP** -somente as associações SOAP de estilo "Document" e "literal" têm suporte. Não há suporte para o estilo "RPC" ou codificação SOAP.
+-   **WSDL: Import** -esse atributo não tem suporte. Os clientes devem mesclar as importações em um documento.
+-   **Mensagens com várias partes** – não há suporte para esses tipos de mensagens.
+-   **WCF WSHttpBinding** -os serviços SOAP criados com Windows Communication Foundation devem usar BasicHttpBinding-WSHttpBinding sem suporte.
+-   **MTOM** -os serviços usando MTOM <em>podem</em> funcionar. O suporte oficial não é oferecido no momento.
+-   **Recursão** -os tipos definidos recursivamente (por exemplo, consulte uma matriz de si mesmos) não são suportados pelo APIM.
+-   **Vários namespaces** -vários namespaces podem ser usados em um esquema, mas somente o namespace de destino pode ser usado para definir partes de mensagem. Namespaces diferentes do destino que são usados para definir outros elementos de entrada ou saída não são preservados. Embora tal documento WSDL possa ser importado, em exportar todas as partes de mensagem terão o namespace de destino do WSDL.
+-   **Matrizes** – a transformação SOAP-to-REST dá suporte apenas a matrizes encapsuladas mostradas no exemplo abaixo:
 
 ```xml
     <complexType name="arrayTypeName">
@@ -83,4 +84,4 @@ Ficheiros WSDL são utilizados para criar o pass-through SOAP e APIs SOAP para R
 
 ## <a name="wadl"> </a>WADL
 
-Atualmente, não existem não existem problemas de importação WADL conhecidos.
+No momento, não há nenhum problema de importação de WADL conhecido.

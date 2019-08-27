@@ -10,13 +10,13 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/12/2019
-ms.openlocfilehash: 701c266705c16198f35cddc36cdf1d431331c2d2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 07/31/2019
+ms.openlocfilehash: 9b58d6e189c891d0dd2917d7d150f133dc35f917
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847946"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019104"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Iniciar, monitorar e cancelar execuções de treinamento em Python
 
@@ -220,9 +220,32 @@ with exp.start_logging() as parent_run:
 > [!NOTE]
 > À medida que eles saem do escopo, as execuções filhas são automaticamente marcadas como concluídas.
 
-Você também pode iniciar o filho executando um por um, mas como cada criação resulta em uma chamada de rede, é menos eficiente do que enviar um lote de execuções.
+Para criar várias execuções filhas com eficiência, [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) use o método. Como cada criação resulta em uma chamada de rede, a criação de um lote de execuções é mais eficiente do que criá-los um a um.
 
-Para consultar as execuções filhas de um pai específico, use [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) o método.
+### <a name="submit-child-runs"></a>Enviar execuções filhas
+
+As execuções filhas também podem ser enviadas de uma execução pai. Isso permite que você crie hierarquias de execuções pai e filho, cada uma executando em diferentes destinos de computação, conectados por ID de execução pai comum.
+
+Use o método [' submit_child () '](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-count-none--tag-key-none--tag-values-none-) para enviar uma execução filho de dentro de uma execução pai. Para fazer isso no script de execução pai, obtenha o contexto de execução e envie a execução filha usando o método ' ' submit_child ' ' ' da instância de contexto.
+
+```python
+## In parent run script
+parent_run = Run.get_context()
+child_run_config = ScriptRunConfig(source_directory='.', script='child_script.py')
+parent_run.submit_child(child_run_config)
+```
+
+Em uma execução de filho, você pode exibir a ID de execução pai:
+
+```python
+## In child run script
+child_run = Run.get_context()
+child_run.parent.id
+```
+
+### <a name="query-child-runs"></a>Consultar execuções filhas
+
+Para consultar as execuções filhas de um pai específico, use [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) o método. O argumento ' ' ' recursive = true ' ' ' permite consultar uma árvore aninhada de Children e netos.
 
 ```python
 print(parent_run.get_children())
@@ -316,6 +339,6 @@ Os blocos de anotações a seguir demonstram os conceitos neste artigo:
 
 * Para obter mais informações sobre o gerenciamento de execuções com o SDK do Azure Machine Learning, consulte o [bloco de anotações gerenciar execuções](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/manage-runs).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber como registrar métricas para seus experimentos, consulte [métricas de log durante execuções de treinamento](how-to-track-experiments.md).

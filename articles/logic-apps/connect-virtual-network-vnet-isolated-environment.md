@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: ce663dec47f99b6ba4751e23e7ac7f13de866a5d
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 7a3cdab8e05a873e67788a72350d1bf3fde3cd18
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982970"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018210"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectar-se a redes virtuais do Azure de aplicativos lógicos do Azure usando um ISE (ambiente do serviço de integração)
 
@@ -67,31 +67,34 @@ Quando você usa um ISE com uma rede virtual existente, um problema de configura
 
 Se você tiver criado uma nova rede virtual e sub-redes sem nenhuma restrição, não será necessário configurar [NSGs (grupos de segurança de rede)](../virtual-network/security-overview.md) em sua rede virtual para que você possa controlar o tráfego entre sub-redes. Para uma rede virtual existente, opcionalmente , você pode configurar o NSGs [filtrando o tráfego de rede entre sub-redes](../virtual-network/tutorial-filter-network-traffic.md). Se você escolher essa rota, verifique se o ISE abre portas específicas, conforme descrito na tabela a seguir, na rede virtual que tem o NSGs. Portanto, para NSGs existentes ou firewalls em sua rede virtual, certifique-se de que eles abram essas portas. Dessa forma, o ISE permanece acessível e pode funcionar corretamente para que você não perca o acesso ao ISE. Caso contrário, se qualquer porta necessária estiver indisponível, o ISE para de funcionar.
 
-Esta tabela descreve as portas em sua rede virtual que o ISE usa e onde essas portas são usadas. As [marcas de serviço do Gerenciador de recursos](../virtual-network/security-overview.md#service-tags) representam um grupo de prefixos de endereço IP que ajudam a minimizar a complexidade ao criar regras de segurança.
-
 > [!IMPORTANT]
 > Para a comunicação interna dentro de suas sub-redes, o ISE exige que você abra todas as portas dentro dessas sub-redes.
 
-| Objetivo | Direction | Portas | Etiqueta de serviço de origem | Etiqueta do serviço de destino | Notas |
-|---------|-----------|-------|--------------------|-------------------------|-------|
-| Comunicação de aplicativos lógicos do Azure | Saída | 80 & 443 | VirtualNetwork | Internet | A porta depende do serviço externo com o qual o serviço de aplicativos lógicos se comunica |
-| Azure Active Directory | Saída | 80 & 443 | VirtualNetwork | AzureActiveDirectory | |
-| Dependência de armazenamento do Azure | Saída | 80 & 443 | VirtualNetwork | Armazenamento | |
-| Comunicação entre sub-redes | Saída de & de entrada | 80 & 443 | VirtualNetwork | VirtualNetwork | Para comunicação entre sub-redes |
+Esta tabela descreve as portas em sua rede virtual que o ISE usa e onde essas portas são usadas. As [marcas de serviço do Gerenciador de recursos](../virtual-network/security-overview.md#service-tags) representam um grupo de prefixos de endereço IP que ajudam a minimizar a complexidade ao criar regras de segurança.
+
+> [!NOTE]
+> As portas de origem são efêmeras, portanto, `*` defina-as como para todas as regras.
+
+| Objetivo | Direction | Portas de destino | Etiqueta de serviço de origem | Etiqueta do serviço de destino | Notas |
+|---------|-----------|-------------------|--------------------|-------------------------|-------|
+| Comunicação de aplicativos lógicos do Azure | Saída | 80, 443 | VirtualNetwork | Internet | A porta depende do serviço externo com o qual o serviço de aplicativos lógicos se comunica |
+| Azure Active Directory | Saída | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
+| Dependência de armazenamento do Azure | Saída | 80, 443 | VirtualNetwork | Armazenamento | |
+| Comunicação entre sub-redes | Saída de & de entrada | 80, 443 | VirtualNetwork | VirtualNetwork | Para comunicação entre sub-redes |
 | Comunicação com o aplicativo lógico do Azure | Entrada | 443 | Pontos de extremidade de acesso interno: <br>VirtualNetwork <p><p>Pontos de extremidade de acesso externo: <br>Internet <p><p>**Nota**: Esses pontos de extremidade referem-se à configuração de EndPoint que foi [selecionada na criação do ISE](#create-environment). Para obter mais informações, consulte [Endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | O endereço IP do computador ou serviço que chama qualquer gatilho de solicitação ou webhook que existe em seu aplicativo lógico. Fechar ou bloquear essa porta impede chamadas HTTP para aplicativos lógicos com gatilhos de solicitação. |
 | Histórico de execução do aplicativo lógico | Entrada | 443 | Pontos de extremidade de acesso interno: <br>VirtualNetwork <p><p>Pontos de extremidade de acesso externo: <br>Internet <p><p>**Nota**: Esses pontos de extremidade referem-se à configuração de EndPoint que foi [selecionada na criação do ISE](#create-environment). Para obter mais informações, consulte [Endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | O endereço IP do computador do qual você exibe o histórico de execução do aplicativo lógico. Embora o fechamento ou o bloqueio dessa porta não impeça que você exiba o histórico de execução, não é possível exibir as entradas e saídas de cada etapa nesse histórico de execução. |
 | Gerenciamento de conexão | Saída | 443 | VirtualNetwork  | Internet | |
 | Publicar logs de diagnóstico & métricas | Saída | 443 | VirtualNetwork  | AzureMonitor | |
 | Comunicação do Gerenciador de tráfego do Azure | Entrada | 443 | AzureTrafficManager | VirtualNetwork | |
-| Designer de aplicativos lógicos – propriedades dinâmicas | Entrada | 454 | Internet  | VirtualNetwork | As solicitações são provenientes dos [endereços IP de entrada do ponto de extremidade de acesso](../logic-apps/logic-apps-limits-and-config.md#inbound)dos aplicativos lógicos nessa região. |
-| Dependência de gerenciamento do serviço de aplicativo | Entrada | 454 & 455 | AppServiceManagement | VirtualNetwork | |
-| Implantação de conector | Entrada | 454 & 3443 | Internet  | VirtualNetwork | Necessário para implantar e atualizar conectores. Fechar ou bloquear essa porta faz com que implantações do ISE falhem e impeçam atualizações ou correções do conector. |
-| Dependência do SQL do Azure | Saída | 1433 | VirtualNetwork | SQL |
+| Designer de aplicativos lógicos – propriedades dinâmicas | Entrada | 454 | Internet | VirtualNetwork | As solicitações são provenientes dos [endereços IP de entrada do ponto de extremidade de acesso](../logic-apps/logic-apps-limits-and-config.md#inbound)dos aplicativos lógicos nessa região. |
+| Dependência de gerenciamento do serviço de aplicativo | Entrada | 454, 455 | AppServiceManagement | VirtualNetwork | |
+| Implantação de conector | Entrada | 454, 3443 | Internet | VirtualNetwork | Necessário para implantar e atualizar conectores. Fechar ou bloquear essa porta faz com que implantações do ISE falhem e impeçam atualizações ou correções do conector. |
+| Dependência do SQL do Azure | Saída | 1433 | VirtualNetwork | SQL | |
 | Azure Resource Health | Saída | 1886 | VirtualNetwork | AzureMonitor | Para a publicação do status de integridade para Resource Health |
-| Gerenciamento de API-ponto de extremidade de gerenciamento | Entrada | 3443 | APIManagement  | VirtualNetwork | |
-| Dependência de log para política do hub de eventos e agente de monitoramento | Saída | 5672 | VirtualNetwork  | EventHub | |
-| Acessar o cache do Azure para instâncias de Redis entre instâncias de função | Entrada <br>Saída | 6379-6383 | VirtualNetwork  | VirtualNetwork | Além disso, para que o ISE funcione com o cache do Azure para Redis, você deve abrir essas [portas de saída e de entrada descritas no cache do Azure para perguntas frequentes do Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-| Balanceador de Carga do Azure | Entrada | * | AzureLoadBalancer | VirtualNetwork |  |
+| Gerenciamento de API-ponto de extremidade de gerenciamento | Entrada | 3443 | APIManagement | VirtualNetwork | |
+| Dependência de log para política do hub de eventos e agente de monitoramento | Saída | 5672 | VirtualNetwork | EventHub | |
+| Acessar o cache do Azure para instâncias de Redis entre instâncias de função | Entrada <br>Saída | 6379-6383 | VirtualNetwork | VirtualNetwork | Além disso, para que o ISE funcione com o cache do Azure para Redis, você deve abrir essas [portas de saída e de entrada descritas no cache do Azure para perguntas frequentes do Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Balanceador de Carga do Azure | Entrada | * | AzureLoadBalancer | VirtualNetwork | |
 ||||||
 
 <a name="create-environment"></a>
@@ -123,7 +126,7 @@ Na caixa de pesquisa, digite "ambiente do serviço de integração" como seu fil
    | **Capacidade adicional** | Especiais <br>Sim <p><p>Programador: <br>Não aplicável | Especiais <br>0 a 10 <p><p>Programador: <br>Não aplicável | O número de unidades de processamento adicionais a serem usadas para este recurso do ISE. Para adicionar capacidade após a criação, consulte [adicionar capacidade do ISE](#add-capacity). |
    | **Ponto de extremidade de acesso** | Sim | **Interno** ou **externo** | O tipo de pontos de extremidade de acesso a serem usados para o ISE, que determinam se os gatilhos de solicitação ou webhook em aplicativos lógicos no ISE podem receber chamadas de fora de sua rede virtual. O tipo de ponto de extremidade também afeta o acesso a entradas e saídas no histórico de execuções do aplicativo lógico. Para obter mais informações, consulte [Endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Importante**: Essa opção está disponível somente na criação do ISE e não pode ser alterada posteriormente. |
    | **Rede virtual** | Sim | <*Azure-virtual-network-name*> | A rede virtual do Azure onde você deseja injetar seu ambiente para que os aplicativos lógicos nesse ambiente possam acessar sua rede virtual. Se você não tiver uma rede, [primeiro crie uma rede virtual do Azure](../virtual-network/quick-create-portal.md). <p>**Importante**: Você *só* pode executar essa injeção ao criar o ISE. |
-   | **Sub-redes** | Sim | <*subnet-resource-list*> | Um ISE requer quatro sub-redes vazias para criar e implantar recursos em seu ambiente. Para criar cada sub-rede, [siga as etapas descritas nesta tabela](#create-subnet).  |
+   | **Sub-redes** | Sim | <*subnet-resource-list*> | Um ISE requer quatro sub-redes vazias para criar e implantar recursos em seu ambiente. Para criar cada sub-rede, [siga as etapas descritas nesta tabela](#create-subnet). |
    |||||
 
    <a name="create-subnet"></a>
@@ -228,6 +231,7 @@ A unidade base do ISE Premium tem capacidade fixa, portanto, se você precisar d
    * Se você escolher baseado em métrica, siga estas etapas:
 
      1. Na seção **regras** , escolha **Adicionar uma regra**.
+
      1. No painel **regra** de dimensionamento, configure os critérios e a ação a serem tomadas quando a regra for disparada.
 
      1. Quando terminar, escolha **Adicionar**.

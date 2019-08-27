@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/18/2019
+ms.date: 8/25/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 5458d26172123f0f6cb9914a04ec05b3163a084f
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: bc1b2a07f15ca98da7750c85cd25f2c5766c9bb5
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013278"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018171"
 ---
 # <a name="threat-detection-for-the-azure-service-layer-in-azure-security-center"></a>Detecção de ameaças para a camada de serviço do Azure na central de segurança do Azure
 
@@ -52,7 +52,7 @@ A central de segurança rede – a análise de camada baseia-se nos [dados IPFIX
 Para entender como a central de segurança pode usar sinais relacionados à rede para aplicar a proteção contra ameaças, confira [detecções heurísticas de DNS na central de segurança do Azure](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 
 >[!NOTE]
->Os alertas de detecção de ameaças da camada de rede do Azure, na central de segurança do Azure, não são gerados durante a primeira hora após a criação da VM.
+>Os alertas de detecção de ameaças da camada de rede do Azure, na central de segurança do Azure, são gerados somente em máquinas virtuais que receberam o mesmo endereço IP para a hora inteira durante a qual ocorreu uma comunicação suspeita. Isso se aplica a máquinas virtuais, bem como a máquinas virtuais que são criadas na assinatura do cliente como parte de um serviço gerenciado (por exemplo, AKS, databricks).
 
 ## Camada de gerenciamento do Azure (Azure Resource Manager) (visualização)<a name ="management-layer"></a>
 

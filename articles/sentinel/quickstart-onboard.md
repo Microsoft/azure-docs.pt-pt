@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2019
+ms.date: 08/22/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0c37d6167012af46204cbca29397f5d226b9649b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: b609dc70c45941ec1132c7cdf614cf9bec8119ff
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611899"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019011"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Visualização do Azure Sentinel integrada
 
@@ -59,7 +59,8 @@ Depois de conectar suas fontes de dados, escolha em uma galeria de painéis cria
 
    >[!NOTE] 
    > - Os espaços de trabalho padrão criados pela central de segurança do Azure não serão exibidos na lista; Você não pode instalar o Azure Sentinel neles.
-   > - O Azure Sentinel pode ser executado em espaços de trabalho implantados em qualquer uma das seguintes regiões:  Sudeste da Austrália, Canadá central, Índia central, leste dos EUA, leste dos EUA 2 EUAP (canário), leste do Japão, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental, oeste dos EUA 2.
+   > - O Azure Sentinel pode ser executado em espaços de trabalho implantados em qualquer uma das seguintes regiões: Leste da Austrália, sudeste da Austrália, Canadá central, Índia central, leste dos EUA, leste dos Estados Unidos 2 EUAP (canário), leste do Japão, sudeste da Ásia, Sul do Reino Unido, Europa Ocidental, oeste dos EUA 2, Oeste EUA Central, França central, Coreia central, Europa Setentrional, leste dos EUA 2, Ásia Oriental, oeste dos EUA, EUA Central, EUA Central do Sul.
+
 
 6. Clique em **Adicionar Azure Sentinel**.
   
@@ -77,7 +78,7 @@ Depois que as fontes de dados estiverem conectadas, seus dados começarão a tra
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste documento, você aprendeu a conectar fontes de dados ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
 - Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).

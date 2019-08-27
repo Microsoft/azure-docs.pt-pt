@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 84f3e4d0314408b2f3a8417cebd355a842331286
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f085ca6de2c04caa90c34bc1293da1210d2883eb
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855129"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020162"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>o Azure Cosmos DB: Criar um aplicativo Python usando Azure Cosmos DB conta da API do SQL
 
@@ -84,7 +84,7 @@ Agora vamos clonar uma aplicação API SQL a partir do GitHub, definir a cadeia 
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação.
 
-1. Na [portal do Azure](https://portal.azure.com/), em sua conta do Azure Cosmos, clique em **chaves**de navegação à esquerda. Irá utilizar os botões de copiar no lado direito do ecrã para copiar o **URI** e a **Chave Primária** para o ficheiro `CosmosGetStarted.py` no passo seguinte.
+1. Na [portal do Azure](https://portal.azure.com/), na sua conta do cosmos do Azure, no painel de navegação esquerdo, selecione **chaves**. Irá utilizar os botões de copiar no lado direito do ecrã para copiar o **URI** e a **Chave Primária** para o ficheiro `CosmosGetStarted.py` no passo seguinte.
 
     ![Ver e copiar uma chave de acesso no portal do Azure, painel Chaves](./media/create-sql-api-dotnet/keys.png)
 
@@ -173,7 +173,7 @@ Os seguintes fragmentos foram todos retirados do ficheiro `CosmosGetStarted.py`.
    
 ## <a name="run-the-app"></a>Executar a aplicação
 
-1. No Visual Studio Code, selecione **Vista**>**Paleta de Comando**. 
+1. No Visual Studio Code, selecione **Vista** > **Paleta de Comando**. 
 
 2. No prompt, insira **Python: Selecione interpretador** e, em seguida, selecione a versão do Python a ser usada.
 

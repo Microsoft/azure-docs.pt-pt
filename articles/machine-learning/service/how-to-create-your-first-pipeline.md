@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: a34443abf38f31a5400b9f274c65b0b2f7362af7
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 3086df4a10c803b718f5eb0c28ed66fe137e94da
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624800"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019153"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar pipelines do Machine Learning com o SDK do Azure Machine Learning
 
@@ -92,6 +92,8 @@ Um pipeline consiste num ou mais passos. Um passo é uma unidade executada num d
 Acabou de criar uma origem de dados que pode ser referenciada num pipeline como entrada para um passo. Uma origem de dados num pipeline é representada por um [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) objeto. O `DataReference` objeto aponta para dados que residem ou estão acessível a partir de um arquivo de dados.
 
 ```python
+from azureml.data.data_reference import DataReference
+
 blob_input_data = DataReference(
     datastore=def_blob_store,
     data_reference_name="test_data",
@@ -101,6 +103,8 @@ blob_input_data = DataReference(
 Dados intermédios (ou de saída de um passo) é representada por um [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) objeto. `output_data1`é produzido como a saída de uma etapa e usado como a entrada de uma ou mais etapas futuras. `PipelineData`apresenta uma dependência de dados entre etapas e cria uma ordem de execução implícita no pipeline.
 
 ```python
+from azureml.pipeline.core import PipelineData
+
 output_data1 = PipelineData(
     "output_data1",
     datastore=def_blob_store,
@@ -262,6 +266,8 @@ Para obter um exemplo mais detalhado, consulte um [exemplo de bloco de anotaçõ
 Depois de criar e anexar um destino de computação ao seu espaço de trabalho, você estará pronto para definir uma etapa de pipeline. Existem muitos passos internos disponível através do SDK do Azure Machine Learning. O mais básico dessas etapas é um [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), que executa um script Python em um destino de computação especificado:
 
 ```python
+from azureml.pipeline.steps import PythonScriptStep
+
 trainStep = PythonScriptStep(
     script_name="train.py",
     arguments=["--input", blob_input_data, "--output", processed_data1],
@@ -283,6 +289,8 @@ Depois de definir as etapas, você cria o pipeline usando algumas ou todas essas
 # list of steps to run
 compareModels = [trainStep, extractStep, compareStep]
 
+from azureml.pipeline.core import Pipeline
+
 # Build the pipeline
 pipeline1 = Pipeline(workspace=ws, steps=[compareModels])
 ```
@@ -290,6 +298,8 @@ pipeline1 = Pipeline(workspace=ws, steps=[compareModels])
 O exemplo a seguir usa o destino de computação Azure Databricks criado anteriormente: 
 
 ```python
+from azureml.pipeline.steps import DatabricksStep
+
 dbStep = DatabricksStep(
     name="databricksmodule",
     inputs=[step_1_input],
@@ -320,6 +330,8 @@ Quando você envia o pipeline, o serviço de Azure Machine Learning verifica as 
 > Para obter mais informações, [](concept-azure-machine-learning-architecture.md#snapshots)consulte instantâneos.
 
 ```python
+from azureml.core import Experiment
+
 # Submit the pipeline to be run
 pipeline_run1 = Experiment(ws, 'Compare_Models_Exp').submit(pipeline1)
 pipeline_run1.wait_for_completion()
@@ -351,6 +363,8 @@ Pode publicar um pipeline para executá-lo mais tarde com entradas diferentes. P
 1. Para criar um parâmetro de pipeline, utilize um [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) objeto com um valor predefinido.
 
    ```python
+   from azureml.pipeline.core.graph import PipelineParameter
+   
    pipeline_param = PipelineParameter(
      name="pipeline_arg",
      default_value=10)
@@ -384,6 +398,9 @@ Todos os pipelines publicados têm um ponto de extremidade REST. Esse ponto de e
 Para invocar a execução do pipeline anterior, você precisa de um token de cabeçalho de autenticação Azure Active Directory, conforme descrito na [classe AzureCliAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) ou obter mais detalhes na [autenticação no Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
 
 ```python
+from azureml.pipeline.core import PublishedPipeline
+import requests
+
 response = requests.post(published_pipeline1.endpoint,
                          headers=aad_token,
                          json={"ExperimentName": "My_Pipeline",
@@ -432,7 +449,7 @@ step = PythonScriptStep(name="Hello World",
 ```
  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Uso [estes blocos de notas do Jupyter no GitHub](https://aka.ms/aml-pipeline-readme) para explorar ainda mais pipelines do machine learning.
 - Ler a ajuda de referência do SDK para o [azureml pipelines-núcleo](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) pacote e o [passos de pipelines azureml](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) pacote.

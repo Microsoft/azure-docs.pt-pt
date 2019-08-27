@@ -1,25 +1,25 @@
 ---
-title: Gerir o Centro de IoT a partir da CLI do Azure | Documentos da Microsoft
-description: Gerir o Centro de IoT a partir da CLI do Azure.
+title: Gerenciar IoT Central de CLI do Azure | Microsoft Docs
+description: Gerenciar IoT Central de CLI do Azure.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/07/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 9e5d842cece316bc9c53e1e8583f40a0f222b91d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dff15deaefba728bad76965a186dd2f245ea5854
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66151965"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019843"
 ---
-# <a name="manage-iot-central-from-azure-cli"></a>Gerir o Centro de IoT a partir da CLI do Azure
+# <a name="manage-iot-central-from-azure-cli"></a>Gerenciar IoT Central de CLI do Azure
 
 [!INCLUDE [iot-central-selector-manage](../../includes/iot-central-selector-manage.md)]
 
-Em vez de criar e gerir aplicações de IoT Central a partir do Centro de IoT [Gerenciador de aplicativos](https://aka.ms/iotcentral) página, pode usar [CLI do Azure](/cli/azure/) para gerir as suas aplicações.
+Em vez de criar e gerenciar aplicativos IoT Central na página do [Gerenciador de aplicativos](https://aka.ms/iotcentral) IOT central, você pode usar [CLI do Azure](/cli/azure/) para gerenciar seus aplicativos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,11 +27,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se preferir executar a CLI do Azure no seu computador local, veja [instalar a CLI do Azure](/cli/azure/install-azure-cli). Ao executar localmente o CLI do Azure, utilize o **início de sessão az** comando para iniciar sessão no Azure antes de tentar os comandos neste artigo.
+Se preferir executar CLI do Azure em seu computador local, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli). Ao executar CLI do Azure localmente, use o comando **AZ login** para entrar no Azure antes de tentar os comandos neste artigo.
 
 ## <a name="create-an-application"></a>Criar uma aplicação
 
-Utilize o [az iotcentral aplicação criar](/cli/azure/iotcentral/app#az-iotcentral-app-create) comando para criar uma aplicação IoT Central na sua subscrição do Azure. Por exemplo:
+Use o comando [AZ iotcentral app Create](/cli/azure/iotcentral/app#az-iotcentral-app-create) para criar um aplicativo IOT central em sua assinatura do Azure. Por exemplo:
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application
@@ -48,17 +48,17 @@ az iotcentral app create \
   --display-name "My Custom Display Name"
 ```
 
-Estes comandos primeiro criam um grupo de recursos na região Leste região dos EUA para a aplicação. A tabela seguinte descreve os parâmetros utilizados com o **az iotcentral aplicação criar** comando:
+Esses comandos primeiro criam um grupo de recursos na região leste dos EUA para o aplicativo. A tabela a seguir descreve os parâmetros usados com o comando **AZ iotcentral app Create** :
 
 | Parâmetro         | Descrição |
 | ----------------- | ----------- |
-| resource-group    | O grupo de recursos que contém a aplicação. Este grupo de recursos tem de existir na sua subscrição. |
-| localização          | Por predefinição, este comando utiliza a localização do grupo de recursos. Atualmente, pode criar uma aplicação IoT Central no **E.U.A. Leste**, **E.U.A. oeste**, **Europa do Norte**, ou **Europa Ocidental** regiões. |
-| name              | O nome da aplicação no portal do Azure. |
-| Subdomínio         | O subdomínio no URL da aplicação. No exemplo, o URL da aplicação é https://mysubdomain.azureiotcentral.com. |
-| SKU               | Atualmente, o único valor é **S1** (escalão standard). Ver [preços do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
-| Modelo          | O modelo de aplicação a utilizar. Para obter mais informações, consulte a tabela seguinte: |
-| display-name      | O nome da aplicação tal como apresentado na IU. |
+| resource-group    | O grupo de recursos que contém o aplicativo. Este grupo de recursos já deve existir em sua assinatura. |
+| location          | Por padrão, esse comando usa o local do grupo de recursos. No momento, você pode criar um aplicativo IoT Central nas regiões **leste dos EUA**, **oeste dos EUA**, **Europa setentrional**ou **Europa Ocidental** . |
+| name              | O nome do aplicativo no portal do Azure. |
+| subdomínio         | O subdomínio na URL do aplicativo. No exemplo, a URL do aplicativo é https://mysubdomain.azureiotcentral.com. |
+| sku               | Atualmente, o único valor é **S1** (camada Standard). Consulte [preços de IOT central do Azure](https://azure.microsoft.com/pricing/details/iot-central/). |
+| Modelo          | O modelo de aplicativo a ser usado. Para obter mais informações, consulte a tabela a seguir: |
+| nome de exibição      | O nome do aplicativo, conforme exibido na interface do usuário. |
 
 **Modelos de aplicativos**
 
@@ -66,15 +66,15 @@ Estes comandos primeiro criam um grupo de recursos na região Leste região dos 
 | ------------------------ | ----------- |
 | iotc-default@1.0.0       | Cria uma aplicação vazia que pode preencher com os seus próprios modelos de dispositivo e dispositivos. |
 | iotc-demo@1.0.0          | Cria uma aplicação que inclui um modelo de dispositivo já criado para uma máquina dispensadora de bebidas. Utilize este modelo para começar a explorar o Azure IoT Central. |
-| iotc-devkit-sample@1.0.0 | Cria uma aplicação com modelos de dispositivo prontos para se poder ligar a dispositivos MXChip ou Raspberry Pi. Utilize este modelo, se for um desenvolvedor de dispositivo fazer experiências com qualquer um desses dispositivos. |
+| iotc-devkit-sample@1.0.0 | Cria uma aplicação com modelos de dispositivo prontos para se poder ligar a dispositivos MXChip ou Raspberry Pi. Use este modelo se você for um desenvolvedor de dispositivo experimentando qualquer um desses dispositivos. |
 
 ## <a name="view-your-applications"></a>Ver as suas aplicações
 
-Utilize o [lista de aplicações do az iotcentral](/cli/azure/iotcentral/app#az-iotcentral-app-list) comando para listar as suas aplicações de IoT Central e ver os metadados.
+Use o comando [AZ iotcentral app List](/cli/azure/iotcentral/app#az-iotcentral-app-list) para listar seus aplicativos IOT central e exibir metadados.
 
-## <a name="modify-an-application"></a>Modificar uma aplicação
+## <a name="modify-an-application"></a>Modificar um aplicativo
 
-Utilize o [atualização da aplicação az iotcentral](/cli/azure/iotcentral/app#az-iotcentral-app-update) comando para atualizar os metadados de uma aplicação IoT Central. Por exemplo, para alterar o nome a apresentar da sua aplicação:
+Use o comando [AZ iotcentral app Update](/cli/azure/iotcentral/app#az-iotcentral-app-update) para atualizar os metadados de um aplicativo IOT central. Por exemplo, para alterar o nome de exibição do seu aplicativo:
 
 ```azurecli-interactive
 az iotcentral app update --name myiotcentralapp \
@@ -84,7 +84,7 @@ az iotcentral app update --name myiotcentralapp \
 
 ## <a name="remove-an-application"></a>Remover uma aplicação
 
-Utilize o [delete de aplicação de iotcentral az](/cli/azure/iotcentral/app#az-iotcentral-app-delete) comando para eliminar uma aplicação IoT Central. Por exemplo:
+Use o comando [AZ iotcentral app Delete](/cli/azure/iotcentral/app#az-iotcentral-app-delete) para excluir um aplicativo IOT central. Por exemplo:
 
 ```azurecli-interactive
 az iotcentral app delete --name myiotcentralapp \
@@ -93,7 +93,7 @@ az iotcentral app delete --name myiotcentralapp \
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu como gerir aplicações do Azure IoT Central a partir da CLI do Azure, este é o passo seguinte sugerido:
+Agora que você aprendeu a gerenciar os aplicativos do Azure IoT Central do CLI do Azure, aqui está a próxima etapa sugerida:
 
 > [!div class="nextstepaction"]
-> [Administrar a sua aplicação](howto-administer.md)
+> [Administre seu aplicativo](howto-administer.md)

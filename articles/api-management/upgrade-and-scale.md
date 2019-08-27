@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 6bafd5ed5f2d7080b0f2a2db71ac96e4f97a1f76
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 64649c86dbd3c3469247308bfc4dd0ed12e06949
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774932"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018244"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Atualizar e dimensionar uma instância de gerenciamento de API do Azure  
 
@@ -53,8 +53,11 @@ A camada **Premium** permite distribuir uma única instância de gerenciamento d
 
 Você pode atualizar e fazer downgrade de e para qualquer camada. Observe que a atualização ou o downgrade pode remover alguns recursos, por exemplo, VNETs ou implantação de várias regiões, ao fazer downgrade para Standard ou básico da camada Premium.
 
->[!NOTE]
->O processo de atualização ou de dimensionamento pode demorar de 15 a 45 minutos a aplicar. Você será notificado quando terminar.
+> [!NOTE]
+> O processo de atualização ou de dimensionamento pode demorar de 15 a 45 minutos a aplicar. Você será notificado quando terminar.
+
+> [!NOTE]
+> O serviço de gerenciamento de API na camada de **consumo** é dimensionado automaticamente com base no tráfego.
 
 ## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Usar o portal do Azure para atualizar e dimensionar
 
@@ -71,7 +74,7 @@ Você pode atualizar e fazer downgrade de e para qualquer camada. Observe que a 
 Se você estiver dimensionando de ou para a camada de desenvolvedor, haverá tempo de inatividade. Caso contrário, não há nenhum tempo de inatividade. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como implementar uma instância de serviço da Gestão de API do Azure em várias regiões do Azure](api-management-howto-deploy-multi-region.md)
 - [Como dimensionar automaticamente uma instância do serviço de gerenciamento de API do Azure](api-management-howto-autoscale.md)

@@ -4,16 +4,16 @@ description: Resume as configurações de suporte e as limitações de avaliaç�
 services: backup
 author: rayne-wiselman
 manager: carmonm
-ms.service: backup
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 70107311b189e1692b902812c4ccbbd91c3695a1
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: c351ee8290b60c81add173bb927b0c12e37f5c7c
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952121"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018134"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de suporte para avaliar e migrar o VMware
 
@@ -332,7 +332,7 @@ Servidor de processos | O servidor de processo recebe dados de replicação, oti
 
 Todas as VMs locais replicadas para o Azure devem atender aos requisitos de VM do Azure resumidos nesta tabela. Quando Site Recovery executar uma verificação de pré-requisitos para replicação, a verificação falhará se alguns dos requisitos não forem atendidos.
 
-**Componente** | **Requirement** | **Detalhes**
+**Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
 Sistema operacional convidado | Verifique os sistemas operacionais com suporte para [VMs VMware usando a replicação sem agente](#agentless-migration-vmware-vm-requirements)e para [VMs VMware usando a replicação baseada em agente](#agent-based-migration-vmware-vm-requirements).<br/> Você pode migrar qualquer carga de trabalho em execução em um sistema operacional com suporte. | A verificação falhará se não houver suporte.
 Arquitetura do sistema operacional convidado | 64 bits. | A verificação falhará se não houver suporte.

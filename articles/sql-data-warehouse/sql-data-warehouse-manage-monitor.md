@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: b67986fdc53a2b927f6481846ab179a826490c01
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 1d1af13eb54daf060f0172a0506370ca459f2ece
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69995708"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018952"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitorizar a carga de trabalho com DMVs
 Este artigo descreve como usar DMVs (exibições de gerenciamento dinâmico) para monitorar sua carga de trabalho. Isso inclui investigar a execução da consulta no SQL Data Warehouse do Azure.
@@ -264,7 +264,32 @@ JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id
 GROUP BY t.pdw_node_id, nod.[type]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="monitor-polybase-load"></a>Monitorar o carregamento do polybase
+A consulta a seguir fornece uma estimativa aproximada do progresso da carga. A consulta mostra apenas os arquivos que estão sendo processados no momento. 
+
+```sql
+
+-- To track bytes and files
+SELECT
+    r.command,
+    s.request_id,
+    r.status,
+    count(distinct input_name) as nbr_files, 
+    sum(s.bytes_processed)/1024/1024/1024 as gb_processed
+FROM
+    sys.dm_pdw_exec_requests r
+    inner join sys.dm_pdw_dms_external_work s
+        on r.request_id = s.request_id
+GROUP BY
+    r.command,
+    s.request_id,
+    r.status
+ORDER BY
+    nbr_files desc,
+    gb_processed desc;
+```
+
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre DMVs, consulte exibições do [sistema][System views].
 
 

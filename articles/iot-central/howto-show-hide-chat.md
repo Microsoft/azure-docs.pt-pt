@@ -1,52 +1,52 @@
 ---
-title: Bate-papo Mostrar/Ocultar do Azure IoT Central | Documentos da Microsoft
-description: Como um utilizador, saiba como mostrar e ocultar bate-papo.
+title: O Azure IoT Central mostrar/ocultar o chat | Microsoft Docs
+description: Como usuário, saiba como mostrar e ocultar o chat.
 author: v-krghan
 ms.author: v-krghan
-ms.date: 04/18/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a8d2b71899cdd6b7f9c8cb803732b760f3009811
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ab0f830ab3b06f272e371a6908ac6dde3e3893a
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64513343"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019721"
 ---
 # <a name="toggle-live-chat"></a>Ativar/desativar chat ao vivo
 
-Este artigo de referência mostra como ativar/desativar o chat ao vivo na sua aplicação IoT Central. Pode utilizar o chat ao vivo para aceder ao suporte técnico.
+Este artigo de instruções mostra como alternar o chat ao vivo em seu aplicativo IoT Central. Você pode usar o chat ao vivo para acessar o suporte técnico.
 
 > [!NOTE]
-> A opção de bate-papo só está disponível para subscrições de avaliação.
+> A opção de chat está disponível somente para assinaturas de avaliação.
 
 ## <a name="chat-with-us"></a>Fale connosco
 
-Para obter suporte técnico, abra o Centro de IoT de aplicativo e selecione **fale connosco**.
+Para obter suporte técnico, abra o aplicativo IoT Central e selecione **conversar conosco**.
 
 ![Fale connosco](media/howto-show-hide-chat/chat-with-us.png)
 
-Pode digitar uma pergunta, conforme mostrado na captura de ecrã seguinte:
+Você pode digitar uma pergunta, conforme mostrado na seguinte captura de tela:
 
-![Formulário de "Configurar os detalhes do dispositivo" com detalhes para as definições e propriedades](media/howto-show-hide-chat/sample-chat.png)
+![Formulário "configurar detalhes do dispositivo" com detalhes para configurações e propriedades](media/howto-show-hide-chat/sample-chat.png)
 
-## <a name="hide-chat"></a>Ocultar bate-papo
+## <a name="hide-chat"></a>Ocultar Chat
 
-Para ocultar o chat, escolha **ocultar bate-papo** no **ajudar** painel:
+Para ocultar o chat, escolha **ocultar chat** no painel de **ajuda** :
 
- ![Ocultar bate-papo](media/howto-show-hide-chat/hide-chat.png)
+ ![Ocultar Chat](media/howto-show-hide-chat/hide-chat.png)
 
-## <a name="enable-chat"></a>Ativar bate-papo
+## <a name="enable-chat"></a>Habilitar o chat
 
-Para mostrar o chat, escolha **Mostrar bate-papo** no **ajudar** painel:
+Para mostrar o chat, escolha **Mostrar chat** no painel de **ajuda** :
 
- ![Mostrar bate-papo](media/howto-show-hide-chat/show-chat.png)
+ ![Mostrar Chat](media/howto-show-hide-chat/show-chat.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu Ativar/desativar chat ao vivo no Azure IoT Central, este é o passo seguinte sugerido:
+Agora que você aprendeu a ativar o chat ao vivo no Azure IoT Central, aqui está a próxima etapa sugerida:
 
 > [!div class="nextstepaction"]
-> [Configurar o seu dashboard de aplicações](howto-configure-homepage.md)
+> [Configurar o painel do aplicativo](howto-configure-homepage.md)

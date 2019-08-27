@@ -4,14 +4,14 @@ description: Este artigo explica como otimizar os custos de taxa de transferênc
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/26/2019
 ms.author: rimman
-ms.openlocfilehash: 8829c2534184bc14e82dfbf30d2170a7a1b8add0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: d874f1ba8823ceddbef378decde127cef4ff8885
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614986"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020112"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o custo de taxa de transferência provisionada no Azure Cosmos DB
 
@@ -65,7 +65,7 @@ Ao provisionar a taxa de transferência em diferentes níveis, você pode otimiz
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>Otimizar com limitação de taxa de suas solicitações
 
-Para cargas de trabalho que não são sensíveis à latência, você pode provisionar menos produtividade e permitir que o aplicativo manipule a limitação de taxa quando a taxa de transferência real excede a taxa de transferência provisionada. O servidor encerrará de forma preventiva a solicitação com RequestRateTooLarge (código de status http 429) e `x-ms-retry-after-ms` retornará o cabeçalho indicando o tempo, em milissegundos, que o usuário deve aguardar antes de tentar novamente a solicitação. 
+Para cargas de trabalho que não são sensíveis à latência, você pode provisionar menos produtividade e permitir que o aplicativo manipule a limitação de taxa quando a taxa de transferência real excede a taxa de transferência provisionada. O servidor encerrará de forma preventiva a solicitação `RequestRateTooLarge` com (código de status http 429) e `x-ms-retry-after-ms` retornará o cabeçalho indicando o tempo, em milissegundos, que o usuário deve aguardar antes de repetir a solicitação. 
 
 ```html
 HTTP Status 429, 
@@ -77,15 +77,13 @@ HTTP Status 429,
 
 Os SDKs nativos (.NET/.NET Core, Java, Node. js e Python) capturam implicitamente essa resposta, respeitam o cabeçalho Retry-After especificado pelo servidor e tentam a solicitação novamente. A menos que sua conta seja acessada simultaneamente por vários clientes, a próxima tentativa terá sucesso.
 
-Se você tiver mais de um cliente operando de forma cumulativa consistentemente acima da taxa de solicitação, a contagem de repetição padrão atualmente definida como 9 pode não ser suficiente. Nesse caso, o cliente gera um `DocumentClientException` com código de status 429 para o aplicativo. A contagem de repetição padrão pode ser alterada definindo o `RetryOptions` na instância ConnectionPolicy. Por padrão, o DocumentClientException com o código de status 429 é retornado após um tempo de espera cumulativo de 30 segundos se a solicitação continuar a operar acima da taxa de solicitação. Isso ocorre mesmo quando a contagem de repetições atual é menor que a contagem máxima de tentativas, seja o padrão de 9 ou um valor definido pelo usuário. 
+Se você tiver mais de um cliente operando de forma cumulativa consistentemente acima da taxa de solicitação, a contagem de repetição padrão atualmente definida como 9 pode não ser suficiente. Nesse caso, o cliente gera um `DocumentClientException` com código de status 429 para o aplicativo. A contagem de repetição padrão pode ser alterada definindo o `RetryOptions` na instância ConnectionPolicy. Por padrão, o `DocumentClientException` com código de status 429 é retornado após um tempo de espera cumulativo de 30 segundos se a solicitação continuar a operar acima da taxa de solicitação. Isso ocorre mesmo quando a contagem de repetições atual é menor que a contagem máxima de tentativas, seja o padrão de 9 ou um valor definido pelo usuário. 
 
-[MaxRetryAttemptsOnThrottledRequests é definido](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet)como 3; Portanto, nesse caso, se uma operação de solicitação tiver uma taxa limitada excedendo a taxa de transferência reservada para a coleção, a operação de solicitação tentará novamente três vezes antes de lançar a exceção para o  aplicativo.  [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds)  é definido como 60, portanto, nesse caso, se a repetição cumulativa esperar o tempo em segundos desde que a primeira solicitação exceda 60 segundos, a exceção será lançada.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) é definido como 3, portanto, nesse caso, se uma operação de solicitação tiver uma taxa limitada excedendo a taxa de transferência reservada para o contêiner, a operação de solicitação tentará novamente três vezes antes de lançar a exceção para o aplicativo. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) é definido como 60, portanto, nesse caso, se o tempo de espera de repetição cumulativo em segundos desde a primeira solicitação exceder 60 segundos, a exceção será lançada.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
-
 connectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 3; 
-
 connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 ```
 
@@ -175,7 +173,7 @@ As etapas a seguir ajudam você a tornar suas soluções altamente escalonáveis
 
 10. Com Azure Cosmos DB capacidade reservada, você pode obter descontos significativos por até 65% por três anos. Azure Cosmos DB modelo de capacidade reservada é um compromisso antecipado em unidades de solicitações necessárias ao longo do tempo. Os descontos são em camadas, de forma que quanto mais unidades de solicitação você usar em um período mais longo, mais seu desconto será. Esses descontos são aplicados imediatamente. Qualquer RUs usado acima de seus valores provisionados é cobrado com base no custo de capacidade não reservada. Consulte [Cosmos DB capacidade reservada](cosmos-db-reserved-capacity.md)) para obter mais detalhes. Considere a possibilidade de comprar capacidade reservada para reduzir ainda mais os custos de taxa de transferência provisionados.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, você pode prosseguir para saber mais sobre a otimização de custos no Azure Cosmos DB com os seguintes artigos:
 

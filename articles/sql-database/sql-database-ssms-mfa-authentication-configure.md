@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 09/25/2018
-ms.openlocfilehash: 1bccfd8ac363b21053c45ed489e943a1b488f41f
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.date: 08/27/2019
+ms.openlocfilehash: 5ffe9de6ecb740a2d8445e88a478e718585eb5d1
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68566517"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018882"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configurar a autenticação multifator para o SQL Server Management Studio e o Azure AD
 
@@ -40,8 +40,12 @@ As etapas a seguir mostram como se conectar ao banco de dados SQL ou SQL Data Wa
    ![1mfa-universal-connect][1]  
 2. Complete a caixa **nome de usuário** com as credenciais de Azure Active Directory, no `user_name@domain.com`formato.  
    ![1mfa-universal-connect-user](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect-user.png)   
-3. Se você estiver se conectando como um usuário convidado, deverá clicar em **Opções**e, na caixa de diálogo **propriedade de conexão** , concluir a caixa nome de **domínio do AD ou ID do locatário** . Para obter mais informações, consulte [autenticação universal com o banco de dados SQL e SQL data warehouse (suporte do SSMS para MFA)](sql-database-ssms-mfa-authentication.md).
-   ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
+3. Se você estiver se conectando como um usuário convidado, não precisará mais concluir o campo nome de domínio do AD ou ID de locatário para usuários convidados, pois o SSMS 18. x ou posterior o reconhece automaticamente. Para obter mais informações, consulte [autenticação universal com o banco de dados SQL e SQL data warehouse (suporte do SSMS para MFA)](sql-database-ssms-mfa-authentication.md).
+   ![MFA-no-Tenant-SSMS](./media/sql-database-ssms-mfa-auth/mfa-no-tenant-ssms.png)
+
+   No entanto, se você estiver se conectando como um usuário convidado usando o SSMS 17. x ou mais antigo, você deve clicar em **Opções**e na caixa de diálogo **propriedade de conexão** e concluir a caixa nome de **domínio do AD ou ID de locatário** .
+   ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)
+
 4. Como de costume para o banco de dados SQL e SQL Data Warehouse, você deve clicar em **Opções** e especificar o banco de dados na caixa de diálogo **Opções** . (Se o usuário conectado for um usuário convidado (ou seja joe@outlook.com,), você deverá marcar a caixa e adicionar o nome de domínio do AD atual ou a ID de locatário como parte das opções. Consulte [autenticação universal com o banco de dados SQL e SQL data warehouse (suporte do SSMS para MFA)](sql-database-ssms-mfa-authentication.md). Em seguida, clique em **Connect** (Ligar).  
 5. Quando a caixa de diálogo **entrar na sua conta** for exibida, forneça a conta e a senha de sua identidade de Azure Active Directory. Nenhuma senha será necessária se um usuário fizer parte de um domínio federado com o Azure AD.  
    ![2mfa-sign-in][2]  
