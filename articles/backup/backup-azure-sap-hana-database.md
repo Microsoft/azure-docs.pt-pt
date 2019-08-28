@@ -5,21 +5,21 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: a11d454feb965907f3bd4e994c0916eeb7236fa7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6ac15e042f93befe406553d622c790eeabad7c2c
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034572"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060704"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Fazer backup de um banco de dados SAP HANA no Azure
 
 O [backup do Azure](backup-overview.md) dá suporte ao backup de bancos de dados SAP Hana no Azure.
 
 > [!NOTE]
-> Este recurso está atualmente em visualização pública. Atualmente, ele não está pronto para produção e não tem um SLA garantido. 
+> Este recurso está atualmente em visualização pública. Atualmente, ele não está pronto para produção e não tem um SLA garantido.
 
 ## <a name="scenario-support"></a>Suporte a cenários
 
@@ -32,8 +32,11 @@ O [backup do Azure](backup-overview.md) dá suporte ao backup de bancos de dados
 ### <a name="current-limitations"></a>Limitações atuais
 
 - Você só pode fazer backup SAP HANA bancos de dados em execução em VMs do Azure.
-- Você só pode configurar SAP HANA backup no portal do Azure. O recurso não pode ser configurado com o PowerShell, a CLI ou a API REST.
-- Você só pode fazer backup de bancos de dados no modo de escala vertical.
+- Só é possível fazer backup de SAP HANA instância em execução em uma única VM do Azure. No momento, não há suporte para várias instâncias do HANA na mesma VM do Azure.
+- Você só pode fazer backup de bancos de dados no modo de escala vertical. A escala horizontal, ou seja, uma instância do HANA em várias VMs do Azure não tem suporte no momento para backup.
+- Não é possível fazer backup SAP HANA instância com camadas dinâmicas no servidor estendido, ou seja, camadas dinâmicas presentes em outro nó. Isso é essencialmente expandido, o que não tem suporte.
+- Não é possível fazer backup SAP HANA instância com camadas dinâmicas habilitadas no mesmo servidor. No momento, não há suporte para camadas dinâmicas.
+- Você só pode configurar SAP HANA backup no portal do Azure. O recurso não pode ser configurado com o PowerShell, CLI.
 - Você pode fazer backup de logs de banco de dados a cada 15 minutos. Os backups de log só começam a fluir após a conclusão de um backup completo bem-sucedido para o banco de dados.
 - Você pode fazer backups completos e diferenciais. Atualmente, não há suporte para backup incremental.
 - Você não pode modificar a política de backup depois de aplicá-la para backups de SAP HANA. Se você quiser fazer backup com configurações diferentes, crie uma nova política ou atribua uma política diferente.
@@ -44,23 +47,16 @@ O [backup do Azure](backup-overview.md) dá suporte ao backup de bancos de dados
 
 Certifique-se de fazer o seguinte antes de configurar os backups:
 
-1. Na VM que executa o banco de dados SAP HANA, instale o pacote oficial do Microsoft [.NET Core Runtime 2,1](https://dotnet.microsoft.com/download/linux-package-manager/sles/runtime-current) . Tenha em atenção que:
-    - Você só precisa do pacote **dotnet-Runtime-2,1** . Você não precisa **de aspnetcore-Runtime-2,1**.
-    - Se a VM não tiver acesso à Internet, Espelhe ou forneça um cache offline para dotnet-Runtime-2,1 (e todos os RPMs dependentes) do feed de pacote da Microsoft especificado na página.
-    - Durante a instalação do pacote, você pode ser solicitado a especificar uma opção. Nesse caso, especifique a **solução 2**.
-
-        ![Opção de instalação do pacote](./media/backup-azure-sap-hana-database/hana-package.png)
-
-2. Na VM, instale e habilite pacotes de driver ODBC do pacote/mídia oficial do SLES usando zypper, da seguinte maneira:
+1. Na VM que executa o banco de dados SAP HANA, instale e habilite pacotes de driver ODBC do pacote/mídia oficial do SLES usando zypper, da seguinte maneira:
 
     ```unix
     sudo zypper update
     sudo zypper install unixODBC
     ```
 
-3. Permita a conectividade da VM com a Internet, para que ela possa acessar o Azure, conforme descrito no procedimento [abaixo](#set-up-network-connectivity).
+2. Permita a conectividade da VM com a Internet, para que ela possa acessar o Azure, conforme descrito no procedimento [abaixo](#set-up-network-connectivity).
 
-4. Execute o script de pré-registro na máquina virtual em que o HANA está instalado como um usuário raiz. O script é fornecido [no portal](#discover-the-databases) no fluxo e é necessário para configurar as [permissões corretas](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions).
+3. Execute o script de pré-registro na máquina virtual em que o HANA está instalado como um usuário raiz. O script é fornecido [no portal](#discover-the-databases) no fluxo e é necessário para configurar as [permissões corretas](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions).
 
 ### <a name="set-up-network-connectivity"></a>Configurar a conectividade de rede
 
@@ -68,6 +64,7 @@ Para todas as operações, a VM SAP HANA precisa de conectividade com os endere�
 
 - Você pode baixar os [intervalos de endereços IP](https://www.microsoft.com/download/details.aspx?id=41653) para data centers do Azure e, em seguida, permitir o acesso a esses endereços IP.
 - Se você estiver usando NSGs (grupos de segurança de rede), poderá usar a [marca de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) AzureCloud para permitir todos os endereços IP públicos do Azure. Você pode usar o [cmdlet Set-AzureNetworkSecurityRule](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0) para modificar as regras de NSG.
+- 443 a porta deve estar na lista de permissões, pois o transporte é via HTTPS.
 
 ## <a name="onboard-to-the-public-preview"></a>Integração à visualização pública
 
@@ -79,8 +76,6 @@ Integre à visualização pública da seguinte maneira:
     ```powershell
     PS C:>  Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
-
-
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -182,8 +177,17 @@ Se você quiser fazer um backup local (usando o HANA Studio) de um banco de dado
     - Defina **log_backup_using_backint** como **true**.
 
 
+## <a name="upgrading-protected-10-dbs-to-20"></a>Atualizando bancos de 1,0 protegidos para 2,0
 
-## <a name="next-steps"></a>Passos Seguintes
+Se você estiver protegendo bancos de SAP HANA 1,0 e quiser atualizar para o 2,0, execute as etapas descritas abaixo.
+
+- Pare proteger com reter dados para o antigo SDC DB.
+- Execute novamente o script de pré-registro com os detalhes corretos de (Sid e MDC). 
+- Registrar novamente a extensão (backup-> Exibir detalhes-> selecionar a VM do Azure relevante-> registrar novamente). 
+- Clique em redescobrir bancos de os para a mesma VM. Isso deve mostrar o novo banco de bancos na etapa 2 com detalhes corretos (SYSTEMDB e DB de locatário, não SDC). 
+- Proteja esses novos bancos de dados.
+
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre](backup-azure-sap-hana-database-troubleshoot.md) como solucionar erros comuns ao usar o backup SAP Hana em VMs do Azure.
 [Saiba mais sobre como](backup-azure-arm-vms-prepare.md) fazer backup de VMs do Azure.

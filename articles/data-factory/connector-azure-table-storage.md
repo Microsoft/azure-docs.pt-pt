@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: bf28fb69d35256d65fdfd2c092ad48d0ad1281f9
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5920fe4a1addd2188f53a15c1d2232f505009087
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985990"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061486"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiar dados de e para o armazenamento de tabelas do Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -221,10 +221,8 @@ Para copiar dados de e para a tabela do Azure, defina a propriedade Type do Data
 
 Para armazenamentos de dados sem esquema, como a tabela do Azure, Data Factory infere o esquema de uma das seguintes maneiras:
 
-* Se especificar a estrutura de dados utilizando o **estrutura** propriedade na definição do conjunto de dados, o Data Factory respeita essa estrutura como o esquema. Nesse caso, se uma linha não contiver um valor para uma coluna, um valor nulo será fornecido para ele.
-* Se você não especificar a estrutura de dados usando a propriedade de **estrutura** na definição do conjunto, data Factory inferirá o esquema usando a primeira linha nos dados. Nesse caso, se a primeira linha não contiver o esquema completo, algumas colunas serão perdidas no resultado da operação de cópia.
-
-Para fontes de dados sem esquema, a prática recomendada é especificar a estrutura dos dados usando a propriedade **Structure** .
+* Se você especificar o mapeamento de coluna na atividade de cópia, Data Factory usar a lista de colunas do lado de origem para recuperar dados. Nesse caso, se uma linha não contiver um valor para uma coluna, um valor nulo será fornecido para ele.
+* Se você não especificar o mapeamento de coluna na atividade de cópia, Data Factory inferirá o esquema usando a primeira linha nos dados. Nesse caso, se a primeira linha não contiver o esquema completo (por exemplo, algumas colunas têm um valor nulo), algumas colunas serão perdidas no resultado da operação de cópia.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 

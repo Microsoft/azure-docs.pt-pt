@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 08/13/2019
 ms.author: bwren
-ms.openlocfilehash: d50b3ab68b406db47a4cc8fec081b2fc076071d1
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 3818547eee05a1d6f8cf84ccb0f5f4ecb44a9ab3
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741665"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061691"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gerenciamento do Office 365 no Azure (versão prévia)
 
@@ -66,14 +66,14 @@ Antes de iniciar este procedimento, reúna as informações a seguir.
 
 Do seu espaço de trabalho do Log Analytics:
 
-- Nome da área de trabalho: O espaço de trabalho em que os dados do Office 365 serão coletados.
+- Nome do espaço de trabalho: O espaço de trabalho em que os dados do Office 365 serão coletados.
 - Nome do grupo de recursos: O grupo de recursos que contém o espaço de trabalho.
 - ID da assinatura do Azure: A assinatura que contém o espaço de trabalho.
 
 Da sua assinatura do Office 365:
 
-- Nome de Utilizador: Endereço de email de uma conta administrativa.
-- ID do Inquilino: ID exclusiva da assinatura do Office 365.
+- Usu Endereço de email de uma conta administrativa.
+- ID do locatário: ID exclusiva da assinatura do Office 365.
 - ID do cliente: Cadeia de caracteres de 16 caracteres que representa o cliente do Office 365.
 - Segredo do cliente: Cadeia de caracteres criptografada necessária para autenticação.
 
@@ -83,45 +83,46 @@ A primeira etapa é criar um aplicativo no Azure Active Directory que a soluçã
 
 1. Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com/).
 1. Selecione **Azure Active Directory** e **registros de aplicativo**.
-1. Clique em **Novo registo de aplicação**.
+1. Clique em **novo registro**.
 
     ![Adicionar registro de aplicativo](media/solution-office-365/add-app-registration.png)
-1. Insira um **nome** de aplicativo e uma **URL de logon**.  O nome deve ser descritivo.  Use `http://localhost` para a URL e mantenha o _aplicativo Web/API_ para o **tipo de aplicativo**
+1. Insira um **nome**de aplicativo. Selecione **contas em qualquer diretório organizacional (qualquer diretório do Azure ad-multilocatário)** para os **tipos de conta com suporte**.
     
     ![Criar aplicação](media/solution-office-365/create-application.png)
-1. Clique em **criar** e validar as informações do aplicativo.
+1. Clique em **registrar** e validar as informações do aplicativo.
 
     ![Aplicação registada](media/solution-office-365/registered-app.png)
 
 ### <a name="configure-application-for-office-365"></a>Configurar o aplicativo para o Office 365
 
-1. Clique em **configurações** para abrir o menu **configurações** .
-1. Selecione **propriedades**. Altere **multilocatário** para _Sim_.
+1. Selecione **autenticação** e verifique se **as contas em qualquer diretório organizacional (qualquer diretório do Azure ad-multilocatário)** estão selecionadas em **tipos de conta com suporte**.
 
     ![Configurações multilocatário](media/solution-office-365/settings-multitenant.png)
 
-1. Selecione **as permissões necessárias** no menu **configurações** e clique em **Adicionar**.
-1. Clique em **selecionar uma API** e em **APIs de gerenciamento do Office 365**. clique em **APIs de gerenciamento do Office 365**. Clique em **Selecionar**.
+1. Selecione **permissões de API** e, em seguida, **adicione uma permissão**.
+1. Clique em **APIs de gerenciamento do Office 365**. 
 
     ![Selecionar API](media/solution-office-365/select-api.png)
 
-1. Em **selecionar permissões** , selecione as seguintes opções para **permissões de aplicativo** e **permissões delegadas**:
-   - Ler informações do estado de funcionamento do serviço da sua organização
-   - Ler dados de atividade para a sua organização
-   - Ler relatórios de atividade da organização
+1. Em **que tipo de permissões seu aplicativo requer?** selecione as seguintes opções para permissões de **aplicativo** e **permissões delegadas**:
+   - Ler informações de integridade do serviço para sua organização
+   - Ler dados de atividade para sua organização
+   - Ler relatórios de atividade para sua organização
 
-     ![Selecionar API](media/solution-office-365/select-permissions.png)
+     ![Selecionar API](media/solution-office-365/select-permissions-01.png)![Selecionar API](media/solution-office-365/select-permissions-02.png)
 
-1. Clique em **selecionar** e em **concluído**.
-1. Clique em **conceder permissões** e, em seguida, clique em **Sim** quando solicitado para verificação.
+1. Clique em **adicionar permissões**.
+1. Clique em **conceder consentimento do administrador** e, em seguida, clique em **Sim** quando solicitado para verificação.
 
-    ![Conceder permissões](media/solution-office-365/grant-permissions.png)
 
-### <a name="add-a-key-for-the-application"></a>Adicionar uma chave para o aplicativo
+### <a name="add-a-secret-for-the-application"></a>Adicionar um segredo para o aplicativo
 
-1. Selecione **chaves** no menu **configurações** .
+1. Selecione **certificados & segredos** e, em seguida, **novo segredo do cliente**.
+
+    ![Chaves](media/solution-office-365/secret.png)
+ 
 1. Digite uma **Descrição** e uma **duração** para a nova chave.
-1. Clique em **salvar** e copie o **valor** gerado.
+1. Clique em **Adicionar** e copie o **valor** gerado.
 
     ![Chaves](media/solution-office-365/keys.png)
 

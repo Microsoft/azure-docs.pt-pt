@@ -15,16 +15,16 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bdf9210eb88b2057cf861b208f19d3e6f562e9a
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 8ebf524d932322fa08729f229a451afe656900d5
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414853"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061400"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Aplicativo móvel que chama as APIs da Web-configuração de código
 
-Depois de criar seu aplicativo, você aprenderá a configurar o código a partir dos parâmetros do aplicativo que você obteve no registro do aplicativo. Os aplicativos móveis também têm algumas especificidades complexas, que precisam se ajustar à estrutura usada para criar esses aplicativos
+Depois de criar seu aplicativo, você aprenderá a configurar o código usando os parâmetros de registro do aplicativo. Os aplicativos móveis também têm algumas especificidades complexas, que precisam se ajustar à estrutura usada para criar esses aplicativos
 
 ## <a name="msal-libraries-supporting-mobile-apps"></a>Bibliotecas de MSAL que dão suporte a aplicativos móveis
 
@@ -38,7 +38,7 @@ As bibliotecas da Microsoft que dão suporte a aplicativos móveis são:
 
 ## <a name="configuring-the-application"></a>Configurando o aplicativo
 
-Os aplicativos móveis usam a classe `PublicClientApplication` do MSAL. Veja como instanciá-lo:
+Os aplicativos móveis usam `PublicClientApplication` a classe. Veja como instanciá-lo:
 
 ### <a name="android"></a>Android
 
@@ -68,7 +68,7 @@ O parágrafo a seguir explica como configurar o código do aplicativo para aplic
 
 #### <a name="instantiating-the-application"></a>Instanciando o aplicativo
 
-No Xamarin, ou UWP, a maneira mais simples de instanciar o aplicativo é a seguinte, em `ClientId` que o é o GUID do seu aplicativo, conforme registrado.
+No Xamarin, ou UWP, a maneira mais simples de instanciar o aplicativo é a seguinte, em `ClientId` que o é o GUID do seu aplicativo registrado.
 
 ```CSharp
 var app = PublicClientApplicationBuilder.Create(clientId)
@@ -87,7 +87,7 @@ IPublicClientApplication application = PublicClientApplicationBuilder.Create(cli
   .Build();
 ```
 
-No Android, recomendamos a `CurrentActivityPlugin` você [aqui](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Em seguida `PublicClientApplication` , o código do Construtor ficaria assim:
+No Android, recomendamos que você use `CurrentActivityPlugin` o [aqui](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Em seguida `PublicClientApplication` , o código do Construtor ficaria assim:
 
 ```CSharp
 // Requires MSAL.NET 4.2 or above
@@ -128,7 +128,7 @@ Por fim, há algumas especificidades a saber sobre os navegadores no Android. El
 
 #### <a name="uwp-specific-considerations"></a>Considerações específicas de UWP
 
-No UWP, você pode usar redes corporativas. Para obter informações sobre as especificações de UWP, consulte [Considerações específicas de plataforma universal do Windows com MSAL.net](msal-net-uwp-considerations.md).
+No UWP, você pode usar redes corporativas. Para obter informações adicionais sobre como usar a biblioteca MSAL com UWP, consulte [Considerações específicas de plataforma universal do Windows com MSAL.net](msal-net-uwp-considerations.md).
 
 ## <a name="configuring-the-application-to-use-the-broker"></a>Configurando o aplicativo para usar o agente
 
@@ -186,7 +186,7 @@ Esse método é invocado toda vez que o aplicativo é iniciado e é usado como u
 
 #### <a name="step-3-set-a-uiviewcontroller"></a>Passo 3: Definir um UIViewController ()
 
-Com o Xamarin iOS, normalmente você não precisa definir uma janela de objeto, mas, nesse caso, é necessário enviar e receber respostas de um agente. Ainda em `AppDelegate.cs`, defina um ViewController.
+Com o Xamarin iOS, normalmente você não precisa definir uma janela de objeto, mas, nesse caso, você deve fazer para enviar e receber respostas de um agente. Ainda em `AppDelegate.cs`, defina um ViewController.
 
 Faça o seguinte para definir a janela de objeto:
 
@@ -258,7 +258,7 @@ O MSAL `–canOpenURL:` usa para verificar se o agente está instalado no dispos
 
 MSAL.NET ainda não dá suporte a agentes para Android.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Adquirindo um token](scenario-mobile-acquire-token.md)

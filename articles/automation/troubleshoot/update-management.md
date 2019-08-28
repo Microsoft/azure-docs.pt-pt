@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 024cc18f537334a4e9fb260864b13ac027af582f
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: aaeaed22b1e09556452a49d7fc63c15ef0c7fcdb
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982692"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061344"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solucionando problemas com Gerenciamento de Atualizações
 
@@ -278,6 +278,7 @@ Clique duas vezes na exceção exibida em vermelho para ver a mensagem de exceç
 |`0x8024001E`| A operação de atualização não foi concluída porque o serviço ou o sistema estava sendo desligado.|
 |`0x8024002E`| Windows Update serviço está desabilitado.|
 |`0x8024402C`     | Se você estiver usando um servidor WSUS, verifique se os valores do registro `WUServer` para `WUStatusServer` e sob a chave `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` do registro têm o servidor WSUS correto.        |
+|`0x80072EE2`|Problema de conectividade de rede ou problema de comunicação com um servidor WSUS configurado. Verifique as configurações do WSUS e verifique se ele pode ser acessado do cliente.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Verifique se o serviço de Windows Update (wuauserv) está em execução e não está desabilitado.        |
 |Qualquer outra exceção genérica     | Faça uma pesquisa na Internet para obter as soluções possíveis e trabalhe com o suporte de ti local.         |
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/28/2019
 ms.author: cbasoglu
-ms.openlocfilehash: c1407e8a133013054ef33d4fe55fb8ecb46de654
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 64f02a33a3aeecddf751b8293542776bf5819574
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035670"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061899"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Início rápido: Reconhecer a fala no Swift no macOS usando o SDK de fala
 
@@ -65,16 +65,22 @@ Nas caixas de diálogo que se seguem, faça as seleções seguintes:
 
 ## <a name="add-the-sample-code"></a>Adicionar o código de exemplo
 
-1. Coloque um novo arquivo de cabeçalho com o `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` nome `helloworld` no diretório dentro do projeto HelloWorld e cole o seguinte código nele:[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
+1. Coloque um novo arquivo de cabeçalho com o `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` nome `helloworld` no diretório dentro do projeto HelloWorld e cole o seguinte código nele:
+
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
 1. Adicione o caminho `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` relativo ao cabeçalho de ponte às configurações do projeto Swift para o destino HelloWorld nas propriedades do cabeçalho do campo ![de cabeçalho de *ponte Objective-C*](media/sdk/qs-swift-macos-bridging-header.png)
-1. Substitua o conteúdo do arquivo gerado automaticamente `AppDelegate.swift` por:[!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/helloworld/AppDelegate.swift#code)]
+1. Substitua o conteúdo do ficheiro `AppDelegate.swift` gerado automaticamente por:
+
+   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/helloworld/AppDelegate.swift#code)]
 1. No `AppDelegate.swift`, substitua a cadeia `YourSubscriptionKey` de caracteres pela sua chave de assinatura.
 1. Substitua a cadeia `YourServiceRegion` de caracteres pela região associada à sua assinatura (por exemplo `westus` , para a assinatura de avaliação gratuita).
 
 ## <a name="install-the-sdk-as-a-cocoapod"></a>Instalar o SDK como um CocoaPod
 
 1. Instale o Gerenciador de dependência do CocoaPod conforme descrito em suas [instruções de instalação](https://guides.cocoapods.org/using/getting-started.html).
-1. Navegue até o diretório do aplicativo de exemplo (`helloworld`). Coloque um arquivo de texto com o `Podfile` nome e o seguinte conteúdo nesse diretório:[!code-ruby[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/Podfile)]
+1. Navegue até o diretório do aplicativo de exemplo (`helloworld`). Coloque um arquivo de texto com o `Podfile` nome e o seguinte conteúdo nesse diretório:
+
+   [!code-ruby[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/Podfile)]
 1. Navegue até o `helloworld` diretório em um terminal e execute o comando `pod install`. Isso irá gerar um `helloworld.xcworkspace` espaço de trabalho do Xcode contendo o aplicativo de exemplo e o SDK de fala como uma dependência. Este espaço de trabalho será usado no seguinte.
 
 ## <a name="build-and-run-the-sample"></a>Criar e executar o exemplo
@@ -84,7 +90,7 @@ Nas caixas de diálogo que se seguem, faça as seleções seguintes:
 1. Crie e execute o código de exemplo selecionando**executar** **produto** > no menu ou clicando no botão **reproduzir** .
 1. Depois de clicar no botão "reconhecer" no aplicativo e dizer algumas palavras, você deverá ver o texto falado na parte inferior da janela do aplicativo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Explore nossos exemplos no GitHub](https://aka.ms/csspeech/samples)

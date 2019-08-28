@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 5a09b8e589b0d4ae9daa3bbd32c38f4946d16d0e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 133110d015ac7a26f18f14f6ff957729a4f079b5
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567624"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060650"
 ---
-# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Ligar a sua aplicação à Instância Gerida de Base de Dados SQL do Azure
+# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conectar seu aplicativo à instância gerenciada do banco de dados SQL do Azure
 
 Hoje, você tem várias opções ao decidir como e onde você hospeda seu aplicativo.
 
@@ -141,10 +141,10 @@ As seguintes versões mínimas das ferramentas e dos drivers serão recomendadas
 | --- | --- |
 |.NET Framework | 4.6.1 (ou .NET Core) |
 |Controlador ODBC| v17 |
-|Driver PHP| 5.2.0 |
-|Driver JDBC| 6.4.0 |
-|Driver node. js| 2.1.1 |
-|Driver OLEDB| 18.0.2.0 |
+|Controlador PHP| 5.2.0 |
+|Controlador JDBC| 6.4.0 |
+|Controlador Node.js| 2.1.1 |
+|Controlador OLEDB| 18.0.2.0 |
 |SSMS| 18,0 ou [superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 |[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou superior |
 

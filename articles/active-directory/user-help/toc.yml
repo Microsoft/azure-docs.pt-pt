@@ -1,5 +1,5 @@
 - name: Documentação da Ajuda do Utilizador
-  href: index.md
+  href: index.yml
 - name: Ajuda de verificação em dois passos
   items:
     - name: Descrição geral

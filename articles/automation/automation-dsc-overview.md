@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dd898397b4aaec2e62558d12a3547f7b61d6d3fd
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: a3a52fbda91d19905bd6add631f536010197c4dd
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533462"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061380"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Visão geral da configuração do estado de automação do Azure
 
@@ -62,12 +62,7 @@ O SKU do produto autônomo do [Microsoft Hyper-V Server](/windows-server/virtual
 
 Para nós que executam o Linux, há suporte para as seguintes distribuições/versões:
 
-A extensão do Linux do DSC dá suporte a todas as distribuições do Linux [endossadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , exceto:
-
-Distribuição | Version
--|-
-Debian  | todas as versões
-Ubuntu  | 18, 4
+A extensão do Linux do DSC dá suporte a todas as distribuições do Linux listadas em distribuições do [Linux com suporte](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
 
 ### <a name="dsc-requirements"></a>Requisitos de DSC
 
@@ -79,7 +74,7 @@ Para todos os nós do Linux em execução no Azure, o [PowerShell DSC para Linux
 
 Se os nós estiverem localizados em uma rede privada, a porta e as URLs a seguir serão necessárias para que a DSC (configuração de estado) se comunique com a automação:
 
-* Porta: Somente TCP 443 é necessário para acesso de saída à Internet.
+* Porto Somente TCP 443 é necessário para acesso de saída à Internet.
 * URL global: *. azure-automation.net
 * URL global de US Gov-Virgínia: *. azure-automation.us
 * Serviço do agente:\<https://\>workspaceid. AgentSvc.Azure-Automation.net
@@ -127,7 +122,7 @@ Para obter uma lista de endereços IP de região em vez de nomes de região, bai
 >
 > É uma boa ideia baixar o novo arquivo XML a cada semana. Em seguida, atualize seu site para identificar corretamente os serviços em execução no Azure. Os usuários do Azure ExpressRoute devem observar que esse arquivo é usado para atualizar o anúncio de Border Gateway Protocol (BGP) do espaço do Azure na primeira semana de cada mês.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para começar, consulte [introdução à configuração de estado de automação do Azure](automation-dsc-getting-started.md)
 - Para saber como integrar nós, confira [máquinas de integração para gerenciamento pela configuração de estado da automação do Azure](automation-dsc-onboarding.md)

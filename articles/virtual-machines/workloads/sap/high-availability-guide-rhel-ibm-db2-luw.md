@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
-ms.openlocfilehash: c649b93284a48df705d389f4de728d83f793af04
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: bed56f169e2a985b23b3bca96c32f7caba596432
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036653"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061514"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -517,15 +517,19 @@ Se você executou a instalação antes de criar a configuração do DB2 HADR, fa
 Use a ferramenta de configuração do J2EE para verificar ou atualizar a URL JDBC. Como a ferramenta de configuração do J2EE é uma ferramenta gráfica, você precisa ter o X Server instalado:
  
 1. Entre no servidor de aplicativos primário da instância J2EE e execute:
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
-1.No quadro à esquerda, escolha **armazenamento de segurança**.
-1.No quadro à direita, escolha a chave JDBC/pool/\<SAPSID>/URL.
-1.Altere o nome do host na URL JDBC para o nome do host virtual.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
-1.Selecione **Adicionar**.
-1.Para salvar suas alterações, selecione o ícone de disco no canto superior esquerdo.
-1.Feche a ferramenta de configuração do.
-1.Reinicie a instância do Java.
+    
+    <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
+    
+1. No quadro à esquerda, escolha **armazenamento de segurança**.
+1. No quadro à direita, escolha a chave `jdbc/pool/\<SAPSID>/url`.
+1. Altere o nome do host na URL JDBC para o nome do host virtual.
+    
+    <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
+    
+1. Selecione **Adicionar**.
+1. Para salvar suas alterações, selecione o ícone de disco no canto superior esquerdo.
+1. Feche a ferramenta de configuração do.
+1. Reinicie a instância do Java.
 
 ## <a name="configure-log-archiving-for-hadr-setup"></a>Configurar o arquivamento de log para a instalação do HADR
 Para configurar o arquivamento de log do DB2 para a instalação do HADR, recomendamos que você configure o banco de dados primário e o em espera para ter a capacidade de recuperação de log automática de todos os locais de arquivamento de log. O banco de dados primário e o em espera devem ser capazes de recuperar arquivos de log mortos de todos os locais de arquivamento de log para os quais qualquer uma das instâncias de banco de dados pode arquivar arquivos de log. 

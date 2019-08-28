@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 5257724add570be480063ab776248a8fd1d944c7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: c3d5bb58989fe87ddf9a185dbae926a71edf1590
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034758"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061551"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Entenda como funciona a ferramenta de migração
 
@@ -36,7 +36,7 @@ Embora a ferramenta possa migrar quase todas as [regras de alerta clássicas](mo
 - Regras de alerta clássicas em algumas métricas de Cosmos DB. Consulte os [detalhes](#cosmos-db-metrics) mais adiante neste artigo.
 - Regras de alerta clássicas em todas as máquinas virtuais clássicas e métricas de serviços de nuvem (Microsoft. ClassicCompute/virtualMachines e Microsoft. ClassicCompute/nome_do_domínio/Slots/funções). Consulte os [detalhes](#classic-compute-metrics) mais adiante neste artigo.
 
-Se sua assinatura tiver essas regras clássicas, você deverá migrá-las manualmente. Como não podemos fornecer uma migração automática, todos os alertas de métrica clássicos existentes desses tipos continuarão funcionando até 2020 de junho. Essa extensão dá tempo para passar para novos alertas. No entanto, nenhum novo alerta clássico pode ser criado após 2019 de agosto.
+Se sua assinatura tiver essas regras clássicas, você deverá migrá-las manualmente. Como não podemos fornecer uma migração automática, todos os alertas de métrica clássicos existentes desses tipos continuarão funcionando até 2020 de junho. Essa extensão dá tempo para passar para novos alertas. Você também pode continuar criando novos alertas clássicos nas exceções listadas acima até junho de 2020. No entanto, para todo o resto, nenhum alerta clássico novo pode ser criado após 2019 de agosto.
 
 > [!NOTE]
 > Além das exceções listadas acima, se suas regras de alerta clássicas forem inválidas [](#classic-alert-rules-on-deprecated-metrics) , ou seja, se estiverem em métricas preteridas ou recursos que foram excluídos, elas não serão migradas durante a migração voluntária. Quaisquer regras de alerta clássica inválidas serão excluídas quando ocorrer a migração automática.

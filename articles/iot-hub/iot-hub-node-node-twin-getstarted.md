@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 08/25/2017
+ms.date: 08/26/2019
 ms.author: elioda
-ms.openlocfilehash: edbeffebd1f4ee41d8a2bdaddcdc7d84cbe1affe
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 02ff65b27e03db9e9a48910e23d8ebf46de905a5
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780936"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060726"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Introdução ao dispositivo gêmeos (Node. js)
 
@@ -29,7 +29,9 @@ No final deste tutorial, você terá dois aplicativos de console do node. js:
 > O artigo [SDKs do IOT do Azure](iot-hub-devguide-sdks.md) fornece informações sobre os SDKs do IOT do Azure que você pode usar para compilar dispositivos e aplicativos de back-end.
 >
 
-Para concluir este tutorial, você precisará do seguinte:
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para concluir este tutorial, precisa de:
 
 * Node. js versão 10.0. x ou posterior.
 
@@ -53,28 +55,28 @@ Para concluir este tutorial, você precisará do seguinte:
 
 Nesta seção, você criará um aplicativo de console do node. js que adiciona metadados de local ao dispositivo dedispositivos. Em seguida, ele consulta o dispositivo gêmeos armazenado no Hub IoT selecionando os dispositivos localizados nos EUA e, em seguida, aqueles que estão relatando uma conexão celular.
 
-1. Crie uma nova pasta vazia chamada **addtagsandqueryapp**. Na pasta **addtagsandqueryapp** , crie um novo arquivo Package. JSON usando o comando a seguir no prompt de comando. Aceite todas as predefinições:
+1. Crie uma nova pasta vazia chamada **addtagsandqueryapp**. Na pasta **addtagsandqueryapp** , crie um novo arquivo Package. JSON usando o comando a seguir no prompt de comando. O `--yes` parâmetro aceita todos os padrões.
 
-    ```
-    npm init
+    ```cmd/sh
+    npm init --yes
     ```
 
 2. No prompt de comando, na pasta **addtagsandqueryapp** , execute o seguinte comando para instalar o pacote **Azure-iothub** :
-   
-    ```
+
+    ```cmd/sh
     npm install azure-iothub --save
     ```
 
 3. Usando um editor de texto, crie um novo arquivo **AddTagsAndQuery. js** na pasta **addtagsandqueryapp** .
 
-4. Adicione o código a seguir ao arquivo **AddTagsAndQuery. js** e substitua o valor de espaço reservado **{do Hub IOT cadeia de conexão}** pela cadeia de conexão do Hub IOT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string):
+4. Adicione o código a seguir ao arquivo **AddTagsAndQuery. js** . Substitua `{iot hub connection string}` pela cadeia de conexão do Hub IOT que você copiou em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string).
 
    ``` javascript
         'use strict';
         var iothub = require('azure-iothub');
         var connectionString = '{iot hub connection string}';
         var registry = iothub.Registry.fromConnectionString(connectionString);
-   
+
         registry.getTwin('myDeviceId', function(err, twin){
             if (err) {
                 console.error(err.constructor.name + ': ' + err.message);
@@ -87,7 +89,7 @@ Nesta seção, você criará um aplicativo de console do node. js que adiciona m
                       }
                     }
                 };
-   
+
                 twin.update(patch, function(err) {
                   if (err) {
                     console.error('Could not update twin: ' + err.constructor.name + ': ' + err.message);
@@ -116,7 +118,7 @@ Nesta seção, você criará um aplicativo de console do node. js que adiciona m
                     console.log("Devices in Redmond43: " + results.map(function(twin) {return twin.deviceId}).join(','));
                 }
             });
-   
+
             query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
             query.nextAsTwin(function(err, results) {
                 if (err) {
@@ -130,17 +132,17 @@ Nesta seção, você criará um aplicativo de console do node. js que adiciona m
 
     O código anterior executa duas consultas: a primeira seleciona apenas o dispositivo gêmeos de dispositivos localizados na fábrica **Redmond43** e o segundo refina a consulta para selecionar apenas os dispositivos que também estão conectados por meio da rede celular.
 
-    O código anterior, quando ele cria o objeto de **consulta** , especifica um número máximo de documentos retornados. O objeto **Query** contém uma propriedade booliana **hasMoreResults** que você pode usar para invocar os métodos **os nextastwin** várias vezes para recuperar todos os resultados. Um método chamado **Next** está disponível para resultados que não são dispositivos gêmeos, por exemplo, resultados de consultas de agregação.
+    Quando o código cria o objeto de **consulta** , ele especifica o número máximo de documentos retornados no segundo parâmetro. O objeto **Query** contém uma propriedade booliana **hasMoreResults** que você pode usar para invocar os métodos **os nextastwin** várias vezes para recuperar todos os resultados. Um método chamado **Next** está disponível para resultados que não são dispositivos gêmeos, por exemplo, os resultados de consultas de agregação.
 
 6. Execute o aplicativo com:
 
-    ```
+    ```cmd/sh
         node AddTagsAndQuery.js
     ```
 
    Você deve ver um dispositivo nos resultados para a consulta solicitando todos os dispositivos localizados em **Redmond43** e nenhum para a consulta que restringe os resultados para dispositivos que usam uma rede de celular.
-   
-    ![Veja um dispositivo nos resultados da consulta](media/iot-hub-node-node-twin-getstarted/service1.png)
+
+   ![Veja um dispositivo nos resultados da consulta](media/iot-hub-node-node-twin-getstarted/service1.png)
 
 Na próxima seção, você cria um aplicativo de dispositivo que relata as informações de conectividade e altera o resultado da consulta na seção anterior.
 
@@ -148,36 +150,36 @@ Na próxima seção, você cria um aplicativo de dispositivo que relata as infor
 
 Nesta seção, você cria um aplicativo de console do node. js que se conecta ao seuHub como mydeviceid e, em seguida, atualiza suas propriedades relatadas do seu dispositivo para conter as informações que ele está conectado usando uma rede de celular.
 
-1. Crie uma nova pasta vazia chamada **reportconnectivity**. Na pasta **reportconnectivity** , crie um novo arquivo Package. JSON usando o comando a seguir no prompt de comando. Aceite todas as predefinições:
-   
-    ```
-    npm init
+1. Crie uma nova pasta vazia chamada **reportconnectivity**. Na pasta **reportconnectivity** , crie um novo arquivo Package. JSON usando o comando a seguir no prompt de comando. O `--yes` parâmetro aceita todos os padrões.
+
+    ```cmd/sh
+    npm init --yes
     ```
 
-2. No prompt de comando na pasta **reportconnectivity** , execute o seguinte comando para instalar o pacote **Azure-IOT-Device**e **Azure-IOT-Device-MQTT** :
-   
-    ```
+2. No prompt de comando na pasta **reportconnectivity** , execute o seguinte comando para instalar os pacotes **Azure-IOT-Device**e **Azure-IOT-Device-MQTT** :
+
+    ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
 3. Usando um editor de texto, crie um novo arquivo **ReportConnectivity. js** na pasta **ReportConnectivity** .
 
-4. Adicione o código a seguir ao arquivo **ReportConnectivity. js** e substitua o espaço reservado **{Device Connection String}** pela cadeia de conexão do dispositivo que você copiou quando criou a identidade do dispositivo mydeviceid:
+4. Adicione o código a seguir ao arquivo **ReportConnectivity. js** . Substitua `{device connection string}` pela cadeia de conexão do dispositivo que você copiou quando criou a identidade do dispositivo mydeviceid em [registrar um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).
 
-    ```
+    ```javascript
         'use strict';
         var Client = require('azure-iot-device').Client;
         var Protocol = require('azure-iot-device-mqtt').Mqtt;
-   
+
         var connectionString = '{device connection string}';
         var client = Client.fromConnectionString(connectionString, Protocol);
-   
+
         client.open(function(err) {
         if (err) {
             console.error('could not open IotHub client');
         }  else {
             console.log('client opened');
-   
+
             client.getTwin(function(err, twin) {
             if (err) {
                 console.error('could not get twin');
@@ -187,7 +189,7 @@ Nesta seção, você cria um aplicativo de console do node. js que se conecta ao
                         type: 'cellular'
                     }
                 };
-   
+
                 twin.properties.reported.update(patch, function(err) {
                     if (err) {
                         console.error('could not update twin');
@@ -206,7 +208,7 @@ Nesta seção, você cria um aplicativo de console do node. js que se conecta ao
 
 5. Executar o aplicativo do dispositivo
 
-    ```   
+    ```cmd/sh
         node ReportConnectivity.js
     ```
 
@@ -214,7 +216,7 @@ Nesta seção, você cria um aplicativo de console do node. js que se conecta ao
 
 6. Agora que o dispositivo relatou suas informações de conectividade, ele deve aparecer em ambas as consultas. Volte para a pasta **addtagsandqueryapp** e execute as consultas novamente:
 
-    ```   
+    ```cmd/sh
         node AddTagsAndQuery.js
     ```
 
@@ -222,7 +224,7 @@ Nesta seção, você cria um aplicativo de console do node. js que se conecta ao
 
     ![Mostrar DeviceID nos dois resultados da consulta](media/iot-hub-node-node-twin-getstarted/service2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, configurou um novo Hub IoT no portal do Azure e, em seguida, criou uma identidade de dispositivo no registo de identidades do Hub IoT. Você adicionou metadados de dispositivo como marcas de um aplicativo de back-end e gravou um aplicativo de dispositivo simulado para relatar informações de conectividade do dispositivo no dispositivo. Você também aprendeu como consultar essas informações usando a linguagem de consulta do Hub IoT do tipo SQL.
 
