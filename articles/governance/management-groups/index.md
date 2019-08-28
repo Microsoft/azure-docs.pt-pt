@@ -7,12 +7,12 @@ ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 6ca8351e7294c5a9cdd9f594eb4524d04a27b5c1
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: c9bc02959c64baecf11e2d1651051cd9bdda61d7
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516979"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060631"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar recursos com os grupos de gestão do Azure
 
@@ -26,7 +26,7 @@ Pode criar uma estrutura flexível de grupos de gestão e de subscrições para 
 
 ![Exemplo de uma árvore hierárquica do grupo de gestão](./media/tree.png)
 
-Crie uma hierarquia para poder aplicar uma política. Por exemplo, pode limitar as localizações das VMs à Região E.U.A. Oeste no grupo "Produção". Esta política será herdada por ambas as subscrições EA existentes nesse grupo de gestão e será aplicada a todas as VMs nessas subscrições. Esta política de segurança não pode ser alterada pelo proprietário do recurso ou da subscrição, o que permite uma melhor governação.
+Pode criar uma hierarquia que se aplique a uma política, para, por exemplo, limitar as localizações das VMs à Região E.U.A. Oeste no grupo com o nome "Produção". Esta política será herdada por ambas as subscrições EA existentes nesse grupo de gestão e será aplicada a todas as VMs nessas subscrições. Esta política de segurança não pode ser alterada pelo proprietário do recurso ou da subscrição, o que permite uma melhor governação.
 
 Outro cenário em que utilizaria os grupos de gestão seria para fornecer acesso de utilizador a várias subscrições. Ao mover várias subscrições para esse grupo de gestão, pode criar uma atribuição de [controlo de acesso baseado em funções](../../role-based-access-control/overview.md) (RBAC) no grupo de gestão, o que faz com que todas as subscrições herdem esse acesso.
 Uma única atribuição no grupo de gestão pode permitir que os utilizadores tenham acesso a tudo o que precisam, sem a necessidade de criar scripts de RBAC para diferentes subscrições.
@@ -55,7 +55,7 @@ Este grupo de gestão de raiz está incorporado na hierarquia para ter todos os 
   - Quando são criadas, as novas subscrições são colocadas automaticamente por predefinição no grupo de gestão de raiz.
 - Todos os clientes do Azure podem ver o grupo de gestão de raiz, mas nem todos os clientes têm acesso para gerir esse mesmo grupo de gestão de raiz.
   - Todos os utilizadores com acesso a uma subscrição podem ver o contexto em que essa subscrição se insere na hierarquia.  
-  - Ninguém recebe acesso predefinido ao grupo de gestão de raiz. Os Administradores Globais do Azure AD são os únicos utilizadores que se podem elevar para obter acesso.  Assim que tiverem acesso, os administradores globais podem atribuir qualquer função RBAC a outros utilizadores para os encarregar da gestão.  
+  - Ninguém recebe acesso predefinido ao grupo de gestão de raiz. Os Administradores Globais do Azure AD são os únicos utilizadores que se podem elevar para obter acesso.  Assim que tiverem acesso ao grupo de gestão de raiz, os administradores globais podem atribuir qualquer função RBAC a outros utilizadores para os encarregar da gestão.  
 
 > [!IMPORTANT]
 > Qualquer atribuição de acesso de utilizador ou atribuição de política no grupo de gestão de raiz **aplica-se a todos os recursos dentro do diretório**.

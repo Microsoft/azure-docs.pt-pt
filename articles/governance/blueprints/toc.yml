@@ -11,6 +11,9 @@
     - name: Criar um esquema - Portal
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-portal.md
+    - name: Criar um esquema - PowerShell
+      displayName: 'publish, assign, track, unassign, delete'
+      href: create-blueprint-powershell.md
     - name: Criar um esquema - API REST
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-rest-api.md

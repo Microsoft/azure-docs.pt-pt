@@ -1,0 +1,99 @@
+### YamlMime:Landing
+title: Documentação da ajuda do utilizador
+summary: Se for empregado, trabalhador de TI ou utilizador final, saiba como configurar a autenticação para a sua conta escolar ou profissional, repor a sua própria palavra-passe, configurar e associar dispositivos, configurar a aplicação Microsoft Authenticator e utilizar os vários portais.
+metadata:
+  title: Ajuda do utilizador sobre autenticação, aplicações e dispositivos
+  description: Se for empregado ou utilizador final, saiba como configurar e utilizar a autenticação, a aplicação Microsoft Authenticator e o portal As Minhas Aplicações.
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: user-help
+  ms.topic: landing-page
+  ms.collection: M365-identity-device-management
+  author: eross-msft
+  ms.author: lizross
+  ms.date: 08/26/2019
+  ms.openlocfilehash: 687ae4b276b4e975c9b9de9d688f23180deaeebc
+  ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 08/27/2019
+  ms.locfileid: "70062210"
+landingContent:
+- title: Configurar e utilizar a aplicação Microsoft Authenticator
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a aplicação Microsoft Authenticator?
+      url: user-help-auth-app-overview.md
+  - linkListType: download
+    links:
+    - text: Transferir e instalar a aplicação
+      url: user-help-auth-app-download-install.md
+  - linkListType: how-to-guide
+    links:
+    - text: Fazer uma cópia de segurança e recuperar as informações da conta
+      url: user-help-auth-app-backup-recovery.md
+    - text: Iniciar sessão com a aplicação
+      url: user-help-auth-app-sign-in.md
+- title: Configurar e utilizar a verificação de dois passos
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a verificação de dois fatores?
+      url: user-help-two-step-verification-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurar os seus métodos de verificação
+      url: multi-factor-authentication-end-user-first-time.md
+    - text: Gerir definições
+      url: multi-factor-authentication-end-user-manage-settings.md
+    - text: Obter ajuda
+      url: multi-factor-authentication-end-user-troubleshoot.md
+- title: Configurar e utilizar o portal As Minhas Aplicações
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o portal As minhas Aplicações?
+      url: my-apps-portal-end-user-access.md
+  - linkListType: how-to-guide
+    links:
+    - text: Atualizar as suas informações
+      url: my-apps-portal-end-user-update-profile.md
+    - text: Obter ajuda
+      url: my-apps-portal-end-user-troubleshoot.md
+- title: Configurar e utilizar as informações de segurança (pré-visualização)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que são as informações de segurança (pré-visualização)?
+      url: user-help-security-info-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurar os seus métodos de informações de segurança
+      url: security-info-add-update-methods-overview.md
+    - text: Adicionar informações durante o pedido de início de sessão
+      url: security-info-setup-signin.md
+- title: Configurar e utilizar O Meu Perfil (pré-visualização)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o portal O Meu Perfil (pré-visualização)?
+      url: myprofile-portal-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Gerir as suas organizações
+      url: myprofile-portal-organizations-page.md
+    - text: Gerir os seus dispositivos ligados
+      url: myprofile-portal-devices-page.md
+- title: Repor a sua própria palavra-passe
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a reposição de palavra-passe?
+      url: user-help-password-reset-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Inscreva-se para a reposição de palavra-passe
+      url: active-directory-passwords-reset-register.md
+    - text: Repor a palavra-passe
+      url: user-help-reset-password.md

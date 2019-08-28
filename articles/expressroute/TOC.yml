@@ -44,6 +44,8 @@
       href: expressroute-erdirect-about.md
     - name: Sobre o Alcance Global do ExpressRoute
       href: expressroute-global-reach.md
+    - name: Ligar o Azure à cloud pública
+      href: expressroute-connect-azure-to-public-cloud.md
     - name: Interoperabilidade de Conectividade de Back-end
       items:
         - name: Prefácio e Configuração de Teste

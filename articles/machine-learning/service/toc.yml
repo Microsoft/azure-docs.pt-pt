@@ -28,10 +28,7 @@
               href: tutorial-deploy-models-with-aml.md
         - name: Regressão (dados dos táxis de Nova Iorque)
           items:
-            - name: 1. Preparar dados para modelação
-              displayName: data prep
-              href: tutorial-data-prep.md
-            - name: 2. Preparar automaticamente um modelo de ML
+            - name: Preparar automaticamente um modelo de ML
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
     - name: Interface visual
@@ -260,7 +257,7 @@
     - name: Criar fluxos de trabalho reutilizáveis
       displayName: pipelines
       items:
-        - name: Pipelines de ML
+        - name: Criar pipelines de ML em Python
           href: how-to-create-your-first-pipeline.md
         - name: Pipelines do Azure para CI/CD
           displayName: 'continuous, integration, delivery'
