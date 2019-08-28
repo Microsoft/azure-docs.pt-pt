@@ -1,6 +1,6 @@
 ---
-title: Configurar o seu serviço de gestão de API com o Git - Azure | Documentos da Microsoft
-description: Saiba como guardar e configurar a sua configuração do serviço de gestão de API com o Git.
+title: Configurar o serviço de gerenciamento de API usando o Git – Azure | Microsoft Docs
+description: Saiba como salvar e configurar sua configuração de serviço de gerenciamento de API usando o git.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,178 +9,177 @@ editor: mattfarm
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: c371333dcc7db0b60ffa5f94d6e2d55ae500a4f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4ee4ca2ede2e0a2d6d1af906cc34051c76353bd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241176"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073763"
 ---
-# <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Para guardar e configurar a sua configuração do serviço de gestão de API com o Git
+# <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e configurar a configuração do serviço de gerenciamento de API usando o Git
 
-Cada instância de serviço de gestão de API mantém um banco de dados de configuração que contém informações sobre a configuração e os metadados para a instância do serviço. Podem ser feitas alterações para a instância do serviço ao alterar uma definição no portal do Azure, utilizando um cmdlet do PowerShell ou fazer uma chamada de REST API. Para além destes métodos, também pode gerir sua configuração de instância de serviço com o Git, permitindo cenários de gestão de serviço, tais como:
+Cada instância do serviço de gerenciamento de API mantém um banco de dados de configuração que contém informações sobre a configuração e os metadados para a instância do serviço. As alterações podem ser feitas na instância do serviço alterando uma configuração no portal do Azure, usando um cmdlet do PowerShell ou fazendo uma chamada à API REST. Além desses métodos, você também pode gerenciar sua configuração de instância de serviço usando o Git, permitindo cenários de gerenciamento de serviços, como:
 
-* Controlo de versões de configuração - transferir e armazenar versões diferentes da sua configuração de serviço
-* Em massa as alterações de configuração - fazer alterações em várias partes da sua configuração de serviço no seu repositório local e integrar as alterações de volta para o servidor com uma única operação
-* Coleção de ferramentas familiar de Git e o fluxo de trabalho - utilize o Git ferramentas e os fluxos de trabalho que já estiver familiarizado com
+* Controle de versão de configuração-Baixe e armazene versões diferentes de sua configuração de serviço
+* Alterações de configuração em massa-faça alterações em várias partes da configuração de seu serviço em seu repositório local e integre as alterações de volta ao servidor com uma única operação
+* Ferramentas e fluxo de trabalho familiar – use as ferramentas e os fluxos de trabalho do git com os quais você já está familiarizado
 
-O diagrama seguinte mostra uma descrição geral das diferentes maneiras de configurar a sua instância do serviço de gestão de API.
+O diagrama a seguir mostra uma visão geral das diferentes maneiras de configurar sua instância do serviço de gerenciamento de API.
 
-![Configurar o Git][api-management-git-configure]
+![Configuração do git][api-management-git-configure]
 
-Quando fizer alterações ao seu serviço com o portal do Azure, cmdlets do PowerShell ou a API REST, que está a gerir a configuração de serviço base de dados com o `https://{name}.management.azure-api.net` ponto de extremidade, conforme mostrado no lado direito do diagrama. O lado esquerdo do diagrama ilustra como pode gerir a configuração de serviço com o Git e o repositório de Git para o seu serviço localizado em `https://{name}.scm.azure-api.net`.
+Quando você faz alterações no serviço usando o portal do Azure, cmdlets do PowerShell ou a API REST, você está gerenciando o banco de dados de configuração `https://{name}.management.azure-api.net` de serviço usando o ponto de extremidade, conforme mostrado no lado direito do diagrama. O lado esquerdo do diagrama ilustra como você pode gerenciar sua configuração de serviço usando o git e o repositório Git para seu serviço `https://{name}.scm.azure-api.net`localizado em.
 
-Os passos seguintes fornecem uma visão geral do gerenciamento de sua instância do serviço de gestão de API com o Git.
+As etapas a seguir fornecem uma visão geral do gerenciamento da instância do serviço de gerenciamento de API usando o git.
 
-1. Configuração do Git no seu serviço de acesso
-2. Guardar a sua base de dados de configuração de serviço para o seu repositório de Git
-3. Clone o repositório de Git no seu computador local
-4. Extrair o repositório do mais recente para baixo para o seu computador local e alterações de consolidação e push de volta ao seu repositório
-5. Implementar as alterações do seu repositório na sua base de dados de configuração de serviço
+1. Acessar a configuração do git em seu serviço
+2. Salvar o banco de dados de configuração de serviço em seu repositório git
+3. Clonar o repositório git em seu computador local
+4. Faça pull do repositório mais recente para seu computador local e confirme e envie por push as alterações de volta para seu repositório
+5. Implantar as alterações do seu repositório em seu banco de dados de configuração de serviço
 
-Este artigo descreve como ativar e utilizar o Git para gerir a sua configuração de serviço e fornece uma referência para os ficheiros e pastas no repositório Git.
+Este artigo descreve como habilitar e usar o Git para gerenciar a configuração de seu serviço e fornece uma referência para os arquivos e pastas no repositório git.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="access-git-configuration-in-your-service"></a>Configuração do Git no seu serviço de acesso
+## <a name="access-git-configuration-in-your-service"></a>Acessar a configuração do git em seu serviço
 
-Para ver e configurar as definições de configuração do Git, pode clicar a **Security** menu e navegue para o **repositório de configuração** separador.
+Para exibir e definir as definições de configuração do git, você pode clicar no menu **segurança** e navegar até a guia **repositório de configuração** .
 
-![Permitem que o GIT][api-management-enable-git]
-
-> [!IMPORTANT]
-> Segredos que não estão definidos como valores com o nome serão armazenados no repositório e permanecerão no respetivo histórico de até desativar e reativar o acesso ao Git. Valores nomeados fornecem um local seguro para gerir os valores de cadeia de caracteres constante, incluindo segredos, em todas as configurações de API e as políticas, para que não tenha armazená-las diretamente em suas instruções de política. Para obter mais informações, consulte [como utilizar os valores com o nome nas políticas de gestão de API do Azure](api-management-howto-properties.md).
->
->
-
-Para informações sobre como ativar ou desativar o acesso ao Git com a API REST, consulte [ativar ou desativar o acesso ao Git com a API REST](/rest/api/apimanagement/2019-01-01/tenantaccess?EnableGit).
-
-## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Para guardar a configuração de serviço para o repositório de Git
-
-A primeira etapa antes de clonar o repositório é salvar o estado atual da configuração do serviço para o repositório. Clique em **guardar no repositório**.
-
-Introduzir quaisquer alterações pretendidas no ecrã de confirmação e clique em **Ok** para guardar.
-
-Após alguns instantes é guardada a configuração e o estado de configuração do repositório é apresentado, incluindo a data e hora da última alteração de configuração e a última sincronização entre a configuração do serviço e o repositório.
-
-Depois da configuração é guardada no repositório, pode ser clonado.
-
-Para informações sobre como efetuar esta operação através da API REST, consulte [com a API REST do instantâneo de configuração de consolidação](/rest/api/apimanagement/2019-01-01/tenantaccess?CommitSnapshot).
-
-## <a name="to-clone-the-repository-to-your-local-machine"></a>Para clonar o repositório no seu computador local
-
-Para clonar um repositório, terá do URL para o repositório, um nome de utilizador e uma palavra-passe. Para obter o nome de utilizador e outras credenciais, clique em **aceder a credenciais** junto à parte superior da página.
-
-Para gerar uma palavra-passe, primeiro certifique-se de que o **expiração** é definida como a data de expiração desejada e a hora e, em seguida, clique em **gerar**.
+![Habilitar GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Tome nota desta palavra-passe. Depois de sair desta página a senha não será exibida novamente.
+> Os segredos que não estiverem definidos como valores nomeados serão armazenados no repositório e permanecerão em seu histórico até você desabilitar e reabilitar o acesso ao git. Os valores nomeados fornecem um local seguro para gerenciar valores de cadeia de caracteres constantes, incluindo segredos, em todas as políticas e configuração de API, para que você não precise armazená-los diretamente em suas instruções de política. Para obter mais informações, consulte [como usar valores nomeados em políticas de gerenciamento de API do Azure](api-management-howto-properties.md).
+>
 >
 
-Os exemplos seguintes utilizam a ferramenta a partir do Git Bash [Git para Windows](https://www.git-scm.com/downloads) mas pode utilizar qualquer ferramenta de Git que esteja familiarizado com.
+Para obter informações sobre como habilitar ou desabilitar o acesso do git usando a API REST, confira [Ativar ou desativar o acesso ao git usando a API REST](/rest/api/apimanagement/2019-01-01/tenantaccess?EnableGit).
 
-Abra a sua ferramenta de Git na pasta pretendida e execute o seguinte comando para clonar o repositório de git no seu computador local, utilizando o comando fornecido pelo portal do Azure.
+## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Para salvar a configuração de serviço no repositório git
+
+A primeira etapa antes de clonar o repositório é salvar o estado atual da configuração do serviço no repositório. Clique em **salvar no repositório**.
+
+Faça as alterações desejadas na tela de confirmação e clique em **OK** para salvar.
+
+Após alguns instantes, a configuração é salva e o status de configuração do repositório é exibido, incluindo a data e hora da última alteração de configuração e a última sincronização entre a configuração do serviço e o repositório.
+
+Depois que a configuração é salva no repositório, ela pode ser clonada.
+
+Para obter informações sobre como executar essa operação usando a API REST, consulte [confirmar instantâneo de configuração usando a API REST](/rest/api/apimanagement/2019-01-01/tenantaccess?CommitSnapshot).
+
+## <a name="to-clone-the-repository-to-your-local-machine"></a>Para clonar o repositório em seu computador local
+
+Para clonar um repositório, você precisa da URL para o repositório, um nome de usuário e uma senha. Para obter o nome de usuário e outras credenciais, clique em **credenciais de acesso** próximo à parte superior da página.
+
+Para gerar uma senha, primeiro verifique se a **expiração** está definida para a data e hora de expiração desejadas e clique em **gerar**.
+
+> [!IMPORTANT]
+> Anote essa senha. Depois de sair dessa página, a senha não será exibida novamente.
+>
+
+Os exemplos a seguir usam a ferramenta git bash do [git para Windows](https://www.git-scm.com/downloads) , mas você pode usar qualquer ferramenta git com a qual esteja familiarizado.
+
+Abra a ferramenta git na pasta desejada e execute o comando a seguir para clonar o repositório git em seu computador local, usando o comando fornecido pelo portal do Azure.
 
 ```
 git clone https://{name}.scm.azure-api.net/
 ```
 
-Forneça o nome de utilizador e palavra-passe quando lhe for pedido.
+Forneça o nome de usuário e a senha quando solicitado.
 
-Se receber algum erro, tente modificar seu `git clone` comando para incluir o nome de utilizador e palavra-passe, conforme mostrado no exemplo a seguir.
+Se você receber erros, tente modificar `git clone` o comando para incluir o nome de usuário e a senha, conforme mostrado no exemplo a seguir.
 
 ```
 git clone https://username:password@{name}.scm.azure-api.net/
 ```
 
-Se esta opção fornece um erro, tente a parte de palavra-passe do comando de codificação do URL. Uma forma rápida de fazer isso é abrir o Visual Studio e emita o seguinte comando no **janela imediata**. Para abrir o **janela imediata**, abra qualquer solução ou projeto no Visual Studio (ou crie uma nova aplicação de consola vazia) e escolha **Windows**, **Immediate** das **Depurar** menu.
+Se isso fornecer um erro, tente codificar a URL da parte de senha do comando. Uma maneira rápida de fazer isso é abrir o Visual Studio e emitir o comando a seguir na **janela imediata**. Para abrir a **janela imediata**, abra qualquer solução ou projeto no Visual Studio (ou crie um novo aplicativo de console vazio) e escolha **Windows**, **imediatamente** no menu **depurar** .
 
 ```
 ?System.NetWebUtility.UrlEncode("password from the Azure portal")
 ```
 
-Utilize a palavra-passe codificada, juntamente com a sua localização de nome e o repositório de utilizador para construir o comando do git.
+Use a senha codificada junto com seu nome de usuário e o local do repositório para construir o comando git.
 
 ```
 git clone https://username:url encoded password@{name}.scm.azure-api.net/
 ```
 
-Assim que o repositório é clonado, pode ver e trabalhar com eles no sistema de arquivos local. Para obter mais informações, consulte [referência de repositório de Git local de estrutura de arquivo e pasta](#file-and-folder-structure-reference-of-local-git-repository).
+Depois que o repositório for clonado, você poderá exibir e trabalhar com ele no sistema de arquivos local. Para obter mais informações, consulte [referência de estrutura de arquivo e pasta do repositório git local](#file-and-folder-structure-reference-of-local-git-repository).
 
-## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Para atualizar o seu repositório local com a configuração de instância de serviço mais recente
+## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Para atualizar seu repositório local com a configuração de instância de serviço mais atual
 
-Se efetuar alterações à sua instância do serviço de gestão de API no portal do Azure ou através da API REST, tem de guardar estas alterações para o repositório antes de poder atualizar o seu repositório local com as alterações mais recentes. Para tal, clique em **Guardar configuração para o repositório** sobre o **repositório de configuração** separador no portal do Azure e, em seguida, emita o comando seguinte no seu repositório local.
+Se você fizer alterações na instância do serviço de gerenciamento de API no portal do Azure ou usando a API REST, deverá salvar essas alterações no repositório antes de atualizar seu repositório local com as alterações mais recentes. Para fazer isso, clique em **salvar configuração no repositório** na guia **repositório de configuração** no portal do Azure e, em seguida, emita o seguinte comando no repositório local.
 
 ```
 git pull
 ```
 
-Antes de executar `git pull` Certifique-se de que está na pasta para o repositório local. Se acabou de concluir o `git clone` de comando, em seguida, tem de alterar o diretório ao seu repositório ao executar um comando semelhante ao seguinte.
+Antes de `git pull` executar, verifique se você está na pasta do seu repositório local. Se você acabou de concluir o `git clone` comando, deverá alterar o diretório para o repositório executando um comando semelhante ao seguinte.
 
 ```
 cd {name}.scm.azure-api.net/
 ```
 
-## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Para aplicar as alterações do seu repositório local para o repositório de servidor
-Para aplicar as alterações do seu repositório local para o repositório de servidor, tem de consolidar as alterações e, em seguida, enviá-las para o repositório de servidor. Para consolidar as alterações, abra a sua ferramenta de comando do Git, mude para o diretório do repositório local e emita os seguintes comandos.
+## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Para enviar por push as alterações do repositório local para o repositório do servidor
+Para enviar por push as alterações do repositório local para o repositório do servidor, você deve confirmar suas alterações e enviá-las por push para o repositório do servidor. Para confirmar suas alterações, abra a ferramenta de comando do git, alterne para o diretório do repositório local e emita os comandos a seguir.
 
 ```
 git add --all
 git commit -m "Description of your changes"
 ```
 
-Para enviar todas as confirmações para o servidor, execute o seguinte comando.
+Para enviar por push todas as confirmações para o servidor, execute o comando a seguir.
 
 ```
 git push
 ```
 
-## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Para implementar alterações de configuração de serviço para a instância do serviço de gestão de API
+## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Para implantar qualquer alteração de configuração de serviço na instância do serviço de gerenciamento de API
 
-Depois das alterações de locais são aplicadas e enviados por push para o repositório de servidor, pode implementá-las à sua instância do serviço de gestão de API.
+Depois que as alterações locais são confirmadas e enviadas por push para o repositório do servidor, você pode implantá-las na instância do serviço de gerenciamento de API.
 
-Para informações sobre como efetuar esta operação através da API REST, consulte [Git implementar muda para o banco de dados de configuração com a API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/tenantconfiguration).
+Para obter informações sobre como executar essa operação usando a API REST, consulte [implantar alterações do git no banco de dados de configuração usando a API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/tenantconfiguration).
 
-## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Referência de estrutura de ficheiros e pastas do repositório de Git local
+## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Referência da estrutura de arquivos e pastas do repositório git local
 
-Os ficheiros e pastas do repositório de local git contém as informações de configuração sobre a instância de serviço.
+Os arquivos e pastas no repositório git local contêm as informações de configuração sobre a instância do serviço.
 
 | Item | Descrição |
 | --- | --- |
-| pasta raiz de gestão de api |Contém configuração de nível superior para a instância do serviço |
-| pasta de APIs |Contém a configuração para as apis na instância do serviço |
-| pasta de grupos |Contém a configuração para os grupos na instância do serviço |
+| pasta de gerenciamento de API raiz |Contém a configuração de nível superior para a instância de serviço |
+| pasta de APIs |Contém a configuração para as APIs na instância do serviço |
+| pasta de grupos |Contém a configuração dos grupos na instância do serviço |
 | pasta de políticas |Contém as políticas na instância do serviço |
-| pasta de portalStyles |Contém a configuração para as personalizações do portal de programador numa instância de serviço |
-| pasta de produtos |Contém a configuração para os produtos numa instância de serviço |
-| pasta de modelos |Contém a configuração para os modelos de e-mail na instância do serviço |
+| pasta portalStyles |Contém a configuração para as personalizações do portal do desenvolvedor na instância do serviço |
+| pasta produtos |Contém a configuração dos produtos na instância do serviço |
+| pasta de modelos |Contém a configuração dos modelos de email na instância do serviço |
 
-Cada pasta pode conter um ou mais ficheiros e, em alguns casos, um ou mais pastas, por exemplo, uma pasta para cada API, produtos ou grupo. Os ficheiros em cada pasta são específicos para o tipo de entidade descrito pelo nome da pasta.
+Cada pasta pode conter um ou mais arquivos e, em alguns casos, uma ou mais pastas, por exemplo, uma pasta para cada API, produto ou grupo. Os arquivos dentro de cada pasta são específicos para o tipo de entidade descrito pelo nome da pasta.
 
 | Tipo de ficheiro | Objetivo |
 | --- | --- |
-| json |Informações de configuração sobre a entidade respectiva |
-| html |Descrições sobre a entidade, muitas vezes, é apresentado no portal do Programador |
+| json |Informações de configuração sobre a respectiva entidade |
+| html |Descrições sobre a entidade, geralmente exibidas no portal do desenvolvedor |
 | xml |Instruções de política |
-| css |Folhas de estilo para personalização do portal de programador |
+| CSS |Folhas de estilo para personalização do portal do desenvolvedor |
 
-Estes ficheiros podem ser criados, eliminados, editados e geridos no seu sistema de arquivos local e as alterações de implementado novamente para a instância de serviço de gestão de API.
+Esses arquivos podem ser criados, excluídos, editados e gerenciados no sistema de arquivos local, e as alterações são implantadas de volta para sua instância do serviço de gerenciamento de API.
 
 > [!NOTE]
-> As seguintes entidades não estão contidas no repositório do Git e não podem ser configuradas com o Git.
+> As entidades a seguir não estão contidas no repositório git e não podem ser configuradas usando o git.
 >
 > * [Utilizadores](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user)
 > * [Subscrições](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription)
 > * [Valores nomeados](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/property)
-> * Entidades de portais de programador que não seja estilos
+> * Entidades do portal do desenvolvedor que não sejam estilos
 >
 
-### <a name="root-api-management-folder"></a>pasta raiz de gestão de api
-A raiz `api-management` pasta contém um `configuration.json` ficheiro que contém informações de nível superior sobre a instância de serviço no seguinte formato.
+### <a name="root-api-management-folder"></a>Pasta de gerenciamento de API raiz
+A pasta `api-management` raiz contém um `configuration.json` arquivo que contém informações de nível superior sobre a instância de serviço no formato a seguir.
 
 ```json
 {
@@ -199,74 +198,74 @@ A raiz `api-management` pasta contém um `configuration.json` ficheiro que cont�
 }
 ```
 
-As quatro primeiras definições (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled`, e `UserRegistrationTermsConsentRequired`) mapear para as seguintes definições no **identidades** separador o **segurança** secção.
+As quatro primeiras configurações (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` `UserRegistrationTermsConsentRequired`e) são mapeadas para as configurações a seguir na guia **identidades** da seção **segurança** .
 
-| Definição de identidade | É mapeado para |
+| Configuração de identidade | Mapeia para |
 | --- | --- |
-| RegistrationEnabled |Presença **nome de utilizador e palavra-passe** fornecedor de identidade |
-| UserRegistrationTerms |**Termos de utilização na inscrição do utilizador** caixa de texto |
-| UserRegistrationTermsEnabled |**Mostrar termos de utilização na página de inscrição** caixa de verificação |
-| UserRegistrationTermsConsentRequired |**Exigir consentimento** caixa de verificação |
-| RequireUserSigninEnabled |**Redirecionar utilizadores anónimos para a página de início de sessão** caixa de verificação |
+| RegistrationEnabled |Presença de **nome de usuário e** provedor de identidade de senha |
+| UserRegistrationTerms |Caixa **de texto termos de uso na inscrição do usuário** |
+| UserRegistrationTermsEnabled |Caixa **de seleção Mostrar termos de uso na página de inscrição** |
+| UserRegistrationTermsConsentRequired |Caixa de seleção **exigir consentimento** |
+| RequireUserSigninEnabled |Caixa de seleção redirecionar **usuários anônimos para a página de entrada** |
 
-As próximas quatro definições (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, e `DelegationValidationKey`) mapear para as seguintes definições no **delegação** separador o **segurança** secção.
+As próximas quatro configurações (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`e `DelegationValidationKey`) são mapeadas para as configurações a seguir na guia **delegação** da seção **segurança** .
 
-| Configuração de delegação | É mapeado para |
+| Configuração de delegação | Mapeia para |
 | --- | --- |
-| DelegationEnabled |**Delegado de início de sessão e inscrição** caixa de verificação |
-| DelegationUrl |**URL de ponto final de delegação** caixa de texto |
-| DelegatedSubscriptionEnabled |**Delegar subscrição do produto** caixa de verificação |
-| DelegationValidationKey |**Delegar a chave de validação** caixa de texto |
+| DelegationEnabled |Caixa de seleção delegar entrada **& inscrição** |
+| DelegationUrl |TextBox de **URL de ponto de extremidade de delegação** |
+| DelegatedSubscriptionEnabled |Delegar caixa de seleção de **assinatura do produto** |
+| DelegationValidationKey |Caixa de texto **chave de validação de representante** |
 
-A definição final, `$ref-policy`, mapeia para o ficheiro de instruções de política global para a instância do serviço.
+A configuração final, `$ref-policy`, é mapeada para o arquivo de instruções de política global para a instância de serviço.
 
 ### <a name="apis-folder"></a>pasta de APIs
-O `apis` pasta contém uma pasta para cada API numa instância de serviço, que contém os seguintes itens.
+A `apis` pasta contém uma pasta para cada API na instância do serviço, que contém os itens a seguir.
 
-* `apis\<api name>\configuration.json` -Esta é a configuração para a API e contém informações sobre o URL do serviço de back-end e as operações. Isso é que as mesmas informações que seriam devolvidas se chamar [obter uma API específica](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apis/get) com `export=true` no `application/json` formato.
-* `apis\<api name>\api.description.html` -Esta é a descrição da API e corresponde à `description` propriedade o [entidade de API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\` -Esta pasta contém `<operation name>.description.html` arquivos que mapeiam para as operações na API. Cada ficheiro contém a descrição de uma única operação na API, que mapeia para o `description` propriedade o [entidade de operação](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) na REST API.
+* `apis\<api name>\configuration.json`-Essa é a configuração para a API e contém informações sobre a URL do serviço de back-end e as operações. Essas são as mesmas informações que seriam retornadas se você chamar [obter uma API específica](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apis/get) com `export=true` no `application/json` formato.
+* `apis\<api name>\api.description.html`-Esta é a descrição da API e corresponde à `description` propriedade da entidade da [API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\`-Esta pasta contém `<operation name>.description.html` arquivos que são mapeados para as operações na API. Cada arquivo contém a descrição de uma única operação na API, que é mapeada para a `description` propriedade da [entidade de operação](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) na API REST.
 
 ### <a name="groups-folder"></a>pasta de grupos
-O `groups` pasta contém uma pasta para cada grupo definido na instância do serviço.
+A `groups` pasta contém uma pasta para cada grupo definido na instância do serviço.
 
-* `groups\<group name>\configuration.json` -Esta é a configuração para o grupo. Isso é que as mesmas informações que seriam devolvidas se chamar o [obter um grupo específico](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/group/get) operação.
-* `groups\<group name>\description.html` -Esta é a descrição do grupo e corresponde à `description` propriedade o [entidade de grupo](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
+* `groups\<group name>\configuration.json`-Esta é a configuração para o grupo. Essas são as mesmas informações que seriam retornadas se você chamasse a operação [obter um grupo específico](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/group/get) .
+* `groups\<group name>\description.html`-Esta é a descrição do grupo e corresponde à `description` propriedade da entidade de [grupo](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>pasta de políticas
-O `policies` pasta contém as instruções de políticas para a sua instância de serviço.
+A `policies` pasta contém as instruções de política para sua instância de serviço.
 
-* `policies\global.xml` -contém as políticas definidas no âmbito global da sua instância de serviço.
-* `policies\apis\<api name>\` – Se tiver quaisquer políticas definidas no âmbito da API, estão contidos nesta pasta.
-* `policies\apis\<api name>\<operation name>\` pasta - se tiver quaisquer políticas definidas no âmbito da operação, estão contidos nesta pasta no `<operation name>.xml` arquivos que mapeiam para as instruções de políticas para cada operação.
-* `policies\products\` – Se tiver quaisquer políticas definidas no âmbito do produto, eles estão contidos nesta pasta, que contém `<product name>.xml` arquivos que mapeiam para as instruções de políticas para cada produto.
+* `policies\global.xml`-contém políticas definidas em escopo global para sua instância de serviço.
+* `policies\apis\<api name>\`-Se você tiver alguma política definida no escopo da API, elas estarão contidas nessa pasta.
+* `policies\apis\<api name>\<operation name>\`pasta-se você tiver políticas definidas no escopo de operação, elas estarão contidas nessa pasta em `<operation name>.xml` arquivos que são mapeados para as instruções de política para cada operação.
+* `policies\products\`-Se você tiver políticas definidas no escopo do produto, elas estarão contidas nessa pasta, que contém `<product name>.xml` os arquivos que são mapeados para as instruções de política de cada produto.
 
-### <a name="portalstyles-folder"></a>pasta de portalStyles
-O `portalStyles` pasta contém folhas de estilo e de configuração para personalizações do portal de programador para a instância de serviço.
+### <a name="portalstyles-folder"></a>pasta portalStyles
+A `portalStyles` pasta contém as folhas de estilo e de configuração para as personalizações do portal do desenvolvedor para a instância de serviço.
 
-* `portalStyles\configuration.json` -contém os nomes de folhas de estilo utilizados pelo portal do Programador
-* `portalStyles\<style name>.css` -cada `<style name>.css` arquivo contém estilos para o portal do programador (`Preview.css` e `Production.css` por predefinição).
+* `portalStyles\configuration.json`-contém os nomes das folhas de estilo usadas pelo portal do desenvolvedor
+* `portalStyles\<style name>.css`-cada `<style name>.css` arquivo contém estilos para o portal do desenvolvedor`Preview.css` ( `Production.css` e por padrão).
 
-### <a name="products-folder"></a>pasta de produtos
-O `products` pasta contém uma pasta para cada produto definido na instância do serviço.
+### <a name="products-folder"></a>pasta produtos
+A `products` pasta contém uma pasta para cada produto definido na instância do serviço.
 
-* `products\<product name>\configuration.json` -Esta é a configuração para o produto. Isso é que as mesmas informações que seriam devolvidas se chamar o [obter um produto específico](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/product/get) operação.
-* `products\<product name>\product.description.html` -Esta é a descrição do produto e que corresponde à `description` propriedade do [entidade product](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) na REST API.
+* `products\<product name>\configuration.json`-Esta é a configuração para o produto. Essas são as mesmas informações que seriam retornadas se você chamasse a operação [obter um produto específico](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/product/get) .
+* `products\<product name>\product.description.html`-Esta é a descrição do produto e corresponde à `description` propriedade da [entidade Product](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) na API REST.
 
 ### <a name="templates"></a>modelos
-O `templates` pasta contém a configuração para o [modelos de e-mail](api-management-howto-configure-notifications.md) a instância de serviço.
+A `templates` pasta contém a configuração dos [modelos de email](api-management-howto-configure-notifications.md) da instância do serviço.
 
-* `<template name>\configuration.json` -Esta é a configuração para o modelo de e-mail.
-* `<template name>\body.html` -Este é o corpo do modelo de e-mail.
+* `<template name>\configuration.json`-Esta é a configuração para o modelo de email.
+* `<template name>\body.html`-Este é o corpo do modelo de email.
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter informações sobre outras formas de gerir a sua instância de serviço, consulte:
+## <a name="next-steps"></a>Passos seguintes
+Para obter informações sobre outras maneiras de gerenciar sua instância de serviço, consulte:
 
-* Gerir a sua instância de serviço com os seguintes cmdlets do PowerShell
+* Gerenciar sua instância de serviço usando os seguintes cmdlets do PowerShell
   * [Referência do cmdlet do Powershell de implementação do serviço](https://docs.microsoft.com/powershell/module/wds)
-  * [Referência de cmdlets do PowerShell da gestão de serviço](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
-* Gerir a sua instância de serviço com a API REST
-  * [Referência da API de REST de gestão de API](/rest/api/apimanagement/)
+  * [Referência de cmdlet do PowerShell de gerenciamento de serviços](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
+* Gerenciar sua instância de serviço usando a API REST
+  * [Referência da API REST do gerenciamento de API](/rest/api/apimanagement/)
 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png

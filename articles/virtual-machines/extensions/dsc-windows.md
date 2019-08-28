@@ -1,6 +1,6 @@
 ---
-title: Processador de extensões de Desired State Configuration do Azure | Documentos da Microsoft
-description: Carregar e aplicar uma configuração de DSC de PowerShell na VM do Azure com a extensão de DSC
+title: Manipulador de extensão de configuração de estado desejado do Azure | Microsoft Docs
+description: Carregar e aplicar uma configuração de DSC do PowerShell em uma VM do Azure usando a extensão de DSC
 services: virtual-machines-windows
 documentationcenter: ''
 author: bobbytreed
@@ -8,40 +8,39 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 89d652f440e97650b7e7ac63cccc7fde75d7204a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: ee5a6c732bcb48cd347b8d87b95d2896d7230a08
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798270"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092379"
 ---
-# <a name="powershell-dsc-extension"></a>Extensão de DSC de PowerShell
+# <a name="powershell-dsc-extension"></a>Extensão de DSC do PowerShell
 
 ## <a name="overview"></a>Descrição geral
 
-A extensão de DSC de PowerShell para Windows é publicada e suportada pela Microsoft. A extensão carrega e aplica-se uma configuração de DSC de PowerShell numa VM do Azure. Chama a extensão DSC do PowerShell DSC adotar a configuração de DSC recebida na VM. Este documento detalha as plataformas suportadas, configurações e opções de implementação para a extensão de máquina virtual de DSC para Windows.
+A extensão de DSC do PowerShell para Windows é publicada e tem suporte da Microsoft. A extensão carrega e aplica uma configuração de DSC do PowerShell em uma VM do Azure. A extensão DSC chama a DSC do PowerShell para aplicar a configuração de DSC recebida na VM. Este documento detalha as plataformas com suporte, as configurações e as opções de implantação para a extensão da máquina virtual DSC para Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão de DSC suporta o SO seguinte
+A extensão DSC dá suporte ao seguinte sistema operacional
 
 Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-A extensão de DSC para o Windows requer que a máquina virtual de destino é capaz de comunicar com o Azure e a localização do pacote de configuração (ficheiro. zip), se ele é armazenado num local fora do Azure. 
+A extensão de DSC para Windows requer que a máquina virtual de destino seja capaz de se comunicar com o Azure e o local do pacote de configuração (arquivo. zip) se ele estiver armazenado em um local fora do Azure. 
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON seguinte mostra o esquema para a parte de definições da extensão do DSC num modelo Azure Resource Manager. 
+O JSON a seguir mostra o esquema para a parte de configurações da extensão de DSC em um modelo de Azure Resource Manager. 
 
 ```json
 {
@@ -101,38 +100,38 @@ O JSON seguinte mostra o esquema para a parte de definições da extensão do DS
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2018-10-01 | date |
-| publisher | Microsoft.Powershell.DSC | Cadeia de caracteres |
+| publisher | Microsoft. PowerShell. DSC | Cadeia de caracteres |
 | type | DSC | Cadeia de caracteres |
-| typeHandlerVersion | 2.77 | int |
+| typeHandlerVersion | 2,77 | int |
 
-### <a name="settings-property-values"></a>Valores de propriedade de definições
+### <a name="settings-property-values"></a>Valores da propriedade de configurações
 
-| Nome | Tipo de Dados | Descrição
+| Name | Tipo de Dados | Descrição
 | ---- | ---- | ---- |
-| settings.wmfVersion | Cadeia de caracteres | Especifica a versão do Windows Management Framework que deve ser instalado na sua VM. Definir essa propriedade como 'mais recente' irá instalar a versão mais atualizada do WMF. Os valores possíveis apenas atuais para esta propriedade são "4.0", '5.0' e 'mais recente'. Estes valores possíveis são sujeitos a atualizações. O valor predefinido é "mais recente". |
-| settings.configuration.url | cadeia | Especifica a localização de URL para transferir o ficheiro de zip de configuração de DSC. Se o URL fornecido necessita de um token SAS para o acesso, terá de definir a propriedade de protectedSettings.configurationUrlSasToken como o valor do seu token SAS. Esta propriedade é necessária se settings.configuration.script e/ou settings.configuration.function são definidos.
-| settings.configuration.script | Cadeia de caracteres | Especifica o nome de ficheiro do script que contém a definição da sua configuração de DSC. Este script tem de ser na pasta raiz do ficheiro zip transferido a partir do URL especificado pela propriedade configuration.url. Esta propriedade é necessária se settings.configuration.url e/ou settings.configuration.script são definidos.
-| settings.configuration.function | cadeia | Especifica o nome da sua configuração de DSC. A configuração com o nome tem de estar contida no script definido pelo configuration.script. Esta propriedade é necessária se settings.configuration.url e/ou settings.configuration.function são definidos.
-| settings.configurationArguments | Collection | Define quaisquer parâmetros que pretende passar para a configuração de DSC. Esta propriedade não será encriptada.
-| settings.configurationData.url | cadeia | Especifica o URL para transferir o ficheiro de dados (.pds1) de configuração para utilizar como entrada para a sua configuração de DSC. Se o URL fornecido necessita de um token SAS para o acesso, terá de definir a propriedade de protectedSettings.configurationDataUrlSasToken como o valor do seu token SAS.
-| settings.privacy.dataEnabled | Cadeia de caracteres | Ativa ou desativa a coleção de telemetria. Os valores apenas possíveis para esta propriedade são "Ativar", "Desativar", ", ou $null. Deixar esta propriedade está em branco ou nulo irá ativar a telemetria
-| settings.advancedOptions.forcePullAndApply | Bool | Esta definição destina-se para melhorar a experiência de trabalhar com a extensão para registar nós DSC de automatização do Azure.  Se o valor for `$true`, a extensão de espera que a primeira execução da configuração obtida a partir do serviço antes de devolver êxito/falha.  Se o valor é definido como $false, o estado devolvido pela extensão só irá fazer referência a se em que o nó foi registado com êxito com a configuração de estado de automatização do Azure e a configuração do nó não será executada durante o registo.
-| settings.advancedOptions.downloadMappings | Collection | Define locais alternativos para transferir as dependências, como o WMF e .NET
+| settings.wmfVersion | Cadeia de caracteres | Especifica a versão do Windows Management Framework que deve ser instalada em sua VM. Definir essa propriedade como ' mais recente ' instalará a versão mais atualizada do WMF. Os únicos valores possíveis atuais para essa propriedade são ' 4,0 ', ' 5,0 ' e ' Latest '. Esses valores possíveis estão sujeitos a atualizações. O valor padrão é ' Latest '. |
+| settings.configuration.url | Cadeia de caracteres | Especifica o local da URL do qual baixar o arquivo zip de configuração DSC. Se a URL fornecida exigir um token SAS para acesso, você precisará definir a propriedade protectedSettings. configurationUrlSasToken como o valor do seu token SAS. Essa propriedade será necessária se Settings. Configuration. script e/ou Settings. Configuration. Function forem definidas.
+| settings.configuration.script | Cadeia de caracteres | Especifica o nome do arquivo do script que contém a definição de sua configuração DSC. Esse script deve estar na pasta raiz do arquivo zip baixado da URL especificada pela propriedade Configuration. URL. Essa propriedade será necessária se Settings. Configuration. URL e/ou Settings. Configuration. script forem definidos.
+| settings.configuration.function | Cadeia de caracteres | Especifica o nome da sua configuração DSC. A configuração chamada deve estar contida no script definido por Configuration. script. Essa propriedade será necessária se Settings. Configuration. URL e/ou Settings. Configuration. Function forem definidos.
+| settings.configurationArguments | Collection | Define quaisquer parâmetros que você gostaria de passar para sua configuração DSC. Esta propriedade não será criptografada.
+| settings.configurationData.url | Cadeia de caracteres | Especifica a URL da qual baixar seu arquivo de dados de configuração (. pds1) para usar como entrada para sua configuração DSC. Se a URL fornecida exigir um token SAS para acesso, você precisará definir a propriedade protectedSettings. configurationDataUrlSasToken como o valor do seu token SAS.
+| settings.privacy.dataEnabled | Cadeia de caracteres | Habilita ou desabilita a coleta de telemetria. Os únicos valores possíveis para essa propriedade são ' habilitar ', ' desabilitar ', "ou $null. Deixar essa propriedade em branco ou NULL permitirá a telemetria
+| settings.advancedOptions.forcePullAndApply | Bool | Essa configuração foi projetada para aprimorar a experiência de trabalhar com a extensão para registrar nós com o DSC de Automação do Azure.  Se o valor for `$true`, a extensão aguardará a primeira execução da configuração extraída do serviço antes de retornar êxito/falha.  Se o valor for definido como $false, o status retornado pela extensão somente fará referência a se o nó foi registrado com êxito na configuração de estado da automação do Azure e a configuração do nó não será executada durante o registro.
+| settings.advancedOptions.downloadMappings | Collection | Define locais alternativos para baixar dependências como WMF e .NET
 
-### <a name="protected-settings-property-values"></a>Valores das propriedades de definições protegidos
+### <a name="protected-settings-property-values"></a>Valores de propriedade de configurações protegidas
 
-| Nome | Tipo de Dados | Descrição
+| Name | Tipo de Dados | Descrição
 | ---- | ---- | ---- |
-| protectedSettings.configurationArguments | Cadeia de caracteres | Define quaisquer parâmetros que pretende passar para a configuração de DSC. Esta propriedade será encriptada. |
-| protectedSettings.configurationUrlSasToken | Cadeia de caracteres | Especifica o token SAS para aceder ao URL definido pelo configuration.url. Esta propriedade será encriptada. |
-| protectedSettings.configurationDataUrlSasToken | Cadeia de caracteres | Especifica o token SAS para aceder ao URL definido pelo configurationData.url. Esta propriedade será encriptada. |
+| protectedSettings.configurationArguments | Cadeia de caracteres | Define quaisquer parâmetros que você gostaria de passar para sua configuração DSC. Esta propriedade será criptografada. |
+| protectedSettings.configurationUrlSasToken | Cadeia de caracteres | Especifica o token SAS para acessar a URL definida por Configuration. URL. Esta propriedade será criptografada. |
+| protectedSettings.configurationDataUrlSasToken | Cadeia de caracteres | Especifica o token SAS para acessar a URL definida por configurationData. URL. Esta propriedade será criptografada. |
 
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
 Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager.
-Os modelos são ideais quando implementar um ou mais máquinas virtuais que necessitam de configuração pós-implementação.
-Um modelo do Resource Manager de exemplo que inclui a extensão de DSC para o Windows pode ser encontrado no [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
+Os modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem a configuração pós-implantação.
+Um modelo do Resource Manager de exemplo que inclui a extensão de DSC para Windows pode ser encontrado na [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 
@@ -144,17 +143,17 @@ Podem ser obtidos dados sobre o estado das implementações de extensão do port
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Pacote de extensão é transferida e implementado para esta localização na VM do Azure
+O pacote de extensão é baixado e implantado neste local na VM do Azure
 ```
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}
 ```
 
-Ficheiro de estado de extensão contém o estado de sub-rotina e códigos de erros/com êxito de estado, juntamente com o erro detalhado e uma descrição para cada extensão executar.
+O arquivo de status de extensão contém os códigos de status de êxito/erro de subseqüentes, juntamente com o erro detalhado e a descrição para cada execução de extensão.
 ```
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}\Status\{0}.Status  -> {0} being the sequence number
 ```
 
-Registos de saída de extensão são registados no diretório seguinte:
+Os logs de saída de extensão são registrados no seguinte diretório:
 
 ```
 C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
@@ -164,11 +163,11 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 
 | Código de Erro | Significado | Ação possível |
 | :---: | --- | --- |
-| 1000 | Erro genérico | A mensagem para este erro é fornecida pela exceção específica nos registos de extensão |
-| 52 | Erro de instalação da extensão | A mensagem para este erro é fornecida pela exceção específica |
-| 1002 | Erro de instalação de WMF | Erro durante a instalação do WMF. |
-| 1004 | Pacote Zip inválido | Zip inválido; Erro ao descompactar o zip |
-| 1100 | Erro de argumento | Indica um problema na entrada fornecido pelo usuário. A mensagem de erro é fornecida pela exceção específica|
+| 1000 | Erro genérico | A mensagem para esse erro é fornecida pela exceção específica nos logs de extensão |
+| 52 | Erro de instalação da extensão | A mensagem para esse erro é fornecida pela exceção específica |
+| 1002 | Erro de instalação do WMF | Erro ao instalar o WMF. |
+| 1004 | Pacote zip inválido | Zip inválido; Erro ao desempacotar o zip |
+| 1100 | Erro de argumento | Indica um problema na entrada fornecida pelo usuário. A mensagem para o erro é fornecida pela exceção específica|
 
 
 ### <a name="support"></a>Suporte

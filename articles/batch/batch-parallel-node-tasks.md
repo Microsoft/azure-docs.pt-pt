@@ -8,19 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: 538a067c-1f6e-44eb-a92b-8d51c33d3e1a
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/17/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cc6a607da2227ecf9acd6209e31b7aa0ef1c62d8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f45c35e6d9fb611ebf73c4eab8b517d8575b8e82
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68323368"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094933"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Executar tarefas simultaneamente para maximizar o uso de nós de computação do lote 
 
@@ -124,7 +123,7 @@ A segunda execução do exemplo mostra uma diminuição significativa na duraç�
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 ### <a name="batch-explorer-heat-map"></a>Mapa de calor Batch Explorer
 [Batch Explorer][batch_labs] é uma ferramenta de cliente autônoma, gratuita e com recursos avançados para ajudar a criar, depurar e monitorar aplicativos do lote do Azure. Batch Explorer contém um recurso de *mapa de calor* que fornece visualização da execução da tarefa. Quando estiver executando o aplicativo de exemplo [ParallelTasks][parallel_tasks_sample] , você poderá usar o recurso de mapa de calor para visualizar facilmente a execução de tarefas paralelas em cada nó.
 

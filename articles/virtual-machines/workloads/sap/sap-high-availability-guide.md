@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb468a735a9e1f5cca899090df0125013b9b8d4c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: bebdd8beacb3b5fc91802fb41055df7e24b93218
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67709324"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078957"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Alta disponibilidade de máquinas virtuais do Azure para SAP NetWeaver
 
@@ -741,7 +740,7 @@ Se você quiser usar números diferentes para as instâncias do SAP ASCS ou SCS,
 1. No portal do Azure, selecione >   **< *Sid*>-lb-ASCs Load**Balancer**regras de balanceamento**de carga.
 2. Para todas as regras de balanceamento de carga que pertencem à instância do SAP ASCS ou SCS, altere estes valores:
 
-   * Nome
+   * Name
    * Port
    * Porta de back-end
 

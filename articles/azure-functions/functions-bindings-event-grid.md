@@ -1,50 +1,49 @@
 ---
-title: Acionador do Event Grid para as funções do Azure
-description: Compreenda como manipular eventos do Event Grid nas funções do Azure.
+title: Gatilho de grade de eventos para Azure Functions
+description: Entenda como lidar com eventos de grade de eventos no Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: f48eced2ebcc4ad92c5124194ed2e2df92f64f11
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d2e15c63ac6d93824aeab3f251c2860b7ea114d6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480651"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086832"
 ---
-# <a name="event-grid-trigger-for-azure-functions"></a>Acionador do Event Grid para as funções do Azure
+# <a name="event-grid-trigger-for-azure-functions"></a>Gatilho de grade de eventos para Azure Functions
 
-Este artigo explica como lidar com [Event Grid](../event-grid/overview.md) eventos nas funções do Azure.
+Este artigo explica como lidar com eventos de [grade de eventos](../event-grid/overview.md) no Azure functions.
 
-Event Grid é um serviço do Azure que envia pedidos HTTP para ser notificado sobre eventos que ocorrem no *os publicadores*. Um publicador é o serviço ou recurso que tem origem do evento. Por exemplo, uma conta de armazenamento de Blobs do Azure é um publicador, e [um carregamento de BLOBs ou eliminação é um evento](../storage/blobs/storage-blob-event-overview.md). Algumas [serviços do Azure inclui suporte interno para publicar eventos para o Event Grid](../event-grid/overview.md#event-sources).
+A grade de eventos é um serviço do Azure que envia solicitações HTTP para notificá-lo sobreeventos que acontecem em Publicadores. Um Publicador é o serviço ou recurso que origina o evento. Por exemplo, uma conta de armazenamento de BLOBs do Azure é um Publicador, e [um upload ou uma exclusão de blob é um evento](../storage/blobs/storage-blob-event-overview.md). Alguns [Serviços do Azure têm suporte interno para publicar eventos na grade de eventos](../event-grid/overview.md#event-sources).
 
-Evento *manipuladores* receber e processar eventos. As funções do Azure é um dos vários [serviços do Azure que têm suporte incorporado para manipulação de eventos do Event Grid](../event-grid/overview.md#event-handlers). Neste artigo, irá aprender a utilizar um acionador do Event Grid para invocar uma função, quando um evento é recebido do Event Grid.
+Os *manipuladores* de eventos recebem e processam eventos. Azure Functions é um dos vários [Serviços do Azure que têm suporte interno para lidar com eventos de grade de eventos](../event-grid/overview.md#event-handlers). Neste artigo, você aprenderá a usar um gatilho de grade de eventos para invocar uma função quando um evento for recebido da grade de eventos.
 
-Se preferir, pode utilizar um acionador HTTP para processar eventos do Event Grid ver [utilizar um acionador HTTP como um acionador do Event Grid](#use-an-http-trigger-as-an-event-grid-trigger) mais adiante neste artigo. Atualmente, não é possível utilizar um acionador do Event Grid para uma aplicação de funções do Azure quando o evento é entregue na [esquema do CloudEvents](../event-grid/cloudevents-schema.md). Em alternativa, utilize um acionador HTTP.
+Se preferir, você pode usar um gatilho HTTP para manipular eventos de grade de eventos; consulte [usar um gatilho http como um gatilho de grade de eventos](#use-an-http-trigger-as-an-event-grid-trigger) mais adiante neste artigo. No momento, você não pode usar um gatilho de grade de eventos para um aplicativo Azure Functions quando o evento é entregue no [esquema CloudEvents](../event-grid/cloudevents-schema.md). Em vez disso, use um gatilho HTTP.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="packages---functions-2x"></a>Pacotes - funções 2.x
 
-O acionador do Event Grid é fornecido na [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet, versão 2.x. Código-fonte para o pacote está no [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) repositório do GitHub.
+O gatilho de grade de eventos é fornecido no pacote NuGet [Microsoft. Azure. webjobs. Extensions. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) , versão 2. x. O código-fonte do pacote está no repositório GitHub [Azure-Functions-eventgrid-Extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) .
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
 
-O acionador do Event Grid é fornecido na [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet, versão 1.x. Código-fonte para o pacote está no [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) repositório do GitHub.
+O gatilho de grade de eventos é fornecido no pacote NuGet [Microsoft. Azure. webjobs. Extensions. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) , versão 1. x. O código-fonte do pacote está no repositório GitHub [Azure-Functions-eventgrid-Extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) .
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Exemplo
 
-Veja o exemplo de idioma específico para um acionador do Event Grid:
+Consulte o exemplo específico de linguagem para um gatilho de grade de eventos:
 
 * C#
 * [Script do c# (.csx)](#c-script-example)
@@ -52,11 +51,11 @@ Veja o exemplo de idioma específico para um acionador do Event Grid:
 * [JavaScript](#javascript-example)
 * [Python](#python-example)
 
-Para obter um exemplo de Acionador HTTP, consulte [como utilizar o acionador HTTP](#use-an-http-trigger-as-an-event-grid-trigger) mais adiante neste artigo.
+Para um exemplo de gatilho HTTP, consulte [como usar o gatilho http](#use-an-http-trigger-as-an-event-grid-trigger) mais adiante neste artigo.
 
-### <a name="c-2x"></a>C# (2.x)
+### <a name="c-2x"></a>C#(2. x)
 
-O exemplo seguinte mostra um funções 2.x [função c#](functions-dotnet-class-library.md) que se vincula ao `EventGridEvent`:
+O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) de funções 2. x que é `EventGridEvent`associada a:
 
 ```cs
 using Microsoft.Azure.EventGrid.Models;
@@ -78,11 +77,11 @@ namespace Company.Function
 }
 ```
 
-Para obter mais informações, consulte pacotes, [atributos](#attributes), [configuração](#configuration), e [utilização](#usage).
+Para obter mais informações, consulte pacotes, [atributos](#attributes), [configuração](#configuration)e [uso](#usage).
 
-### <a name="c-version-1x"></a>C#(Versão 1.x)
+### <a name="c-version-1x"></a>C#(Versão 1. x)
 
-O exemplo seguinte mostra um funções 1.x [função c#](functions-dotnet-class-library.md) que se vincula ao `JObject`:
+O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) de funções 1. x que é `JObject`associada a:
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -105,9 +104,9 @@ namespace Company.Function
 }
 ```
 
-### <a name="c-script-example"></a>Exemplo de script do c#
+### <a name="c-script-example"></a>C#exemplo de script
 
-O exemplo seguinte mostra uma ligação de Acionador num *Function* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace.
+O exemplo a seguir mostra uma associação de gatilho em um arquivo *Function. JSON* e uma [ C# função de script](functions-reference-csharp.md) que usa a associação.
 
 Eis a vinculação de dados a *Function* ficheiro:
 
@@ -124,9 +123,9 @@ Eis a vinculação de dados a *Function* ficheiro:
 }
 ```
 
-#### <a name="c-script-version-2x"></a>C#script (versão 2.x)
+#### <a name="c-script-version-2x"></a>C#script (versão 2. x)
 
-Eis o código de script de 2.x c# das funções que liga `EventGridEvent`:
+Aqui está o código de script C# do Functions 2. x `EventGridEvent`que se associa a:
 
 ```csharp
 #r "Microsoft.Azure.EventGrid"
@@ -139,11 +138,11 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-Para obter mais informações, consulte pacotes, [atributos](#attributes), [configuração](#configuration), e [utilização](#usage).
+Para obter mais informações, consulte pacotes, [atributos](#attributes), [configuração](#configuration)e [uso](#usage).
 
-#### <a name="c-script-version-1x"></a>C#script (versão 1.x)
+#### <a name="c-script-version-1x"></a>C#script (versão 1. x)
 
-Eis o código de script de 1.x c# das funções que liga `JObject`:
+Aqui está o código de script C# 1. x do Functions `JObject`que se associa a:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -159,7 +158,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 
 ### <a name="javascript-example"></a>Exemplo de JavaScript
 
-O exemplo seguinte mostra uma ligação de Acionador num *Function* ficheiro e uma [função JavaScript](functions-reference-node.md) que utiliza o enlace.
+O exemplo a seguir mostra uma associação de gatilho em um arquivo *Function. JSON* e uma [função JavaScript](functions-reference-node.md) que usa a associação.
 
 Eis a vinculação de dados a *Function* ficheiro:
 
@@ -190,7 +189,7 @@ module.exports = function (context, eventGridEvent) {
 
 ### <a name="python-example"></a>Exemplo de Python
 
-O exemplo seguinte mostra uma ligação de Acionador num *Function* ficheiro e uma [função Python](functions-reference-python.md) que utiliza o enlace.
+O exemplo a seguir mostra uma associação de gatilho em um arquivo *Function. JSON* e uma [função Python](functions-reference-python.md) que usa a associação.
 
 Eis a vinculação de dados a *Function* ficheiro:
 
@@ -208,7 +207,7 @@ Eis a vinculação de dados a *Function* ficheiro:
 }
 ```
 
-Aqui está o código de Python:
+Este é o código Python:
 
 ```python
 import logging
@@ -222,14 +221,14 @@ def main(event: func.EventGridEvent):
     logging.info("  Data: %s", event.get_json())
 ```
 
-### <a name="trigger---java-examples"></a>Acionador - exemplos de Java
+### <a name="trigger---java-examples"></a>Gatilho-exemplos de Java
 
 Esta secção contém os exemplos seguintes:
 
-* [Acionador do Event Grid, parâmetro de cadeia de caracteres](#event-grid-trigger-string-parameter-java)
-* [Acionador do Event Grid, parâmetro POJO](#event-grid-trigger-pojo-parameter-java)
+* [Gatilho de grade de eventos, parâmetro de cadeia de caracteres](#event-grid-trigger-string-parameter-java)
+* [Gatilho de grade de eventos, parâmetro POJO](#event-grid-trigger-pojo-parameter-java)
 
-Os exemplos seguintes mostram a ligação de Acionador num *Function* ficheiro e [das funções do Java](functions-reference-java.md) que usar a ligação e imprimir um evento, em primeiro lugar recebe o evento como ```String``` e o segundo como um POJO.
+Os exemplos a seguir mostram a associação de gatilho em um arquivo *Function. JSON* e [funções Java](functions-reference-java.md) que usam a associação e imprimem um evento, primeiro ```String``` recebendo o evento como e segundo como um POJO.
 
 ```json
 {
@@ -243,7 +242,7 @@ Os exemplos seguintes mostram a ligação de Acionador num *Function* ficheiro e
 }
 ```
 
-#### <a name="event-grid-trigger-string-parameter-java"></a>Acionador do Event Grid, parâmetro de cadeia de caracteres (Java)
+#### <a name="event-grid-trigger-string-parameter-java"></a>Gatilho de grade de eventos, parâmetro de cadeia de caracteres (Java)
 
 ```java
   @FunctionName("eventGridMonitorString")
@@ -258,9 +257,9 @@ Os exemplos seguintes mostram a ligação de Acionador num *Function* ficheiro e
   }
 ```
 
-#### <a name="event-grid-trigger-pojo-parameter-java"></a>Acionador do Event Grid, parâmetro POJO (Java)
+#### <a name="event-grid-trigger-pojo-parameter-java"></a>Gatilho de grade de eventos, parâmetro POJO (Java)
 
-Este exemplo utiliza o POJO seguinte, que representa as propriedades de nível superior de um evento do Event Grid:
+Este exemplo usa o seguinte POJO, representando as propriedades de nível superior de um evento de grade de eventos:
 
 ```java
 import java.util.Date;
@@ -280,7 +279,7 @@ public class EventSchema {
 }
 ```
 
-Quando chega, ao payload JSON do evento é desserializada no ```EventSchema``` POJO para utilização pela função. Isso permite que a função para aceder às propriedades do evento de forma orientada a objeto.
+Na chegada, a carga JSON do evento é desserializada no ```EventSchema``` POJO para uso pela função. Isso permite que a função acesse as propriedades do evento de forma orientada a objeto.
 
 ```java
   @FunctionName("eventGridMonitor")
@@ -299,13 +298,13 @@ Quando chega, ao payload JSON do evento é desserializada no ```EventSchema``` P
   }
 ```
 
-Na [biblioteca de tempo de execução de funções do Java](/java/api/overview/azure/functions/runtime), utilize o `EventGridTrigger` anotação em parâmetros cujo valor deve ser proveniente de EventGrid. Parâmetros com essas anotações fazer com que a função ser executada quando um evento é recebido.  Esta anotação pode ser utilizada com tipos nativos de Java, POJOs ou valores anuláveis usando `Optional<T>`.
+Na [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime), use a `EventGridTrigger` anotação em parâmetros cujo valor venha de EventGrid. Parâmetros com essas anotações fazem com que a função seja executada quando um evento chega.  Essa anotação pode ser usada com tipos Java nativos, POJOs ou valores anuláveis usando `Optional<T>`.
 
 ## <a name="attributes"></a>Atributos
 
-Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs) atributo.
+Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), use o atributo [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs) .
 
-Aqui está um `EventGridTrigger` atributo numa assinatura do método:
+Aqui está um `EventGridTrigger` atributo em uma assinatura de método:
 
 ```csharp
 [FunctionName("EventGridTest")]
@@ -315,37 +314,37 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 }
 ```
 
-Para obter um exemplo completo, consulte C# exemplo.
+Para obter um exemplo completo, C# consulte exemplo.
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro. Não há parâmetros do construtor ou propriedades para definir o `EventGridTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você definiu no arquivo *Function. JSON* . Não há parâmetros ou propriedades de construtor para definir no `EventGridTrigger` atributo.
 
 |propriedade de Function |Descrição|
 |---------|---------|
-| **type** | Necessário - tem de ser definido como `eventGridTrigger`. |
-| **direção** | Necessário - tem de ser definido como `in`. |
-| **name** | Necessário - o nome da variável no código de função para o parâmetro que recebe os dados do evento. |
+| **type** | Obrigatório-deve ser definido como `eventGridTrigger`. |
+| **direction** | Obrigatório-deve ser definido como `in`. |
+| **name** | Obrigatório – o nome da variável usada no código de função para o parâmetro que recebe os dados do evento. |
 
 ## <a name="usage"></a>Utilização
 
-Para C# e F# as funções no Azure funções 1.x, pode utilizar os seguintes tipos de parâmetro para o acionador do Event Grid:
+Para C# funções F# e no Azure Functions 1. x, você pode usar os seguintes tipos de parâmetro para o gatilho de grade de eventos:
 
 * `JObject`
 * `string`
 
-Para C# e F# as funções nas funções do Azure 2.x, tem também a opção para utilizar o seguinte tipo de parâmetro para o acionador do Event Grid:
+Para C# funções F# e no Azure Functions 2. x, você também tem a opção de usar o seguinte tipo de parâmetro para o gatilho de grade de eventos:
 
-* `Microsoft.Azure.EventGrid.Models.EventGridEvent`-Define as propriedades para os campos comuns a todos os tipos de evento.
+* `Microsoft.Azure.EventGrid.Models.EventGridEvent`-Define as propriedades dos campos comuns a todos os tipos de evento.
 
 > [!NOTE]
-> No v1 de funções, se tentar fazer a ligação `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, o compilador irá apresentar uma mensagem "preterido" e deve utilizar `Microsoft.Azure.EventGrid.Models.EventGridEvent` em vez disso. Para utilizar o tipo mais recente, fazer referência a [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet empacotar e qualificar completamente a `EventGridEvent` atribuindo-o com o nome do tipo `Microsoft.Azure.EventGrid.Models`. Para obter informações sobre como fazer referência a pacotes de NuGet numa função de script do c#, consulte [pacotes utilizando NuGet](functions-reference-csharp.md#using-nuget-packages)
+> No functions v1, se você tentar se `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`associar a, o compilador exibirá uma mensagem "preterida" e aconselha `Microsoft.Azure.EventGrid.Models.EventGridEvent` você a usar em vez disso. Para usar o tipo mais recente, referencie o pacote NuGet [Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) e qualifique totalmente `EventGridEvent` o nome do tipo prefixando `Microsoft.Azure.EventGrid.Models`-o com. Para obter informações sobre como fazer referência a pacotes NuGet C# em uma função de script, consulte [usando pacotes NuGet](functions-reference-csharp.md#using-nuget-packages)
 
-Para as funções de JavaScript, o parâmetro com o nome da *Function* `name` propriedade tem uma referência ao objeto de evento.
+Para funções de JavaScript, o parâmetro nomeado pela propriedade *Function. JSON* `name` tem uma referência ao objeto de evento.
 
 ## <a name="event-schema"></a>Esquema de eventos
 
-Dados de um evento do Event Grid são recebidos como um objeto JSON no corpo de uma solicitação HTTP. O JSON é semelhante ao seguinte exemplo:
+Os dados de um evento de grade de eventos são recebidos como um objeto JSON no corpo de uma solicitação HTTP. O JSON é semelhante ao seguinte exemplo:
 
 ```json
 [{
@@ -373,49 +372,49 @@ Dados de um evento do Event Grid são recebidos como um objeto JSON no corpo de 
 }]
 ```
 
-O exemplo mostrado é uma matriz de um elemento. Event Grid sempre envia uma matriz e pode enviar a mais do que um evento na matriz. O tempo de execução chama sua função, uma vez para cada elemento de matriz.
+O exemplo mostrado é uma matriz de um elemento. A grade de eventos sempre envia uma matriz e pode enviar mais de um evento na matriz. O tempo de execução invoca sua função uma vez para cada elemento da matriz.
 
-As propriedades de nível superior no evento dados JSON são os mesmos entre todos os tipos de eventos, enquanto o conteúdo do `data` propriedade são específicas para cada tipo de evento. O exemplo mostrado é para um evento de armazenamento de Blobs.
+As propriedades de nível superior nos dados JSON de evento são as mesmas entre todos os tipos de evento, enquanto o conteúdo `data` da propriedade é específico para cada tipo de evento. O exemplo mostrado é para um evento de armazenamento de BLOBs.
 
-Para obter explicações das propriedades específicas ao evento e comuns, consulte [propriedades de evento](../event-grid/event-schema.md#event-properties) na documentação do Event Grid.
+Para obter explicações sobre as propriedades comuns e específicas do evento, consulte [Propriedades do evento](../event-grid/event-schema.md#event-properties) na documentação da grade de eventos.
 
 O `EventGridEvent` tipo define apenas as propriedades de nível superior; a `Data` propriedade é um `JObject`.
 
 ## <a name="create-a-subscription"></a>Criar uma subscrição
 
-Para começar a receber pedidos de HTTP de grelha de eventos, crie uma subscrição do Event Grid que especifica o URL de ponto final que invoca a função.
+Para começar a receber solicitações HTTP da grade de eventos, crie uma assinatura da grade de eventos que especifica a URL do ponto de extremidade que invoca a função.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para as funções que desenvolver no portal do Azure com o acionador do Event Grid, selecione **subscrição do Event Grid adicionar**.
+Para funções que você desenvolve no portal do Azure com o gatilho de grade de eventos, selecione **Adicionar assinatura de grade de eventos**.
 
-![Criar subscrição no portal](media/functions-bindings-event-grid/portal-sub-create.png)
+![Criar assinatura no portal](media/functions-bindings-event-grid/portal-sub-create.png)
 
-Quando selecionar esta ligação, o portal abre o **criar subscrição de evento** prefilled de página com o URL de ponto final.
+Quando você seleciona esse link, o portal abre a página **criar assinatura de evento** com a URL do ponto de extremidade preenchida.
 
-![URL de ponto final prefilled](media/functions-bindings-event-grid/endpoint-url.png)
+![URL de ponto de extremidade preenchida](media/functions-bindings-event-grid/endpoint-url.png)
 
-Para obter mais informações sobre como criar subscrições com o portal do Azure, consulte [criar evento personalizado - portal do Azure](../event-grid/custom-event-quickstart-portal.md) na documentação do Event Grid.
+Para obter mais informações sobre como criar assinaturas usando o portal do Azure, consulte [criar evento personalizado-portal do Azure](../event-grid/custom-event-quickstart-portal.md) na documentação da grade de eventos.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para criar uma subscrição, utilizando [a CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), utilize o [criar subscrição de evento do eventgrid az](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) comando.
+Para criar uma assinatura usando [o CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), use o comando [AZ eventgrid Event-Subscription Create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) .
 
-O comando requer o URL de ponto final que invoca a função. O exemplo seguinte mostra o padrão de URL específicas da versão:
+O comando requer a URL do ponto de extremidade que invoca a função. O exemplo a seguir mostra o padrão de URL específico da versão:
 
-#### <a name="version-2x-runtime"></a>Versão 2.x do runtime
+#### <a name="version-2x-runtime"></a>Tempo de execução da versão 2. x
 
     https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
 
-#### <a name="version-1x-runtime"></a>O tempo de execução do versão 1.x
+#### <a name="version-1x-runtime"></a>Tempo de execução da versão 1. x
 
     https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
 
-A chave do sistema é uma chave de autorização que deve ser incluído no URL do ponto final para um acionador do Event Grid. A secção seguinte explica como obter a chave de sistema.
+A chave do sistema é uma chave de autorização que deve ser incluída na URL do ponto de extremidade para um gatilho de grade de eventos. A seção a seguir explica como obter a chave do sistema.
 
-Eis um exemplo que se inscreve para uma conta de armazenamento de BLOBs (com um marcador de posição para a chave do sistema):
+Aqui está um exemplo que assina uma conta de armazenamento de BLOBs (com um espaço reservado para a chave do sistema):
 
-#### <a name="version-2x-runtime"></a>Versão 2.x do runtime
+#### <a name="version-2x-runtime"></a>Tempo de execução da versão 2. x
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -426,7 +425,7 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
 ```
 
-#### <a name="version-1x-runtime"></a>O tempo de execução do versão 1.x
+#### <a name="version-1x-runtime"></a>Tempo de execução da versão 1. x
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -437,27 +436,27 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
 
-Para obter mais informações sobre como criar uma subscrição, veja [o início rápido de armazenamento de BLOBs](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) ou os outros guias de introdução Event Grid.
+Para obter mais informações sobre como criar uma assinatura, consulte [o guia de início rápido do armazenamento](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) de BLOBs ou os outros guias de início rápido da grade de eventos.
 
-### <a name="get-the-system-key"></a>Obter a chave de sistema
+### <a name="get-the-system-key"></a>Obter a chave do sistema
 
-Pode obter a chave do sistema utilizando a seguinte API (HTTP GET):
+Você pode obter a chave do sistema usando a seguinte API (HTTP GET):
 
-#### <a name="version-2x-runtime"></a>Versão 2.x do runtime
+#### <a name="version-2x-runtime"></a>Tempo de execução da versão 2. x
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
 ```
 
-#### <a name="version-1x-runtime"></a>O tempo de execução do versão 1.x
+#### <a name="version-1x-runtime"></a>Tempo de execução da versão 1. x
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```
 
-Este é um administrador de API, portanto, ele requer que a aplicação de funções [chave mestra](functions-bindings-http-webhook.md#authorization-keys). Não confunda a chave de sistema (para invocar uma função de Acionador do Event Grid) com a chave mestra (para efetuar tarefas administrativas na aplicação de função). Ao subscrever um tópico do Event Grid, certifique-se de que utiliza a chave de sistema.
+Essa é uma API de administração, portanto, requer sua [chave mestra](functions-bindings-http-webhook.md#authorization-keys)do aplicativo de funções. Não confunda a chave do sistema (para invocar uma função de gatilho de grade de eventos) com a chave mestra (para executar tarefas administrativas no aplicativo de funções). Ao assinar um tópico da grade de eventos, certifique-se de usar a chave do sistema.
 
-Eis um exemplo de resposta que fornece a chave de sistema:
+Veja um exemplo da resposta que fornece a chave do sistema:
 
 ```
 {
@@ -472,29 +471,29 @@ Eis um exemplo de resposta que fornece a chave de sistema:
 }
 ```
 
-Pode obter a chave mestra para a aplicação de função a partir da **as definições da aplicação de função** separador no portal do.
+Você pode obter a chave mestra para seu aplicativo de funções na guia **configurações do aplicativo de funções** no Portal.
 
 > [!IMPORTANT]
-> A chave mestra fornece acesso de administrador à sua aplicação de função. Não partilhe esta chave com terceiros ou distribuí-la em aplicativos de cliente nativo.
+> A chave mestra fornece acesso de administrador ao seu aplicativo de funções. Não compartilhe essa chave com terceiros ou distribua-a em aplicativos cliente nativos.
 
-Para obter mais informações, consulte [chaves de autorização](functions-bindings-http-webhook.md#authorization-keys) no artigo de referência do acionador HTTP.
+Para obter mais informações, consulte [chaves de autorização](functions-bindings-http-webhook.md#authorization-keys) no artigo de referência do gatilho http.
 
-Em alternativa, pode enviar um HTTP PUT para especificar o valor da chave por conta própria.
+Como alternativa, você pode enviar um HTTP PUT para especificar o valor da chave por conta própria.
 
-## <a name="local-testing-with-viewer-web-app"></a>Realização de testes locais com a aplicação de web do Visualizador
+## <a name="local-testing-with-viewer-web-app"></a>Teste local com o aplicativo Web do Visualizador
 
-Para testar um acionador do Event Grid localmente, terá de obter pedidos de HTTP de grelha de eventos, entregues a partir da sua origem na cloud no seu computador local. Uma forma de fazê-lo é ao capturar pedidos online e manualmente reenviá-los no seu computador local:
+Para testar um gatilho de grade de eventos localmente, você precisa obter solicitações HTTP da grade de eventos entregues de sua origem na nuvem para seu computador local. Uma maneira de fazer isso é capturando solicitações online e reenviá-las manualmente no computador local:
 
-1. [Criar uma aplicação web do Visualizador](#create-a-viewer-web-app) que captura a mensagens de eventos.
-1. [Criar uma subscrição do Event Grid](#create-an-event-grid-subscription) que envia eventos para a aplicação de Visualizador.
-1. [Gerar um pedido](#generate-a-request) e copie o corpo do pedido a partir da aplicação de Visualizador.
-1. [Publique manualmente o pedido](#manually-post-the-request) para o URL de localhost do seu Event Grid acionar a função.
+1. [Crie um aplicativo Web do visualizador](#create-a-viewer-web-app) que capture mensagens de evento.
+1. [Crie uma assinatura de grade de eventos](#create-an-event-grid-subscription) que envia eventos para o aplicativo de visualizador.
+1. [Gere uma solicitação](#generate-a-request) e copie o corpo da solicitação do aplicativo visualizador.
+1. [Poste manualmente a solicitação](#manually-post-the-request) para a URL de localhost da sua função de gatilho de grade de eventos.
 
-Quando terminar de teste, pode utilizar a mesma subscrição para produção, atualizando o ponto final. Utilize o [atualização de subscrição de evento de eventgrid az](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) comando da CLI do Azure.
+Quando terminar o teste, você poderá usar a mesma assinatura para produção atualizando o ponto de extremidade. Use o comando [AZ eventgrid Event-Subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) CLI do Azure.
 
-### <a name="create-a-viewer-web-app"></a>Criar uma aplicação web do Visualizador
+### <a name="create-a-viewer-web-app"></a>Criar um aplicativo Web do Visualizador
 
-Para simplificar a captura de mensagens de eventos, pode implementar um [aplicação web pré-criados](https://github.com/Azure-Samples/azure-event-grid-viewer) que apresenta as mensagens de evento. A solução implementada inclui um plano do Serviço de Aplicações, uma aplicação Web do Serviço de Aplicações e o código de origem do GitHub.
+Para simplificar a captura de mensagens de evento, você pode implantar um [aplicativo Web predefinido](https://github.com/Azure-Samples/azure-event-grid-viewer) que exibe as mensagens de evento. A solução implementada inclui um plano do Serviço de Aplicações, uma aplicação Web do Serviço de Aplicações e o código de origem do GitHub.
 
 Selecione **Implementar no Azure** para implementar a solução para a sua subscrição. No portal do Azure, indique os valores para os parâmetros.
 
@@ -508,74 +507,74 @@ Vê o site, mas ainda não foram publicados eventos no mesmo.
 
 ### <a name="create-an-event-grid-subscription"></a>Criar uma subscrição do Event Grid
 
-Criar uma subscrição do Event Grid do tipo que pretende testar e dê a ele o URL da sua aplicação web como o ponto final para notificação de eventos. O ponto final para a aplicação Web tem de incluir o sufixo `/api/updates/`. Por isso, é o URL completo `https://<your-site-name>.azurewebsites.net/api/updates`
+Crie uma assinatura de grade de eventos do tipo que você deseja testar e dê a ela a URL do seu aplicativo Web como o ponto de extremidade para notificação de eventos. O ponto final para a aplicação Web tem de incluir o sufixo `/api/updates/`. Portanto, a URL completa é`https://<your-site-name>.azurewebsites.net/api/updates`
 
-Para obter informações sobre como criar subscrições com o portal do Azure, consulte [criar evento personalizado - portal do Azure](../event-grid/custom-event-quickstart-portal.md) na documentação do Event Grid.
+Para obter informações sobre como criar assinaturas usando o portal do Azure, consulte [criar evento personalizado-portal do Azure](../event-grid/custom-event-quickstart-portal.md) na documentação da grade de eventos.
 
-### <a name="generate-a-request"></a>Gerar um pedido
+### <a name="generate-a-request"></a>Gerar uma solicitação
 
-Acione um evento que irá gerar tráfego HTTP para o ponto de final de aplicação web.  Por exemplo, se tiver criado uma subscrição de armazenamento de BLOBs, carregar ou eliminar um blob. Quando um pedido aparece na sua aplicação web, copie o corpo do pedido.
+Dispare um evento que gerará tráfego HTTP para seu ponto de extremidade do aplicativo Web.  Por exemplo, se você criou uma assinatura de armazenamento de BLOBs, carregue ou exclua um blob. Quando uma solicitação aparecer em seu aplicativo Web, copie o corpo da solicitação.
 
-O pedido de validação de subscrição será recebido pela primeira vez; ignorar quaisquer pedidos de validação e copie o pedido de evento.
+A solicitação de validação de assinatura será recebida primeiro; Ignore todas as solicitações de validação e copie a solicitação de evento.
 
-![Copiar o corpo do pedido de aplicação web](media/functions-bindings-event-grid/view-results.png)
+![Copiar corpo da solicitação do aplicativo Web](media/functions-bindings-event-grid/view-results.png)
 
-### <a name="manually-post-the-request"></a>Publique manualmente o pedido
+### <a name="manually-post-the-request"></a>Postar a solicitação manualmente
 
-Execute localmente a função do Event Grid.
+Execute a função de grade de eventos localmente.
 
-Utilize uma ferramenta como [Postman](https://www.getpostman.com/) ou [curl](https://curl.haxx.se/docs/httpscripting.html) para criar um pedido HTTP POST:
+Use uma ferramenta como [postmaster](https://www.getpostman.com/) ou ondulação [](https://curl.haxx.se/docs/httpscripting.html) para criar uma solicitação HTTP post:
 
 * Definir um `Content-Type: application/json` cabeçalho.
 * Definir um `aeg-event-type: Notification` cabeçalho.
-* Cole os dados de RequestBin no corpo do pedido.
-* Publicar o URL da sua função de Acionador do Event Grid.
-  * Para 2.x, utilize o seguinte padrão:
+* Cole os dados de RequestBin no corpo da solicitação.
+* Poste para a URL da sua função de gatilho de grade de eventos.
+  * Para 2. x, use o seguinte padrão:
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
 
-  * Para utilização 1.x:
+  * Para uso de 1. x:
 
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
     ```
 
-O `functionName` parâmetro tem de ser o nome especificado no `FunctionName` atributo.
+O `functionName` parâmetro deve ser o nome especificado `FunctionName` no atributo.
 
-As capturas de ecrã seguintes mostram os cabeçalhos e corpo no Postman do pedido:
+As capturas de tela a seguir mostram os cabeçalhos e o corpo da solicitação no postmaster:
 
-![Cabeçalhos no Postman](media/functions-bindings-event-grid/postman2.png)
+![Cabeçalhos no postmaster](media/functions-bindings-event-grid/postman2.png)
 
-![Corpo do pedido no Postman](media/functions-bindings-event-grid/postman.png)
+![Corpo da solicitação no postmaster](media/functions-bindings-event-grid/postman.png)
 
-A função de Acionador do Event Grid é executado e mostra os registos semelhantes ao seguinte exemplo:
+A função de gatilho de grade de eventos é executada e mostra logs semelhantes ao exemplo a seguir:
 
-![Registos de função de Acionador de grelha de eventos de exemplo](media/functions-bindings-event-grid/eg-output.png)
+![Logs de função de gatilho de grade de eventos de exemplo](media/functions-bindings-event-grid/eg-output.png)
 
-## <a name="local-testing-with-ngrok"></a>Realização de testes com ngrok locais
+## <a name="local-testing-with-ngrok"></a>Teste local com ngrok
 
-É outra forma de testar localmente um acionador do Event Grid automatizar a ligação de HTTP entre a Internet e o seu computador de desenvolvimento. Pode fazê-lo com uma ferramenta como o [ngrok](https://ngrok.com/):
+Outra maneira de testar um gatilho de grade de eventos localmente é automatizar a conexão HTTP entre a Internet e o computador de desenvolvimento. Você pode fazer isso com uma ferramenta como [ngrok](https://ngrok.com/):
 
 1. [Criar um ponto de extremidade ngrok](#create-an-ngrok-endpoint).
-1. [Para executar a função de Acionador do Event Grid](#run-the-event-grid-trigger-function).
-1. [Criar uma subscrição do Event Grid](#create-a-subscription) que envia eventos para o ponto de extremidade ngrok.
-1. [Acionar um evento](#trigger-an-event).
+1. [Execute a função de gatilho de grade de eventos](#run-the-event-grid-trigger-function).
+1. [Crie uma assinatura de grade de eventos](#create-a-subscription) que envia eventos para o ponto de extremidade ngrok.
+1. [Disparar um evento](#trigger-an-event).
 
-Quando terminar de teste, pode utilizar a mesma subscrição para produção, atualizando o ponto final. Utilize o [atualização de subscrição de evento de eventgrid az](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) comando da CLI do Azure.
+Quando terminar o teste, você poderá usar a mesma assinatura para produção atualizando o ponto de extremidade. Use o comando [AZ eventgrid Event-Subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) CLI do Azure.
 
 ### <a name="create-an-ngrok-endpoint"></a>Criar um ponto de extremidade ngrok
 
-Baixe *ngrok.exe* partir [ngrok](https://ngrok.com/)e executar com o seguinte comando:
+Baixe *ngrok. exe* de [ngrok](https://ngrok.com/)e execute com o seguinte comando:
 
 ```
 ngrok http -host-header=localhost 7071
 ```
 
-O - host-parâmetro de cabeçalho é necessária porque o runtime das funções espera que as solicitações do localhost quando é executada no localhost. 7071 é o número de porta predefinido quando o tempo de execução é executada localmente.
+O parâmetro-host-header é necessário porque o tempo de execução do Functions espera solicitações do localhost quando ele é executado no localhost. 7071 é o número da porta padrão quando o tempo de execução é executado localmente.
 
-O comando cria uma saída semelhante ao seguinte:
+O comando cria uma saída semelhante à seguinte:
 
 ```
 Session Status                online
@@ -589,60 +588,60 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
                               0       0       0.00    0.00    0.00    0.00
 ```
 
-Usará o `https://{subdomain}.ngrok.io` URL para a sua subscrição do Event Grid.
+Você usará a `https://{subdomain}.ngrok.io` URL para sua assinatura da grade de eventos.
 
-### <a name="run-the-event-grid-trigger-function"></a>Executar a função de Acionador do Event Grid
+### <a name="run-the-event-grid-trigger-function"></a>Executar a função de gatilho de grade de eventos
 
-O URL de ngrok não obtém um tratamento especial pelo Event Grid, para que a sua função tem de ser executado localmente quando é criada a subscrição. Caso contrário, a resposta de validação não é enviada e a criação de subscrição falhar.
+A URL ngrok não obtém tratamento especial por grade de eventos, portanto, sua função deve estar em execução localmente quando a assinatura é criada. Se não estiver, a resposta de validação não será enviada e a criação da assinatura falhará.
 
 ### <a name="create-a-subscription"></a>Criar uma subscrição
 
-Criar uma subscrição do Event Grid do tipo que pretende testar e atribua o ponto final de ngrok.
+Crie uma assinatura de grade de eventos do tipo que você deseja testar e dê a ela seu ponto de extremidade ngrok.
 
-Utilize este padrão de ponto final para as funções 2.x:
+Use este padrão de ponto de extremidade para o Functions 2. x:
 
 ```
 https://{SUBDOMAIN}.ngrok.io/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
 ```
 
-Utilize este padrão de ponto final para as funções 1.x:
+Use este padrão de ponto de extremidade para o Functions 1. x:
 
 ```
 https://{SUBDOMAIN}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
 ```
 
-O `{FUNCTION_NAME}` parâmetro tem de ser o nome especificado no `FunctionName` atributo.
+O `{FUNCTION_NAME}` parâmetro deve ser o nome especificado `FunctionName` no atributo.
 
-Eis um exemplo com a CLI do Azure:
+Veja um exemplo usando o CLI do Azure:
 
 ```azurecli
 az eventgrid event-subscription create --resource-id /subscriptions/aeb4b7cb-b7cb-b7cb-b7cb-b7cbb6607f30/resourceGroups/eg0122/providers/Microsoft.Storage/storageAccounts/egblobstor0122 --name egblobsub0126 --endpoint https://263db807.ngrok.io/runtime/webhooks/eventgrid?functionName=EventGridTrigger
 ```
 
-Para obter informações sobre como criar uma subscrição, veja [criar uma subscrição](#create-a-subscription) no início deste artigo.
+Para obter informações sobre como criar uma assinatura, consulte [criar uma assinatura](#create-a-subscription) anteriormente neste artigo.
 
 ### <a name="trigger-an-event"></a>Acionar um evento
 
-Acione um evento que irá gerar tráfego HTTP para o ponto final de ngrok.  Por exemplo, se tiver criado uma subscrição de armazenamento de BLOBs, carregar ou eliminar um blob.
+Dispare um evento que gerará tráfego HTTP para seu ponto de extremidade ngrok.  Por exemplo, se você criou uma assinatura de armazenamento de BLOBs, carregue ou exclua um blob.
 
-A função de Acionador do Event Grid é executado e mostra os registos semelhantes ao seguinte exemplo:
+A função de gatilho de grade de eventos é executada e mostra logs semelhantes ao exemplo a seguir:
 
-![Registos de função de Acionador de grelha de eventos de exemplo](media/functions-bindings-event-grid/eg-output.png)
+![Logs de função de gatilho de grade de eventos de exemplo](media/functions-bindings-event-grid/eg-output.png)
 
-## <a name="use-an-http-trigger-as-an-event-grid-trigger"></a>Utilizar um acionador HTTP como um acionador do Event Grid
+## <a name="use-an-http-trigger-as-an-event-grid-trigger"></a>Usar um gatilho HTTP como um gatilho de grade de eventos
 
-Eventos do Event Grid são recebidos como pedidos HTTP, pelo que pode processar eventos com um acionador HTTP em vez de um acionador do Event Grid. Uma razão possível para se fazer isso é obter mais controle sobre o URL de ponto final que invoca a função. Outro motivo é quando precisa receber eventos no [esquema do CloudEvents](../event-grid/cloudevents-schema.md). Atualmente, o acionador do Event Grid não suporta o esquema do CloudEvents. Os exemplos nesta secção mostram soluções para o esquema do Event Grid e o esquema do CloudEvents.
+Eventos de grade de eventos são recebidos como solicitações HTTP, para que você possa manipular eventos usando um gatilho HTTP em vez de um gatilho de grade de eventos. Um motivo possível para fazer isso é obter mais controle sobre a URL do ponto de extremidade que invoca a função. Outro motivo é quando você precisa receber eventos no [esquema CloudEvents](../event-grid/cloudevents-schema.md). Atualmente, o gatilho de grade de eventos não dá suporte ao esquema CloudEvents. Os exemplos nesta seção mostram soluções para o esquema de grade de eventos e o esquema CloudEvents.
 
-Se utilizar um acionador HTTP, precisa escrever código para o que o acionador do Event Grid faz automaticamente:
+Se você usar um gatilho HTTP, precisará escrever código para o que o gatilho de grade de eventos faz automaticamente:
 
-* Envia uma resposta de validação para uma [pedido de validação de subscrição](../event-grid/security-authentication.md#webhook-event-delivery).
-* Invoca a função, uma vez por elemento da matriz de eventos contido no corpo do pedido.
+* Envia uma resposta de validação para uma [solicitação de validação de assinatura](../event-grid/security-authentication.md#webhook-event-delivery).
+* Invoca a função uma vez por elemento da matriz de eventos contida no corpo da solicitação.
 
-Para obter informações sobre o URL a utilizar para invocar a função localmente ou quando é executada no Azure, consulte o [documentação de referência de ligação de Acionador HTTP](functions-bindings-http-webhook.md)
+Para obter informações sobre a URL a ser usada para invocar a função localmente ou quando ela é executada no Azure, consulte a [documentação de referência de associação de gatilho http](functions-bindings-http-webhook.md)
 
 ### <a name="event-grid-schema"></a>Esquema do Event Grid
 
-O seguinte exemplo código c# para um acionador HTTP simula o comportamento de Acionador do Event Grid. Utilize este exemplo para eventos de evento fornecidos esquema de grelha.
+O código de C# exemplo a seguir para um gatilho http simula o comportamento do gatilho de grade de eventos. Use este exemplo para eventos entregues no esquema da grade de eventos.
 
 ```csharp
 [FunctionName("HttpTrigger")]
@@ -680,7 +679,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-O seguinte código de JavaScript de exemplo para um acionador HTTP simula o comportamento de Acionador do Event Grid. Utilize este exemplo para eventos de evento fornecidos esquema de grelha.
+O código JavaScript de exemplo a seguir para um gatilho HTTP simula o comportamento do gatilho de grade de eventos. Use este exemplo para eventos entregues no esquema da grade de eventos.
 
 ```javascript
 module.exports = function (context, req) {
@@ -708,11 +707,11 @@ module.exports = function (context, req) {
 };
 ```
 
-O código de manipulação de eventos vai dentro do loop por meio do `messages` matriz.
+Seu código de manipulação de eventos entra dentro do loop por `messages` meio da matriz.
 
-### <a name="cloudevents-schema"></a>Esquema do CloudEvents
+### <a name="cloudevents-schema"></a>Esquema CloudEvents
 
-O seguinte exemplo código c# para um acionador HTTP simula o comportamento de Acionador do Event Grid.  Utilize este exemplo para eventos fornecidos no esquema do CloudEvents.
+O código de C# exemplo a seguir para um gatilho http simula o comportamento do gatilho de grade de eventos.  Use este exemplo para eventos entregues no esquema CloudEvents.
 
 ```csharp
 [FunctionName("HttpTrigger")]
@@ -750,7 +749,7 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
 }
 ```
 
-O seguinte código de JavaScript de exemplo para um acionador HTTP simula o comportamento de Acionador do Event Grid. Utilize este exemplo para eventos fornecidos no esquema do CloudEvents.
+O código JavaScript de exemplo a seguir para um gatilho HTTP simula o comportamento do gatilho de grade de eventos. Use este exemplo para eventos entregues no esquema CloudEvents.
 
 ```javascript
 module.exports = function (context, req) {
@@ -781,4 +780,4 @@ module.exports = function (context, req) {
 > [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o Event Grid](../event-grid/overview.md)
+> [Saiba mais sobre a grade de eventos](../event-grid/overview.md)

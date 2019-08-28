@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a6e303c26278eff290a2d4efb6f96e9962cf2f87
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 008502a2edf1f7d28c94139afdf1bd32f94c13dc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775369"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080473"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console serial do Azure para Windows
 
@@ -296,7 +295,7 @@ R. A imagem é provavelmente mal configurada para acesso à consola de série. P
 
 R. Neste momento, o acesso à consola de série para instâncias do conjunto de dimensionamento de máquina virtual não é suportado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para obter um guia detalhado para comandos cmd e PowerShell que você pode usar no Windows SAC, consulte [comandos do Windows: CMD e PowerShell](serial-console-cmd-ps-commands.md).
 * Também está disponível para a consola de série [Linux](serial-console-linux.md) VMs.
 * Saiba mais sobre [diagnósticos de arranque](boot-diagnostics.md).

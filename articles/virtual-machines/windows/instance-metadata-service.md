@@ -8,19 +8,18 @@ manager: harijayms
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: a1199e7578249de23c9cc7470b8f3c7d68d9ff1d
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: bffe6436678a055ac6d861587f048542f15c5f22
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013521"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079312"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 

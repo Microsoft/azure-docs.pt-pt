@@ -5,12 +5,12 @@ ms.subservice: single-database
 ms.topic: include
 ms.date: 07/31/2019
 ms.author: mathoma
-ms.openlocfilehash: d19e21edd31be461ba30e8985e80c4651bbbb02d
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d4c426c5fe31f8fc2bfaf4697c05456124cafcb1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69894146"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098999"
 ---
 Nesta etapa, você criará um banco de dados individual do banco de dados SQL do Azure. 
 
@@ -23,7 +23,7 @@ Nesta etapa, você criará um banco de dados individual do banco de dados SQL do
 
 Crie seu grupo de recursos e um banco de dados individual usando o portal do Azure.
 
-1. Selecione **SQL do Azure** no menu à esquerda da portal do Azure. Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite *SQL do Azure* na caixa de pesquisa.
+1. Selecione **SQL do Azure** no menu à esquerda da [portal do Azure](https://portal.azure.com). Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite *SQL do Azure* na caixa de pesquisa. Adicional Selecione a estrela ao lado de **Azure SQL** para que ela seja favorita e adicione-a como um item no painel de navegação à esquerda. 
 2. Selecione **+ Adicionar** para abrir a página **selecionar opção de implantação do SQL** . Você pode exibir informações adicionais sobre os bancos de dados diferentes selecionando **Mostrar detalhes** no bloco **bancos de dados** .
 3. Selecione **criar**:
 
@@ -31,7 +31,7 @@ Crie seu grupo de recursos e um banco de dados individual usando o portal do Azu
 
 3. Na guia **noções básicas** , na seção **detalhes do projeto** , digite ou selecione os seguintes valores:
 
-   - **Assinatura**: Clique na lista suspensa e selecione a assinatura correta, se ela não aparecer.
+   - **Subscrição**: Clique na lista suspensa e selecione a assinatura correta, se ela não aparecer.
    - **Grupo de recursos**: Selecione **criar novo**, tipo `myResourceGroup`e selecione **OK**.
 
      ![Novo banco de dados SQL-guia básico](../media/sql-database-get-started-portal/new-sql-database-basics.png)
@@ -43,7 +43,7 @@ Crie seu grupo de recursos e um banco de dados individual usando o portal do Azu
        - **Nome do servidor**: Digite `mysqlserver`; junto com alguns números para exclusividade.
        - **Logon de administrador do servidor**: Digite `azureuser`.
        - **Senha**: Digite uma senha complexa que atenda aos requisitos de senha.
-       - **Local**: Escolha um local na lista suspensa, `West US 2`como.
+       - **Local**: Escolha um local na lista suspensa, `West US`como.
 
          ![Novo servidor](../media/sql-database-get-started-portal/new-server.png)
 
@@ -86,7 +86,7 @@ Crie seu grupo de recursos e um banco de dados individual usando o PowerShell.
    # Set variables for your server and database
    $subscriptionId = '<SubscriptionID>'
    $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   $location = "West US 2"
+   $location = "West US"
    $adminLogin = "azureuser"
    $password = "PWD27!"+(New-Guid).Guid
    $serverName = "mysqlserver-$(Get-Random)"

@@ -7,16 +7,16 @@ ms.date: 07/16/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 848210509bf9ab0ffec35004cbb07e39d6de1bc0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 5a5aeac06ccf31e88a8ec670e57b22e753553ff5
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879607"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114256"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>Interfaces comuns da visualização de Plug and Play de IoT
 
-Espera-se que todos os dispositivos IoT Plug and Play implementem algumas interfaces comuns. As interfaces comuns beneficiam as soluções de IoT porque fornecem funcionalidade consistente. A [certificação](tutorial-build-device-certification.md) exige que seu dispositivo implemente várias interfaces comuns. Você pode recuperar definições de interface comuns do repositório de modelos globais.
+Espera-se que todos os dispositivos IoT Plug and Play implementem algumas interfaces comuns. As interfaces comuns beneficiam as soluções de IoT porque fornecem funcionalidade consistente. A [certificação](tutorial-build-device-certification.md) exige que seu dispositivo implemente várias interfaces comuns. Você pode recuperar definições de interface comuns do repositório de modelos públicos.
 
 ## <a name="summary-of-common-interfaces"></a>Resumo de interfaces comuns
 
@@ -35,7 +35,7 @@ Espera-se que todos os dispositivos IoT Plug and Play implementem algumas interf
 
 ### <a name="cli"></a>CLI
 
-Você pode usar a extensão do Azure IoT para CLI do Azure recuperar as interfaces comuns do repositório de modelos globais.
+Você pode usar a extensão do Azure IoT para CLI do Azure recuperar as interfaces comuns do repositório de modelos públicos.
 
 ```cmd/sh
 az iot pnp interface show --interface {InterfaceID} --login {ModelRepoConnectionString}
@@ -49,9 +49,9 @@ az iot pnp model show --interface {InterfaceID} --login {ModelRepoConnectionStri
 
 1. Use **Ctrl + Shift + P** para abrir a paleta de comandos.
 
-1. Insira **plug and Play** e, em seguida **, selecione o plug and Play de IOT: Abra o comando** de repositório de modelos. Escolha **repositório de modelos globais**. O repositório de modelos globais é aberto no VS Code.
+1. Insira **plug and Play** e, em seguida **, selecione o plug and Play de IOT: Abra o comando** de repositório de modelos. Escolha **repositório público**. O repositório de modelo público é aberto no VS Code.
 
-1. No repositório de modelos globais, insira o nome da interface no campo de pesquisa.
+1. No repositório de modelos públicos, insira o nome da interface no campo de pesquisa.
 
 1. Para criar uma cópia local da interface, selecione-a nos resultados da pesquisa e, em seguida, selecione **baixar**.
 

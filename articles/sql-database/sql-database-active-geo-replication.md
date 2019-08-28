@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 131333f140518f6fb2f63f17d0aa72692dc7d49a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: c1f50dfb499c220a4e13f043438798c556319ddf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935060"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092816"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criando e usando a replicação geográfica ativa
 
@@ -106,6 +106,10 @@ Para obter continuidade de negócios real, a adição de redundância de banco d
 ## <a name="preparing-secondary-database-for-failover"></a>Preparando banco de dados secundário para failover
 
 Para garantir que seu aplicativo possa acessar imediatamente o novo primário após o failover, verifique se os requisitos de autenticação do servidor secundário e do banco de dados estão configurados corretamente. Para obter detalhes, consulte [segurança do banco de dados SQL após a recuperação de desastre](sql-database-geo-replication-security-config.md). Para garantir a conformidade após o failover, verifique se a política de retenção de backup no banco de dados secundário corresponde à do primário. Essas configurações não fazem parte do banco de dados e não são replicadas. Por padrão, o secundário será configurado com um período de retenção de PITR padrão de sete dias. Para obter detalhes, consulte backups automatizados do [banco de dados SQL](sql-database-automated-backups.md).
+
+> [!IMPORTANT]
+> Se o banco de dados for membro de um grupo de failover, você não poderá iniciar seu failover usando o comando faiover de replicação geográfica. Considere o uso do comando de failover para o grupo. Se precisar fazer failover de um banco de dados individual, você deverá removê-lo primeiro do grupo de failover. Consulte [grupos de failover](sql-database-auto-failover-group.md) para obter detalhes. 
+
 
 ## <a name="configuring-secondary-database"></a>Configurando banco de dados secundário
 

@@ -10,23 +10,22 @@ ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: fd9902a83a813daffc52e089e6e8bfc4137c5b8f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0a333b1fac78889b61829b869c23efea5e312adf
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60656648"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072274"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificar o conteúdo e o esquema das páginas no portal do programador na Gestão de API do Azure
 Existem três formas fundamentais de personalizar o portal do programador na Gestão de API do Azure:
 
-* [Editar o conteúdo de páginas estáticas e elementos de esquema da página][modify-content-layout] (explicado neste guia)
-* [Atualizar os estilos utilizados para elementos de página em todo o portal do programador][customize-styles]
-* [Modificar os modelos utilizados para páginas geradas pelo portal][portal-templates] (por exemplo, documentos de API, produtos, autenticação de utilizador, etc.)
+* [Editar o conteúdo de páginas estáticas e elementos de layout de página][modify-content-layout] (explicado neste guia)
+* [Atualizar os estilos usados para elementos de página no portal do desenvolvedor][customize-styles]
+* [Modificar os modelos usados para páginas geradas pelo portal][portal-templates] (por exemplo, documentos de API, produtos, autenticação de usuário, etc.)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -56,8 +55,8 @@ O portal do Programador está acessível a partir do Portal do Azure.
 Agora deve conseguir ver o novo cabeçalho em todas as páginas do portal do programador.
 
 ## <a name="next-steps"> </a>Passos seguintes
-* [Atualizar os estilos utilizados para elementos de página em todo o portal do programador][customize-styles]
-* [Modificar os modelos utilizados para páginas geradas pelo portal][portal-templates] (por exemplo, documentos de API, produtos, autenticação de utilizador, etc.)
+* [Atualizar os estilos usados para elementos de página no portal do desenvolvedor][customize-styles]
+* [Modificar os modelos usados para páginas geradas pelo portal][portal-templates] (por exemplo, documentos de API, produtos, autenticação de usuário, etc.)
 
 [Structure of developer portal pages]: #page-structure
 [Modifying the contents of a layout widget]: #modify-layout-widget

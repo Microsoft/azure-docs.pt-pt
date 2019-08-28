@@ -1,39 +1,38 @@
 ---
-title: Nós de extensão e de criação de camadas de dados para o SAP HANA no Azure (instâncias grandes) | Documentos da Microsoft
-description: Disposição em camadas e a extensão de nós de dados para o SAP HANA no Azure (instâncias grandes).
+title: Nós de extensão e camadas de dados para SAP HANA no Azure (instâncias grandes) | Microsoft Docs
+description: Nós de extensão e camadas de dados para SAP HANA no Azure (instâncias grandes).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a292efc3e660379325ccb6870e540e38c6cdd5e9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 261009edc20f946fa86f0482d8ab5045f4b4f84b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709658"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099849"
 ---
-# <a name="use-sap-hana-data-tiering-and-extension-nodes"></a>Utilizar nós de extensão e de criação de camadas de dados do SAP HANA
+# <a name="use-sap-hana-data-tiering-and-extension-nodes"></a>Usar SAP HANA nós de extensão e camadas de dados
 
-SAP suporta um modelo de camadas de dados para SAP BW das diferentes versões do SAP NetWeaver e SAP BW/4HANA. Para obter mais informações sobre o modelo de camadas de dados, consulte o documento SAP [SAP BW/4HANA e do SAP BW em HANA connosco de extensão do SAP HANA](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#).
-Com a instância grande do HANA, pode utilizar a opção 1 configuração de nós de extensão do SAP HANA conforme explicado nos documentos de blog de perguntas frequentes e SAP. Opção 2 configurações podem ser configuradas com SKUs seguintes instância grande de HANA: S72m, S192, S192m, S384 e S384m. 
+O SAP dá suporte a um modelo de camadas de dados para SAP BW de diferentes versões do SAP NetWeaver e SAP BW/4HANA. Para obter mais informações sobre o modelo de camadas de dados, consulte o documento SAP [SAP BW/4HANA e SAP BW no Hana com nós de extensão SAP Hana](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#).
+Com o HANA em instâncias grandes, você pode usar a configuração opção-1 de nós de extensão SAP HANA, conforme explicado nas perguntas frequentes e documentos de blog do SAP. As configurações da opção 2 podem ser configuradas com as seguintes SKUs de instância grande do HANA: S72m, S192, S192m, S384 e S384m. 
 
-Quando examinar a documentação, a vantagem pode não estar visível imediatamente. Mas quando examinar as diretrizes de dimensionamento do SAP, verá uma vantagem, utilizando a opção-1 e a opção 2 nós de extensão do SAP HANA. Seguem-se exemplos:
+Ao examinar a documentação, a vantagem pode não estar visível imediatamente. Mas, ao examinar as diretrizes de dimensionamento do SAP, você pode ver uma vantagem usando a opção-1 e a opção-2 SAP HANA nós de extensão. Aqui estão exemplos:
 
-- Diretrizes de dimensionamento do SAP HANA geralmente exigem o dobro da quantidade do volume de dados como memória. Quando executar a sua instância do SAP HANA com os dados de acesso frequente, tem apenas 50 por cento ou menor de memória preenchido com dados. O restante da memória ideal é que está a ser retido para o SAP HANA fazendo seu trabalho.
-- Isso significa que numa unidade de S192 instância grande do HANA com 2 TB de memória, execução de uma base de dados do SAP BW, só tem 1 TB como volume de dados.
-- Se utilizar um nó adicional para a extensão de SAP HANA de opção-1, também um S192 HANA grandes instância SKU, ele fornece uma capacidade adicional de 2 TB para o volume de dados. Na configuração da opção-2, receberá um adicional 4 TB para volumes de dados muito ou pouco. Em comparação com o nó de acesso frequente, a capacidade de memória cheia do nó de extensão "quente" pode ser utilizada para o armazenamento de dados para a opção-1. Duplicar a memória pode ser utilizada para o volume de dados na configuração de nó de extensão de SAP HANA de opção-2.
-- Acaba tendo uma capacidade de 3 TB para os seus dados e uma proporção de acesso frequente para quente de 1:2 para a opção-1. Tem 5 TB de dados e uma proporção de 1:4 com a configuração de nó de extensão de opção-2.
+- SAP HANA diretrizes de dimensionamento geralmente exigem o dobro da quantidade de volume de dados como memória. Quando você executa sua instância do SAP HANA com os dados ativos, você tem apenas 50% ou menos da memória preenchida com dados. O restante da memória é ideal para SAP HANA fazer seu trabalho.
+- Isso significa que, em uma unidade de S192 de instância grande do HANA com 2 TB de memória, executando um banco de dados SAP BW, você terá apenas 1 TB como volume.
+- Se você usar um nó de extensão de SAP HANA adicional da opção 1, também uma SKU de instância grande do HANA S192, ele fornecerá uma capacidade adicional de 2 TB para o volume de dados. Na configuração da opção 2, você obtém mais 4 TB para o volume de dados quente. Em comparação com o nó ativo, a capacidade de memória total do nó de extensão "quente" pode ser usada para armazenamento de dados para a opção 1. O dobro da memória pode ser usado para o volume de dados na opção-2 SAP HANA configuração de nó de extensão.
+- Você acaba com uma capacidade de 3 TB para seus dados e uma taxa de quente a quente de 1:2 para a opção 1. Você tem 5 TB de dados e uma proporção de 1:4 com a configuração de nó de extensão opção 2.
 
-Quanto maior for o volume de dados em comparação comparado a memória, maior será o provável que os dados de acesso pouco frequente que estão fazendo para são armazenados no armazenamento de disco.
+Quanto maior o volume de dados comparado à memória, maior é a probabilidade de que os dados quentes que você está solicitando sejam armazenados no armazenamento em disco.
 
 **Passos seguintes?**
-- Consulte [arquitetura do SAP HANA (instâncias grandes) no Azure](hana-architecture.md)
+- Consulte a [arquitetura SAP Hana (instâncias grandes) no Azure](hana-architecture.md)

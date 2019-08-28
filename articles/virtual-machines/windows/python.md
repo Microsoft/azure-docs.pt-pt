@@ -11,16 +11,15 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: a132cf28b0ccd30b3f7e854e46763ce99372ddfe
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: fcbf4e054359534f924b401f2f42e1d4c33890be
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361142"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102485"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Criar e gerenciar VMs do Windows no Azure usando o Python
 
@@ -41,7 +40,7 @@ Leva cerca de 20 minutos para executar essas etapas.
 
 1. Se você ainda não fez isso, instale o [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selecione **desenvolvimento do Python** na página cargas de trabalho e clique em **instalar**. No resumo, você pode ver que o **Python 3 64-bit (3.6.0)** é selecionado automaticamente para você. Se você já tiver instalado o Visual Studio, poderá adicionar a carga de trabalho do Python usando o inicializador do Visual Studio.
 2. Depois de instalar e iniciar o Visual Studio, clique em **arquivo** > **novo** > **projeto**.
-3. Clique **em modelos** >    Python aplicativo Python, digite myPythonProject para o nome do projeto, selecione o local do projeto e clique em OK. > 
+3. Clique **em modelos** > Python aplicativo Python, digite myPythonProject para o nome do projeto, selecione o local do projeto e clique em OK. > 
 
 ## <a name="install-packages"></a>Instalar pacotes
 

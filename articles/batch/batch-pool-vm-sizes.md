@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: batch
 ms.workload: ''
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: fd88f8e9b32b3fe5a0d7ab0caf233098ea19fde0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f894a7438c56c3830eb62c516447195f10fc3b76
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323094"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094661"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho de VM para nós de computação em um pool do lote do Azure
 
@@ -39,30 +38,30 @@ Os pools do lote na configuração de máquina virtual dão suporte a quase todo
 
 Os tamanhos de VM promocional ou de visualização não listados não são garantidos para suporte.
 
-| Série de VMs  | Tamanhos com suporte | Modo de alocação do pool de contas do lote<sup>1</sup> |
+| Série de VM  | Tamanhos com suporte | Modo de alocação do pool de contas do lote<sup>1</sup> |
 |------------|---------|-----------------|
 | Série A básica | Todos os tamanhos *, exceto* Basic_A0 (a0) | Any |
 | Série A | Todos os tamanhos *, exceto* Standard_A0 | Any |
 | Série Av2 | Todos os tamanhos | Any |
-| Série B | Nenhum | Não disponível |
-| Série DC | Nenhum | Não disponível |
+| Série B | Nenhum | Indisponível |
+| Série DC | Nenhum | Indisponível |
 | Dv2, série Dsv2 | Todos os tamanhos | Any |
 | Dv3, série Dsv3 | Todos os tamanhos | Any |
-| [Tamanhos com otimização de memória](../virtual-machines/linux/sizes-memory.md) | Nenhum | Não disponível |
+| [Tamanhos com otimização de memória](../virtual-machines/linux/sizes-memory.md) | Nenhum | Indisponível |
 | Série Fsv2 | Todos os tamanhos | Any |
 | Série H | Todos os tamanhos | Any |
 | Série HB<sup>2</sup> | Todos os tamanhos | Any |
 | HC-série<sup>2</sup> | Todos os tamanhos | Any |
 | Série Ls | Todos os tamanhos | Any |
-| Série Lsv2 | Nenhuma | Não disponível |
+| Série Lsv2 | Nenhum | Indisponível |
 | Série M | Standard_M64ms (somente baixa prioridade), Standard_M128s (somente baixa prioridade) | Any |  
 | Série NCv2<sup>2</sup> | Todos os tamanhos | Any |
 | Série NCv3<sup>2</sup> | Todos os tamanhos | Any |
 | Série ND<sup>2</sup> | Todos os tamanhos | Any |
 | Série NDv2 | Todos os tamanhos | Modo de subscrição do utilizador |
 | Série NV | Todos os tamanhos | Any |
-| Série NVv3 | Nenhum | Não disponível |
-| SAP HANA | Nenhum | Não disponível |
+| Série NVv3 | Nenhum | Indisponível |
+| SAP HANA | Nenhum | Indisponível |
 
 <sup>1</sup> há suporte parcial para algumas séries VM mais recentes inicialmente. Essas séries de VMs podem ser alocadas por contas do lote com o **modo de alocação do pool** definido como assinatura do **usuário**. Consulte [gerenciar contas do lote](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) para obter mais informações sobre a configuração da conta do lote. Consulte [cotas e limites](batch-quota-limit.md) para saber como solicitar cota para essas séries de VMs com suporte parcial para contas do lote de **assinatura do usuário** .  
 
@@ -72,7 +71,7 @@ Os tamanhos de VM promocional ou de visualização não listados não são garan
 
 Os pools do lote na configuração do serviço de nuvem dão suporte a todos os [tamanhos de VM para serviços de nuvem](../cloud-services/cloud-services-sizes-specs.md) **, exceto** para o seguinte:
 
-| Série de VMs  | Tamanhos sem suporte |
+| Série de VM  | Tamanhos sem suporte |
 |------------|-------------------|
 | Série A   | Extra pequeno       |
 | Série Av2 | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
@@ -91,7 +90,7 @@ Os pools do lote na configuração do serviço de nuvem dão suporte a todos os 
 
 * **Configuração de pool** -em geral, você tem mais opções de tamanho de VM ao criar um pool na configuração de máquina virtual, em comparação com a configuração do serviço de nuvem.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma visão geral detalhada do lote, consulte [desenvolver soluções de computação paralela em larga escala com o lote](batch-api-basics.md).
 * Para obter informações sobre como usar tamanhos de VM com uso intensivo de computação, consulte [usar instâncias compatíveis com RDMA ou habilitadas para GPU em pools do lote](batch-pool-compute-intensive-sizes.md).

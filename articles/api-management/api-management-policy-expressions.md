@@ -10,16 +10,15 @@ ms.assetid: ea160028-fc04-4782-aa26-4b8329df3448
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a42028891f0a8677127221c8ed4cff73a22103a
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: fa5e84ba62896969458b84cf014e2b35ee869df7
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498540"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072178"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de gerenciamento de API
 Este artigo discute a sintaxe de expressões de C# política é 7. Cada expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) fornecida implicitamente e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de .NET Framework.
@@ -156,7 +155,7 @@ A tabela a seguir lista os tipos de .NET Framework e seus membros que são permi
 |System.Security.Cryptography.SymmetricAlgorithm|Todos|
 |System.Security.Cryptography.X509Certificates.PublicKey|Todos|
 |System.Security.Cryptography.X509Certificates.RSACertificateExtensions|Todos|
-|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Nome|
+|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Name|
 |System.Security.Cryptography.X509Certificates.X509Certificate|Todos|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|Todos|
 |System.Security.Cryptography.X509Certificates.X509ContentType|Todos|
@@ -210,18 +209,18 @@ Uma variável chamada `context` está implicitamente disponível em cada [expres
 
 |Variável de contexto|Métodos, propriedades e valores de parâmetro permitidos|
 |----------------------|-------------------------------------------------------|
-|noticioso|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Implementação](#ref-context-deployment)<br /><br /> Decorrido TimeSpan-intervalo de tempo entre o valor de timestamp e a hora atual<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Operação](#ref-context-operation)<br /><br /> [Remessa](#ref-context-product)<br /><br /> [Pedido](#ref-context-request)<br /><br /> RequestId GUID – identificador de solicitação exclusivo<br /><br /> [Resposta](#ref-context-response)<br /><br /> [Subscrição](#ref-context-subscription)<br /><br /> Carimbo de data/hora: DateTime – ponto no tempo em que a solicitação foi recebida<br /><br /> Rastreamento: bool – indica se o rastreamento está ativado ou desativado <br /><br /> [Usuário](#ref-context-user)<br /><br /> [Variáveis](#ref-context-variables): Cadeia de < IReadOnlyDictionary, objeto ><br /><br /> Rastreamento void (mensagem: cadeia de caracteres)|
+|noticioso|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Implementação](#ref-context-deployment)<br /><br /> Decorrido TimeSpan-intervalo de tempo entre o valor de timestamp e a hora atual<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Operação](#ref-context-operation)<br /><br /> [Remessa](#ref-context-product)<br /><br /> [Pedido](#ref-context-request)<br /><br /> RequestId GUID – identificador de solicitação exclusivo<br /><br /> [Resposta](#ref-context-response)<br /><br /> [Subscrição](#ref-context-subscription)<br /><br /> Estampa DateTime – ponto no tempo em que a solicitação foi recebida<br /><br /> Rastreamento: bool – indica se o rastreamento está ativado ou desativado <br /><br /> [Usuário](#ref-context-user)<br /><br /> [Variáveis](#ref-context-variables): Cadeia de < IReadOnlyDictionary, objeto ><br /><br /> Rastreamento void (mensagem: cadeia de caracteres)|
 |<a id="ref-context-api"></a>context.Api|ID: cadeia de caracteres<br /><br /> IsCurrentRevision: bool<br /><br />  Nome: cadeia de caracteres<br /><br /> Caminho: cadeia de caracteres<br /><br /> Revisão: cadeia de caracteres<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Versão: cadeia de caracteres |
 |<a id="ref-context-deployment"></a>context.Deployment|Região: cadeia de caracteres<br /><br /> ServiceName: string<br /><br /> Certificado IReadOnlyDictionary<string, X509Certificate2>|
 |<a id="ref-context-lasterror"></a>context.LastError|Fonte: cadeia de caracteres<br /><br /> Motivo: cadeia de caracteres<br /><br /> Mensagem: cadeia de caracteres<br /><br /> Escopo: cadeia de caracteres<br /><br /> Seção: cadeia de caracteres<br /><br /> Caminho: cadeia de caracteres<br /><br /> PolicyId: cadeia de caracteres<br /><br /> Para obter mais informações sobre o contexto. LastError, consulte [tratamento de erros](api-management-error-handling-policies.md).|
 |<a id="ref-context-operation"></a>noticioso. Operacional|ID: cadeia de caracteres<br /><br /> Método: cadeia de caracteres<br /><br /> Nome: cadeia de caracteres<br /><br /> UrlTemplate: string|
-|<a id="ref-context-product"></a>context.Product|API IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Grupos: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: cadeia de caracteres<br /><br /> Nome: cadeia de caracteres<br /><br /> Estado: enum Productstate {canpublished, published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
-|<a id="ref-context-request"></a>noticioso. Quest|Corpo: [IMessageBody](#ref-imessagebody) ou `null` se a solicitação não tiver um corpo.<br /><br /> Certificado: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Cabeçalhos](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> Rematchparameters: IReadOnlyDictionary<string, string><br /><br /> Método: cadeia de caracteres<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL: [IUrl](#ref-iurl)|
+|<a id="ref-context-product"></a>context.Product|API IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Agrupa IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: cadeia de caracteres<br /><br /> Nome: cadeia de caracteres<br /><br /> Estado: enum Productstate {canpublished, published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
+|<a id="ref-context-request"></a>noticioso. Quest|Conteúdo [IMessageBody](#ref-imessagebody) ou `null` se a solicitação não tiver um corpo.<br /><br /> Certificate System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Cabeçalhos](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> Rematchparameters: IReadOnlyDictionary<string, string><br /><br /> Método: cadeia de caracteres<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL [IUrl](#ref-iurl)|
 |<a id="ref-context-request-headers"></a>string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: cadeia de caracteres<br /><br /> Retorna valores de cabeçalho de solicitação separados por `defaultValue` vírgula ou se o cabeçalho não for encontrado.|
-|<a id="ref-context-response"></a>noticioso. Responde|Corpo: [IMessageBody](#ref-imessagebody)<br /><br /> [Cabeçalhos](#ref-context-response-headers): IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
+|<a id="ref-context-response"></a>noticioso. Responde|Conteúdo [IMessageBody](#ref-imessagebody)<br /><br /> [Cabeçalhos](#ref-context-response-headers): IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
 |<a id="ref-context-response-headers"></a>string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: cadeia de caracteres<br /><br /> Retorna valores de cabeçalho de resposta separados por `defaultValue` vírgula ou se o cabeçalho não for encontrado.|
 |<a id="ref-context-subscription"></a>noticioso. Scriçõe|CreatedTime DateTime<br /><br /> Término Horário?<br /><br /> ID: cadeia de caracteres<br /><br /> Chave: cadeia de caracteres<br /><br /> Nome: cadeia de caracteres<br /><br /> PrimaryKey: cadeia de caracteres<br /><br /> SecondaryKey: cadeia de caracteres<br /><br /> Início Horário?|
-|<a id="ref-context-user"></a>noticioso. Usuário|Email: cadeia de caracteres<br /><br /> FirstName: string<br /><br /> Grupos: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: cadeia de caracteres<br /><br /> Identities IEnumerable <[IUserIdentity](#ref-iuseridentity)\><br /><br /> Sobrenome: cadeia de caracteres<br /><br /> Observação: cadeia de caracteres<br /><br /> RegistrationDate: DateTime|
+|<a id="ref-context-user"></a>noticioso. Usuário|Email: cadeia de caracteres<br /><br /> FirstName: string<br /><br /> Agrupa IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: cadeia de caracteres<br /><br /> Identities IEnumerable <[IUserIdentity](#ref-iuseridentity)\><br /><br /> Sobrenome: cadeia de caracteres<br /><br /> Observação: cadeia de caracteres<br /><br /> RegistrationDate: DateTime|
 |<a id="ref-iapi"></a>IApi|ID: cadeia de caracteres<br /><br /> Nome: cadeia de caracteres<br /><br /> Caminho: cadeia de caracteres<br /><br /> Protocolos IEnumerable < cadeia de caracteres\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>IGroup|ID: cadeia de caracteres<br /><br /> Nome: cadeia de caracteres|
 |<a id="ref-imessagebody"></a>IMessageBody|Como < T\>(preserveContent: bool = false): Em que T: String, Byte [], JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Os `context.Request.Body.As<T>` métodos `context.Response.Body.As<T>` e são usados para ler um corpo de mensagem de solicitação e resposta em um `T`tipo especificado. Por padrão, o método usa o fluxo do corpo da mensagem original e o torna indisponível depois de retornar. Para evitar isso fazendo com que o método opere em uma cópia do fluxo do corpo, defina `preserveContent` o parâmetro `true`como. Acesse [aqui](api-management-transformation-policies.md#SetBody) para ver um exemplo.|
@@ -246,7 +245,7 @@ Uma variável chamada `context` está implicitamente disponível em cada [expres
 |bool VerifyNoRevocation (entrada: este System. Security. Cryptography. X509Certificates. X509Certificate2)|Executa uma validação de cadeia X. 509 sem verificar o status de revogação do certificado.<br /><br />objeto de entrada-certificado<br /><br />Retorna `true` se a validação for realizada com sucesso; `false` se a validação falhar.|
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como trabalhar com políticas, consulte:
 

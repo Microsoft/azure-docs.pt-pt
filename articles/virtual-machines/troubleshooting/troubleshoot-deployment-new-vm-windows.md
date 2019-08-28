@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas de implementação de VM do Windows no Azure | Documentos da Microsoft
-description: Resolver problemas de implementação do Resource Manager, quando cria uma nova máquina virtual de Windows no Azure
+title: Solucionar problemas de implantação de VM do Windows no Azure | Microsoft Docs
+description: Solucionar problemas de implantação do Resource Manager ao criar uma nova máquina virtual do Windows no Azure
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: JiangChen79
@@ -11,19 +11,18 @@ ms.assetid: afc6c1a4-2769-41f6-bbf9-76f9f23bcdf4
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6bdf0816e40e34b184da0340a8dbaffbcd7657e8
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 6dbe4c1533aecfab4a62ce3ad90b694c0c00f4b6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710449"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103493"
 ---
-# <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Resolver problemas de implementação ao criar uma nova VM do Windows no Azure
+# <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Solucionar problemas de implantação ao criar uma nova VM do Windows no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
@@ -31,65 +30,65 @@ ms.locfileid: "67710449"
 ## <a name="top-issues"></a>Principais problemas
 [!INCLUDE [support-disclaimer](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
-Para outros problemas de implantação de VM e perguntas, consulte [resolver problemas de máquina virtual do Windows implementar no Azure](troubleshoot-deploy-vm-windows.md).
+Para outros problemas de implantação de VM e perguntas, consulte solucionar problemas de [implantação de máquina virtual do Windows no Azure](troubleshoot-deploy-vm-windows.md).
 
-## <a name="collect-activity-logs"></a>Registos de atividades de recolha
-Para iniciar a resolução de problemas, recolha os registos de atividade para identificar o erro associado com o problema. As ligações seguintes contêm informações detalhadas sobre o processo a seguir.
+## <a name="collect-activity-logs"></a>Coletar logs de atividade
+Para iniciar a solução de problemas, colete os logs de atividade para identificar o erro associado ao problema. Os links a seguir contêm informações detalhadas sobre o processo a ser seguido.
 
 [Ver as operações de implementação](../../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Ver registos de atividades para gerir recursos do Azure](../../resource-group-audit.md)
+[Exibir logs de atividade para gerenciar recursos do Azure](../../resource-group-audit.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
 [!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
-**Y** Se o sistema operacional Windows generalizada, e ele é carregado e/ou capturado com a definição generalizada, em seguida, não haverá quaisquer erros. Da mesma forma, se for o sistema operacional Windows especializada, ele é carregado e/ou capturado com a definição especializada, e não haverá quaisquer erros.
+**IAR** Se o sistema operacional for Windows generalizado e ele for carregado e/ou capturado com a configuração generalizada, não haverá erros. Da mesma forma, se o sistema operacional for Windows especializado e ele for carregado e/ou capturado com a configuração especializada, não haverá erros.
 
-**Erros de carregamento:**
+**Erros de upload:**
 
-**N<sup>1</sup>:** Se o sistema operacional Windows generalizada, e ele é carregado como especializada, obterá um erro de tempo limite de aprovisionamento com a VM presa no ecrã de OOBE.
+**N<sup>1</sup>:** Se o sistema operacional for Windows generalizado e ele for carregado como especializado, você receberá um erro de tempo limite de provisionamento com a VM paralisada na tela do OOBE.
 
-**N<sup>2</sup>:** Se o sistema operacional Windows especializadas e ser carregado como generalizada, obterá um erro de falha de aprovisionamento com a VM presa no ecrã de OOBE porque a nova VM está em execução com o nome do computador, nome de utilizador e palavra-passe original.
-
-**Resolução**
-
-Para resolver os dois desses erros, utilize [Add-AzVhd para carregar o VHD original](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), disponível no local, com a mesma definição que para o sistema operacional (generalizado/especializado). Para carregar como generalizada, não se esqueça de executar o sysprep em primeiro lugar.
-
-**Capture erros:**
-
-**N<sup>3</sup>:** Se o sistema operacional Windows generalizada, e ele é capturado como especializada, obterá um erro de tempo limite de aprovisionamento porque a VM original não é utilizável porque está marcada como generalizada.
-
-**N<sup>4</sup>:** Se o sistema operacional é especializada do Windows e, em que é capturado como generalizada, obterá um erro de falha de aprovisionamento, porque a nova VM está em execução com o nome do computador original, nome de utilizador e palavra-passe. Além disso, o original VM não é utilizável porque está marcado como especializada.
+**N<sup>2</sup>:** Se o sistema operacional for Windows especializado e ele for carregado como generalizado, você receberá um erro de falha de provisionamento com a VM paralisada na tela do OOBE porque a nova VM está em execução com o nome do computador, nome de usuário e senha originais.
 
 **Resolução**
 
-Para resolver os dois desses erros, eliminar a imagem atual do portal, e [recapturá-lo a partir dos VHD atual](../windows/create-vm-specialized.md) com a mesma definição que para o sistema operacional (generalizado/especializado).
+Para resolver esses dois erros, use [Add-AzVhd para carregar o VHD original](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), disponível no local, com a mesma configuração do sistema operacional (generalizado/especializado). Para carregar como generalizado, lembre-se de executar o Sysprep primeiro.
 
-## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Problema: Imagem personalizada/Galeria/marketplace; Falha de alocação
-Este erro surge em situações quando o novo pedido VM está afixado a um cluster que não suporta o tamanho da VM que está a ser solicitado ou não tem espaço livre disponível para acomodar o pedido.
+**Erros de captura:**
 
-**Fazer com que 1:** O cluster não suporta o tamanho da VM pedida.
+**N<sup>3</sup>:** Se o sistema operacional for Windows generalizado e ele for capturado como especializado, você obterá um erro de tempo limite de provisionamento porque a VM original não é utilizável, pois está marcada como generalizada.
+
+**N<sup>4</sup>:** Se o sistema operacional for Windows especializado e ele for capturado como generalizado, você receberá um erro de falha de provisionamento porque a nova VM está em execução com o nome do computador, o nome de usuário e a senha originais. Além disso, a VM original não é utilizável porque está marcada como especializada.
+
+**Resolução**
+
+Para resolver esses erros, exclua a imagem atual do portal e recapture [-a dos VHDs atuais](../windows/create-vm-specialized.md) com a mesma configuração que para o sistema operacional (generalizado/especializado).
+
+## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Problema: Imagem personalizada/de galeria/Marketplace; falha de alocação
+Esse erro ocorre em situações em que a nova solicitação de VM é fixada em um cluster que não dá suporte ao tamanho da VM que está sendo solicitada ou não tem espaço livre disponível para acomodar a solicitação.
+
+**Causa 1:** O cluster não dá suporte ao tamanho de VM solicitado.
 
 **Resolução 1:**
 
-* Repita o pedido com um tamanho VM mais pequeno.
-* Se não é possível alterar o tamanho da VM pedida:
+* Repita a solicitação usando um tamanho de VM menor.
+* Se o tamanho da VM solicitada não puder ser alterado:
   * Pare todas as VMs no conjunto de disponibilidade.
-    Clique em **grupos de recursos** > *seu grupo de recursos* > **recursos** > *deconjuntodesuadisponibilidade*  >  **Máquinas virtuais** > *sua máquina virtual* > **parar**.
-  * Depois de parar todas as VMs, crie a nova VM no tamanho pretendido.
-  * Em primeiro lugar, a iniciar a nova VM e, em seguida, selecione cada uma das VMs paradas e clique em **iniciar**.
+    Clique **em grupos** > *de recursos seu grupo* > de recursos**recursos** > *seu conjunto* > de disponibilidade**máquinas** > virtuais*sua máquina virtual Parar.*   > 
+  * Depois que todas as VMs forem interrompidas, crie a nova VM no tamanho desejado.
+  * Inicie a nova VM primeiro e, em seguida, selecione cada uma das VMs paradas e clique em **Iniciar**.
 
 **Causa 2:** O cluster não tem recursos gratuitos.
 
 **Resolução 2:**
 
-* Repita o pedido mais tarde.
-* Se a nova VM pode fazer parte de um conjunto de disponibilidade diferente
-  * Crie uma nova VM num conjunto (na mesma região) de disponibilidade diferente.
-  * Adicione a nova VM a mesma rede virtual.
+* Repita a solicitação mais tarde.
+* Se a nova VM puder fazer parte de um conjunto de disponibilidade diferente
+  * Crie uma nova VM em um conjunto de disponibilidade diferente (na mesma região).
+  * Adicione a nova VM à mesma rede virtual.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Se tiver problemas ao iniciar uma VM parada do Windows ou redimensionar uma VM existente do Windows no Azure, veja [problemas de implementação do Gestor de recursos de resolução de problemas ao reiniciar ou redimensionar uma Máquina Virtual de Windows existente no Azure](restart-resize-error-troubleshooting.md).
+Se você encontrar problemas ao iniciar uma VM do Windows parada ou redimensionar uma VM do Windows existente no Azure, consulte [solucionar problemas de implantação do Resource Manager com a reinicialização ou redimensionamento de uma máquina virtual do Windows existente no Azure](restart-resize-error-troubleshooting.md).
 
 

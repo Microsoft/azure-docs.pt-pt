@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: c3c3252ec2fd850a763bbbf089d470df5173843f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 86e0f09e957df308f3af868d9590951f29d226b1
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612509"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073896"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: Associar uma máquina virtual do Windows Server a um domínio gerido
 
@@ -153,15 +153,23 @@ Com a VM criada e uma conexão de RDP estabelecer, agora vamos unir a máquina v
 1. Para concluir o processo de ingresso no domínio gerenciado AD DS do Azure, reinicie a VM.
 
 > [!TIP]
-> Você também pode ingressar no domínio em uma VM usando o PowerShell com o cmdlet [Add-Computer][add-computer] . O exemplo a seguir une o domínio *contoso* e, em seguida, reinicia a VM. Quando solicitado, insira as credenciais para um usuário que pertence ao grupo de *Administradores de DC do Azure ad* :
+> Você pode ingressar em um domínio em uma VM usando o PowerShell com o cmdlet [Add-Computer][add-computer] . O exemplo a seguir une o domínio *contoso* e, em seguida, reinicia a VM. Quando solicitado, insira as credenciais para um usuário que pertence ao grupo de *Administradores de DC do Azure ad* :
 >
 > `Add-Computer -DomainName CONTOSO -Restart`
+>
+> Para ingressar no domínio em uma VM sem se conectar a ela e configurar a conexão manualmente, você também pode explorar o uso do cmdlet [set-AzVmAdDomainExtension][set-azvmaddomainextension] Azure PowerShell.
 
 Depois que a VM do Windows Server for reiniciada, todas as políticas aplicadas no domínio gerenciado AD DS do Azure serão enviadas para a VM. Agora, você também pode entrar na VM do Windows Server usando as credenciais de domínio apropriadas.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 No próximo tutorial, você usará essa VM do Windows Server para instalar as ferramentas de gerenciamento que permitem administrar o domínio gerenciado AD DS do Azure. Se você não quiser continuar nesta série de tutoriais, examine as etapas de limpeza a seguir para [desabilitar o RDP](#disable-rdp) ou [excluir a VM](#delete-the-vm). Caso contrário, [prossiga para o próximo tutorial](#next-steps).
+
+### <a name="un-join-the-vm-from-azure-ad-ds-managed-domain"></a>Cancelar a junção da VM do Azure AD DS domínio gerenciado
+
+Para remover a VM do domínio gerenciado AD DS do Azure, siga as etapas novamente para [ingressar a VM em um domínio](#join-the-vm-to-the-azure-ad-ds-managed-domain). Em vez de ingressar no domínio gerenciado AD DS do Azure, escolha ingressar em um grupo de trabalho, como o *grupo de trabalho*padrão. Depois que a VM for reinicializada, o objeto de computador será removido do domínio gerenciado do Azure AD DS.
+
+Se você [excluir a VM](#delete-the-vm) sem sair do domínio, um objeto de computador órfão será deixado no Azure AD DS.
 
 ### <a name="disable-rdp"></a>Desabilitar RDP
 
@@ -231,3 +239,4 @@ Para administrar seu domínio gerenciado do Azure AD DS, configure uma VM de ger
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
 [jit-access]: ../security-center/security-center-just-in-time.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
+[set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

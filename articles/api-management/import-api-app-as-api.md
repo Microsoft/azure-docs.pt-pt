@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 120fe358e5c8afe63e98038ad353d5ebc45a1937
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 484621668b582953d49c366336a49970d82c3fbf
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255908"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073270"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importar uma Aplicação API como uma API
 
@@ -33,8 +32,8 @@ Neste artigo, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Conclua o início rápido seguinte: [crie uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
-+ Certifique-se de que existe uma Aplicação API na sua subscrição. Para obter mais informações, consulte [documentação do serviço de aplicações](https://docs.microsoft.com/azure/app-service/)
++ Conclua o início rápido a seguir: [crie uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
++ Certifique-se de que existe uma Aplicação API na sua subscrição. Para obter mais informações, consulte a [documentação do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

@@ -3,15 +3,15 @@ title: Definir chaves exclusivas para um contêiner Cosmos do Azure
 description: Saiba como definir chaves exclusivas para um contêiner Cosmos do Azure
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 313dd07c2b8eeb5684310b57d74053d3cbc1b5e1
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 67b6ca1914d1728930c29c4a0bbca6cf86753da9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356395"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093332"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definir chaves exclusivas para um contêiner Cosmos do Azure
 
@@ -118,7 +118,7 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 })
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre o [particionamento](partition-data.md)
 - Explore [como funciona a indexação](index-overview.md)

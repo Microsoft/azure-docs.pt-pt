@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 4a4421b87aa094306a42212f76f7590d4f139047
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 1b8297a797f83935f16365a15d100ce88cadca30
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68607972"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099547"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para o Azure
 
@@ -99,12 +98,12 @@ O Principal de serviço não tem permissões para aceder aos seus recursos do Az
 
 Abra o site do SAP LaMa e navegue até infraestrutura. Acesse a guia gerenciadores de nuvem e clique em Adicionar. Selecione o Adaptador de Nuvem de Microsoft Azure e clique em Avançar. Introduza as seguintes informações:
 
-* Etiqueta: Escolha um nome para a instância do conector
-* Nome de Utilizador: ID da Aplicação Principal de Serviço
-* Palavra-passe: Chave/senha da entidade de serviço
+* Chamada Escolha um nome para a instância do conector
+* Nome de usuário: ID da Aplicação Principal de Serviço
+* La Chave/senha da entidade de serviço
 * URL: Manter padrão https://management.azure.com/
 * Intervalo de monitoramento (segundos): Deve ser pelo menos 300
-* ID da subscrição: ID da assinatura do Azure
+* ID da assinatura: ID da assinatura do Azure
 * ID de locatário Azure Active Directory: ID do locatário de Active Directory
 * Host proxy: Nome do host do proxy se o SAP LaMa precisar de um proxy para se conectar à Internet
 * Porta do proxy: Porta TCP do proxy
@@ -504,12 +503,12 @@ Use *AS1-di-0* para o *nome de host da instância do Pas* na *instância do serv
 ### <a name="errors-and-warnings-during-application-server-installation"></a>Erros e avisos durante a instalação do servidor de aplicativos
 
 * Erro ao executar a etapa SAPinst: getProfileDir
-  * ERRO: (Último erro relatado pela etapa: ESAPinstException capturados na chamada de módulo: Validador da etapa ' | NW_DI | IND | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | IND | getSid | 0 | NW_readProfileDir | IND | IND | IND | IND | readProfile | 0 | getProfileDir ' relatou um erro: O \\nó \as1-ascs\sapmnt\AS1\SYS\profile não existe. Iniciar o SAPinst no modo interativo para resolver esse problema)
+  * AO (Último erro relatado pela etapa: ESAPinstException capturados na chamada de módulo: Validador da etapa ' | NW_DI | IND | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | IND | getSid | 0 | NW_readProfileDir | IND | IND | IND | IND | readProfile | 0 | getProfileDir ' relatou um erro: O \\nó \as1-ascs\sapmnt\AS1\SYS\profile não existe. Iniciar o SAPinst no modo interativo para resolver esse problema)
   * Solução  
     Verifique se o SWPM está em execução com um usuário que tem acesso ao perfil. Este usuário pode ser configurado no assistente de instalação do servidor de aplicativos
 
 * Erro ao executar a etapa SAPinst: askUnicode
-  * ERRO: (Último erro relatado pela etapa: ESAPinstException capturados na chamada de módulo: Validador da etapa ' | NW_DI | IND | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | IND | getSid | 0 | NW_getUnicode | IND | IND | IND | IND | Unicode | 0 | askUnicode ' relatou um erro: Iniciar o SAPinst no modo interativo para resolver esse problema)
+  * AO (Último erro relatado pela etapa: ESAPinstException capturados na chamada de módulo: Validador da etapa ' | NW_DI | IND | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | IND | getSid | 0 | NW_getUnicode | IND | IND | IND | IND | Unicode | 0 | askUnicode ' relatou um erro: Iniciar o SAPinst no modo interativo para resolver esse problema)
   * Solução  
     Se você usar um kernel SAP recente, o SWPM não poderá determinar se o sistema é mais um sistema Unicode usando o servidor de mensagens do ASCS. Consulte a observação do SAP [2445033] para obter mais detalhes.  
     Esse problema será corrigido em um novo pacote de suporte/patch do SAP LaMa.  
@@ -562,7 +561,7 @@ Use *AS1-di-0* para o *nome de host da instância do Pas* na *instância do serv
   * Solução  
     Certifique-se de adicionar uma regra de host em etapa de *isolamento* para permitir a comunicação da VM para o controlador de domínio
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Manual de operações do SAP HANA no Azure][hana-ops-guide]
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]

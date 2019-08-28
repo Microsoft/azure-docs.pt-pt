@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: bb43127deea26f427dac58b1717368b0c2d8dbd5
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 10a10882efe05ef9e6bb86e54fcfcf8c5d73d225
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035504"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098748"
 ---
 # <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Integração de controle do código-fonte para o Azure SQL Data Warehouse
 
@@ -79,9 +79,9 @@ Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Ser
 
 4. (**Opcional**) Use a comparação de esquemas e atualize as alterações para seu destino data warehouse usando o SSDT para garantir que as definições de objeto no repositório do Azure Repository e no repositório local reflitam suas data warehouse
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Desenvolvendo para o Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-overview-develop.md)
+- [Desenvolvendo para o Azure SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
 
 <!--Image references-->
 

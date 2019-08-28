@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 444e64488b185b1ff2aa7cc63fbeffafc591dbfe
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: 69c63d4eb2e0bfd04bb232cb0cf39965a5b77193
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68319995"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104283"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos Managed disks
 
@@ -53,7 +53,7 @@ O [Azure criptografia do serviço de armazenamento](../articles/storage/common/s
 
 ### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
 
-Azure Disk Encryption permite criptografar o sistema operacional e os discos de dados usados por uma máquina virtual IaaS. Essa criptografia inclui discos gerenciados. Para o Windows, as unidades são criptografadas usando a tecnologia de criptografia BitLocker padrão do setor. Para o Linux, os discos são criptografados usando a tecnologia DM-cript. O processo de criptografia é integrado com o Azure Key Vault para permitir que você controle e gerencie as chaves de criptografia de disco. Para obter mais informações, consulte [Azure Disk Encryption para VMs de IaaS](../articles/security/azure-security-disk-encryption-overview.md).
+Azure Disk Encryption permite criptografar o sistema operacional e os discos de dados usados por uma máquina virtual IaaS. Essa criptografia inclui discos gerenciados. Para o Windows, as unidades são criptografadas usando a tecnologia de criptografia BitLocker padrão do setor. Para o Linux, os discos são criptografados usando a tecnologia DM-cript. O processo de encriptação é integrado no Azure Key Vault para lhe permitir controlar e gerir as chaves de encriptação dos discos. Para obter mais informações, consulte [Azure Disk Encryption para VMs de IaaS](../articles/security/azure-security-disk-encryption-overview.md).
 
 ## <a name="disk-roles"></a>Funções de disco
 
@@ -77,7 +77,9 @@ Cada VM contém um disco temporário, que não é um disco gerenciado. O disco t
 
 ## <a name="managed-disk-snapshots"></a>Instantâneos do disco gerenciado
 
-Um instantâneo do disco gerenciado é uma cópia completa consistente com falha somente leitura de um disco gerenciado que é armazenado como um disco gerenciado padrão por padrão. Com os instantâneos, você pode fazer backup dos discos gerenciados em qualquer momento. Esses instantâneos existem independentemente do disco de origem e podem ser usados para criar novos discos gerenciados. Eles são cobrados com base no tamanho usado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, esse instantâneo será cobrado somente pelo tamanho dos dados usados de 10 GiB.  
+Um instantâneo do disco gerenciado é uma cópia completa consistente com falha somente leitura de um disco gerenciado que é armazenado como um disco gerenciado padrão por padrão. Com os instantâneos, você pode fazer backup dos discos gerenciados em qualquer momento. Esses instantâneos existem independentemente do disco de origem e podem ser usados para criar novos discos gerenciados. 
+
+Os instantâneos são cobrados com base no tamanho usado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, esse instantâneo será cobrado somente pelo tamanho dos dados usados de 10 GiB. Você pode ver o tamanho usado de seus instantâneos examinando o [relatório de uso do Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Por exemplo, se o tamanho dos dados usados de um instantâneo for 10 GiB, o relatório de uso mostrará 10 GiB/(31 dias x 24 horas) = 0, 13441 GiB como a quantidade consumida.
 
 Para saber mais sobre como criar instantâneos com o Managed disks, confira os seguintes recursos:
 
@@ -117,6 +119,6 @@ O Azure usa o canal de rede priorizado para o tráfego de disco, que obtém a pr
 
 Consulte nosso artigo [design para alto desempenho](../articles/virtual-machines/windows/premium-storage-performance.md) para aprender as práticas recomendadas para otimizar as configurações de VM + disco para que você possa atingir o desempenho desejado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre os tipos de disco individuais que o Azure oferece, que tipo é uma boa opção para suas necessidades e saiba mais sobre seus destinos de desempenho em nosso artigo sobre tipos de disco.

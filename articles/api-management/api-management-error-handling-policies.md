@@ -1,6 +1,6 @@
 ---
-title: Erro ao processar em políticas de gestão de API do Azure | Documentos da Microsoft
-description: Saiba como responder às condições de erro que possam ocorrer durante o processamento de pedidos na gestão de API do Azure.
+title: Tratamento de erros nas políticas de gerenciamento de API do Azure | Microsoft Docs
+description: Saiba como responder às condições de erro que podem ocorrer durante o processamento de solicitações no gerenciamento de API do Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -10,24 +10,23 @@ ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 87693caa5343e359bb3ab424de489c2270bbca62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df7b14c8221ab7837cabe968a82cfc5d5d9050c4
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704443"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072587"
 ---
-# <a name="error-handling-in-api-management-policies"></a>Erro ao processar em políticas de gestão de API
+# <a name="error-handling-in-api-management-policies"></a>Tratamento de erro em políticas de gerenciamento de API
 
-Ao fornecer um `ProxyError` de objeto, gestão de API do Azure permite aos editores responder às condições de erro, que podem ocorrer durante o processamento de pedidos. O `ProxyError` objeto é acessado por meio do [contexto. LastError](api-management-policy-expressions.md#ContextVariables) propriedade e pode ser utilizado pelas políticas no `on-error` secção política. Este artigo fornece uma referência para o erro de recursos de tratamento na gestão de API do Azure.  
+Ao fornecer um `ProxyError` objeto, o gerenciamento de API do Azure permite que os editores respondam às condições de erro, o que pode ocorrer durante o processamento de solicitações. O `ProxyError` objeto é acessado por meio do [contexto. A propriedade LastError](api-management-policy-expressions.md#ContextVariables) epodeserusadaporpolíticasnaseçãodepolítica`on-error` . Este artigo fornece uma referência para os recursos de tratamento de erros no gerenciamento de API do Azure.  
   
-## <a name="error-handling-in-api-management"></a>Erro ao processar em gestão de API
+## <a name="error-handling-in-api-management"></a>Tratamento de erros no gerenciamento de API
 
- As políticas de gestão de API do Azure são divididas em `inbound`, `backend`, `outbound`, e `on-error` secções conforme mostrado no exemplo a seguir.  
+ As políticas no gerenciamento de API do Azure `inbound`são `backend`divididas em `on-error` seções,, `outbound`e, conforme mostrado no exemplo a seguir.  
   
 ```xml  
 <policies>  
@@ -48,24 +47,24 @@ Ao fornecer um `ProxyError` de objeto, gestão de API do Azure permite aos edito
 </policies>  
 ```  
   
-Durante o processamento de um pedido, etapas incorporadas são executadas, juntamente com quaisquer políticas, as quais estão no âmbito para o pedido. Se ocorrer um erro, processamento imediatamente salta para o `on-error` secção política.  
-O `on-error` secção política pode ser utilizada em qualquer âmbito. Os publicadores de APIS podem configurar o comportamento personalizado, como o log de erro para os hubs de eventos ou criar uma nova resposta para devolver ao autor da chamada.  
+Durante o processamento de uma solicitação, as etapas internas são executadas junto com todas as políticas, que estão no escopo da solicitação. Se ocorrer um erro, o processamento saltará imediatamente `on-error` para a seção de política.  
+A `on-error` seção de política pode ser usada em qualquer escopo. Os editores de API podem configurar o comportamento personalizado, como registrar o erro nos hubs de eventos ou criar uma nova resposta para retornar ao chamador.  
   
 > [!NOTE]
->  O `on-error` secção não está presente nas políticas por predefinição. Para adicionar o `on-error` secção a uma política, navegue para a política pretendida no editor de políticas e adicioná-lo. Para obter mais informações sobre como configurar políticas, consulte [políticas de gestão de API](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).  
+>  A `on-error` seção não está presente nas políticas por padrão. Para adicionar a `on-error` seção a uma política, navegue até a política desejada no editor de políticas e adicione-a. Para obter mais informações sobre como configurar políticas, consulte [políticas no gerenciamento de API](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).  
 >   
->  Se não houver nenhum `on-error` secção, os chamadores irão receber mensagens de resposta HTTP 400 ou 500 se ocorrer uma condição de erro.  
+>  Se não houver nenhuma `on-error` seção, os chamadores receberão mensagens de resposta http 400 ou 500 se ocorrer uma condição de erro.  
   
-### <a name="policies-allowed-in-on-error"></a>Políticas permitidas no erro
+### <a name="policies-allowed-in-on-error"></a>Políticas permitidas em erro
 
- As seguintes políticas podem ser utilizadas no `on-error` secção política.  
+ As políticas a seguir podem ser usadas na `on-error` seção de política.  
   
 -   [choose](api-management-advanced-policies.md#choose)  
 -   [set-variable](api-management-advanced-policies.md#set-variable)  
 -   [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody)  
 -   [return-response](api-management-advanced-policies.md#ReturnResponse)  
 -   [set-header](api-management-transformation-policies.md#SetHTTPheader)  
--   [set-method](api-management-advanced-policies.md#SetRequestMethod)  
+-   [Set-Method](api-management-advanced-policies.md#SetRequestMethod)  
 -   [set-status](api-management-advanced-policies.md#SetStatus)  
 -   [send-request](api-management-advanced-policies.md#SendRequest)  
 -   [send-one-way-request](api-management-advanced-policies.md#SendOneWayRequest)  
@@ -75,59 +74,59 @@ O `on-error` secção política pode ser utilizada em qualquer âmbito. Os publi
   
 ## <a name="lasterror"></a>LastError
 
- Quando ocorre um erro e controle salta para o `on-error` secção de política, o erro é armazenado no [contexto. LastError](api-management-policy-expressions.md#ContextVariables) propriedade, que pode ser acessada por políticas no `on-error` secção. LastError tem as seguintes propriedades.  
+ Quando ocorre um erro e o controle salta para `on-error` a seção de política, o erro é armazenado no [contexto. Propriedade LastError](api-management-policy-expressions.md#ContextVariables) , que pode ser acessada por políticas `on-error` na seção. LastError tem as seguintes propriedades.  
   
-| Name       | Tipo   | Descrição                                                                                               | Necessário |
+| Name       | Tipo   | Descrição                                                                                               | Requerido |
 |------------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| `Source`   | string | Nomes do elemento onde ocorreu o erro. Pode ser política ou um nome de passo de pipeline interno.     | Sim      |
-| `Reason`   | string | Código de erro de máquina amigável, que poderia ser usado no tratamento de erros.                                       | Não       |
-| `Message`  | string | Descrição do erro legível por humanos.                                                                         | Sim      |
-| `Scope`    | string | Nome do âmbito em que o erro ocorreu e pode ser um dos "global", "produto", "api" ou "operação" | Não       |
-| `Section`  | string | Nome de secção onde ocorreu o erro. Valores possíveis: "entrada", "backend", "saída" ou "em erro".       | Não       |
-| `Path`     | string | Especifica a política de aninhadas, por exemplo "Escolha [3] / quando [2]".                                                        | Não       |
-| `PolicyId` | string | Valor da `id` de atributo, se for especificado pelo cliente, na política de onde ocorreu o erro             | Não       |
+| `Source`   | Cadeia de caracteres | Nomeia o elemento em que ocorreu o erro. Pode ser a política ou um nome de etapa de pipeline interno.     | Sim      |
+| `Reason`   | Cadeia de caracteres | Código de erro amigável à máquina, que poderia ser usado no tratamento de erros.                                       | Não       |
+| `Message`  | Cadeia de caracteres | Descrição do erro legível por humanos.                                                                         | Sim      |
+| `Scope`    | Cadeia de caracteres | Nome do escopo em que ocorreu o erro e pode ser um de "global", "produto", "API" ou "operação" | Não       |
+| `Section`  | Cadeia de caracteres | Nome da seção em que ocorreu o erro. Valores possíveis: "entrada", "back-end", "Outbound" ou "On-Error".       | Não       |
+| `Path`     | Cadeia de caracteres | Especifica a política aninhada, por exemplo, "Choose [3]/When [2]".                                                        | Não       |
+| `PolicyId` | Cadeia de caracteres | Valor do `id` atributo, se especificado pelo cliente, na política em que ocorreu o erro             | Não       |
 
 > [!TIP]
-> Pode acessar o código de estado por meio do contexto. Response.StatusCode.  
+> Você pode acessar o código de status por meio de contexto. Response. StatusCode.  
 
 > [!NOTE]
-> Todas as políticas têm opcional `id` atributo que pode ser adicionado ao elemento raiz da política. Se este atributo estiver presente numa política quando ocorre uma condição de erro, o valor do atributo pode ser obtido com o `context.LastError.PolicyId` propriedade.
+> Todas as políticas têm um `id` atributo opcional que pode ser adicionado ao elemento raiz da política. Se esse atributo estiver presente em uma política quando ocorrer uma condição de erro, o valor do atributo poderá ser recuperado usando a `context.LastError.PolicyId` propriedade.
 
-## <a name="predefined-errors-for-built-in-steps"></a>Erros predefinidos para obter os passos incorporados  
- Os seguintes erros estão predefinidos para condições de erro que podem ocorrer durante a avaliação de passos de processamento interno.  
+## <a name="predefined-errors-for-built-in-steps"></a>Erros predefinidos para etapas internas  
+ Os erros a seguir são predefinidos para condições de erro que podem ocorrer durante a avaliação de etapas de processamento internas.  
   
 | Source        | Condição                                 | Reason                  | Message                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
-| configuração | URI não corresponde a qualquer API ou a operação | OperationNotFound       | Não é possível comparar a solicitação de entrada para uma operação de mensagens em fila.                                                                      |
-| authorization | Chave de subscrição não fornecida             | SubscriptionKeyNotFound | Acesso negado devido à falta de chave de subscrição. Certifique-se incluir a chave de subscrição quando são efetuados pedidos para esta API. |
-| authorization | Valor de chave de subscrição é inválido         | SubscriptionKeyInvalid  | Acesso negado devido a chave de subscrição inválido. Certifique-se fornecer uma chave válida para uma subscrição ativa.            |
+| configuração | O URI não corresponde a nenhuma API ou operação | OperationNotFound       | Não é possível fazer a correspondência da solicitação de entrada para uma operação.                                                                      |
+| authorization | Chave de assinatura não fornecida             | SubscriptionKeyNotFound | Acesso negado devido à falta de chave de assinatura. Certifique-se de incluir a chave de assinatura ao fazer solicitações para essa API. |
+| authorization | O valor da chave de assinatura é inválido         | SubscriptionKeyInvalid  | Acesso negado devido à chave de assinatura inválida. Certifique-se de fornecer uma chave válida para uma assinatura ativa.            |
   
-## <a name="predefined-errors-for-policies"></a>Erros predefinidos para as políticas  
- Os seguintes erros estão predefinidos para condições de erro que podem ocorrer durante a avaliação da política.  
+## <a name="predefined-errors-for-policies"></a>Erros predefinidos para políticas  
+ Os erros a seguir são predefinidos para condições de erro que podem ocorrer durante a avaliação da política.  
   
 | Source       | Condição                                                       | Reason                    | Message                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| limite de taxa   | Limite de taxa foi excedido                                             | RateLimitExceeded         | Limite de taxa foi excedido                                                                                                               |
-| quota        | Quota excedida                                                  | QuotaExceeded             | Volume de chamadas fora da quota. Quota será seja reposta no xx:xx:xx. \- ou - fora da quota de largura de banda. Quota será seja reposta no xx:xx:xx. |
-| jsonp        | O valor de parâmetro de retorno de chamada é inválido (contém caracteres errados) | CallbackParameterInvalid  | Valor do parâmetro de retorno de chamada {nome de parâmetro de retorno de chamada} não é um identificador de JavaScript válido.                                          |
-| ip-filter    | Falha ao analisar o IP de chamador do pedido                          | FailedToParseCallerIP     | Falha ao estabelecer o endereço IP para o chamador. Acesso negado.                                                                        |
-| ip-filter    | Autor da chamada IP não se encontrar no lista de permitidos                                | CallerIpNotAllowed        | O endereço IP de chamador {endereço ip} não é permitido. Acesso negado.                                                                        |
-| ip-filter    | Autor da chamada IP está na lista de bloqueados                                    | CallerIpBlocked           | Endereço IP de chamador é bloqueado. Acesso negado.                                                                                         |
-| check-header | Cabeçalho necessário não apresentados ou valor está em falta               | HeaderNotFound            | Cabeçalho {cabeçalho-name} não foi encontrado no pedido. Acesso negado.                                                                    |
-| check-header | Cabeçalho necessário não apresentados ou valor está em falta               | HeaderValueNotAllowed     | Valor de cabeçalho {nome do cabeçalho} de {valor do cabeçalho} não é permitido. Acesso negado.                                                          |
-| validate-jwt | Jwt token está em falta no pedido                                 | TokenNotFound             | JWT não foi encontrado no pedido. Acesso negado.                                                                                         |
-| validate-jwt | Falha na validação de assinatura                                     | TokenSignatureInvalid     | < a mensagem da biblioteca do jwt\>. Acesso negado.                                                                                          |
-| validate-jwt | Público-alvo inválido                                                | TokenAudienceNotAllowed   | < a mensagem da biblioteca do jwt\>. Acesso negado.                                                                                          |
-| validate-jwt | Emissor inválido                                                  | TokenIssuerNotAllowed     | < a mensagem da biblioteca do jwt\>. Acesso negado.                                                                                          |
-| validate-jwt | O token expirou                                                   | TokenExpired              | < a mensagem da biblioteca do jwt\>. Acesso negado.                                                                                          |
-| validate-jwt | Chave de assinatura não foi resolvido pelo ID                            | TokenSignatureKeyNotFound | < a mensagem da biblioteca do jwt\>. Acesso negado.                                                                                          |
-| validate-jwt | Declarações necessárias estão em falta do token                          | TokenClaimNotFound        | JWT token não tem as seguintes declarações: < c1\>, < c2\>,... Acesso negado.                                                            |
-| validate-jwt | Erro de correspondência de valores de afirmação                                           | TokenClaimValueNotAllowed | Valor de afirmação {afirmação-name} de {valor de afirmação} não é permitida. Acesso negado.                                                             |
-| validate-jwt | Outras falhas de validação                                       | JwtInvalid                | < a mensagem da biblioteca do jwt\>                                                                                                          |
+| taxa-limite   | Limite de taxa excedido                                             | RateLimitExceeded         | O limite de taxa foi excedido                                                                                                               |
+| quota        | Quota excedida                                                  | QuotaExceeded             | Volume de chamadas fora da quota. A cota será reabastecida em XX: XX: XX. -ou-fora da cota de largura de banda. A cota será reabastecida em XX: XX: XX. |
+| JSONP        | O valor do parâmetro de retorno de chamada é inválido (contém caracteres errados) | CallbackParameterInvalid  | O valor do parâmetro de retorno de chamada {callback-Parameter-Name} não é um identificador JavaScript válido.                                          |
+| filtro de IP    | Falha ao analisar o IP do chamador da solicitação                          | FailedToParseCallerIP     | Falha ao estabelecer o endereço IP para o chamador. Acesso negado.                                                                        |
+| filtro de IP    | O IP do chamador não está na lista de permissões                                | CallerIpNotAllowed        | O endereço IP do chamador {IP-address} não é permitido. Acesso negado.                                                                        |
+| filtro de IP    | O IP do chamador está na lista bloqueada                                    | CallerIpBlocked           | O endereço IP do chamador está bloqueado. Acesso negado.                                                                                         |
+| cabeçalho de verificação | Cabeçalho necessário não apresentado ou valor ausente               | HeaderNotFound            | O cabeçalho {Header-Name} não foi encontrado na solicitação. Acesso negado.                                                                    |
+| cabeçalho de verificação | Cabeçalho necessário não apresentado ou valor ausente               | HeaderValueNotAllowed     | O valor do cabeçalho {Header-Name} de {header-value} não é permitido. Acesso negado.                                                          |
+| validate-jwt | O token JWT está ausente na solicitação                                 | TokenNotFound             | JWT não encontrado na solicitação. Acesso negado.                                                                                         |
+| validate-jwt | Falha na validação da assinatura                                     | TokenSignatureInvalid     | < mensagem da biblioteca\>JWT. Acesso negado.                                                                                          |
+| validate-jwt | Público-alvo inválido                                                | TokenAudienceNotAllowed   | < mensagem da biblioteca\>JWT. Acesso negado.                                                                                          |
+| validate-jwt | Emissor inválido                                                  | TokenIssuerNotAllowed     | < mensagem da biblioteca\>JWT. Acesso negado.                                                                                          |
+| validate-jwt | O token expirou                                                   | TokenExpired              | < mensagem da biblioteca\>JWT. Acesso negado.                                                                                          |
+| validate-jwt | A chave de assinatura não foi resolvida pela ID                            | TokenSignatureKeyNotFound | < mensagem da biblioteca\>JWT. Acesso negado.                                                                                          |
+| validate-jwt | Declarações necessárias estão ausentes do token                          | TokenClaimNotFound        | O token JWT não tem as seguintes declarações: <\>C1, <\>C2,... Acesso negado.                                                            |
+| validate-jwt | Incompatibilidade de valores de declaração                                           | TokenClaimValueNotAllowed | O valor da declaração {Claim-Name} de {Claim-value} não é permitido. Acesso negado.                                                             |
+| validate-jwt | Outras falhas de validação                                       | JwtInvalid                | < mensagem da biblioteca JWT\>                                                                                                          |
 
 ## <a name="example"></a>Exemplo
 
-Definição de uma política de API:
+Definindo uma política de API para:
 
 ```xml
 <policies>
@@ -170,15 +169,15 @@ Definição de uma política de API:
 </policies>
 ```
 
-e o envio de um pedido não autorizado resultará na seguinte resposta:
+e o envio de uma solicitação não autorizada resultará na seguinte resposta:
 
-![Resposta de erro não autorizado](media/api-management-error-handling-policies/error-response.png)
+![Resposta de erro não autorizada](media/api-management-error-handling-policies/error-response.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações para trabalhar com políticas, consulte:
+Para obter mais informações sobre como trabalhar com políticas, consulte:
 
-+ [Políticas de gestão de API](api-management-howto-policies.md)
-+ [Transforme as APIs](transform-api.md)
-+ [Referência de política](api-management-policy-reference.md) para uma lista completa das declarações de política e suas configurações
++ [Políticas no gerenciamento de API](api-management-howto-policies.md)
++ [APIs de transformação](transform-api.md)
++ [Referência de política](api-management-policy-reference.md) para uma lista completa de instruções de política e suas configurações
 + [Exemplos de política](policy-samples.md)   

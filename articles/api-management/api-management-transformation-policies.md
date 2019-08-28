@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: b55502bbc24868b6d8b0352f581bbf4adc81e53a
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 4f57f7cbc4e93f8a98b64b31ca51e0f1e32c375c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442241"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073302"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação do gerenciamento de API
 Este tópico fornece uma referência para as seguintes políticas de gerenciamento de API. Para obter informações sobre como adicionar e configurar políticas, consulte [políticas no gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -70,13 +69,13 @@ Este tópico fornece uma referência para as seguintes políticas de gerenciamen
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Requerido|
+|Name|Descrição|Requerido|
 |----------|-----------------|--------------|
 |json-to-xml|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Requerido|Predefinição|
+|Name|Descrição|Requerido|Predefinição|
 |----------|-----------------|--------------|-------------|
 |aplicar|O atributo deve ser definido como um dos valores a seguir.<br /><br /> -Always-sempre aplicar conversão.<br />-Content-Type-JSON-converter somente se o cabeçalho Content-Type de resposta indica a presença de JSON.|Sim|N/A|
 |consider-accept-header|O atributo deve ser definido como um dos valores a seguir.<br /><br /> -true – aplicar conversão se JSON for solicitado no cabeçalho de aceitação da solicitação.<br />-false-sempre aplicar conversão.|Não|true|
@@ -114,13 +113,13 @@ Este tópico fornece uma referência para as seguintes políticas de gerenciamen
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Requerido|
+|Name|Descrição|Requerido|
 |----------|-----------------|--------------|
 |xml-to-json|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Requerido|Predefinição|
+|Name|Descrição|Requerido|Predefinição|
 |----------|-----------------|--------------|-------------|
 |type|O atributo deve ser definido como um dos valores a seguir.<br /><br /> -JavaScript-amigável – o JSON convertido tem um formato amigável para desenvolvedores de JavaScript.<br />-Direct – o JSON convertido reflete a estrutura do documento XML original.|Sim|N/A|
 |aplicar|O atributo deve ser definido como um dos valores a seguir.<br /><br /> -sempre-converter sempre.<br />-Content-Type-XML-converter somente se o cabeçalho Content-Type de resposta indica a presença de XML.|Sim|N/A|
@@ -150,13 +149,13 @@ Este tópico fornece uma referência para as seguintes políticas de gerenciamen
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Requerido|
+|Name|Descrição|Requerido|
 |----------|-----------------|--------------|
 |Localizar e substituir|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Requerido|Predefinição|
+|Name|Descrição|Requerido|Predefinição|
 |----------|-----------------|--------------|-------------|
 |from|A cadeia de caracteres a ser pesquisada.|Sim|N/A|
 |para|A cadeia de caracteres de substituição. Especifique uma cadeia de caracteres de substituição de comprimento zero para remover a cadeia de caracteres de pesquisa.|Sim|N/A|
@@ -188,7 +187,7 @@ Este tópico fornece uma referência para as seguintes políticas de gerenciamen
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Requerido|
+|Name|Descrição|Requerido|
 |----------|-----------------|--------------|
 |redirect-content-urls|Elemento raiz.|Sim|
 
@@ -261,13 +260,13 @@ Neste exemplo, a política roteia a solicitação para um back-end do Service Fa
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Requerido|
+|Name|Descrição|Requerido|
 |----------|-----------------|--------------|
 |Set-back-end-Service|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Requerido|Predefinição|
+|Name|Descrição|Requerido|Predefinição|
 |----------|-----------------|--------------|-------------|
 |base-url|Nova URL base do serviço de back-end.|`base-url` Um ou `backend-id` deve estar presente.|N/A|
 |ID de back-end|Identificador do back-end para o qual rotear. (As entidades de back-end são gerenciadas por meio da [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) e do [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|`base-url` Um ou `backend-id` deve estar presente.|N/A|
@@ -397,13 +396,13 @@ A `set-body` política pode ser configurada para usar a linguagem de modelagem d
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Requerido|
+|Name|Descrição|Requerido|
 |----------|-----------------|--------------|
 |definir corpo|Elemento raiz. Contém o texto do corpo ou uma expressão que retorna um corpo.|Sim|
 
 ### <a name="properties"></a>properties
 
-|Nome|Descrição|Requerido|Predefinição|
+|Name|Descrição|Requerido|Predefinição|
 |----------|-----------------|--------------|-------------|
 |Modelo|Usado para alterar o modo de modelagem em que a política de corpo definida será executada. Atualmente, o único valor com suporte é:<br /><br />-Liquid-a política de corpo definida usará o mecanismo de modelagem de líquidos |Não||
 
@@ -504,14 +503,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Requerido|
+|Name|Descrição|Requerido|
 |----------|-----------------|--------------|
 |definir cabeçalho|Elemento raiz.|Sim|
 |value|Especifica o valor do cabeçalho a ser definido. Para vários cabeçalhos com o mesmo nome, adicione `value` elementos adicionais.|Sim|
 
 ### <a name="properties"></a>properties
 
-|Nome|Descrição|Requerido|Predefinição|
+|Name|Descrição|Requerido|Predefinição|
 |----------|-----------------|--------------|-------------|
 |Exists-ação|Especifica a ação a ser tomada quando o cabeçalho já estiver especificado. Esse atributo deve ter um dos valores a seguir.<br /><br /> -Override – substitui o valor do cabeçalho existente.<br />-Skip-não substitui o valor do cabeçalho existente.<br />-Append – acrescenta o valor ao valor de cabeçalho existente.<br />-Delete – remove o cabeçalho da solicitação.<br /><br /> Quando definido como `override` uma lista de várias entradas com os mesmos resultados de nome no cabeçalho que está sendo definido de acordo com todas as entradas (que serão listadas várias vezes); somente os valores listados serão definidos no resultado.|Não|substituição|
 |name|Especifica o nome do cabeçalho a ser definido.|Sim|N/A|
@@ -564,14 +563,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Requerido|
+|Name|Descrição|Requerido|
 |----------|-----------------|--------------|
 |set-query-parameter|Elemento raiz.|Sim|
 |value|Especifica o valor do parâmetro de consulta a ser definido. Para vários parâmetros de consulta com o mesmo nome, `value` adicione elementos adicionais.|Sim|
 
 ### <a name="properties"></a>properties
 
-|Nome|Descrição|Requerido|Predefinição|
+|Name|Descrição|Requerido|Predefinição|
 |----------|-----------------|--------------|-------------|
 |Exists-ação|Especifica a ação a ser tomada quando o parâmetro de consulta já estiver especificado. Esse atributo deve ter um dos valores a seguir.<br /><br /> -Override – substitui o valor do parâmetro existente.<br />-Skip-não substitui o valor do parâmetro de consulta existente.<br />-Append – acrescenta o valor ao valor do parâmetro de consulta existente.<br />-Delete – remove o parâmetro de consulta da solicitação.<br /><br /> Quando definido como `override` uma lista de várias entradas com os mesmos resultados de nome no parâmetro de consulta que está sendo definido de acordo com todas as entradas (que serão listadas várias vezes); somente os valores listados serão definidos no resultado.|Não|substituição|
 |name|Especifica o nome do parâmetro de consulta a ser definido.|Sim|N/A|
@@ -643,7 +642,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Requerido|
+|Name|Descrição|Requerido|
 |----------|-----------------|--------------|
 |rewrite-uri|Elemento raiz.|Sim|
 
@@ -712,7 +711,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Requerido|
+|Name|Descrição|Requerido|
 |----------|-----------------|--------------|
 |xsl-transform|Elemento raiz.|Sim|
 |parâmetro|Usado para definir as variáveis usadas na transformação|Não|
@@ -725,7 +724,7 @@ OriginalUrl.
 
 -   Escopos de **política:** todos os escopos
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações, consulte os seguintes tópicos:
 

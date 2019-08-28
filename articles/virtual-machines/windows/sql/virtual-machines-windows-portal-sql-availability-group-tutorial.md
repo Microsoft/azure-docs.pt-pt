@@ -1,6 +1,6 @@
 ---
-title: Tutorial - máquinas virtuais do Azure - de grupos de disponibilidade do SQL Server | Documentos da Microsoft
-description: Este tutorial mostra como criar um SQL Server grupo de Disponibilidade AlwaysOn em máquinas de virtuais do Azure.
+title: Grupos de disponibilidade SQL Server-máquinas virtuais do Azure-tutorial | Microsoft Docs
+description: Este tutorial mostra como criar um grupo de disponibilidade SQL Server Always On em máquinas virtuais do Azure.
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
@@ -9,51 +9,50 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7683812c5ee98d21d5aa8191a88926669b2ed120
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593610"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102368"
 ---
-# <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Tutorial: Configurar grupo de Disponibilidade AlwaysOn na VM do Azure manualmente
+# <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Tutorial: Configurar Always On grupo de disponibilidade na VM do Azure manualmente
 
-Este tutorial mostra como criar um SQL Server grupo de Disponibilidade AlwaysOn em máquinas de virtuais do Azure. O tutorial completo cria um grupo de disponibilidade com uma réplica de base de dados em dois servidores SQL.
+Este tutorial mostra como criar um grupo de disponibilidade SQL Server Always On em máquinas virtuais do Azure. O tutorial completo cria um grupo de disponibilidade com uma réplica de banco de dados em dois SQL Servers.
 
-**Estimativa de tempo**: Demora cerca de 30 minutos a concluir depois dos pré-requisitos são cumpridos.
+**Tempo estimado**: Leva cerca de 30 minutos para ser concluído depois que os pré-requisitos são atendidos.
 
-O diagrama ilustra o que criar no tutorial.
+O diagrama ilustra o que você cria no tutorial.
 
 ![Grupo de Disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O tutorial parte do princípio de que tem uma compreensão básica do SQL Server grupos de Disponibilidade AlwaysOn. Se precisar de mais informações, veja [descrição geral de grupos de Disponibilidade AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+O tutorial pressupõe que você tenha uma compreensão básica de SQL Server Always On grupos de disponibilidade. Se você precisar de mais informações, consulte [visão geral de Always on grupos de disponibilidade (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
-A tabela seguinte lista os pré-requisitos que tem de concluir antes de começar este tutorial:
+A tabela a seguir lista os pré-requisitos que você precisa concluir antes de iniciar este tutorial:
 
 |  |Requisito |Descrição |
 |----- |----- |----- |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Dois servidores SQL | -Num conjunto de disponibilidade do Azure <br/> -Num único domínio <br/> -Com a funcionalidade de Clustering de ativação pós-falha instalada |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Partilha de ficheiros de testemunho de cluster |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server | Conta de domínio |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server Agent | Conta de domínio |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Abrir portas de firewall | – O SQL Server: **1433** para a instância predefinida <br/> -Ponto final de espelhamento da base de dados: **5022** ou qualquer porta disponível <br/> -Grupo de disponibilidade sonda de estado de funcionamento do endereço IP do Balanceador de carga: **59999** ou qualquer porta disponível <br/> -Core sonda Balanceador de carga IP endereço estado de funcionamento do cluster: **58888** ou qualquer porta disponível |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Adicionar a funcionalidade de Clustering de ativação pós-falha | Esta funcionalidade necessitam de ambos os servidores SQL |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de domínio de instalação | -Administrador local em cada servidor de SQL <br/> -Membro da função de servidor fixa sysadmin do SQL Server para cada instância do SQL Server  |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Dois SQL Servers | -Em um conjunto de disponibilidade do Azure <br/> -Em um único domínio <br/> -Com o recurso de clustering de failover instalado |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Compartilhamento de arquivos para testemunha de cluster |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server conta de serviço | Conta do domínio |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server Agent conta de serviço | Conta do domínio |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Portas de firewall abertas | -SQL Server: **1433** para a instância padrão <br/> -Ponto de extremidade de espelhamento de banco de dados: **5022** ou qualquer porta disponível <br/> -Investigação de integridade do endereço IP do balanceador de carga do grupo de disponibilidade: **59999** ou qualquer porta disponível <br/> -Investigação de integridade do endereço IP do balanceador de carga principal do cluster: **58888** ou qualquer porta disponível |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Adicionar recurso de cluster de failover | Ambos os SQL Servers exigem esse recurso |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de domínio de instalação | -Administrador local em cada SQL Server <br/> -Membro de SQL Server função de servidor fixa sysadmin para cada instância de SQL Server  |
 
 
-Antes de iniciar o tutorial, precisa [conclua os pré-requisitos para a criação de grupos de Disponibilidade AlwaysOn em máquinas de virtuais do Azure](virtual-machines-windows-portal-sql-availability-group-prereq.md). Se estes pré-requisitos forem concluídos já, pode ir para [criar clusters](#CreateCluster).
+Antes de começar o tutorial, você precisa [concluir os pré-requisitos para criar Always on grupos de disponibilidade em máquinas virtuais do Azure](virtual-machines-windows-portal-sql-availability-group-prereq.md). Se esses pré-requisitos já estiverem concluídos, você poderá ir para [criar cluster](#CreateCluster).
 
   >[!NOTE]
-  > Muitos das etapas fornecidas neste tutorial agora podem ser automatizados com [CLI de VM do SQL do Azure](virtual-machines-windows-sql-availability-group-cli.md) e [modelos de início rápido do Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Muitas das etapas fornecidas neste tutorial agora podem ser automatizadas com a [CLI de VM do Azure SQL](virtual-machines-windows-sql-availability-group-cli.md) e com os [modelos de início rápido do Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
@@ -61,141 +60,141 @@ Antes de iniciar o tutorial, precisa [conclua os pré-requisitos para a criaçã
 <a name="CreateCluster"></a>
 ## <a name="create-the-cluster"></a>Criar o cluster
 
-Depois de concluir os pré-requisitos, a primeira etapa é criar um Cluster de ativação pós-falha do Windows Server que inclui dois SQL Servers e um servidor-testemunha.
+Após a conclusão dos pré-requisitos, a primeira etapa é criar um cluster de failover do Windows Server que inclua dois servidores SQL e um servidor testemunha.
 
-1. RDP para o primeiro servidor de SQL com uma conta de domínio que seja um administrador no SQL Servers e o servidor-testemunha.
+1. RDP para o primeiro SQL Server usando uma conta de domínio que seja um administrador no SQL Server e no servidor testemunha.
 
    >[!TIP]
-   >Se tiver seguido os [documento dos pré-requisitos](virtual-machines-windows-portal-sql-availability-group-prereq.md), que criou uma conta chamada **CORP\Install**. Utilize esta conta.
+   >Se você seguiu o [documento pré-requisitos](virtual-machines-windows-portal-sql-availability-group-prereq.md), você criou uma conta chamada **CORP\Install**. Use esta conta.
 
-2. Na **Gestor de servidores** dashboard, selecione **ferramentas**e, em seguida, clique em **Gestor de clusters de ativação pós-falha**.
-3. No painel esquerdo, clique com botão direito **Gestor de clusters de ativação pós-falha**e, em seguida, clique em **criar um Cluster**.
-   ![Criar Cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
-4. No Assistente para criar clusters, crie um cluster de um nó cumprindo as páginas com as definições na tabela a seguir:
+2. No painel **Gerenciador do servidor** , selecione **ferramentas**e, em seguida, clique em **Gerenciador de cluster de failover**.
+3. No painel esquerdo, clique com o botão direito do mouse em **Gerenciador de cluster de failover**e clique em **criar um cluster**.
+   ![Criar cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
+4. No Assistente para criar cluster, crie um cluster de um nó percorrendo as páginas com as configurações na tabela a seguir:
 
    | Página | Definições |
    | --- | --- |
-   | Antes de começar |Utilize as predefinições |
-   | Selecionar servidores |Escreva o nome do SQL Server primeiro na **introduza o nome do servidor** e clique em **Add**. |
-   | Aviso de validação |Selecione **não. eu não necessitar de suporte da Microsoft para este cluster e, portanto, não desejaremos executar os testes de validação. Quando eu clicar em Avançar, pode continuar a criar o cluster**. |
-   | Ponto de acesso para administrar o Cluster |Escreva um nome de cluster, por exemplo **SQLAGCluster1** na **nome do Cluster**.|
-   | Confirmação |Utilize as predefinições, exceto se estiver a utilizar espaços de armazenamento. Consulte a nota após esta tabela. |
+   | Antes de começar |Utilizar predefinições |
+   | Selecionar servidores |Digite o nome do primeiro SQL Server em **Inserir nome do servidor** e clique em **Adicionar**. |
+   | Aviso de validação |Selecione **não. não preciso de suporte da Microsoft para este cluster e, portanto, não quero executar os testes de validação. Quando eu clicar em avançar, continuará criando**o cluster. |
+   | Ponto de acesso para administrar o cluster |Digite um nome de cluster, por exemplo **SQLAGCluster1** no **nome do cluster**.|
+   | Confirmação |Use os padrões, a menos que você esteja usando espaços de armazenamento. Consulte a observação após esta tabela. |
 
-### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Definir o servidor de Windows endereço IP do cluster de ativação pós-falha
+### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Definir o endereço IP do cluster de failover do Windows Server
 
-1. Na **Gestor de clusters de ativação pós-falha**, desloque para baixo até **recursos principais do Cluster** e expandir os detalhes do cluster. Deverá ver ambos os **nome** e o **endereço IP** recursos no **falhou** estado. O recurso de endereço IP não pode ser colocado online, porque o cluster é atribuído o mesmo endereço IP que a máquina em si, pelo que é um endereço duplicado.
+1. Em **Gerenciador de cluster de failover**, role para baixo até **recursos principais do cluster** e expanda os detalhes do cluster. Você deve ver o **nome** e os recursos de **endereço IP** no estado de **falha** . O recurso de endereço IP não pode ser colocado online porque o cluster recebe o mesmo endereço IP que o próprio computador, portanto, é um endereço duplicado.
 
-2. Com o botão direito a falhadas **endereço IP** recursos e clique em **propriedades**.
+2. Clique com o botão direito do mouse no recurso **endereço IP** com falha e clique em **Propriedades**.
 
    ![Propriedades do cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Selecione **endereço IP estático** e especifique um endereço disponível a partir da mesma sub-rede como suas máquinas virtuais.
+3. Selecione **endereço IP estático** e especifique um endereço disponível na mesma sub-rede que suas máquinas virtuais.
 
-4. Na **recursos principais do Cluster** secção, clique no nome do cluster e clique em **colocar Online**. Em seguida, aguarde até que ambos os recursos estão online. Quando o recurso de nome de cluster online, ele atualiza o servidor de controlador de domínio com uma nova conta de computador do AD. Utilize esta conta do AD para executar o serviço de grupo de disponibilidade em cluster mais tarde.
+4. Na seção **recursos principais do cluster** , clique com o botão direito do mouse em nome do cluster e clique em **colocar online**. Em seguida, aguarde até que os dois recursos estejam online. Quando o recurso de nome de cluster fica online, ele atualiza o servidor DC com uma nova conta de computador do AD. Use essa conta do AD para executar o serviço clusterizado do grupo de disponibilidade mais tarde.
 
-### <a name="addNode"></a>Adicionar o servidor de SQL ao cluster
+### <a name="addNode"></a>Adicionar os outros SQL Server ao cluster
 
-Adicione outro SQL Server para o cluster.
+Adicione os outros SQL Server ao cluster.
 
-1. Na árvore do browser, faça duplo clique no cluster e clique em **adicionar nó**.
+1. Na árvore do navegador, clique com o botão direito do mouse no cluster e clique em **adicionar nó**.
 
-    ![Adicionar nó ao Cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/44-addnode.png)
+    ![Adicionar nó ao cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/44-addnode.png)
 
-1. Na **Assistente de adicionar nó**, clique em **próxima**. Na **selecionar servidores** página, adicione o segundo servidor de SQL. Escreva o nome do servidor no **introduza o nome do servidor** e, em seguida, clique em **Add**. Quando tiver terminado, clique em **seguinte**.
+1. No **Assistente para adicionar nó**, clique em **Avançar**. Na página **selecionar servidores** , adicione o segundo SQL Server. Digite o nome do servidor em **Inserir nome do servidor** e clique em **Adicionar**. Quando terminar, clique em **Avançar**.
 
-1. Na **aviso de validação** página, clique em **não** (num cenário de produção deve executar os testes de validação). Clique depois em **Seguinte**.
+1. Na página **aviso de validação** , clique em **não** (em um cenário de produção, você deve executar os testes de validação). Clique depois em **Seguinte**.
 
-8. Na **confirmação** página, se estiver a utilizar espaços de armazenamento, desmarque a caixa de seleção rotulada como **adicionar todo o armazenamento elegível ao cluster.**
+8. Na página **confirmação** , se você estiver usando espaços de armazenamento, desmarque a caixa de seleção **Adicionar todo o armazenamento elegível ao cluster.**
 
-   ![Adicionar a confirmação de nó](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/46-addnodeconfirmation.png)
+   ![Confirmação de adição de nó](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/46-addnodeconfirmation.png)
 
     >[!WARNING]
-   >Se estiver a utilizar espaços de armazenamento e não desmarque **adicionar todo o armazenamento elegível ao cluster**, Windows desliga os discos virtuais durante o processo de clustering. Como resultado, eles não serão apresentados no Gestor de discos ou Explorer até que os espaços de armazenamento são removidos do cluster e voltar a ligar com o PowerShell. Espaços de armazenamento agrupa vários discos para agrupamentos de armazenamento. Para obter mais informações, consulte [espaços de armazenamento](https://technet.microsoft.com/library/hh831739).
+   >Se você estiver usando espaços de armazenamento e não marcar a seleção **Adicionar todo o armazenamento elegível ao cluster**, o Windows desanexará os discos virtuais durante o processo de clustering. Como resultado, eles não aparecerão no Gerenciador de discos ou no Explorer até que os espaços de armazenamento sejam removidos do cluster e reanexados usando o PowerShell. Os espaços de armazenamento agrupam vários discos em pools de armazenamento. Para obter mais informações, consulte [espaços de armazenamento](https://technet.microsoft.com/library/hh831739).
 
 1. Clique em **Seguinte**.
 
 1. Clique em **Concluir**.
 
-   Gestor de clusters de ativação pós-falha mostra que o cluster tem um novo nó e lista-na **nós** contentor.
+   Gerenciador de Cluster de Failover mostra que o cluster tem um novo nó e o lista no contêiner **nós** .
 
-10. Termine a sessão de área de trabalho remota.
+10. Faça logoff da sessão da área de trabalho remota.
 
-### <a name="add-a-cluster-quorum-file-share"></a>Adicionar uma partilha de ficheiros de quórum do cluster
+### <a name="add-a-cluster-quorum-file-share"></a>Adicionar um compartilhamento de arquivos de quorum de cluster
 
-Neste exemplo o cluster do Windows utiliza uma partilha de ficheiros para criar um quórum de cluster. Este tutorial utiliza um quórum de nós e maioria de partilha de ficheiros. Para obter mais informações, consulte [Noções sobre configurações de quórum num Cluster de ativação pós-falha](https://technet.microsoft.com/library/cc731739.aspx).
+Neste exemplo, o cluster do Windows usa um compartilhamento de arquivos para criar um quorum de cluster. Este tutorial usa um quorum de maioria de compartilhamento de nó e de arquivo. Para obter mais informações, veja [Compreender as Configurações do Quórum num Cluster de Ativação Pós-falha](https://technet.microsoft.com/library/cc731739.aspx).
 
-1. Ligar ao servidor de membro de testemunho de partilha de ficheiros com uma sessão de área de trabalho remoto.
+1. Conecte-se ao servidor membro de testemunha de compartilhamento de arquivo com uma sessão de área de trabalho remota.
 
-1. No **Gestor de servidores**, clique em **ferramentas**. Open **gestão de computadores**.
+1. Em **Gerenciador do servidor**, clique em **ferramentas**. Abra o **Gerenciamento do computador**.
 
-1. Clique em **pastas compartilhadas**.
+1. Clique em **pastas**compartilhadas.
 
-1. Com o botão direito **partilhas**e clique em **nova partilha...** .
+1. Clique com obotão direito do mouse em compartilhamentos e clique em **novo compartilhamento...** .
 
-   ![Nova partilha](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
+   ![Novo compartilhamento](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
 
-   Uso **criar um Assistente de pasta partilhada** para criar uma partilha.
+   Use **o assistente para criar uma pasta compartilhada** para criar um compartilhamento.
 
-1. No **caminho da pasta**, clique em **procurar** e localizar ou criar um caminho para a pasta partilhada. Clique em **Seguinte**.
+1. Em **caminho da pasta**, clique em **procurar** e localize ou crie um caminho para a pasta compartilhada. Clique em **Seguinte**.
 
-1. Na **nome, descrição e as definições de** Certifique-se de que o nome da partilha e o caminho. Clique em **Seguinte**.
+1. Em **nome, descrição e configurações,** Verifique o nome e o caminho do compartilhamento. Clique em **Seguinte**.
 
-1. No **permissões de pastas partilhadas** definir **personalizar permissões**. Clique em **personalizado...** .
+1. Em **permissões de pasta compartilhada** , defina **Personalizar permissões**. Clique em **personalizado...** .
 
-1. No **personalizar permissões**, clique em **adicionar...** .
+1. Em **Personalizar permissões**, clique em **Adicionar...** .
 
-1. Certifique-se de que a conta utilizada para criar o cluster tem controlo total.
+1. Certifique-se de que a conta usada para criar o cluster tenha controle total.
 
-   ![Nova partilha](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/50-filesharepermissions.png)
+   ![Novo compartilhamento](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/50-filesharepermissions.png)
 
 1. Clique em **OK**.
 
-1. Na **permissões de pastas partilhadas**, clique em **concluir**. Clique em **concluir** novamente.  
+1. Em **permissões de pasta compartilhada**, clique em **concluir**. Clique em **concluir** novamente.  
 
-1. Termine a sessão do servidor
+1. Fazer logoff do servidor
 
-### <a name="configure-cluster-quorum"></a>Configurar o quórum do cluster
+### <a name="configure-cluster-quorum"></a>Configurar quorum do cluster
 
-Em seguida, configure o quórum do cluster.
+Em seguida, defina o quorum do cluster.
 
-1. Ligar ao primeiro nó de cluster com o ambiente de trabalho remoto.
+1. Conecte-se ao primeiro nó de cluster com a área de trabalho remota.
 
-1. Na **Gestor de clusters de ativação pós-falha**, clique com o botão direito do cluster, aponte para **mais ações**e clique em **configurar definições de quórum do Cluster...** .
+1. Em **Gerenciador de cluster de failover**, clique com o botão direito do mouse no cluster, aponte para **mais ações**e clique em **definir configurações de quorum do cluster...** .
 
-   ![Nova partilha](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/52-configurequorum.png)
+   ![Novo compartilhamento](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/52-configurequorum.png)
 
-1. Na **configurar Assistente de quórum de Cluster**, clique em **próxima**.
+1. Em **Assistente para configurar quorum de cluster**, clique em **Avançar**.
 
-1. Na **selecionar opção de configuração de quórum**, escolha **selecione o testemunho de quórum**e clique em **seguinte**.
+1. Na **opção Selecionar configuração de quorum**, escolha **selecionar a testemunha de quorum**e clique em **Avançar**.
 
-1. No **selecionar testemunho de quórum**, clique em **configurar um testemunho de partilha de ficheiros**.
+1. Em **selecionar testemunha de quorum**, clique em **Configurar uma testemunha de compartilhamento de arquivos**.
 
    >[!TIP]
-   >Windows Server 2016 suporta um testemunho de nuvem. Se escolher este tipo de testemunho, não é necessário um ficheiro de testemunho de partilha. Para obter mais informações, consulte [implementar um testemunho de nuvem para um Cluster de ativação pós-falha](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Este tutorial utiliza um testemunho de partilha de ficheiros, que é suportado pelos sistemas operacionais anteriores.
+   >O Windows Server 2016 dá suporte a uma testemunha em nuvem. Se você escolher esse tipo de testemunha, não precisará de uma testemunha de compartilhamento de arquivos. Para obter mais informações, consulte [implantar uma testemunha em nuvem para um cluster de failover](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Este tutorial usa uma testemunha de compartilhamento de arquivos, que é compatível com sistemas operacionais anteriores.
 
-1. No **configurar testemunho de partilha de ficheiros**, escreva o caminho para a partilha que criou. Clique em **Seguinte**.
+1. Em **Configurar testemunha de compartilhamento de arquivos**, digite o caminho para o compartilhamento que você criou. Clique em **Seguinte**.
 
-1. Verifique as definições no **confirmação**. Clique em **Seguinte**.
+1. Verifique as configurações em **confirmação**. Clique em **Seguinte**.
 
 1. Clique em **Concluir**.
 
-Os recursos principais do cluster estão configurados com um testemunho de partilha de ficheiros.
+Os recursos principais de cluster são configurados com uma testemunha de compartilhamento de arquivos.
 
-## <a name="enable-availability-groups"></a>Ativar grupos de disponibilidade
+## <a name="enable-availability-groups"></a>Habilitar grupos de disponibilidade
 
-Em seguida, ativar a **grupos de Disponibilidade AlwaysOn** funcionalidade. Execute estes passos em ambos os servidores SQL.
+Em seguida, habilite o recurso **grupos de disponibilidade AlwaysOn** . Execute estas etapas em ambos os SQL Servers.
 
-1. Do **começar** ecrã, inicie **Gestor de configuração do SQL Server**.
-2. Na árvore do browser, clique em **SQL Server Services**, em seguida, clique com botão direito a **SQL Server (MSSQLSERVER)** serviço e clique em **propriedades**.
-3. Clique nas **elevada disponibilidade do AlwaysOn** separador, em seguida, selecione **ative os grupos de Disponibilidade AlwaysOn**, da seguinte forma:
+1. Na tela **Iniciar** , inicie o **SQL Server Configuration Manager**.
+2. Na árvore do navegador, clique em **serviços de SQL Server**, clique com o botão direito do mouse no serviço **SQL Server (MSSQLSERVER)** e clique em **Propriedades**.
+3. Clique na guia **alta disponibilidade AlwaysOn** e selecione **habilitar grupos de disponibilidade AlwaysOn**, da seguinte maneira:
 
-    ![Ativar grupos de Disponibilidade AlwaysOn](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/54-enableAlwaysOn.png)
+    ![Habilitar Grupos de Disponibilidade AlwaysOn](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/54-enableAlwaysOn.png)
 
 4. Clique em **Aplicar**. Clique em **OK** na caixa de diálogo pop-up.
 
 5. Reinicie o serviço do SQL Server.
 
-Repita estes passos no outro servidor SQL.
+Repita essas etapas no outro SQL Server.
 
 <!-----------------
 ## <a name="endpoint-firewall"></a>Open firewall for the database mirroring endpoint
@@ -219,309 +218,309 @@ On both SQL Servers, open the firewall for the TCP port for the database mirrori
 Repeat these steps on the second SQL Server.
 -------------------------->
 
-## <a name="create-a-database-on-the-first-sql-server"></a>Criar uma base de dados no primeiro servidor de SQL
+## <a name="create-a-database-on-the-first-sql-server"></a>Criar um banco de dados na primeira SQL Server
 
-1. Inicie o ficheiro RDP para o primeiro servidor de SQL com uma conta de domínio que seja membro da função de servidor fixa de sysadmin.
-1. Abra o SQL Server Management Studio e ligue-se para o primeiro servidor de SQL.
-7. Na **Object Explorer**, clique com botão direito **bases de dados** e clique em **nova base de dados**.
-8. Na **nome da base de dados**, tipo **MyDB1**, em seguida, clique em **OK**.
+1. Inicie o arquivo RDP no primeiro SQL Server com uma conta de domínio que seja membro da função de servidor fixa sysadmin.
+1. Abra SQL Server Management Studio e conecte-se ao primeiro SQL Server.
+7. No Pesquisador de **objetos**, clique com o botão direito do mouse em **bancos** de dados e clique em **New Database**.
+8. Em **nome do banco de dados**, digite **MyDB1**e clique em **OK**.
 
-### <a name="backupshare"></a> Criar uma partilha de cópia de segurança
+### <a name="backupshare"></a>Criar um compartilhamento de backup
 
-1. No primeiro servidor SQL no **Gestor de servidores**, clique em **ferramentas**. Open **gestão de computadores**.
+1. Na primeira SQL Server em **Gerenciador do servidor**, clique em **ferramentas**. Abra o **Gerenciamento do computador**.
 
-1. Clique em **pastas compartilhadas**.
+1. Clique em **pastas**compartilhadas.
 
-1. Com o botão direito **partilhas**e clique em **nova partilha...** .
+1. Clique com obotão direito do mouse em compartilhamentos e clique em **novo compartilhamento...** .
 
-   ![Nova partilha](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
+   ![Novo compartilhamento](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
 
-   Uso **criar um Assistente de pasta partilhada** para criar uma partilha.
+   Use **o assistente para criar uma pasta compartilhada** para criar um compartilhamento.
 
-1. No **caminho da pasta**, clique em **procurar** e localizar ou criar um caminho para a pasta partilhada cópia de segurança da base de dados. Clique em **Seguinte**.
+1. Em **caminho da pasta**, clique em **procurar** e localize ou crie um caminho para a pasta compartilhada de backup do banco de dados. Clique em **Seguinte**.
 
-1. Na **nome, descrição e as definições de** Certifique-se de que o nome da partilha e o caminho. Clique em **Seguinte**.
+1. Em **nome, descrição e configurações,** Verifique o nome e o caminho do compartilhamento. Clique em **Seguinte**.
 
-1. No **permissões de pastas partilhadas** definir **personalizar permissões**. Clique em **personalizado...** .
+1. Em **permissões de pasta compartilhada** , defina **Personalizar permissões**. Clique em **personalizado...** .
 
-1. No **personalizar permissões**, clique em **adicionar...** .
+1. Em **Personalizar permissões**, clique em **Adicionar...** .
 
-1. Certifique-se de que as contas de serviço do SQL Server e SQL Server Agent para ambos os servidores têm controle total.
+1. Verifique se as contas de serviço de SQL Server e SQL Server Agent para ambos os servidores têm controle total.
 
-   ![Nova partilha](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/68-backupsharepermission.png)
+   ![Novo compartilhamento](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/68-backupsharepermission.png)
 
 1. Clique em **OK**.
 
-1. Na **permissões de pastas partilhadas**, clique em **concluir**. Clique em **concluir** novamente.  
+1. Em **permissões de pasta compartilhada**, clique em **concluir**. Clique em **concluir** novamente.  
 
-### <a name="take-a-full-backup-of-the-database"></a>Realizar um backup do banco de dados completo
+### <a name="take-a-full-backup-of-the-database"></a>Faça um backup completo do banco de dados
 
-Terá de criar cópias de segurança nova base de dados para inicializar a cadeia de registos. Se não efetuar uma cópia de segurança da base de dados nova, não pode ser incluído num grupo de disponibilidade.
+Você precisa fazer backup do novo banco de dados para inicializar a cadeia de logs. Se você não fizer um backup do novo banco de dados, ele não poderá ser incluído em um grupo de disponibilidade.
 
-1. Na **Object Explorer**, clique com o botão direito na base de dados, aponte para **tarefas...** , clique em **cópia de segurança**.
+1. No Pesquisador de **objetos**, clique com o botão direito do mouse no banco de dados, aponte para **tarefas...** , clique em **fazer backup**.
 
-1. Clique em **OK** para realizar um backup completo para a localização de cópia de segurança predefinida.
+1. Clique em **OK** para fazer um backup completo no local de backup padrão.
 
 ## <a name="create-the-availability-group"></a>Criar o grupo de disponibilidade
-Está agora pronto para configurar um grupo de disponibilidade utilizando os seguintes passos:
+Agora você está pronto para configurar um grupo de disponibilidade usando as seguintes etapas:
 
-* Crie uma base de dados no primeiro servidor de SQL.
-* Faça uma cópia de segurança completa e uma cópia de segurança do registo de transações da base de dados
-* Restaurar o completo e backups de log para o segundo servidor de SQL com o **NORECOVERY** opção
-* Criar o grupo de disponibilidade (**AG1**) com consolidação síncrona, a ativação pós-falha automática e réplicas secundárias legíveis
+* Crie um banco de dados no primeiro SQL Server.
+* Faça um backup completo e um backup de log de transações do banco de dados
+* Restaure os backups completo e de log para a segunda SQL Server com a opção **NORECOVERY**
+* Criar o grupo de disponibilidade (**AG1**) com confirmação síncrona, failover automático e réplicas secundárias legíveis
 
 ### <a name="create-the-availability-group"></a>Crie o grupo de disponibilidade:
 
-1. Na sessão de ambiente de trabalho remoto para o primeiro servidor de SQL. Na **Object Explorer** no SSMS, clique com botão direito **elevada disponibilidade do AlwaysOn** e clique em **Assistente de novo grupo de disponibilidade**.
+1. Na sessão da área de trabalho remota para a primeira SQL Server. No Pesquisador de **objetos** no SSMS, clique com o botão direito do mouse em **alta disponibilidade AlwaysOn** e clique em **Assistente de novo grupo de disponibilidade**.
 
-    ![Iniciar o Assistente de novo grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/56-newagwiz.png)
+    ![Iniciar assistente de novo grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/56-newagwiz.png)
 
-2. Na **introdução** página, clique em **próxima**. Na **Especificar nome do grupo de disponibilidade** página, escreva um nome para o grupo de disponibilidade, por exemplo **AG1**, na **nome do grupo de disponibilidade**. Clique em **Seguinte**.
+2. Na página **introdução** , clique em **Avançar**. Na página **especificar nome do grupo de disponibilidade** , digite um nome para o grupo de disponibilidade, por exemplo, **AG1**, no nome do **grupo de disponibilidade**. Clique em **Seguinte**.
 
-    ![Novo Assistente de AG, especifique o nome AG](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/58-newagname.png)
+    ![Novo assistente AG, especifique o nome do AG](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/58-newagname.png)
 
-3. Na **selecionar bases de dados** página, selecione a sua base de dados e clique em **próxima**.
-
-   >[!NOTE]
-   >A base de dados cumpre os pré-requisitos para um grupo de disponibilidade como efetuou, pelo menos, uma cópia de segurança completa na réplica primária pretendida.
-
-   ![Novo Assistente de AG, selecione as bases de dados](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/60-newagselectdatabase.png)
-4. Na **especificar réplicas** página, clique em **Adicionar réplica**.
-
-   ![Novo Assistente de AG, especificar réplicas](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/62-newagaddreplica.png)
-5. O **ligar ao servidor** aparece a caixa de diálogo. Escreva o nome do segundo servidor na **nome do servidor**. Clique em **Ligar**.
-
-   De volta a **especificar réplicas** página, deverá ver agora o segundo servidor listado no **réplicas de disponibilidade**. Configure as réplicas da seguinte forma.
-
-   ![Novo Assistente de AG, especificar réplicas (completa)](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/64-newagreplica.png)
-
-6. Clique em **pontos de extremidade** para ver o ponto final de espelhamento para este grupo de disponibilidade. Utilize a mesma porta que utilizou quando configurou o [regra de firewall para pontos finais de espelhamento da base de dados](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
-
-    ![Novo Assistente de AG, selecione a sincronização de dados inicial](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
-
-8. Na **selecionar sincronização de dados inicial** , selecione **completo** e especifique uma localização de rede partilhada. Para a localização, utilize o [partilha de cópia de segurança que criou](#backupshare). No exemplo tenha sido,  **\\ \\ \<primeiro servidor de SQL\>\Backup\\** . Clique em **Seguinte**.
+3. Na página **selecionar bancos** de dados, selecione seu banco de dados e clique em **Avançar**.
 
    >[!NOTE]
-   >Sincronização completa usa uma cópia de segurança completa da base de dados na primeira instância do SQL Server e restaurá-lo a segunda instância. Sincronização completa não é recomendada para grandes bancos de dados, porque poderá demorar muito tempo. Pode reduzir esse tempo, manualmente fazer uma cópia de segurança da base de dados e o Restaurei com `NO RECOVERY`. Se a base de dados já está a ser restaurado com `NO RECOVERY` no SQL Server segundo antes de configurar o grupo de disponibilidade, escolha **apenas junção**. Se pretender efetuar a cópia de segurança depois de configurar o grupo de disponibilidade, escolha **ignorar sincronização de dados inicial**.
+   >O banco de dados atende aos pré-requisitos para um grupo de disponibilidade porque você fez pelo menos um backup completo na réplica primária pretendida.
 
-    ![Novo Assistente de AG, selecione a sincronização de dados inicial](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/70-datasynchronization.png)
+   ![Novo assistente AG, selecionar bancos de dados](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/60-newagselectdatabase.png)
+4. Na página **especificar réplicas** , clique em **Adicionar réplica**.
 
-9. Na **validação** página, clique em **próxima**. Esta página deve ser semelhante à imagem seguinte:
+   ![Novo assistente AG, especificar réplicas](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/62-newagaddreplica.png)
+5. A caixa de diálogo **conectar ao servidor** é exibida. Digite o nome do segundo servidor em **nome do servidor**. Clique em **Ligar**.
 
-    ![Novo Assistente de AG, validação](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/72-validation.png)
+   De volta à página **especificar réplicas** , agora você deve ver o segundo servidor listado em **réplicas de disponibilidade**. Configure as réplicas da seguinte maneira.
+
+   ![Novo assistente AG, especificar réplicas (completo)](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/64-newagreplica.png)
+
+6. Clique em **pontos de extremidades** para ver o ponto de extremidade de espelhamento de banco de dados para este grupo de disponibilidade. Use a mesma porta que você usou ao definir a [regra de firewall para pontos de extremidade de espelhamento de banco de dados](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
+
+    ![Novo assistente AG, selecione sincronização de dados inicial](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
+
+8. Na página **selecionar sincronização de dados inicial** , selecione **completo** e especifique um local de rede compartilhado. Para o local, use o [compartilhamento de backup que você criou](#backupshare). No exemplo, ele foi,  **\\ \\ \<primeiro SQL Server\>\backup\\** . Clique em **Seguinte**.
+
+   >[!NOTE]
+   >A sincronização completa faz um backup completo do banco de dados na primeira instância do SQL Server e restaura-o para a segunda instância. Para bancos de dados grandes, a sincronização completa não é recomendada porque pode levar muito tempo. Você pode reduzir esse tempo fazendo um backup do banco de dados manualmente e restaurando- `NO RECOVERY`o com o. Se o banco de dados já tiver `NO RECOVERY` sido restaurado no segundo SQL Server antes de configurar o grupo de disponibilidade, escolha **somente junção**. Se você quiser fazer o backup depois de configurar o grupo de disponibilidade, escolha **ignorar sincronização de dados inicial**.
+
+    ![Novo assistente AG, selecione sincronização de dados inicial](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/70-datasynchronization.png)
+
+9. Na página **validação** , clique em **Avançar**. Esta página deve ser semelhante à imagem a seguir:
+
+    ![Novo assistente AG, validação](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/72-validation.png)
 
     >[!NOTE]
-    >Há um aviso para a configuração do serviço de escuta porque não tiver configurado um serviço de escuta do grupo de disponibilidade. Pode ignorar este aviso, porque nas máquinas virtuais do Azure cria o serviço de escuta depois de criar o Balanceador de carga do Azure.
+    >Há um aviso para a configuração do ouvinte porque você não configurou um ouvinte de grupo de disponibilidade. Você pode ignorar este aviso porque nas máquinas virtuais do Azure, você cria o ouvinte depois de criar o balanceador de carga do Azure.
 
-10. Na **resumo** página, clique em **concluir**, em seguida, aguarde enquanto o assistente configura o novo grupo de disponibilidade. Na **progresso** página, pode clicar em **obter mais detalhes** para ver o progresso detalhado. Quando o assistente for concluído, Inspecione o **resultados** página para verificar se o grupo de disponibilidade é criado com êxito.
+10. Na página **Resumo** , clique em **concluir**e aguarde enquanto o assistente configura o novo grupo de disponibilidade. Na página **progresso** , você pode clicar em **mais detalhes** para exibir o progresso detalhado. Quando o assistente for concluído, inspecione a página **resultados** para verificar se o grupo de disponibilidade foi criado com êxito.
 
-     ![Novo Assistente de AG, os resultados](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/74-results.png)
+     ![Novo assistente AG, resultados](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/74-results.png)
 11. Clique em **fechar** para sair do assistente.
 
-### <a name="check-the-availability-group"></a>Verifique o grupo de disponibilidade
+### <a name="check-the-availability-group"></a>Verificar o grupo de disponibilidade
 
-1. Na **Object Explorer**, expanda **elevada disponibilidade do AlwaysOn**, em seguida, expanda **grupos de disponibilidade**. Agora, deverá ver o novo grupo de disponibilidade neste contentor. O grupo de disponibilidade com o botão direito e clique em **Mostrar Dashboard**.
+1. No Pesquisador de **objetos**, expanda **alta disponibilidade AlwaysOn**e expanda **grupos de disponibilidade**. Agora você deve ver o novo grupo de disponibilidade neste contêiner. Clique com o botão direito do mouse no grupo de disponibilidade e clique em **Mostrar painel**.
 
-   ![Mostrar o Dashboard de AG](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/76-showdashboard.png)
+   ![Mostrar painel do AG](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/76-showdashboard.png)
 
-   Sua **painel do AlwaysOn** deve ser semelhante ao seguinte.
+   O **painel AlwaysOn** deve ser semelhante a este.
 
-   ![Dashboard de AG](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/78-agdashboard.png)
+   ![Painel do AG](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/78-agdashboard.png)
 
-   Pode ver as réplicas, o modo de ativação pós-falha de cada réplica e o estado de sincronização.
+   Você pode ver as réplicas, o modo de failover de cada réplica e o estado de sincronização.
 
-2. Na **Gestor de clusters de ativação pós-falha**, clique em seu cluster. Selecione **funções**. O nome do grupo de disponibilidade que utilizou é uma função no cluster. Esse grupo de disponibilidade não tem um endereço IP para ligações de cliente, porque não tiver configurado um serviço de escuta. Depois de criar um balanceador de carga do Azure, que irá configurar o serviço de escuta.
+2. Em **Gerenciador de cluster de failover**, clique em seu cluster. Selecione **funções**. O nome do grupo de disponibilidade usado é uma função no cluster. Esse grupo de disponibilidade não tem um endereço IP para conexões de cliente, pois você não configurou um ouvinte. Você configurará o ouvinte depois de criar um balanceador de carga do Azure.
 
-   ![AG no Gestor de clusters de ativação pós-falha](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/80-clustermanager.png)
+   ![AG no Gerenciador de Cluster de Failover](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/80-clustermanager.png)
 
    > [!WARNING]
-   > Não tente fazer a ativação pós-falha o grupo de disponibilidade do Gestor de clusters de ativação pós-falha. Todas as operações de ativação pós-falha devem ser efetuadas de dentro **painel do AlwaysOn** no SSMS. Para obter mais informações, consulte [restrições no usando a ativação pós-falha Gestor de clusters com grupos de disponibilidade](https://msdn.microsoft.com/library/ff929171.aspx).
+   > Não tente fazer failover do grupo de disponibilidade do Gerenciador de Cluster de Failover. Todas as operações de failover devem ser executadas no **painel AlwaysOn** no SSMS. Para obter mais informações, consulte [restrições sobre como usar o Gerenciador de cluster de failover com grupos de disponibilidade](https://msdn.microsoft.com/library/ff929171.aspx).
     >
 
-Neste ponto, tem um grupo de disponibilidade com réplicas em duas instâncias do SQL Server. Pode mover o grupo de disponibilidade entre instâncias. Não consegue ligar ao grupo de disponibilidade ainda porque não tem um serviço de escuta. Em máquinas virtuais do Azure, o serviço de escuta requer um balanceador de carga. A próxima etapa é criar o Balanceador de carga no Azure.
+Neste ponto, você tem um grupo de disponibilidade com réplicas em duas instâncias do SQL Server. Você pode mover o grupo de disponibilidade entre instâncias. Você não pode se conectar ao grupo de disponibilidade ainda porque não tem um ouvinte. Em máquinas virtuais do Azure, o ouvinte requer um balanceador de carga. A próxima etapa é criar o balanceador de carga no Azure.
 
 <a name="configure-internal-load-balancer"></a>
 
 ## <a name="create-an-azure-load-balancer"></a>Criar um balanceador de carga do Azure
 
-Em máquinas virtuais do Azure, um grupo de disponibilidade do SQL Server requer um balanceador de carga. O Balanceador de carga contém os endereços IP para os serviços de escuta do grupo de disponibilidade e o Cluster de ativação pós-falha do Windows Server. Esta secção resume como criar o Balanceador de carga no portal do Azure.
+Em máquinas virtuais do Azure, um grupo de disponibilidade SQL Server requer um balanceador de carga. O balanceador de carga mantém os endereços IP para os ouvintes do grupo de disponibilidade e o cluster de failover do Windows Server. Esta seção resume como criar o balanceador de carga no portal do Azure.
 
-Um balanceador de carga do Azure pode ser um balanceador de carga Standard ou um balanceador de carga básico. Balanceador de carga standard tem mais recursos do que o Balanceador de carga básico. Para um grupo de disponibilidade, o Balanceador de carga Standard é necessário se utilizar uma zona de disponibilidade (em vez de um conjunto de disponibilidade). Para obter detalhes sobre a diferença entre os tipos de Balanceador de carga, veja [comparação de SKU do Balanceador de carga](../../../load-balancer/load-balancer-overview.md#skus).
+Um Azure Load Balancer pode ser um Standard Load Balancer ou um Load Balancer básico. Standard Load Balancer tem mais recursos do que o Load Balancer básico. Para um grupo de disponibilidade, o Standard Load Balancer será necessário se você usar uma zona de disponibilidade (em vez de um conjunto de disponibilidade). Para obter detalhes sobre a diferença entre os tipos de balanceador de carga, consulte [Load Balancer a comparação de SKU](../../../load-balancer/load-balancer-overview.md#skus).
 
-1. No portal do Azure, vá para o grupo de recursos onde os seus servidores SQL estão e clique em **+ adicionar**.
-1. Procure **Balanceador de carga**. Escolha o Balanceador de carga, publicado pela Microsoft.
+1. Na portal do Azure, vá para o grupo de recursos onde estão os servidores SQL e clique em **+ Adicionar**.
+1. Procure **Load Balancer**. Escolha o balanceador de carga publicado pela Microsoft.
 
-   ![AG no Gestor de clusters de ativação pós-falha](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
+   ![AG no Gerenciador de Cluster de Failover](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
 
 1. Clique em **Criar**.
-1. Configure os parâmetros seguintes para o Balanceador de carga.
+1. Configure os parâmetros a seguir para o balanceador de carga.
 
    | Definição | Campo |
    | --- | --- |
-   | **Nome** |Utilizar um nome de texto para o Balanceador de carga, por exemplo **sqlLB**. |
-   | **Tipo** |Interno |
-   | **Rede virtual** |Utilize o nome da rede virtual do Azure. |
-   | **Sub-rede** |Utilize o nome da sub-rede que a máquina virtual está no.  |
-   | **Atribuição de endereços IP** |Estático |
-   | **Endereço IP** |Utilize um endereço disponível da sub-rede. Utilize este endereço de seu serviço de escuta do grupo de disponibilidade. Tenha em atenção que isto é diferente do seu endereço IP do cluster.  |
-   | **Subscrição** |Utilize a mesma subscrição que a máquina virtual. |
-   | **Location** |Utilize a mesma localização que a máquina virtual. |
+   | **Name** |Use um nome de texto para o balanceador de carga, por exemplo, **sqlLB**. |
+   | **Tipo** |Interna |
+   | **Rede virtual** |Use o nome da rede virtual do Azure. |
+   | **Sub-rede** |Use o nome da sub-rede em que a máquina virtual está.  |
+   | **Atribuição de endereço IP** |Estático |
+   | **Endereço IP** |Use um endereço disponível da sub-rede. Use esse endereço para o ouvinte do grupo de disponibilidade. Observe que isso é diferente do endereço IP do cluster.  |
+   | **Subscrição** |Use a mesma assinatura que a máquina virtual. |
+   | **Location** |Use o mesmo local que a máquina virtual. |
 
-   O painel do portal do Azure deve ter este aspeto:
+   A folha portal do Azure deve ter a seguinte aparência:
 
    ![Criar Balanceador de carga](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/84-createloadbalancer.png)
 
-1. Clique em **criar**, para criar o Balanceador de carga.
+1. Clique em **criar**para criar o balanceador de carga.
 
-Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, uma sonda e defina a regras de balanceamento de carga. Fazer isso com o portal do Azure.
+Para configurar o balanceador de carga, você precisa criar um pool de back-end, uma investigação e definir as regras de balanceamento de carga. Faça isso no portal do Azure.
 
-### <a name="add-backend-pool-for-the-availability-group-listener"></a>Adicionar conjunto de back-end para o serviço de escuta do grupo de disponibilidade
+### <a name="add-backend-pool-for-the-availability-group-listener"></a>Adicionar pool de back-end para o ouvinte do grupo de disponibilidade
 
-1. No portal do Azure, aceda ao seu grupo de disponibilidade. Poderá ter de atualizar a vista para ver o Balanceador de carga criado recentemente.
+1. No portal do Azure, vá para seu grupo de disponibilidade. Talvez seja necessário atualizar a exibição para ver o balanceador de carga criado recentemente.
 
-   ![Localizar o Balanceador de carga no grupo de recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
+   ![Localizar Load Balancer no grupo de recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Clique no balanceador de carga, clique em **conjuntos de back-end**e clique em **+ adicionar**.
+1. Clique no balanceador de carga, clique em pools de **back-end**e clique em **+ Adicionar**.
 
-1. Escreva um nome para o conjunto de back-end.
+1. Digite um nome para o pool de back-end.
 
-1. Associe o conjunto de back-end com o conjunto de disponibilidade que contém as VMs.
+1. Associe o pool de back-end ao conjunto de disponibilidade que contém as VMs.
 
-1. Sob **configurações de IP de rede de destino**, verifique **máquina VIRTUAL** e escolher as máquinas virtuais que irão alojar réplicas do grupo de disponibilidade. Não inclua o servidor de testemunho de partilha de ficheiros.
+1. Em **configurações de IP de rede de destino**, marque **máquina virtual** e escolha ambas as máquinas virtuais que hospedarão réplicas do grupo de disponibilidade. Não inclua o servidor testemunha de compartilhamento de arquivos.
 
    >[!NOTE]
-   >Se ambas as máquinas virtuais não forem especificadas, as ligações só serão bem sucedida para a réplica primária.
+   >Se ambas as máquinas virtuais não forem especificadas, as conexões só terão sucesso com a réplica primária.
 
-1. Clique em **OK** para criar o conjunto de back-end.
+1. Clique em **OK** para criar o pool de back-end.
 
-### <a name="set-the-probe"></a>Definir a sonda
+### <a name="set-the-probe"></a>Definir a investigação
 
-1. Clique no balanceador de carga, clique em **sondas de estado de funcionamento**e clique em **+ adicionar**.
+1. Clique no balanceador de carga, clique em **investigações de integridade**e clique em **+ Adicionar**.
 
-1. Defina a sonda de estado de funcionamento do serviço de escuta da seguinte forma:
+1. Defina a investigação de integridade do ouvinte da seguinte maneira:
 
    | Definição | Descrição | Exemplo
    | --- | --- |---
-   | **Nome** | Text | SQLAlwaysOnEndPointProbe |
-   | **Protocolo** | Selecione TCP | TCP |
+   | **Name** | Text | SQLAlwaysOnEndPointProbe |
+   | **Protocolo** | Escolher TCP | TCP |
    | **Porta** | Qualquer porta não utilizada | 59999 |
-   | **Intervalo**  | A quantidade de tempo entre tentativas da sonda em segundos |5 |
-   | **Limiar de mau estado de funcionamento** | O número de falhas consecutivas da sonda que têm de ocorrer para uma máquina virtual ser considerado em mau estado de funcionamento  | 2 |
+   | **Intervalo**  | A quantidade de tempo entre as tentativas de investigação em segundos |5 |
+   | **Limite não íntegro** | O número de falhas de investigação consecutivas que devem ocorrer para uma máquina virtual ser considerada não íntegra  | 2 |
 
-1. Clique em **OK** para definir a sonda de estado de funcionamento.
+1. Clique em **OK** para definir a investigação de integridade.
 
-### <a name="set-the-load-balancing-rules"></a>Definir a regras de balanceamento de carga
+### <a name="set-the-load-balancing-rules"></a>Definir as regras de balanceamento de carga
 
-1. Clique no balanceador de carga, clique em **regras de balanceamento de carga**e clique em **+ adicionar**.
+1. Clique no balanceador de carga, clique em **regras de balanceamento de carga**e clique em **+ Adicionar**.
 
-1. Defina a forma de regras de balanceamento de carga de serviço de escuta.
+1. Defina as regras de balanceamento de carga do ouvinte da seguinte maneira.
 
    | Definição | Descrição | Exemplo
    | --- | --- |---
-   | **Nome** | Text | SQLAlwaysOnEndPointListener |
-   | **Endereço IP de front-end** | Escolha um endereço |Utilize o endereço que criou quando criou o Balanceador de carga. |
-   | **Protocolo** | Selecione TCP |TCP |
-   | **Porta** | Utilizar a porta para o serviço de escuta do grupo de disponibilidade | 1433 |
-   | **Porta de back-end** | Este campo não é utilizado quando o IP flutuante está definida para direta do servidor retorno | 1433 |
-   | **Sonda** |O nome que especificou para a sonda | SQLAlwaysOnEndPointProbe |
-   | **Persistência da sessão** | Na lista pendente | **Nenhum** |
-   | **Tempo limite de inatividade** | Minutos para manter uma conexão TCP aberta | 4 |
-   | **Vírgula flutuante (devolução direta do servidor) de IP** | |Enabled |
+   | **Name** | Text | SQLAlwaysOnEndPointListener |
+   | **Endereço IP de front-end** | Escolha um endereço |Use o endereço que você criou quando criou o balanceador de carga. |
+   | **Protocolo** | Escolher TCP |TCP |
+   | **Porta** | Usar a porta para o ouvinte do grupo de disponibilidade | 1433 |
+   | **Porta de back-end** | Este campo não é usado quando o IP flutuante é definido para retorno de servidor direto | 1433 |
+   | **Provas** |O nome que você especificou para a investigação | SQLAlwaysOnEndPointProbe |
+   | **Persistência da sessão** | Lista suspensa | **Nenhum** |
+   | **Tempo limite de ociosidade** | Minutos para manter uma conexão TCP aberta | 4 |
+   | **IP flutuante (retorno de servidor direto)** | |Enabled |
 
    > [!WARNING]
-   > Devolução direta do servidor é definida durante a criação. Não pode ser alterado.
+   > O retorno de servidor direto é definido durante a criação. Não pode ser alterado.
 
-1. Clique em **OK** para definir a regras de balanceamento de carga do serviço de escuta.
+1. Clique em **OK** para definir as regras de balanceamento de carga do ouvinte.
 
-### <a name="add-the-cluster-core-ip-address-for-the-windows-server-failover-cluster-wsfc"></a>Adicionar o endereço IP de núcleo de cluster para o Cluster de ativação pós-falha do Windows Server (WSFC)
+### <a name="add-the-cluster-core-ip-address-for-the-windows-server-failover-cluster-wsfc"></a>Adicionar o endereço IP do núcleo do cluster para o WSFC (cluster de failover do Windows Server)
 
-O endereço IP do WSFC também tem de ser no balanceador de carga.
+O endereço IP do WSFC também precisa estar no balanceador de carga.
 
-1. No portal, no mesmo Balanceador de carga do Azure, clique em **configuração do IP de front-end** e clique em **+ adicionar**. Utilize o endereço IP que configurou para o WSFC nos recursos principais do cluster. Defina o endereço IP estático como.
+1. No portal, no mesmo balanceador de carga do Azure, clique em **configuração de IP de front-end** e clique em **+ Adicionar**. Use o endereço IP que você configurou para o WSFC nos recursos principais do cluster. Defina o endereço IP como estático.
 
-1. No balanceador de carga, clique em **sondas de estado de funcionamento**e clique em **+ adicionar**.
+1. No balanceador de carga, clique em **investigações de integridade**e clique em **+ Adicionar**.
 
-1. Defina a sonda de estado de funcionamento de endereço IP do WSFC cluster core da seguinte forma:
+1. Defina a investigação de integridade do endereço IP principal do Cluster WSFC da seguinte maneira:
 
    | Definição | Descrição | Exemplo
    | --- | --- |---
-   | **Nome** | Text | WSFCEndPointProbe |
-   | **Protocolo** | Selecione TCP | TCP |
+   | **Name** | Text | WSFCEndPointProbe |
+   | **Protocolo** | Escolher TCP | TCP |
    | **Porta** | Qualquer porta não utilizada | 58888 |
-   | **Intervalo**  | A quantidade de tempo entre tentativas da sonda em segundos |5 |
-   | **Limiar de mau estado de funcionamento** | O número de falhas consecutivas da sonda que têm de ocorrer para uma máquina virtual ser considerado em mau estado de funcionamento  | 2 |
+   | **Intervalo**  | A quantidade de tempo entre as tentativas de investigação em segundos |5 |
+   | **Limite não íntegro** | O número de falhas de investigação consecutivas que devem ocorrer para uma máquina virtual ser considerada não íntegra  | 2 |
 
-1. Clique em **OK** para definir a sonda de estado de funcionamento.
+1. Clique em **OK** para definir a investigação de integridade.
 
-1. Defina a regras de balanceamento de carga. Clique em **regras de balanceamento de carga**e clique em **+ adicionar**.
+1. Defina as regras de balanceamento de carga. Clique em **regras de balanceamento de carga**e clique em **+ Adicionar**.
 
-1. Defina a carga de endereço do IP do cluster principais regras de balanceamento da seguinte forma.
+1. Defina as regras de balanceamento de carga do endereço IP do núcleo do cluster da seguinte maneira.
 
    | Definição | Descrição | Exemplo
    | --- | --- |---
-   | **Nome** | Text | WSFCEndPoint |
-   | **Endereço IP de front-end** | Escolha um endereço |Utilize o endereço que criou quando configurou o endereço IP do WSFC. Isso é diferente do endereço IP do serviço de escuta |
-   | **Protocolo** | Selecione TCP |TCP |
-   | **Porta** | Utilize a porta para o endereço IP do cluster. Esta é uma porta disponível que não é utilizada para a porta de sonda do serviço de escuta. | 58888 |
-   | **Porta de back-end** | Este campo não é utilizado quando o IP flutuante está definida para direta do servidor retorno | 58888 |
-   | **Sonda** |O nome que especificou para a sonda | WSFCEndPointProbe |
-   | **Persistência da sessão** | Na lista pendente | **Nenhum** |
-   | **Tempo limite de inatividade** | Minutos para manter uma conexão TCP aberta | 4 |
-   | **Vírgula flutuante (devolução direta do servidor) de IP** | |Enabled |
+   | **Name** | Text | WSFCEndPoint |
+   | **Endereço IP de front-end** | Escolha um endereço |Use o endereço que você criou quando configurou o endereço IP do WSFC. Isso é diferente do endereço IP do ouvinte |
+   | **Protocolo** | Escolher TCP |TCP |
+   | **Porta** | Use a porta para o endereço IP do cluster. Esta é uma porta disponível que não é usada para a porta de investigação do ouvinte. | 58888 |
+   | **Porta de back-end** | Este campo não é usado quando o IP flutuante é definido para retorno de servidor direto | 58888 |
+   | **Provas** |O nome que você especificou para a investigação | WSFCEndPointProbe |
+   | **Persistência da sessão** | Lista suspensa | **Nenhum** |
+   | **Tempo limite de ociosidade** | Minutos para manter uma conexão TCP aberta | 4 |
+   | **IP flutuante (retorno de servidor direto)** | |Enabled |
 
    > [!WARNING]
-   > Devolução direta do servidor é definida durante a criação. Não pode ser alterado.
+   > O retorno de servidor direto é definido durante a criação. Não pode ser alterado.
 
-1. Clique em **OK** para definir a regras de balanceamento de carga.
+1. Clique em **OK** para definir as regras de balanceamento de carga.
 
-## <a name="configure-listener"></a> Configurar o serviço de escuta
+## <a name="configure-listener"></a>Configurar o ouvinte
 
-A próxima coisa a fazer é configurar um serviço de escuta do grupo de disponibilidade no cluster de ativação pós-falha.
+A próxima etapa é configurar um ouvinte de grupo de disponibilidade no cluster de failover.
 
 > [!NOTE]
-> Este tutorial mostra como criar um único serviço de escuta - com um endereço IP do ILB. Para criar um ou mais serviços de escuta com um ou mais endereços IP, consulte [Balanceador de carga e do serviço de escuta do grupo de disponibilidade criar | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Este tutorial mostra como criar um único ouvinte com um endereço IP ILB. Para criar um ou mais ouvintes usando um ou mais endereços IP, consulte [criar ouvinte de grupo de disponibilidade e balanceador de carga | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
-## <a name="set-listener-port"></a>Porta do serviço de escuta de conjunto
+## <a name="set-listener-port"></a>Definir porta do ouvinte
 
-No SQL Server Management Studio, defina a porta do serviço de escuta.
+Em SQL Server Management Studio, defina a porta do ouvinte.
 
-1. Inicie o SQL Server Management Studio e ligue-se para a réplica primária.
+1. Inicie o SQL Server Management Studio e conecte-se à réplica primária.
 
-1. Navegue para **AlwaysOn elevada disponibilidade** | **grupos de disponibilidade** | **serviços de escuta do grupo de disponibilidade**.
+1. Navegue até **alta disponibilidade** | AlwaysOn**grupos** | de disponibilidade ouvintes do**grupo de disponibilidade**.
 
-1. Agora, deverá ver o nome do serviço de escuta que criou no Gestor de clusters de ativação pós-falha. O nome do serviço de escuta com o botão direito e clique em **propriedades**.
+1. Agora você deve ver o nome do ouvinte que você criou em Gerenciador de Cluster de Failover. Clique com o botão direito do mouse no nome do ouvinte e clique em **Propriedades**.
 
-1. Na **porta** caixa, especifique o número de porta para o serviço de escuta do grupo de disponibilidade. 1433 é a predefinição, em seguida, clique em **OK**.
+1. Na caixa **porta** , especifique o número da porta para o ouvinte do grupo de disponibilidade. 1433 é o padrão e, em seguida, clique em **OK**.
 
-Agora tem um grupo de disponibilidade do SQL Server em máquinas virtuais do Azure em execução no modo Resource Manager.
+Agora você tem um grupo de disponibilidade SQL Server em máquinas virtuais do Azure em execução no modo do Gerenciador de recursos.
 
-## <a name="test-connection-to-listener"></a>Testar a ligação ao serviço de escuta
+## <a name="test-connection-to-listener"></a>Testar conexão com o ouvinte
 
-Para testar a ligação:
+Para testar a conexão:
 
-1. RDP para um SQL Server que está na mesma rede virtual, mas não é proprietário a réplica. Pode utilizar outro servidor SQL no cluster.
+1. RDP para um SQL Server que está na mesma rede virtual, mas não possui a réplica. Você pode usar os outros SQL Server no cluster.
 
-1. Uso **sqlcmd** utilitário para testar a ligação. Por exemplo, o seguinte script estabelece uma **sqlcmd** ligação para a réplica primária por meio do serviço de escuta com a autenticação do Windows:
+1. Use o utilitário **sqlcmd** para testar a conexão. Por exemplo, o script a seguir estabelece uma conexão **sqlcmd** com a réplica primária por meio do ouvinte com autenticação do Windows:
 
    ```cmd
    sqlcmd -S <listenerName> -E
    ```
 
-   Se o serviço de escuta é utilizar uma porta diferente da predefinição da porta (1433), especifique a porta na cadeia de ligação. Por exemplo, o seguinte comando sqlcmd liga a um serviço de escuta na porta 1435:
+   Se o ouvinte estiver usando uma porta diferente da porta padrão (1433), especifique a porta na cadeia de conexão. Por exemplo, o comando sqlcmd a seguir se conecta a um ouvinte na porta 1435:
 
    ```cmd
    sqlcmd -S <listenerName>,1435 -E
    ```
 
-A ligação de SQLCMD liga-se automaticamente para qualquer instância do SQL Server aloja a réplica primária.
+A conexão SQLCMD se conecta automaticamente a qualquer instância do SQL Server hospeda a réplica primária.
 
 > [!TIP]
-> Certifique-se de que a porta especificada está aberta na firewall de ambos os servidores SQL. Ambos os servidores exigem uma regra de entrada para a porta TCP que utiliza. Para obter mais informações, consulte [adicionar ou Editar regra de Firewall](https://technet.microsoft.com/library/cc753558.aspx).
+> Verifique se a porta que você especificou está aberta no firewall de ambos os SQL Servers. Ambos os servidores exigem uma regra de entrada para a porta TCP que você usa. Para obter mais informações, consulte [Adicionar ou editar regra de firewall](https://technet.microsoft.com/library/cc753558.aspx).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Adicionar um endereço IP a um balanceador de carga para um segundo grupo de disponibilidade](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).
+- [Adicione um endereço IP a um balanceador de carga para um segundo grupo de disponibilidade](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).

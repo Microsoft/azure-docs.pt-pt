@@ -8,19 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 9d33b478cb848724d0b3747761a99a1269d58b6e
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 14ed21efec47e15663724bd782ad931903fb8f13
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671065"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082428"
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
 O Microsoft Azure é uma coleção crescente de serviços na cloud pública, incluindo análises, máquinas virtuais, bases de dados e capacidades móveis, Web, de rede e de armazenamento,&mdash;ideal para alojar as suas soluções.  O Microsoft Azure fornece uma plataforma informática dimensionável que lhe permite pagar apenas aquilo que utiliza, quando quer utilizar, sem que precise de investir em hardware no local.  O Azure está sempre pronto quando precisa de aumentar as suas soluções vertical e horizontalmente até atingir a dimensão de que necessita para satisfazer as necessidades dos seus clientes.
@@ -76,7 +75,7 @@ A Microsoft trabalha de perto com os parceiros para garantir que as imagens disp
 * Red Hat - [Azure Marketplace - Red Hat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 * Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure Marketplace - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
-* FreeBSD - [do Azure Marketplace - FreeBSD 10.4](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
+* FreeBSD – [Azure Marketplace-FreeBSD 10,4](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
 * CoreOS - [Azure Marketplace - CoreOS (Stable)](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/)
 * RancherOS - [Azure Marketplace - RancherOS](https://azure.microsoft.com/marketplace/partners/rancher/rancheros/)
 * Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
@@ -126,7 +125,7 @@ A VM está agora em execução no Azure e já pode iniciar sessão.  A utilizaç
 * [Introdução ao Azure Container Service](../../container-service/container-service-intro.md)
 * [Implementar um cluster do Azure Container Service](../../container-service/dcos-swarm/container-service-deployment.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Tem agora uma descrição geral do Linux no Azure.  O passo seguinte é avançar e criar algumas VMs!
 
 * [Explore the growing list of sample scripts for common tasks via AzureCLI](cli-samples.md) (Explorar a crescente lista de scripts de exemplo para tarefas comuns através da CLI do Azure)

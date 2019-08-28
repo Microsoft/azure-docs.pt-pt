@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
-ms.openlocfilehash: c7306de4af7f958ef8f89dac41a5e08209916432
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: d4f1cd5193f29e929c822966ca427c6e6ebf67de
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020199"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070962"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Python no serviço de Azure App no Linux
 

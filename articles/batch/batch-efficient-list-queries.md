@@ -8,19 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 3bf9ba52bc4071755918b842da477384dcd38973
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 37d34267220cbb7ceabfc823f6facd651969fbd4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68323512"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095167"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Criar consultas para listar recursos do lote com eficiência
 
@@ -241,7 +240,7 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 ### <a name="parallel-node-tasks"></a>Tarefas de nó paralelo
 [Maximizar o uso de recursos de computação do lote do Azure com tarefas de nó simultâneas](batch-parallel-node-tasks.md) é outro artigo relacionado ao desempenho do aplicativo do lote. Alguns tipos de cargas de trabalho podem se beneficiar da execução de tarefas paralelas em nós maiores, mas menos computacionais. Confira o [cenário de exemplo](batch-parallel-node-tasks.md#example-scenario) no artigo para obter detalhes sobre esse cenário.
 

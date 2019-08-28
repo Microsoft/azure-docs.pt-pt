@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e4ab1d45e27762ef05ab7ec74c98ab0b0b934cbf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c37446fd5a0cdc986044405a9aa3da32462d9c04
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880556"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114282"
 ---
 # <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Implementar a descoberta do modelo de visualização de IoT Plug and Play em uma solução de IoT
 
@@ -24,7 +24,7 @@ Há duas categorias amplas de solução de IoT: soluções criadas especificamen
 
 Este artigo de conceito descreve como implementar a descoberta de modelo em ambos os tipos de solução.
 
-## <a name="model-discovery"></a>Descoberta de modelo
+## <a name="model-discovery"></a>Deteção de modelos
 
 Quando um dispositivo de Plug and Play IoT se conecta pela primeira vez ao Hub IoT, ele envia uma mensagem de telemetria de informações de modelo. Essa mensagem inclui as IDs das interfaces que o dispositivo implementa. Para que sua solução funcione com o dispositivo, ela deve resolver essas IDs e recuperar as definições de cada interface.
 
@@ -69,12 +69,12 @@ Quando sua solução receber uma notificação para uma nova conexão de disposi
 1. Leia a mensagem de telemetria de descoberta para recuperar as IDs do modelo de funcionalidade e interfaces implementadas pelo dispositivo.
 1. Para cada ID, leia o arquivo JSON completo para localizar os recursos do dispositivo.
 1. Verifique se cada interface está presente em todos os caches que você criou para armazenar os arquivos JSON recuperados anteriormente por sua solução.
-1. Em seguida, verifique se uma interface com essa ID está presente no repositório de modelo global. Para obter mais informações, consulte [repositório de modelos globais](howto-manage-models.md).
-1. Se a interface não estiver presente no repositório de modelos globais, tente procurá-la em qualquer repositório de modelo privado conhecido para sua solução. Você precisa de uma cadeia de conexão para acessar um repositório de modelo privado. Para obter mais informações, consulte [repositório de modelo privado](howto-manage-models.md).
-1. Se você não encontrar todas as interfaces no repositório de modelo global ou em um repositório de modelo privado, poderá verificar se o dispositivo pode fornecer a definição de interface. Um dispositivo pode implementar a interface [ModelDefinition](concepts-common-interfaces.md) padrão para publicar informações sobre como recuperar arquivos de interface com um comando.
+1. Em seguida, verifique se uma interface com essa ID está presente no repositório de modelo público. Para obter mais informações, consulte [repositório de modelos públicos](howto-manage-models.md).
+1. Se a interface não estiver presente no repositório de modelos públicos, tente procurá-la em qualquer repositório de modelo da empresa conhecido pela sua solução. Você precisa de uma cadeia de conexão para acessar um repositório de modelos da empresa. Para obter mais informações, consulte [repositório de modelos da empresa](howto-manage-models.md).
+1. Se você não encontrar todas as interfaces no repositório de modelo público ou em um repositório de modelo da empresa, poderá verificar se o dispositivo pode fornecer a definição de interface. Um dispositivo pode implementar a interface [ModelDefinition](concepts-common-interfaces.md) padrão para publicar informações sobre como recuperar arquivos de interface com um comando.
 1. Se você tiver encontrado arquivos JSON para cada interface implementada pelo dispositivo, poderá enumerar os recursos do dispositivo. Use a lógica que você escreveu anteriormente para permitir que os usuários interajam com o dispositivo.
 1. A qualquer momento, você pode chamar a API digital gêmeos para recuperar a ID do modelo de funcionalidade e as IDs de interface para o dispositivo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você aprendeu sobre a descoberta de modelos de uma solução de IoT, saiba mais sobre a [plataforma IOT do Azure](overview-iot-plug-and-play.md) para aproveitar outros recursos para sua solução.

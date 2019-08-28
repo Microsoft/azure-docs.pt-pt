@@ -7,21 +7,20 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 941a35084ba811e3bf9224087336db9abbd5b5d5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9cd09349ae37d11e4d01bc308162512ebfa03dfc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104396"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086343"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função acionada pelo Azure Cosmos DB
 
-Saiba como criar uma função acionada quando os dados são adicionados ou alterados no Azure Cosmos DB. Para saber mais sobre o Azure Cosmos DB, veja [do Azure Cosmos DB: Computação de base de dados sem servidor com funções do Azure](../cosmos-db/serverless-computing-database.md).
+Saiba como criar uma função acionada quando os dados são adicionados ou alterados no Azure Cosmos DB. Para saber mais sobre Azure Cosmos DB, consulte [Azure Cosmos DB: Computação de banco de dados sem](../cosmos-db/serverless-computing-database.md)servidor usando Azure functions.
 
 ![Ver mensagem nos registos.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
@@ -50,7 +49,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 ## <a name="create-azure-cosmos-db-trigger"></a>Criar acionador do Azure Cosmos DB
 
-1. Expanda a aplicação de funções e clique no botão **+**, junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
+1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
 
    ![Página de início rápido das funções no portal do Azure](./media/functions-create-cosmos-db-triggered-function/function-app-quickstart-choose-portal.png)
 
@@ -60,7 +59,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 1. No campo de pesquisa, escreva `cosmos` e escolha o modelo **Acionador do Azure Cosmos DB**.
 
-1. Se lhe for pedido, selecione **instalar** para instalar a extensão do Azure Cosmos DB na function app. Depois de instalar com êxito, selecione **Continuar**.
+1. Se solicitado, selecione **instalar** para instalar a extensão de Azure Cosmos DB no aplicativo de funções. Depois de instalar com êxito, selecione **Continuar**.
 
     ![Instalar as extensões de enlace](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
 
@@ -70,7 +69,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
     | Definição      | Valor sugerido  | Descrição                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Nome** | Predefinição | Utilize o nome de função predefinido sugerido pelo modelo.|
+    | **Name** | Predefinição | Utilize o nome de função predefinido sugerido pelo modelo.|
     | **Ligação de conta do Azure Cosmos DB** | Nova definição | Selecione **Nova** e, em seguida, escolha a sua **Subscrição**, a **Conta de base de dados** que criou anteriormente e **Selecionar**. Esta ação cria uma definição da aplicação para a ligação da sua conta. Esta definição é utilizada pelo enlace para a ligação à base de dados. |
     | **Nome da coleção** | Itens | Nome da coleção a ser monitorizada. |
     | **Criar coleção de concessão, se não existir** | Assinalado | A coleção ainda não existe, como tal, deve ser criada. |
@@ -138,7 +137,7 @@ Depois de a coleção especificada no enlace da função existir, pode testar a 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Foi criada com uma função que é executada quando um documento é adicionado ou modificado no seu Azure Cosmos DB. Para obter mais informações sobre os acionadores do Azure Cosmos DB, veja [Enlaces do Cosmos DB das Funções do Azure](functions-bindings-cosmosdb.md).
 

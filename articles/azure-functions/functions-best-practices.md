@@ -1,124 +1,123 @@
 ---
-title: Melhores práticas para as funções do Azure | Documentos da Microsoft
-description: Aprenda as práticas recomendadas e padrões para as funções do Azure.
+title: Práticas recomendadas para Azure Functions | Microsoft Docs
+description: Aprenda as práticas recomendadas e padrões para Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: jeconnoc
-keywords: as funções do Azure, padrões, melhor prática, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor
+keywords: Azure functions, padrões, práticas recomendadas, funções, processamento de eventos, WebHooks, computação dinâmica, arquitetura sem servidor
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30b187676f0c1fb03b7124d93b3991b0e32d61ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19e088eee878695d24678d1df17b2848a4be1e01
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104682"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097545"
 ---
-# <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Otimizar o desempenho e fiabilidade das funções do Azure
+# <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Otimizar o desempenho e a confiabilidade do Azure Functions
 
-Este artigo fornece orientações para melhorar o desempenho e confiabilidade de seus [sem servidor](https://azure.microsoft.com/solutions/serverless/) aplicações de funções. 
+Este artigo fornece orientação para melhorar o desempenho e a confiabilidade de seus aplicativos de funções sem [servidor](https://azure.microsoft.com/solutions/serverless/) . 
 
-## <a name="general-best-practices"></a>Melhores práticas gerais
+## <a name="general-best-practices"></a>Práticas recomendadas gerais
 
-Seguem-se as melhores práticas para a criação e a arquitetura de suas soluções sem servidor com funções do Azure.
+Veja a seguir as práticas recomendadas de como criar e arquitetar suas soluções sem servidor usando Azure Functions.
 
-### <a name="avoid-long-running-functions"></a>Evite as funções de execução longa
+### <a name="avoid-long-running-functions"></a>Evite funções de longa execução
 
-Funções grandes e de longa execução podem causar problemas de tempo limite inesperado. Uma função pode se tornar grande devido à quantidade de dependências de node. js. Importar dependências também pode causar tempos de aumento de carga que resultam em tempos limite inesperado. As dependências são ambos carregadas explicitamente e implicitamente. Um mesmo módulo carregado pelo seu código pode carregar os seus próprios módulos adicionais.  
+Funções grandes e de execução longa podem causar problemas de tempo limite inesperados. Uma função pode se tornar grande devido a muitas dependências de Node. js. A importação de dependências também pode causar tempos de carregamento maiores que resultam em tempos limite inesperados. As dependências são carregadas de forma explícita e implícita. Um único módulo carregado pelo seu código pode carregar seus próprios módulos adicionais.  
 
-Sempre que possível, funções grande do refactor em função menor define que funcionam em conjunto e devolver respostas rapidamente. Por exemplo, um webhook ou uma função de Acionador HTTP pode exigir uma resposta de confirmação dentro de um determinado limite de tempo; é comum para webhooks exigir uma resposta imediata. Pode transmitir o payload de Acionador HTTP numa fila para ser processado por uma função de Acionador de fila. Esta abordagem permite-lhe diferir o trabalho real e devolver uma resposta imediata.
-
-
-### <a name="cross-function-communication"></a>Cruzar a comunicação de função
-
-[Funções duráveis](durable/durable-functions-concepts.md) e [do Azure Logic Apps](../logic-apps/logic-apps-overview.md) baseiam-se para gerir as transições de estado e a comunicação entre várias funções.
-
-Se não utilizar funções duráveis ou o Logic Apps para integrar com várias funções, geralmente é uma prática recomendada usar filas de armazenamento para cruzada comunicação de função.  O principal motivo é que as filas de armazenamento são mais baratos e muito mais fácil de aprovisionar. 
-
-Mensagens individuais numa fila de armazenamento são limitadas em tamanho a 64 KB. Se precisar de passar as mensagens maiores entre as funções, uma fila pode ser utilizada para a mensagem de suporte do Azure Service Bus tamanhos até 256 KB no escalão Standard e até 1 MB no escalão Premium.
-
-Tópicos do Service Bus são úteis se precisar de filtragem antes do processamento de mensagens.
-
-Os hubs de eventos são úteis para suportarem comunicações de elevado volume.
+Sempre que possível, refatore funções grandes em conjuntos de funções menores que funcionam em conjunto e retornam respostas rapidamente. Por exemplo, um webhook ou uma função de gatilho HTTP pode exigir uma resposta de confirmação dentro de um determinado limite de tempo; é comum que WebHooks exijam uma resposta imediata. Você pode passar o conteúdo do gatilho HTTP para uma fila a ser processada por uma função de gatilho de fila. Essa abordagem permite que você adie o trabalho real e retorne uma resposta imediata.
 
 
-### <a name="write-functions-to-be-stateless"></a>Escrever funções tenham monitoração de estado 
+### <a name="cross-function-communication"></a>Comunicação entre funções
 
-As funções devem ser sem estado e idempotentes se possível. Associe quaisquer informações de estado necessárias com os seus dados. Por exemplo, uma ordem a ser processado provavelmente teria associado ao `state` membro. Uma função pode processar um pedido com base nesse Estado, enquanto a própria função permanece sem monitoração de estado. 
+[Durable Functions](durable/durable-functions-concepts.md) e [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) são criados para gerenciar transições de estado e comunicação entre várias funções.
 
-Funções de Idempotentes especialmente recomenda-se com os acionadores de temporizadores. Por exemplo, se tiver algo que com certeza deve ser executado uma vez por dia, escrevê-lo a para que possa executar a qualquer momento durante o dia com os mesmos resultados. A função pode sair quando não existe nenhum trabalho para um determinado dia. Também se anterior execução falhou para concluir, a próxima execução deve começar onde terminou.
+Se não estiver usando Durable Functions ou aplicativos lógicos para integrar com várias funções, geralmente é uma prática recomendada usar filas de armazenamento para comunicação entre funções.  O principal motivo é que as filas de armazenamento são mais baratas e muito mais fáceis de provisionar. 
+
+As mensagens individuais em uma fila de armazenamento têm tamanho limitado a 64 KB. Se você precisar passar mensagens maiores entre as funções, uma fila do barramento de serviço do Azure poderá ser usada para dar suporte a tamanhos de mensagem de até 256 KB na camada Standard e até 1 MB na camada Premium.
+
+Os tópicos do barramento de serviço serão úteis se você precisar de filtragem de mensagens antes do processamento.
+
+Os hubs de eventos são úteis para dar suporte a comunicações de alto volume.
 
 
-### <a name="write-defensive-functions"></a>Escrever funções de defesa
+### <a name="write-functions-to-be-stateless"></a>Funções de gravação para sem monitoração de estado 
 
-Assumir que a função foi possível encontrar uma exceção em qualquer altura. Crie as suas funções com a capacidade de continuar a partir de um ponto de falha anterior durante a execução seguinte. Considere um cenário que requer as seguintes ações:
+As funções devem ser sem monitoração de estado e idempotentes, se possível. Associe todas as informações de estado necessárias aos seus dados. Por exemplo, um pedido que está sendo processado provavelmente teria um `state` membro associado. Uma função pode processar uma ordem com base nesse estado, enquanto a própria função permanece sem estado. 
 
-1. Consulta para 10 000 linhas numa db.
-2. Criar uma mensagem de fila de cada um da linha para baixo de linhas para processar mais.
+Funções idempotentes são especialmente recomendadas com gatilhos de temporizador. Por exemplo, se você tiver algo que absolutamente deve ser executado uma vez por dia, grave-o para que possa ser executado a qualquer momento durante o dia com os mesmos resultados. A função pode sair quando não há nenhum trabalho para um dia específico. Além disso, se uma execução anterior não tiver sido concluída, a próxima execução deverá continuar de onde parou.
+
+
+### <a name="write-defensive-functions"></a>Gravar funções defensivas
+
+Suponha que sua função possa encontrar uma exceção a qualquer momento. Projete suas funções com a capacidade de continuar de um ponto de falha anterior durante a próxima execução. Considere um cenário que requer as seguintes ações:
+
+1. Consulta de 10.000 linhas em um BD.
+2. Crie uma mensagem de fila para cada uma dessas linhas para processar mais adiante na linha.
  
-Dependendo da complexidade é de seu sistema, talvez tenha: serviços downstream envolvidos se comportando mal, indisponibilidade de rede ou quota limita atingiu, etc. Tudo isso pode afetar a sua função em qualquer altura. Terá de criar as suas funções estar preparado para ele.
+Dependendo de quão complexo for o seu sistema, você pode ter: serviços de downstream envolvidos com problemas incorretos, interrupções de rede ou limites de cota atingidos, etc. Todos eles podem afetar sua função a qualquer momento. Você precisa criar suas funções para estar preparado para ela.
 
-Como seu código reagir se ocorrer uma falha depois de inserir 5.000 um desses itens numa fila para processamento? Controle de itens de um conjunto que tiver concluído. Caso contrário, pode inseri-las novamente. Isto pode ter um impacto grave no seu fluxo de trabalho. 
+Como o seu código reage se ocorrer uma falha depois de inserir 5.000 desses itens em uma fila para processamento? Rastreie itens em um conjunto que você concluiu. Caso contrário, você pode inseri-los novamente na próxima vez. Isso pode afetar seriamente o fluxo de trabalho. 
 
-Se um item da fila já foi processado, permitem que sua função para ser não operacional.
+Se um item de fila já tiver sido processado, permita que sua função seja uma operação não operacional.
 
-Tire partido das medidas defensiva já fornecida para os componentes que utilizar na plataforma do funções do Azure. Por exemplo, veja **manipulação de mensagens não processáveis da fila** na documentação de [fila de armazenamento do Azure acionadores e enlaces](functions-bindings-storage-queue.md#trigger---poison-messages). 
+Aproveite as medidas defensivas já fornecidas para os componentes que você usa na plataforma Azure Functions. Por exemplo, consulte **tratamento de mensagens de fila suspeita** na documentação para [gatilhos e associações de fila de armazenamento do Azure](functions-bindings-storage-queue.md#trigger---poison-messages). 
 
-## <a name="scalability-best-practices"></a>Melhores práticas de escalabilidade
+## <a name="scalability-best-practices"></a>Práticas recomendadas de escalabilidade
 
-Existem vários fatores que afetam como dimensionar instâncias da sua aplicação de função. Os detalhes são fornecidos na documentação de [função dimensionamento](functions-scale.md).  Seguem-se algumas melhores práticas para garantir escalabilidade ideal de uma aplicação de funções.
+Há vários fatores que afetam a escala de instâncias do seu aplicativo de funções. Os detalhes são fornecidos na documentação para dimensionamento de [função](functions-scale.md).  Veja a seguir algumas práticas recomendadas para garantir a escalabilidade ideal de um aplicativo de funções.
 
-### <a name="share-and-manage-connections"></a>Partilhar e gerir ligações
+### <a name="share-and-manage-connections"></a>Compartilhar e gerenciar conexões
 
-Voltar a utilizar ligações para recursos externos, sempre que possível.  Ver [como gerir ligações nas funções do Azure](./manage-connections.md).
+Use novamente as conexões para recursos externos sempre que possível.  Consulte [como gerenciar conexões no Azure Functions](./manage-connections.md).
 
-### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Não misturar código de teste e produção na mesma function app
+### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Não misture o código de teste e de produção no mesmo aplicativo de funções
 
-As funções dentro de uma aplicação de funções partilham recursos. Por exemplo, a memória é compartilhada. Se estiver a utilizar uma aplicação de funções na produção, não adicione funções relacionadas ao teste e recursos ao mesmo. Isso pode causar sobrecarga inesperada durante a execução de código de produção.
+Funções em um aplicativo de funções compartilham recursos. Por exemplo, a memória é compartilhada. Se você estiver usando um aplicativo de funções em produção, não adicione funções e recursos relacionados a teste a ele. Isso pode causar sobrecarga inesperada durante a execução do código de produção.
 
-Cuidado com a carga nas suas aplicações de função de produção. Memória é calculada através de cada função na aplicação.
+Tenha cuidado com o que você carrega em seus aplicativos de função de produção. A média da memória é calculada em cada função no aplicativo.
 
-Se tiver um assembly compartilhado referenciado em várias funções de .NET, coloque-o numa pasta compartilhada comum. Referência ao assembly com uma declaração semelhante ao seguinte exemplo, se utilizar o c# Scripts (. csx): 
+Se você tiver um assembly compartilhado referenciado em várias funções .NET, coloque-o em uma pasta compartilhada comum. Referencie o assembly com uma instrução semelhante ao exemplo a seguir se estiver C# usando scripts (. CSX): 
 
     #r "..\Shared\MyAssembly.dll". 
 
-Caso contrário, é fácil acidentalmente implementar várias versões de teste do mesmo binário que se comportam de forma diferente entre as funções.
+Caso contrário, é fácil implantar acidentalmente várias versões de teste do mesmo binário que se comportam de forma diferente entre as funções.
 
-Não utilize o registo verboso no código de produção. Ele tem um impacto negativo no desempenho.
+Não use o log detalhado no código de produção. Ele tem um impacto negativo no desempenho.
 
-### <a name="use-async-code-but-avoid-blocking-calls"></a>Utilize o código assíncrono mas evitar o bloqueio de chamadas
+### <a name="use-async-code-but-avoid-blocking-calls"></a>Usar código assíncrono, mas evitar chamadas de bloqueio
 
-Programação assíncrona é uma prática recomendada. No entanto, sempre evitar fazer referência a `Result` propriedade ou chamar `Wait` método num `Task` instância. Essa abordagem pode levar ao esgotamento de thread.
+A programação assíncrona é uma prática recomendada. No entanto, sempre Evite `Result` referenciar a `Wait` propriedade ou o `Task` método de chamada em uma instância. Essa abordagem pode levar ao esgotamento de threads.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-### <a name="receive-messages-in-batch-whenever-possible"></a>Receber mensagens no batch sempre que possível
+### <a name="receive-messages-in-batch-whenever-possible"></a>Receber mensagens no lote sempre que possível
 
-Alguns acionadores, como o Hub de eventos permitem a receção de um lote de mensagens numa invocação de única.  Mensagens de criação de batches tem um desempenho muito melhor.  Pode configurar o tamanho de lote máximo na `host.json` de ficheiros conforme detalhado no [documentação de referência do Host. JSON](functions-host-json.md)
+Alguns gatilhos como o Hub de eventos permitem o recebimento de um lote de mensagens em uma única invocação.  O envio de mensagens em lote tem um desempenho muito melhor.  Você pode configurar o tamanho máximo do lote no `host.json` arquivo, conforme detalhado na [documentação de referência do host. JSON](functions-host-json.md)
 
-Para funções c# pode alterar o tipo a uma matriz de rigidez de tipos.  Por exemplo, em vez de `EventData sensorEvent` poderia ser a assinatura do método `EventData[] sensorEvent`.  Para outros idiomas terá de definir explicitamente a propriedade de cardinalidade no seu `function.json` para `many` para ativar a criação de batches [conforme mostrado a seguir](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
+Para C# funções, você pode alterar o tipo para uma matriz fortemente tipada.  Por exemplo, em vez `EventData sensorEvent` da assinatura do método pode `EventData[] sensorEvent`ser.  Para outras linguagens, você precisará definir explicitamente a propriedade cardinalidade em seu `function.json` para `many` para habilitar o envio em lote [, conforme mostrado aqui](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 
-### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>Configurar comportamentos de anfitrião para lidar melhor com simultaneidade
+### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>Configurar comportamentos de host para lidar melhor com a simultaneidade
 
-O `host.json` ficheiro na function app permite a configuração dos comportamentos de tempo de execução e o acionador do anfitrião.  Para além de comportamentos de criação de batches, pode gerir a simultaneidade para um número de acionadores.  Muitas vezes, ajustar os valores nestas opções pode ajudar a cada escala de instância adequadamente para as necessidades das funções invocadas.
+O `host.json` arquivo no aplicativo de funções permite a configuração de comportamentos de tempo de execução do host e de gatilho.  Além dos comportamentos de envio em lote, você pode gerenciar a simultaneidade para vários gatilhos.  Geralmente, ajustar os valores nessas opções pode ajudar cada escala de instância adequadamente para as demandas das funções invocadas.
 
-Definições no ficheiro de anfitriões são aplicadas em todas as funções na aplicação, dentro uma *única instância* da função. Por exemplo, se tivesse uma aplicação de funções com 2 funções HTTP e definida de pedidos simultâneos para 25, um pedido para o acionador HTTP seria contam para 25 pedidos simultâneos partilhados.  Se essa aplicação de função aumentado para 10 instâncias, as 2 funções efetivamente permitiria a 250 pedidos simultâneos (10 instâncias * 25 pedidos simultâneos por instância).
+As configurações no arquivo de hosts se aplicam a todas as funções dentro do aplicativo, dentro de uma *única instância* da função. Por exemplo, se você tivesse um aplicativo de funções com 2 funções HTTP e solicitações simultâneas definidas como 25, uma solicitação para o gatilho HTTP contaria para as 25 solicitações simultâneas compartilhadas.  Se esse aplicativo de funções for dimensionado para 10 instâncias, as duas funções permitirão efetivamente 250 solicitações simultâneas (10 instâncias * 25 solicitações simultâneas por instância).
 
-**Opções de anfitrião de simultaneidade HTTP**
+**Opções de host de simultaneidade HTTP**
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
-Outras opções de configuração de anfitrião podem ser encontradas [no documento de configuração de host](functions-host-json.md).
+Outras opções de configuração de host podem ser encontradas [no documento de configuração do host](functions-host-json.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 
-* [Como gerir ligações nas funções do Azure](manage-connections.md)
-* [Práticas recomendadas do serviço de aplicações do Azure](../app-service/app-service-best-practices.md)
+* [Como gerenciar conexões no Azure Functions](manage-connections.md)
+* [Práticas recomendadas de serviço Azure App](../app-service/app-service-best-practices.md)

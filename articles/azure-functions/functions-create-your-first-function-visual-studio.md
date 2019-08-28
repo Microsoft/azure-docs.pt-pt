@@ -8,17 +8,16 @@ manager: gwallace
 keywords: funções do azure, funções, processamento de eventos, computação, arquitetura sem servidor
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 07/19/2019
 ms.author: glenga
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 23caffd14ba37427869e8e5d0ab8d78c42d39f7d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 9a2978bc181fd4c50665b6178d22d19eeb9e2568
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68593800"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096579"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Criar a sua primeira função com o Visual Studio
 

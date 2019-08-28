@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 656bc8329d6273695e4da24a7e7d13c9df6a1080
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 73bf7424e7c1aedff271ed3653592d174416003c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846601"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090196"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usar o console serial para acessar o GRUB e o modo de usuário único
 GRUB é o carregador de inicialização unificado geral, que é provavelmente a primeira coisa que você verá ao inicializar uma VM. Como ele é exibido antes do sistema operacional ser iniciado, ele não é acessível via SSH. No GRUB, você pode modificar a configuração de inicialização para inicializar no modo de usuário único, entre outras coisas.

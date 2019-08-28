@@ -3,15 +3,15 @@ title: Como configurar vários mestres no Azure Cosmos DB
 description: Saiba como configurar vários mestres em seus aplicativos no Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: a5232101d4e5d13fb4c95268311e06b56fa81e65
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: e86cacbd76a70c8b114d65a77ff013d32327a2d0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356213"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093108"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configurar vários mestres em seus aplicativos que usam Azure Cosmos DB
 

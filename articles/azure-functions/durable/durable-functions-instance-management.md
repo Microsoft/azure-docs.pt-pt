@@ -1,50 +1,49 @@
 ---
-title: Gerir instâncias de funções duráveis - Azure
-description: Saiba como gerir instâncias na extensão de funções duráveis para as funções do Azure.
+title: Gerenciar instâncias no Durable Functions-Azure
+description: Saiba como gerenciar instâncias na extensão de Durable Functions para Azure Functions.
 services: functions
 author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ee96bc5e17051ab37be34eecbb8e4fe35599cd5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6548b84f9599116aaa5055324bfa4625ea621ec3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60730774"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087254"
 ---
-# <a name="manage-instances-in-durable-functions-in-azure"></a>Gerir instâncias de funções duráveis no Azure
+# <a name="manage-instances-in-durable-functions-in-azure"></a>Gerenciar instâncias no Durable Functions no Azure
 
-Se estiver a utilizar o [funções duráveis](durable-functions-overview.md) extensão para as funções do Azure, ou se quiser começar a fazer isso, certifique-se de que esteja tirando o melhor uso dele. Pode otimizar as instâncias de orquestração de funções duráveis aprendendo mais sobre como geri-los. Este artigo vai os detalhes de cada operação de gestão de instância.
+Se você estiver usando a extensão [Durable Functions](durable-functions-overview.md) para Azure functions, ou quiser começar a fazer isso, verifique se está obtendo o melhor uso dele. Você pode otimizar suas instâncias de orquestração de Durable Functions aprendendo mais sobre como gerenciá-las. Este artigo apresenta os detalhes de cada operação de gerenciamento de instância.
 
-Pode começar e terminar instâncias, por exemplo, e pode consultar instâncias, incluindo a capacidade de consultar todas as instâncias e instâncias de consulta com filtros. Além disso, pode enviar eventos para instâncias, aguardar pela conclusão de orquestração e obter URLs de webhook de gestão de HTTP. Este artigo aborda outras operações de gestão, também, incluindo o avanço rápido instâncias, remover o histórico de instância e a eliminação de um hub de tarefa.
+Você pode iniciar e encerrar instâncias, por exemplo, e pode consultar instâncias, incluindo a capacidade de consultar todas as instâncias e instâncias de consulta com filtros. Além disso, você pode enviar eventos para instâncias, aguardar a conclusão da orquestração e recuperar URLs de webhook de gerenciamento HTTP. Este artigo aborda outras operações de gerenciamento também, incluindo instâncias de rebobinamento, limpeza de histórico de instância e exclusão de um hub de tarefas.
 
-Nas funções durável, tem opções para como pretende implementar cada uma destas operações de gestão. Este artigo fornece exemplos que utilizam o [ferramentas de núcleo de funções do Azure](../functions-run-local.md) para ambas as .NET (C#) e JavaScript.
+No Durable Functions, você tem opções de como deseja implementar cada uma dessas operações de gerenciamento. Este artigo fornece exemplos que usam o [Azure Functions Core Tools](../functions-run-local.md) para .net (C#) e JavaScript.
 
-## <a name="start-instances"></a>Iniciar as instâncias
+## <a name="start-instances"></a>Iniciar instâncias
 
-É importante ser capaz de iniciar uma instância de orquestração. Isso normalmente é feito quando estiver a utilizar uma associação de funções duráveis no acionador de outra função.
+É importante poder iniciar uma instância de orquestração. Isso é feito normalmente quando você está usando uma associação de Durable Functions no gatilho de outra função.
 
-O [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) método no [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) ou `startNew` no `DurableOrchestrationClient` (JavaScript) inicia uma nova instância. Adquirir instâncias desta classe usando o `orchestrationClient` enlace. Internamente, esse método coloca em fila uma mensagem na fila de controle, que dispara o início de uma função com o nome especificado, que utiliza o `orchestrationTrigger` acionar a ligação.
+O método [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) no [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.net) `startNew` `DurableOrchestrationClient` ou no (JavaScript) inicia uma nova instância. Você adquire instâncias dessa classe usando a `orchestrationClient` associação. Internamente, esse método enfileira uma mensagem na fila de controle, que dispara o início de uma função com o nome especificado que usa a `orchestrationTrigger` Associação de gatilho.
 
-Esta operação assíncrona é concluída quando o processo de orquestração é agendado com êxito. O processo de orquestração deverá ser iniciado dentro de 30 segundos. Se demorar mais tempo, verá um `TimeoutException`.
+Esta operação assíncrona é concluída quando o processo de orquestração é agendado com êxito. O processo de orquestração deve começar dentro de 30 segundos. Se demorar mais, você verá um `TimeoutException`.
 
 > [!WARNING]
-> Ao desenvolver localmente em JavaScript, defina a variável de ambiente `WEBSITE_HOSTNAME` para `localhost:<port>` (por exemplo, `localhost:7071`) para utilizar os métodos em `DurableOrchestrationClient`. Para obter mais informações sobre este requisito, consulte a [problema do GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
+> Ao desenvolver localmente em JavaScript `WEBSITE_HOSTNAME` , defina a variável de ambiente como `localhost:<port>` (por exemplo `localhost:7071`,) para usar métodos `DurableOrchestrationClient`em. Para obter mais informações sobre esse requisito, consulte o [problema do GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 ### <a name="net"></a>.NET
 
-Os parâmetros a serem [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) são os seguintes:
+Os parâmetros para [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) são os seguintes:
 
-* **Nome**: O nome da função de orquestrador para agendar.
-* **Entrada**: Todos os dados JSON serializável que devem ser passados como entrada para a função de orquestrador.
-* **InstanceId**: (Opcional) O ID exclusivo da instância. Se não especificar este parâmetro, o método usa um ID aleatório.
+* **Nome**: O nome da função de orquestrador a ser agendada.
+* **Entrada**: Qualquer dado serializável em JSON que deve ser passado como a entrada para a função de orquestrador.
+* **InstanceId**: Adicional A ID exclusiva da instância. Se você não especificar esse parâmetro, o método usará uma ID aleatória.
 
-Eis um exemplo do c# simples:
+Veja um exemplo simples C# :
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
@@ -58,15 +57,15 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 Os parâmetros para `startNew` são os seguintes:
 
-* **Nome**: O nome da função de orquestrador para agendar.
-* **InstanceId**: (Opcional) O ID exclusivo da instância. Se não especificar este parâmetro, o método usa um ID aleatório.
-* **Entrada**: (Opcional) Todos os dados JSON serializável que devem ser passados como entrada para a função de orquestrador.
+* **Nome**: O nome da função de orquestrador a ser agendada.
+* **InstanceId**: Adicional A ID exclusiva da instância. Se você não especificar esse parâmetro, o método usará uma ID aleatória.
+* **Entrada**: Adicional Qualquer dado serializável em JSON que deve ser passado como a entrada para a função de orquestrador.
 
-Eis um exemplo de JavaScript simples:
+Este é um exemplo simples de JavaScript:
 
 ```javascript
 const df = require("durable-functions");
@@ -80,22 +79,22 @@ module.exports = async function(context, input) {
 ```
 
 > [!TIP]
-> Utilizar um identificador aleatório para o ID de instância. Isto ajuda a garantir uma distribuição de carga igual quando está a dimensionar as funções do orchestrator em várias VMs. O tempo adequado para utilizar os IDs de instância não aleatórios é quando o ID tem de ser uma origem externa ou ao implementar o [singleton orchestrator](durable-functions-singletons.md) padrão.
+> Use um identificador aleatório para a ID da instância. Isso ajuda a garantir uma distribuição de carga igual quando você estiver dimensionando funções de orquestrador em várias VMs. O momento adequado para usar IDs de instância não aleatórias é quando a ID deve vir de uma fonte externa, ou quando você estiver implementando o padrão de [orquestrador singleton](durable-functions-singletons.md) .
 
-### <a name="azure-functions-core-tools"></a>Ferramentas de núcleo das funções do Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Também pode iniciar uma instância diretamente, utilizando o [ferramentas de núcleo de funções do Azure](../functions-run-local.md) `durable start-new` comando. Ele usa os seguintes parâmetros:
+Você também pode iniciar uma instância diretamente usando o comando [Azure Functions Core Tools](../functions-run-local.md) `durable start-new` . Ele usa os seguintes parâmetros:
 
-* **`function-name` (obrigatório)** : Nome da função para iniciar.
-* **`input` (opcional)** : A função, qualquer um dos inline ou por meio de um ficheiro JSON de entrada. Para os ficheiros, adicione um prefixo para o caminho para o ficheiro com `@`, tais como `@path/to/file.json`.
-* **`id` (opcional)** : ID da instância de orquestração. Se não especificar este parâmetro, o comando utiliza um GUID aleatório.
-* **`connection-string-setting` (opcional)** : Nome da definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar. A predefinição é AzureWebJobsStorage.
-* **`task-hub-name` (opcional)** : Nome do hub de tarefa de funções duráveis para utilizar. A predefinição é DurableFunctionsHub. Também pode definir isso no [Host. JSON](durable-functions-bindings.md#host-json) utilizando durableTask:HubName.
+* (obrigatório): **`function-name`** Nome da função a ser iniciada.
+* (opcional): **`input`** Entrada para a função, seja embutida ou por meio de um arquivo JSON. Para arquivos, adicione um prefixo ao caminho para o arquivo com `@`, `@path/to/file.json`como.
+* (opcional): **`id`** ID da instância de orquestração. Se você não especificar esse parâmetro, o comando usará um GUID aleatório.
+* (opcional): **`connection-string-setting`** Nome da configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada. O padrão é AzureWebJobsStorage.
+* (opcional): **`task-hub-name`** Nome do hub de tarefas Durable Functions a ser usado. O padrão é DurableFunctionsHub. Você também pode definir isso em [host. JSON](durable-functions-bindings.md#host-json) usando DurableTask: HubName.
 
 > [!NOTE]
-> Principais ferramentas comandos partem do princípio de que estiver a executar no diretório raiz de uma aplicação de funções. Se fornecer explicitamente a `connection-string-setting` e `task-hub-name` parâmetros, pode executar os comandos a partir de qualquer diretório. Embora seja possível executar estes comandos sem um anfitrião de aplicação de função em execução, pode achar que não é possível observar alguns efeitos, a menos que o anfitrião está em execução. Por exemplo, o `start-new` comando coloca em fila uma mensagem de início para o hub de tarefa de destino, mas a orquestração, na verdade, não é executado, exceto se houver um processo de anfitrião de aplicação de função em execução que pode processar a mensagem.
+> Os comandos de ferramentas principais pressupõem que você está executando-os do diretório raiz de um aplicativo de funções. Se você fornecer explicitamente os `connection-string-setting` parâmetros `task-hub-name` e, poderá executar os comandos de qualquer diretório. Embora seja possível executar esses comandos sem um host de aplicativo de funções em execução, você pode achar que não é possível observar alguns efeitos, a menos que o host esteja em execução. Por exemplo, o `start-new` comando enfileira uma mensagem de início no Hub de tarefas de destino, mas a orquestração não é realmente executada, a menos que haja um processo de host de aplicativo de funções em execução que possa processar a mensagem.
 
-O seguinte comando inicia a função com o nome HelloWorld e transmite o conteúdo do arquivo `counter-data.json` a ele:
+O comando a seguir inicia a função chamada HelloWorld e passa o conteúdo do arquivo `counter-data.json` para ela:
 
 ```bash
 func durable start-new --function-name HelloWorld --input @counter-data.json --task-hub-name TestTaskHub
@@ -103,35 +102,35 @@ func durable start-new --function-name HelloWorld --input @counter-data.json --t
 
 ## <a name="query-instances"></a>Instâncias de consulta
 
-Como parte de seu esforço para gerir as suas orquestrações, provavelmente precisará recolher informações sobre o estado de uma instância da orquestração (por exemplo, se ele concluiu normalmente ou não).
+Como parte de seu esforço para gerenciar suas orquestrações, você provavelmente precisará reunir informações sobre o status de uma instância de orquestração (por exemplo, se ela foi concluída normalmente ou falhou).
 
-O [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) método no [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe (.NET) ou o `getStatus` método no `DurableOrchestrationClient` classe (JavaScript) consulta o estado de uma orquestração instância.
+O método [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) na classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.net) ou o `getStatus` método na `DurableOrchestrationClient` classe (JavaScript) consulta o status de uma instância de orquestração.
 
-É necessário um `instanceId` (obrigatório), `showHistory` (opcional), `showHistoryOutput` (opcional), e `showInput` (opcional, apenas o .NET) como parâmetros.
+Ele usa `instanceId` (obrigatório), `showHistory` (opcional `showHistoryOutput` ), (opcional) e `showInput` (opcional, somente .net) como parâmetros.
 
-* **`showHistory`** : Se definido como `true`, a resposta contém o histórico de execução.
-* **`showHistoryOutput`** : Se definido como `true`, o histórico de execução contém saídas de atividade.
-* **`showInput`** : Se definido como `false`, a resposta não contém a entrada da função. O valor predefinido é `true`. (Apenas para o .NET)
+* **`showHistory`** : Se definido como `true`, a resposta conterá o histórico de execução.
+* **`showHistoryOutput`** : Se definido como `true`, o histórico de execução conterá saídas de atividade.
+* **`showInput`** : Se definido como `false`, a resposta não conterá a entrada da função. O valor predefinido é `true`. (Somente .NET)
 
 O método retorna um objeto JSON com as seguintes propriedades:
 
 * **Nome**: O nome da função de orquestrador.
-* **InstanceId**: O ID de instância da orquestração (deve ser o mesmo que o `instanceId` entrada).
-* **CreatedTime**: A hora em que a função de orquestrador iniciou a execução.
-* **LastUpdatedTime**: O tempo em que a orquestração último foi efetuada a verificação.
-* **Entrada**: A entrada da função como um valor JSON. Este campo não é preenchido caso a `showInput` é false.
-* **CustomStatus**: Estado de orquestração personalizado no formato JSON.
-* **Saída**: A saída da função como um valor JSON (se a função foi concluída). Se a função de orquestrador falhou, esta propriedade inclui os detalhes da falha. Se a função de orquestrador foi terminada, esta propriedade inclui o motivo para a finalização (se houver).
+* **InstanceId**: A ID da instância da orquestração (deve ser a mesma que a `instanceId` entrada).
+* **Createdtime**: A hora em que a função de orquestrador começou a ser executada.
+* **LastUpdatedTime**: A hora em que a orquestração foi verificada por último.
+* **Entrada**: A entrada da função como um valor JSON. Esse campo não será preenchido `showInput` se for false.
+* **CustomStatus**: Status de orquestração personalizado no formato JSON.
+* **Saída**: A saída da função como um valor JSON (se a função tiver sido concluída). Se a função de orquestrador tiver falhado, essa propriedade incluirá os detalhes da falha. Se a função de orquestrador tiver sido encerrada, essa propriedade incluirá o motivo do encerramento (se houver).
 * **RuntimeStatus**: Um dos seguintes valores:
-  * **Pendente**: A instância foi agendada, mas ainda não foi iniciada em execução.
-  * **Executar**: A instância foi iniciado em execução.
+  * **Pendente**: A instância foi agendada, mas ainda não começou a ser executada.
+  * **Em execução**: A instância começou a ser executada.
   * **Concluído**: A instância foi concluída normalmente.
-  * **ContinuedAsNew**: A instância reiniciou-se com um histórico de novo. Este é um estado transitório.
-  * **Falha ao**: A instância falhou com um erro.
-  * **Terminada**: A instância foi interrompida abruptamente.
-* **Histórico de**: O histórico de execução da orquestração. Este campo só é preenchido caso `showHistory` está definido como `true`.
+  * **ContinuedAsNew**: A instância foi reiniciada com um novo histórico. Esse é um estado transitório.
+  * **Com falha**: A instância falhou com um erro.
+  * **Encerrado**: A instância foi interrompida abruptamente.
+* **Histórico**: O histórico de execução da orquestração. Esse campo só será populado se `showHistory` for definido como. `true`
 
-Este método devolve `null` se a instância não existe ou ainda não foi iniciada em execução.
+Esse método retornará `null` se a instância não existir ou ainda não tiver iniciado a execução.
 
 ### <a name="c"></a>C#
 
@@ -146,7 +145,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -159,37 +158,37 @@ module.exports = async function(context, instanceId) {
 }
 ```
 
-### <a name="azure-functions-core-tools"></a>Ferramentas de núcleo das funções do Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Também é possível obter o estado de uma instância da orquestração diretamente, utilizando o [ferramentas de núcleo de funções do Azure](../functions-run-local.md) `durable get-runtime-status` comando. Ele usa os seguintes parâmetros:
+Também é possível obter o status de uma instância de orquestração diretamente, usando o comando [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` . Ele usa os seguintes parâmetros:
 
-* **`id` (obrigatório)** : ID da instância de orquestração.
-* **`show-input` (opcional)** : Se definido como `true`, a resposta contém a entrada da função. O valor predefinido é `false`.
-* **`show-output` (opcional)** : Se definido como `true`, a resposta contém a saída da função. O valor predefinido é `false`.
-* **`connection-string-setting` (opcional)** : Nome da definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar. A predefinição é `AzureWebJobsStorage`.
-* **`task-hub-name` (opcional)** : Nome do hub de tarefa de funções duráveis para utilizar. A predefinição é `DurableFunctionsHub`. Também pode ser definido nas [Host. JSON](durable-functions-bindings.md#host-json), utilizando durableTask:HubName.
+* (obrigatório): **`id`** ID da instância de orquestração.
+* (opcional): **`show-input`** Se definido como `true`, a resposta conterá a entrada da função. O valor predefinido é `false`.
+* (opcional): **`show-output`** Se definido como `true`, a resposta conterá a saída da função. O valor predefinido é `false`.
+* (opcional): **`connection-string-setting`** Nome da configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada. A predefinição é `AzureWebJobsStorage`.
+* (opcional): **`task-hub-name`** Nome do hub de tarefas Durable Functions a ser usado. A predefinição é `DurableFunctionsHub`. Ele também pode ser definido em [host. JSON](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
 
-O comando seguinte obtém o estado (incluindo a entrada e saída) de uma instância com um ID de instância da orquestração do 0ab8c55a66644d68a3a8b220b12d209c. Parte do princípio de que está a executar o `func` comando do diretório de raiz da aplicação de função:
+O comando a seguir recupera o status (incluindo entrada e saída) de uma instância com uma ID de instância de orquestração de 0ab8c55a66644d68a3a8b220b12d209c. Ele pressupõe que você está executando o `func` comando do diretório raiz do aplicativo de funções:
 
 ```bash
 func durable get-runtime-status --id 0ab8c55a66644d68a3a8b220b12d209c --show-input true --show-output true
 ```
 
-Pode utilizar o `durable get-history` comando para obter o histórico de uma instância de orquestração. Ele usa os seguintes parâmetros:
+Você pode usar o `durable get-history` comando para recuperar o histórico de uma instância de orquestração. Ele usa os seguintes parâmetros:
 
-* **`id` (obrigatório)** : ID da instância de orquestração.
-* **`connection-string-setting` (opcional)** : Nome da definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar. A predefinição é `AzureWebJobsStorage`.
-* **`task-hub-name` (opcional)** : Nome do hub de tarefa de funções duráveis para utilizar. A predefinição é `DurableFunctionsHub`. Também pode ser configurada no Host. JSON, utilizando durableTask:HubName.
+* (obrigatório): **`id`** ID da instância de orquestração.
+* (opcional): **`connection-string-setting`** Nome da configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada. A predefinição é `AzureWebJobsStorage`.
+* (opcional): **`task-hub-name`** Nome do hub de tarefas Durable Functions a ser usado. A predefinição é `DurableFunctionsHub`. Ele também pode ser definido em host. JSON, usando durableTask: HubName.
 
 ```bash
 func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 ```
 
-## <a name="query-all-instances"></a>Todas as instâncias de consulta
+## <a name="query-all-instances"></a>Consultar todas as instâncias
 
-Em vez de consulta uma instância na sua orquestração ao mesmo tempo, talvez seja mais eficiente para consultar todos eles de uma só vez.
+Em vez de consultar uma instância em sua orquestração por vez, talvez você ache mais eficiente consultar todas elas de uma só vez.
 
-Pode utilizar o `GetStatusAsync` (.NET) ou `getStatusAll` método (JavaScript) para consultar os Estados de todas as instâncias de orquestração. No .NET, pode passar um `CancellationToken` objeto caso queira cancelá-lo. O método retorna objetos com as mesmas propriedades como o `GetStatusAsync` método com parâmetros.
+Você pode usar o `GetStatusAsync` método (.net) `getStatusAll` ou (JavaScript) para consultar os status de todas as instâncias de orquestração. No .net, você pode passar um `CancellationToken` objeto caso queira cancelá-lo. O método retorna objetos com as mesmas propriedades que o `GetStatusAsync` método com parâmetros.
 
 ### <a name="c"></a>C#
 
@@ -208,7 +207,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -223,14 +222,14 @@ module.exports = async function(context, req) {
 };
 ```
 
-### <a name="azure-functions-core-tools"></a>Ferramentas de núcleo das funções do Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Também é possível para instâncias de consulta diretamente, utilizando o [ferramentas de núcleo de funções do Azure](../functions-run-local.md) `durable get-instances` comando. Ele usa os seguintes parâmetros:
+Também é possível consultar instâncias diretamente, usando o comando [Azure Functions Core Tools](../functions-run-local.md) `durable get-instances` . Ele usa os seguintes parâmetros:
 
-* **`top` (opcional)** : Este comando suporta paginação. Este parâmetro corresponde ao número de instâncias obtida por cada pedido. A predefinição é 10.
-* **`continuation-token` (opcional)** : Um token para indicar qual página ou a secção de instâncias para recuperar. Cada `get-instances` execução devolve um token para o próximo conjunto de instâncias.
-* **`connection-string-setting` (opcional)** : Nome da definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar. A predefinição é `AzureWebJobsStorage`.
-* **`task-hub-name` (opcional)** : Nome do hub de tarefa de funções duráveis para utilizar. A predefinição é `DurableFunctionsHub`. Também pode ser definido nas [Host. JSON](durable-functions-bindings.md#host-json), utilizando durableTask:HubName.
+* (opcional): **`top`** Este comando dá suporte à paginação. Esse parâmetro corresponde ao número de instâncias recuperadas por solicitação. O padrão é 10.
+* (opcional): **`continuation-token`** Um token para indicar qual página ou seção de instâncias recuperar. Cada `get-instances` execução retorna um token para o próximo conjunto de instâncias.
+* (opcional): **`connection-string-setting`** Nome da configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada. A predefinição é `AzureWebJobsStorage`.
+* (opcional): **`task-hub-name`** Nome do hub de tarefas Durable Functions a ser usado. A predefinição é `DurableFunctionsHub`. Ele também pode ser definido em [host. JSON](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
 
 ```bash
 func durable get-instances
@@ -238,9 +237,9 @@ func durable get-instances
 
 ## <a name="query-instances-with-filters"></a>Instâncias de consulta com filtros
 
-E se não precisa realmente todas as informações que pode fornecer uma consulta de instância padrão? Por exemplo, e se estiver à procura de apenas a hora de criação de orquestração, ou o estado de tempo de execução da orquestração? Pode restringir a consulta ao aplicar filtros.
+E se você não precisar realmente de todas as informações que uma consulta de instância padrão pode fornecer? Por exemplo, e se você estiver apenas procurando o tempo de criação da orquestração ou o status do tempo de execução Orchestration? Você pode restringir sua consulta aplicando filtros.
 
-Utilize o `GetStatusAsync` (.NET) ou `getStatusBy` predefinidas de método (JavaScript) para obter uma lista de instâncias de orquestração que correspondem a um conjunto de filtros.
+Use o `GetStatusAsync` método (.net) `getStatusBy` ou (JavaScript) para obter uma lista de instâncias de orquestração que correspondem a um conjunto de filtros predefinidos.
 
 ### <a name="c"></a>C#
 
@@ -267,7 +266,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -290,29 +289,29 @@ module.exports = async function(context, req) {
 };
 ```
 
-### <a name="azure-functions-core-tools"></a>Ferramentas de núcleo das funções do Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-As ferramentas de núcleo de funções do Azure, pode também utilizar o `durable get-instances` comando com filtros. Para além do mencionados anteriormente `top`, `continuation-token`, `connection-string-setting`, e `task-hub-name` parâmetros, pode utilizar três parâmetros de filtro (`created-after`, `created-before`, e `runtime-status`).
+No Azure Functions Core Tools, você também pode usar o `durable get-instances` comando com filtros. Além `top`dos `connection-string-setting``created-after` `runtime-status`parâmetros, `continuation-token`, `created-before`e mencionados anteriormente, você pode usar três parâmetros de filtro (,, e). `task-hub-name`
 
-* **`created-after` (opcional)** : Obter as instâncias criadas após esta data/hora (UTC). ISO 8601 formatado datetimes aceites.
-* **`created-before` (opcional)** : Obter as instâncias criadas antes desta data/hora (UTC). ISO 8601 formatado datetimes aceites.
-* **`runtime-status` (opcional)** : Obter as instâncias com um estado específico (por exemplo, em execução ou concluído). Pode fornecer vários Estados de (espaço separado).
-* **`top` (opcional)** : Número de instâncias de obter por pedido. A predefinição é 10.
-* **`continuation-token` (opcional)** : Um token para indicar qual página ou a secção de instâncias para recuperar. Cada `get-instances` execução devolve um token para o próximo conjunto de instâncias.
-* **`connection-string-setting` (opcional)** : Nome da definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar. A predefinição é `AzureWebJobsStorage`.
-* **`task-hub-name` (opcional)** : Nome do hub de tarefa de funções duráveis para utilizar. A predefinição é `DurableFunctionsHub`. Também pode ser definido nas [Host. JSON](durable-functions-bindings.md#host-json), utilizando durableTask:HubName.
+* (opcional): **`created-after`** Recupere as instâncias criadas após esta data/hora (UTC). Data e hora formatadas ISO 8601 aceitas.
+* (opcional): **`created-before`** Recupere as instâncias criadas antes desta data/hora (UTC). Data e hora formatadas ISO 8601 aceitas.
+* (opcional): **`runtime-status`** Recupere as instâncias com um status específico (por exemplo, executando ou concluído). Pode fornecer vários status (separados por espaço).
+* (opcional): **`top`** Número de instâncias recuperadas por solicitação. O padrão é 10.
+* (opcional): **`continuation-token`** Um token para indicar qual página ou seção de instâncias recuperar. Cada `get-instances` execução retorna um token para o próximo conjunto de instâncias.
+* (opcional): **`connection-string-setting`** Nome da configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada. A predefinição é `AzureWebJobsStorage`.
+* (opcional): **`task-hub-name`** Nome do hub de tarefas Durable Functions a ser usado. A predefinição é `DurableFunctionsHub`. Ele também pode ser definido em [host. JSON](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
 
-Se não fornecer todos os filtros (`created-after`, `created-before`, ou `runtime-status`), o comando simplesmente obtém `top` instâncias, sem considerar para o tempo de criação ou de estado de runtime.
+Se você não fornecer filtros`created-after`(, `created-before`ou `runtime-status`), o comando simplesmente recupera `top` instâncias, sem considerar o status do tempo de execução ou o tempo de criação.
 
 ```bash
 func durable get-instances --created-after 2018-03-10T13:57:31Z --created-before  2018-03-10T23:59Z --top 15
 ```
 
-## <a name="terminate-instances"></a>Encerrar as instâncias
+## <a name="terminate-instances"></a>Encerrar instâncias
 
-Se tiver uma instância de orquestração que está a demorar demasiado tempo ou, só precisa de pará-la antes de concluir por qualquer motivo, tem a opção para encerrá-lo.
+Se você tiver uma instância de orquestração demorando muito para ser executada ou apenas precisar interrompê-la antes de ser concluída por qualquer motivo, você terá a opção de finalizá-la.
 
-Pode utilizar o [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) método da [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe (.NET), ou o `terminate` método o `DurableOrchestrationClient` classe (JavaScript). Os dois parâmetros são um `instanceId` e um `reason` cadeia de caracteres, que são escritos nos registos e para o estado de instância. Uma instância terminada deixa de ser executada assim que atingir o próximo `await` (.NET) ou `yield` ponto (JavaScript) ou encerra imediatamente se ainda estiver `await` ou `yield`.
+Você pode usar o método [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) da classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.net) ou o `terminate` método da `DurableOrchestrationClient` classe (JavaScript). Os dois parâmetros são um `instanceId` e uma `reason` cadeia de caracteres, que são gravados nos logs e no status da instância. Uma instância finalizada interrompe a execução assim que atinge o próximo `await` ponto (.net) `yield` ou (JavaScript) ou termina imediatamente se já estiver em um `await` ou `yield`.
 
 ### <a name="c"></a>C#
 
@@ -327,7 +326,7 @@ public static Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -341,18 +340,18 @@ module.exports = async function(context, instanceId) {
 ```
 
 > [!NOTE]
-> Atualmente não propagar a terminação de instância. Funções de atividade e orquestrações secundárias executam por completo, independentemente se tiver terminado a instância de orquestração que os chamou.
+> O encerramento da instância não se propaga no momento. As funções de atividade e as suborquestrações são executadas até a conclusão, independentemente de você ter encerrado a instância de orquestração que as chamou.
 
-### <a name="azure-functions-core-tools"></a>Ferramentas de núcleo das funções do Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Pode também terminar uma instância da orquestração diretamente, com o [ferramentas de núcleo de funções do Azure](../functions-run-local.md) `durable terminate` comando. Ele usa os seguintes parâmetros:
+Você também pode encerrar uma instância de orquestração diretamente, usando o comando [Azure Functions Core Tools](../functions-run-local.md) `durable terminate` . Ele usa os seguintes parâmetros:
 
-* **`id` (obrigatório)** : ID da instância de orquestração, para terminar.
-* **`reason` (opcional)** : Motivo de encerramento.
-* **`connection-string-setting` (opcional)** : Nome da definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar. A predefinição é `AzureWebJobsStorage`.
-* **`task-hub-name` (opcional)** : Nome do hub de tarefa de funções duráveis para utilizar. A predefinição é `DurableFunctionsHub`. Também pode ser definido nas [Host. JSON](durable-functions-bindings.md#host-json), utilizando durableTask:HubName.
+* (obrigatório): **`id`** ID da instância de orquestração a ser encerrada.
+* (opcional): **`reason`** Motivo do encerramento.
+* (opcional): **`connection-string-setting`** Nome da configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada. A predefinição é `AzureWebJobsStorage`.
+* (opcional): **`task-hub-name`** Nome do hub de tarefas Durable Functions a ser usado. A predefinição é `DurableFunctionsHub`. Ele também pode ser definido em [host. JSON](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
 
-O seguinte comando termina uma instância de orquestração com o ID de 0ab8c55a66644d68a3a8b220b12d209c:
+O comando a seguir encerra uma instância de orquestração com uma ID de 0ab8c55a66644d68a3a8b220b12d209c:
 
 ```bash
 func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was time to be done."
@@ -360,15 +359,15 @@ func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was ti
 
 ## <a name="send-events-to-instances"></a>Enviar eventos para instâncias
 
-Em alguns cenários, é importante para as suas funções do orchestrator conseguir a aguardar e escutar eventos externos. Isto inclui [monitorizar as funções](durable-functions-concepts.md#monitoring) e as funções que estão a aguardar [interação humana](durable-functions-concepts.md#human).
+Em alguns cenários, é importante que suas funções de orquestrador possam esperar e ouvir eventos externos. Isso inclui [funções](durable-functions-concepts.md#monitoring) e funções de monitor que estão aguardando a [interação humana](durable-functions-concepts.md#human).
 
-Enviar notificações de eventos para instâncias em execução ao utilizar o [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) método da [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe (.NET) ou o `raiseEvent` método da `DurableOrchestrationClient` classe ( JavaScript). Instâncias que podem lidar com esses eventos são aqueles que estão aguardando uma chamada para [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) ou `waitForExternalEvent` (JavaScript).
+Envie notificações de eventos para executar instâncias usando o método [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) da classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.net) ou o `raiseEvent` método da `DurableOrchestrationClient` classe (JavaScript). As instâncias que podem lidar com esses eventos são aquelas que estão aguardando uma chamada para [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET `waitForExternalEvent` ) ou (JavaScript).
 
-Os parâmetros a serem [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.NET) e `raiseEvent` (JavaScript) são os seguintes:
+Os parâmetros para [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.net) e `raiseEvent` (JavaScript) são os seguintes:
 
-* **InstanceId**: O ID exclusivo da instância.
-* **EventName**: O nome do evento para enviar.
-* **EventData**: Um payload JSON serializável para enviar para a instância.
+* **InstanceId**: A ID exclusiva da instância.
+* **Eventoname**: O nome do evento a ser enviado.
+* **EVENTDATA**: Uma carga serializável em JSON a ser enviada para a instância.
 
 ### <a name="c"></a>C#
 
@@ -383,7 +382,7 @@ public static Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -397,17 +396,17 @@ module.exports = async function(context, instanceId) {
 ```
 
 > [!IMPORTANT]
-> Se não existir nenhuma instância de orquestração com o ID de instância especificado, ou se a instância não está à espera o nome de evento especificado, a mensagem de evento é rejeitada. Para obter mais informações sobre este comportamento, consulte a [problema do GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+> Se não houver nenhuma instância de orquestração com a ID de instância especificada ou se a instância não estiver aguardando o nome do evento especificado, a mensagem de evento será descartada. Para obter mais informações sobre esse comportamento, consulte o [problema do GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-### <a name="azure-functions-core-tools"></a>Ferramentas de núcleo das funções do Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Pode também levantar um evento para uma instância da orquestração diretamente, utilizando o [ferramentas de núcleo de funções do Azure](../functions-run-local.md) `durable raise-event` comando. Ele usa os seguintes parâmetros:
+Você também pode gerar um evento para uma instância de orquestração diretamente, usando o comando [Azure Functions Core Tools](../functions-run-local.md) `durable raise-event` . Ele usa os seguintes parâmetros:
 
-* **`id` (obrigatório)** : ID da instância de orquestração.
-* **`event-name` (opcional)** : Nome do evento para gerar. A predefinição é `$"Event_{RandomGUID}"`.
-* **`event-data` (opcional)** : Dados para enviar para a instância de orquestração. Isso pode ser o caminho para um ficheiro JSON, ou pode fornecer os dados diretamente na linha de comandos.
-* **`connection-string-setting` (opcional)** : Nome da definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar. A predefinição é `AzureWebJobsStorage`.
-* **`task-hub-name` (opcional)** : Nome do hub de tarefa de funções duráveis para utilizar. A predefinição é `DurableFunctionsHub`. Também pode ser definido nas [Host. JSON](durable-functions-bindings.md#host-json), utilizando durableTask:HubName.
+* (obrigatório): **`id`** ID da instância de orquestração.
+* (opcional): **`event-name`** Nome do evento a ser gerado. A predefinição é `$"Event_{RandomGUID}"`.
+* (opcional): **`event-data`** Dados a serem enviados para a instância de orquestração. Esse pode ser o caminho para um arquivo JSON ou você pode fornecer os dados diretamente na linha de comando.
+* (opcional): **`connection-string-setting`** Nome da configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada. A predefinição é `AzureWebJobsStorage`.
+* (opcional): **`task-hub-name`** Nome do hub de tarefas Durable Functions a ser usado. A predefinição é `DurableFunctionsHub`. Ele também pode ser definido em [host. JSON](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
 
 ```bash
 func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEvent --event-data @eventdata.json
@@ -417,27 +416,27 @@ func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEv
 func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 ```
 
-## <a name="wait-for-orchestration-completion"></a>Aguardar pela conclusão de orquestração
+## <a name="wait-for-orchestration-completion"></a>Aguardar a conclusão da orquestração
 
-Orquestrações de execução longa, poderá esperar obter os resultados de uma orquestração. Nestes casos, também é útil poder definir um período de tempo limite na orquestração. Se o tempo limite for excedido, o estado da orquestração deverá ser retornado em vez dos resultados.
+Em orquestrações de longa execução, talvez você queira esperar e obter os resultados de uma orquestração. Nesses casos, também é útil ser capaz de definir um período de tempo limite na orquestração. Se o tempo limite for excedido, o estado da orquestração deverá ser retornado em vez dos resultados.
 
-O [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe expõe um [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) API em .NET. Pode utilizar esta API para obter o resultado real de uma instância de orquestração de forma síncrona. No JavaScript, o `DurableOrchestrationClient` classe expõe um `waitForCompletionOrCreateCheckStatusResponse` API com o mesmo objetivo. Quando não estão definidas, os métodos usam um valor predefinido de 10 segundos para `timeout`e 1 segundo para `retryInterval`.  
+A classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) expõe uma API [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) no .net. Você pode usar essa API para obter a saída real de uma instância de orquestração de forma síncrona. No JavaScript, a `DurableOrchestrationClient` classe expõe uma `waitForCompletionOrCreateCheckStatusResponse` API para a mesma finalidade. Quando não estiverem definidas, os métodos usarão um valor padrão de 10 segundos para `timeout`e 1 segundo para. `retryInterval`  
 
-Eis um exemplo de função de Acionador de HTTP que demonstra como utilizar esta API:
+Aqui está um exemplo de função de gatilho HTTP que demonstra como usar essa API:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
 
-Chame a função com a seguinte linha. Utilize 2 segundos para o tempo limite e 0,5 segundos durante o intervalo de repetição:
+Chame a função com a linha a seguir. Use 2 segundos para o tempo limite e 0,5 segundos para o intervalo de repetição:
 
 ```bash
     http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
 ```
 
-Dependendo do tempo necessário para obter a resposta da instância de orquestração, existem dois casos:
+Dependendo do tempo necessário para obter a resposta da instância de orquestração, há dois casos:
 
-* As instâncias de orquestração concluir dentro do tempo limite definido (no caso 2 segundos) e a resposta é a saída de instância real de orquestração, entregue de forma síncrona:
+* As instâncias de orquestração são concluídas dentro do tempo limite definido (neste caso, 2 segundos) e a resposta é a saída real da instância de orquestração, entregue de forma síncrona:
 
     ```http
         HTTP/1.1 200 OK
@@ -453,7 +452,7 @@ Dependendo do tempo necessário para obter a resposta da instância de orquestra
         ]
     ```
 
-* As instâncias de orquestração não é possível concluir dentro do tempo limite definido e a resposta é a predefinição um descrito em [deteção de URL da API HTTP](durable-functions-http-api.md):
+* As instâncias de orquestração não podem ser concluídas dentro do tempo limite definido e a resposta é a padrão descrita na [descoberta de URL da API http](durable-functions-http-api.md):
 
     ```http
         HTTP/1.1 202 Accepted
@@ -474,25 +473,25 @@ Dependendo do tempo necessário para obter a resposta da instância de orquestra
     ```
 
 > [!NOTE]
-> O formato dos URLs de webhook pode variar, dependendo de qual versão do anfitrião de funções do Azure está a executar. No exemplo anterior é para o anfitrião de 2.x as funções do Azure.
+> O formato das URLs de webhook pode ser diferente, dependendo da versão do host de Azure Functions que você está executando. O exemplo anterior é para o host Azure Functions 2. x.
 
-## <a name="retrieve-http-management-webhook-urls"></a>Obter URLs de webhook de gestão de HTTP
+## <a name="retrieve-http-management-webhook-urls"></a>Recuperar URLs de webhook de gerenciamento HTTP
 
-Pode utilizar um sistema externo para monitorizar ou acionem eventos para uma orquestração. Sistemas externos podem comunicar com funções duráveis por meio dos URLs de webhook que fazem parte da resposta padrão descrita em [deteção de URL da API HTTP](durable-functions-http-api.md). No entanto, os URLs de webhook também podem ser acessados por meio de programação no cliente de orquestração ou numa função de atividade. Fazer isso usando o [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) método da [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe (.NET), ou o `createHttpManagementPayload` método o `DurableOrchestrationClient` classe (JavaScript).
+Você pode usar um sistema externo para monitorar ou gerar eventos para uma orquestração. Os sistemas externos podem se comunicar com Durable Functions por meio de URLs de webhook que fazem parte da resposta padrão descrita na [descoberta de URL da API http](durable-functions-http-api.md). No entanto, as URLs de webhook também podem ser acessadas programaticamente no cliente de orquestração ou em uma função de atividade. Faça isso usando o método [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) da classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.net) ou o `createHttpManagementPayload` método da `DurableOrchestrationClient` classe (JavaScript).
 
 [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) e `createHttpManagementPayload` ter um parâmetro:
 
-* **instanceId**: O ID exclusivo da instância.
+* **instanceId**: A ID exclusiva da instância.
 
-Os métodos de retornam uma instância de [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) (.NET) ou um objeto (JavaScript), com as seguintes propriedades de cadeia de caracteres:
+Os métodos retornam uma instância de [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) (.net) ou um objeto (JavaScript), com as seguintes propriedades de cadeia de caracteres:
 
-* **Id**: O ID de instância da orquestração (deve ser o mesmo que o `InstanceId` entrada).
-* **StatusQueryGetUri**: O URL de estado da instância de orquestração.
-* **SendEventPostUri**: O URL de "emitir um evento" da instância de orquestração.
-* **TerminatePostUri**: O URL da instância de orquestração "terminar".
-* **RewindPostUri**: O URL de "o recuo" da instância de orquestração.
+* **ID**: A ID da instância da orquestração (deve ser a mesma que a `InstanceId` entrada).
+* **StatusQueryGetUri**: A URL de status da instância de orquestração.
+* **SendEventPostUri**: A URL "gerar evento" da instância de orquestração.
+* **TerminatePostUri**: A URL "Terminate" da instância de orquestração.
+* **RewindPostUri**: A URL de "retrocesso" da instância de orquestração.
 
-Funções de atividade podem enviar uma instância desses objetos para sistemas externos para monitorizar ou acionem eventos para uma orquestração:
+As funções de atividade podem enviar uma instância desses objetos a sistemas externos para monitorar ou gerar eventos para uma orquestração:
 
 ### <a name="c"></a>C#
 
@@ -513,7 +512,7 @@ public static void SendInstanceInfo(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -531,19 +530,19 @@ modules.exports = async function(context, ctx) {
 };
 ```
 
-## <a name="rewind-instances-preview"></a>Retroceder instances (pré-visualização)
+## <a name="rewind-instances-preview"></a>Rebobinar instâncias (visualização)
 
-Se tiver uma falha de orquestração por um motivo inesperado, pode *Retroceder* a instância de anteriormente bom estado de funcionamento com uma API concebida para essa finalidade.
-
-> [!NOTE]
-> Esta API não se destina a ser uma substituição para o tratamento de erros adequado e políticas de repetição. Em vez disso, destina-se a ser usado apenas em casos em que as instâncias de orquestração falharem por motivos de inesperado. Para obter mais detalhes sobre políticas de repetição e manipulação de erro, consulte a [tratamento de erros](durable-functions-error-handling.md) tópico.
-
-Utilize o [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) (.NET) ou `rewindAsync` API (JavaScript) para colocar a orquestração novamente para o *em execução* estado. Volte a executar as falhas de execução de atividade ou suborchestration que causou a falha de orquestração.
-
-Por exemplo, digamos que tenha um fluxo de trabalho que envolve uma série de [aprovações humanas](durable-functions-concepts.md#human). Suponha que há uma série de funções de atividade que o notificam alguém que sua aprovação é necessária e aguarde que a resposta em tempo real. Afinal de contas da aprovação atividades tenham recebido as respostas ou excedeu o tempo, suponha que outra atividade falha devido a um erro de configuração do aplicativo, como uma cadeia de ligação de base de dados inválido. O resultado é uma falha de orquestração profundamente o fluxo de trabalho. Com o `RewindAsync` (.NET) ou `rewindAsync` administrador (JavaScript) API, um aplicativo pode corrigir o erro de configuração e Retroceder a orquestração com falha para o estado de imediatamente antes da falha. Nenhum dos passos de interação humana tem de ser aprovado novamente e a orquestração pode agora ser concluída com êxito.
+Se você tiver uma falha de orquestração por um motivo inesperado , poderá retroceder a instância para um estado de integridade anterior usando uma API criada para essa finalidade.
 
 > [!NOTE]
-> O *Retroceder* funcionalidade não suporta e instâncias de orquestração de avanço rápido, que utilizam os temporizadores duráveis.
+> Essa API não se destina a ser uma substituição para o tratamento de erros e as políticas de repetição adequados. Em vez disso, ele se destina a ser usado apenas nos casos em que as instâncias de orquestração falham por motivos inesperados. Para obter mais detalhes sobre o tratamento de erros e as políticas de repetição, consulte o tópico [tratamento de erros](durable-functions-error-handling.md) .
+
+Use a API [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) (.net) `rewindAsync` ou (JavaScript) para colocar a orquestração de volta no estado de *execução* . Execute novamente a atividade ou as falhas de execução de suborquestração que causaram a falha de orquestração.
+
+Por exemplo, digamos que você tenha um fluxo de trabalho que envolva uma série de [aprovações humanas](durable-functions-concepts.md#human). Suponha que haja uma série de funções de atividade que notifique alguém de que sua aprovação é necessária e aguarde a resposta em tempo real. Depois que todas as atividades de aprovação receberam respostas ou atingiram o tempo limite, suponha que outra atividade falhe devido a uma configuração incorreta do aplicativo, como uma cadeia de conexão de banco de dados inválida. O resultado é uma falha de orquestração profunda no fluxo de trabalho. Com a `RewindAsync` API (.net) `rewindAsync` ou (JavaScript), um administrador de aplicativos pode corrigir o erro de configuração e rebobinar a orquestração com falha de volta para o estado imediatamente antes da falha. Nenhuma das etapas de interação humana precisa ser reaprovada e a orquestração agora pode ser concluída com êxito.
+
+> [!NOTE]
+> O recurso de *retrocesso* não dá suporte à rebobinagem de instâncias de orquestração que usam temporizadores duráveis.
 
 ### <a name="c"></a>C#
 
@@ -558,7 +557,7 @@ public static Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -571,27 +570,27 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-### <a name="azure-functions-core-tools"></a>Ferramentas de núcleo das funções do Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Também pode retroceder uma instância da orquestração diretamente, utilizando o [ferramentas de núcleo de funções do Azure](../functions-run-local.md) `durable rewind` comando. Ele usa os seguintes parâmetros:
+Você também pode rebobinar uma instância de orquestração diretamente usando o comando [Azure Functions Core Tools](../functions-run-local.md) `durable rewind` . Ele usa os seguintes parâmetros:
 
-* **`id` (obrigatório)** : ID da instância de orquestração.
-* **`reason` (opcional)** : Motivo para o avanço rápido a instância de orquestração.
-* **`connection-string-setting` (opcional)** : Nome da definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar. A predefinição é `AzureWebJobsStorage`.
-* **`task-hub-name` (opcional)** : Nome do hub de tarefa de funções duráveis para utilizar. A predefinição é `DurableFunctionsHub`. Também pode ser definido nas [Host. JSON](durable-functions-bindings.md#host-json), utilizando durableTask:HubName.
+* (obrigatório): **`id`** ID da instância de orquestração.
+* (opcional): **`reason`** Motivo para retroceder a instância de orquestração.
+* (opcional): **`connection-string-setting`** Nome da configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada. A predefinição é `AzureWebJobsStorage`.
+* (opcional): **`task-hub-name`** Nome do hub de tarefas Durable Functions a ser usado. A predefinição é `DurableFunctionsHub`. Ele também pode ser definido em [host. JSON](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
 
 ```bash
 func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator failed and needs to be revived."
 ```
 
-## <a name="purge-instance-history"></a>Histórico de instância
+## <a name="purge-instance-history"></a>Limpar histórico de instância
 
-Para remover todos os dados associados a uma orquestração, pode remover o histórico de instância. Por exemplo, pode querer nos livrar de linhas de tabelas do Azure e blobs de mensagem grande, caso existam. Para tal, utilize o [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_) API.
+Para remover todos os dados associados a uma orquestração, você pode limpar o histórico de instâncias. Por exemplo, talvez você queira se livrar de linhas de tabela do Azure e blobs de mensagens grandes, se existirem. Para fazer isso, use a API [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_) .
 
 > [!NOTE]
-> O `PurgeInstanceHistoryAsync` API está atualmente disponível apenas para C#.
+> A `PurgeInstanceHistoryAsync` API está atualmente disponível apenas para C#o.
 
- O método tem duas sobrecargas. Primeiro remove histórico pelo ID da instância de orquestração de:
+ O método tem duas sobrecargas. A primeira limpa o histórico pela ID da instância de orquestração:
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -603,7 +602,7 @@ public static Task Run(
 }
 ```
 
-O segundo exemplo mostra uma função acionada por temporizador que remove o histórico de todas as instâncias de orquestração concluída após o intervalo de tempo especificado. Neste caso, remove os dados para todas as instâncias concluídas 30 ou mais dias atrás. Está agendado para ser executado uma vez por dia, às 12 AM:
+O segundo exemplo mostra uma função disparada por temporizador que limpa o histórico de todas as instâncias de orquestração concluídas após o intervalo de tempo especificado. Nesse caso, ele remove dados de todas as instâncias concluídas 30 ou mais dias atrás. Ele está agendado para ser executado uma vez por dia, às 12:
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -622,32 +621,32 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Para o processo de uma função acionada por hora com êxito, o status de tempo de execução deve estar **concluído**, **Terminated**, ou **falha**.
+> Para que o processo de função acionada por tempo tenha êxito, o status do tempo de execução deve ser **concluído**, **terminado**ou **com falha**.
 
-### <a name="azure-functions-core-tools"></a>Ferramentas de núcleo das funções do Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Pode remover o histórico de uma instância de orquestração, utilizando o [ferramentas de núcleo de funções do Azure](../functions-run-local.md) `durable purge-history` comando. Semelhante ao segundo C# exemplo na secção anterior, ele remove o histórico de todas as instâncias de orquestração criados durante um intervalo de tempo especificado. Pode filtrar ainda mais instâncias eliminadas por Estado de runtime. O comando tem vários parâmetros:
+Você pode limpar o histórico de uma instância de orquestração usando o comando [Azure Functions Core Tools](../functions-run-local.md) `durable purge-history` . Semelhante ao segundo C# exemplo na seção anterior, ele limpa o histórico de todas as instâncias de orquestração criadas durante um intervalo de tempo especificado. Você pode filtrar ainda mais as instâncias limpas por status de tempo de execução. O comando tem vários parâmetros:
 
-* **`created-after` (opcional)** : Remover o histórico de instâncias criadas após esta data/hora (UTC). ISO 8601 formatado datetimes aceites.
-* **`created-before` (opcional)** : Remover o histórico de instâncias criadas antes desta data/hora (UTC). ISO 8601 formatado datetimes aceites.
-* **`runtime-status` (opcional)** : Remover o histórico de instâncias com um estado específico (por exemplo, em execução ou concluído). Pode fornecer vários Estados de (espaço separado).
-* **`connection-string-setting` (opcional)** : Nome da definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar. A predefinição é `AzureWebJobsStorage`.
-* **`task-hub-name` (opcional)** : Nome do hub de tarefa de funções duráveis para utilizar. A predefinição é `DurableFunctionsHub`. Também pode ser definido nas [Host. JSON](durable-functions-bindings.md#host-json), utilizando durableTask:HubName.
+* (opcional): **`created-after`** Limpar o histórico de instâncias criadas após esta data/hora (UTC). Data e hora formatadas ISO 8601 aceitas.
+* (opcional): **`created-before`** Limpar o histórico de instâncias criadas antes desta data/hora (UTC). Data e hora formatadas ISO 8601 aceitas.
+* (opcional): **`runtime-status`** Limpe o histórico de instâncias com um status específico (por exemplo, em execução ou concluído). Pode fornecer vários status (separados por espaço).
+* (opcional): **`connection-string-setting`** Nome da configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada. A predefinição é `AzureWebJobsStorage`.
+* (opcional): **`task-hub-name`** Nome do hub de tarefas Durable Functions a ser usado. A predefinição é `DurableFunctionsHub`. Ele também pode ser definido em [host. JSON](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
 
-O comando seguinte elimina o histórico de todas as instâncias com falha criada antes de 14 de Novembro de 2018 em 7:35 PM (UTC).
+O comando a seguir exclui o histórico de todas as instâncias com falha criadas antes de 14 de novembro de 2018 às 7:35 PM (UTC).
 
 ```bash
 func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runtime-status failed
 ```
 
-## <a name="delete-a-task-hub"></a>Eliminar um hub de tarefa
+## <a name="delete-a-task-hub"></a>Excluir um hub de tarefas
 
-Utilizar o [ferramentas de núcleo de funções do Azure](../functions-run-local.md) `durable delete-task-hub` de comando, pode eliminar todos os artefactos de armazenamento associados a um hub de tarefa específica. Isto inclui as tabelas de armazenamento do Azure, filas e blobs. O comando tem dois parâmetros:
+Usando o comando [Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub` , você pode excluir todos os artefatos de armazenamento associados a um determinado Hub de tarefas. Isso inclui tabelas, filas e BLOBs do armazenamento do Azure. O comando tem dois parâmetros:
 
-* **`connection-string-setting` (opcional)** : Nome da definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar. A predefinição é `AzureWebJobsStorage`.
-* **`task-hub-name` (opcional)** : Nome do hub de tarefa de funções duráveis para utilizar. A predefinição é `DurableFunctionsHub`. Também pode ser definido nas [Host. JSON](durable-functions-bindings.md#host-json), utilizando durableTask:HubName.
+* (opcional): **`connection-string-setting`** Nome da configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada. A predefinição é `AzureWebJobsStorage`.
+* (opcional): **`task-hub-name`** Nome do hub de tarefas Durable Functions a ser usado. A predefinição é `DurableFunctionsHub`. Ele também pode ser definido em [host. JSON](durable-functions-bindings.md#host-json), usando DurableTask: HubName.
 
-O comando seguinte elimina todos os dados de armazenamento do Azure associados a `UserTest` hub de tarefa.
+O comando a seguir exclui todos os dados do armazenamento do `UserTest` Azure associados ao Hub de tarefas.
 
 ```bash
 func durable delete-task-hub --task-hub-name UserTest
@@ -656,4 +655,4 @@ func durable delete-task-hub --task-hub-name UserTest
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba como utilizar as APIs de HTTP por exemplo, gestão](durable-functions-http-api.md)
+> [Saiba como usar as APIs HTTP para o gerenciamento de instâncias](durable-functions-http-api.md)

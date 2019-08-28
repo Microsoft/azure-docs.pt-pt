@@ -10,17 +10,16 @@ ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4bf7b894a23f0054485ddb6dbb91c4df2122222
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 5cceb7cc179f78d6b6d7350e7c4f6c31bb9cbfed
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907332"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095721"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Batch com portal do Azure
 
@@ -42,7 +41,7 @@ Para informações sobre contas do Batch e cenários, consulte a [descrição ge
 
     ![Criar uma conta do Batch][account_portal]
 
-    a. **Assinatura**: A assinatura na qual criar a conta do lote. Se tiver apenas uma subscrição, está selecionada por predefinição.
+    a. **Subscrição**: A assinatura na qual criar a conta do lote. Se tiver apenas uma subscrição, está selecionada por predefinição.
 
     b. **Grupo de recursos**: Selecione um grupo de recursos existente para sua nova conta do lote ou, opcionalmente, crie um novo.
 
@@ -137,7 +136,7 @@ Além do portal do Azure, também pode criar e gerir contas do Batch com ferrame
 * [CLI do Azure](batch-cli-get-started.md)
 * [Gestão de Batch .NET](batch-management-dotnet.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Consulte a [Batch feature overview (Descrição geral da funcionalidade do Batch)](batch-api-basics.md) para saber mais sobre conceitos e funcionalidades de serviço do Batch. O artigo aborda os recursos do Batch principais como conjuntos, nós de computação e tarefas e fornece uma descrição geral das funcionalidades do serviço para cargas de trabalho de computação em grande escala.
 * Aprenda os conceitos básicos de programação de uma aplicação compatível com o Batch ao utilizar a [biblioteca de cliente .NET do Batch](quick-run-dotnet.md) ou [Python](quick-run-python.md). Estes inícios rápidos orientam-no numa aplicação de exemplo que utiliza o serviço do Batch para executar uma carga de trabalho em vário nós de computação e inclui a utilização do Armazenamento do Azure para o teste e obtenção do ficheiro de carga de trabalho.

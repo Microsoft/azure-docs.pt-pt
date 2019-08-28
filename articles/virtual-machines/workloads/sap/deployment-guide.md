@@ -10,18 +10,17 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: 23f2d9add5838fc0c9ac5764921a2f3cc6ae7ab7
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: b9db5cbb9e65fc7bc8aa306a69a0889f29b61be3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67709901"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101338"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implantação de máquinas virtuais do Azure para SAP NetWeaver
 
@@ -425,7 +424,7 @@ O assistente orienta você pela definição dos parâmetros necessários para cr
    * **Nome**: O nome do recurso (o nome da máquina virtual).
    * **Tipo de disco da VM**: Selecione o tipo de disco do disco do sistema operacional. Se você quiser usar o armazenamento Premium para seus discos de dados, é recomendável usar o armazenamento Premium para o disco do sistema operacional também.
    * **Nome de usuário e senha** ou **chave pública SSH**: Insira o nome de usuário e a senha que é criado durante o provisionamento. Para uma máquina virtual do Linux, você pode inserir a chave pública de Secure Shell (SSH) que você usa para entrar no computador.
-   * **Assinatura**: Selecione a assinatura que você deseja usar para provisionar a nova máquina virtual.
+   * **Subscrição**: Selecione a assinatura que você deseja usar para provisionar a nova máquina virtual.
    * **Grupo de recursos**: O nome do grupo de recursos para a VM. Você pode inserir o nome de um novo grupo de recursos ou o nome de um grupo de recursos que já existe.
    * **Local**: Onde implantar a nova máquina virtual. Se você quiser conectar a máquina virtual à sua rede local, certifique-se de selecionar o local da rede virtual que conecta o Azure à sua rede local. Para obter mais informações, consulte [Microsoft Azure rede][planning-guide-microsoft-azure-networking] em [planejamento e implementação de máquinas virtuais do Azure para SAP NetWeaver][planning-guide].
 1. **Tamanho**:
@@ -473,7 +472,7 @@ Você pode criar uma máquina virtual usando um dos modelos SAP publicados no [r
 Na portal do Azure, insira os seguintes parâmetros para o modelo:
 
 1. **Noções básicas**:
-   * **Assinatura**: A assinatura a ser usada para implantar o modelo.
+   * **Subscrição**: A assinatura a ser usada para implantar o modelo.
    * **Grupo de recursos**: O grupo de recursos a ser usado para implantar o modelo. Você pode criar um novo grupo de recursos ou pode selecionar um grupo de recursos existente na assinatura.
    * **Local**: Onde implantar o modelo. Se você selecionou um grupo de recursos existente, o local desse grupo de recursos será usado.
 
@@ -565,7 +564,7 @@ O assistente orienta você pela definição dos parâmetros necessários para cr
    * **Nome**: O nome do recurso (o nome da máquina virtual).
    * **Tipo de disco da VM**: Selecione o tipo de disco do disco do sistema operacional. Se você quiser usar o armazenamento Premium para seus discos de dados, é recomendável usar o armazenamento Premium para o disco do sistema operacional também.
    * **Nome de usuário e senha** ou **chave pública SSH**: Insira o nome de usuário e a senha que é criado durante o provisionamento. Para uma máquina virtual do Linux, você pode inserir a chave pública de Secure Shell (SSH) que você usa para entrar no computador.
-   * **Assinatura**: Selecione a assinatura que você deseja usar para provisionar a nova máquina virtual.
+   * **Subscrição**: Selecione a assinatura que você deseja usar para provisionar a nova máquina virtual.
    * **Grupo de recursos**: O nome do grupo de recursos para a VM. Você pode inserir o nome de um novo grupo de recursos ou o nome de um grupo de recursos que já existe.
    * **Local**: Onde implantar a nova máquina virtual. Se você quiser conectar a máquina virtual à sua rede local, certifique-se de selecionar o local da rede virtual que conecta o Azure à sua rede local. Para obter mais informações, consulte [Microsoft Azure rede][planning-guide-microsoft-azure-networking] em [planejamento e implementação de máquinas virtuais do Azure para SAP NetWeaver][planning-guide].
 1. **Tamanho**:
@@ -612,7 +611,7 @@ Para criar uma implantação usando uma imagem de sistema operacional privada do
 Na portal do Azure, insira os seguintes parâmetros para o modelo:
 
 1. **Noções básicas**:
-   * **Assinatura**: A assinatura a ser usada para implantar o modelo.
+   * **Subscrição**: A assinatura a ser usada para implantar o modelo.
    * **Grupo de recursos**: O grupo de recursos a ser usado para implantar o modelo. Você pode criar um novo grupo de recursos ou selecionar um grupo de recursos existente na assinatura.
    * **Local**: Onde implantar o modelo. Se você selecionou um grupo de recursos existente, o local desse grupo de recursos será usado.
 1. **Definições**:
@@ -707,7 +706,7 @@ Para criar uma implantação usando um disco de sistema operacional privado por 
 Na portal do Azure, insira os seguintes parâmetros para o modelo:
 
 1. **Noções básicas**:
-   * **Assinatura**: A assinatura a ser usada para implantar o modelo.
+   * **Subscrição**: A assinatura a ser usada para implantar o modelo.
    * **Grupo de recursos**: O grupo de recursos a ser usado para implantar o modelo. Você pode criar um novo grupo de recursos ou selecionar um grupo de recursos existente na assinatura.
    * **Local**: Onde implantar o modelo. Se você selecionou um grupo de recursos existente, o local desse grupo de recursos será usado.
 1. **Definições**:

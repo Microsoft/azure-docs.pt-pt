@@ -1,6 +1,6 @@
 ---
-title: Tempo de sincronização para VMs do Linux no Azure | Documentos da Microsoft
-description: Sincronização de hora para máquinas virtuais do Linux.
+title: Sincronização de horário para VMs do Linux no Azure | Microsoft Docs
+description: Sincronização de horário para máquinas virtuais do Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -8,105 +8,104 @@ manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 3271804a80ededae650c3b6ad34fdb7f9f1e5b18
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7e23b71edd05154f3c19a097ebf92c690426c777
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708628"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100788"
 ---
-# <a name="time-sync-for-linux-vms-in-azure"></a>Sincronização de hora para VMs do Linux no Azure
+# <a name="time-sync-for-linux-vms-in-azure"></a>Sincronização de horário para VMs do Linux no Azure
 
-Sincronização de hora é importante para segurança e a correlação de eventos. Por vezes, é utilizado para a implementação de transações distribuídas. Precisão de hora entre vários sistemas de computador é obtido através da sincronização. Sincronização pode ser afetada por várias coisas, incluindo os reinícios e tráfego de rede entre a origem de hora e o computador a obter a hora. 
+A sincronização de tempo é importante para a correlação de segurança e evento. Às vezes, ele é usado para a implementação de transações distribuídas. A precisão de tempo entre vários sistemas de computador é obtida por meio da sincronização. A sincronização pode ser afetada por várias coisas, incluindo reinicializações e tráfego de rede entre a fonte de tempo e o computador que busca a hora. 
 
-Azure beneficia de infraestrutura com o Windows Server 2016. Windows Server 2016 tem melhorados algoritmos utilizados para corrigir o tempo da Microsoft e o relógio local para sincronizar com o UTC.  A funcionalidade de hora exata do Windows Server 2016 melhorou muito como a VMICTimeSync service que rege a VMs com o anfitrião para o tempo preciso. As melhorias incluem tempo inicial mais preciso no início VM ou o restauro de VMS e correção de latência de interrupção. 
+O Azure é apoiado pela infraestrutura que executa o Windows Server 2016. O Windows Server 2016 tem algoritmos aprimorados usados para corrigir a hora e a condição do relógio local para sincronizar com o UTC.  O recurso de tempo preciso do Windows Server 2016 melhorou muito a forma como o serviço VMICTimeSync que governa as VMs com o host para o tempo preciso. Os aprimoramentos incluem um tempo inicial mais preciso na inicialização da VM ou na recuperação da VM e na correção da latência de interrupção. 
 
 >[!NOTE]
->Para obter uma descrição geral do serviço de hora do Windows, dê uma olhada nisso [descrição geral de alto nível vídeo](https://aka.ms/WS2016TimeVideo).
+>Para obter uma visão geral rápida do serviço de tempo do Windows, veja este [vídeo de visão geral de alto nível](https://aka.ms/WS2016TimeVideo).
 >
 > Para obter mais informações, consulte [tempo preciso para o Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
 
 ## <a name="overview"></a>Descrição geral
 
-Precisão de um relógio de computador é gauged sobre como fechar o relógio do computador é o padrão de tempo de hora Universal Coordenada (UTC). UTC é definido por uma amostra multinacional de relógios Ocorreu precisas, que só pode ficar inativo por um segundo nos anos 300. No entanto, ler UTC diretamente requer hardware especializado. Em vez disso, os servidores de tempo são sincronizados com o UTC e são acessados a partir de outros computadores para fornecer escalabilidade e robustez. Cada computador tem de tempo de serviço de sincronização em execução que sabe que servidores de tempo para utilizar e verifica periodicamente se o relógio do computador precisa de ser corrigido e ajusta o tempo se for necessário. 
+A precisão de um relógio de computador é avaliada em quão próximo o relógio do computador é o padrão de tempo UTC (tempo Universal Coordenado). O UTC é definido por um exemplo multinacional de relógios de Atomic precisos que só podem ser desativados por um segundo em 300 anos. Mas, ler o UTC diretamente requer hardware especializado. Em vez disso, os servidores de horário são sincronizados com o UTC e são acessados de outros computadores para fornecer escalabilidade e robustez. Cada computador tem o serviço de sincronização de tempo em execução que sabe quais servidores de tempo usar e verifica periodicamente se o relógio do computador precisa ser corrigido e ajusta o tempo se necessário. 
 
-Anfitriões do Azure são sincronizadas com servidores de tempo de Microsoft internos que usam seu tempo a partir de dispositivos pertencentes à Microsoft o Stratum 1, com antenas GPS. Máquinas virtuais no Azure pode optar por confiar no host para passar o tempo preciso (*alojar tempo*) para a VM ou a VM pode diretamente obter hora de um servidor de tempo, ou uma combinação de ambos. 
+Os hosts do Azure são sincronizados com os servidores de tempo internos da Microsoft que levam seu tempo em dispositivos de camada 1 de propriedade da Microsoft, com antenas de GPS. As máquinas virtuais no Azure podem depender de seu host para passar o tempo preciso (*tempo de host*) para a VM ou a VM pode obter tempo diretamente de um servidor de horário ou uma combinação de ambos. 
 
-Em hardware autónomo, o SO Linux só lê o hardware anfitrião relógio no arranque. Depois disso, o relógio é mantido utilizando o temporizador de interrupção no kernel do Linux. Nesta configuração, o relógio será inconsistências ao longo do tempo. Em mais recentes distribuições do Linux no Azure, as VMs podem utilizar o fornecedor de VMICTimeSync, incluído nos serviços de integração do Linux (LIS), para consultar atualizações do relógio do host com mais frequência.
+No hardware autônomo, o sistema operacional Linux lê apenas o relógio de hardware do host na inicialização. Depois disso, o relógio é mantido usando o temporizador de interrupção no kernel do Linux. Nessa configuração, o relógio se desatualizará ao longo do tempo. Em distribuições mais recentes do Linux no Azure, as VMs podem usar o provedor VMICTimeSync, incluído no LIS (Linux Integration Services), para consultar atualizações de relógio do host com mais frequência.
 
-Interações de máquina virtual com o host também podem afetar o relógio. Durante [memória preservação da manutenção](maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), as VMs são colocadas em pausa para até 30 segundos. Por exemplo, antes do início da manutenção o relógio VM mostra: 00 10:00 e tem uma duração de 28 segundos. Depois da VM é retomada, o relógio na VM ainda mostraria: 00 10:00, que seria 28 segundos desativado. A correta para isso, o serviço de VMICTimeSync monitoriza o que está acontecendo no host e pedidos de alterações a ocorrer nas VMs para compensar.
+As interações de máquina virtual com o host também podem afetar o relógio. Durante a [manutenção da preservação da memória](maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), as VMs são pausadas por até 30 segundos. Por exemplo, antes de a manutenção começar, o relógio da VM mostra 10:00:00 AM e dura 28 segundos. Depois que a VM for retomada, o relógio na VM ainda mostrará 10:00:00 AM, que teria 28 segundos de desconto. Para corrigir isso, o serviço VMICTimeSync monitora o que está acontecendo no host e solicita que as alterações ocorram nas VMs para compensar.
 
-Sem o trabalho de sincronização de hora, o relógio na VM seria acumular-se erros. Quando existe apenas uma VM, o efeito poderá não ser significativo, a menos que a carga de trabalho requer timekeeping altamente preciso. Mas, na maioria dos casos, podemos ter várias, interligados VMs que utilizam o tempo para controlar as transações e as necessidades de tempo para ser consistente em toda a implantação. Quando o tempo entre VMs é diferente, pode ver os seguintes efeitos:
+Sem que a sincronização de tempo funcione, o relógio na VM acumularia erros. Quando há apenas uma VM, o efeito pode não ser significativo, a menos que a carga de trabalho exija uma redução do dia altamente precisa. Mas, na maioria dos casos, temos várias VMs interconectadas que usam tempo para controlar transações e o tempo precisa ser consistente em toda a implantação. Quando o tempo entre as VMs for diferente, você poderá ver os seguintes efeitos:
 
-- Autenticação irá falhar. Protocolos de segurança, como Kerberos ou tecnologia de dependente do certificado dependem de tempo a ser consistente em todos os sistemas.
-- É muito difícil descobrir o que ocorreram num sistema se registos (ou outros dados) não concordam no tempo. O mesmo evento teria o aspeto, como ocorreu em alturas diferentes, correlação tornando difícil.
-- Se o relógio estiver desativada, a faturação foi possível calcular o incorretamente.
+- A autenticação falhará. Protocolos de segurança como a tecnologia dependente de certificado ou Kerberos dependem do tempo de consistência entre os sistemas.
+- É muito difícil descobrir o que aconteceu em um sistema se os logs (ou outros dados) não concordarem no tempo. O mesmo evento pareceria que ocorreu em momentos diferentes, dificultando a correlação.
+- Se o relógio estiver desativado, a cobrança poderá ser calculada incorretamente.
 
 
 
 ## <a name="configuration-options"></a>Opções de configuração
 
-Em geral, existem três formas de configurar a sincronização de hora para as VMs de Linux alojados no Azure:
+Em geral, há três maneiras de configurar a sincronização de horário para suas VMs Linux hospedadas no Azure:
 
-- A configuração predefinida para imagens do Azure Marketplace utiliza hora NTP e VMICTimeSync-hora do anfitrião. 
-- Anfitrião só VMICTimeSync a utilizar.
-- Utilize o servidor de tempo de outro, externo com ou sem utilizar VMICTimeSync-hora do anfitrião.
+- A configuração padrão das imagens do Azure Marketplace usa tanto o tempo de NTP quanto o tempo de host VMICTimeSync. 
+- Somente host usando VMICTimeSync.
+- Use outro servidor de horário externo com ou sem usar o tempo de host VMICTimeSync.
 
 
-### <a name="use-the-default"></a>Utilize a predefinição
+### <a name="use-the-default"></a>Usar o padrão
 
-Por predefinição, a maioria das imagens do Azure Marketplace para Linux estão configuradas para sincronização de duas fontes: 
+Por padrão, a maioria das imagens do Azure Marketplace para Linux é configurada para sincronização de duas fontes: 
 
-- NTP como servidor primário, que obtém o tempo de um servidor NTP. Por exemplo, o uso de imagens de Ubuntu 16.04 LTS Marketplace **ntp.ubuntu.com**.
-- O serviço de VMICTimeSync como secundário, utilizado para comunicar o tempo de anfitrião para as VMs e fazer correções depois da VM está em pausa para manutenção. Anfitriões do Azure utilizem dispositivos de 1 de Stratum pertencentes à Microsoft para manter o tempo preciso.
+- NTP como primário, que obtém o tempo de um servidor NTP. Por exemplo, imagens do Ubuntu 16, 4 LTS Marketplace usam o **NTP.Ubuntu.com**.
+- O serviço VMICTimeSync como secundário, usado para comunicar o tempo de host para as VMs e fazer correções depois que a VM é pausada para manutenção. Os hosts do Azure usam dispositivos de camada 1 de propriedade da Microsoft para manter o tempo preciso.
 
-Distribuições de Linux mais recentes, o serviço de VMICTimeSync utiliza o protocolo de tempo de precisão (PTP), mas podem não suportar PTP distribuições anteriores e serão retorno para NTP para apresentar a hora do anfitrião.
+Em distribuições mais recentes do Linux, o serviço VMICTimeSync usa o protocolo PTP, mas as distribuições anteriores podem não dar suporte ao PTP e voltarão ao NTP para obter tempo do host.
 
-Para confirmar a NTP está a sincronizar corretamente, execute o `ntpq -p` comando.
+Para confirmar que o NTP está sincronizando corretamente, `ntpq -p` execute o comando.
 
-### <a name="host-only"></a>Só de anfitrião 
+### <a name="host-only"></a>Somente host 
 
-Uma vez que os servidores NTP como time.windows.com e ntp.ubuntu.com são públicos, a sincronização de hora com os mesmos requer a enviar o tráfego através da internet. Variados atrasos de pacotes podem afetar negativamente a qualidade da sincronização de hora. Remover NTP alternando para sincronização só de anfitrião, às vezes, pode melhorar o tempo de resultados de sincronização.
+Como os servidores NTP, como time.windows.com e ntp.ubuntu.com, são públicos, o tempo de sincronização com eles requer o envio de tráfego pela Internet. Os atrasos de pacotes variados podem afetar negativamente a qualidade da sincronização de tempo. A remoção do NTP alternando para a sincronização somente de host pode às vezes melhorar o tempo de sincronização dos resultados.
 
-Mudar para faz de sincronização de tempo só de anfitrião sentido se tiver a sincronização de hora problemas com a configuração predefinida. Experimente a sincronização só de anfitrião para ver se que aprimorariam a sincronização de hora na sua VM. 
+Mudar para a sincronização de tempo somente de host faz sentido se você tiver problemas de sincronização de tempo usando a configuração padrão. Experimente a sincronização somente de host para ver se isso melhora a sincronização de horário em sua VM. 
 
-### <a name="external-time-server"></a>Servidor de hora externa
+### <a name="external-time-server"></a>Servidor de horário externo
 
-Se tiver requisitos de sincronização de hora específica, há também uma opção de utilizar servidores de hora externa. Servidores de hora externa podem fornecer hora específica, que pode ser útil para cenários de teste, garantir a uniformidade de tempo com máquinas alojadas em datacenters de terceiros ou segundos bissextos de manipulação de forma especial.
+Se você tiver requisitos de sincronização de tempo específicos, também há uma opção de usar servidores de horário externos. Os servidores de horário externos podem fornecer um tempo específico, o que pode ser útil para cenários de teste, garantindo a uniformidade do tempo com computadores hospedados em datacenters não Microsoft ou lidando com segundos bissextos de forma especial.
 
-Pode combinar um servidor de hora externa com o serviço de VMICTimeSync para fornecer resultados semelhantes à configuração padrão. A combinação de um servidor de hora externa com VMICTimeSync é a melhor opção para lidar com problemas que pode ser causado quando as VMs são colocadas em pausa para manutenção. 
+Você pode combinar um servidor de horário externo com o serviço VMICTimeSync para fornecer resultados semelhantes à configuração padrão. A combinação de um servidor de horário externo com o VMICTimeSync é a melhor opção para lidar com problemas que podem ocorrer quando as VMs são pausadas para manutenção. 
 
 ## <a name="tools-and-resources"></a>Ferramentas e recursos
 
-Existem alguns comandos básicos para verificar a configuração de sincronização de hora. Documentação para a distribuição de Linux terão mais detalhes sobre a melhor forma de configurar a sincronização de hora para essa distribuição.
+Há alguns comandos básicos para verificar sua configuração de sincronização de horário. A documentação para distribuição do Linux terá mais detalhes sobre a melhor maneira de configurar a sincronização de horário para essa distribuição.
 
 ### <a name="integration-services"></a>Serviços de integração
 
-Verifique se o serviço de integração (hv_utils) é carregado.
+Verifique se o serviço de integração (hv_utils) está carregado.
 
 ```bash
 lsmod | grep hv_utils
 ```
-Deverá ver algo semelhante a este:
+Você verá algo semelhante a este:
 
 ```
 hv_utils               24418  0
 hv_vmbus              397185  7 hv_balloon,hyperv_keyboard,hv_netvsc,hid_hyperv,hv_utils,hyperv_fb,hv_storvsc
 ```
 
-Veja se o daemon de serviços de integração do Hyper-V está em execução.
+Veja se o daemon do Integration Services do Hyper-V está em execução.
 
 ```bash
 ps -ef | grep hv
 ```
 
-Deverá ver algo semelhante a este:
+Você verá algo semelhante a este:
 
 ```
 root        229      2  0 17:52 ?        00:00:00 [hv_vmbus_con]
@@ -114,42 +113,42 @@ root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
 ```
 
 
-### <a name="check-for-ptp"></a>Procurar PTP
+### <a name="check-for-ptp"></a>Verificar o PTP
 
-Com as versões mais recentes do Linux, uma origem de relógio de protocolo de tempo de precisão (PTP) está disponível como parte do fornecedor VMICTimeSync. Em versões anteriores do Red Hat Enterprise Linux ou CentOS 7.x a [Linux Integration Services](https://github.com/LIS/lis-next) podem ser transferidos e utilizado para instalar o driver atualizado. Quando utilizar PTP, o dispositivo de Linux irá ser do formulário/desenvolvimento/ptp*x*. 
+Com as versões mais recentes do Linux, uma fonte de tempo do PTP (protocolo de precisão temporal) está disponível como parte do provedor VMICTimeSync. Em versões mais antigas do Red Hat Enterprise Linux ou do CentOS 7. x, o [Integration Services do Linux](https://github.com/LIS/lis-next) pode ser baixado e usado para instalar o driver atualizado. Ao usar o PTP, o dispositivo Linux terá o formato/dev/PTP*x*. 
 
-Ver as origens de relógio PTP estão disponíveis.
+Veja quais fontes de relógio do PTP estão disponíveis.
 
 ```bash
 ls /sys/class/ptp
 ```
 
-Neste exemplo, o valor devolvido é *ptp0*, por isso, o que podemos usar para verificar o nome do relógio. Para verificar se o dispositivo, verifique o nome do relógio.
+Neste exemplo, o valor retornado é *ptp0*, portanto, usamos isso para verificar o nome do relógio. Para verificar o dispositivo, verifique o nome do relógio.
 
 ```bash
 cat /sys/class/ptp/ptp0/clock_name
 ```
 
-Isto deverá devolver **Hyper-v**.
+Isso deve retornar o **HyperV**.
 
 ### <a name="chrony"></a>chrony
 
-No Red Hat Enterprise Linux e CentOS 7.x, [chrony](https://chrony.tuxfamily.org/) configurado para utilizar um relógio de origem do PTP. O daemon de Network Time Protocol (ntpd) não suporta origens PTP, assim, usando **chronyd** é recomendado. Para ativar PTP, atualize **chrony.conf**.
+Em Red Hat Enterprise Linux e CentOS 7. x, [chrony](https://chrony.tuxfamily.org/) configurado para usar um relógio de origem do PTP. O daemon de protocolo NTP (ntpd) não dá suporte a fontes PTP, portanto, usar **chronyd** é recomendado. Para habilitar o PTP, atualize **chrony. conf**.
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
 
-Para obter mais informações sobre o Red Hat e NTP, consulte [NTP configurar](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp). 
+Para obter mais informações sobre o Red Hat e o NTP, consulte [Configurar o NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp). 
 
-Para obter mais informações sobre chrony, consulte [usando chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
+Para obter mais informações sobre o chrony, consulte [usando o chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
 
-Se chrony e TimeSync origens são ativadas ao mesmo tempo, pode marcar um como **prefira** que define a outra origem de cópia de segurança. Uma vez que os serviços NTP não atualizar o relógio para desvios de grandes dimensões, exceto após um longo período, o VMICTimeSync recuperará o relógio de eventos VM em pausa muito mais rapidamente do que com base em NTP sozinhas.
+Se as fontes chrony e TimeSync estiverem habilitadas simultaneamente, você poderá marcar uma como **preferir** , que define a outra fonte como um backup. Como os serviços NTP não atualizam o relógio para grandes distorções, exceto após um longo período, o VMICTimeSync recuperará o relógio de eventos de VM pausados muito mais rapidamente do que as ferramentas baseadas em NTP.
 
 
 ### <a name="systemd"></a>systemd 
 
-No Ubuntu e SUSE tempo de sincronização é configurada usando [systemd](https://www.freedesktop.org/wiki/Software/systemd/). Para obter mais informações sobre o Ubuntu, veja [sincronização de hora](https://help.ubuntu.com/lts/serverguide/NTP.html). Para obter mais informações sobre a SUSE, consulte a seção 4.5.8 [notas SP3 do SUSE Linux Enterprise Server 12](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
+No Ubuntu e no SUSE, a sincronização de horário é configurada usando o [sistema](https://www.freedesktop.org/wiki/Software/systemd/). Para obter mais informações sobre o Ubuntu, consulte [sincronização de horário](https://help.ubuntu.com/lts/serverguide/NTP.html). Para obter mais informações sobre o SUSE, consulte a seção 4.5.8 em [notas de versão do SUSE Linux Enterprise Server 12 SP3](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
 
 
 

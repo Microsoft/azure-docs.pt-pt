@@ -1,73 +1,72 @@
 ---
-title: Azul erros de ecrã quando se reinicia uma VM do Azure | Documentos da Microsoft
-description: Saiba como resolver o problema que o erro de tela azul é recebido quando se reinicia | Documentos da Microsoft
+title: Erros de tela azul ao inicializar uma VM do Azure | Microsoft Docs
+description: Saiba como solucionar o problema que o erro de tela azul é recebido ao inicializar | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 26306489b11e24ab50f0ae893f11137d279c6127
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 397f9f4de21ecb27435c132d80074ed442202448
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719820"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089976"
 ---
-# <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows mostra a tela azul de erro quando se reinicia uma VM do Azure
-Este artigo descreve os erros de tela azul que poderá encontrar ao inicializar uma Máquina Virtual do Windows (VM) no Microsoft Azure. Ele fornece passos para o ajudar a recolher dados para um pedido de suporte. 
+# <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>O Windows mostra o erro de tela azul ao inicializar uma VM do Azure
+Este artigo descreve os erros de tela azul que você pode encontrar ao inicializar uma VM (máquina virtual) do Windows no Microsoft Azure. Ele fornece etapas para ajudá-lo a coletar dados para um tíquete de suporte. 
 
 > [!NOTE] 
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo descreve a utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo descreve como usar o modelo de implantação do Gerenciador de recursos, que é recomendável usar para novas implantações em vez do modelo de implantação clássico.
 
 ## <a name="symptom"></a>Sintoma 
 
-Uma VM do Windows não iniciar. Quando verifica as capturas de ecrã de arranque [diagnósticos de arranque](./boot-diagnostics.md), verá uma das seguintes mensagens de erro numa tela azul:
+Uma VM do Windows não é iniciada. Ao verificar as capturas de tela de inicialização em diagnósticos de [inicialização](./boot-diagnostics.md), você verá uma das seguintes mensagens de erro em um ecrã azul:
 
-- nosso PC Ocorreu um problema e tem de reiniciar. Está a ser recolhido apenas algumas informações de erro e, em seguida, pode reiniciar.
-- Seu PC Ocorreu um problema e tem de reiniciar.
+- nosso PC encontrou um problema e precisa ser reiniciado. Estamos apenas coletando algumas informações de erro e, em seguida, você pode reiniciar.
+- Seu PC encontrou um problema e precisa ser reiniciado.
 
-Esta secção lista as mensagens de erro comuns que poderá encontrar ao gerir VMs:
+Esta seção lista as mensagens de erro comuns que você pode encontrar ao gerenciar VMs:
 
 ## <a name="cause"></a>Causa
 
-Pode haver vários motivos, como por que obteria um erro de parada. As causas mais comuns são:
+Pode haver várias razões pelas quais você obteria um erro de parada. As causas mais comuns são:
 
 - Problema com um driver
-- Arquivo de sistema corrompido ou memória
-- Acede a uma aplicação para um setor proibido da memória
+- Arquivo ou memória do sistema corrompido
+- Um aplicativo acessa um setor proibido da memória
 
-## <a name="collect-memory-dump-file"></a>Recolher o arquivo de despejo de memória
+## <a name="collect-memory-dump-file"></a>Coletar arquivo de despejo de memória
 
-Para resolver este problema, precisaria primeiro a reunir o arquivo de despejo de falha e contacte o suporte com o ficheiro de informação. Para recolher o ficheiro de informação, siga estes passos:
+Para resolver esse problema, você precisaria primeiro coletar o arquivo de despejo para a falha e contatar o suporte com o arquivo de despejo. Para coletar o arquivo de despejo, siga estas etapas:
 
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco do SO a uma VM de recuperação
 
-1. Tire um instantâneo do disco do SO da VM afetado como uma cópia de segurança. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
+1. Tire um instantâneo do disco do sistema operacional da VM afetada como um backup. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 2. [Anexar o disco do SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md). 
-3. Ambiente de trabalho remoto para a VM de recuperação.
+3. Área de trabalho remota para a VM de recuperação.
 
-### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Localize o ficheiro de informação e submeter um pedido de suporte
+### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Localizar arquivo de despejo e enviar um tíquete de suporte
 
-1. Na VM de recuperação, vá para a pasta do windows no disco do SO anexado. Se a letra de unidade que está atribuída ao disco do SO anexado F, terá de ir para F:\Windows.
-2. Localize o ficheiro de memory.dmp e, em seguida [submeter um pedido de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de informação. 
+1. Na VM de recuperação, vá para a pasta do Windows no disco do sistema operacional anexado. Se a letra do driver atribuída ao disco do sistema operacional anexado for F, você precisará ir para F:\Windows.
+2. Localize o arquivo Memory. dmp e, em seguida, [envie um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o arquivo de despejo. 
 
-Se não encontrar o ficheiro de informação, mova o passo seguinte para ativar o registo de informação e a consola de série.
+Se você não encontrar o arquivo de despejo, mova a próxima etapa para habilitar o log de despejo e o console serial.
 
 ### <a name="enable-dump-log-and-serial-console"></a>Ativar o registo de informação e a consola de série
 
 Para ativar o registo de despejo e consola de série, execute o seguinte script.
 
-1. Abrir sessão de linha de comandos elevada (executar como administrador).
+1. Abra a sessão de prompt de comando com privilégios elevados (executar como administrador).
 2. Execute o seguintes script:
 
-    Nesse script, partimos do princípio de que a letra de unidade que está atribuída ao disco do SO anexado é F.  Substitua-o com o valor apropriado na sua VM.
+    Nesse script, presumimos que a letra da unidade atribuída ao disco do sistema operacional anexado é F.  Substitua-o pelo valor apropriado em sua VM.
 
     ```powershell
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -91,8 +90,8 @@ Para ativar o registo de despejo e consola de série, execute o seguinte script.
     reg unload HKLM\BROKENSYSTEM
     ```
 
-    1. Certifique-se de que existe espaço suficiente no disco para alocar a quantidade de memória como a quantidade de RAM, que depende do tamanho que está a selecionar para esta VM.
-    2. Se não existe espaço suficiente ou este é um tamanho grande de VM (série G, GS ou E), em seguida, pode alterar a localização em que esse arquivo será criado e veja que qualquer outro disco de dados que esteja anexado à VM. Para tal, terá de alterar a chave seguinte:
+    1. Verifique se há espaço suficiente no disco para alocar a quantidade de memória como RAM, o que depende do tamanho que você está selecionando para essa VM.
+    2. Se não houver espaço suficiente ou se esta for uma VM de tamanho grande (série G, GS ou E), você poderá alterar o local onde esse arquivo será criado e referir-se a qualquer outro disco de dados que esteja anexado à VM. Para fazer isso, será necessário alterar a seguinte chave:
 
             reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
@@ -101,9 +100,9 @@ Para ativar o registo de despejo e consola de série, execute o seguinte script.
 
             reg unload HKLM\BROKENSYSTEM
 
-3. [Desanexar o disco do SO e, em seguida, volte a anexar o disco do SO para a VM afetada](../windows/troubleshoot-recovery-disks-portal.md).
-4. Iniciar a VM para reproduzir o problema e, em seguida, será gerado um arquivo de despejo.
-5. Anexar o disco do SO a uma VM, o ficheiro de recolha de informação, de recuperação e, em seguida [submeter um pedido de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de informação.
+3. [Desanexe o disco do sistema operacional e, em seguida, anexe novamente o disco do sistema operacional à VM afetada](../windows/troubleshoot-recovery-disks-portal.md).
+4. Inicie a VM para reproduzir o problema. em seguida, um arquivo de despejo será gerado.
+5. Anexe o disco do sistema operacional a uma VM de recuperação, colete o arquivo de despejo e, em seguida, [envie um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o arquivo de despejo.
 
 
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 05b761dbf9f58f6afca6459e28d2fecca9aa7b06
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0ae82f8980b995edab3419374e27a2cb905935d5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878307"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099504"
 ---
 # <a name="create-an-azure-iot-central-application-preview-features"></a>Criar um aplicativo de IoT Central do Azure (recursos de visualização)
 
@@ -27,7 +27,7 @@ Este guia de início rápido mostra como criar um aplicativo de IoT Central do A
 
 ## <a name="create-an-application"></a>Criar uma aplicação
 
-Navegue para a página do [Gestor de Aplicações](https://aka.ms/iotcentral) do Azure IoT Central. Em seguida, entre com uma conta pessoal ou de trabalho ou de estudante da Microsoft.
+Navegue até o site [do Azure IOT central Application Manager](https://aka.ms/iotcentral) . Em seguida, entre com uma conta pessoal ou de trabalho ou de estudante da Microsoft.
 
 Para começar a criar uma nova aplicação do Azure IoT Central, selecione **New Application** (Nova Aplicação). Esse link leva você para a página **criar um aplicativo** .
 
@@ -50,9 +50,9 @@ Para criar um novo aplicativo de IoT Central do Azure que inclui recursos de vis
 
 1. Selecione **criar** na parte inferior da página.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você criou um aplicativo IoT Central que usa os recursos de visualização. A próxima etapa sugerida é:
 
 > [!div class="nextstepaction"]
-> [Apresentação do IoT Central](overview-iot-central-tour-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Definir um novo tipo de dispositivo em seu aplicativo de IoT Central do Azure](./tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

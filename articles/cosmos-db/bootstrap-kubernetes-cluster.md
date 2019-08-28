@@ -1,65 +1,65 @@
 ---
-title: Como utilizar o Kubernetes do Azure com o Azure Cosmos DB
-description: Saiba como iniciar um cluster de Kubernetes no Azure que utiliza o Azure Cosmos DB (pré-visualização)
+title: Como usar o kubernetes do Azure com o Azure Cosmos DB
+description: Saiba como inicializar um cluster kubernetes no Azure que usa Azure Cosmos DB (versão prévia)
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 2c6af53aeec5d40f603d65595d93527107c0d80a
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 9dbbc914580d8d80a3f9b7d730574e24b44827c1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427713"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093734"
 ---
-# <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Como utilizar o Kubernetes do Azure com o Azure Cosmos DB (pré-visualização)
+# <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Como usar o kubernetes do Azure com o Azure Cosmos DB (versão prévia)
 
-O etcd API no Azure Cosmos DB permite-lhe utilizar o Azure Cosmos DB como o armazenamento de back-end para Kubernetes do Azure. O Azure Cosmos DB implementa o protocolo de transmissão de etcd, que permite que os servidores de API do nó principal utilizar o Azure Cosmos DB tal como acederia a um etcd instalado localmente. etcd API no Azure Cosmos DB está atualmente em pré-visualização. Quando utiliza o Azure Cosmos etcd API como armazenamento de backup para Kubernetes, obtenha os seguintes benefícios: 
+A API etcd no Azure Cosmos DB permite que você use Azure Cosmos DB como o armazenamento de back-end para o Azure kubernetes. Azure Cosmos DB implementa o protocolo etcd Wire, que permite que os servidores de API do nó mestre usem Azure Cosmos DB assim como acessaria um etcd instalado localmente. a API etcd no Azure Cosmos DB está atualmente em visualização. Ao usar a API do etcd do Azure cosmos como o armazenamento de backup do kubernetes, você obtém os seguintes benefícios: 
 
-* Não é necessário configurar e gerir etcd manualmente.
-* Elevada disponibilidade de etcd, garantido por Cosmos (99,99% numa única região, 99,999% em várias regiões).
-* Escalabilidade elástica de etcd.
-* Seguro por padrão e pronto para as empresas.
-* SLAs líder do setor e abrangentes.
+* Não é necessário configurar e gerenciar o etcd manualmente.
+* Alta disponibilidade de etcd, garantida pelo Cosmos (99,99% em uma única região, 99,999% em várias regiões).
+* Escalabilidade elástica do etcd.
+* Seguro por padrão & Enterprise pronto.
+* SLAs abrangentes e líderes do setor.
 
-Para saber mais sobre etcd API no Azure Cosmos DB, veja a [descrição geral](etcd-api-introduction.md) artigo. Este artigo mostra-lhe como utilizar [motor de Kubernetes do Azure](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md) (aks-engine) para inicializar um cluster de Kubernetes no Azure que utiliza [do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) em vez de um etcd localmente instalado e configurado. 
+Para saber mais sobre a API do etcd no Azure Cosmos DB, consulte o artigo [visão geral](etcd-api-introduction.md) . Este artigo mostra como usar o [mecanismo de kubernetes do Azure](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md) (AKs-Engine) para inicializar um cluster kubernetes no Azure que usa [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) em vez de um etcd instalado e configurado localmente. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Instale a versão mais recente do [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Pode transferir o CLI do Azure específica para seu sistema operativo e instalar.
+1. Instale a versão mais recente do [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Você pode baixar CLI do Azure específicas para o seu sistema operacional e instalar o.
 
-1. Instalar o [versão mais recente](https://github.com/Azure/aks-engine/releases) do motor de Kubernetes do Azure. As instruções de instalação para sistemas operativos diferentes estão disponíveis no [motor de Kubernetes do Azure](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) página. Precisa apenas os passos da **instalar o motor de AKS** secção de documentos vinculada. Depois de transferir, extrair o ficheiro zip.
+1. Instale a [versão mais recente](https://github.com/Azure/aks-engine/releases) do mecanismo de kubernetes do Azure. As instruções de instalação para diferentes sistemas operacionais estão disponíveis na página [do mecanismo de kubernetes do Azure](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) . Você só precisa das etapas da seção **instalar mecanismo do AKS** do documento vinculado. Após o download, extraia o arquivo zip.
 
-   O motor de Kubernetes do Azure (**mecanismo de aks**) gera modelos Azure Resource Manager para clusters do Kubernetes no Azure. A entrada para o motor de aks é um ficheiro de definição de cluster que descreve o cluster pretendido, incluindo o orchestrator, recursos e agentes. A estrutura dos ficheiros de entrada é semelhante para a API pública do serviço Kubernetes do Azure.
+   O mecanismo de kubernetes do Azure (**AKs-Engine**) gera Azure Resource Manager modelos para clusters kubernetes no Azure. A entrada para AKs é um arquivo de definição de cluster que descreve o cluster desejado, incluindo orquestrador, recursos e agentes. A estrutura dos arquivos de entrada é semelhante à API pública para o serviço kubernetes do Azure.
 
-1. O etcd API no Azure Cosmos DB está atualmente em pré-visualização. Inscreva-se para utilizar a versão de pré-visualização em: https://aka.ms/cosmosetcdapi-signup. Depois de submeter o formulário, a sua subscrição será na lista de permissões para utilizar a API de etcd do Cosmos do Azure. 
+1. A API etcd no Azure Cosmos DB está atualmente em visualização. Inscreva-se para usar a versão de https://aka.ms/cosmosetcdapi-signup visualização em:. Depois de enviar o formulário, sua assinatura ficará na lista de permissões para usar a API do etcd do Azure Cosmos. 
 
-## <a name="deploy-the-cluster-with-azure-cosmos-db"></a>Implementar o cluster com o Azure Cosmos DB
+## <a name="deploy-the-cluster-with-azure-cosmos-db"></a>Implantar o cluster com Azure Cosmos DB
 
-1. Abra uma janela da linha de comando e iniciar sessão no Azure com o seguinte comando:
+1. Abra uma janela de prompt de comando e entre no Azure com o seguinte comando:
 
    ```azurecli-interactive
    az login 
    ```
 
-1. Se tiver mais de uma assinatura, mude para a subscrição que estava na lista de permissões para o Azure Cosmos DB etcd API. Pode mudar para a subscrição necessária com o seguinte comando:
+1. Se você tiver mais de uma assinatura, alterne para a assinatura que está na lista de permissões para Azure Cosmos DB API etcd. Você pode alternar para a assinatura necessária usando o seguinte comando:
 
    ```azurecli-interactive
    az account set --subscription "<Name of your subscription>"
    ```
-1. Em seguida, crie um novo grupo de recursos onde irá implementar os recursos exigidos pelo cluster de Kubernetes do Azure. Certifique-se criar o grupo de recursos na região "centralus". Não é obrigatório para o grupo de recursos ser na região "centralus", no entanto, o Azure Cosmos etcd API está atualmente disponível para implementar na região de "centralus" apenas. Portanto, é recomendável ter o cluster de Kubernetes para ser foi colocalizado com a instância de etcd Cosmos:
+1. Em seguida, crie um novo grupo de recursos em que você implantará os recursos exigidos pelo cluster kubernetes do Azure. Certifique-se de criar o grupo de recursos na região "centralus". Não é obrigatório que o grupo de recursos esteja na região "centralus", no entanto, a API etcd do Azure Cosmos está disponível atualmente para ser implantada apenas na região "centralus". Portanto, é melhor fazer com que o cluster kubernetes seja colocalizado com a instância Cosmos etcd:
 
    ```azurecli-interactive
    az group create --name <Name> --location "centralus"
    ```
 
-1. Em seguida crie um principal de serviço para o cluster de Kubernetes do Azure para que este possa comunicar com os recursos que fazem parte do mesmo grupo de recursos. Pode criar um principal de serviço com a CLI do Azure, o PowerShell ou o portal do Azure, neste exemplo, irá CLI para criá-lo.
+1. Em seguida, crie uma entidade de serviço para o cluster kubernetes do Azure para que ele possa se comunicar com os recursos que fazem parte do mesmo grupo de recursos. Você pode criar uma entidade de serviço usando CLI do Azure, PowerShell ou portal do Azure, neste exemplo, você será a CLI para criá-la.
 
    ```azurecli-interactive
    az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<Your_Azure_subscription_ID>/resourceGroups/<Your_resource_group_name>"
    ```
-   Este comando devolve os detalhes de um serviço principal, por exemplo:
+   Esse comando gera os detalhes de uma entidade de serviço, por exemplo:
    
    ```cmd
    Retrying role assignment creation: 1/36
@@ -72,15 +72,15 @@ Para saber mais sobre etcd API no Azure Cosmos DB, veja a [descrição geral](et
    }
    ```
    
-   Anote o **appId** e o **palavra-passe** campos, porque irá utilizar estes parâmetros nos passos seguintes. 
+   Anote os campos **AppID** e **password** , pois você usará esses parâmetros nas próximas etapas. 
 
-1. Na linha de comandos, navegue para a pasta onde está localizado o executável do motor de Kubernetes do Azure. Por exemplo, na sua linha de comandos pode navegar para a pasta como:
+1. No prompt de comando, navegue até a pasta em que o executável do Azure kubernetes Engine está localizado. Por exemplo, no prompt de comando, você pode navegar para a pasta como:
 
    ```cmd
    cd "\aks-engine-v0.36.3-windows-amd64\aks-engine-v0.36.3-windows-amd64"
    ```
 
-1. Abra um editor de texto à sua escolha e definir um modelo do Resource Manager que implementa o cluster de Kubernetes do Azure com o Azure Cosmos DB etcd API. Copie a seguinte definição JSON para o seu editor de texto e guarde o ficheiro como `apiModel.json`:
+1. Abra um editor de texto de sua escolha e defina um modelo do Resource Manager que implanta o cluster kubernetes do Azure com a API do etcd do Azure Cosmos DB. Copie a definição JSON a seguir para seu editor de texto e salve o `apiModel.json`arquivo como:
 
    ```json
 
@@ -121,9 +121,9 @@ Para saber mais sobre etcd API no Azure Cosmos DB, veja a [descrição geral](et
    }
    ```
 
-   No ficheiro de definição de JSON/cluster, é o parâmetro de chave observar **"cosmosEtcd": true**. Este parâmetro é em Propriedades "masterProfile" e indica a implementação para utilizar a API do Azure Cosmos etcd em vez de regular etcd. 
+   No arquivo de definição de cluster/JSON, o parâmetro de chave a ser observado é **"cosmosEtcd": true**. Esse parâmetro está nas propriedades "masterProfile" e indica que a implantação deve usar a API do Azure Cosmos etcd em vez de etcd regulares. 
 
-1. Implemente o cluster de Kubernetes do Azure que utiliza o Azure Cosmos DB com o seguinte comando:
+1. Implante o cluster kubernetes do Azure que usa Azure Cosmos DB com o seguinte comando:
 
    ```cmd
    aks-engine deploy \
@@ -137,21 +137,21 @@ Para saber mais sobre etcd API no Azure Cosmos DB, veja a [descrição geral](et
      --force-overwrite
    ```
 
-   Motor de Kubernetes do Azure consome uma definição de cluster que descreve a forma desejado, o tamanho e a configuração do Kubernetes do Azure. Existem vários recursos que podem ser ativados através da definição do cluster. Neste exemplo irá utilizar os seguintes parâmetros:
+   O mecanismo de kubernetes do Azure consome uma definição de cluster que descreve a forma, o tamanho e a configuração desejados do kubernetes do Azure. Há vários recursos que podem ser habilitados por meio da definição de cluster. Neste exemplo, você usará os seguintes parâmetros:
 
-   * **subscription-id:** ID de subscrição do Azure com a API do Azure Cosmos DB etcd ativada.
-   * **client-id:** AppId do principal de serviço. O `appId` foi devolvido como saída no passo 4.
-   * **Segredo do cliente:** Palavra-passe o principal de serviço ou uma palavra-passe gerada aleatoriamente. Este valor foi devolvido como saída no parâmetro 'password' no passo 4. 
-   * **dnsPrefix:** Um nome DNS exclusivo para a região. Este valor farão parte do nome de anfitrião (valores de exemplo são-myprod1, teste).
-   * **Localização:**  Localização onde o cluster deve ser "centralus" implementado para, atualmente, apenas é suportada.
+   * **ID da assinatura:** ID de assinatura do Azure que tem Azure Cosmos DB API etcd habilitada.
+   * **client-id:** A appId da entidade de serviço. O `appId` foi retornado como saída na etapa 4.
+   * **Segredo do cliente:** A senha da entidade de serviço ou uma senha gerada aleatoriamente. Esse valor foi retornado como saída no parâmetro ' password ' na etapa 4. 
+   * **dnsPrefix:** Um nome DNS exclusivo da região. Esse valor fará parte do nome do host (os valores de exemplo são-myprod1, preparo).
+   * **local**  Local em que o cluster deve ser implantado, atualmente há suporte apenas para "centralus".
 
    > [!Note]
-   > API de etcd do Cosmos do Azure está atualmente disponível para implementar na região de "centralus" apenas. 
+   > A API do Azure Cosmos etcd está disponível atualmente para ser implantada somente na região "centralus". 
  
-   * **api-model:** Caminho totalmente qualificado para o ficheiro de modelo.
-   * **force-overwrite:** Esta opção é utilizada para substituir automaticamente os ficheiros existentes no diretório de saída.
+   * **api-model:** Caminho totalmente qualificado para o arquivo de modelo.
+   * **force-overwrite:** Essa opção é usada para substituir automaticamente os arquivos existentes no diretório de saída.
  
-   O comando seguinte mostra um exemplo de implementação:
+   O comando a seguir mostra um exemplo de implantação:
 
    ```cmd
    aks-engine deploy \
@@ -166,7 +166,7 @@ Para saber mais sobre etcd API no Azure Cosmos DB, veja a [descrição geral](et
 
 ## <a name="verify-the-deployment"></a>Verificar a implementação
 
-A implementação do modelo demora vários minutos a concluir. Após a implementação é concluída com êxito, irá ver o resultado seguinte no prompt de comandos:
+A implantação do modelo leva vários minutos para ser concluída. Depois que a implantação for concluída com êxito, você verá a seguinte saída no prompt de comandos:
 
 ```cmd
 WARN[0006] apimodel: missing masterProfile.dnsPrefix will use "aks-sg-test"
@@ -175,12 +175,12 @@ INFO[0025] Starting ARM Deployment (aks-sg-test-546247491). This will take some 
 INFO[0587] Finished ARM Deployment (aks-sg-test-546247491). Succeeded
 ```
 
-O grupo de recursos agora contém recursos como - à rede virtual (etcd API), o conjunto de disponibilidade, de contas de máquina virtual, do Azure Cosmos e outros recursos necessária para o cluster de Kubernetes. 
+O grupo de recursos agora contém recursos como máquina virtual, conta do Azure Cosmos (API do etcd), rede virtual, conjunto de disponibilidade e outros recursos exigidos pelo cluster kubernetes. 
 
-Nome da conta do Azure Cosmos corresponderá ao seu prefixo DNS especificado anexado com k8s. Sua conta do Cosmos do Azure será aprovisionada automaticamente com uma base de dados com o nome **EtcdDB** e um contentor com o nome **EtcdData**. O contentor irá armazenar todos o etcd dados relacionados. O contentor está aprovisionado com um determinado número de unidades de pedido e pode [(aumentar/diminuir) o débito de escala](scaling-throughput.md) com base na carga de trabalho. 
+O nome da conta do Azure Cosmos corresponderá ao prefixo DNS especificado anexado a K8S. Sua conta do Azure Cosmos será provisionada automaticamente com um banco de dados chamado **EtcdDB** e um contêiner chamado **EtcdData**. O contêiner armazenará todos os dados relacionados ao etcd. O contêiner é provisionado com um determinado número de unidades de solicitação e você pode [dimensionar (aumentar/diminuir) a taxa de transferência](scaling-throughput.md) com base em sua carga de trabalho. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [funcionam com a base de dados Azure Cosmos, contentores e itens](databases-containers-items.md)
-* Saiba como [otimizar os custos de débito aprovisionado](optimize-cost-throughput.md)
+* Saiba como [trabalhar com o banco de dados, contêineres e itens do Azure Cosmos](databases-containers-items.md)
+* Saiba como [otimizar os custos de taxa de transferência](optimize-cost-throughput.md) provisionada
 

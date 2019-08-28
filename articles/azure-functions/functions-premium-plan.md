@@ -6,16 +6,15 @@ author: jeffhollan
 manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 8ad09550e572c98931346b44a6c6f84da29a85e4
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 2cc6493d01508d439d8dcef2d12ca1ea40632d81
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443968"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096232"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions plano Premium (versão prévia)
 
@@ -132,7 +131,7 @@ Abaixo estão as regiões com suporte no momento para a visualização pública 
 
 Você pode acompanhar o status de problemas conhecidos da [Visualização pública no GitHub](https://github.com/Azure/Azure-Functions/wiki/Premium-plan-known-issues).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Entender Azure Functions escala e opções de hospedagem](functions-scale.md)

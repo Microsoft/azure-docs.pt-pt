@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: 0a0b2a38cb01a5cd551d07da89a42dd837264aae
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: e3928d865178d0afc3d814ae0d7794f981f49d47
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875073"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079419"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para o Windows Server
 Para clientes com Software Assurance, o Benefício Híbrido do Azure para Windows Server permite que você use suas licenças locais do Windows Server e execute máquinas virtuais do Windows no Azure a um custo reduzido. Você pode usar Benefício Híbrido do Azure para Windows Server para implantar novas máquinas virtuais com o sistema operacional Windows. Este artigo apresenta as etapas sobre como implantar novas VMs com o Benefício Híbrido do Azure para o Windows Server e como você pode atualizar as VMs em execução existentes. Para obter mais informações sobre Benefício Híbrido do Azure para licenciamento e economia de custo do Windows Server, consulte a [página benefício híbrido do Azure para licenciamento do Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -196,7 +195,7 @@ O exemplo a seguir usa o modelo ARM com uma imagem do Windows Server 2016 datace
 ```
 Você também pode aprender mais sobre como [modificar um conjunto de dimensionamento de máquinas virtuais](../../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md) para obter mais maneiras de atualizar seu conjunto de dimensionamento.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Leia mais sobre [como economizar dinheiro com o benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 - Leia mais sobre as perguntas frequentes [para benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
 - Saiba mais sobre o [benefício híbrido do Azure para obter orientações detalhadas sobre licenciamento do Windows Server](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)

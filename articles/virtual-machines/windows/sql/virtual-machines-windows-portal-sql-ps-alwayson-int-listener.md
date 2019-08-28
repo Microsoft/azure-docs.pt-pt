@@ -1,6 +1,6 @@
 ---
-title: Configurar Always On serviços de escuta do grupo de disponibilidade – Microsoft Azure | Documentos da Microsoft
-description: Configure serviços de escuta de grupo de disponibilidade no modelo do Azure Resource Manager, utilizando um balanceador de carga interno com um ou mais endereços IP.
+title: Configurar ouvintes do grupo de disponibilidade Always On – Microsoft Azure | Microsoft Docs
+description: Configure os ouvintes do grupo de disponibilidade no modelo de Azure Resource Manager, usando um balanceador de carga interno com um ou mais endereços IP.
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -8,35 +8,34 @@ manager: craigg
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: 5b647af7925ceb81c524deb0accf90f9e895080e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7d6427e88960ec3ff550affb1624dd82e561a6bb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165813"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102181"
 ---
-# <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurar um ou mais Always On grupo serviços de escuta disponibilidade - Resource Manager
+# <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurar um ou mais ouvintes de grupo de disponibilidade Always On-Resource Manager
 Este tópico mostra como:
 
-* Crie um balanceador de carga interno para grupos de disponibilidade do SQL Server utilizando cmdlets do PowerShell.
-* Adicione endereços IP adicionais a um balanceador de carga para mais de um grupo de disponibilidade. 
+* Crie um balanceador de carga interno para SQL Server grupos de disponibilidade usando cmdlets do PowerShell.
+* Adicione outros endereços IP a um balanceador de carga para mais de um grupo de disponibilidade. 
 
-Um serviço de escuta do grupo de disponibilidade é um nome de rede virtual que os clientes ligam para acesso de base de dados. Em máquinas virtuais do Azure, um balanceador de carga contém o endereço IP para o serviço de escuta. O Balanceador de carga encaminha o tráfego para a instância do SQL Server que está a escutar na porta de pesquisa. Normalmente, um grupo de disponibilidade utiliza um balanceador de carga interno. Um balanceador de carga interno do Azure pode alojar um ou vários endereços IP. Cada endereço IP usa uma porta de sonda específico. Este documento mostra como utilizar o PowerShell para criar um balanceador de carga ou adicione os endereços IP a um balanceador de carga existente para grupos de disponibilidade do SQL Server. 
+Um ouvinte de grupo de disponibilidade é um nome de rede virtual ao qual os clientes se conectam para acesso ao banco de dados. Em máquinas virtuais do Azure, um balanceador de carga mantém o endereço IP para o ouvinte. O balanceador de carga roteia o tráfego para a instância do SQL Server que está escutando na porta de investigação. Normalmente, um grupo de disponibilidade usa um balanceador de carga interno. Um balanceador de carga interno do Azure pode hospedar um ou vários endereços IP. Cada endereço IP usa uma porta de investigação específica. Este documento mostra como usar o PowerShell para criar um balanceador de carga ou adicionar endereços IP a um balanceador de carga existente para SQL Server grupos de disponibilidade. 
 
-A capacidade de atribuir vários endereços IP a um balanceador de carga interno está familiarizada com o Azure e só está disponível no modelo do Resource Manager. Para concluir essa tarefa, tem de ter um grupo de disponibilidade do SQL Server implementado em máquinas virtuais do Azure no modelo do Resource Manager. Ambas as máquinas virtuais do SQL Server têm de pertencer ao mesmo conjunto de disponibilidade. Pode utilizar o [modelo de Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para criar automaticamente o grupo de disponibilidade no Azure Resource Manager. Este modelo cria automaticamente o grupo de disponibilidade, incluindo o Balanceador de carga interno para. Se preferir, pode [configurar manualmente um grupo de disponibilidade Always On](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
+A capacidade de atribuir vários endereços IP a um balanceador de carga interno é nova no Azure e só está disponível no modelo do Resource Manager. Para concluir essa tarefa, você precisa ter um grupo de disponibilidade SQL Server implantado em máquinas virtuais do Azure no modelo do Resource Manager. Ambas as máquinas virtuais SQL Server devem pertencer ao mesmo conjunto de disponibilidade. Você pode usar o [modelo da Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para criar automaticamente o grupo de disponibilidade no Azure Resource Manager. Esse modelo cria automaticamente o grupo de disponibilidade, incluindo o balanceador de carga interno para você. Se preferir, você pode [configurar manualmente um grupo de disponibilidade Always on](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
-Este tópico requer que os seus grupos de disponibilidade já estão configurados.  
+Este tópico requer que seus grupos de disponibilidade já estejam configurados.  
 
-Tópicos relacionados incluem:
+Os tópicos relacionados incluem:
 
-* [Configurar grupos de Disponibilidade AlwaysOn em VMS do Azure (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
-* [Configurar uma ligação VNet a VNet com o Azure Resource Manager e PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+* [Configurar Grupos de Disponibilidade AlwaysOn na VM do Azure (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
+* [Configurar uma conexão de VNet para VNet usando o Azure Resource Manager e o PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -44,31 +43,31 @@ Tópicos relacionados incluem:
 
 ## <a name="verify-powershell-version"></a>Verificar a versão do PowerShell
 
-Os exemplos neste artigo são testados com o Azure PowerShell versão 5.4.1 do módulo.
+Os exemplos neste artigo são testados usando Azure PowerShell versão do módulo 5.4.1.
 
-Certifique-se de que o módulo do PowerShell é 5.4.1 ou posterior.
+Verifique se o módulo do PowerShell é 5.4.1 ou posterior.
 
-Ver [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-## <a name="configure-the-windows-firewall"></a>Configurar a Firewall do Windows
+## <a name="configure-the-windows-firewall"></a>Configurar o Firewall do Windows
 
-Configure a Firewall do Windows para permitir o acesso do SQL Server. As regras de firewall permitam ligações de TCP para o uso de portas por instância do SQL Server e a sonda de serviço de escuta. Para obter instruções detalhadas, consulte [configurar uma Firewall do Windows para acesso ao motor de base de dados](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Crie uma regra de entrada para a porta do SQL Server e para a porta de sonda.
+Configure o Firewall do Windows para permitir acesso SQL Server. As regras de firewall permitem conexões TCP com as portas usadas pela instância do SQL Server e a investigação do ouvinte. Para obter instruções detalhadas, consulte [configurar um firewall do Windows para acesso mecanismo de banco de dados](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Crie uma regra de entrada para a porta de SQL Server e para a porta de investigação.
 
-Se estiver a restrição do acesso com um grupo de segurança de rede do Azure, certifique-se de que as regras de permissão incluem os endereços de IP da VM do SQL Server back-end e o Balanceador de carga IP flutuante endereços para o serviço de escuta de AG e o endereço IP de núcleo de cluster, se aplicável.
+Se você estiver restringindo o acesso com um grupo de segurança de rede do Azure, verifique se as regras de permissão incluem os endereços IP de VM de back-end SQL Server e os endereços IP flutuantes do balanceador de carga para o ouvinte AG e o endereço IP principal do cluster, se aplicável.
 
-## <a name="determine-the-load-balancer-sku-required"></a>Determinar o Balanceador de carga SKU necessário
+## <a name="determine-the-load-balancer-sku-required"></a>Determinar o SKU do balanceador de carga necessário
 
-[Balanceador de carga do Azure](../../../load-balancer/load-balancer-overview.md) está disponível em 2 SKUs: Básico e Standard. Recomenda-se o Balanceador de carga standard. Se as máquinas virtuais num conjunto de disponibilidade, o Balanceador de carga básico é permitida. Balanceador de carga Standard requer que todos os endereços IP da VM utilizarem endereços IP padrão.
+O [Azure Load](../../../load-balancer/load-balancer-overview.md) Balancer está disponível em 2 SKUs: Basic & Standard. O balanceador de carga padrão é recomendado. Se as máquinas virtuais estiverem em um conjunto de disponibilidade, o Load Balancer básico será permitido. O balanceador de carga padrão requer que todos os endereços IP da VM usem endereços IP padrão.
 
-O atual [modelo de Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para um disponibilidade grupo utiliza um balanceador de carga básico com endereços IP básicos.
+O modelo atual da [Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para um grupo de disponibilidade usa um balanceador de carga básico com endereços IP básicos.
 
-Os exemplos neste artigo, especifique um balanceador de carga standard. Nos exemplos, o script inclui `-sku Standard`.
+Os exemplos neste artigo especificam um balanceador de carga padrão. Nos exemplos, o script inclui `-sku Standard`.
 
 ```powershell
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
-Para criar um balanceador de carga básico, remover `-sku Standard` partir da linha que cria o Balanceador de carga. Por exemplo:
+Para criar um balanceador de carga básico, `-sku Standard` remova da linha que cria o balanceador de carga. Por exemplo:
 
 ```powershell
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
@@ -77,9 +76,9 @@ $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script de exemplo: Criar um balanceador de carga interno com o PowerShell
 
 > [!NOTE]
-> Se tiver criado o seu grupo de disponibilidade com o [modelo de Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), o Balanceador de carga interno já foi criado.
+> Se você criou seu grupo de disponibilidade com o [modelo da Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), o balanceador de carga interno já foi criado.
 
-O seguinte script do PowerShell cria um balanceador de carga interno, configura a regras de balanceamento de carga e define um endereço IP do Balanceador de carga. Para executar o script, abra o ISE do Windows PowerShell e cole o script no painel de Script. Utilize `Connect-AzAccount` para iniciar sessão no PowerShell. Se tiver várias subscrições do Azure, utilize `Select-AzSubscription` para definir a subscrição. 
+O script do PowerShell a seguir cria um balanceador de carga interno, configura as regras de balanceamento de carga e define um endereço IP para o balanceador de carga. Para executar o script, abra ISE do Windows PowerShell e cole o script no painel de script. Use `Connect-AzAccount` para fazer logon no PowerShell. Se você tiver várias assinaturas do Azure, use `Select-AzSubscription` para definir a assinatura. 
 
 ```powershell
 # Connect-AzAccount
@@ -129,18 +128,18 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a> Script de exemplo: Adicionar um endereço IP a um balanceador de carga existente com o PowerShell
-Para utilizar mais de um grupo de disponibilidade, adicione um endereço IP adicional para o Balanceador de carga. Cada endereço IP requer seu próprio regra, a porta de sonda e a porta de front-de balanceamento de carga.
+## <a name="Add-IP"></a>Script de exemplo: Adicionar um endereço IP a um balanceador de carga existente com o PowerShell
+Para usar mais de um grupo de disponibilidade, adicione um endereço IP adicional ao balanceador de carga. Cada endereço IP requer sua própria regra de balanceamento de carga, porta de investigação e porta frontal.
 
-A porta de front-end é a porta que aplicações utilizam para ligar à instância do SQL Server. Endereços IP para grupos de disponibilidade diferente, podem utilizar a mesma porta de front-end.
+A porta de front-end é a porta que os aplicativos usam para se conectar à instância de SQL Server. Os endereços IP para diferentes grupos de disponibilidade podem usar a mesma porta de front-end.
 
 > [!NOTE]
-> Para grupos de disponibilidade do SQL Server, cada endereço IP requer uma porta de sonda específico. Por exemplo, se um endereço IP num Balanceador de carga utiliza a porta de sonda 59999, outros endereços IP no balanceador de carga que podem utilizar a porta de sonda 59999.
+> Para SQL Server grupos de disponibilidade, cada endereço IP requer uma porta de investigação específica. Por exemplo, se um endereço IP em um balanceador de carga usar a porta de investigação 59999, nenhum outro endereços IP nesse balanceador de carga poderá usar a porta de investigação 59999.
 
-* Para obter informações sobre os limites de Balanceador de carga, veja **IP de front-end privado por Balanceador de carga** sob [limites de rede - Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
+* Para obter informações sobre limites de balanceador de carga, consulte **IP de front-end privado por balanceador de carga** em [limites de rede-Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 * Para obter informações sobre os limites do grupo de disponibilidade, consulte [restrições (grupos de disponibilidade)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
 
-O script a seguir adiciona um novo endereço IP a um balanceador de carga existente. O ILB utiliza a porta do serviço de escuta para a porta de front-end de balanceamento de carga. Esta porta pode ser a porta que o SQL Server está a escutar. Para as instâncias de padrão do SQL Server, a porta é 1433. Regra para um grupo de disponibilidade de balanceamento de carga requer um IP flutuante (devolução direta do servidor), para a porta de back-end é o mesmo que a porta de front-end. Atualize as variáveis para o seu ambiente. 
+O script a seguir adiciona um novo endereço IP a um balanceador de carga existente. O ILB usa a porta do ouvinte para a porta de front-end de balanceamento de carga. Essa porta pode ser a porta na qual SQL Server está escutando. Para instâncias padrão do SQL Server, a porta é 1433. A regra de balanceamento de carga para um grupo de disponibilidade requer um IP flutuante (retorno de servidor direto) para que a porta de back-end seja a mesma que a porta de front-end. Atualize as variáveis para seu ambiente. 
 
 ```powershell
 # Connect-AzAccount
@@ -181,61 +180,61 @@ $BEConfig = Get-AzLoadBalancerBackendAddressPoolConfig -Name $ILB.BackendAddress
 $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig  -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort  $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP | Set-AzLoadBalancer   
 ```
 
-## <a name="configure-the-listener"></a>Configurar o serviço de escuta
+## <a name="configure-the-listener"></a>Configurar o ouvinte
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
-## <a name="set-the-listener-port-in-sql-server-management-studio"></a>Defina a porta de serviço de escuta no SQL Server Management Studio
+## <a name="set-the-listener-port-in-sql-server-management-studio"></a>Definir a porta do ouvinte no SQL Server Management Studio
 
-1. Inicie o SQL Server Management Studio e ligue-se para a réplica primária.
+1. Inicie o SQL Server Management Studio e conecte-se à réplica primária.
 
-1. Navegue para **AlwaysOn elevada disponibilidade** | **grupos de disponibilidade** | **serviços de escuta do grupo de disponibilidade**. 
+1. Navegue até **alta disponibilidade** | AlwaysOn**grupos** | de disponibilidade ouvintes do**grupo de disponibilidade**. 
 
-1. Agora, deverá ver o nome do serviço de escuta que criou no Gestor de clusters de ativação pós-falha. O nome do serviço de escuta com o botão direito e clique em **propriedades**.
+1. Agora você deve ver o nome do ouvinte que você criou em Gerenciador de Cluster de Failover. Clique com o botão direito do mouse no nome do ouvinte e clique em **Propriedades**.
 
-1. Na **porta** caixa, especifique o número de porta para o serviço de escuta do grupo de disponibilidade com o $EndpointPort que utilizou anteriormente (era a predefinição de 1433), em seguida, clique em **OK**.
+1. Na caixa **porta** , especifique o número da porta para o ouvinte do grupo de disponibilidade usando o $EndpointPort usado anteriormente (1433 era o padrão) e clique em **OK**.
 
-## <a name="test-the-connection-to-the-listener"></a>Testar a ligação ao serviço de escuta
+## <a name="test-the-connection-to-the-listener"></a>Testar a conexão com o ouvinte
 
-Para testar a ligação:
+Para testar a conexão:
 
-1. RDP para um SQL Server que está na mesma rede virtual, mas não é proprietário a réplica. Isso pode ser outro servidor SQL no cluster.
+1. RDP para um SQL Server que está na mesma rede virtual, mas não possui a réplica. Isso pode ser o outro SQL Server no cluster.
 
-1. Uso **sqlcmd** utilitário para testar a ligação. Por exemplo, o seguinte script estabelece uma **sqlcmd** ligação para a réplica primária por meio do serviço de escuta com a autenticação do Windows:
+1. Use o utilitário **sqlcmd** para testar a conexão. Por exemplo, o script a seguir estabelece uma conexão **sqlcmd** com a réplica primária por meio do ouvinte com autenticação do Windows:
    
     ```
     sqlcmd -S <listenerName> -E
     ```
    
-    Se o serviço de escuta é utilizar uma porta diferente da predefinição da porta (1433), especifique a porta na cadeia de ligação. Por exemplo, o seguinte comando sqlcmd liga a um serviço de escuta na porta 1435: 
+    Se o ouvinte estiver usando uma porta diferente da porta padrão (1433), especifique a porta na cadeia de conexão. Por exemplo, o comando sqlcmd a seguir se conecta a um ouvinte na porta 1435: 
    
     ```
     sqlcmd -S <listenerName>,1435 -E
     ```
 
-A ligação de SQLCMD liga-se automaticamente para qualquer instância do SQL Server aloja a réplica primária. 
+A conexão SQLCMD se conecta automaticamente a qualquer instância do SQL Server hospeda a réplica primária. 
 
 > [!NOTE]
-> Certifique-se de que a porta especificada está aberta na firewall de ambos os servidores SQL. Ambos os servidores exigem uma regra de entrada para a porta TCP que utiliza. Ver [adicionar ou Editar regra de Firewall](https://technet.microsoft.com/library/cc753558.aspx) para obter mais informações. 
+> Verifique se a porta que você especificou está aberta no firewall de ambos os SQL Servers. Ambos os servidores exigem uma regra de entrada para a porta TCP que você usa. Consulte [Adicionar ou editar regra de firewall](https://technet.microsoft.com/library/cc753558.aspx) para obter mais informações. 
 > 
 > 
 
 ## <a name="guidelines-and-limitations"></a>Diretrizes e limitações
-Tenha em atenção as seguintes diretrizes no serviço de escuta de grupo de disponibilidade no Azure utilizando o interno de Balanceador de carga:
+Observe as seguintes diretrizes no ouvinte do grupo de disponibilidade no Azure usando o balanceador de carga interno:
 
-* Com um balanceador de carga interno, acessar apenas o serviço de escuta de dentro da mesma rede virtual.
+* Com um balanceador de carga interno, você só acessa o ouvinte de dentro da mesma rede virtual.
 
-* Se estiver a restrição do acesso com um grupo de segurança de rede do Azure, certifique-se de que as regras de permissão incluem os endereços de IP da VM do SQL Server back-end e o Balanceador de carga IP flutuante endereços para o serviço de escuta de AG e o endereço IP de núcleo de cluster, se aplicável.
+* Se você estiver restringindo o acesso com um grupo de segurança de rede do Azure, verifique se as regras de permissão incluem os endereços IP de VM de back-end SQL Server e os endereços IP flutuantes do balanceador de carga para o ouvinte AG e o endereço IP principal do cluster, se aplicável.
 
 ## <a name="for-more-information"></a>Para obter mais informações:
-Para obter mais informações, consulte [grupo de disponibilidade configurar Always On na VM do Azure manualmente](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
+Para obter mais informações, consulte [Configurar o grupo de disponibilidade Always on na VM do Azure manualmente](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 ## <a name="powershell-cmdlets"></a>Cmdlets do PowerShell
-Utilize os seguintes cmdlets do PowerShell para criar um balanceador de carga interno para máquinas virtuais do Azure.
+Use os seguintes cmdlets do PowerShell para criar um balanceador de carga interno para máquinas virtuais do Azure.
 
-* [Novo AzLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) cria um balanceador de carga. 
-* [Novo AzLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) cria uma configuração de IP Front-end para um balanceador de carga. 
-* [Novo AzLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) cria uma configuração de regra para um balanceador de carga. 
-* [Novo AzLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) cria uma configuração de conjuntos de endereços de back-end para um balanceador de carga. 
-* [Novo AzLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) cria uma configuração de pesquisa para um balanceador de carga.
-* [Remove-AzLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx) remove um balanceador de carga a partir de um grupo de recursos do Azure.
+* [New-AzLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) cria um balanceador de carga. 
+* [New-AzLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) cria uma configuração de IP de front-end para um balanceador de carga. 
+* [New-AzLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) cria uma configuração de regra para um balanceador de carga. 
+* [New-AzLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) cria uma configuração de pool de endereços de back-end para um balanceador de carga. 
+* [New-AzLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) cria uma configuração de investigação para um balanceador de carga.
+* Remove [-AzLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx) remove um balanceador de carga de um grupo de recursos do Azure.

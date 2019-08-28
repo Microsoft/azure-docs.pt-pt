@@ -8,16 +8,15 @@ manager: gwallace
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh
-ms.openlocfilehash: 3bbf8cf126c80b9111f2bcbe24353c2731995bc1
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 1c990c864f9daa98460832166b31f43fece1ed15
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036894"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093845"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montar um sistema de arquivos virtual em um pool do lote
 

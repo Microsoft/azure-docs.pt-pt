@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas de domínios e certificados SSL - serviço de aplicações do Azure | Documentos da Microsoft
-description: Resolver problemas de domínio e problemas de certificado SSL no App Service do Azure
+title: Solucionar problemas de domínio e certificados SSL-serviço de Azure App | Microsoft Docs
+description: Solucionar problemas de domínio e certificado SSL no serviço Azure App
 services: app-service\web
 documentationcenter: ''
 author: genlin
@@ -10,321 +10,320 @@ tags: top-support-issue
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 0b6bdc884107a522c81d100c0a05018cbc9d0a70
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 097d4ea45827223a5d3e64a2d1ca326569db9958
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718279"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113541"
 ---
-# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Resolver problemas de domínio e problemas de certificado SSL no App Service do Azure
+# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Solucionar problemas de domínio e certificado SSL no serviço Azure App
 
-Este artigo lista problemas comuns que poderá encontrar ao configurar um domínio ou o certificado SSL para as suas aplicações web no serviço de aplicações do Azure. Ele também descreve possíveis causas e soluções para esses problemas.
+Este artigo lista os problemas comuns que você pode encontrar ao configurar um domínio ou certificado SSL para seus aplicativos Web no serviço Azure App. Ele também descreve as possíveis causas e soluções para esses problemas.
 
-Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure no [os fóruns do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do MSDN e do Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="certificate-problems"></a>Problemas de certificado
 
-### <a name="you-cant-add-an-ssl-certificate-binding-to-an-app"></a>Não é possível adicionar um enlace de certificado SSL para uma aplicação 
+### <a name="you-cant-add-an-ssl-certificate-binding-to-an-app"></a>Não é possível adicionar uma associação de certificado SSL a um aplicativo 
 
 #### <a name="symptom"></a>Sintoma
 
-Quando adiciona um enlace SSL, recebe a seguinte mensagem de erro:
+Ao adicionar uma associação SSL, você recebe a seguinte mensagem de erro:
 
-"Falha ao adicionar o enlace SSL. Não é possível definir certificado para o VIP existente porque outro VIP já utiliza esse certificado."
+"Falha ao adicionar Associação SSL. Não é possível definir o certificado para o VIP existente porque outro VIP já usa esse certificado. "
 
 #### <a name="cause"></a>Causa
 
-Este problema pode ocorrer se tiver vários enlaces de SSL baseado em IP para o mesmo endereço IP por várias aplicações. Por exemplo, a aplicação tem um SSL baseado em IP com um certificado antigo. Aplicação B tem um SSL baseado em IP com um novo certificado para o mesmo endereço IP. Quando atualizar o enlace de SSL de aplicação com o novo certificado, ele falha com este erro porque o mesmo endereço IP que está a ser utilizado para outra aplicação. 
+Esse problema pode ocorrer se você tiver várias associações SSL baseadas em IP para o mesmo endereço IP em vários aplicativos. Por exemplo, o aplicativo A tem um SSL baseado em IP com um certificado antigo. O aplicativo B tem um SSL baseado em IP com um novo certificado para o mesmo endereço IP. Quando você atualiza a associação SSL do aplicativo com o novo certificado, ele falha com esse erro porque o mesmo endereço IP está sendo usado para outro aplicativo. 
 
 #### <a name="solution"></a>Solução 
 
-Para corrigir este problema, utilize um dos seguintes métodos:
+Para corrigir esse problema, use um dos seguintes métodos:
 
-- Elimine o enlace SSL baseado em IP na aplicação que utiliza o certificado antigo. 
-- Crie um novo enlace SSL baseado em IP que utiliza o novo certificado.
+- Exclua a associação SSL baseada em IP no aplicativo que usa o certificado antigo. 
+- Crie uma nova associação SSL com base em IP que usa o novo certificado.
 
-### <a name="you-cant-delete-a-certificate"></a>Não é possível eliminar um certificado 
+### <a name="you-cant-delete-a-certificate"></a>Não é possível excluir um certificado 
 
 #### <a name="symptom"></a>Sintoma
 
-Ao tentar eliminar um certificado, receberá a seguinte mensagem de erro:
+Ao tentar excluir um certificado, você recebe a seguinte mensagem de erro:
 
-"Não é possível eliminar o certificado porque está atualmente a ser utilizado num enlace SSL. O enlace SSL tem de ser removido antes de poder eliminar o certificado."
+"Não é possível excluir o certificado porque ele está sendo usado atualmente em uma associação SSL. A associação SSL deve ser removida antes que você possa excluir o certificado. "
 
 #### <a name="cause"></a>Causa
 
-Esse problema pode ocorrer se outra aplicação utiliza o certificado.
+Esse problema pode ocorrer se outro aplicativo usar o certificado.
 
 #### <a name="solution"></a>Solução
 
-Remova o enlace de SSL para esse certificado a partir das aplicações. Em seguida, tente eliminar o certificado. Se ainda não é possível eliminar o certificado, limpar a cache do navegador de internet e volte a abrir o portal do Azure numa nova janela do browser. Em seguida, tente eliminar o certificado.
+Remova a associação SSL para esse certificado dos aplicativos. Em seguida, tente excluir o certificado. Se você ainda não pode excluir o certificado, limpe o cache do navegador da Internet e reabra o portal do Azure em uma nova janela do navegador. Em seguida, tente excluir o certificado.
 
-### <a name="you-cant-purchase-an-app-service-certificate"></a>Não é possível comprar um certificado de serviço de aplicações 
+### <a name="you-cant-purchase-an-app-service-certificate"></a>Não é possível comprar um certificado do serviço de aplicativo 
 
 #### <a name="symptom"></a>Sintoma
-Não pode comprar uma [certificado do serviço de aplicações do Azure](./web-sites-purchase-ssl-web-site.md) do portal do Azure.
+Não é possível comprar um [certificado de serviço Azure app](./web-sites-purchase-ssl-web-site.md) do portal do Azure.
 
 #### <a name="cause-and-solution"></a>Causa e solução
-Este problema pode ocorrer em qualquer um dos seguintes motivos:
+Esse problema pode ocorrer por qualquer um dos seguintes motivos:
 
-- O plano do serviço de aplicações é gratuito ou partilhado. Estes escalões de preço não suportam SSL. 
+- O plano do serviço de aplicativo é gratuito ou compartilhado. Esses tipos de preço não dão suporte a SSL. 
 
-    **Solução**: Atualize o plano do serviço de aplicações para a aplicação para o Standard.
+    **Solução**: Atualize o plano do serviço de aplicativo para o aplicativo para Standard.
 
-- A subscrição não tem um cartão de crédito válido.
+- A assinatura não tem um cartão de crédito válido.
 
-    **Solução**: Adicione um cartão de crédito válido para a sua subscrição. 
+    **Solução**: Adicione um cartão de crédito válido à sua assinatura. 
 
-- A oferta de subscrição não suporta a adquirir um certificado de serviço de aplicações, tais como Microsoft Student.  
+- A oferta de assinatura não dá suporte à compra de um certificado do serviço de aplicativo, como o aluno da Microsoft.  
 
-    **Solução**: Atualize a sua subscrição. 
+    **Solução**: Atualize sua assinatura. 
 
-- A subscrição atingiu o limite de compras que são permitidas numa subscrição.
+- A assinatura atingiu o limite de compras permitidas em uma assinatura.
 
-    **Solução**: Certificados de serviço de aplicações têm um limite de 10 compras de certificado para os tipos de subscrição pay as you go e EA. Para outros tipos de subscrição, o limite é 3. Para aumentar o limite, contacte [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- O certificado de serviço de aplicações foi marcado como fraudes. Recebeu a mensagem de erro seguinte: "O certificado foi sinalizado como possível fraude. O pedido está atualmente a ser analisadas. Se o certificado se tornar utilizável dentro de 24 horas, contacte o suporte do Azure."
+    **Solução**: Os certificados do serviço de aplicativo têm um limite de 10 compras de certificado para os tipos de assinatura pago pelo uso e EA. Para outros tipos de assinatura, o limite é 3. Para aumentar o limite, entre em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- O certificado do serviço de aplicativo foi marcado como fraude. Você recebeu a seguinte mensagem de erro: "Seu certificado foi sinalizado para uma possível fraude. A solicitação está em análise no momento. Se o certificado não se tornar utilizável dentro de 24 horas, entre em contato com o suporte do Azure.
 
-    **Solução**: Se o certificado está marcado como fraude e não é resolvido após 24 horas, siga estes passos:
+    **Solução**: Se o certificado for marcado como fraude e não for resolvido após 24 horas, siga estas etapas:
 
     1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-    2. Aceda a **certificados do serviço de aplicações**e selecione o certificado.
-    3. Selecione **configuração do certificado** > **passo 2: Certifique-se** > **verificação de domínio**. Este passo envia uma notificação de e-mail para o fornecedor de certificados do Azure para resolver o problema.
+    2. Vá para **certificados do serviço de aplicativo**e selecione o certificado.
+    3. Selecione > aconfiguração**de certificado etapa 2: Verifique**a > **verificação de domínio**. Esta etapa envia um aviso por email ao provedor de certificados do Azure para resolver o problema.
 
 ## <a name="custom-domain-problems"></a>Problemas de domínio personalizado
 
-### <a name="a-custom-domain-returns-a-404-error"></a>Um domínio personalizado devolve um erro 404 
+### <a name="a-custom-domain-returns-a-404-error"></a>Um domínio personalizado retorna um erro 404 
 
 #### <a name="symptom"></a>Sintoma
 
-Quando navegar para o site com o nome de domínio personalizado, recebe a seguinte mensagem de erro:
+Ao navegar até o site usando o nome de domínio personalizado, você receberá a seguinte mensagem de erro:
 
-"Erro 404-não foram encontradas aplicações Web."
+"Erro 404-aplicativo Web não encontrado."
 
 #### <a name="cause-and-solution"></a>Causa e solução
 
 **Causa 1** 
 
-O domínio personalizado que configurou está em falta um registo CNAME ou um. 
+O domínio personalizado que você configurou está sem um CNAME ou um registro. 
 
-**Solução para causa 1**
+**Solução para o motivo 1**
 
-- Se tiver adicionado um registo, certifique-se de que também é adicionado um registo TXT. Para obter mais informações, consulte [criar um registo](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
-- Se não tiver de utilizar o domínio de raiz para a sua aplicação, recomendamos que utilize um registo CNAME, em vez de um registo.
-- Não utilize um registo CNAME e um registo para o mesmo domínio. Este problema pode causar um conflito e impedir que o domínio a ser resolvidos. 
+- Se você adicionou um registro A, certifique-se de que um registro TXT também seja adicionado. Para obter mais informações, consulte [criar um registro a](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
+- Se você não precisar usar o domínio raiz para seu aplicativo, é recomendável usar um registro CNAME em vez de um registro A.
+- Não use um registro CNAME e um registro A para o mesmo domínio. Esse problema pode causar um conflito e impedir que o domínio seja resolvido. 
 
 **Causa 2** 
 
-Browser da internet pode ainda ser colocação em cache o endereço IP antigo para o seu domínio. 
+O navegador da Internet ainda pode estar armazenando em cache o endereço IP antigo para seu domínio. 
 
-**Solução para causa 2**
+**Solução para a causa 2**
 
-Limpe o navegador. Para dispositivos Windows, pode executar o comando `ipconfig /flushdns`. Uso [WhatsmyDNS.net](https://www.whatsmydns.net/) para verificar que o seu domínio aponta para o endereço IP da aplicação. 
+Limpe o navegador. Para dispositivos Windows, você pode executar o comando `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) para verificar se o seu domínio aponta para o endereço IP do aplicativo. 
 
 ### <a name="you-cant-add-a-subdomain"></a>Não é possível adicionar um subdomínio 
 
 #### <a name="symptom"></a>Sintoma
 
-Não é possível adicionar um novo nome de anfitrião para uma aplicação para atribuir um subdomínio.
+Você não pode adicionar um novo nome de host a um aplicativo para atribuir um subdomínio.
 
 #### <a name="solution"></a>Solução
 
-- Contacte o administrador da subscrição para se certificar de que tem permissões para adicionar um nome de anfitrião para a aplicação.
-- Se precisar de mais de subdomínios, recomendamos que altere o domínio que aloja a serviço de nomes de domínio do Azure (DNS). Ao utilizar o DNS do Azure, pode adicionar 500 nomes de anfitrião para a sua aplicação. Para obter mais informações, consulte [adicione um subdomínio](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+- Verifique com o administrador da assinatura para certificar-se de que você tem permissões para adicionar um nome de host ao aplicativo.
+- Se precisar de mais subdomínios, recomendamos que você altere o domínio de hospedagem para o serviço de nomes de domínio do Azure (DNS). Usando o DNS do Azure, você pode adicionar nomes de host 500 ao seu aplicativo. Para obter mais informações, consulte [Adicionar um subdomínio](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
 
-### <a name="dns-cant-be-resolved"></a>Não é possível resolver o DNS
+### <a name="dns-cant-be-resolved"></a>O DNS não pode ser resolvido
 
 #### <a name="symptom"></a>Sintoma
 
-Recebeu a mensagem de erro seguinte:
+Você recebeu a seguinte mensagem de erro:
 
-"O registo DNS não foi possível localizar."
+"O registro DNS não pôde ser localizado."
 
 #### <a name="cause"></a>Causa
-Este problema ocorre para um dos seguintes motivos:
+Esse problema ocorre por um dos seguintes motivos:
 
-- O tempo para o período do live (TTL) não expirou. Verifique a configuração de DNS para o seu domínio determinar o valor de TTL e, em seguida, aguarde que o período de expirar.
+- O período de vida útil (TTL) não expirou. Verifique a configuração de DNS para seu domínio para determinar o valor de TTL e aguarde até que o período expire.
 - A configuração de DNS está incorreta.
 
 #### <a name="solution"></a>Solução
-- Aguarde até 48 horas para que este problema seja resolvido automaticamente.
-- Se for possível alterar a definição do valor de TTL na sua configuração de DNS, altere o valor para 5 minutos para ver se isso resolve o problema.
-- Uso [WhatsmyDNS.net](https://www.whatsmydns.net/) para verificar que o seu domínio aponta para o endereço IP da aplicação. Se não configure o registo para o endereço IP correto da aplicação.
+- Aguarde 48 horas para que esse problema se resolva.
+- Se você puder alterar a configuração de TTL em sua configuração de DNS, altere o valor para 5 minutos para ver se isso resolve o problema.
+- Use [WhatsmyDNS.net](https://www.whatsmydns.net/) para verificar se o seu domínio aponta para o endereço IP do aplicativo. Se não estiver, configure o registro a para o endereço IP correto do aplicativo.
 
-### <a name="you-need-to-restore-a-deleted-domain"></a>Tem de restaurar um domínio eliminado 
+### <a name="you-need-to-restore-a-deleted-domain"></a>Você precisa restaurar um domínio excluído 
 
 #### <a name="symptom"></a>Sintoma
-O domínio já não é visível no portal do Azure.
+Seu domínio não está mais visível no portal do Azure.
 
 #### <a name="cause"></a>Causa 
-O proprietário da subscrição pode ter sido excluído acidentalmente o domínio.
+O proprietário da assinatura pode ter excluído o domínio acidentalmente.
 
 #### <a name="solution"></a>Solução
-Se o seu domínio foi eliminado há menos de sete dias, o domínio ainda não iniciou o processo de eliminação. Neste caso, pode adquirir o mesmo domínio novamente no portal do Azure na mesma subscrição. (Certifique-se de que escreva o nome de domínio exata na caixa de pesquisa.) Não será cobrado novamente para este domínio. Se o domínio foi eliminado há mais de sete dias, contacte [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter ajuda com o restauro de domínio.
+Se o domínio tiver sido excluído há menos de sete dias, o domínio ainda não iniciou o processo de exclusão. Nesse caso, você pode comprar o mesmo domínio novamente na portal do Azure na mesma assinatura. (Certifique-se de digitar o nome de domínio exato na caixa de pesquisa.) Você não será cobrado novamente para este domínio. Se o domínio tiver sido excluído há mais de sete dias, entre em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter ajuda com a restauração do domínio.
 
 ## <a name="domain-problems"></a>Problemas de domínio
 
-### <a name="you-purchased-an-ssl-certificate-for-the-wrong-domain"></a>Tiver adquirido um certificado SSL para o domínio errado
+### <a name="you-purchased-an-ssl-certificate-for-the-wrong-domain"></a>Você comprou um certificado SSL para o domínio errado
 
 #### <a name="symptom"></a>Sintoma
 
-Adquirido um certificado de serviço de aplicações para o domínio errado. Não é possível atualizar o certificado a utilizar o domínio correto.
+Você comprou um certificado do serviço de aplicativo para o domínio errado. Você não pode atualizar o certificado para usar o domínio correto.
 
 #### <a name="solution"></a>Solução
 
-Eliminar esse certificado e, em seguida, comprar um novo certificado.
+Exclua esse certificado e, em seguida, compre um novo certificado.
 
-Se o certificado atual que utiliza o domínio errado está no estado "Emitido", também pagará para esse certificado. Certificados de serviço de aplicações não são reembolsável, mas pode contactar [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para ver se existem outras opções. 
+Se o certificado atual que usa o domínio errado estiver no estado "emitido", você também será cobrado pelo certificado. Os certificados do serviço de aplicativo não são refundable, mas você pode entrar em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para ver se há outras opções. 
 
-### <a name="an-app-service-certificate-was-renewed-but-the-app-shows-the-old-certificate"></a>Um certificado de serviço de aplicações foi renovado, mas a aplicação mostra o antigo certificado 
+### <a name="an-app-service-certificate-was-renewed-but-the-app-shows-the-old-certificate"></a>Um certificado do serviço de aplicativo foi renovado, mas o aplicativo mostra o certificado antigo 
 
 #### <a name="symptom"></a>Sintoma
 
-O certificado de serviço de aplicações foi renovado, mas a aplicação que utiliza o certificado de serviço de aplicações ainda está a utilizar o certificado antigo. Além disso, é recebido um aviso de que o protocolo HTTPS é necessário.
+O certificado do serviço de aplicativo foi renovado, mas o aplicativo que usa o certificado do serviço de aplicativo ainda está usando o certificado antigo. Além disso, você recebeu um aviso de que o protocolo HTTPS é necessário.
 
 #### <a name="cause"></a>Causa 
-Serviço de aplicações do Azure é executada uma tarefa em segundo plano a cada oito horas e sincroniza o recurso de certificado, se existirem quaisquer alterações. Quando roda ou atualizar um certificado, às vezes, o aplicativo está ainda a obter o certificado antigo e não o certificado recentemente atualizado. O motivo é que a tarefa para sincronizar o recurso de certificado não tiver sido executada ainda. 
+O serviço de aplicativo sincroniza automaticamente seu certificado dentro de 48 horas. Quando você gira ou atualiza um certificado, às vezes o aplicativo ainda está recuperando o certificado antigo e não o certificado recém atualizado. O motivo é que o trabalho para sincronizar o recurso de certificado ainda não foi executado. Clique em sincronizar. A operação de sincronização atualiza automaticamente as associações de nome de host para o certificado no serviço de aplicativo sem causar nenhum tempo de inatividade para seus aplicativos.
  
 #### <a name="solution"></a>Solução
 
-Pode forçar uma sincronização do certificado:
+Você pode forçar uma sincronização do certificado:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **certificados do serviço de aplicações**e, em seguida, selecione o certificado.
-2. Selecione **recodificar e sincronizar**e, em seguida, selecione **sincronização**. A sincronização demora algum tempo a concluir. 
-3. Quando a sincronização estiver concluída, verá a seguinte notificação: "Atualizado com êxito todos os recursos com o último certificado."
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **certificados do serviço de aplicativo**e, em seguida, selecione o certificado.
+2. Selecione **rechaveamento e sincronização**e, em seguida, selecione **sincronizar**. A sincronização leva algum tempo para ser concluída. 
+3. Quando a sincronização for concluída, você verá a seguinte notificação: "Êxito ao atualizar todos os recursos com o certificado mais recente".
 
-### <a name="domain-verification-is-not-working"></a>Verificação de domínio não está a funcionar 
+### <a name="domain-verification-is-not-working"></a>A verificação de domínio não está funcionando 
 
 #### <a name="symptom"></a>Sintoma 
-O certificado de serviço de aplicações requer verificação de domínio antes do certificado está pronto a utilizar. Quando seleciona **Verifique se**, o processo de falha.
+O certificado do serviço de aplicativo requer a verificação de domínio antes que o certificado esteja pronto para uso. Quando você seleciona **verificar**, o processo falha.
 
 #### <a name="solution"></a>Solução
-Verifique manualmente o seu domínio ao adicionar um registo TXT:
+Verifique manualmente seu domínio adicionando um registro TXT:
  
-1.  Vá para o fornecedor de serviço de nomes de domínio (DNS) que aloja o seu nome de domínio.
-2.  Adicione um registo TXT para o seu domínio que utiliza o valor do token de domínio que é apresentado no portal do Azure. 
+1.  Vá para o provedor DNS (serviço de nomes de domínio) que hospeda seu nome de domínio.
+2.  Adicione um registro TXT para seu domínio que usa o valor do token de domínio mostrado no portal do Azure. 
 
-Aguarde alguns minutos para a propagação de DNS executar e, em seguida, selecione o **atualizar** botão para acionar a verificação. 
+Aguarde alguns minutos para que a propagação de DNS seja executada e, em seguida, selecione o botão **Atualizar** para disparar a verificação. 
 
-Como alternativa, pode utilizar o método de página Web HTML para verificar manualmente o seu domínio. Este método permite que a autoridade de certificação confirmar a propriedade do domínio do domínio que o certificado é emitido.
+Como alternativa, você pode usar o método HTML da página da Web para verificar manualmente seu domínio. Esse método permite que a autoridade de certificação confirme a propriedade do domínio do domínio para o qual o certificado é emitido.
 
-1.  Crie um ficheiro HTML com o nome {token de verificação de domínio}.-HTML. O conteúdo deste ficheiro deve ser o valor do token de verificação de domínio.
-3.  Carregar este ficheiro na raiz do servidor web que está a alojar o seu domínio.
-4.  Selecione **atualizar** para verificar o estado do certificado. Poderá demorar alguns minutos para efeitos de verificação concluir.
+1.  Crie um arquivo HTML chamado {token de verificação de domínio}. html. O conteúdo desse arquivo deve ser o valor do token de verificação de domínio.
+3.  Carregue esse arquivo na raiz do servidor Web que está hospedando seu domínio.
+4.  Selecione **Atualizar** para verificar o status do certificado. Pode levar alguns minutos para que a verificação seja concluída.
 
-Por exemplo, se estiver comprando um certificado standard para azure.com com o 1234abcd de token de verificação de domínio, feita uma solicitação da web para https://azure.com/1234abcd.html deverá devolver 1234abcd. 
+Por exemplo, se você estiver comprando um certificado padrão para Azure.com com o token de verificação de domínio 1234abcd, uma solicitação da https://azure.com/1234abcd.html Web feita para deve retornar 1234abcd. 
 
 > [!IMPORTANT]
-> Um pedido de certificado tem prazo de 15 dias para concluir a operação de verificação de domínio. Após 15 dias, a autoridade de certificação nega o certificado e não lhe são cobradas para o certificado. Nesta situação, elimine este certificado e tente novamente.
+> Uma ordem de certificado tem apenas 15 dias para concluir a operação de verificação de domínio. Após 15 dias, a autoridade de certificação negará o certificado e você não será cobrado pelo certificado. Nessa situação, exclua esse certificado e tente novamente.
 >
 > 
 
 ### <a name="you-cant-purchase-a-domain"></a>Não é possível comprar um domínio
 
 #### <a name="symptom"></a>Sintoma
-Não é possível comprar um domínio do serviço de aplicações no portal do Azure.
+Não é possível comprar um domínio do serviço de aplicativo no portal do Azure.
 
 #### <a name="cause-and-solution"></a>Causa e solução
 
-Este problema ocorre para um dos seguintes motivos:
+Esse problema ocorre por um dos seguintes motivos:
 
-- Não existe nenhum cartão de crédito da subscrição do Azure ou o cartão de crédito é inválido.
+- Não há nenhum cartão de crédito na assinatura do Azure ou o cartão de crédito é inválido.
 
-    **Solução**: Adicione um cartão de crédito válido para a sua subscrição.
+    **Solução**: Adicione um cartão de crédito válido à sua assinatura.
 
-- Não é o proprietário da subscrição, pelo que não tem permissão para comprar um domínio.
+- Você não é o proprietário da assinatura, portanto, você não tem permissão para comprar um domínio.
 
-    **Solução**: [Atribuir a função de proprietário](../role-based-access-control/role-assignments-portal.md) à sua conta. Ou contacte o administrador da subscrição para obter permissão para comprar um domínio.
-- Atingiu o limite para a compra de domínios na sua subscrição. O limite atual é 20.
+    **Solução**: [Atribua a função de proprietário](../role-based-access-control/role-assignments-portal.md) à sua conta. Ou contate o administrador da assinatura para obter permissão para comprar um domínio.
+- Você atingiu o limite para a compra de domínios em sua assinatura. O limite atual é 20.
 
-    **Solução**: Para pedir um aumento do limite, contacte [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- O tipo de subscrição do Azure não suporta a compra de um domínio do serviço de aplicações.
+    **Solução**: Para solicitar um aumento do limite, entre em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- O tipo de assinatura do Azure não oferece suporte à compra de um domínio do serviço de aplicativo.
 
-    **Solução**: Atualize a sua subscrição do Azure para outro tipo de subscrição, como uma subscrição pay as you go.
+    **Solução**: Atualize sua assinatura do Azure para outro tipo de assinatura, como uma assinatura paga conforme o uso.
 
-### <a name="you-cant-add-a-host-name-to-an-app"></a>Não é possível adicionar um nome de anfitrião para uma aplicação 
+### <a name="you-cant-add-a-host-name-to-an-app"></a>Não é possível adicionar um nome de host a um aplicativo 
 
 #### <a name="symptom"></a>Sintoma
 
-Quando adiciona um nome de anfitrião, o processo de falha validar e verificar o domínio.
+Quando você adiciona um nome de host, o processo falha ao validar e verificar o domínio.
 
 #### <a name="cause"></a>Causa 
 
-Este problema ocorre para um dos seguintes motivos:
+Esse problema ocorre por um dos seguintes motivos:
 
-- Não tem permissão para adicionar um nome de anfitrião.
+- Você não tem permissão para adicionar um nome de host.
 
-    **Solução**: Peça ao administrador de subscrição para lhe dar permissão para adicionar um nome de anfitrião.
+    **Solução**: Peça ao administrador da assinatura que lhe conceda permissão para adicionar um nome de host.
 - Não foi possível verificar a propriedade do domínio.
 
-    **Solução**: Certifique-se de que seu CNAME ou um registo está configurado corretamente. Para mapear um domínio personalizado para uma aplicação, crie um registo CNAME ou um registo. Se pretender utilizar um domínio de raiz, tem de utilizar registos a e TXT:
+    **Solução**: Verifique se o CNAME ou registro A está configurado corretamente. Para mapear um domínio personalizado para um aplicativo, crie um registro CNAME ou um registro A. Se você quiser usar um domínio raiz, deverá usar os registros A e TXT:
 
     |Tipo de registo|Host|Aponte para|
     |------|------|-----|
-    |A|@|Endereço IP para uma aplicação|
+    |A|@|Endereço IP para um aplicativo|
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 
 ## <a name="faq"></a>FAQ
 
-**É necessário que configurar o meu domínio personalizado para o meu site assim que adquiri-lo?**
+**É necessário configurar meu domínio personalizado para meu site depois de comprá-lo?**
 
-Quando comprar um domínio a partir do portal do Azure, a aplicação de serviço de aplicações é automaticamente configurada para utilizar esse domínio personalizado. Não tem de efetuar quaisquer passos adicionais. Para obter mais informações, veja [ajuda Self de serviço de aplicações do Azure: Adicionar um nome de domínio personalizado](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) no Channel 9.
+Quando você adquire um domínio do portal do Azure, o aplicativo do serviço de aplicativo é configurado automaticamente para usar esse domínio personalizado. Você não precisa executar nenhuma etapa adicional. Para obter mais informações, [Assista à auto ajuda do serviço de Azure App: Adicione um nome](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) de domínio personalizado em channel9.
 
-**Pode utilizar um domínio comprado no portal do Azure para apontar para uma VM do Azure em vez disso?**
+**Posso usar um domínio adquirido no portal do Azure para apontar para uma VM do Azure em vez disso?**
 
-Sim, pode apontar o domínio a uma VM. Para obter mais informações, veja [Utilizar o DNS do Azure para oferecer definições de domínio personalizado para um serviço do Azure](../dns/dns-custom-domain.md).
+Sim, você pode apontar o domínio para uma VM. Para obter mais informações, veja [Utilizar o DNS do Azure para oferecer definições de domínio personalizado para um serviço do Azure](../dns/dns-custom-domain.md).
 
-**Meu domínio está hospedado por GoDaddy ou o DNS do Azure?**
+**O meu domínio é hospedado pelo GoDaddy ou pelo DNS do Azure?**
 
-Domínios do serviço de aplicações utilizam GoDaddy para o registo de domínio e o DNS do Azure para alojar os domínios. 
+Os domínios do serviço de aplicativo usam GoDaddy para o registro de domínio e o DNS do Azure para hospedar os domínios. 
 
-**Tenho de renovação automática ativada, mas ainda foi recebido um aviso de renovação para meu domínio através de e-mail. O que devo fazer?**
+**Tenho a renovação automática habilitada, mas ainda recebeva um aviso de renovação para o meu domínio por email. O que devo fazer?**
 
-Se tiver de renovação automática ativada, não é necessário efetuar qualquer ação. O e-mail de aviso é fornecido informar a que o domínio encontra prestes a expirar e para renovar manualmente se a renovação automática não está ativada.
+Se você tiver a renovação automática habilitada, não será necessário realizar nenhuma ação. O email de aviso é fornecido para informar que o domínio está perto de expirar e para renovar manualmente se a renovação automática não estiver habilitada.
 
-**Vou ser cobrado por DNS do Azure alojar o meu domínio?**
+**Serei cobrado pelo DNS do Azure que hospeda meu domínio?**
 
-O custo inicial da compra de domínio aplica-se apenas ao registro de domínio. Além do custo de registo, existem incorrer em custos para o Azure DNS com base na sua utilização. Para obter mais informações, consulte [preços de DNS do Azure](https://azure.microsoft.com/pricing/details/dns/) para obter mais detalhes.
+O custo inicial da compra de domínio se aplica somente ao registro de domínio. Além do custo de registro, há encargos incorridos para o DNS do Azure com base no seu uso. Para obter mais informações, consulte [preços do DNS do Azure](https://azure.microsoft.com/pricing/details/dns/) para obter mais detalhes.
 
-**Eu comprado meu domínio anteriormente a partir do portal do Azure e pretender mover da GoDaddy de alojamento para o alojamento de DNS do Azure. Como posso fazer isso?**
+**Comprei meu domínio anteriormente na portal do Azure e desejamos mudar da hospedagem GoDaddy para a hospedagem de DNS do Azure. Como posso fazer isso?**
 
-Não é obrigatório migrar para o alojamento de DNS do Azure. Se pretender migrar para o DNS do Azure, a experiência de gestão de domínio no portal do Azure sobre fornece informações sobre os passos necessários para passar para o DNS do Azure. Se o domínio tenha sido comprado através do serviço de aplicações, a migração da GoDaddy hospedagem ao DNS do Azure é relativamente simples procedimento.
+Não é obrigatório migrar para a hospedagem de DNS do Azure. Se você quiser migrar para o DNS do Azure, a experiência de gerenciamento de domínio no portal do Azure sobre fornece informações sobre as etapas necessárias para migrar para o DNS do Azure. Se o domínio foi adquirido por meio do serviço de aplicativo, a migração da hospedagem do GoDaddy para o DNS do Azure é um procedimento relativamente simples.
 
-**Eu gostaria de comprar meu domínio do domínio do serviço de aplicações, mas eu hospedar meu domínio na GoDaddy, em vez de DNS do Azure?**
+**Eu gostaria de comprar meu domínio do domínio do serviço de aplicativo, mas posso hospedar meu domínio em GoDaddy em vez de DNS do Azure?**
 
-24 de Julho de 2017, a partir de domínios do serviço de aplicações comprados no portal do estão alojados no DNS do Azure. Se preferir usar um provedor de hospedagem diferente, tem de aceder ao seu Web site para obter um solução de alojamento de domínio.
+A partir de 24 de julho de 2017, os domínios do serviço de aplicativo adquiridos no portal são hospedados no DNS do Azure. Se preferir usar um provedor de hospedagem diferente, você deverá acessar seu site para obter uma solução de Hospedagem de domínio.
 
-**Tenho de pagar para proteção de privacidade para meu domínio?**
+**É necessário pagar pela proteção de privacidade para meu domínio?**
 
-Quando comprar um domínio através do portal do Azure, pode optar por adicionar privacidade sem custos adicionais. Essa é uma das vantagens de comprar o seu domínio através do serviço de aplicações do Azure.
+Ao comprar um domínio por meio do portal do Azure, você pode optar por adicionar privacidade sem custo adicional. Essa é uma das vantagens de comprar seu domínio por meio do serviço de Azure App.
 
-**Se eu decidir que já não quero meu domínio, posso obter minha dinheiro novamente?**
+**Se eu decidir que não quero mais meu domínio, posso me repassar ao meu dinheiro?**
 
-Quando comprar um domínio, não são cobradas durante um período de cinco dias, período durante o qual pode decidir que não pretende que o domínio. Se decidir que não quer que o domínio dentro desse período de cinco dias, não é cobradas. (.uk domínios são uma exceção a isso. Se comprar um domínio .uk, é-lhe cobrado imediatamente e não pode ser restituído.)
+Quando você adquire um domínio, não é cobrado por um período de cinco dias, durante o qual você pode decidir que não deseja o domínio. Se você decidir que não quer o domínio dentro desse período de cinco dias, não será cobrado. (. os domínios do Reino Unido são uma exceção a isso. Se você comprar um domínio. Reino Unido, você será cobrado imediatamente e não poderá ser reembolsado.)
 
-**Pode utilizar o domínio noutra aplicação de serviço de aplicações do Azure na minha subscrição?**
+**Posso usar o domínio em outro aplicativo de serviço Azure App em minha assinatura?**
 
-Sim. Quando acessar o painel de domínios personalizados e SSL no portal do Azure, verá os domínios que adquiriu. Pode configurar a sua aplicação para utilizar qualquer um desses domínios.
+Sim. Ao acessar a folha domínios personalizados e SSL no portal do Azure, você vê os domínios que comprou. Você pode configurar seu aplicativo para usar qualquer um desses domínios.
 
-**Posso transferir um domínio de uma subscrição para outra subscrição?**
+**Posso transferir um domínio de uma assinatura para outra assinatura?**
 
-Pode mover um domínio para outro grupo de recursos/subscrição com o [movimentação AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) cmdlet do PowerShell.
+Você pode mover um domínio para outro grupo de recursos/assinatura usando o cmdlet do PowerShell [move-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) .
 
-**Como posso gerir meu domínio personalizado se atualmente não tiver uma aplicação de serviço de aplicações do Azure?**
+**Como posso gerenciar meu domínio personalizado se não tiver atualmente um aplicativo de serviço de Azure App?**
 
-Pode gerir o seu domínio, mesmo se não tiver uma aplicação de Web do serviço de aplicações. Domínio pode ser utilizado para serviços do Azure como Máquina Virtual, armazenamento etc. Se pretende usar o domínio para aplicações de Web do serviço de aplicações, terá de incluir uma aplicação Web que não é o plano gratuito do App Service para associar o domínio à sua aplicação web.
+Você pode gerenciar seu domínio mesmo que não tenha um aplicativo Web do serviço de aplicativo. O domínio pode ser usado para serviços do Azure como máquina virtual, armazenamento, etc. Se você pretende usar o domínio para aplicativos Web do serviço de aplicativo, precisará incluir um aplicativo Web que não esteja no plano de Serviço de Aplicativo Gratuito para associar o domínio ao seu aplicativo Web.
 
-**Posso mover uma aplicação web com um domínio personalizado para outra subscrição ou do ambiente de serviço de aplicações v1 para V2?**
+**Posso mover um aplicativo Web com um domínio personalizado para outra assinatura ou de Ambiente do Serviço de Aplicativo v1 para v2?**
 
-Sim, pode mover a sua aplicação web em várias subscrições. Siga as orientações no [como mover os recursos no Azure](../azure-resource-manager/resource-group-move-resources.md). Existem algumas limitações ao mover a aplicação web. Para obter mais informações, consulte [limitações para mover os recursos de serviço de aplicações](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+Sim, você pode mover seu aplicativo Web entre assinaturas. Siga as orientações em [como mover recursos no Azure](../azure-resource-manager/resource-group-move-resources.md). Há algumas limitações ao mover o aplicativo Web. Para obter mais informações, consulte [limitações para mover os recursos do serviço de aplicativo](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
-Depois de mover a aplicação web, os enlaces de nome de anfitrião dos domínios dentro dos domínios personalizados definição devem permanecer os mesmos. Não existem passos adicionais necessários para configurar os enlaces de nome de anfitrião.
+Depois de mover o aplicativo Web, as associações de nome de host dos domínios dentro da configuração domínios personalizados devem permanecer as mesmas. Nenhuma etapa adicional é necessária para configurar as associações de nome de host.

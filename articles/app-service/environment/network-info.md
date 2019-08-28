@@ -9,17 +9,16 @@ ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 01a7c4e41dd628ec8671555daf828b67bebba23e
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 9b7c63639eea7176af36593983b08ad0c5213613
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898671"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073224"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações de rede para um Ambiente do Serviço de Aplicativo #
 
@@ -96,7 +95,7 @@ O ASE se comunica com endereços acessíveis à Internet nas seguintes portas:
 | DNS | 53 |
 | NTP | 123 |
 | 8CRL, atualizações do Windows, dependências do Linux, serviços do Azure | 80/443 |
-| SQL do Azure | 1433 | 
+| Azure SQL | 1433 | 
 | Monitorização | 12000 |
 
 As dependências de saída são listadas no documento que descreve o [bloqueio ambiente do serviço de aplicativo tráfego de saída](./firewall-integration.md). Se o ASE perder o acesso a suas dependências, ele deixará de funcionar. Quando isso acontece por tempo suficiente, o ASE é suspenso. 

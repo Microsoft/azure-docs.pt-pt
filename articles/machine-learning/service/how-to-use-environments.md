@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb9281af16dc8e4b4544cb18a2aae51aa3d9be27
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: e506259b980c0aaf0300c0bb0a1aa0803171643a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576280"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098957"
 ---
 # <a name="create-and-manage-environments-for-training-and-deployment"></a>Criar e gerenciar ambientes de treinamento e implantação
 
@@ -95,7 +95,7 @@ myenv = Environment.from_existing_conda_environment(name = "myenv",
 
 ### <a name="automatically-create-environments"></a>Criar ambientes automaticamente
 
-Crie um ambiente automaticamente enviando uma execução de treinamento com o método [Submit ()]() . Quando você envia uma execução de treinamento, a criação do novo ambiente pode levar vários minutos, dependendo do tamanho das dependências necessárias. 
+Crie um ambiente automaticamente enviando uma execução de treinamento com o método Submit (). Quando você envia uma execução de treinamento, a criação do novo ambiente pode levar vários minutos, dependendo do tamanho das dependências necessárias. 
 
 Se você não especificar um ambiente em sua configuração de execução antes de enviar a execução, um ambiente padrão será criado para você.
 
@@ -336,7 +336,7 @@ service = Model.deploy(
 
 Este [bloco de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) expande sobre conceitos e métodos demonstrados neste artigo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um destino de computação gerenciado para treinar um modelo.
 * Depois de ter um modelo treinado, saiba [como e onde implantar modelos](how-to-deploy-and-where.md).

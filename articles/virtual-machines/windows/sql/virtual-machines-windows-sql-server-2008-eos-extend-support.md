@@ -7,19 +7,18 @@ author: MashaMSFT
 manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: adba197b4412177d0655fb6835cfdf8671a81f4e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 93e0032cd283eda034519ca29a0e1cf501b5cde6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846132"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100459"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Estender o suporte para SQL Server 2008 e SQL Server 2008 R2 com o Azure
 
@@ -66,7 +65,7 @@ As soluções de recuperação de desastre para SQL Server de EOS em uma VM do A
 
 - **Backups de SQL Server**: Use o backup do Azure para ajudar a proteger seu SQL Server de EOS contra ransomware, exclusão acidental e corrupção. Atualmente, a solução está em versão prévia para SQL Server de EOS e dá suporte a SQL Server 2008 e 2008 R2 em execução no Windows 2008 R2 SP1. Para obter mais detalhes, consulte [Este artigo](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#support-for-sql-server-2008-and-sql-server-2008-r2).
 - **Envio de logs**: Você pode criar uma réplica de envio de logs em outra zona ou em uma região do Azure com restaurações contínuas para reduzir o RTO. Você precisa configurar manualmente o envio de logs.
-- **Azure site Recovery**: Você pode replicar sua VM entre zonas e regiões por meio de replicação Azure Site Recovery. SQL Server requer instantâneos consistentes com o aplicativo para garantir a recuperação em caso de desastre. O Azure Site Recovery oferece um RPO mínimo de 1 hora e um RTO de 2 horas (mais SQL Server tempo de recuperação) para a recuperação de desastres de EOS SQL Server.
+- **Azure Site Recovery**: Você pode replicar sua VM entre zonas e regiões por meio de replicação Azure Site Recovery. SQL Server requer instantâneos consistentes com o aplicativo para garantir a recuperação em caso de desastre. O Azure Site Recovery oferece um RPO mínimo de 1 hora e um RTO de 2 horas (mais SQL Server tempo de recuperação) para a recuperação de desastres de EOS SQL Server.
 
 ## <a name="security-patching"></a>Aplicação de patch de segurança
 As atualizações de segurança estendidas para VMs SQL Server são entregues por meio dos canais de Microsoft Update após a SQL Server VM ter sido registrada com o [provedor de recursos](virtual-machines-windows-sql-register-with-resource-provider.md)de VM do SQL. Os patches podem ser baixados manual ou automaticamente.

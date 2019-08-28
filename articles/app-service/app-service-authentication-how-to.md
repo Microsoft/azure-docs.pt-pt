@@ -9,17 +9,16 @@ editor: ''
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b4b70a45758f697c469895bcef6ea8d203065e26
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: ee8d8c54bd618780e00d9975f2fc6950cd795d44
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853965"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098547"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado de autenticação e autorização no serviço Azure App
 
@@ -186,7 +185,7 @@ Quando o token de acesso do seu provedor (não o [token de sessão](#extend-sess
 - **Conta da Microsoft**: Ao [definir as configurações de autenticação da conta](configure-authentication-provider-microsoft.md)da `wl.offline_access` Microsoft, selecione o escopo.
 - **Azure Active Directory**: No [https://resources.azure.com](https://resources.azure.com), execute as seguintes etapas:
     1. Na parte superior da página, selecione **leitura/gravação**.
-    2. No navegador esquerdo, **navegue até** >  **_\<assinaturas nome\__**  > da assinaturaresourceGroups >  **_grupode\_recursos\< nome\_>_**  **provedores Microsoft. Web** **_sitesnomedo\_aplicativo > configuração\<_**  >  >  >  >   >  >  **authsettings**. 
+    2.  > No navegador esquerdo, navegue até >  **_\<assinaturas nome da assinatura\__** resourceGroups >  **_grupode\_recursos\< nome\_>_** **provedores Microsoft. Web** **_sitesnomedo\_aplicativo > configuração\<_**  >  >  >  >   >  >  **authsettings**. 
     3. Clique em **Editar**.
     4. Modifique a propriedade a seguir. Substitua a ID do _aplicativo\_> pela ID do aplicativo Azure Active Directory do serviço que você deseja acessar. \<_
 
@@ -233,7 +232,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Tanto a conta da Microsoft quanto a Azure Active Directory permitem que você entre em vários domínios. Por exemplo, a conta da Microsoft permite contas _Outlook.com_, _Live.com_e _hotmail.com_ . Azure Active Directory permite qualquer número de domínios personalizados para as contas de entrada. Esse comportamento pode ser indesejável para um aplicativo interno, que você não deseja que ninguém com uma conta do _Outlook.com_ acesse. Para limitar o nome de domínio das contas de entrada, siga estas etapas.
 
-No [https://resources.azure.com](https://resources.azure.com), **navegue até** >  assinaturasnome >  da **_assinaturaresourceGroups\_ recurso\<_**  >  **_\<\_ nome\_ do grupo >_**  > **provedores** **Microsoft. Web** **_sitesnome\< doaplicativo>\__**  >  >  >  >  **configuração** do  >  **authsettings**. 
+No [https://resources.azure.com](https://resources.azure.com), navegue até > assinaturas nomeda >  **_assinatura\_ resourceGroupsrecurso\<_**  >  **_\<\_ nome\_ do grupo >_**  > **provedores** **Microsoft. Web** **_sitesnome\< doaplicativo>\__**  >  >  >  >  **configuração** do  >  **authsettings**. 
 
 Clique em **Editar**, modifique a seguinte propriedade e, em seguida, clique em **Put**. Certifique-se de  _\<substituir\_o nome de domínio >_ pelo domínio desejado.
 

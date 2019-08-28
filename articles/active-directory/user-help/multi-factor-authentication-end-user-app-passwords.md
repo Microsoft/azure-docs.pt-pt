@@ -14,12 +14,12 @@ ms.date: 08/13/2019
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a9d997f9ced0fbd921abfb13cda5a4845eb3763
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: fc6f6f7b02db664ca6cd62dc7aad61baf5f132fa
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616208"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088412"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerenciar senhas de aplicativo para verificação em duas etapas
 
@@ -47,7 +47,7 @@ Você pode criar e excluir senhas de aplicativo com base em como usar a verifica
 
 - **Sua organização usa a verificação de dois fatores e a página de verificação de segurança adicional.** Se você estiver usando sua conta corporativa ou de estudante (como, alain@contoso.com) com a verificação de dois fatores em sua organização, você poderá gerenciar suas senhas de aplicativo na [página de verificação de segurança adicional](https://account.activedirectory.windowsazure.com/Proofup.aspx). Para obter instruções detalhadas, consulte [criar e excluir senhas de aplicativo usando a página de verificação de segurança adicional](#create-and-delete-app-passwords-from-the-additional-security-verification-page) neste artigo.
 
-- **Sua organização usa a verificação de dois fatores e o portal do Office 365.** Se você estiver usando sua conta corporativa ou de estudante (como, alain@contoso.com), verificação de dois fatores e aplicativos do Office 365 em sua organização, você poderá gerenciar suas senhas de aplicativo na [página do portal do Office 365](https://office.portal.com). Para obter instruções detalhadas, consulte [criar e excluir senhas de aplicativo usando o portal do Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) neste artigo.
+- **Sua organização usa a verificação de dois fatores e o portal do Office 365.** Se você estiver usando sua conta corporativa ou de estudante (como, alain@contoso.com), verificação de dois fatores e aplicativos do Office 365 em sua organização, você poderá gerenciar suas senhas de aplicativo na [página do portal do Office 365](https://www.office.com). Para obter instruções detalhadas, consulte [criar e excluir senhas de aplicativo usando o portal do Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) neste artigo.
 
 - **Você está usando a verificação de dois fatores com um conta Microsoft pessoal.** Se você estiver usando um conta Microsoft pessoal (como, alain@outlook.com) com a verificação de dois fatores, poderá gerenciar suas senhas de aplicativo na [página noções básicas de segurança](https://account.microsoft.com/security/). Para obter instruções detalhadas, consulte [usando senhas de aplicativo com aplicativos que não dão suporte à verificação em duas etapas](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
 
@@ -125,7 +125,7 @@ Se você usar a verificação em duas etapas com sua conta corporativa ou de est
 
 Certifique-se de que você digitou sua senha corretamente. Se tiver certeza de que digitou sua senha corretamente, você poderá tentar entrar novamente e criar uma nova senha de aplicativo. Se nenhuma dessas opções corrigir o problema, entre em contato com o suporte técnico de sua organização para que ele possa excluir suas senhas de aplicativo existentes, permitindo que você crie as novas marcas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Gerenciar suas configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md)
 

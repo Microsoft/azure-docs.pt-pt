@@ -1,6 +1,6 @@
 ---
-title: Passar credenciais para o Azure com a Desired State Configuration do
-description: Aprenda a ser transmitido em segurança as credenciais para máquinas virtuais do Azure com o PowerShell Desired State Configuration (DSC).
+title: Passe as credenciais para o Azure usando a configuração de estado desejado
+description: Saiba como transmitir credenciais com segurança para máquinas virtuais do Azure usando a DSC (configuração de estado desejado) do PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
 author: bobbytreed
@@ -10,32 +10,31 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: ea76b7e8-b576-445a-8107-88ea2f3876b9
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 723d0cfe6e292c4b8013de4da55779a6c675d610
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38a302545f2dd46a8123816a41c97ae26ee4c260
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64705939"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092500"
 ---
-# <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Passar credenciais para o manipulador de DSCExtension do Azure
+# <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Passar credenciais para o manipulador de pssar do Azure
 
-Este artigo aborda a extensão do Desired State Configuration (DSC) para o Azure. Para obter uma descrição geral do manipulador de extensão DSC, veja [introdução ao manipulador de extensão Azure Desired State Configuration](dsc-overview.md).
+Este artigo aborda a extensão de configuração de estado desejado (DSC) para o Azure. Para obter uma visão geral do manipulador de extensão de DSC, consulte [introdução ao manipulador de extensão de configuração de estado desejado do Azure](dsc-overview.md).
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="pass-in-credentials"></a>Passar credenciais
+## <a name="pass-in-credentials"></a>Credenciais de passagem
 
-Como parte do processo de configuração, poderá precisar para configurar contas de utilizador, aceder aos serviços, ou instale um programa num contexto de utilizador. Para fazer essas coisas, terá de fornecer credenciais.
+Como parte do processo de configuração, talvez seja necessário configurar contas de usuário, acessar serviços ou instalar um programa em um contexto de usuário. Para fazer essas coisas, você precisa fornecer credenciais.
 
-Pode utilizar o DSC para definir configurações parametrizadas. Numa configuração de parâmetros, as credenciais são passadas para a configuração e armazenadas em segurança em arquivos. MOF. O manipulador de extensão do Azure simplifica a gestão de credenciais ao fornecer uma gestão automática de certificados.
+Você pode usar a DSC para definir configurações com parâmetros. Em uma configuração com parâmetros, as credenciais são passadas para a configuração e armazenadas com segurança em arquivos. mof. O manipulador de extensão do Azure simplifica o gerenciamento de credenciais, fornecendo gerenciamento automático de certificados.
 
-O seguinte script de configuração de DSC cria uma conta de utilizador local com a palavra-passe especificada:
+O script de configuração DSC a seguir cria uma conta de usuário local com a senha especificada:
 
 ```powershell
 configuration Main
@@ -61,13 +60,13 @@ configuration Main
 }
 ```
 
-É importante incluir **localhost do nó** como parte da configuração. O manipulador de extensão procura especificamente para o **localhost do nó** instrução. Se essa instrução está em falta, os seguintes passos não funcionam. Também é importante incluir a typecast **[PsCredential]** . Este tipo específico aciona a extensão para encriptar a credencial.
+É importante incluir o **nó localhost** como parte da configuração. O manipulador de extensão procura especificamente a instrução do **nó localhost** . Se essa instrução estiver ausente, as etapas a seguir não funcionarão. Também é importante incluir o conversão **[PsCredential]** . Esse tipo específico dispara a extensão para criptografar a credencial.
 
-Para publicar este script para o armazenamento de Blobs do Azure:
+Para publicar esse script no armazenamento de BLOBs do Azure:
 
 `Publish-AzVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
 
-Para definir a extensão DSC do Azure e forneça a credencial:
+Para definir a extensão de DSC do Azure e fornecer a credencial:
 
 ```powershell
 $configurationName = 'Main'
@@ -80,15 +79,15 @@ $vm = Set-AzVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchi
 $vm | Update-AzVM
 ```
 
-## <a name="how-a-credential-is-secured"></a>Como uma credencial está protegida
+## <a name="how-a-credential-is-secured"></a>Como uma credencial é protegida
 
-Execução desse código solicita uma credencial. Depois da credencial for fornecida, brevemente é armazenado na memória. Quando a credencial é publicada utilizando o **Set-AzVMDscExtension** cmdlet, a credencial é transmitido via HTTPS para a VM. Na VM, o Azure armazena a credencial encriptada no disco com o certificado VM local. A credencial é descriptografada brevemente na memória e, em seguida, ele será novamente encriptado passá-lo para DSC.
+A execução desse código solicita uma credencial. Depois que a credencial é fornecida, ela é armazenada brevemente na memória. Quando a credencial é publicada usando o cmdlet **set-AzVMDscExtension** , a credencial é transmitida por HTTPS para a VM. Na VM, o Azure armazena a credencial criptografada no disco usando o certificado de VM local. A credencial é descriptografada brevemente na memória e, em seguida, é criptografada novamente para passá-la para o DSC.
 
-Este processo é diferente [utilizar configurações de seguras sem o manipulador de extensão](/powershell/dsc/securemof). O ambiente do Azure dá-lhe uma forma de transmitir dados de configuração de forma segura através de certificados. Quando utiliza o manipulador de extensão DSC, não precisa fornecer **$CertificatePath** ou uma **$CertificateID**/  **$Thumbprint** entrada no **ConfigurationData**.
+Esse processo é diferente de [usar configurações seguras sem o manipulador de extensão](/powershell/dsc/securemof). O ambiente do Azure oferece uma maneira de transmitir dados de configuração com segurança por meio de certificados. Ao usar o manipulador de extensão de DSC, você não precisa fornecer **$CertificatePath** ou uma entrada de **$Thumbprint** de **$CertificateID**/ em **ConfigurationData**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Obter um [introdução ao manipulador de extensão DSC do Azure](dsc-overview.md).
-- Examine os [modelo Azure Resource Manager para a extensão DSC](dsc-template.md).
-- Para obter mais informações sobre o DSC de PowerShell, vá para o [Centro de documentação do PowerShell](/powershell/dsc/overview).
-- Para mais funcionalidades que pode gerir utilizando o PowerShell DSC e para mais recursos de DSC, procurar as [galeria do PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
+- Obtenha uma [introdução ao manipulador de extensões de DSC do Azure](dsc-overview.md).
+- Examine o [modelo de Azure Resource Manager para a extensão de DSC](dsc-template.md).
+- Para obter mais informações sobre o DSC do PowerShell, acesse o [centro de documentação do PowerShell](/powershell/dsc/overview).
+- Para obter mais funcionalidade que você pode gerenciar usando a DSC do PowerShell e para obter mais recursos de DSC, procure a [Galeria do PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).

@@ -1,6 +1,6 @@
 ---
-title: Utilizar o ambiente de serviço de aplicações - Azure
-description: Como criar, publicar e dimensionar aplicações num ambiente de serviço de aplicações do Azure
+title: Usar o ambiente do serviço de aplicativo-Azure
+description: Como criar, publicar e dimensionar aplicativos em um ambiente de serviço Azure App
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -9,156 +9,155 @@ ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cabefcc53106a53459975fc26513dc59ae7d3372
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496510"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073216"
 ---
-# <a name="use-an-app-service-environment"></a>Utilizar um ambiente de serviço de aplicações #
+# <a name="use-an-app-service-environment"></a>Usar um ambiente do serviço de aplicativo #
 
-Ambiente de serviço de aplicações do Azure é uma implementação do serviço de aplicações do Azure numa sub-rede na rede virtual do Azure de um cliente. Ele consiste em:
+Ambiente do Serviço de Aplicativo do Azure é uma implantação do serviço de Azure App em uma sub-rede na rede virtual do Azure de um cliente. Ele consiste em:
 
-- **Front-ends**: Os front-ends são onde HTTP/HTTPS termina num ambiente de serviço de aplicações (ASE).
-- **Os operadores**: As funções de trabalho são os recursos que alojam as suas aplicações.
-- **Base de dados**: A base de dados contém informações que define o ambiente.
-- **Armazenamento**: O armazenamento é utilizado para alojar as aplicações publicadas do cliente.
+- **Front-ends**: Os front-ends são onde o HTTP/HTTPS é encerrado em um ASE (ambiente do serviço de aplicativo).
+- **Trabalhadores**: Os trabalhos são os recursos que hospedam seus aplicativos.
+- **Banco de dados**: O banco de dados contém informações que definem o ambiente.
+- **Armazenamento**: O armazenamento é usado para hospedar os aplicativos publicados pelo cliente.
 
 > [!NOTE]
-> Existem duas versões do ambiente de serviço de aplicações: ASEv1 e ASEv2. No ASEv1, tem de gerir os recursos antes de poder utilizá-los. Para saber como configurar e gerir o ASEv1, veja [configurar um ambiente de serviço de aplicações v1][ConfigureASEv1]. O restante deste artigo se concentra em ASEv2.
+> Há duas versões do Ambiente do Serviço de Aplicativo: ASEv1 e ASEv2. No ASEv1, você deve gerenciar os recursos antes de poder usá-los. Para saber como configurar e gerenciar o ASEv1, consulte [configurar um ambiente do serviço de aplicativo v1][ConfigureASEv1]. O restante deste artigo se concentra em ASEv2.
 >
 >
 
-Pode implementar um ASE (ASEv1 e ASEv2) com um VIP externo ou interno para aceder à aplicação. A implementação com um VIP externo é frequentemente chamada ASE externo. A versão interna é chamada o ASE de ILB porque utiliza um balanceador de carga interno (ILB). Para saber mais sobre o ASE de ILB, veja [criar e utilizar um ASE de ILB][MakeILBASE].
+Você pode implantar um ASE (ASEv1 e ASEv2) com um VIP externo ou interno para acesso ao aplicativo. A implantação com um VIP externo é normalmente chamada de ASE externo. A versão interna é chamada de ASE ILB porque usa um ILB (balanceador de carga interno). Para saber mais sobre o ASE ILB, confira [criar e usar um ase ILB][MakeILBASE].
 
-## <a name="create-an-app-in-an-ase"></a>Criar uma aplicação num ASE ##
+## <a name="create-an-app-in-an-ase"></a>Criar um aplicativo em um ASE ##
 
-Para criar uma aplicação num ASE, use o mesmo processo que quando cria normalmente, mas com algumas pequenas diferenças. Quando cria um novo plano do serviço de aplicações:
+Para criar um aplicativo em um ASE, você usa o mesmo processo que ao criá-lo normalmente, mas com algumas pequenas diferenças. Quando você cria um novo plano do serviço de aplicativo:
 
-- Em vez de selecionar uma localização geográfica na qual implementar a sua aplicação, é possível escolher um ASE como a sua localização.
-- Todos os planos de serviço de aplicações criados num ASE tem de ser uma escalão de preços isolada.
+- Em vez de escolher um local geográfico no qual implantar seu aplicativo, você escolhe um ASE como seu local.
+- Todos os planos do serviço de aplicativo criados em um ASE devem estar em um tipo de preço isolado.
 
-Se não tiver um ASE, pode criar uma ao seguir as instruções em [criar um ambiente de serviço de aplicações][MakeExternalASE].
+Se você não tiver um ASE, poderá criar um seguindo as instruções em [criar um ambiente de serviço de aplicativo][MakeExternalASE].
 
-Para criar uma aplicação num ASE:
+Para criar um aplicativo em um ASE:
 
-1. Selecione **criar um recurso** > **Web + móvel** > **aplicação Web**.
+1. Selecione **criar um recurso** > **Web + celular** > **aplicativo Web**.
 
-2. Introduza um nome para a aplicação. Se já tiver selecionado um plano do serviço de aplicações num ASE, o nome de domínio para a aplicação reflete o nome de domínio do ASE.
+2. Insira um nome para o aplicativo. Se você já tiver selecionado um plano do serviço de aplicativo em um ASE, o nome de domínio do aplicativo refletirá o nome de domínio do ASE.
 
-    ![Seleção do nome de aplicação][1]
+    ![Seleção de nome do aplicativo][1]
 
 1. Selecione uma subscrição.
 
-1. Introduza um nome para um novo grupo de recursos ou selecione **utilizar existente** e selecione um na lista pendente.
+1. Insira um nome para um novo grupo de recursos ou selecione **usar existente** e selecione um na lista suspensa.
 
 1. Selecione o seu SO. 
 
-1. Selecione um plano de serviço de aplicações existente no seu ASE, ou criar um novo ao seguir estes passos:
+1. Selecione um plano do serviço de aplicativo existente em seu ASE ou crie um novo seguindo estas etapas:
 
-    a. Selecione **criar um novo**.
+    a. Selecione **criar novo**.
 
-    b. Introduza o nome para o seu plano do serviço de aplicações.
+    b. Insira o nome para o plano do serviço de aplicativo.
 
-    c. Selecione o seu ASE no **localização** na lista pendente. 
+    c. Selecione seu ASE na lista suspensa **local** . 
     
-    d. Selecione um **Isolated** escalão de preço. Selecione **selecione**.
+    d. Selecione um tipo de preço **isolado** . Selecione **selecionar**.
 
     e. Selecione **OK**.
     
-    ![Escalões de preço isolados][2]
+    ![Tipos de preço isolados][2]
 
     > [!NOTE]
-    > Aplicações do Linux e aplicações do Windows não podem estar no mesmo plano serviço de aplicações, mas podem ser no mesmo ambiente de serviço de aplicações. 
+    > Os aplicativos do Linux e os aplicativos do Windows não podem estar no mesmo plano do serviço de aplicativo, mas podem estar na mesma Ambiente do Serviço de Aplicativo. 
     >
 
 2. Selecione **Criar**.
 
-## <a name="how-scale-works"></a>Como dimensionar funciona ##
+## <a name="how-scale-works"></a>Como funciona a escala ##
 
-Todas as aplicações de serviço de aplicações é executada num plano do serviço de aplicações. O modelo de contentor é ambientes manter planos de serviço de aplicações e planos do App Service manter aplicações. Quando dimensionar uma aplicação, dimensionar o plano do serviço de aplicações e, portanto, dimensionar todas as aplicações no mesmo plano.
+Cada aplicativo do serviço de aplicativo é executado em um plano do serviço de aplicativo. O modelo de contêiner é ambientes que mantêm planos do serviço de aplicativo e os planos do serviço de aplicativo mantêm aplicativos. Ao dimensionar um aplicativo, você dimensiona o plano do serviço de aplicativo e, portanto, dimensiona todos os aplicativos no mesmo plano.
 
-No ASEv2, quando dimensiona um plano do serviço de aplicações, a infraestrutura necessária é automaticamente adicionada. Não existe um atraso de tempo para operações de dimensionamento, enquanto a infraestrutura é adicionada. No ASEv1, a infraestrutura necessária tem de ser adicionada antes de poder criar ou ampliar o seu plano do serviço de aplicações. 
+No ASEv2, quando você dimensiona um plano do serviço de aplicativo, a infraestrutura necessária é adicionada automaticamente. Há um atraso de tempo para dimensionar as operações enquanto a infraestrutura é adicionada. No ASEv1, a infraestrutura necessária deve ser adicionada antes que você possa criar ou escalar horizontalmente seu plano do serviço de aplicativo. 
 
-No serviço de aplicações multi-inquilino, o dimensionamento é imediata, normalmente, uma vez que um pool de recursos está prontamente disponível para oferecer suporte a ele. Num ASE, não há nenhum esse buffer e os recursos são alocados na necessidade.
+No serviço de aplicativo multilocatário, o dimensionamento geralmente é imediato porque um pool de recursos está prontamente disponível para dar suporte a ele. Em um ASE, não há tal buffer e os recursos são alocados após a necessidade.
 
-Num ASE, pode dimensionar até 100 instâncias. Esses 100 instâncias podem ser todos num único plano do serviço de aplicações ou distribuídos por vários planos de serviço de aplicações.
+Em um ASE, você pode escalar verticalmente até 100 instâncias. Essas instâncias de 100 podem estar todas em um único plano do serviço de aplicativo ou distribuídas entre vários planos do serviço de aplicativo.
 
 ## <a name="ip-addresses"></a>Endereços IP ##
 
-Serviço de aplicações tem a capacidade de atribuir um endereço IP dedicado a uma aplicação. Esta capacidade está disponível depois de configurar o SSL baseado em IP, conforme descrito em [vincular um certificado SSL personalizado já existente para o serviço de aplicações do Azure][ConfigureSSL]. No entanto, num ASE, existe uma exceção notável. Não é possível adicionar endereços IP adicionais a utilizar para um SSL baseado em IP num ASE de ILB.
+O serviço de aplicativo tem a capacidade de alocar um endereço IP dedicado a um aplicativo. Esse recurso está disponível depois de configurar um SSL baseado em IP, conforme descrito em [associar um certificado SSL personalizado existente ao serviço de Azure app][ConfigureSSL]. No entanto, em um ASE, há uma exceção notável. Você não pode adicionar mais endereços IP a serem usados para um SSL baseado em IP em um ASE ILB.
 
-No ASEv1, terá de atribuir os endereços IP como recursos antes de poder utilizá-los. ASEv2, utilize-os da sua aplicação tal como acontece no serviço de aplicações multi-inquilino. Há sempre um endereço de reserva no ASEv2 até 30 endereços IP. Sempre que utilizar um, outra, é adicionada para que um endereço sempre está prontamente disponível para utilização. Um tempo de atraso é necessário atribuir outro endereço IP, que impede a adicionar IP de endereços numa rápida sucessão.
+No ASEv1, você precisa alocar os endereços IP como recursos antes de poder usá-los. No ASEv2, você os utiliza do seu aplicativo da mesma forma que no serviço de aplicativo multilocatário. Há sempre um endereço de reposição no ASEv2 até 30 endereços IP. Cada vez que você usa um, outro é adicionado para que um endereço sempre esteja prontamente disponível para uso. É necessário um atraso de tempo para alocar outro endereço IP, o que impede a adição de endereços IP em sucessão rápida.
 
 ## <a name="front-end-scaling"></a>Dimensionamento de front-end ##
 
-ASEv2, ao aumentar horizontalmente seus planos de serviço de aplicações, funções de trabalho são automaticamente adicionadas para suportá-los. Cada ASE é criado com dois front-ends. Além disso, o front-ends automaticamente de escalamento horizontal a um ritmo de um front-end para todos os 15 instâncias nos seus planos de serviço de aplicações. Por exemplo, se tiver 15 instâncias, em seguida, terá três front-ends. Se a dimensionar para 30 instâncias, em seguida, tenha quatro de front-ends e assim por diante.
+No ASEv2, quando você dimensiona horizontalmente os planos do serviço de aplicativo, os trabalhadores são adicionados automaticamente para dar suporte a eles. Todo ASE é criado com dois front-ends. Além disso, os front-ends são dimensionados automaticamente a uma taxa de um front-end para cada 15 instâncias em seus planos do serviço de aplicativo. Por exemplo, se você tiver 15 instâncias, terá três front-ends. Se você dimensionar para 30 instâncias, terá quatro front-ends e assim por diante.
 
-Este número de front-ends deve ser mais do que o suficiente para a maioria cenários. No entanto, pode aumentar horizontalmente a uma taxa mais rápida. Pode alterar a relação entre tão baixo como um front end para todos os cinco instâncias. Existe um custo para alterar a proporção. Para obter mais informações, consulte [preços do serviço de aplicações do Azure][Pricing].
+Esse número de front-ends deve ser mais do que o suficiente para a maioria dos cenários. No entanto, você pode escalar horizontalmente com uma taxa mais rápida. Você pode alterar a taxa para o máximo de um front-end para cada cinco instâncias. Há um encargo para alterar a taxa. Para obter mais informações, consulte [Azure app preço do serviço][Pricing].
 
-Recursos de front-end são o ponto final HTTP/HTTPS para o ASE. Com a configuração de front-end predefinido, utilização de memória por front-end é consistentemente cerca de 60 por cento. Cargas de trabalho do cliente não são executados num front-end. O fator principal para um front-end com respeito ao dimensionar é a CPU, que é controlado por principalmente pelo tráfego HTTPS.
+Os recursos de front-end são o ponto de extremidade HTTP/HTTPS para o ASE. Com a configuração de front-end padrão, o uso de memória por front-end é consistentemente em cerca de 60%. As cargas de trabalho do cliente não são executadas em um front-end. O fator chave para um front-end em relação à escala é a CPU, que é controlada principalmente pelo tráfego HTTPS.
 
 ## <a name="app-access"></a>Acesso da aplicação ##
 
-Num ASE externo, o domínio que é utilizado quando cria aplicações é diferente do serviço de aplicações multi-inquilino. Ele inclui o nome do ASE. Para obter mais informações sobre como criar um ASE externo, consulte [criar um ambiente de serviço de aplicações][MakeExternalASE]. O nome de domínio num ASE externo é semelhante *.&lt; asename&gt;. p.azurewebsites.net*. Por exemplo, se o seu ASE é denominado _ase externo_ e é hospedar um aplicativo chamado _contoso_ em que o ASE, aceder ao mesmo com os seguintes URLs:
+Em um ASE externo, o domínio que é usado quando você cria aplicativos é diferente do serviço de aplicativo multilocatário. Ele inclui o nome do ASE. Para obter mais informações sobre como criar um ASE externo, consulte [criar um ambiente do serviço de aplicativo][MakeExternalASE]. O nome de domínio em um ASE externo é semelhante a *.&lt; asename&gt;. p.azurewebsites.net*. Por exemplo, se seu ASE for chamado de _ase externo_ e você hospedar um aplicativo chamado _contoso_ nesse ASE, você o atingirá nas seguintes URLs:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
-O URL contoso.scm.external-ase.p.azurewebsites.net é utilizado para aceder à consola Kudu ou para publicar seu aplicativo usando o web implementar. Para obter informações sobre a consola Kudu, consulte [consola Kudu para o serviço de aplicações do Azure][Kudu]. A consola Kudu dá-lhe uma IU da web para depuração, carregar ficheiros, edição de arquivos e muito mais.
+A URL contoso.scm.external-ase.p.azurewebsites.net é usada para acessar o console do kudu ou para publicar seu aplicativo usando a implantação da Web. Para obter informações sobre o console do kudu, consulte [console do kudu para Azure app Service][Kudu]. O console do kudu fornece uma interface do usuário da Web para depuração, carregamento de arquivos, edição de arquivos e muito mais.
 
-Num ASE de ILB, é possível determinar o domínio no momento da implementação. Para obter mais informações sobre como criar um ASE de ILB, veja [criar e utilizar um ASE de ILB][MakeILBASE]. Se especificar o nome de domínio _ilb ase.info_, as aplicações no ASE utilizam esse domínio durante a criação de aplicações. Para a aplicação com o nome _contoso_, os URLs são:
+Em um ASE ILB, você determina o domínio no momento da implantação. Para obter mais informações sobre como criar um ASE ILB, consulte [criar e usar um ase ILB][MakeILBASE]. Se você especificar o nome de domínio _ILB-ASE.info_, os aplicativos nesse ase usarão esse domínio durante a criação do aplicativo. Para o aplicativo chamado _contoso_, as URLs são:
 
 - contoso.ilb-ase.info
 - contoso.scm.ilb-ase.info
 
 ## <a name="publishing"></a>Publicação ##
 
-Tal como acontece com o serviço de aplicações multi-inquilino, num ASE, pode publicar com:
+Assim como com o serviço de aplicativo multilocatário, em um ASE, você pode publicar com:
 
-- Implementação na Web.
+- Implantação da Web.
 - FTP.
 - Integração contínua.
-- Arraste e largue na consola Kudu.
-- Um IDE, como o Visual IDÉIA Studio, Eclipse e IntelliJ.
+- Arraste e solte no console do kudu.
+- Um IDE, como Visual Studio, Eclipse ou IntelliJ IDEA.
 
-Com um ASE externo, todas estas opções de publicação se comportam da mesma. Para obter mais informações, consulte [implementação no serviço de aplicações do Azure][AppDeploy]. 
+Com um ASE externo, essas opções de publicação se comportam da mesma forma. Para obter mais informações, consulte [Deployment in Azure app Service][AppDeploy]. 
 
-A principal diferença com a publicação é relativamente a um ASE de ILB. Com um ASE de ILB, os pontos finais de publicação estão disponíveis apenas através do ILB. O ILB é um IP privado na sub-rede do ASE na rede virtual. Se não tiver acesso à rede para o ILB, não é possível publicar todas as aplicações no ASE. Conforme observado na [criar e utilizar um ASE de ILB][MakeILBASE], terá de configurar o DNS para as aplicações no sistema. Que inclui o ponto de extremidade do SCM. Se não estão definidos corretamente, não é possível publicar. Seus IDEs também tem de ter acesso à rede para o ILB para publicar diretamente no mesmo.
+A principal diferença com a publicação é em relação a um ASE ILB. Com um ASE ILB, os pontos de extremidade de publicação estão disponíveis apenas por meio do ILB. O ILB está em um IP privado na sub-rede do ASE na rede virtual. Se você não tiver acesso à rede para o ILB, não poderá publicar nenhum aplicativo nesse ASE. Conforme observado em [criar e usar um ase ILB][MakeILBASE], você precisa configurar o DNS para os aplicativos no sistema. Isso inclui o ponto de extremidade SCM. Se eles não estiverem definidos corretamente, você não poderá publicar. Seus IDEs também precisam ter acesso à rede para o ILB para publicar diretamente nele.
 
-Uso imediato, os sistemas CI baseados na Internet, como o GitHub e do Azure DevOps, não funcionam com um ASE de ILB porque o ponto final de publicação não está acessível pela Internet. Para o Azure DevOps, pode contornar isso ao instalar um agente de hospedagem interna de lançamento na sua rede interna em que ele possa alcançar o ILB. Em alternativa, também pode usar um sistema de CI que utilize um modelo de extração, como o Dropbox.
+Os sistemas de CI baseados na Internet, como GitHub e Azure DevOps, não funcionam com um ASE ILB porque o ponto de extremidade de publicação não é acessível pela Internet. Para o Azure DevOps, você pode contornar isso instalando um agente de liberação auto-hospedado em sua rede interna, onde ele pode alcançar o ILB. Como alternativa, você também pode usar um sistema de CI que usa um modelo de pull, como o dropbox.
 
-Os pontos finais de publicação para aplicações num ASE de ILB utilizam o domínio com o qual o ASE de ILB foi criado. Pode ver no perfil de publicação da aplicação e no painel da aplicação do portal (no **descrição geral** > **Essentials** e, também no **propriedades**). 
+Os pontos finais de publicação para aplicações num ASE de ILB utilizam o domínio com o qual o ASE de ILB foi criado. Você pode vê-lo no perfil de publicação do aplicativo e na folha do portal do aplicativo (em **visão geral** > **Essentials** e também em **Propriedades**). 
 
 ## <a name="pricing"></a>Preços ##
 
-Os preços chamado de SKU **Isolated** foi criado para ser utilizado apenas com ASEv2. Todos os planos de serviço de aplicações que estão alojados numa ASEv2 estão na SKU de preços isolada. As tarifas de plano de serviço de aplicações isoladas podem variar por região. 
+O SKU de preços chamado **isolado** foi criado para uso somente com ASEv2. Todos os planos do serviço de aplicativo hospedados no ASEv2 estão no SKU de preços isolado. As taxas do plano do serviço de aplicativo isolado podem variar por região. 
 
-Para além do preço para os planos de serviço de aplicações, existe uma tarifa fixa para o ASE em si. A tarifa fixa não são alterados com o tamanho do seu ASE e paga a infraestrutura de ASE com uma predefinição a aumentar a taxa de 1 adicionais front-end para todos os 15 instâncias de plano de serviço de aplicações.  
+Além do preço dos planos do serviço de aplicativo, há uma taxa fixa para o ASE em si. A taxa fixa não muda com o tamanho do seu ASE e paga pela infraestrutura do ASE em uma taxa de dimensionamento padrão de 1 front-end adicional para cada 15 instâncias do plano do serviço de aplicativo.  
 
-Se a taxa de dimensionamento predefinido de 1 front-end para todos os 15 instâncias de plano de serviço de aplicações não for rápida o suficiente, pode ajustar a taxa na qual front-ends são adicionados ou o tamanho do front-ends.  Quando ajustar o rácio ou tamanho, paga os núcleos de front-end que não seriam adicionados por predefinição.  
+Se a taxa de escala padrão de 1 front-end para cada 15 instâncias do plano do serviço de aplicativo não for rápida o suficiente, você poderá ajustar a taxa na qual os front-ends são adicionados ou o tamanho dos front-ends.  Ao ajustar a taxa ou o tamanho, você paga pelos núcleos de front-end que não seriam adicionados por padrão.  
 
-Por exemplo, se ajustar o rácio de dimensionamento para 10, um front-end é adicionado para cada 10 instâncias nos seus planos de serviço de aplicações. A tarifa fixa abrange uma taxa de dimensionamento de um front-end para todas as instâncias de 15. Com um rácio de dimensionamento de 10, paga uma tarifa para o terceiro front-end que é adicionado para as 10 instâncias de plano de serviço de aplicações. Não precisa de pagar para o mesmo quando atingir 15 instâncias porque ele foi adicionado automaticamente.
+Por exemplo, se você ajustar a taxa de escala para 10, um front-end será adicionado para cada 10 instâncias nos planos do serviço de aplicativo. A taxa fixa cobre uma taxa de escala de um front-end para cada 15 instâncias. Com uma taxa de escala de 10, você paga uma taxa para o terceiro front-end que é adicionado para as 10 instâncias do plano do serviço de aplicativo. Você não precisa pagar por ela quando atingir 15 instâncias porque ela foi adicionada automaticamente.
 
-Se ajustar o tamanho do front-ends para 2 núcleos, mas não a ajustar o rácio, em seguida, paga os núcleos extras.  Um ASE é criado com 2 front-ends, portanto, mesmo abaixo do limiar de dimensionamento automático, que pagaria para 2 núcleos Extras se aumentou o tamanho de 2 núcleos de front-ends.
+Se você ajustou o tamanho dos front-ends para 2 núcleos, mas não ajustar a taxa, você paga pelos núcleos extras.  Um ASE é criado com dois front-ends, portanto, mesmo abaixo do limite de dimensionamento automático, você pagaria por 2 núcleos extras se aumentar o tamanho para dois front-ends principais.
 
-Para obter mais informações, consulte [preços do serviço de aplicações do Azure][Pricing].
+Para obter mais informações, consulte [Azure app preço do serviço][Pricing].
 
-## <a name="delete-an-ase"></a>Eliminar um ASE ##
+## <a name="delete-an-ase"></a>Excluir um ASE ##
 
-Para eliminar um ASE: 
+Para excluir um ASE: 
 
-1. Uso **eliminar** na parte superior a **ambiente de serviço de aplicações** painel. 
+1. Use **excluir** na parte superior da folha **ambiente do serviço de aplicativo** . 
 
-1. Introduza o nome do seu ASE para confirmar que pretende eliminá-lo. Quando elimina um ASE, elimine todo o conteúdo dentro dele também. 
+1. Insira o nome do seu ASE para confirmar que você deseja excluí-lo. Ao excluir um ASE, você também exclui todo o conteúdo dentro dele. 
 
-    ![Eliminação do ASE][3]
+    ![Exclusão do ASE][3]
 
 <!--Image references-->
 [1]: ./media/using_an_app_service_environment/usingase-appcreate.png

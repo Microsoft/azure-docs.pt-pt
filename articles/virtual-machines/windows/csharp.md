@@ -11,16 +11,15 @@ ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: b88bade886bf8cf22387e8733b8710414c944988
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: c6d092889deec934f1db1f1c93c06aa0dc217df5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361130"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079600"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Criar e gerenciar VMs do Windows no Azure usandoC# #
 
@@ -394,6 +393,6 @@ Deve levar cerca de cinco minutos para que esse aplicativo de console seja execu
 
 2. Antes de pressionar **Enter** para iniciar a exclusão de recursos, você pode levar alguns minutos para verificar a criação dos recursos no portal do Azure. Clique no status de implantação para ver informações sobre a implantação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Aproveite o uso de um modelo para criar uma máquina virtual usando as informações em [implantar uma máquina virtual do Azure usando C# o e um modelo do Resource Manager](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Saiba mais sobre como usar as [bibliotecas do Azure para .net](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet).

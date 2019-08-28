@@ -7,17 +7,16 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 7ac87000a6bbe7515106b42f57f9184396ed4168
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 13aa1f8cd643d579734cc603bbc81519a690fe59
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735676"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085849"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Criar uma função no Azure que é acionada por um temporizador
 

@@ -1,6 +1,6 @@
 ---
-title: Planeamento de capacidade no Azure HDInsight do cluster
-description: Como especificar um cluster do HDInsight para a capacidade e desempenho.
+title: Planejamento de capacidade de cluster no Azure HDInsight
+description: Como especificar um cluster HDInsight para capacidade e desempenho.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,125 +8,125 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: bd2284211c2fdc5a346c6ffb113f89fe311a358c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 0f386faa5a18282c9e60bdb282e01dcd53f9de4f
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786503"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114309"
 ---
-# <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamento da capacidade para clusters do HDInsight
+# <a name="capacity-planning-for-hdinsight-clusters"></a>Planejamento de capacidade para clusters HDInsight
 
-Antes de implementar um cluster do HDInsight, planeie a capacidade de agrupamento desejada determinando o desempenho necessário e a escala. Este planeamento ajuda otimizar a facilidade de utilização e custos. Algumas decisões de capacidade do cluster não podem ser alterados após a implementação. Se alterar os parâmetros de desempenho, um cluster pode ser dismantled e voltar a criar sem perder dados armazenados.
+Antes de implantar um cluster HDInsight, planeje a capacidade de cluster desejada determinando o desempenho e a escala necessários. Este planejamento ajuda a otimizar a usabilidade e os custos. Algumas decisões de capacidade de cluster não podem ser alteradas após a implantação. Se os parâmetros de desempenho forem alterados, um cluster poderá ser desmontado e recriado sem perder os dados armazenados.
 
-As perguntas importantes para perguntar para planejamento de capacidade são:
+As principais perguntas a serem feitas para o planejamento de capacidade são:
 
-* Em cada região geográfica deve implementar o cluster?
-* A quantidade de armazenamento precisa?
-* Que tipo de cluster que deve implementar?
-* Que tamanho e tipo de máquina virtual (VM) devem usar o os nós do cluster?
-* Quantos nós de trabalho do cluster deve ter?
+* Em qual região geográfica você deve implantar o cluster?
+* Quanto armazenamento você precisa?
+* Qual tipo de cluster você deve implantar?
+* Qual tamanho e tipo de VM (máquina virtual) os nós de cluster devem usar?
+* Quantos nós de trabalho seu cluster deve ter?
 
-## <a name="choose-an-azure-region"></a>Escolha uma região do Azure
+## <a name="choose-an-azure-region"></a>Escolher uma região do Azure
 
-A região do Azure determina em que o seu cluster fisicamente está aprovisionado. Para minimizar a latência de leituras e escritas, o cluster deve estar perto seus dados.
+A região do Azure determina onde o cluster está fisicamente provisionado. Para minimizar a latência de leituras e gravações, o cluster deve estar próximo dos dados.
 
-HDInsight está disponível em muitas regiões do Azure. Para a região mais próxima, consulte a *HDInsight* entrada sob *Analytics* na [produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
+O HDInsight está disponível em muitas regiões do Azure. Para localizar a região mais próxima, consulte a entrada do *HDInsight* em *análise* em [produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
 
-## <a name="choose-storage-location-and-size"></a>Escolha a localização de armazenamento e tamanho
+## <a name="choose-storage-location-and-size"></a>Escolher o local e o tamanho do armazenamento
 
-### <a name="location-of-default-storage"></a>Localização de armazenamento predefinido
+### <a name="location-of-default-storage"></a>Local do armazenamento padrão
 
-O armazenamento predefinido, uma conta de armazenamento do Azure ou o armazenamento do Azure Data Lake, tem de ser na mesma localização do seu cluster. O armazenamento do Azure está disponível em todos os locais. Geração 1 de armazenamento do Data Lake está disponível em algumas regiões - ver a disponibilidade de armazenamento do Data Lake atual sob *armazenamento* na [Azure produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
+O armazenamento padrão, ou seja, uma conta de armazenamento do Azure ou Azure Data Lake Storage, deve estar no mesmo local que o cluster. O armazenamento do Azure está disponível em todos os locais. Data Lake Storage Gen1 está disponível em algumas regiões – consulte a disponibilidade Data Lake Storage atual em *armazenamento* em [produtos do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).
 
-### <a name="location-of-existing-data"></a>Localização dos dados existentes
+### <a name="location-of-existing-data"></a>Local dos dados existentes
 
-Se já tiver uma conta de armazenamento ou que contém os dados de armazenamento do Data Lake e pretende utilizar este armazenamento como armazenamento predefinido do seu cluster, tem de implementar o cluster nessa mesma localização.
+Se você já tiver uma conta de armazenamento ou Data Lake Storage que contenha seus dados e quiser usar esse armazenamento como o armazenamento padrão do cluster, será necessário implantar o cluster no mesmo local.
 
 ### <a name="storage-size"></a>Tamanho de armazenamento
 
-Depois de ter implementado um cluster do HDInsight, pode anexar a contas de armazenamento do Azure adicionais ou aceder a outros armazenamento do Data Lake. Todas as suas contas de armazenamento têm de residir na mesma localização do seu cluster. Armazenamento do Data Lake pode ser numa localização diferente, embora isso pode introduzir alguma latência de leitura/escrita de dados.
+Depois de ter um cluster HDInsight implantado, você pode anexar outras contas de armazenamento do Azure ou acessar outros Data Lake Storage. Todas as suas contas de armazenamento devem residir no mesmo local que o cluster. Um Data Lake Storage pode estar em um local diferente, embora isso possa introduzir uma latência de leitura/gravação de dados.
 
-O armazenamento do Azure tem algumas [limites de capacidade](../azure-subscription-service-limits.md#storage-limits), enquanto a geração 1 de armazenamento do Data Lake é praticamente ilimitado.
+O armazenamento do Azure tem alguns [limites de capacidade](../azure-subscription-service-limits.md#storage-limits), enquanto data Lake Storage Gen1 é praticamente ilimitado.
 
-Um cluster pode aceder a uma combinação de contas de armazenamento diferentes. Os exemplos típicos incluem:
+Um cluster pode acessar uma combinação de diferentes contas de armazenamento. Os exemplos típicos incluem:
 
-* Quando a quantidade de dados é provável que excederem a capacidade de armazenamento de um contentor de armazenamento de blob único.
-* Quando a taxa de acesso para o contentor de BLOBs pode exceder o limiar em que ocorre a limitação.
-* Quando deseja tornar os dados, já tiver carregado para um contentor de BLOBs disponível para o cluster.
-* Quando quiser isolar diferentes partes de armazenamento por motivos de segurança, ou para simplificar a administração.
+* Quando a quantidade de dados provavelmente exceder a capacidade de armazenamento de um único contêiner de armazenamento de BLOBs.
+* Quando a taxa de acesso ao contêiner de BLOBs pode exceder o limite em que ocorre a limitação.
+* Quando desejar tornar os dados, você já carregou em um contêiner de blob disponível para o cluster.
+* Quando você quiser isolar partes diferentes do armazenamento por motivos de segurança ou simplificar a administração.
 
-Para um cluster de nó de 48, recomendamos que as contas de armazenamento de 4 a 8. Embora já deve haver totais de armazenamento suficiente, cada conta de armazenamento fornece a largura de banda de rede adicional para os nós de computação. Quando tiver várias contas de armazenamento, utilize um nome aleatório para cada conta de armazenamento, sem um prefixo. O objetivo de atribuição de nomes aleatórios é reduzir a possibilidade de afunilamentos de armazenamento (limitação) ou falhas de modo comum em todas as contas. Para um melhor desempenho, utilize apenas um contêiner por conta de armazenamento.
+Para um cluster de 48 nós, recomendamos de 4 a 8 contas de armazenamento. Embora possa já haver um armazenamento total suficiente, cada conta de armazenamento fornece largura de banda de rede adicional para os nós de computação. Quando você tiver várias contas de armazenamento, use um nome aleatório para cada conta de armazenamento, sem um prefixo. A finalidade da nomenclatura aleatória é reduzir a chance de gargalos de armazenamento (limitação) ou falhas de modo comum em todas as contas. Para obter um melhor desempenho, use apenas um contêiner por conta de armazenamento.
 
-## <a name="choose-a-cluster-type"></a>Escolha um tipo de cluster
+## <a name="choose-a-cluster-type"></a>Escolher um tipo de cluster
 
-O tipo de cluster determina a carga de trabalho do cluster do HDInsight está configurado para executar, como [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/), ou [ O Apache Spark](https://spark.apache.org/). Para obter uma descrição detalhada dos tipos de cluster disponíveis, consulte [introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Cada tipo de cluster tem uma topologia de implementação específica que inclui os requisitos para o tamanho e número de nós.
+O tipo de cluster determina a carga de trabalho que o cluster HDInsight está configurado para executar, como [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/)ou [Apache Spark](https://spark.apache.org/). Para obter uma descrição detalhada dos tipos de cluster disponíveis, consulte [introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Cada tipo de cluster tem uma topologia de implantação específica que inclui requisitos para o tamanho e o número de nós.
 
-## <a name="choose-the-vm-size-and-type"></a>Escolha o tipo e tamanho VM
+## <a name="choose-the-vm-size-and-type"></a>Escolha o tamanho e o tipo da VM
 
-Cada tipo de cluster tem um conjunto de tipos de nó e cada tipo de nó tem opções específicas para seu tipo e tamanho VM.
+Cada tipo de cluster tem um conjunto de tipos de nós e cada tipo de nó tem opções específicas para o tamanho e o tipo da VM.
 
-Para determinar o tamanho do cluster ideal para a sua aplicação, pode efetuar testes de desempenho a capacidade do cluster e aumentar o tamanho conforme indicado. Por exemplo, pode utilizar uma carga de trabalho simulada, ou uma *consulta canary*. Com uma carga de trabalho simulada, executar cargas de trabalho esperadas em clusters de tamanho diferente, aumentar gradualmente o tamanho até que seja atingido o desempenho pretendido. Uma consulta canary pode ser inserida, periodicamente, entre outras consultas de produção para mostrar se ou não o cluster tem recursos suficientes.
+Para determinar o tamanho de cluster ideal para seu aplicativo, você pode avaliar a capacidade do cluster e aumentar o tamanho conforme indicado. Por exemplo, você pode usar uma carga de trabalho simulada ou uma *consulta canário*. Com uma carga de trabalho simulada, você executa suas cargas de trabalho esperadas em diferentes clusters de tamanho, aumentando gradualmente o tamanho até que o desempenho desejado seja atingido. Uma consulta canário pode ser inserida periodicamente entre as outras consultas de produção para mostrar se o cluster tem recursos suficientes ou não.
 
-O tamanho da VM e o tipo é determinado por CPU processamento, o tamanho de RAM e latência de rede:
+O tamanho e o tipo da VM são determinados pelo poder de processamento da CPU, pelo tamanho da RAM e pela latência de rede:
 
-* CPU: O tamanho da VM determina o número de núcleos. O maior número de núcleos, quanto maior o grau de computação paralela pode alcançar a cada nó. Além disso, alguns tipos VM tem núcleos mais rápidos.
+* CPU: O tamanho da VM determina o número de núcleos. Quanto mais núcleos, maior o grau de computação paralela que cada nó pode atingir. Além disso, alguns tipos de VM têm núcleos mais rápidos.
 
-* RAM: O tamanho da VM também determina a quantidade de RAM disponível na VM. Para cargas de trabalho que armazenam dados na memória para processamento, em vez de leitura do disco, certifique-se os nós de trabalho tem memória suficiente para colocar os dados.
+* RAM: O tamanho da VM também determina a quantidade de RAM disponível na VM. Para cargas de trabalho que armazenam dados na memória para processamento, em vez de ler do disco, verifique se os nós de trabalho têm memória suficiente para se ajustarem aos dados.
 
-* Rede: Para a maioria dos tipos de cluster, os dados processados pelo cluster são não num disco local, mas num serviço de armazenamento externo, como o armazenamento do Data Lake ou de armazenamento do Azure. Considere a largura de banda de rede e o débito entre o nó de VM e o serviço de armazenamento. Normalmente, aumenta a largura de banda de rede disponível para uma VM com tamanhos maiores. Para obter detalhes, consulte [descrição geral de tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+* Rede Para a maioria dos tipos de cluster, os dados processados pelo cluster não estão no disco local, mas sim em um serviço de armazenamento externo, como o Data Lake Storage ou o armazenamento do Azure. Considere a largura de banda da rede e a taxa de transferência entre a VM do nó e o serviço de armazenamento. A largura de banda de rede disponível para uma VM normalmente aumenta com tamanhos maiores. Para obter detalhes, consulte [visão geral de tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
-## <a name="choose-the-cluster-scale"></a>Selecionar o dimensionamento do cluster
+## <a name="choose-the-cluster-scale"></a>Escolher a escala do cluster
 
-Dimensionamento de um cluster é determinado pela quantidade de seus nós VM. Para todos os tipos de cluster, existem tipos de nós que tenham um dimensionamento específico e tipos de nó que suportam o Escalamento horizontal. Por exemplo, um cluster pode exigir a exatamente três [Apache ZooKeeper](https://zookeeper.apache.org/) nós ou dois nós principais. Nós de trabalho que efetuar o processamento de dados de uma maneira distribuída podem beneficiar de aumentar horizontalmente, ao adicionar nós de trabalho adicionais.
+A escala de um cluster é determinada pela quantidade de seus nós de VM. Para todos os tipos de cluster, há tipos de nós que têm uma escala específica e tipos de nós que dão suporte à expansão. Por exemplo, um cluster pode exigir exatamente três nós [Apache ZooKeeper](https://zookeeper.apache.org/) ou dois nós de cabeçalho. Os nós de trabalho que fazem o processamento de dados de maneira distribuída podem se beneficiar do dimensionamento, adicionando mais nós de trabalho.
 
-Consoante o tipo de cluster, o aumento do número de nós de trabalho adiciona capacidades de computacionais adicionais (por exemplo, mais núcleos), mas também pode adicionar a quantidade total de memória necessária para todo o cluster oferecer suporte a dentro da memória armazenamento de dados a ser processados. Tal como acontece com a escolha do tipo e tamanho VM, selecionar a escala de adequado do cluster é normalmente contactado empiricamente, através de cargas de trabalho simuladas ou consultas canary.
+Dependendo do tipo de cluster, o aumento do número de nós de trabalho adiciona capacidade computacional adicional (como mais núcleos), mas também pode ser adicionado à quantidade total de memória necessária para que todo o cluster dê suporte ao armazenamento na memória dos dados que estão sendo processados. Assim como acontece com a escolha do tamanho e do tipo da VM, selecionar a escala de cluster correta normalmente é atingido empiricamente, usando cargas de trabalho simuladas ou consultas canário.
 
-Pode aumentar horizontalmente o seu cluster para os picos de procura de carga, em seguida, dimensioná-lo a voltar a reduzir esses nós adicionais já não são necessários. O [funcionalidade de dimensionamento automático](hdinsight-autoscale-clusters.md) permite-lhe automaticamente dimensionar o cluster com base em predeterminados métricas e os tempos. Para obter mais informações sobre como dimensionar os seus clusters manualmente, consulte [clusters do HDInsight de escala](hdinsight-scaling-best-practices.md).
+Você pode escalar horizontalmente o cluster para atender às demandas de pico de carga e, em seguida, dimensioná-lo novamente quando esses nós extras não forem mais necessários. O [recurso de dimensionamento automático](hdinsight-autoscale-clusters.md) permite dimensionar automaticamente o cluster com base nas métricas e nos tempos predeterminados. Para obter mais informações sobre como dimensionar seus clusters manualmente, consulte [dimensionar clusters HDInsight](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Ciclo de vida do cluster
 
-É-lhe cobrada a duração de um cluster. Se houver apenas horas específicas que terá do cluster de cópia de segurança e em execução, pode [criar clusters a pedido com o Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). Pode também criar scripts do PowerShell que aprovisionam e elimina o cluster e, em seguida, agendar esses scripts usando [automatização do Azure](https://azure.microsoft.com/services/automation/).
+Você é cobrado pelo tempo de vida de um cluster. Se houver apenas alguns momentos específicos em que você precisa de seu cluster em funcionamento, você pode [Criar clusters sob demanda usando Azure data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). Você também pode criar scripts do PowerShell que provisionam e excluam seu cluster e, em seguida, agendar esses scripts usando a [automação do Azure](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]  
-> Quando um cluster é eliminado, o metastore de Hive padrão também é eliminado. Para manter o metastore para a próximo recriação de cluster, utilize um arquivo externo de metadados, tais como a base de dados do Azure ou [Apache Oozie](https://oozie.apache.org/).
+> Quando um cluster é excluído, seu metastore do Hive padrão também é excluído. Para persistir o metastore para a próxima recriação de cluster, use um repositório de metadados externo, como o banco de dados do Azure ou o [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
-### <a name="isolate-cluster-job-errors"></a>Isolar os erros de tarefas de cluster
+### <a name="isolate-cluster-job-errors"></a>Isolar erros de trabalho de cluster
 
-Erros, às vezes, podem ocorrer devido à execução paralela de vários mapas e reduzir componentes num cluster de vários nós. Para ajudar a isolar o problema, tente testes distribuídos sendo executada em simultâneo vários trabalhos num cluster de nó único, em seguida, expanda essa abordagem para executar várias tarefas simultaneamente em clusters que contêm mais de um nó. Para criar um cluster de HDInsight nó único no Azure, utilize o *avançadas* opção.
+Às vezes, podem ocorrer erros devido à execução paralela de vários mapas e à redução de componentes em um cluster de vários nós. Para ajudar a isolar o problema, experimente o teste distribuído executando vários trabalhos simultâneos em um único cluster de nó de trabalho e, em seguida, expanda essa abordagem para executar vários trabalhos simultaneamente em clusters que contenham mais de um nó. Para criar um cluster HDInsight de nó único no Azure, use a opção *personalizado (tamanho, configurações, aplicativos)* e use um valor de 1 para o *número de nós de trabalho* na seção **tamanho do cluster** ao provisionar um novo cluster no Portal.
 
-Também pode instalar um ambiente de desenvolvimento de nó único no seu computador local e testar a solução aqui. Hortonworks fornece um ambiente de desenvolvimento local de nó único para soluções baseadas no Hadoop que é útil para o desenvolvimento inicial, prova de conceito e teste. Para obter mais informações, consulte [Sandbox da Hortonworks](https://hortonworks.com/products/hortonworks-sandbox/).
+Você também pode instalar um ambiente de desenvolvimento de nó único no computador local e testar a solução ali. O Hortonworks fornece um ambiente de desenvolvimento local de nó único para soluções baseadas em Hadoop que são úteis para o desenvolvimento inicial, prova de conceito e teste. Para obter mais informações, consulte [sandbox Hortonworks](https://hortonworks.com/products/hortonworks-sandbox/).
 
-Identificar o problema num cluster local de nó único pode voltar a executar tarefas com falhas e ajustar os dados de entrada ou utilizar conjuntos de dados mais pequenos. Como executar essas tarefas depende da plataforma e o tipo de aplicação.
+Para identificar o problema em um cluster local de um único nó, você pode executar novamente os trabalhos com falha e ajustar os dados de entrada ou usar os DataSets menores. A forma como você executa esses trabalhos depende da plataforma e do tipo de aplicativo.
 
 ## <a name="quotas"></a>Quotas
 
-Depois de determinar o tamanho VM do cluster de destino, o dimensionamento e o tipo, verifique os limites de capacidade de quota atual da sua subscrição. Quando atingir um limite de cota, poderá não conseguir implementar novos clusters ou aumente horizontalmente clusters existentes ao adicionar mais nós de trabalho. O limite de quota único é a quota de núcleos de CPU que existe no nível de região para cada subscrição. Por exemplo, a sua subscrição pode ter o limite de 30 núcleos na região E.U.A. Leste. Se precisar de pedir um aumento de quota, execute os seguintes passos:
+Depois de determinar o tamanho, a escala e o tipo da VM do cluster de destino, verifique os limites de capacidade da cota atual da sua assinatura. Quando você atingir um limite de cota, talvez não seja possível implantar novos clusters ou escalar horizontalmente os clusters existentes adicionando mais nós de trabalho. O único limite de cota é a cota de núcleos de CPU que existe no nível de região para cada assinatura. Por exemplo, sua assinatura pode ter um limite de 30 núcleos na região leste dos EUA. Se você precisar solicitar um aumento de cota, execute as seguintes etapas:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Selecione **ajuda + suporte** no lado esquerdo da parte inferior da página.
-1. Selecione no **novo pedido de suporte**.
-1. Sobre o **novo pedido de suporte** página, em **Noções básicas** separador, selecione as seguintes opções:
-   - **Tipo de problema**: **Limites do serviço e subscrição (cotas)**
-   - **Subscrição**: a subscrição que pretende modificar
-   - **Tipo de quota**: **HDInsight**
+1. Selecione **ajuda + suporte** no lado inferior esquerdo da página.
+1. Selecione em **nova solicitação de suporte**.
+1. Na página **nova solicitação de suporte** , na guia **noções básicas** , selecione as seguintes opções:
+   - **Tipo de problema**: **Limites de serviço e assinatura (cotas)**
+   - **Assinatura**: a assinatura que você deseja modificar
+   - **Tipo de cota**: **HDInsight**
     
-     ![Criar um pedido de suporte para aumentar a quota de núcleos de HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+     ![Criar uma solicitação de suporte para aumentar a cota de núcleo do HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. Selecione **seguinte: Soluções >>** .
-1. Sobre o **detalhes** página, introduza uma descrição do problema, selecione a gravidade do problema, seu método preferencial de contacto e outros campos obrigatórios.
-1. Selecione **seguinte: Rever + criar >>** .
-1. Sobre o **rever + criar** separador, selecione **criar**.
+1. Selecione **avançar: Soluções > >** .
+1. Na página **detalhes** , insira uma descrição do problema, selecione a severidade do problema, seu método de contato preferencial e outros campos obrigatórios.
+1. Selecione **avançar: Examine + criar > >** .
+1. Na guia **revisar + criar** , selecione **criar**.
 
 > [!NOTE]  
-> Se precisar de aumentar a quota de núcleos de HDInsight numa região privada, [submeter um pedido de lista branca](https://aka.ms/canaryintwhitelist).
+> Se você precisar aumentar a cota de núcleo do HDInsight em uma região privada, [envie uma solicitação de lista de](https://aka.ms/canaryintwhitelist)permissões.
 
-Pode [contacte o suporte para pedir um aumento de quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Você pode [entrar em contato com o suporte para solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-No entanto, existem alguns limites de quota fixo, por exemplo uma única subscrição do Azure pode ter no máximo, 10.000 núcleos. Para obter detalhes sobre estes limites, consulte [subscrição do Azure e limites do serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+No entanto, há alguns limites de cota fixos, por exemplo, uma única assinatura do Azure pode ter no máximo 10.000 núcleos. Para obter detalhes sobre esses limites, consulte [assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Configurar clusters no HDInsight com o Apache Hadoop, Spark, Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md): Saiba como definir e configurar clusters no HDInsight com o Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, serviços de ML ou Storm.
-* [Monitorizar o desempenho do cluster](hdinsight-key-scenarios-to-monitor.md): Saiba mais sobre os principais cenários para monitorar para o seu cluster do HDInsight que pode afetar a capacidade do seu cluster.
+* [Configure clusters no HDInsight com Apache Hadoop, Spark, Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md): Saiba como configurar e configurar clusters no HDInsight com Apache Hadoop, Spark, Kafka, Hive interativo, HBase, serviços de ML ou Storm.
+* [Monitorar o desempenho do cluster](hdinsight-key-scenarios-to-monitor.md): Saiba mais sobre os principais cenários para monitorar o cluster HDInsight que pode afetar a capacidade do cluster.

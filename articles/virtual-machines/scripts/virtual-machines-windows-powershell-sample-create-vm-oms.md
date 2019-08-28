@@ -1,6 +1,6 @@
 ---
-title: Registos do exemplo de Script do PowerShell do Azure - Monitor do Azure | Documentos da Microsoft
-description: Registos do exemplo de Script do PowerShell do Azure - Monitor do Azure
+title: Exemplo de script de Azure PowerShell – logs de Azure Monitor | Microsoft Docs
+description: Exemplo de script de Azure PowerShell – logs de Azure Monitor
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -9,21 +9,20 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 83a93e9c24b34a0a081e18946fa3ff21bd06a61d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 16c92d80bb299c73e662b63b5ebb3abc955005a2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695555"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080791"
 ---
-# <a name="create-an-azure-monitor-vm-with-powershell"></a>Criar um VM de Monitor do Azure com o PowerShell 
+# <a name="create-an-azure-monitor-vm-with-powershell"></a>Criar uma VM Azure Monitor com o PowerShell 
 
 Este script cria uma Máquina Virtual do Azure, instala o agente do Log Analytics e inscreve o sistema com uma área de trabalho do Log Analytics. Assim que o script tiver sido executado, a máquina virtual estará visível no Azure Monitor. Além disso, terá de atualizar o ID e a chave da área de trabalho do Log Analytics.
 

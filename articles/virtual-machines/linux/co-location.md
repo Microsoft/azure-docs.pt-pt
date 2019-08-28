@@ -7,18 +7,17 @@ author: cynthn
 manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/28/2019
 ms.author: cynthn
-ms.openlocfilehash: d6d8986117bd2899ea0de0aa6490954aef6c3a56
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 81b9dc5059a6ab3e8245acd9c7e7ef8be5abdafd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850343"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083870"
 ---
 # <a name="co-locate-resources-for-improved-latency"></a>Colocalizar recursos para maior latência
 
@@ -28,7 +27,7 @@ Ao implantar seu aplicativo no Azure, a difusão de instâncias entre regiões o
 
 [!INCLUDE [virtual-machines-common-ppg-overview](../../../includes/virtual-machines-common-ppg-overview.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Implante uma VM em um [grupo de posicionamento de proximidade](proximity-placement-groups.md) usando o CLI do Azure.
 

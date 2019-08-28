@@ -1,6 +1,6 @@
 ---
-title: Eventos agendados para VMs do Windows no Azure | Documentos da Microsoft
-description: Agendada eventos com o serviço de metadados do Azure nas suas máquinas virtuais do Windows.
+title: Eventos Agendados para VMs do Windows no Azure | Microsoft Docs
+description: Eventos agendados usando o serviço de metadados do Azure para em suas máquinas virtuais do Windows.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
@@ -9,94 +9,93 @@ editor: ''
 tags: ''
 ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: ddd34147848ecb3a964eac3d618b452f5eb43f19
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 087f27b3857363c0b5f244ecd52ebd64105626b5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710309"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102407"
 ---
-# <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de metadados do Azure: Eventos agendados para VMs do Windows
+# <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de metadados do Azure: Eventos Agendados para VMs do Windows
 
-Eventos agendados é um serviço de metadados do Azure que dá o tempo de aplicação para se preparar para a manutenção de máquina virtual. Fornece informações sobre eventos de manutenção futura (por exemplo, reinícios), de modo a seu aplicativo pode se preparar e limitar a interrupção. Está disponível para todos os tipos de Máquina Virtual do Azure, incluindo PaaS e IaaS no Windows e Linux. 
+Eventos Agendados é um serviço de metadados do Azure que dá ao seu aplicativo tempo para se preparar para a manutenção da máquina virtual. Ele fornece informações sobre eventos de manutenção futuros (por exemplo, reinicialização) para que seu aplicativo possa se preparar para eles e limitar a interrupção. Ele está disponível para todos os tipos de máquina virtual do Azure, incluindo PaaS e IaaS no Windows e no Linux. 
 
-Para obter informações sobre eventos agendados no Linux, consulte [eventos agendados para VMs do Linux](../linux/scheduled-events.md).
+Para obter informações sobre Eventos Agendados no Linux, consulte [eventos agendados para VMs do Linux](../linux/scheduled-events.md).
 
 > [!Note] 
-> Eventos agendados está disponível em geral em todas as regiões do Azure. Ver [versão e disponibilidade das regiões](#version-and-region-availability) para informações de versão mais recente.
+> O Eventos Agendados está geralmente disponível em todas as regiões do Azure. Consulte [disponibilidade de versão e região](#version-and-region-availability) para obter informações de versão mais recentes.
 
-## <a name="why-scheduled-events"></a>Por que eventos agendados?
+## <a name="why-scheduled-events"></a>Por que Eventos Agendados?
 
-Muitos aplicativos podem beneficiar de tempo para se preparar para a manutenção de máquina virtual. O tempo pode ser utilizado para executar tarefas específicas de aplicação que melhorar a disponibilidade, fiabilidade e capacidade de serviço incluindo: 
+Muitos aplicativos podem se beneficiar do tempo para se preparar para a manutenção da máquina virtual. O tempo pode ser usado para executar tarefas específicas do aplicativo que melhoram a disponibilidade, a confiabilidade e a manutenção, incluindo: 
 
-- Ponto de verificação e de restauro
+- Ponto de verificação e restauração
 - Drenagem de ligação
-- Ativação pós-falha de réplica primária 
-- Remoção do conjunto de Balanceador de carga
-- Registo de eventos
-- Encerramento correto 
+- Failover de réplica primária 
+- Remoção do pool do balanceador de carga
+- Log de eventos
+- Desligamento normal 
 
-Através dos eventos agendados seu aplicativo podem detetar quando manutenção irá ocorrer e acionar tarefas para limitar seu impacto. Ativar eventos agendados dá a sua máquina virtual uma quantidade mínima de tempo antes que seja efetuada a atividade de manutenção. Consulte a secção de agendamento eventos abaixo para obter detalhes.
+Usando Eventos Agendados seu aplicativo pode descobrir quando a manutenção ocorrerá e disparar tarefas para limitar seu impacto. A habilitação de eventos agendados dá ao seu computador virtual um período mínimo de tempo antes que a atividade de manutenção seja executada. Consulte a seção agendamento de eventos abaixo para obter detalhes.
 
-Eventos agendados fornece eventos nos seguintes casos de utilização:
-- [Manutenção iniciada de plataforma](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (por exemplo, VM reinicialização, migração em direto ou atualizações para o anfitrião de preservação de memória)
+Eventos Agendados fornece eventos nos seguintes casos de uso:
+- [Manutenção iniciada pela plataforma](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (por exemplo, reinicialização de VM, migração dinâmica ou preservar a memória para host)
 - Hardware degradado
-- (Por exemplo, usuário será reiniciado e reimplementa uma VM) de manutenção iniciada pelo utilizador
-- [Expulsão de baixa prioridade VM](https://azure.microsoft.com/blog/low-priority-scale-sets) conjuntos de dimensionamento
+- Manutenção iniciada pelo usuário (por exemplo, o usuário reinicia ou reimplanta uma VM)
+- [Remoção de VM de baixa prioridade](https://azure.microsoft.com/blog/low-priority-scale-sets) em conjuntos de dimensionamento
 
 ## <a name="the-basics"></a>As noções básicas  
 
-O serviço de metadados do Azure expõe informações sobre como executar máquinas virtuais com um ponto final REST acessível a partir de dentro da VM. As informações estão disponíveis por meio de um IP não encaminháveis internos para que não está exposta fora da VM.
+O serviço de metadados do Azure expõe informações sobre a execução de máquinas virtuais usando um ponto de extremidade REST acessível de dentro da VM. As informações estão disponíveis por meio de um IP não roteável para que não seja exposta fora da VM.
 
-### <a name="endpoint-discovery"></a>Deteção de pontos finais
-Para VNET ativada VMs, o serviço de metadados está disponível a partir de um IP estático não encaminhável, `169.254.169.254`. É o ponto final completo para a versão mais recente do eventos agendados: 
+### <a name="endpoint-discovery"></a>Descoberta de ponto de extremidade
+Para VMs habilitadas para VNET, o serviço de metadados está disponível de um IP não roteável estático, `169.254.169.254`. O ponto de extremidade completo para a versão mais recente do Eventos Agendados é: 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01`
 
-Se a Máquina Virtual não for criada dentro de uma rede Virtual, os casos de padrão para serviços cloud e VMs clássicas, lógica adicional é necessário para detetar o endereço IP a utilizar. Veja este exemplo para saber como [detetar o ponto final de anfitrião](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
+Se a máquina virtual não for criada em uma rede virtual, os casos padrão para serviços de nuvem e VMs clássicas, será necessária lógica adicional para descobrir o endereço IP a ser usado. Consulte este exemplo para saber como [descobrir o ponto de extremidade do host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
-### <a name="version-and-region-availability"></a>Versão e a disponibilidade de região
-O serviço de eventos agendados tem a mesma versão. Versões são obrigatórias e a versão atual é `2017-11-01`.
+### <a name="version-and-region-availability"></a>Disponibilidade de versão e região
+O serviço de Eventos Agendados tem controle de versão. As versões são obrigatórias e a versão `2017-11-01`atual é.
 
-| Version | Tipo de versão | Regiões | Notas de Versão | 
+| Version | Tipo de liberação | Regiões | Notas de Versão | 
 | - | - | - | - |
-| 2017-11-01 | Disponibilidade Geral | Todos | <li> Foi adicionado suporte para expulsão de baixa prioridade VM EventType 'Preempt'<br> | 
-| 2017-08-01 | Disponibilidade Geral | Todos | <li> Removido o caráter de sublinhado antecedendo nomes de recursos para IaaS VMs<br><li>Requisito de cabeçalho de metadados imposto a todos os pedidos | 
+| 2017-11-01 | Disponibilidade Geral | Todos | <li> Suporte adicionado para a remoção de VM de baixa prioridade do EventType ' preempt '<br> | 
+| 2017-08-01 | Disponibilidade Geral | Todos | <li> Foi removido o sublinhado precedido dos nomes de recursos para VMs IaaS<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
 | 2017-03-01 | Pré-visualização | Todos |<li>Versão inicial
 
 > [!NOTE] 
-> Versões anteriores de pré-visualização de eventos agendados suportados {mais recente} como a api-version. Este formato já não é suportado e será preterido no futuro.
+> Versões prévias anteriores dos eventos agendados com suporte {Latest} como a versão de API. Esse formato não é mais suportado e será preterido no futuro.
 
-### <a name="enabling-and-disabling-scheduled-events"></a>Ativar e desativar eventos agendados
-Eventos agendados está ativada para o tempo de serviço a primeira fizer um pedido para eventos. Deve esperar uma resposta atrasada em sua primeira chamada de até dois minutos. Deve consultar o ponto de extremidade periodicamente para detetar eventos de manutenção futura, bem como o estado das atividades de manutenção que estão a ser efetuadas.
+### <a name="enabling-and-disabling-scheduled-events"></a>Habilitando e desabilitando Eventos Agendados
+O Eventos Agendados está habilitado para o serviço na primeira vez que você faz uma solicitação de eventos. Você deve esperar uma resposta atrasada em sua primeira chamada de até dois minutos. Você deve consultar o ponto de extremidade periodicamente para detectar futuros eventos de manutenção, bem como o status das atividades de manutenção que estão sendo executadas.
 
-Eventos agendados está desativada para o seu serviço, se não faz um pedido para 24 horas.
+O Eventos Agendados será desabilitado para seu serviço se ele não fizer uma solicitação por 24 horas.
 
-### <a name="user-initiated-maintenance"></a>Manutenção iniciada pelo utilizador
-Manutenção de máquina virtual através do portal do Azure, API, da CLI, iniciada pelo utilizador ou PowerShell resulta num evento agendado. Isto permite-lhe testar a lógica de preparação de manutenção em seu aplicativo e permite que seu aplicativo para se preparar para a manutenção iniciada pelo utilizador.
+### <a name="user-initiated-maintenance"></a>Manutenção iniciada pelo usuário
+A manutenção de máquina virtual iniciada pelo usuário por meio do portal do Azure, API, CLI ou PowerShell resulta em um evento agendado. Isso permite que você teste a lógica de preparação de manutenção em seu aplicativo e permite que seu aplicativo se prepare para a manutenção iniciada pelo usuário.
 
-Reiniciar uma máquina virtual agenda um evento com o tipo `Reboot`. Voltar a implementar uma máquina virtual agenda um evento com o tipo `Redeploy`.
+Reiniciar uma máquina virtual agenda um evento com o tipo `Reboot`. Reimplantar uma máquina virtual agenda um evento com o tipo `Redeploy`.
 
-## <a name="using-the-api"></a>Com a API
+## <a name="using-the-api"></a>Usando a API
 
 ### <a name="headers"></a>Cabeçalhos
-Quando consulta o serviço de metadados, tem de fornecer o cabeçalho `Metadata:true` para garantir que o pedido não foi redirecionado inadvertidamente. O `Metadata:true` cabeçalho é obrigatório para todos os pedidos de eventos agendados. Não incluir o cabeçalho no pedido irá resultar numa resposta de pedido incorreto do serviço de metadados.
+Ao consultar o serviço de metadados, você deve fornecer o cabeçalho `Metadata:true` para garantir que a solicitação não tenha sido redirecionada de forma não intencional. O `Metadata:true` cabeçalho é necessário para todas as solicitações de eventos agendados. A falha ao incluir o cabeçalho na solicitação resultará em uma resposta de solicitação inadequada do serviço de metadados.
 
-### <a name="query-for-events"></a>Consulta para eventos
-Pode consultar para eventos agendados simplesmente fazendo a seguinte chamada:
+### <a name="query-for-events"></a>Consulta de eventos
+Você pode consultar Eventos Agendados simplesmente fazendo a seguinte chamada:
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Powershell
 ```
 curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @{"Metadata"="true"}
 ```
 
-Uma resposta contém uma matriz de eventos agendados. Uma matriz vazia significa que atualmente não há eventos agendados.
+Uma resposta contém uma matriz de eventos agendados. Uma matriz vazia significa que não há eventos agendados no momento.
 No caso em que há eventos agendados, a resposta contém uma matriz de eventos: 
 ```
 {
@@ -113,42 +112,42 @@ No caso em que há eventos agendados, a resposta contém uma matriz de eventos:
     ]
 }
 ```
-O DocumentIncarnation é uma ETag e fornece uma forma fácil de inspecionar se o payload de eventos foi alterado desde a última consulta.
+O DocumentIncarnation é uma ETag e fornece uma maneira fácil de inspecionar se a carga de eventos foi alterada desde a última consulta.
 
 ### <a name="event-properties"></a>Propriedades do evento
 |Propriedade  |  Descrição |
 | - | - |
-| EventId | Identificador exclusivo global para este evento. <br><br> Exemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impacto faz com que o este evento. <br><br> Valores: <br><ul><li> `Freeze`: A Máquina Virtual está agendada para colocar em pausa por alguns segundos. Conectividade de CPU e da rede pode ser suspensa, mas não há nenhum impacto na memória ou ficheiros abertos. <li>`Reboot`: A Máquina Virtual está agendada para reinicialização (a memória não persistentes é perdida). <li>`Redeploy`: A Máquina Virtual está agendada para mover para outro nó (discos efémeros são perdidos). <li>`Preempt`: A Máquina Virtual de baixa prioridade está a ser eliminado (discos efémeros são perdidos).|
-| ResourceType | Tipo de recurso que tem impacto sobre a este evento. <br><br> Valores: <ul><li>`VirtualMachine`|
-| Recursos| Lista de recursos que tem impacto sobre a este evento. Isso é garantido que contêm máquinas a partir de um [domínio de atualização](manage-availability.md), mas não pode conter todas as máquinas a UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| Estado do evento | Estado deste evento. <br><br> Valores: <ul><li>`Scheduled`: Este evento está agendado para iniciar após o período de tempo especificado no `NotBefore` propriedade.<li>`Started`: Este evento foi iniciado.</ul> Não `Completed` ou estado semelhante já é fornecido; o evento já não vai ser devolvido quando o evento for concluído.
-| NotBefore| Tempo após o qual este evento pode começar. <br><br> Exemplo: <br><ul><li> Segunda-feira, 19 de Setembro de 2016 18:29:47 GMT  |
+| EventId | Identificador global exclusivo para este evento. <br><br> Exemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventType | Impacto causado por esse evento. <br><br> Os <br><ul><li> `Freeze`: A máquina virtual está agendada para pausar por alguns segundos. A conectividade de CPU e de rede pode ser suspensa, mas não há nenhum impacto na memória ou em arquivos abertos. <li>`Reboot`: A máquina virtual está agendada para reinicialização (a memória não persistente é perdida). <li>`Redeploy`: A máquina virtual está agendada para ser movida para outro nó (discos efêmeros são perdidos). <li>`Preempt`: A máquina virtual de baixa prioridade está sendo excluída (discos efêmeros são perdidos).|
+| ResourceType | Tipo de recurso que esse evento afeta. <br><br> Os <ul><li>`VirtualMachine`|
+| Recursos| Lista de recursos que esse evento afeta. Isso é garantido para conter máquinas de no máximo um [domínio de atualização](manage-availability.md), mas pode não conter todas as máquinas no UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Status do evento | Status deste evento. <br><br> Os <ul><li>`Scheduled`: Esse evento é agendado para iniciar após o tempo especificado na `NotBefore` propriedade.<li>`Started`: Este evento foi iniciado.</ul> Nenhum `Completed` ou status semelhante já foi fornecido; o evento não será mais retornado quando o evento for concluído.
+| NotBefore| Tempo após o qual esse evento pode ser iniciado. <br><br> Exemplo: <br><ul><li> Segunda-feira, 19 de setembro de 2016 18:29:47 GMT  |
 
-### <a name="event-scheduling"></a>Agendamento do evento
-Cada evento está agendado uma quantidade mínima de tempo no futuro, com base no tipo de evento. Neste momento é refletido num evento `NotBefore` propriedade. 
+### <a name="event-scheduling"></a>Agendamento de eventos
+Cada evento é agendado uma quantidade mínima de tempo no futuro com base no tipo de evento. Esse tempo é refletido na propriedade de `NotBefore` um evento. 
 
-|EventType  | Tenha em atenção mínimo |
+|EventType  | Aviso mínimo |
 | - | - |
-| Congelamento| 15 minutos |
+| Trave| 15 minutos |
 | Reiniciar | 15 minutos |
-| Voltar a implementar | 10 minutos |
-| Tomar o lugar | 30 segundos |
+| Implementar novamente | 10 minutos |
+| Ocupa | 30 segundos |
 
-### <a name="event-scope"></a>Âmbito de eventos     
-Eventos agendados são entregues para:
- - Máquinas virtuais autónomas
- - Todas as máquinas virtuais num serviço Cloud      
- - Todas as máquinas virtuais num conjunto de disponibilidade      
- - Todas as máquinas virtuais num grupo de colocação do conjunto de dimensionamento.         
+### <a name="event-scope"></a>Escopo do evento     
+Os eventos agendados são entregues a:
+ - Máquinas virtuais autônomas
+ - Todas as máquinas virtuais em um serviço de nuvem      
+ - Todas as máquinas virtuais em um conjunto de disponibilidade      
+ - Todas as máquinas virtuais em um grupo de posicionamento do conjunto de dimensionamento.         
 
-Como resultado, deve verificar o `Resources` campo no evento para identificar que VMs vão ser afetadas. 
+Como resultado, você deve verificar o `Resources` campo no evento para identificar quais VMs serão afetadas. 
 
-### <a name="starting-an-event"></a>A partir de um evento 
+### <a name="starting-an-event"></a>Iniciando um evento 
 
-Depois de ter aprendido de um evento futuro e concluir a sua lógica de encerramento correto, pode aprovar o evento pendente, fazendo uma `POST` chamar para o serviço de metadados com o `EventId`. Isso indica para o Azure que ele pode reduzir a notificação mínima de tempo (quando possível). 
+Depois de ter aprendido um evento futuro e concluído sua lógica para desligamento normal, você pode aprovar o evento pendente fazendo uma `POST` chamada para o serviço de metadados com `EventId`o. Isso indica ao Azure que ele pode reduzir o tempo mínimo de notificação (quando possível). 
 
-Segue-se o json esperado para o `POST` corpo do pedido. O pedido deve conter uma lista de `StartRequests`. Cada `StartRequest` contém o `EventId` para o evento que pretende acelerar:
+Este é o JSON esperado no corpo da `POST` solicitação. A solicitação deve conter uma lista de `StartRequests`. Cada `StartRequest` contém o `EventId` para o evento que você deseja acelerar:
 ```
 {
     "StartRequests" : [
@@ -159,18 +158,18 @@ Segue-se o json esperado para o `POST` corpo do pedido. O pedido deve conter uma
 }
 ```
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Powershell
 ```
 curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
 ```
 
 > [!NOTE] 
-> Ter consciência de um evento permite que o evento continuar para todos os `Resources` no caso, não apenas a máquina virtual que reconhece o evento. , Por conseguinte, pode optar por eleger um coordenador para coordenar a confirmação, que pode ser tão simples como a primeira máquina no `Resources` campo.
+> A confirmação de um evento permite que o evento prossiga para `Resources` todos no evento, não apenas a máquina virtual que reconhece o evento. Portanto, você pode optar por escolher um líder para coordenar a confirmação, o que pode ser tão simples quanto o primeiro computador `Resources` no campo.
 
 
 ## <a name="powershell-sample"></a>Exemplo do PowerShell 
 
-O exemplo a seguir consulta o serviço de metadados para eventos agendados e aprova a cada evento pendentes.
+O exemplo a seguir consulta o serviço de metadados para eventos agendados e aprova cada evento pendente.
 
 ```powershell
 # How to get scheduled events 
@@ -227,9 +226,9 @@ foreach($event in $scheduledEvents.Events)
 }
 ``` 
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 
-- Veja uma [agendados eventos demonstração](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) no Azure Friday. 
-- Reveja os exemplos de código de eventos agendados no [Azure instância metadados agendados eventos de repositório do GitHub](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
-- Saiba mais sobre as APIs disponíveis na [serviço de metadados de instância](instance-metadata-service.md).
-- Saiba mais sobre [planejado de manutenção para máquinas de virtuais do Windows no Azure](planned-maintenance.md).
+- Assista a uma [demonstração de eventos agendados](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) na sexta-feira do Azure. 
+- Examine os exemplos de código de Eventos Agendados no [repositório de metadados de instância do Azure eventos agendados GitHub](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
+- Leia mais sobre as APIs disponíveis no [serviço de metadados de instância](instance-metadata-service.md).
+- Saiba mais sobre [a manutenção planejada para máquinas virtuais do Windows no Azure](planned-maintenance.md).

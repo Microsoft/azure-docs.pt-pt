@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: c31fa96457a3945c39fcc34770cb6783af3b81e8
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d89e8f174c7006c1a0f771dd4dfaa816ded3698c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049113"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100993"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>Estender IoT Central do Azure com regras personalizadas que enviam notificações
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ### <a name="iot-central-application"></a>IoT Central aplicativo
 
-Crie um aplicativo IoT Central na página [IOT central do Azure – meus aplicativos](https://aka.ms/iotcentral) com as seguintes configurações:
+Crie um aplicativo IoT Central no site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) com as seguintes configurações:
 
 | Definição | Value |
 | ------- | ----- |
@@ -305,7 +305,7 @@ Essa solução usa uma consulta Stream Analytics para detectar quando um disposi
 
 ## <a name="configure-export-in-iot-central"></a>Configurar a exportação no IoT Central
 
-Navegue até o [aplicativo IOT central](https://aka.ms/iotcentral) que você criou no modelo da contoso. Nesta seção, você configura o aplicativo para transmitir a telemetria de seus dispositivos simulados para o Hub de eventos. Para configurar a exportação:
+No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , navegue até o aplicativo IOT central que você criou por meio do modelo da contoso. Nesta seção, você configura o aplicativo para transmitir a telemetria de seus dispositivos simulados para o Hub de eventos. Para configurar a exportação:
 
 1. Navegue até a página **exportação de dados contínuas** , selecione **+ novo**e os **hubs de eventos do Azure**.
 1. Use as configurações a seguir para configurar a exportação e, em seguida, selecione **salvar**:

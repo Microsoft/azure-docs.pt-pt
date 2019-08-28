@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 7a3cdab8e05a873e67788a72350d1bf3fde3cd18
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 4865a2b3b02a1e7a6db19418122b66aeb79dd332
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018210"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099459"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectar-se a redes virtuais do Azure de aplicativos lógicos do Azure usando um ISE (ambiente do serviço de integração)
 
@@ -88,7 +88,8 @@ Esta tabela descreve as portas em sua rede virtual que o ISE usa e onde essas po
 | Comunicação do Gerenciador de tráfego do Azure | Entrada | 443 | AzureTrafficManager | VirtualNetwork | |
 | Designer de aplicativos lógicos – propriedades dinâmicas | Entrada | 454 | Internet | VirtualNetwork | As solicitações são provenientes dos [endereços IP de entrada do ponto de extremidade de acesso](../logic-apps/logic-apps-limits-and-config.md#inbound)dos aplicativos lógicos nessa região. |
 | Dependência de gerenciamento do serviço de aplicativo | Entrada | 454, 455 | AppServiceManagement | VirtualNetwork | |
-| Implantação de conector | Entrada | 454, 3443 | Internet | VirtualNetwork | Necessário para implantar e atualizar conectores. Fechar ou bloquear essa porta faz com que implantações do ISE falhem e impeçam atualizações ou correções do conector. |
+| Implantação de conector | Entrada | 454 | AzureConnectors | VirtualNetwork | Necessário para implantar e atualizar conectores. Fechar ou bloquear essa porta faz com que implantações do ISE falhem e impeçam atualizações ou correções do conector. |
+| Implantação de política de conector | Entrada | 3443 | Internet | VirtualNetwork | Necessário para implantar e atualizar conectores. Fechar ou bloquear essa porta faz com que implantações do ISE falhem e impeçam atualizações ou correções do conector. |
 | Dependência do SQL do Azure | Saída | 1433 | VirtualNetwork | SQL | |
 | Azure Resource Health | Saída | 1886 | VirtualNetwork | AzureMonitor | Para a publicação do status de integridade para Resource Health |
 | Gerenciamento de API-ponto de extremidade de gerenciamento | Entrada | 3443 | APIManagement | VirtualNetwork | |

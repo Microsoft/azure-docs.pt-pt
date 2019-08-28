@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: c54acde03f2652465ca0947d81f6c6ac4fb98934
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 64bd71d89446a19d2afe56a32b0c7124e897cb48
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014467"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072419"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Endereços IP do gerenciamento de API do Azure
 

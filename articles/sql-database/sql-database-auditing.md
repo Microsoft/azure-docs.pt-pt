@@ -7,20 +7,20 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-ms.date: 04/16/2019
-ms.openlocfilehash: 69fe3287083523a3a47975a3db51d7241681f5c4
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.date: 08/22/2019
+ms.openlocfilehash: c8533f79dd2bf02a03ff4a37283359f3b3a5bf39
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68569506"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066065"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
-A auditoria do [banco de dados SQL](sql-database-technical-overview.md) do azure e [SQL data warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) rastreia eventos de banco de dados e os grava em um log de auditoria na conta de armazenamento do Azure, no espaço de trabalho do OMS ou nos hubs de eventos. A auditoria também:
+A auditoria do [banco de dados SQL](sql-database-technical-overview.md) do azure e [SQL data warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) rastreia eventos do banco de dados e os grava em um log de auditoria em sua conta de armazenamento do Azure, log Analytics espaço de trabalho ou hubs de eventos. A auditoria também:
 
 - Ajuda a manter a conformidade regulatória, a compreender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que podem indicar preocupações comerciais ou violações suspeitas de segurança.
 
@@ -121,11 +121,22 @@ Se você optar por gravar logs de auditoria em logs de Azure Monitor:
 
 - Use o [portal do Azure](https://portal.azure.com).  Abra o banco de dados relevante. Na parte superior da página de **auditoria** do banco de dados, clique em **Exibir logs de auditoria**.
 
-    ![Exibir logs de auditoria](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
+    ![Exibir logs de auditoria](./media/sql-database-auditing-get-started/auditing-view-audit-logs.png)
 
-- Em seguida, clicar em **abrir no OMS** na parte superior da página de **registros de auditoria** abrirá o modo de exibição logs em log Analytics, em que é possível personalizar o intervalo de tempo e a consulta de pesquisa.
+- Em seguida, você tem duas maneiras de exibir os logs:
+    
+    Clicar em **log Analytics** na parte superior da página de **registros de auditoria** abrirá o modo de exibição logs no espaço de trabalho log Analytics, no qual você pode personalizar o intervalo de tempo e a consulta de pesquisa.
+    
+    ![abrir no espaço de trabalho Log Analytics](./media/sql-database-auditing-get-started/auditing-log-analytics.png)
 
-    ![abrir no Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+    Clicar em **exibir painel** na parte superior da página de **registros de auditoria** abrirá um painel exibindo informações de logs de auditoria, nos quais você pode fazer uma busca detalhada nos insights de segurança, acessar dados confidenciais e muito mais. Este painel foi projetado para ajudá-lo a obter informações de segurança para seus dados.
+    Você também pode personalizar o intervalo de tempo e a consulta de pesquisa. 
+    ![Exibir Log Analytics painel](media/sql-database-auditing-get-started/auditing-view-dashboard.png)
+
+    ![Painel do Log Analytics](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard.png)
+
+    ![Log Analytics informações de segurança](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard-data.png)
+ 
 
 - Como alternativa, você também pode acessar os logs de auditoria na folha Log Analytics. Abra o espaço de trabalho Log Analytics e, na seção **geral** , clique em **logs**. Você pode começar com uma consulta simples, como: *pesquise "SQLSecurityAuditEvents"* para exibir os logs de auditoria.
     A partir daqui, você também pode usar [logs de Azure monitor](../log-analytics/log-analytics-log-search.md) para executar pesquisas avançadas em seus dados de log de auditoria. Os logs de Azure Monitor fornecem informações operacionais em tempo real usando pesquisa integrada e painéis personalizados para analisar rapidamente milhões de registros em todas as suas cargas de trabalho e servidores. Para obter informações úteis adicionais sobre os comandos e o idioma de pesquisa de logs do Azure Monitor, consulte [referência de pesquisa de Azure monitor logs](../log-analytics/log-analytics-log-search.md).
@@ -257,7 +268,7 @@ Política estendida com suporte de cláusula WHERE para filtragem adicional:
 - [Obter política de auditoria estendida do banco de dados](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Obter política de auditoria estendida do servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>Gerenciar a auditoria do banco de dados SQL usando modelos ARM
+## <a id="subheading-10"></a>Gerenciar a auditoria do banco de dados SQL usando modelos de Azure Resource Manager
 
 Você pode gerenciar a auditoria do banco de dados SQL do Azure usando modelos de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) , conforme mostrado nestes exemplos:
 

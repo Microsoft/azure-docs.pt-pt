@@ -1,40 +1,39 @@
 ---
-title: referência de Host. JSON para as funções do Azure 1.x
-description: Documentação de referência para o ficheiro de Host. JSON de funções do Azure com o tempo de execução do v1.
+title: referência de host. JSON para Azure Functions 1. x
+description: Documentação de referência para o arquivo Azure Functions host. JSON com o tempo de execução v1.
 services: functions
 author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: 44bc5a245d1bcbc8ff53991af4193ef86f7cd704
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c169d9cc774a2c6264ba1520240005f13ba9d2da
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62107079"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096444"
 ---
-# <a name="hostjson-reference-for-azure-functions-1x"></a>referência de Host. JSON para as funções do Azure 1.x
+# <a name="hostjson-reference-for-azure-functions-1x"></a>referência de host. JSON para Azure Functions 1. x
 
-> [!div class="op_single_selector" title1="Selecione a versão do runtime das funções do Azure que está a utilizar: "]
+> [!div class="op_single_selector" title1="Selecione a versão do Azure Functions tempo de execução que você está usando: "]
 > * [Versão 1](functions-host-json-v1.md)
 > * [Versão 2](functions-host-json.md)
 
-O *Host. JSON* ficheiro de metadados contém opções de configuração globais que afetam todas as funções para uma aplicação de funções. Este artigo lista as definições que estão disponíveis para o tempo de execução do v1. O esquema JSON está no http://json.schemastore.org/host.
+O arquivo de metadados *host. JSON* contém opções de configuração globais que afetam todas as funções de um aplicativo de funções. Este artigo lista as configurações que estão disponíveis para o tempo de execução v1. O esquema JSON está em http://json.schemastore.org/host.
 
 > [!NOTE]
-> Este artigo é para as funções do Azure 1.x.  Para obter uma referência de Host. JSON nas funções 2.x, consulte [referência de Host. JSON para as funções do Azure 2.x](functions-host-json.md).
+> Este artigo é para as funções do Azure 1.x.  Para obter uma referência de host. JSON nas funções 2. x, consulte [referência de host. JSON para Azure Functions 2. x](functions-host-json.md).
 
-Outras opções de configuração de aplicação de função são geridas no seu [as definições da aplicação](functions-app-settings.md).
+Outras opções de configuração de aplicativo de funções são gerenciadas em suas [configurações de aplicativo](functions-app-settings.md).
 
-Algumas definições de Host. JSON só são utilizadas quando em execução localmente na [Settings](functions-run-local.md#local-settings-file) ficheiro.
+Algumas configurações de host. JSON são usadas apenas ao executar localmente no arquivo [local. Settings. JSON](functions-run-local.md#local-settings-file) .
 
-## <a name="sample-hostjson-file"></a>Ficheiro de Host. JSON de exemplo
+## <a name="sample-hostjson-file"></a>Arquivo host. JSON de exemplo
 
-O exemplo a seguir *Host. JSON* ficheiros têm todas as opções possíveis especificadas.
+Os arquivos *host. JSON* de exemplo a seguir têm todas as opções possíveis especificadas.
 
 
 ```json
@@ -107,9 +106,9 @@ O exemplo a seguir *Host. JSON* ficheiros têm todas as opções possíveis espe
 }
 ```
 
-As secções seguintes deste artigo explicam cada propriedade de nível superior. Todas são opcionais, a menos que indicado de outra forma.
+As seções a seguir deste artigo explicam cada propriedade de nível superior. Todos são opcionais, salvo indicação em contrário.
 
-## <a name="aggregator"></a>aggregator
+## <a name="aggregator"></a>agregador
 
 [!INCLUDE [aggregator](../../includes/functions-host-json-aggregator.md)]
 
@@ -123,13 +122,13 @@ As secções seguintes deste artigo explicam cada propriedade de nível superior
 
 ## <a name="eventhub"></a>eventHub
 
-Definições de configuração para [Hub de eventos de acionadores e enlaces](functions-bindings-event-hubs.md).
+Definições de configuração para [gatilhos e associações de Hub de eventos](functions-bindings-event-hubs.md).
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>funções
 
-Uma lista de funções que o anfitrião de tarefa é executada. Uma matriz vazia significa executar todas as funções. Foi concebido para utilização apenas quando [em execução localmente](functions-run-local.md). Nas aplicações de função no Azure, em vez disso, deve seguir os passos em [como desativar funções nas funções do Azure](disable-function.md) para desativar funções específicas, em vez de utilizar esta definição.
+Uma lista de funções que o host de trabalho executa. Uma matriz vazia significa executar todas as funções. Destinado para uso somente quando [executado localmente](functions-run-local.md). Em aplicativos de funções no Azure, você deve seguir as etapas em [como desabilitar funções no Azure Functions](disable-function.md) para desabilitar funções específicas em vez de usar essa configuração.
 
 ```json
 {
@@ -139,7 +138,7 @@ Uma lista de funções que o anfitrião de tarefa é executada. Uma matriz vazia
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica o período de tempo limite para todas as funções. No plano de consumo sem servidor, o intervalo válido é entre 1 segundo para 10 minutos e o valor predefinido é de 5 minutos. Num plano do serviço de aplicações, não existe nenhum limite global e o padrão depende da versão de runtime.
+Indica a duração do tempo limite para todas as funções. Em um plano de consumo sem servidor, o intervalo válido é de 1 segundo a 10 minutos e o valor padrão é 5 minutos. Em um plano do serviço de aplicativo, não há nenhum limite geral e o padrão depende da versão de tempo de execução.
 
 ```json
 {
@@ -149,7 +148,7 @@ Indica o período de tempo limite para todas as funções. No plano de consumo s
 
 ## <a name="healthmonitor"></a>healthMonitor
 
-Definições de configuração para [monitor de estado de funcionamento do anfitrião](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+Definições de configuração do [Monitor de integridade do host](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
 
 ```
 {
@@ -165,25 +164,25 @@ Definições de configuração para [monitor de estado de funcionamento do anfit
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|enabled|true|Especifica se a funcionalidade está ativada. | 
-|healthCheckInterval|10 segundos|Verifica o intervalo de tempo entre o estado de funcionamento periódica de segundo plano. | 
-|healthCheckWindow|2 minutos|Uma janela deslizante de tempo utilizada em conjunto com o `healthCheckThreshold` definição.| 
-|healthCheckThreshold|6|Número máximo de vezes que a verificação de estado de funcionamento pode falhar antes de uma reciclagem de anfitrião é iniciada.| 
-|counterThreshold|0.80|O limiar em que um contador de desempenho será considerado problemático.| 
+|enabled|true|Especifica se o recurso está habilitado. | 
+|healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade de segundo plano periódicas. | 
+|healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto `healthCheckThreshold` com a configuração.| 
+|healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes que uma reciclagem de host seja iniciada.| 
+|comlimite|0,80|O limite no qual um contador de desempenho será considerado não íntegro.| 
 
 ## <a name="http"></a>http
 
-Definições de configuração para [http acionadores e enlaces](functions-bindings-http-webhook.md).
+Definições de configuração para [gatilhos e associações http](functions-bindings-http-webhook.md).
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
 ## <a name="id"></a>id
 
-*Versão 1.x apenas.*
+*Somente versão 1. x.*
 
-O ID exclusivo para um anfitrião de tarefa. Pode ser uma minúscula GUID com travessões removida. É necessário quando em execução localmente. Quando em execução no Azure, recomendamos que não defina um valor de ID. Um ID é gerado automaticamente no Azure quando `id` for omitido. 
+A ID exclusiva para um host de trabalho. Pode ser um GUID de caso inferior com traços removidos. Necessário ao executar localmente. Ao executar no Azure, recomendamos que você não defina um valor de ID. Uma ID é gerada automaticamente no Azure quando `id` é omitida. 
 
-Se partilhar uma conta de armazenamento entre várias aplicações de funções, certifique-se de que cada aplicação de função tem outra `id`. Pode omitir os `id` propriedade ou definir manualmente cada aplicação de função `id` para um valor diferente. O acionador de temporizador utiliza um bloqueio de armazenamento para se certificar de que haverá apenas uma instância de temporizador quando uma aplicação de funções aumenta horizontalmente para várias instâncias. Se duas aplicações de função partilham o mesmo `id` e cada utiliza um acionador de temporizador, apenas um temporizador será executado.
+Se você compartilhar uma conta de armazenamento em vários aplicativos de funções, certifique-se de que cada aplicativo `id`de funções tem um diferente. Você pode omitir `id` a propriedade ou definir manualmente cada aplicativo de `id` funções para um valor diferente. O gatilho de temporizador usa um bloqueio de armazenamento para garantir que haverá apenas uma instância de temporizador quando um aplicativo de funções for dimensionado para várias instâncias. Se dois aplicativos de funções compartilharem `id` o mesmo e cada um usar um gatilho de temporizador, somente um temporizador será executado.
 
 ```json
 {
@@ -191,9 +190,9 @@ Se partilhar uma conta de armazenamento entre várias aplicações de funções,
 }
 ```
 
-## <a name="logger"></a>agente de log
+## <a name="logger"></a>digita
 
-Controlos de filtragem para os registos de escrita por um [objeto ILogger](functions-monitoring.md#write-logs-in-c-functions) ou pelo [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
+Controla a filtragem de logs gravados por um [objeto ILogger](functions-monitoring.md#write-logs-in-c-functions) ou por [Context. log](functions-monitoring.md#write-logs-in-javascript-functions).
 
 ```json
 {
@@ -213,12 +212,12 @@ Controlos de filtragem para os registos de escrita por um [objeto ILogger](funct
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 |categoryFilter|n/d|Especifica a filtragem por categoria| 
-|defaultLevel|Information|Para as categorias não especificadas no `categoryLevels` matriz, enviar registos neste nível e superior para o Application Insights.| 
-|categoryLevels|n/d|Uma matriz de categorias que especifica o nível de registo mínimo para enviar para o Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor e, mais tempo valores têm precedência. No exemplo anterior *Host. JSON* do ficheiro, todas as categorias que começam com "Host.Aggregator" registo em `Information` nível. Todas as outras categorias que começam com "Host", como "Host.Executor", inicie sessão em `Error` nível.| 
+|defaultLevel|Information|Para todas as categorias não especificadas na `categoryLevels` matriz, envie logs nesse nível e acima para Application insights.| 
+|categoryLevels|n/d|Uma matriz de categorias que especifica o nível de log mínimo a ser enviado para Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor e os valores mais longos têm precedência. No arquivo *host. JSON* de exemplo anterior, todas as categorias que começam com o log "host. agregador `Information` " no nível. Todas as outras categorias que começam com "host", como "host. executor", fazem logon `Error` no nível.| 
 
 ## <a name="queues"></a>filas
 
-Definições de configuração para [acionadores de fila de armazenamento e enlaces](functions-bindings-storage-queue.md).
+Definições de configuração para [gatilhos e associações de fila de armazenamento](functions-bindings-storage-queue.md).
 
 ```json
 {
@@ -234,15 +233,15 @@ Definições de configuração para [acionadores de fila de armazenamento e enla
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|maxPollingInterval|60000|O intervalo máximo em milissegundos entre inquéritos de fila de mensagens em fila.| 
-|visibilityTimeout|0|O intervalo de tempo entre tentativas durante o processamento de uma mensagem de falha.| 
-|batchSize|16|O número de mensagens em fila que o runtime das funções em simultâneo recupera e processa em paralelo. Quando o número a ser processado obtém para o `newBatchThreshold`, o tempo de execução obtém outro lote e começa a processar essas mensagens. Portanto, é o número máximo de mensagens em simultâneo a ser processado por função `batchSize` plus `newBatchThreshold`. Este limite aplica-se em separado para cada função acionada por fila. <br><br>Se quiser evitar a execução paralela para mensagens recebidas numa fila, pode definir `batchSize` como 1. No entanto, esta definição elimina a simultaneidade apenas, desde que a aplicação de função for executada numa única máquina virtual (VM). Se a aplicação de funções aumenta horizontalmente para várias VMs, cada VM pode executar uma instância de cada função acionada por fila.<br><br>O máximo `batchSize` é 32. | 
-|maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de passar para a fila não processáveis.| 
-|newBatchThreshold|batchSize/2|Sempre que obtém o número de mensagens a ser processadas em simultâneo para baixo para este número, o tempo de execução obtém outro lote.| 
+|maxPollingInterval|60000|O intervalo máximo em milissegundos entre as pesquisas de fila.| 
+|visibilityTimeout|0|O intervalo de tempo entre as repetições quando o processamento de uma mensagem falha.| 
+|batchSize|16|O número de mensagens de fila que o tempo de execução do Functions recupera simultaneamente e processa em paralelo. Quando o número que está sendo processado chega ao `newBatchThreshold`, o tempo de execução Obtém outro lote e começa a processar essas mensagens. Portanto, o número máximo de mensagens simultâneas sendo processadas por `batchSize` função `newBatchThreshold`é mais. Esse limite se aplica separadamente a cada função disparada por fila. <br><br>Se você quiser evitar a execução paralela de mensagens recebidas em uma fila, poderá definir `batchSize` como 1. No entanto, essa configuração elimina a simultaneidade somente contanto que seu aplicativo de funções seja executado em uma única máquina virtual (VM). Se o aplicativo de funções for dimensionado para várias VMs, cada VM poderá executar uma instância de cada função disparada por fila.<br><br>O máximo `batchSize` é 32. | 
+|maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de movê-la para a fila de suspeitas.| 
+|newBatchThreshold|batchSize/2|Sempre que o número de mensagens sendo processadas simultaneamente chega a esse número, o tempo de execução recupera outro lote.| 
 
 ## <a name="servicebus"></a>serviceBus
 
-Definição de configuração para [do Service Bus acionadores e enlaces](functions-bindings-service-bus.md).
+Configuração para [gatilhos e associações do barramento de serviço](functions-bindings-service-bus.md).
 
 ```json
 {
@@ -262,7 +261,7 @@ Definição de configuração para [do Service Bus acionadores e enlaces](functi
 
 ## <a name="singleton"></a>singleton
 
-Definições de configuração para o comportamento de bloqueio de Singleton. Para obter mais informações, consulte [problema do GitHub sobre o suporte de singleton](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
+Definições de configuração para comportamento de bloqueio singleton. Para obter mais informações, consulte o [problema do GitHub sobre o suporte singleton](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
 ```json
 {
@@ -278,17 +277,17 @@ Definições de configuração para o comportamento de bloqueio de Singleton. Pa
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|lockPeriod|00:00:15|O período de que os bloqueios de nível de função são utilizados para. Os bloqueios de renovação automática.| 
-|listenerLockPeriod|00:01:00|O período de que os bloqueios de serviço de escuta são utilizados para.| 
-|listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo utilizado para a recuperação de bloqueio do serviço de escuta, se um bloqueio do serviço de escuta não foi possível adquirir na inicialização.| 
-|lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo, que o tempo de execução irá tentar adquirir um bloqueio.| 
-|lockAcquisitionPollingInterval|n/d|O intervalo entre tentativas de aquisição de bloqueio.| 
+|lockPeriod|00:00:15|O período em que os bloqueios de nível de função são obtidos. Os bloqueios são renovados automaticamente.| 
+|listenerLockPeriod|00:01:00|O período em que os bloqueios de ouvinte são obtidos.| 
+|listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo usado para recuperação de bloqueio de ouvinte se um bloqueio de ouvinte não pôde ser adquirido na inicialização.| 
+|lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo que o tempo de execução tentará adquirir um bloqueio.| 
+|lockAcquisitionPollingInterval|n/d|O intervalo entre as tentativas de aquisição de bloqueio.| 
 
 ## <a name="tracing"></a>rastreio
 
-*Versão 1.x*
+*Versão 1. x*
 
-Definições de configuração para os registos que criar utilizando um `TraceWriter` objeto. Ver [c# registo](functions-reference-csharp.md#logging) e [registo de node. js](functions-reference-node.md#writing-trace-output-to-the-console).
+Definições de configuração para logs que você cria usando um `TraceWriter` objeto. Consulte [ C# log](functions-reference-csharp.md#logging) e registro em log do [node. js](functions-reference-node.md#writing-trace-output-to-the-console).
 
 ```json
 {
@@ -301,12 +300,12 @@ Definições de configuração para os registos que criar utilizando um `TraceWr
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|consoleLevel|info|O nível de rastreio para o registo da consola. As opções são: `off`, `error`, `warning`, `info`, e `verbose`.|
-|fileLoggingMode|debugOnly|O nível de rastreio para o registo do ficheiro. As opções são `never`, `always`, `debugOnly`.| 
+|consoleLevel|info|O nível de rastreamento do log do console. As opções são `off`: `error`, `warning`, `info`, e `verbose`.|
+|fileLoggingMode|debugOnly|O nível de rastreamento para registro em log de arquivo. As opções `never`são `always`, `debugOnly`,.| 
 
 ## <a name="watchdirectories"></a>watchDirectories
 
-Um conjunto de [partilhados diretórios de código](functions-reference-csharp.md#watched-directories) que devem ser monitorizados para que as alterações.  Garante que quando o código desses diretórios é alterado, as alterações são captadas pelas suas funções.
+Um conjunto de [diretórios de código compartilhado](functions-reference-csharp.md#watched-directories) que deve ser monitorado para alterações.  Garante que, quando o código nesses diretórios for alterado, as alterações sejam coletadas por suas funções.
 
 ```json
 {
@@ -317,7 +316,7 @@ Um conjunto de [partilhados diretórios de código](functions-reference-csharp.m
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba como atualizar o ficheiro de Host. JSON](functions-reference.md#fileupdate)
+> [Saiba como atualizar o arquivo host. JSON](functions-reference.md#fileupdate)
 
 > [!div class="nextstepaction"]
-> [Ver definições globais em variáveis de ambiente](functions-app-settings.md)
+> [Consulte Configurações globais em variáveis de ambiente](functions-app-settings.md)

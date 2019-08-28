@@ -1,118 +1,117 @@
 ---
-title: Windows reiniciar loop numa VM do Azure | Documentos da Microsoft
-description: Saiba como resolver problemas de ciclo de reinício do Windows | Documentos da Microsoft
+title: Loop de reinicialização do Windows em uma VM do Azure | Microsoft Docs
+description: Saiba como solucionar problemas do loop de reinicialização do Windows | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 1c97b1da094b759ccf85f310ceec4c7abfd91b9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e4715225e56e50502348040fa501cbfd76bd5c9f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65472294"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103388"
 ---
-# <a name="windows-reboot-loop-on-an-azure-vm"></a>Ciclo de reinício do Windows numa VM do Azure
-Este artigo descreve o ciclo de reinício que pode ocorrer numa máquina Virtual de Windows (VM) no Microsoft Azure.
+# <a name="windows-reboot-loop-on-an-azure-vm"></a>Loop de reinicialização do Windows em uma VM do Azure
+Este artigo descreve o loop de reinicialização que você pode experimentar em uma VM (máquina virtual) do Windows no Microsoft Azure.
 
 ## <a name="symptom"></a>Sintoma
 
-Quando utiliza [diagnósticos de arranque](./boot-diagnostics.md) para obter as capturas de ecrã de uma VM, é encontrar a máquina virtual é a inicialização, mas o processo de inicialização é obter interrompido e o processo está a ser iniciado ao longo do.
+Ao usar o [diagnóstico de inicialização](./boot-diagnostics.md) para obter as capturas de tela de uma VM, você descobre que a máquina virtual está inicializando, mas o processo de inicialização está sendo interrompido e o processo está sendo reiniciado.
 
-![Ecrã de início 1](./media/troubleshoot-reboot-loop/start-screen-1.png)
+![Tela inicial 1](./media/troubleshoot-reboot-loop/start-screen-1.png)
 
 ## <a name="cause"></a>Causa
 
-O ciclo de reinício ocorre devido às seguintes causas:
+O loop de reinicialização ocorre devido às seguintes causas:
 
 ### <a name="cause-1"></a>Causa 1
 
-Existe um serviço de terceiros é sinalizado como crítica e que não pode ser iniciado. Isso faz com que o sistema operativo reiniciar o computador.
+Há um serviço de terceiros sinalizado como crítico e não pode ser iniciado. Isso faz com que o sistema operacional seja reinicializado.
 
 ### <a name="cause-2"></a>Causa 2
 
-Foram feitas algumas alterações para o sistema operativo. Normalmente, estes estão relacionados a uma instalação de atualização, a instalação da aplicação ou uma nova política. Poderá ter de verificar os seguintes registos para obter detalhes adicionais:
+Algumas alterações foram feitas no sistema operacional. Normalmente, eles estão relacionados a uma instalação de atualização, instalação de aplicativo ou uma nova política. Talvez seja necessário verificar os seguintes logs para obter detalhes adicionais:
 
 - Registos de Eventos
 - CBS.logWindows
-- Update.log
+- Update. log
 
 ### <a name="cause-3"></a>Causa 3
 
-Danos no ficheiro de sistema poderiam fazer isso. No entanto, é difícil de diagnosticar e identificar a alteração que faz com que a corrupção do sistema operativo.
+A corrupção do sistema de arquivos pode causar isso. No entanto, é difícil diagnosticar e identificar a alteração que causa a corrupção do sistema operacional.
 
 ## <a name="solution"></a>Solução
 
-Para resolver este problema, [cópia de segurança de disco do SO](../windows/snapshot-copy-managed-disk.md), e [anexar o disco do SO para uma VM de resgate](../windows/troubleshoot-recovery-disks-portal.md)e, em seguida, siga as opções de solução em conformidade ou experimente as soluções individualmente.
+Para resolver esse problema, [faça backup do disco do sistema operacional](../windows/snapshot-copy-managed-disk.md)e [anexe o disco do sistema operacional a uma VM de resgate](../windows/troubleshoot-recovery-disks-portal.md)e siga as opções da solução de forma adequada ou tente as soluções uma a uma.
 
-### <a name="solution-for-cause-1"></a>Solução para causa 1
+### <a name="solution-for-cause-1"></a>Solução para o motivo 1
 
-1. Assim que o disco do SO está ligado a uma VM em funcionamento, certifique-se de que o disco é sinalizado de forma **Online** na gestão de discos da consola e observe a letra de unidade da partição que contém o **\Windows** pasta.
+1. Depois que o disco do sistema operacional for anexado a uma VM em funcionamento, verifique se o disco está sinalizado como **online** no console de gerenciamento de disco e anote a letra da unidade da partição que contém a pasta **\Windows** .
 
-2. Se o disco estiver definido como **Offline**, em seguida, defina-o como **Online**.
+2. Se o disco estiver definido como **offline**, defina-o como **online**.
 
-3. Criar uma cópia do **\Windows\System32\config** pasta caso é necessária uma reversão sobre as alterações.
+3. Crie uma cópia da pasta **\Windows\System32\config** caso uma reversão das alterações seja necessária.
 
-4. No entra em ação VM, abra o Editor de registo (regedit) do Windows.
+4. Na VM de resgate, abra o editor do registro do Windows (regedit).
 
-5. Selecione o **HKEY_LOCAL_MACHINE** da chave e, em seguida, selecione **ficheiro** > **carregar Hive** no menu.
+5. Selecione a chave **HKEY_LOCAL_MACHINE** e, em seguida, selecione **arquivo** > **Carregar Hive** no menu.
 
-6. Procure o ficheiro de sistema nos **\Windows\System32\config** pasta.
+6. Navegue até o arquivo do sistema na pasta **\Windows\System32\config**
 
-7. Selecione **aberto**, tipo **BROKENSYSTEM** para o nome, expanda o **HKEY_LOCAL_MACHINE** chave e, em seguida, verá uma chave adicional chamada **BROKENSYSTEM** .
+7. Selecione **abrir**, digite **BROKENSYSTEM** para o nome, expanda a chave **HKEY_LOCAL_MACHINE** e, em seguida, você verá uma chave adicional chamada **BROKENSYSTEM**.
 
-8. Verifique que o computador está inicializando a partir de ControlSet. Verá o respetivo número de chave na seguinte chave do Registro.
+8. Verifique em qual controle o computador está inicializando. Você verá seu número de chave na chave do registro a seguir.
 
     `HKEY_LOCAL_MACHINE\BROKENSYSTEM\Select\Current`
 
-9. Verificação de que é a importância do serviço de agente VM através da seguinte chave do Registro.
+9. Verifique qual é a importância do serviço do agente de VM por meio da chave do registro a seguir.
 
     `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\RDAgent\ErrorControl`
 
-10. Se o valor da chave do registo não estiver definido como **2**, em seguida, vá para a atenuação seguinte.
+10. Se o valor da chave do registro não estiver definido como **2**, vá para a próxima mitigação.
 
-11. Se o valor da chave do registo é definido como **2**, em seguida, altere o valor de **2** para **1**.
+11. Se o valor da chave do registro for definido como **2**, altere o valor de **2** para **1**.
 
-12. Se existir alguma das seguintes chaves e têm valor **2** ou **3**e, em seguida, alterar estes valores para **1** em conformidade:
+12. Se qualquer uma das seguintes chaves existir e tiver o valor **2** ou **3**e, em seguida, altere esses valores para **1** de acordo:
 
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupCoordinatorSvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
-13. Selecione o **BROKENSYSTEM** da chave e, em seguida, selecione **ficheiro** > **carregar Hive** no menu.
+13. Selecione a chave **BROKENSYSTEM** e, em seguida, selecione **arquivo** > **Carregar Hive** no menu.
 
-14. Desanexe o disco do SO da VM de resolução de problemas.
+14. Desanexe o disco do sistema operacional da VM de solução de problemas.
 
-15. Remover o disco da VM de resolução de problemas e aguarde cerca de dois minutos para o Azure para este disco de versão.
+15. Remova o disco da VM de solução de problemas e aguarde cerca de 2 minutos para que o Azure libere esse disco.
 
-16. [Criar uma nova VM a partir de disco do SO](../windows/create-vm-specialized.md).
+16. [Crie uma nova VM do disco do sistema operacional](../windows/create-vm-specialized.md).
 
-17. Se o problema estiver resolvido, poderá ter de reinstalar o [RDAgent](https://blogs.msdn.microsoft.com/mast/2014/04/07/install-the-vm-agent-on-an-existing-azure-vm/) (WaAppAgent.exe).
+17. Se o problema for corrigido, talvez seja necessário reinstalar o [RDAgent](https://blogs.msdn.microsoft.com/mast/2014/04/07/install-the-vm-agent-on-an-existing-azure-vm/) (WaAppAgent. exe).
 
-### <a name="solution-for-cause-2"></a>Solução para causa 2
+### <a name="solution-for-cause-2"></a>Solução para o motivo 2
 
-Restaurar a VM para a última configuração boa conhecida, siga os passos em [como iniciar a VM do Windows Azure com a última configuração boa conhecida](https://support.microsoft.com/help/4016731/).
+Restaure a VM para a última configuração válida conhecida, siga as etapas em [como iniciar a VM do Windows Azure com a última configuração válida conhecida](https://support.microsoft.com/help/4016731/).
 
-### <a name="solution-for-cause-3"></a>Solução para causa 3
+### <a name="solution-for-cause-3"></a>Solução para a causa 3
 >[!NOTE]
->O procedimento seguinte só deve ser usado como último recurso. Embora o restauro a partir de regback pode restaurar o acesso à máquina, o sistema operacional não é considerado com as estável, uma vez que não há dados perdidos no Registro entre o carimbo de hora do hive e o dia atual. Precisa criar uma nova VM e a fazer planos para migrar os dados.
+>O procedimento a seguir só deve ser usado como último recurso. Durante a restauração do Regback pode restaurar o acesso ao computador, o sistema operacional não é considerado estável, pois há dados perdidos no registro entre o carimbo de data/hora do hive e o dia atual. Você precisa criar uma nova VM e fazer planos para migrar dados.
 
-1. Assim que o disco está ligado a uma VM de resolução de problemas, certifique-se de que o disco é sinalizado de forma **Online** no console de gerenciamento de disco.
+1. Depois que o disco estiver anexado a uma VM de solução de problemas, verifique se o disco está sinalizado como **online** no console de gerenciamento de disco.
 
-2. Criar uma cópia do **\Windows\System32\config** pasta caso é necessária uma reversão sobre as alterações.
+2. Crie uma cópia da pasta **\Windows\System32\config** caso uma reversão das alterações seja necessária.
 
-3. Copie os ficheiros nos **\Windows\System32\config\regback** pasta e substituir os ficheiros a **\Windows\System32\config** pasta.
+3. Copie os arquivos na pasta **\Windows\System32\config\regback** e substitua os arquivos na pasta **\Windows\System32\config** .
 
-4. Remover o disco da VM de resolução de problemas e aguarde cerca de dois minutos para o Azure para este disco de versão.
+4. Remova o disco da VM de solução de problemas e aguarde cerca de 2 minutos para que o Azure libere esse disco.
 
-5. [Criar uma nova VM a partir de disco do SO](../windows/create-vm-specialized.md).
+5. [Crie uma nova VM do disco do sistema operacional](../windows/create-vm-specialized.md).
 
 

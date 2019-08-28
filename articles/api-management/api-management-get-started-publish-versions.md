@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 6820b44309ac2b3dbeb5ad6f0beb460c8712e9af
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 1be70d3eb74d3a8f0eddb1e5c22e4234987276b3
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203692"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073695"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publicar várias versões da sua API 
 
@@ -38,8 +37,8 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
-+ Conclua o início rápido seguinte: [Criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
-+ Além disso, conclua o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
++ Conclua o início rápido a seguir: [Crie uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Além disso, conclua o seguinte tutorial: [Importe e publique sua primeira API](import-and-publish.md).
 
 ## <a name="add-a-new-version"></a>Adicionar uma nova versão
 

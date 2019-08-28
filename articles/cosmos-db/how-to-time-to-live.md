@@ -1,47 +1,47 @@
 ---
-title: Saiba como configurar e gerir o TTL no Azure Cosmos DB
-description: Saiba como configurar e gerir o tempo de duração no Azure Cosmos DB
+title: Saiba como configurar e gerenciar a vida útil no Azure Cosmos DB
+description: Saiba como configurar e gerenciar a vida útil no Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 618e7e19b20f361aa0a8c668e9621a29db43772d
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: bb67e6e4fbef51a0fbd26efd2618be8cc9896beb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797740"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092990"
 ---
-# <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar o TTL no Azure Cosmos DB
+# <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar a vida útil no Azure Cosmos DB
 
-No Azure Cosmos DB, pode optar por configurar o tempo Live (TTL) ao nível do contentor ou pode substituí-la num nível de item após a definição do contentor. Pode configurar o TTL para um contentor com o portal do Azure ou os SDKs específicos de idiomas. Substituições TTL ao nível do item podem ser configuradas através de SDKs.
+No Azure Cosmos DB, você pode optar por configurar TTL (vida útil) no nível do contêiner ou pode substituí-lo em um nível de item após a configuração do contêiner. Você pode configurar o TTL para um contêiner usando portal do Azure ou os SDKs específicos do idioma. As substituições de TTL no nível de item podem ser configuradas usando os SDKs.
 
-## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>Ativar o TTL num contentor com o portal do Azure
+## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>Habilitar a vida útil em um contêiner usando portal do Azure
 
-Utilize os seguintes passos para ativar o TTL num contêiner sem expiração. Ative esta opção para permitir que o valor de TTL ser substituído ao nível do item. Também pode definir o valor de TTL ao introduzir um valor diferente de zero para segundos.
+Use as etapas a seguir para habilitar a vida útil em um contêiner sem expiração. Habilite essa permissão para permitir que o TTL seja substituído no nível do item. Você também pode definir o TTL inserindo um valor diferente de zero por segundos.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Criar uma nova conta do Cosmos do Azure ou selecione uma conta existente.
+2. Crie uma nova conta do Azure Cosmos ou selecione uma conta existente.
 
-3. Abra o **Data Explorer** painel.
+3. Abra o painel de **Data Explorer** .
 
-4. Selecione um contentor existente, expandi-lo e modificar os seguintes valores:
+4. Selecione um contêiner existente, expanda-o e modifique os seguintes valores:
 
-   * Abra o **dimensionamento e definições** janela.
-   * Sob **definição** localizar, **TTL**.
-   * Selecione **ativada (sem predefinição)** ou selecione **no** e definir um valor TTL
+   * Abra a janela **dimensionar & configurações** .
+   * Em **configuração** de localizar, **vida**útil.
+   * Selecione **ativado (sem padrão)** ou selecione **ativado** e defina um valor de TTL
    * Clique em **Guardar** para guardar as alterações.
 
-   ![Configurar o TTL no portal do Azure](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+   ![Configurar a vida útil no portal do Azure](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
 
 
-- Quando DefaultTimeToLive é nulo, em seguida, o TTL de está desativada
-- Quando o DefaultTimeToLive é -1, em seguida, o tempo de configuração vida é ativada (sem predefinição)
-- Quando DefaultTimeToLive tem qualquer outro valor Int (exceto 0) o tempo de configuração vida é em
+- Quando DefaultTimeToLive for NULL, o tempo de vida estará desativado
+- Quando DefaultTimeToLive for-1, a configuração de tempo de vida estará ativada (sem padrão)
+- Quando DefaultTimeToLive tem qualquer outro valor int (exceto 0), a configuração de tempo de vida está ativada
 
-## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Ativar o TTL num contentor com o SDK
+## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Habilitar a vida útil em um contêiner usando o SDK
 
 ### <a id="dotnet-enable-noexpiry"></a>SDK do .NET
 
@@ -58,11 +58,11 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
-## <a name="set-time-to-live-on-a-container-using-sdk"></a>Definir o TTL num contentor com o SDK
+## <a name="set-time-to-live-on-a-container-using-sdk"></a>Definir a vida útil em um contêiner usando o SDK
 
 ### <a id="dotnet-enable-withexpiry"></a>SDK do .NET
 
-Para definir o tempo de duração num contêiner, terá de fornecer um número positivo diferente de zero que indica o período de tempo em segundos. Com base no valor TTL configurado, todos os itens no contentor após a última modificação timestamp do item de `_ts` são eliminados.
+Para definir a vida útil em um contêiner, você precisa fornecer um número positivo diferente de zero que indique o período de tempo em segundos. Com base no valor TTL configurado, todos os itens no contêiner após o último carimbo de data/hora `_ts` modificado do item são excluídos.
 
 ```csharp
 // Create a new collection with TTL enabled and a 90 day expiration
@@ -77,7 +77,7 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
-### <a id="nodejs-enable-withexpiry"></a>NodeJS SDK
+### <a id="nodejs-enable-withexpiry"></a>SDK do NodeJS
 
 ```javascript
 const containerDefinition = {
@@ -91,34 +91,34 @@ async function createcontainerWithTTL(db: Database, containerDefinition: Contain
 }
 ```
 
-## <a name="set-time-to-live-on-an-item"></a>Definir o tempo de duração num item
+## <a name="set-time-to-live-on-an-item"></a>Definir a vida útil em um item
 
-Além de definir um tempo de duração num contentor predefinido, pode definir um tempo de duração de um item. TTL ao nível do item de configuração irá substituir a predefinição do TTL do item nesse contentor.
+Além de definir uma vida útil padrão em um contêiner, você pode definir uma vida útil para um item. Definir a vida útil no nível do item substituirá o TTL padrão do item nesse contêiner.
 
-* Para definir o valor de TTL num item, tem de fornecer um número positivo diferente de zero, que indica o período de, em segundos, para expirar o item após a última modificação timestamp do item de `_ts`.
+* Para definir o TTL em um item, você precisa fornecer um número positivo diferente de zero, que indica o período, em segundos, para expirar o item após o último carimbo de data/hora modificado `_ts`do item.
 
-* Se o item não tiver um campo de valor de TTL, em seguida, por predefinição, o valor de TTL definido para o contentor irá aplicar ao item.
+* Se o item não tiver um campo TTL, por padrão, o TTL definido para o contêiner será aplicado ao item.
 
-* Se o valor de TTL está desativada no nível do contentor, o campo de valor de TTL no item será ignorado enquanto o TTL é novamente ativado no contentor.
+* Se TTL for desabilitado no nível de contêiner, o campo TTL no item será ignorado até que TTL seja reabilitado no contêiner.
 
 ### <a id="portal-set-ttl-item"></a>Portal do Azure
 
-Utilize os seguintes passos para ativar o TTL num item:
+Use as etapas a seguir para habilitar a vida útil em um item:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Criar uma nova conta do Cosmos do Azure ou selecione uma conta existente.
+2. Crie uma nova conta do Azure Cosmos ou selecione uma conta existente.
 
-3. Abra o **Data Explorer** painel.
+3. Abra o painel de **Data Explorer** .
 
-4. Selecione um contentor existente, expandi-lo e modificar os seguintes valores:
+4. Selecione um contêiner existente, expanda-o e modifique os seguintes valores:
 
-   * Abra o **dimensionamento e definições** janela.
-   * Sob **definição** localizar, **TTL**.
-   * Selecione **ativada (sem predefinição)** ou selecione **no** e definir um valor TTL. 
+   * Abra a janela **dimensionar & configurações** .
+   * Em **configuração** de localizar, **vida**útil.
+   * Selecione **ativado (sem padrão)** ou selecione **ativado** e defina um valor TTL. 
    * Clique em **Guardar** para guardar as alterações.
 
-5. Em seguida, navegue para o item para o qual pretende definir a hora em direto, adicione a `ttl` propriedade e selecione **atualização**. 
+5. Em seguida, navegue até o item para o qual você deseja definir a vida útil, `ttl` adicione a propriedade e selecione **Atualizar**. 
 
    ```json
    {
@@ -157,7 +157,7 @@ SalesOrder salesOrder = new SalesOrder
 };
 ```
 
-### <a id="nodejs-set-ttl-item"></a>NodeJS SDK
+### <a id="nodejs-set-ttl-item"></a>SDK do NodeJS
 
 ```javascript
 const itemDefinition = {
@@ -169,9 +169,9 @@ const itemDefinition = {
 ```
 
 
-## <a name="reset-time-to-live"></a>Repor o TTL
+## <a name="reset-time-to-live"></a>Redefinir vida útil
 
-Pode repor a hora em direto de um item, efetuando uma gravação ou atualizar a operação no item. A operação de escrita ou de atualização irá definir o `_ts` para a hora atual, e o valor de TTL para o item para expirar começarão de novo. Se pretender alterar o TTL de um item, pode atualizar o campo apenas quando atualiza qualquer outro campo.
+Você pode redefinir a vida útil em um item executando uma operação de gravação ou atualização no item. A operação de gravação ou atualização definirá `_ts` o como a hora atual, e o TTL do item a expirar começará novamente. Se desejar alterar a TTL de um item, você poderá atualizar o campo da mesma forma que atualizar qualquer outro campo.
 
 ### <a id="dotnet-extend-ttl-item"></a>SDK do .NET
 
@@ -187,9 +187,9 @@ readDocument.ttl = 60 * 30 * 30; // update time to live
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
-## <a name="turn-off-time-to-live"></a>Desativar o TTL
+## <a name="turn-off-time-to-live"></a>Desligar a vida útil
 
-Se o tempo de duração foi definido num item e que já não quer esse item para expirar, em seguida, pode obter o item, remover o campo de valor de TTL e substituir o item no servidor. Quando o campo de valor de TTL é removido do item, o valor TTL predefinido atribuído para o contentor é aplicado ao item. Defina o valor TTL como -1 para impedir que um item de expirar e não herdam o valor de TTL do contêiner.
+Se a vida útil tiver sido definida em um item e você não quiser mais que esse item expire, você poderá obter o item, remover o campo TTL e substituir o item no servidor. Quando o campo TTL é removido do item, o valor de TTL padrão atribuído ao contêiner é aplicado ao item. Defina o valor de TTL como-1 para impedir que um item expire e não herde o valor TTL do contêiner.
 
 ### <a id="dotnet-turn-off-ttl-item"></a>SDK do .NET
 
@@ -206,9 +206,9 @@ readDocument.ttl = null; // inherit the default TTL of the collection
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
-## <a name="disable-time-to-live"></a>Desativar o TTL
+## <a name="disable-time-to-live"></a>Desabilitar vida útil
 
-Para desativar o tempo em direto de um contentor e parar o processo em segundo plano da verificação para itens expiradas, o `DefaultTimeToLive` propriedade no contentor deve ser eliminada. A eliminar esta propriedade é diferente de defini-la como -1. Ao definir como -1, novos itens adicionados ao contêiner irão durar para sempre, no entanto, pode substituir este valor em itens específicos no contentor. Ao remover a propriedade TTL do contêiner os itens nunca irão expirar, mesmo se existirem que explicitamente que eles tenham substituído o valor TTL predefinido anterior.
+Para desabilitar a vida útil em um contêiner e impedir que o processo em segundo plano Verifique se há itens `DefaultTimeToLive` expirados, a propriedade no contêiner deve ser excluída. A exclusão dessa propriedade é diferente de defini-la como-1. Quando você o define como-1, novos itens adicionados ao contêiner residirão para sempre, no entanto, você pode substituir esse valor em itens específicos no contêiner. Quando você remove a propriedade TTL do contêiner, os itens nunca expirarão, mesmo que tenham substituído explicitamente o valor TTL padrão anterior.
 
 ### <a id="dotnet-disable-ttl"></a>SDK do .NET
 
@@ -222,6 +222,6 @@ await client.ReplaceDocumentCollectionAsync(collection);
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o tempo de duração no seguinte artigo:
+Saiba mais sobre o tempo de vida no seguinte artigo:
 
-* [TTL](time-to-live.md)
+* [Vida útil](time-to-live.md)

@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: apimpm
-ms.openlocfilehash: db341a2075238ccef214ea151d2b2d2860eb6f3a
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 57965b0326171f37d33aeae02080c8887c3acf23
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837945"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072067"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importar uma Aplicação Lógica como uma API
 
@@ -97,7 +96,7 @@ Também é possível chamar operações a partir do **portal do Programador** pa
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >

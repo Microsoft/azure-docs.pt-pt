@@ -1,6 +1,6 @@
 ---
-title: Máquinas virtuais num modelo Azure Resource Manager | Microsoft Azure
-description: Saiba mais sobre como o recurso de máquina virtual está definido num modelo do Azure Resource Manager.
+title: Máquinas virtuais em um modelo de Azure Resource Manager | Microsoft Azure
+description: Saiba mais sobre como o recurso de máquina virtual é definido em um modelo de Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -11,26 +11,25 @@ ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: fd4fad40ef4809c756321493854f38fd813569ca
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 23519edb61df23c97dfd2162d6cabea6b7fa5d38
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710290"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101778"
 ---
-# <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais num modelo Azure Resource Manager
+# <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais em um modelo de Azure Resource Manager
 
-Este artigo descreve aspectos de um modelo Azure Resource Manager que se aplicam a máquinas virtuais. Este artigo não descreve um modelo completo para a criação de uma máquina virtual; Para isso precisa de definições de recursos para contas de armazenamento, interfaces de rede, endereços IP públicos e redes virtuais. Para obter mais informações sobre como estes recursos podem ser definidos em conjunto, consulte a [instruções do modelo do Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Este artigo descreve os aspectos de um modelo de Azure Resource Manager que se aplicam a máquinas virtuais. Este artigo não descreve um modelo completo para criar uma máquina virtual; para que você precise de definições de recursos para contas de armazenamento, interfaces de rede, endereços IP públicos e redes virtuais. Para obter mais informações sobre como esses recursos podem ser definidos em conjunto, confira o [tutorial do modelo do Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-Existem muitas [modelos na galeria](https://azure.microsoft.com/documentation/templates/?term=VM) que incluam o recurso da VM. Nem todos os elementos que podem ser incluídos num modelo são descritos aqui.
+Há muitos [modelos na Galeria](https://azure.microsoft.com/documentation/templates/?term=VM) que incluem o recurso de VM. Nem todos os elementos que podem ser incluídos em um modelo são descritos aqui.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-Este exemplo mostra uma seção de recurso típico de um modelo para criar um número especificado de VMs:
+Este exemplo mostra uma seção de recursos típico de um modelo para criar um número especificado de VMs:
 
 ```json
 "resources": [
@@ -148,30 +147,30 @@ Este exemplo mostra uma seção de recurso típico de um modelo para criar um n�
 ``` 
 
 > [!NOTE] 
->Este exemplo se baseia numa conta de armazenamento que foi criada anteriormente. Pode criar a conta de armazenamento, implantando-a partir do modelo. O exemplo também se baseia numa interface de rede e os respetivos recursos dependentes que seriam definidos no modelo. Estes recursos não são apresentados no exemplo.
+>Este exemplo se baseia em uma conta de armazenamento que foi criada anteriormente. Você pode criar a conta de armazenamento implantando-a do modelo. O exemplo também se baseia em uma interface de rede e seus recursos dependentes que seriam definidos no modelo. Esses recursos não são mostrados no exemplo.
 >
 >
 
-## <a name="api-version"></a>Versão de API
+## <a name="api-version"></a>Versão da API
 
-Ao implementar recursos com um modelo, terá de especificar uma versão da API a utilizar. O exemplo mostra o recurso de máquina virtual com este elemento apiVersion:
+Ao implantar recursos usando um modelo, você precisa especificar uma versão da API a ser usada. O exemplo mostra o recurso de máquina virtual usando este elemento apiVersion:
 
 ```
 "apiVersion": "2016-04-30-preview",
 ```
 
-A versão da API que especificar no seu modelo afeta as propriedades que pode definir no modelo. Em geral, deve selecionar a versão mais recente da API durante a criação de modelos. Para modelos existentes, pode decidir se pretende continuar a utilizar uma versão de API anterior ou atualizar o modelo para a versão mais recente tirar partido das novas funcionalidades.
+A versão da API que você especifica em seu modelo afeta as propriedades que podem ser definidas no modelo. Em geral, você deve selecionar a versão mais recente da API ao criar modelos. Para modelos existentes, você pode decidir se deseja continuar usando uma versão de API anterior ou atualizar seu modelo para a versão mais recente para aproveitar os novos recursos.
 
-Use essas oportunidades para obter as mais recentes versões de API:
+Use estas oportunidades para obter as versões mais recentes da API:
 
-- REST API - [listar todos os fornecedores de recursos](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell – [Get AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
-- CLI do Azure - [show de fornecedor de az](https://docs.microsoft.com/cli/azure/provider)
+- API REST – [listar todos os provedores de recursos](https://docs.microsoft.com/rest/api/resources/providers)
+- PowerShell- [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
+- Exibição do [provedor](https://docs.microsoft.com/cli/azure/provider) CLI do Azure-AZ
 
 
 ## <a name="parameters-and-variables"></a>Parâmetros e variáveis
 
-[Parâmetros](../../resource-group-authoring-templates.md) torna mais fácil para que especifique valores para o modelo quando ele é executado. Esta secção de parâmetros é usada no exemplo:
+Os [parâmetros](../../resource-group-authoring-templates.md) facilitam a especificação de valores para o modelo quando você o executa. Essa seção de parâmetros é usada no exemplo:
 
 ```        
 "parameters": {
@@ -181,9 +180,9 @@ Use essas oportunidades para obter as mais recentes versões de API:
 },
 ```
 
-Ao implementar o modelo de exemplo, introduza valores para o nome e a palavra-passe da conta de administrador em cada VM e o número de VMs para criar. Tem a opção de especificar valores de parâmetro num arquivo separado que é gerido com o modelo ou fornecer valores quando lhe for pedido.
+Ao implantar o modelo de exemplo, você insere valores para o nome e a senha da conta de administrador em cada VM e o número de VMs a serem criadas. Você tem a opção de especificar valores de parâmetro em um arquivo separado que é gerenciado com o modelo ou fornecendo valores quando solicitado.
 
-[Variáveis](../../resource-group-authoring-templates.md) torna mais fácil para configurar valores no modelo que são usadas repetidamente em toda ele ou que pode alterar ao longo do tempo. Esta secção de variáveis é usada no exemplo:
+As [variáveis](../../resource-group-authoring-templates.md) facilitam a configuração de valores no modelo que são usados repetidamente em todo o processo ou que podem mudar ao longo do tempo. Essa seção de variáveis é usada no exemplo:
 
 ```
 "variables": { 
@@ -216,11 +215,11 @@ Ao implementar o modelo de exemplo, introduza valores para o nome e a palavra-pa
 }, 
 ```
 
-Ao implementar o modelo de exemplo, os valores das variáveis são utilizados para o nome e o identificador da conta de armazenamento criado anteriormente. Variáveis também são utilizadas para fornecer as definições para a extensão de diagnóstico. Utilize o [melhores práticas para a criação de modelos Azure Resource Manager](../../resource-manager-template-best-practices.md) para ajudar a decidir como pretende estruturar os parâmetros e variáveis no seu modelo.
+Quando você implanta o modelo de exemplo, os valores de variáveis são usados para o nome e o identificador da conta de armazenamento criada anteriormente. As variáveis também são usadas para fornecer as configurações para a extensão de diagnóstico. Use as [práticas recomendadas para criar modelos de Azure Resource Manager](../../resource-manager-template-best-practices.md) para ajudá-lo a decidir como deseja estruturar os parâmetros e variáveis em seu modelo.
 
 ## <a name="resource-loops"></a>Loops de recursos
 
-Quando precisar de mais de uma máquina virtual para a sua aplicação, pode utilizar um elemento de cópia num modelo. Este elemento opcional faz um loop por meio de criar o número de VMs que especificou como um parâmetro:
+Quando você precisar de mais de uma máquina virtual para seu aplicativo, poderá usar um elemento de cópia em um modelo. Esse elemento opcional percorre a criação do número de VMs que você especificou como um parâmetro:
 
 ```
 "copy": {
@@ -229,7 +228,7 @@ Quando precisar de mais de uma máquina virtual para a sua aplicação, pode uti
 },
 ```
 
-Além disso, observe o exemplo que o índice de loop é utilizado durante a especificação de alguns dos valores para o recurso. Por exemplo, se tiver introduzido uma contagem de instâncias de três, os nomes dos discos de sistema operativo são myOSDisk1 myOSDisk2 e myOSDisk3:
+Além disso, observe que, no exemplo, o índice de loop é usado ao especificar alguns dos valores para o recurso. Por exemplo, se você inseriu uma contagem de instâncias de três, os nomes dos discos do sistema operacional serão myOSDisk1, myOSDisk2 e myOSDisk3:
 
 ```
 "osDisk": { 
@@ -240,11 +239,11 @@ Além disso, observe o exemplo que o índice de loop é utilizado durante a espe
 ```
 
 > [!NOTE] 
->Este exemplo utiliza discos geridos para as máquinas virtuais.
+>Este exemplo usa Managed disks para as máquinas virtuais.
 >
 >
 
-Tenha em atenção que a criação de um loop para um recurso no modelo pode exigir que use o loop quando criar ou aceder a outros recursos. Por exemplo, várias VMs não é possível utilizar a mesma interface de rede, portanto, se seu modelo faz um loop através da criação de três VMs também tem loop através da criação de três interfaces de rede. Quando atribui uma interface de rede a uma VM, o índice de loop é usado para identificá-lo:
+Tenha em mente que a criação de um loop para um recurso no modelo pode exigir que você use o loop ao criar ou acessar outros recursos. Por exemplo, várias VMs não podem usar a mesma interface de rede, portanto, se o modelo faz um loop pela criação de três VMs, ele também deve fazer um loop pela criação de três interfaces de rede. Ao atribuir uma interface de rede a uma VM, o índice de loop é usado para identificá-lo:
 
 ```
 "networkInterfaces": [ { 
@@ -255,7 +254,7 @@ Tenha em atenção que a criação de um loop para um recurso no modelo pode exi
 
 ## <a name="dependencies"></a>Dependências
 
-A maioria dos recursos dependem de outros recursos funcione corretamente. Máquinas virtuais tem de estar associadas com uma rede virtual e fazer o que necessita de uma interface de rede. O [dependsOn](../../resource-group-define-dependencies.md) elemento é usado para certificar-se de que a interface de rede está pronta para ser utilizada antes das VMs são criadas:
+A maioria dos recursos depende de outros recursos para funcionar corretamente. As máquinas virtuais devem ser associadas a uma rede virtual e, para isso, precisam de uma interface de rede. O [](../../resource-group-define-dependencies.md) elemento depending é usado para garantir que a interface de rede esteja pronta para ser usada antes que as VMs sejam criadas:
 
 ```
 "dependsOn": [
@@ -263,9 +262,9 @@ A maioria dos recursos dependem de outros recursos funcione corretamente. Máqui
 ],
 ```
 
-Resource Manager os implemente em paralelo todos os recursos que não dependentes de outro recurso que está sendo implantado. Tenha cuidado ao definir as dependências porque inadvertidamente pode abrandar a sua implementação ao especificar dependências desnecessárias. Dependências podem encadear através de vários recursos. Por exemplo, a interface de rede depende do endereço IP público e os recursos de rede virtual.
+O Resource Manager implanta em paralelo todos os recursos que não dependem de outro recurso que está sendo implantado. Tenha cuidado ao definir dependências, pois você pode retardar inadvertidamente a implantação especificando dependências desnecessárias. As dependências podem ser encadeadas por meio de vários recursos. Por exemplo, a interface de rede depende do endereço IP público e dos recursos de rede virtual.
 
-Como sabe se uma dependência é necessária? Ver os valores definidos no modelo. Se um elemento nos pontos de definição do recurso de máquina virtual para outro recurso que é implementado no mesmo modelo, terá uma dependência. Por exemplo, sua máquina de virtual de exemplo define um perfil de rede:
+Como saber se uma dependência é necessária? Examine os valores definidos no modelo. Se um elemento na definição de recurso de máquina virtual apontar para outro recurso implantado no mesmo modelo, você precisará de uma dependência. Por exemplo, sua máquina virtual de exemplo define um perfil de rede:
 
 ```
 "networkProfile": { 
@@ -276,25 +275,25 @@ Como sabe se uma dependência é necessária? Ver os valores definidos no modelo
 },
 ```
 
-Para definir esta propriedade, a interface de rede tem de existir. Portanto, precisa de uma dependência. Também terá de definir uma dependência quando um recurso (filho) é definido dentro de outro recurso (principal). Por exemplo, as extensões de script personalizado e as definições de diagnóstico estão ambos definidas como recursos subordinados de máquina virtual. Não é possível criar até que a máquina virtual existe. Por conseguinte, ambos os recursos são marcados como dependentes na máquina virtual.
+Para definir essa propriedade, a interface de rede deve existir. Portanto, você precisa de uma dependência. Você também precisa definir uma dependência quando um recurso (um filho) é definido dentro de outro recurso (um pai). Por exemplo, as configurações de diagnóstico e as extensões de script personalizado são definidas como recursos filho da máquina virtual. Eles não podem ser criados até que a máquina virtual exista. Portanto, ambos os recursos são marcados como dependentes na máquina virtual.
 
 ## <a name="profiles"></a>Perfis
 
-Vários elementos de perfil são utilizados para definir um recurso de máquina virtual. Algumas são necessárias e alguns são opcionais. Por exemplo, os elementos hardwareProfile, osProfile, storageProfile e networkProfile são necessários, mas o diagnosticsProfile é opcional. Estes perfis definem as definições, tais como:
+Vários elementos de perfil são usados ao definir um recurso de máquina virtual. Alguns são necessários e alguns são opcionais. Por exemplo, os elementos hardwareProfile, osProfile, storageProfile e networkProfile são necessários, mas o diagnosticsProfile é opcional. Esses perfis definem configurações como:
    
 - [size](sizes.md)
 - [nome](/azure/architecture/best-practices/naming-conventions) e credenciais
-- disco e [definições do sistema operativo](cli-ps-findimage.md)
-- [Interface de rede](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
-- Diagnóstico de arranque
+- configurações do [sistema operacional](cli-ps-findimage.md) e do disco
+- [interface de rede](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
+- diagnóstico de inicialização
 
 ## <a name="disks-and-images"></a>Discos e imagens
    
-No Azure, os ficheiros vhd podem representar [discos ou imagens](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando o sistema operativo num ficheiro vhd é especializado para ser uma VM específica, é referido como um disco. Quando o sistema operativo num ficheiro vhd é generalizado para ser utilizado para criar o número de VMs, é referido como uma imagem.   
+No Azure, os arquivos VHD podem representar [discos ou imagens](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando o sistema operacional em um arquivo VHD é especializado para ser uma VM específica, ele é chamado de disco. Quando o sistema operacional em um arquivo VHD é generalizado para ser usado para criar várias VMs, ele é chamado de imagem.   
     
-### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Criar novas máquinas virtuais e novos discos a partir de uma imagem de plataforma
+### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Criar novas máquinas virtuais e novos discos de uma imagem de plataforma
 
-Quando cria uma VM, deve decidir qual o sistema operacional para utilizar. O elemento de imageReference é utilizado para definir o sistema operativo de uma nova VM. O exemplo mostra uma definição para um sistema operativo Windows Server:
+Ao criar uma VM, você deve decidir qual sistema operacional será usado. O elemento imageReference é usado para definir o sistema operacional de uma nova VM. O exemplo mostra uma definição para um sistema operacional Windows Server:
 
 ```
 "imageReference": { 
@@ -305,7 +304,7 @@ Quando cria uma VM, deve decidir qual o sistema operacional para utilizar. O ele
 },
 ```
 
-Se pretender criar um sistema operativo Linux, poderá utilizar esta definição:
+Se você quiser criar um sistema operacional Linux, poderá usar essa definição:
 
 ```
 "imageReference": {
@@ -316,7 +315,7 @@ Se pretender criar um sistema operativo Linux, poderá utilizar esta definição
 },
 ```
 
-Definições de configuração para o disco do sistema operativo são atribuídas com o elemento de osDisk. O exemplo define um novo disco gerido com o modo de colocação em cache definido como **ReadWrite** e que o disco está a ser criado a partir de um [imagem de plataforma](cli-ps-findimage.md):
+As definições de configuração para o disco do sistema operacional são atribuídas com o elemento osDisk. O exemplo define um novo disco gerenciado com o modo de cache definido como **ReadWrite** e que o disco está sendo criado a partir de uma [imagem de plataforma](cli-ps-findimage.md):
 
 ```
 "osDisk": { 
@@ -326,9 +325,9 @@ Definições de configuração para o disco do sistema operativo são atribuída
 },
 ```
 
-### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>Criar novas máquinas virtuais a partir de discos geridos existentes
+### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>Criar novas máquinas virtuais a partir de discos gerenciados existentes
 
-Se quiser criar máquinas virtuais a partir de discos existentes, remover o imageReference e os elementos de osProfile e definir estas definições de disco:
+Se você quiser criar máquinas virtuais a partir de discos existentes, remova os elementos imageReference e osProfile e defina essas configurações de disco:
 
 ```
 "osDisk": { 
@@ -341,9 +340,9 @@ Se quiser criar máquinas virtuais a partir de discos existentes, remover o imag
 },
 ```
 
-### <a name="create-new-virtual-machines-from-a-managed-image"></a>Criar novas máquinas virtuais a partir de uma imagem gerida
+### <a name="create-new-virtual-machines-from-a-managed-image"></a>Criar novas máquinas virtuais a partir de uma imagem gerenciada
 
-Se quiser criar uma máquina virtual a partir de uma imagem gerida, altere o elemento de imageReference e definir estas definições de disco:
+Se você quiser criar uma máquina virtual de uma imagem gerenciada, altere o elemento imageReference e defina essas configurações de disco:
 
 ```
 "storageProfile": { 
@@ -361,7 +360,7 @@ Se quiser criar uma máquina virtual a partir de uma imagem gerida, altere o ele
 
 ### <a name="attach-data-disks"></a>Anexar discos de dados
 
-Opcionalmente, pode adicionar discos de dados para as VMs. O [número de discos](sizes.md) depende do tamanho do disco do sistema operativo que utilizar. Com o tamanho das VMs definido como Standard_DS1_v2, o número máximo de discos de dados que poderiam ser adicionadas para o-los é dois. No exemplo, um disco de dados gerido está a ser adicionado a cada VM:
+Opcionalmente, você pode adicionar discos de dados às VMs. O [número de discos](sizes.md) depende do tamanho do disco do sistema operacional que você usa. Com o tamanho das VMs definidas como Standard_DS1_v2, o número máximo de discos de dados que podem ser adicionados a eles é dois. No exemplo, um disco de dados gerenciado está sendo adicionado a cada VM:
 
 ```
 "dataDisks": [
@@ -377,7 +376,7 @@ Opcionalmente, pode adicionar discos de dados para as VMs. O [número de discos]
 
 ## <a name="extensions"></a>Extensões
 
-Embora [extensões](extensions-features.md) são um recurso separado, eles estivessem diretamente ligados às VMs. As extensões podem ser adicionadas como um recurso de subordinados da VM ou como um recurso separado. O exemplo mostra a [extensão de diagnóstico](extensions-diagnostics-template.md) a ser adicionado às VMs:
+Embora [as extensões](extensions-features.md) sejam um recurso separado, elas estão fortemente ligadas às VMs. As extensões podem ser adicionadas como um recurso filho da VM ou como um recurso separado. O exemplo mostra a [extensão de diagnóstico](extensions-diagnostics-template.md) que está sendo adicionada às VMs:
 
 ```
 { 
@@ -410,9 +409,9 @@ Embora [extensões](extensions-features.md) são um recurso separado, eles estiv
 },
 ```
 
-Este recurso de extensão utiliza a variável de storageName e as variáveis de diagnóstico para fornecer valores. Se pretender alterar os dados que são recolhidos por esta extensão, pode adicionar mais contadores de desempenho para a variável wadperfcounters. Também pode optar por colocar os dados de diagnóstico numa conta de armazenamento diferentes em que os discos VM são armazenados.
+Esse recurso de extensão usa a variável storagename e as variáveis de diagnóstico para fornecer valores. Se você quiser alterar os dados coletados por essa extensão, poderá adicionar mais contadores de desempenho à variável wadperfcounters. Você também pode optar por colocar os dados de diagnóstico em uma conta de armazenamento diferente daquela em que os discos de VM estão armazenados.
 
-Há muitas extensões que pode instalar numa VM, mas o mais útil é provavelmente o [extensão de Script personalizado](extensions-customscript.md). No exemplo, um script do PowerShell com o nome start.ps1 é executado em cada VM de primeiro arranque:
+Há muitas extensões que você pode instalar em uma VM, mas a mais útil é provavelmente a [extensão de script personalizado](extensions-customscript.md). No exemplo, um script do PowerShell chamado start. ps1 é executado em cada VM quando ele é iniciado pela primeira vez:
 
 ```
 {
@@ -439,27 +438,27 @@ Há muitas extensões que pode instalar numa VM, mas o mais útil é provavelmen
 }
 ```
 
-O script de start.ps1 pode realizar muitas tarefas de configuração. Por exemplo, os discos de dados que são adicionados para as VMs no exemplo não são inicializados; Pode utilizar um script personalizado para inicializá-las. Se tiver várias tarefas de arranque para o fazer, pode utilizar o ficheiro de start.ps1 chamar outros scripts do PowerShell no armazenamento do Azure. O exemplo utiliza o PowerShell, mas pode utilizar qualquer método de criação de scripts que está disponível no sistema operativo que está a utilizar.
+O script Start. ps1 pode realizar muitas tarefas de configuração. Por exemplo, os discos de dados que são adicionados às VMs no exemplo não são inicializados; Você pode usar um script personalizado para inicializá-los. Se você tiver várias tarefas de inicialização para fazer, poderá usar o arquivo start. ps1 para chamar outros scripts do PowerShell no armazenamento do Azure. O exemplo usa o PowerShell, mas você pode usar qualquer método de script disponível no sistema operacional que você está usando.
 
-Pode ver o estado das extensões instaladas nas definições de extensões no portal do:
+Você pode ver o status das extensões instaladas nas configurações de extensões no Portal:
 
-![Obter estado da extensão](./media/template-description/virtual-machines-show-extensions.png)
+![Obter status da extensão](./media/template-description/virtual-machines-show-extensions.png)
 
-Também pode obter informações de extensão, utilizando o **Get-AzVMExtension** comando do PowerShell, o **get de extensão de vm** comando da CLI do Azure, ou o **obter informações de extensão**REST API.
+Você também pode obter informações de extensão usando o comando do PowerShell **Get-AzVMExtension** , a **extensão de VM Get** CLI do Azure comando ou a API REST **obter informações de extensão** .
 
 ## <a name="deployments"></a>Implementações
 
-Quando implementa um modelo, o Azure controla os recursos que implementou como um grupo e atribui automaticamente um nome para este grupo implementado. O nome da implementação é igual ao nome do modelo.
+Quando você implanta um modelo, o Azure rastreia os recursos implantados como um grupo e atribui automaticamente um nome a esse grupo implantado. O nome da implantação é o mesmo que o nome do modelo.
 
-Se estiver curioso sobre o estado dos recursos na implementação, ver o grupo de recursos no portal do Azure:
+Se você estiver curioso sobre o status dos recursos na implantação, exiba o grupo de recursos no portal do Azure:
 
-![Obtenha informações de implementação](./media/template-description/virtual-machines-deployment-info.png)
+![Obter informações de implantação](./media/template-description/virtual-machines-deployment-info.png)
     
-Não é um problema ao utilizar o mesmo modelo para criar recursos ou para atualizar recursos existentes. Quando utiliza comandos para implementar modelos, terá a oportunidade para dizer que [modo](../../resource-group-template-deploy.md) que pretende utilizar. O modo pode ser definido para o **concluída** ou **Incremental**. A predefinição é fazer atualizações incrementais. Tenha cuidado ao utilizar o **Complete** modo porque pode excluir acidentalmente os recursos. Se definir o modo como **Complete**, Gestor de recursos elimina todos os recursos no grupo de recursos que não estão no modelo.
+Não é um problema usar o mesmo modelo para criar recursos ou para atualizar os recursos existentes. Ao usar comandos para implantar modelos, você tem a oportunidade de dizer qual [modo](../../resource-group-template-deploy.md) você deseja usar. O modo pode ser definido como **completo** ou **incremental**. O padrão é fazer atualizações incrementais. Tenha cuidado ao usar o modo **completo** , pois você pode excluir recursos acidentalmente. Quando você define o modo como **concluído**, o Resource Manager exclui todos os recursos no grupo de recursos que não estão no modelo.
 
 ## <a name="next-steps"></a>Próximos Passos
 
-- Criar seu próprio modelo usando [modelos Authoring Azure Resource Manager](../../resource-group-authoring-templates.md).
-- Implementar o modelo que criou utilizando [criar uma máquina virtual do Windows com um modelo do Resource Manager](ps-template.md).
-- Saiba como gerir as VMs que criar ao rever [criar e gerir VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Para a sintaxe JSON e propriedades de tipos de recursos em modelos, consulte [referência de modelo do Azure Resource Manager](/azure/templates/).
+- Crie seu próprio modelo usando a [criação de modelos de Azure Resource Manager](../../resource-group-authoring-templates.md).
+- Implante o modelo que você criou usando [criar uma máquina virtual do Windows com um modelo do Resource Manager](ps-template.md).
+- Saiba como gerenciar as VMs que você criou examinando [criar e gerenciar VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Para obter a sintaxe JSON e as propriedades dos tipos de recursos em modelos, consulte [Azure Resource Manager referência de modelo](/azure/templates/).

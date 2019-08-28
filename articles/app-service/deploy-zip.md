@@ -9,18 +9,17 @@ editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 470caa37067b8429fd16e508c43383e4d3db3d41
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: b69488c971d6ab10e0a95e3825be097f8713016d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954060"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070448"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implantar seu aplicativo no serviço de Azure App com um arquivo ZIP ou WAR
 

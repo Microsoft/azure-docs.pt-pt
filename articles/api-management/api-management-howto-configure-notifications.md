@@ -1,6 +1,6 @@
 ---
-title: Configurar notificações e modelos de e-mail na API Management do Azure | Documentos da Microsoft
-description: Saiba como configurar notificações e modelos de e-mail na API Management do Azure.
+title: Configurar notificações e modelos de email no gerenciamento de API do Azure | Microsoft Docs
+description: Saiba como configurar notificações e modelos de email no gerenciamento de API do Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,80 +9,79 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 2a959c9d131c6aa0bdc99450cf2b6f09a5d8bfa7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d49e861a529f3b2265f65c53cc0ee2f6feb151da
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60528400"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072485"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Como configurar notificações e modelos de e-mail na API Management do Azure
-Gestão de API fornece a capacidade para configurar notificações para eventos específicos e para configurar os modelos de e-mail que são utilizados para comunicar com os administradores e desenvolvedores de uma instância de gestão de API. Este artigo mostra como configurar notificações para os eventos disponíveis e fornece uma descrição geral da configuração os modelos de e-mail utilizados para esses eventos.
+O gerenciamento de API fornece a capacidade de configurar notificações para eventos específicos e configurar os modelos de email que são usados para se comunicar com os administradores e desenvolvedores de uma instância de gerenciamento de API. Este artigo mostra como configurar notificações para os eventos disponíveis e fornece uma visão geral da configuração dos modelos de email usados para esses eventos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma instância de serviço de gestão de API, conclua o início rápido seguinte: [Criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
+Se você não tiver uma instância de serviço de gerenciamento de API, conclua o início rápido a seguir: [Crie uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="publisher-notifications"> </a>Configurar notificações
 
-1. Selecione seu **gestão de API** instância.
-2. Clique em **notificações** para ver as notificações disponíveis.
+1. Selecione sua instância de **Gerenciamento de API** .
+2. Clique em **notificações** para exibir as notificações disponíveis.
 
-    ![Notificações de publicador][api-management-publisher-notifications]
+    ![Notificações do Publicador][api-management-publisher-notifications]
 
-    A lista seguinte de eventos pode ser configurada para notificações.
+    A lista de eventos a seguir pode ser configurada para notificações.
 
-   * **Pedidos de subscrição (o que requer aprovação)** -os destinatários de e-mail especificado e os utilizadores irão receber notificações por e-mail sobre pedidos de subscrição para os produtos de API que exigem a aprovação.
-   * **Novas subscrições** -os destinatários de e-mail especificado e os utilizadores irão receber notificações por e-mail sobre novas subscrições de produto de API.
-   * **Pedidos de Galeria de aplicações** -os destinatários de e-mail especificado e os utilizadores irão receber notificações por e-mail quando novos aplicativos são submetidos para a Galeria de aplicações.
-   * **BCC** -os destinatários de e-mail especificado e os utilizadores irão receber o e-mail cego emissões de carbono cópias de todos os e-mails enviados para os desenvolvedores.
-   * **Novo problema ou comentário** - os destinatários de e-mail especificado e os utilizadores irão receber notificações por e-mail quando um novo problema ou comentário é submetido no portal do programador.
-   * **Mensagem de fechar conta** -os destinatários de e-mail especificado e os utilizadores irão receber notificações por e-mail quando uma conta está fechada.
-   * **Limite de quota de subscrição aproximado** -os seguintes destinatários de e-mail e os utilizadores irão receber notificações por e-mail quando a utilização da subscrição chega perto de quota de utilização.
+   * **Solicitações de assinatura (que exigem aprovação)** -os usuários e destinatários de email especificados receberão notificações por email sobre solicitações de assinatura para produtos de API que exigem aprovação.
+   * **Novas assinaturas** -os usuários e destinatários de email especificados receberão notificações por email sobre novas assinaturas de produto de API.
+   * **Solicitações da Galeria de aplicativos** -os usuários e destinatários de email especificados receberão notificações por email quando novos aplicativos forem enviados para a Galeria de aplicativos.
+   * **Cco** -os usuários e destinatários de email especificados receberão cópias carbono de email de todos os emails enviados aos desenvolvedores.
+   * **Novo problema ou comentário** -os usuários e destinatários de email especificados receberão notificações por email quando um novo problema ou comentário for enviado no portal do desenvolvedor.
+   * **Mensagem fechar conta** -os destinatários de email e os usuários especificados receberão notificações por email quando uma conta for fechada.
+   * Melhorando o **limite de cota de assinatura** -os seguintes destinatários de email e usuários receberão notificações por email quando o uso da assinatura ficar perto da cota de uso.
 
-     Para cada evento, pode especificar usando a caixa de texto de endereço de e-mail de destinatários de e-mail ou pode selecionar os utilizadores a partir de uma lista.
+     Para cada evento, você pode especificar destinatários de email usando a caixa de texto endereço de email ou pode selecionar usuários de uma lista.
 
-3. Para especificar os endereços de e-mail para ser notificado, insira-os na caixa de texto de endereço de e-mail. Se tiver vários endereços de e-mail, separá-los com vírgulas.
+3. Para especificar os endereços de email a serem notificados, insira-os na caixa de texto endereço de email. Se você tiver vários endereços de email, separe-os usando vírgulas.
 
-    ![Destinatários de notificação][api-management-email-addresses]
+    ![Destinatários da notificação][api-management-email-addresses]
 4. Prima **Adicionar**.
 
 ## <a name="email-templates"> </a>Configurar modelos de notificação
-Gestão de API fornece modelos de notificação para as mensagens de e-mail que são enviadas no decorrer de administrar e utilizar o serviço. São fornecidos os seguintes modelos de e-mail.
+O gerenciamento de API fornece modelos de notificação para as mensagens de email que são enviadas no decorrer da administração e do uso do serviço. Os seguintes modelos de email são fornecidos.
 
-* Submissão de Galeria de aplicações aprovada
-* Letra de farewell de programador
-* Limite de quota de desenvolvedor aproximar-se de notificação
+* Envio da Galeria de aplicativos aprovado
+* Carta de despedida do desenvolvedor
+* Notificação de abordagem de limite de cota do desenvolvedor
 * Convidar utilizador
 * Novo comentário adicionado a um problema
 * Novo problema recebido
-* Nova subscrição ativada
-* Confirmação de subscrição renovada
-* Recusa o pedido de subscrição
-* Recebido o pedido de subscrição
+* Nova assinatura ativada
+* Confirmação de renovação de assinatura
+* A solicitação de assinatura é recusada
+* Solicitação de assinatura recebida
 
-Estes modelos podem ser modificados conforme pretendido.
+Esses modelos podem ser modificados conforme desejado.
 
-Para ver e configurar os modelos de e-mail para a sua instância de gestão de API, clique em **modelos de notificações**.
+Para exibir e configurar os modelos de email para sua instância de gerenciamento de API, clique em **modelos de notificações**.
 
 ![Modelos de E-mail][api-management-email-templates]
 
-Cada modelo de e-mail tem um assunto em texto simples e uma definição de corpo no formato HTML. Cada item pode ser personalizado conforme pretendido.
+Cada modelo de email tem um assunto em texto sem formatação e uma definição de corpo no formato HTML. Cada item pode ser personalizado conforme desejado.
 
-![Editor de modelos de e-mail][api-management-email-template]
+![Editor de modelos de email][api-management-email-template]
 
-O **parâmetros** lista contém uma lista de parâmetros, que, quando inserido no assunto ou no corpo, será substituído o valor designado quando o e-mail é enviado. Para inserir um parâmetro, coloque o cursor em que desejar que o parâmetro para ir e clique na seta à esquerda do nome do parâmetro.
+A lista de **parâmetros** contém uma lista de parâmetros, que, quando inseridos no assunto ou no corpo, será substituído o valor designado quando o email for enviado. Para inserir um parâmetro, coloque o cursor onde você deseja que o parâmetro vá e clique na seta à esquerda do nome do parâmetro.
 
 > [!NOTE] 
-> Os parâmetros não são substituídos pelos valores reais quando pré-visualizo ou o envio de um teste.
+> Os parâmetros não são substituídos por valores reais ao visualizar ou enviar um teste.
 
-Para guardar as alterações ao modelo de e-mail, clique em **salvar**, ou para cancelar o clique de alterações **descartar**.
+Para salvar as alterações no modelo de email, clique em **salvar**ou para cancelar as alterações, clique em descartar.
  
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png

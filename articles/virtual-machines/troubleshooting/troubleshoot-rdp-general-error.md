@@ -1,32 +1,31 @@
 ---
-title: Resolver problemas relacionados com um erro geral do RDP para uma VM do Windows no Azure | Documentos da Microsoft
-description: Saiba como resolver problemas relacionados com um erro geral do RDP para uma VM do Windows no Azure | Documentos da Microsoft
+title: Solucionar problemas de um erro geral de RDP para uma VM do Windows no Azure | Microsoft Docs
+description: Saiba como solucionar problemas de um erro geral de RDP para uma VM do Windows no Azure | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: abff12e1a304c51cb0df394534c7da0a35518008
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60319518"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089802"
 ---
-# <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Resolver problemas relacionados com um erro geral do RDP na VM do Azure
+# <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Solucionar um erro geral de RDP na VM do Azure
 
-Este artigo descreve um erro geral que pode ocorrer quando efetuar uma ligação de protocolo de ambiente de trabalho remoto (RDP) para uma Máquina Virtual de Windows (VM) no Azure.
+Este artigo descreve um erro geral que pode ocorrer quando você faz uma conexão de protocolo RDP (RDP) para uma VM (máquina virtual) do Windows no Azure.
 
 ## <a name="symptom"></a>Sintoma
 
-Quando efetuar uma ligação RDP a uma VM de janela no Azure, poderá receber a seguinte mensagem de erro geral:
+Quando você faz uma conexão RDP com uma VM de janela no Azure, você pode receber a seguinte mensagem de erro geral:
 
 **Ambiente de trabalho remoto não é possível ligar ao computador remoto para um dos seguintes motivos:**
 
@@ -40,44 +39,44 @@ Quando efetuar uma ligação RDP a uma VM de janela no Azure, poderá receber a 
 
 ## <a name="cause"></a>Causa
 
-Esse problema pode ocorrer devido aos seguintes causas:
+Esse problema pode ocorrer devido às seguintes causas:
 
 ### <a name="cause-1"></a>Causa 1
 
-O componente RDP está desativado, da seguinte forma:
+O componente RDP é desabilitado da seguinte maneira:
 
-- Ao nível do componente
-- No nível de serviço de escuta
+- No nível de componente
+- No nível do ouvinte
 - No servidor de terminal
-- A função de anfitrião de sessões de ambiente de trabalho remoto
+- Na função Host da Sessão da Área de Trabalho Remota
 
 ### <a name="cause-2"></a>Causa 2
 
-Os serviços de ambiente de trabalho remoto (TermService) não está em execução.
+O Serviços de Área de Trabalho Remota (TermService) não está em execução.
 
 ### <a name="cause-3"></a>Causa 3
 
-O serviço de escuta RDP está configurado incorretamente.
+O ouvinte RDP está configurado incorretamente.
 
 ## <a name="solution"></a>Solução
 
-Para resolver este problema, [cópia de segurança de disco do sistema operativo](../windows/snapshot-copy-managed-disk.md), e [anexar o disco do sistema operativo para uma VM de resgate](troubleshoot-recovery-disks-portal-windows.md)e, em seguida, siga os passos.
+Para resolver esse problema, [faça backup do disco do sistema operacional](../windows/snapshot-copy-managed-disk.md)e [anexe o disco do sistema operacional a uma VM de resgate](troubleshoot-recovery-disks-portal-windows.md)e siga as etapas.
 
 ### <a name="serial-console"></a>Consola de Série
 
-#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Passo 1: Instância CMD aberta na consola de série
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Passo 1: Abra a instância CMD no Console serial
 
-1. Acesso a [consola de série](serial-console-windows.md) ao selecionar **suporte e resolução de problemas** > **consola de série (pré-visualização)** . Se a funcionalidade está ativada na VM, pode ligar a VM com êxito.
+1. Acesse o [console serial](serial-console-windows.md) selecionando **suporte &**  > solução**de problemas console serial (versão prévia)** . Se o recurso estiver habilitado na VM, você poderá conectar a VM com êxito.
 
-2. Crie um novo canal para uma instância CMD. Tipo **CMD** para iniciar o canal para obter o nome do canal.
+2. Crie um novo canal para uma instância CMD. Digite **cmd** para iniciar o canal para obter o nome do canal.
 
-3. Mude para o canal que executar a instância CMD, nesse caso deve ser canal de 1.
+3. Alterne para o canal que executa a instância CMD, neste caso, deve ser o canal 1.
 
    ```
    ch -si 1
    ```
 
-#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Passo 2: Verifique os valores das chaves de registo RDP:
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Passo 2: Verifique os valores das chaves do registro do RDP:
 
 1. Verifique se o RDP está desabilitado por políticas.
 
@@ -89,10 +88,10 @@ Para resolver este problema, [cópia de segurança de disco do sistema operativo
       reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
       ```
 
-      - Se existir a diretiva de domínio, a configuração na política local será substituída.
-      - Se a política de domínio indica que o RDP é desativado (1), em seguida, política de atualização do AD do controlador de domínio.
-      - Se a política de domínio afirma que o RDP é ativado (0), não é necessária nenhuma atualização.
-      - Se não existe a diretiva de domínio e a política local indica que o RDP está desabilitado (1), ative o protocolo RDP, utilizando o seguinte comando: 
+      - Se a política de domínio existir, a configuração na política local será substituída.
+      - Se a política de domínio indicar que o RDP está desabilitado (1), atualize a política do AD do controlador de domínio.
+      - Se a política de domínio indicar que o RDP está habilitado (0), nenhuma atualização será necessária.
+      - Se a política de domínio não existir e a política local indicar que o RDP está desabilitado (1), habilite o RDP usando o seguinte comando: 
       
             reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
                   
@@ -103,54 +102,54 @@ Para resolver este problema, [cópia de segurança de disco do sistema operativo
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
       ```
 
-      Se o comando devolve 0, o servidor de terminal está desativado. Em seguida, ative o servidor de terminal da seguinte forma:
+      Se o comando retornar 0, o servidor de terminal será desabilitado. Em seguida, habilite o servidor de terminal da seguinte maneira:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
       ```
 
-3. O módulo de servidor de Terminal está definido para drenar modo, se o servidor estiver num farm de servidor de terminal (RDS ou Citrix). Verifique o modo atual do módulo do Terminal Server.
+3. O módulo Terminal Server será definido para o modo de descarga se o servidor estiver em um farm de servidores de terminal (RDS ou Citrix). Verifique o modo atual do módulo Terminal Server.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode
       ```
 
-      Se o comando devolve 1, o módulo de servidor de Terminal está definido para drenar modo. Defina o módulo para o modo de trabalho da seguinte forma:
+      Se o comando retornar 1, o módulo Terminal Server será definido como modo de descarga. Em seguida, defina o módulo para o modo de trabalho da seguinte maneira:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
       ```
 
-4. Verifique se pode ligar ao servidor de terminal.
+4. Verifique se você pode se conectar ao servidor de terminal.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled
       ```
 
-      Se o comando devolve 1, não é possível ligar ao servidor de terminal. Em seguida, ative a ligação da seguinte forma:
+      Se o comando retornar 1, você não poderá se conectar ao servidor de terminal. Em seguida, habilite a conexão da seguinte maneira:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f
       ```
-5. Verifique a configuração atual do serviço de escuta RDP.
+5. Verifique a configuração atual do ouvinte RDP.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation
       ```
 
-      Se o comando devolve 0, o serviço de escuta RDP está desativado. Em seguida, ative o serviço de escuta da seguinte forma:
+      Se o comando retornar 0, o ouvinte RDP será desabilitado. Em seguida, habilite o ouvinte da seguinte maneira:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
       ```
 
-6. Verifique se pode ligar ao serviço de escuta RDP.
+6. Verifique se você pode se conectar ao ouvinte RDP.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled
       ```
 
-   Se o comando devolve 1, não é possível ligar ao serviço de escuta RDP. Em seguida, ative a ligação da seguinte forma:
+   Se o comando retornar 1, você não poderá se conectar ao ouvinte RDP. Em seguida, habilite a conexão da seguinte maneira:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
@@ -158,29 +157,29 @@ Para resolver este problema, [cópia de segurança de disco do sistema operativo
 
 7. Reinicie a VM.
 
-8. Saída da instância de CMD, escrevendo `exit`e, em seguida, prima **Enter** duas vezes.
+8. Saia da instância cmd digitando `exit`e pressione **Enter** duas vezes.
 
-9. Reinicie a VM ao escrever `restart`e, em seguida, ligar à VM.
+9. Reinicie a VM digitando `restart`e, em seguida, conecte-se à VM.
 
-Se o problema ainda acontece, mova para o passo 2.
+Se o problema ainda ocorrer, vá para a etapa 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Passo 2: Ativar os serviços de ambiente de trabalho remotos
+#### <a name="step-2-enable-remote-desktop-services"></a>Passo 2: Habilitar serviços de área de trabalho remota
 
-Para obter mais informações, consulte [dos serviços de ambiente de trabalho remoto não está a iniciar numa VM do Azure](troubleshoot-remote-desktop-services-issues.md).
+Para obter mais informações, consulte [serviços de área de trabalho remota não está iniciando em uma VM do Azure](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Passo 3: Repor o serviço de escuta RDP
+#### <a name="step-3-reset-rdp-listener"></a>Passo 3: Redefinir ouvinte RDP
 
-Para obter mais informações, consulte [área de trabalho remota se desliga com frequência na VM do Azure](troubleshoot-rdp-intermittent-connectivity.md).
+Para obter mais informações, consulte [área de trabalho remota desconexões frequentemente na VM do Azure](troubleshoot-rdp-intermittent-connectivity.md).
 
-### <a name="offline-repair"></a>Reparação offline
+### <a name="offline-repair"></a>Reparo offline
 
-#### <a name="step-1-turn-on-remote-desktop"></a>Passo 1: Ativando o ambiente de trabalho remoto
+#### <a name="step-1-turn-on-remote-desktop"></a>Passo 1: Ativar Área de Trabalho Remota
 
 1. [Anexar o disco do SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação.
 3. Certifique-se de que o disco é sinalizado de forma **Online** no console de gerenciamento de disco. Tenha em atenção a letra de unidade que está atribuída ao disco do SO anexado.
 4. Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação.
-5. Abra uma sessão de linha de comandos elevada (**executar como administrador**). Execute os seguintes scripts. Nesse script, partimos do princípio de que a letra de unidade que está atribuída ao disco do SO anexado é F. Substitua esta letra de unidade com o valor apropriado para a sua VM.
+5. Abra uma sessão de linha de comandos elevada (**executar como administrador**). Execute os scripts a seguir. Nesse script, partimos do princípio de que a letra de unidade que está atribuída ao disco do SO anexado é F. Substitua esta letra de unidade com o valor apropriado para a sua VM.
 
       ```
       reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 
@@ -216,32 +215,32 @@ Para obter mais informações, consulte [área de trabalho remota se desliga com
       reg unload HKLM\BROKENSOFTWARE 
       ```
 
-6. Se a VM estiver associado a um domínio, consulte a seguinte chave de registo para ver se existe uma política de grupo que desativa o RDP. 
+6. Se a VM estiver ingressada no domínio, verifique a seguinte chave do registro para ver se há uma política de grupo que desabilitará o RDP. 
 
       ```
       HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
       ```
 
-      Se este valor de chave é definido como 1, isso significa que o RDP está desativada pela política. Para ativar o ambiente de trabalho remoto através da política de GPO, altere a seguinte política do controlador de domínio:
+      Se esse valor de chave for definido como 1, isso significa que o RDP está desabilitado pela política. Para habilitar Área de Trabalho Remota por meio da política de GPO, altere a seguinte política do controlador de domínio:
 
    
-      **Modelos de configuração do computador:**
+      **Modelos de configuração de computador:**
 
-      Política definitions\Windows Host\Connections\Allow de sessão de ambiente de trabalho do Components\Remote Desktop Services\Remote aos utilizadores ligar remotamente através da utilização dos serviços de ambiente de trabalho remoto
+      Política definitions\Windows de área de trabalho do remota do remoto \ sessão do Host\Connections\Allow usuários para se conectar remotamente usando Serviços de Área de Trabalho Remota
   
-1. Desanexe o disco da VM entra em ação.
-1. [Criar uma nova VM a partir do disco](../windows/create-vm-specialized.md).
+1. Desanexe o disco da VM de resgate.
+1. [Crie uma nova VM a partir do disco](../windows/create-vm-specialized.md).
 
-Se o problema ainda acontece, mova para o passo 2.
+Se o problema ainda ocorrer, vá para a etapa 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Passo 2: Ativar os serviços de ambiente de trabalho remotos
+#### <a name="step-2-enable-remote-desktop-services"></a>Passo 2: Habilitar serviços de área de trabalho remota
 
-Para obter mais informações, consulte [dos serviços de ambiente de trabalho remoto não está a iniciar numa VM do Azure](troubleshoot-remote-desktop-services-issues.md).
+Para obter mais informações, consulte [serviços de área de trabalho remota não está iniciando em uma VM do Azure](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Passo 3: Repor o serviço de escuta RDP
+#### <a name="step-3-reset-rdp-listener"></a>Passo 3: Redefinir ouvinte RDP
 
-Para obter mais informações, consulte [área de trabalho remota se desliga com frequência na VM do Azure](troubleshoot-rdp-intermittent-connectivity.md).
+Para obter mais informações, consulte [área de trabalho remota desconexões frequentemente na VM do Azure](troubleshoot-rdp-intermittent-connectivity.md).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte
 
-Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+Se você ainda precisar de ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema rapidamente.

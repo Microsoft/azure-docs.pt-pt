@@ -8,18 +8,18 @@ ms.author: dobett
 ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 23243324c64519094432ee0c80d3e0cad447ef8b
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: bfda4f4ebe8990a16853bdfe40065a7501de5275
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849060"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086897"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gerir o IoT Central a partir do Azure PowerShell
 
 [!INCLUDE [iot-central-selector-manage](../../includes/iot-central-selector-manage.md)]
 
-Em vez de criar e gerenciar aplicativos IoT Central na página do [Gerenciador de aplicativos](https://aka.ms/iotcentral) IOT central, você pode usar [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) para gerenciar seus aplicativos.
+Em vez de criar e gerenciar IoT Central aplicativos no site [do Azure IOT central Application Manager](https://aka.ms/iotcentral) , você pode usar [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) para gerenciar seus aplicativos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -67,9 +67,9 @@ O script cria primeiro um grupo de recursos na região leste dos EUA para o apli
 |------------------|------------|
 |ResourceGroupName |O grupo de recursos que contém o aplicativo. Este grupo de recursos já deve existir em sua assinatura. |
 |Location |Por padrão, esse cmdlet usa o local do grupo de recursos. No momento, você pode criar um aplicativo IoT Central nas regiões **leste dos EUA**, **oeste dos EUA**, **Europa setentrional**ou **Europa Ocidental** . |
-|Nome              |O nome do aplicativo no portal do Azure. |
+|Name              |O nome do aplicativo no portal do Azure. |
 |Subdomínio         |O subdomínio na URL do aplicativo. No exemplo, a URL do aplicativo é https://mysubdomain.azureiotcentral.com. |
-|Sku               |Atualmente, o único valor é **S1** (camada Standard). Consulte [preços de IOT central do Azure](https://azure.microsoft.com/pricing/details/iot-central/). |
+|SKU               |Atualmente, o único valor é **S1** (camada Standard). Consulte [preços de IOT central do Azure](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Modelo          | O modelo de aplicativo a ser usado. Para obter mais informações, consulte a tabela a seguir: |
 |DisplayName       |O nome do aplicativo, conforme exibido na interface do usuário. |
 
@@ -104,7 +104,7 @@ Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
  -Name "myiotcentralapp"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você aprendeu a gerenciar os aplicativos do Azure IoT Central do Azure PowerShell, aqui está a próxima etapa sugerida:
 

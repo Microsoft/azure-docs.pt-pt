@@ -10,16 +10,15 @@ ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 55a340f2ee2dceb31a8457f6f2201160e573e8a2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 677e38f69729bba8caf1ec3f88b2e0a1a4f8c7e8
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012370"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073671"
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas frequentes sobre gerenciamento de API do Azure
 Obtenha as respostas para perguntas, padrões e práticas recomendadas comuns para o gerenciamento de API do Azure.

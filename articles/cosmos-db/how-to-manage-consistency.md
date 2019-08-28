@@ -3,15 +3,15 @@ title: Saiba como gerir consistência no Azure Cosmos DB
 description: Saiba como gerir consistência no Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: mjbrown
-ms.openlocfilehash: 2617aba0d790209d83f410ee632ffad43c952d55
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: bc5554e2d56987e969894ba57052d548e1499938
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356432"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093311"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerir níveis de consistência no Azure Cosmos DB
 
@@ -231,7 +231,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorizar a métrica de Estagnação Limitada Probabilisticamente (PBS)
 
-Como a eventualidade é a consistência eventual? Para o caso médio, podemos oferecer limites de desatualização em relação ao histórico e à hora da versão. A métrica do [**PBS (** ](https://pbs.cs.berkeley.edu/) desatualização vinculada) do Probabilistic tenta quantificar a probabilidade de desatualização e a mostra como uma métrica. Para exibir a métrica do PBS, vá para sua conta do cosmos do Azure no portal do Azure. Abra o  painel métricas e selecione a guia **consistência** . Examine o grafo chamado **probabilidade de leituras altamente consistentes com base em sua carga de trabalho (consulte PBS)** .
+Como a eventualidade é a consistência eventual? Para o caso médio, podemos oferecer limites de desatualização em relação ao histórico e à hora da versão. A métrica do [**PBS (** ](https://pbs.cs.berkeley.edu/) desatualização vinculada) do Probabilistic tenta quantificar a probabilidade de desatualização e a mostra como uma métrica. Para exibir a métrica do PBS, vá para sua conta do cosmos do Azure no portal do Azure. Abra o painel métricas e selecione a guia **consistência** . Examine o grafo chamado **probabilidade de leituras altamente consistentes com base em sua carga de trabalho (consulte PBS)** .
 
 ![Grafo do PBS no portal do Azure](./media/how-to-manage-consistency/pbs-metric.png)
 

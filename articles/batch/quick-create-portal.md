@@ -5,17 +5,16 @@ services: batch
 author: laurenhughes
 manager: gwallace
 ms.service: batch
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 33455a95dff946676e3dfffbd2737ed36be59c64
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 92f8499a10c07e7d5ea74e49c374cef192b8a47f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322370"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094131"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início rápido: Executar seu primeiro trabalho em lotes no portal do Azure
 
@@ -57,7 +56,7 @@ Agora que tem uma conta do Batch, crie um conjunto de exemplo de nós de computa
 
 3. Em **Sistema Operativo**, selecione as definições seguintes (pode explorar outras opções).
   
-   |Definição  |Valor  |
+   |Definição  |Value  |
    |---------|---------|
    |**Tipo de Imagem**|Marketplace (Linux/Windows)|
    |**Publicador**     |MicrosoftWindowsServer|
@@ -131,7 +130,7 @@ Se pretender continuar com os tutoriais e exemplos do Batch, utilize a conta do 
 
 Quando já não for necessário, elimine o grupo de recursos, a conta do Batch e todos os recursos relacionados. Para tal, selecione o grupo de recursos da conta do Batch e selecione **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, criou uma conta, um conjunto e um trabalho do Batch. O trabalho executou tarefas de exemplo e viu os resultados num dos nós. Agora que compreende os conceitos principais do serviço do Batch, está pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala. Para saber mais acerca do Azure Batch, avance para os tutoriais do Azure Batch. 
 

@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ff3dde8ac95b678866ba6f5216ba23357b067765
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: b646c64b0ec45a11f99350ff5bd81a89418b2ecd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203573"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072515"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Depurar as suas APIs com o rastreio de pedidos
 
@@ -35,8 +34,8 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
-+ Conclua o início rápido seguinte: [Criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
-+ Além disso, conclua o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
++ Conclua o início rápido a seguir: [Crie uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Além disso, conclua o seguinte tutorial: [Importe e publique sua primeira API](import-and-publish.md).
 
 ## <a name="trace-a-call"></a>Rastrear uma chamada
 
@@ -64,7 +63,7 @@ Neste tutorial, ficará a saber como:
     > [!TIP]
     > Cada passo mostra também o tempo decorrido desde que o pedido é recebido através da Gestão de API.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

@@ -7,18 +7,17 @@ author: asinn826
 manager: BorisB2015
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: 25b0ccfa5ed2b7b9ff031565fe7f14b1477769c4
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: e18f1db80b8fcb2c8846ce0c7294e1766cfa1ca3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543841"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091373"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Red Hat Enterprise Linux imagens no Azure
 Este artigo descreve as imagens disponíveis do Red Hat Enterprise Linux (RHEL) no Azure Marketplace, juntamente com as políticas relacionadas à sua nomenclatura e retenção.
@@ -160,6 +159,6 @@ Atualizamos apenas a versão secundária atual em uma determinada família de im
 ## <a name="image-retention-policy"></a>Política de retenção de imagem
 Nossa política atual é manter todas as imagens publicadas anteriormente. Reservamos o direito de remover imagens que são conhecidas por causar problemas de qualquer tipo. Por exemplo, imagens com configurações incorretas devido a atualizações de componentes ou plataformas subsequentes podem ser removidas. As imagens que podem ser removidas seguirão a política atual do Marketplace para fornecer notificações de até 30 dias antes da remoção da imagem.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre a infraestrutura de atualização do Red Hat [aqui](https://aka.ms/rhui-update).
 * Informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL podem ser encontradas na página [ciclo de vida Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata) .

@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f97cce2d1a8b2de5634215629ddb997dc8f7196a
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 02dcb7174dd9cb2926ef2fafda4b521b939ae68a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68235200"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70077991"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Azure Proximity Placement Groups para latência de rede otimizada com aplicações SAP
 Os aplicativos SAP baseados na arquitetura SAP NetWeaver ou SAP S/4HANA são sensíveis à latência de rede entre a camada de aplicativo SAP e a camada de banco de dados SAP. A razão dessa sensibilidade dessas arquiteturas é enraizada no fato de que a maior parte da lógica de negócios é executada na camada de aplicativo. Como resultado da execução da lógica de negócios, a camada de aplicativo SAP emite consultas à camada de banco de dados em alta frequência de milhares e dezenas de milhares por segundo. Na maioria dos casos, a natureza dessas consultas é simples. E, muitas vezes, podem ser executados na camada de banco de dados em menos de 500 microssegundos ou até mesmo menos. O tempo gasto na rede para enviar tal consulta da camada de aplicativo para a camada de banco de dados e receber o conjunto de resultados de volta da camada de banco de dados tem um grande impacto no tempo necessário para executar processos de negócios. Essa sensibilidade à latência de rede é o tempo que o motivo precisa ser gasto em projetos de implantação do SAP para obter a latência de rede ideal. No [SAP Note #1100926-perguntas frequentes: Desempenho](https://launchpad.support.sap.com/#/notes/1100926/E)de rede, a SAP publicou algumas diretrizes sobre como classificar a latência de rede.

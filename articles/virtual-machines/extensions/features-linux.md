@@ -9,18 +9,17 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: f2397c67b71cc370a0a98d44bb02e5ee77551afb
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1a3fe1f70143e2c33a3e4d309991f1174eb2d6dd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650649"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092395"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Recursos e extensões de máquina virtual para Linux
 
@@ -411,6 +410,6 @@ Você também pode remover uma extensão na portal do Azure da seguinte maneira:
 | Extensão do Diagnóstico do Azure |Gerenciar Diagnóstico do Azure |[Extensão de Diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Extensão de acesso à VM do Azure |Gerenciar usuários e credenciais |[Extensão de acesso à VM para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre extensões de VM, consulte [visão geral de extensões e recursos de máquinas virtuais do Azure](overview.md).

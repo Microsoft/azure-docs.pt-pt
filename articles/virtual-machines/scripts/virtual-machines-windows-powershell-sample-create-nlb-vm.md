@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7c345d95af1167d0f6c99fdb3d438962a13242d6
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2238f223f22ee43e7afd8b5162fb16cb16a2adf4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67696039"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090745"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Balanceamento de carga do tráfego entre máquinas virtuais de elevada disponibilidade
 
@@ -69,9 +68,9 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Cria uma máquina virtual. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
 
-Também pode criar as VMs com a sua própria imagem gerida personalizada. A configuração das VMS, para `Set-AzVMSourceImage` utilizar o `-Id` e `-VM` parâmetros em vez de `-PublisherName`, `-Offer`, `-Skus`, e `-Version`.
+Você também pode criar as VMs usando sua própria imagem gerenciada personalizada. Na configuração da VM, para `Set-AzVMSourceImage` usar os `-Id` parâmetros `-VM` e em vez `-PublisherName`de `-Offer`, `-Skus`, e `-Version`.
 
-Por exemplo, criar a configuração VM seria:
+Por exemplo, a criação da configuração da VM seria:
 
 ```powershell
 $vmConfig = New-AzVMConfig -VMName 'myVM3' -VMSize Standard_DS1_v2 -AvailabilitySetId $as.Id | `

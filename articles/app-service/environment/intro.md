@@ -1,5 +1,5 @@
 ---
-title: Introdução aos ambientes de serviço de aplicações - Azure
+title: Introdução aos ambientes do serviço de aplicativo – Azure
 description: Breve descrição geral dos Ambientes de Serviço de Aplicações do Azure
 services: app-service
 documentationcenter: na
@@ -9,17 +9,16 @@ ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 48b053b6520bff2ac83cd02af31194f81413e92c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5c668d1d0783300333e4d0b78c93fe5e7a9d0dd0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115911"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069228"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introdução aos Ambientes de Serviço de Aplicações #
  
@@ -31,7 +30,7 @@ O Ambiente de Serviço de Aplicações do Azure é uma funcionalidade do Serviç
 * Aplicações Web do Linux 
 * Contentores do Docker
 * Aplicações móveis
-* Funções
+* Functions
 
 Os ambientes de Serviço de Aplicações (ASEs) são adequados para cargas de trabalho de aplicações que exigem:
 
@@ -47,7 +46,7 @@ Os ASEs são isolados para executarem apenas as aplicações de um único client
 * Os [Ambientes do Serviço de Aplicações v2](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment) fornecem um ambiente para proteger as aplicações numa sub-rede da sua rede e fornece a sua própria implementação privada do Serviço de Aplicações do Azure.
 * É possível utilizar múltiplos ASEs para dimensionar horizontalmente. Para obter mais informações, veja [como configurar requisitos de espaço de uma aplicação geodistribuída](app-service-app-service-environment-geo-distributed-scale.md).
 * Os ASEs podem ser utilizados para configurar a arquitetura de segurança, conforme apresentado no AzureCon Deep Dive. Para ver como a arquitetura de segurança apresentada no AzureCon Deep Dive foi configurada, veja o [artigo sobre como implementar uma arquitetura de segurança por camadas](app-service-app-service-environment-layered-security.md) com ambientes de Serviço de Aplicações.
-* As aplicações em execução em ASEs podem ter o seu acesso protegido por dispositivos a montante, tais como firewalls de aplicações Web (WAFs). Para obter mais informações, veja [Firewall de aplicações Web (WAF)][AppGW].
+* As aplicações em execução em ASEs podem ter o seu acesso protegido por dispositivos a montante, tais como firewalls de aplicações Web (WAFs). Para obter mais informações, consulte [Firewall do aplicativo Web (WAF)][AppGW].
 
 ## <a name="dedicated-environment"></a>Ambiente dedicado ##
 
@@ -63,7 +62,7 @@ Os trabalhos são funções que alojam aplicações de cliente. Os trabalhos est
 
 Os clientes não precisam de gerir os front-ends e os trabalhos. Toda a infraestrutura é automaticamente adicionada à medida que os clientes aumentam horizontalmente os respetivos planos do Serviço de Aplicações. À medida que os planos do Serviço de Aplicações são criados ou reduzidos verticalmente num ASE, a infraestrutura necessária é adicionada ou removida, conforme adequado.
 
-Existe uma tarifa mensal fixa para um ASE que paga a infraestrutura e não muda com base no tamanho do ASE. Além disso, existe um custo por vCPU do plano do Serviço de Aplicações. Todas as aplicações alojadas num ASE estão na SKU de preços Isolada. Para obter informações sobre os preços de um ASE, veja a página [Preços de Serviço de Aplicações][Pricing] e consulte as opções disponíveis para ASEs.
+Existe uma tarifa mensal fixa para um ASE que paga a infraestrutura e não muda com base no tamanho do ASE. Além disso, existe um custo por vCPU do plano do Serviço de Aplicações. Todas as aplicações alojadas num ASE estão na SKU de preços Isolada. Para obter informações sobre os preços de um ASE, consulte a página [preços do serviço de aplicativo][Pricing] e examine as opções disponíveis para ases.
 
 ## <a name="virtual-network-support"></a>Suporte de rede virtual ##
 
@@ -71,21 +70,21 @@ A funcionalidade ASE é uma implementação do Serviço de Aplicações do Azure
 
 Um ASE pode ter acesso à Internet com um endereço IP público ou ter acesso interno apenas com um endereço do balanceador de carga interno (ILB) do Azure.
 
-Os [Grupos de Segurança de Rede][NSGs] restringem as comunicações de rede de entrada para a sub-rede onde um ASE se encontra. Pode utilizar NSGs para executar aplicações atrás de dispositivos e serviços a montante, tais como WAFs e fornecedores de SaaS de rede.
+Os [grupos de segurança de rede][NSGs] restringem as comunicações de rede de entrada para a sub-rede em que reside um ASE. Pode utilizar NSGs para executar aplicações atrás de dispositivos e serviços a montante, tais como WAFs e fornecedores de SaaS de rede.
 
 As aplicações também precisam de aceder frequentemente a recursos da empresa, tais como bases de dados internas e serviços Web. Se implementar o ASE numa rede virtual que tenha uma ligação VPN à rede no local, as aplicações no ASE podem aceder aos recursos no local. Esta capacidade é verdadeira, independentemente de a VPN ser uma [rede de VPNs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site) ou uma VPN [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
-Para obter mais informações sobre como os ASEs funcionam com redes virtuais e redes no local, veja [Considerações sobre a rede do Ambiente de Serviço de Aplicações][ASENetwork].
+Para obter mais informações sobre como o ASEs funciona com redes virtuais e redes locais, consulte [ambiente do serviço de aplicativo considerações de rede][ASENetwork].
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player]
 
 ## <a name="app-service-environment-v1"></a>Ambiente do Serviço de Aplicações v1 ##
 
-Ambiente de serviço de aplicações tem duas versões: ASEv1 e ASEv2. As informações anteriores tiveram como base a versão ASEv2. Esta secção mostra as diferenças entre as versões ASEv1 e ASEv2. 
+Ambiente do Serviço de Aplicativo tem duas versões: ASEv1 e ASEv2. As informações anteriores tiveram como base a versão ASEv2. Esta secção mostra as diferenças entre as versões ASEv1 e ASEv2. 
 
 No ASEv1, é necessário gerir todos os recursos manualmente. Tal inclui os front-ends, os trabalhos e os endereços IP utilizados para SSL baseado em IP. Para poder aumentar horizontalmente o seu plano do Serviço de Aplicações, primeiro tem de aumentar horizontalmente o conjunto de processos de trabalho onde pretende alojá-lo.
 
-O ASEv1 utiliza um modelo de preços diferente do ASEv2. No ASEv1, paga por cada vCPU alocada. Tal inclui as vCPUs utilizadas para front-ends ou trabalhos que não estejam a alojar quaisquer cargas de trabalho. No ASEv1, o tamanho de dimensionamento máximo predefinido de um ASE é 55 anfitriões no total. Tal inclui os trabalhos e os front-ends. Uma vantagem do ASEv1 é que pode ser implementado numa rede virtual clássica e numa rede virtual do Resource Manager. Para saber mais sobre o ASEv1, veja o artigo [Introdução ao Ambiente de Serviço de Aplicações v1][ASEv1Intro].
+O ASEv1 utiliza um modelo de preços diferente do ASEv2. No ASEv1, paga por cada vCPU alocada. Tal inclui as vCPUs utilizadas para front-ends ou trabalhos que não estejam a alojar quaisquer cargas de trabalho. No ASEv1, o tamanho de dimensionamento máximo predefinido de um ASE é 55 anfitriões no total. Tal inclui os trabalhos e os front-ends. Uma vantagem do ASEv1 é que pode ser implementado numa rede virtual clássica e numa rede virtual do Resource Manager. Para saber mais sobre o ASEv1, consulte [introdução ao ambiente do serviço de aplicativo v1][ASEv1Intro].
 
 <!--Links-->
 [App Service Environments v2]: https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment

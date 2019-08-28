@@ -11,17 +11,16 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9609a886bdcbf093cffaf888f9aeaff0d61acec1
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 11a29a980fbbbafad850daeda5af11b78580bcaa
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636654"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067015"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar um aplicativo do serviço de aplicativo no portal do Azure
 
@@ -248,7 +247,7 @@ Para aplicativos do Linux, consulte:
 
 Consulte [configurar um contêiner personalizado do Linux para o serviço Azure app](containers/configure-custom-container.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Configurar um nome de domínio personalizado no Serviço de Aplicações do Azure]
 - [Configurar ambientes de teste no Serviço de Aplicações do Azure]

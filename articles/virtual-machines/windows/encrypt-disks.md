@@ -1,6 +1,6 @@
 ---
-title: Encriptar discos numa VM do Windows no Azure | Documentos da Microsoft
-description: Encriptar discos virtuais numa VM do Windows para uma maior segurança com o Azure PowerShell
+title: Criptografar discos em uma VM do Windows no Azure | Microsoft Docs
+description: Criptografar discos virtuais em uma VM do Windows para aumentar a segurança usando Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -9,63 +9,62 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: fadbb4668dbaed46cc30841d2b04a92ea41cd5a1
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 6a92ee6fe53b1676c493c54510dd0f6c4b4b5dc9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718661"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079573"
 ---
-# <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Encriptar discos virtuais numa VM do Windows
-Para segurança aprimorada de máquina virtual (VM) e de conformidade, os discos virtuais no Azure podem ser encriptados. Os discos são encriptados utilizando chaves criptográficas que são protegidas num Azure Key Vault. Pode controlar estas chaves criptográficas e pode auditar o seu uso. Este artigo descreve como encriptar discos virtuais numa VM do Windows com o Azure PowerShell. Também pode [encriptar uma VM do Linux ao utilizar a CLI do Azure](../linux/encrypt-disks.md).
+# <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Criptografar discos virtuais em uma VM do Windows
+Para segurança e conformidade aprimoradas da VM (máquina virtual), os discos virtuais no Azure podem ser criptografados. Os discos são criptografados usando chaves de criptografia que são protegidas em um Azure Key Vault. Você controla essas chaves de criptografia e pode auditar seu uso. Este artigo descreve como criptografar discos virtuais em uma VM do Windows usando Azure PowerShell. Você também pode [criptografar uma VM do Linux usando o CLI do Azure](../linux/encrypt-disks.md).
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="overview-of-disk-encryption"></a>Descrição geral da encriptação de disco
-Discos virtuais em VMs do Windows são encriptados em descanso ao utilizar o BitLocker. Não existe nenhum custo associado para encriptar discos virtuais no Azure. As chaves criptográficas são armazenadas num Azure Key Vault ao utilizar a proteção de software, ou pode importar ou gerar as suas chaves em módulos de segurança de Hardware (HSMs) com certificação FIPS 140-2 de padrões no nível 2. As chaves criptográficas são utilizadas para encriptar e desencriptar os discos virtuais anexados a sua VM. Manter o controlo sobre essas chaves criptográficas e pode auditar o seu uso. 
+## <a name="overview-of-disk-encryption"></a>Visão geral da criptografia de disco
+Os discos virtuais em VMs do Windows são criptografados em repouso usando o BitLocker. Não há nenhuma cobrança pela criptografia de discos virtuais no Azure. As chaves de criptografia são armazenadas em um Azure Key Vault usando a proteção de software ou você pode importar ou gerar suas chaves em HSMs (módulos de segurança de hardware) certificados para os padrões FIPS 140-2 nível 2. As chaves de criptografia são usadas para criptografar e descriptografar discos virtuais anexados à sua VM. Você mantém o controle dessas chaves de criptografia e pode auditar seu uso. 
 
-O processo para encriptar uma VM é o seguinte:
+O processo de criptografia de uma VM é o seguinte:
 
-1. Crie uma chave criptográfica num Azure Key Vault.
-1. Configure a chave criptográfica para ser utilizada para encriptar discos.
-1. Ative a encriptação de disco para os discos virtuais.
-1. As chaves criptográficas necessárias são solicitadas no Azure Key Vault.
-1. Os discos virtuais são encriptados com a chave criptográfica fornecida.
+1. Crie uma chave de criptografia em um Azure Key Vault.
+1. Configure a chave de criptografia para ser usada para criptografar discos.
+1. Habilite a criptografia de disco para seus discos virtuais.
+1. As chaves de criptografia necessárias são solicitadas de Azure Key Vault.
+1. Os discos virtuais são criptografados usando a chave de criptografia fornecida.
 
 
 ## <a name="requirements-and-limitations"></a>Requisitos e limitações
 
-Cenários suportados e os requisitos para encriptação de disco:
+Cenários e requisitos com suporte para criptografia de disco:
 
-* Ativar a encriptação no novo Windows VMs a partir de imagens do Azure Marketplace ou imagens VHD personalizadas.
-* Ativar a encriptação em VMs existentes do Windows no Azure.
-* Ativar a encriptação em VMs do Windows que são configuradas através de espaços de armazenamento.
-* A desativação da encriptação no SO e dados de unidades para as VMs do Windows.
-* Escalão Standard VMs, como A, série D, DS, G e GS VMs.
+* Habilitando a criptografia em novas VMs do Windows de imagens do Azure Marketplace ou imagens VHD personalizadas.
+* Habilitando a criptografia em VMs do Windows existentes no Azure.
+* Habilitando a criptografia em VMs do Windows configuradas usando espaços de armazenamento.
+* Desabilitar a criptografia no sistema operacional e nas unidades de dados para VMs do Windows.
+* VMs da camada Standard, como VMs da série A, D, DS, G e GS.
 
     > [!NOTE]
-    > Todos os recursos (incluindo o Key Vault, a conta de armazenamento e a VM) tem de ser na mesma região do Azure e subscrição.
+    > Todos os recursos (incluindo o Key Vault, a conta de armazenamento e a VM) devem estar na mesma região e assinatura do Azure.
 
-Encriptação de disco não é atualmente suportada nos seguintes cenários:
+Atualmente, a criptografia de disco não tem suporte nos seguintes cenários:
 
-* VMs de escalão básico.
-* VMs criadas utilizando o modelo de implementação clássica.
-* A atualizar as chaves criptográficas numa VM já encriptada.
-* Integração com o serviço de gestão de chaves no local.
+* VMs de camada básica.
+* VMs criadas usando o modelo de implantação clássico.
+* Atualizando as chaves de criptografia em uma VM já criptografada.
+* Integração com o serviço de gerenciamento de chaves local.
 
 
-## <a name="create-an-azure-key-vault-and-keys"></a>Criar um Azure Key Vault e chaves
-Antes de começar, certifique-se de que a versão mais recente do módulo Azure PowerShell foi instalada. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview). Nos seguintes exemplos de comando, substitua todos os parâmetros de exemplo com seus próprios nomes, localização e valores de chave, como *myResourceGroup*, *myKeyVault*, *myVM*, e assim por diante.
+## <a name="create-an-azure-key-vault-and-keys"></a>Criar uma Azure Key Vault e chaves
+Antes de começar, verifique se a versão mais recente do módulo Azure PowerShell foi instalada. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview). Nos exemplos de comando a seguir, substitua todos os parâmetros de exemplo pelos seus próprios nomes, local e valores de chave, como MyResource, *myKeyVault*, *myVM*e assim por diante.
 
-A primeira etapa é criar um Azure Key Vault para armazenar as chaves criptográficas. O Azure Key Vaults pode armazenar chaves, segredos ou palavras-passe que permitem-lhe implementá-los em segurança nas suas aplicações e serviços. Para a encriptação de disco virtual, irá criar um Key Vault para armazenar uma chave criptográfica utilizada para encriptar ou desencriptar os discos virtuais. 
+A primeira etapa é criar um Azure Key Vault para armazenar suas chaves de criptografia. Os Azure Key Vaults podem armazenar chaves, segredos ou senhas que permitem implementá-los com segurança em seus aplicativos e serviços. Para a criptografia de disco virtual, você criará um Key Vault para armazenar uma chave de criptografia que é usada para criptografar ou descriptografar seus discos virtuais. 
 
-Ativar o fornecedor do Azure Key Vault com a sua subscrição do Azure com [Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider), em seguida, crie um grupo de recursos com [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). O exemplo seguinte cria um nome de grupo de recursos *myResourceGroup* no *E.U.A. Leste* localização:
+Habilite o provedor de Azure Key Vault em sua assinatura do Azure com [Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)e crie um grupo de recursos com [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um nome de grupo de recursos MyResource Group no local *leste dos EUA* :
 
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"
@@ -75,7 +74,7 @@ Register-AzResourceProvider -ProviderNamespace "Microsoft.KeyVault"
 New-AzResourceGroup -Location $location -Name $rgName
 ```
 
-O Cofre de chaves do Azure que contém as chaves criptográficas e os recursos de computação associado como o armazenamento e a própria VM têm de estar todos na mesma região. Criar um Azure Key Vault com [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) e ativar o Key Vault para utilização com a encriptação de disco. Especifique um nome exclusivo do Key Vault para *keyVaultName* da seguinte forma:
+A Azure Key Vault que mantém as chaves criptográficas e os recursos de computação associados como armazenamento e a própria VM devem estar na mesma região. Crie um Azure Key Vault com [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) e habilite o Key Vault para uso com a criptografia de disco. Especifique um nome de Key Vault exclusivo para keyvaultname da seguinte maneira:
 
 ```azurepowershell-interactive
 $keyVaultName = "myKeyVault$(Get-Random)"
@@ -85,9 +84,9 @@ New-AzKeyVault -Location $location `
     -EnabledForDiskEncryption
 ```
 
-Pode armazenar chaves de criptografia com o software ou proteção de modelo de segurança de Hardware (HSM).  Um cofre de chave padrão apenas armazena chaves protegidas por software. Utilizar um HSM requer um cofre de chaves de premium a um custo adicional. Para criar um cofre de chaves de premium, no passo anterior adicione a *- Sku "Premium"* parâmetro. O exemplo seguinte utiliza as chaves protegidas por software, uma vez que criámos um cofre de chave padrão. 
+Você pode armazenar chaves criptográficas usando o software ou a proteção de HSM (modelo de segurança de hardware).  Um Key Vault padrão só armazena chaves protegidas por software. O uso de um HSM exige um Key Vault Premium a um custo adicional. Para criar um Key Vault Premium, na etapa anterior, adicione o parâmetro *-SKU "Premium"* . O exemplo a seguir usa chaves protegidas por software, pois criamos um Key Vault padrão. 
 
-Para ambos os modelos de proteção, a plataforma do Azure tem de ter acesso para solicitar as chaves criptográficas quando a VM arranca para desencriptar os discos virtuais. Criar uma chave criptográfica no seu Cofre de chaves com [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey). O exemplo seguinte cria uma chave denominada *myKey*:
+Para ambos os modelos de proteção, a plataforma Azure precisa receber acesso para solicitar as chaves criptográficas quando a VM é inicializada para descriptografar os discos virtuais. Crie uma chave de criptografia em seu Key Vault com [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey). O exemplo a seguir cria uma chave chamada *MyKey*:
 
 ```azurepowershell-interactive
 Add-AzKeyVaultKey -VaultName $keyVaultName `
@@ -96,7 +95,7 @@ Add-AzKeyVaultKey -VaultName $keyVaultName `
 ```
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
-Para testar o processo de criptografia, crie uma VM com [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). O exemplo seguinte cria uma VM com o nome *myVM* usando um *do Windows Server 2016 Datacenter* imagem. Quando lhe forem pedidas credenciais, introduza o nome de utilizador e palavra-passe a ser utilizado para a sua VM:
+Para testar o processo de criptografia, crie uma VM com [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). O exemplo a seguir cria uma VM chamada *myVM* usando uma imagem *do Windows Server 2016 datacenter* . Quando solicitado a fornecer credenciais, insira o nome de usuário e a senha a serem usados para sua VM:
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -113,8 +112,8 @@ New-AzVm `
 ```
 
 
-## <a name="encrypt-a-virtual-machine"></a>Encriptar uma máquina virtual
-Encriptar VM com [Set-AzVMDiskEncryptionExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdiskencryptionextension) utilizando a chave de Cofre de chaves do Azure. O exemplo seguinte obtém todas as informações da chave, em seguida, criptografa a VM com o nome *myVM*:
+## <a name="encrypt-a-virtual-machine"></a>Criptografar uma máquina virtual
+Criptografe sua VM com [set-AzVMDiskEncryptionExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdiskencryptionextension) usando a chave de Azure Key Vault. O exemplo a seguir recupera todas as informações de chave e criptografa a VM denominada *myVM*:
 
 ```azurepowershell-interactive
 $keyVault = Get-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
@@ -130,7 +129,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgName `
     -KeyEncryptionKeyVaultId $keyVaultResourceId
 ```
 
-Aceite o pedido para continuar com a encriptação de VM. A VM é reiniciada durante o processo. Assim que tiver concluído o processo de encriptação e reiniciou a VM, reveja o estado de encriptação com [Get-AzVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/az.compute/get-azvmdiskencryptionstatus):
+Aceite o prompt para continuar com a criptografia de VM. A VM é reiniciada durante o processo. Depois que o processo de criptografia for concluído e a VM for reinicializada, examine o status de criptografia com [Get-AzVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/az.compute/get-azvmdiskencryptionstatus):
 
 ```azurepowershell-interactive
 Get-AzVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName "myVM"
@@ -146,5 +145,5 @@ ProgressMessage            : OsVolume: Encrypted, DataVolumes: Encrypted
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para obter mais informações sobre a gestão de um Azure Key Vault, consulte [configurar um cofre de chaves para máquinas virtuais](key-vault-setup.md).
-* Para obter mais informações sobre a encriptação de disco, como preparar uma VM encriptada personalizada para carregar para o Azure, consulte [do Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
+* Para obter mais informações sobre como gerenciar um Azure Key Vault, consulte [configurar um Key Vault para máquinas virtuais](key-vault-setup.md).
+* Para obter mais informações sobre a criptografia de disco, como preparar uma VM personalizada criptografada para carregar no Azure, consulte [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).

@@ -7,19 +7,18 @@ author: roiyz-msft
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz
 ms.reviewer: cynthn
-ms.openlocfilehash: 7060ef84a3483b1f74253a7f96ac33f7929b6799
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1c8676fc2c806918117a2fb7273ecd4b999803cd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876745"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084545"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Usar Azure Policy para restringir a instalação de extensões em VMs do Windows
 
@@ -119,7 +118,7 @@ $definition = New-AzPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>Atribuir a política
 
-Este exemplo atribui a política a um grupo de recursos usando [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Qualquer VM criada no grupo  de recursos MyResource Group não será capaz de instalar o agente de acesso da VM ou as extensões de script personalizado. 
+Este exemplo atribui a política a um grupo de recursos usando [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Qualquer VM criada no grupo de recursos MyResource Group não será capaz de instalar o agente de acesso da VM ou as extensões de script personalizado. 
 
 Use o [Get-AzSubscription | Cmdlet Format-Table](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) para obter sua ID de assinatura para usar no lugar do exemplo.
 
@@ -166,5 +165,5 @@ Remove-AzPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
 Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
     
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações, veja [Azure Policy](../../governance/policy/overview.md).

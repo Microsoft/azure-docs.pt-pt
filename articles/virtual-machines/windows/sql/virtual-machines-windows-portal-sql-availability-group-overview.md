@@ -9,18 +9,17 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: 4a65465528ea2ffd8ba7af705d92efbb23a96d9e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d89e25b6a39649bb8421fd32b8842c3c76807268
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883467"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102155"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introdução ao SQL Server grupos de disponibilidade Always On em máquinas virtuais do Azure #
 
@@ -40,8 +39,8 @@ Para aumentar a redundância e a alta disponibilidade, as VMs SQL Server devem e
 
 |  | Versão do Windows Server | Versão do SQL Server | SQL Server Edition | Configuração de quorum do WSFC | DR com várias regiões | Suporte a várias sub-redes | Suporte para um AD existente | DR com a mesma região de várias zonas | Suporte do dist-AG sem domínio do AD | Suporte do dist-AG sem cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| [CLI DA VM DO SQL](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Enviado | Testemunha de nuvem | Não | Sim | Sim | Sim | Não | Não |
-| [Modelos de início rápido](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Enviado | Testemunha de nuvem | Não | Sim | Sim | Sim | Não | Não |
+| [CLI DA VM DO SQL](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Enviado | Testemunha de cloud | Não | Sim | Sim | Sim | Não | Não |
+| [Modelos de início rápido](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Enviado | Testemunha de cloud | Não | Sim | Sim | Sim | Não | Não |
 | [Modelo de portal](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Enviado | Partilha de ficheiros | Não | Não | Não | Não | Não | Não |
 | [Manual](virtual-machines-windows-portal-sql-availability-group-prereq.md) | Todos | Todos | Todos | Todos | Sim | Sim | Sim | Sim | Sim | Sim |
 | &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |

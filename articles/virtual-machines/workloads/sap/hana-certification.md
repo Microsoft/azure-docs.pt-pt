@@ -1,45 +1,44 @@
 ---
-title: Certificação do SAP HANA no Azure (instâncias grandes) | Documentos da Microsoft
-description: Certificação do SAP HANA no Azure (instâncias grandes).
+title: Certificação de SAP HANA no Azure (instâncias grandes) | Microsoft Docs
+description: Certificação de SAP HANA no Azure (instâncias grandes).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d623a189da5c5eccd73018e1ae0b7e5564fe09ab
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3c2c919d6e85a2b708dc247b1642e7e8987df81b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709695"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099888"
 ---
 # <a name="certification"></a>Certificação
 
-Além da certificação NetWeaver, o SAP requer uma certificação especial para o SAP HANA suportar o SAP HANA em determinados infraestruturas, como o IaaS do Azure.
+Além da certificação NetWeaver, o SAP requer uma certificação especial para SAP HANA oferecer suporte a SAP HANA em determinadas infra-estruturas, como o Azure IaaS.
 
-O núcleo, a nota SAP NetWeaver e para a certificação do SAP HANA de grau, é [1928533 no SAP Note # – aplicações SAP no Azure: Produtos suportados e tipos de VM do Azure](https://launchpad.support.sap.com/#/notes/1928533).
+A observação principal do SAP no NetWeaver, e com um grau SAP Hana certificação, [é SAP Note #1928533 – aplicativos SAP no Azure: Produtos com suporte e tipos](https://launchpad.support.sap.com/#/notes/1928533)de VM do Azure.
 
-Os registos de certificação para o SAP HANA nas unidades do Azure (instâncias grandes) podem ser encontrados no [plataformas IaaS com certificação SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) site. 
+Os registros de certificação para SAP HANA em unidades do Azure (instâncias grandes) podem ser encontrados no site de [plataformas de IaaS certificado pelo SAP Hana](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) . 
 
-O SAP HANA em tipos de Azure (instâncias grandes), referidos no SAP HANA certificadas site de plataformas de IaaS, fornece à Microsoft e SAP os clientes a capacidade de implantar grandes do SAP Business Suite, SAP BW, S/4 HANA, BW/4HANA ou outras cargas de trabalho do SAP HANA no Azure. A solução baseia-se o carimbo de hardware dedicado de certificado do SAP HANA ([SAP HANA adaptadas a integração do Centro de dados – TDI](https://scn.sap.com/docs/DOC-63140)). Se executar uma solução configurada TDI do SAP HANA, todos os aplicativos baseados em SAP HANA (como o SAP Business Suite no SAP HANA, SAP BW em SAP HANA, S4/HANA e BW4/HANA) funciona na infraestrutura de hardware.
+O SAP HANA em tipos do Azure (instâncias grandes), mencionado em SAP HANA site de plataformas de IaaS certificadou, fornece aos clientes da Microsoft e SAP a capacidade de implantar grandes cargas de trabalho do SAP Business Suite, SAP BW, S/4 HANA, BW/4HANA ou outra carga de SAP HANA no Azure. A solução baseia-se no selo de hardware dedicado certificado pelo SAP-HANA ([SAP Hana a integração de data center personalizada – TDI](https://scn.sap.com/docs/DOC-63140)). Se você executar uma solução configurada por TDI SAP HANA, todos os aplicativos baseados em SAP HANA (como o SAP Business Suite no SAP HANA, SAP BW em SAP HANA, S4/HANA e BW4/HANA) funcionarão na infraestrutura de hardware.
 
-Em comparação com a execução do SAP HANA nas VMs, essa solução tem um benefício. Ele fornece para volumes muito maiores de memória. Para ativar esta solução, precisa entender os seguintes aspetos fundamentais:
+Em comparação com a execução de SAP HANA em VMs, essa solução tem um benefício. Ele fornece volumes de memória muito maiores. Para habilitar essa solução, você precisa entender os seguintes aspectos principais:
 
-- Executam a aplicações de camada como não SAP de aplicações SAP em VMs que estão alojadas numa carimbos usual de hardware do Azure.
-- Cliente infraestrutura no local, centros de dados, e implementações de aplicações estão ligadas para a plataforma na cloud através do ExpressRoute (recomendado) ou uma rede privada virtual (VPN). O Active Directory e DNS também é expandido para o Azure.
-- A instância de base de dados do SAP HANA para carga de trabalho do HANA é executado no SAP HANA no Azure (instâncias grandes). O carimbo de data / instância grande está ligada em rede do Azure, para que o software em execução em VMs pode interagir com a instância HANA em execução numa instância grande do HANA.
-- Hardware de SAP HANA no Azure (instâncias grandes) é fornecido num de IaaS com SUSE Linux Enterprise Server ou do Red Hat Enterprise Linux pré-instalado de hardware dedicado. Tal como acontece com as máquinas virtuais, ainda mais as atualizações e manutenção para o sistema operativo é sua responsabilidade.
-- Instalação do HANA ou quaisquer componentes adicionais necessários para executar o SAP HANA em unidades de instância grande do HANA é sua responsabilidade. Todas as respectivas operações em curso e administração de SAP HANA no Azure também são da responsabilidade do cliente.
-- Além das soluções descritas aqui, pode instalar os outros componentes na sua subscrição do Azure que se conecta ao SAP HANA no Azure (instâncias grandes). Os exemplos são componentes que permitem a comunicação com ou diretamente para o SAP HANA de base de dados, tais como servidores de atalhos, servidores RDP e SAP HANA Studio, serviços de dados do SAP para cenários de BI do SAP, ou soluções de monitorização de rede.
-- Como no Azure, a instância grande do HANA oferece suporte a alta disponibilidade e a funcionalidade de recuperação após desastre.
+- A camada de aplicativo SAP e os aplicativos não SAP são executados em VMs hospedadas nos carimbos de hardware usuais do Azure.
+- A infraestrutura local, os data centers e as implantações de aplicativos do cliente estão conectados à plataforma de nuvem por meio do ExpressRoute (recomendado) ou de uma VPN (rede virtual privada). Active Directory e DNS também são estendidos para o Azure.
+- A instância de banco de dados SAP HANA para cargas de trabalho do HANA é executada em SAP HANA no Azure (instâncias grandes). O carimbo de instância grande está conectado à rede do Azure, portanto, o software em execução nas VMs pode interagir com a instância do HANA em execução no HANA em instâncias grandes.
+- O hardware de SAP HANA no Azure (instâncias grandes) é um hardware dedicado fornecido em uma IaaS com SUSE Linux Enterprise Server ou Red Hat Enterprise Linux pré-instalado. Assim como acontece com as máquinas virtuais, atualizações e manutenção posteriores ao sistema operacional são de sua responsabilidade.
+- A instalação do HANA ou de quaisquer componentes adicionais necessários para executar SAP HANA em unidades do SAP HANA em instâncias grandes é sua responsabilidade. Todas as respectivas operações e administração em andamento do SAP HANA no Azure também são de sua responsabilidade.
+- Além das soluções descritas aqui, você pode instalar outros componentes em sua assinatura do Azure que se conectam ao SAP HANA no Azure (instâncias grandes). Os exemplos são componentes que permitem a comunicação com ou diretamente para o banco de dados SAP HANA, como servidores de salto, servidores RDP, SAP HANA Studio, SAP Data Services para cenários do SAP BI ou soluções de monitoramento de rede.
+- Como no Azure, o HANA em instâncias grandes oferece suporte para a funcionalidade de alta disponibilidade e recuperação de desastres.
 
 **Passos seguintes?**
-- Consulte [SKUs disponíveis para HLI](hana-available-skus.md) 
+- Consulte os [SKUs disponíveis para o HLI](hana-available-skus.md) 

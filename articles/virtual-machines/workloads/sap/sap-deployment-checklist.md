@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: abe04a88f3337ed26b98815b5633fd5d719b7ce3
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 2d6170dead4e8577cea6883ffea25b90ebe39b88
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234230"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078998"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Lista de verificação de carga de trabalho do SAP no planejamento e implantação do Azure 
 
@@ -159,7 +158,7 @@ O piloto pode ser executado antes ou em paralelo ao planejamento e à preparaç�
    3.  Verifique se todos os recursos que precisam ser criptografados estão criptografados. Defina e execute processos para fazer backup de certificados, armazenar e acessar esses certificados e restaurar as entidades criptografadas. 
    4.  Use [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) e/ou para discos do sistema operacional onde possível de um ponto de vista de suporte do so
    5.  Verifique se não há muitas camadas de criptografia usadas. Ele faz sentido limitado para usar o Azure Disk Encryption e, em seguida, um dos métodos de criptografia de banco de dados transparente do DBMS
-6. Testes de desempenho
+6. Testes de Desempenho
    1.  No SAP com base no rastreamento e nas medições do SAP, compare os 10 principais relatórios online com a implementação atual, quando aplicável 
    2.  No SAP com base no rastreamento e nas medições do SAP, compare os 10 principais trabalhos do lote com a implementação atual, quando aplicável 
    3.  No SAP com base no rastreamento e nas medições do SAP, compare as transferências de dados por meio de interfaces no sistema SAP. Concentre-se nas interfaces em que você sabe que agora a transferência está indo entre locais diferentes, como ir do local para o Azure 

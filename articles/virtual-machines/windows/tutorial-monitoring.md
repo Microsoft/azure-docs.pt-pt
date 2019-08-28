@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 25160c50cd4844fdb5b3a3454213b2067ef91d01
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 16edb1ac764df6533b426652f9caf18a2f549f8c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608023"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101672"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorar e atualizar uma máquina virtual do Windows no Azure
 
@@ -172,7 +171,7 @@ Para criar uma nova implantação de atualização, selecione **agendar implanta
 
 | Propriedade | Description |
 | --- | --- |
-| Nome |O nome exclusivo para identificar a implementação de atualizações. |
+| Name |O nome exclusivo para identificar a implementação de atualizações. |
 |Sistema operativo| Linux ou Windows|
 | Grupos a serem atualizados |Para computadores do Azure, defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e marcas para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. </br></br>Para computadores não Azure, selecione uma pesquisa salva existente para selecionar um grupo de computadores não Azure a serem incluídos na implantação. </br></br>Para saber mais, confira [grupos dinâmicos](../../automation/automation-update-management.md#using-dynamic-groups)|
 | Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou escolha a máquina na lista suspensa e selecione computadores individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores em logs de Azure Monitor, consulte [grupos de computadores em logs de Azure monitor](../../azure-monitor/platform/computer-groups.md) |

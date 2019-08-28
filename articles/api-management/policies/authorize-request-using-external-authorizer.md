@@ -1,6 +1,6 @@
 ---
-title: Política de gestão de API do Azure de exemplo - autorizar a solicitação usando authorizer externo | Documentos da Microsoft
-description: Exemplo de política do gestão de API do Azure - demonstra como autorizar os pedidos com authorizer externo, encapsulando uma lógica de autenticação/autorização legados ou personalizados.
+title: Exemplo de política de gerenciamento de API do Azure – autorizar solicitação usando o autorizador externo | Microsoft Docs
+description: Exemplo de política de gerenciamento de API do Azure – demonstra como autorizar solicitações usando o autorizador externo encapsulando uma lógica de autenticação/autorização personalizada ou herdada.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,30 +9,29 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: apimpm
-ms.openlocfilehash: 65ea8622187d0665e4680f4162ddff0bc01e6eb9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 92836e0bfe43a41ad6547c68bc0b9a326528862c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306771"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074158"
 ---
-# <a name="authorize-requests-using-external-authorizer"></a>Autorizar pedidos utilizando authorizer externo
+# <a name="authorize-requests-using-external-authorizer"></a>Autorizar solicitações usando o autorizador externo
 
-Este artigo mostra um exemplo de política de gestão de API do Azure que demonstra como proteger o acesso à API utilizando um authorizer externo encapsular a lógica de autenticação/autorização personalizadas. Para definir ou editar um código de política, siga os passos descritos em [conjunto ou editar uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [exemplos de política](../policy-samples.md).
+Este artigo mostra um exemplo de política de gerenciamento de API do Azure que demonstra como proteger o acesso à API usando um autorizador externo que encapsula a lógica de autenticação/autorização personalizada. Para definir ou editar um código de política, siga as etapas descritas em [definir ou editar uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [exemplos de política](../policy-samples.md).
 
 ## <a name="policy"></a>Política
 
-Cole o código para o **entrada** bloco.
+Cole o código no bloco de **entrada** .
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Authorize requests using external authorizer.policy.xml)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre as políticas APIM:
+Saiba mais sobre as políticas de APIM:
 
 + [Políticas de restrições de acesso](../api-management-access-restriction-policies.md)
 + [Exemplos de política](../policy-samples.md)

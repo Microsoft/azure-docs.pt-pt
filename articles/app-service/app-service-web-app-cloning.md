@@ -10,17 +10,16 @@ ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 52d02fd79571e42f71c06b7090534136e4a5e341
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 0f4915add76ce21064b7a79ae110f608592263bd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814683"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067151"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonagem de aplicativo de serviço Azure App usando o PowerShell
 

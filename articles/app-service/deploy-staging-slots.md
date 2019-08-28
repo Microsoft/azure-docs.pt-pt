@@ -11,16 +11,15 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: cephalin
-ms.openlocfilehash: a6d659d558c15a9a224196c471f7798b1a7f2660
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: b86f08fbcb661ae4266658016de7aa92da785bf9
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623698"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070586"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no serviço Azure App
 <a name="Overview"></a>
@@ -370,5 +369,5 @@ Aqui estão alguns erros de permuta comuns:
     ```
 - Algumas [regras de restrição de IP](app-service-ip-restrictions.md) podem impedir que a operação de permuta envie solicitações HTTP para seu aplicativo. Os intervalos de endereços IPv4 que `10.` começam `100.` com e são internos à sua implantação. Você deve permitir que eles se conectem ao seu aplicativo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Bloquear o acesso a slots de não produção](app-service-ip-restrictions.md)

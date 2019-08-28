@@ -5,19 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 08/29/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0a58382b9825a7b32aee69c00b9801d1c77251a
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60192940"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114638"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtrar tráfego de entrada com DNAT do Azure Firewall com o portal do Azure
 
-Pode configurar a Tradução de Endereços de Rede de Destino (DNAT) do Azure Firewall para traduzir e filtrar o tráfego de entrada para as suas sub-redes. Ao configurar DNAT, a ação de coleção de regra NAT está definida como **Dnat**. Cada regra na coleção de regras NAT pode então ser utilizada para traduzir o endereço IP e a porta de firewall públicos para um IP e porta privados. As regras DNAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego traduzido. Pode substituir esse comportamento, ao adicionar explicitamente uma coleção de regras de rede com regras de negar que correspondem ao tráfego traduzido. Para saber mais sobre a lógica de processamento de regras do Azure Firewall, veja [Lógica de processamento de regras do Azure Firewall](rule-processing.md).
+Pode configurar a Tradução de Endereços de Rede de Destino (DNAT) do Azure Firewall para traduzir e filtrar o tráfego de entrada para as suas sub-redes. Quando você configura o DNAT, a ação de coleção de regras de NAT é definida como **DNAT**. Cada regra na coleção de regras NAT pode então ser utilizada para traduzir o endereço IP e a porta de firewall públicos para um IP e porta privados. As regras DNAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego traduzido. Pode substituir esse comportamento, ao adicionar explicitamente uma coleção de regras de rede com regras de negar que correspondem ao tráfego traduzido. Para saber mais sobre a lógica de processamento de regras do Azure Firewall, veja [Lógica de processamento de regras do Azure Firewall](rule-processing.md).
 
 Neste tutorial, ficará a saber como:
 
@@ -62,8 +62,9 @@ Em primeiro lugar, crie as VNets e, em seguida, configure o peering entre elas.
 
      A firewall estará nesta sub-rede, e o nome da sub-rede **tem** de ser AzureFirewallSubnet.
      > [!NOTE]
-     > O tamanho mínimo da sub-rede AzureFirewallSubnet é /26.
-10. Em **Intervalo de endereços**, escreva **10.0.1.0/24**.
+     > O tamanho da sub-rede AzureFirewallSubnet é/26. Para obter mais informações sobre o tamanho da sub-rede, consulte perguntas frequentes sobre o [Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+
+10. Para **intervalo de endereços**, digite **10.0.1.0/26**.
 11. Utilize as outras predefinições e, em seguida, clique em **Criar**.
 
 ### <a name="create-a-spoke-vnet"></a>Criar uma VNet spoke
@@ -151,10 +152,10 @@ Após a conclusão da implementação, tome nota do endereço IP privado para a 
    |Definição  |Valor  |
    |---------|---------|
    |Name     |FW-DNAT-test|
-   |Subscrição     |\<a sua subscrição\>|
-   |Grupo de recursos     |**Utilizar existente**: RG-DNAT-Test |
+   |Subscription     |\<a sua subscrição\>|
+   |Resource group     |**Usar existente**: RG-DNAT-teste |
    |Location     |Selecionar a mesma localização que utilizou anteriormente|
-   |Escolher uma rede virtual     |**Utilizar existente**: VN-Hub|
+   |Escolher uma rede virtual     |**Usar existente**: VN-Hub|
    |Endereço IP público     |**Crie um novo**. O endereço IP público tem de ser do tipo SKU Standard.|
 
 5. Clique em **Rever + criar**.
@@ -194,7 +195,7 @@ Na sub-rede **SN-Workload**, vai configurar a rota de saída predefinida para pa
 
 1. Abra **RG-DNAT-Test**e clique na firewall **FW-DNAT-test**. 
 2. Na página **FW-DNAT-test**, em **Definições**, clique em **Regras**. 
-3. Clique em **coleção de regras de NAT adicionar**. 
+3. Clique em **Adicionar coleção de regras NAT**. 
 4. Em **Nome**, escreva **RC-DNAT-01**. 
 5. Em **Prioridade**, escreva **200**. 
 6. Em **Regras**, em **Nome**, escreva **RL-01**.
@@ -229,4 +230,4 @@ Neste tutorial, ficou a saber como:
 Em seguida, pode monitorizar os registos do Azure Firewall.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitorize registos de Firewall do Azure](./tutorial-diagnostics.md)
+> [Tutorial: Monitorar logs de firewall do Azure](./tutorial-diagnostics.md)

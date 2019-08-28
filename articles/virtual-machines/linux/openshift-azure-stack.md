@@ -1,6 +1,6 @@
 ---
-title: Implementar o OpenShift no Azure Stack | Documentos da Microsoft
-description: Implemente o OpenShift no Azure Stack.
+title: Implantar OpenShift no Azure Stack | Microsoft Docs
+description: Implantar OpenShift no Azure Stack.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
@@ -9,32 +9,31 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: haroldw
-ms.openlocfilehash: 91b37753ae80596612eda9d3ccd34858691e35ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9f1072954e01f718fd3d9f03430b6ed6666bb62
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771554"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082586"
 ---
-# <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Implementar o OpenShift Container Platform ou OKD no Azure Stack
+# <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Implantar a plataforma de contêiner OpenShift ou OKD no Azure Stack
 
-OpenShift pode ser implementado no Azure Stack. Existem algumas diferenças fundamentais entre o Azure e o Azure Stack, de modo a implementação irá ser ligeiramente diferentes e funcionalidades também serão ligeiramente diferentes.
+O OpenShift pode ser implantado em Azure Stack. Há algumas diferenças importantes entre o Azure e o Azure Stack, portanto, a implantação será ligeiramente diferente e os recursos também serão ligeiramente diferentes.
 
-Atualmente, o fornecedor de Cloud do Azure não funciona no Azure Stack. Por esse motivo, não será possível utilizar o disco anexar para armazenamento persistente no Azure Stack. Em vez disso, pode configurar outras opções de armazenamento, como NFS, iSCSI, GlusterFS, etc. Como alternativa, pode ativar CNS e utilizar GlusterFS para armazenamento persistente. Se estiver ativada CNS, três nós adicionais serão implantados com o armazenamento adicional para utilização GlusterFS.
+Atualmente, o provedor de nuvem do Azure não funciona no Azure Stack. Por esse motivo, você não poderá usar a anexação de disco para armazenamento persistente no Azure Stack. Em vez disso, você pode configurar outras opções de armazenamento, como NFS, iSCSI, GlusterFS, etc. Como alternativa, você pode habilitar o CNS e usar o GlusterFS para armazenamento persistente. Se o CNS estiver habilitado, três nós adicionais serão implantados com armazenamento adicional para uso GlusterFS.
 
-Pode utilizar um dos vários métodos para implementar o OpenShift Container Platform ou OKD no Azure Stack:
+Você pode usar um dos vários métodos para implantar a plataforma de contêiner OpenShift ou OKD no Azure Stack:
 
-- Pode implementar manualmente os componentes de infraestrutura do Azure necessários e, em seguida, siga os [documentação do OpenShift Container Platform](https://docs.openshift.com/container-platform) ou [documentação OKD](https://docs.okd.io).
-- Também pode utilizar existente [modelo do Resource Manager](https://github.com/Microsoft/openshift-container-platform/) que simplifica a implementação do cluster OpenShift Container Platform.
-- Também pode utilizar existente [modelo do Resource Manager](https://github.com/Microsoft/openshift-origin) que simplifica a implementação do OKD cluster.
+- Você pode implantar manualmente os componentes necessários da infraestrutura do Azure e, em seguida, seguir a [documentação da plataforma de contêiner do OpenShift](https://docs.openshift.com/container-platform) ou a documentação do [OKD](https://docs.okd.io).
+- Você também pode usar um modelo existente do [Resource Manager](https://github.com/Microsoft/openshift-container-platform/) que simplifica a implantação do cluster da plataforma de contêiner do OpenShift.
+- Você também pode usar um modelo existente do [Resource Manager](https://github.com/Microsoft/openshift-origin) que simplifica a implantação do cluster OKD.
 
-Se utilizar o modelo do Resource Manager, selecione o ramo adequado (3.x da versão azurestack). Os modelos para o Azure não funcionarão como as versões de API são diferentes entre o Azure e o Azure Stack. A referência da imagem RHEL está atualmente hard-coded como uma variável no ficheiro azuredeploy. JSON e tem de ser alterada para coincidir com a sua imagem.
+Se estiver usando o modelo do Resource Manager, selecione o Branch apropriado (azurestack-Release-3. x). Os modelos do Azure não funcionarão, pois as versões de API são diferentes entre o Azure e o Azure Stack. Atualmente, a referência de imagem RHEL está embutida em código como uma variável no arquivo azuredeploy. JSON e precisa ser alterada para corresponder à imagem.
 
 ```json
 "imageReference": {
@@ -45,31 +44,31 @@ Se utilizar o modelo do Resource Manager, selecione o ramo adequado (3.x da vers
 }
 ```
 
-Para todas as opções, é necessária uma subscrição de Red Hat. Durante a implantação, a instância de Red Hat Enterprise Linux está registada para a subscrição do Red Hat e anexada ao ID de agrupamento que contém a elegibilidade para o OpenShift Container Platform.
-Certifique-se de que tem um válidas Red Hat subscrição Manager (RHSM) nome de utilizador, palavra-passe e ID do conjunto. Em alternativa, pode utilizar uma chave de ativação, o ID da organização e o ID do conjunto.  Pode verificar estas informações ao iniciar sessão para https://access.redhat.com.
+Para todas as opções, é necessária uma assinatura do Red Hat. Durante a implantação, a instância de Red Hat Enterprise Linux é registrada na assinatura do Red Hat e anexada à ID do pool que contém os direitos para a plataforma de contêiner OpenShift.
+Verifique se você tem um nome de usuário, senha e ID de pool válidos do RHSM (Red Hat Subscription Manager). Como alternativa, você pode usar uma chave de ativação, ID da organização e ID do pool.  Você pode verificar essas informações entrando no https://access.redhat.com.
 
-## <a name="azure-stack-prerequisites"></a>Pré-requisitos do Azure Stack
+## <a name="azure-stack-prerequisites"></a>Pré-requisitos de Azure Stack
 
-Uma imagem RHEL (OpenShift Container Platform) ou a imagem do CentOS (OKD) tem de ser adicionada ao seu ambiente do Azure Stack para implementar um cluster do OpenShift. Contacte o administrador do Azure Stack para adicioná-las. Aqui pode encontrar instruções:
+Uma imagem RHEL (plataforma de contêiner OpenShift) ou imagem CentOS (OKD) precisa ser adicionada ao ambiente de Azure Stack para implantar um cluster OpenShift. Contate o administrador do Azure Stack para adicionar essas imagens. As instruções podem ser encontradas aqui:
 
 - https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image
 - https://docs.microsoft.com/azure/azure-stack/azure-stack-marketplace-azure-items
 - https://docs.microsoft.com/azure/azure-stack/azure-stack-redhat-create-upload-vhd
 
-## <a name="deploy-by-using-the-openshift-container-platform-or-okd-resource-manager-template"></a>Implementar utilizando o modelo OpenShift Container Platform ou OKD Resource Manager
+## <a name="deploy-by-using-the-openshift-container-platform-or-okd-resource-manager-template"></a>Implantar usando a plataforma de contêiner OpenShift ou o modelo do Gerenciador de recursos do OKD
 
-Para implementar com o modelo do Resource Manager, use um ficheiro de parâmetros para fornecer os parâmetros de entrada. Para personalizar ainda mais a implementação, bifurcar o repositório do GitHub e altere os itens adequados.
+Para implantar usando o modelo do Resource Manager, você usa um arquivo de parâmetros para fornecer os parâmetros de entrada. Para personalizar ainda mais a implantação, crie bifurcação do repositório GitHub e altere os itens apropriados.
 
-Algumas opções de personalização comuns incluem, mas não estão limitadas a:
+Algumas opções de personalização comuns incluem, mas não se limitam a:
 
-- Tamanho de VM de bastion (variável no azuredeploy. JSON)
-- Convenções de nomenclatura (variáveis no azuredeploy. JSON)
-- Especificações de cluster do OpenShift, modificado através do ficheiro de anfitriões (deployOpenShift.sh)
-- Referência da imagem RHEL (variável no azuredeploy. JSON)
+- Tamanho da VM de bastiões (variável em azuredeploy. JSON)
+- Convenções de nomenclatura (variáveis em azuredeploy. JSON)
+- OpenShift específicas do cluster, modificadas por meio do arquivo de hosts (deployOpenShift.sh)
+- Referência de imagem RHEL (variável em azuredeploy. JSON)
 
-Para obter os passos implementar com a CLI do Azure, siga a secção adequada a [OpenShift Container Platform](./openshift-container-platform.md) secção ou o [OKD](./openshift-okd.md) secção.
+Para obter as etapas para implantar usando o CLI do Azure, siga a seção apropriada na seção [plataforma de contêiner OpenShift](./openshift-container-platform.md) ou na seção [OKD](./openshift-okd.md) .
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Tarefas de pós-implementação](./openshift-post-deployment.md)
-- [Resolver problemas de implementação do OpenShift no Azure](./openshift-troubleshooting.md)
+- [Tarefas pós-implantação](./openshift-post-deployment.md)
+- [Solucionar problemas de implantação do OpenShift no Azure](./openshift-troubleshooting.md)

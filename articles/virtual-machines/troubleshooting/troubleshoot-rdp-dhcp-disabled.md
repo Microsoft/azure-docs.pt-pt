@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d16c5b6304f598440fe4d70648dd652f0dcf06ec
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362293"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089940"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Não é possível RDP para máquinas de virtuais do Azure, porque o serviço de cliente DHCP é desativado
 
@@ -29,16 +28,16 @@ Este artigo descreve um problema em que não é possível o ambiente de trabalho
 ## <a name="symptoms"></a>Sintomas
 Não pode fazer uma ligação RDP uma VM no Azure, porque o serviço de cliente DHCP está desativado na VM. Quando dá entrada a captura de ecrã do [diagnósticos de arranque](../troubleshooting/boot-diagnostics.md) no portal do Azure, verá a VM arranca normalmente e aguarda que as credenciais no ecrã de início de sessão. Ver remotamente os registos de eventos na VM com o Visualizador de eventos. Verá que o serviço de cliente DHCP não estiver iniciado ou não conseguir iniciar. Registo de um exemplo a seguir:
 
-**Nome de registo**: Sistema </br>
-**origem**: Gestor de controlo de serviço </br>
-**Data**: 12/16/2015:19:36 ÀS 11H </br>
-**ID de evento**: 7022 </br>
-**Categoria de tarefas**: Nenhuma </br>
+**Nome do log**: Sistema </br>
+**Origem**: Gerenciador de controle de serviço </br>
+**Data**: 12/16/2015 11:19:36 AM </br>
+**ID do evento**: 7022 </br>
+**Categoria da tarefa**: Nenhum </br>
 **Nível**: Erro </br>
 **Palavras-chave**: Clássica</br>
-**Utilizador**: N/A </br>
+**Usuário**: N/A </br>
 **Computador**: myvm.cosotos.com</br>
-**Descrição**: O serviço de cliente DHCP suspenso sobre como iniciar.</br>
+**Descrição**: O serviço cliente DHCP parou ao iniciar.</br>
 
 Para VMs do Resource Manager, pode utilizar a funcionalidade de consola de acesso de série a consulta para o evento registos 7022 com o seguinte comando:
 

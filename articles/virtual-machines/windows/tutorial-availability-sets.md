@@ -11,21 +11,20 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d9e3fc52b9cdf5126cb8d58778a59b8e8691f80a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: b943a4476a6b0d639353816337deea96eb14fe24
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708140"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101709"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e implementar máquinas virtuais altamente disponíveis com o Azure PowerShell
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e implantar máquinas virtuais altamente disponíveis com o Azure PowerShell
 
-Neste tutorial, saiba como aumentar a disponibilidade e fiabilidade das suas máquinas virtuais (VMs) ao utilizar conjuntos de disponibilidade. Conjuntos de disponibilidade, certifique-se de que as VMs que implementa no Azure são distribuídas por vários nós de hardware isolados, num cluster. 
+Neste tutorial, você aprenderá a aumentar a disponibilidade e a confiabilidade de suas VMs (máquinas virtuais) usando conjuntos de disponibilidade. Os conjuntos de disponibilidade garantem que as VMs implantadas no Azure sejam distribuídas entre vários nós de hardware isolados, em um cluster. 
 
 Neste tutorial, ficará a saber como:
 
@@ -38,9 +37,9 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="availability-set-overview"></a>Descrição geral do conjunto de disponibilidade
 
-Um conjunto de disponibilidade é uma funcionalidade de agrupamento lógico para isolar os recursos da VM entre si quando são implantados. O Azure torna-se de que as VMs que colocar num conjunto de disponibilidade são executadas em vários servidores físicos, computação racks, unidades de armazenamento e comutadores de rede. Se ocorrer uma falha de hardware ou software, apenas um subconjunto das suas VMs são afetados e a solução global permanece operacional. Conjuntos de disponibilidade são essenciais para a criação de soluções cloud fiáveis.
+Um conjunto de disponibilidade é um recurso de agrupamento lógico para isolar recursos de VM uns dos outros quando eles são implantados. O Azure garante que as VMs colocadas em um conjunto de disponibilidade sejam executadas em vários servidores físicos, racks de computação, unidades de armazenamento e comutadores de rede. Se ocorrer uma falha de hardware ou de software, apenas um subconjunto de suas VMs será afetado e sua solução geral permanecerá operacional. Os conjuntos de disponibilidade são essenciais para a criação de soluções de nuvem confiáveis.
 
-Consideremos uma solução típica baseada em VM em que poderá ter quatro servidores Web de front-end e duas VMs de back-end. Com o Azure, iria querer definir dois conjuntos de disponibilidade antes de implementar as suas VMs: um para a camada web e para a camada de back. Quando cria uma nova VM, especifique o conjunto como um parâmetro de disponibilidade. O Azure torna-se de que as VMs estão isoladas em vários recursos de hardware físico. Se o hardware físico, um dos seus servidores em execução no tiver um problema, sabe que as outras instâncias dos seus servidores continuará a ser executada uma vez que estão num hardware diferente.
+Consideremos uma solução típica baseada em VM em que poderá ter quatro servidores Web de front-end e duas VMs de back-end. Com o Azure, você desejaria definir dois conjuntos de disponibilidade antes de implantar suas VMs: uma para a camada da Web e outra para a camada de fundo. Ao criar uma nova VM, você especifica o conjunto de disponibilidade como um parâmetro. O Azure garante que as VMs sejam isoladas em vários recursos de hardware físico. Se o hardware físico em que um dos servidores está em execução tiver um problema, você saberá que as outras instâncias dos servidores continuarão em execução porque estão em um hardware diferente.
 
 Utilize Conjuntos de Disponibilidade quando pretender implementar soluções fiáveis baseadas em VM no Azure.
 
@@ -54,7 +53,7 @@ Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior di
 
 O hardware numa localização está dividido em vários domínios de atualização e domínios de falhas. Um **domínio de atualização** é um grupo de VMs e hardware físico subjacente que pode ser reiniciado ao mesmo tempo. As VMs no mesmo **domínio de falha** partilham o mesmo armazenamento, bem como a fonte de energia e o comutador de rede.  
 
-Pode criar um conjunto de disponibilidade com [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset). Neste exemplo, é o número de domínios de atualização e falha *2* e o nome do conjunto de disponibilidade *myAvailabilitySet*.
+Você pode criar um conjunto de disponibilidade usando [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset). Neste exemplo, o número de domínios de atualização e de falha é *2* e o conjunto de disponibilidade échamado de myavailabilityset.
 
 Crie um grupo de recursos.
 
@@ -64,7 +63,7 @@ New-AzResourceGroup `
    -Location EastUS
 ```
 
-Criar uma conjunto através de disponibilidade gerido [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset) com o `-sku aligned` parâmetro.
+Crie um conjunto de disponibilidade gerenciado usando [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset) com `-sku aligned` o parâmetro.
 
 ```azurepowershell-interactive
 New-AzAvailabilitySet `
@@ -77,10 +76,10 @@ New-AzAvailabilitySet `
 ```
 
 ## <a name="create-vms-inside-an-availability-set"></a>Criar VMs num conjunto de disponibilidade
-VMs tem de ser criadas dentro do conjunto de disponibilidade para certificar-se de que estão corretamente distribuídas no hardware. Não é possível adicionar uma VM existente para um conjunto de disponibilidade depois é criado. 
+As VMs devem ser criadas dentro do conjunto de disponibilidade para garantir que elas sejam distribuídas corretamente pelo hardware. Você não pode adicionar uma VM existente a um conjunto de disponibilidade após sua criação. 
 
 
-Quando cria uma VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm), que utiliza o `-AvailabilitySetName` parâmetro para especificar o nome do conjunto de disponibilidade.
+Ao criar uma VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm), use o `-AvailabilitySetName` parâmetro para especificar o nome do conjunto de disponibilidade.
 
 Primeiro, defina um nome de utilizador e palavra-passe para a VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
@@ -88,7 +87,7 @@ Primeiro, defina um nome de utilizador e palavra-passe para a VM com [Get-Creden
 $cred = Get-Credential
 ```
 
-Agora crie duas VMs com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) no conjunto de disponibilidade.
+Agora, crie duas VMs com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) no conjunto de disponibilidade.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -108,13 +107,13 @@ for ($i=1; $i -le 2; $i++)
 
 Demora alguns minutos para criar e configurar ambas as VMs. Quando terminar, tem duas máquinas virtuais distribuídas no hardware subjacente. 
 
-Se examinar a conjunto de disponibilidade no portal, vai **grupos de recursos** > **myResourceGroupAvailability** > **myAvailabilitySet**, deverá ver como as VMs são distribuídas entre as duas falhas e domínios de atualização.
+Se você examinar o conjunto de disponibilidade no portal acessando **grupos** > de recursos**myResourceGroupAvailability** > myavailabilityset, deverá ver como as VMs são distribuídas entre as duas falhas e a atualização domínios.
 
 ![Conjunto de disponibilidade no portal](./media/tutorial-availability-sets/fd-ud.png)
 
 ## <a name="check-for-available-vm-sizes"></a>Verificar os tamanhos de VM disponíveis 
 
-Pode adicionar mais VMs ao conjunto de disponibilidade posteriormente, mas tem de conhecer os tamanhos de VM que estão disponíveis no hardware. Uso [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) para listar todos os tamanhos disponíveis no hardware de cluster para o conjunto de disponibilidade.
+Pode adicionar mais VMs ao conjunto de disponibilidade posteriormente, mas tem de conhecer os tamanhos de VM que estão disponíveis no hardware. Use [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) para listar todos os tamanhos disponíveis no cluster de hardware para o conjunto de disponibilidade.
 
 ```azurepowershell-interactive
 Get-AzVMSize `
@@ -124,12 +123,12 @@ Get-AzVMSize `
 
 ## <a name="check-azure-advisor"></a>Verificar o Assistente do Azure 
 
-Também pode utilizar o Assistente do Azure para obter mais informações sobre como melhorar a disponibilidade das suas VMs. O Azure Advisor analisa a sua configuração e a telemetria de utilização, em seguida, recomenda soluções que podem ajudar a melhorar a eficiência de custos, desempenho, disponibilidade e segurança dos seus recursos do Azure.
+Você também pode usar o Azure Advisor para obter mais informações sobre como melhorar a disponibilidade de suas VMs. O Azure Advisor analisa a telemetria de configuração e uso e, em seguida, recomenda soluções que podem ajudá-lo a melhorar a eficácia, o desempenho, a disponibilidade e a segurança dos seus recursos do Azure.
 
-Inicie sessão no [portal do Azure](https://portal.azure.com), selecione **Todos os serviços** e escreva **Assistente**. O dashboard do assistente apresenta recomendações personalizadas para a subscrição selecionada. Para obter mais informações, veja [Introdução ao Assistente do Azure](../../advisor/advisor-get-started.md).
+Inicie sessão no [portal do Azure](https://portal.azure.com), selecione **Todos os serviços** e escreva **Assistente**. O painel do Advisor mostra recomendações personalizadas para a assinatura selecionada. Para obter mais informações, veja [Introdução ao Assistente do Azure](../../advisor/advisor-get-started.md).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
