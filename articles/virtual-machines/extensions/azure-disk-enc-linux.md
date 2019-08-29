@@ -1,6 +1,6 @@
 ---
-title: Azure Disk Encryption para Linux | Documentos da Microsoft
-description: Implementa o Azure Disk Encryption para Linux para uma máquina virtual com uma extensão de máquina virtual.
+title: Azure Disk Encryption para Linux | Microsoft Docs
+description: Implanta Azure Disk Encryption para Linux em uma máquina virtual usando uma extensão de máquina virtual.
 services: virtual-machines-linux
 documentationcenter: ''
 author: ejarvi
@@ -8,44 +8,43 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: d544aae33faf60be00a2b4ea0a45f405efcedb39
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 6a81f105f9632a7ca7e2bf7188e358274020c78f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706132"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084773"
 ---
-# <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption para Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
+# <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption para Linux (Microsoft. Azure. Security. AzureDiskEncryptionForLinux)
 
 ## <a name="overview"></a>Descrição geral
 
-O subsistema de dm-crypt no Linux para fornecer encriptação de disco completa em tira partido do Azure Disk Encryption [selecione distribuições de Linux do Azure](https://aka.ms/adelinux).  Esta solução está integrada no Azure Key Vault para gerir as chaves de encriptação de disco e segredos.
+Azure Disk Encryption aproveita o subsistema DM-cript no Linux para fornecer criptografia de disco completa em [distribuições do Linux do Azure](https://aka.ms/adelinux).  Essa solução é integrada com Azure Key Vault para gerenciar chaves de criptografia de disco e segredos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para obter uma lista completa dos pré-requisitos, consulte [pré-requisitos do Azure Disk Encryption](
-../../security/azure-security-disk-encryption-prerequisites.md).
+Para obter uma lista completa de pré-requisitos, consulte [Azure Disk Encryption](
+../../security/azure-security-disk-encryption-prerequisites.md)pré-requisitos.
 
 ### <a name="operating-system"></a>Sistema operativo
 
-O Azure Disk Encryption é atualmente suportado em selecionadas Distribuições e versões.  Consulte o [sistemas operativos suportados do Azure Disk Encryption: Linux](../../security/azure-security-disk-encryption-prerequisites.md#linux) para a lista de distribuições do Linux que são suportadas.
+Atualmente, o Azure Disk Encryption tem suporte em distribuições e versões selecionadas.  Consulte os [Azure Disk Encryption sistemas operacionais com suporte: Linux](../../security/azure-security-disk-encryption-prerequisites.md#linux) para obter a lista de distribuições do Linux com suporte.
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-O Azure Disk Encryption para o Linux requer conectividade à Internet para acesso do Active Directory, o Cofre de chaves, armazenamento e pontos finais de gestão do pacote.  Para obter mais informações, consulte [pré-requisitos do Azure Disk Encryption](../../security/azure-security-disk-encryption-prerequisites.md).
+O Azure Disk Encryption para Linux requer conectividade com a Internet para acesso a pontos de extremidade de gerenciamento de Active Directory, Key Vault, armazenamento e pacotes.  Para obter mais informações, consulte Prerequisites [Azure Disk Encryption](../../security/azure-security-disk-encryption-prerequisites.md).
 
-## <a name="extension-schemata"></a>Esquemas de extensão
+## <a name="extension-schemata"></a>Schemata de extensão
 
-Existem dois esquemas para a encriptação de disco do Azure: v1.1, um esquema mais recente, é recomendado que não utiliza as propriedades do Azure Active Directory (AAD) e o v0.1, um esquema mais antigo que necessita de propriedades do AAD. Tem de utilizar a versão do esquema correspondente para a extensão estiver a utilizar: v1.1 de esquema para a versão 1.1, v0.1 de esquema para a versão da extensão 0,1 de AzureDiskEncryptionForLinux da extensão de AzureDiskEncryptionForLinux.
-### <a name="schema-v11-no-aad-recommended"></a>Schema v1.1: Não existem AAD (recomendado)
+Há duas Schemata para Azure Disk Encryption: v 1.1, um esquema mais novo e recomendado que não usa as propriedades do AAD (Azure Active Directory) e v 0.1, um esquema mais antigo que requer Propriedades do AAD. Você deve usar a versão do esquema correspondente à extensão que está usando: esquema v 1.1 para a extensão AzureDiskEncryptionForLinux versão 1,1, esquema v 0.1 para a extensão AzureDiskEncryptionForLinux versão 0,1.
+### <a name="schema-v11-no-aad-recommended"></a>Esquema v 1.1: Sem AAD (recomendado)
 
-O esquema de v1.1 é recomendado e não necessita de propriedades do Azure Active Directory.
+O esquema v 1.1 é recomendado e não requer Azure Active Directory Propriedades.
 
 ```json
 {
@@ -71,11 +70,11 @@ O esquema de v1.1 é recomendado e não necessita de propriedades do Azure Activ
 ```
 
 
-### <a name="schema-v01-with-aad"></a>Esquema v0.1: com o AAD 
+### <a name="schema-v01-with-aad"></a>Esquema v 0,1: com o AAD 
 
-Requer o esquema de 0,1 `aadClientID` e qualquer um dos `aadClientSecret` ou `AADClientCertificate`.
+O esquema 0,1 requer `aadClientID` o e `aadClientSecret` o `AADClientCertificate`ou o.
 
-Using `aadClientSecret`:
+Usando `aadClientSecret`:
 
 ```json
 {
@@ -105,7 +104,7 @@ Using `aadClientSecret`:
 }
 ```
 
-Using `AADClientCertificate`:
+Usando `AADClientCertificate`:
 
 ```json
 {
@@ -143,32 +142,32 @@ Using `AADClientCertificate`:
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | Cadeia de caracteres |
 | type | AzureDiskEncryptionForLinux | Cadeia de caracteres |
-| typeHandlerVersion | 0.1, 1.1 | int |
-| (esquema de 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (esquema de 0,1) AADClientSecret | password | Cadeia de caracteres |
-| (esquema de 0,1) AADClientCertificate | thumbprint | cadeia |
+| typeHandlerVersion | 0,1, 1,1 | int |
+| (esquema 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | volume | 
+| (esquema 0,1) AADClientSecret | password | Cadeia de caracteres |
+| (esquema 0,1) AADClientCertificate | thumbprint | Cadeia de caracteres |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dicionário JSON |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | Cadeia de caracteres | 
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | Cadeia de caracteres |
-| KeyEncryptionKeyURL | url | cadeia |
-| (opcional) KeyVaultURL | url | Cadeia de caracteres |
+| KeyEncryptionKeyURL | url | Cadeia de caracteres |
+| adicional KeyVaultURL | url | Cadeia de caracteres |
 | Passphrase | password | Cadeia de caracteres | 
 | SequenceVersion | uniqueidentifier | Cadeia de caracteres |
 | VolumeType | OS, Data, All | Cadeia de caracteres |
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Para obter um exemplo de implementação do modelo, consulte [ativar a encriptação numa VM do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
+Para obter um exemplo de implantação de modelo, consulte [habilitar a criptografia em uma VM Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
 
 ## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
 
-Pode encontrar instruções na versão mais recente [documentação da CLI do Azure](/cli/azure/vm/encryption?view=azure-cli-latest). 
+As instruções podem ser encontradas na documentação mais recente do [CLI do Azure](/cli/azure/vm/encryption?view=azure-cli-latest). 
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
-Para resolução de problemas, consulte a [guia de resolução de problemas do Azure Disk Encryption](../../security/azure-security-disk-encryption-tsg.md).
+Para solução de problemas, consulte o [Guia de solução de problemas Azure Disk Encryption](../../security/azure-security-disk-encryption-tsg.md).
 
 ### <a name="support"></a>Suporte
 
@@ -176,4 +175,4 @@ Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os esp
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre as extensões de VM, consulte [extensões de Máquina Virtual e funcionalidades para Linux](features-linux.md).
+Para obter mais informações sobre extensões de VM, consulte [recursos e extensões de máquina virtual para Linux](features-linux.md).

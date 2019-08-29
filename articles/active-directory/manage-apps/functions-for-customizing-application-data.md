@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3524f34773f4627dff478ee7cc9cbff9f674bf8e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ec23d3f08fb22f73618c27443bcd8b72c43a9862
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931773"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113553"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -164,7 +164,8 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 > [!NOTE]
 >1. Esta é uma função de nível superior, ele não é possível aninhar.
->2. Esta função apenas se destina a ser utilizado para criações de entrada. Quando utilizá-lo com um atributo, definir o **aplicam-se de mapeamento** propriedade **apenas durante a criação do objeto**.
+>2. Esta função não pode ser aplicada a atributos que têm uma precedência correspondente.  
+>3. Esta função apenas se destina a ser utilizado para criações de entrada. Quando utilizá-lo com um atributo, definir o **aplicam-se de mapeamento** propriedade **apenas durante a criação do objeto**.
 
 
 **Parâmetros:**<br> 

@@ -7,19 +7,18 @@ author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b303a18d481ae1a682d81d87e7c14060ffdfaf14
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 256aaf94175394fd737e53c6281f2d8b45e8af41
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869186"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099650"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Arquitetura de armazenamento de SAP HANA (instâncias grandes)
 
@@ -79,7 +78,7 @@ Consulte [cenários compatíveis com a HLI](hana-supported-scenario.md) para obt
 
 Alguns exemplos de execução de várias instâncias de SAP HANA podem ser semelhantes ao seguinte.
 
-| SKU | Tamanho da memória | Tamanho do armazenamento | Tamanhos com vários bancos de dados |
+| SKU | Tamanho da memória | Tamanho de armazenamento | Tamanhos com vários bancos de dados |
 | --- | --- | --- | --- |
 | S72 | 768 GB | 3 TB | instância do HANA de 1x GB<br /> ou instância 1x-GB + 1x-GB de instância<br /> ou instâncias de 3x-GB | 
 | S72m | 1,5 TB | 6 TB | instâncias do 512Gb HANA<br />ou instância 1x-GB + 1x1-TB<br />ou instâncias de 6x-GB<br />ou 1x instância de 1,5 TB | 
@@ -89,7 +88,7 @@ Alguns exemplos de execução de várias instâncias de SAP HANA podem ser semel
 
 Também há outras variações. 
 
-## <a name="encryption-of-data-at-rest"></a>Encriptação de dados inativos
+## <a name="encryption-of-data-at-rest"></a>Encriptação de dados em repouso
 O armazenamento usado para o SAP HANA em instâncias grandes usa a criptografia transparente para os dados conforme eles são armazenados nos discos desde o fim do ano 2018. Em implantações anteriores, você pode optar por obter os volumes criptografados. Se você decidir sobre essa opção, poderá solicitar que os volumes sejam criptografados online. A mudança de um volume não criptografado para volumes criptografados é transparente e não requer tempo de inatividade. 
 
 Com a classe Type I de SKUs, o volume no qual o LUN de inicialização está armazenado é criptografado. Na revisão 3 carimbos de instância grande do HANA, usando a classe Type II de SKUs de instância grande do HANA, você precisa criptografar o LUN de inicialização com métodos do sistema operacional. Na revisão 4 os carimbos de instância grande do HANA, usando unidades do tipo II, o volume do LUN de inicialização é armazenado e também é criptografado em repouso por padrão. 

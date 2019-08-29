@@ -7,25 +7,24 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 8e108d88282894a7b1bf014146083008bedd483d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc1200d6acef077e36f701a75f613aba0ccbb75f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60319505"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103395"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Não é possível RDP para uma VM porque a VM arranca no modo de segurança
 
 Este artigo mostra como resolver um problema em que não é possível ligar às máquinas de virtuais de Windows do Azure (VMs), porque a VM está configurada para efetuar o arranque no modo seguro.
 
 > [!NOTE]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -113,19 +112,19 @@ Para ativar o registo de despejo e consola de série, execute o seguinte script.
     reg unload HKLM\BROKENSYSTEM
     ```
 
-#### <a name="configure-the-windows-to-boot-into-normal-mode"></a>Configurar o Windows não arrancou no modo normal
+#### <a name="configure-the-windows-to-boot-into-normal-mode"></a>Configurar as janelas para inicialização no modo normal
 
 1. Abra uma sessão de linha de comandos elevada (**executar como administrador**).
-2. Verifique os dados de configuração de arranque. Os seguintes comandos, partimos do pressuposto que a letra de unidade que está atribuída ao disco do SO anexado é F. Substitua esta letra de unidade com o valor apropriado para a sua VM.
+2. Verifique os dados de configuração da inicialização. Nos comandos a seguir, presumimos que a letra da unidade atribuída ao disco do sistema operacional anexado é F. Substitua essa letra da unidade pelo valor apropriado para sua VM.
 
         bcdedit /store F:\boot\bcd /enum
-    Tome nota do nome do identificador da partição que tenha as **\windows** pasta. Por predefinição, o nome do identificador é "Padrão".
+    Anote o nome do identificador da partição que tem a pasta **\Windows** . Por padrão, o nome do identificador é "padrão".
 
-    Se a VM está configurada para inicializar em modo de segurança, verá um sinalizador extra sob os **carregador de inicialização do Windows** secção denominada **inicialização segura**. Se não vir a **inicialização segura** sinalizador, este artigo não é aplicável ao seu cenário.
+    Se a VM está configurada para inicializar em modo de segurança, verá um sinalizador extra sob os **carregador de inicialização do Windows** secção denominada **inicialização segura**. Se você não vir o sinalizador de **inicialização segura** , este artigo não se aplicará ao seu cenário.
 
-    ![A imagem sobre o identificador de arranque](./media/troubleshoot-rdp-safe-mode/boot-id.png)
+    ![A imagem sobre o identificador de inicialização](./media/troubleshoot-rdp-safe-mode/boot-id.png)
 
-3. Remover os **inicialização segura** sinalizar, para que a VM será arrancada no modo normal:
+3. Remova o sinalizador de **inicialização segura** , portanto, a VM será inicializada no modo normal:
 
         bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
 4. Verifique os dados de configuração de arranque para se certificar de que o **inicialização segura** sinalizador é removido:

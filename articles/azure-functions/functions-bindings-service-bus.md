@@ -8,16 +8,15 @@ manager: gwallace
 keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 3d5b2afd642a7eb042b2e6e07ef93a505f6b9648
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: f2bdfab82e1b9fb05d74f69536ec672a4b18a4bf
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774705"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114370"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces do Service Bus do Azure para as funções do Azure
 
@@ -715,14 +714,19 @@ No c# e no c# script, pode utilizar os seguintes tipos de parâmetro para o enla
 * `out T paramName` - `T` pode ser qualquer tipo serializável JSON. Se o valor do parâmetro for nulo quando a função sai, as funções cria a mensagem com um objeto nulo.
 * `out string` – Se o valor do parâmetro é nulo quando a função sai, as funções não cria uma mensagem.
 * `out byte[]` – Se o valor do parâmetro é nulo quando a função sai, as funções não cria uma mensagem.
-* `out BrokeredMessage` – Se o valor do parâmetro é nulo quando a função sai, as funções não cria uma mensagem.
+* `out BrokeredMessage`-Se o valor do parâmetro for nulo quando a função for encerrada, as funções não criarão uma mensagem (para as funções 1. x)
+* `out Message`-Se o valor do parâmetro for nulo quando a função for encerrada, as funções não criarão uma mensagem (para as funções 2. x)
 * `ICollector<T>` ou `IAsyncCollector<T>` – para a criação de várias mensagens. Uma mensagem é criada quando chama o `Add` método.
 
-Nas funções assíncronas, utilize o valor de retorno ou `IAsyncCollector` em vez de um `out` parâmetro.
+Ao trabalhar com C# funções:
 
-Esses parâmetros são para a versão das funções do Azure 1.x; para 2.x, utilize [ `Message` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage`.
+* As funções assíncronas precisam de `IAsyncCollector` um valor de `out` retorno ou em vez de um parâmetro.
 
-No JavaScript, aceder a fila ou tópico ao utilizar `context.bindings.<name from function.json>`. Pode atribuir uma cadeia de caracteres, uma matriz de bytes ou um objeto Javascript (anular a serialização em JSON) para `context.binding.<name>`.
+* Para acessar a ID da sessão, associe a [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) um tipo e use `sessionId` a propriedade.
+
+No JavaScript, aceder a fila ou tópico ao utilizar `context.bindings.<name from function.json>`. Você pode atribuir uma cadeia de caracteres, uma matriz de bytes ou um objeto JavaScript (desserializado em JSON `context.binding.<name>`) para.
+
+Para enviar uma mensagem para uma fila habilitada para sessão em outrosC# idiomas, use o [SDK do barramento de serviço do Azure](https://docs.microsoft.com/azure/service-bus-messaging) em vez da Associação de saída interna.
 
 ## <a name="exceptions-and-return-codes"></a>Exceções e códigos de retorno
 

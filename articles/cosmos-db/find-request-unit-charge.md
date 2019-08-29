@@ -3,15 +3,15 @@ title: Localizar a cobrança da unidade de solicitação (RU) no Azure Cosmos DB
 description: Saiba como encontrar a cobrança de RU (unidade de solicitação) para qualquer operação executada em um contêiner Cosmos do Azure.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 96c36067456a49a5760d6fde488dcb4ad8311a90
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 682273524269682f62cd386de1c9161888747f16
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356453"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093715"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Localizar o encargo de unidade de solicitação em Azure Cosmos DB
 
@@ -301,7 +301,7 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 
 Para obter mais informações, [consulte início rápido: Crie um aplicativo API de Tabela usando o SDK do .NET e o](create-table-dotnet.md)Azure Cosmos DB.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como otimizar seu consumo de RU, consulte estes artigos:
 

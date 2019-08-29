@@ -1,6 +1,6 @@
 ---
-title: Certificados e o ambiente de serviço de aplicações - Azure
-description: Explicar vários tópicos relacionados ao certificados num ASE
+title: Certificados e o Ambiente do Serviço de Aplicativo-Azure
+description: Explicar vários tópicos relacionados a certificados em um ASE
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -9,44 +9,43 @@ ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ba34638bbdb838adc6f1e61b1f8b07a6915815c0
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: f40043b920fab4cb38f935618c7aaecc6bf40a87
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540769"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069718"
 ---
-# <a name="certificates-and-the-app-service-environment"></a>Certificados e o ambiente de serviço de aplicações 
+# <a name="certificates-and-the-app-service-environment"></a>Certificados e o Ambiente do Serviço de Aplicativo 
 
-O Environment do serviço de aplicações é uma implementação do serviço de aplicações do Azure que é executado dentro de sua rede Virtual do Azure. Pode ser implementado com um ponto de extremidade do aplicativo acessível de internet ou de um ponto final da aplicação que está na sua VNet. Se implementar o ASE com um ponto de final de acesso de internet, essa implementação é chamada ASE externo. Se implementar o ASE com um ponto final na sua VNet, essa implementação é chamada um ASE de ILB. Pode saber mais sobre o ASE de ILB a partir da [criar e utilizar um ASE de ILB](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase) documento.
+O Ambiente do Serviço de Aplicativo (ASE) é uma implantação do serviço de Azure App que é executado em sua VNet (rede virtual) do Azure. Ele pode ser implantado com um ponto de extremidade de aplicativo acessível pela Internet ou um ponto de extremidade de aplicativo que está em sua VNet. Se você implantar o ASE com um ponto de extremidade acessível pela Internet, essa implantação será chamada de ASE externo. Se você implantar o ASE com um ponto de extremidade em sua VNet, essa implantação será chamada de ASE ILB. Você pode saber mais sobre o ASE ILB no documento [criar e usar um ase ILB](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase) .
 
-O ASE é um sistema de inquilino único. Porque se trata de inquilino único, existem algumas funcionalidades disponíveis apenas com um ASE que não estão disponíveis no multi-inquilino de serviço de aplicações. 
+O ASE é um sistema de locatário único. Como é um único locatário, há alguns recursos disponíveis apenas com um ASE que não está disponível no serviço de aplicativo multilocatário. 
 
-## <a name="ilb-ase-certificates"></a>Certificados de ASE de ILB 
+## <a name="ilb-ase-certificates"></a>Certificados do ASE ILB 
 
-Se estiver a utilizar um ASE externo, em seguida, as suas aplicações são contatadas [appname]. [asename]. p.azurewebsites.net. Por predefinição a todos os ASEs, até mesmo os ASEs do ILB, são criadas com certificados que se seguem esse formato. Quando tiver um ASE de ILB, as aplicações são atingidas com base no nome de domínio que especificou ao criar o ASE de ILB. Para as aplicações dar suporte a SSL, terá de carregar certificados. Obter um certificado SSL válido ao utilizar autoridades de certificação internas, adquirir um certificado de um emissor externo ou utilizar um certificado autoassinado. 
+Se você estiver usando um ASE externo, seus aplicativos serão alcançados em [AppName]. [asename]. p. azurewebsites. net. Por padrão, todos os ASEs, até mesmo ILB ASEs, são criados com certificados que seguem esse formato. Quando você tiver um ASE ILB, os aplicativos serão alcançados com base no nome de domínio que você especificar ao criar o ASE ILB. Para que os aplicativos ofereçam suporte a SSL, você precisa carregar certificados. Obtenha um certificado SSL válido usando autoridades de certificação internas, comprando um certificado de um emissor externo ou usando um certificado autoassinado. 
 
-Existem duas opções para configurar certificados com o ASE de ILB.  Pode configurar um certificado de padrão de caráter universal para o ASE de ILB ou defina os certificados em aplicativos web individuais no ASE.  Independentemente da escolha que fizer, os seguintes atributos de certificado tem de ser configurados corretamente:
+Há duas opções para configurar certificados com o ASE ILB.  Você pode definir um certificado padrão de caractere curinga para o ASE ILB ou definir certificados nos aplicativos Web individuais no ASE.  Independentemente da escolha que você fizer, os seguintes atributos de certificado devem ser configurados corretamente:
 
-- **Assunto:** Este atributo deve ser definido como *. [your-raiz-domain-here] para um certificado de ASE de ILB com carateres universais. Se criar o certificado para a sua aplicação, em seguida, deve ser [appname]. [your-raiz-domain-here]
-- **Nome alternativo do requerente:** Este atributo tem de incluir *. [your-raiz-domain-here] e *.SCM.{0. [your-raiz-domain-here] para o certificado de ASE de ILB com carateres universais. Se criar o certificado para a sua aplicação, em seguida, deve ser [appname]. [your-raiz-domain-here] e [appname]. SCM a seguir. [your-raiz-domain-here].
+- **Assunto:** Esse atributo deve ser definido como *. [Your-raiz-Domain-aqui] para um certificado de ASE ILB curinga. Se você estiver criando o certificado para seu aplicativo, ele deverá ser [AppName]. [Your-raiz-Domain-aqui]
+- **Nome alternativo da entidade:** Este atributo tem de incluir *. [your-raiz-domain-here] e *.SCM.{0. [your-raiz-domain-here] para o certificado de ASE de ILB com carateres universais. Se você estiver criando o certificado para seu aplicativo, ele deverá ser [AppName]. [Your-raiz-Domain-aqui] e [AppName]. SCM. [Your-raiz-Domain-aqui].
 
-Como uma variante de terceiro, pode criar um certificado de ASE de ILB que inclui todos os nomes de aplicações individuais na SAN do certificado em vez de usar uma referência de caráter universal. O problema com este método é que precisa saber com antecedência os nomes das aplicações que estão a colocar no ASE ou terá de continuar a atualizar o certificado do ASE de ILB.
+Como uma terceira variante, você pode criar um certificado ASE ILB que inclui todos os nomes de aplicativo individuais na SAN do certificado em vez de usar uma referência de curinga. O problema com esse método é que você precisa saber antecipadamente os nomes dos aplicativos que você está colocando no ASE ou você precisa continuar atualizando o certificado ASE ILB.
 
-### <a name="upload-certificate-to-ilb-ase"></a>Carregar o certificado para o ASE de ILB 
+### <a name="upload-certificate-to-ilb-ase"></a>Carregar o certificado para o ASE ILB 
 
-Depois de um ASE de ILB é criado no portal, o certificado tem de ser definido para o ASE de ILB. Até que o certificado for definido, o ASE mostrará uma faixa que o certificado não foi definido.  
+Depois que um ASE ILB é criado no portal, o certificado deve ser definido para o ASE ILB. Até que o certificado seja definido, o ASE mostrará uma faixa informando que o certificado não foi definido.  
 
-O certificado que é carregado deve ser um ficheiro. pfx. Depois do certificado é carregado, o ASE irá efetuar uma operação de dimensionamento para definir o certificado. 
+O certificado que você carrega deve ser um arquivo. pfx. Depois que o certificado for carregado, o ASE executará uma operação de dimensionamento para definir o certificado. 
 
-Não é possível criar o ASE e carregar o certificado como uma ação no portal ou mesmo num modelo. Como uma ação separada, pode carregar o certificado utilizando um modelo, conforme descrito no [criar um ASE a partir de um modelo](./create-from-template.md) documento.  
+Você não pode criar o ASE e carregar o certificado como uma ação no portal ou até mesmo em um modelo. Como uma ação separada, você pode carregar o certificado usando um modelo, conforme descrito no documento [criar um ase a partir de um modelo](./create-from-template.md) .  
 
-Se pretender criar um certificado autoassinado rapidamente para fins de teste, pode utilizar o seguinte trecho do PowerShell:
+Se você quiser criar um certificado autoassinado rapidamente para teste, poderá usar o seguinte bit do PowerShell:
 
     $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
@@ -55,41 +54,41 @@ Se pretender criar um certificado autoassinado rapidamente para fins de teste, p
 
     $fileName = "exportedcert.pfx"
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
-Quando criar um self assinado o certificado, terá de garantir que o nome do requerente tem o formato de CN = {ASE_NAME_HERE} _InternalLoadBalancingASE.
+Ao criar um certificado autoassinado, você precisará garantir que o nome da entidade tenha o formato CN = {ASE_NAME_HERE} _InternalLoadBalancingASE.
 
-## <a name="application-certificates"></a>Certificados de aplicação 
+## <a name="application-certificates"></a>Certificados de aplicativo 
 
-Aplicações que estão alojadas num ASE podem utilizar as funcionalidades de certificado centrada em aplicações que estão disponíveis no multi-inquilino de serviço de aplicações. Esses recursos incluem:  
+Os aplicativos hospedados em um ASE podem usar os recursos de certificado centrado no aplicativo que estão disponíveis no serviço de aplicativo multilocatário. Esses recursos incluem:  
 
 - Certificados SNI 
-- Baseado em IP SSL, que só é suportado com um ASE externo.  Um ASE de ILB não suporta SSL baseado em IP.
-- Certificados KeyVault alojado 
+- SSL baseado em IP, que tem suporte apenas com um ASE externo.  Um ASE ILB não dá suporte a SSL baseado em IP.
+- Certificados hospedados do keyvault 
 
-As instruções para carregar e gerir os certificados estão disponíveis no tutorial SSL do serviço de aplicações https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl.  Se estiver a configurar simplesmente certificados para corresponder a um nome de domínio personalizado que foram atribuídos à sua aplicação web, em seguida, essas instruções serão suficiente. Se estiver a carregar o certificado para uma aplicação web do ASE de ILB com o nome de domínio predefinido, em seguida, especifique o site do scm na SAN do certificado, conforme observado anteriormente. 
+As instruções para carregar e gerenciar esses certificados estão disponíveis no tutorial https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl SSL do serviço de aplicativo.  Se você estiver simplesmente Configurando certificados para corresponder a um nome de domínio personalizado que você atribuiu ao seu aplicativo Web, essas instruções serão suficientes. Se você estiver carregando o certificado para um aplicativo Web ILB ASE com o nome de domínio padrão, especifique o site SCM na SAN do certificado, conforme observado anteriormente. 
 
-## <a name="tls-settings"></a>Definições de TLS 
+## <a name="tls-settings"></a>Configurações de TLS 
 
-Pode configurar a definição de TLS ao nível da aplicação.  
+Você pode definir a configuração de TLS em um nível de aplicativo.  
 
-## <a name="private-client-certificate"></a>Certificado de cliente privada 
+## <a name="private-client-certificate"></a>Certificado de cliente privado 
 
-É um caso de utilização comuns configurar a sua aplicação como um cliente num modelo de cliente-servidor. Se proteger o seu servidor com um certificado de AC privado, terá de carregar o certificado de cliente para a sua aplicação.  As instruções seguintes irão carregar certificados para o truststore dos trabalhadores que a aplicação está em execução no. Se carregar o certificado a uma aplicação, pode utilizá-la com as suas outras aplicações no mesmo plano de serviço de aplicações, sem carregar o certificado novamente.
+Um caso de uso comum é configurar seu aplicativo como um cliente em um modelo de cliente-servidor. Se você proteger o servidor com um certificado de autoridade de certificação privada, será necessário carregar o certificado do cliente em seu aplicativo.  As instruções a seguir carregarão certificados para o trustStore dos trabalhos em que seu aplicativo está sendo executado. Se você carregar o certificado para um aplicativo, poderá usá-lo com outros aplicativos no mesmo plano do serviço de aplicativo sem carregar o certificado novamente.
 
-Para carregar o certificado à sua aplicação no seu ASE:
+Para carregar o certificado em seu aplicativo no ASE:
 
-1. Gerar um *. cer* ficheiro para o seu certificado. 
-2. Vá para a aplicação que precisa do certificado no portal do Azure
-3. Aceda às definições de SSL na aplicação. Clique em Carregar certificado. Selecione o público. Selecione o computador Local. Forneça um nome. Procházet a vybrat sua *. cer* ficheiro. Selecione o carregamento. 
-4. Copie o thumbprint.
-5. Aceda às definições de aplicação. Crie um WEBSITE_LOAD_ROOT_CERTIFICATES de definição de aplicação com o thumbprint como o valor. Se tiver vários certificados, pode colocá-los na definição da mesma, separada por vírgulas e sem espaço em branco, como 
+1. Gere um arquivo *. cer* para seu certificado. 
+2. Vá para o aplicativo que precisa do certificado no portal do Azure
+3. Vá para configurações de SSL no aplicativo. Clique em carregar certificado. Selecione público. Selecione computador local. Forneça um nome. Procure e selecione o arquivo *. cer* . Selecione carregar. 
+4. Copie a impressão digital.
+5. Vá para configurações do aplicativo. Crie uma configuração de aplicativo WEBSITE_LOAD_ROOT_CERTIFICATES com a impressão digital como o valor. Se você tiver vários certificados, poderá colocá-los na mesma configuração separada por vírgulas e nenhum espaço em branco como 
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-O certificado vai estar disponível por todas as aplicações no mesmo plano de serviço de aplicações como a aplicação, que é configurado dessa definição. Se precisar de ele estar disponível para aplicações num plano do serviço de aplicação diferente, terá de repetir a operação de definição de aplicação numa aplicação nesse plano do serviço de aplicações. Para verificar que o certificado for definido, vá para a consola Kudu e emita o comando seguinte na consola de depuração do PowerShell:
+O certificado estará disponível por todos os aplicativos no mesmo plano do serviço de aplicativo que o aplicativo, que configurou essa configuração. Se você precisar que ele esteja disponível para aplicativos em um plano do serviço de aplicativo diferente, será necessário repetir a operação de configuração do aplicativo em um aplicativo nesse plano do serviço de aplicativo. Para verificar se o certificado está definido, vá para o console do Kudu e emita o seguinte comando no console de depuração do PowerShell:
 
     dir cert:\localmachine\root
 
-Para realizar testes, pode criar um certificado autoassinado e gerar uma *. cer* ficheiro com o PowerShell seguinte: 
+Para executar testes, você pode criar um certificado autoassinado e gerar um arquivo *. cer* com o PowerShell a seguir: 
 
     $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com
 

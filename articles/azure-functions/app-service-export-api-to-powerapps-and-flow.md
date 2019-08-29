@@ -6,17 +6,16 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: ''
 ms.service: app-service
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: 4d7538d064e27e34c33fd92bc6dfcdaba7a1efc1
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2ed154d15176ed6706a69f0a6be4c60159d478c2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533565"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087700"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportando uma API hospedada no Azure para o PowerApps e Microsoft Flow
 

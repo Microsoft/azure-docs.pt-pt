@@ -1,6 +1,6 @@
 ---
-title: Galeria de imagens de partilhada do Azure | Documentos da Microsoft
-description: Saiba como utilizar as galerias de imagem partilhada para partilhar imagens de VM na sua organização.
+title: Galeria de imagens compartilhadas do Azure | Microsoft Docs
+description: Saiba como usar galerias de imagens compartilhadas para compartilhar imagens de VM em sua organização.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: axayjo
@@ -9,7 +9,6 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -17,19 +16,19 @@ ms.date: 05/06/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: b28ad9b61a14a1961cf2a9de828df320134be838
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 35789e7f85e99d7985e8e19b82a7aea585483daf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709182"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088706"
 ---
-# <a name="shared-image-gallery-overview"></a>Descrição geral de Galeria de imagens partilhado
+# <a name="shared-image-gallery-overview"></a>Visão geral da Galeria de imagens compartilhadas
 
 
 [!INCLUDE [virtual-machines-common-shared-image-galleries](../../../includes/virtual-machines-common-shared-image-galleries.md)]
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [implementar imagens partilhadas com o Azure PowerShell](shared-images.md).
+Saiba como [implantar imagens compartilhadas usando o Azure PowerShell](shared-images.md).

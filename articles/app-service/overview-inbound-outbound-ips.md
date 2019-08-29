@@ -1,6 +1,6 @@
 ---
-title: Endereços de IP de entrada/saída - serviço de aplicações do Azure | Documentos da Microsoft
-description: Descreve como entrada e saída IP endereços são utilizados no serviço de aplicações e como encontrar informações sobre as mesmas para a sua aplicação.
+title: Endereços IP de entrada/saída-serviço de Azure App | Microsoft Docs
+description: Descreve como os endereços IP de entrada e saída são usados no serviço de aplicativo e como encontrar informações sobre eles para seu aplicativo.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -9,57 +9,56 @@ editor: ''
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: de9ae8e5c0cbf0997811db9624f6c6b92e03a5df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2508090fa8831c8fefb0e710c28e512ec0c94c6e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742945"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074146"
 ---
-# <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Endereços IP de entrada e saídos no serviço de aplicações do Azure
+# <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Endereços IP de entrada e saída no serviço Azure App
 
-[Serviço de aplicações do Azure](overview.md) é um serviço de multi-inquilino, exceto para [ambientes do serviço de aplicações](environment/intro.md). Aplicações que não estejam num ambiente de serviço de aplicações (não no [escalão isolado](https://azure.microsoft.com/pricing/details/app-service/)) infraestrutura de rede de partilha com outras aplicações. Como resultado, os endereços IP de entrada e saídos de uma aplicação podem ser diferentes e podem até mesmo alterar em determinadas situações. 
+[Azure app serviço](overview.md) é um serviço multilocatário, exceto para [ambientes de serviço de aplicativo](environment/intro.md). Os aplicativos que não estão em um ambiente do serviço de aplicativo (não na [camada isolada](https://azure.microsoft.com/pricing/details/app-service/)) compartilham a infraestrutura de rede com outros aplicativos. Como resultado, os endereços IP de entrada e saída de um aplicativo podem ser diferentes e podem até mesmo mudar em determinadas situações. 
 
-[Ambientes de serviço de aplicações](environment/intro.md) utilizam infraestruturas de rede dedicada, para que as aplicações em execução num ambiente de serviço de aplicações obtém estáticas, endereços IP dedicado para ligações de entrada e saídas.
+Os [ambientes de serviço de aplicativo](environment/intro.md) usam infraestruturas de rede dedicadas, de modo que os aplicativos em execução em um ambiente de serviço de aplicativo obtenham endereços IP dedicados e estáticos para conexões de entrada e saída.
 
-## <a name="when-inbound-ip-changes"></a>Quando altera o IP de entrada
+## <a name="when-inbound-ip-changes"></a>Quando o IP de entrada é alterado
 
-Independentemente do número de instâncias de escalamento horizontal, cada aplicação tem um único endereço IP de entrada. O endereço IP de entrada podem ser alterados quando executar uma das seguintes ações:
+Independentemente do número de instâncias escaladas horizontalmente, cada aplicativo tem um único endereço IP de entrada. O endereço IP de entrada pode ser alterado quando você executa uma das seguintes ações:
 
-- Eliminar uma aplicação e recrie-a num grupo de recursos diferentes.
-- Eliminar a última aplicação num grupo de recursos _e_ combinação da região e recriá-lo.
-- Eliminar um enlace SSL existente, tal como durante a renovação de certificado (consulte [renovar certificados](app-service-web-tutorial-custom-ssl.md#renew-certificates)).
+- Exclua um aplicativo e recrie-o em um grupo de recursos diferente.
+- Exclua o último aplicativo em um grupo de recursos _e_ uma combinação de região e recrie-o.
+- Exclua uma associação SSL existente, como durante a renovação do certificado (consulte renovar [certificados](app-service-web-tutorial-custom-ssl.md#renew-certificates)).
 
-## <a name="find-the-inbound-ip"></a>Encontrar o IP de entrada
+## <a name="find-the-inbound-ip"></a>Localizar o IP de entrada
 
-Basta execute o seguinte comando num local terminal:
+Basta executar o seguinte comando em um terminal local:
 
 ```bash
 nslookup <app-name>.azurewebsites.net
 ```
 
-## <a name="get-a-static-inbound-ip"></a>Obter um IP estático de entrada
+## <a name="get-a-static-inbound-ip"></a>Obter um IP de entrada estático
 
-Por vezes, pode desejar um endereço IP estático e dedicado para a sua aplicação. Para obter um endereço IP de entrada estático, tem de configurar uma [enlace SSL baseado em IP](app-service-web-tutorial-custom-ssl.md#secure-a-custom-domain). Se não precisar verdadeiramente de uma funcionalidade SSL para proteger a sua aplicação, pode ainda carregar um certificado autoassinado para este enlace. Num enlace SSL baseado em IP, o certificado está vinculado para o endereço IP em si, por isso, provisões de serviço de aplicações um IP estático de endereços para que isso aconteça. 
+Às vezes, você pode querer um endereço IP estático dedicado para seu aplicativo. Para obter um endereço IP de entrada estático, você precisa configurar uma [Associação SSL com base em IP](app-service-web-tutorial-custom-ssl.md#secure-a-custom-domain). Se você não precisar realmente da funcionalidade SSL para proteger seu aplicativo, você pode até mesmo carregar um certificado autoassinado para essa associação. Em uma associação SSL com base em IP, o certificado é associado ao próprio endereço IP, portanto, o serviço de aplicativo provisiona um endereço IP estático para que ele aconteça. 
 
-## <a name="when-outbound-ips-change"></a>Quando alterar a IPs de saída
+## <a name="when-outbound-ips-change"></a>Quando os IPs de saída forem alterados
 
-Independentemente do número de instâncias de escalamento horizontal, cada aplicação tem um número de conjunto de endereços IP de saída num determinado momento. Qualquer ligação de saída a partir da aplicação de serviço de aplicações, como para uma base de dados de back-end, utiliza um dos endereços IP de saída, como o endereço IP de origem. Não é possível saber com antecedência, qual o endereço IP, irá utilizar para fazer a ligação de saída, para que o seu serviço de back-end tem de abrir a firewall para todos os endereços IP de saída da sua aplicação uma instância de determinada aplicação.
+Independentemente do número de instâncias escaladas horizontalmente, cada aplicativo tem um número definido de endereços IP de saída em um determinado momento. Qualquer conexão de saída do aplicativo do serviço de aplicativo, como para um banco de dados back-end, usa um dos endereços IP de saída como o endereço IP de origem. Você não pode saber antecipadamente qual endereço IP uma determinada instância de aplicativo usará para fazer a conexão de saída, de modo que seu serviço de back-end deve abrir seu firewall para todos os endereços IP de saída de seu aplicativo.
 
-O conjunto de IP de saída endereços pela sua aplicação muda quando dimensionar a sua aplicação entre as camadas inferiores (**básica**, **padrão**, e **Premium**) e o  **O Premium V2** escalão.
+O conjunto de endereços IP de saída para seu aplicativo é alterado quando você dimensiona seu aplicativo entre as camadas inferiores (**Basic**, **Standard**e **Premium**) e a camada **Premium v2** .
 
-Pode encontrar o conjunto de todos os possíveis endereços IP de saída pode utilizar a sua aplicação, independentemente de preços escalões, procurando o `possibleOutboundIPAddresses` propriedade ou no **endereços de IP de saída adicionais** campo no **propriedades**  painel no portal do Azure. Ver [encontrar IPs de saída](#find-outbound-ips).
+Você pode encontrar o conjunto de todos os endereços IP de saída possíveis que seu aplicativo pode usar, independentemente dos tipos de preço, procurando `possibleOutboundIPAddresses` a propriedade ou no campo **endereços IP de saída adicionais** na folha **Propriedades** no portal do Azure. Consulte [Localizar IPS de saída](#find-outbound-ips).
 
-## <a name="find-outbound-ips"></a>Encontre os IPs de saída
+## <a name="find-outbound-ips"></a>Localizar IPs de saída
 
-Para localizar os endereços IP de saída atualmente a ser utilizados pela sua aplicação no portal do Azure, clique em **propriedades** na navegação do lado esquerdo da sua aplicação. Estes são listados no **endereços IP de saída** campo.
+Para localizar os endereços IP de saída usados atualmente pelo seu aplicativo no portal do Azure, clique em **Propriedades** na navegação esquerda do seu aplicativo. Eles são listados no campo **endereços IP de saída** .
 
-Pode encontrar as mesmas informações ao executar o seguinte comando na [Cloud Shell](../cloud-shell/quickstart.md).
+Você pode encontrar as mesmas informações executando o comando a seguir no [Cloud Shell](../cloud-shell/quickstart.md).
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
@@ -69,9 +68,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-Para encontrar _todos os_ possíveis endereços IP de saída para a sua aplicação, independentemente de preços escalões, clique em **propriedades** na navegação do lado esquerdo da sua aplicação. Estes são listados no **endereços de IP de saída adicionais** campo.
+Para localizar _todos os_ endereços IP de saída possíveis para seu aplicativo, independentemente dos tipos de preço, clique em **Propriedades** na navegação esquerda do seu aplicativo. Eles são listados no campo **endereços IP de saída adicionais** .
 
-Pode encontrar as mesmas informações ao executar o seguinte comando na [Cloud Shell](../cloud-shell/quickstart.md).
+Você pode encontrar as mesmas informações executando o comando a seguir no [Cloud Shell](../cloud-shell/quickstart.md).
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
@@ -83,7 +82,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como restringir o tráfego de entrada através de endereços IP de origem.
+Saiba como restringir o tráfego de entrada por endereços IP de origem.
 
 > [!div class="nextstepaction"]
-> [Restrições de IP estáticas](app-service-ip-restrictions.md)
+> [Restrições de IP estático](app-service-ip-restrictions.md)

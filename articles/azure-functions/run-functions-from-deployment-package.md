@@ -6,16 +6,15 @@ documentationcenter: na
 author: ggailey777
 manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: glenga
-ms.openlocfilehash: 96dbe9b15831a349afc0e68c15c39c1cb31b1032
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: b6a2347ff79268cdaf54993952d59bd700b781bc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444058"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095951"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Executar o Azure Functions de um arquivo de pacote
 
@@ -61,7 +60,7 @@ O seguinte mostra um aplicativo de funções configurado para ser executado a pa
 
 A [implantação de zip][Zip deployment for Azure Functions] é um recurso do serviço de Azure app que permite que você implante seu projeto `wwwroot` de aplicativo de funções no diretório. O projeto é empacotado como um arquivo de implantação. zip. As mesmas APIs podem ser usadas para implantar o pacote `d:\home\data\SitePackages` na pasta. Com o `WEBSITE_RUN_FROM_PACKAGE` valor de configuração do `1`aplicativo de, as APIs de implantação zip copiam `d:\home\data\SitePackages` o pacote para a pasta em vez de `d:\home\site\wwwroot`extrair os arquivos para o. Ele também cria o `packagename.txt` arquivo. O aplicativo de funções é então executado a partir do pacote após uma reinicialização e `wwwroot` torna-se somente leitura. Para obter mais informações sobre a implantação de zip, consulte [implantação de zip para Azure Functions](deployment-zip-push.md).
 
-## <a name="adding-the-websiterunfrompackage-setting"></a>Adicionando a configuração WEBSITE_RUN_FROM_PACKAGE
+## <a name="adding-the-website_run_from_package-setting"></a>Adicionando a configuração WEBSITE_RUN_FROM_PACKAGE
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
@@ -72,7 +71,7 @@ A [implantação de zip][Zip deployment for Azure Functions] é um recurso do se
 - Esse recurso não compõe o cache local.
 - Para obter um desempenho de inicialização a frio aprimorado, use a`WEBSITE_RUN_FROM_PACKAGE`opção de zip local (= 1).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Implementação contínua para Funções do Azure](functions-continuous-deployment.md)

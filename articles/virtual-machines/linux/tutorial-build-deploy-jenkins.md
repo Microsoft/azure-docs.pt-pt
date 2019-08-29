@@ -6,21 +6,20 @@ manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 7cd7b8f7b49915db9fcf17602429e47c1b9da95d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a62a302748cb7e60b6a857c686d1833ad499cc7a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478400"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081661"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: Implementar a sua aplicação para máquinas virtuais do Linux no Azure com o com o Jenkins e serviços do Azure DevOps
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: Implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Jenkins e o Azure DevOps Services
 
 A integração contínua (CI) e a implementação contínua (CD) formam um pipeline através do qual pode criar, lançar e implementar o seu código. Os Serviços de DevOps do Azure fornecem um conjunto completo com todas a funcionalidades das ferramentas de automatização de CI/CD para implementação no Azure. Jenkins é uma ferramenta popular de terceiros baseada no servidor de CI/CD que também fornece a automatização de CI/CD. Pode utilizar os Serviços de DevOps do Azure e o Jenkins em conjunto para personalizar a forma como fornece o serviço ou a aplicação na cloud.
 
@@ -35,7 +34,7 @@ num [grupo de implementação](https://docs.microsoft.com/azure/devops/pipelines
 > * Configurar o Jenkins para integração nos Serviços de DevOps do Azure.
 > * Criar um ponto final de serviço Jenkins.
 > * Criar um grupo de implementação para as máquinas virtuais do Azure.
-> * Crie um pipeline de lançamento de Pipelines do Azure.
+> * Crie um pipeline de liberação de Azure Pipelines.
 > * Executar implementações manuais e acionadas por CI.
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -68,7 +67,7 @@ Crie uma bifurcação desta aplicação e tome nota da localização (URL) para 
 
 ## <a name="configure-jenkins-plug-ins"></a>Configurar os plug-ins Jenkins
 
-Em primeiro lugar, tem de configurar dois plug-ins Jenkins: **NodeJS** e **VS Team dos serviços de implementação contínua**.
+Primeiro, você deve configurar dois plug-ins Jenkins: **NodeJS** e **implantação contínua do vs Team Services**.
 
 1. Abra a sua conta do Jenkins e selecione **Gerir Jenkins**.
 2. Na página **Gerir Jenkins**, selecione **Gerir Plug-ins**.
@@ -133,7 +132,7 @@ Precisa de um [grupo de implementação](https://www.visualstudio.com/docs/build
 
 1. Abra o separador **Versões** do hub **Compilação &amp; Versão**, abra os **Grupos de implementação** e selecione **+ Novo**.
 2. Introduza um nome para o grupo de implementação e uma descrição opcional. Em seguida, selecione **Criar**.
-3. Escolha o sistema operativo da máquina virtual de destino da implementação. Por exemplo, selecione **Ubuntu 16.04 +**.
+3. Escolha o sistema operativo da máquina virtual de destino da implementação. Por exemplo, selecione **Ubuntu 16.04 +** .
 4. Selecione **Utilizar um token de acesso pessoal no script para autenticação**.
 5. Selecione a ligação **Pré-requisitos do sistema**. Instale os pré-requisitos do sistema operativo.
 6. Selecione **Copiar script para área de transferência** para copiar o script.
@@ -141,7 +140,7 @@ Precisa de um [grupo de implementação](https://www.visualstudio.com/docs/build
 8. Após a instalação, são-lhe solicitadas etiquetas do grupo de implementação. Aceite as predefinições.
 9. Nos Serviços de DevOps do Azure, procure a máquina virtual recém-registada em **Destinos**, em **Grupos de Implementação**.
 
-## <a name="create-an-azure-pipelines-release-pipeline"></a>Criar um pipeline de lançamento de Pipelines do Azure
+## <a name="create-an-azure-pipelines-release-pipeline"></a>Criar um pipeline de liberação de Azure Pipelines
 
 Um pipeline de versão especifica o processo que os Azure Pipelines utilizam para implementar a aplicação. Neste exemplo, executa um script de shell.
 
@@ -164,9 +163,9 @@ Para criar o pipeline de versão no Azure Pipelines:
 
 1. Selecione **+ Versão** e **Criar Versão**.
 2. Selecione a compilação que concluiu na lista pendente realçada e selecione **Fila**.
-3. Escolha a ligação da versão na mensagem pop-up. Por exemplo: "Lançamento **Release 1** foi criada."
+3. Escolha a ligação da versão na mensagem pop-up. Por exemplo: "Versão **de lançamento-1** foi criada".
 4. Abra o separador **Registos** para ver o resultado da consola de versão.
-5. No browser, abra o URL de um dos servidores que adicionou ao grupo de implementação. Por exemplo, introduza **http://{o-seu-endereço-ip-do-servidor}**.
+5. No browser, abra o URL de um dos servidores que adicionou ao grupo de implementação. Por exemplo, introduza **http://{o-seu-endereço-ip-do-servidor}** .
 6. Aceda ao repositório de origem do Git e modifique os conteúdos do cabeçalho **h1** no ficheiro app/views/index.jade com algum texto alterado.
 7. Consolide as alterações.
 8. Após alguns minutos, verá uma nova versão criada na página **Versões** do Azure DevOps. Abra a versão para ver a implementação a decorrer. Parabéns!
@@ -175,7 +174,7 @@ Para criar o pipeline de versão no Azure Pipelines:
 
 Se se deparar com erros nos plug-ins do Jenkins, comunique os problemas com os componentes específicos no [Jenkins JIRA](https://issues.jenkins-ci.org/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, automatizou a implementação de uma aplicação no Azure com o Jenkins para a compilação e com os Serviços de DevOps do Azure para a versão. Aprendeu a:
 

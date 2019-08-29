@@ -1,65 +1,64 @@
 ---
-title: Quando se reinicia uma VM do Azure a falha de serviço crítico | Documentos da Microsoft
-description: Aprenda a solucionar o erro "Falha de serviço 0x0000005A crítico", que ocorre quando se reinicia | Documentos da Microsoft
+title: FALHA no serviço crítico ao inicializar uma VM do Azure | Microsoft Docs
+description: Saiba como solucionar o erro "falha do serviço crítico do 0x0000005A" que ocorre durante a inicialização | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: ca3fe83d7072ba774c8124c5108652ab7223041d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2a6e8985a2cb13da0f2e34f4e9961f84aacdd974
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449802"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103511"
 ---
-# <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows mostra "CRÍTICOS serviço falhou" na tela azul quando se reinicia uma VM do Azure
-Este artigo descreve o erro "Falha no serviço crítico" que ocorrem quando arranca uma Máquina Virtual do Windows (VM) no Microsoft Azure. Ele fornece passos de resolução de problemas para ajudar a resolver os problemas. 
+# <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>O Windows mostra "falha no serviço crítico" na tela azul ao inicializar uma VM do Azure
+Este artigo descreve o erro "serviço crítico com falha" que pode ocorrer quando você Inicializa uma VM (máquina virtual) do Windows no Microsoft Azure. Ele fornece etapas de solução de problemas para ajudar a resolver os problemas. 
 
 > [!NOTE] 
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo descreve a utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo descreve como usar o modelo de implantação do Gerenciador de recursos, que é recomendável usar para novas implantações em vez do modelo de implantação clássico.
 
 ## <a name="symptom"></a>Sintoma 
 
-Uma VM do Windows não iniciar. Quando verifica as capturas de ecrã de arranque [diagnósticos de arranque](./boot-diagnostics.md), verá uma das seguintes mensagens de erro numa tela azul:
+Uma VM do Windows não é iniciada. Ao verificar as capturas de tela de inicialização em diagnósticos de [inicialização](./boot-diagnostics.md), você verá uma das seguintes mensagens de erro em um ecrã azul:
 
-- "Seu PC Ocorreu um problema e tem de reiniciar. Pode reiniciar. Para obter mais informações sobre este problema e possíveis correções, visite https://windows.com/stopcode. Se chamar um técnico de suporte, dar-lhes estas informações: Pare o código: FALHA DE SERVIÇO CRÍTICO" 
-- "Seu PC Ocorreu um problema e tem de reiniciar. Está a ser recolhido apenas algumas informações de erro e, em seguida, podemos será reiniciado para. Se quiser saber mais, pode pesquisar online mais tarde para este erro: CRITICAL_SERVICE_FAILED"
+- "Seu PC encontrou um problema e precisa ser reiniciado. Você pode reiniciar o. Para obter mais informações sobre esse problema e as possíveis correções, visite https://windows.com/stopcode. Se você chamar uma pessoa de suporte, forneça estas informações: Código de parada: FALHA NO SERVIÇO CRÍTICO " 
+- "Seu PC encontrou um problema e precisa ser reiniciado. Estamos apenas coletando algumas informações de erro e, em seguida, reiniciaremos para você. Se você quiser saber mais, poderá pesquisar online mais tarde para este erro: CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>Causa
 
-Existem várias causas para erros de parada. As causas mais comuns são:
+Há várias causas para erros de parada. As causas mais comuns são:
 - Problema com um driver
-- Arquivo de sistema corrompido ou memória
-- Aplicativo acessa um setor proibido da memória
+- Arquivo ou memória do sistema corrompido
+- O aplicativo acessa um setor proibido da memória
 
 ## <a name="solution"></a>Solução 
 
-Para resolver este problema, [contacte o suporte e submeter um arquivo de despejo](./troubleshoot-common-blue-screen-error.md#collect-memory-dump-file), que nos irão ajudar a diagnosticar o problema mais rapidamente, ou tente a seguinte solução de ajuda autónoma.
+Para resolver esse problema, [contate o suporte e envie um arquivo de despejo](./troubleshoot-common-blue-screen-error.md#collect-memory-dump-file), que nos ajudará a diagnosticar o problema mais rapidamente ou experimente a seguinte solução de autoatendimento.
 
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco do SO a uma VM de recuperação
 
-1. Tire um instantâneo do disco do SO da VM afetado como uma cópia de segurança. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
+1. Tire um instantâneo do disco do sistema operacional da VM afetada como um backup. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 2. [Anexar o disco do SO a uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md). 
-3. Estabelece uma ligação de ambiente de trabalho remoto para a VM de recuperação.
+3. Estabeleça uma conexão de área de trabalho remota para a VM de recuperação.
 
-### <a name="enable-dump-logs-and-serial-console"></a>Ativar registos de informação e a consola de série
+### <a name="enable-dump-logs-and-serial-console"></a>Habilitar logs de despejo e console serial
 
-O registo de despejo e [consola de série](./serial-console-windows.md) irá ajudar-nos fazer ainda mais a resolução de problemas.
+O log de despejo e o [console serial](./serial-console-windows.md) nos ajudarão a fazer mais soluções de problemas.
 
-Para ativar registos de informação e a consola de série, execute o seguinte script.
+Para habilitar os logs de despejo e o console serial, execute o script a seguir.
 
-1. Abra uma sessão de linha de comandos elevada (executar como administrador).
+1. Abra uma sessão de prompt de comando com privilégios elevados (executar como administrador).
 2. Execute o seguintes script:
 
-    Nesse script, partimos do princípio de que a letra de unidade que está atribuída ao disco do SO anexado é F. Deverá substituí-la com o valor apropriado para a sua VM.
+    Nesse script, presumimos que a letra da unidade atribuída ao disco do sistema operacional anexado é F. Você deve substituí-lo pelo valor apropriado para sua VM.
 
     ```powershell
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -83,43 +82,43 @@ Para ativar registos de informação e a consola de série, execute o seguinte s
     reg unload HKLM\BROKENSYSTEM
     ```
 
-### <a name="replace-the-unsigned-drivers"></a>Substituir os controladores não assinados
+### <a name="replace-the-unsigned-drivers"></a>Substituir os drivers não assinados
 
-1. Na VM de recuperação, execute o seguinte comando numa linha de comandos elevada. Este comando define o disco do SO afetado para iniciar no modo seguro na próxima inicialização:
+1. Na VM de recuperação, execute o comando a seguir em um prompt de comando elevado. Esse comando define o disco do so afetado para iniciar em modo de segurança na próxima inicialização:
 
         bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
 
-    Por exemplo, se o disco do SO que anexou unidade F, execute o seguinte comando:
+    Por exemplo, se o disco do sistema operacional que você anexou for a unidade F, execute o seguinte comando:
 
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
-2. [Desanexar o disco do SO e, em seguida, volte a anexar o disco do SO para a VM afetada](troubleshoot-recovery-disks-portal-windows.md). A VM será arrancada no modo seguro. Se ainda perceber o erro, vá para o passo opcional.
-3. Abra o **execute** caixa e execute **verifier** para iniciar a ferramenta de Gerenciador de verificação de Driver.
-4. Selecione **selecionar automaticamente os controladores não assinados**e, em seguida, clique em **próxima**.
-5. Irá obter a lista de ficheiros de controlador que não assinados. Lembre-se os nomes dos ficheiros.
-6. Copie as mesmas versões destes ficheiros a partir de uma VM em funcionamento e, em seguida, substitua estes ficheiros não assinados. 
+2. [Desanexe o disco do sistema operacional e, em seguida, anexe novamente o disco do sistema operacional à VM afetada](troubleshoot-recovery-disks-portal-windows.md). A VM será inicializada no modo de segurança. Se você ainda tiver o erro, vá para a etapa opcional.
+3. Abra a caixa **executar** e execute o **Verificador** para iniciar a ferramenta Gerenciador de verificação de driver.
+4. Selecione **selecionar automaticamente drivers não assinados**e clique em **Avançar**.
+5. Você obterá a lista dos arquivos de driver que não estão assinados. Lembre-se dos nomes de arquivo.
+6. Copie as mesmas versões desses arquivos de uma VM de trabalho e, em seguida, substitua esses arquivos não assinados. 
 
-7. Remova as definições de arranque seguro:
+7. Remova as configurações de inicialização segura:
 
         bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
 8.  Reinicie a VM. 
 
-### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Opcional: Analisar os registos de informação no modo de despejo de falha
+### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Opcional: Analisar os logs de despejo no modo de falha de despejo
 
-Para analisar os registos de despejo por conta própria, siga estes passos:
+Para analisar os logs de despejo, siga estas etapas:
 
 1. Anexe o disco do SO a uma VM de recuperação.
-2. No disco do SO que anexado, navegue até **\windows\system32\config**. Copie todos os ficheiros de cópia de segurança, caso seja necessária uma reversão.
-3. Inicie **Editor de registo** (regedit.exe).
-4. Selecione o **HKEY_LOCAL_MACHINE** chave. No menu, selecione **arquivo** > **carregar Hive**.
-5. Navegue para o **\windows\system32\config\SYSTEM** pasta no disco do SO que anexados. Para o nome da colmeia, introduza **BROKENSYSTEM**. O novo ramo de registo é apresentado no **HKEY_LOCAL_MACHINE** chave.
-6. Navegue até **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl** e efetue as seguintes alterações:
+2. No disco do sistema operacional que você anexou, navegue até **\Windows\System32\config**. Copie todos os arquivos como um backup, caso uma reversão seja necessária.
+3. Inicie o **Editor do registro** (regedit. exe).
+4. Selecione a chave **HKEY_LOCAL_MACHINE** . No menu, selecione **arquivo** > **Carregar Hive**.
+5. Navegue até a pasta **\windows\system32\config\SYSTEM** no disco do sistema operacional que você anexou. Para o nome do hive, insira **BROKENSYSTEM**. O novo hive do registro é exibido sob a chave **HKEY_LOCAL_MACHINE** .
+6. Navegue até **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl** e faça as seguintes alterações:
 
-    AutoReboot = 0
+    Reinicialização = 0
 
     CrashDumpEnabled = 2
-7.  Selecione **BROKENSYSTEM**. No menu, selecione **arquivo** > **descarregar seção**.
-8.  Modificar a configuração de BCD para inicializar em modo de depuração. Execute os seguintes comandos numa linha de comandos elevada:
+7.  Selecione **BROKENSYSTEM**. No menu, selecione **arquivo** > **Descarregar Hive**.
+8.  Modifique a instalação do BCD para inicializar no modo de depuração. Execute os seguintes comandos em um prompt de comando elevado:
 
     ```cmd
     REM Setup some debugging flags on the boot manager
@@ -135,10 +134,10 @@ Para analisar os registos de despejo por conta própria, siga estes passos:
     bcdedit /store <OS DISK LETTER>:\boot\bcd /set {default} recoveryenabled no
     bcdedit /store <OS DISK LETTER>:\boot\bcd /set {default} integrityservices disable
     ```
-9. [Desanexar o disco do SO e, em seguida, volte a anexar o disco do SO para a VM afetada](troubleshoot-recovery-disks-portal-windows.md).
-10. Arranque da VM para ver se mostra na análise de informação. Localize o ficheiro que não consegue carregar. É necessário substituir este ficheiro com um ficheiro a partir da VM em funcionamento. 
+9. [Desanexe o disco do sistema operacional e, em seguida, anexe novamente o disco do sistema operacional à VM afetada](troubleshoot-recovery-disks-portal-windows.md).
+10. Inicialize a VM para ver se ela mostra a análise de despejo. Localize o arquivo que não pôde ser carregado. Você precisa substituir esse arquivo por um arquivo da VM de trabalho. 
 
-    Segue-se o exemplo de análise de informação. Pode ver que o **falha** no filecrypt.sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
+    O exemplo a seguir é de análise de despejo. Você pode ver que a **falha** está em filecript. sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt. sys ".
 
     ```
     kd> !analyze -v 
@@ -158,7 +157,7 @@ Para analisar os registos de despejo por conta própria, siga estes passos:
     MODULE_NAME: filecrypt IMAGE_NAME: filecrypt.sys DEBUG_FLR_IMAGE_TIMESTAMP: 0 IMAGE_VERSION: STACK_COMMAND: .thread ; .cxr ; kb FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys PRIMARY_PROBLEM_CLASS: 0x5A_c0000428_IMAGE_filecrypt.sys TARGET_TIME: 2017-11-13T20:51:04.000Z OSBUILD: 14393 OSSERVICEPACK: 1770 SERVICEPACK_NUMBER: 0 OS_REVISION: 0 SUITE_MASK: 144 PRODUCT_TYPE: 3 OSPLATFORM_TYPE: x64 OSNAME: Windows 10 OSEDITION: Windows 10 Server TerminalServer DataCenter OS_LOCALE: USER_LCID: 0 OSBUILD_TIMESTAMP: 2017-09-17 19:16:08 BUILDDATESTAMP_STR: 170917-1700 BUILDLAB_STR: rs1_release BUILDOSVER_STR: 10.0.14393.1770 ANALYSIS_SESSION_ELAPSED_TIME: bfc ANALYSIS_SOURCE: KM FAILURE_ID_HASH_STRING: km:0x5a_c0000428_image_filecrypt.sys FAILURE_ID_HASH: {35f25777-b01e-70a1-c502-f690dab6cb3a} FAILURE_ID_REPORT_LINK: https://go.microsoft.com/fwlink/?LinkID=397724&FailureHash=35f25777-b01e-70a1-c502-f690dab6cb3a
     ```
 
-11. Assim que a VM estiver a trabalhar e arrancar normalmente, remova as definições de informação do Estado de falha de sistema:
+11. Depois que a VM estiver funcionando e inicializando normalmente, remova as configurações de falha de despejo:
 
     ```cmd
     REM Restore the boot manager to default values

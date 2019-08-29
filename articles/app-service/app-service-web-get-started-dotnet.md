@@ -1,6 +1,6 @@
 ---
-title: Criar C# aplicação web do ASP.NET Core - serviço de aplicações do Azure | Documentos da Microsoft
-description: Saiba como executar aplicações web no serviço de aplicações do Azure ao implementar o padrão C# aplicação web ASP.NET Core.
+title: Criar C# ASP.NET Core aplicativo web-Azure app serviço | Microsoft Docs
+description: Saiba como executar aplicativos Web no serviço de Azure App implantando o aplicativo C# web padrão ASP.NET Core.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -10,17 +10,16 @@ ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2762a81c9f366ad4a5d0d6d87cf04490fc10b23c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b64fd653a737201921ad481c50e2a72dc00cd912
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60854635"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071758"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Criar uma aplicação Web ASP.NET Core no Azure
 
@@ -28,7 +27,7 @@ ms.locfileid: "60854635"
 > Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implementar um Serviço de Aplicações no _Linux_, consulte [Criar uma aplicação Web .NET Core no Serviço de Aplicações no Linux](./containers/quickstart-dotnetcore.md). 
 >
 
-O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este início rápido mostra como implementar a sua primeira ASP.NET Core, aplicação web no App Service do Azure. Quando tiver terminado, terá um grupo de recursos que consiste num plano do serviço de aplicações e uma aplicação de serviço de aplicações com uma aplicação web implementada.
+O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este guia de início rápido mostra como implantar seu primeiro aplicativo Web ASP.NET Core no serviço Azure App. Quando tiver terminado, você terá um grupo de recursos que consiste em um plano do serviço de aplicativo e um aplicativo do serviço de aplicativo com um aplicativo Web implantado.
 
 ![](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
@@ -105,7 +104,7 @@ Na caixa de diálogo **Configurar Plano do Alojamento**, use as definições na 
 |-|-|-|
 |Plano do Serviço de Aplicações| myAppServicePlan | Nome do plano de serviço de aplicações. |
 | Location | Europa Ocidental | O centro de dados onde o a aplicação Web está alojada. |
-| Tamanho | Gratuito | O [escalão de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina as funcionalidades do alojamento. |
+| Size | Gratuito | O [escalão de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina as funcionalidades do alojamento. |
 
 Selecione **OK**.
 
@@ -147,11 +146,11 @@ Quando a publicação estiver concluída, o Visual Studio inicia um browser para
 
 ![Aplicação Web ASP.NET atualizada no Azure](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
-## <a name="manage-the-azure-app"></a>Gerir a aplicação do Azure
+## <a name="manage-the-azure-app"></a>Gerenciar o aplicativo do Azure
 
 Aceda ao <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerir a aplicação Web.
 
-No menu à esquerda, selecione **dos serviços de aplicações**e, em seguida, selecione o nome da sua aplicação do Azure.
+No menu à esquerda, selecione **serviços de aplicativos**e, em seguida, selecione o nome do seu aplicativo do Azure.
 
 ![Navegação do portal para a aplicação do Azure](./media/app-service-web-get-started-dotnet/access-portal.png)
 

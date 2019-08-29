@@ -1,6 +1,6 @@
 ---
-title: Criar VM a partir de um disco especializado no Azure | Documentos da Microsoft
-description: Crie uma nova VM ao anexar um disco não gerido especializado, no modelo de implementação do Resource Manager.
+title: Criar VM de um disco especializado no Azure | Microsoft Docs
+description: Crie uma nova VM anexando um disco não gerenciado especializado no modelo de implantação do Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -11,75 +11,74 @@ ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8833ddf487c36446b5e5b4ce1d6cfc6363d3ceeb
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: cc3c1d9352d9df44a51a917700c656055b8b8361
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710396"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088631"
 ---
-# <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Criar uma VM a partir de um VHD especializado numa conta de armazenamento
+# <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Criar uma VM de um VHD especializado em uma conta de armazenamento
 
-Crie uma nova VM ao anexar um disco não gerido especializado como o disco do SO com o Powershell. Um disco especializado é uma cópia do VHD a partir de uma VM existente que mantém as contas de utilizador, aplicativos e outros dados de estado da original VM. 
+Crie uma nova VM anexando um disco não gerenciado especializado como o disco do sistema operacional usando o PowerShell. Um disco especializado é uma cópia do VHD de uma VM existente que mantém as contas de usuário, aplicativos e outros dados de estado de sua VM original. 
 
 Tem duas opções:
 * [Carregar um VHD](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
-* [Copie o VHD de uma VM do Azure existente](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
+* [Copiar o VHD de uma VM do Azure existente](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ## <a name="option-1-upload-a-specialized-vhd"></a>Opção 1: Carregar um VHD especializado
 
-Pode carregar o VHD a partir de uma VM especializada criado com uma ferramenta de virtualização no local, como o Hyper-V ou numa VM exportada de outra cloud.
+Você pode carregar o VHD de uma VM especializada criada com uma ferramenta de virtualização local, como o Hyper-V, ou uma VM exportada de outra nuvem.
 
 ### <a name="prepare-the-vm"></a>Preparar a VM
-Pode carregar um VHD especializado que foi criado com uma VM no local ou de um VHD que exportou a partir do noutra cloud. Um VHD especializado mantém as contas de utilizador, aplicativos e outros dados de estado da original VM. Se pretende usar o VHD como-consiste em criar uma nova VM, certifique-se de que os seguintes passos são concluídos. 
+Você pode carregar um VHD especializado que foi criado usando uma VM local ou um VHD exportado de outra nuvem. Um VHD especializado mantém as contas de usuário, aplicativos e outros dados de estado de sua VM original. Se você pretende usar o VHD como está para criar uma nova VM, verifique se as etapas a seguir foram concluídas. 
   
-  * [Preparar um VHD do Windows para carregar para o Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Isso não é possível** generalizar a VM com o Sysprep.
-  * Remova todos os agentes instalados na VM (ou seja, as ferramentas do VMware) e ferramentas de Virtualização do convidado.
-  * Certifique-se de que a VM está configurada para solicitar o respetivo endereço IP e as definições de DNS através de DHCP. Isto garante que o servidor obtém o endereço IP na VNet em modo de arranque. 
+  * [Preparar um VHD do Windows para carregar no Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Não** generalizar a VM usando Sysprep.
+  * Remova quaisquer ferramentas e agentes de virtualização convidados instalados na VM (ou seja, ferramentas do VMware).
+  * Verifique se a VM está configurada para extrair seu endereço IP e as configurações de DNS via DHCP. Isso garante que o servidor obtenha um endereço IP na VNet quando ele for iniciado. 
 
 
 ### <a name="get-the-storage-account"></a>Obter a conta de armazenamento
-Precisa de uma conta de armazenamento no Azure para armazenar a imagem VM carregada. Pode utilizar uma conta de armazenamento existente ou crie um novo. 
+Você precisa de uma conta de armazenamento no Azure para armazenar a imagem de VM carregada. Você pode usar uma conta de armazenamento existente ou criar uma nova. 
 
-Para mostrar as contas de armazenamento disponíveis, escreva:
+Para mostrar as contas de armazenamento disponíveis, digite:
 
 ```powershell
 Get-AzStorageAccount
 ```
 
-Se pretender utilizar uma conta de armazenamento existente, avance para o carregamento a secção de imagem VM.
+Se você quiser usar uma conta de armazenamento existente, vá para a seção carregar a imagem da VM.
 
-Se precisar de criar uma conta de armazenamento, siga estes passos:
+Se você precisar criar uma conta de armazenamento, siga estas etapas:
 
-1. É necessário o nome do grupo de recursos onde a conta de armazenamento deve ser criada. Para obter todos os grupos de recursos que estão na sua subscrição, escreva:
+1. Você precisa do nome do grupo de recursos em que a conta de armazenamento deve ser criada. Para descobrir todos os grupos de recursos que estão em sua assinatura, digite:
    
     ```powershell
     Get-AzResourceGroup
     ```
 
-    Para criar um grupo de recursos chamado **myResourceGroup** no **E.U.A. oeste** região, escreva:
+    Para criar um grupo de recursos chamado MyResource Group na região **oeste dos EUA** , digite:
 
     ```powershell
     New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Criar uma conta de armazenamento com o nome **mystorageaccount** neste grupo de recursos, utilizando o [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet:
+2. Crie uma conta de armazenamento denominada **mystorageaccount** nesse grupo de recursos usando o cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) :
    
     ```powershell
     New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
    
-### <a name="upload-the-vhd-to-your-storage-account"></a>Carregar o VHD para a conta de armazenamento
-Utilize o [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet para carregar a imagem para um contentor na sua conta de armazenamento. Este exemplo carrega o ficheiro **myVHD.vhd** partir `"C:\Users\Public\Documents\Virtual hard disks\"` para uma conta de armazenamento com o nome **mystorageaccount** no **myResourceGroup** grupo de recursos. O ficheiro será colocado no contentor com o nome **mycontainer** e o novo nome de ficheiro serão **myUploadedVHD.vhd**.
+### <a name="upload-the-vhd-to-your-storage-account"></a>Carregar o VHD em sua conta de armazenamento
+Use o cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) para carregar a imagem em um contêiner em sua conta de armazenamento. Este exemplo carrega o arquivo **myVHD. vhd** de `"C:\Users\Public\Documents\Virtual hard disks\"` para uma conta de armazenamento denominada **mystorageaccount** no grupo de recursos MyResource Group. O arquivo será colocado no contêiner chamado MyContainer e o novo nome de arquivo será **myUploadedVHD. vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -89,7 +88,7 @@ Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
 ```
 
 
-Se tiver êxito, receberá uma resposta que é semelhante a este:
+Se for bem-sucedido, você receberá uma resposta semelhante a esta:
 
 ```powershell
 MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
@@ -103,59 +102,59 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 ```
 
-Dependendo da sua ligação de rede e o tamanho do ficheiro VHD, este comando pode demorar algum tempo a concluir.
+Dependendo da sua conexão de rede e do tamanho do arquivo VHD, esse comando pode demorar um pouco para ser concluído.
 
 
-## <a name="option-2-copy-the-vhd-from-an-existing-azure-vm"></a>Opção 2: Copie o VHD da VM do Azure existente
+## <a name="option-2-copy-the-vhd-from-an-existing-azure-vm"></a>Opção 2: Copiar o VHD de uma VM do Azure existente
 
-Pode copiar um VHD para outra conta de armazenamento a utilizar quando criar uma VM nova, duplicada.
+Você pode copiar um VHD para outra conta de armazenamento para usar ao criar uma nova VM duplicada.
 
 ### <a name="before-you-begin"></a>Antes de começar
-Certifique-se de que:
+Certifique-se de que você:
 
-* Tem informações sobre o **contas de armazenamento de origem e destino**. Para a VM de origem, tem de ter os nomes de conta e contentor de armazenamento. Normalmente, será o nome do contentor **vhds**. Também tem de ter uma conta de armazenamento de destino. Se ainda não tiver uma, pode criar um com o portal de qualquer (**todos os serviços** > contas de armazenamento > Add) ou utilizando o [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet. 
-* Baixar e instalar o [AzCopy ferramenta](../../storage/common/storage-use-azcopy.md). 
+* Ter informações sobre as **contas de armazenamento de origem e de destino**. Para a VM de origem, você precisa ter os nomes da conta de armazenamento e do contêiner. Normalmente, o nome do contêiner será **VHDs**. Você também precisa ter uma conta de armazenamento de destino. Se você ainda não tiver uma, poderá criar uma usando o portal (**todos os serviços** > contas de armazenamento > Adicionar) ou usando o cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) . 
+* Baixar e instalar a [ferramenta AzCopy](../../storage/common/storage-use-azcopy.md). 
 
-### <a name="deallocate-the-vm"></a>Desaloque a VM
-Desaloque a VM, o que liberta o VHD seja copiado. 
+### <a name="deallocate-the-vm"></a>Desalocar a VM
+Desaloque a VM, que libera o VHD a ser copiado. 
 
-* **Portal**: Clique em **máquinas virtuais** > **myVM** > parar
-* **PowerShell**: Uso [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) parar (desaloque) VM com o nome **myVM** no grupo de recursos **myResourceGroup**.
+* **Portal**: Clique em **máquinas** > virtuais**myVM** > parar
+* **PowerShell**: Use [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) para parar (desalocar) a VM denominada **myVM** no grupo de recursos MyResource Group.
 
 ```powershell
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-O **Status** é alterado para a VM do Azure de portal **parado** para **parada (desalocada)** .
+O **status** da VM no portal do Azure é alterado de **parado** para **parado (desalocado)** .
 
-### <a name="get-the-storage-account-urls"></a>Obter os URLs de conta de armazenamento
-Terá dos URLs das contas de armazenamento de origem e de destino. A aparência do URLs: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. Se já sabe o nome de conta e contentor de armazenamento, apenas pode substituir as informações entre colchetes para criar o seu URL. 
+### <a name="get-the-storage-account-urls"></a>Obter as URLs da conta de armazenamento
+Você precisa das URLs das contas de armazenamento de origem e de destino. As URLs são semelhantes a `https://<storageaccount>.blob.core.windows.net/<containerName>/`:. Se você já souber a conta de armazenamento e o nome do contêiner, poderá simplesmente substituir as informações entre colchetes para criar a URL. 
 
-Pode utilizar o portal do Azure ou o Azure Powershell para obter o URL:
+Você pode usar o portal do Azure ou o Azure PowerShell para obter a URL:
 
-* **Portal**: Clique nas **>** para **todos os serviços** > **contas de armazenamento** > *conta de armazenamento*  >  **Blobs** e o ficheiro de VHD de origem é provavelmente no **vhds** contentor. Clique em **propriedades** para o contentor e copie o texto rotulado **URL**. Terá dos URLs de contentores de origem e de destino. 
-* **PowerShell**: Uso [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para obter as informações de VM com o nome **myVM** no grupo de recursos **myResourceGroup**. Nos resultados, procure na **perfil de armazenamento** secção para o **Uri de Vhd**. A primeira parte do Uri é o URL para o contentor e a última parte é o nome do VHD do SO para a VM.
+* **Portal**:  >  >  > Clique em **paratodososserviçoscontasdearmazenamentoosBLOBsdacontadearmazenamentoeseuarquivoVHDdeorigemprovavelmenteestánocontêinerVHDs.>** Clique em **Propriedades** para o contêiner e copie o texto rotulado como **URL**. Você precisará das URLs dos contêineres de origem e de destino. 
+* **PowerShell**: Use [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para obter as informações para a VM denominada **myVM** no grupo de recursos MyResource Group. Nos resultados, examine a seção **perfil de armazenamento** do URI do **VHD**. A primeira parte do URI é a URL para o contêiner e a última parte é o nome do VHD do sistema operacional para a VM.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
 ## <a name="get-the-storage-access-keys"></a>Obter as chaves de acesso de armazenamento
-Localize as chaves de acesso para a origem e destino de contas de armazenamento. Para obter mais informações sobre chaves de acesso, consulte [sobre as contas de armazenamento](../../storage/common/storage-create-storage-account.md).
+Localize as chaves de acesso para as contas de armazenamento de origem e de destino. Para obter mais informações sobre chaves de acesso, consulte [sobre contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
 
-* **Portal**: Clique em **todos os serviços** > **contas de armazenamento** > *conta de armazenamento* > **dechavesdeacesso**. Copie a chave identificada como **chave1**.
-* **PowerShell**: Uso [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) para obter a chave de armazenamento para a conta de armazenamento **mystorageaccount** no grupo de recursos **myResourceGroup**. Copie a chave rotulada **chave1**.
+* **Portal**: Clique em **todos os serviços** > **contas** > de armazenamento*conta* > de**acesso chaves**. Copie a chave rotulada como **key1**.
+* **PowerShell**: Use [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) para obter a chave de armazenamento para a conta de armazenamento **mystorageaccount** no grupo de recursos MyResource Group. Copie a chave rotulada como **key1**.
 
 ```powershell
 Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
 ```
 
-### <a name="copy-the-vhd"></a>Copie o VHD
-Pode copiar ficheiros entre as contas de armazenamento com AzCopy. Para o contentor de destino, se o contentor especificado não existir, ela será criada para. 
+### <a name="copy-the-vhd"></a>Copiar o VHD
+Você pode copiar arquivos entre contas de armazenamento usando o AzCopy. Para o contêiner de destino, se o contêiner especificado não existir, ele será criado para você. 
 
-Para utilizar o AzCopy, abra uma linha de comandos no seu computador local e navegue para a pasta onde o AzCopy é instalado. É semelhante à *C:\Program Files (x86) \Microsoft SDKs\Azure\AzCopy*. 
+Para usar o AzCopy, abra um prompt de comando no computador local e navegue até a pasta em que o AzCopy está instalado. Será semelhante a *C:\Program Files (x86) \Microsoft SDKs\Azure\AzCopy*. 
 
-Para copiar todos os ficheiros dentro de um contêiner, utilize o **/S** mudar. Isso pode ser usado para copiar o VHD do SO e todos os discos de dados que estejam no mesmo contentor. Este exemplo mostra como copiar todos os ficheiros no contentor **mysourcecontainer** na conta de armazenamento **mysourcestorageaccount** para o contentor **mydestinationcontainer**no **mydestinationstorageaccount** conta de armazenamento. Substitua os nomes das contas de armazenamento e contentores com os seus próprios. Substitua `<sourceStorageAccountKey1>` e `<destinationStorageAccountKey1>` com suas próprias chaves.
+Para copiar todos os arquivos dentro de um contêiner, use a opção **/s** . Isso pode ser usado para copiar o VHD do sistema operacional e todos os discos de dados se eles estiverem no mesmo contêiner. Este exemplo mostra como copiar todos os arquivos no contêiner **mysourcecontainer** na conta de armazenamento **mysourcestorageaccount** para o contêiner **mydestinationcontainer** na conta de armazenamento **mydestinationstorageaccount** . Substitua os nomes das contas de armazenamento e contêineres pelos seus próprios. Substitua `<sourceStorageAccountKey1>` e`<destinationStorageAccountKey1>` por suas próprias chaves.
 
 ```
 AzCopy /Source:https://mysourcestorageaccount.blob.core.windows.net/mysourcecontainer `
@@ -163,7 +162,7 @@ AzCopy /Source:https://mysourcestorageaccount.blob.core.windows.net/mysourcecont
     /SourceKey:<sourceStorageAccountKey1> /DestKey:<destinationStorageAccountKey1> /S
 ```
 
-Se pretender apenas copiar um VHD específico num contentor com vários ficheiros, também pode especificar o nome do arquivo usando a opção de /Pattern. Neste exemplo, apenas o ficheiro denominado **myFileName.vhd** serão copiados.
+Se você quiser apenas copiar um VHD específico em um contêiner com vários arquivos, também poderá especificar o nome do arquivo usando a opção/Pattern Neste exemplo, somente o arquivo chamado myfilename **. vhd** será copiado.
 
 ```
 AzCopy /Source:https://mysourcestorageaccount.blob.core.windows.net/mysourcecontainer `
@@ -173,7 +172,7 @@ AzCopy /Source:https://mysourcestorageaccount.blob.core.windows.net/mysourcecont
 ```
 
 
-Quando estiver concluído, obterá uma mensagem semelhante:
+Quando terminar, você receberá uma mensagem semelhante a:
 
 ```
 Finished 2 of total 2 file(s).
@@ -187,24 +186,24 @@ Elapsed time:            00.00:13:07
 ```
 
 ### <a name="troubleshooting"></a>Resolução de problemas
-* Quando utilizar o AZCopy, se vir o erro "Falha ao autenticar o pedido de servidor", certifique-se de que o valor do cabeçalho de autorização está formado corretamente, incluindo a assinatura. Se estiver a utilizar a chave 2 ou a chave de armazenamento secundário, tente utilizar a chave de armazenamento primária ou 1.
+* Ao usar o AZCopy, se você vir o erro "o servidor falhou ao autenticar a solicitação", verifique se o valor do cabeçalho de autorização está formado corretamente, incluindo a assinatura. Se estiver usando a chave 2 ou a chave de armazenamento secundária, tente usar a chave de armazenamento primária ou 1ª.
 
 ## <a name="create-the-new-vm"></a>Criar a nova VM 
 
-Tem de criar a rede e outros recursos da VM a ser utilizado pela VM nova.
+Você precisa criar rede e outros recursos de VM para serem usados pela nova VM.
 
-### <a name="create-the-subnet-and-vnet"></a>Criar a vNet e sub-rede
+### <a name="create-the-subnet-and-vnet"></a>Criar a sub-rede e a vNet
 
-Criar a vNet e sub-rede do [rede virtual](../../virtual-network/virtual-networks-overview.md).
+Crie a vNet e a sub-rede da [rede virtual](../../virtual-network/virtual-networks-overview.md).
 
-1. Crie a sub-rede. Este exemplo cria uma sub-rede denominada **mySubNet**, no grupo de recursos **myResourceGroup**e define o prefixo de endereço de sub-rede para **10.0.0.0/24**.
+1. Crie a sub-rede. Este exemplo cria uma sub-rede chamada **mysubnet**, no grupo de recursos **MyResource**Group e define o prefixo de endereço de sub-rede como **10.0.0.0/24**.
    
     ```powershell
     $rgName = "myResourceGroup"
     $subnetName = "mySubNet"
     $singleSubnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-2. Crie a vNet. Este exemplo define o nome de rede virtual para ser **myVnetName**, a localização para **E.U.A. oeste**e o prefixo de endereço para a rede virtual para **10.0.0.0/16**. 
+2. Crie a vNet. Este exemplo define o nome da rede virtual como **myVnetName**, o local para o **oeste dos EUA**e o prefixo de endereço para a rede virtual como **10.0.0.0/16**. 
    
     ```powershell
     $location = "West US"
@@ -213,9 +212,9 @@ Criar a vNet e sub-rede do [rede virtual](../../virtual-network/virtual-networks
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
    ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Criar o grupo de segurança de rede e uma regra RDP
-   Para conseguir iniciar sessão na sua VM através de RDP, tem de ter uma regra de segurança que permite o acesso RDP na porta 3389. Uma vez criado o VHD para a nova VM a partir de um existente VM especializada, quando a VM estiver criada, pode utilizar uma conta existente da máquina de virtual de origem que tinha permissão para iniciar sessão através de RDP.
-   Esta ação seja concluída antes de criar a interface de rede que será associado.  
-   Este exemplo define o nome do NSG **myNsg** e o nome da regra RDP para **myRdpRule**.
+   Para poder fazer logon em sua VM usando o RDP, você precisa ter uma regra de segurança que permita o acesso RDP na porta 3389. Como o VHD para a nova VM foi criado a partir de uma VM especializada existente, depois que a VM é criada, você pode usar uma conta existente da máquina virtual de origem que tinha permissão para fazer logon usando o RDP.
+   Isso precisa ser concluído antes de criar a interface de rede à qual ele será associado.  
+   Este exemplo define o nome do NSG como **myNsg** e o nome da regra RDP como **myRdpRule**.
 
 ```powershell
 $nsgName = "myNsg"
@@ -229,9 +228,9 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location
     
 ```
 
-Para obter mais informações sobre pontos de extremidade e as regras do NSG, consulte [abrir portas para uma VM no Azure com o PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para obter mais informações sobre pontos de extremidade e regras de NSG, consulte [abrindo portas para uma VM no Azure usando o PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-### <a name="create-a-public-ip-address-and-nic"></a>Criar um endereço IP público e a NIC
+### <a name="create-a-public-ip-address-and-nic"></a>Criar um endereço IP público e uma NIC
 Para ativar a comunicação com a máquina virtual na rede virtual, é necessário um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) e uma interface de rede.
 
 1. Crie o IP público. Neste exemplo, o nome do endereço IP público é definido como **myIP**.
@@ -241,7 +240,7 @@ Para ativar a comunicação com a máquina virtual na rede virtual, é necessár
     $pip = New-AzPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```       
-2. Criar a NIC. Neste exemplo, o nome do NIC está definido como **myNicName**. Este passo também associa o grupo de segurança de rede anteriormente criado com este NIC.
+2. Crie a NIC. Neste exemplo, o nome da NIC é definido como **myNicName**. Esta etapa também associa o grupo de segurança de rede criado anteriormente com esta NIC.
    
     ```powershell
     $nicName = "myNicName"
@@ -249,9 +248,9 @@ Para ativar a comunicação com a máquina virtual na rede virtual, é necessár
     -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
     ```
 
-### <a name="set-the-vm-name-and-size"></a>Defina o nome da VM e o tamanho
+### <a name="set-the-vm-name-and-size"></a>Definir o nome e o tamanho da VM
 
-Este exemplo define o nome da VM para "myVM" e o tamanho da VM para "Standard_A2".
+Este exemplo define o nome da VM como "myVM" e o tamanho da VM como "Standard_A2".
 ```powershell
 $vmName = "myVM"
 $vmConfig = New-AzVMConfig -VMName $vmName -VMSize "Standard_A2"
@@ -264,40 +263,40 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
     
     
-### <a name="configure-the-os-disk"></a>Configurar o disco do SO
+### <a name="configure-the-os-disk"></a>Configurar o disco do sistema operacional
 
-1. Defina o URI para o VHD que carregou ou copiados. Neste exemplo, o ficheiro VHD com o nome **myOsDisk.vhd** é mantido numa conta de armazenamento com o nome **myStorageAccount** num contentor com o nome **myContainer**.
+1. Defina o URI para o VHD que você carregou ou copiou. Neste exemplo, o arquivo VHD chamado **myOsDisk. vhd** é mantido em uma conta de armazenamento denominada **myStorageAccount** em um contêinerchamado MyContainer.
 
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. Adicione o disco do SO. Neste exemplo, quando o disco do SO é criado, o termo "osDisk" é acrescentado ao nome da VM para criar o nome do disco de SO. Este exemplo também especifica que este VHD baseado em Windows deve ser anexado à VM como o disco do SO.
+2. Adicione o disco do sistema operacional. Neste exemplo, quando o disco do sistema operacional é criado, o termo "osDisk" é anexado ao nome da VM para criar o nome do disco do sistema operacional. Este exemplo também especifica que esse VHD baseado em Windows deve ser anexado à VM como o disco do sistema operacional.
     
     ```powershell
     $osDiskName = $vmName + "osDisk"
     $vm = Set-AzVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
     ```
 
-Opcional: Se tiver discos de dados que precisem de ser anexado à VM, adicione os discos de dados com os URLs de dados VHDs e o número de unidade lógica (Lun) adequados.
+Opcional: Se você tiver discos de dados que precisam ser anexados à VM, adicione os discos de dados usando as URLs de VHDs de dados e o número de unidade lógica (LUN) apropriado.
 
 ```powershell
 $dataDiskName = $vmName + "dataDisk"
 $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
 ```
 
-Ao utilizar uma conta de armazenamento, os dados e os URLs de disco do sistema operativo mais ou menos assim: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Pode encontrar isto no portal do navegar para o contentor de armazenamento de destino, clicando no sistema operativo ou o VHD que foi copiado de dados e, em seguida, copiar o conteúdo do URL.
+Ao usar uma conta de armazenamento, as URLs de disco de dados e do sistema operacional são `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`parecidas com esta:. Você pode encontrá-lo no portal navegando até o contêiner de armazenamento de destino, clicando no sistema operacional ou VHD de dados que foi copiado e, em seguida, copiando o conteúdo da URL.
 
 
 ### <a name="complete-the-vm"></a>Concluir a VM 
 
-Crie a VM com as configurações que acabamos de criar.
+Crie a VM usando as configurações que acabamos de criar.
 
 ```powershell
 #Create the new VM
 New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
 
-Se este comando foi concluída com êxito, verá a saída como esta:
+Se esse comando tiver sido bem-sucedido, você verá uma saída como esta:
 
 ```powershell
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
@@ -306,8 +305,8 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ```
 
-### <a name="verify-that-the-vm-was-created"></a>Certifique-se de que a VM foi criada
-Deverá ver a VM criada recentemente ou na [portal do Azure](https://portal.azure.com), em **todos os serviços** > **máquinas virtuais**, ou utilizando o PowerShell seguinte comandos:
+### <a name="verify-that-the-vm-was-created"></a>Verifique se a VM foi criada
+Você deve ver a VM recém-criada na [portal do Azure](https://portal.azure.com), em **todos os serviços** > **máquinas virtuais**ou usando os seguintes comandos do PowerShell:
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $rgName
@@ -315,5 +314,5 @@ $vmList.Name
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Inicie sessão na sua nova máquina virtual. Para obter mais informações, consulte [como ligar e iniciar sessão a uma máquina virtual do Azure a executar o Windows](connect-logon.md).
+Entre em sua nova máquina virtual. Para obter mais informações, consulte [como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](connect-logon.md).
 

@@ -1,64 +1,63 @@
 ---
-title: Resolver um problema de netvsc.sys ao ligar remotamente a um Windows 10 ou VM do Windows Server 2016 no Azure | Documentos da Microsoft
-description: Aprenda a solucionar um RDP relacionadas a netsvc.sys emitir quando ligar a um Windows 10 ou VM do Windows Server 2016 no Azure.
+title: Solucionar problemas de um problema de netvsc. sys ao se conectar remotamente a uma VM do Windows 10 ou Windows Server 2016 no Azure | Microsoft Docs
+description: Saiba como solucionar problemas de um problema de RDP relacionado ao netsvc. sys ao se conectar a uma VM do Windows 10 ou Windows Server 2016 no Azure.
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6e68aac07379de142968b85884e7dbd95e73195f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362259"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103463"
 ---
-# <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Não é possível ligar remotamente a um Windows 10 ou VM do Windows Server 2016 no Azure, devido a netvsc.sys
+# <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Não é possível se conectar remotamente a uma VM do Windows 10 ou Windows Server 2016 no Azure devido ao netvsc. sys
 
-Este artigo explica como solucionar um problema no qual não haja nenhuma ligação de rede quando se liga a um Windows 10 ou Windows Server 2016 Datacenter de uma máquina virtual (VM) num anfitrião Hyper-V Server 2016.
+Este artigo explica como solucionar um problema no qual não há conexão de rede quando você se conecta a uma VM (máquina virtual) do Windows 10 ou do Windows Server 2016 datacenter em um host do Hyper-V Server 2016.
 
 ## <a name="symptoms"></a>Sintomas
 
-É possível ligar a um Azure Windows 10 ou VM do Windows Server 2016 utilizando o protocolo RDP (Remote Desktop). Na [diagnósticos de arranque](boot-diagnostics.md), o ecrã mostra uma cruz vermelha sobre a placa de interface de rede (NIC). Isto indica que a VM não tem conectividade depois do sistema operacional está totalmente carregado.
+Você não pode se conectar a uma VM do Windows 10 ou Windows Server 2016 do Azure usando protocolo RDP (RDP). No [diagnóstico de inicialização](boot-diagnostics.md), a tela mostra uma cruz vermelha sobre a placa de interface de rede (NIC). Isso indica que a VM não tem conectividade após o sistema operacional ser totalmente carregado.
 
-Normalmente, este problema ocorre no Windows [criar 14393](https://support.microsoft.com/help/4093120/) e [criar 15063](https://support.microsoft.com/help/4015583/). Se a versão do seu sistema operativo for posterior a essas versões, este artigo não é aplicável ao seu cenário. Para verificar a versão do sistema, abra uma sessão CMD na [a funcionalidade de consola de acesso de série](serial-console-windows.md)e, em seguida, execute **vidor**.
+Normalmente, esse problema ocorre no Windows [build 14393](https://support.microsoft.com/help/4093120/) e no [Build 15063](https://support.microsoft.com/help/4015583/). Se a versão do seu sistema operacional for posterior a essas versões, este artigo não se aplicará ao seu cenário. Para verificar a versão do sistema, abra uma sessão CMD no [recurso do console de acesso serial](serial-console-windows.md)e execute **Ver**.
 
 ## <a name="cause"></a>Causa
 
-Este problema pode ocorrer se a versão do ficheiro de sistema instalados netvsc.sys for **10.0.14393.594** ou **10.0.15063.0**. Estas versões do netvsc.sys poderão impedir o sistema de interagir com a plataforma do Azure.
+Esse problema pode ocorrer se a versão do arquivo do sistema netvsc. sys instalado for **10.0.14393.594** ou **10.0.15063.0**. Essas versões do netvsc. sys podem impedir que o sistema interaja com a plataforma do Azure.
 
 
 ## <a name="solution"></a>Solução
 
-Antes de seguir estes passos [tirar um instantâneo do disco de sistema](../windows/snapshot-copy-managed-disk.md) da VM afetada como uma cópia de segurança. Para resolver este problema, utilize a consola de série ou [Repare a VM offline](#repair-the-vm-offline) ao anexar o disco do sistema da VM para uma VM de recuperação.
+Antes de seguir estas etapas, [tire um instantâneo do disco do sistema](../windows/snapshot-copy-managed-disk.md) da VM afetada como um backup. Para resolver este problema, utilize a consola de série ou [Repare a VM offline](#repair-the-vm-offline) ao anexar o disco do sistema da VM para uma VM de recuperação.
 
 
-### <a name="use-the-serial-console"></a>Utilizar a consola de série
+### <a name="use-the-serial-console"></a>Usar o console serial
 
-Ligar à [da consola de série, abra uma instância de PowerShell](serial-console-windows.md)e, em seguida, siga estes passos.
+Conecte-se ao [console serial, abra uma instância do PowerShell](serial-console-windows.md)e siga estas etapas.
 
 > [!NOTE]
 > Se a consola de série não estiver ativada na sua VM, vá para o [Repare a VM offline](#repair-the-vm-offline) secção.
 
-1. Execute o seguinte comando numa instância do PowerShell para obter a versão do ficheiro (**c:\windows\system32\drivers\netvsc.sys**):
+1. Execute o seguinte comando em uma instância do PowerShell para obter a versão do arquivo (**c:\windows\system32\drivers\netvsc.sys**):
 
    ```
    (get-childitem "$env:systemroot\system32\drivers\netvsc.sys").VersionInfo.FileVersion
    ```
 
-2. Transferir a atualização adequada para um disco de dados nova ou existente que está ligado a uma VM em funcionamento da mesma região:
+2. Baixe a atualização apropriada para um disco de dados novo ou existente que esteja anexado a uma VM em funcionamento da mesma região:
 
-   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) ou uma atualização posterior
+   - **10.0.14393.594**: [KB4073562 ou uma atualização](https://support.microsoft.com/help/4073562) posterior
    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) ou uma atualização posterior
 
-3. Desanexar o disco de utilitário a partir da VM em funcionamento e, em seguida, anexá-lo para a VM quebrada.
+3. Desanexe o disco do utilitário da VM de trabalho e, em seguida, anexe-o à VM quebrada.
 
 4. Execute o seguinte comando para instalar a atualização na VM:
 
@@ -76,32 +75,32 @@ Ligar à [da consola de série, abra uma instância de PowerShell](serial-consol
 
 3. Certifique-se de que o disco é sinalizado de forma **Online** no console de gerenciamento de disco. Tenha em atenção a letra de unidade que está atribuída para o disco do sistema anexado.
 
-4. Criar uma cópia do **\Windows\System32\config** pasta caso uma reversão sobre as alterações é necessária.
+4. Crie uma cópia da pasta **\Windows\System32\config** caso uma reversão das alterações seja necessária.
 
-5. Sobre a solução VM, inicie o Editor de registo (regedit.exe).
+5. Na VM de resgate, inicie o editor do registro (regedit. exe).
 
-6. Selecione o **HKEY_LOCAL_MACHINE** da chave e, em seguida, selecione **ficheiro** > **carregar Hive** no menu.
+6. Selecione a chave **HKEY_LOCAL_MACHINE** e, em seguida, selecione **arquivo** > **Carregar Hive** no menu.
 
-7. Localize o ficheiro de sistema nos **\Windows\System32\config** pasta.
+7. Localize o arquivo do sistema na pasta **\Windows\System32\config** .
 
-8. Selecione **aberto**, tipo **BROKENSYSTEM** para o nome, expanda o **HKEY_LOCAL_MACHINE** da chave e, em seguida, localize a chave adicional com o nome **BROKENSYSTEM** .
+8. Selecione **abrir**, digite **BROKENSYSTEM** para o nome, expanda a chave **HKEY_LOCAL_MACHINE** e localize a chave adicional denominada **BROKENSYSTEM**.
 
-9. Vá para a seguinte localização:
+9. Vá para o seguinte local:
 
    ```
    HKLM\BROKENSYSTEM\ControlSet001\Control\Class\{4d36e972-e325-11ce-bfc1-08002be10318}
    ```
 
-10. Em cada subchave (como 0000), examinar os **DriverDesc** valor que é apresentado como **adaptador de rede do Microsoft HYPER-V**.
+10. Em cada subchave (como 0000), examine o valor de **DriverDesc** que é exibido como **adaptador de rede do Microsoft Hyper-V**.
 
-11. Na subchave, examine o **DriverVersion** valor que é a versão do controlador do adaptador de rede da VM.
+11. Na subchave, examine o valor **DriverVersion** que é a versão do driver do adaptador de rede da VM.
 
-12. Transferir a atualização adequada:
+12. Baixe a atualização apropriada:
 
-    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) ou uma atualização posterior
+    - **10.0.14393.594**: [KB4073562 ou uma atualização](https://support.microsoft.com/help/4073562) posterior
     - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) ou uma atualização posterior
 
-13. Anexe o disco do sistema como um disco de dados numa VM entra em ação no qual pode baixar a atualização.
+13. Anexe o disco do sistema como um disco de dados em uma VM de resgate na qual você pode baixar a atualização.
 
 14. Execute o seguinte comando para instalar a atualização na VM:
 
@@ -109,14 +108,14 @@ Ligar à [da consola de série, abra uma instância de PowerShell](serial-consol
     dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
     ```
 
-15. Execute o comando seguinte para desmontar o hives:
+15. Execute o seguinte comando para desmontar os hives:
 
     ```
     reg unload HKLM\BROKENSYSTEM
     ```
 
-16. [Desanexar o disco do sistema e volte a criar a VM](../windows/troubleshoot-recovery-disks-portal.md).
+16. [Desanexe o disco do sistema e crie a VM novamente](../windows/troubleshoot-recovery-disks-portal.md).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte
 
-Se precisar de ajuda, ainda [contacte o suporte Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+Se você ainda precisar de ajuda, [entre em contato com o suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema rapidamente.

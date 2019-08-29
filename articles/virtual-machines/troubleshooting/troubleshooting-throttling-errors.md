@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines
-ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
-ms.openlocfilehash: 6ae14edb7fa6b44f7c3bb961ffbcceb26eb9dee3
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: db1c6e8e4f1e98db08d5f7ff0ef218fa42d25860
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875468"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103308"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Solucionando problemas de erros de limitação de API 
 
@@ -99,6 +98,6 @@ Os cmdlets do PowerShell estão usando uma API de serviço REST, que pode ser fa
 - Se o código do cliente precisar de VMs, discos e instantâneos de um local específico do Azure, use o formulário baseado na localização da consulta em vez de consultar todas as VMs de assinatura e, em seguida `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` , filtrar por local no lado do cliente: consulta para o provedor de recursos de computação regional extremidade. 
 -   Ao criar ou atualizar recursos de API em particular, VMs e conjuntos de dimensionamento de máquinas virtuais, é muito mais eficiente rastrear a operação assíncrona retornada para conclusão do que a sondagem na própria URL do `provisioningState`recurso (com base no).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as diretrizes de repetição para outros serviços no Azure, consulte [diretrizes de repetição para serviços específicos](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)

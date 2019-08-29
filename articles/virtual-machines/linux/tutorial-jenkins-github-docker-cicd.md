@@ -9,21 +9,20 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d8ef524121f41129d842cfdf9822fe6a19c71810
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3d0b67227c8e80f23f111ec889f8cb1541b15f94
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709558"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100775"
 ---
-# <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Criar uma infraestrutura de desenvolvimento numa VM do Linux no Azure com Jenkins, GitHub e Docker
+# <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Criar uma infraestrutura de desenvolvimento em uma VM do Linux no Azure com Jenkins, GitHub e Docker
 
 Para automatizar a fase de criação e teste do desenvolvimento de aplicações, pode utilizar um pipeline de integração e implementação (CI/CD) contínuas. Neste tutorial, vai criar um pipeline de CI/CD numa VM do Azure, incluindo como:
 
@@ -109,7 +108,7 @@ Por motivos de segurança, tem de introduzir a palavra-passe de administrador in
 ssh azureuser@<publicIps>
 ```
 
-Verifique se o Jenkins é executada com o `service` comando:
+Verifique se Jenkins está em execução `service` usando o comando:
 
 ```bash
 $ service jenkins status
@@ -140,7 +139,7 @@ Agora, abra um browser e vá para `http://<publicIps>:8080`. Conclua a configura
 - Selecionar **Guardar e Concluir**
 - Assim que o Jenkins estiver pronto, selecione **Começar a utilizar o Jenkins**
   - Se o browser apresentar uma página em branco quando começar a utilizar o Jenkins, reinicie o serviço Jenkins. A partir da sua sessão SSH, escreva `sudo service jenkins restart` e, em seguida, atualize o browser.
-- Se for necessário, inicie sessão no Jenkins com o nome de utilizador e palavra-passe que criou.
+- Se necessário, faça logon no Jenkins com o nome de usuário e a senha que você criou.
 
 
 ## <a name="create-github-webhook"></a>Criar um webhook do GitHub
@@ -148,13 +147,13 @@ Para configurar a integração com o GitHub, abra a [aplicação de exemplo Node
 
 Crie um webhook no interior do fork que criou:
 
-- Selecione **configurações**, em seguida, selecione **Webhooks** no lado esquerdo.
-- Escolher **adicionar webhook**, em seguida, introduza *Jenkins* na caixa Filtro.
-- Para o **URL de Payload**, introduza `http://<publicIps>:8080/github-webhook/`. Certifique-se de que inclui / à direita
-- Para **tipo de conteúdo**, selecione *application/x-www-form-urlencoded*.
-- Para **que eventos deseja acionar este webhook?** , selecione *apenas o evento de push.*
-- Definir **Active Directory** como marcada.
-- Clique em **adicionar webhook**.
+- Selecione **configurações**e, em seguida, selecione WebHooks no lado esquerdo.
+- Escolha **Adicionar webhook**e, em seguida, digite *Jenkins* na caixa de filtro.
+- Para a **URL da carga**, `http://<publicIps>:8080/github-webhook/`insira. Certifique-se de que inclui / à direita
+- Para **tipo de conteúdo**, selecione *aplicativo/x-www-form – urlencoded*.
+- Para **quais eventos você gostaria de disparar este webhook?** , selecione *apenas o evento de push.*
+- Defina **ativo** como marcado.
+- Clique em **Adicionar webhook**.
 
 ![Adicionar webhook do GitHub ao seu repositório bifurcado](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 

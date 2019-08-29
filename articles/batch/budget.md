@@ -5,18 +5,17 @@ services: batch
 author: laurenhughes
 manager: gwallace
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 07/19/2019
 ms.author: lahugh
-ms.openlocfilehash: e6a99021a5e05f04672a4db2b4c208b8f4bad8c8
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 6ccf530fe2164b3d9b1936648ffe9057c334efd6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361794"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094211"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Análise de custo e orçamentos para o lote do Azure
 
@@ -90,7 +89,7 @@ O [dimensionamento automático](batch-automatic-scaling.md) dimensiona dinamicam
 
 Para obter mais informações sobre o dimensionamento automático, consulte [dimensionar automaticamente nós de computação em um pool do lote do Azure](batch-automatic-scaling.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre as [APIs e ferramentas do lote](batch-apis-tools.md) disponíveis para criar e monitorar soluções de lote.  
 
