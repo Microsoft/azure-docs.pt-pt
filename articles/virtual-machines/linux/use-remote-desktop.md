@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 64f287a98af6cb353117ec1de1f9f0d55b367085
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 18e8f577a52ff36f5e6c4eb8f9697d301f056911
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774367"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081408"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalar e configurar Área de Trabalho Remota para se conectar a uma VM do Linux no Azure
 As VMs (máquinas virtuais) do Linux no Azure geralmente são gerenciadas na linha de comando usando uma conexão SSH (Secure Shell). Quando for novo no Linux ou para cenários de solução de problemas rápidos, o uso da área de trabalho remota pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de área de trabalho ([Xfce](https://www.xfce.org)) e uma área de trabalho remota ([xrdp](https://www.xrdp.org)) para sua VM Linux usando o modelo de implantação do Gerenciador de recursos.

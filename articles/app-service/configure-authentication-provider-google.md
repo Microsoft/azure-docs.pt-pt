@@ -10,17 +10,16 @@ ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 7b56d4e8d179e4ff073e74b4bc5242f936dc983e
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 4e28f4e330fa24476b717334dfc6d3265640c62a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033741"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088216"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Como configurar seu aplicativo do serviço de aplicativo para usar o logon do Google
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]

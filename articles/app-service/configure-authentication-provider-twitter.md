@@ -10,17 +10,16 @@ ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 590be42d5ba96133739d511b5a0a6b3e5a5634ff
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 728eacdcb0ee0d0bee878ff4764b1ca5e430c59c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033613"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088204"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Como configurar seu aplicativo do serviço de aplicativo para usar o logon do Twitter
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]

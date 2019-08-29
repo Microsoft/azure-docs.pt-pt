@@ -1,6 +1,6 @@
 ---
-title: Os tamanhos de VM do Linux do Azure – otimizadas para computação | Documentos da Microsoft
-description: Lista os tamanhos de diferentes com otimização de computação disponíveis para máquinas virtuais do Linux no Azure. Lista as informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento e débito de rede largura de banda para tamanhos nesta série.
+title: Tamanhos de VM Linux do Azure – otimizado para computação | Microsoft Docs
+description: Lista os diferentes tamanhos otimizados para computação disponíveis para máquinas virtuais Linux no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como taxa de transferência de armazenamento e largura de banda de rede para tamanhos desta série.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 137cda7e224d3968cae8614c96fddf914d3b5e5e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 154209c78746e1a44c7cee51675150e8acca0f0a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708875"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082100"
 ---
-# <a name="compute-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com otimização de computação
+# <a name="compute-optimized-virtual-machine-sizes"></a>Tamanhos de máquina virtual otimizados para computação
 
 [!INCLUDE [virtual-machines-common-sizes-compute](../../../includes/virtual-machines-common-sizes-compute.md)]
 
@@ -37,5 +36,5 @@ ms.locfileid: "67708875"
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre como [computação do Azure (ACU) de unidades](acu.md) pode ajudá-lo a comparar o desempenho de computação nos SKUs do Azure.
+## <a name="next-steps"></a>Passos Seguintes
+Saiba mais sobre como as [unidades de computação do Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho de computação entre SKUs do Azure.

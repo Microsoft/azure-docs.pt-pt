@@ -1,6 +1,6 @@
 ---
-title: Extensão de máquina virtual do agente do observador de rede do Azure para Windows | Documentos da Microsoft
-description: Implemente o agente do observador de rede na máquina de virtual do Windows com uma extensão da máquina virtual.
+title: Extensão da máquina virtual do agente do observador de rede do Azure para Windows | Microsoft Docs
+description: Implante o agente do observador de rede na máquina virtual do Windows usando uma extensão de máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
 author: gurudennis
@@ -9,41 +9,40 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 27e46af7-2150-45e8-b084-ba33de8c5e3f
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 6e02f5a5b42da9c99a08782903cdc05ee32ec9d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77685fd6549906cfb050e12d53ec151c964fda42
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743331"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084416"
 ---
-# <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensão de máquina virtual do agente do observador de rede para Windows
+# <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do agente do observador de rede para Windows
 
 ## <a name="overview"></a>Descrição geral
 
-[O observador de rede do Azure](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização de redes do Azure. A extensão de máquina virtual do agente do observador de rede é um requisito para capturar o tráfego de rede a pedido e outras funcionalidades avançadas em máquinas virtuais do Azure.
+O observador de [rede do Azure](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço de monitoramento, diagnóstico e análise de desempenho de rede que permite o monitoramento de redes do Azure. A extensão da máquina virtual do agente do observador de rede é um requisito para capturar o tráfego de rede sob demanda e outras funcionalidades avançadas em máquinas virtuais do Azure.
 
 
-Este documento detalha as plataformas suportadas e as opções de implementação para a extensão de máquina virtual do agente do observador de rede para Windows. Instalação do agente não interromper ou exigir uma reinicialização, da máquina virtual. Pode implementar a extensão em máquinas virtuais que implementar. Se a máquina virtual é implementada por um serviço do Azure, consulte a documentação para o serviço para determinar se é ou não permite a instalação de extensões na máquina virtual.
+Este documento detalha as plataformas com suporte e as opções de implantação para a extensão da máquina virtual do agente do observador de rede para Windows. A instalação do agente não interrompe nem exige uma reinicialização da máquina virtual. Você pode implantar a extensão em máquinas virtuais implantadas. Se a máquina virtual for implantada por um serviço do Azure, verifique a documentação do serviço para determinar se ele permite ou não instalar extensões na máquina virtual.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão de agente do observador de rede para o Windows podem ser executado em Windows Server 2008 R2, 2012 e 2012 R2 e 2016 versões. O servidor nano não é suportado neste momento.
+A extensão do agente do observador de rede para Windows pode ser executada em versões do Windows Server 2008 R2, 2012, 2012 R2 e 2016. No momento, não há suporte para o nano Server.
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-Algumas das funcionalidades do agente do observador de rede requer que a máquina virtual de destino estejam ligados à Internet. Sem a capacidade de estabelecer ligações de saída, o agente do observador de rede não poderá carregar capturas de pacotes para a conta de armazenamento. Para obter mais detalhes, consulte a [documentação do observador de rede](../../network-watcher/network-watcher-monitoring-overview.md).
+Algumas das funcionalidades do agente do observador de rede exigem que a máquina virtual de destino esteja conectada à Internet. Sem a capacidade de estabelecer conexões de saída, o agente do observador de rede não será capaz de carregar as capturas de pacotes para sua conta de armazenamento. Para obter mais detalhes, consulte a [documentação](../../network-watcher/network-watcher-monitoring-overview.md)do observador de rede.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON seguinte mostra o esquema para a extensão de agente do observador de rede. A extensão não necessita de, nem suporta, quaisquer definições fornecido pelo usuário e baseia-se na configuração predefinida.
+O JSON a seguir mostra o esquema para a extensão do agente do observador de rede. A extensão não requer, nem dá suporte a, quaisquer configurações fornecidas pelo usuário e depende de sua configuração padrão.
 
 ```json
 {
@@ -68,18 +67,18 @@ O JSON seguinte mostra o esquema para a extensão de agente do observador de red
 | Nome | Valor / exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| publicador | Microsoft.Azure.NetworkWatcher |
+| publisher | Microsoft.Azure.NetworkWatcher |
 | type | NetworkWatcherAgentWindows |
 | typeHandlerVersion | 1.4 |
 
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-É possível implementar extensões de VM do Azure com modelos Azure Resource Manager. Pode utilizar o esquema JSON detalhado na secção anterior num modelo Azure Resource Manager para executar a extensão de agente do observador de rede durante uma implementação de modelo do Azure Resource Manager.
+Você pode implantar extensões de VM do Azure com modelos de Azure Resource Manager. Você pode usar o esquema JSON detalhado na seção anterior em um modelo de Azure Resource Manager para executar a extensão do agente do observador de rede durante uma implantação de modelo de Azure Resource Manager.
 
-## <a name="powershell-deployment"></a>Implementação do PowerShell
+## <a name="powershell-deployment"></a>Implantação do PowerShell
 
-Utilize o `Set-AzVMExtension` comando para implementar a extensão de máquina virtual do agente do observador de rede para uma máquina virtual existente:
+Use o `Set-AzVMExtension` comando para implantar a extensão da máquina virtual do agente do observador de rede em uma máquina virtual existente:
 
 ```powershell
 Set-AzVMExtension `
@@ -96,13 +95,13 @@ Set-AzVMExtension `
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
-Pode obter dados sobre o estado das implementações de extensão do portal do Azure e PowerShell. Para ver o estado de implementação de extensões para uma determinada VM, execute o seguinte comando com o módulo Azure PowerShell:
+Você pode recuperar dados sobre o estado das implantações de extensão do portal do Azure e do PowerShell. Para ver o estado de implantação das extensões de uma determinada VM, execute o seguinte comando usando o módulo Azure PowerShell:
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
 ```
 
-Resultado da execução de extensão é registado para arquivos encontrados no diretório seguinte:
+A saída de execução de extensão é registrada em arquivos encontrados no seguinte diretório:
 
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentWindows\
@@ -110,4 +109,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentW
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda a qualquer momento neste artigo, pode consultar a documentação do guia de utilizador do observador de rede ou entre em contato com os especialistas do Azure no [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda a qualquer momento neste artigo, consulte a documentação do guia do usuário do observador de rede ou entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).

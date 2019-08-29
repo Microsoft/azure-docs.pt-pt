@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0442b987c502533bfbd55990f201a5c02b119804
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 70f0badc170c65b11bc244b5ed4ec2f9a205c72d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011303"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084869"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ do Azure Active Directory Connect
 
@@ -273,4 +273,4 @@ Se precisar de ajuda para atualizar para uma versão mais recente do Azure AD Co
 
 **P: Por que estou vendo os eventos 6311 e 6401 ocorrem após erros de etapa de sincronização?**
 
-Os eventos 6311- **o servidor encontrou um erro inesperado ao executar um retorno de chamada** e 6401- **o controlador do agente de gerenciamento encontrou um erro** inesperado-sempre é registrado após um erro de etapa de sincronização. Para resolver esses erros, você precisa limpar os erros da etapa de sincronização.  Para obter mais informações, consulte [Solucionando problemas de erros durante a sincronização](tshoot-connect-sync-errors.md) e solucionar [problemas de sincronização de objeto com Azure ad Connect sincronização](/tshoot-connect-objectsync.md)
+Os eventos 6311- **o servidor encontrou um erro inesperado ao executar um retorno de chamada** e 6401- **o controlador do agente de gerenciamento encontrou um erro** inesperado-sempre é registrado após um erro de etapa de sincronização. Para resolver esses erros, você precisa limpar os erros da etapa de sincronização.  Para obter mais informações, consulte [Solucionando problemas de erros durante a sincronização](tshoot-connect-sync-errors.md) e solucionar [problemas de sincronização de objeto com Azure ad Connect sincronização](tshoot-connect-objectsync.md)

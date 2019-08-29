@@ -8,19 +8,18 @@ editor: ''
 tags: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 93b3004303dd1587340b467c2fd52cb7233c95fd
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 820e979c41ddc1c1cf14456ed77a4a55e353ab12
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322705"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094268"
 ---
 > [!NOTE] 
 > As contas de usuário discutidas neste artigo são diferentes das contas de usuários usadas para protocolo RDP (RDP) ou Secure Shell (SSH), por motivos de segurança. 
@@ -44,7 +43,7 @@ O lote do Azure fornece dois tipos de contas de usuário para executar tarefas:
 - **Uma conta de usuário nomeada.** Você pode especificar uma ou mais contas de usuário nomeadas para um pool ao criar o pool. Cada conta de usuário é criada em cada nó do pool. Além do nome da conta, você especifica a senha da conta do usuário, o nível de elevação e, para pools do Linux, a chave privada SSH. Ao adicionar uma tarefa, você pode especificar a conta de usuário nomeada na qual essa tarefa deve ser executada.
 
 > [!IMPORTANT] 
-> O serviço de lote versão 2017-01-01.4.0 introduz uma alteração significativa que exige que você atualize seu código para chamar essa versão. Se você estiver migrando o código de uma versão mais antiga do lote, observe que a propriedade **runElevated** não tem mais suporte na API REST ou nas bibliotecas de cliente do lote. Use a nova  Propriedade UserIdentity de uma tarefa para especificar o nível de elevação. Consulte a seção intitulada [atualizar seu código para a biblioteca de cliente do lote mais recente](#update-your-code-to-the-latest-batch-client-library) para obter diretrizes rápidas para atualizar o código do lote se você estiver usando uma das bibliotecas de cliente.
+> O serviço de lote versão 2017-01-01.4.0 introduz uma alteração significativa que exige que você atualize seu código para chamar essa versão. Se você estiver migrando o código de uma versão mais antiga do lote, observe que a propriedade **runElevated** não tem mais suporte na API REST ou nas bibliotecas de cliente do lote. Use a nova Propriedade UserIdentity de uma tarefa para especificar o nível de elevação. Consulte a seção intitulada [atualizar seu código para a biblioteca de cliente do lote mais recente](#update-your-code-to-the-latest-batch-client-library) para obter diretrizes rápidas para atualizar o código do lote se você estiver usando uma das bibliotecas de cliente.
 >
 >
 
@@ -307,7 +306,7 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 
 ## <a name="update-your-code-to-the-latest-batch-client-library"></a>Atualizar seu código para a biblioteca de cliente do lote mais recente
 
-O serviço de lote versão 2017-01-01.4.0 introduz uma alteração significativa, substituindo a propriedade **runElevated** disponível em versões anteriores  pela propriedade UserIdentity. As tabelas a seguir fornecem um mapeamento simples que você pode usar para atualizar seu código de versões anteriores das bibliotecas de cliente.
+O serviço de lote versão 2017-01-01.4.0 introduz uma alteração significativa, substituindo a propriedade **runElevated** disponível em versões anteriores pela propriedade UserIdentity. As tabelas a seguir fornecem um mapeamento simples que você pode usar para atualizar seu código de versões anteriores das bibliotecas de cliente.
 
 ### <a name="batch-net"></a>.NET do Batch
 

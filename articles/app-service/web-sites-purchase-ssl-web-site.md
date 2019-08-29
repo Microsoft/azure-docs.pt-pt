@@ -10,18 +10,17 @@ ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: cephalin
 ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 8f55e2eb3ac7fe2e869b6b1061f6d45d11894ccf
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: d6d3e91bef6c4f837b068d755994b2f3268600da
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905929"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074043"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Comprar e configurar um certificado SSL para o serviço de Azure App
 
@@ -114,7 +113,7 @@ Use a tabela a seguir para ajudá-lo a configurar a associação na caixa de di�
 
 | Definição | Descrição |
 |-|-|
-| Nome do sistema anfitrião | O nome de domínio para o qual adicionar a associação SSL. |
+| Nome do Anfitrião | O nome de domínio para o qual adicionar a associação SSL. |
 | Thumbprint do Certificado Privado | O certificado a ser associado. |
 | Tipo de SSL | <ul><li>**SSL SNI** -várias associações SSL baseadas em SNI podem ser adicionadas. Esta opção permite utilizar vários certificados SSL para proteger múltiplos domínios no mesmo endereço IP. Os browsers mais modernos (incluindo o Internet Explorer, o Chrome, o Firefox e o Opera) suportam SNI (encontre informações mais abrangentes sobre o suporte de browsers em [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) [Indicação do Nome de Servidor]).</li><li>**SSL baseado em IP** - só pode ser adicionado um enlace SSL baseado em IP. Esta opção permite utilizar apenas um certificado SSL para proteger um endereço IP público dedicado. Depois de configurar a associação, siga as etapas em [remapear um registro para IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 

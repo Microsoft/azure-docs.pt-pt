@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 5169fe5eef416812c399b421f59305f6cb1e7b62
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 3e5b96cf4227e933aa99b37469410276a775dbed
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035790"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103041"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutorial: Adicionar uma instância gerenciada do banco de dados SQL a um grupo de failover
 
@@ -40,13 +40,15 @@ Para concluir este tutorial, confirme que tem:
 - Uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) se você ainda não tiver uma. 
 
 
-## <a name="1----create-resource-group-and-primary-managed-instance"></a>1-Criar grupo de recursos e instância gerenciada primária
+## <a name="1---create-resource-group-and-primary-managed-instance"></a>1-Criar grupo de recursos e instância gerenciada primária
 Nesta etapa, você criará o grupo de recursos e a instância gerenciada primária para seu grupo de failover usando o portal do Azure. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
-1. Escolha **criar um recurso** no canto superior esquerdo do portal do Azure. 
-1. Digite `managed instance` na caixa de pesquisa e selecione a opção para o Azure SQL instância gerenciada. 
-1. Selecione **criar** para iniciar a página de criação da **instância gerenciada do SQL** . 
+1. Selecione **SQL do Azure** no menu à esquerda da portal do Azure. Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite SQL do Azure na caixa de pesquisa. Adicional Selecione a estrela ao lado de **Azure SQL** para que ela seja favorita e adicione-a como um item no painel de navegação à esquerda. 
+1. Selecione **+ Adicionar** para abrir a página **selecionar opção de implantação do SQL** . Você pode exibir informações adicionais sobre os bancos de dados diferentes selecionando Mostrar detalhes no bloco bancos de dados.
+1. Selecione **criar** no bloco **instâncias gerenciadas do SQL** . 
+
+    ![Selecionar instância gerenciada](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
+
 1. Na página **criar instância gerenciada do banco de dados SQL do Azure** , na guia **noções básicas**
     1. Em **detalhes do projeto**, selecione sua **assinatura** na lista suspensa e, em seguida, escolha **criar novo** grupo de recursos. Digite um nome para seu grupo de recursos, como `myResourceGroup`. 
     1. Em **detalhes do instância gerenciada**, forneça o nome da sua instância gerenciada e a região em que você deseja implantar sua instância gerenciada. Deixe o **armazenamento de computação +** em valores padrão. 
@@ -98,8 +100,12 @@ Sua segunda instância gerenciada deve:
 
 Para criar sua instância gerenciada secundária, siga estas etapas: 
 
-1. Na [portal do Azure](https://portal.azure.com), selecione **criar um recurso** e pesquise *instância gerenciada do Azure SQL*. 
-1. Selecione a opção de **instância gerenciada do SQL do Azure** publicada pela Microsoft e, em seguida, selecione **criar** na próxima página.
+1. Selecione **SQL do Azure** no menu à esquerda da portal do Azure. Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite SQL do Azure na caixa de pesquisa. Adicional Selecione a estrela ao lado de **Azure SQL** para que ela seja favorita e adicione-a como um item no painel de navegação à esquerda. 
+1. Selecione **+ Adicionar** para abrir a página **selecionar opção de implantação do SQL** . Você pode exibir informações adicionais sobre os bancos de dados diferentes selecionando Mostrar detalhes no bloco bancos de dados.
+1. Selecione **criar** no bloco **instâncias gerenciadas do SQL** . 
+
+    ![Selecionar instância gerenciada](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
+
 1. Na guia **noções básicas** da página **criar instância gerenciada do banco de dados SQL do Azure** , preencha os campos obrigatórios para configurar sua instância gerenciada secundária. 
 
    A tabela a seguir mostra os valores necessários para a instância gerenciada secundária:
@@ -209,9 +215,8 @@ Para configurar a conectividade, siga estas etapas:
 ## <a name="7---create-a-failover-group"></a>7-criar um grupo de failover
 Nesta etapa, você criará o grupo de failover e adicionará as duas instâncias gerenciadas a ele. 
 
-1. Na [portal do Azure](https://portal.azure.com), vá para **todos os serviços** e digite na `managed instance` caixa de pesquisa. 
-1. Adicional Selecione a estrela ao lado de **instâncias gerenciadas do SQL** para adicionar instâncias gerenciadas como atalho à sua barra de navegação à esquerda. 
-1. Selecione **instâncias gerenciadas do SQL** e selecione sua instância gerenciada primária `sql-mi-primary`, como. 
+1. Selecione **SQL do Azure** no menu à esquerda da [portal do Azure](https://portal.azure.com). Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite SQL do Azure na caixa de pesquisa. Adicional Selecione a estrela ao lado de **Azure SQL** para que ela seja favorita e adicione-a como um item no painel de navegação à esquerda. 
+1. Selecione a instância gerenciada primária que você criou na primeira seção, `sql-mi-primary`como. 
 1. Em **configurações**, navegue até **instância grupos de failover** e, em seguida, escolha **Adicionar grupo** para abrir a página **grupo de failover de instância** . 
 
    ![Adicionar um grupo de failover](media/sql-database-managed-instance-failover-group-tutorial/add-failover-group.png)

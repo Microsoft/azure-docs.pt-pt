@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: bde4572ec72286be7d845f4e83bf9c0fe3bff6f1
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: c566dc28338a47c1bf24066436c21544eb7c5c7d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932400"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072440"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup e a restauração do serviço no gerenciamento de API do Azure
 
@@ -221,7 +220,7 @@ Restore é uma operação de execução demorada que pode levar até 30 ou mais 
 > [!NOTE]
 > As operações de backup e restauração também podem ser executadas com os comandos _backup-AzApiManagement_ e _Restore-AzApiManagement_ do PowerShell, respectivamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Confira os seguintes recursos para obter orientações diferentes sobre o processo de backup/restauração.
 

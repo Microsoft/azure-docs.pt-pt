@@ -1,6 +1,6 @@
 ---
-title: Opções de cópia de segurança de descrição geral das VMs do Linux do Azure | Documentos da Microsoft
-description: Opções de cópia de segurança de descrição geral para máquinas de virtuais de Linux do Azure.
+title: Visão geral das opções de backup para VMs do Linux do Azure | Microsoft Docs
+description: Visão geral das opções de backup para máquinas virtuais do Linux Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -9,21 +9,20 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/13/2017
 ms.author: cynthn
-ms.openlocfilehash: f1bed81ecca20d07eb1f3d7262af94d622c630c2
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: b5f698510a40de127340746fd2f5327e8934ac27
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671798"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092125"
 ---
-# <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Opções de cópia de segurança e restauro para máquinas virtuais do Linux no Azure
+# <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Opções de backup e restauração para máquinas virtuais Linux no Azure
 
-Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. Existem várias opções de cópia de segurança disponíveis para as VMs, dependendo de seus casos de utilização.
+Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. Há várias opções de backup disponíveis para VMs, dependendo do caso de uso.
 
 [!INCLUDE [virtual-machines-common-backup-recovery](../../../includes/virtual-machines-common-backup-recovery.md)]

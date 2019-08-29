@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: 0627361fdd4f94a329b08b184dbd542e1927af39
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 19aa0877c7c37083a6206e094aced40542d0ef72
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871916"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092673"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usar a extensão de diagnóstico do Linux para monitorar as métricas e os logs
 
@@ -127,7 +127,7 @@ Esse conjunto de informações de configuração contém informações confidenc
 }
 ```
 
-Nome | Value
+Name | Value
 ---- | -----
 storageAccountName | O nome da conta de armazenamento na qual os dados são gravados pela extensão.
 storageAccountEndPoint | adicional O ponto de extremidade que identifica a nuvem na qual a conta de armazenamento existe. Se essa configuração estiver ausente, LAD usa como padrão a nuvem pública do Azure `https://core.windows.net`,. Para usar uma conta de armazenamento no Azure Alemanha, no Azure governamental ou no Azure China, defina esse valor adequadamente.
@@ -135,9 +135,7 @@ storageAccountSasToken | Um [token SAS de conta](https://azure.microsoft.com/blo
 mdsdHttpProxy | adicional Informações de proxy HTTP necessárias para habilitar a extensão para se conectar à conta de armazenamento e ao ponto de extremidade especificados.
 sinksConfig | adicional Detalhes de destinos alternativos para os quais as métricas e os eventos podem ser entregues. Os detalhes específicos de cada coletor de dados com suporte na extensão são abordados nas seções a seguir.
 
-
-> [!NOTE]
-> Ao implantar a extensão com um modelo de implantação do Azure, a conta de armazenamento e o token SAS devem ser criados com antecedência e, em seguida, passados para o modelo. Você não pode implantar uma VM, uma conta de armazenamento e configurar a extensão em um único modelo. Atualmente, não há suporte para a criação de um token SAS em um modelo.
+Para obter um token SAS em um modelo do Resource Manager, use a função **listAccountSas** . Para obter um modelo de exemplo, consulte [exemplo de função de lista](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example).
 
 Você pode construir facilmente o token SAS necessário por meio do portal do Azure.
 
@@ -229,7 +227,7 @@ Essa estrutura contém vários blocos de configurações que controlam as inform
 }
 ```
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
 StorageAccount | O nome da conta de armazenamento na qual os dados são gravados pela extensão. Deve ter o mesmo nome que o especificado nas [Configurações protegidas](#protected-settings).
 mdsdHttpProxy | adicional O mesmo que nas [Configurações protegidas](#protected-settings). O valor público é substituído pelo valor particular, se definido. Coloque as configurações de proxy que contêm um segredo, como uma senha, nas [Configurações protegidas](#protected-settings).

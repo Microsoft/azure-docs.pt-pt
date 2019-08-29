@@ -1,5 +1,5 @@
 ---
-title: Use com o kubernetes e o serviço de Helm-fala
+title: Usar o contêiner de serviço de fala com kubernetes e Helm
 titleSuffix: Azure Cognitive Services
 description: Usando kubernetes e Helm para definir as imagens de contêiner de conversão de texto em texto e de Text para fala, criaremos um pacote kubernetes. Este pacote será implantado em um cluster kubernetes local.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 7/16/2019
+ms.date: 8/26/2019
 ms.author: dapine
-ms.openlocfilehash: d8a5b941be34028f7a1c53e39b38ab30714ba301
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 3c8ffcdb08fc99f5d815639e14fb4456fbd035e8
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971349"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066496"
 ---
-# <a name="use-with-kubernetes-and-helm"></a>Utilizar com o Kubernetes e Helm
+# <a name="use-speech-service-container-with-kubernetes-and-helm"></a>Usar o contêiner de serviço de fala com kubernetes e Helm
 
 Uma opção para gerenciar seus contêineres de fala no local é usar kubernetes e Helm. Usando kubernetes e Helm para definir as imagens de contêiner de conversão de texto em texto e de Text para fala, criaremos um pacote kubernetes. Este pacote será implantado em um cluster kubernetes local. Por fim, exploraremos como testar os serviços implantados e várias opções de configuração. Para obter mais informações sobre como executar contêineres do Docker sem orquestração kubernetes, consulte [instalar e executar contêineres de serviço de fala](speech-container-howto.md).
 
@@ -25,7 +25,7 @@ Uma opção para gerenciar seus contêineres de fala no local é usar kubernetes
 
 Os seguintes pré-requisitos antes de usar os contêineres de fala locais:
 
-|Obrigatória|Objetivo|
+|Requerido|Objetivo|
 |--|--|
 | Conta do Azure | Se não tiver uma subscrição do Azure, crie uma [conta gratuita][free-azure-account] antes de começar. |
 | Acesso ao registro de contêiner | Para que o kubernetes pegue as imagens do Docker no cluster, ele precisará de acesso ao registro de contêiner. Você precisa [solicitar o acesso ao registro de contêiner][speech-preview-access] primeiro. |

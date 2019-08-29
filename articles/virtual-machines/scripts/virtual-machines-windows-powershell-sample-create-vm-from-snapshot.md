@@ -1,6 +1,6 @@
 ---
-title: Script do Azure PowerShell de exemplo – criar uma VM a partir de um instantâneo | Documentos da Microsoft
-description: Script do Azure PowerShell de exemplo – criar uma VM a partir de um instantâneo
+title: Azure PowerShell exemplo de script – criar uma VM com base em um instantâneo | Microsoft Docs
+description: Azure PowerShell exemplo de script – criar uma VM com base em um instantâneo
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: ramankumarlive
@@ -9,27 +9,26 @@ editor: ramankum
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 88ac53c864ffe8922fc5c1b36bca326d63430e22
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2c9833c6ac2427a4821d52854018eec60031c479
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989036"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080873"
 ---
-# <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>Criar uma máquina virtual a partir de um instantâneo com o PowerShell
+# <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>Criar uma máquina virtual com base em um instantâneo com o PowerShell
 
 Este script cria uma máquina virtual a partir de um instantâneo de um disco do SO. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -45,15 +44,15 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para obter as propriedades do instantâneo, criar um disco gerido a partir de instantâneo e criar uma VM. Cada item na tabela liga a documentação específica do comando.
+Esse script usa os seguintes comandos para obter propriedades de instantâneo, criar um disco gerenciado do instantâneo e criar uma VM. Cada item na tabela liga a documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/get-azsnapshot) | Obtém um instantâneo com o nome do instantâneo. |
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) | Cria uma configuração de disco. Esta configuração é utilizada com o processo de criação do disco. |
-| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk) | Cria um disco gerido. |
+| [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/get-azsnapshot) | Obtém um instantâneo usando o nome do instantâneo. |
+| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) | Cria uma configuração de disco. Essa configuração é usada com o processo de criação de disco. |
+| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk) | Cria um disco gerenciado. |
 | [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | Cria uma configuração de VM. Esta configuração inclui informações como o nome da VM, sistema operativo e credenciais administrativas. A configuração é utilizada durante a criação da VM. |
-| [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) | Anexa o disco gerido como disco do SO para a máquina virtual |
+| [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) | Anexa o disco gerenciado como disco do sistema operacional à máquina virtual |
 | [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) | Cria um endereço IP público. |
 | [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) | Cria uma interface de rede. |
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Cria uma máquina virtual. |

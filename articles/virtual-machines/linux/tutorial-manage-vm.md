@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1de2d40e107c03db8c0e406a7bb1a12c15d5c736
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1df278c67c8f84648d2fc7ab3818656cfb9de74a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708505"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100707"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: Criar e Gerir VMs do Linux com a CLI do Azure
 
@@ -155,7 +154,7 @@ Um tamanho de máquina virtual determina a quantidade de recursos de computaçã
 
 A tabela seguinte categoriza tamanhos em casos de utilização.  
 
-| Tipo                     | Tamanhos comuns           |    Descrição       |
+| Type                     | Tamanhos comuns           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Fins gerais](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU-para-memória equilibrada. Ideal para desenvolvimento/teste e aplicações e soluções de dados pequenas a médias.  |
 | [Com otimização de computação](sizes-compute.md)   | Fsv2          | CPU-para-memória elevada. É adequado para aplicações de tráfego médio, dispositivos de rede e processos em lote.        |
@@ -262,7 +261,7 @@ Uma VM do Azure pode ter um de vários estados de energia. Este estado represent
 | Desalocada | Indica que a máquina virtual foi removida do hipervisor, mas continua disponível no painel de controlo. As máquinas virtuais no estado Desalocada não incorrem em custos de computação. |
 | - | Indica que o estado de energia da máquina virtual é desconhecido. |
 
-### <a name="find-the-power-state"></a>Encontrar o estado de energia
+### <a name="find-the-power-state"></a>Localizar o estado de energia
 
 Para obter o estado de uma VM específica, utilize o comando [az vm get-instance-view](/cli/azure/vm). Certifique-se de que especifica um nome válido para a máquina virtual e o grupo de recursos. 
 

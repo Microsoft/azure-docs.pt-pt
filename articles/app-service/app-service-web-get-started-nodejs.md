@@ -1,5 +1,5 @@
 ---
-title: Criar aplicação web do node. js - serviço de aplicações do Azure | Documentos da Microsoft
+title: Criar aplicativo Web node. js-serviço de Azure App | Microsoft Docs
 description: Implemente em minutos o seu primeiro Node.js Hello World nas aplicações Web do serviço de aplicações do Azure.
 services: app-service\web
 documentationcenter: ''
@@ -10,17 +10,16 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c103e6cb3626750414ee5083dad3e34b6be4986c
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 989bff7d8be5c234d9536afa8afc0beb6870807e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408950"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071666"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar uma aplicação Web Node.js no Azure
 
@@ -28,7 +27,7 @@ ms.locfileid: "65408950"
 > Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implementar um Serviço de Aplicações no _Linux_, consulte [Criar uma aplicação Web Node.js no Serviço de Aplicações do Azure no Linux](./containers/quickstart-nodejs.md).
 >
 
-O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este guia de introdução mostra como implementar uma aplicação de node. js no App Service do Azure. Crie a aplicação Web com a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e utilize o ZipDeploy para implementar o código Node.js de exemplo na aplicação Web.
+O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este guia de início rápido mostra como implantar um aplicativo node. js no serviço Azure App. Crie a aplicação Web com a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e utilize o ZipDeploy para implementar o código Node.js de exemplo na aplicação Web.
 
 ![Aplicação de exemplo em execução no Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
@@ -54,7 +53,7 @@ const port = process.env.PORT || 1337;
 
 O Serviço de Aplicações injeta process.env.PORT na sua aplicação, para que o código utilize a variável de modo a saber que porta escutar. 
 
-Na janela do terminal, navegue para o **diretório de raiz** do projeto de node. js de exemplo (o diretório que contém _Index_).
+Em uma janela de terminal, navegue até o **diretório raiz** do projeto de exemplo node. js (o diretório que contém _index. js_).
 
 ## <a name="run-the-app-locally"></a>Executar a aplicação localmente
 
@@ -77,7 +76,7 @@ Na janela do terminal, prima **Ctrl+C** para desligar o servidor Web.
 
 ## <a name="create-a-project-zip-file"></a>Criar um ficheiro ZIP do projeto
 
-Verifique se está ainda na **diretório de raiz** do projeto de exemplo (o diretório que contém _Index_). Crie um arquivo ZIP de tudo no seu projeto. O comando seguinte utiliza a ferramenta predefinida no seu terminal:
+Verifique se você ainda está no **diretório raiz** do projeto de exemplo (o diretório que contém _index. js_). Crie um arquivo ZIP de tudo no seu projeto. O comando seguinte utiliza a ferramenta predefinida no seu terminal:
 
 ```
 # Bash
@@ -124,7 +123,7 @@ Quando a aplicação Web tiver sido criada, a CLI do Azure mostra informações 
 
 ### <a name="set-nodejs-runtime"></a>Definir o runtime do Node.js
 
-Defina o tempo de execução do nó para 10.14.1. Para ver todos os runtimes suportados, execute [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
+Defina o tempo de execução do nó como 10.14.1. Para ver todos os runtimes suportados, execute [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
 
 ```azurecli-interactive
 # Bash and Powershell
@@ -165,7 +164,7 @@ Utilizando um editor de texto, abra o ficheiro `index.js` na aplicação Node.js
 response.end("Hello Azure!");
 ```
 
-Na janela de terminal local, navegue para seu aplicativo **diretório de raiz** (o diretório que contém _Index_), crie um novo ficheiro ZIP para o projeto atualizado.
+Na janela do terminal local, navegue até o **diretório raiz** do seu aplicativo (o diretório que contém _index. js_), crie um novo arquivo zip para o projeto atualizado.
 
 ```azurecli-interactive
 # Bash
@@ -181,11 +180,11 @@ Volte para a janela do browser aberta que abriu no passo **Navegar para a aplica
 
 ![Aplicação de exemplo atualizada em execução no Azure](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-app"></a>Gerir a sua nova aplicação do Azure
+## <a name="manage-your-new-azure-app"></a>Gerenciar seu novo aplicativo do Azure
 
 Aceda ao <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerir a aplicação Web que criou.
 
-No menu à esquerda, clique em **dos serviços de aplicações**e, em seguida, clique no nome da sua aplicação do Azure.
+No menu à esquerda, clique em **serviços de aplicativos**e, em seguida, clique no nome do seu aplicativo do Azure.
 
 ![Navegação do portal para a aplicação do Azure](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 

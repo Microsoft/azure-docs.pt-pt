@@ -1,6 +1,6 @@
 ---
-title: Criar VM a partir de uma imagem gerida no Azure | Documentos da Microsoft
-description: Crie uma máquina virtual do Windows a partir de uma imagem gerida generalizada com o Azure PowerShell ou o portal do Azure, no modelo de implementação do Resource Manager.
+title: Criar VM de uma imagem gerenciada no Azure | Microsoft Docs
+description: Crie uma máquina virtual do Windows a partir de uma imagem gerenciada generalizada usando Azure PowerShell ou a portal do Azure, no modelo de implantação do Gerenciador de recursos.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -10,45 +10,44 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 3ae730389b54fc1034bfac3ffdc7e56a2dc5f3fc
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 30e5a7e5953c56ff452b992370e8225ca103abba
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718963"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079703"
 ---
-# <a name="create-a-vm-from-a-managed-image"></a>Criar uma VM a partir de uma imagem gerida
+# <a name="create-a-vm-from-a-managed-image"></a>Criar uma VM com base em uma imagem gerenciada
 
-Pode criar várias máquinas virtuais (VMs) a partir de uma VM gerida do Azure com o portal do Azure ou do PowerShell de imagem. Uma imagem VM gerida contém as informações necessárias para criar uma VM, incluindo os discos de SO e dados. Os discos rígidos virtuais (VHDs) que formam a imagem, incluindo os discos de SO e qualquer discos de dados, são armazenados como discos geridos. 
+Você pode criar várias VMs (máquinas virtuais) de uma imagem de VM gerenciada do Azure usando o portal do Azure ou o PowerShell. Uma imagem de VM gerenciada contém as informações necessárias para criar uma VM, incluindo o sistema operacional e os discos de dados. Os VHDs (discos rígidos virtuais) que compõem a imagem, incluindo os discos do sistema operacional e os discos de dados, são armazenados como discos gerenciados. 
 
-Antes de criar uma nova VM, precisará [crie uma imagem VM gerida](capture-image-resource.md) para utilizar como imagem de origem e conceder acesso de leitura na imagem para qualquer utilizador que deve ter acesso à imagem. 
+Antes de criar uma nova VM, você precisará [criar uma imagem de VM gerenciada](capture-image-resource.md) para usar como a imagem de origem e conceder acesso de leitura na imagem a qualquer usuário que deve ter acesso à imagem. 
 
 
 ## <a name="use-the-portal"></a>Utilizar o portal
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
-2. No menu da esquerda, selecione **todos os recursos**. Pode ordenar os recursos por **tipo** para localizar facilmente as suas imagens.
-3. Selecione a imagem que pretende utilizar na lista. A imagem **descrição geral** é aberta a página.
-4. Selecione **Create VM** no menu.
-5. Introduza as informações da máquina virtual. O nome de utilizador e palavra-passe introduzidos aqui serão utilizadas para iniciar sessão na máquina virtual. Quando terminar, selecione **OK**. Pode criar a nova VM no grupo de recursos existente ou escolha **criar novo** para criar um novo grupo de recursos para armazenar a VM.
+2. No menu à esquerda, selecione **todos os recursos**. Você pode classificar os recursos por **tipo** para localizar facilmente suas imagens.
+3. Selecione a imagem que você deseja usar na lista. A página **visão geral** da imagem é aberta.
+4. Selecione **criar VM** no menu.
+5. Introduza as informações da máquina virtual. O nome de usuário e a senha inseridos aqui serão usados para fazer logon na máquina virtual. Ao concluir, selecione **OK**. Você pode criar a nova VM em um grupo de recursos existente ou escolher **criar nova** para criar um novo grupo de recursos para armazenar a VM.
 6. Selecione um tamanho para a VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. 
-7. Sob **configurações**, fazer as alterações necessárias e selecione **OK**. 
-8. Na página Resumo, deverá ver seu nome de imagem listado como um **imagem privada**. Selecione **Ok** para iniciar a implementação da máquina virtual.
+7. Em **configurações**, faça as alterações conforme necessário e selecione **OK**. 
+8. Na página Resumo, você deve ver o nome da imagem listado como uma **imagem privada**. Selecione **OK** para iniciar a implantação da máquina virtual.
 
 
 ## <a name="use-powershell"></a>Utilizar o PowerShell
 
-Pode utilizar o PowerShell para criar uma VM a partir de uma imagem usando o parâmetro simplificado definido para o [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. A imagem tem de estar no mesmo grupo de recursos onde irá criar a VM.
+Você pode usar o PowerShell para criar uma VM de uma imagem usando o parâmetro simplificado definido para o cmdlet [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) . A imagem precisa estar no mesmo grupo de recursos em que você criará a VM.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-O parâmetro de simplificada definido para [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) requer apenas que forneça um nome, grupo de recursos e o nome da imagem para criar uma VM a partir de uma imagem. Novo-AzVm utilizará o valor do **-nome** parâmetro como o nome de todos os recursos que ele cria automaticamente. Neste exemplo, podemos fornecer nomes mais detalhados para cada um dos recursos, mas permitir que o cmdlet criá-los automaticamente. Também pode criar recursos com antecedência, como a rede virtual e passar o nome do recurso para o cmdlet. Novo-AzVm irá utilizar os recursos existentes, se ele pode encontrá-los pelo respetivo nome.
+O parâmetro simplificado definido para [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) requer apenas que você forneça um nome, um grupo de recursos e um nome de imagem para criar uma VM a partir de uma imagem. New-AzVm usará o valor do parâmetro **-Name** como o nome de todos os recursos que ele cria automaticamente. Neste exemplo, fornecemos nomes mais detalhados para cada um dos recursos, mas permitem que o cmdlet os crie automaticamente. Você também pode criar recursos com antecedência, como a rede virtual, e passar o nome do recurso para o cmdlet. New-AzVm usará os recursos existentes se puder encontrá-los por seu nome.
 
-O exemplo seguinte cria uma VM com o nome *myVMFromImage*, na *myResourceGroup* grupo de recursos, da imagem com o nome *myImage*. 
+O exemplo a seguir cria uma VM chamada *myVMFromImage*, no grupo de recursos MyResource Group, da imagem chamada *MyImage*. 
 
 
 ```azurepowershell-interactive
@@ -67,5 +66,5 @@ New-AzVm `
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Criar e gerir VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Criar e gerenciar VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

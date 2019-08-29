@@ -1,6 +1,6 @@
 ---
-title: Perguntas mais frequentes sobre as VMs do Linux no Azure | Documentos da Microsoft
-description: Fornece respostas para algumas das perguntas comuns sobre as máquinas de virtuais de Linux criadas com o modelo do Resource Manager.
+title: Perguntas frequentes sobre VMs do Linux no Azure | Microsoft Docs
+description: Fornece respostas para algumas das perguntas mais comuns sobre máquinas virtuais do Linux criadas com o modelo do Resource Manager.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -11,58 +11,57 @@ ms.assetid: 3648e09c-1115-4818-93c6-688d7a54a353
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: ae636917a32aae823d0d31b415f9ef9ac16e9c2f
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 0648b9b321aabc7c9e56997c320a63386542498c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667777"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083378"
 ---
-# <a name="frequently-asked-question-about-linux-virtual-machines"></a>Perguntas frequentes sobre máquinas virtuais do Linux
-Este artigo aborda algumas perguntas comuns sobre as máquinas de virtuais de Linux criadas no Azure com o modelo de implementação do Resource Manager. Para a versão do Windows deste tópico, consulte [pergunta mais frequente sobre máquinas de virtuais do Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+# <a name="frequently-asked-question-about-linux-virtual-machines"></a>Perguntas frequentes sobre Máquinas Virtuais do Linux
+Este artigo aborda algumas perguntas comuns sobre as máquinas virtuais do Linux criadas no Azure usando o modelo de implantação do Resource Manager. Para obter a versão do Windows deste tópico, consulte perguntas frequentes [sobre máquinas virtuais do Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="what-can-i-run-on-an-azure-vm"></a>O que posso executar numa VM do Azure?
-Todos os subscritores podem executar software de servidor numa máquina virtual do Azure. Para obter mais informações, consulte [Linux em distribuições Azure-Endorsed](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Todos os subscritores podem executar software de servidor numa máquina virtual do Azure. Para obter mais informações, consulte [Linux no Azure – distribuições endossadas](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Quanto armazenamento posso utilizar com uma máquina virtual?
 Cada disco de dados pode ter até 32.767 GiB. O número de discos de dados que pode utilizar depende do tamanho da máquina virtual. Para obter mais detalhes, veja [Tamanhos das Virtual Machines](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Managed Disks do Azure são as disco recomendado ofertas de armazenamento para utilização com máquinas virtuais do Azure para armazenamento persistente de dados. Pode utilizar vários Managed Disks com cada Máquina Virtual. Managed Disks oferta dois tipos de opções de armazenamento duráveis: Discos geridos Premium e Standard. Para obter informações sobre preços, consulte [preços de discos geridos](https://azure.microsoft.com/pricing/details/managed-disks).
+O Azure Managed Disks são as ofertas de armazenamento em disco recomendadas para uso com máquinas virtuais do Azure para armazenamento persistente de dados. Pode utilizar vários Managed Disks com cada Máquina Virtual. Managed Disks oferecem dois tipos de opções de armazenamento durável: Managed Disks Premium e Standard. Para obter informações sobre preços, consulte [preços de Managed disks](https://azure.microsoft.com/pricing/details/managed-disks).
 
-Contas de armazenamento do Azure também podem fornecer armazenamento para o disco do sistema operativo e qualquer discos de dados. Cada disco é um ficheiro .vhd armazenado como um blob de páginas. Para detalhes de preços, veja [Detalhes de Preço do Armazenamento](https://azure.microsoft.com/pricing/details/storage/).
+As contas de armazenamento do Azure também podem fornecer armazenamento para o disco do sistema operacional e quaisquer discos de dados. Cada disco é um ficheiro .vhd armazenado como um blob de páginas. Para detalhes de preços, veja [Detalhes de Preço do Armazenamento](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="how-can-i-access-my-virtual-machine"></a>Como posso acessar minha máquina virtual?
-Estabelece uma ligação remota para iniciar sessão máquina virtual, utilizando Secure Shell (SSH). Veja as instruções sobre como ligar [do Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [de Linux e Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Por predefinição, o SSH permite um máximo de 10 ligações simultâneas. Pode aumentar este número, editando o ficheiro de configuração.
+Estabeleça uma conexão remota para fazer logon na máquina virtual usando Secure Shell (SSH). Consulte as instruções sobre como se conectar [do Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [do Linux e Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Por predefinição, o SSH permite um máximo de 10 ligações simultâneas. Pode aumentar este número, editando o ficheiro de configuração.
 
-Se estiver a ter problemas, consulte [ligações de resolução de problemas de Secure Shell (SSH)](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se você estiver tendo problemas, confira [solucionar problemas de conexões Secure Shell (SSH)](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="can-i-use-the-temporary-disk-devsdb1-to-store-data"></a>Pode utilizar o disco temporário (/ desenvolvimento/sdb1) para armazenar dados?
-Não utilize o disco temporário (/ desenvolvimento/sdb1) para armazenar dados. Destina-se apenas existir um armazenamento temporário. Corre o risco de perda de dados que não podem ser recuperados.
+## <a name="can-i-use-the-temporary-disk-devsdb1-to-store-data"></a>Posso usar o disco temporário (/dev/sdb1) para armazenar dados?
+Não use o disco temporário (/dev/sdb1) para armazenar dados. Ele só está lá para armazenamento temporário. Você tem risco de perder dados que não podem ser recuperados.
 
-## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>Pode copiar ou clonar uma VM do Azure existente?
-Sim. Para obter instruções, consulte [como criar uma cópia de uma máquina virtual do Linux no modelo de implementação do Resource Manager](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>Posso copiar ou clonar uma VM existente do Azure?
+Sim. Para obter instruções, consulte [como criar uma cópia de uma máquina virtual do Linux no modelo de implantação do Gerenciador de recursos](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>Por que eu não estou vendo Canadá Central e regiões do leste do Canadá através do Gestor de recursos do Azure?
-As duas novas regiões do Canadá Central e leste do Canadá não são automaticamente registradas para criação de máquinas virtuais para as subscrições do Azure existentes. Este registo é feito automaticamente quando uma máquina virtual é implementada através do portal do Azure para qualquer outra região com o Azure Resource Manager. Depois de uma máquina virtual é implementada em qualquer outra região do Azure, as novas regiões devem estar disponíveis para máquinas de virtuais subsequentes.
+## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>Por que não estou vendo as regiões centro-oeste e leste do Canadá por meio de Azure Resource Manager?
+As duas novas regiões da central do Canadá e do leste do Canadá não são registradas automaticamente para a criação de máquinas virtuais para assinaturas do Azure existentes. Esse registro é feito automaticamente quando uma máquina virtual é implantada por meio do portal do Azure para qualquer outra região usando Azure Resource Manager. Depois que uma máquina virtual é implantada em qualquer outra região do Azure, as novas regiões devem estar disponíveis para as máquinas virtuais subsequentes.
 
-## <a name="can-i-add-a-nic-to-my-vm-after-its-created"></a>Posso adicionar um NIC à minha VM depois de criada?
-Sim, isso agora é possível. A VM tem primeiro de ser parada desalocada. Em seguida, pode adicionar ou remover um NIC (a menos que é a última NIC na VM). 
+## <a name="can-i-add-a-nic-to-my-vm-after-its-created"></a>Posso adicionar uma NIC à minha VM após sua criação?
+Sim, agora isso é possível. A VM primeiro precisa ser interrompida desalocada. Em seguida, você pode adicionar ou remover uma NIC (a menos que seja a última NIC na VM). 
 
-## <a name="are-there-any-computer-name-requirements"></a>Existem quaisquer requisitos de nome de computador?
-Sim. O nome do computador pode ter um máximo de 64 carateres de comprimento. Ver [restrições e regras de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions) para obter mais informações em torno de seus recursos de atribuição de nomes.
+## <a name="are-there-any-computer-name-requirements"></a>Há algum requisito de nome de computador?
+Sim. O nome do computador pode ter no máximo 64 caracteres de comprimento. Consulte [regras e restrições de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions) para obter mais informações sobre como nomear seus recursos.
 
-## <a name="are-there-any-resource-group-name-requirements"></a>Existem todos os recursos os requisitos de nome de grupo?
-Sim. O nome do grupo de recursos pode ter um máximo de 90 carateres de comprimento. Ver [restrições e regras de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions) para obter mais informações sobre grupos de recursos.
+## <a name="are-there-any-resource-group-name-requirements"></a>Há algum requisito de nome de grupo de recursos?
+Sim. O nome do grupo de recursos pode ter no máximo 90 caracteres de comprimento. Consulte [regras e restrições de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions) para obter mais informações sobre grupos de recursos.
 
-## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Quais são os requisitos de nome de utilizador, ao criar uma VM?
+## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Quais são os requisitos de nome de usuário ao criar uma VM?
 
-Nomes de utilizador devem ser de 1 a 32 carateres de comprimento.
+Os nomes de acessados devem ter de 1-32 caracteres de comprimento.
 
-Não são permitidos nomes de utilizador seguintes:
+Os seguintes nomes de não são permitidos:
 
 | | | | |
 |-----------------|-----------|--------------------|----------|
@@ -76,22 +75,22 @@ Não são permitidos nomes de utilizador seguintes:
 | `test2`         | `test3`   | `user4`            | `user5`  |
 | `video`         |
 
-## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>Quais são os requisitos de palavra-passe, quando cria uma VM?
+## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>Quais são os requisitos de senha ao criar uma VM?
 
-Existem palavra-passe diferentes requisitos de comprimento, consoante a ferramenta que está a utilizar:
- - Portal – entre 12 e 72 carateres
- - PowerShell – entre 8-123 carateres
- - CLI - entre 12-123
+Há requisitos de comprimento de senha variados, dependendo da ferramenta que você está usando:
+ - Portal-entre 12-72 caracteres
+ - PowerShell-entre 8-123 caracteres
+ - CLI-entre 12-123
  
 
-As palavras-passe também tem de cumprir 3 dos seguintes requisitos de 4 complexidade:
+As senhas também devem atender a três dos 4 seguintes requisitos de complexidade:
 
-* Ter carateres inferior
+* Ter caracteres inferiores
 * Ter caracteres superiores
-* Tem um dígito
-* Ter um caractere especial ([\W_] corresponde ao Regex)
+* Ter um dígito
+* Ter um caractere especial (correspondência de Regex [\W_])
 
-As palavras-passe seguintes não são permitidas:
+As seguintes senhas não são permitidas:
 
 <table>
     <tr>
@@ -103,9 +102,9 @@ As palavras-passe seguintes não são permitidas:
     </tr>
     <tr>
         <td style="text-align:center">pass@word1</td>
-        <td style="text-align:center">Palavra-passe!</td>
+        <td style="text-align:center">La!</td>
         <td style="text-align:center">Password1</td>
         <td style="text-align:center">Password22</td>
-        <td style="text-align:center">ILOVEYOU gerou enormes!</td>
+        <td style="text-align:center">ILOVEYOU!</td>
     </tr>
 </table>

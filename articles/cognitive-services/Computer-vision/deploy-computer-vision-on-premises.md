@@ -1,5 +1,5 @@
 ---
-title: Usar com kubernetes e Helm-Pesquisa Visual Computacional
+title: Usar Pesquisa Visual Computacional contêiner com kubernetes e Helm
 titleSuffix: Azure Cognitive Services
 description: Implante o contêiner Pesquisa Visual Computacional em uma instância de contêiner do Azure e teste-o em um navegador da Web.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 8/22/2019
 ms.author: dapine
-ms.openlocfilehash: 5befba9bdc44a594363dba86c0c2d082a9b44cdd
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 1627aea958707eaaef6ee79908a17afc2e8f7b45
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036629"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70068972"
 ---
-# <a name="use-with-kubernetes-and-helm"></a>Utilizar com o Kubernetes e Helm
+# <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Usar Pesquisa Visual Computacional contêiner com kubernetes e Helm
 
 Uma opção para gerenciar seus contêineres de Pesquisa Visual Computacional local é usar kubernetes e Helm. Usando kubernetes e Helm para definir a imagem de contêiner Reconhecimento de Texto, criaremos um pacote kubernetes. Este pacote será implantado em um cluster kubernetes local. Por fim, exploraremos como testar os serviços implantados. Para obter mais informações sobre como executar contêineres do Docker sem orquestração kubernetes, consulte [instalar e executar reconhecimento de texto contêineres](computer-vision-how-to-install-containers.md).
 
@@ -232,7 +232,7 @@ replicaset.apps/text-recognizer-57cb76bcf7   1         1         1       17s
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais detalhes sobre como instalar aplicativos com o Helm no AKS (serviço kubernetes do Azure), [visite aqui][installing-helm-apps-in-aks].
 

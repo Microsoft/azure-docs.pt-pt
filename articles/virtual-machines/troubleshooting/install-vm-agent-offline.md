@@ -10,16 +10,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 78be50d234605775bcef4ece2e6ff7c01ec0437f
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 018f27999c4f69c0868e2a8fde6535346c7d0377
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874222"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090368"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Instalar o agente de máquina virtual do Azure no modo offline 
 
@@ -124,7 +123,7 @@ Em seguida, `Get-AzureVM` execute o comando. Observe que a propriedade **GuestAg
    GuestAgentStatus:Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVMModel.GuestAgentStatus
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do agente de máquina virtual do Azure](../extensions/agent-windows.md)
 - [Recursos e extensões de máquina virtual para Windows](../extensions/features-windows.md)

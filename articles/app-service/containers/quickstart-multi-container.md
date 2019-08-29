@@ -10,17 +10,16 @@ editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 8045b230208c3dfa045d8d21a37525bcfe10e10e
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 89cf13fd4405b9ddcbc5b31fad9f0c945aef64aa
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996821"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071129"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Criar um aplicativo de vários contêineres (versão prévia) usando uma configuração de Docker Compose
 

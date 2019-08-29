@@ -7,19 +7,18 @@ manager: gwallace
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5fe15b36913106692377c483110cce2c0418a3f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d03fd754e5a8e2872063b8a10bd1293b94d8f3b6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322852"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094436"
 ---
 # <a name="persist-job-and-task-output"></a>Manter saída de trabalhos e tarefas
 
@@ -85,7 +84,7 @@ Ao projetar sua solução de lote, considere os seguintes fatores relacionados �
 
 - **Exibindo saída**: Quando você navega para uma tarefa em lote no portal do Azure e seleciona **arquivos no nó**, você recebe todos os arquivos associados à tarefa, não apenas os arquivos de saída nos quais está interessado. Novamente, os arquivos em nós de computação estão disponíveis somente enquanto o nó existe e somente dentro do tempo de retenção de arquivo que você definiu para a tarefa. Para exibir a saída da tarefa que você persistiu no armazenamento do Azure, você pode usar o portal do Azure ou um aplicativo cliente de armazenamento do Azure, como o [Gerenciador de armazenamento do Azure][storage_explorer]. Para exibir os dados de saída no armazenamento do Azure com o portal ou outra ferramenta, você deve saber o local do arquivo e navegar diretamente para ele.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Explore usando os novos recursos da API do serviço de lote para manter os dados da tarefa em [manter dados de tarefas no armazenamento do Azure com a API de serviço do lote](batch-task-output-files.md).
 - Saiba como usar a biblioteca de convenções de arquivo em lotes para .NET em [manter dados de trabalho e tarefa no armazenamento do Azure com a biblioteca de convenções de arquivo em lotes para .net](batch-task-output-file-conventions.md).

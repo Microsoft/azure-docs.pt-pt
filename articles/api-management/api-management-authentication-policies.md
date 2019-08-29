@@ -10,16 +10,15 @@ ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: bd31d711c58a63b5c15712c1774d48433c62f18d
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 69584b434ac0442df48dcdea2a7d9f2aca9c1ccd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774979"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073745"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação de gerenciamento de API
 Este tópico fornece uma referência para as seguintes políticas de gerenciamento de API. Para obter informações sobre como adicionar e configurar políticas, consulte [políticas no gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -49,13 +48,13 @@ Este tópico fornece uma referência para as seguintes políticas de gerenciamen
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Requerido|
+|Name|Descrição|Requerido|
 |----------|-----------------|--------------|
 |autenticação-básica|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Requerido|Predefinição|
+|Name|Descrição|Requerido|Predefinição|
 |----------|-----------------|--------------|-------------|
 |username|Especifica o nome de usuário da credencial básica.|Sim|N/A|
 |password|Especifica a senha da credencial básica.|Sim|N/A|
@@ -89,13 +88,13 @@ Neste exemplo, o certificado de cliente é identificado pelo nome do recurso.
 
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Requerido|  
+|Name|Descrição|Requerido|  
 |----------|-----------------|--------------|  
 |autenticação-certificado|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Requerido|Predefinição|  
+|Name|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|A impressão digital do certificado do cliente.|`thumbprint` Ou`certificate-id` deve estar presente.|N/A|  
 |ID do certificado|O nome do recurso do certificado.|`thumbprint` Ou`certificate-id` deve estar presente.|N/A|  
@@ -133,13 +132,13 @@ Neste exemplo, o certificado de cliente é identificado pelo nome do recurso.
 
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Requerido|  
+|Name|Descrição|Requerido|  
 |----------|-----------------|--------------|  
 |autenticação-gerenciada-identidade |Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Requerido|Predefinição|  
+|Name|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |resource|Strings. O URI da ID do aplicativo da API Web de destino (recurso protegido) em Azure Active Directory.|Sim|N/A|  
 |saída-token-variável-nome|Strings. Nome da variável de contexto que receberá o valor de token como um `string`tipo de objeto. |Não|N/A|  

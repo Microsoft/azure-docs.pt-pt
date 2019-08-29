@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 16279b23-60ff-4b16-b308-5de000e4c028
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 41f3eecb1b3f488c355b1bad65b90dae8c76126e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f7554993e2e3d8d2f6bce71db57a746a4392ce1a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68323459"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095078"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gerenciar contas e cotas do lote com a biblioteca de cliente de gerenciamento de lote para .NET
 

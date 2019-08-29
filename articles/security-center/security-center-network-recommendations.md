@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 6dfd3bd86e55d19bf1c15486a502a4cbab3c96a8
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 3683550045699a24c27a3226fba2e90a671f80e1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905307"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101017"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Proteger seus recursos de rede na central de segurança do Azure
 A central de segurança do Azure analisa continuamente o estado de segurança de seus recursos do Azure para práticas recomendadas de segurança de rede. Quando a central de segurança identifica possíveis vulnerabilidades de segurança, ele cria recomendações que orientam você pelo processo de configuração dos controles necessários para proteger e proteger seus recursos.
@@ -33,7 +33,7 @@ Este artigo aborda as recomendações que se aplicam aos recursos do Azure de um
 A página **rede** fornece uma visão geral das seções que você pode aprofundar para obter mais informações sobre a integridade de seus recursos de rede:
 
 - Mapa de rede (somente camada Standard da central de segurança do Azure)
-- Proteção de Rede Ajustável
+- Proteção de Rede Ajustável
 - Recomendações de segurança de rede.
 - Folha de **rede** herdada (a folha rede anterior) 
  
@@ -153,7 +153,6 @@ A proteção contra DDoS Standard deve ser habilitada|Proteja redes virtuais que
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
 
 * [Proteger as máquinas e aplicações no Centro de Segurança do Azure](security-center-virtual-machine-protection.md)
-* [Proteger as aplicações no Centro de Segurança do Azure](security-center-application-recommendations.md)
 * [Proteger o seu serviço do SQL do Azure no Centro de segurança do Azure](security-center-sql-service-recommendations.md)
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:

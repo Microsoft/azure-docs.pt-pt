@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 7ab921d889c48ccd8be469328e2690cb1cb2d8b2
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 7dba929101a928f0bbcb8553d6dd3b3043d74853
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050024"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114857"
 ---
 # <a name="install-and-run-face-containers"></a>Instalar e executar contêineres de face
 
@@ -150,7 +150,6 @@ Para obter mais informações sobre estas opções, consulte [configurar content
 
 Neste artigo, você aprendeu conceitos e fluxo de trabalho sobre como baixar, instalar e executar API de Detecção Facial contêineres. Em resumo:
 
-* O API de Detecção Facial fornece três contêineres do Linux para o Docker que fornecem extração de frases-chave, detecção de idioma e análise de sentimentos.
 * As imagens de contêiner são baixadas do registro de contêiner do Azure.
 * Executam imagens de contentor no Docker.
 * Você pode usar a API REST ou o SDK para chamar operações em contêineres API de Detecção Facial especificando o URI do host do contêiner.
@@ -159,7 +158,7 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho sobre como baixar, in
 > [!IMPORTANT]
 > Os contêineres de serviços cognitivas não são licenciados para serem executados sem serem conectados ao Azure para medição. Os clientes devem habilitar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres de serviços cognitivas não enviam dados do cliente, como a imagem ou o texto que está sendo analisado para a Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para definições de configuração, consulte [configurar contêineres](face-resource-container-config.md).
 * Para saber mais sobre como detectar e identificar rostos, confira [visão geral da face](Overview.md).

@@ -1,6 +1,6 @@
 ---
-title: Disco de SO de troca para uma VM do Azure com a CLI | Documentos da Microsoft
-description: Altere o disco do sistema operativo utilizado por uma máquina virtual do Azure com a CLI.
+title: Trocar o disco do sistema operacional de uma VM do Azure usando a CLI | Microsoft Docs '
+description: Altere o disco do sistema operacional usado por uma máquina virtual do Azure usando a CLI.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -11,30 +11,29 @@ ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 970f3409cc46fa6cf96fff3e6944ebeaeadcdcce
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7b5f8a47b2b9c3692698b2ec6a7e5bc470b86a18
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667268"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091676"
 ---
-# <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Alterar o disco do SO utilizado por uma VM do Azure com a CLI
+# <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Alterar o disco do sistema operacional usado por uma VM do Azure usando a CLI
 
 
-Se tiver uma VM existente, mas pretende trocar o disco para um disco de cópia de segurança ou de outro disco do SO, pode utilizar a CLI do Azure ao trocar os discos de SO. Não tem de eliminar e recriar a VM. Pode usar um disco gerido outro grupo de recursos,, desde que ainda não estiver em utilização.
+Se você tiver uma VM existente, mas quiser trocar o disco por um disco de backup ou outro disco do sistema operacional, poderá usar o CLI do Azure para trocar os discos do sistema operacional. Você não precisa excluir e recriar a VM. Você pode até mesmo usar um disco gerenciado em outro grupo de recursos, desde que ele ainda não esteja em uso.
 
-A VM tem de ser stopped\deallocated, em seguida, o ID de recurso do disco gerido pode ser substituído com o ID de recurso de um disco gerido diferente. 
+A VM precisa ser stopped\deallocated, então a ID de recurso do disco gerenciado pode ser substituída pela ID de recurso de um disco gerenciado diferente. 
 
-Certifique-se de que o tipo de armazenamento e tamanho VM são compatíveis com o disco que pretende anexar. Por exemplo, se o disco que pretende utilizar no armazenamento Premium, em seguida, a VM tem de ter a capacidade de armazenamento Premium (como um tamanho de séries de DS).
+Verifique se o tamanho da VM e o tipo de armazenamento são compatíveis com o disco que você deseja anexar. Por exemplo, se o disco que você deseja usar estiver no armazenamento Premium, a VM precisará ser capaz de armazenar o armazenamento Premium (como um tamanho da série DS).
 
-Este artigo requer a CLI do Azure versão 2.0.25 ou superior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Este artigo requer CLI do Azure versão 2.0.25 ou superior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 
-Uso [lista de disco de az](/cli/azure/disk) para obter uma lista dos discos no grupo de recursos.
+Use [AZ Disk List](/cli/azure/disk) para obter uma lista dos discos em seu grupo de recursos.
 
 ```azurecli-interactive
 az disk list \
@@ -44,7 +43,7 @@ az disk list \
 ```
 
 
-Uso [stop do az vm](/cli/azure/vm) para stop\deallocate a VM antes de passar os discos.
+Use [AZ VM Stop](/cli/azure/vm) para STOP\DEALLOCATE a VM antes de trocar os discos.
 
 ```azurecli-interactive
 az vm stop \
@@ -53,7 +52,7 @@ az vm stop \
 ```
 
 
-Uso [atualização do az vm](/cli/azure/vm#az-vm-update) com o ID de recurso completo do novo disco para o `--osdisk` parâmetro 
+Use [AZ VM Update](/cli/azure/vm#az-vm-update) com a ID de recurso completa do novo disco para o `--osdisk` parâmetro 
 
 ```azurecli-interactive 
 az vm update \
@@ -62,7 +61,7 @@ az vm update \
    --os-disk /subscriptions/<subscription ID>/resourceGroups/swap/providers/Microsoft.Compute/disks/myDisk 
    ```
    
-Reinicie a VM com [início de vm de az](/cli/azure/vm).
+Reinicie a VM usando [AZ VM Start](/cli/azure/vm).
 
 ```azurecli-interactive
 az vm start \

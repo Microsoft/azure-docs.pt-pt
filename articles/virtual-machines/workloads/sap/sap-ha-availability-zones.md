@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ead1dfdce4bf3a803eee46a536dc7062626640d9
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 3f5186f456003c341af41fc6067f3b5c08acb2b4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234240"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078894"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurações de carga de trabalho de SAP com Zonas de Disponibilidade do Azure
 O [zonas de disponibilidade do Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) é um dos recursos de alta disponibilidade que o Azure fornece. O uso de Zonas de Disponibilidade melhora a disponibilidade geral das cargas de trabalho do SAP no Azure. Esse recurso já está disponível em algumas [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). No futuro, ele estará disponível em mais regiões.
@@ -113,7 +112,7 @@ As seguintes considerações se aplicam a essa configuração:
   - Para o Windows, uma solução de cluster que usa o SIOS datakeeper, conforme documentado em [cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado do cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
   - Para o SUSE Linux, um compartilhamento NFS criado conforme documentado em [alta disponibilidade para NFS em VMs do Azure em SuSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
     
-    Atualmente, a solução que usa o servidor de arquivos de escalabilidade horizontal da Microsoft, conforme documentado em [preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e o compartilhamento de arquivos para instâncias do SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), não tem suporte entre zonas.
+    Atualmente, a solução que usa o Microsoft Servidor de Arquivos de Escalabilidade Horizontal, conforme documentado em [preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e o compartilhamento de arquivos para instâncias do SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), não tem suporte entre zonas.
 - A terceira zona é usada para hospedar o dispositivo SBD caso você crie um [cluster SuSE Linux pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) ou instâncias de aplicativo adicionais.
 - Para obter a consistência do tempo de execução para processos comerciais críticos, você pode tentar direcionar determinados trabalhos e usuários do lote para instâncias de aplicativo que estão em zona com a instância do DBMS ativa usando grupos de servidores do lote SAP, grupos de logon SAP ou grupos de RFC. No entanto, no caso de um failover de zonal, você precisaria mover manualmente esses grupos para instâncias em execução em VMs que estão na zona com a VM do BD ativo.  
 - Talvez você queira implantar as instâncias de diálogo inativos em cada uma das zonas. Isso é para habilitar um retorno imediato à capacidade do recurso anterior se uma zona usada por parte de suas instâncias do aplicativo estiver fora do serviço.
@@ -138,7 +137,7 @@ As seguintes considerações se aplicam a essa configuração:
     - Para o Windows, uma solução de cluster que usa o SIOS datakeeper, conforme documentado em [cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado do cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
     - Para o SUSE Linux, um compartilhamento NFS criado conforme documentado em [alta disponibilidade para NFS em VMs do Azure em SuSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
     
-  Atualmente, a solução que usa o servidor de arquivos de escalabilidade horizontal da Microsoft, conforme documentado em [preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e o compartilhamento de arquivos para instâncias do SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), não tem suporte entre zonas.
+  Atualmente, a solução que usa o Microsoft Servidor de Arquivos de Escalabilidade Horizontal, conforme documentado em [preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e o compartilhamento de arquivos para instâncias do SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), não tem suporte entre zonas.
 - A terceira zona é usada para hospedar o dispositivo SBD caso você crie um [cluster SuSE Linux pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) ou instâncias de aplicativo adicionais.
 - Você deve implantar VMs inativas na zona passiva (de um ponto de vista DBMS) para poder iniciar recursos do aplicativo no caso de uma falha de zona.
     - No momento, o [Azure site Recovery](https://azure.microsoft.com/services/site-recovery/) não pode replicar VMs ativas para VMs inativas entre zonas. 
@@ -168,7 +167,7 @@ As seguintes considerações se aplicam a essa configuração:
     - Para o Windows, uma solução de cluster que usa o SIOS datakeeper, conforme documentado em [cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado do cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
     - Para o SUSE Linux, um compartilhamento NFS criado conforme documentado em [alta disponibilidade para NFS em VMs do Azure em SuSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
 
-  Atualmente, a solução que usa o servidor de arquivos de escalabilidade horizontal da Microsoft, conforme documentado em [preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e o compartilhamento de arquivos para instâncias do SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), não tem suporte entre zonas.
+  Atualmente, a solução que usa o Microsoft Servidor de Arquivos de Escalabilidade Horizontal, conforme documentado em [preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e o compartilhamento de arquivos para instâncias do SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), não tem suporte entre zonas.
 - A terceira zona é usada para hospedar o dispositivo SBD caso você crie um [cluster SuSE Linux pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) ou instâncias de aplicativo adicionais.
 
 

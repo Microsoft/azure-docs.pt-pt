@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
-ms.openlocfilehash: c06e297d3d81623b7224082cb66f8faa6879205d
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: bc5eab6bb5044e474c386d3e5771d8517e6ba9cf
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774957"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072540"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparação baseada em recursos das camadas de gerenciamento de API do Azure
 

@@ -7,17 +7,16 @@ author: ggailey777
 manager: jeconnoc
 keywords: microsoft flow, flow, fluxo, logic apps, aplicações lógicas, funções do azure, funções, azure webjobs, webjobs, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 7bfe586294aec5938e2245c38fbe88aa5e57a66c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 9543e67d0f98836f760ac840fa12ec5718da037e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839494"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086049"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>O que são Microsoft Flow, aplicativos lógicos, funções e trabalhos Web?
 
@@ -124,7 +123,7 @@ Você pode obter mais informações sobre o Integration Services usando os segui
 * [Webcast ao vivo de aplicativos lógicos](https://aka.ms/logicappslive)
 * [Microsoft Flow perguntas frequentes](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Comece por criar o seu primeiro fluxo, aplicação lógica ou aplicação de funções. Selecione qualquer um dos seguintes links:
 

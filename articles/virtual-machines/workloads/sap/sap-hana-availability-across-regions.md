@@ -1,6 +1,6 @@
 ---
-title: Disponibilidade do SAP HANA em regiões do Azure | Documentos da Microsoft
-description: Uma descrição geral das considerações de disponibilidade quando a execução do SAP HANA em VMs do Azure em várias regiões do Azure.
+title: Disponibilidade de SAP HANA nas regiões do Azure | Microsoft Docs
+description: Uma visão geral das considerações de disponibilidade ao executar SAP HANA em VMs do Azure em várias regiões do Azure.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -9,86 +9,85 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 95ada2cb146bdbc972afee883a1d174c95aa67d7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 68a393865038722f2fd7fa5e42334f8d5e760951
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60650305"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078857"
 ---
-# <a name="sap-hana-availability-across-azure-regions"></a>Disponibilidade do SAP HANA em regiões do Azure
+# <a name="sap-hana-availability-across-azure-regions"></a>Disponibilidade de SAP HANA nas regiões do Azure
 
-Este artigo descreve os cenários relacionados com a disponibilidade do SAP HANA em diferentes regiões do Azure. Devido a distância entre regiões do Azure, a configuração de disponibilidade do SAP HANA em várias regiões do Azure envolve considerações especiais.
+Este artigo descreve os cenários relacionados à disponibilidade de SAP HANA em diferentes regiões do Azure. Devido à distância entre as regiões do Azure, a configuração da disponibilidade de SAP HANA em várias regiões do Azure envolve considerações especiais.
 
-## <a name="why-deploy-across-multiple-azure-regions"></a>Por que motivo implementar em várias regiões do Azure
+## <a name="why-deploy-across-multiple-azure-regions"></a>Por que implantar em várias regiões do Azure
 
-Regiões do Azure, muitas vezes, são separadas por grandes distâncias. Consoante a região geopolítica, a distância entre regiões do Azure pode ser centenas de quilómetros de distância, ou até mesmo léguas, como nos Estados Unidos. Devido a distância, o tráfego de rede entre os recursos que são implementadas em duas regiões do Azure diferentes experiência latência de ida e volta de rede significativo. A latência é significativa o suficiente para excluir a troca de dados síncrona entre duas instâncias do SAP HANA em cargas de trabalho SAP típicas. 
+As regiões do Azure geralmente são separadas por grandes distâncias. Dependendo da região geopolítica, a distância entre as regiões do Azure pode ser centenas de milhas ou até mesmo milhares de milhas, como no Estados Unidos. Por causa da distância, o tráfego de rede entre os ativos implantados em duas regiões diferentes do Azure experimenta uma latência significativa de ida e volta da rede. A latência é significativa o suficiente para excluir a troca de dados síncrona entre duas instâncias de SAP HANA em cargas de trabalho típicas do SAP. 
 
-Por outro lado, as organizações têm, muitas vezes, um requisito de distância entre a localização do datacenter primário e um datacenter secundário. Um requisito de distância ajuda a fornecer disponibilidade se um desastre natural ocorrer numa localização geográfica mais amplo. Os exemplos incluem os furacões que atingem o Caribe e Florida em Setembro e de Outubro de 2017. Sua organização pode ter, pelo menos, um requisito de distância mínima. Para clientes de mais do Azure, uma definição de distância mínima requer a criação de disponibilidade no [regiões do Azure](https://azure.microsoft.com/regions/). Uma vez a distância entre duas regiões do Azure é demasiado grande para utilizar o modo de replicação síncrona do HANA, requisitos de RTO e RPO podem forçá-lo a implantar configurações de disponibilidade numa única região e, em seguida, complementar com implementações adicionais num segundo região.
+Por outro lado, as organizações geralmente têm um requisito de distância entre o local do datacenter primário e um datacenter secundário. Um requisito de distância ajuda a fornecer disponibilidade se um desastre natural ocorrer em uma localização geográfica mais ampla. Os exemplos incluem os furacões que atingiram o Caribe e a Flórida em setembro e de outubro de 2017. Sua organização pode ter pelo menos um requisito de distância mínima. Para a maioria dos clientes do Azure, uma definição de distância mínima exige que você projete para disponibilidade nas [regiões do Azure](https://azure.microsoft.com/regions/). Como a distância entre duas regiões do Azure é muito grande para usar o modo de replicação síncrona do HANA, os requisitos de RTO e RPO podem forçá-lo a implantar configurações de disponibilidade em uma região e, em seguida, complementar com implantações adicionais em um segundo regionais.
 
-Outro aspecto a considerar neste cenário é a ativação pós-falha e redirecionar o cliente. A suposição é que uma ativação pós-falha entre instâncias do SAP HANA em duas diferentes regiões do Azure sempre é uma ativação pós-falha manual. Porque o modo de replicação de replicação do sistema de SAP HANA está definido como assíncrono, é possível que dados na instância HANA primária ainda não ainda chegaram até a segunda instância do HANA. Por conseguinte, a ativação pós-falha automática não é uma opção para configurações em que a replicação é assíncrona. Mesmo com ativação pós-falha manualmente controlada, tal como um exercício de ativação pós-falha, terá de tomar medidas para garantir que todos os dados confirmados no lado do primário chegaram até a instância secundária antes de manualmente mudar para outro região do Azure.
+Outro aspecto a ser considerado nesse cenário é o failover e o redirecionamento do cliente. A suposição é que um failover entre SAP HANA instâncias em duas regiões diferentes do Azure sempre seja um failover manual. Como o modo de replicação da replicação do sistema SAP HANA é definido como assíncrono, há um potencial de que os dados confirmados na instância do HANA primário ainda não o fizeram na instância do HANA secundário. Portanto, o failover automático não é uma opção para configurações em que a replicação é assíncrona. Mesmo com o failover controlado manualmente, como em um exercício de failover, você precisa tomar medidas para garantir que todos os dados confirmados no lado primário tenham sido transferidos para a instância secundária antes de você passar manualmente para a outra região do Azure.
  
-Rede Virtual do Azure utiliza um intervalo de endereços IP diferente. Os endereços IP são implementados na segunda região do Azure. Portanto, qualquer um terá de alterar a configuração de cliente do SAP HANA ou, de preferência, precisa criar passos para alterar a resolução do nome. Dessa forma, os clientes são redirecionados para o endereço IP do servidor do site secundário de novo. Para obter mais informações, consulte o artigo SAP [recuperação de ligação de cliente após a obtenção de controlo](https://help.sap.com/doc/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c93a723ceedc45da9a66ff47672513d3.html).   
+A rede virtual do Azure usa um intervalo de endereços IP diferente. Os endereços IP são implantados na segunda região do Azure. Portanto, você precisa alterar a configuração do cliente SAP HANA ou preferencialmente, você precisa criar etapas para alterar a resolução do nome. Dessa forma, os clientes são redirecionados para o endereço IP do servidor do novo site secundário. Para obter mais informações, consulte o artigo do SAP [recuperação de conexão do cliente após tomada](https://help.sap.com/doc/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c93a723ceedc45da9a66ff47672513d3.html).   
 
-## <a name="simple-availability-between-two-azure-regions"></a>Disponibilidade Simple entre duas regiões do Azure
+## <a name="simple-availability-between-two-azure-regions"></a>Disponibilidade simples entre duas regiões do Azure
 
-Pode optar por não implementar qualquer configuração de disponibilidade numa única região, mas continua com a demanda para que a carga de trabalho servida se ocorrer um desastre. Casos típicos para estes cenários são os sistemas de não produção. Apesar de ter o sistema para baixo para metade de um dia ou até mesmo um dia for sustentável, não é possível permitir que o sistema fique indisponível para 48 horas ou mais. Para fazer com que a configuração mais econômica, execute outro sistema que é até mesmo menos importante na VM. O outro sistema funciona como um destino. Também pode dimensionar a VM na região secundária para ser mais pequena e optar por não pré-carregar os dados. Como a ativação pós-falha é manual e envolve muitas etapas para a ativação pós-falha a pilha de aplicação completa, o tempo adicional para encerrar a VM, redimensioná-la e, em seguida, reinicie a VM é aceitável.
+Você pode optar por não colocar nenhuma configuração de disponibilidade em vigor em uma única região, mas ainda terá a demanda de ter a carga de trabalho atendida se ocorrer um desastre. Casos típicos para esses cenários são sistemas que não são de produção. Embora ter o sistema inoperante por meio dia ou até mesmo um dia seja sustentável, não é possível permitir que o sistema fique indisponível por 48 horas ou mais. Para tornar a configuração menos dispendiosa, execute outro sistema que seja ainda menos importante na VM. O outro sistema funciona como um destino. Você também pode dimensionar a VM na região secundária para que ela seja menor e optar por não pré-carregar os dados. Como o failover é manual e envolve muitas outras etapas para fazer failover da pilha completa do aplicativo, o tempo adicional para desligar a VM, redimensioná-la e reiniciar a VM é aceitável.
 
-Se estiver a utilizar o cenário de compartilhamento de destino de DR com um sistema de controle de qualidade numa VM, tem de ter em conta estas considerações:
+Se você estiver usando o cenário de compartilhamento do destino de DR com um sistema de p e r em uma VM, você precisa levar em conta essas considerações:
 
-- Existem duas [modos de operação](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) com delta_datashipping e logreplay, que estão disponível para um cenário desse tipo
-- Ambos os modos de operação têm requisitos diferentes de memória sem pré-carregamento de dados
-- Delta_datashipping exijam significativamente menos memória sem a opção de pré-carregamento que logreplay poderia exigir. Consulte o capítulo 4.3 do documento SAP [como para efetuar a replicação do sistema para o SAP HANA](https://archive.sap.com/kmuuid2/9049e009-b717-3110-ccbd-e14c277d84a3/How%20to%20Perform%20System%20Replication%20for%20SAP%20HANA.pdf)
-- O requisito de memória do modo de operação logreplay sem pré-carregamento não é determinístico e depende das estruturas de columnstore carregá-lo. Em casos extremos, poderá necessitar de 50% da memória da instância primária. A memória para o modo de operação logreplay é independente em se optou por ter os dados pré-carregada ou não.
+- Há dois [modos de operação](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) com delta_datashipping e logreplay, que estão disponíveis para esse cenário
+- Ambos os modos de operação têm requisitos de memória diferentes sem o pré-carregamento de dados
+- O Delta_datashipping pode exigir menos memória, sem a opção de pré-carregamento do que logreplay pode exigir. Consulte o capítulo 4,3 do documento do SAP [como executar a replicação do sistema para SAP Hana](https://archive.sap.com/kmuuid2/9049e009-b717-3110-ccbd-e14c277d84a3/How%20to%20Perform%20System%20Replication%20for%20SAP%20HANA.pdf)
+- O requisito de memória do modo de operação logreplay sem Preload não é determinístico e depende das estruturas columnstore carregadas. Em casos extremos, você pode exigir 50% da memória da instância primária. A memória para o modo de operação logreplay é independente de você optar por ter os dados previamente definidos ou não.
 
 
-![Diagrama de duas VMs através de duas regiões](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.PNG)
+![Diagrama de duas VMs em duas regiões](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.PNG)
 
 > [!NOTE]
-> Nesta configuração, não é possível fornecer um RPO = 0, como o modo de replicação de sistema HANA é assíncrono. Se tiver de fornecer um RPO = 0, esta configuração não é a configuração de preferência.
+> Nessa configuração, você não pode fornecer um RPO = 0 porque o modo de replicação do sistema do HANA é assíncrono. Se você precisar fornecer um RPO = 0, essa configuração não será a configuração escolhida.
 
-Pode ser uma pequena alteração que pode fazer na configuração de configurar os dados como o pré-carregamento. No entanto, devido à natureza manual de ativação pós-falha e o fato de que camadas da aplicação também precisam de mover para a segunda região, poderá não fazer sentido para pré-carregar dados. 
+Uma pequena alteração que você pode fazer na configuração pode ser configurar os dados como o pré-carregamento. No entanto, considerando a natureza manual do failover e o fato de que as camadas de aplicativo também precisam ser migradas para a segunda região, talvez não faça sentido pré-carregar os dados. 
 
-## <a name="combine-availability-within-one-region-and-across-regions"></a>Combinar disponibilidade numa região e em várias regiões 
+## <a name="combine-availability-within-one-region-and-across-regions"></a>Combinar a disponibilidade dentro de uma região e entre regiões 
 
-Uma combinação de disponibilidade nas regiões pode ser orientada por esses fatores:
+Uma combinação de disponibilidade dentro e entre regiões pode ser orientada por esses fatores:
 
-- Um requisito de RPO = 0 dentro de uma região do Azure.
-- A organização não é disposto ou ter operações globais afetadas por uma catástrofe natural principais que afete uma região maior. Esse era o caso para alguns furacões que atingem o Caribe nos últimos anos.
-- Regulamentações que a pedido distâncias entre sites primários e secundários que estão claramente além de disponibilidade do Azure que podem fornecer zonas.
+- Um requisito de RPO = 0 em uma região do Azure.
+- A organização não está disposta nem pode ter operações globais afetadas por uma grande catástrofe natural que afeta uma região maior. Esse foi o caso de alguns furacões que atingiram o Caribe nos últimos anos.
+- Regulamentos que demandam distâncias entre sites primários e secundários que estão claramente além do que as zonas de disponibilidade do Azure podem fornecer.
 
-Nestes casos, pode configurar as chamadas SAP uma [a configuração de replicação de várias camadas do sistema de SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) utilizando a replicação de sistema do HANA. A arquitetura teria o seguinte aspeto:
+Nesses casos, você pode configurar o que o SAP chama de uma [configuração de replicação de sistema multicamada SAP Hana](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) usando a replicação de sistema do Hana. A arquitetura teria a seguinte aparência:
 
-![Diagrama de três VMs através de duas regiões](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
+![Diagrama de três VMs em duas regiões](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
 
-SAP introduzida [replicação de sistema de destino Multi](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) com HANA 2.0 SPS3. Replicação do sistema de destino multi traz algumas vantagens em cenários de atualização. Por exemplo, o site de DR (região 2) não é afetado quando o site secundário do HA está inativo para manutenção ou atualizações. Pode encontrar mais informações sobre a replicação do sistema de destino multi HANA [aqui](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html).
-Arquitetura possível com a replicação de destino multi teria o seguinte aspeto:
+O SAP introduziu a [replicação de sistema de vários destinos](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) com o Hana 2,0 SPS3. A replicação de sistema de vários destinos traz algumas vantagens em cenários de atualização. Por exemplo, o local de DR (região 2) não é afetado quando o site de HA secundário está inoperante para manutenção ou atualizações. Você pode saber mais sobre a replicação de sistema de vários destinos do HANA [aqui](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html).
+A arquitetura possível com replicação de vários destinos seria semelhante a:
 
-![Diagrama de três VMs através de duas regiões milti-destino](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_3VMs.PNG)
+![Diagrama de três VMs em duas regiões milti-Target](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_3VMs.PNG)
 
-Se a organização tem requisitos para a preparação de elevada disponibilidade no second(DR) região do Azure, em seguida, a arquitetura teria o seguinte aspeto:
+Se a organização tiver requisitos para prontidão de alta disponibilidade na segunda região do Azure (DR), a arquitetura ficaria assim:
 
-![Diagrama de três VMs através de duas regiões milti-destino](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+![Diagrama de três VMs em duas regiões milti-Target](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
 
 
-Utilizar logreplay como modo de operação, esta configuração fornece um RPO = 0, com RTO baixo, dentro da região primária. A configuração também fornece o RPO decente, se uma mudança para a segunda região estiver envolvida. Os tempos de RTO da segunda região são dependentes do se os dados é pré-carregado. Muitos clientes utilizam a VM na região secundária para executar um sistema de teste. Nesse caso de utilização, os dados não podem ser pré-carregado.
+Usando logreplay como modo de operação, essa configuração fornece um RPO = 0, com RTO baixo, dentro da região primária. A configuração também fornece um RPO razoável se uma mudança para a segunda região estiver envolvida. Os tempos de RTO na segunda região dependem se os dados são pré-carregados. Muitos clientes usam a VM na região secundária para executar um sistema de teste. Nesse caso de uso, os dados não podem ser pré-carregados.
 
 > [!IMPORTANT]
-> Os modos de operação entre as diferentes camadas precisam homogeneidade entre elas. **Não é possível** utilizar logreply como modo de operação entre a camada 1 e de camada 2 e delta_datashipping fornecer de camada 3. Só pode escolher um ou o modo de operação que precisa para ser consistente para todos os escalões. Uma vez que não é adequado para que tenha um RPO delta_datashipping = 0, o modo de operação apenas razoável para uma configuração de várias camada permanece logreplay. Para obter detalhes sobre os modos de operação e algumas restrições, consulte o artigo SAP [modos de operação de replicação do sistema de SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html). 
+> Os modos de operação entre as diferentes camadas precisam ser homogêneos. Você **não pode** usar logreply como modo de operação entre a camada 1 e a camada 2 e delta_datashipping para fornecer a camada 3. Você só pode escolher um ou outro modo de operação que precise ser consistente para todas as camadas. Como delta_datashipping não é adequado para fornecer um RPO = 0, o único modo de operação razoável para essa configuração de várias camadas permanece logreplay. Para obter detalhes sobre os modos de operação e algumas restrições, consulte os modos de operação de artigo do SAP [para replicação de sistema do SAP Hana](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html). 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter orientações passo a passo sobre como configurar estas configurações no Azure, consulte:
+Para obter orientações passo a passo sobre como configurar essas configurações no Azure, consulte:
 
-- [Configurar a replicação de sistema de SAP HANA em VMs do Azure](sap-hana-high-availability.md)
-- [Elevada disponibilidade para SAP HANA através de replicação de sistema](https://blogs.sap.com/2018/01/08/your-sap-on-azure-part-4-high-availability-for-sap-hana-using-system-replication/)
+- [Configurar a replicação do sistema SAP HANA em VMs do Azure](sap-hana-high-availability.md)
+- [Alta disponibilidade para SAP HANA usando a replicação do sistema](https://blogs.sap.com/2018/01/08/your-sap-on-azure-part-4-high-availability-for-sap-hana-using-system-replication/)
 
  
 

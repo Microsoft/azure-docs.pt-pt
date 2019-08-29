@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas de implementação do OpenShift no Azure | Documentos da Microsoft
-description: Resolver problemas de implementação do OpenShift no Azure.
+title: Solucionar problemas de implantação do OpenShift no Azure | Microsoft Docs
+description: Solucionar problemas de implantação do OpenShift no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
@@ -9,42 +9,41 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: af6746e7246b8783e5bdbef34cf1b57427aa7ebb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31512bb264b5e998e5b6adc76d37c82c174933be
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771282"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091709"
 ---
-# <a name="troubleshoot-openshift-deployment-in-azure"></a>Resolver problemas de implementação do OpenShift no Azure
+# <a name="troubleshoot-openshift-deployment-in-azure"></a>Solucionar problemas de implantação do OpenShift no Azure
 
-Se o cluster do OpenShift não implantar com êxito, o portal do Azure irá fornecer a saída de erro. A saída pode ser difícil de ler o que torna difícil identificar o problema. Analise rapidamente esta saída para o código de saída, 3, 4 ou 5. O seguinte fornece informações sobre esses códigos de saída de três:
+Se o cluster OpenShift não for implantado com êxito, o portal do Azure fornecerá a saída de erro. Talvez seja difícil ler a saída, o que dificulta a identificação do problema. Examine rapidamente essa saída para o código de saída 3, 4 ou 5. O seguinte fornece informações sobre esses três códigos de saída:
 
-- Código de saída 3: O nome de utilizador de subscrição do Red Hat / ID de organização ou de palavra-passe / chave de ativação está incorreto
-- Código de saída 4: O ID de agrupamento do Red Hat estão incorreto ou existem não elegibilidades disponíveis
-- Código de saída 5: Não é possível aprovisionar o Volume do agrupamento dinâmico de Docker
+- Código de saída 3: O nome de usuário/senha da sua assinatura do Red Hat ou a ID da organização/chave de ativação está incorreta
+- Código de saída 4: A ID do pool Red Hat está incorreta ou não há direitos disponíveis
+- Código de saída 5: Não é possível provisionar o volume do pool fino do Docker
 
-Para todos os outros códigos de saída, ligar para anfitriões de através de ssh para ver os ficheiros de registo.
+Para todos os outros códigos de saída, conecte-se aos hosts via SSH para exibir os arquivos de log.
 
-**Plataforma de contentores do OpenShift**
+**Plataforma de contêiner OpenShift**
 
-SSH para o anfitrião do ansible playbook. Para o modelo ou a oferta do Marketplace, utilize o anfitrião de bastião. A partir de bastion, pode SSH para todos os outros nós do cluster (master, infra-estrutura, CNS, computação). Terá de ser a raiz para ver os ficheiros de registo. Raiz está desativada para acesso SSH por predefinição, portanto, não use raiz para encaminhar o SSH para outros nós.
+SSH para o host do manual do Ansible. Para o modelo ou a oferta do Marketplace, use o host de bastiões. Da bastiões, você pode SSH para todos os outros nós no cluster (Mestre, infraestrutura, CNS, computação). Você precisará ser raiz para exibir os arquivos de log. A raiz é desabilitada para acesso SSH por padrão, portanto, não use root para SSH para outros nós.
 
 **OKD**
 
-SSH para o anfitrião do ansible playbook. Para o modelo OKD (versão 3.9 e anterior), utilize o anfitrião de mestre de 0. Para o modelo OKD (versão 3.10 e posterior), utilize o anfitrião de bastião. A partir do anfitrião de playbook ansible, pode SSH para todos os outros nós do cluster (master, infra-estrutura, CNS, computação). Terá de ser a raiz (sudo su-) para ver os ficheiros de registo. Raiz está desativada para acesso SSH por predefinição, portanto, não use raiz para encaminhar o SSH para outros nós.
+SSH para o host do manual do Ansible. Para o modelo OKD (versão 3,9 e anterior), use o host Master-0. Para o modelo OKD (versão 3,10 e posterior), use o host bastião. No host do manual do Ansible, você pode fazer SSH para todos os outros nós no cluster (Mestre, infraestrutura, CNS, computação). Você precisará ser root (sudo su-) para exibir os arquivos de log. A raiz é desabilitada para acesso SSH por padrão, portanto, não use root para SSH para outros nós.
 
 ## <a name="log-files"></a>Ficheiros de registo
 
-Os ficheiros de registo (stderr e stdout) para os scripts de preparação do anfitrião estão localizados em `/var/lib/waagent/custom-script/download/0` em todos os anfitriões. Se Ocorreu um erro durante a preparação do anfitrião, veja estes ficheiros de registo para determinar o erro.
+Os arquivos de log (stderr e stdout) para os scripts de preparação do host `/var/lib/waagent/custom-script/download/0` estão localizados em em todos os hosts. Se ocorrer um erro durante a preparação do host, exiba esses arquivos de log para determinar o erro.
 
-Se os scripts de preparação foi executado com êxito, em seguida, o registo de ficheiros no `/var/lib/waagent/custom-script/download/1` diretório do anfitrião de playbook ansible tem de ser examinada. Se o erro ocorreu durante a instalação real do OpenShift, o ficheiro de stdout exibirá o erro. Utilize estas informações para contactar o suporte para obter mais assistência.
+Se os scripts de preparação forem executados com êxito, os arquivos de log `/var/lib/waagent/custom-script/download/1` no diretório do host do guia estratégico Ansible precisarão ser examinados. Se o erro ocorreu durante a instalação real do OpenShift, o arquivo stdout exibirá o erro. Use essas informações para entrar em contato com o suporte para obter mais assistência.
 
 Exemplo de saída
 
@@ -86,30 +85,30 @@ Failure summary:
 
 Os erros mais comuns durante a instalação são:
 
-1. Chave privada tem a frase de acesso
-2. Segredo do Cofre de chaves com a chave privada não foi criado corretamente
-3. As credenciais de principal de serviço foram introduzidas incorretamente
-4. Principal de serviço não tem acesso de Contribuidor ao grupo de recursos
+1. A chave privada tem senha
+2. O segredo do cofre de chaves com a chave privada não foi criado corretamente
+3. As credenciais da entidade de serviço foram inseridas incorretamente
+4. A entidade de serviço não tem acesso de colaborador ao grupo de recursos
 
-### <a name="private-key-has-a-passphrase"></a>Chave privada tem uma frase de acesso
+### <a name="private-key-has-a-passphrase"></a>A chave privada tem uma frase secreta
 
-Verá um erro que a permissão foi negada para ssh. SSH para o anfitrião de manual de comunicação do ansible para verificar a existência de uma frase de acesso a chave privada.
+Você verá um erro de que a permissão foi negada para SSH. SSH para o host do manual do Ansible para verificar uma frase secreta na chave privada.
 
-### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>Segredo do Cofre de chaves com a chave privada não foi criado corretamente
+### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>O segredo do cofre de chaves com a chave privada não foi criado corretamente
 
-A chave privada é copiada para o anfitrião de manual de comunicação do ansible - ~/.ssh/id_rsa. Certifique-se que este ficheiro está correto. Teste ao abrir uma sessão SSH para um de nós do cluster do anfitrião de playbook ansible.
+A chave privada é copiada no host do guia estratégico Ansible-~/.ssh/id_rsa. Confirme se este arquivo está correto. Teste abrindo uma sessão SSH para um dos nós de cluster do host do guia estratégico Ansible.
 
-### <a name="service-principal-credentials-were-entered-incorrectly"></a>As credenciais de principal de serviço foram introduzidas incorretamente
+### <a name="service-principal-credentials-were-entered-incorrectly"></a>As credenciais da entidade de serviço foram inseridas incorretamente
 
-Ao fornecer a entrada para o modelo ou a oferta do Marketplace, as informações incorretas foi fornecidas. Certifique-se de que utilizar o appId correto (ID de cliente) e a palavra-passe (clientSecret) para o principal de serviço. Certifique-se ao emitir o seguinte comando da cli do azure.
+Ao fornecer a entrada para a oferta de modelo ou Marketplace, as informações incorretas foram fornecidas. Certifique-se de usar a appId (clientId) e a senha (clientSecret) corretas para a entidade de serviço. Verifique emitindo o comando da CLI do Azure a seguir.
 
 ```bash
 az login --service-principal -u <client id> -p <client secret> -t <tenant id>
 ```
 
-### <a name="service-principal-doesnt-have-contributor-access-to-the-resource-group"></a>Principal de serviço não tem acesso de Contribuidor ao grupo de recursos
+### <a name="service-principal-doesnt-have-contributor-access-to-the-resource-group"></a>A entidade de serviço não tem acesso de colaborador ao grupo de recursos
 
-Se o fornecedor de cloud do Azure estiver ativado, o principal de serviço utilizado tem de ter acesso de Contribuidor ao grupo de recursos. Certifique-se ao emitir o seguinte comando da cli do azure.
+Se o provedor de nuvem do Azure estiver habilitado, a entidade de serviço usada deve ter acesso de colaborador ao grupo de recursos. Verifique emitindo o comando da CLI do Azure a seguir.
 
 ```bash
 az group update -g <openshift resource group> --set tags.sptest=test
@@ -117,7 +116,7 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 ## <a name="additional-tools"></a>Ferramentas adicionais
 
-Para alguns erros, também pode utilizar os seguintes comandos para obter mais informações:
+Para alguns erros, você também pode usar os seguintes comandos para obter mais informações:
 
-1. Estado de systemctl \<serviço >
-2. journalctl -xe
+1. > de \<serviço de status systemctl
+2. journalctl-xe

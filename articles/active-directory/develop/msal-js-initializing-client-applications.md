@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7df2f9aa56e22bd4060c823b02900fa914a0fd7f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 5d36def4faa98f4b8e42c93cf3e222c2ec7ca89a
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532796"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073833"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicializar aplicativos cliente usando o MSAL. js
 Este artigo descreve como inicializar a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) com uma instância de um aplicativo de agente do usuário. O aplicativo de agente de usuário é uma forma de aplicativo cliente público em que o código do cliente é executado em um agente de usuário, como um navegador da Web. Esses clientes não armazenam segredos, pois o contexto do navegador está aberto de acessível. Para saber mais sobre os tipos de aplicativo cliente e as opções de configuração de aplicativo, leia a [visão geral](msal-client-applications.md).
@@ -123,7 +123,7 @@ Veja abaixo o conjunto total de opções configuráveis que têm suporte no mome
 
 - **validateAuthority**: Opcional.  Valide o emissor de tokens. A predefinição é `true`. Para aplicativos B2C, como o valor de autoridade é conhecido e pode ser diferente por política, a validação de autoridade não funcionará e precisará ser `false`definida como.
 
-- **redirectUri**: Opcional.  O URI de redirecionamento do seu aplicativo, em que as respostas de autenticação podem ser enviadas e recebidas pelo seu aplicativo. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no portal, exceto que ele deve ser codificado por URL. Assume a predefinição `window.location.href`.
+- **redirectUri**: Opcional.  O URI de redirecionamento do seu aplicativo, em que as respostas de autenticação podem ser enviadas e recebidas pelo seu aplicativo. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no Portal. Assume a predefinição `window.location.href`.
 
 - **postLogoutRedirectUri**: Opcional.  Redireciona o usuário para `postLogoutRedirectUri` depois de sair. A predefinição é `redirectUri`.
 

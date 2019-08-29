@@ -10,17 +10,16 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8a7268ebae80df5a0004e824641e24b979b9c79f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ee80667789e661927f611257b438eb2eecbd0c83
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637702"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074100"
 ---
 # <a name="app-service-overview"></a>Descrição geral do Serviço de Aplicações
 

@@ -1,6 +1,6 @@
 ---
-title: Unidade de computação de descrição geral do Azure | Documentos da Microsoft
-description: Unidades para o Windows de computação de descrição geral do conceito do Azure. A ACU fornece uma forma de comparar o desempenho da CPU nos SKUs do Azure.
+title: Visão geral da unidade de computação do Azure | Microsoft Docs
+description: Visão geral do conceito das unidades de computação do Azure para Windows. O ACU fornece uma maneira de comparar o desempenho da CPU entre os SKUs do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -9,26 +9,25 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: jonbeck
-ms.openlocfilehash: 03c3ffee2437ed0c84bc0ec7a0e58d4381407125
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 7a9bd3bcfc0c3f1d77b5f7cf8d56254543e2eede
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721171"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103275"
 ---
-# <a name="azure-compute-unit-acu"></a>Unidade de computação do Azure (ACU)
+# <a name="azure-compute-unit-acu"></a>ACU (unidade de computação do Azure)
 
 [!INCLUDE [virtual-machines-common-acu](../../../includes/virtual-machines-common-acu.md)]
 
 
-Seguem-se ligações para obter mais informações sobre os tamanhos diferentes:
-- [Para fins gerais](sizes-general.md)
+Aqui estão links para mais informações sobre os diferentes tamanhos:
+- [Uso geral](sizes-general.md)
 - [Com otimização de memória](../virtual-machines-windows-sizes-memory.md)
 - [Com otimização de computação](sizes-compute.md)
 - [Com otimização de GPU](sizes-gpu.md)

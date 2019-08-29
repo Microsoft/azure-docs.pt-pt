@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: 4c8e17cec4ff3595945225dbceb909f8f054a08b
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: c27d6d65629fb926442377c03ab688b8819aad20
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018873"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079199"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Lidando com notificações de manutenção planejada para máquinas virtuais do Windows
 

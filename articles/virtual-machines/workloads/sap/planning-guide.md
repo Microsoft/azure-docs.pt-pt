@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11a54dee653bcfa6c94a861e483183ac39f465bf
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: e87ea28f2454ec3c969574b21ef383e81b3148c2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "67710185"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098757"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de máquinas virtuais do Azure para SAP NetWeaver
 
@@ -1780,7 +1779,7 @@ As instâncias SAP localizadas no Azure precisam acessar compartilhamentos de ar
 
 Para habilitar o monitoramento de sistemas SAP de missão crítica no Azure, as ferramentas de monitoramento SAP SAPOSCOL ou agente de host SAP obtêm dados do host do serviço de máquina virtual do Azure por meio de uma extensão de monitoramento do Azure para SAP. Como as demandas pela SAP eram específicas para aplicativos SAP, a Microsoft decidiu não implementar genericamente a funcionalidade necessária no Azure, mas deixar que os clientes implantem os componentes e as configurações de monitoramento necessários em seus virtuais Computadores em execução no Azure. No entanto, a implantação e o gerenciamento do ciclo de vida dos componentes de monitoramento serão geralmente automatizados pelo Azure.
 
-#### <a name="solution-design"></a>Design da solução
+#### <a name="solution-design"></a>Conceção da solução
 
 A solução desenvolvida para habilitar o monitoramento do SAP é baseada na arquitetura do agente de VM do Azure e da estrutura de extensão. A ideia do agente de VM do Azure e da estrutura de extensão é permitir a instalação de aplicativos de software disponíveis na Galeria de extensões de VM do Azure em uma VM. A ideia principal por trás desse conceito é permitir (em casos como a extensão de monitoramento do Azure para SAP), a implantação de funcionalidade especial em uma VM e a configuração desses softwares no momento da implantação.
 
@@ -2068,7 +2067,7 @@ Os principais pontos de alta disponibilidade para sistemas SAP no Azure são:
 * O backup de instâncias de caixa de diálogo do SAP faz pouco sentido, pois geralmente é mais rápido reimplantar instâncias de diálogo simples.
 * Fazer backup da VM que contém o diretório global do sistema SAP e com ele todos os perfis das diferentes instâncias faz sentido e deve ser executado com o backup do Windows ou, por exemplo, tar no Linux. Como há diferenças entre o Windows Server 2008 (R2) e o Windows Server 2012 (R2), que facilitam o backup usando as versões mais recentes do Windows Server, recomendamos a execução do Windows Server 2012 (R2) como sistema operacional convidado do Windows.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Leia os artigos:
 
 - [Implantação de máquinas virtuais do Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
