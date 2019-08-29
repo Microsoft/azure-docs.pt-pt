@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 10452590c9415291cb2a5913aeef5c8a00cdfe12
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: fa7b6a02ba287c7f51284a28ce41b2291317f99c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562991"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066909"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o serviço Azure App no Linux
 
@@ -198,7 +197,7 @@ Você pode usar apenas letras (A-Z, a-z), números (0-9) e o caractere de sublin
 
 Você pode enviar sua ideia no [Fórum de comentários de aplicativos Web](https://aka.ms/webapps-uservoice). Adicione "[Linux]" ao título da sua ideia.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [O que é o serviço Azure App no Linux?](app-service-linux-intro.md)
 - [Configurar ambientes de teste no Serviço de Aplicações do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

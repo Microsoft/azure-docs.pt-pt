@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 087640ab9c589728551438ebca536f872e3bd910
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 665a4d89c056b5825e35f0925ba3eaaf55d06c0f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876542"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089383"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Calcular pontuações de parâmetro de comparação para VMs do Windows
 As pontuações de benchmark SPECInt a seguir mostram o desempenho de computação para selecionar VMs do Azure executando o Windows Server. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -348,6 +347,6 @@ As pontuações de benchmark SPECInt a seguir mostram o desempenho de computaç�
 ## <a name="about-specint"></a>Sobre o SPECint
 Os números do Windows foram computados executando [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) no Windows Server. SPECint foi executado usando a opção de taxa base (SPECint_rate2006), com uma cópia por vCPU. O SPECint consiste em 12 testes separados, cada um executado três vezes, levando o valor mediano de cada teste e ponderando-os para formar uma pontuação composta. Esses testes foram executados em várias VMs para fornecer as pontuações médias mostradas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para obter capacidades de armazenamento, detalhes de disco e considerações adicionais para escolher entre tamanhos de VM, consulte [tamanhos de máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

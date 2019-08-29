@@ -8,19 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: a85ced787529db7e6d607665d81632ab1c450dfe
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 2dbdbc8b13a75b72ca09a319c6925d0835a52e13
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68466979"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095124"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Executar tarefas de preparação e liberação de trabalho em nós de computação do lote
 
@@ -186,7 +185,7 @@ A captura de tela abaixo mostra a **folha tarefas de preparação** no portal do
 
 ![Propriedades de preparação do trabalho no portal do Azure][1]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 ### <a name="application-packages"></a>Pacotes de aplicações
 Além da tarefa de preparação do trabalho, você também pode usar o recurso [pacotes de aplicativos](batch-application-packages.md) do lote para preparar os nós de computação para a execução da tarefa. Esse recurso é especialmente útil para implantar aplicativos que não exigem a execução de um instalador, aplicativos que contêm muitos arquivos (mais de 100) ou aplicativos que exigem controle de versão estrito.
 

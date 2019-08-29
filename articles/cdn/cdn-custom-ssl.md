@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 08/28/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 0ad01d76e93c731ed5faed268a0537cada787952
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 1f7c212b7bb850816557feb53099973986bab587
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996820"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114499"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado da CDN do Azure
 
@@ -312,6 +312,9 @@ A tabela seguinte mostra o progresso da operação que ocorre quando desativa o 
 
     Os domínios existentes serão gradualmente migrados para um único certificado nos meses seguintes se a Microsoft analisar que apenas os pedidos de cliente do SNI são realizados na sua aplicação. Se a Microsoft detetar alguns pedidos de cliente não SNI feitos na sua aplicação, os seus domínios permanecerão no certificado SAN com TLS/SSL baseado em IP. De qualquer forma, não haverá interrupções no seu serviço ou suporte aos seus pedidos de cliente, independentemente se esses pedidos são SNI ou não.
 
+7. *Como as renovações de certificado funcionam com o traga seu próprio certificado?*
+
+    Para garantir que um certificado mais recente seja implantado na infraestrutura do PoP, basta carregar seu novo certificado no Azure keyvault e, em seguida, em suas configurações de SSL na CDN do Azure, escolher a versão mais recente do certificado e clicar em salvar. Em seguida, a CDN do Azure se propagar seu novo certificado atualizado. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

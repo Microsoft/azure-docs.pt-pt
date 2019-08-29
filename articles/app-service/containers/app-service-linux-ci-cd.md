@@ -1,7 +1,7 @@
 ---
-title: Implementação contínua com a aplicação Web para contentores - serviço de aplicações do Azure | Documentos da Microsoft
-description: Como configurar a implementação contínua na aplicação Web para contentores.
-keywords: serviço de aplicações do Azure, linux, docker, acr, oss
+title: Implantação contínua com serviço de Azure App de Aplicativo Web para Contêineres | Microsoft Docs
+description: Como configurar a implantação contínua no Aplicativo Web para Contêineres.
+keywords: serviço de aplicativo do Azure, Linux, Docker, ACR, OSS
 services: app-service
 documentationcenter: ''
 author: msangapu
@@ -11,62 +11,61 @@ ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: be3768aadb3e256aa7b0ba7fe3d72cf4169e9bb2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1dc776f0a61ac1a29ab3fe3ebdd542469863cd50
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705708"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071362"
 ---
-# <a name="continuous-deployment-with-web-app-for-containers"></a>Implementação contínua com a aplicação Web para contentores
+# <a name="continuous-deployment-with-web-app-for-containers"></a>Implantação contínua com Aplicativo Web para Contêineres
 
-Neste tutorial, vai configurar a implementação contínua para uma imagem de contentor personalizado do managed [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) repositórios ou [Docker Hub](https://hub.docker.com).
+Neste tutorial, você configura a implantação contínua para uma imagem de contêiner personalizada de repositórios gerenciados [do registro de contêiner do Azure](https://azure.microsoft.com/services/container-registry/) ou do [Hub](https://hub.docker.com)do Docker.
 
-## <a name="enable-continuous-deployment-with-acr"></a>Ativar a implementação contínua com o ACR
+## <a name="enable-continuous-deployment-with-acr"></a>Habilitar implantação contínua com ACR
 
-![Captura de ecrã do ACR webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione o **serviço de aplicações** opção no lado esquerdo da página.
-3. Selecione o nome da aplicação para o qual pretende configurar a implementação contínua.
-4. Sobre o **definições de contentor** página, selecione **contentor único**
-5. Selecione **do Azure Container Registry**
-6. Selecione **implementação contínua > em**
-7. Selecione **guardar** para ativar a implementação contínua.
-
-## <a name="use-the-acr-webhook"></a>Utilizar o ACR webhook
-
-Assim que tiver sido ativada a implementação contínua, pode ver o webhook criado recentemente na sua página de webhooks de registo de contentor do Azure.
-
-![Captura de ecrã do ACR webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-03.png)
-
-No seu registo de contentor, clique em Webhooks para ver os webhooks atuais.
-
-## <a name="enable-continuous-deployment-with-docker-hub-optional"></a>Ativar a implementação contínua com o Docker Hub (opcional)
+![Captura de tela de webhook ACR](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione o **serviço de aplicações** opção no lado esquerdo da página.
-3. Selecione o nome da aplicação para o qual pretende configurar a implementação contínua.
-4. Sobre o **definições de contentor** página, selecione **contentor único**
-5. Selecione **Hub do Docker**
-6. Selecione **implementação contínua > em**
-7. Selecione **guardar** para ativar a implementação contínua.
+2. Selecione a opção **serviço de aplicativo** no lado esquerdo da página.
+3. Selecione o nome do aplicativo para o qual você deseja configurar a implantação contínua.
+4. Na página **configurações do contêiner** , selecione **contêiner único**
+5. Selecionar **registro de contêiner do Azure**
+6. Selecione **> de implantação contínua em**
+7. Selecione **salvar** para habilitar a implantação contínua.
 
-![Captura de ecrã da definição de aplicação](./media/app-service-webapp-service-linux-ci-cd/ci-cd-docker-02.png)
+## <a name="use-the-acr-webhook"></a>Usar o webhook ACR
 
-Copie o URL do Webhook. Para adicionar um webhook para o Docker Hub, siga <a href="https://docs.docker.com/docker-hub/webhooks/" target="_blank">webhooks para Docker Hub</a>.
+Depois que a implantação contínua tiver sido habilitada, você poderá exibir o webhook recém-criado em sua página WebHooks do registro de contêiner do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+![Captura de tela de webhook ACR](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-03.png)
 
-* [Introdução ao serviço de aplicações do Azure no Linux](./app-service-linux-intro.md)
+No registro de contêiner, clique em WebHooks para exibir os WebHooks atuais.
+
+## <a name="enable-continuous-deployment-with-docker-hub-optional"></a>Habilitar a implantação contínua com o Hub do Docker (opcional)
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Selecione a opção **serviço de aplicativo** no lado esquerdo da página.
+3. Selecione o nome do aplicativo para o qual você deseja configurar a implantação contínua.
+4. Na página **configurações do contêiner** , selecione **contêiner único**
+5. Selecionar o **Hub** do Docker
+6. Selecione **> de implantação contínua em**
+7. Selecione **salvar** para habilitar a implantação contínua.
+
+![Captura de tela da configuração do aplicativo](./media/app-service-webapp-service-linux-ci-cd/ci-cd-docker-02.png)
+
+Copie a URL do webhook. Para adicionar um webhook ao Hub do Docker, siga WebHooks <a href="https://docs.docker.com/docker-hub/webhooks/" target="_blank">para o Hub do Docker</a>.
+
+## <a name="next-steps"></a>Passos seguintes
+
+* [Introdução ao serviço de Azure App no Linux](./app-service-linux-intro.md)
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [Criar uma aplicação Web .NET Core no Serviço de Aplicações no Linux](quickstart-dotnetcore.md)
-* [Criar uma aplicação Ruby web no serviço de aplicações no Linux](quickstart-ruby.md)
-* [Implementar uma aplicação web do Docker/Go na aplicação Web para contentores](quickstart-docker-go.md)
+* [Criar um aplicativo Web Ruby no serviço de aplicativo no Linux](quickstart-ruby.md)
+* [Implantar um aplicativo Web Docker/go no Aplicativo Web para Contêineres](quickstart-docker-go.md)
 * [FAQ do Serviço de Aplicações do Azure no Linux](./app-service-linux-faq.md)
 * [Gerir a Aplicação Web para Contentores com a CLI do Azure](./app-service-linux-cli.md)

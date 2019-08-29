@@ -1,6 +1,6 @@
 ---
-title: Exemplo do Script do PowerShell do Azure – exportar/copiar o instantâneo como VHD para uma conta de armazenamento numa região diferente | Documentos da Microsoft
-description: Exemplo do Script do PowerShell do Azure – exportar/copiar o instantâneo como VHD para uma conta de armazenamento na mesma região diferente
+title: Azure PowerShell amostra de script – exportar/copiar instantâneo como VHD para uma conta de armazenamento em uma região diferente | Microsoft Docs
+description: Azure PowerShell amostra de script – exportar/copiar instantâneo como VHD para uma conta de armazenamento na mesma região diferente
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -9,20 +9,19 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 4eb7afda644f8019183e8e3d2aa822764b24b42d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: e2245e2f7c457195605755d31d0f0d4f1d0e72e5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57248746"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091163"
 ---
-# <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>Exportar/copiar instantâneos geridos como VHD para uma conta de armazenamento numa região diferente com o PowerShell
+# <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>Exportar/copiar instantâneos gerenciados como VHD para uma conta de armazenamento em uma região diferente com o PowerShell
 
 Este script exporta um instantâneo gerido para uma conta de armazenamento numa região diferente. Gera primeiro o URI de SAS do instantâneo e, em seguida, utiliza-o para o copiar para uma conta de armazenamento numa região diferente. Utilize este script para manter a cópia de segurança dos discos geridos numa região diferente para recuperação após desastre.  
 
@@ -30,7 +29,7 @@ Este script exporta um instantâneo gerido para uma conta de armazenamento numa 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -43,7 +42,7 @@ Este script utiliza os seguintes comandos para gerar o URI de SAS para um instan
 
 | Comando | Notas |
 |---|---|
-| [Grant-AzSnapshotAccess](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Gera o URI de SAS para um instantâneo que serve para copiá-lo para uma conta de armazenamento. |
+| [Grant-AzSnapshotAccess](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Gera o URI de SAS para um instantâneo que é usado para copiá-lo para uma conta de armazenamento. |
 | [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | Cria um contexto de conta de armazenamento com o nome e a chave da conta. Este contexto pode ser utilizado para executar operações de leitura/escrita na conta de armazenamento. |
 | [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | Copia o VHD subjacente de um instantâneo para uma conta de armazenamento |
 

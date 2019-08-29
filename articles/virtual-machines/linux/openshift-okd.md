@@ -1,6 +1,6 @@
 ---
-title: Implementar OKD no Azure | Documentos da Microsoft
-description: Implemente OKD no Azure.
+title: Implantar o OKD no Azure | Microsoft Docs
+description: Implante o OKD no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
@@ -9,41 +9,40 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 7db50007dd32c84a360eaec25bf860709272437b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fccb77110eafa131733ecea70fb209b2a168436c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542514"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082507"
 ---
-# <a name="deploy-okd-in-azure"></a>Implementar OKD no Azure
+# <a name="deploy-okd-in-azure"></a>Implantar o OKD no Azure
 
-Pode utilizar uma das duas formas de implementar OKD (anteriormente conhecido como o OpenShift Origin) no Azure:
+Você pode usar uma das duas maneiras de implantar o OKD (anteriormente OpenShift Origin) no Azure:
 
-- Pode implementar manualmente todos os componentes de infraestrutura do Azure necessários e, em seguida, siga os [documentação OKD](https://docs.okd.io).
-- Também pode utilizar existente [modelo do Resource Manager](https://github.com/Microsoft/openshift-origin) que simplifica a implementação do OKD cluster.
+- Você pode implantar manualmente todos os componentes necessários da infraestrutura do Azure e, em seguida, seguir a [documentação do OKD](https://docs.okd.io).
+- Você também pode usar um modelo existente do [Resource Manager](https://github.com/Microsoft/openshift-origin) que simplifica a implantação do cluster OKD.
 
-## <a name="deploy-using-the-okd-template"></a>Implementar com o modelo OKD
+## <a name="deploy-using-the-okd-template"></a>Implantar usando o modelo OKD
 
-Para implementar com o modelo do Resource Manager, utiliza um ficheiro de parâmetros para fornecer os parâmetros de entrada. Para personalizar ainda mais a implementação, bifurcar o repositório do GitHub e altere os itens adequados.
+Para implantar usando o modelo do Resource Manager, você usa um arquivo de parâmetros para fornecer os parâmetros de entrada. Para personalizar ainda mais a implantação, crie bifurcação do repositório GitHub e altere os itens apropriados.
 
-Algumas opções de personalização comuns incluem, mas não estão limitadas a:
+Algumas opções de personalização comuns incluem, mas não se limitam a:
 
-- Tamanho de VM de bastion (variável no azuredeploy. JSON)
-- Convenções de nomenclatura (variáveis no azuredeploy. JSON)
-- Especificações de cluster do OpenShift, modificado através do ficheiro de anfitriões (deployOpenShift.sh)
+- Tamanho da VM de bastiões (variável em azuredeploy. JSON)
+- Convenções de nomenclatura (variáveis em azuredeploy. JSON)
+- OpenShift específicas do cluster, modificadas por meio do arquivo de hosts (deployOpenShift.sh)
 
-O [modelo OKD](https://github.com/Microsoft/openshift-origin) tem vários ramos disponíveis para versões diferentes do OKD.  Com base nas suas necessidades, pode implementar diretamente a partir do repositório ou pode bifurcar o repositório e fazer alterações personalizadas antes de implementar.
+O [modelo OKD](https://github.com/Microsoft/openshift-origin) tem vários branches disponíveis para diferentes versões do OKD.  Com base em suas necessidades, você pode implantar diretamente do repositório ou pode bifurcar o repositório e fazer alterações personalizadas antes da implantação.
 
-Utilize o `appId` valor do principal de serviço que criou anteriormente para o `aadClientId` parâmetro.
+Use o `appId` valor da entidade de serviço que você criou anteriormente para o `aadClientId` parâmetro.
 
-Segue-se um exemplo de um ficheiro de parâmetros com o nome azuredeploy com todas as entradas necessárias.
+Veja a seguir um exemplo de um arquivo de parâmetros chamado azuredeploy. Parameters. JSON com todas as entradas necessárias.
 
 ```json
 {
@@ -117,17 +116,17 @@ Segue-se um exemplo de um ficheiro de parâmetros com o nome azuredeploy com tod
 }
 ```
 
-Substitua os parâmetros com as suas informações específicas.
+Substitua os parâmetros por suas informações específicas.
 
-Diferentes versões podem ter parâmetros diferentes por isso, verifique se os parâmetros necessários para o ramo que utilizar.
+Versões diferentes podem ter parâmetros diferentes, portanto, verifique os parâmetros necessários para a ramificação que você usa.
 
 ### <a name="deploy-using-azure-cli"></a>Implementar com a CLI do Azure
 
 
 > [!NOTE] 
-> Requer que o seguinte comando da CLI do Azure 2.0.8 ou posterior. Pode verificar a versão da CLI com o `az --version` comando. Para atualizar a versão da CLI, veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> O comando a seguir requer CLI do Azure 2.0.8 ou posterior. Você pode verificar a versão da CLI com `az --version` o comando. Para atualizar a versão da CLI, consulte [instalar CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-O exemplo seguinte implementa o cluster OKD e todos os recursos relacionados num grupo de recursos com o nome openshiftrg, com um nome de implementação de myOpenShiftCluster. O modelo é referenciado diretamente a partir do repositório do GitHub, ao utilizar um ficheiro de parâmetros local com o nome azuredeploy.
+O exemplo a seguir implanta o cluster OKD e todos os recursos relacionados em um grupo de recursos chamado openshiftrg, com um nome de implantação de myOpenShiftCluster. O modelo é referenciado diretamente do repositório GitHub ao usar um arquivo de parâmetros local chamado azuredeploy. Parameters. JSON.
 
 ```azurecli 
 az group deployment create -g openshiftrg --name myOpenShiftCluster \
@@ -135,7 +134,7 @@ az group deployment create -g openshiftrg --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-A implantação se, pelo menos, 30 minutos a concluir, com base no número total de nós implementados. O URL da consola do OpenShift e o nome DNS das impressões mestres OpenShift terminal quando a conclusão da implementação. Em alternativa, pode ver a secção de saídas da implementação a partir do portal do Azure.
+A implantação leva pelo menos 30 minutos para ser concluída, com base no número total de nós implantados. A URL do console do OpenShift e o nome DNS do mestre OpenShift são impressas no terminal quando a implantação é concluída. Como alternativa, você pode exibir a seção de saídas da implantação do portal do Azure.
 
 ```json
 {
@@ -144,11 +143,11 @@ A implantação se, pelo menos, 30 minutos a concluir, com base no número total
 }
 ```
 
-Se não pretender obstruir a linha de comandos a aguardar que a implementação concluir, adicionar `--no-wait` como uma das opções para a implementação de grupo. O resultado da implementação pode ser obtido a partir do portal do Azure, na secção de implementação para o grupo de recursos.
+Se você não quiser vincular a linha de comando aguardando a conclusão da implantação, adicione `--no-wait` como uma das opções para a implantação do grupo. A saída da implantação pode ser recuperada do portal do Azure na seção de implantação do grupo de recursos.
 
-## <a name="connect-to-the-okd-cluster"></a>Ligar ao OKD cluster
+## <a name="connect-to-the-okd-cluster"></a>Conectar-se ao cluster OKD
 
-Quando a conclusão da implementação, ligar à consola do OpenShift com o seu browser com o `OpenShift Console Url`. Em alternativa, pode encaminhar o SSH para o mestre de OKD. Segue-se um exemplo que usa o resultado da implementação:
+Quando a implantação for concluída, conecte-se ao console do OpenShift com seu `OpenShift Console Url`navegador usando o. Como alternativa, você pode fazer SSH para o mestre OKD. Veja a seguir um exemplo que usa a saída da implantação:
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
@@ -156,14 +155,14 @@ $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Utilize o [eliminação do grupo de az](/cli/azure/group) comando para remover o grupo de recursos, o OpenShift cluster e todos os recursos relacionados quando já não forem necessários.
+Use o comando [AZ Group Delete](/cli/azure/group) para remover o grupo de recursos, o cluster OpenShift e todos os recursos relacionados quando eles não forem mais necessários.
 
 ```azurecli 
 az group delete --name openshiftrg
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Tarefas de pós-implementação](./openshift-post-deployment.md)
-- [Resolver problemas de implementação do OpenShift](./openshift-troubleshooting.md)
-- [Guia de introdução OKD](https://docs.okd.io)
+- [Tarefas pós-implantação](./openshift-post-deployment.md)
+- [Solucionar problemas de implantação do OpenShift](./openshift-troubleshooting.md)
+- [Introdução ao OKD](https://docs.okd.io)

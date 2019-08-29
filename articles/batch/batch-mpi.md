@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.date: 03/13/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d816236cfda1513734f5cdf63800543f227aef9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1f54f5d5265508bb3716ff4ffd4d1d741d3bfa2e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68323439"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094978"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usar tarefas de várias instâncias para executar aplicativos MPI (interface de transmissão de mensagens) no lote
 
@@ -328,7 +327,7 @@ Delete pool? [yes] no: yes
 Sample complete, hit ENTER to exit...
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * O blog do Microsoft HPC & equipe do lote do Azure discute o [suporte a MPI para Linux no lote do Azure][blog_mpi_linux]e inclui informações sobre como usar o [OpenFOAM][openfoam] com o lote. Você pode encontrar exemplos de código do Python para o [exemplo OpenFOAM no GitHub][github_mpi].
 * Saiba como [criar pools de nós de computação do Linux](batch-linux-nodes.md) para uso em suas soluções MPI do lote do Azure.
 

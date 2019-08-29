@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e798b4316b8ccdc2f76512d4651365f5bb151ce
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 5ef060127840838778a00fdabd2d56b2ef23d6f4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278301"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082687"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar drivers NVIDIA GPU em VMs da série N executando Linux
 
@@ -364,6 +363,6 @@ Em seguida, crie uma entrada para o script de `/etc/rc.d/rc3.d` atualização no
 
 * Você pode definir o modo de `nvidia-smi` persistência usando, portanto, a saída do comando é mais rápida quando você precisa consultar os cartões. Para definir o modo de persistência `nvidia-smi -pm 1`, execute. Observe que, se a VM for reiniciada, a configuração de modo desaparecerá. Você sempre pode criar um script da configuração de modo para executar na inicialização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para capturar uma imagem de VM do Linux com os drivers NVIDIA instalados, consulte [como generalizar e capturar uma máquina virtual Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

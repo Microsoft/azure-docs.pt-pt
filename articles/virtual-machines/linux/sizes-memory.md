@@ -10,18 +10,17 @@ tags: azure-resource-manager,azure-service-management
 keywords: Isolamento de VM, VM isolada, isolamento, isolado
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/08/2019
 ms.author: jonbeck
-ms.openlocfilehash: 1ca122a9a160901aa27c53faa2ab1da7a1c740dd
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: ba5e8d22670f459654d403a166840d9f8cd7f8a6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881609"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082064"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamanhos de máquina virtual com otimização de memória
 

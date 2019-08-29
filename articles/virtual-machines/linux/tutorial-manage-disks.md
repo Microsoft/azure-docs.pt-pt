@@ -9,7 +9,6 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -17,16 +16,16 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 02dd1b293d250b1adf09325fa36e01f176722599
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9f4aec031d9ba8a162b022541c6e4cb35ce976a0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708474"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081498"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial - Gerir discos do Azure com a CLI do Azure
 
-As máquinas virtuais (VMs) do Azure utilizam discos para armazenar o sistema operativo, as aplicações e os dados. Quando cria uma VM, é importante escolher um tamanho de disco e a configuração adequados para a carga de trabalho esperada. Este tutorial mostra como implementar e gerir discos de VM. Vai obter informações sobre:
+As máquinas virtuais (VMs) do Azure utilizam discos para armazenar o sistema operativo, as aplicações e os dados. Quando você cria uma VM, é importante escolher um tamanho de disco e uma configuração apropriada para a carga de trabalho esperada. Este tutorial mostra como implementar e gerir discos de VM. Vai obter informações sobre:
 
 > [!div class="checklist"]
 > * Discos de SO e discos temporários
@@ -52,7 +51,7 @@ Para instalar aplicações e armazenar dados, podem ser adicionados mais discos 
 
 ## <a name="vm-disk-types"></a>Tipos de disco de VM
 
-O Azure fornece dois tipos de discos, standard e Premium.
+O Azure fornece dois tipos de discos, Standard e Premium.
 
 ### <a name="standard-disk"></a>Disco Standard
 
@@ -69,9 +68,9 @@ Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elev
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
-O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta.
+Azure Cloud Shell é um shell interativo gratuito que você pode usar para executar as etapas neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta.
 
-Para abrir o Cloud Shell, selecione **experimente** do canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir Cloud Shell, selecione **experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 ## <a name="create-and-attach-disks"></a>Criar e anexar discos
 
@@ -181,7 +180,7 @@ exit
 
 ## <a name="take-a-disk-snapshot"></a>Tirar um instantâneo do disco
 
-Quando tira um instantâneo de disco, o Azure cria uma cópia só de leitura de um ponto no tempo do disco. Os instantâneos de VM do Azure são úteis para guardar rapidamente o estado de uma VM antes de efetuar alterações de configuração. Em caso de problema ou erro, VM pode ser restaurada utilizando um instantâneo. Quando uma VM tiver mais do que um disco, é tirado um instantâneo de cada disco independentemente dos outros. Para fazer cópias de segurança da aplicação, considere parar a VM antes de tirar instantâneos do disco. Em alternativa, utilize o [Serviço Azure Backup](/azure/backup/), que permite efetuar cópias de segurança automatizadas enquanto a VM está em execução.
+Quando tira um instantâneo de disco, o Azure cria uma cópia só de leitura de um ponto no tempo do disco. Os instantâneos de VM do Azure são úteis para guardar rapidamente o estado de uma VM antes de efetuar alterações de configuração. No caso de um problema ou erro, a VM pode ser restaurada usando um instantâneo. Quando uma VM tiver mais do que um disco, é tirado um instantâneo de cada disco independentemente dos outros. Para fazer cópias de segurança da aplicação, considere parar a VM antes de tirar instantâneos do disco. Em alternativa, utilize o [Serviço Azure Backup](/azure/backup/), que permite efetuar cópias de segurança automatizadas enquanto a VM está em execução.
 
 ### <a name="create-snapshot"></a>Criar instantâneo
 

@@ -1,6 +1,6 @@
 ---
-title: Script do Azure PowerShell de exemplo - ligar uma aplicação a uma base de dados SQL | Documentos da Microsoft
-description: Script do Azure PowerShell de exemplo - ligar uma aplicação de serviço de aplicações a uma base de dados SQL
+title: Azure PowerShell exemplo de script – conectar um aplicativo a um banco de dados SQL | Microsoft Docs
+description: Azure PowerShell exemplo de script – conectar um aplicativo do serviço de aplicativo a um banco de dados SQL
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -9,23 +9,22 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 055440a9-fff1-49b2-b964-9c95b364e533
 ms.service: app-service
-ms.devlang: multiple
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: b008ef47ba530affd65e4d0e5e293312cfe74b69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 799fb67b20c45653ec741a92ec7a75aff2f8c509
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136513"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087834"
 ---
-# <a name="connect-an-app-service-app-to-a-sql-database"></a>Ligar uma aplicação de serviço de aplicações para uma base de dados SQL
+# <a name="connect-an-app-service-app-to-a-sql-database"></a>Conectar um aplicativo do serviço de aplicativo a um banco de dados SQL
 
-Neste cenário, aprenderá como criar uma base de dados SQL do Azure e uma aplicação de serviço de aplicações. Em seguida, vai ligar a base de dados SQL à aplicação com as definições da aplicação.
+Neste cenário, você aprenderá a criar um banco de dados SQL do Azure e um aplicativo do serviço de aplicativo. Em seguida, você vinculará o banco de dados SQL ao aplicativo usando as configurações do aplicativo.
 
 Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure.
 
@@ -37,7 +36,7 @@ Se for preciso, instale o Azure PowerShell com a instrução que se encontra no 
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação 
 
-Depois de executar o script de exemplo, o seguinte comando pode ser utilizado para remover o grupo de recursos, a aplicação de serviço de aplicações e todos os recursos relacionados.
+Após a execução do exemplo de script, o comando a seguir pode ser usado para remover o grupo de recursos, o aplicativo do serviço de aplicativo e todos os recursos relacionados.
 
 ```powershell
 Remove-AzResourceGroup -Name myResourceGroup -Force
@@ -51,14 +50,14 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um plano do Serviço de Aplicações. |
-| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação de serviço de aplicações. |
+| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria um aplicativo do serviço de aplicativo. |
 | [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor da Base de Dados SQL. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Cria uma regra de firewall para um servidor da Base de Dados SQL. |
 | [New-AzSQLDatabase](/powershell/module/az.sql/new-azsqldatabase) | Cria uma base de dados ou uma base de dados elástica. |
-| [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modificar a configuração de uma aplicação de serviço de aplicações. |
+| [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifica a configuração de um aplicativo do serviço de aplicativo. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 
-Exemplos adicionais do Azure Powershell para o serviço de aplicações do Azure podem ser encontrados no [exemplos do Azure PowerShell](../samples-powershell.md).
+Exemplos adicionais do Azure PowerShell para Azure App serviço podem ser encontrados nos [exemplos de Azure PowerShell](../samples-powershell.md).
