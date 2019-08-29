@@ -1,27 +1,26 @@
 ---
 title: Introdução ao Data Factory, um serviço de integração de dados | Microsoft Docs
-description: 'Saiba o que é o Azure Data Factory: Um serviço de integração de dados na cloud que orquestra e automatiza o movimento e transformação de dados.'
+description: 'Saiba o que Azure Data Factory é: Um serviço de integração de dados de nuvem que orquestra e automatiza a movimentação e a transformação de dados.'
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: aed073e7d65f193c4123106ba1ae3f4f442965e1
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 2e508839cd343820a36cc715ebde0f47c2ac4ab1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836302"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139515"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução ao Azure Data Factory 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](data-factory-introduction.md)
 > * [Versão 2 (versão atual)](../introduction.md)
 
@@ -119,7 +118,7 @@ Os serviços ligados são utilizados por dois motivos no Data Factory:
 
 ### <a name="relationship-between-data-factory-entities"></a>Relação entre as entidades do Data Factory
 
-![Diagrama: Fábrica de dados, um serviço de integração de dados de nuvem – conceitos-chave](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+![Organograma Data Factory, um serviço de integração de dados de nuvem-conceitos principais](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>Regiões suportadas
 Atualmente, pode criar fábricas de dados nas regiões E.U.A. Oeste, E.U.A. Leste e Europa do Norte. No entanto, uma fábrica de dados pode aceder aos arquivos de dados e serviços de computação noutras regiões do Azure para mover dados entre os arquivos de dados ou processar dados com serviços de computação.

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/11/2019
 ms.author: sagonzal
 ms.custom: aaddev
-ms.openlocfilehash: de2a59f878e0c0258b0619895d8f4c8bfd0670a8
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 549b4457ee38504001e83c4b831cd321e1542068
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036431"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125465"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Início rápido: Adicionar entrada com a Microsoft a um aplicativo Web Java
 
@@ -34,10 +34,9 @@ Quando você tiver concluído o guia, seu aplicativo aceitará entradas de conta
 
 > ## <a name="prerequisites"></a>Pré-requisitos
 > Para executar este exemplo, você precisará de: 
-> - Uma conexão com a Internet.
-> - Uma instalação funcional do Java e do Maven.
-> - Um locatário do Azure Active Directory (Azure AD). Para obter mais informações sobre como obter um locatário do Azure AD, consulte [como obter um locatário do Azure AD.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
-
+> - Java Development Kit (JDK) 8 ou superior e Maven.
+> - Um locatário do Azure Active Directory (Azure AD). Para obter mais informações sobre como obter um locatário do Azure AD, consulte [como obter um locatário do Azure AD.](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant)
+>
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
 > Tem duas opções para iniciar a aplicação de início rápido:
@@ -143,5 +142,22 @@ Você pode adicionar a referência ao MSAL4J adicionando o seguinte código à p
 ```
 import com.microsoft.aad.msal4j.*;
 ```
+
+## <a name="next-steps"></a>Próximos Passos
+
+Saiba mais sobre as permissões e o consentimento:
+
+> [!div class="nextstepaction"]
+> [Permissões e consentimento](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent)
+
+Para saber mais sobre o fluxo de autenticação para este cenário, consulte o fluxo do código de autorização do OAuth 2,0:
+
+> [!div class="nextstepaction"]
+> [Fluxo OAuth do código de autorização](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+
+Ajude-nos a melhorar a plataforma Microsoft Identity. Diga-nos o que você imagina ao concluir uma pesquisa curta de duas perguntas.
+
+> [!div class="nextstepaction"]
+> [Pesquisa sobre plataforma de identidade da Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

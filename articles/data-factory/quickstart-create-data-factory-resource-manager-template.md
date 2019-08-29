@@ -8,23 +8,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/20/2019
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 2b25dff29563dcf44077465f3e563d04f04b3119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7826d34b3489fce9d71da051345cf066b756ef8b
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66156987"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140975"
 ---
-# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar uma fábrica de dados do Azure com o modelo Azure Resource Manager
+# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar um data factory do Azure usando o modelo Azure Resource Manager
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Versão atual](quickstart-create-data-factory-resource-manager-template.md)
 
-Este início rápido descreve como utilizar um modelo do Azure Resource Manager para criar uma fábrica de dados do Azure. O pipeline que criar nesta fábrica de dados **copia** dados de uma pasta para outra pasta num armazenamento de blobs do Azure. Para obter um tutorial sobre como **transformar** dados com o Azure Data Factory, veja [Tutorial: Transformar dados com o Spark](transform-data-using-spark.md).
+Este início rápido descreve como utilizar um modelo do Azure Resource Manager para criar uma fábrica de dados do Azure. O pipeline que criar nesta fábrica de dados **copia** dados de uma pasta para outra pasta num armazenamento de blobs do Azure. Para obter um tutorial sobre como **transformar** dados usando Azure data Factory, consulte [o tutorial: Transforme dados usando](transform-data-using-spark.md)o Spark.
 
 > [!NOTE]
 > Este artigo não disponibiliza uma introdução detalhada do serviço Data Factory. Para obter uma introdução ao serviço Azure Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
@@ -43,7 +43,7 @@ Para saber mais sobre os modelos do Azure Resource Manager, veja [Authoring Azur
 
 A secção seguinte disponibiliza o modelo do Resource Manager completo para a definição de entidades do Data Factory, para que possa rapidamente dar uma vista de olhos pelo tutorial e testar o modelo. Para compreender como cada entidade do Data Factory está definida, consulte a secção [Data Factory entities in the template (Entidades do Data Factory no modelo)](#data-factory-entities-in-the-template).
 
-Para saber mais sobre a sintaxe JSON e propriedades de recursos do Data Factory num modelo, veja [tipos de recursos de DataFactory](/azure/templates/microsoft.datafactory/allversions).
+Para saber mais sobre a sintaxe JSON e as propriedades para Data Factory recursos em um modelo, consulte [tipos de recurso Microsoft.](/azure/templates/microsoft.datafactory/allversions)datafactory.
 
 ## <a name="data-factory-json"></a>JSON do Data Factory
 
@@ -369,9 +369,9 @@ O modelo implementa as seguintes entidades do Data Factory:
 - Pipeline com uma atividade de cópia
 - Acionador para acionar o pipeline
 
-O acionador implementado está no estado parado. Uma das formas de iniciar o acionador é utilizar o **Start-AzDataFactoryV2Trigger** cmdlet do PowerShell. O procedimento seguinte mostra os passos detalhados:
+O acionador implementado está no estado parado. Uma das maneiras de iniciar o gatilho é usar o cmdlet **Start-AzDataFactoryV2Trigger** do PowerShell. O procedimento seguinte mostra os passos detalhados:
 
-1. Na janela do PowerShell, crie uma variável para conter o nome do grupo de recursos. Copie o comando seguinte na janela do PowerShell e prima ENTER. Se tiver especificado um nome de grupo de recursos diferente para o comando New-AzResourceGroupDeployment, atualize o valor aqui.
+1. Na janela do PowerShell, crie uma variável para conter o nome do grupo de recursos. Copie o comando seguinte na janela do PowerShell e prima ENTER. Se você tiver especificado um nome de grupo de recursos diferente para o comando New-AzResourceGroupDeployment, atualize o valor aqui.
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -403,7 +403,7 @@ O acionador implementado está no estado parado. Uma das formas de iniciar o aci
     ```
     
     Repare que o estado do runtime do acionador é **Parado**.
-5. **Inicie o acionador**. O acionador executa o pipeline definido no modelo à hora certa. Ou seja, se tiver executado o comando às 14:25, o acionador executa o pipeline pela primeira vez às 15:00. Em seguida, executa o pipeline uma vez por hora até a hora de fim que especificou para o acionador.
+5. **Inicie o acionador**. O acionador executa o pipeline definido no modelo à hora certa. Ou seja, se tiver executado o comando às 14:25, o acionador executa o pipeline pela primeira vez às 15:00. Em seguida, ele executa o pipeline por hora até a hora de término especificada para o gatilho.
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
@@ -417,7 +417,7 @@ O acionador implementado está no estado parado. Uma das formas de iniciar o aci
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
     True
     ```
-6. Confirme que o acionador foi iniciado executando o comando Get-AzDataFactoryV2Trigger novamente.
+6. Confirme se o gatilho foi iniciado executando o comando Get-AzDataFactoryV2Trigger novamente.
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
@@ -452,13 +452,13 @@ O acionador implementado está no estado parado. Uma das formas de iniciar o aci
     ![Monitorizar execução do pipeline](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)
 
     > [!IMPORTANT]
-    > Ver execuções de pipeline apenas à hora certa (por exemplo: 4 AM, 5 AM, 6 da Manhã, etc.). Clique em **Atualizar**, na barra de ferramentas, para atualizar a lista quando a for atingida a hora seguinte.
+    > Você verá o pipeline é executado somente no relógio de hora (por exemplo: 4 AM, 17:00, 18:00, etc.). Clique em **Atualizar**, na barra de ferramentas, para atualizar a lista quando a for atingida a hora seguinte.
 
 5. Clique na ligação na coluna **Ações**.
 
     ![Ligação de ações do pipeline](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
 
-6. Verá as execuções de atividade associadas à execução do pipeline. Neste início rápido, o pipeline tem apenas uma atividade do tipo: Copie. Por conseguinte, verá uma execução dessa atividade.
+6. Verá as execuções de atividade associadas à execução do pipeline. Neste guia de início rápido, o pipeline tem apenas uma atividade do tipo: CopiarObjeto. Por conseguinte, verá uma execução dessa atividade.
 
     ![Execuções de atividade](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
 7. Clique na ligação na coluna **Saída**. Verá a saída da operação de cópia numa janela de **Saída**. Clique no botão de maximizar para ver a saída completa. Pode fechar a janela de saída maximizada ou fechar a saída.
@@ -507,7 +507,7 @@ O AzureStorageLinkedService liga a sua conta do Armazenamento do Azure à fábri
 }
 ```
 
-A connectionString utiliza os parâmetros storageAccountName e storageAccountKey. Os valores para estes parâmetros foram transmitidos através da utilização de um ficheiro de configuração. A definição também utiliza variáveis: azureStorageLinkedService e dataFactoryName definidas no modelo.
+A connectionString utiliza os parâmetros storageAccountName e storageAccountKey. Os valores para estes parâmetros foram transmitidos através da utilização de um ficheiro de configuração. A definição também usa variáveis: azureStorageLinkedService e datafactoryname definidos no modelo.
 
 #### <a name="azure-blob-input-dataset"></a>Conjunto de dados de entrada de blobs do Azure
 
@@ -605,7 +605,7 @@ Defina um pipeline que copia os dados de um conjunto de dados dos blobs do Azure
 
 #### <a name="trigger"></a>Acionador
 
-Defina um acionador que executa o pipeline uma vez por hora. O acionador implementado está no estado parado. Iniciar o acionador com o **Start-AzDataFactoryV2Trigger** cmdlet. Para obter mais informações sobre os acionadores, veja o artigo [Execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md#triggers).
+Defina um acionador que executa o pipeline uma vez por hora. O acionador implementado está no estado parado. Inicie o gatilho usando o cmdlet **Start-AzDataFactoryV2Trigger** . Para obter mais informações sobre os acionadores, veja o artigo [Execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md#triggers).
 
 ```json
 {
@@ -659,6 +659,6 @@ Tenha em atenção que o primeiro comando utiliza o ficheiro de parâmetro para 
 
 Também pode reutilizar o modelo para efetuar tarefas repetidas. Por exemplo, crie muitas fábricas de dados com um ou mais pipelines que implementem a mesma lógica, mas em que cada uma destas utiliza diferentes contas de armazenamento do Azure. Neste cenário, utilize o mesmo modelo no mesmo ambiente (programação, teste ou produção) com os diferentes ficheiros de parâmetro para criar fábricas de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 O pipeline neste exemplo copia dados de uma localização para outra localização num armazenamento de blobs do Azure. Leia os [tutoriais](tutorial-copy-data-dot-net.md) para saber como utilizar o Data Factory em mais cenários.

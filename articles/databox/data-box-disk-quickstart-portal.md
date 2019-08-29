@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 9664fd35462ab6084b203fe4ccd3c10435d64991
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: cbc55433517174c8080b941ca8526e5a4fd3427d
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035629"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126022"
 ---
 ::: zone target="docs"
 
@@ -24,7 +24,7 @@ ms.locfileid: "70035629"
 
 ::: zone target="chromeless"
 
-# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Introdução ao Disco do Azure Data Box usando portal do Azure
+## <a name="get-started-with-azure-data-box-disk"></a>Introdução ao Disco do Azure Data Box 
 
 ::: zone-end
 
@@ -40,7 +40,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ::: zone target="chromeless"
 
-Este início rápido descreve como implementar o Azure Data Box Disk através do portal do Azure. As etapas incluem examinar os pré-requisitos, desbloquear os discos, conectar e copiar dados em discos para que carreguem no Azure.
+Este guia descreve como implantar o Disco do Azure Data Box no portal do Azure. As etapas incluem examinar os pré-requisitos, desbloquear os discos e conectar e copiar dados em discos para que eles sejam carregados no Azure.
 
 ::: zone-end
 
@@ -60,7 +60,7 @@ Inicie sessão no Portal do Azure em [https://aka.ms/azuredataboxfromdiskdocs](h
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 - Você colocou seu pedido para disco do data box usando o [tutorial: Order Disco do Azure Data Box](data-box-disk-deploy-ordered.md).
 - Recebeu os seus discos e o estado da tarefa no portal foi atualizado para **Entregue**.
@@ -157,7 +157,7 @@ Para limpar, pode cancelar a encomenda do Data Box e, em seguida, eliminá-la.
 
     Para eliminar a encomenda, aceda a **Descrição geral** e clique em **Eliminar** na barra de comandos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, implementou o Azure Data Box Disk para ajudar a importar os seus dados para o Azure. Para saber mais sobre a gestão do Azure Data Box Disk, avance para o tutorial seguinte:
 

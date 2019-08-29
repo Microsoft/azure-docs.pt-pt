@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ad321dfa3db69c89b8da080673cb3bab02e4af66
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: b3607f0b462efceab322e6eaf616268a34b02fb0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905235"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142087"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior do migrações para Azure
 
@@ -201,7 +201,7 @@ Para usar a visualização de dependência, você associa um espaço de trabalho
 1. Para anexar um espaço de trabalho Log Analytics a um projeto, em **visão geral**, > **Essentials**, clique em **requer configuração**.
 2. Você pode criar um novo espaço de trabalho ou anexar um existente:
   - Para criar um novo espaço de trabalho, especifique um nome. O espaço de trabalho é criado em uma região na mesma [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que o projeto de migração.
-  - Ao anexar um espaço de trabalho existente, você pode escolher entre todos os espaços de trabalho disponíveis na mesma assinatura que o projeto de migração. Somente os espaços de trabalho são listados, que foram criados em uma [região mapa do serviço com suporte](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Para anexar um espaço de trabalho, verifique se você tem acesso de ' leitor ' ao espaço de trabalho.
+  - Ao anexar um espaço de trabalho existente, você pode escolher entre todos os espaços de trabalho disponíveis na mesma assinatura que o projeto de migração. Somente os espaços de trabalho são listados, que foram criados em uma [região mapa do serviço com suporte](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). Para anexar um espaço de trabalho, verifique se você tem acesso de ' leitor ' ao espaço de trabalho.
 
 > [!NOTE]
 > Não é possível alterar o espaço de trabalho associado a um projeto de migração.

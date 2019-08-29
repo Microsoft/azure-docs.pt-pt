@@ -3,22 +3,21 @@ title: Criar uma fábrica de dados do Azure com o Python | Microsoft Docs
 description: Crie uma fábrica de dados do Azure para copiar dados de uma localização no armazenamento de Blobs do Azure para outra localização.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
-ms.author: shlo
-ms.openlocfilehash: 2c2b43b0f9a6d5764f885163db7fb0e67f0a8e9e
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 143da2a08dd79c3f08a7bd8e8ec57d233e98df93
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444187"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140933"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Início rápido: Criar uma fábrica de dados e um pipeline com o Python
 
@@ -450,6 +449,6 @@ Para eliminar a fábrica de dados, adicione o código abaixo ao programa:
 adf_client.factories.delete(rg_name, df_name)
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 O pipeline neste exemplo copia dados de uma localização para outra localização num armazenamento de blobs do Azure. Leia os [tutoriais](tutorial-copy-data-dot-net.md) para saber como utilizar o Data Factory em mais cenários.

@@ -3,16 +3,16 @@ title: Descrição Geral do Azure Blueprints
 description: Entenda como o serviço de plantas do Azure permite criar, definir e implantar artefatos em seu ambiente do Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/08/2019
+ms.date: 08/26/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: be7e3043172f988a429bbf02dec08bfbbc1a70b7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 631aa956573fd611988030af8ea7e34c6c266045
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848443"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146108"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Visão geral do serviço de plantas do Azure
 
@@ -106,21 +106,30 @@ Para atribuir ou anular a atribuição de um esquema, a sua conta necessita das 
 > [!NOTE]
 > À medida que as atribuições de esquema são criadas numa subscrição, as permissões de atribuição e anulação da atribuição de esquema têm de ser concedidas no âmbito de uma subscrição ou herdadas para o âmbito de uma subscrição.
 
-Todas as permissões acima estão incluídas na função de **proprietário** . A função **colaborador** tem as permissões criar plano gráfico e excluir Blueprint, mas não tem permissões de atribuição de Blueprint. Se estas funções incorporadas não se adaptarem às suas necessidades de segurança, considere criar uma [função personalizada](../../role-based-access-control/custom-roles.md).
+As seguintes funções internas estão disponíveis:
+
+|Função RBAC | Descrição |
+|-|-|
+|[Proprietário](../../role-based-access-control/built-in-roles.md#owner) | Além de outras permissões, o inclui todas as Azure Blueprint permissões relacionadas. |
+|[Contribuidor](../../role-based-access-control/built-in-roles.md#contributor) | Além de outras permissões, o pode criar e excluir definições de plano gráfico, mas não tem permissões de atribuição de Blueprint. |
+|[Colaborador do Blueprint](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Pode gerenciar definições de plantas, mas não atribuí-las. |
+|[Operador Blueprint](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Pode atribuir plantas publicadas existentes, mas não pode criar novas definições de Blueprint. A atribuição de Blueprint só funcionará se a atribuição for feita com uma identidade gerenciada atribuída pelo usuário. |
+
+Se estas funções incorporadas não se adaptarem às suas necessidades de segurança, considere criar uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
 > Se estiver usando uma identidade gerenciada atribuída pelo sistema, a entidade de serviço para plantas do Azure exigirá a função de **proprietário** na assinatura atribuída para habilitar a implantação. Se utilizar o portal, esta função é automaticamente concedida e revogada para a implementação. Se utilizar a API REST, esta função tem de ser concedida manualmente, mas continua a ser revogada automaticamente depois de concluída a implementação. Se estiver usando uma identidade gerenciada atribuída pelo usuário, somente o usuário que criar a atribuição Blueprint precisará de permissões de **proprietário** .
 
 ## <a name="naming-limits"></a>Limites de nomenclatura
 
-Veja a seguir uma lista de limitações que existem para determinados campos:
+As seguintes limitações existem para determinados campos:
 
 |Objeto|Campo|Caracteres permitidos|Um máximo de Comprimento|
 |-|-|-|-|
-|Blueprint|Nome|letras, números, hifens e pontos|48|
+|Blueprint|Name|letras, números, hifens e pontos|48|
 |Blueprint|Version|letras, números, hifens e pontos|20|
-|Atribuição de esquema|Nome|letras, números, hifens e pontos|90|
-|Artefato do Blueprint|Nome|letras, números, hifens e pontos|48|
+|Atribuição de esquema|Name|letras, números, hifens e pontos|90|
+|Artefato do Blueprint|Name|letras, números, hifens e pontos|48|
 
 ## <a name="video-overview"></a>Visão geral em vídeo
 

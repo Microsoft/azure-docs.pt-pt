@@ -3,24 +3,23 @@ title: Introdução ao Azure Data Factory | Microsoft Docs
 description: Saiba mais sobre o Azure Data Factory, um serviço de integração de dados na cloud que orquestra e automatiza o movimento e a transformação de dados.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/11/2018
-ms.author: shlo
-ms.openlocfilehash: 66ea269e2f29bfd39cdb81086391e0277474219d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6688fa6bc3180ef878992e1e06b0ac6e90f27ee2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456381"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141545"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução ao Azure Data Factory 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-introduction.md)
 > * [Versão atual](introduction.md)
 
@@ -62,7 +61,7 @@ Assim que os dados estiverem presentes num arquivo de dados centralizado na clou
 Quando os dados não processados estiverem refinados e prontos para consumo por parte das empresas, carregue os dados para o Azure Data Warehouse, para a Base de Dados SQL do Azure, para o Azure CosmosDB ou para qualquer que seja o motor de análise para o qual os seus utilizadores empresariais podem apontar a partir as ferramentas de business intelligence que utilizam.
 
 ### <a name="monitor"></a>Monitorizar
-Depois de criar e implementar com êxito o seu pipeline de integração de dados, proporcionando valor comercial a partir dos dados refinados, monitorize as atividades e os pipelines agendados relativamente às taxas de êxito e falha. O Azure Data Factory tem suporte incorporado para monitorização de pipelines através do Azure Monitor, API, PowerShell, registos do Azure Monitor e dos painéis de estado de funcionamento no portal do Azure.
+Depois de criar e implementar com êxito o seu pipeline de integração de dados, proporcionando valor comercial a partir dos dados refinados, monitorize as atividades e os pipelines agendados relativamente às taxas de êxito e falha. O Azure Data Factory tem suporte interno para monitoramento de pipeline por meio de Azure Monitor, API, PowerShell, logs de Azure Monitor e painéis de integridade no portal do Azure.
 
 ## <a name="top-level-concepts"></a>Principais conceitos
 As subscrições do Azure podem ter uma ou várias instâncias do Azure Data Factory (ou fábricas de dados). O Azure Data Factory é constituído por quatro componentes principais. Estes componentes funcionam em conjunto para fornecer a plataforma na qual pode compor fluxos de trabalho orientados por dados com passos para mover e transformar dados.
@@ -87,7 +86,7 @@ Os serviços ligados são utilizados para duas finalidades no Data Factory:
 
 - Para representar um **recurso de computação** que pode alojar a execução de uma atividade. Por exemplo, a Atividade HDInsightHive é executada num cluster do HDInsight Hadoop. Para obter uma lista das atividades de transformação e os ambientes de computação suportados, veja o artigo [Transform data](transform-data.md) (Transformar dados).
 
-### <a name="triggers"></a>Acionadores
+### <a name="triggers"></a>Ativadores
 Os acionadores representam a unidade de processamento que determina quando é que uma execução de pipeline tem de arrancar. Existem diferentes tipos de acionadores para diferentes tipos de eventos.
 
 ### <a name="pipeline-runs"></a>Execuções de pipeline
@@ -112,7 +111,7 @@ Para obter mais informações sobre os conceitos do Data Factory, veja os artigo
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que lhe interessam, na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). No entanto, uma fábrica de dados pode aceder aos arquivos de dados e serviços de computação noutras regiões do Azure para mover dados entre os arquivos de dados ou processar dados com serviços de computação.
+Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam na página a seguir e expanda **análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). No entanto, uma fábrica de dados pode aceder aos arquivos de dados e serviços de computação noutras regiões do Azure para mover dados entre os arquivos de dados ou processar dados com serviços de computação.
 
 O Azure Data Factory propriamente dito não armazena quaisquer dados. Permite-lhe criar fluxos de trabalho orientados por dados para orquestrar o movimento dos dados entre arquivos de dados suportados e o processamento de dados com serviços de computação noutras regiões ou num ambiente no local. Também lhe permite utilizar mecanismos programáticos e de IU para monitorizar e gerir os fluxos de trabalho.
 

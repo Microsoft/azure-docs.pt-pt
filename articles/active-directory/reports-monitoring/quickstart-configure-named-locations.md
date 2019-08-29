@@ -16,17 +16,17 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 540bc8a4dbfda83ff6e0480bc216a38742bbef2b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1513dba19221e64d40551ffb13a5e9f33fd9858f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988086"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127245"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Início rápido: Configurar locais nomeados no Azure Active Directory
 
 Com as localizações com nome, pode etiquetar os intervalos de endereços IP fidedignos na sua organização. O Microsoft Azure AD utiliza localizações com nome para:
-- Detetar falsos positivos em [eventos de risco](concept-risk-events.md). Iniciar sessão a partir de uma localização fidedigna reduz o risco de início de sessão de um utilizador.   
+- Detectar falsos positivos em [detecções de risco](concept-risk-events.md). Iniciar sessão a partir de uma localização fidedigna reduz o risco de início de sessão de um utilizador.   
 - Configure o [acesso condicional baseado no local](../conditional-access/location-condition.md).
 
 Neste início rápido, vai aprender a configurar localizações com nome no seu ambiente.
@@ -59,7 +59,7 @@ Para concluir este guia de início rápido, necessita de:
     
      ![Novo painel](./media/quickstart-configure-named-locations/61.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações, consulte:
 

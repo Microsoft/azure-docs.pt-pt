@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf5770cf052a478ea56f906efc19698554a1cd0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: cd3907231ce3963d43fa8279039a736b63fc2043
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989710"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127279"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>O que são os relatórios do Azure Active Directory?
 
@@ -54,9 +54,9 @@ Todas as edições do Azure AD fornecem usuários sinalizados para relatórios d
 
 - Nas **edições Azure Active Directory gratuito e Basic**, você obtém uma lista de usuários sinalizados para risco e entradas arriscadas. 
 
-- A edição **Azure Active Directory Premium 1** expande este modelo, permitindo-lhe também examinar alguns dos eventos de risco subjacentes que foram detetados em cada relatório. 
+- A edição **Azure Active Directory Premium 1** estende esse modelo, permitindo também que você examine algumas das detecções de risco subjacentes que foram detectadas para cada relatório. 
 
-- A edição **do Azure Active Directory Premium 2** proporciona-lhe as informações mais detalhadas sobre os eventos de risco subjacentes e também lhe permite configurar políticas de segurança que respondam automaticamente aos níveis de risco configurados.
+- A edição **Azure Active Directory Premium 2** fornece as informações mais detalhadas sobre as detecções de risco subjacentes e também permite que você configure políticas de segurança que respondem automaticamente aos níveis de risco configurados.
 
 
 ## <a name="activity-reports"></a>Relatórios de atividade
@@ -99,7 +99,7 @@ Para aceder aos relatórios de atividade de inícios de sessão, o seu inquilino
 
 Além da interface do usuário, o Azure AD também fornece [acesso programático](concept-reporting-api.md) aos dados de relatórios, por meio de um conjunto de APIs baseadas em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Relatório de inícios de sessão de risco](concept-risky-sign-ins.md)
 - [Relatório de registos de auditoria](concept-audit-logs.md)

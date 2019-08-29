@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 58b36265a5e440dbf33a5d6fb85e791abbd006a8
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 378904b139edb7fe5d7c4376102ca6b153d84fb6
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274250"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129068"
 ---
 # <a name="get-started"></a>TUTORIAIS Criar um balanceador de carga público usando Azure PowerShell
 
@@ -129,7 +129,7 @@ $natrule2 = New-AzLoadBalancerInboundNatRuleConfig `
 -BackendPort 3389
 ```
 
-### <a name="create-load-balancer"></a>Criar um balanceador de carga
+### <a name="create-load-balancer"></a>Criar balanceador de carga
 
 Crie o Load Balancer básico com [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). O exemplo seguinte cria um Balanceador de Carga Básico público denominado myLoadBalancer através da configuração de IP de front-end, conjunto de back-end, sonda de estado de funcionamento, regra de balanceamento de carga e regras NAT que criou nos passos anteriores:
 
@@ -295,40 +295,37 @@ Instale o IIS com uma página Web personalizada em ambas as VMs de back-end da s
 
 1. Obtenha o endereço IP público do Balanceador de Carga. Obtenha o endereço IP público do Balanceador de Carga com `Get-AzPublicIPAddress`.
 
-   ```azurepowershell-interactive
-    Get-AzPublicIPAddress `
-    -ResourceGroupName "myResourceGroupLB" `
-    -Name "myPublicIP" | select IpAddress
-   ```
-2. Crie uma ligação de ambiente de trabalho remoto a VM1 com o endereço IP público que obteve no passo anterior. 
+    ```azurepowershell-interactive
+    Get-AzPublicIPAddress -ResourceGroupName "myResourceGroupLB" -Name "myPublicIP" | select IpAddress
+    ```
 
-   ```azurepowershell-interactive
+2. **No computador local, abra um prompt de comando ou uma janela do PowerShell para esta etapa**.  Crie uma ligação de ambiente de trabalho remoto a VM1 com o endereço IP público que obteve no passo anterior. 
 
-      mstsc /v:PublicIpAddress:4221  
-  
-   ```
+    ```azurepowershell-interactive
+    mstsc /v:PublicIpAddress:4221  
+    ```
+
 3. Introduza as credenciais para *VM1* para iniciar a sessão de RDP.
 4. Inicie o Windows PowerShell na VM1 e utilize os seguintes comandos para instalar o servidor de ISS e atualizar o ficheiro html predefinido.
+
     ```azurepowershell-interactive
-    # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
-    
-    # Remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
-    
-    #Add custom htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+        # Install IIS
+          Install-WindowsFeature -name Web-Server -IncludeManagementTools
+        
+        # Remove default htm file
+          remove-item  C:\inetpub\wwwroot\iisstart.htm
+        
+        # Add custom htm file
+          Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
     ```
 5. Feche a ligação RDP a *myVM1*.
-6. Crie uma ligação de RDP a *myVM2* ao executar o comando `mstsc /v:PublicIpAddress:4222` e repita o passo 4 para *VM2*.
+6. **Crie uma conexão RDP no computador local** com *myVM2* executando `mstsc /v:PublicIpAddress:4222` o comando e repita a etapa 4 para *VM2*.
 
 ## <a name="test-load-balancer"></a>Testar o balanceador de carga
 Obtenha o endereço IP público do balanceador de carga com [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). O exemplo seguinte obtém o endereço IP para *myPublicIP* criado anteriormente:
 
 ```azurepowershell-interactive
-Get-AzPublicIPAddress `
-  -ResourceGroupName "myResourceGroupLB" `
-  -Name "myPublicIP" | select IpAddress
+Get-AzPublicIPAddress -ResourceGroupName "myResourceGroupLB" -Name "myPublicIP" | select IpAddress
 ```
 
 Em seguida, pode introduzir o endereço IP público num browser. O site é apresentado, incluindo o nome do anfitrião da VM para a qual o balanceador de carga distribuiu tráfego, como no seguinte exemplo:
@@ -345,7 +342,7 @@ Quando não for mais necessário, você pode usar o comando [Remove-AzResourceGr
 Remove-AzResourceGroup -Name myResourceGroupLB
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de introdução, criou o Balanceador de Carga Básico, anexou VMs ao mesmo, configurou a regra de tráfego do balanceador de carga, a sonda de estado de funcionamento e, em seguida, testou o balanceador de carga. Para saber mais sobre o Balanceador de Carga do Azure, avance para os tutoriais do Balanceador de Carga do Azure.
 

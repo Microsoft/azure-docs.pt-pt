@@ -3,16 +3,16 @@ title: Início Rápido do Azure – Criar um blob no armazenamento de objetos co
 description: Neste início rápido, crie uma conta de armazenamento e um contentor no armazenamento de objetos (Blobs). Em seguida, utilize a biblioteca de clientes de armazenamento para Python, para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 12/14/2018
+ms.date: 08/29/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 0eb4558b7c9c08fc6df964a7e45328a83c60352b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 059e41b744ad92cdec9057e4a17f470b5b769c62
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721988"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142974"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Início rápido: Carregar, baixar e listar BLOBs com o Python
 
@@ -158,8 +158,8 @@ Baixe BLOBs em seu disco local usando o `get_blob_to_path` método. O código se
 ```python
 # Download the blob(s).
 # Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = os.path.join(local_path, string.replace(
-    local_file_name, '.txt', '_DOWNLOADED.txt'))
+full_path_to_file2 = os.path.join(local_path, local_file_name.replace(
+   '.txt', '_DOWNLOADED.txt'))
 print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(
     container_name, local_file_name, full_path_to_file2)
@@ -187,7 +187,7 @@ Para obter mais informações sobre o desenvolvimento em Python com o armazename
 - Para obter mais informações sobre a biblioteca de cliente Python, veja a [Referência da API de Python](https://docs.microsoft.com/python/api/overview/azure/storage).
 - Explore os [exemplos de armazenamento de blobs](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob) escritos com a biblioteca de cliente Python.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
  
 Neste início rápido, aprendeu a transferir ficheiros entre um disco local e o armazenamento de Blobs do Azure com Python. Para saber mais sobre a utilização do armazenamento de Blobs, avance para os procedimentos do armazenamento de blobs.
 

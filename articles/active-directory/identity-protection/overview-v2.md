@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 08/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f7e26e2f32ba02db9afc0676a99003717ff585
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 3129027da0f28d9c89f7afe75d9531df9bae499e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991084"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125641"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>O que é Azure Active Directory Identity Protection (atualizado)?
 
@@ -42,17 +42,17 @@ Azure AD Identity Protection é um recurso do Azure Active Directory Premium P2 
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
-## <a name="risk-events"></a>Eventos de risco
+## <a name="risk-detections"></a>Detecções de risco
 
-Azure AD Identity Protection detecta os seguintes eventos de risco: 
+Azure AD Identity Protection detecta as seguintes detecções de risco: 
 
-| Tipo de evento de risco | Descrição | Tipo de deteção |
+| Tipo de detecção de risco | Descrição | Tipo de deteção |
 | --- | --- | --- |
 | Percurso atípico | Entre em um local atípicos com base nas entradas recentes do usuário. | Offline |
 | Endereços IP anónimos | Entre em um endereço IP anônimo (por exemplo: Tor browser, Anonymizer VPNs). | Tempo real |
 | Propriedades de entrada desconhecidas | Entre com propriedades que não vimos recentemente para o usuário determinado. | Tempo real |
 | Endereço IP ligado a software maligno | Entrar de um endereço IP vinculado por malware | Offline |
-| Credenciais vazadas | Esse evento de risco indica que as credenciais válidas do usuário foram vazadas | Offline |
+| Credenciais vazadas | Essa detecção de risco indica que as credenciais válidas do usuário foram vazadas | Offline |
 
 ## <a name="types-of-risk"></a>Tipos de risco 
 
@@ -80,7 +80,7 @@ Um risco de usuário representa a probabilidade de que uma determinada identidad
 O risco do usuário é calculado Considerando todos os riscos associados ao usuário:
 
 - Todas as entradas arriscadas
-- Todos os eventos de risco não vinculados a uma entrada
+- Todas as detecções de risco não estão vinculadas a uma entrada
 - O risco do usuário atual
 - Qualquer correção de risco ou ações de descarte executadas na data do usuário até o momento
 
@@ -88,7 +88,7 @@ O risco do usuário é calculado Considerando todos os riscos associados ao usu�
 
 O Azure AD usa o aprendizado de máquina para detectar anomalias e atividades suspeitas, usando os dois sinais detectados em tempo real durante entradas, bem como sinais não reais relacionados a usuários e suas atividades de entrada. Usando esses dados, a proteção de identidade calcula um risco de entrada em tempo real sempre que um usuário é autenticado, bem como determina um nível geral de risco do usuário para cada usuário. A proteção de identidade permite que você realize ações automaticamente sobre essas detecções de risco configurando as políticas de risco de usuário e de entrada da proteção de identidade.  
 
-Para entender como a proteção de identidade detecta riscos, há dois conceitos importantes: risco de usuário e risco de entrada. O risco de entrada reflete a probabilidade de que uma determinada solicitação de autenticação não seja autorizada pelo proprietário da identidade. Há dois tipos de riscos de entrada: em tempo real e total. O risco de entrada em tempo real é detectado no momento da tentativa de entrada fornecida (como entradas de endereços IP anônimos). O risco de entrada total é a agregação de riscos de entrada em tempo real detectados, bem como quaisquer eventos de risco não em tempo real subsequentes associados às entradas do usuário (como viagens impossíveis). O risco do usuário reflete a probabilidade geral de que um ator inadequado tenha comprometido uma determinada identidade. O risco do usuário contém todas as atividades de risco de um determinado usuário, incluindo:
+Para entender como a proteção de identidade detecta riscos, há dois conceitos importantes: risco de usuário e risco de entrada. O risco de entrada reflete a probabilidade de que uma determinada solicitação de autenticação não seja autorizada pelo proprietário da identidade. Há dois tipos de riscos de entrada: em tempo real e total. O risco de entrada em tempo real é detectado no momento da tentativa de entrada fornecida (como entradas de endereços IP anônimos). O risco de entrada total é a agregação de riscos de entrada em tempo real detectados, bem como quaisquer detecções de risco não em tempo real subseqüentes associadas às entradas do usuário (como viagens impossíveis). O risco do usuário reflete a probabilidade geral de que um ator inadequado tenha comprometido uma determinada identidade. O risco do usuário contém todas as atividades de risco de um determinado usuário, incluindo:
 
 - Risco de entrada em tempo real
 - Risco de entrada subsequente
@@ -102,7 +102,7 @@ O fluxo de linha de base para a detecção de risco da proteção de identidade 
 
 Vejamos o exemplo de um funcionário da contoso. 
 
-1. Um funcionário tenta entrar no Exchange Online por meio do navegador Tor. No momento da entrada, o Azure AD detecta eventos de risco em tempo real. 
+1. Um funcionário tenta entrar no Exchange Online por meio do navegador Tor. No momento da entrada, o Azure AD detecta as detecções de risco em tempo real. 
 2. O Azure AD detecta que o funcionário está entrando a partir de um endereço IP anônimo, disparando um nível de risco de entrada médio. 
 3. O funcionário é desafiado por um prompt de MFA, pois o administrador de ti da Contoso configurou a política de acesso condicional de risco de entrada da proteção de identidade. A política requer MFA para um risco de entrada de médio ou superior. 
 4. O funcionário passa o prompt do MFA e acessa o Exchange Online, e o nível de risco do usuário não é alterado. 
@@ -115,20 +115,20 @@ Mas e se o funcionário não fosse aquele que está tentando entrar?
 2. O Azure AD detecta que a tentativa de entrada é de um endereço IP anônimo, disparando um risco de entrada em tempo real. 
 3. O ator mal-intencionado é desafiado por um prompt de MFA, pois o administrador de ti da Contoso configurou a política de acesso condicional de risco de entrada da proteção de identidade para exigir MFA quando o risco de entrada é médio ou superior. 
 4. O ator mal-intencionado falha no desafio de MFA e não pode acessar a conta do Exchange Online do funcionário. 
-5. O prompt de MFA com falha disparou um evento de risco a ser registrado, elevando o risco do usuário para logons futuros. 
+5. O prompt de MFA com falha disparou uma detecção de risco para ser registrado, elevando o risco do usuário para logons futuros. 
 
 Agora que um ator mal-intencionado tentou acessar a conta do Sarah, vamos ver o que acontece na próxima vez que o funcionário tentar entrar. 
 
-1. O funcionário tenta entrar no Exchange Online por meio do Outlook. No momento da entrada, o Azure AD detecta eventos de risco em tempo real, bem como qualquer risco de usuário anterior. 
+1. O funcionário tenta entrar no Exchange Online por meio do Outlook. No momento da entrada, o Azure AD detecta detecções de risco em tempo real, bem como qualquer risco de usuário anterior. 
 2. O Azure AD não detecta nenhum risco de entrada em tempo real, mas detecta alto risco de usuário devido à atividade arriscada anterior nos cenários anteriores.  
 3. O funcionário é desafiado por um prompt de redefinição de senha, pois o administrador de ti da Contoso configurou a política de risco do usuário do Identity Protection para exigir alteração de senha quando um usuário com logs de alto risco no. 
 4. Como o funcionário está registrado para SSPR e MFA, ele redefiniu sua senha com êxito. 
 5. Ao redefinir a senha, as credenciais do funcionário não são mais comprometidas e sua identidade retorna para um estado seguro. 
-6. Os eventos de risco anteriores do funcionário são resolvidos e o nível de risco do usuário é redefinido automaticamente como uma resposta para atenuar o comprometimento das credenciais. 
+6. As detecções de riscos anteriores do funcionário são resolvidas e o nível de risco do usuário é redefinido automaticamente como uma resposta para atenuar o comprometimento das credenciais. 
 
 ## <a name="how-do-i-configure-identity-protection"></a>Como fazer configurar a proteção de identidade? 
 
-Para começar a usar a proteção de identidade, primeiro configure uma política de risco de usuário e uma política de risco de entrada. Depois que essas políticas são configuradas e aplicadas a um grupo de teste, você pode simular eventos de risco para entender como a proteção de identidade responderá em seu ambiente. Os guias de início rápido abaixo fornecem instruções sobre como configurar as políticas e os testes mencionados acima em seu ambiente. 
+Para começar a usar a proteção de identidade, primeiro configure uma política de risco de usuário e uma política de risco de entrada. Depois que essas políticas são configuradas e aplicadas a um grupo de teste, você pode simular as detecções de risco para entender como a proteção de identidade responderá em seu ambiente. Os guias de início rápido abaixo fornecem instruções sobre como configurar as políticas e os testes mencionados acima em seu ambiente. 
 
 A proteção de identidade dá suporte a três funções no Azure AD para balancear as atividades de gerenciamento em relação à sua implantação: 
 

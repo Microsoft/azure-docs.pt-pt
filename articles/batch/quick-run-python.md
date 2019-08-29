@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: a2420f98bb07686b548dc6641df77dd0fdf7028b
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 8b35d2441db654278f9d66f3cbb4e7a79d70e835
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562805"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128034"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início rápido: Executar seu primeiro trabalho em lotes com a API do Python
 
@@ -47,7 +47,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
-Navegue para o diretório que contém o script do Python `python_quickstart_client.py`.
+Vá para o diretório que contém o script `python_quickstart_client.py`Python.
 
 No ambiente de desenvolvimento do Python, instale os pacotes necessários através de `pip`.
 
@@ -230,7 +230,7 @@ for task in tasks:
 
 A aplicação elimina automaticamente o contentor de armazenamento criado e oferece-lhe a opção de eliminar o conjunto e o trabalho do Batch. É cobrado o conjunto enquanto os nós estiverem em execução, mesmo se não existirem tarefas agendadas. Quando já não precisar do conjunto, elimine-o. Quando eliminar o conjunto, todos os resultados da tarefa nos nós são eliminados. 
 
-Quando já não forem precisos, elimine o grupo de recursos, a conta do Batch e a conta de armazenamento. Para tal, no portal do Azure, selecione o grupo de recursos da conta do Batch e clique em **Eliminar grupo de recursos**.
+Quando já não forem precisos, elimine o grupo de recursos, a conta do Batch e a conta de armazenamento. Para fazer isso no portal do Azure, selecione o grupo de recursos para a conta do lote e selecione **excluir grupo de recursos**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
