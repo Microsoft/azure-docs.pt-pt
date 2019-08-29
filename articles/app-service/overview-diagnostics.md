@@ -10,17 +10,16 @@ editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 50caa666245b0401c2c584f0a357ca6bfa53230c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: c9d6bc8802b54e970fe863ed6a7283f01c947916
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945679"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066860"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Visão geral do diagnóstico do serviço Azure App
 

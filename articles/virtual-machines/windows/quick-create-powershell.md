@@ -9,23 +9,22 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2c176ec9b7a2216eeb61e3f8fd4ef4b182b255a1
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 0a8e6ab04cbb1c5a3ef9be299a08380912aad7ef
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722916"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088804"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Início rápido: Criar uma máquina virtual do Windows no Azure com o PowerShell
 
-O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este guia de início rápido mostra como utilizar o módulo do Azure PowerShell para implementar uma máquina virtual (VM) no Azure que executa o Windows Server 2016. Também irá RDP à VM e instalar o servidor de web IIS, para mostrar a VM em ação.
+O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este guia de início rápido mostra como utilizar o módulo do Azure PowerShell para implementar uma máquina virtual (VM) no Azure que executa o Windows Server 2016. Você também usará o RDP para a VM e instalará o servidor Web do IIS, para mostrar a VM em ação.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -46,9 +45,9 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-Crie uma VM com [novo-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Fornecer nomes para cada um dos recursos e o `New-AzVM` cmdlet cria caso ainda não existam.
+Crie uma VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Forneça nomes para cada um dos recursos e o `New-AzVM` cmdlet criará se eles ainda não existirem.
 
-Quando solicitado, forneça um nome de utilizador e palavra-passe para ser usado como as credenciais de início de sessão para a VM:
+Quando solicitado, forneça um nome de usuário e senha a serem usados como credenciais de entrada para a VM:
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -66,7 +65,7 @@ New-AzVm `
 
 Após a conclusão da implementação, estabeleça o RDP para a VM. Para ver a VM em ação, o servidor Web do IIS é instalado.
 
-Para ver o endereço IP público da VM, utilize o [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) cmdlet:
+Para ver o endereço IP público da VM, use o cmdlet [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) :
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
@@ -100,13 +99,13 @@ Com o IIS instalado e a porta 80 aberta na VM a partir da Internet, utilize um b
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, pode utilizar o [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) cmdlet para remover o grupo de recursos, a VM e todos os recursos relacionados:
+Quando não for mais necessário, você pode usar o cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, a VM e todos os recursos relacionados:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, implementou uma máquina virtual simples, abriu uma porta de rede para o tráfego Web e instalou um servidor Web básico. Para saber mais sobre as máquinas virtuais do Azure, continue com o tutorial para VMs do Windows.
 

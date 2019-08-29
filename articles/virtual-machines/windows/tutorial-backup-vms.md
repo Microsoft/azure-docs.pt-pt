@@ -9,21 +9,20 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3db1884fb80ce28dc58f09687ff16cc1ce904679
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8eaa96dd92ab0f18b590b284d59dd7b775738602
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708085"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101740"
 ---
-# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Tutorial: Criar cópias de segurança e restaurar ficheiros para máquinas de virtuais do Windows no Azure
+# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Tutorial: Fazer backup e restaurar arquivos para máquinas virtuais do Windows no Azure
 
 Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. O Azure Backup cria pontos de recuperação que são armazenados em cofres de recuperação georredundantes. Quando restaura a partir de um ponto de recuperação, pode restaurar a VM completa ou ficheiros específicos. Este artigo explica como restaurar um ficheiro único para uma VM com o Windows Server e o IIS. Se ainda não tiver uma VM para utilizar, pode criar uma com o [Início rápido do Windows](quick-create-portal.md). Neste tutorial, ficará a saber como:
 
@@ -46,12 +45,12 @@ Crie uma cópia de segurança diária simples para um Cofre dos Serviços de Rec
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. No menu do lado esquerdo, selecione **Máquinas virtuais**. 
 1. Na lista, selecione uma VM da qual pretende criar uma cópia de segurança.
-1. No painel da VM, na **Operations** secção, clique em **cópia de segurança**. O painel **Ativar cópia de segurança** abre.
-1. Em **Cofre dos Serviços de Recuperação**, clique em **Criar novo** e indique o nome do cofre novo. É criado um cofre novo no mesmo grupo de recursos e localização que a máquina virtual.
-1. Sob **escolher política de cópia de segurança**, mantenha a predefinição **(novo) DailyPolicy**e, em seguida, clique em **ativar cópia de segurança**.
+1. Na folha da VM, na seção **operações** , clique em **backup**. O painel **Ativar cópia de segurança** abre.
+1. Em **Cofre dos Serviços de Recuperação**, clique em **Criar novo** e indique o nome do cofre novo. Um novo cofre é criado no mesmo grupo de recursos e no mesmo local que a máquina virtual.
+1. Em **escolher política de backup**, mantenha o padrão **(novo) política diária**e, em seguida, clique em **habilitar backup**.
 1. Para criar um ponto de recuperação inicial, no painel **Cópia de segurança**, clique em **Fazer cópia de segurança agora**.
-1. Sobre o **cópia de segurança agora** painel, clique no ícone de calendário, utilize o controle de calendário para escolher o tempo que o ponto de restauro é mantido e clique em **OK**.
-1. Na **cópia de segurança** painel para a sua VM, verá que o número de pontos de restauro está concluída.
+1. Na folha **fazer backup agora** , clique no ícone de calendário, use o controle de calendário para escolher por quanto tempo o ponto de restauração é retido e clique em **OK**.
+1. Na folha **backup** de sua VM, você verá o número de pontos de restauração concluídos.
 
 
     ![Pontos de recuperação](./media/tutorial-backup-vms/backup-complete.png)
@@ -76,23 +75,23 @@ Neste exemplo, mostramos como recuperar o ficheiro de imagem utilizado na págin
 
 1. No computador local, abra um novo separador e aceda ao [portal do Azure](https://portal.azure.com).
 1. No menu à esquerda, selecione **Máquinas virtuais** e selecione uma VM na lista.
-1. No painel da VM, na **Operations** secção, clique em **cópia de segurança**. O painel **Cópia de Segurança** abre. 
+1. Na folha da VM, na seção **operações** , clique em **backup**. O painel **Cópia de Segurança** abre. 
 1. No menu na parte superior do painel, selecione **Recuperação de Ficheiros**. O painel **Recuperação de Ficheiros** abre.
-1. No **passo 1: Selecione o ponto de recuperação**, selecione um ponto de recuperação da lista pendente.
-1. No **passo 2: Descarregar o script para procurar e recuperar ficheiros**, clique nas **transferir executável** botão. Copie a palavra-passe para o ficheiro e guarde-o num local seguro.
+1. Na **etapa 1: Selecione ponto**de recuperação, selecione um ponto de recuperação na lista suspensa.
+1. Na **etapa 2: Baixe o script para procurar e recuperar**arquivos, clique no botão **baixar executável** . Copie a senha do arquivo e salve-a em algum lugar seguro.
 1. No computador local, abra **Explorador de Ficheiros**, navegue até à pasta **Transferências** pasta e copie o ficheiro .exe transferido. O nome de ficheiro tem como prefixo o nome da VM. 
-1. Na sua VM (usando a ligação de RDP), cole o arquivo .exe na área de trabalho da sua VM. 
-1. Navegue para o ambiente de trabalho da VM e faça duplo clique no ficheiro .exe. Iniciará um prompt de comando. O programa monta o ponto de recuperação como uma partilha de ficheiros que pode aceder. Quando terminar de criar a partilha, escreva **q** para fechar a linha de comandos.
+1. Em sua VM (usando a conexão RDP), Cole o arquivo. exe na área de trabalho da sua VM. 
+1. Navegue para o ambiente de trabalho da VM e faça duplo clique no ficheiro .exe. Um prompt de comando será iniciado. O programa monta o ponto de recuperação como um compartilhamento de arquivos que você pode acessar. Quando terminar de criar a partilha, escreva **q** para fechar a linha de comandos.
 1. Na VM, abra **Explorador de Ficheiros** e navegue para a letra de unidade utilizada na partilha de ficheiros.
 1. Navegue para \inetpub\wwwroot e copie **iisstart.png** da partilha de ficheiros e cole em \inetpub\wwwroot. Por exemplo, copie F:\inetpub\wwwroot\iisstart.png e cole em C:\inetpub\wwwroot para recuperar o ficheiro.
 1. No computador local, abra o separador do browser onde está ligado ao endereço IP da VM, que mostra a página predefinida do IIS. Prima CTRL + F5 para atualizar a página do browser. Deverá ver agora que a imagem foi restaurada.
-1. No seu computador local, volte ao separador do browser para o portal do Azure e, em **passo 3: Desmontar os discos após a recuperação** clique a **desmontar discos** botão. Caso se esqueça de executar este passo, a ligação para o ponto de montagem é fechada automaticamente após 12 horas. Após essas 12 horas, terá de transferir um novo script para criar um novo ponto de montagem.
+1. No computador local, volte para a guia do navegador para o portal do Azure e na **etapa 3: Desmonte os discos após a** recuperação clique no botão desmontar **discos** . Caso se esqueça de executar este passo, a ligação para o ponto de montagem é fechada automaticamente após 12 horas. Após essas 12 horas, você precisa baixar um novo script para criar um novo ponto de montagem.
 
 
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

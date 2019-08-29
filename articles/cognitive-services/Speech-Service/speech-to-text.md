@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 435de6e6516256d350ad93b121dd5a38d1512ddc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fa80ebea93ae897ba01ff54bdb797ed4194665cd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558851"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70068868"
 ---
 # <a name="what-is-speech-to-text"></a>O que é conversão de fala em texto?
 
@@ -63,13 +63,7 @@ O código de exemplo para o SDK de fala está disponível no GitHub. Esses exemp
 
 ## <a name="customization"></a>Personalização
 
-Além do modelo Universal usado pelos serviços de fala, você pode criar modelos acústicos, de linguagem e de pronúncia personalizados específicos à sua experiência. Aqui está uma lista de opções de personalização:
-
-| Modelo | Descrição |
-|-------|-------------|
-| [Modelo acústico](how-to-customize-acoustic-models.md) | A criação de um modelo acústico personalizado será útil se o aplicativo, as ferramentas ou os dispositivos forem usados em um ambiente específico, como em um carro ou fábrica com condições de gravação específicas. Os exemplos envolvem voz acentuada, ruídos de fundo específicos ou utilizar um microfone específico para gravação. |
-| [Modelo de linguagem](how-to-customize-language-model.md) | Crie um modelo de linguagem personalizado para melhorar a transcrição do vocabulário e da gramática específicos do setor, como terminologia médica ou jargão de ti. |
-| [Modelo de pronúncia](how-to-customize-pronunciation.md) | Com um modelo de pronúncia personalizada, você pode definir o formulário fonético e a exibição de uma palavra ou termo. É útil para lidar com os termos personalizados, tais como nomes de produto ou acrônimos. Tudo o que precisa para começar a utilizar é um ficheiro de pronúncia – um arquivo. txt simples. |
+Além do modelo de linha de base padrão usado pelos serviços de fala, você pode personalizar modelos para suas necessidades com os dados disponíveis, para superar as barreiras de reconhecimento de fala, como estilo de fala, vocabulário e ruído de fundo, consulte [fala personalizada](how-to-custom-speech.md)
 
 > [!NOTE]
 > As opções de personalização variam por idioma/localidade (consulte [idiomas com suporte](supported-languages.md)).

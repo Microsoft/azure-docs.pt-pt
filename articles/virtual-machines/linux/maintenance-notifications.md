@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: shants
-ms.openlocfilehash: 347df9567817cdaea731e06646196142885757b1
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 626af4a056274e11ae15670f2f2e2a979eb94fff
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018829"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082872"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Lidando com notificações de manutenção planejada para máquinas virtuais do Linux
 

@@ -8,19 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 8c9d041648408b05b7cd160d5aea9dfb33ac061d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: cd185035640bf0beaa54fa6a0f4d92a33837442b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322388"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093974"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Usar um compartilhamento de arquivos do Azure com um pool do lote
 
@@ -54,7 +53,7 @@ Por exemplo, inclua um `net use` comando para montar o compartilhamento de arqui
 * **Nome de usuário**: StorageAccountName\\\<doAzure, por exemplo,*mystorageaccountname* do Azure\\\>
 * **Senha**: \<StorageAccountKeyWhichEnds in = = >, por exemplo, *XXXXXXXXXXXXXXXXXXXXX = =*
 
-O comando a seguir monta um compartilhamento de ** arquivos myfileshare na conta de armazenamento *mystorageaccountname* como a unidade *S:* :
+O comando a seguir monta um compartilhamento de arquivos myfileshare na conta de armazenamento *mystorageaccountname* como a unidade *S:* :
 
 ```
 net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX==
@@ -131,7 +130,7 @@ Em seguida, execute `mount` o comando para montar o compartilhamento de arquivos
 * **Nome**de usuário \<:\>StorageAccountName, por exemplo, *mystorageaccountname*
 * **Senha**: \<StorageAccountKeyWhichEnds in = = >, por exemplo, *XXXXXXXXXXXXXXXXXXXXX = =*
 
-O comando a seguir monta um compartilhamento de ** arquivos myfileshare na conta de armazenamento *mystorageaccountname* em */mnt/MyAzureFileShare*: 
+O comando a seguir monta um compartilhamento de arquivos myfileshare na conta de armazenamento *mystorageaccountname* em */mnt/MyAzureFileShare*: 
 
 ```
 mount -t cifs //mystorageaccountname.file.core.windows.net/myfileshare /mnt/MyAzureFileShare -o vers=3.0,username=mystorageaccountname,password=XXXXXXXXXXXXXXXXXXXXX==,dir_mode=0777,file_mode=0777,serverino && ls /mnt/MyAzureFileShare
@@ -182,7 +181,7 @@ batch_service_client.task.add(job_id, task)
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter outras opções de leitura e gravação de dados no lote, consulte [visão geral do recurso de lote](batch-api-basics.md) e [manter saída de tarefa e trabalho](batch-task-output.md).
 

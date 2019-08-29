@@ -11,17 +11,16 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: be391f2aa9ee5d94ffc36a6e03d3af8881346520
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 3118be297caabbd4b829344e42361fa6b7602aad
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636559"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066736"
 ---
 # <a name="azure-app-service-plan-overview"></a>Visão geral do plano de serviço Azure App
 

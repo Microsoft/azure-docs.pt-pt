@@ -203,6 +203,8 @@
               href: ../hdinsight-migrate-granular-access-cluster-configurations.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
 - name: Referência
   items:
+    - name: Configurações de nós suportadas
+      href: ../hdinsight-supported-node-configuration.md
     - name: Exemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: Azure PowerShell

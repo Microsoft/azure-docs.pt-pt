@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentação da Máquina Virtual de Ciência de Dados do Azure
 metadata:
   title: Documentação da Máquina Virtual de Ciência de Dados - Azure
-  description: 'Saiba como utilizar a Máquina Virtual de Ciência de Dados, um ambiente experimental na cloud do Azure criado para a ciência de dados. Conta com ferramentas populares de ciência de dados e outras ferramentas pré-instaladas e pré-configuradas para permitir a rápida criação de aplicações inteligentes para análises avançadas.'
+  description: 'Saiba como utilizar a Máquina Virtual de Ciência de Dados, um ambiente experimental na cloud do Azure criado para a ciência de dados. Inclui ferramentas de ciência de dados e de aprendizagem automática pré-instaladas e pré-configuradas. Este design dá-lhe uma vantagem inicial na criação de aplicações inteligentes de análise avançada.'
   services: machine-learning
   author: vijetajo
   ms.service: machine-learning
@@ -14,12 +14,12 @@ metadata:
   ms.date: 08/19/2019
   ms.author: vijetaj
 abstract:
-  description: A Máquina Virtual de Ciência de Dados (DSVM) do Azure é uma imagem de VM personalizada com ferramentas de ciência de dados e aprendizagem automática. Pode utilizar esta VM para criar aplicações inteligentes de análise avançada. <a href="overview.md">Saiba mais...</a>
+  description: A Máquina Virtual de Ciência de Dados (DSVM) do Azure é uma imagem de VM personalizada com ferramentas de ciência de dados e aprendizagem automática. Pode utilizar esta VM para criar aplicações inteligentes de análise avançada. <a href="overview.md">Saiba mais</a>.
 sections:
-  - title: Inícios rápidos de cinco minutos
+  - title: Inícios rápidos de 5 minutos
     items:
       - type: paragraph
-        text: 'Saiba como configurar uma VM de Ciência de Dados baseada em Windows ou Linux:'
+        text: 'Saiba como configurar uma Máquina Virtual de Ciência de Dados baseada em Windows ou Linux:'
       - type: paragraph
         text: <b>DSVM do Windows</b>
       - type: list
@@ -35,7 +35,7 @@ sections:
           - html: <a href="linux-dsvm-intro">Configurar uma DSVM do Linux CentOS</a>
           - html: <a href="dsvm-ubuntu-intro">Configurar uma DSVM do Linux Ubuntu</a>
           - html: <a href="linux-dsvm-walkthrough">Utilizar uma DSVM do Linux</a>
-  - title: Mais Tecnologias do Azure Machine Learning
+  - title: Mais tecnologias do Azure Machine Learning
     items:
       - type: paragraph
         text: 'Outras tecnologias disponíveis no Azure Machine Learning:'

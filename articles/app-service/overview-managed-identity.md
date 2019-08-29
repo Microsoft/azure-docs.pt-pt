@@ -7,24 +7,23 @@ manager: cfowler
 editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: a2b8a4e496094c6275710328e70a09376ce0e5fc
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 16c65a98ca420a4b15281ee033ea7773197b5b2a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563021"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098477"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como usar identidades gerenciadas para o serviço de aplicativo e Azure Functions
 
 > [!Important] 
 > As identidades gerenciadas para o serviço de aplicativo e o Azure Functions não se comportarão conforme o esperado se seu aplicativo for migrado entre assinaturas/locatários. O aplicativo precisará obter uma nova identidade, o que pode ser feito desabilitando e reabilitando o recurso. Consulte [removendo uma identidade](#remove) abaixo. Os recursos downstream também precisarão ter políticas de acesso atualizadas para usar a nova identidade.
 
-Este tópico mostra como criar uma identidade gerenciada para aplicativos de Azure Functions e serviço de aplicativo e como usá-lo para acessar outros recursos. Uma identidade gerenciada do Azure Active Directory permite que seu aplicativo acesse facilmente outros recursos protegidos por AAD, como Azure Key Vault. A identidade é gerenciada pela plataforma do Azure e não exige que você provisione ou gire segredos. Para obter mais informações sobre identidades gerenciadas no AAD, consulte [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Este tópico mostra como criar uma identidade gerenciada para aplicativos de Azure Functions e serviço de aplicativo e como usá-lo para acessar outros recursos. As identidades geridas do Azure Active Directory permitem que a sua aplicação aceda facilmente a outros recursos protegidos pelo AAD, como o Azure Key Vault. A identidade é gerenciada pela plataforma do Azure e não exige que você provisione ou gire segredos. Para obter mais informações sobre identidades gerenciadas no AAD, consulte [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 Seu aplicativo pode receber dois tipos de identidades: 
 - Uma **identidade atribuída pelo sistema** é vinculada ao seu aplicativo e é excluída se seu aplicativo for excluído. Um aplicativo pode ter apenas uma identidade atribuída pelo sistema.

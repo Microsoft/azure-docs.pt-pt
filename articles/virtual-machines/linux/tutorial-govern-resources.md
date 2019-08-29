@@ -9,19 +9,18 @@ editor: tysonn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 760055a831998aa026439302094e146fd4d39394
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7bd204789f99fa299300ff47003857e9ecc6085e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708451"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103610"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutorial: Saiba mais sobre a governação de máquina virtual do Linux com a CLI do Azure
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutorial: Saiba mais sobre o governança de máquinas virtuais do Linux com o CLI do Azure
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -65,11 +64,11 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-Se receber um erro a indicar **Principal \<guid > não existe no diretório**, o novo grupo ainda não propagadas em todo o Azure Active Directory. Tente executar o comando novamente.
+Se você receber um erro informando que o **GUID principal \<> não existe no diretório**, o novo grupo não será propagado durante o Azure Active Directory. Tente executar o comando novamente.
 
 Normalmente, pode repetir o processo para o *Contribuidor de Rede* e o *Contribuidor de Conta de Armazenamento* para confirmar que os utilizadores estão atribuídos para gerir os recursos implementados. Neste artigo, pode ignorar esses passos.
 
-## <a name="azure-policy"></a>Azure Policy
+## <a name="azure-policy"></a>Política do Azure
 
 O [Azure Policy](../../governance/policy/overview.md) ajuda-o a certificar-se de que todos os recursos na subscrição cumprem os padrões empresariais. A subscrição já tem várias definições de política. Para ver as definições de política disponíveis, utilize o comando [az policy definition list](/cli/azure/policy/definition):
 
@@ -227,7 +226,7 @@ az group delete --name myResourceGroup
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma imagem de VM personalizada. Aprendeu a:
 

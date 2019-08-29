@@ -1,39 +1,38 @@
 ---
-title: Temporizadores nas funções duráveis - Azure
-description: Saiba como implementar temporizadores duráveis na extensão de funções duráveis para as funções do Azure.
+title: Temporizadores no Durable Functions-Azure
+description: Saiba como implementar temporizadores duráveis na extensão de Durable Functions para Azure Functions.
 services: functions
 author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a05f75a7e38ee7cd4dc056629d9acaacad875e08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 11edfc11fc1e54684a99774c21517d4c322348b1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60730230"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087049"
 ---
-# <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores nas funções duráveis (funções do Azure)
+# <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores em Durable Functions (Azure Functions)
 
-[Funções duráveis](durable-functions-overview.md) fornece *temporizadores duráveis* para utilização nas funções do orchestrator para implementar atrasos ou configurar tempos limite de ações de async. Temporizadores duráveis devem ser utilizados nas funções do orchestrator, em vez de `Thread.Sleep` e `Task.Delay` (c#), ou `setTimeout()` e `setInterval()` (JavaScript).
+O [Durable Functions](durable-functions-overview.md) fornece *temporizadores duráveis* para uso em funções de orquestrador para implementar atrasos ou para configurar tempos limite em ações assíncronas. Temporizadores duráveis devem ser usados em funções de orquestrador `Thread.Sleep` em `Task.Delay` vezC#de e ( `setTimeout()` ) `setInterval()` ou e (JavaScript).
 
-Criar um temporizador durável chamando o [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) método [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) no .NET, ou o `createTimer` método de `DurableOrchestrationContext` em JavaScript. O método retorna uma tarefa que retoma uma data e hora especificadas.
+Você cria um temporizador durável chamando o [](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) método CreateTimer de [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) no .net ou o `createTimer` método de `DurableOrchestrationContext` em JavaScript. O método retorna uma tarefa que é retomada em uma data e hora especificadas.
 
-## <a name="timer-limitations"></a>Limitações de temporizador
+## <a name="timer-limitations"></a>Limitações do temporizador
 
-Quando cria um temporizador que expira às 4:30 pm, a coloca em fila de Framework durável de tarefa subjacente uma mensagem que se torna visível apenas no 4:30 pm. Quando em execução no plano de consumo das funções do Azure, a mensagem de temporizador recentemente visível garantirá que a aplicação de funções é ativada numa VM adequada.
+Quando você cria um temporizador que expira às 4:30 PM, o Framework de tarefa durável subjacente enfileira uma mensagem que se torna visível somente às 4:30 PM. Ao executar no plano de consumo de Azure Functions, a mensagem de temporizador recentemente visível garantirá que o aplicativo de funções seja ativado em uma VM apropriada.
 
 > [!NOTE]
-> * Temporizadores duráveis não podem durar mais do que 7 dias devido a limitações no armazenamento do Azure. Estamos a trabalhar num [pedido de funcionalidade para aumentar a temporizadores, para além de 7 dias](https://github.com/Azure/azure-functions-durable-extension/issues/14).
-> * Utilize sempre [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) em vez de `DateTime.UtcNow` no .NET e `currentUtcDateTime` em vez de `Date.now` ou `Date.UTC` em JavaScript, conforme mostrado nos exemplos abaixo ao computar um prazo relativo de um temporizador durável .
+> * Os temporizadores duráveis não podem durar mais de 7 dias devido a limitações no armazenamento do Azure. Estamos trabalhando em uma [solicitação de recurso para estender temporizadores além de 7 dias](https://github.com/Azure/azure-functions-durable-extension/issues/14).
+> * Sempre use [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) em vez `DateTime.UtcNow` de em .NET `currentUtcDateTime` e em `Date.now` vez `Date.UTC` de ou em JavaScript, conforme mostrado nos exemplos abaixo ao calcular um prazo relativo de um temporizador durável.
 
-## <a name="usage-for-delay"></a>Utilização de atraso
+## <a name="usage-for-delay"></a>Uso de atraso
 
-O exemplo a seguir ilustra como usar temporizadores duráveis para atrasar a execução. O exemplo está a emitir uma notificação de faturação de todos os dias para dez dias.
+O exemplo a seguir ilustra como usar temporizadores duráveis para atrasar a execução. O exemplo está emitindo uma notificação de cobrança todos os dias por dez dias.
 
 ### <a name="c"></a>C#
 
@@ -51,7 +50,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 ```js
 const df = require("durable-functions");
@@ -68,9 +67,9 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Evite loops infinitos nas funções do orchestrator. Para obter informações sobre como com segurança e eficiência implementar cenários de loop infinito, consulte [Orquestrações externas](durable-functions-eternal-orchestrations.md).
+> Evite loops infinitos em funções de orquestrador. Para obter informações sobre como implementar de forma segura e eficiente cenários de loop infinito, consulte orquestrações de [eternas](durable-functions-eternal-orchestrations.md).
 
-## <a name="usage-for-timeout"></a>Utilização para o tempo limite
+## <a name="usage-for-timeout"></a>Uso para tempo limite
 
 Este exemplo ilustra como usar temporizadores duráveis para implementar tempos limite.
 
@@ -105,7 +104,7 @@ public static async Task<bool> Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 ```js
 const df = require("durable-functions");
@@ -132,11 +131,11 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Utilize um `CancellationTokenSource` para cancelar um temporizador durável (c#) ou uma chamada `cancel()` retornado no `TimerTask` (JavaScript), se seu código não aguarda que este seja concluído. A estrutura de tarefa durável não irá alterar o estado de uma orquestração como "concluído" até que todas as tarefas pendentes sejam concluídas ou foi canceladas.
+> Use um `CancellationTokenSource` para cancelar um temporizador durávelC#() ou `cancel()` chamar sobre o `TimerTask` retornado (JavaScript) se o seu código não esperar que ele seja concluído. O Framework de tarefa durável não alterará o status de uma orquestração para "concluído" até que todas as tarefas pendentes sejam concluídas ou canceladas.
 
-Esse mecanismo não encerra, na verdade, a execução de função da atividade em curso. Em vez disso, ele simplesmente permite que a função de orquestrador ignorar o resultado e avançar. Se a sua aplicação function app utiliza o plano de consumo, ainda será cobrado para qualquer tempo e memória consumida pela função atividade abandonados. Por predefinição, as funções em execução no plano de consumo têm um tempo limite de cinco minutos. Se este limite for excedido, o anfitrião de funções do Azure é reciclado para parar a execução de todas as e impede uma situação de faturação de fuga. O [tempo limite da função é configurável](../functions-host-json.md#functiontimeout).
+Esse mecanismo não encerra realmente a execução da função de atividade em andamento. Em vez disso, ele simplesmente permite que a função de orquestrador ignore o resultado e passe. Se seu aplicativo de funções usar o plano de consumo, você ainda será cobrado por qualquer tempo e memória consumida pela função de atividade abandonada. Por padrão, as funções em execução no plano de consumo têm um tempo limite de cinco minutos. Se esse limite for excedido, o host de Azure Functions será reciclado para interromper toda a execução e evitar uma situação de cobrança de fuga. O [tempo limite da função é configurável](../functions-host-json.md#functiontimeout).
 
-Para obter um exemplo mais aprofundado de como implementar tempos limite nas funções do orchestrator, consulte a [interação humana & tempos-limite de verificação do telefone](durable-functions-phone-verification.md) passo a passo.
+Para obter um exemplo mais detalhado de como implementar tempos limite em funções de orquestrador, consulte a [interação humana & tempos limite de verificação de telefone](durable-functions-phone-verification.md) .
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,35 +1,34 @@
 ---
-title: Controle de versão em funções duráveis - Azure
-description: Saiba como implementar o controle de versão na extensão de funções duráveis para as funções do Azure.
+title: Controle de versão no Durable Functions-Azure
+description: Saiba como implementar o controle de versão na extensão de Durable Functions para Azure Functions.
 services: functions
 author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 33ca6c36cd11d53a3c50a8374181c511fd2f8c3e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ef64a43cbed7f033a938351506b7f78142ff044c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648156"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097626"
 ---
-# <a name="versioning-in-durable-functions-azure-functions"></a>Controle de versão em funções duráveis (funções do Azure)
+# <a name="versioning-in-durable-functions-azure-functions"></a>Controle de versão em Durable Functions (Azure Functions)
 
-É inevitável que as funções serão adicionadas, removidas e alteradas durante o ciclo de vida de um aplicativo. [Funções duráveis](durable-functions-overview.md) permite o encadeamento funciona em conjunto, de forma a que não eram possíveis anteriormente e este encadeamento afeta a forma como pode manipular o controle de versão.
+É inevitável que as funções serão adicionadas, removidas e alteradas durante o tempo de vida de um aplicativo. [Durable Functions](durable-functions-overview.md) permite encadear funções de maneiras que antes não eram possíveis, e esse encadeamento afeta como você pode lidar com o controle de versão.
 
-## <a name="how-to-handle-breaking-changes"></a>Como lidar com alterações de última hora
+## <a name="how-to-handle-breaking-changes"></a>Como lidar com alterações significativas
 
-Existem vários exemplos de alterações de última hora de conhecer. Este artigo aborda os mais comuns. O tema principal por trás de todos eles é que ambas as orquestrações de função de novas e existentes são afetadas por alterações ao código de função.
+Há vários exemplos de alterações significativas a serem consideradas. Este artigo aborda as mais comuns. O tema principal por trás de todos eles é que as orquestrações de função novas e existentes são afetadas por alterações no código de função.
 
-### <a name="changing-activity-function-signatures"></a>A alteração de assinaturas de função de atividade
+### <a name="changing-activity-function-signatures"></a>Alterando assinaturas de função de atividade
 
-Uma alteração de assinatura refere-se a uma alteração no nome, entrada ou saída de uma função. Se esse tipo de alteração é feito para uma função de atividade, ele poderá interromper a função de orquestrador que depende da mesma. Se atualizar a função de orquestrador para contemplar esta alteração, poderá interromper as instâncias em trânsito existentes.
+Uma alteração de assinatura refere-se a uma alteração no nome, na entrada ou na saída de uma função. Se esse tipo de alteração for feito em uma função de atividade, ele poderá interromper a função de orquestrador que depende dele. Se você atualizar a função de orquestrador para acomodar essa alteração, poderá interromper as instâncias em andamento existentes.
 
-Por exemplo, suponha que temos a função a seguir.
+Por exemplo, suponha que tenhamos a seguinte função.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -40,7 +39,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-Esta função simplista recebe os resultados da **Foo** e transmite-o para **barra**. Vamos supor que temos de alterar o valor de retorno **Foo** partir `bool` para `int` para oferecer suporte a uma variedade mais ampla de valores de resultado. O resultado tem o seguinte aspeto:
+Essa função simples usa os resultados de **foo** e as transmite para a **barra**. Vamos supor que precisamos alterar o valor de retorno de **foo** `bool` de para `int` para dar suporte a uma variedade maior de valores de resultado. O resultado é semelhante a este:
 
 ```csharp
 [FunctionName("FooBar")]
@@ -51,15 +50,15 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-Esta alteração funciona bem para todas as novas instâncias de função de orquestrador mas divide quaisquer instâncias em trânsito. Por exemplo, considere o caso em que uma instância da orquestração chama **Foo**, recebe de volta um valor Booleano e, em seguida, pontos de verificação. Se a alteração de assinatura for implementada nesse ponto, a instância foi efetuada a verificação falhará imediatamente quando é retomada e replays a chamada para `context.CallActivityAsync<int>("Foo")`. Isto acontece porque é o resultado da tabela de histórico `bool` mas o novo código tenta desserializar em `int`.
+Essa alteração funciona bem para todas as novas instâncias da função de orquestrador, mas interrompe todas as instâncias em andamento. Por exemplo, considere o caso em que uma instância de orquestração chama **foo**, retorna um valor booliano e, em seguida, pontos de verificação. Se a alteração de assinatura for implantada neste ponto, a instância de ponto de verificação falhará imediatamente quando for retomada e repetirá a chamada para `context.CallActivityAsync<int>("Foo")`. Isso ocorre porque o resultado na tabela de histórico é `bool` , mas o novo código tenta desserializá-la no `int`.
 
-Isso é apenas uma das muitas formas diferentes, que uma alteração de assinatura pode quebrar instâncias existentes. Em geral, se precisar de alterar a forma como um orquestrador chama uma função, em seguida, a alteração é suscetível de ser problemático.
+Essa é apenas uma das várias maneiras diferentes pelas quais uma alteração de assinatura pode interromper instâncias existentes. Em geral, se um orquestrador precisar alterar a maneira como ele chama uma função, a alteração provavelmente será problemática.
 
-### <a name="changing-orchestrator-logic"></a>Alterar a lógica do orchestrator
+### <a name="changing-orchestrator-logic"></a>Alterando a lógica do orquestrador
 
-A outra classe de problemas de controle de versão provenientes de alterar o código de função de orquestrador de uma forma que confunde a lógica de repetição para instâncias em trânsito.
+A outra classe de problemas de controle de versão vem da alteração do código de função de orquestrador de forma a confundir a lógica de reprodução para instâncias em andamento.
 
-Considere a seguinte função do orchestrator:
+Considere a seguinte função de orquestrador:
 
 ```csharp
 [FunctionName("FooBar")]
@@ -70,7 +69,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-Agora vamos supor que deseja fazer uma alteração aparentemente inocente para adicionar outra chamada de função.
+Agora vamos supor que você deseja fazer uma alteração aparentemente inocente para adicionar outra chamada de função.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -86,40 +85,40 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-Esta alteração adiciona uma nova chamada de função para **SendNotification** entre **Foo** e **barra**. Não há nenhuma alteração de assinatura. O problema surge quando uma instância existente é retomado após a chamada para **barra**. Durante a reprodução, se a chamada para o original **Foo** devolvido `true`, em seguida, chamará a repetição de orchestrator **SendNotification** que não se encontra no respetivo histórico de execução. Como resultado, a estrutura de tarefa durável falha com um `NonDeterministicOrchestrationException` porque encontrou uma chamada ao **SendNotification** quando ele esperava receber uma chamada para **barra**.
+Essa alteração adiciona uma nova chamada de função a **SendNotification** entre **foo** e **bar**. Não há alterações de assinatura. O problema ocorre quando uma instância existente é retomada da chamada para **bar**. Durante a repetição, se a chamada original para **foo** for `true`retornada, a reprodução do orquestrador chamará **SendNotification** que não está em seu histórico de execução. Como resultado, o Framework de tarefa durável falha com um `NonDeterministicOrchestrationException` porque ele encontrou uma chamada para **SendNotification** quando esperava ver uma chamada para **bar**.
 
-## <a name="mitigation-strategies"></a>Estratégias de atenuação
+## <a name="mitigation-strategies"></a>Estratégias de mitigação
 
 Aqui estão algumas das estratégias para lidar com os desafios de controle de versão:
 
 * Não fazer nada
-* Parar todas as instâncias em trânsito
-* Implementações lado a lado
+* Parar todas as instâncias em andamento
+* Implantações lado a lado
 
 ### <a name="do-nothing"></a>Não fazer nada
 
-A maneira mais fácil para lidar com uma alteração significativa é permitir que a orquestração em trânsito instâncias falharem. Novas instâncias a executar o código foi alterado com êxito.
+A maneira mais fácil de lidar com uma alteração significativa é deixar as instâncias de orquestração em andamento falharem. Novas instâncias executaram com êxito o código alterado.
 
-Se se trata de um problema depende a importância das suas instâncias em trânsito. Se estiver em fase de desenvolvimento e não se preocupa em trânsito instâncias, pode ser bom o suficiente. No entanto, terá de lidar com exceções e erros no seu pipeline de diagnóstico. Se quiser evitar essas coisas, considere as outras opções de controle de versão.
+Se esse é um problema depende da importância de suas instâncias em andamento. Se você estiver em desenvolvimento ativo e não se importa com instâncias em andamento, isso pode ser bom o suficiente. No entanto, você precisará lidar com exceções e erros em seu pipeline de diagnóstico. Se você quiser evitar essas coisas, considere as outras opções de controle de versão.
 
-### <a name="stop-all-in-flight-instances"></a>Parar todas as instâncias em trânsito
+### <a name="stop-all-in-flight-instances"></a>Parar todas as instâncias em andamento
 
-Outra opção é parar todas as instâncias em trânsito. Isso pode ser feito ao desmarcar o conteúdo do interno **controle fila** e **fila de item de trabalho** filas. As instâncias serão bloqueadas para sempre onde estão, mas não agrupará a telemetria com mensagens de falha. Isso é ideal no desenvolvimento rápido de protótipo.
+Outra opção é interromper todas as instâncias em andamento. Isso pode ser feito limpando o conteúdo das filas de fila de **controle** interno e filas **de trabalho** . As instâncias ficarão paralisadas para sempre onde estiverem, mas elas não obstruirão a telemetria com mensagens de falha. Isso é ideal no desenvolvimento rápido de protótipos.
 
 > [!WARNING]
-> Os detalhes destas filas podem ser alterados ao longo do tempo, pelo que não contam com essa técnica para cargas de trabalho de produção.
+> Os detalhes dessas filas podem mudar ao longo do tempo, portanto, não confie nessa técnica para cargas de trabalho de produção.
 
-### <a name="side-by-side-deployments"></a>Implementações lado a lado
+### <a name="side-by-side-deployments"></a>Implantações lado a lado
 
-É a maneira mais à prova de falhas para garantir que as alterações interruptivas são implementadas em segurança por meio de implantação lado a lado com as versões mais antigas. Isso pode ser feito através de qualquer uma das seguintes técnicas:
+A maneira mais reprovada de falhas para garantir que as alterações significativas sejam implantadas com segurança é implantá-las lado a lado com suas versões mais antigas. Isso pode ser feito usando qualquer uma das seguintes técnicas:
 
-* Implementar todas as atualizações como funções totalmente novas (novos nomes).
-* Implemente todas as atualizações como uma nova aplicação de função com uma conta de armazenamento diferente.
-* Implementar uma nova cópia da aplicação de função, mas com um atualizado `TaskHub` nome. Essa é a técnica de recomendada.
+* Implante todas as atualizações como funções totalmente novas (novos nomes).
+* Implante todas as atualizações como um novo aplicativo de funções com uma conta de armazenamento diferente.
+* Implante uma nova cópia do aplicativo de funções, mas com um `TaskHub` nome atualizado. Essa é a técnica recomendada.
 
-### <a name="how-to-change-task-hub-name"></a>Como alterar o nome do hub de tarefa
+### <a name="how-to-change-task-hub-name"></a>Como alterar o nome do hub de tarefas
 
-O hub de tarefa pode ser configurado no *Host. JSON* ficheiros da seguinte forma:
+O Hub de tarefas pode ser configurado no arquivo *host. JSON* da seguinte maneira:
 
 #### <a name="functions-1x"></a>Funções 1.x
 
@@ -135,14 +134,14 @@ O hub de tarefa pode ser configurado no *Host. JSON* ficheiros da seguinte forma
 
 O valor predefinido é `DurableFunctionsHub`.
 
-Todas as entidades de armazenamento do Azure são nomeadas com base no `HubName` valor de configuração. Ao dar o hub de tarefa um novo nome, garante que separado de filas e tabelas de histórico, são criadas para a nova versão do seu aplicativo.
+Todas as entidades de armazenamento do Azure são nomeadas com base no valor de `HubName` configuração. Ao dar um novo nome ao Hub de tarefas, você garante que filas e tabelas de histórico separadas sejam criadas para a nova versão do seu aplicativo.
 
-Recomendamos que implemente a nova versão da aplicação de função para um novo [bloco de implementação](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/). Blocos de implementação permitem-lhe executar várias cópias da sua função aplicação lado a lado com apenas um deles como o Active Directory *produção* ranhura. Quando estiver pronto para expor a nova lógica de orquestração para a sua infraestrutura existente, pode ser tão simples quanto a troca da nova versão para o bloco de produção.
+Recomendamos que você implante a nova versão do aplicativo de funções em um novo [slot de implantação](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/). Os slots de implantação permitem que você execute várias cópias do seu aplicativo de funções lado a lado com apenas uma delas como o slot de *produção* ativo. Quando você estiver pronto para expor a nova lógica de orquestração para sua infraestrutura existente, ela pode ser tão simples quanto trocar a nova versão no slot de produção.
 
 > [!NOTE]
-> Esta estratégia funciona melhor quando usa os acionadores de HTTP e webhook das funções do orchestrator. Para acionadores de não-HTTP, tais como filas ou Hubs de eventos, a definição de Acionador deve [derivam de uma definição de aplicação](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) que é atualizado como parte da operação de troca.
+> Essa estratégia funciona melhor quando você usa gatilhos HTTP e webhook para funções de orquestrador. Para gatilhos não HTTP, como filas ou hubs de eventos, a definição do gatilho deve [derivar de uma configuração de aplicativo](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) que é atualizada como parte da operação de permuta.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba como lidar com o desempenho e problemas de dimensionamento](durable-functions-perf-and-scale.md)
+> [Saiba como lidar com problemas de desempenho e escala](durable-functions-perf-and-scale.md)

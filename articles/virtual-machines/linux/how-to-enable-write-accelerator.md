@@ -1,6 +1,6 @@
 ---
-title: Acelerador de escrita do Azure | Documentos da Microsoft
-description: Documentação sobre como ativar e utilizar o acelerador de escrita
+title: Acelerador de Gravação do Azure | Microsoft Docs
+description: Documentação sobre como habilitar e usar Acelerador de Gravação
 services: virtual-machines-linux
 documentationcenter: ''
 author: raiye
@@ -9,7 +9,6 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -17,11 +16,11 @@ ms.date: 2/20/2019
 ms.author: raiye
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: fcd7b43bf142ab33c1a3421cbc539bb2646d48f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5d54d082285145f99d109772a8371fcaaa3ceb8d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60543245"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083209"
 ---
 [!INCLUDE [how-to-enable-write-accelerator](../../../includes/virtual-machines-common-how-to-enable-write-accelerator.md)]

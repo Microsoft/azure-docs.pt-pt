@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a601792198b6efb1b3c24e3a3270c3faf78f2635
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: e65e9670facdfcbf9d1aac04fa25ee53996a9c4b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036354"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100315"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutorial: Usar a central de segurança do Azure para monitorar máquinas virtuais do Windows
 
@@ -124,7 +123,7 @@ Selecione um alerta para ver as informações. Por exemplo, pode ver uma descri�
 
 ![Ataque RDP](./media/tutorial-azure-security/rdp-attack.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, configurou o Centro de Segurança do Azure e, em seguida, reviu VMs no Centro de Segurança. Aprendeu a:
 
 > [!div class="checklist"]

@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 0094364ed2e5d6c024f75a88db90eb703792f9f3
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 5440333360549c5df2da57c97b24dcc77436ba4b
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405843"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072710"
 ---
 # <a name="add-an-api-manually"></a>Adicionar uma API manualmente
 

@@ -1,5 +1,5 @@
 ---
-title: Ocorreu um erro interno ao fazer uma ligação RDP para máquinas de virtuais do Azure | Documentos da Microsoft
+title: Um erro interno ocorre quando você faz uma conexão RDP com as máquinas virtuais do Azure | Microsoft Docs
 description: Saiba como resolver problemas de erros internos do RDP no Microsoft Azure. | Documentos da Microsoft
 services: virtual-machines-windows
 documentationCenter: ''
@@ -7,24 +7,23 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 4476e4732dfcf8d79c9678a7ff4719eba10e48f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8fa00a5b65b0e337c47ca1fa892b8958f0bd2232
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60319433"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089815"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ocorreu um erro interno ao tentar ligar a uma VM do Azure através do ambiente de trabalho remoto
 
 Este artigo descreve um erro que podem ocorrer ao tentar ligar a uma máquina virtual (VM) no Microsoft Azure.
 > [!NOTE]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -55,7 +54,7 @@ Para resolver este problema, utilize a consola de série ou [Repare a VM offline
 Ligar à [consola de série e a instância do PowerShell aberta](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Se a consola de série não estiver ativada na sua VM, vá para o [Repare a VM offline](#repair-the-vm-offline) secção.
 
-#### <a name="step-1-check-the-rdp-port"></a>Passo: 1 Verifique a porta RDP
+#### <a name="step-1-check-the-rdp-port"></a>Etapa 1 verificar a porta RDP
 
 1. Numa instância do PowerShell, utilize o [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
 ) para verificar se a porta 8080 é utilizada por outras aplicações:
@@ -87,7 +86,7 @@ Ligar à [consola de série e a instância do PowerShell aberta](./serial-consol
 
     3. [Atualizar o grupo de segurança de rede para a nova porta](../../virtual-network/security-overview.md) na porta RDP portal do Azure.
 
-#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Passo 2: Defina permissões corretas no certificado autoassinado do RDP
+#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Passo 2: Definir permissões corretas no certificado autoassinado do RDP
 
 1.  Numa instância do PowerShell, execute os seguintes comandos individualmente para renovar o certificado autoassinado do RDP:
 

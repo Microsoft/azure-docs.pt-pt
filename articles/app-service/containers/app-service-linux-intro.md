@@ -1,5 +1,5 @@
 ---
-title: Introdução ao serviço de aplicações no Linux – Azure | Documentos da Microsoft
+title: Introdução ao serviço de aplicativo no Linux – Azure | Microsoft Docs
 description: Saiba mais sobre o Serviço de Aplicações do Azure no Linux.
 keywords: serviço de aplicações do azure, linux, oss
 services: app-service
@@ -11,21 +11,20 @@ ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 6bca1b067f5ec667e8b5da92a182a5618582b2f3
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 7c00946ed9de88df43a4435c23ebef27b5c64e5c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617436"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071331"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
 
-[Serviço de aplicações do Azure](../overview.md) é uma plataforma de computação totalmente gerida que está otimizada para o alojamento de sites e aplicações web. Os clientes podem utilizar o Serviço de Aplicações no Linux para alojar aplicações Web nativamente no Linux para pilhas de aplicações suportadas. O [idiomas](#languages) secção lista as pilhas de aplicação que são atualmente suportadas.
+[Azure app serviço](../overview.md) é uma plataforma de computação totalmente gerenciada que é otimizada para hospedar sites e aplicativos Web. Os clientes podem utilizar o Serviço de Aplicações no Linux para alojar aplicações Web nativamente no Linux para pilhas de aplicações suportadas. A seção [idiomas](#languages) lista as pilhas de aplicativos com suporte no momento.
 
 ## <a name="languages"></a>Languages
 
@@ -34,9 +33,9 @@ O Serviço de Aplicações no Linux suporta um número de imagens Incorporadas p
 | Idioma | Versões Suportadas |
 |---|---|
 | Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 8.12, 9.4, 10.1, 10.10, 10.14 |
-| Java * | Tomcat 8.5, 9.0, Java SE, 14 de WildFly (tudo em execução JRE 8) |
+| Java * | Tomcat 8,5, 9,0, Java SE, WildFly 14 (todos executando o JRE 8) |
 | PHP | 5.6, 7.0, 7.2, 7.3 |
-| Python | 2.7, 3.6, 3.7 |
+| Python | 2,7, 3,6, 3,7 |
 | .NET Core | 1.0, 1.1, 2.0, 2.1, 2.2 |
 | Ruby | 2.3, 2.4, 2.5, 2.6 |
 
@@ -71,13 +70,13 @@ Verifique o [Dashboard de Estado do Azure](https://azure.microsoft.com/status).
 
 O portal do Azure mostra apenas as funcionalidades que funcionam atualmente para a Aplicação Web para Contentores. À medida que ativamos mais funcionalidades, estas tornam-se visíveis no portal.
 
-Serviço de aplicações no Linux só é suportado com [gratuito, básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) planos de serviço de aplicações e não tem um [partilhado](https://azure.microsoft.com/pricing/details/app-service/plans/) escalão. Não é possível criar uma aplicação Web do Linux num plano do serviço de aplicações já não - Linux Web Apps de alojamento.  
+O serviço de aplicativo no Linux só tem suporte com planos de serviço de aplicativo [gratuito, básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e não tem uma camada [compartilhada](https://azure.microsoft.com/pricing/details/app-service/plans/) . Você não pode criar um aplicativo Web do Linux em um plano do serviço de aplicativo que já hospeda aplicativos Web não Linux.  
 
-Com base numa limitação atual, para o mesmo grupo de recursos não é possível misturar aplicações Windows e Linux, na mesma região.
+Com base em uma limitação atual, para o mesmo grupo de recursos, você não pode misturar aplicativos Windows e Linux na mesma região.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Quando a aplicação não consegue iniciar ou pretende verificar o registo da sua aplicação, verifique os registos do Docker no diretório LogFiles. Pode aceder a este diretório através do seu site SCM ou do FTP. Registo a `stdout` e `stderr` do seu contentor, tem de ativar **registo de contentor do Docker** sob **registos do serviço de aplicações**. A definição entra em vigor imediatamente. Serviço de aplicações Deteta a alteração e reinicia automaticamente o contentor.
+Quando a aplicação não consegue iniciar ou pretende verificar o registo da sua aplicação, verifique os registos do Docker no diretório LogFiles. Pode aceder a este diretório através do seu site SCM ou do FTP. Para registrar o `stdout` e `stderr` de seu contêiner, você precisa habilitar o **log de contêiner** do Docker em **logs do serviço de aplicativo**. A configuração entra em vigor imediatamente. O serviço de aplicativo detecta a alteração e reinicia o contêiner automaticamente.
 
 Pode aceder ao site do SCM através das **Ferramentas Avançadas** no menu **Ferramentas de Desenvolvimento**.
 
@@ -96,7 +95,7 @@ Os artigos seguintes ajudam-no a começar a utilizar o Serviço de Aplicações 
 * [Go](quickstart-docker-go.md)
 * [Aplicação com vários contentores](quickstart-multi-container.md)
 
-Para obter mais informações sobre o serviço de aplicações no Linux, consulte:
+Para obter mais informações sobre o serviço de aplicativo no Linux, consulte:
 
 * [FAQ do Serviço de Aplicações para Linux](app-service-linux-faq.md)
 * [Suporte SSH para o Serviço de Aplicações no Linux](app-service-linux-ssh-support.md)

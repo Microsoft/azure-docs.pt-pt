@@ -11,16 +11,15 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: ebcc8301fa3693880974e45b594be218905e8311
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: c1c09382102045dd248b6771d8d0ea1ef090b6eb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775392"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079610"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Baixar um VHD do Windows do Azure
 
@@ -73,7 +72,7 @@ Para baixar o arquivo VHD, você precisa gerar uma URL de [assinatura de acesso 
 
     ![Clique em salvar no navegador](./media/download-vhd/export-save.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [carregar um arquivo VHD no Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 - [Crie discos gerenciados de discos não gerenciados em uma conta de armazenamento](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

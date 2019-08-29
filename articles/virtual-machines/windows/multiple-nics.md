@@ -1,6 +1,6 @@
 ---
-title: Criar e gerir VMs do Windows no Azure que utilizar vários NICs | Documentos da Microsoft
-description: Saiba como criar e gerir uma VM do Windows com múltiplos NICs ligados ao mesmo com os modelos do Azure PowerShell ou do Resource Manager.
+title: Criar e gerenciar VMs do Windows no Azure que usam várias NICs | Microsoft Docs
+description: Saiba como criar e gerenciar uma VM do Windows que tem várias NICs anexadas usando Azure PowerShell ou modelos do Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -8,39 +8,38 @@ manager: gwallace
 editor: ''
 ms.assetid: 9bff5b6d-79ac-476b-a68f-6f8754768413
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: a89d77e47f8a7ffd7072e8f93c19ec6266f261b3
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: d10844a52505331418e3bc4e9b36d00a5a7e7b6f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720160"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102618"
 ---
-# <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Criar e gerir uma máquina de virtual do Windows que tenha vários NICs
-Máquinas virtuais (VMs) no Azure pode ter placas de interface de vários rede virtual (NIC) anexadas aos mesmos. Um cenário comum é ter diferentes sub-redes para a conectividade de front-end e back-end. Pode associar várias NICs numa VM em várias sub-redes, mas essas sub-redes devem residir na mesma rede virtual (vNet). Este artigo fornece detalhes sobre como criar uma VM com várias NICs ligados ao mesmo. Também irá aprender a adicionar ou remover NICs a partir de uma VM existente. Diferentes [tamanhos de VM](sizes.md) suporta um número variável de NICs, então, da mesma forma a dimensionar sua VM.
+# <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Criar e gerenciar uma máquina virtual do Windows que tenha várias NICs
+As VMs (máquinas virtuais) no Azure podem ter várias NICs (placas de interface de rede) virtuais conectadas a elas. Um cenário comum é ter diferentes sub-redes para conectividade de front-end e back-end. Você pode associar várias NICs em uma VM a várias sub-redes, mas essas sub-redes devem residir na mesma rede virtual (vNet). Este artigo fornece detalhes sobre como criar uma VM que tenha várias NICs anexadas a ela. Você também aprenderá a adicionar ou remover NICs de uma VM existente. Diferentes [tamanhos de VM](sizes.md) dão suporte a um número variável de NICs, portanto, dimensione sua VM adequadamente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluem *myResourceGroup*, *myVnet*, e *myVM*.
+Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo pelos seus próprios valores. Os nomes de parâmetrode exemplo incluem MyResource, *myVnet*e *myVM*.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-vm-with-multiple-nics"></a>Criar uma VM com vários NICs
-Primeiro, crie um grupo de recursos. O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* no *EastUs* localização:
+Primeiro, crie um grupo de recursos. O exemplo a seguir cria um grupo de recursos chamado MyResource Group no local *eastus* :
 
 ```powershell
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
 ### <a name="create-virtual-network-and-subnets"></a>Criar rede virtual e sub-redes
-Um cenário comum é para uma rede virtual para ter duas ou mais sub-redes. Uma sub-rede pode ser para o tráfego de front-end, a outra para o tráfego de back-end. Para ligar a ambas as sub-redes, utilize, em seguida, várias NICs na sua VM.
+Um cenário comum é que uma rede virtual tenha duas ou mais sub-redes. Uma sub-rede pode ser para o tráfego de front-end, a outra para o tráfego de back-end. Para se conectar a ambas as sub-redes, você usa várias NICs em sua VM.
 
-1. Definir duas sub-redes da rede virtual com [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig). O exemplo seguinte define as sub-redes para *mySubnetFrontEnd* e *mySubnetBackEnd*:
+1. Defina duas sub-redes de rede virtual com [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig). O exemplo a seguir define as sub-redes para *mySubnetFrontEnd* e *mySubnetBackEnd*:
 
     ```powershell
     $mySubnetFrontEnd = New-AzVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
@@ -49,7 +48,7 @@ Um cenário comum é para uma rede virtual para ter duas ou mais sub-redes. Uma 
         -AddressPrefix "192.168.2.0/24"
     ```
 
-2. Criar a sua rede virtual e sub-redes com [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork). O exemplo seguinte cria uma rede virtual denominada *myVnet*:
+2. Crie sua rede virtual e sub-redes com [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork). O exemplo a seguir cria uma rede virtual chamada *myVnet*:
 
     ```powershell
     $myVnet = New-AzVirtualNetwork -ResourceGroupName "myResourceGroup" `
@@ -60,8 +59,8 @@ Um cenário comum é para uma rede virtual para ter duas ou mais sub-redes. Uma 
     ```
 
 
-### <a name="create-multiple-nics"></a>Criar vários NICs
-Criar dois NICs com [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface). Anexe uma NIC na sub-rede do front-end e uma NIC na sub-rede de back-end. O exemplo seguinte cria com o nome de NICs *myNic1* e *myNic2*:
+### <a name="create-multiple-nics"></a>Criar várias NICs
+Crie duas NICs com [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface). Anexe uma NIC à sub-rede de front-end e uma NIC à sub-rede de back-end. O exemplo a seguir cria NICs chamadas *myNic1* e *myNic2*:
 
 ```powershell
 $frontEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetFrontEnd'}
@@ -77,24 +76,24 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -SubnetId $backEnd.Id
 ```
 
-Normalmente, também cria um [grupo de segurança de rede](../../virtual-network/security-overview.md) para filtrar o tráfego de rede para a VM e um [Balanceador de carga](../../load-balancer/load-balancer-overview.md) para distribuir o tráfego por várias VMs.
+Normalmente, você também cria um [grupo de segurança de rede](../../virtual-network/security-overview.md) para filtrar o tráfego de rede para a VM e um balanceador de [carga](../../load-balancer/load-balancer-overview.md) para distribuir o tráfego entre várias VMS.
 
 ### <a name="create-the-virtual-machine"></a>Criar a máquina virtual
-Agora começa a criar a sua configuração de VM. Cada tamanho de VM tem um limite para o número total de NICs que podem ser adicionados a uma VM. Para obter mais informações, consulte [tamanhos de VM do Windows](sizes.md).
+Agora, comece a criar sua configuração de VM. Cada tamanho de VM tem um limite para o número total de NICs que você pode adicionar a uma VM. Para obter mais informações, consulte [tamanhos de VM do Windows](sizes.md).
 
-1. Definir as credenciais da sua VM o `$cred` variável da seguinte forma:
+1. Defina suas credenciais de VM para `$cred` a variável da seguinte maneira:
 
     ```powershell
     $cred = Get-Credential
     ```
 
-2. Definir a sua VM com [novo AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig). O exemplo seguinte define uma VM com o nome *myVM* e utiliza um tamanho VM que suporte a mais de duas NICs (*Standard_DS3_v2*):
+2. Defina sua VM com [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig). O exemplo a seguir define uma VM chamada *myVM* e usa um tamanho de VM que dá suporte a mais de duas NICs (*Standard_DS3_v2*):
 
     ```powershell
     $vmConfig = New-AzVMConfig -VMName "myVM" -VMSize "Standard_DS3_v2"
     ```
 
-3. Criar o resto da sua configuração de VM com [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem) e [conjunto AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage). O exemplo seguinte cria uma VM do Windows Server 2016:
+3. Crie o restante da sua configuração de VM com [set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem) e [set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage). O exemplo a seguir cria uma VM do Windows Server 2016:
 
     ```powershell
     $vmConfig = Set-AzVMOperatingSystem -VM $vmConfig `
@@ -110,37 +109,37 @@ Agora começa a criar a sua configuração de VM. Cada tamanho de VM tem um limi
         -Version "latest"
    ```
 
-4. Ligar as duas NICs que criou anteriormente com [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface):
+4. Anexe as duas NICs que você criou anteriormente com [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface):
 
     ```powershell
     $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $myNic1.Id -Primary
     $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
     ```
 
-5. Criar a sua VM com [novo-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm):
+5. Crie sua VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm):
 
     ```powershell
     New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
     ```
 
-6. Adicionar rotas para NICs secundários para o sistema operacional, concluindo os passos em [configurar o sistema operativo para vários NICs](#configure-guest-os-for-multiple-nics).
+6. Adicione rotas para NICs secundárias ao sistema operacional, concluindo as etapas em [Configurar o sistema operacional para várias NICs](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Adicionar uma NIC a uma VM existente
-Para adicionar uma NIC virtual a uma VM existente, deve desalocar a VM, adicione a NIC virtual, em seguida, inicie a VM. Diferentes [tamanhos de VM](sizes.md) suporta um número variável de NICs, então, da mesma forma a dimensionar sua VM. Se for necessário, pode [redimensionar uma VM](resize-vm.md).
+Para adicionar uma NIC virtual a uma VM existente, você Desaloca a VM, adiciona a NIC virtual e, em seguida, inicia a VM. Diferentes [tamanhos de VM](sizes.md) dão suporte a um número variável de NICs, portanto, dimensione sua VM adequadamente. Se necessário, você pode [redimensionar uma VM](resize-vm.md).
 
-1. Desaloque a VM com [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm). O exemplo seguinte desaloca a VM com o nome *myVM* na *myResourceGroup*:
+1. Desaloque a VM com [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm). O exemplo a seguir Desaloca a VM chamada *myVM* no *MyResource*:
 
     ```powershell
     Stop-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-2. Obter a configuração existente da VM com [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). O exemplo seguinte obtém informações para a VM com o nome *myVM* na *myResourceGroup*:
+2. Obtenha a configuração existente da VM com [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). O exemplo a seguir obtém informações para a VM chamada *myVM* no MyResource:
 
     ```powershell
     $vm = Get-AzVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-3. O exemplo seguinte cria uma NIC virtual com [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) com o nome *myNic3* que está ligado à *mySubnetBackEnd*. A NIC virtual, em seguida, é anexada à VM com o nome *myVM* na *myResourceGroup* com [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface):
+3. O exemplo a seguir cria uma NIC virtual com [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) chamada *myNic3* que está anexada a *mySubnetBackEnd*. Em seguida, a NIC virtual é anexada à VM chamada *myVM* em MyResource filecom [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface):
 
     ```powershell
     # Get info for the back end subnet
@@ -158,8 +157,8 @@ Para adicionar uma NIC virtual a uma VM existente, deve desalocar a VM, adicione
     Add-AzVMNetworkInterface -VM $vm -Id $nicId | Update-AzVm -ResourceGroupName "myResourceGroup"
     ```
 
-    ### <a name="primary-virtual-nics"></a>NICs virtuais principais
-    Um dos NICs numa VM multi-NIC tem de ser principal. Se um dos NICs virtuais existentes na VM já está definido como principal, pode ignorar este passo. O exemplo seguinte assume que dois NICs virtuais agora estão presentes numa VM e que pretende adicionar a primeira NIC (`[0]`) como principal:
+    ### <a name="primary-virtual-nics"></a>NICs virtuais primárias
+    Uma das NICs em uma VM com várias NICs precisa ser primária. Se uma das NICs virtuais existentes na VM já estiver definida como primária, você poderá ignorar esta etapa. O exemplo a seguir pressupõe que duas NICs virtuais agora estão presentes em uma VM e você deseja adicionar a primeira NIC (`[0]`) como a primária:
         
     ```powershell
     # List existing NICs on the VM and find which one is primary
@@ -173,30 +172,30 @@ Para adicionar uma NIC virtual a uma VM existente, deve desalocar a VM, adicione
     Update-AzVM -VM $vm -ResourceGroupName "myResourceGroup"
     ```
 
-4. Iniciar a VM com [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm):
+4. Inicie a VM com [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm):
 
     ```powershell
     Start-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
-5. Adicionar rotas para NICs secundários para o sistema operacional, concluindo os passos em [configurar o sistema operativo para vários NICs](#configure-guest-os-for-multiple-nics).
+5. Adicione rotas para NICs secundárias ao sistema operacional, concluindo as etapas em [Configurar o sistema operacional para várias NICs](#configure-guest-os-for-multiple-nics).
 
-## <a name="remove-a-nic-from-an-existing-vm"></a>Remover um NIC a uma VM existente
-Para remover uma NIC virtual a partir de uma VM existente, desalocar a VM, remover a NIC virtual, em seguida, inicia a VM.
+## <a name="remove-a-nic-from-an-existing-vm"></a>Remover uma NIC de uma VM existente
+Para remover uma NIC virtual de uma VM existente, Desaloque a VM, remova a NIC virtual e, em seguida, inicie a VM.
 
-1. Desaloque a VM com [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm). O exemplo seguinte desaloca a VM com o nome *myVM* na *myResourceGroup*:
+1. Desaloque a VM com [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm). O exemplo a seguir Desaloca a VM chamada *myVM* no *MyResource*:
 
     ```powershell
     Stop-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-2. Obter a configuração existente da VM com [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). O exemplo seguinte obtém informações para a VM com o nome *myVM* na *myResourceGroup*:
+2. Obtenha a configuração existente da VM com [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). O exemplo a seguir obtém informações para a VM chamada *myVM* no MyResource:
 
     ```powershell
     $vm = Get-AzVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-3. Obter informações sobre a remoção NIC com [Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkinterface). O exemplo seguinte obtém informações *myNic3*:
+3. Obtenha informações sobre a remoção da NIC com [Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkinterface). O exemplo a seguir obtém informações sobre *myNic3*:
 
     ```powershell
     # List existing NICs on the VM if you need to determine NIC name
@@ -205,21 +204,21 @@ Para remover uma NIC virtual a partir de uma VM existente, desalocar a VM, remov
     $nicId = (Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
     ```
 
-4. Remover a NIC com o [Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface) e, em seguida, atualize a VM com [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm). O exemplo seguinte remove *myNic3* tal como obtidas pelo `$nicId` no passo anterior:
+4. Remova a NIC com [Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface) e, em seguida, atualize a VM com [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm). O exemplo a seguir remove *myNic3* conforme obtido `$nicId` pela na etapa anterior:
 
     ```powershell
     Remove-AzVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
         Update-AzVm -ResourceGroupName "myResourceGroup"
     ```   
 
-5. Iniciar a VM com [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm):
+5. Inicie a VM com [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm):
 
     ```powershell
     Start-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```   
 
-## <a name="create-multiple-nics-with-templates"></a>Criar vários NICs com modelos
-Modelos Azure Resource Manager fornecem uma forma de criar várias instâncias de um recurso durante a implementação, como a criação de várias NICs. Modelos do Resource Manager utilizam ficheiros JSON declarativos para definir o seu ambiente. Para obter mais informações, consulte [descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Pode usar *cópia* para especificar o número de instâncias para criar:
+## <a name="create-multiple-nics-with-templates"></a>Criar várias NICs com modelos
+Os modelos de Azure Resource Manager fornecem uma maneira de criar várias instâncias de um recurso durante a implantação, como a criação de várias NICs. Os modelos do Resource Manager usam arquivos JSON declarativos para definir seu ambiente. Para obter mais informações, consulte [visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Você pode usar *copiar* para especificar o número de instâncias a serem criadas:
 
 ```json
 "copy": {
@@ -228,23 +227,23 @@ Modelos Azure Resource Manager fornecem uma forma de criar várias instâncias d
 }
 ```
 
-Para obter mais informações, consulte [criação de várias instâncias usando *cópia*](../../resource-group-create-multiple.md). 
+Para obter mais informações, consulte [criando várias instâncias usando *copiar*](../../resource-group-create-multiple.md). 
 
-Também pode utilizar `copyIndex()` para anexar um número para um nome de recurso. Em seguida, pode criar *myNic1*, *MyNic2* e assim por diante. O código seguinte mostra um exemplo de acrescentar o valor de índice:
+Você também pode usar `copyIndex()` para acrescentar um número a um nome de recurso. Em seguida, você pode criar *myNic1*, *MyNic2* e assim por diante. O código a seguir mostra um exemplo de acréscimo do valor de índice:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-Pode ler um exemplo completo de [criação de vários NICs com modelos do Resource Manager](../../virtual-network/template-samples.md).
+Você pode ler um exemplo completo de como [criar várias NICs usando modelos do Resource Manager](../../virtual-network/template-samples.md).
 
-Adicionar rotas para NICs secundários para o sistema operacional, concluindo os passos em [configurar o sistema operativo para vários NICs](#configure-guest-os-for-multiple-nics).
+Adicione rotas para NICs secundárias ao sistema operacional, concluindo as etapas em [Configurar o sistema operacional para várias NICs](#configure-guest-os-for-multiple-nics).
 
-## <a name="configure-guest-os-for-multiple-nics"></a>Configurar o sistema operacional convidado para vários NICs
+## <a name="configure-guest-os-for-multiple-nics"></a>Configurar o sistema operacional convidado para várias NICs
 
-O Azure atribui um gateway predefinido para a primeira interface de rede (principal) ligado à máquina virtual. O Azure não atribui um gateway predefinido a interfaces de rede (secundárias) adicionais ligadas a uma máquina virtual. Por conseguinte, não pode comunicar com recursos que estejam fora da sub-rede em que se encontre uma interface de rede secundária, por predefinição. Interfaces de rede secundárias podem, no entanto, comunicar com os recursos fora da sua sub-rede, embora os passos para ativar a comunicação são diferentes para sistemas operativos diferentes.
+O Azure atribui um gateway padrão para a primeira interface de rede (primária) anexada à máquina virtual. O Azure não atribui um gateway predefinido a interfaces de rede (secundárias) adicionais ligadas a uma máquina virtual. Por conseguinte, não pode comunicar com recursos que estejam fora da sub-rede em que se encontre uma interface de rede secundária, por predefinição. As interfaces de rede secundárias podem, no entanto, se comunicar com recursos fora de sua sub-rede, embora as etapas para habilitar a comunicação sejam diferentes para sistemas operacionais diferentes.
 
-1. Num prompt de comando do Windows, execute o `route print` comando, que devolve resultados semelhantes ao seguinte de saída para uma máquina virtual com duas interfaces de rede anexada:
+1. Em um prompt de comando do Windows, `route print` execute o comando, que retorna uma saída semelhante à seguinte saída para uma máquina virtual com duas interfaces de rede anexadas:
 
     ```
     ===========================================================================
@@ -254,35 +253,35 @@ O Azure atribui um gateway predefinido para a primeira interface de rede (princi
     ===========================================================================
     ```
  
-    Neste exemplo, **4 de n. º do adaptador de rede do Microsoft Hyper-V** (interface 7) é a interface de rede secundárias que não tem um gateway predefinido atribuído a ele.
+    Neste exemplo, **Microsoft Hyper-V adaptador de rede #4** (interface 7) é a interface de rede secundária que não tem um gateway padrão atribuído a ele.
 
-2. A partir de uma linha de comandos, execute o `ipconfig` comando para ver qual o endereço IP é atribuído à interface de rede secundárias. Neste exemplo, 192.168.2.4 é atribuído à interface 7. Nenhum endereço de gateway predefinido é retornado para a interface de rede secundárias.
+2. Em um prompt de comando, execute `ipconfig` o comando para ver qual endereço IP é atribuído à interface de rede secundária. Neste exemplo, 192.168.2.4 é atribuído à interface 7. Nenhum endereço de gateway padrão é retornado para a interface de rede secundária.
 
-3. Para encaminhar todo o tráfego destinado aos endereços fora da sub-rede da interface de rede secundário para o gateway para a sub-rede, execute o seguinte comando:
+3. Para rotear todo o tráfego destinado a endereços fora da sub-rede da interface de rede secundária para o gateway para a sub-rede, execute o seguinte comando:
 
     ```
     route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
     ```
 
-    O endereço de gateway para a sub-rede é o primeiro endereço IP (que termine em.1) no intervalo de endereços definido para a sub-rede. Se não quiser encaminhar todo o tráfego fora da sub-rede, poderia adicionar rotas individuais para determinados destinos, em vez disso. Por exemplo, se só quiser encaminhar o tráfego a partir da interface de rede secundárias para a 192.168.3.0 rede, introduza o comando:
+    O endereço do gateway para a sub-rede é o primeiro endereço IP (terminando em 0,1) no intervalo de endereços definido para a sub-rede. Se você não quiser rotear todo o tráfego fora da sub-rede, poderá adicionar rotas individuais a destinos específicos, em vez disso. Por exemplo, se você quisesse apenas rotear o tráfego da interface de rede secundária para a rede 192.168.3.0, insira o comando:
 
       ```
       route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
       ```
   
-4. Para confirmar a comunicação bem-sucedida com um recurso no 192.168.3.0, rede, por exemplo, introduza o seguinte comando para efetuar o ping 192.168.3.4 usando a interface 7 (192.168.2.4):
+4. Para confirmar a comunicação bem-sucedida com um recurso na rede 192.168.3.0, por exemplo, digite o seguinte comando para executar ping 192.168.3.4 usando a interface 7 (192.168.2.4):
 
     ```
     ping 192.168.3.4 -S 192.168.2.4
     ```
 
-    Poderá ter de abrir o ICMP através da firewall do Windows do dispositivo que estiver ping com o seguinte comando:
+    Talvez seja necessário abrir o ICMP por meio do firewall do Windows do dispositivo que você está executando ping com o seguinte comando:
   
       ```
       netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
       ```
   
-5. Para confirmar a rota adicionada está na tabela de rotas, introduza o `route print` comando, que devolve resultados semelhantes ao seguinte texto:
+5. Para confirmar se a rota adicionada está na tabela de rotas, insira `route print` o comando, que retorna uma saída semelhante ao seguinte texto:
 
     ```
     ===========================================================================
@@ -292,9 +291,9 @@ O Azure atribui um gateway predefinido para a primeira interface de rede (princi
               0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
     ```
 
-    A rota listada com *192.168.1.1* sob **Gateway**, é a rota que é um padrão para a interface de rede principal. A rota com *192.168.2.1* sob **Gateway**, é a rota que adicionou.
+    A rota listada com *192.168.1.1* em **Gateway**é a rota que está lá por padrão para a interface de rede primária. A rota com *192.168.2.1* em **Gateway**é a rota que você adicionou.
 
-## <a name="next-steps"></a>Passos Seguintes
-Revisão [tamanhos de VM do Windows](sizes.md) quando está a tentar criar uma VM com várias NICs. Preste atenção para o número máximo de NICs que oferece suporte a cada tamanho de VM. 
+## <a name="next-steps"></a>Passos seguintes
+Examine os [tamanhos de VM do Windows](sizes.md) quando você estiver tentando criar uma VM com várias NICs. Preste atenção ao número máximo de NICs com suporte de cada VM. 
 
 

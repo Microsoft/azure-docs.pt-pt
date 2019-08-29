@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: 37921c655cc3c5de5c3c5079eda47fb7513fdf9f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 878e2b03e21c18ef4ee845251e91642037c6c5ff
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560952"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114651"
 ---
 # <a name="limits-and-quotas"></a>Limites e quotas
 
@@ -37,7 +37,13 @@ Espera-se que o número de imagens de treinamento por projeto e marcas por proje
 |Operações de [previsão](https://go.microsoft.com/fwlink/?linkid=865445) sem armazenamento (transações por segundo)|2|20|
 |[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446) (Chamadas de API por segundo)|2|10|
 |[Outras chamadas à API](https://go.microsoft.com/fwlink/?linkid=865446) (Transações por segundo)|10|10|
+|Tipos de imagem aceitos|jpg, png, BMP, gif|jpg, png, BMP, gif|
+|Altura/largura da imagem mínima em pixels|256 (consulte a observação)|256 (consulte a observação)|
+|Altura/largura máxima da imagem em pixels|ilimitado|ilimitado|
 |Tamanho máximo da imagem (upload de imagem de treinamento) |6 MB|6 MB|
 |Tamanho máximo da imagem (previsão)|4 MB|4 MB|
 |Imagem de treinamento da detecção de regiões máximas por objeto|200|200|
 |Máximo de marcas por imagem de classificação|30|30|
+
+> [!NOTE]
+> Imagens com menos de 256 pixels serão aceitas, mas em escala.
