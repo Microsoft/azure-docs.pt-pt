@@ -127,7 +127,7 @@
           href: concepts-read-replicas.md
 - name: Guias de procedimentos
   items:
-    - name: Gerir um Servidor
+    - name: Gerir um servidor
       items:
         - name: Portal do Azure
           href: howto-create-manage-server-portal.md
@@ -171,6 +171,8 @@
       items:
         - name: Portal do Azure
           href: howto-auto-grow-storage-portal.md
+        - name: CLI do Azure
+          href: howto-auto-grow-storage-cli.md
     - name: Aceder a registos do servidor
       items:
         - name: Registos de consulta lenta

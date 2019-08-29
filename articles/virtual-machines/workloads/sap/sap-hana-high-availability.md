@@ -7,18 +7,17 @@ author: MSSedusch
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 78d14add09a89b7ec4d4844a12ffa0434d714b3a
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 7b9d3791d44e9541df7fc95c34b5e8c83a4295b3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "67709089"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078396"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade de SAP HANA em VMs do Azure no SUSE Linux Enterprise Server
 
@@ -343,7 +342,7 @@ Para instalar SAP HANA replicação do sistema, siga o capítulo 4 do [Guia de c
    * Insira a senha do usuário do banco de dados (sistema): Insira a senha de usuário do banco de dados.
    * Confirmar senha do usuário do banco de dados (sistema): Insira a senha de usuário do banco de dados novamente para confirmar.
    * Reiniciar o sistema após a reinicialização do computador? [n]: Selecione Enter.
-   * Pretende continuar? (s/n): Valide o resumo. Digite **y** para continuar.
+   * Deseja continuar? (s/n): Valide o resumo. Digite **y** para continuar.
 
 1. **[A]** atualizar o agente de host do SAP.
 
@@ -1082,7 +1081,7 @@ NOTA: Os testes a seguir são projetados para serem executados em sequência e d
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
