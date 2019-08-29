@@ -1,140 +1,139 @@
 ---
-title: Instalação de tempo de execução das funções do Azure | Documentos da Microsoft
-description: Como instalar a pré-visualização do Runtime de funções do Azure 2
+title: Instalação do Azure Functions Runtime | Microsoft Docs
+description: Como instalar a versão prévia do Azure Functions Runtime 2
 services: functions
 author: apwestgarth
 manager: stefsch
 ms.assetid: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: aae6bc41f3c2fc2c5f8cf63d07f6b4d79bb3564a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0fbc76f3cb3fea84347ef55e40e1b2bed9b98152
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61023118"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085503"
 ---
-# <a name="install-the-azure-functions-runtime-preview-2"></a>Instalar a pré-visualização do Runtime de funções do Azure 2
+# <a name="install-the-azure-functions-runtime-preview-2"></a>Instalar a versão prévia do Azure Functions Runtime 2
 
 [!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
-Se gostaria de instalar o 2 da pré-visualização do Runtime de funções do Azure, siga estes passos:
+Se você quiser instalar o Azure Functions Runtime versão prévia 2, siga estas etapas:
 
-1. Certifique-se de que sua máquina passa os requisitos mínimos.
-1. Transfira o [instalador de pré-visualização do Runtime das funções do Azure](https://aka.ms/azafrv2).
-1. Desinstale o 1 da pré-visualização do Runtime de funções do Azure.
-1. Instale o 2 da pré-visualização do Runtime de funções do Azure.
-1. Conclua a configuração do Runtime de funções do Azure preview 2.
-1. Criar a primeira função em pré-visualização do Runtime de funções do Azure
+1. Verifique se o computador passa pelos requisitos mínimos.
+1. Baixe o [instalador do Azure Functions Runtime Preview](https://aka.ms/azafrv2).
+1. Desinstale o Azure Functions Runtime Preview 1.
+1. Instale a versão prévia do Azure Functions Runtime 2.
+1. Conclua a configuração da versão prévia do Azure Functions Runtime 2.
+1. Criar sua primeira função na visualização Azure Functions Runtime
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de instalar a pré-visualização do Runtime de funções do Azure, tem de ter os seguintes recursos disponíveis:
+Antes de instalar a versão prévia do Azure Functions Runtime, você deve ter os seguintes recursos disponíveis:
 
-1. Uma máquina com o Microsoft Windows Server 2016 ou o Microsoft Windows 10 Creators Update (Professional ou Enterprise Edition).
-1. Uma instância de SQL Server em execução dentro da sua rede.  Edição mínima necessária é o SQL Server Express.
+1. Um computador executando o Microsoft Windows Server 2016 ou o Microsoft Windows 10 Creators Update (Professional ou Enterprise Edition).
+1. Uma instância SQL Server em execução na sua rede.  A edição mínima necessária é SQL Server Express.
 
-## <a name="uninstall-previous-version"></a>Desinstalar a versão anterior
+## <a name="uninstall-previous-version"></a>Desinstalar versão anterior
 
-Se tiver instalado anteriormente a pré-visualização do Runtime de funções do Azure, tem de desinstalar antes de instalar a versão mais recente.  Desinstale a pré-visualização do Runtime de funções do Azure ao remover o programa em Adicionar/remover programas no Windows.
+Se você já tiver instalado a versão prévia do Azure Functions Runtime, deverá desinstalar o antes de instalar a liberação mais recente.  Desinstale o Azure Functions Runtime Preview removendo o programa em Adicionar ou remover programas no Windows.
 
-## <a name="install-the-azure-functions-runtime-preview"></a>Instalar a visualização de tempo de execução de funções do Azure
+## <a name="install-the-azure-functions-runtime-preview"></a>Instalar a versão prévia do Azure Functions Runtime
 
-O instalador de pré-visualização do tempo de execução de funções do Azure orienta-o ao longo da instalação do Runtime de funções do Azure preview gestão e funções de trabalho.  É possível instalar a função de gestão e de trabalho na mesma máquina.  No entanto, à medida que adiciona mais aplicações de função, tem de implementar mais funções de trabalho em máquinas adicionais para poder dimensionar as suas funções em várias funções de trabalho.
+O instalador de visualização do Azure Functions Runtime orienta você pela instalação das funções de trabalho e gerenciamento de Azure Functions Runtime visualização.  É possível instalar a função de gerenciamento e de trabalho no mesmo computador.  No entanto, à medida que você adiciona mais aplicativos de funções, você deve implantar mais funções de trabalho em computadores adicionais para poder dimensionar suas funções em vários trabalhos.
 
-## <a name="install-the-management-and-worker-role-on-the-same-machine"></a>Instalar o gerenciamento e a função de trabalho na mesma máquina
+## <a name="install-the-management-and-worker-role-on-the-same-machine"></a>Instalar a função de gerenciamento e de trabalho no mesmo computador
 
-1. Execute o instalador de pré-visualização do tempo de execução de funções do Azure.
+1. Execute o instalador do Azure Functions Runtime Preview.
 
-    ![Instalador de pré-visualização do Runtime das funções do Azure][1]
+    ![Instalador do Azure Functions Runtime Preview][1]
 
 1. Clique em **Seguinte**.
-1. Assim que tiver lido os termos do **EULA**, **a caixa de verificação** para aceitar os termos e clique em **seguinte** para avançar.
-1. Selecione as funções de que pretende instalar nesta máquina **função de gestão de funções** e/ou **função de trabalho de funções** e clique em **seguinte**.
+1. Depois de ler os termos do **EULA**, **marque a caixa** para aceitar os termos e clique em **Avançar** para avançar.
+1. Selecione as funções que você deseja instalar nesta função de **Gerenciamento de funções** de computador e/ou **função de trabalho** do Functions e clique em **Avançar**.
 
-    ![Instalador de pré-visualização de Runtime das funções do Azure - seleção da função][3]
-
-    > [!NOTE]
-    > Pode instalar o **função de trabalho de funções** em muitas outras máquinas. Para tal, siga estas instruções e selecionar apenas **função de trabalho de funções** no instalador.
-
-1. Clique em **próxima** para ter a **Assistente de configuração de tempo de execução de funções do Azure** iniciar o processo de instalação no seu computador.
-1. Depois de concluído, o Assistente de configuração é iniciada a **Runtime das funções de Azure** ferramenta de configuração.
-
-    ![Conclusão do instalador de pré-visualização do Runtime das funções do Azure][6]
+    ![Instalador de Azure Functions Runtime Preview – seleção de função][3]
 
     > [!NOTE]
-    > Se estiver a instalar num **Windows 10** e o **contentor** funcionalidade não foi ativada anteriormente, o **configuração de tempo de execução de funções do Azure** pede-lhe para reiniciar a máquina para concluir a instalação.
+    > Você pode instalar a **função de trabalho** do Functions em muitas outras máquinas. Para fazer isso, siga estas instruções e selecione apenas **função de trabalho** do Functions no instalador.
 
-## <a name="configure-the-azure-functions-runtime"></a>Configurar o Runtime das funções do Azure
+1. Clique em **Avançar** para que o **Assistente de instalação do Azure Functions Runtime** inicie o processo de instalação em seu computador.
+1. Depois de concluído, o assistente de instalação inicia a ferramenta de configuração de **Azure Functions Runtime** .
 
-Para concluir a instalação do Runtime de funções do Azure, tem de concluir a configuração.
+    ![Instalador do Azure Functions Runtime Preview concluído][6]
 
-1. O **Runtime das funções de Azure** ferramenta de configuração mostra que funções são instaladas no seu computador.
+    > [!NOTE]
+    > Se você estiver instalando o no **Windows 10** e o recurso de **contêiner** não tiver sido habilitado anteriormente, a **instalação do Azure Functions Runtime** solicitará que você reinicialize o computador para concluir a instalação.
 
-    ![Ferramenta de configuração de pré-visualização de Runtime das funções do Azure][7]
+## <a name="configure-the-azure-functions-runtime"></a>Configurar o Azure Functions Runtime
 
-1. Clique nas **base de dados** separador, introduza os detalhes de ligação para a sua instância do SQL Server, incluindo a especificação de um [chave mestra do banco de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine)e clique em **aplicar**.  Conectividade a uma instância do SQL Server é necessária para o Runtime das funções do Azure criar uma base de dados para suportar o tempo de execução.
+Para concluir a instalação do Azure Functions Runtime, você deve concluir a configuração.
 
-    ![Configuração de base de dados de pré-visualização de Runtime das funções do Azure][8]
+1. A ferramenta de configuração de **Azure Functions Runtime** mostra quais funções estão instaladas em seu computador.
 
-1. Clique nas **credenciais** separador.  Aqui, tem de criar duas novas credenciais para utilização com uma partilha de ficheiros para o alojamento de todas as suas aplicações de função.  Especificar **nome de utilizador** e **palavra-passe** combinações para o **proprietário de partilha do ficheiro** e para o **utilizador da partilha de ficheiros**, em seguida, clique em **Aplicam-se**.
+    ![Ferramenta de configuração de Azure Functions Runtime visualização][7]
 
-    ![Credenciais de pré-visualização do Runtime das funções do Azure][9]
+1. Clique na guia **banco de dados** , insira os detalhes de conexão para sua instância de SQL Server, incluindo a especificação de uma [chave mestra de banco de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine)e clique em **aplicar**.  A conectividade com uma instância de SQL Server é necessária para que o Azure Functions Runtime crie um banco de dados para dar suporte ao tempo de execução.
 
-1. Clique nas **partilha de ficheiros** separador.  Aqui tem de especificar os detalhes da localização de partilha de ficheiros.  A partilha de ficheiros pode ser criada por si ou pode utilizar uma partilha de ficheiros existentes e clique em **aplicar**.  Se selecionar uma nova localização de partilha de ficheiros, tem de especificar um diretório para utilização pelo tempo de execução de funções do Azure.
+    ![Azure Functions Runtime Visualizar a configuração do banco de dados][8]
 
-    ![Partilha de ficheiros de pré-visualização de Runtime das funções do Azure][10]
+1. Clique na guia **credenciais** .  Aqui, você deve criar duas novas credenciais para uso com um compartilhamento de arquivos para hospedar todos os seus aplicativos de funções.  Especifique as combinações de **nome de usuário** e **senha** para o proprietário do **compartilhamento de arquivos** e para o usuário de **compartilhamento de arquivos**e clique em **aplicar**.
 
-1. Clique nas **IIS** separador.  Este separador mostra os detalhes dos sites no IIS, que cria a ferramenta de configuração do Runtime de funções do Azure.  Pode especificar um nome DNS personalizado aqui para o portal de pré-visualização do Runtime de funções do Azure.  Clique em **aplicar** para concluir.
+    ![Azure Functions Runtime as credenciais de visualização][9]
 
-    ![Pré-visualização de Runtime das funções do Azure IIS][11]
+1. Clique na guia **compartilhamento de arquivos** .  Aqui você deve especificar os detalhes do local do compartilhamento de arquivos.  O compartilhamento de arquivos pode ser criado para você ou você pode usar um compartilhamento de arquivos existente e clicar em **aplicar**.  Se você selecionar um novo local de compartilhamento de arquivos, deverá especificar um diretório para uso pelo Azure Functions Runtime.
 
-1. Clique nas **serviços** separador.  Este separador mostra o estado dos serviços na sua ferramenta de configuração do Runtime de funções do Azure.  Se o **serviço de ativação de anfitrião de funções do Azure** é não está em execução após a configuração inicial, clique em **iniciar serviço**.
+    ![Azure Functions Runtime Visualizar o compartilhamento de arquivos][10]
 
-    ![Runtime das funções pré-visualização de configuração do Azure completa][12]
+1. Clique na guia **IIS** .  Essa guia mostra os detalhes dos sites no IIS que a ferramenta de configuração do Azure Functions Runtime cria.  Você pode especificar um nome DNS personalizado aqui para o Azure Functions Runtime portal de visualização.  Clique em **aplicar** para concluir.
 
-1. Navegue para o **Portal de tempo de execução das funções do Azure** como `https://<machinename>.<domain>/`.
+    ![Azure Functions Runtime Visualizar IIS][11]
 
-    ![Portal de pré-visualização do Runtime das funções do Azure][13]
+1. Clique na guia **Serviços** .  Essa guia mostra o status dos serviços em sua ferramenta de configuração de Azure Functions Runtime.  Se o **serviço de ativação do Host Azure Functions** não estiver em execução após a configuração inicial, clique em **Iniciar serviço**.
 
-## <a name="create-your-first-function-in-azure-functions-runtime-preview"></a>Criar a primeira função em pré-visualização do Runtime de funções do Azure
+    ![Configuração de visualização do Azure Functions Runtime concluída][12]
 
-Para criar a sua primeira função em pré-visualização do Runtime de funções do Azure
+1. Navegue até o **portal** de Azure Functions Runtime `https://<machinename>.<domain>/`como.
 
-1. Navegue para o **Portal de tempo de execução de funções do Azure** como `https://<machinename>.<domain>` por exemplo `https://mycomputer.mydomain.com`.
+    ![Azure Functions Runtime o portal de visualização][13]
 
-1. Deverá **iniciar sessão**, se implementada numa utilização de domínio a sua conta de domínio do nome de utilizador e palavra-passe, caso contrário, utilizam o seu nome de conta local e a palavra-passe para iniciar sessão no portal do.
+## <a name="create-your-first-function-in-azure-functions-runtime-preview"></a>Criar sua primeira função na visualização Azure Functions Runtime
 
-    ![Logon de portal do Azure Runtime das funções pré-visualização][14]
+Para criar sua primeira função na visualização Azure Functions Runtime
 
-1. Para criar aplicações de funções, tem de criar uma subscrição.  No canto superior esquerdo do portal, clique nas **+** opção ao lado de subscrições.
+1. Navegue até o **portal** de Azure Functions Runtime `https://<machinename>.<domain>` como por `https://mycomputer.mydomain.com`exemplo.
 
-    ![Subscrições de portais do Azure Runtime das funções pré-visualização][15]
+1. Você será solicitado a **fazer logon**, se implantado em um domínio, usar o nome de usuário e a senha da conta de domínio, caso contrário, use o nome de usuário e a senha da conta local para fazer logon no Portal.
 
-1. Escolher **DefaultPlan**, introduza um nome para a sua subscrição e clique em **criar**.
+    ![Azure Functions Runtime o logon no portal de visualização][14]
 
-    ![O plano de subscrição de portal de pré-visualização de Runtime das funções do Azure e o nome][16]
+1. Para criar aplicativos de funções, você deve criar uma assinatura.  No canto superior esquerdo do portal, clique na **+** opção ao lado das assinaturas.
 
-1. Todas as suas aplicações de função estão listadas no painel esquerdo do portal.  Para criar uma nova aplicação de função, selecione o cabeçalho **aplicações Function App** e clique nas **+** opção.
+    ![Azure Functions Runtime Visualizar assinaturas do portal][15]
 
-1. Introduza um nome para a sua aplicação de função, selecione a subscrição correta, escolher a versão do runtime das funções do Azure que quer programar e clique em **Create**
+1. Escolha **defaultplan**, insira um nome para sua assinatura e clique em **criar**.
 
-    ![Azure Runtime das funções pré-visualização portal nova aplicação de funções][17]
+    ![Azure Functions Runtime plano e nome da assinatura do portal de visualização][16]
 
-1. A nova aplicação de funções consta no painel esquerdo do portal.  Selecione as funções e, em seguida, clique em **nova função** na parte superior do painel central no portal.
+1. Todos os seus aplicativos de funções estão listados no painel esquerdo do Portal.  Para criar um novo aplicativo de funções, selecione a função de cabeçalho **aplicativos** e clique **+** na opção.
 
-    ![Modelos de pré-visualização do Runtime das funções do Azure][18]
+1. Insira um nome para seu aplicativo de funções, selecione a assinatura correta, escolha qual versão do Azure Functions Runtime você deseja programar e clique em **criar**
 
-1. Selecione a função de Acionador de temporizador, no submenu da direita nomear sua função e alterar a agenda para `*/5 * * * * *` (esta expressão cron de menos faz com que sua função de temporizador executar a cada cinco segundos) e clique em **Create**
+    ![Portal de visualização do Azure Functions Runtime novo aplicativo de funções][17]
 
-    ![Azure configuração de função de temporizador novo do Runtime das funções pré-visualização][19]
+1. Seu novo aplicativo de funções está listado no painel esquerdo do Portal.  Selecione funções e, em seguida, clique em **nova função** na parte superior do painel central no Portal.
 
-1. Sua função agora foi criada.  Pode ver o registo de execução da sua aplicação de função ao expandir a **log** painel na parte inferior do portal.
+    ![Azure Functions Runtime modelos de visualização][18]
 
-    ![Execução de função de pré-visualização de Runtime das funções do Azure][20]
+1. Selecione a função gatilho de temporizador, no submenu à direita, nomeie sua função e altere o `*/5 * * * * *` agendamento para (essa expressão cron faz com que a função de temporizador seja executada a cada cinco segundos) e clique em **criar**
+
+    ![Azure Functions Runtime Visualizar nova configuração de função de temporizador][19]
+
+1. Sua função foi criada agora.  Você pode exibir o log de execução do seu aplicativo de funções expandindo o painel **log** na parte inferior do Portal.
+
+    ![Azure Functions Runtime a execução da função de visualização][20]
 
 <!--Image references-->
 [1]: ./media/functions-runtime-install/AzureFunctionsRuntime_Installer1.png

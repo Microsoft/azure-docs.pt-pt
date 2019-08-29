@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 27d5dcc99db040036ba296911aa33d8a312bb23f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: da75ca43a2576e3214d4b67f9eb61c7bad3bd5cc
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851516"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073522"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Acessar e personalizar o novo portal do desenvolvedor no gerenciamento de API do Azure
 

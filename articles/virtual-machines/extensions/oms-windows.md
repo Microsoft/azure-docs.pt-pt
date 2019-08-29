@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2019
 ms.author: roiyz
-ms.openlocfilehash: 700d8c6ea1527598591aa4300a977f80085e04b0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 393b01d7815d94e4ad623c552f4110421c9d98bd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990371"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092258"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extensão de máquina virtual Azure Monitor para Windows
 
