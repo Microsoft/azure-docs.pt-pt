@@ -1,6 +1,6 @@
 ---
-title: Tamanhos de VM do Windows Azure - GPU | Documentos da Microsoft
-description: Listas de GPU diferente com otimização de tamanhos disponíveis para máquinas de virtuais do Windows no Azure. Lista as informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento e débito de rede largura de banda para tamanhos nesta série.
+title: Tamanhos de VM Windows do Azure-GPU | Microsoft Docs
+description: Lista os diferentes tamanhos otimizados para GPU disponíveis para máquinas virtuais do Windows no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como taxa de transferência de armazenamento e largura de banda de rede para tamanhos desta série.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/11/2019
 ms.author: jonbeck
-ms.openlocfilehash: 86725fccba810284677aeb3324839a52c91c3021
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 0e809690f0453806402c27773ad0029fc5f64be2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710207"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102347"
 ---
-# <a name="gpu-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com otimização de GPU
+# <a name="gpu-optimized-virtual-machine-sizes"></a>Tamanhos de máquina virtual otimizada para GPU
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
@@ -30,9 +29,9 @@ ms.locfileid: "67710207"
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos e controladores suportados
 
-Para tirar partido das capacidades de GPU de VMs de série N do Azure a executar o Windows, tem de estar instalados controladores NVIDIA GPU. O [extensão de controladores de GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) instala os controladores adequados NVIDIA CUDA ou GRADE numa VM de série N. Instalar ou gerir a extensão com o portal do Azure ou ferramentas, tais como modelos do Azure PowerShell ou do Azure Resource Manager. Consulte a [documentação da extensão de controladores de GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) para sistemas operativos suportados e os passos de implementação. Para obter informações gerais sobre as extensões de VM, consulte [extensões de máquina virtual do Azure e funcionalidades](../extensions/overview.md).
+Para aproveitar os recursos de GPU das VMs da série N do Azure que executam o Windows, os drivers NVIDIA GPU devem ser instalados. A [extensão de Driver Nvidia GPU](../extensions/hpccompute-gpu-windows.md) instala drivers NVIDIA CUDA ou Grid apropriados em uma VM da série N. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas como Azure PowerShell ou Azure Resource Manager modelos. Consulte a [documentação de extensão do Driver Nvidia GPU](../extensions/hpccompute-gpu-windows.md) para obter os sistemas operacionais e as etapas de implantação com suporte. Para obter informações gerais sobre extensões de VM, consulte [recursos e extensões de máquina virtual do Azure](../extensions/overview.md).
 
-Se optar por instalar controladores NVIDIA GPU manualmente, consulte [configuração de controladores GPU da série N para Windows](n-series-driver-setup.md) para sistemas operativos suportados, drivers e passos de instalação e verificação.
+Se você optar por instalar os drivers NVIDIA GPU manualmente, consulte [instalação do driver de GPU da série N para Windows](n-series-driver-setup.md) para sistemas operacionais, drivers e etapas de instalação e verificação com suporte.
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
@@ -45,5 +44,5 @@ Se optar por instalar controladores NVIDIA GPU manualmente, consulte [configura�
 - [Gerações anteriores](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre como [computação do Azure (ACU) de unidades](acu.md) pode ajudá-lo a comparar o desempenho de computação nos SKUs do Azure.
+Saiba mais sobre como as [unidades de computação do Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho de computação entre SKUs do Azure.
 

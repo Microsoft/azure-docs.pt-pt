@@ -1,31 +1,30 @@
 ---
-title: Estado de orquestração personalizado nas funções duráveis - Azure
-description: Saiba como configurar e utilizar o estado de orquestração personalizado para funções duráveis.
+title: Status de orquestração personalizado no Durable Functions-Azure
+description: Saiba como configurar e usar o status de orquestração personalizado para Durable Functions.
 services: functions
 author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8d36c797e80702302a1954d2f00e1e4daabcaa88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b93b0cd5053db7d8a2b6aebd30d32f542670d90
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60710005"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098125"
 ---
-# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Estado de orquestração personalizado nas funções durável (funções do Azure)
+# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Status de orquestração personalizado no Durable Functions (Azure Functions)
 
-Estado de orquestração personalizado permite-lhe definir um valor de estado personalizado para sua função de orquestrador. Este estado é fornecido através da API de GetStatus HTTP ou a `DurableOrchestrationClient.GetStatusAsync` API.
+O status de orquestração personalizado permite definir um valor de status personalizado para a função de orquestrador. Esse status é fornecido por meio da API http GetStatus ou `DurableOrchestrationClient.GetStatusAsync` da API.
 
-## <a name="sample-use-cases"></a>Casos de utilização de exemplo
+## <a name="sample-use-cases"></a>Casos de uso de exemplo
 
 ### <a name="visualize-progress"></a>Visualizar progresso
 
-Os clientes podem consultar o ponto final do Estado e apresentar uma interface de Usuário que visualiza o estágio de execução atual de progresso. O exemplo seguinte demonstra a partilha de progresso:
+Os clientes podem sondar o ponto de extremidade de status e exibir uma interface do usuário de progresso que visualize o estágio de execução atual. O exemplo a seguir demonstra o compartilhamento de progresso:
 
 #### <a name="c"></a>C#
 
@@ -54,7 +53,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -80,7 +79,7 @@ module.exports = async function(context, name) {
 };
 ```
 
-E, em seguida, o cliente irá receber a saída da orquestração apenas quando `CustomStatus` campo é definido como "Londres":
+E, em seguida, o cliente receberá a saída da orquestração `CustomStatus` somente quando o campo estiver definido como "Londres":
 
 #### <a name="c"></a>C#
 
@@ -115,7 +114,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -145,14 +144,14 @@ module.exports = async function(context, req) {
 ```
 
 > [!NOTE]
-> No JavaScript, o `customStatus` campo será definido quando a próxima `yield` ou `return` ação está agendada.
+> No JavaScript, o `customStatus` campo será definido quando a próxima `yield` ação ou `return` for agendada.
 
 > [!WARNING]
-> Ao desenvolver localmente em JavaScript, terá de definir a variável de ambiente `WEBSITE_HOSTNAME` para `localhost:<port>`, por ex. `localhost:7071` Para utilizar os métodos em `DurableOrchestrationClient`. Para obter mais informações sobre este requisito, consulte a [problema do GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
+> Ao desenvolver localmente em JavaScript, será necessário definir a variável `WEBSITE_HOSTNAME` de ambiente como, por `localhost:<port>`exemplo, `localhost:7071`para usar métodos em `DurableOrchestrationClient`. Para obter mais informações sobre esse requisito, consulte o [problema do GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 ### <a name="output-customization"></a>Personalização de saída
 
-Outro cenário interessante é segmentar os utilizadores, retornando o resultado personalizado com base nas características exclusivas ou interações. Com a ajuda do Estado de orquestração personalizado, o código do lado do cliente permanecerá genérico. Todas as modificações principais irão acontecer no lado do servidor, conforme mostrado no exemplo a seguir:
+Outro cenário interessante é segmentar os usuários retornando uma saída personalizada com base em características ou interações exclusivas. Com a ajuda de status de orquestração personalizada, o código do lado do cliente permanecerá genérico. Todas as principais modificações ocorrerão no lado do servidor, conforme mostrado no exemplo a seguir:
 
 #### <a name="c"></a>C#
 
@@ -192,7 +191,7 @@ public static void Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -227,7 +226,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ### <a name="instruction-specification"></a>Especificação de instrução
 
-O orchestrator pode fornecer instruções exclusivas para os clientes através de estado personalizada. As instruções de estado personalizado serão mapeadas para os passos no código de orquestração:
+O Orchestrator pode fornecer instruções exclusivas aos clientes por meio do estado personalizado. As instruções de status personalizado serão mapeadas para as etapas no código de orquestração:
 
 #### <a name="c"></a>C#
 
@@ -257,7 +256,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -286,7 +285,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="sample"></a>Exemplo
 
-No exemplo a seguir, o estado personalizado é definido pela primeira vez;
+No exemplo a seguir, o status personalizado é definido primeiro;
 
 ### <a name="c"></a>C#
 
@@ -303,7 +302,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrati
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -319,14 +318,14 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Durante a execução de orquestração, clientes externos podem obter este estado personalizado:
+Enquanto a orquestração está em execução, os clientes externos podem buscar esse status personalizado:
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances/instance123
 
 ```
 
-Os clientes obterá a seguinte resposta:
+Os clientes receberão a seguinte resposta:
 
 ```http
 {
@@ -340,9 +339,9 @@ Os clientes obterá a seguinte resposta:
 ```
 
 > [!WARNING]
-> O payload de estado personalizado está limitado a 16 KB de texto JSON de UTF-16, uma vez que ele precisa ser capaz de se ajustar numa coluna de armazenamento de tabelas do Azure. Os programadores podem utilizar o armazenamento externo se precisarem de payload maior.
+> A carga de status personalizada é limitada a 16 KB de texto JSON UTF-16 porque ele precisa ser capaz de se ajustar em uma coluna de armazenamento de tabelas do Azure. Os desenvolvedores podem usar o armazenamento externo se precisarem de uma carga maior.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre APIs HTTP nas funções duráveis](durable-functions-http-api.md)
+> [Saiba mais sobre APIs HTTP no Durable Functions](durable-functions-http-api.md)

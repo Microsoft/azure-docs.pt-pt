@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric com o VS Code introdução | Documentos da Microsoft
-description: Este artigo é uma descrição geral da criação de aplicações do Service Fabric com o Visual Studio Code.
+title: Service Fabric do Azure com VS Code Introdução | Microsoft Docs
+description: Este artigo é uma visão geral da criação de aplicativos Service Fabric usando Visual Studio Code.
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
@@ -8,37 +8,36 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: f977a48338f784562ec84355aabb212e5a3dade4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9662ebd26a263fa006c8fccf877fdc950e9014c0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60946577"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102964"
 ---
-# <a name="service-fabric-for-visual-studio-code"></a>O Service Fabric para Visual Studio Code
+# <a name="service-fabric-for-visual-studio-code"></a>Service Fabric para Visual Studio Code
 
-O [extensão de serviços fiáveis do Service Fabric para o VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-service-fabric-reliable-services) fornece as ferramentas necessárias para criar, compilar e depurar aplicações do Service Fabric em sistemas operativos Windows, Linux e macOS.
+A [extensão de Reliable Services Service Fabric para vs Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-service-fabric-reliable-services) fornece as ferramentas necessárias para criar, compilar e depurar aplicativos Service Fabric em sistemas operacionais Windows, Linux e MacOS.
 
-Este artigo fornece uma descrição geral dos requisitos e a configuração da extensão, bem como a utilização dos vários comandos que são fornecidos pela extensão de. 
+Este artigo fornece uma visão geral dos requisitos e da configuração da extensão, bem como o uso dos vários comandos fornecidos pela extensão. 
 
 > [!IMPORTANT]
-> Aplicações de Java do Service Fabric podem ser desenvolvidas em máquinas do Windows, mas poderá ser implementadas em clusters do Linux do Azure apenas. Depuração de aplicações Java não é suportada no Windows.
+> Service Fabric aplicativos Java podem ser desenvolvidos em computadores Windows, mas podem ser implantados somente em clusters Linux do Azure. Não há suporte para a depuração de aplicativos Java no Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os seguintes pré-requisitos devem ser instalados em todos os ambientes.
+Os pré-requisitos a seguir devem ser instalados em todos os ambientes.
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/)
 * [Git](https://git-scm.com/)
 * [SDK do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
-* Geradores do yeoman – instalar os geradores apropriados para a sua aplicação
+* Yeoman Generators – instale os geradores apropriados para seu aplicativo
 
    ```sh
    npm install -g yo
@@ -48,92 +47,92 @@ Os seguintes pré-requisitos devem ser instalados em todos os ambientes.
    npm install -g generator-azuresfguest
    ```
 
-Os seguintes pré-requisitos tem de estar instalados para desenvolvimento Java:
+Os seguintes pré-requisitos devem ser instalados para o desenvolvimento Java:
 
-* [SDK de Java](https://aka.ms/azure-jdks) (versão 1.8)
+* [SDK do Java](https://aka.ms/azure-jdks) (versão 1,8)
 * [Gradle](https://gradle.org/install/)
-* [Depurador para a extensão do Java VS Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) necessárias para depurar serviços Java. Depuração de serviços Java é suportado no Linux apenas. Pode instalar ao clicar no ícone de extensões no **barra de atividade** no VS Code e a pesquisa para a extensão ou do Marketplace do VS Code.
+* [Depurador para extensão de vs Code Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Necessário para depurar os serviços Java. A depuração de serviços Java tem suporte apenas no Linux. Você pode instalar o clicando no ícone extensões na barra de **atividades** em vs Code e pesquisando a extensão ou no vs Code Marketplace.
 
-Os seguintes pré-requisitos tem de estar instalados para .NET Core /C# desenvolvimento:
+Os seguintes pré-requisitos devem ser instalados para .NET Core/C# Development:
 
-* [.NET core](https://www.microsoft.com/net/learn/get-started) (versão 2.0.0 ou posterior)
-* [C#para a extensão do Visual Studio Code (com tecnologia da omnisharp) VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) necessárias para depurar C# services. Pode instalar ao clicar no ícone de extensões no **barra de atividade** no VS Code e a pesquisa para a extensão ou do Marketplace do VS Code.
+* [.NET Core](https://www.microsoft.com/net/learn/get-started) (versão 2.0.0 ou posterior)
+* [para Visual Studio Code (de plataforma de OmniSharp) vs Code extensão C# ](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) Necessário para depurar C# serviços. Você pode instalar o clicando no ícone extensões na barra de **atividades** em vs Code e pesquisando a extensão ou no vs Code Marketplace.
 
 ## <a name="setup"></a>Configurar
 
-1. Código de VS aberto.
-2. Clique no ícone de extensões no **barra de atividade** no lado esquerdo do VS Code. Procure "Service Fabric". Clique em **instalar** para a extensão do Service Fabric Reliable Services.
+1. Abra VS Code.
+2. Clique no ícone extensões na **barra de atividade** no lado esquerdo da vs Code. Pesquise "Service Fabric". Clique em **instalar** para a extensão de Reliable Services de Service Fabric.
 
 ## <a name="commands"></a>Comandos
-A extensão de serviços fiáveis do Service Fabric para o VS Code fornece muitos comandos para ajudar os desenvolvedores a criar e implementar projetos do Service Fabric. Pode chamar comandos a partir do **paleta de comandos** pressionando `(Ctrl + Shift + p)`, ao escrever o nome do comando na barra de entrada e selecionar o comando pretendido na lista de linha de comandos. 
+A extensão de Reliable Services Service Fabric para VS Code fornece muitos comandos para ajudar os desenvolvedores a criar e implantar projetos de Service Fabric. Você pode chamar comandos na **paleta de comandos** pressionando `(Ctrl + Shift + p)`, digitando o nome do comando na barra de entrada e selecionando o comando desejado na lista de prompts. 
 
-* Recursos de infraestrutura do serviço: Criar Aplicação 
-* Recursos de infraestrutura do serviço: Publicar aplicação 
-* Recursos de infraestrutura do serviço: Implementar aplicação 
-* Recursos de infraestrutura do serviço: Remover aplicação  
-* Recursos de infraestrutura do serviço: Criar aplicação 
-* Recursos de infraestrutura do serviço: Limpar aplicação 
+* Service Fabric: Criar Aplicação 
+* Service Fabric: Publicar aplicativo 
+* Service Fabric: Implantar aplicativo 
+* Service Fabric: Remover Aplicação  
+* Service Fabric: Compilar aplicativo 
+* Service Fabric: Limpar aplicativo 
 
-### <a name="service-fabric-create-application"></a>Recursos de infraestrutura do serviço: Criar Aplicação
+### <a name="service-fabric-create-application"></a>Service Fabric: Criar Aplicação
 
-O **do Service Fabric: Criar aplicação** comando cria uma nova aplicação de Service Fabric na sua área de trabalho atual. Dependendo de qual geradores do yeoman estão instalados no computador de desenvolvimento, pode criar vários tipos de aplicação do Service Fabric, incluindo Java, C#, contentores e projetos de convidado. 
+O **Service Fabric: O comando** criar aplicativo cria um novo aplicativo Service Fabric no seu espaço de trabalho atual. Dependendo de quais geradores Yeoman estão instalados em seu computador de desenvolvimento, você pode criar vários tipos de aplicativo Service Fabric, incluindo projetos Java C#, contêiner e convidado. 
 
-1.  Selecione o **do Service Fabric: Adicionar serviço** comando
-2.  Selecione o tipo para a sua nova aplicação de Service Fabric. 
-3.  Introduza o nome da aplicação que pretende criar
-3.  Selecione o tipo de serviço que pretende adicionar à sua aplicação do Service Fabric. 
-4.  Siga as instruções para mencionar o serviço. 
-5.  A nova aplicação de Service Fabric aparece na área de trabalho.
-6.  Abra a nova pasta de aplicativo para que o torna-se a pasta de raiz na área de trabalho. Pode continuar a executar comandos a partir daqui.
+1.  Selecione o **Service Fabric: Adicionar comando** de serviço
+2.  Selecione o tipo para o novo aplicativo Service Fabric. 
+3.  Insira o nome do aplicativo que você deseja criar
+3.  Selecione o tipo de serviço que você deseja adicionar ao seu aplicativo Service Fabric. 
+4.  Siga os prompts para nomear o serviço. 
+5.  O novo aplicativo Service Fabric aparece no espaço de trabalho.
+6.  Abra a nova pasta de aplicativo para que ela se torne a pasta raiz no espaço de trabalho. Você pode continuar executando comandos aqui.
 
-### <a name="service-fabric-add-service"></a>Recursos de infraestrutura do serviço: Adicionar serviço
-O **do Service Fabric: Adicionar serviço** comando adiciona um novo serviço a uma aplicação de Service Fabric existente. A aplicação que o serviço será adicionado ao tem de ser o diretório de raiz da área de trabalho. 
+### <a name="service-fabric-add-service"></a>Service Fabric: Adicionar serviço
+O **Service Fabric: O comando** adicionar serviço adiciona um novo serviço a um aplicativo Service Fabric existente. O aplicativo ao qual o serviço será adicionado deve ser o diretório raiz do espaço de trabalho. 
 
-1.  Selecione o **do Service Fabric: Adicionar serviço** comando.
-2.  Selecione o tipo da sua aplicação atual do Service Fabric. 
-3.  Selecione o tipo de serviço que pretende adicionar à sua aplicação do Service Fabric. 
-4.  Siga as instruções para mencionar o serviço. 
-5.  O novo serviço é apresentado no seu diretório do projeto. 
+1.  Selecione o **Service Fabric: Adicionar comando** de serviço.
+2.  Selecione o tipo de seu aplicativo de Service Fabric atual. 
+3.  Selecione o tipo de serviço que você deseja adicionar ao seu aplicativo Service Fabric. 
+4.  Siga os prompts para nomear o serviço. 
+5.  O novo serviço aparece no diretório do projeto. 
 
-### <a name="service-fabric-publish-application"></a>Recursos de infraestrutura do serviço: Publicar aplicação
-O **do Service Fabric: Publicar aplicação** comando implementa a sua aplicação do Service Fabric num cluster remoto. O cluster de destino pode ser segura ou um cluster inseguro. Se parâmetros não estão definidos na cloud, a aplicação é implementada no cluster local.
+### <a name="service-fabric-publish-application"></a>Service Fabric: Publicar aplicativo
+O **Service Fabric: O comando** publicar aplicativo implanta seu aplicativo Service Fabric em um cluster remoto. O cluster de destino pode ser um cluster seguro ou não seguro. Se os parâmetros não estiverem definidos em Cloud. JSON, o aplicativo será implantado no cluster local.
 
-1.  A primeira vez que o aplicativo for criado, um arquivo de cloud é gerado no diretório do projeto.
-2.  Introduza os valores para o cluster que pretende ligar no ficheiro cloud.
-3.  Selecione o **do Service Fabric: Publicar aplicação** comando.
-4.  Ver o cluster de destino com o Service Fabric Explorer para confirmar que o aplicativo foi instalado. 
+1.  Na primeira vez que o aplicativo é compilado, um arquivo Cloud. JSON é gerado no diretório do projeto.
+2.  Insira os valores para o cluster ao qual você deseja se conectar no arquivo Cloud. JSON.
+3.  Selecione o **Service Fabric: Comando publicar** aplicativo.
+4.  Exiba o cluster de destino com Service Fabric Explorer para confirmar que o aplicativo foi instalado. 
 
-### <a name="service-fabric-deploy-application-localhost"></a>Recursos de infraestrutura do serviço: Implementar a aplicação (Localhost)
-O **do Service Fabric: Implementar aplicação** comando implementa a sua aplicação do Service Fabric no seu cluster local. Certifique-se de que o seu cluster local está em execução antes de utilizar o comando. 
+### <a name="service-fabric-deploy-application-localhost"></a>Service Fabric: Implantar aplicativo (localhost)
+O **Service Fabric: O comando** implantar aplicativo implanta seu aplicativo Service Fabric em seu cluster local. Verifique se o cluster local está em execução antes de usar o comando. 
 
-1. Selecione o **do Service Fabric: Implementar aplicação** comando
-2. Ver o cluster local com o Service Fabric Explorer (http:\//localhost:19080 / Explorer) para confirmar que o aplicativo foi instalado. Esta operação pode demorar algum tempo, por isso, seja paciente.
-3. Também pode utilizar **Service Fabric: Publicar aplicação** comando sem parâmetros definido no ficheiro de cloud para implementar um cluster local.
+1. Selecione o **Service Fabric: Comando implantar** aplicativo
+2. Exiba o cluster local com Service Fabric Explorer (http:\//localhost: 19080/Explorer) para confirmar que o aplicativo foi instalado. Isso pode levar algum tempo, portanto, seja paciente.
+3. Você também pode usar **Service Fabric: Publicar o** comando do aplicativo sem parâmetros definidos no arquivo Cloud. JSON para implantar em um cluster local.
 
 > [!NOTE]
-> Implementação de aplicações Java no cluster local não é suportada em máquinas do Windows.
+> Não há suporte para a implantação de aplicativos Java no cluster local em computadores Windows.
 
-### <a name="service-fabric-remove-application"></a>Recursos de infraestrutura do serviço: Remover aplicação
-O **do Service Fabric: Remover aplicação** comando remove uma aplicação do Service Fabric do cluster que foi anteriormente implementado para utilizar a extensão do VS Code. 
+### <a name="service-fabric-remove-application"></a>Service Fabric: Remover Aplicação
+O **Service Fabric: O comando** remover aplicativo remove um aplicativo Service Fabric do cluster em que ele foi implantado anteriormente usando a extensão vs Code. 
 
-1.  Selecione o **do Service Fabric: Remover aplicação** comando.
-2.  Ver o cluster com o Service Fabric Explorer para confirmar que o aplicativo foi removido. Esta operação pode demorar algum tempo, por isso, seja paciente.
+1.  Selecione o **Service Fabric: Comando Remover** aplicativo.
+2.  Exiba o cluster com Service Fabric Explorer para confirmar que o aplicativo foi removido. Isso pode levar algum tempo, portanto, seja paciente.
 
-### <a name="service-fabric-build-application"></a>Recursos de infraestrutura do serviço: Criar aplicação
-O **do Service Fabric: Criar aplicação** comando pode criar qualquer um dos Java ou C# aplicações do Service Fabric. 
+### <a name="service-fabric-build-application"></a>Service Fabric: Compilar aplicativo
+O **Service Fabric: O comando** compilar aplicativo pode criar aplicativos Java C# ou Service Fabric. 
 
-1.  Certifique-se de que está na pasta raiz do aplicativo antes de executar este comando. O comando identifica o tipo de aplicação (C# ou Java) e cria a sua aplicação em conformidade.
-2.  Selecione o **do Service Fabric: Criar aplicação** comando.
-3.  O resultado do processo de compilação é escrito para o terminal integrado.
+1.  Verifique se você está na pasta raiz do aplicativo antes de executar este comando. O comando identifica o tipo de aplicativo (C# ou Java) e compila seu aplicativo de acordo.
+2.  Selecione o **Service Fabric: Comando compilar** aplicativo.
+3.  A saída do processo de compilação é gravada no terminal integrado.
 
-### <a name="service-fabric-clean-application"></a>Recursos de infraestrutura do serviço: Limpar aplicação
-O **do Service Fabric: Limpar aplicação** comando exclui todos os ficheiros jar e bibliotecas nativas que foram geradas por compilação. Válido para apenas aplicações de Java. 
+### <a name="service-fabric-clean-application"></a>Service Fabric: Limpar aplicativo
+O **Service Fabric: O comando** limpar aplicativo exclui todos os arquivos jar e bibliotecas nativas que foram gerados pela compilação. Válido somente para aplicativos Java. 
 
-1.  Certifique-se de que está na pasta raiz do aplicativo antes de executar este comando. 
-2.  Selecione o **do Service Fabric: Limpar aplicação** comando.
-3.  O resultado do processo limpo é escrito para o terminal integrado.
+1.  Verifique se você está na pasta raiz do aplicativo antes de executar este comando. 
+2.  Selecione o **Service Fabric: Comando limpar** aplicativo.
+3.  A saída do processo de limpeza é gravada no terminal integrado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba como [desenvolver e depurar C# aplicações do Service Fabric com o VS Code](./service-fabric-develop-csharp-applications-with-vs-code.md).
-* Saiba como [desenvolver e depurar aplicações de Java do Service Fabric com o VS Code](./service-fabric-develop-java-applications-with-vs-code.md).
+* Saiba como [desenvolver e depurar C# Service Fabric aplicativos com vs Code](./service-fabric-develop-csharp-applications-with-vs-code.md).
+* Saiba como [desenvolver e depurar aplicativos Service Fabric Java com vs Code](./service-fabric-develop-java-applications-with-vs-code.md).

@@ -11,16 +11,15 @@ ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 157cc706da34281ec7bb36a9b9e16a4192b3bd96
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: e8e63f2c916153b5d43267869d7bc5be8fa646c0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543872"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081984"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Como usar chaves SSH com o Windows no Azure
 
@@ -124,7 +123,7 @@ Se você instalou o [pacote de download](https://www.chiark.greenend.org.uk/~sgt
 
 4. Clique em **abrir** para se conectar à sua VM.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter etapas detalhadas, opções e exemplos avançados de como trabalhar com chaves SSH, consulte [etapas detalhadas para criar pares de chaves SSH](create-ssh-keys-detailed.md).
 

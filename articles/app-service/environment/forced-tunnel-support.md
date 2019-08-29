@@ -1,5 +1,5 @@
 ---
-title: Configurar o ambiente de serviço de aplicações ser forçado encapsulados – Azure
+title: Configurar o Ambiente do Serviço de Aplicativo para ser forçado em túnel-Azure
 description: Permita que o seu Ambiente de Serviço de Aplicações funcione quando o tráfego de saída está configurado com túnel forçado
 services: app-service
 documentationcenter: na
@@ -9,23 +9,22 @@ ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 36324ccd9b6e9470c93949efed6c29a9b8d3ab61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e80c0e4e57f8af067c17d0dcfefd26ce7ce8255f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60764742"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069456"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurar o Ambiente de Serviço de Aplicações com túnel forçado
 
-O Ambiente de Serviço de Aplicações (ASE) é uma implementação do Serviço de Aplicações do Azure numa Rede Virtual do Azure do cliente. Muitos clientes configuram as suas redes virtuais do Azure para serem extensões das respetivas redes no local com VPNs ou ligações do ExpressRoute do Azure. Um túnel forçado é quando redireciona o tráfego vinculado à Internet para a VPN ou uma aplicação virtual. Aplicações virtuais são, muitas vezes, utilizadas para inspecionar e auditar o tráfego de rede de saída. 
+O Ambiente de Serviço de Aplicações (ASE) é uma implementação do Serviço de Aplicações do Azure numa Rede Virtual do Azure do cliente. Muitos clientes configuram as suas redes virtuais do Azure para serem extensões das respetivas redes no local com VPNs ou ligações do ExpressRoute do Azure. Um túnel forçado é quando redireciona o tráfego vinculado à Internet para a VPN ou uma aplicação virtual. Dispositivos virtuais geralmente são usados para inspecionar e auditar o tráfego de rede de saída. 
 
-O ASE tem um número de dependências externas, que são descritas no documento [Arquitetura de rede do Ambiente de Serviço de Aplicações][network]. Normalmente, todo o tráfego de dependência de saída do ASE deve seguir o VIP aprovisionado com o ASE. Se alterar o encaminhamento para o tráfego de ou para o ASE sem seguir as informações abaixo, o ASE deixa de funcionar.
+O ASE tem várias dependências externas, que são descritas no documento de [arquitetura de rede ambiente do serviço de aplicativo][network] . Normalmente, todo o tráfego de dependência de saída do ASE deve seguir o VIP aprovisionado com o ASE. Se alterar o encaminhamento para o tráfego de ou para o ASE sem seguir as informações abaixo, o ASE deixa de funcionar.
 
 Numa rede virtual do Azure, o encaminhamento é feito com base no LPM (Longest Prefix Match). Se houver mais de uma rota com a mesma correspondência LPM, uma rota é selecionada com base na respetiva origem pela seguinte ordem:
 
@@ -33,7 +32,7 @@ Numa rede virtual do Azure, o encaminhamento é feito com base no LPM (Longest P
 * Rota BGP (quando é utilizado o ExpressRoute)
 * Rota de sistema
 
-Para saber mais sobre o encaminhamento numa rede virtual, veja [Rotas definidas pelo utilizador e reencaminhamento IP][routes]. 
+Para saber mais sobre roteamento em uma rede virtual, leia [rotas definidas pelo usuário e encaminhamento de IP][routes]. 
 
 Se quiser encaminhar o tráfego de saída do ASE sem ser diretamente para a Internet, tem as seguintes opções:
 
@@ -62,33 +61,33 @@ Se a rede já estiver a encaminhar tráfego no local, em seguida, terá de criar
 
 ## <a name="configure-your-ase-subnet-to-ignore-bgp-routes"></a>Configurar a sub-rede do ASE para ignorar as rotas BGP ## 
 
-Pode configurar a sub-rede do ASE para ignorar todas as rotas BGP.  Quando configurado para ignorar as rotas BGP, o ASE será capaz de aceder às respetivas dependências sem problemas.  No entanto, terá de criar UDRs para ativar as suas aplicações para acederem a recursos no local.
+Pode configurar a sub-rede do ASE para ignorar todas as rotas BGP.  Quando configurado para ignorar rotas BGP, o ASE poderá acessar suas dependências sem nenhum problema.  No entanto, terá de criar UDRs para ativar as suas aplicações para acederem a recursos no local.
 
 Para configurar a sub-rede do ASE para ignorar as rotas BGP:
 
 * crie um UDR e atribua-o à sua sub-rede do ASE, se ainda não tinha um.
-* No portal do Azure, abra a IU para a tabela de rotas atribuída à sua sub-rede do ASE.  Selecione a Configuração.  Defina a propagação de rotas BGP como Desativada.  Clique em Guardar. A documentação sobre a desativação da mesma está no documento [Criar uma tabela de rotas][routetable].
+* No portal do Azure, abra a IU para a tabela de rotas atribuída à sua sub-rede do ASE.  Selecione a Configuração.  Defina a propagação de rotas BGP como Desativada.  Clique em Guardar. A documentação sobre como desativá-la está no documento [criar uma tabela de rotas][routetable] .
 
-Depois de configurar a sub-rede do ASE para ignorar todas as rotas do BGP, as suas aplicações já não será capazes de alcançar no local. Para ativar as suas aplicações aceder a recursos no local, edite o UDR atribuído à sub-rede do ASE e adicione as rotas para os intervalos de endereços no local. O Próximo tipo de salto deve ser definido para o Gateway de rede virtual. 
+Depois de configurar a sub-rede do ASE para ignorar todas as rotas BGP, seus aplicativos não poderão mais alcançar no local. Para permitir que seus aplicativos acessem recursos locais, edite o UDR atribuído à sua sub-rede do ASE e adicione rotas para seus intervalos de endereços locais. O Próximo tipo de salto deve ser definido para o Gateway de rede virtual. 
 
 
 ## <a name="configure-your-ase-with-service-endpoints"></a>Configurar o ASE com Pontos Finais de Serviço ##
 
 Para encaminhar todo o tráfego de saída do ASE, exceto o que vai para o SQL do Azure e o Armazenamento do Azure, efetue os seguintes passos:
 
-1. Crie uma tabela de rotas e atribua-a à sub-rede do ASE. Localize os endereços que correspondem à sua região em [Endereços de gestão do Ambiente de Serviço de Aplicações][management]. Crie rotas para esses endereços com um salto seguinte da Internet. Estas rotas são necessárias porque o ambiente de serviço de aplicações de gestão de entrada tráfego deve responder a partir do mesmo endereço que foi enviado.   
+1. Crie uma tabela de rotas e atribua-a à sub-rede do ASE. Localize os endereços que correspondem à sua região aqui [ambiente do serviço de aplicativo endereços de gerenciamento][management]. Crie rotas para esses endereços com um salto seguinte da Internet. Essas rotas são necessárias porque o tráfego de gerenciamento de entrada Ambiente do Serviço de Aplicativo deve responder do mesmo endereço ao qual ele foi enviado.   
 
 2. Ativar Pontos Finais de Serviço com o SQL do Azure e o Armazenamento do Azure através da sub-rede do ASE.  Depois de concluído este passo, pode configurar a VNet com túnel forçado.
 
-Para criar o seu ASE numa rede virtual que já está configurada para encaminhar todo o tráfego no local, terá de criar o seu ASE utilizando um modelo do Resource Manager.  Não é possível criar um ASE com o portal para uma sub-rede já existente.  Ao implementar o ASE numa VNet que já está configurada para encaminhar o tráfego de saída no local, terá de criar o seu ASE utilizando um modelo do resource manager, que lhe permite especificar uma sub-rede já existente. Para obter detalhes sobre como implementar um ASE com um modelo, leia [criar um ambiente de serviço de aplicações através de um modelo][template].
+Para criar o seu ASE numa rede virtual que já está configurada para encaminhar todo o tráfego no local, terá de criar o seu ASE utilizando um modelo do Resource Manager.  Não é possível criar um ASE com o portal para uma sub-rede já existente.  Ao implementar o ASE numa VNet que já está configurada para encaminhar o tráfego de saída no local, terá de criar o seu ASE utilizando um modelo do resource manager, que lhe permite especificar uma sub-rede já existente. Para obter detalhes sobre como implantar um ASE com um modelo, leia [criando um ambiente do serviço de aplicativo usando um modelo][template].
 
-Os Pontos Finais de Serviço permitem restringir o acesso aos serviços multi-inquilino a um conjunto de sub-redes e redes virtuais do Azure. Pode ler mais sobre Pontos Finais de Serviço na documentação [Pontos Finais de Serviço de Rede Virtual][serviceendpoints]. 
+Os Pontos Finais de Serviço permitem restringir o acesso aos serviços multi-inquilino a um conjunto de sub-redes e redes virtuais do Azure. Você pode ler mais sobre pontos de extremidade de serviço na documentação dos [pontos de extremidade de serviço de rede virtual][serviceendpoints] . 
 
 Quando ativar Pontos Finais de Serviço num recurso, são criadas rotas com uma prioridade mais alta do que todas as outras rotas. Se utilizar Pontos Finais de Serviço com um ASE com túnel forçado, o tráfego de gestão do SQL do Azure e do Armazenamento do Azure não fica com um túnel forçado. O outro tráfego de dependência do ASE tem um túnel forçado e não pode ser perdido ou o ASE não funcionará corretamente.
 
 Quando estão ativados Pontos Finais de Serviço numa sub-rede com uma instância do SQL do Azure, todas as instâncias do SQL do Azure ligadas a partir dessa sub-rede precisam de ter Pontos Finais de Serviço ativados. Se quiser aceder a várias instâncias de SQL do Azure a partir da mesma sub-rede, não pode ativar Pontos Finais de Serviço numa instância do SQL do Azure e não na outra.  O Armazenamento do Azure não tem um comportamento semelhante ao SQL do Azure.  Quando ativar Pontos Finais de Serviço com o Armazenamento do Azure, pode bloquear o acesso a esse recurso a partir da sua sub-rede, mas pode continuar a aceder a outras contas de Armazenamento do Azure, mesmo que não tenham Pontos Finais de Serviço ativados.  
 
-Se configurar um túnel forçado com um dispositivo de filtro de rede, lembre-se de que o ASE tem dependências além do SQL do Azure e do Armazenamento do Azure. Se o tráfego está bloqueado para essas dependências, o ASE não funcionará corretamente.
+Se configurar um túnel forçado com um dispositivo de filtro de rede, lembre-se de que o ASE tem dependências além do SQL do Azure e do Armazenamento do Azure. Se o tráfego estiver bloqueado para essas dependências, o ASE não funcionará corretamente.
 
 ![Túnel forçado com pontos finais de serviço][2]
 
@@ -96,19 +95,19 @@ Se configurar um túnel forçado com um dispositivo de filtro de rede, lembre-se
 
 Para criar um túnel de todo o tráfego de saída do ASE, exceto o que vai para o Armazenamento do Azure, efetue os seguintes passos:
 
-1. Crie uma tabela de rotas e atribua-a à sub-rede do ASE. Localize os endereços que correspondem à sua região em [Endereços de gestão do Ambiente de Serviço de Aplicações][management]. Crie rotas para esses endereços com um salto seguinte da Internet. Estas rotas são necessárias porque o ambiente de serviço de aplicações de gestão de entrada tráfego deve responder a partir do mesmo endereço que foi enviado. 
+1. Crie uma tabela de rotas e atribua-a à sub-rede do ASE. Localize os endereços que correspondem à sua região aqui [ambiente do serviço de aplicativo endereços de gerenciamento][management]. Crie rotas para esses endereços com um salto seguinte da Internet. Essas rotas são necessárias porque o tráfego de gerenciamento de entrada Ambiente do Serviço de Aplicativo deve responder do mesmo endereço ao qual ele foi enviado. 
 
 2. Ativar Pontos Finais de Serviço com o Armazenamento do Azure através da sub-rede do ASE
 
 3. Obtenha os endereços que serão utilizados para todo o tráfego de saída do Ambiente de Serviço de Aplicações para a Internet. Se estiver a encaminhar o tráfego no local, estes endereços são os NATs ou os IPs de gateway. Se pretender encaminhar o tráfego de saída do Ambiente de Serviço de Aplicações através de uma NVA, o endereço de saída é o IP público da NVA.
 
-4. _Para definir os endereços de saída num ambiente de serviço de aplicações existente:_ Vá para resources.azure.com e aceda a Subscription /\<id da subscrição > /resourceGroups/\<grupo de recursos do ase > /providers/Microsoft.Web/hostingEnvironments/\<nome do ase >. Depois, poderá ver o JSON que descreve o Ambiente de Serviço de Aplicações. Certifique-se de que diz **leitura/escrita** na parte superior. Selecione **Editar**. Desloque-se para baixo até à parte inferior. Altere o valor de **userWhitelistedIpRanges** de **nulo** para algo semelhante ao seguinte. Utilize os endereços que pretende definir como o intervalo de endereços de saída. 
+4. _Para definir os endereços de saída em um Ambiente do Serviço de Aplicativo existente:_ Acesse Resources.Azure.com e acesse a ID da\<assinatura/assinatura >\<grupo de recursos do\<ase/resourceGroups/> nome do ase >. Depois, poderá ver o JSON que descreve o Ambiente de Serviço de Aplicações. Certifique-se de que diz **leitura/escrita** na parte superior. Selecione **Editar**. Desloque-se para baixo até à parte inferior. Altere o valor de **userWhitelistedIpRanges** de **nulo** para algo semelhante ao seguinte. Utilize os endereços que pretende definir como o intervalo de endereços de saída. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
    Selecione **PUT** na parte superior. Esta opção aciona uma operação de dimensionamento no seu Ambiente de Serviço de Aplicações e ajusta a firewall.
 
-_Para criar o ASE com os endereços de saída_: Siga as indicações [criar um ambiente de serviço de aplicações com um modelo] [ template] e obtenha o modelo apropriado.  Edite a secção "resources" no ficheiro azuredeploy.json, mas não no bloco "properties" e inclua uma linha para **userWhitelistedIpRanges** com os seus valores.
+_Para criar seu ase com os endereços de saída_: Siga as instruções em [criar um ambiente do serviço de aplicativo com um modelo][template] e puxe o modelo apropriado.  Edite a secção "resources" no ficheiro azuredeploy.json, mas não no bloco "properties" e inclua uma linha para **userWhitelistedIpRanges** com os seus valores.
 
     "resources": [
       {

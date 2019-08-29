@@ -9,17 +9,16 @@ ms.assetid: a7738a24-89ef-43d3-bff1-77f43d5a3952
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: afc43005765e3ae91c829cfc6b25a3f372241e0b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cc08d98c79e6c0e79f5a77111ee75e1ba491a4ed
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561519"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069174"
 ---
 # <a name="app-service-environment-management-addresses"></a>Endereços de gerenciamento de Ambiente do Serviço de Aplicativo
 

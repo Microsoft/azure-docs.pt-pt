@@ -7,16 +7,15 @@ manager: jeconnoc
 keywords: funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 582e4d81851d570f99d25d626a1db8a9f5e98231
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 7220c72625697490d9c42dab7e18ca4bf64d3f43
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881346"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085617"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -675,7 +674,7 @@ Ao habilitar Application Insights, desabilite o log interno que usa o armazename
 
 Para desabilitar o registro em log interno, exclua a configuração do `AzureWebJobsDashboard` aplicativo. Para obter informações sobre como excluir configurações de aplicativo no portal do Azure, consulte a seção **configurações de aplicativo** de [como gerenciar um aplicativo de funções](functions-how-to-use-azure-function-app-settings.md#settings). Antes de excluir a configuração do aplicativo, certifique-se de que nenhuma função existente no mesmo aplicativo de funções use a configuração para gatilhos ou associações do armazenamento do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 

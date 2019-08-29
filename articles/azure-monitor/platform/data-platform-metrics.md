@@ -1,6 +1,6 @@
 ---
-title: Métricas no Azure Monitor | Documentos da Microsoft
-description: Descreve as métricas no Azure Monitor, que são simples de dados com capacidade de oferecer suporte a cenários em tempo real em tempo quase de monitorização.
+title: Métricas no Azure Monitor | Microsoft Docs
+description: Descreve as métricas em Azure Monitor que são dados de monitoramento leves capazes de dar suporte a cenários quase em tempo real.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -11,50 +11,50 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 684491b546a0456d936ae199cdfb93180aa05043
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: ea95b91d57255db8f638e600d57a98db314cd80f
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607031"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113526"
 ---
 # <a name="metrics-in-azure-monitor"></a>Métricas no Azure Monitor
 
 > [!NOTE]
-> A plataforma de dados do Azure Monitor baseia-se em dois tipos de dados fundamentais: Métricas e registos. Este artigo descreve as métricas. Consulte a [inicia sessão no Azure Monitor](data-platform-logs.md) para obter uma descrição detalhada dos registos e a [plataforma de dados do Azure Monitor](data-platform.md) para obter uma comparação dos dois.
+> A plataforma de dados Azure Monitor baseia-se em dois tipos de dados fundamentais: Métricas e logs. Este artigo descreve as métricas. Consulte [os logs em Azure monitor](data-platform-logs.md) para obter uma descrição detalhada dos Logs e [Azure monitor plataforma de dados](data-platform.md) para uma comparação dos dois.
 
-Métricas no Azure Monitor são leves e capaz de suportar perto de cenários em tempo real, tornando-os particularmente útil para deteção de alerta e rápida de problemas. Este artigo descreve como as métricas são estruturadas, o que pode fazer com eles e identifica as origens de dados diferentes que armazenam dados em métricas.
+As métricas no Azure Monitor são leves e capazes de dar suporte a cenários quase em tempo real, tornando-os particularmente úteis para alertas e detecção rápida de problemas. Este artigo descreve como as métricas são estruturadas, o que você pode fazer com elas e identifica diferentes fontes de dados que armazenam dados em métricas.
 
-## <a name="what-are-metrics"></a>Quais são as métricas?
-As métricas são valores numéricos que descrevem algum aspeto de um sistema num determinado momento. As métricas são recolhidas em intervalos regulares e são úteis para alertar porque eles podem ser convertidos com frequência, e um alerta pode ser acionado rapidamente com a lógica relativamente simples.
+## <a name="what-are-metrics"></a>O que são métricas?
+As métricas são valores numéricos que descrevem algum aspeto de um sistema num determinado momento. As métricas são coletadas em intervalos regulares e são úteis para alertas porque podem ser amostradas com frequência e um alerta pode ser acionado rapidamente com uma lógica relativamente simples.
 
-## <a name="what-can-you-do-with-azure-monitor-metrics"></a>O que pode fazer com a métrica de Monitor do Azure?
-A tabela seguinte lista as diferentes formas que pode utilizar dados de métrica no Azure Monitor.
+## <a name="what-can-you-do-with-azure-monitor-metrics"></a>O que você pode fazer com Azure Monitor métricas?
+A tabela a seguir lista as diferentes maneiras que você pode usar dados de métrica em Azure Monitor.
 
 |  |  |
 |:---|:---|
-| Analisar | Uso [Explorador de métricas](metrics-charts.md) para analisar métricas recolhidas num gráfico e comparar as métricas de recursos diferentes. |
-| Visualizar | Fixar um gráfico a partir do Explorador de métricas para uma [dashboard do Azure](../learn/tutorial-app-dashboards.md).<br>Criar uma [livro](../app/usage-workbooks.md) combinar com vários conjuntos de dados num relatório interativo. Exportar os resultados de uma consulta para [Grafana](grafana-plugin.md) para tirar partido das respetivas vistas e combine com outras origens de dados. |
-| Alerta | Configurar uma [regra de alerta de métrica](alerts-metric.md) que envia uma notificação ou demora [automatizada ação](action-groups.md) quando o valor da métrica ultrapassar um limiar. |
-| Automatizar |  Uso [dimensionamento automático](autoscale-overview.md) para aumentar ou diminuir recursos com base num valor métrico cruzar um limiar. |
-| Exportar | [Encaminhar métricas para os registos](diagnostic-logs-stream-log-store.md) para analisar dados no Azure Monitor métricas juntamente com dados nos Logs de Monitor do Azure e para armazenar valores de métrica durante mais de 93 dias.<br>Stream métricas para uma [Hub de eventos](stream-monitoring-data-event-hubs.md) para encaminhá-las a sistemas externos. |
-| Obter | Aceda a valores de métrica de uma linha de comandos com [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Aceda a valores de métrica de aplicativo personalizado usando [REST API](rest-api-walkthrough.md).<br>Aceda a valores de métrica de uma linha de comandos, utilizando [CLI](/cli/azure/monitor/metrics). |
+| Analisar | Use o [Metrics Explorer](metrics-charts.md) para analisar as métricas coletadas em um gráfico e comparar as métricas de recursos diferentes. |
+| Visualizar | Fixe um gráfico do Metrics Explorer em um [painel do Azure](../learn/tutorial-app-dashboards.md).<br>Crie uma [pasta de trabalho](../app/usage-workbooks.md) para combinar com vários conjuntos de dados em um relatório interativo. Exporte os resultados de uma consulta para [Grafana](grafana-plugin.md) para aproveitar seu painel e combinar com outras fontes de dados. |
+| Alerta | Configurar uma [regra de alerta de métrica](alerts-metric.md) que envia uma notificação ou executa uma [ação automatizada](action-groups.md) quando o valor da métrica ultrapassa um limite. |
+| Automatizar |  Use o [dimensionamento automático](autoscale-overview.md) para aumentar ou diminuir os recursos com base em um valor de métrica que ultrapassa um limite. |
+| Exportar | [Direcione métricas para logs](diagnostic-logs-stream-log-store.md) para analisar dados em Azure monitor métricas junto com dados em logs de Azure monitor e para armazenar valores de métrica por mais de 93 dias.<br>Transmita métricas para um [Hub de eventos](stream-monitoring-data-event-hubs.md) para encaminhá-las a sistemas externos. |
+| Recuperado | Acessar valores de métrica de uma linha de comando usando cmdlets do [PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Acessar valores de métrica do aplicativo personalizado usando a [API REST](rest-api-walkthrough.md).<br>Acessar valores de métrica de uma linha de comando usando a [CLI](/cli/azure/monitor/metrics). |
 | Arquivo | [Arquivo](..//learn/tutorial-archive-data.md) o histórico de desempenho ou o estado de funcionamento do seu recurso de conformidade, auditoria ou criação de relatórios offline. |
 
-## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>É como os dados no Azure, monitorizar as métricas estruturado?
-Dados recolhidos pelo Azure monitorizar as métricas são armazenados num banco de dados de séries de tempo que está otimizado para analisar os dados de horários. Cada conjunto de valores de métrica é uma série de tempo com as seguintes propriedades:
+## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Como os dados no Azure Monitor métricas são estruturados?
+Os dados coletados por métricas de Azure Monitor são armazenados em um banco de dados de série temporal que é otimizado para analisar o data com carimbo de hora. Cada conjunto de valores de métrica é uma série temporal com as seguintes propriedades:
 
-* O tempo que o valor foi recolhido
-* O recurso o valor está associado
-* Um espaço de nomes que funciona como uma categoria para a métrica
+* A hora em que o valor foi coletado
+* O recurso ao qual o valor está associado
+* Um namespace que funciona como uma categoria para a métrica
 * Um nome de métrica
-* O valor em si
-* Algumas métricas podem ter várias dimensões, conforme descrito em [métricas multidimensionais](#multi-dimensional-metrics). Métricas personalizadas podem ter até 10 dimensões.
+* O próprio valor
+* Algumas métricas podem ter várias dimensões, conforme descrito [](#multi-dimensional-metrics)em métricas multidimensionais. Métricas personalizadas podem ter até 10 dimensões.
 
 ## <a name="multi-dimensional-metrics"></a>Métricas multidimensionais
-Um dos desafios para dados de métrica é que ela muitas vezes tem informações limitadas para fornecer contexto para valores recolhidos. O Azure Monitor resolve esse desafio com métricas multidimensionais. As dimensões de uma métrica são pares nome-valor que transportar dados adicionais para descrever o valor de métrica. Por exemplo, uma métrica _espaço em disco disponível_ poderia ter uma dimensão chamada _unidade_ com valores _c:_ , _D:_ , que permitiria a visualização o espaço em disco disponível em todas as unidades de ou para cada unidade individualmente.
+Um dos desafios dos dados de métrica é que ele geralmente tem informações limitadas para fornecer contexto para valores coletados. Azure Monitor resolve esse desafio com métricas multidimensionais. As dimensões de uma métrica são pares nome-valor que transportar dados adicionais para descrever o valor de métrica. Por exemplo, um _espaço em disco disponível_ de métrica poderia ter uma dimensão chamada _drive_ com os valores _C:_ , _D:_ , que permitiria exibir o espaço em disco disponível em todas as unidades ou em cada unidade individualmente.
 
-O exemplo abaixo ilustra dois conjuntos de dados para uma métrica hipotética chamada _débito de rede_. O primeiro conjunto de dados não tem dimensões. O segundo conjunto de dados mostra os valores com duas dimensões, _endereço IP_ e _direção_:
+O exemplo abaixo ilustra dois conjuntos de dados para uma métrica hipotética chamada _débito de rede_. O primeiro conjunto de dados não tem dimensões. O segundo conjunto de um mostra os valores com duas dimensões, o _endereço IP_ e a _direção_:
 
 ### <a name="network-throughput"></a>Débito de rede
 
@@ -81,32 +81,43 @@ Esta métrica não dimensionais pode apenas resposta uma pergunta básica, como 
 
 Esta métrica pode responder a perguntas como "qual era o débito de rede para cada endereço IP?" e "a quantidade de dados foi enviado e recebido?" Métricas multidimensionais trazer o valor de análise e diagnóstico adicional em comparação comparado as métricas não dimensionais.
 
-## <a name="interacting-with-azure-monitor-metrics"></a>Interagir com a métrica de Monitor do Azure
-Uso [Explorador de métricas](metrics-charts.md) interativamente analisar os dados na base de dados de métrica e os valores de várias métricas do gráfico ao longo do tempo. Pode fixar os gráficos para um dashboard para visualizá-los com outras visualizações. Também pode obter métricas utilizando o [do Azure de monitorização de REST API](rest-api-walkthrough.md).
+## <a name="interacting-with-azure-monitor-metrics"></a>Interagindo com métricas de Azure Monitor
+Use [Metrics Explorer](metrics-charts.md) para analisar interativamente os dados em seu banco de dado de métrica e o gráfico dos valores de várias métricas ao longo do tempo. Você pode fixar os gráficos em um painel para exibi-los com outras visualizações. Também pode obter métricas utilizando o [do Azure de monitorização de REST API](rest-api-walkthrough.md).
 
 ![Explorador de Métricas](media/data-platform/metrics-explorer.png)
 
-## <a name="sources-of-azure-monitor-metrics"></a>Origens de métricas de Monitor do Azure
-Existem três fontes fundamentais de métricas recolhidas pelo Azure Monitor. Depois destas métricas são recolhidas da base de dados de métrica do Azure Monitor, eles podem ser avaliados em conjunto, independentemente da respetiva origem.
+## <a name="sources-of-azure-monitor-metrics"></a>Fontes de métricas de Azure Monitor
+Existem três fontes fundamentais de métricas recolhidas pelo Azure Monitor. Depois que essas métricas são coletadas no banco de dados de métrica Azure Monitor, elas podem ser avaliadas juntas, independentemente da origem.
 
-**Métricas de plataforma** são criados por recursos do Azure e dar-lhe visibilidade para o respetivo estado de funcionamento e desempenho. Cada tipo de recurso cria um [conjunto distinto de métricas](metrics-supported.md) sem qualquer configuração necessária. Métricas de plataforma são recolhidas a partir de recursos do Azure, a frequência de um minuto, salvo especificação em contrário na definição da métrica. 
+**Métricas de plataforma** são criados por recursos do Azure e dar-lhe visibilidade para o respetivo estado de funcionamento e desempenho. Cada tipo de recurso cria um [conjunto distinto de métricas](metrics-supported.md) sem qualquer configuração necessária. As métricas de plataforma são coletadas dos recursos do Azure em uma frequência de um minuto, a menos que especificado de outra forma na definição da métrica. 
 
-**Métricas de SO convidado** são recolhidos a partir do sistema operativo convidado de uma máquina virtual. Ativar as métricas de SO convidado para máquinas de virtuais do Windows com [extensão de diagnóstico de Windows (WAD)](../platform/diagnostics-extension-overview.md) e para máquinas virtuais do Linux com [InfluxData Telegraf agente](https://www.influxdata.com/time-series-platform/telegraf/).
+As métricas do **SO convidado** são coletadas do sistema operacional convidado de uma máquina virtual. Habilite as métricas do SO convidado para máquinas virtuais do Windows com a [extensão de diagnóstico do Windows (wad)](../platform/diagnostics-extension-overview.md) e para máquinas virtuais do Linux com o [agente Telegraf do InfluxData](https://www.influxdata.com/time-series-platform/telegraf/).
 
 **Métricas da aplicação** são criados pelo Application Insights para as suas aplicações monitorizadas e ajudam a detetar problemas de desempenho e controle as tendências na forma como a aplicação está a ser utilizada. Isto inclui esses valores, conforme _tempo de resposta do servidor_ e _exceções do Browser_.
 
-**Métricas personalizadas** são métricas que definir, além das métricas padrão que estão automaticamente disponíveis. Pode [definir métricas personalizadas em seu aplicativo](../app/api-custom-events-metrics.md) que é monitorizado pelo Application Insights ou criar métricas personalizadas para um serviço do Azure utilizando o [API de métricas personalizado](metrics-store-custom-rest-api.md).
+**Métricas personalizadas** são métricas que você define, além das métricas padrão que estão disponíveis automaticamente. Você pode [definir métricas personalizadas em seu aplicativo](../app/api-custom-events-metrics.md) monitorado por Application insights ou criar métricas personalizadas para um serviço do Azure usando a [API de métricas personalizadas](metrics-store-custom-rest-api.md).
 
 ## <a name="retention-of-metrics"></a>Retenção de métricas
-Para a maioria dos recursos no Azure, as métricas são armazenadas durante dias 93. Existem algumas exceções:
-  * **Métricas de SO convidado clássicas**. Métricas de SO convidado clássico são retidas durante 14 dias. Para retenção mais longa, recomendamos que utilize novas métricas de SO convidado que são recolhidas com [extensão de diagnóstico de Windows (WAD)](../platform/diagnostics-extension-overview.md) e para máquinas virtuais do Linux com [InfluxData Telegraf agente](https://www.influxdata.com/time-series-platform/telegraf/).
-  * **Métricas do Application Insights com base em log**. Nos bastidores, [as métricas baseadas no registo](../app/pre-aggregated-metrics-log-metrics.md) se convertem em consultas de registo. Sua retenção corresponde a retenção de eventos nos registos subjacentes. Para recursos do Application Insights, os registos são armazenados durante 90 dias. 
+Para a maioria dos recursos no Azure, as métricas são armazenadas por 93 dias. Há algumas exceções:
+
+**Métricas do SO convidado**
+-   **Métricas do sistema operacional convidado clássico**. Esses são contadores de desempenho coletados pela [extensão de diagnóstico do Windows (wad)](../platform/diagnostics-extension-overview.md) ou pela [Lad (extensão de diagnóstico do Linux)](../../virtual-machines/extensions/diagnostics-linux.md) e roteados para uma conta de armazenamento do Azure. A retenção para essas métricas é de 14 dias.
+-   **Métricas do SO convidado enviadas para Azure monitor métricas**. Esses são contadores de desempenho coletados pela extensão de diagnóstico do Windows (WAD) e enviam para o [coletor de Azure monitor](diagnostics-extension-overview.md#data-storage), ou por meio do [agente Telegraf do InfluxData](https://www.influxdata.com/time-series-platform/telegraf/) em computadores Linux. A retenção para essas métricas é de 93 dias.
+-   **Métricas do SO convidado coletadas pelo agente de log Analytics**. Esses são contadores de desempenho coletados pelo agente de Log Analytics e enviados a um espaço de trabalho do Log Analytics. A retenção para essas métricas é de 31 dias e pode ser estendida até 2 anos.
+
+**Application insights métricas baseadas em log**. 
+- Por trás da cena, as [métricas baseadas em log](../app/pre-aggregated-metrics-log-metrics.md) são transvertidas em consultas de log. Sua retenção corresponde à retenção de eventos em logs subjacentes. Para Application Insights recursos, os logs são armazenados por 90 dias.
+
 
 > [!NOTE]
-> Pode [enviar métricas de plataforma para os recursos do Azure Monitor para uma área de trabalho do Log Analytics](diagnostic-logs-stream-log-store.md) para fins de tendência de longo prazo.
+> Você pode [Enviar métricas de plataforma para Azure monitor recursos para um espaço de trabalho log Analytics](diagnostic-logs-stream-log-store.md) para tendência a longo prazo.
+
+
+
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o [plataforma de dados do Azure Monitor](data-platform.md).
-- Saiba mais sobre [registos de dados no Azure Monitor](data-platform-logs.md).
+- Saiba mais sobre a [plataforma de dados Azure monitor](data-platform.md).
+- Saiba mais sobre [os dados de log em Azure monitor](data-platform-logs.md).
 - Saiba mais sobre o [monitorização dos dados disponíveis](data-sources.md) diferentes recursos no Azure.

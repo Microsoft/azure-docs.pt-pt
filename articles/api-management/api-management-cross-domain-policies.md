@@ -10,16 +10,15 @@ ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 86c61679a73f03f7e54bba746107685796ec07c9
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: db64a2f64c592a62f621355047a7bc9844d66457
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442321"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073729"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios da API Management
 Este tópico fornece uma referência para as seguintes políticas de gerenciamento de API. Para obter informações sobre como adicionar e configurar políticas, consulte [políticas no gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -54,7 +53,7 @@ Use a `cross-domain` política para tornar a API acessível por meio de clientes
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Requerido|
+|Name|Descrição|Requerido|
 |----------|-----------------|--------------|
 |entre domínios|Elemento raiz. Os elementos filho devem estar em conformidade com a [especificação de arquivo de política entre domínios do Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sim|
 
@@ -123,7 +122,7 @@ Este exemplo demonstra como dar suporte a solicitações de simulação, como aq
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Requerido|Predefinição|
+|Name|Descrição|Requerido|Predefinição|
 |----------|-----------------|--------------|-------------|
 |CORS|Elemento raiz.|Sim|N/A|
 |origens permitidas|Contém `origin` elementos que descrevem as origens permitidas para solicitações entre domínios. `allowed-origins`pode conter um único `origin` elemento que especifica `*` para permitir qualquer origem, ou um ou mais `origin` elementos que contenham um URI.|Sim|N/A|
@@ -136,7 +135,7 @@ Este exemplo demonstra como dar suporte a solicitações de simulação, como aq
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Requerido|Predefinição|
+|Name|Descrição|Requerido|Predefinição|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|O `Access-Control-Allow-Credentials` cabeçalho na resposta de simulação será definido como o valor desse atributo e afetará a capacidade do cliente de enviar credenciais em solicitações entre domínios.|Não|false|
 |simulação-resultado-máx-idade|O `Access-Control-Max-Age` cabeçalho na resposta de simulação será definido como o valor desse atributo e afetará a capacidade do agente do usuário de armazenar em cache a resposta de simulação.|Não|0|
@@ -168,13 +167,13 @@ Se você adicionar o parâmetro `?cb=XXX` de retorno de chamada, ele retornará 
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Requerido|
+|Name|Descrição|Requerido|
 |----------|-----------------|--------------|
 |JSONP|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Requerido|Predefinição|
+|Name|Descrição|Requerido|Predefinição|
 |----------|-----------------|--------------|-------------|
 |retorno de chamada-nome-do-parâmetro|A chamada de função JavaScript entre domínios prefixada com o nome de domínio totalmente qualificado em que a função reside.|Sim|N/A|
 
@@ -184,7 +183,7 @@ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documen
 - **Seções de política:** saída
 - Escopos de **política:** todos os escopos
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como trabalhar com políticas, consulte:
 

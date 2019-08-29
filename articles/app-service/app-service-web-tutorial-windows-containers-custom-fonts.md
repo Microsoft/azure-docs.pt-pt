@@ -1,6 +1,6 @@
 ---
-title: Criar aplicação ASP.NET com o contentor do Windows (pré-visualização) - serviço de aplicações do Azure | Documentos da Microsoft
-description: Saiba como implementar um contentor personalizado do Windows no serviço de aplicações do Azure e implementar software personalizado no contentor.
+title: Compilar o aplicativo ASP.NET com o contêiner do Windows (versão prévia)-serviço de Azure App | Microsoft Docs
+description: Saiba como implantar um contêiner do Windows personalizado no serviço Azure App e implantar o software personalizado no contêiner.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -9,17 +9,16 @@ editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 15a1e388b17a66bf22fc0fd51744cb0aaa1b36d4
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: f44c7a66b6d8fe7ed6ad114ea176c84351ac6493
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415547"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071506"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrar uma aplicação ASP.NET para o Serviço de Aplicações do Azure com um contentor do Windows (Pré-visualização)
 
@@ -34,7 +33,7 @@ Para concluir este tutorial:
 - <a href="https://hub.docker.com/" target="_blank">Inscrever numa conta do Docker Hub</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Instale o Docker para Windows</a>.
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Mude o Docker para executar contentores do Windows</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Instalar o Visual Studio 2019</a> com o **desenvolvimento web e em ASP.NET** e **desenvolvimento do Azure** cargas de trabalho. Se tiver instalado o Visual Studio 2019 já:
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Instale o Visual Studio 2019</a> com as cargas de trabalho **ASP.net e desenvolvimento** para a Web e **desenvolvimento do Azure** . Se você já instalou o Visual Studio 2019:
     - Instale as atualizações mais recentes no Visual Studio ao clicar em **Ajuda** > **Procurar Atualizações**.
     - Adicione as cargas de trabalho ao Visual Studio, ao clicar em **Ferramentas** > **Obter Ferramentas e Funcionalidades**.
 
@@ -111,24 +110,24 @@ No assistente de publicação, selecione **Container Registry** > **Criar um Nov
 
 Na caixa de diálogo **Criar um Novo Registo de Contentor do Azure**, selecione **Adicionar uma conta** e inicie sessão na sua subscrição do Azure. Se já tem sessão iniciada, selecione a conta que contém a subscrição pretendida na lista pendente.
 
-![Inicie sessão no  Azure](./media/app-service-web-tutorial-windows-containers-custom-fonts/add-an-account.png)
+![Iniciar sessão no Azure](./media/app-service-web-tutorial-windows-containers-custom-fonts/add-an-account.png)
 
 ### <a name="configure-the-registry"></a>Configurar o registo
 
 Configure o novo registo de contentor com base nos valores sugeridos na tabela seguinte. Quando terminar, clique em **Criar**.
 
-| Definição  | Valor sugerido | Para mais informações |
+| Definição  | Valor sugerido | Para obter mais informações: |
 | ----------------- | ------------ | ----|
 |**Prefixo DNS**| Mantenha o nome do registo gerado ou altere-o para outro nome exclusivo. |  |
 |**Grupo de Recursos**| Clique em **Novo**, escreva **myResourceGroup** e clique em **OK**. |  |
-|**SKU**| Básico | [Escalões de preços](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**SKU**| Básica | [Escalões de preços](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Localização do registo**| Europa Ocidental | |
 
 ![Configurar o registo de contentor do Azure](./media/app-service-web-tutorial-windows-containers-custom-fonts/configure-registry.png)
 
 É aberta uma janela de terminal que mostra o progresso de implementação da imagem. Aguarde pela conclusão da implementação.
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
@@ -140,7 +139,7 @@ No menu à esquerda, selecione **Criar um recurso** > **Web** > **Aplicação We
 
 Na interface de criação, configure as definições de acordo com a tabela seguinte:
 
-| Definição  | Valor sugerido | Para mais informações |
+| Definição  | Valor sugerido | Para obter mais informações: |
 | ----------------- | ------------ | ----|
 |**Nome da Aplicação**| Escreva um nome exclusivo. | O URL da aplicação Web é `http://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome da aplicação. |
 |**Grupo de Recursos**| Selecione **Utilizar existente** e escreva **myResourceGroup**. |  |

@@ -1,6 +1,6 @@
 ---
-title: Exemplo de Script do PowerShell do Azure – copiar (mover) discos geridos para uma subscrição idêntica ou diferente | Documentos da Microsoft
-description: Exemplo de Script do PowerShell do Azure – copiar (mover) discos geridos para uma subscrição idêntica ou diferente
+title: Amostra de script de Azure PowerShell – copiar (mover) discos gerenciados para a mesma assinatura ou outra | Microsoft Docs
+description: Amostra de script de Azure PowerShell – copiar (mover) discos gerenciados para a mesma assinatura ou outra
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -9,28 +9,27 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: b337fb5dd74889c6b15e9fbbbbd684859bed90b0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1ad2f8e27f29c55ef1157822d8c757d7ac818c90
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980130"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081187"
 ---
-# <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>Copiar discos geridos na mesma subscrição ou subscrição diferente com o PowerShell
+# <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>Copiar discos gerenciados na mesma assinatura ou em uma assinatura diferente com o PowerShell
 
-Este script cria uma cópia de um disco gerido existente na mesma subscrição ou subscrição diferente. O novo disco é criado na mesma região que o disco gerido principal.   
+Esse script cria uma cópia de um disco gerenciado existente na mesma assinatura ou em uma assinatura diferente. O novo disco é criado na mesma região que o disco gerenciado pai.   
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -43,7 +42,7 @@ Este script utiliza os seguintes comandos para criar um novo disco gerido na sub
 
 | Comando | Notas |
 |---|---|
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Cria a configuração de disco que é utilizada para a criação do disco. Ele inclui o Id de recurso do disco principal e a localização que seja a mesma que a localização do disco principal.  |
+| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Cria a configuração de disco que é utilizada para a criação do disco. Ele inclui a ID de recurso do disco pai e o local que é o mesmo que o local do disco pai.  |
 | [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Cria um disco com a configuração de disco, o nome do disco e o nome do grupo de recursos transmitidos como parâmetros. |
 
 

@@ -7,17 +7,16 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 381eecefbba238e712820a09c8ec489706ef3751
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 1d24eb81361a337ed00d719a7fb5895e73583030
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107113"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096320"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Utilizar as Funções para adicionar mensagens a uma fila do Armazenamento do Azure
 
@@ -67,7 +66,7 @@ Agora que tem um enlace de saída definido, tem de atualizar o código para util
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Adicione código que utiliza o enlace de saída
 
-Nesta secção, adicione código que escreve uma mensagem para a fila de saída. A mensagem inclui o valor que é transferido para o acionador HTTP na cadeia de consulta. Por exemplo, se a cadeia de consulta inclui `name=Azure`, a mensagem de fila será *nome transmitido para a função: Azure*.
+Nesta secção, adicione código que escreve uma mensagem para a fila de saída. A mensagem inclui o valor que é transferido para o acionador HTTP na cadeia de consulta. Por exemplo, se a cadeia de caracteres `name=Azure`de consulta incluir, a mensagem *da fila será o nome passado para a função: Azure*.
 
 1. Selecione a sua função para apresentar o código da mesma no editor.
 
@@ -150,7 +149,7 @@ Ignore esta secção se já tiver instalado o Explorador de Armazenamento e o ti
 
 1. Expanda o nó **Filas** nó e, em seguida, selecione a fila com o nome **outqueue**. 
 
-   A fila contém a mensagem que a fila de enlace de saída da fila criou quando executou a função acionada por HTTP. Se invocou a função com a predefinição `name` valor de *Azure*, a mensagem de fila é *nome transmitido para a função: Azure*.
+   A fila contém a mensagem que a fila de enlace de saída da fila criou quando executou a função acionada por HTTP. Se você tiver chamado a função com o `name` valor padrão do *Azure*, a mensagem da *fila será o nome passado para a função: Azure*.
 
     ![Mensagem de fila apresentada no Explorador de Armazenamento](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
@@ -160,7 +159,7 @@ Ignore esta secção se já tiver instalado o Explorador de Armazenamento e o ti
 
 [!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, adicionou um enlace de saída a uma função já existente. Para obter mais informações sobre o enlace para o Armazenamento de filas, veja [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md) (Enlaces da fila de Armazenamento das Funções do Azure).
 

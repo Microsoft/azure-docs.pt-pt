@@ -1,6 +1,6 @@
 ---
-title: Descrição geral de processamento de multimédia do dimensionamento | Documentos da Microsoft
-description: Este tópico é uma visão geral do dimensionamento processamento de multimédia com os serviços de multimédia do Azure.
+title: Visão geral do processamento de mídia de dimensionamento | Microsoft Docs
+description: Este tópico é uma visão geral de como dimensionar o processamento de mídia com os serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -11,50 +11,50 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: 25b2eb05a612b18eab1fbf790b119edbe9c4d8d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 780d3ab5047bff321d0c554880ba2995bcf25524
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707405"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102902"
 ---
-# <a name="scaling-media-processing-overview"></a>Descrição geral de processamento de multimédia do dimensionamento 
-Esta página fornece uma descrição geral de como e porquê dimensionar o processamento de multimédia. 
+# <a name="scaling-media-processing-overview"></a>Visão geral do processamento de mídia em escala 
+Esta página fornece uma visão geral de como e por que dimensionar o processamento de mídia. 
 
 ## <a name="overview"></a>Descrição geral
-As contas dos Serviços de Multimédia estão associadas a um Tipo de Unidade Reservada, que determina a velocidade do processamento das suas tarefas de processamento de mulitmédia. Pode escolher de entre os seguintes tipos de unidade reservada: **S1**, **S2**, ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. Para obter mais informações, consulte a [tipos de unidades reservadas](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/).
+As contas dos Serviços de Multimédia estão associadas a um Tipo de Unidade Reservada, que determina a velocidade do processamento das suas tarefas de processamento de mulitmédia. Você pode escolher entre os seguintes tipos de unidade reservada: **S1**, **S2**ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. Para obter mais informações, consulte os [tipos de unidade reservadas](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/).
 
-Além de especificar o tipo de unidade reservada, pode especificar para o aprovisionamento da sua conta com unidades reservadas. O número de unidades reservadas aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta. Por exemplo, se a sua conta tiver cinco unidades reservadas, em seguida, as tarefas de cinco multimédia serão executados em simultâneo, desde como existem tarefas a serem processados. As tarefas restantes irão aguardar na fila e irão obter escolhidas para processamento, sequencialmente, quando uma tarefa em execução for concluída. Se uma conta não tem quaisquer unidades reservadas aprovisionadas, em seguida, tarefas serão detetadas sequencialmente. Neste caso, o tempo de espera entre uma tarefa de terminar e iniciar a seguir um dependerá da disponibilidade de recursos no sistema.
+Além de especificar o tipo de unidade reservada, você pode especificar para provisionar sua conta com unidades reservadas. O número de unidades reservadas aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta. Por exemplo, se sua conta tiver cinco unidades reservadas, cinco tarefas de mídia serão executadas simultaneamente, desde que haja tarefas a serem processadas. As tarefas restantes aguardarão na fila e serão selecionadas para o processamento sequencialmente quando uma tarefa em execução for concluída. Se uma conta não tiver nenhuma unidade reservada provisionada, as tarefas serão selecionadas sequencialmente. Nesse caso, o tempo de espera entre a conclusão de uma tarefa e a próxima começando dependerá da disponibilidade dos recursos no sistema.
 
-## <a name="choosing-between-different-reserved-unit-types"></a>Escolher entre tipos diferentes de unidade reservada
-A tabela seguinte ajuda-o a tomar uma decisão, ao escolher entre diferentes velocidades de codificação. Ele também fornece alguns casos de benchmark em [um vídeo que pode baixar](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) para executar seus próprios testes:
+## <a name="choosing-between-different-reserved-unit-types"></a>Escolhendo entre diferentes tipos de unidade reservada
+A tabela a seguir ajuda você a tomar uma decisão ao escolher entre diferentes velocidades de codificação. Ele também fornece alguns casos de benchmark em [um vídeo que você pode baixar](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) para executar seus próprios testes:
 
-|Tipo do RU|Cenário|Resultados de exemplo para o [7 min 1080p vídeo](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
+|Tipo de RU|Cenário|Resultados de exemplo para o [vídeo de 8 min 1080p](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
 |---|---|---|
-| **S1**|Codificação de velocidade de transmissão única. <br/>Ficheiros em SD ou abaixo de resoluções, não um prazo confidenciais, baixo custo.|Codificação de ficheiro MP4 de velocidade de transmissão única SD resolução usando "H264 taxa de bits única de velocidade de transmissão SD 16 x 9" demora cerca de 7 minutos.|
-| **S2**|Velocidade de transmissão única e a codificação de velocidade de transmissão múltiplas.<br/>Utilização normal para a codificação SD e HD.|Com "H264 taxa de bits única 720p" predefinição de codificação demora cerca de 6 minutos.<br/><br/>Codificação com "h264 taxa de bits múltiplas 720p" Predefinir demora cerca de 12 minutos.|
-| **S3**|Velocidade de transmissão única e a codificação de velocidade de transmissão múltiplas.<br/>Vídeos de resolução do HD e 4K completos. Tempo de codificação de face àquilo confidencial, mais rápido.|Com "H264 taxa de bits única 1080p" predefinição de codificação demora cerca de 3 minutos.<br/><br/>Codificação com "H264 Multiple Bitrate 1080p" Predefinir demora cerca de 8 minutos.|
+| **S1**|Codificação de taxa de bits única. <br/>Arquivos em SD ou abaixo das resoluções, não diferenciando tempo, baixo custo.|A codificação para o arquivo MP4 de resolução SD de taxa de bits única usando "H264 taxa de bits única SD 16x9" leva cerca de 7 minutos.|
+| **S2**|Taxa de bits única e codificação de taxa de bits múltipla.<br/>Uso normal para codificação SD e HD.|A codificação com a predefinição "H264 taxa de bits única 720p" leva cerca de 6 minutos.<br/><br/>A codificação com a predefinição "H264 taxas de bits múltiplas 720p" leva cerca de 12 minutos.|
+| **S3**|Taxa de bits única e codificação de taxa de bits múltipla.<br/>Vídeos completos de resolução de HD e 4K. Codificação de retorno sensível à hora e mais rápida.|A codificação com a predefinição "H264 taxa de bits única 1080p" leva aproximadamente 3 minutos.<br/><br/>A codificação com a predefinição "H264 taxas de bits múltiplas 1080p" leva aproximadamente 8 minutos.|
 
 ## <a name="considerations"></a>Considerações
 > [!IMPORTANT]
-> Reveja as considerações descritas nesta secção.  
+> Examine as considerações descritas nesta seção.  
 > 
 > 
 
-* Para as tarefas de análise de áudio e análise de vídeo que são acionadas por serviços de multimédia v3 ou Video Indexer, é altamente recomendável o tipo de unidade de S3.
-* Se utilizar o conjunto partilhado, ou seja, sem quaisquer unidades reservadas, em seguida, as tarefas de codificar tem o mesmo desempenho como com Urs S1. No entanto, não existe nenhum limite superior para o tempo de que suas tarefas podem gastar no estado de fila e, em qualquer momento, no máximo apenas uma tarefa será executado.
+* Para a análise de áudio e os trabalhos de análise de vídeo disparados pelos serviços de mídia V3 ou Video Indexer, o tipo de unidade S3 é altamente recomendado.
+* Se estiver usando o pool compartilhado, ou seja, sem nenhuma unidade reservada, as tarefas de codificação terão o mesmo desempenho que com o RUs S1. No entanto, não há nenhum limite superior ao tempo que suas tarefas podem gastar em estado enfileirado e a qualquer momento, no máximo uma tarefa será executada.
 
 ## <a name="billing"></a>Faturação
 
-Cobrado baseia-se no número de minutos que a unidades reservadas de multimédia são aprovisionadas na sua conta. Isso ocorre independentemente de se existem quaisquer tarefas em execução na sua conta. Para obter uma explicação detalhada, consulte a secção de FAQ do [preços de serviços de multimédia](https://azure.microsoft.com/pricing/details/media-services/) página.   
+Você é cobrado com base em quantos minutos as unidades reservadas de mídia são provisionadas em sua conta. Isso ocorre independentemente de qualquer trabalho em execução em sua conta. Para obter uma explicação detalhada, consulte a secção de FAQ do [preços de serviços de multimédia](https://azure.microsoft.com/pricing/details/media-services/) página.   
 
 ## <a name="quotas-and-limitations"></a>Quotas e limitações
-Para obter informações sobre as quotas e limitações e como abrir um pedido de suporte, consulte [Quotas e limitações](media-services-quotas-and-limitations.md).
+Para obter informações sobre cotas e limitações e como abrir um tíquete de suporte, consulte [cotas e limitações](media-services-quotas-and-limitations.md).
 
 ## <a name="next-step"></a>Passo seguinte
-Obter a tarefa de processamento de multimédia dimensionamento com uma das seguintes tecnologias: 
+Obtenha a tarefa de processamento de mídia em escala com uma destas tecnologias: 
 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)

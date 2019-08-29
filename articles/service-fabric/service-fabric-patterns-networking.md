@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 0a411e0fe3b89eaaa19f4e18f5e614b03dd1d682
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 90b2a1954d60f1e86ab61afb264483177f4aca3b
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599426"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073941"
 ---
 # <a name="service-fabric-networking-patterns"></a>Padrões de rede Service Fabric
 Você pode integrar seu cluster de Service Fabric do Azure com outros recursos de rede do Azure. Neste artigo, mostraremos como criar clusters que usam os seguintes recursos:
@@ -604,6 +604,10 @@ Em um cluster de tipo de dois nós, um tipo de nó está no balanceador de carga
     ```
 
 Após a implantação, você pode ver dois balanceadores de carga no grupo de recursos. Se você procurar os balanceadores de carga, poderá ver o endereço IP público e os pontos de extremidade de gerenciamento (portas 19000 e 19080) atribuídos ao endereço IP público. Você também pode ver o endereço IP interno estático e o ponto de extremidade do aplicativo (porta 80) atribuído ao balanceador de carga interno. Ambos os balanceadores de carga usam o mesmo pool de back-end de conjunto de dimensionamento de máquinas virtuais.
+
+## <a name="notes-for-production-workloads"></a>Observações para cargas de trabalho de produção
+
+Os modelos do GitHub acima foram projetados para funcionar com o SKU padrão do Standard Load Balancer do Azure (SLB), a SKU básica. Esse SLB não tem SLA, portanto, para cargas de trabalho de produção, o SKU Standard deve ser usado. Para saber mais sobre isso, confira a [visão geral de Standard Load Balancer do Azure](/azure/load-balancer/load-balancer-standard-overview). Qualquer Service Fabric cluster usando o SKU Standard para SLB precisa garantir que cada tipo de nó tenha uma regra que permita o tráfego de saída na porta 443. Isso é necessário para concluir a configuração do cluster e qualquer implantação sem essa regra falhará. No exemplo acima de um balanceador de carga "somente interno", um balanceador de carga externo adicional deve ser adicionado ao modelo com uma regra que permite o tráfego de saída para a porta 443.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Criar um cluster](service-fabric-cluster-creation-via-arm.md)

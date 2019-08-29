@@ -11,16 +11,15 @@ ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 26766be8b2468da0df44fa42655db0ee04db45a2
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: bf8959abcf591acd902793e9247cd15e2cfdada9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327069"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089226"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planejando a migração de recursos de IaaS do clássico para o Azure Resource Manager
 Embora Azure Resource Manager ofereça muitos recursos incríveis, é essencial planejar sua jornada de migração para garantir que as coisas fiquem sem problemas. Gastar tempo no planejamento garantirá que você não encontre problemas durante a execução de atividades de migração.
@@ -32,7 +31,7 @@ Há quatro fases gerais da jornada de migração:<br>
 
 ![Fases de migração](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## <a name="plan"></a>Planear
+## <a name="plan"></a>Plano
 
 ### <a name="technical-considerations-and-tradeoffs"></a>Considerações técnicas e compensações
 
@@ -124,7 +123,7 @@ Os problemas a seguir foram descobertos em muitas das migrações maiores. Essa 
 
   - Interfaces de Rede
   - Balanceador de Carga
-  - IPs públicos
+  - IPs Públicos
   - IPs públicos estáticos
   - Núcleos
   - Grupos de Segurança de Rede
@@ -214,7 +213,7 @@ Não se esqueça de quais serviços você agora deseja habilitar no Azure Resour
 Lembre-se do motivo pelo qual você começou este clássico para Azure Resource Manager a jornada de migração.  Quais foram os motivos comerciais originais? Você obteve o motivo comercial?
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral da migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)

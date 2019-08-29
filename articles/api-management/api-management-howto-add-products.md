@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: eff827937adbae7cfdfdd86392593df8d698053c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 134483764ffcb012ece0769a514683fc9487887f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241799"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073615"
 ---
 # <a name="create-and-publish-a-product"></a>Criar e publicar um produto  
 
@@ -36,8 +35,8 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
-+ Conclua o início rápido seguinte: [Criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
-+ Além disso, conclua o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
++ Conclua o início rápido a seguir: [Crie uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Além disso, conclua o seguinte tutorial: [Importe e publique sua primeira API](import-and-publish.md).
 
 ## <a name="create-and-publish-a-product"></a>Criar e publicar um produto
 
@@ -53,7 +52,7 @@ Neste tutorial, ficará a saber como:
     | Display name             | O nome, como pretende que seja apresentado no **Portal do programador**.                                                                                                                                                                                                                                                        |
     | Name                     | Um nome descritivo do produto.                                                                                                                                                                                                                                                                                      |
     | Descrição              | O campo **Descrição** permite-lhe fornecer informações detalhadas sobre o produto, como a respetiva finalidade, as APIs às quais fornece acesso e outras informações úteis.                                                                                                                                               |
-    | Estado                    | Prima **Publicado** se pretender publicar o produto. Antes de as APIs num produto poderem ser chamadas, o produto tem de ser publicado. Por predefinição, os novos produtos não são publicados, e são visíveis apenas para o grupo **Administradores**.                                                                                      |
+    | State                    | Prima **Publicado** se pretender publicar o produto. Antes de as APIs num produto poderem ser chamadas, o produto tem de ser publicado. Por predefinição, os novos produtos não são publicados, e são visíveis apenas para o grupo **Administradores**.                                                                                      |
     | Requer subscrição    | Selecione **Exigir subscrição** se um utilizador precisar de subscrever para utilizar o produto.                                                                                                                                                                                                                                   |
     | Requer aprovação        | Selecione **Exigir aprovação**, se pretender que um administrador reveja e aceite ou rejeite as tentativas de subscrição deste produto. Se a caixa estiver desmarcada, as tentativas de subscrição são aprovadas automaticamente.                                                                                                                         |
     | Limite da contagem de subscrições | Para limitar a contagem de várias subscrições simultâneas, introduza o limite de subscrições.                                                                                                                                                                                                                                |
@@ -88,7 +87,7 @@ Os programadores têm de subscrever primeiro um produto para obter acesso à API
 > [!TIP]
 > Pode criar ou atualizar a subscrição do utilizador para um *Produto*, com chaves de subscrição personalizadas [através da API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate) ou do comando do PowerShell.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

@@ -7,19 +7,18 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3afcd429351a0d988ff0e82ecf09f524ceac70f1
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 046daed4f548d24010c3d3bef177cee8cf24a55e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868971"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098727"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Backup e restauração do so para SKUs do tipo II de carimbos de revisão 3
 
@@ -77,7 +76,7 @@ A captura de tela a seguir mostra a restauração de um backup completo:
 Os pacotes de reversões (traseiras) são **pré-instalados** nos **SKUs do tipo II** do Hana em instâncias grandes e nenhuma ação é necessária. Você pode começar diretamente usando a parte traseira para o backup do sistema operacional.
 No entanto, nas circunstâncias em que você precisa instalar os pacotes por conta própria, você pode seguir as etapas listadas para instalar e configurar a ferramenta de trás.
 
-Para instalar os  pacotes de backup traseiros, use os seguintes comandos:
+Para instalar os pacotes de backup traseiros, use os seguintes comandos:
 
 Para o sistema operacional **SLES** , use o seguinte comando:
 ```

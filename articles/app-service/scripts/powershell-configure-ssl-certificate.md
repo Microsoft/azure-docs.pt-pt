@@ -10,19 +10,18 @@ tags: azure-service-management
 ms.assetid: 23e83b74-614a-49a0-bc08-7542120eeec5
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c9214d8906ad00744f811782f732b15aeec3a7f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 057d9beebc106d71183b3c979636bb9c5410b15c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136545"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098377"
 ---
-# <a name="bind-a-custom-ssl-certificate-to-a-web-app-using-powershell"></a>Vincular um certificado SSL personalizado a uma aplicação web com o PowerShell
+# <a name="bind-a-custom-ssl-certificate-to-a-web-app-using-powershell"></a>Associar um certificado SSL personalizado a um aplicativo Web usando o PowerShell
 
 Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, vincula o certificado SSL de um nome de domínio personalizado ao mesmo. 
 
@@ -59,7 +58,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifica a configuração de uma aplicação web. |
 | [New-AzWebAppSSLBinding](/powershell/module/az.websites/new-azwebappsslbinding) | Cria um enlace de certificado SSL para uma aplicação web. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

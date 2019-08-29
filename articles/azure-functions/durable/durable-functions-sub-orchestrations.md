@@ -1,33 +1,32 @@
 ---
-title: Orquestrações secundária para funções duráveis - Azure
-description: Como chamar orquestrações de orquestrações na extensão de funções duráveis para as funções do Azure.
+title: Suborquestrações para o Durable Functions-Azure
+description: Como chamar orquestrações de orquestrações na extensão de Durable Functions para Azure Functions.
 services: functions
 author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1ab9a5714a7ef24b51957bd48b1b67240cf13adb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 868efad58e14fd817729f0aa9ac785bc0f960867
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60730247"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087023"
 ---
-# <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Orquestrações secundárias nas funções duráveis (funções do Azure)
+# <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Suborquestrações em Durable Functions (Azure Functions)
 
-Para além de chamar funções de atividade, as funções do orchestrator podem chamar outras funções do orchestrator. Por exemplo, pode criar uma orquestração maior fora de uma biblioteca de funções do orchestrator. Em alternativa, pode executar várias instâncias de uma função de orquestrador em paralelo.
+Além de chamar funções de atividade, as funções de orquestrador podem chamar outras funções de orquestrador. Por exemplo, você pode criar uma orquestração maior a partir de uma biblioteca de funções de orquestrador. Ou você pode executar várias instâncias de uma função de orquestrador em paralelo.
 
-Uma função de orquestrador pode chamar a função de orquestrador de outro ao chamar o [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) ou o [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) métodos no .NET, ou o `callSubOrchestrator` ou `callSubOrchestratorWithRetry` métodos em JavaScript. O [tratamento de erro & compensação](durable-functions-error-handling.md#automatic-retry-on-failure) artigo tem mais informações sobre a repetição automática.
+Uma função de orquestrador pode chamar outra função de orquestrador chamando os métodos [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) ou [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) no .net, ou os `callSubOrchestrator` métodos `callSubOrchestratorWithRetry` ou em JavaScript. O artigo [tratamento de erros & compensação](durable-functions-error-handling.md#automatic-retry-on-failure) tem mais informações sobre repetição automática.
 
-As funções do orchestrator secundárias se comportam como funções de atividade do ponto de vista do chamador. Eles podem retornar um valor, lance uma exceção e podem ser colocadas em espera pela função de orquestrador principal.
+As funções de suborquestrador se comportam exatamente como funções de atividade da perspectiva do chamador. Eles podem retornar um valor, gerar uma exceção e podem ser aguardados pela função de orquestrador pai.
 
 ## <a name="example"></a>Exemplo
 
-O exemplo a seguir ilustra um cenário de IoT ("Internet das coisas") em que existem vários dispositivos que têm de ser aprovisionado. Há uma orquestração específica que precisa para ocorrer para cada um dos dispositivos, que podem ser semelhante ao seguinte:
+O exemplo a seguir ilustra um cenário de IoT ("Internet das Coisas") em que há vários dispositivos que precisam ser provisionados. Há uma orquestração específica que precisa acontecer para cada um dos dispositivos, que pode ser semelhante ao seguinte:
 
 ### <a name="c"></a>C#
 
@@ -50,7 +49,7 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -71,9 +70,9 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Esta função de orquestrador pode ser usada como-é para aprovisionamento de dispositivos pontuais ou ele pode fazer parte de uma orquestração maior. No último caso, a função de orquestrador principal pode agendar a instâncias de `DeviceProvisioningOrchestration` utilizando o `CallSubOrchestratorAsync` (C#) ou `callSubOrchestrator` (JavaScript) API.
+Essa função de orquestrador pode ser usada no estado em que se encontra para o provisionamento de dispositivos únicos ou pode fazer parte de uma orquestração maior. No último caso, a função de orquestrador pai pode agendar instâncias `DeviceProvisioningOrchestration` do usando `CallSubOrchestratorAsync` aC#API ( `callSubOrchestrator` ) ou (JavaScript).
 
-Eis um exemplo que mostra como executar várias funções do orchestrator em paralelo.
+Aqui está um exemplo que mostra como executar várias funções de orquestrador em paralelo.
 
 ### <a name="c"></a>C#
 
@@ -98,7 +97,7 @@ public static async Task ProvisionNewDevices(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente funções 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -122,4 +121,4 @@ module.exports = df.orchestrator(function*(context) {
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba quais são os hubs de tarefas e como configurá-las](durable-functions-task-hubs.md)
+> [Saiba quais são os hubs de tarefas e como configurá-los](durable-functions-task-hubs.md)

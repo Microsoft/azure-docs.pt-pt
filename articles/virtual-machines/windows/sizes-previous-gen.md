@@ -1,6 +1,6 @@
 ---
-title: Tamanhos de VM do Windows do Azure - as gerações anteriores | Documentos da Microsoft
-description: Lista as gerações anteriores de tamanhos disponíveis para máquinas de virtuais do Windows no Azure.
+title: Tamanhos de VM Windows do Azure – gerações anteriores | Microsoft Docs
+description: Lista as gerações anteriores de tamanhos disponíveis para máquinas virtuais do Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/11/2019
 ms.author: jonbeck
-ms.openlocfilehash: 30b2d042d3f8e77e04dfb83c21509e423bf208e5
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 43fecfcdbb381588f0c717b7ca771c23c19f367d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710151"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088468"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquina virtual
 
@@ -28,7 +27,7 @@ ms.locfileid: "67710151"
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="older-generations-of-virtual-machine-sizes"></a>Suporte a gerações anteriores de tamanhos de máquina virtual
+## <a name="older-generations-of-virtual-machine-sizes"></a>Gerações mais antigas de tamanhos de máquina virtual
 
 [!INCLUDE [virtual-machines-common-sizes-older](../../../includes/virtual-machines-common-sizes-older.md)]
 
@@ -43,4 +42,4 @@ ms.locfileid: "67710151"
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre como [computação do Azure (ACU) de unidades](acu.md) pode ajudá-lo a comparar o desempenho de computação nos SKUs do Azure.
+Saiba mais sobre como as [unidades de computação do Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho de computação entre SKUs do Azure.

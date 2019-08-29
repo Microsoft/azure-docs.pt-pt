@@ -1,56 +1,55 @@
 ---
-title: Descrição geral do Runtime das funções do Azure | Documentos da Microsoft
-description: Descrição geral da pré-visualização de tempo de execução das funções do Azure
+title: Visão geral de Azure Functions Runtime | Microsoft Docs
+description: Visão geral da visualização de Azure Functions Runtime
 services: functions
 author: apwestgarth
 manager: stefsch
 ms.assetid: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 2af9575c50ee522d6330ddf46c75b666132b7a84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e67041ca78ba328fad132cc556b12d780eb9b318
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61021235"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095984"
 ---
-# <a name="azure-functions-runtime-overview-preview"></a>Descrição geral de tempo de execução do Azure das funções (pré-visualização)
+# <a name="azure-functions-runtime-overview-preview"></a>Visão geral de Azure Functions Runtime (visualização)
 
 [!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
-O tempo de execução de funções do Azure (pré-visualização) fornece uma nova forma para que possa tirar partido da simplicidade e a flexibilidade de funções do Azure no local do modelo de programação. Criado sobre as mesmas raízes de código-fonte aberto como as funções do Azure, o Runtime de funções do Azure é implementado no local para proporcionar uma experiência de desenvolvimento quase idêntico, como o serviço em nuvem.
+A Azure Functions Runtime (versão prévia) fornece uma nova maneira de aproveitar a simplicidade e a flexibilidade do modelo de programação de Azure Functions local. Criado com base nas mesmas raízes de código aberto que Azure Functions, Azure Functions Runtime é implantado localmente para fornecer uma experiência de desenvolvimento quase idêntica como o serviço de nuvem.
 
-![Portal de pré-visualização do tempo de execução de funções do Azure][1]
+![Azure Functions Runtime o portal de visualização][1]
 
-O Runtime das funções do Azure fornece uma maneira de experimentar as funções do Azure antes de consolidar para a cloud. Dessa forma, os ativos de código que cria, em seguida, efetuar com para a nuvem ao migrar.  O tempo de execução também abre novas opções para, por exemplo, usando o poder de computação livre dos computadores no local para executar processos em lote durante a noite. Também pode utilizar dispositivos na sua organização para enviar condicionalmente os dados para outros sistemas, tanto no local e na cloud.
+O Azure Functions Runtime fornece uma maneira de experimentar Azure Functions antes de confirmar a nuvem. Dessa forma, os ativos de código que você criar poderão ser levados com você para a nuvem quando você migrar.  O tempo de execução também abre novas opções para você, como usar o poder de computação sobressalente de seus computadores locais para executar processos em lotes durante a noite. Você também pode usar dispositivos em sua organização para enviar dados condicionalmente para outros sistemas, tanto localmente quanto na nuvem.
 
-O Runtime das funções do Azure consiste em duas partes:
+O Azure Functions Runtime consiste em duas partes:
 
-* Função de gerenciamento de tempo de execução de funções do Azure
-* Função de trabalho de tempo de execução das funções do Azure
+* Função de gerenciamento de Azure Functions Runtime
+* Azure Functions Runtime função de trabalho
 
-## <a name="azure-functions-management-role"></a>Função de gestão de funções do Azure
+## <a name="azure-functions-management-role"></a>Função de gerenciamento de Azure Functions
 
-A função de gestão de funções do Azure fornece um anfitrião para o gerenciamento de funções no local. Esta função executa as seguintes tarefas:
+A função de gerenciamento de Azure Functions fornece um host para o gerenciamento de suas funções locais. Essa função executa as seguintes tarefas:
 
-* A alojar o Portal de gestão de funções do Azure, que é o mesmo que pode ver na [portal do Azure](https://portal.azure.com). O portal fornece uma experiência consistente que lhe permitem desenvolver as suas funções da mesma forma, tal como faria no portal do Azure.
-* Distribui as funções em vários operadores de funções.
-* Fornecer um ponto de final de publicação para que pode publicar sua diretamente de funções no Microsoft Visual Studio, transferir e importar o perfil de publicação.
+* Hospedagem do Portal de Gerenciamento de Azure Functions, que é o mesmo que você vê no [portal do Azure](https://portal.azure.com). O portal fornece uma experiência consistente que permite desenvolver suas funções da mesma maneira como você faria no portal do Azure.
+* Distribuindo funções em vários trabalhos do functions.
+* Fornecer um ponto de extremidade de publicação para que você possa publicar suas funções diretamente do Microsoft Visual Studio baixando e importando o perfil de publicação.
 
-## <a name="azure-functions-worker-role"></a>Função de trabalho de funções do Azure
+## <a name="azure-functions-worker-role"></a>Azure Functions função de trabalho
 
-As funções de trabalho de funções do Azure são implementadas nos contentores do Windows e estão em que executa o código da função.  Pode implementar várias funções de trabalho em toda a organização e esta opção é uma forma chave na qual os clientes podem tomar utilizar o poder de computação de reserva.  Um exemplo de onde os componentes de reserva computação existe em muitas organizações é máquinas ligadas constantemente, mas não a ser utilizado por grandes períodos de tempo.
+As funções de trabalho Azure Functions são implantadas em contêineres do Windows e são onde o código de função é executado.  Você pode implantar várias funções de trabalho em toda a sua organização e essa opção é uma maneira importante na qual os clientes podem fazer uso de capacidade de computação sobressalente.  Um exemplo de onde a computação sobressalente existe em muitas organizações é que as máquinas são ativadas constantemente, mas não estão sendo usadas por longos períodos de tempo.
 
 ## <a name="minimum-requirements"></a>Requisitos mínimos
 
-Para começar a utilizar com o Runtime das funções do Azure, tem de ter uma máquina com Windows Server 2016 ou Windows 10 Creators Update com acesso a uma instância do SQL Server.
+Para começar a usar o Azure Functions Runtime, você deve ter um computador com a atualização do Windows Server 2016 ou do Windows 10 para criadores com acesso a uma instância do SQL Server.
 
 ## <a name="next-steps"></a>Próximos Passos
 
-Instalar o [pré-visualização do Runtime de funções do Azure](https://aka.ms/azafrdoc)
+Instalar a versão [prévia do Azure Functions Runtime](https://aka.ms/azafrdoc)
 
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png

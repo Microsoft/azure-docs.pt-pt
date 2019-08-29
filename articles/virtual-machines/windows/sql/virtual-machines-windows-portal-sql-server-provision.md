@@ -8,19 +8,18 @@ manager: craigg
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 52f6e7ebb1cbae14878b1897bd8c59c73dd0f493
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 38fdbbf76806325e457f066e6b469a531c27b038
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981031"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102214"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Como provisionar uma máquina virtual do Windows SQL Server no portal do Azure
 
@@ -37,21 +36,12 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Ao criar uma máquina virtual SQL Server, você pode selecionar uma das várias imagens pré-configuradas da Galeria de máquinas virtuais. As etapas a seguir demonstram como selecionar uma das SQL Server imagens 2017.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando sua conta.
+1. Selecione **SQL do Azure** no menu à esquerda da portal do Azure. Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite SQL do Azure na caixa de pesquisa. Adicional Selecione a estrela ao lado de **Azure SQL** para que ela seja favorita e adicione-a como um item no painel de navegação à esquerda. 
+1. Selecione **+ Adicionar** para abrir a página **selecionar opção de implantação do SQL** . Você pode exibir informações adicionais selecionando **Mostrar detalhes**. 
+1. Digite `2017` a caixa de pesquisa de imagem SQL Server no bloco **máquinas virtuais do SQL** e selecione **licença de SQL Server gratuita: SQL Server desenvolvedor 2017 no Windows Server 2016** na lista suspensa. 
 
-1. No portal do Azure, clique em **Criar um recurso**. O portal abre a janela **Novo**.
 
-1. Na janela **Novo**, clique em **Computação** e, em seguida, clique em **Ver todos**.
-
-1. No campo de pesquisa, escreva **SQL Server 2017** e prima ENTER.
-
-1. Nos menus suspensos de filtro, selecione _Windows Server 2016_ para o **sistema operacional** e selecione _Microsoft_ como o **Publicador**. 
-
-     ![Janela Nova Computação](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
-
-1. Reveja as imagens do SQL Server disponíveis. Cada imagem identifica uma versão do SQL Server e um sistema operativo.
-
-1. Selecione a imagem chamada **licença de SQL Server gratuita: SQL Server desenvolvedor 2017 no Windows Server 2016**.
+   ![Selecionar imagem da VM do SQL](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
 
    > [!TIP]
    > A edição Developer é usada neste passo a passos porque é uma edição completa e gratuita do SQL Server para testes de desenvolvimento. Apenas paga pelo custo de execução da VM. No entanto, você tem a liberdade de escolher qualquer uma das imagens a serem usadas nesta explicação. Para obter uma descrição das imagens disponíveis, consulte a [visão geral de SQL Server máquinas virtuais do Windows](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
@@ -61,7 +51,6 @@ Ao criar uma máquina virtual SQL Server, você pode selecionar uma das várias 
    >
    > Para obter mais informações sobre estas opções, consulte [Pricing guidance for SQL Server Azure VMs (Documentação de orientação sobre preços de VMs do Azure do SQL Server)](virtual-machines-windows-sql-server-pricing-guidance.md).
 
-1. Em **Selecionar um modelo de implementação**, confirme se **Resource Manager** está selecionado. O modelo de implementação recomendado para máquinas virtuais novas é o Resource Manager. 
 
 1. Selecione **Criar**.
 

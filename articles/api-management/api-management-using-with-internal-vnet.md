@@ -10,16 +10,15 @@ ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: a23572642df99f00e278b6ba74367a30b0604640
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 29c86363842299870179b35a0466d2e44d2e56e0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851470"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072190"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Usando o serviço de gerenciamento de API do Azure com uma rede virtual interna
 Com as redes virtuais do Azure, o gerenciamento de API do Azure pode gerenciar APIs não acessíveis na Internet. Várias tecnologias de VPN estão disponíveis para fazer a conexão. O gerenciamento de API pode ser implantado em dois modos principais dentro de uma rede virtual:

@@ -1,6 +1,6 @@
 ---
-title: Os modelos de portais de programador da gestão de API do Azure | Documentos da Microsoft
-description: Saiba como personalizar o conteúdo de páginas de portal de programador com um conjunto de modelos na gestão de API do Azure.
+title: Modelos do portal do desenvolvedor do gerenciamento de API do Azure | Microsoft Docs
+description: Saiba como personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos no gerenciamento de API do Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -10,29 +10,28 @@ ms.assetid: 5189f3d8-2a4c-4dc8-ab19-11c7df0114d4
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 0f339984a9db1a337f97e6db24571004cc34f679
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb06c1c5db20f3216c5c8e81580e445f9c0ba804
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60657650"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072604"
 ---
-# <a name="developer-portal-templates"></a>Modelos de portais de programador
+# <a name="developer-portal-templates"></a>Modelos do portal do desenvolvedor
 
-Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de páginas de portal de programador usando um conjunto de modelos que configurar o seu conteúdo. Usando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e o editor à sua escolha, tal como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de localizadas [recursos de cadeias de caracteres](api-management-template-resources.md#strings), [glifo recursos](api-management-template-resources.md#glyphs), e [controlos de página](api-management-page-controls.md), tem uma grande flexibilidade para configurar o conteúdo das páginas, conforme ache usá-los.  
+O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configuram seu conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como [DotLiquid para designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de [recursos de cadeia de caracteres](api-management-template-resources.md#strings)localizados, recursos de glifos e [controles de página](api-management-page-controls.md), você tem grande flexibilidade para configurar [](api-management-template-resources.md#glyphs) o conteúdo das páginas como você vê para se ajustar usando esses modelos.  
   
-Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de gestão de API através de modelos](api-management-developer-portal-templates.md).  
+Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do desenvolvedor de gerenciamento de API usando modelos](api-management-developer-portal-templates.md).  
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-##  <a name="DeveloperPortalTemplates"></a> Modelos de portais de programador  
+##  <a name="DeveloperPortalTemplates"></a>Modelos do portal do desenvolvedor  
   
 -   [APIs](api-management-api-templates.md)  
-    -   [Lista de API](api-management-api-templates.md#APIList)  
+    -   [Lista de APIs](api-management-api-templates.md#APIList)  
     -   [Operação](api-management-api-templates.md#Product)  
     -   [Exemplos de código](api-management-api-templates.md#CodeSamples)  
         -   [Curl](api-management-api-templates.md#Curl)  
@@ -45,23 +44,23 @@ Para obter mais informações sobre como trabalhar com modelos, consulte [como p
         -   [Ruby](api-management-api-templates.md#Ruby)  
 -   [Produtos](api-management-product-templates.md)  
     -   [Lista de produtos](api-management-product-templates.md#ProductList)  
-    -   [Produto](api-management-product-templates.md#Product)  
+    -   [Remessa](api-management-product-templates.md#Product)  
 -   [Aplicações](api-management-application-templates.md)  
     -   [Lista de aplicativos](api-management-application-templates.md#ProductList)  
     -   [Aplicação](api-management-application-templates.md#Application)  
 -   [Problemas](api-management-issue-templates.md)  
     -   [Lista de problemas](api-management-issue-templates.md#IssueList)  
--   [Perfil de utilizador](api-management-user-profile-templates.md)  
+-   [Perfil do usuário](api-management-user-profile-templates.md)  
     -   [Perfil](api-management-user-profile-templates.md#Profile)  
     -   [Subscrições](api-management-user-profile-templates.md#Subscriptions)  
     -   [Aplicações](api-management-user-profile-templates.md#Applications)  
-    -   [Atualizar as informações de conta](api-management-user-profile-templates.md#UpdateAccountInfo)  
+    -   [Atualizar informações da conta](api-management-user-profile-templates.md#UpdateAccountInfo)  
 -   [Páginas](api-management-page-templates.md)  
     -   [Iniciar sessão](api-management-page-templates.md#SignIn)  
     -   [Inscreva-se](api-management-page-templates.md#SignUp)  
     -   [Página não encontrada](api-management-page-templates.md#PageNotFound)
 
-## <a name="next-steps"></a>Passos Seguintes  
+## <a name="next-steps"></a>Passos seguintes  
 
 + [Referência de modelo](api-management-developer-portal-templates-reference.md)  
 + [Referência de modelo de dados](api-management-template-data-model-reference.md)  

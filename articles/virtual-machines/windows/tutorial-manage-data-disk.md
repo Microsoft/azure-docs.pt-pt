@@ -9,7 +9,6 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -17,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: b6098d6a8752737ef0bffaf35c8ba4b6e5223d22
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f44ea76ed22ab4feacc6ee37b165bbc33f7ddafc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707975"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101602"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial – Gerir discos do Azure com o Azure PowerShell
 
@@ -73,7 +72,7 @@ Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existent
 Defina o nome de utilizador e a palavra-passe necessários para a conta de administrador na máquina virtual com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 
-Criar a máquina virtual com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Será pedido para introduzir um nome de utilizador e palavra-passe para a conta de administradores para a VM.
+Crie a máquina virtual com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Será pedido para introduzir um nome de utilizador e palavra-passe para a conta de administradores para a VM.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -87,7 +86,7 @@ New-AzVm `
 ```
 
 
-Criar a configuração inicial com [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig). O exemplo a seguir configura um disco com 128 gigabytes.
+Crie a configuração inicial com [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig). O exemplo a seguir configura um disco com 128 gigabytes.
 
 ```azurepowershell-interactive
 $diskConfig = New-AzDiskConfig `
@@ -96,7 +95,7 @@ $diskConfig = New-AzDiskConfig `
     -DiskSizeGB 128
 ```
 
-Criar o disco de dados com o [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk) comando.
+Crie o disco de dados com o comando [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk) .
 
 ```azurepowershell-interactive
 $dataDisk = New-AzDisk `
@@ -105,13 +104,13 @@ $dataDisk = New-AzDisk `
     -Disk $diskConfig
 ```
 
-Coloque a máquina virtual que pretende adicionar o disco de dados com o [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) comando.
+Obtenha a máquina virtual à qual você deseja adicionar o disco de dados com o comando [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) .
 
 ```azurepowershell-interactive
 $vm = Get-AzVM -ResourceGroupName "myResourceGroupDisk" -Name "myVM"
 ```
 
-Adicionar o disco de dados para a configuração de máquina virtual com o [Add-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/add-azvmdatadisk) comando.
+Adicione o disco de dados à configuração da máquina virtual com o comando [Add-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/add-azvmdatadisk) .
 
 ```azurepowershell-interactive
 $vm = Add-AzVMDataDisk `
@@ -122,7 +121,7 @@ $vm = Add-AzVMDataDisk `
     -Lun 1
 ```
 
-Atualizar a máquina virtual com o [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/add-azvmdatadisk) comando.
+Atualize a máquina virtual com o comando [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/add-azvmdatadisk) .
 
 ```azurepowershell-interactive
 Update-AzVM -ResourceGroupName "myResourceGroupDisk" -VM $vm

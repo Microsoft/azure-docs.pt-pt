@@ -1,6 +1,6 @@
 ---
-title: Como gerir contas de utilizador na gestão de API do Azure | Documentos da Microsoft
-description: Saiba como criar ou convidar utilizadores na gestão de API do Azure
+title: Como gerenciar contas de usuário no gerenciamento de API do Azure | Microsoft Docs
+description: Saiba como criar ou convidar usuários no gerenciamento de API do Azure
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,70 +9,69 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: d9cc5da0cd2936c1ac79a308366b8164548cb202
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9de75b5537b3e267116882e7f151d893de575071
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241730"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072470"
 ---
-# <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Como gerir contas de utilizador na gestão de API do Azure
+# <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Como gerenciar contas de usuário no gerenciamento de API do Azure
 
-Na gestão de API, os desenvolvedores são os utilizadores das APIs que expõem a utilizar a API Management. Este guia mostra como criar e convidar desenvolvedores para utilizar as APIs e os produtos que disponibilizar-lhes com a instância de gestão de API. Para obter informações sobre como gerir contas de usuário por meio de programação, consulte a [entidade User](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user) documentação na [REST de gestão de API](/rest/api/apimanagement/) referência.
+No gerenciamento de API, os desenvolvedores são os usuários das APIs que você expõe usando o gerenciamento de API. Este guia mostra como criar e convidar os desenvolvedores para usarem as APIs e os produtos que você disponibiliza para eles com sua instância de gerenciamento de API. Para obter informações sobre como gerenciar contas de usuário programaticamente, consulte a documentação da [entidade de usuário](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user) na referência [REST do gerenciamento de API](/rest/api/apimanagement/) .
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Concluir as tarefas neste artigo: [Criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
+Conclua as tarefas neste artigo: [Crie uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-developer"> </a>Criar um novo Programador
+## <a name="create-developer"> </a>Criar um novo desenvolvedor
 
-Para adicionar um novo utilizador, siga os passos nesta secção:
+Para adicionar um novo usuário, siga as etapas nesta seção:
 
-1. Selecione o **utilizadores** separador à esquerda do ecrã.
-2. Prima **+ adicionar**.
-3. Introduza as informações apropriadas para o utilizador.
+1. Selecione a guia **usuários** à esquerda da tela.
+2. Pressione **+ Adicionar**.
+3. Insira as informações apropriadas para o usuário.
 4. Prima **Adicionar**.
 
     ![Adicionar um novo utilizador](./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png)
 
-Por predefinição, são contas de programador recém-criado **Active Directory**e associados a **os desenvolvedores** grupo. As contas de desenvolvedores que estão numa **Active Directory** Estado pode ser utilizado para aceder a todas as APIs para as quais têm subscrições. Para associar o desenvolvedor acabada de criar grupos adicionais, consulte [como associar grupos a programadores][How to associate groups with developers].
+Por padrão, as contas de desenvolvedor recém-criadas estão **ativas**e associadas ao grupo de **desenvolvedores** . As contas de desenvolvedor que estão em um estado **ativo** podem ser usadas para acessar todas as APIs para as quais elas têm assinaturas. Para associar o desenvolvedor recém-criado a grupos adicionais, consulte [como associar grupos a desenvolvedores][How to associate groups with developers].
 
 ## <a name="invite-developer"> </a>Convidar um desenvolvedor
-Para convidar um desenvolvedor, siga os passos nesta secção:
+Para convidar um desenvolvedor, siga as etapas nesta seção:
 
-1. Selecione o **utilizadores** separador à esquerda do ecrã.
-2. Prima **+ convidar**.
+1. Selecione a guia **usuários** à esquerda da tela.
+2. Pressione **+ convidar**.
 
-É apresentada uma mensagem de confirmação, mas o desenvolvedor recentemente convidado não aparece na lista até assim que aceitarem o convite. 
+Uma mensagem de confirmação é exibida, mas o desenvolvedor recentemente convidado não aparece na lista até depois de aceitar o convite. 
 
-Quando um desenvolvedor é convidado, é enviado um e-mail para o desenvolvedor. Este e-mail é gerado com um modelo e é personalizável. Para obter mais informações, consulte [configurar modelos de e-mail][Configure email templates].
+Quando um desenvolvedor é convidado, um email é enviado para o desenvolvedor. Esse email é gerado usando um modelo e é personalizável. Para obter mais informações, consulte [configurar modelos de email][Configure email templates].
 
-Depois do convite for aceita, a conta fica ativa.
+Depois que o convite for aceito, a conta ficará ativa.
 
-## <a name="block-developer"> </a> Desativar ou reativar uma conta de programador
+## <a name="block-developer"></a> Desativar ou reativar uma conta de desenvolvedor
 
-Por predefinição, são contas de programador recentemente criados ou convidados **Active Directory**. Para desativar uma conta de programador, clique em **bloco**. Para reativar uma conta de programador bloqueado, clique em **Activate**. Uma conta de programador bloqueado não é possível aceder ao portal de programador ou chamam nenhuma API. Para eliminar uma conta de utilizador, clique em **eliminar**.
+Por padrão, contas de desenvolvedor criadas recentemente ou convidadas estão **ativas**. Para desativar uma conta de desenvolvedor, clique em **Bloquear**. Para reativar uma conta de desenvolvedor bloqueada, clique em **Ativar**. Uma conta de desenvolvedor bloqueada não pode acessar o portal do desenvolvedor nem chamar APIs. Para excluir uma conta de usuário, clique em **excluir**.
 
-Para impedir um utilizador, siga os passos seguintes.
+Para bloquear um usuário, siga as etapas a seguir.
 
-1. Selecione o **utilizadores** separador à esquerda do ecrã.
-2. Clique no utilizador que pretende bloquear.
-3. Prima **bloco**.
+1. Selecione a guia **usuários** à esquerda da tela.
+2. Clique no usuário que você deseja bloquear.
+3. Pressione **Bloquear**.
 
-## <a name="reset-a-user-password"></a>Repor uma palavra-passe do utilizador
+## <a name="reset-a-user-password"></a>Redefinir uma senha de usuário
 
-Para trabalhar programaticamente com contas de utilizador, consulte a documentação de entidade de usuário na [API do REST de gestão de API](/rest/api/apimanagement/) referência. Para repor uma palavra-passe da conta de utilizador para um valor específico, pode utilizar o [atualizar um utilizador](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) operação e especifique a palavra-passe pretendida.
+Para trabalhar de forma programática com contas de usuário, consulte a documentação da entidade de usuário na referência da [API REST do gerenciamento de API](/rest/api/apimanagement/) . Para redefinir uma senha de conta de usuário para um valor específico, você pode usar a operação [atualizar um usuário](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) e especificar a senha desejada.
 
 ## <a name="next-steps"> </a>Passos seguintes
-Depois de criar uma conta de programador, pode associá-la com funções e subscrever produtos e APIs. Para obter mais informações, consulte [como criar e utilizar grupos][How to create and use groups].
+Depois que uma conta de desenvolvedor for criada, você poderá associá-la a funções e assiná-la a produtos e APIs. Para obter mais informações, consulte [como criar e usar grupos][How to create and use groups].
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png
 [api-management-add-new-user]: ./media/api-management-howto-create-or-invite-developers/api-management-add-new-user.png

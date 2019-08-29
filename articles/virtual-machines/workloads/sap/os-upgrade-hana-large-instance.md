@@ -7,19 +7,18 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa88e45f2523dd65c4f714bfeab1c0eda401d720
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 6341f58791c2fad71a65650e32cff02fb52d78c0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869157"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098686"
 ---
 # <a name="operating-system-upgrade"></a>Atualização do sistema operacional
 Este documento descreve os detalhes sobre atualizações do sistema operacional nas instâncias grandes do HANA.

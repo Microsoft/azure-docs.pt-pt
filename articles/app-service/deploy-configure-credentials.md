@@ -8,18 +8,17 @@ manager: jpconnoc
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 08/14/2019
 ms.author: cephalin
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 52bbc907d91dd4bf9066daf14d0d5de1b759b92f
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: fc9445b64baae0e625b62356fee381329b01e8fd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558548"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098486"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar credenciais de implantação para o serviço Azure App
 [Azure app serviço](https://go.microsoft.com/fwlink/?LinkId=529714) dá suporte a dois tipos de credenciais para implantação do [git local](deploy-local-git.md) e [implantação de FTP/S](deploy-ftp.md). Essas credenciais não são as mesmas que suas credenciais de assinatura do Azure.
@@ -85,6 +84,6 @@ Para obter as credenciais de nível de aplicativo:
 
 Para redefinir as credenciais de nível de aplicativo, selecione **Redefinir credenciais** na mesma caixa de diálogo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Descubra como usar essas credenciais para implantar seu aplicativo do [git local](deploy-local-git.md) ou usando [FTP/S](deploy-ftp.md).

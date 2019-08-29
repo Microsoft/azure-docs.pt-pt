@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 8d94716600305d3d2a567068fc719a83ce94c83d
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 7c4af8346b5da20c662b5549284a3540d08908f8
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69557804"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072931"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar o cliente Apache beeline com Apache Hive
 
@@ -88,7 +88,7 @@ beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportM
 Ao se conectar diretamente do nó principal do cluster ou de um recurso dentro da mesma rede virtual do Azure que o cluster HDInsight, `10002` a porta deve ser usada para o servidor Spark `10001`Thrift em vez de. O exemplo a seguir mostra como se conectar diretamente ao nó principal:
 
 ```bash
-beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
+/usr/hdp/current/spark2-client/bin/beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 ```
 
 ---
