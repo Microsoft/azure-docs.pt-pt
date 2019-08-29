@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 17ae6dc8d1d583e5223a64ee079731fa5d9dc63c
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 03d67249ef1d74844a7e9019e90f6331ecfdf0c3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902315"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102982"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configurar o gerenciamento de Lead para o Dynamics 365 for Customer Engagement
 
@@ -97,7 +97,7 @@ Use as etapas a seguir para configurar o Azure Active Directory do Dynamics 365 
 
     ![Adicionar permissões](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
-14. Depois de concluir as etapas de 1-13 no portal do Azure, navegue até o Dynamics 365 para a instância do engajamento do cliente navegando https://tenant.crm.dynamics.com) até a URL (como.
+14. Depois de concluir as etapas de 1-13 no portal do Azure, navegue até o Dynamics 365 para a instância do engajamento do cliente navegando `https://tenant.crm.dynamics.com`até a URL (como).
 15. Acesse as configurações selecionando o ícone de engrenagem e **Configurações avançadas** na barra de navegação superior.
 16. Uma vez na página configurações, acesse o menu configuração na barra de navegação superior e selecione **segurança**.
 17. Na página segurança, selecione **usuários**.  Na página usuários, selecione a lista suspensa "usuários habilitados" para alternar para **os usuários do aplicativo**.

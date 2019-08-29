@@ -1,6 +1,6 @@
 ---
-title: Implementar uma VM com c# e um modelo do Resource Manager | Documentos da Microsoft
-description: Saiba como utilizar c# e um modelo do Resource Manager para implementar uma VM do Azure.
+title: Implantar uma VM usando C# o e um modelo do Resource Manager | Microsoft Docs
+description: Saiba como usar C# o e um modelo do Resource Manager para implantar uma VM do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -11,53 +11,52 @@ ms.assetid: bfba66e8-c923-4df2-900a-0c2643b81240
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: a798f4b90057cd4220467cec4756ddda10fe456e
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 65ce7711786e15a5455d91ce829a3bc0bdf4317d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718716"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103235"
 ---
-# <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implementar a Máquina Virtual do Azure com c# e um modelo do Resource Manager
+# <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implantar uma máquina virtual do Azure C# usando o e um modelo do Resource Manager
 
-Este artigo mostra-lhe como implementar um modelo do Azure Resource Manager com c#. O modelo criado por si implementa uma única máquina virtual com o Windows Server numa rede virtual nova com uma única sub-rede.
+Este artigo mostra como implantar um modelo de Azure Resource Manager usando C#o. O modelo que você cria implanta uma única máquina virtual executando o Windows Server em uma nova rede virtual com uma única sub-rede.
 
-Para obter uma descrição detalhada do recurso de máquina virtual, consulte [máquinas virtuais num modelo Azure Resource Manager](template-description.md). Para obter mais informações sobre todos os recursos num modelo, consulte [instruções do modelo do Azure Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Para obter uma descrição detalhada do recurso de máquina virtual, consulte [máquinas virtuais em um modelo de Azure Resource Manager](template-description.md). Para obter mais informações sobre todos os recursos em um modelo, consulte [instruções passo a Azure Resource Manager do modelo](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-Demora cerca de 10 minutos para realizar estes passos.
+Leva cerca de 10 minutos para executar essas etapas.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
-Neste passo, certifique-se de que o Visual Studio esteja instalado e criar uma aplicação de consola utilizada para implementar o modelo.
+Nesta etapa, você verifica se o Visual Studio está instalado e cria um aplicativo de console usado para implantar o modelo.
 
-1. Se ainda não o fez, instale [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selecione **desenvolvimento no ambiente de trabalho .NET** na página de cargas de trabalho e, em seguida, clique **instalar**. Em resumo, pode ver que **ferramentas de desenvolvimento do .NET Framework 4 4.6** é selecionado automaticamente para. Se já tiver instalado o Visual Studio, pode adicionar a carga de trabalho do .NET com o Iniciador do Visual Studio.
+1. Se você ainda não fez isso, instale o [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selecione **.net desktop Development** na página cargas de trabalho e clique em **instalar**. No resumo, você pode ver que **.NET Framework ferramentas de desenvolvimento 4-4,6** são selecionadas automaticamente para você. Se você já tiver instalado o Visual Studio, poderá adicionar a carga de trabalho do .NET usando o iniciador do Visual Studio.
 2. No Visual Studio, clique em **Ficheiro** > **Novo** > **Projeto**.
-3. Na **modelos** > **em Visual C#** , selecione **aplicação de consola (.NET Framework)** , introduza *myDotnetProject* para o nome dos projeto, selecione a localização do projeto e, em seguida, clique em **OK**.
+3. No**Visual C#**  **modelos** > , selecione **aplicativo de console (.NET Framework)** , digite *myDotnetProject* para o nome do projeto, selecione o local do projeto e clique em **OK**.
 
 ## <a name="install-the-packages"></a>Instalar os pacotes
 
-Os pacotes de NuGet são a forma mais fácil de instalar as bibliotecas de que precisa para concluir estes passos. Para obter as bibliotecas que necessita no Visual Studio, execute estes passos:
+Os pacotes NuGet são a maneira mais fácil de instalar as bibliotecas necessárias para concluir essas etapas. Para obter as bibliotecas de que você precisa no Visual Studio, siga estas etapas:
 
-1. Clique em **ferramentas** > **Gestor de pacotes Nuget**e, em seguida, clique em **Package Manager Console**.
-2. Escreva os comandos seguintes na consola do:
+1. Clique em **ferramentas** > **Gerenciador de pacotes NuGet**e em **console do Gerenciador de pacotes**.
+2. Digite estes comandos no console:
 
     ```powershell
     Install-Package Microsoft.Azure.Management.Fluent
     Install-Package WindowsAzure.Storage
     ```
 
-## <a name="create-the-files"></a>Criar os ficheiros
+## <a name="create-the-files"></a>Criar os arquivos
 
-Neste passo, vai criar um ficheiro de modelo que implementa os recursos e um ficheiro de parâmetros que forneça os valores de parâmetro para o modelo. Também é criar um arquivo de autorização que é usado para executar operações do Azure Resource Manager.
+Nesta etapa, você cria um arquivo de modelo que implanta os recursos e um arquivo de parâmetros que fornece valores de parâmetro para o modelo. Você também cria um arquivo de autorização que é usado para executar operações de Azure Resource Manager.
 
-### <a name="create-the-template-file"></a>Criar o ficheiro de modelo
+### <a name="create-the-template-file"></a>Criar o arquivo de modelo
 
-1. No Solution Explorer, clique com botão direito *myDotnetProject* > **Add** > **Novo Item**e, em seguida, selecione **o arquivo de texto** no *Visual C# itens*. Nomeie o arquivo *CreateVMTemplate.json*e, em seguida, clique em **Add**.
-2. Adicione este código JSON para o ficheiro que criou:
+1. Em Gerenciador de soluções, clique com o botão direito do mouse em *myDotnetProject* > **Adicionar** > **novo item**e selecione **arquivo de texto** em *itens visuais C#* . Nomeie o arquivo *CreateVMTemplate. JSON*e clique em **Adicionar**.
+2. Adicione este código JSON ao arquivo que você criou:
 
     ```json
     {
@@ -162,14 +161,14 @@ Neste passo, vai criar um ficheiro de modelo que implementa os recursos e um fic
     }
     ```
 
-3. Guarde o ficheiro de CreateVMTemplate.json.
+3. Salve o arquivo CreateVMTemplate. JSON.
 
-### <a name="create-the-parameters-file"></a>Criar o ficheiro de parâmetros
+### <a name="create-the-parameters-file"></a>Criar o arquivo de parâmetros
 
-Para especificar valores para os parâmetros de recursos no modelo, crie um ficheiro de parâmetros que contém os valores.
+Para especificar valores para os parâmetros de recurso no modelo, você cria um arquivo de parâmetros que contém os valores.
 
-1. No Solution Explorer, clique com botão direito *myDotnetProject* > **Add** > **Novo Item**e, em seguida, selecione **o arquivo de texto** no *Visual C# itens*. Nomeie o arquivo *Parameters. JSON*e, em seguida, clique em **Add**.
-2. Adicione este código JSON para o ficheiro que criou:
+1. Em Gerenciador de soluções, clique com o botão direito do mouse em *myDotnetProject* > **Adicionar** > **novo item**e selecione **arquivo de texto** em *itens visuais C#* . Nomeie o arquivo *Parameters. JSON*e clique em **Adicionar**.
+2. Adicione este código JSON ao arquivo que você criou:
 
     ```json
     {
@@ -182,13 +181,13 @@ Para especificar valores para os parâmetros de recursos no modelo, crie um fich
     }
     ```
 
-4. Guarde o ficheiro Parameters. JSON.
+4. Salve o arquivo Parameters. JSON.
 
-### <a name="create-the-authorization-file"></a>Criar o ficheiro de autorização
+### <a name="create-the-authorization-file"></a>Criar o arquivo de autorização
 
-Antes de poder implementar um modelo, certifique-se de que tem acesso a uma [principal de serviço do Active Directory](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). Do principal de serviço, adquirir um token para autenticar pedidos para o Azure Resource Manager. Também deve gravar o ID da aplicação, a chave de autenticação e o ID de inquilino que necessita no ficheiro de autorização.
+Antes de implantar um modelo, verifique se você tem acesso a uma entidade de [serviço Active Directory](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). Da entidade de serviço, você adquire um token para autenticar solicitações para Azure Resource Manager. Você também deve registrar a ID do aplicativo, a chave de autenticação e a ID do locatário necessários no arquivo de autorização.
 
-1. No Solution Explorer, clique com botão direito *myDotnetProject* > **Add** > **Novo Item**e, em seguida, selecione **o arquivo de texto** no *Visual C# itens*. Nomeie o arquivo *azureauth.properties*e, em seguida, clique em **Add**.
+1. Em Gerenciador de soluções, clique com o botão direito do mouse em *myDotnetProject* > **Adicionar** > **novo item**e selecione **arquivo de texto** em *itens visuais C#* . Nomeie o arquivo *azureauth. Properties*e clique em **Adicionar**.
 2. Adicione estas propriedades de autorização:
 
     ```
@@ -202,10 +201,10 @@ Antes de poder implementar um modelo, certifique-se de que tem acesso a uma [pri
     graphURL=https://graph.windows.net/
     ```
 
-    Substitua **&lt;id da subscrição&gt;** com o identificador de subscrição **&lt;id da aplicação&gt;** com o aplicativo do Active Directory Identificador, **&lt;chave de autenticação&gt;** com a chave da aplicação, e **&lt;id do inquilino&gt;** com o identificador do inquilino.
+    **&lt;&gt;** Substitua **&lt;Subscription-ID&gt;** pelo seu identificador de assinatura, ID do aplicativo pelo identificador do aplicativo Active Directory, **&lt;chave de autenticação com&gt;** a chave do aplicativo e  **&lt;a ID&gt; do locatário** com o identificador do locatário.
 
-3. Guarde o ficheiro de azureauth.properties.
-4. Conjunto de que uma variável de ambiente no Windows com o nome AZURE_AUTH_LOCATION com o caminho completo para o ficheiro de autorização que criou, por exemplo pode utilizar o seguinte comando do PowerShell:
+3. Salve o arquivo azureauth. Properties.
+4. Defina uma variável de ambiente no Windows chamada AZURE_AUTH_LOCATION com o caminho completo para o arquivo de autorização que você criou, por exemplo, você pode usar o seguinte comando do PowerShell:
 
     ```powershell
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
@@ -213,9 +212,9 @@ Antes de poder implementar um modelo, certifique-se de que tem acesso a uma [pri
 
     
 
-## <a name="create-the-management-client"></a>Criar o cliente de gestão
+## <a name="create-the-management-client"></a>Criar o cliente de gerenciamento
 
-1. Abra o ficheiro Program.cs para o projeto que criou. Em seguida, adicioná-las com instruções para as instruções existentes na parte superior do ficheiro:
+1. Abra o arquivo Program.cs para o projeto que você criou. Em seguida, adicione essas instruções using às instruções existentes na parte superior do arquivo:
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -227,7 +226,7 @@ Antes de poder implementar um modelo, certifique-se de que tem acesso a uma [pri
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
 
-2. Para criar o cliente de gestão, adicione este código ao método Main:
+2. Para criar o cliente de gerenciamento, adicione este código ao método principal:
 
     ```csharp
     var credentials = SdkContext.AzureCredentialsFactory
@@ -242,7 +241,7 @@ Antes de poder implementar um modelo, certifique-se de que tem acesso a uma [pri
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Para especificar valores para a aplicação, adicione código ao método Main:
+Para especificar valores para o aplicativo, adicione o código ao método Main:
 
 ```csharp
 var groupName = "myResourceGroup";
@@ -255,7 +254,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-O modelo e parâmetros são implementados a partir de uma conta de armazenamento no Azure. Neste passo, cria a conta e carregar os ficheiros. 
+O modelo e os parâmetros são implantados de uma conta de armazenamento no Azure. Nesta etapa, você cria a conta e carrega os arquivos. 
 
 Para criar a conta, adicione este código ao método Main:
 
@@ -295,9 +294,9 @@ paramblob.UploadFromFileAsync("..\\..\\Parameters.json").Result();
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Implemente o modelo e parâmetros da conta de armazenamento que foi criado. 
+Implante o modelo e os parâmetros da conta de armazenamento que foi criada. 
 
-Para implementar o modelo, adicione este código ao método Main:
+Para implantar o modelo, adicione este código ao método Main:
 
 ```csharp
 var templatePath = "https://" + storageAccountName + ".blob.core.windows.net/templates/CreateVMTemplate.json";
@@ -314,9 +313,9 @@ Console.ReadLine();
 
 ## <a name="delete-the-resources"></a>Eliminar os recursos
 
-Uma vez que lhe é cobrados os recursos utilizados no Azure, é sempre boa prática para eliminar os recursos que já não são necessários. Não precisa de eliminar cada recurso separadamente a partir de um grupo de recursos. Elimine o grupo de recursos e todos os recursos serão eliminados automaticamente. 
+Como você é cobrado pelos recursos usados no Azure, é sempre uma boa prática excluir os recursos que não são mais necessários. Você não precisa excluir cada recurso separadamente de um grupo de recursos. Exclua o grupo de recursos e todos os seus recursos serão excluídos automaticamente. 
 
-Para eliminar o grupo de recursos, adicione este código ao método Main:
+Para excluir o grupo de recursos, adicione este código ao método Main:
 
 ```csharp
 azure.ResourceGroups.DeleteByName(groupName);
@@ -324,13 +323,13 @@ azure.ResourceGroups.DeleteByName(groupName);
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Deve demorar cerca de cinco minutos para esta aplicação de consola executar totalmente do início ao fim. 
+Deve levar cerca de cinco minutos para que esse aplicativo de console seja executado completamente do início ao fim. 
 
-1. Para executar a aplicação de consola, clique em **iniciar**.
+1. Para executar o aplicativo de console, clique em **Iniciar**.
 
-2. Antes de premir **Enter** para iniciar a eliminação de recursos, pode demorar alguns minutos para verificar a criação de recursos no portal do Azure. Clique no estado de implementação para ver informações sobre a implementação.
+2. Antes de pressionar **Enter** para iniciar a exclusão de recursos, você pode levar alguns minutos para verificar a criação dos recursos no portal do Azure. Clique no status de implantação para ver informações sobre a implantação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Se ocorreram problemas com a implementação, o passo seguinte seria examinar [resolver erros comuns de implementação do Azure com o Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
-* Saiba como implementar uma máquina virtual e os respetivos recursos de suporte ao rever [implementar uma Azure Virtual Machine Using c#](csharp.md).
+* Se houver problemas com a implantação, uma próxima etapa será examinar a [solução de erros comuns de implantação do Azure com o Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+* Saiba como implantar uma máquina virtual e seus recursos de suporte examinando [implantar uma máquina virtual do Azure C#usando ](csharp.md)o.

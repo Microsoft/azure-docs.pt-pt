@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: apimpm
-ms.openlocfilehash: a2d71330dcdac7054b20e0a6222b542fd8815705
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: b96cfe9813eef9caf1f1f21e43470a23c7032cb1
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849578"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072128"
 ---
 # <a name="import-an-openapi-specification"></a>Importar uma especificação de OpenAPI
 
@@ -36,7 +35,7 @@ Neste artigo, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua o início rápido seguinte: [crie uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
+Conclua o início rápido a seguir: [crie uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -57,7 +56,7 @@ Conclua o início rápido seguinte: [crie uma instância da Gestão de API do Az
     |**Descrição**|Forneça uma descrição opcional da API.|Se premir o separador depois de introduzir o URL do serviço, a APIM irá preencher este campo com base no que está no json.|
     |**Sufixo do URL da API**|*conferência*|O sufixo é anexado ao URL base do serviço Gestão de API. A Gestão de API distingue as APIs pelo respetivo sufixo, pelo que cada API tem de ter o seu sufixo exclusivo para um determinado editor.|
     |**Esquema do URL**|*HTTPS*|Determina que protocolos podem ser utilizados para aceder à API. |
-    |**Produtos**|*Ilimitado*| Associe a API a um produto e publique-a. Para adicionar opcionalmente esta nova API a um produto, escreva o nome do produto. Este passo pode ser repetido múltiplas vezes para adicionar a API a vários produtos.<br/>Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos por predefinição.<br/> Por predefinição, cada instância daAPI Management é fornecida com dois produtos de exemplo: **Starter** e **ilimitado**. |
+    |**Produtos**|*Ilimitado*| Associe a API a um produto e publique-a. Para adicionar opcionalmente esta nova API a um produto, escreva o nome do produto. Este passo pode ser repetido múltiplas vezes para adicionar a API a vários produtos.<br/>Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos por predefinição.<br/> Por predefinição, cada instância daAPI Management é fornecida com dois produtos de exemplo: **Iniciador** e **ilimitado**. |
 
 4. Selecione **Criar**.
 
@@ -68,7 +67,7 @@ Conclua o início rápido seguinte: [crie uma instância da Gestão de API do Az
 
 As operações podem ser chamadas diretamente a partir do Portal do Azure, que fornece um meio cómodo para ver e testar as operações de uma API.
 
-![Testar a API](./media/api-management-get-started/01-import-first-api-01.png)
+![Testar API](./media/api-management-get-started/01-import-first-api-01.png)
 
 1. Selecione a API que criou no passo anterior.
 2. Prima o separador **Teste**.

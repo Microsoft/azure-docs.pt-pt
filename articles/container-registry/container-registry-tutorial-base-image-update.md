@@ -6,15 +6,15 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 06/12/2019
+ms.date: 08/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7cd278143ffe482cb51f76b1019413e97a777a3a
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 23b0990be7f215d9cc443c5549ae38de86826d17
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981821"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114621"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: Automatizar compilações de imagem de contêiner quando uma imagem base é atualizada em um registro de contêiner do Azure 
 
@@ -72,7 +72,16 @@ Quando uma imagem de base é atualizada, será necessário recompilar todas as i
 
 ### <a name="tasks-triggered-by-a-base-image-update"></a>Tarefas disparadas por uma atualização de imagem base
 
-* Atualmente, para compilações de imagem de um Dockerfile, uma tarefa ACR detecta dependências em imagens base no mesmo registro de contêiner do Azure, um repositório público do Hub do Docker ou um repositório público no registro de contêiner da Microsoft. Se a imagem base especificada na `FROM` instrução residir em um desses locais, a tarefa ACR adicionará um gancho para garantir que a imagem seja recriada sempre que sua base for atualizada.
+* Para compilações de imagem de um Dockerfile, uma tarefa ACR detecta dependências em imagens base nos seguintes locais:
+
+  * O mesmo registro de contêiner do Azure em que a tarefa é executada
+  * Outro registro de contêiner do Azure na mesma região 
+  * Um repositório público no Hub do Docker 
+  * Um repositório público no registro de contêiner da Microsoft
+
+   Se a imagem base especificada na `FROM` instrução residir em um desses locais, a tarefa ACR adicionará um gancho para garantir que a imagem seja recriada sempre que sua base for atualizada.
+
+* Atualmente, as tarefas de ACR rastreiam apenas atualizações de imagem base para imagens de aplicativo (*tempo de execução*). Ele não rastreia atualizações de imagem base para imagensintermediárias (buildtime) usadas em Dockerfiles de vários estágios.  
 
 * Quando você cria uma tarefa ACR com o comando [AZ ACR Task Create][az-acr-task-create] , por padrão, a tarefa é *habilitada* para o gatilho por uma atualização de imagem de base. Ou seja, a `base-image-trigger-enabled` propriedade é definida como true. Se você quiser desabilitar esse comportamento em uma tarefa, atualize a propriedade para false. Por exemplo, execute o seguinte comando [AZ ACR Task Update][az-acr-task-update] :
 
@@ -262,7 +271,7 @@ az group delete --resource-group $RES_GROUP
 az ad sp delete --id http://$ACR_NAME-pull
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a utilizar uma tarefa para acionar automaticamente compilações da imagem de contentor quando a imagem de base é atualizada. Agora, pode avançar para saber mais sobre a autenticação do registo do contentor.
 

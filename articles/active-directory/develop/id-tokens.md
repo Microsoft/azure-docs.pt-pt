@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 08/27/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85145d4a81eb4d12910758e01dda675ea378a46b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 4968d1acbccca9c2c46b4bbb6f0853b82e8d7f71
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853184"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074267"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de ID da plataforma Microsoft Identity
 
@@ -30,7 +30,7 @@ ms.locfileid: "68853184"
 
 ## <a name="using-the-id_token"></a>Usando o id_token
 
-Os tokens de ID devem ser usados para validar que um usuário é quem alega ser e obter informações úteis adicionais sobre eles – ele não deve ser usado para autorização no lugar de um [token de acesso](access-tokens.md). As declarações fornecidas por ele podem ser usadas para UX dentro de seu aplicativo, recriação de um banco de dados e fornecimento de acesso ao aplicativo cliente.
+Os tokens de ID devem ser usados para validar que um usuário é quem alega ser e obter informações úteis adicionais sobre eles – ele não deve ser usado para autorização no lugar de um [token de acesso](access-tokens.md). As declarações fornecidas por ele podem ser usadas para UX dentro de seu aplicativo, como chaves em um banco de dados e para fornecer acesso ao aplicativo cliente.  Ao criar chaves para um banco de `idp` dados, o não deve ser usado porque ele bagunça os cenários de convidado.  O chaveamento deve ser feito `sub` sozinho (que é sempre exclusivo), com `tid` o usado para roteamento, se necessário.  Se você precisar compartilhar dados entre `oid` serviços, `sub` + + o funcionará, pois vários serviços são os mesmos `oid`. `tid`
 
 ## <a name="claims-in-an-id_token"></a>Declarações em um id_token
 

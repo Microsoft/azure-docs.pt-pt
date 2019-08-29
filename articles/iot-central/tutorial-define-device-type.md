@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: fd3ec276fdc95ad326d14a5b21e8ab793b154080
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: db9f7e75af01ed83c39ef3a37ab2612426ef6ea4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875770"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099611"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo em seu aplicativo de IoT Central do Azure
 
@@ -49,7 +49,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial, precisa de uma aplicação do Azure IoT Central. Se concluiu o início rápido [Criar uma aplicação do Azure IoT Central](quick-deploy-iot-central.md), pode reutilizar a aplicação que criou no início rápido. Caso contrário, execute os seguintes passos para criar uma aplicação do Azure IoT Central vazia:
 
-1. Navegue para a página do [Gestor de Aplicações](https://aka.ms/iotcentral) do Azure IoT Central.
+1. Navegue até o site [do Azure IOT central Application Manager](https://aka.ms/iotcentral) .
 
 2. Introduza o endereço de e-mail e a palavra-passe que utiliza para aceder à sua subscrição do Azure:
 
@@ -57,7 +57,7 @@ Para concluir este tutorial, precisa de uma aplicação do Azure IoT Central. Se
 
 3. Para começar a criar um novo aplicativo de IoT Central do Azure, selecione **novo aplicativo**:
 
-    ![Página do Gestor de Aplicações do Azure IoT Central](./media/tutorial-define-device-type/iotcentralhome.png)
+    ![Página do Gerenciador de aplicativos do IoT Central do Azure](./media/tutorial-define-device-type/iotcentralhome.png)
 
 4. Para criar uma nova aplicação do Azure IoT Central:
     
@@ -439,7 +439,7 @@ Agora que você definiu seu modelo de dispositivo de **ar-condicionado conectado
 
     ![Ver dashboard](./media/tutorial-define-device-type/dashboard.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

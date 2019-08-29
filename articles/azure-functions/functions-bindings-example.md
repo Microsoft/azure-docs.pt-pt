@@ -1,29 +1,28 @@
 ---
-title: Exemplo do Azure de Acionador e associação de funções
+title: Exemplo de gatilho e Associação de Azure Functions
 description: Saiba como configurar associações de função do Azure
 services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: bced6dc71063b6be68d739ef67fb5ec46c3d1be6
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d1959792823e04cf34d65ab775ae8c51e741e293
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480444"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097476"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Exemplo do Azure de Acionador e associação de funções
+# <a name="azure-functions-trigger-and-binding-example"></a>Exemplo de gatilho e Associação de Azure Functions
 
-Este artigo demonstra como configurar uma [acionador e os enlaces](./functions-triggers-bindings.md) numa função do Azure.
+Este artigo demonstra como configurar um [gatilho e associações](./functions-triggers-bindings.md) em uma função do Azure.
 
-Suponha que queira escrever uma nova linha para o armazenamento de tabelas do Azure, sempre que uma nova mensagem aparece no armazenamento de filas do Azure. Este cenário pode ser implementado usando uma fila do Azure enlace de saída de Acionador do armazenamento e um armazenamento de tabelas do Azure. 
+Suponha que você deseja gravar uma nova linha no armazenamento de tabelas do Azure sempre que uma nova mensagem aparecer no armazenamento de filas do Azure. Esse cenário pode ser implementado usando um gatilho de armazenamento de filas do Azure e uma associação de saída do armazenamento de tabelas do Azure. 
 
-Aqui está uma *Function* ficheiros para este cenário. 
+Aqui está um arquivo *Function. JSON* para esse cenário. 
 
 ```json
 {
@@ -46,18 +45,18 @@ Aqui está uma *Function* ficheiros para este cenário.
 }
 ```
 
-O primeiro elemento no `bindings` matriz é o acionador do armazenamento de fila. O `type` e `direction` propriedades identificar o acionador. O `name` propriedade identifica o parâmetro de função que recebe o conteúdo da mensagem de fila. O nome da fila para monitorizar está `queueName`, e a cadeia de ligação é na definição da aplicação identificada pelo `connection`.
+O primeiro elemento na `bindings` matriz é o gatilho de armazenamento de fila. As `type` propriedades `direction` e identificam o gatilho. A `name` propriedade identifica o parâmetro de função que recebe o conteúdo da mensagem de fila. O nome da fila a ser monitorada está `queueName`, e a cadeia de conexão está na configuração do aplicativo identificada por. `connection`
 
-O segundo elemento no `bindings` matriz é o armazenamento de tabelas do Azure enlace de saída. O `type` e `direction` propriedades identificar o enlace. O `name` propriedade especifica como a função fornece a nova linha de tabela, neste caso, utilizando a função devolver o valor. O nome da tabela está `tableName`, e a cadeia de ligação é na definição da aplicação identificada pelo `connection`.
+O segundo elemento na `bindings` matriz é a associação de saída do armazenamento de tabelas do Azure. As `type` propriedades `direction` e identificam a associação. A `name` propriedade especifica como a função fornece a nova linha da tabela, nesse caso, usando o valor de retorno da função. O nome da tabela está em `tableName`e a cadeia de conexão está na configuração do aplicativo identificada por. `connection`
 
-Para ver e editar o conteúdo de *Function* no portal do Azure, clique nas **editor avançado** opção os **integrar** separador da sua função.
+Para exibir e editar o conteúdo de *Function. JSON* no portal do Azure, clique na opção **Editor avançado** na guia **integrar** da sua função.
 
 > [!NOTE]
-> O valor de `connection` é o nome de uma definição de aplicação que contém a cadeia de ligação, não a cadeia de ligação em si. Enlaces de ligação de utilizar cadeias de caracteres nas definições da aplicação para impor a melhor prática que *Function* não contém segredos de serviço.
+> O valor de `connection` é o nome de uma configuração de aplicativo que contém a cadeia de conexão, não a própria cadeia de conexão. As associações usam cadeias de conexão armazenadas nas configurações do aplicativo para impor a prática recomendada que o *Function. JSON* não contém segredos de serviço.
 
-## <a name="c-script-example"></a>Exemplo de script do c#
+## <a name="c-script-example"></a>C#exemplo de script
 
-Aqui está o script código c# que funciona com este acionador e a associação. Tenha em atenção que o nome do parâmetro que fornece o conteúdo da mensagem de fila é `order`; este nome é necessário porque o `name` valor da propriedade nas *Function* é `order` 
+Aqui está C# o código de script que funciona com esse gatilho e associação. Observe que o nome do parâmetro que fornece o conteúdo da mensagem da fila `order`é; esse nome é necessário porque `name` o valor da propriedade em *Function. JSON* é`order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -87,7 +86,7 @@ public class Person
 
 ## <a name="javascript-example"></a>Exemplo de JavaScript
 
-O mesmo *Function* ficheiro pode ser utilizado com uma função de JavaScript:
+O mesmo arquivo *Function. JSON* pode ser usado com uma função JavaScript:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -105,9 +104,9 @@ function generateRandomId() {
 }
 ```
 
-## <a name="class-library-example"></a>Exemplo de biblioteca de classe
+## <a name="class-library-example"></a>Exemplo de biblioteca de classes
 
-Numa biblioteca de classes, o mesmo acionador e informações de enlace &mdash; parâmetros de entrada e saída de função de nomes de tabela e fila, contas de armazenamento, &mdash; é fornecido por atributos em vez de um ficheiro de Function. Segue-se um exemplo:
+Em uma biblioteca de classes, a mesma fila de informações &mdash; de gatilho e associação e nomes de tabela, contas de armazenamento, parâmetros &mdash; de função para entrada e saída são fornecidos por atributos em vez de um arquivo function. JSON. Segue-se um exemplo:
 
 ```csharp
 public static class QueueTriggerTableOutput
@@ -135,9 +134,9 @@ public class Person
 }
 ```
 
-Agora tem uma função de trabalho que é acionada por fila do Azure e produz dados para o armazenamento de tabelas do Azure.
+Agora você tem uma função funcional que é disparada por uma fila do Azure e gera dados para o armazenamento de tabelas do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Funções do Azure, padrões de expressões de enlace](./functions-bindings-expressions-patterns.md)
+> [Padrões de expressão de associação de Azure Functions](./functions-bindings-expressions-patterns.md)

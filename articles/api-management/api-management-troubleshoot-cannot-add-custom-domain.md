@@ -9,18 +9,17 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
-ms.openlocfilehash: 7aaf29ddf52fb07524aa972f12ca18c235a40928
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 30dfd864c6c237024c72325da813691ac5043bd0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68351365"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072098"
 ---
-# <a name="failed-to-update-api-management-service-hostnames"></a>Falha ao atualizar os nomes de anfitrião do serviço de Gestão de API
+# <a name="failed-to-update-api-management-service-hostnames"></a>Falha ao atualizar os nomes de host do serviço de gerenciamento de API
 
 Este artigo descreve o erro "falha ao atualizar nomes de host de serviço de gerenciamento de API" que você pode experimentar ao adicionar um domínio personalizado para o serviço de gerenciamento de API do Azure. Este artigo fornece etapas de solução de problemas para ajudá-lo a resolver o problema.
 
@@ -38,7 +37,7 @@ O serviço de gerenciamento de API não tem permissão para acessar o cofre de c
 
 Para resolver este problema, siga estes passos:
 
-1. Vá para a [portal do Azure](Https://portal.azure.com), selecione sua instância de gerenciamento de API e, em seguida, selecione identidades gerenciadas. Verifique se a opção **registrar com Azure Active Directory** está definida como **Sim**. 
+1. Vá para a [portal do Azure](Https://portal.azure.com), selecione sua instância de gerenciamento de API e,em seguida, selecione identidades gerenciadas. Verifique se a opção **registrar com Azure Active Directory** está definida como **Sim**. 
     ![Registrando com o Azure active Director](./media/api-management-troubleshoot-cannot-add-custom-domain/register-with-aad.png)
 1. No portal do Azure, abra o serviço de cofres de **chaves** e selecione o cofre de chaves que você está tentando usar para o domínio personalizado.
 1. Selecione **políticas de acesso**e verifique se há uma entidade de serviço que corresponda ao nome da instância do serviço de gerenciamento de API. Se houver, selecione a entidade de serviço e verifique se ela tem a permissão **obter** listada em **permissões secretas**.  

@@ -7,17 +7,16 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 44d6311246ab303966b7cfd8bee854b1c017f85d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 60c8505b8180a60eed114deb4cd2b11f32c8baa4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107130"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096811"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Criar uma função acionada pelo Armazenamento de filas do Azure
 
@@ -43,7 +42,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 ## <a name="create-a-queue-triggered-function"></a>Criar uma função acionada por Fila
 
-1. Expanda a aplicação de funções e clique no botão **+**, junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
+1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
 
    ![Página de início rápido das funções no portal do Azure](./media/functions-create-storage-queue-triggered-function/function-app-quickstart-choose-portal.png)
 
@@ -63,7 +62,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
     | Definição | Valor sugerido | Descrição |
     |---|---|---|
-    | **Nome** | Exclusivo na aplicação Function App | O nome desta função acionada por fila. |
+    | **Name** | Exclusivo na aplicação Function App | O nome desta função acionada por fila. |
     | **Nome da fila**   | myqueue-items    | O nome da fila à qual ligar na sua conta de Armazenamento. |
     | **Ligação da conta de armazenamento** | AzureWebJobStorage | Pode utilizar a ligação da conta de armazenamento que já está a ser utilizada pela sua aplicação Function App ou criar uma nova.  |    
 
@@ -115,7 +114,7 @@ Agora que tem uma fila de armazenamento, pode adicionar uma mensagem à mesma pa
 
 Criou uma função que é executada quando uma mensagem é adicionada a uma fila de armazenamento. Para obter mais informações sobre os acionadores do Armazenamento de filas, veja [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md) (Enlaces da fila de Armazenamento das Funções do Azure).
 
-Agora que tem um criada sua primeira função, vamos adicionar um enlace de saída para a função que escreve uma mensagem de volta para outra fila.
+Agora que você criou sua primeira função, vamos adicionar uma associação de saída à função que grava uma mensagem de volta em outra fila.
 
 > [!div class="nextstepaction"]
 > [Add messages to an Azure Storage queue using Functions](functions-integrate-storage-queue-output-binding.md) (Utilizar as Funções para adicionar mensagens a uma fila do Armazenamento do Azure)

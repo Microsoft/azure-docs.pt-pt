@@ -1,6 +1,6 @@
 ---
-title: Modelos de API na gestão de API do Azure | Documentos da Microsoft
-description: Saiba como personalizar o conteúdo das páginas da API no portal do programador na gestão de API do Azure.
+title: Modelos de API no gerenciamento de API do Azure | Microsoft Docs
+description: Saiba como personalizar o conteúdo das páginas de API no portal do desenvolvedor no gerenciamento de API do Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -10,24 +10,23 @@ ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e8519bf436e1af19a22a840f48bf1bfccdae99b2
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 9d75dff413e7b6e61d38b95e08bf9c891b583014
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341262"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073828"
 ---
-# <a name="api-templates-in-azure-api-management"></a>Modelos de API na gestão de API do Azure
+# <a name="api-templates-in-azure-api-management"></a>Modelos de API no gerenciamento de API do Azure
 
-Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de páginas de portal de programador usando um conjunto de modelos que configurar o seu conteúdo. Usando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e o editor à sua escolha, tal como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de localizadas [recursos de cadeias de caracteres](api-management-template-resources.md#strings), [glifo recursos](api-management-template-resources.md#glyphs), e [controlos de página](api-management-page-controls.md), tem uma grande flexibilidade para configurar o conteúdo das páginas, conforme ache usá-los.  
+O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configuram seu conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como [DotLiquid para designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de [recursos de cadeia de caracteres](api-management-template-resources.md#strings)localizados, recursos de glifos e [controles de página](api-management-page-controls.md), você tem grande flexibilidade para configurar [](api-management-template-resources.md#glyphs) o conteúdo das páginas como você vê para se ajustar usando esses modelos.  
   
-Os modelos nesta secção permitem-lhe personalizar o conteúdo das páginas da API no portal do programador.  
+Os modelos nesta seção permitem que você personalize o conteúdo das páginas de API no portal do desenvolvedor.  
   
--   [Lista de API](#APIList)  
+-   [Lista de APIs](#APIList)  
 -   [Operação](#Product)  
 -   [Exemplos de código](#CodeSamples)  
     -   [Curl](#Curl)  
@@ -40,14 +39,14 @@ Os modelos nesta secção permitem-lhe personalizar o conteúdo das páginas da 
     -   [Ruby](#Ruby)  
 
 > [!NOTE]
->  Modelos predefinidos de exemplo estão incluídos na documentação do seguinte, mas estão sujeitas a alterações devido a melhorias contínuas. Pode ver os modelos predefinidos em direto no portal do programador ao navegar para os modelos individuais pretendidos. Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de gestão de API através de modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Os modelos padrão de exemplo estão incluídos na documentação a seguir, mas estão sujeitos a alterações devido a melhorias contínuas. Você pode exibir os modelos padrão ao vivo no portal do desenvolvedor navegando até os modelos individuais desejados. Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do desenvolvedor de gerenciamento de API usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-## <a name="APIList"></a> Lista de API  
- O **lista de API** modelo permite-lhe personalizar o corpo da página de lista de API no portal do programador.  
+## <a name="APIList"></a>Lista de APIs  
+ O modelo de **lista de API** permite que você personalize o corpo da página de lista de API no portal do desenvolvedor.  
   
- ![Lista de APIS de Portal do programador](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "lista de APIS de modelos de portais de programador APIM")  
+ ![Lista de APIs do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Lista de API de modelos do APIM Developer portal")  
   
 ### <a name="default-template"></a>Modelo predefinido  
   
@@ -80,7 +79,7 @@ Os modelos nesta secção permitem-lhe personalizar o conteúdo das páginas da 
 ```  
   
 ### <a name="controls"></a>Controlos  
- O `API list` modelo pode usar o seguinte procedimento [controlos de página](api-management-page-controls.md).  
+ O `API list` modelo pode usar os seguintes [controles de página](api-management-page-controls.md).  
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
   
@@ -90,7 +89,7 @@ Os modelos nesta secção permitem-lhe personalizar o conteúdo das páginas da 
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|`apis`|Coleção de [resumo de API](api-management-template-data-model-reference.md#APISummary) entidades.|As APIs visíveis ao utilizador atual.|  
+|`apis`|Coleção de entidades de [Resumo de API](api-management-template-data-model-reference.md#APISummary) .|As APIs são visíveis para o usuário atual.|  
   
 ### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
@@ -112,10 +111,10 @@ Os modelos nesta secção permitem-lhe personalizar o conteúdo das páginas da 
 }  
 ```  
   
-## <a name="Product"></a> Operação  
- O **operação** modelo permite-lhe personalizar o corpo da página de operação no portal do programador.  
+## <a name="Product"></a>Operacional  
+ O modelo de **operação** permite que você personalize o corpo da página de operação no portal do desenvolvedor.  
   
- ![Página de operação do Portal do programador](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "página de operação de modelos do Portal do Programador de APIM")  
+ ![Página de operação do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Página de operação de modelos do portal do desenvolvedor do APIM")  
   
 ### <a name="default-template"></a>Modelo predefinido  
   
@@ -339,21 +338,21 @@ Os modelos nesta secção permitem-lhe personalizar o conteúdo das páginas da 
 ```  
   
 ### <a name="controls"></a>Controlos  
- O `Operation` modelo não permite o uso de qualquer [controlos de página](api-management-page-controls.md).  
+ O `Operation` modelo não permite o uso de nenhum [controle de página](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|`apiId`|string|O ID da API atual.|  
-|`apiName`|string|O nome da API.|  
-|`apiDescription`|string|Uma descrição da API.|  
-|`api`|[Resumo da API](api-management-template-data-model-reference.md#APISummary) entidade.|A API atual.|  
-|`operation`|[Operação](api-management-template-data-model-reference.md#Operation)|A operação atualmente exibida.|  
-|`sampleUrl`|string|O URL para a operação atual.|  
+|`apiId`|Cadeia de caracteres|A ID da API atual.|  
+|`apiName`|Cadeia de caracteres|O nome da API.|  
+|`apiDescription`|Cadeia de caracteres|Uma descrição da API.|  
+|`api`|Entidade de [Resumo da API](api-management-template-data-model-reference.md#APISummary) .|A API atual.|  
+|`operation`|[Operação](api-management-template-data-model-reference.md#Operation)|A operação exibida no momento.|  
+|`sampleUrl`|Cadeia de caracteres|A URL para a operação atual.|  
 |`operationMenu`|[Menu de operação](api-management-template-data-model-reference.md#Menu)|Um menu de operações para esta API.|  
-|`consoleUrl`|URI|O URI para o **experimente** botão.|  
-|`samples`|Coleção de [exemplo de código](api-management-template-data-model-reference.md#Sample) entidades.|Os exemplos de código para a operação atual....|  
+|`consoleUrl`|URI|O URI para o botão **try** .|  
+|`samples`|Coleção de entidades de [exemplo de código](api-management-template-data-model-reference.md#Sample) .|Os exemplos de código para a operação atual..|  
   
 ### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
@@ -642,10 +641,10 @@ Os modelos nesta secção permitem-lhe personalizar o conteúdo das páginas da 
 }  
 ```  
   
-## <a name="CodeSamples"></a> Exemplos de código  
- Os seguintes modelos permitem-lhe personalizar o corpo dos exemplos de código individuais na página de operação.  
+## <a name="CodeSamples"></a>Exemplos de código  
+ Os modelos a seguir permitem que você personalize o corpo dos exemplos de código individuais na página de operação.  
   
- ![Exemplos de código de modelos do Portal do programador](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "exemplos de código de modelos de Portal de Programador de APIM")  
+ ![Exemplos de código de modelos do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Exemplos de código de modelos do portal do desenvolvedor APIM")  
   
 -   [Curl](#Curl)  
   
@@ -663,8 +662,8 @@ Os modelos nesta secção permitem-lhe personalizar o conteúdo das páginas da 
   
 -   [Ruby](#Ruby)  
   
-### <a name="Curl"></a> Curl  
- O **DocumentationSamplesCurl** modelo permite-lhe personalizar esse código de exemplo na secção de exemplos de código da página de operação.  
+### <a name="Curl"></a>Curl  
+ O modelo **DocumentationSamplesCurl** permite que você personalize esse exemplo de código na seção de exemplos de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo predefinido  
   
@@ -682,10 +681,10 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 ```  
   
 #### <a name="controls"></a>Controlos  
- Os modelos de exemplo de código não permitem o uso de qualquer [controlos de página](api-management-page-controls.md).  
+ Os modelos de exemplo de código não permitem o uso de nenhum [controle de página](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modelo de dados  
- [Exemplo de código](api-management-template-data-model-reference.md#Sample) entidade.  
+ Entidade de [exemplo de código](api-management-template-data-model-reference.md#Sample) .  
   
 #### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
@@ -717,7 +716,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 ```  
   
 ### <a name="CSharp"></a> C#  
- O **DocumentationSamplesCsharp** modelo permite-lhe personalizar esse código de exemplo na secção de exemplos de código da página de operação.  
+ O modelo **DocumentationSamplesCsharp** permite que você personalize esse exemplo de código na seção de exemplos de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo predefinido  
   
@@ -861,10 +860,10 @@ namespace CSHttpClientSample
 ```  
   
 #### <a name="controls"></a>Controlos  
- Os modelos de exemplo de código não permitem o uso de qualquer [controlos de página](api-management-page-controls.md).  
+ Os modelos de exemplo de código não permitem o uso de nenhum [controle de página](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modelo de dados  
- [Exemplo de código](api-management-template-data-model-reference.md#Sample) entidade.  
+ Entidade de [exemplo de código](api-management-template-data-model-reference.md#Sample) .  
   
 #### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
@@ -896,7 +895,7 @@ namespace CSHttpClientSample
 ```  
   
 ### <a name="Stub"></a> Java  
- O **DocumentationSamplesJava** modelo permite-lhe personalizar esse código de exemplo na secção de exemplos de código da página de operação.  
+ O modelo **DocumentationSamplesJava** permite que você personalize esse exemplo de código na seção de exemplos de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo predefinido  
   
@@ -957,10 +956,10 @@ public class JavaSample
 ```  
   
 #### <a name="controls"></a>Controlos  
- Os modelos de exemplo de código não permitem o uso de qualquer [controlos de página](api-management-page-controls.md).  
+ Os modelos de exemplo de código não permitem o uso de nenhum [controle de página](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modelo de dados  
- [Exemplo de código](api-management-template-data-model-reference.md#Sample) entidade.  
+ Entidade de [exemplo de código](api-management-template-data-model-reference.md#Sample) .  
   
 #### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
@@ -992,7 +991,7 @@ public class JavaSample
 ```  
   
 ### <a name="JavaScript"></a> JavaScript  
- O **DocumentationSamplesJs** modelo permite-lhe personalizar esse código de exemplo na secção de exemplos de código da página de operação.  
+ O modelo **DocumentationSamplesJs** permite que você personalize esse exemplo de código na seção de exemplos de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo predefinido  
   
@@ -1046,10 +1045,10 @@ public class JavaSample
 ```  
   
 #### <a name="controls"></a>Controlos  
- Os modelos de exemplo de código não permitem o uso de qualquer [controlos de página](api-management-page-controls.md).  
+ Os modelos de exemplo de código não permitem o uso de nenhum [controle de página](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modelo de dados  
- [Exemplo de código](api-management-template-data-model-reference.md#Sample) entidade.  
+ Entidade de [exemplo de código](api-management-template-data-model-reference.md#Sample) .  
   
 #### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
@@ -1080,8 +1079,8 @@ public class JavaSample
 }  
 ```  
   
-### <a name="ObjectiveC"></a> Objetivo C  
- O **DocumentationSamplesObjc** modelo permite-lhe personalizar esse código de exemplo na secção de exemplos de código da página de operação.  
+### <a name="ObjectiveC"></a>Objetivo C  
+ O modelo **DocumentationSamplesObjc** permite que você personalize esse exemplo de código na seção de exemplos de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo predefinido  
   
@@ -1158,10 +1157,10 @@ int main(int argc, const char * argv[])
 ```  
   
 #### <a name="controls"></a>Controlos  
- Os modelos de exemplo de código não permitem o uso de qualquer [controlos de página](api-management-page-controls.md).  
+ Os modelos de exemplo de código não permitem o uso de nenhum [controle de página](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modelo de dados  
- [Exemplo de código](api-management-template-data-model-reference.md#Sample) entidade.  
+ Entidade de [exemplo de código](api-management-template-data-model-reference.md#Sample) .  
   
 #### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
@@ -1193,7 +1192,7 @@ int main(int argc, const char * argv[])
 ```  
   
 ### <a name="PHP"></a> PHP  
- O **DocumentationSamplesPhp** modelo permite-lhe personalizar esse código de exemplo na secção de exemplos de código da página de operação.  
+ O modelo **DocumentationSamplesPhp** permite que você personalize esse exemplo de código na seção de exemplos de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo predefinido  
   
@@ -1248,10 +1247,10 @@ catch (HttpException $ex)
 ```  
   
 #### <a name="controls"></a>Controlos  
- Os modelos de exemplo de código não permitem o uso de qualquer [controlos de página](api-management-page-controls.md).  
+ Os modelos de exemplo de código não permitem o uso de nenhum [controle de página](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modelo de dados  
- [Exemplo de código](api-management-template-data-model-reference.md#Sample) entidade.  
+ Entidade de [exemplo de código](api-management-template-data-model-reference.md#Sample) .  
   
 #### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
@@ -1282,8 +1281,8 @@ catch (HttpException $ex)
 }  
 ```  
   
-### <a name="Python"></a> Python  
- O **DocumentationSamplesPython** modelo permite-lhe personalizar esse código de exemplo na secção de exemplos de código da página de operação.  
+### <a name="Python"></a>Python  
+ O modelo **DocumentationSamplesPython** permite que você personalize esse exemplo de código na seção de exemplos de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo predefinido  
   
@@ -1366,10 +1365,10 @@ except Exception as e:
 ```
   
 #### <a name="controls"></a>Controlos  
- Os modelos de exemplo de código não permitem o uso de qualquer [controlos de página](api-management-page-controls.md).  
+ Os modelos de exemplo de código não permitem o uso de nenhum [controle de página](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modelo de dados  
- [Exemplo de código](api-management-template-data-model-reference.md#Sample) entidade.  
+ Entidade de [exemplo de código](api-management-template-data-model-reference.md#Sample) .  
   
 #### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
@@ -1400,8 +1399,8 @@ except Exception as e:
 }  
 ```  
   
-### <a name="Ruby"></a> Ruby  
- O **DocumentationSamplesRuby** modelo permite-lhe personalizar esse código de exemplo na secção de exemplos de código da página de operação.  
+### <a name="Ruby"></a>Rubi  
+ O modelo **DocumentationSamplesRuby** permite que você personalize esse exemplo de código na seção de exemplos de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo predefinido  
   
@@ -1437,10 +1436,10 @@ puts response.body
 ```  
   
 #### <a name="controls"></a>Controlos  
- Os modelos de exemplo de código não permitem o uso de qualquer [controlos de página](api-management-page-controls.md).  
+ Os modelos de exemplo de código não permitem o uso de nenhum [controle de página](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modelo de dados  
- [Exemplo de código](api-management-template-data-model-reference.md#Sample) entidade.  
+ Entidade de [exemplo de código](api-management-template-data-model-reference.md#Sample) .  
   
 #### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
@@ -1472,4 +1471,4 @@ puts response.body
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de gestão de API através de modelos](api-management-developer-portal-templates.md).
+Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do desenvolvedor de gerenciamento de API usando modelos](api-management-developer-portal-templates.md).

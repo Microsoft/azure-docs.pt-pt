@@ -1,6 +1,6 @@
 ---
-title: Criar uma VM do Azure gerido a partir de um VHD generalizado no local | Documentos da Microsoft
-description: Carregar um VHD generalizado para o Azure e utilizá-lo para criar novas VMs, no modelo de implementação do Resource Manager.
+title: Criar uma VM do Azure gerenciada a partir de um VHD local generalizado | Microsoft Docs
+description: Carregue um VHD generalizado no Azure e use-o para criar novas VMs no modelo de implantação do Gerenciador de recursos.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -11,67 +11,66 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 9846bf7b28f1205f98eb59671553d309fe754d30
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: be3ccfd0c562763d0968398ddb042dc5f07dbdcf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707941"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101566"
 ---
-# <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carregar um VHD generalizado e utilizá-lo para criar novas VMs no Azure
+# <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carregar um VHD generalizado e usá-lo para criar novas VMs no Azure
 
-Este artigo orienta-o através da utilização do PowerShell para carregar um VHD de uma VM generalizada no Azure, criar uma imagem de VHD e criar uma nova VM a partir dessa imagem. Pode carregar um VHD exportado a partir de uma ferramenta de virtualização no local ou de outra cloud. Usando [Managed Disks](managed-disks-overview.md) para a nova VM simplifica o gerenciamento de VM e fornece a melhor disponibilidade quando a VM é colocada no conjunto de disponibilidade. 
+Este artigo explica como usar o PowerShell para carregar um VHD de uma VM generalizada para o Azure, criar uma imagem do VHD e criar uma nova VM a partir dessa imagem. Você pode carregar um VHD exportado de uma ferramenta de virtualização local ou de outra nuvem. O uso de [Managed disks](managed-disks-overview.md) para a nova VM simplifica o gerenciamento de VM e fornece melhor disponibilidade quando a VM é colocada em um conjunto de disponibilidade. 
 
-Para um script de exemplo, consulte [exemplo de script para carregar um VHD para o Azure e criar uma nova VM](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md).
+Para obter um script de exemplo, consulte [script de exemplo para carregar um VHD no Azure e criar uma nova VM](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-- Antes de carregar qualquer VHD para o Azure, deve seguir [preparar um VHD do Windows ou o VHDX para carregar para o Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Revisão [planear a migração para os Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) antes de iniciar a migração para o [Managed Disks](managed-disks-overview.md).
+- Antes de carregar qualquer VHD no Azure, você deve seguir [preparar um VHD do Windows ou VHDX para carregar no Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Examine [o plano para a migração para Managed disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) antes de iniciar a migração para [Managed disks](managed-disks-overview.md).
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
-## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalizar a VM de origem utilizando o Sysprep
+## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalizar a VM de origem usando o Sysprep
 
 O Sysprep remove todas as suas informações de conta pessoal, entre outras coisas, e prepara a máquina para ser utilizada como uma imagem. Para obter detalhes sobre o Sysprep, consulte a [visão geral do Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Certifique-se de que as funções de servidor em execução na máquina são suportadas pelo Sysprep. Para obter mais informações, consulte [suporte de Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
+Verifique se as funções de servidor em execução no computador têm suporte pelo Sysprep. Para obter mais informações, consulte [suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 > [!IMPORTANT]
-> Se pretender executar o Sysprep antes de carregar o VHD para o Azure pela primeira vez, certifique-se de que tem [preparou a sua VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+> Se você planeja executar o Sysprep antes de carregar o VHD no Azure pela primeira vez, verifique se você [preparou sua VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 > 
 > 
 
-1. Inicie sessão para a máquina virtual do Windows.
-2. Abra a janela da Linha de Comandos como administrador. Altere o diretório para % windir%\system32\sysprep e, em seguida, execute `sysprep.exe`.
-3. Na **ferramenta System Preparation** caixa de diálogo, selecione **Enter System Out-of-Box Experience (OOBE)** e certifique-se de que o **Generalize** caixa de verificação está ativada.
-4. Para **opções de encerramento**, selecione **encerramento**.
+1. Entre na máquina virtual do Windows.
+2. Abra a janela da Linha de Comandos como administrador. Altere o diretório para%WINDIR%\system32\sysprep e execute `sysprep.exe`.
+3. Na caixa de diálogo **ferramenta de preparação do sistema** , selecione entrar no **OOBE (experiência inicial do sistema)** e verifique se a caixa de seleção generalizar está habilitada.
+4. Para **Opções**de desligamento, selecione **desligar**.
 5. Selecione **OK**.
    
-    ![Inicie Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Quando Sysprep estiver concluída, encerra a máquina virtual. Não reinicie a VM.
+    ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
+6. Quando o Sysprep é concluído, ele desliga a máquina virtual. Não reinicie a VM.
 
 
-## <a name="get-a-storage-account"></a>Obtenha uma conta de armazenamento
+## <a name="get-a-storage-account"></a>Obter uma conta de armazenamento
 
-Precisará de uma conta de armazenamento no Azure para armazenar a imagem VM carregada. Pode utilizar uma conta de armazenamento existente ou crie um novo. 
+Você precisará de uma conta de armazenamento no Azure para armazenar a imagem de VM carregada. Você pode usar uma conta de armazenamento existente ou criar uma nova. 
 
-Se usará o VHD para criar um disco gerido para uma VM, a localização da conta de armazenamento tem de ser a mesma localização onde irá criar a VM.
+Se você estiver usando o VHD para criar um disco gerenciado para uma VM, o local da conta de armazenamento deverá ser o mesmo local em que você criará a VM.
 
-Para mostrar as contas de armazenamento disponível, introduza:
+Para mostrar as contas de armazenamento disponíveis, digite:
 
 ```azurepowershell
 Get-AzStorageAccount | Format-Table
 ```
 
-## <a name="upload-the-vhd-to-your-storage-account"></a>Carregar o VHD para a conta de armazenamento
+## <a name="upload-the-vhd-to-your-storage-account"></a>Carregar o VHD em sua conta de armazenamento
 
-Utilize o [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet para carregar o VHD para um contentor na conta de armazenamento. Este exemplo carrega o ficheiro *myVHD.vhd* partir *discos rígidos de C:\Users\Public\Documents\Virtual\\*  para uma conta de armazenamento com o nome *mystorageaccount* no o *myResourceGroup* grupo de recursos. O ficheiro será colocado no contentor com o nome *mycontainer* e o novo nome de ficheiro serão *myUploadedVHD.vhd*.
+Use o cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) para carregar o VHD em um contêiner em sua conta de armazenamento. Este exemplo carrega o arquivo *myVHD. vhd* de *\\ discos rígidos C:\Users\Public\Documents\Virtual* para uma conta de armazenamento chamada *mystorageaccount* no grupo de recursos MyResource Group. O arquivo será colocado no contêiner chamado MyContainer e o novo nome de arquivo será *myUploadedVHD. vhd*.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -81,7 +80,7 @@ Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
 ```
 
 
-Se tiver êxito, receberá uma resposta que é semelhante a este:
+Se for bem-sucedido, você receberá uma resposta semelhante a esta:
 
 ```powershell
 MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
@@ -95,39 +94,39 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 ```
 
-Dependendo da sua ligação de rede e o tamanho do ficheiro VHD, este comando pode demorar algum tempo a concluir.
+Dependendo da sua conexão de rede e do tamanho do arquivo VHD, esse comando pode demorar um pouco para ser concluído.
 
 ### <a name="other-options-for-uploading-a-vhd"></a>Outras opções para carregar um VHD
  
-Também pode carregar um VHD para a sua conta de armazenamento através de um dos seguintes procedimentos:
+Você também pode carregar um VHD para sua conta de armazenamento usando um dos seguintes:
 
 - [AZCopy](https://aka.ms/downloadazcopy)
-- [Blob de cópia de armazenamento do Azure API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-- [Blobs de carregar o Explorador de armazenamento do Azure](https://azurestorageexplorer.codeplex.com/)
-- [Referência da API do REST do armazenamento de importação/exportação serviço](https://msdn.microsoft.com/library/dn529096.aspx)
--   Recomendamos que utilize o serviço importar/exportar se estimado tempo a carregar tem mais de sete dias. Pode usar [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) estimar o tempo da unidade de tamanho e a transferência de dados. 
-    Importação/exportação pode ser utilizada para copiar para uma conta de armazenamento standard. Terá de copiar do armazenamento standard para a conta de armazenamento premium com uma ferramenta como o AzCopy.
+- [API do blob de cópia do armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd894037.aspx)
+- [Gerenciador de Armazenamento do Azure carregar BLOBs](https://azurestorageexplorer.codeplex.com/)
+- [Referência da API REST do serviço de importação/exportação do armazenamento](https://msdn.microsoft.com/library/dn529096.aspx)
+-   É recomendável usar o serviço de importação/exportação se o tempo de carregamento estimado for maior que sete dias. Você pode usar [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) para estimar o tempo do tamanho dos dados e da unidade de transferência. 
+    A importação/exportação pode ser usada para copiar para uma conta de armazenamento padrão. Você precisará copiar do armazenamento Standard para a conta de armazenamento Premium usando uma ferramenta como AzCopy.
 
 > [!IMPORTANT]
-> Se estiver a utilizar o AzCopy para carregar o VHD para o Azure, certifique-se de que definiu [ **/BlobType:page** ](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs#upload-a-file) antes de executar o script de carregamento. Se o destino é um blob e esta opção não for especificada, por predefinição, o AzCopy cria um blob de blocos.
+> Se você estiver usando o AzCopy para carregar o VHD no Azure, certifique-se de ter definido [ **/BlobType: Page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs#upload-a-file) antes de executar o script de carregamento. Se o destino for um blob e essa opção não for especificada, por padrão, o AzCopy criará um blob de blocos.
 > 
 > 
 
 
 
-## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Criar uma imagem gerida a partir do VHD carregado 
+## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Criar uma imagem gerenciada do VHD carregado 
 
-Crie uma imagem gerida a partir de seu VHD do SO generalizado. Substitua os seguintes valores com as suas próprias informações.
+Crie uma imagem gerenciada do seu VHD de so generalizado. Substitua os seguintes valores por suas próprias informações.
 
 
-Em primeiro lugar, defina alguns parâmetros:
+Primeiro, defina alguns parâmetros:
 
 ```powershell
 $location = "East US" 
 $imageName = "myImage"
 ```
 
-Crie a imagem com o VHD do SO generalizado.
+Crie a imagem usando o VHD do sistema operacional generalizado.
 
 ```powershell
 $imageConfig = New-AzImageConfig `
@@ -147,7 +146,7 @@ New-AzImage `
 
 ## <a name="create-the-vm"></a>Crie a VM
 
-Agora que tem uma imagem, pode criar uma ou mais VMs novas a partir da imagem. Este exemplo cria uma VM com o nome *myVM* partir *myImage*, na *myResourceGroup*.
+Agora que tem uma imagem, pode criar uma ou mais VMs novas a partir da imagem. Este exemplo cria uma VM chamada *myVM* apartir de MyImage, no MyResource.
 
 
 ```powershell
@@ -166,5 +165,5 @@ New-AzVm `
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Inicie sessão na sua nova máquina virtual. Para obter mais informações, consulte [como ligar e iniciar sessão a uma máquina virtual do Azure a executar o Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Entre em sua nova máquina virtual. Para obter mais informações, consulte [como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 

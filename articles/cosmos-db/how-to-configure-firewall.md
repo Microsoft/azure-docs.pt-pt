@@ -3,15 +3,15 @@ title: Configurar um firewall IP para sua conta de Azure Cosmos DB
 description: Saiba como configurar as políticas de controle de acesso IP para o suporte de firewall em contas do Azure Cosmos.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: ee9a686060fd712e9a1f14058ce7db325aaedffd
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 534f64b19adb29a0ff7811c50c9698ca33d6966f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615361"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093547"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurar o firewall IP no Azure Cosmos DB
 
@@ -189,7 +189,7 @@ Habilite o log de diagnóstico em sua conta de Azure Cosmos DB. Esses logs mostr
 As solicitações de uma sub-rede em uma rede virtual que tem um ponto de extremidade de serviço para Azure Cosmos DB habilitadas enviam a rede virtual e a identidade de sub-rede para Azure Cosmos DB contas. Essas solicitações não têm o IP público da origem, portanto, os filtros IP as rejeitam. Para permitir o acesso de sub-redes específicas em redes virtuais, adicione uma lista de controle de acesso conforme descrito em [como configurar a rede virtual e o acesso baseado em sub-rede para sua conta de Azure Cosmos DB](how-to-configure-vnet-service-endpoint.md). Pode levar até 15 minutos para que as regras de firewall sejam aplicadas.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para configurar um ponto de extremidade de serviço de rede virtual para sua conta de Azure Cosmos DB, consulte os seguintes artigos:
 

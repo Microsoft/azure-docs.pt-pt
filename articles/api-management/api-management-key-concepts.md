@@ -9,23 +9,22 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 3934dbb01c3b9f3219c5e649d97371850b8daadc
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230618"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073440"
 ---
 # <a name="about-api-management"></a>Acerca da Gestão de API
 
-Gestão de API (APIM) é uma forma de criar gateways de API consistentes e modernos para serviços de back-end existentes.
+O gerenciamento de API (APIM) é uma maneira de criar gateways de API modernos e consistentes para serviços de back-end existentes.
 
-Gestão de API ajuda as organizações a publicar APIs para externos, parceiros e programadores internos possam desbloquear o potencial dos seus dados e serviços. Um pouco por todo o lado, as empresas procuram expandir as suas operações como uma plataforma digital, criando novos canais, encontrando novos clientes e promovendo um envolvimento mais profundo com os clientes existentes. A Gestão de API fornece as competências essenciais para garantir um programa de API bem-sucedido através do envolvimento dos programadores, das informações de negócio, da análise, da segurança e da proteção. Pode utilizar a API Management do Azure para iniciar um programa de API totalmente funcional baseado em qualquer back-end.
+O gerenciamento de API ajuda as organizações a publicar APIs para desenvolvedores externos, parceiros e internos para desbloquear o potencial de seus dados e serviços. Um pouco por todo o lado, as empresas procuram expandir as suas operações como uma plataforma digital, criando novos canais, encontrando novos clientes e promovendo um envolvimento mais profundo com os clientes existentes. A Gestão de API fornece as competências essenciais para garantir um programa de API bem-sucedido através do envolvimento dos programadores, das informações de negócio, da análise, da segurança e da proteção. Pode utilizar a API Management do Azure para iniciar um programa de API totalmente funcional baseado em qualquer back-end.
 
 Este artigo apresenta uma descrição geral dos cenários comuns que envolvem a APIM.  Também fornece uma breve descrição geral dos componentes principais do sistema de APIM. O artigo, em seguida, apresenta uma descrição geral mais detalhada de cada componente.
 
@@ -61,7 +60,7 @@ O sistema é constituído pelos seguintes componentes:
   * Criar uma conta e subscrever para obter chaves de API.
   * Aceder a análises sobre a sua própria utilização.
 
-Para obter mais informações, consulte o [gestão de API baseada na nuvem: Tirar partido do poder das API](https://j.mp/ms-apim-whitepaper) documento técnico em PDF. Este documento técnico introdutório sobre a API Management da CITO Research abrange: 
+Para obter mais informações, consulte [gerenciamento de API baseado em nuvem: O aproveitamento do White Paper](https://j.mp/ms-apim-whitepaper) sobre o poder do APIs em PDF. Este documento técnico introdutório sobre a API Management da CITO Research abrange: 
  
  * Requisitos e desafios de API comuns
  * Desassociar APIs e apresentar fachadas
@@ -70,7 +69,7 @@ Para obter mais informações, consulte o [gestão de API baseada na nuvem: Tira
  * Análise e métricas
  * Obtenção de controlo e conhecimentos aprofundados com uma plataforma de API Management
  * Utilização de soluções em nuvem versus no local
- * API Management do Azure
+ * Gestão de API do Azure
  
 ## <a name="apis"> </a>APIs e operações
 As APIs são a base de uma instância de serviço de API Management. Cada API representa um conjunto de operações disponíveis para os programadores. Cada API contém uma referência ao serviço de back-end que implementa a API e as respetivas operações efetuam o mapeamento para as operações implementadas pelo serviço de back-end. As operações da API Management são altamente configuráveis, com controlo sobre o mapeamento de URL, parâmetros de caminho e consulta, conteúdo do pedido e da resposta e colocação em cache das respostas de operações. Também é possível implementar políticas de limite de taxa, quotas e restrição de IP ao nível da API ou da operação individual.
@@ -106,7 +105,7 @@ As políticas são uma funcionalidade poderosa da Gestão de API que permite ao 
 As expressões de política podem ser utilizadas como valores de atributo ou valores de texto em qualquer uma das políticas de API Management, a menos que a política especifique o contrário. Algumas políticas, como [Fluxo de controlo](/azure/api-management/api-management-advanced-policies#choose) e [Definir variável](/azure/api-management/api-management-advanced-policies#set-variable), baseiam-se em expressões de política. Para obter mais informações, veja [Políticas avançadas](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) e [Expressões de política](/azure/api-management/api-management-policy-expressions).
 
 
-Para obter uma lista completa das políticas de Gestão de API, consulte [Referência de política][Policy reference]. Para obter mais informações sobre como utilizar e configurar as políticas, consulte [Políticas de Gestão de API][API Management policies]. Para consultar um tutorial sobre a criação de um produto com políticas de limite de taxa e quota, consulte [Como criar e configurar definições de produto avançadas][How create and configure advanced product settings].
+Para obter uma lista completa das políticas de API Management, consulte [Referência de política][Policy reference]. Para obter mais informações sobre como utilizar e configurar as políticas, consulte [Políticas de API Management][API Management policies]. Para consultar um tutorial sobre a criação de um produto com políticas de limite de taxa e quota, consulte [Como criar e configurar definições de produto avançadas][How create and configure advanced product settings].
 
 
 ## <a name="developer-portal"> </a> Portal do programador
@@ -122,7 +121,7 @@ Para obter mais informações sobre a Gestão de API, veja a seguinte apresenta�
 > 
 > 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Conclua o guia de início rápido seguinte e comece a utilizar a Gestão de API do Azure:
 

@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff74db14a1621cdcea1b1ae082d351ce6a3a52f6
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 13beafe9a6937b0404a58d3508a9aba9892ac04d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227413"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073881"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização de Azure Active Directory Connect: Configurar o local de dados preferencial para os recursos do Office 365
 A finalidade deste tópico é orientá-lo sobre como configurar o atributo para o local de dados preferencial na sincronização do Azure Active Directory (Azure AD) Connect. Quando alguém usa recursos de várias regiões geográficas no Office 365, você usa esse atributo para designar a localização geográfica dos dados do Office 365 do usuário. (Os termos *região* e *geografia* são usados de maneira intercambiável.)
@@ -32,7 +32,7 @@ Por padrão, os recursos do Office 365 para seus usuários estão localizados na
 Ao definir o atributo **preferredDataLocation**, você pode definir a área geográfica de um usuário. Você pode ter os recursos do Office 365 do usuário, como a caixa de correio e o OneDrive, na mesma área geográfica que o usuário, e ainda ter um locatário para toda a organização.
 
 > [!IMPORTANT]
-> Várias regiões geográficas estão disponíveis no momento para clientes com um mínimo de 500 assinaturas de serviços do Office 365. Entre em contato com seu representante da Microsoft para obter detalhes.
+> Várias regiões geográficas estão disponíveis atualmente para clientes com um Enterprise Agreement ativo e um mínimo de 500 assinaturas de serviços do Office 365. Entre em contato com seu representante da Microsoft para obter detalhes.
 >
 >
 
@@ -99,7 +99,7 @@ Para evitar que alterações não intencionais sejam exportadas para o Azure AD,
 ## <a name="step-2-add-the-source-attribute-to-the-on-premises-active-directory-connector-schema"></a>Passo 2: Adicionar o atributo de origem ao esquema do conector de Active Directory local
 Nem todos os atributos do Azure AD são importados para o espaço do conector de Active Directory local. Se você tiver optado por usar um atributo que não é sincronizado por padrão, será necessário importá-lo. Para adicionar o atributo de origem à lista dos atributos importados:
 
-1. Selecione a  guia conectores na Synchronization Service Manager.
+1. Selecione a guia conectores na Synchronization Service Manager.
 2. Clique com o botão direito do mouse no conector de Active Directory local e selecione **Propriedades**.
 3. Na caixa de diálogo pop-up, vá para a guia **Selecionar atributos** .
 4. Verifique se o atributo de origem selecionado para uso está marcado na lista de atributos. Se você não vir seu atributo, marque a caixa de seleção **Mostrar tudo** .
@@ -110,7 +110,7 @@ Nem todos os atributos do Azure AD são importados para o espaço do conector de
 ## <a name="step-3-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>Passo 3: Adicionar **preferredDataLocation** ao esquema do Azure ad Connector
 Por padrão, o atributo **preferredDataLocation** não é importado para o espaço do conector do Azure AD. Para adicioná-lo à lista de atributos importados:
 
-1. Selecione a  guia conectores na Synchronization Service Manager.
+1. Selecione a guia conectores na Synchronization Service Manager.
 2. Clique com o botão direito do mouse no Azure AD Connector e selecione **Propriedades**.
 3. Na caixa de diálogo pop-up, vá para a guia **Selecionar atributos** .
 4. Selecione o atributo **preferredDataLocation** na lista.
@@ -126,14 +126,14 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 3. Para criar uma nova regra de entrada, selecione **Adicionar nova regra**.
 4. Na guia **Descrição** , forneça a seguinte configuração:
 
-    | Atributo | Valor | Detalhes |
+    | Atributo | Value | Detalhes |
     | --- | --- | --- |
-    | Nome | *Forneça um nome* | Por exemplo, "entrada do AD – usuário preferredDataLocation" |
+    | Name | *Forneça um nome* | Por exemplo, "entrada do AD – usuário preferredDataLocation" |
     | Descrição | *Forneça uma descrição personalizada* |  |
     | Sistema conectado | *Escolha o conector de Active Directory local* |  |
     | Tipo de objeto do sistema conectado | **Usuário** |  |
     | Tipo de objeto do metaverso | **Pessoa** |  |
-    | Tipo de link | **Associar** |  |
+    | Tipo de Ligação | **Associar** |  |
     | Precedência | *Escolha um número entre 1 e 99* | 1 a 99 é reservado para regras de sincronização personalizadas. Não escolha um valor que seja usado por outra regra de sincronização. |
 
 5. Mantenha o **filtro de escopo** vazio, para incluir todos os objetos. Talvez seja necessário ajustar o filtro de escopo de acordo com sua implantação de Azure AD Connect.
@@ -141,7 +141,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
     | Tipo de fluxo | Atributo de destino | Source | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
-    |Direct | preferredDataLocation | Escolha o atributo de origem | Desmarcada | Atualizar |
+    |Direto | preferredDataLocation | Escolha o atributo de origem | Desmarcada | Atualizar |
 
 7. Para criar a regra de entrada, selecione **Adicionar**.
 
@@ -155,14 +155,14 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 3. Selecione **Adicionar nova regra**.
 4. Na guia **Descrição** , forneça a seguinte configuração:
 
-    | Atributo | Valor | Detalhes |
+    | Atributo | Value | Detalhes |
     | ----- | ------ | --- |
-    | Nome | *Forneça um nome* | Por exemplo, "out to Azure AD – User preferredDataLocation" |
+    | Name | *Forneça um nome* | Por exemplo, "out to Azure AD – User preferredDataLocation" |
     | Descrição | *Forneça uma descrição* ||
     | Sistema conectado | *Selecione o conector do AD do Azure* ||
     | Tipo de objeto do sistema conectado | **Usuário** ||
     | Tipo de objeto do metaverso | **Pessoa** ||
-    | Tipo de link | **Associar** ||
+    | Tipo de Ligação | **Associar** ||
     | Precedência | *Escolha um número entre 1 e 99* | 1 a 99 é reservado para regras de sincronização personalizadas. Não escolha um valor que seja usado por outra regra de sincronização. |
 
 5. Vá para a guia **filtro de escopo** e adicione um único grupo de filtro de escopo com duas cláusulas:
@@ -178,7 +178,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     | Tipo de fluxo | Atributo de destino | Source | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
-    | Direct | preferredDataLocation | preferredDataLocation | Desmarcada | Atualizar |
+    | Direto | preferredDataLocation | preferredDataLocation | Desmarcada | Atualizar |
 
 7. Feche **Adicionar** para criar a regra de saída.
 
@@ -213,7 +213,7 @@ Em geral, o ciclo de sincronização completo é necessário. Isso ocorre porque
    2. Na caixa de diálogo, selecione **sincronização completa**e selecione **OK**.
    3. Aguarde a conclusão da operação.
 
-5. Verificar  exportações pendentes para o Azure AD:
+5. Verificar exportações pendentes para o Azure AD:
 
    1. Clique com o botão direito do mouse no **conector do Azure ad**e selecione **Pesquisar espaço do conector**.
    2. Na caixa de diálogo **Pesquisar espaço conector** :
@@ -238,7 +238,7 @@ Reabilitar o Agendador de sincronização interno:
 1. Inicie uma sessão do PowerShell.
 2. Habilite novamente a sincronização agendada executando este cmdlet:`Set-ADSyncScheduler -SyncCycleEnabled $true`
 
-## <a name="step-8-verify-the-result"></a>Etapa 8: Verificar o resultado
+## <a name="step-8-verify-the-result"></a>Passo 8: Verificar o resultado
 Agora é hora de verificar a configuração e habilitá-la para seus usuários.
 
 1. Adicione a área geográfica ao atributo selecionado em um usuário. A lista de áreas geográficas disponíveis pode ser encontrada nesta tabela.  

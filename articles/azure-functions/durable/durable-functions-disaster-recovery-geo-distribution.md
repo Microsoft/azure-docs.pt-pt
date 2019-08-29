@@ -1,93 +1,92 @@
 ---
-title: Recuperação após desastre e distribuição geográfica nas funções duráveis - Azure
-description: Saiba mais sobre a recuperação após desastre e distribuição geográfica nas funções durável.
+title: Recuperação de desastre e distribuição geográfica no Durable Functions-Azure
+description: Saiba mais sobre recuperação de desastres e distribuição geográfica no Durable Functions.
 services: functions
 author: MS-Santi
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1363dd3c620789b9f3c8ce1dbe0892ee61d66051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f242a16bc89e6b229efa42b88ebd20ca174e2516
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60741381"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098075"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Recuperação após desastre e distribuição geográfica
 
 ## <a name="overview"></a>Descrição geral
 
-Nas funções durável, todos os Estados são mantidos no armazenamento do Azure. R [hub tarefas](durable-functions-task-hubs.md) é um contentor lógico para os recursos de armazenamento do Azure que são utilizadas para orquestrações. As funções do Orchestrator e atividade só podem interagir entre si quando eles pertencem ao mesmo hub de tarefa.
-Os cenários descritos propor opções de implementação para aumentar a disponibilidade e minimizar o período de indisponibilidade durante as atividades de recuperação após desastre.
+Em Durable Functions, todos os Estados são persistidos no armazenamento do Azure. Um [Hub de tarefas](durable-functions-task-hubs.md) é um contêiner lógico para recursos de armazenamento do Azure que são usados para orquestrações. As funções de orquestrador e atividade só podem interagir umas com as outras quando pertencem ao mesmo Hub de tarefas.
+Os cenários descritos propõem opções de implantação para aumentar a disponibilidade e minimizar o tempo de inatividade durante as atividades de recuperação de desastre.
 
-É importante observar que esses cenários são com base nas configurações de ativo-passivo, uma vez que eles são orientados pela utilização do armazenamento do Azure. Este padrão consiste na implementação de uma aplicação de cópia de segurança de funções (passivo) para uma região diferente. O Gestor de tráfego irá monitorizar a aplicação de função (Active Directory) principal para disponibilidade. Ocorrerá uma falha ao longo para a aplicação de funções de cópia de segurança se primária falhar. Para obter mais informações, consulte [Gestor de tráfego](https://azure.microsoft.com/services/traffic-manager/)do [o método de encaminhamento de tráfego de prioridade.](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)
+É importante observar que esses cenários se baseiam em configurações ativas/passivas, pois são guiados pelo uso do armazenamento do Azure. Esse padrão consiste na implantação de um aplicativo de função de backup (passivo) em uma região diferente. O Gerenciador de tráfego irá monitorar o aplicativo de funções primário (ativo) para disponibilidade. Ele fará failover para o aplicativo de função de backup se o primário falhar. Para obter mais informações, consulte [método de roteamento de tráfego de prioridade](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) do [Gerenciador de tráfego](https://azure.microsoft.com/services/traffic-manager/).
 
 >[!NOTE]
 >
-> - A configuração ativa-passiva proposta garante que um cliente sempre é capaz de acionar novo orquestrações através de HTTP. No entanto, como consequência ter duas aplicações de funções partilham o mesmo armazenamento, processamento em segundo plano será distribuído entre os dois, competindo por mensagens em filas mesmo. Esta configuração incorre em custos de saída foi adicionado para a aplicação de função secundária.
-> - O hub de conta e tarefas de armazenamento subjacente são criadas na região primária e são partilhados por ambas as aplicações de função.
-> - Todas as aplicações de função adquiria implementadas, têm de partilhar as mesmas chaves de acesso de função no caso de ser ativado através de HTTP. O Runtime das funções expõe uma [gestão de API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) que permite que os consumidores através de programação para adicionar, eliminar e atualizar teclas de função.
+> - A configuração ativa-passiva proposta garante que um cliente sempre consiga disparar novas orquestrações via HTTP. No entanto, como consequência de ter dois aplicativos de função compartilhando o mesmo armazenamento, o processamento em segundo plano será distribuído entre ambos, competindo mensagens nas mesmas filas. Essa configuração incorre em custos de saída adicionais para o aplicativo de função secundário.
+> - A conta de armazenamento subjacente e o Hub de tarefas são criados na região primária e compartilhados por ambos os aplicativos de funções.
+> - Todos os aplicativos de funções que são implantados com redundância devem compartilhar as mesmas chaves de acesso de função no caso de serem ativados via HTTP. O tempo de execução do Functions expõe uma [API de gerenciamento](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) que permite aos consumidores adicionar, excluir e atualizar programaticamente as chaves de função.
 
-## <a name="scenario-1---load-balanced-compute-with-shared-storage"></a>Cenário 1 - com balanceamento de carga computação com armazenamento partilhado
+## <a name="scenario-1---load-balanced-compute-with-shared-storage"></a>Cenário 1-computação com balanceamento de carga com armazenamento compartilhado
 
-Se a infraestrutura de computação no Azure falhar, a aplicação de funções pode ficar indisponível. Para minimizar a possibilidade de tal tempo de inatividade, este cenário utiliza duas aplicações de funções implementadas em regiões diferentes.
-O Gestor de tráfego está configurado para detetar problemas na aplicação de função principal e redirecionar automaticamente o tráfego para a aplicação de funções na região secundária. Esta aplicação de função compartilha a mesma conta de armazenamento do Azure e o Hub de tarefa. Por conseguinte, o estado das aplicações de função não é perdido e trabalho pode ser retomar normalmente. Depois de restaurar o estado de funcionamento para a região primária, o Gestor de tráfego do Azure começará rotear as solicitações para essa aplicação de função automaticamente.
+Se a infraestrutura de computação no Azure falhar, o aplicativo de funções poderá ficar indisponível. Para minimizar a possibilidade de tal tempo de inatividade, esse cenário usa dois aplicativos de funções implantados em regiões diferentes.
+O Gerenciador de tráfego está configurado para detectar problemas no aplicativo de funções primário e redirecionar automaticamente o tráfego para o aplicativo de funções na região secundária. Esse aplicativo de funções compartilha a mesma conta de armazenamento do Azure e Hub de tarefas. Portanto, o estado dos aplicativos de função não é perdido e o trabalho pode retomar normalmente. Depois que a integridade for restaurada para a região primária, o Gerenciador de tráfego do Azure começará a rotear solicitações para esse aplicativo de função automaticamente.
 
-![Diagrama que mostra o cenário 1.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario01.png)
+![Diagrama mostrando o cenário 1.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario01.png)
 
-Há vários benefícios ao utilizar neste cenário de implementação:
+Há vários benefícios ao usar esse cenário de implantação:
 
-- Se falhar a infraestrutura de computação, o trabalho pode retomar a falharão ao longo da região sem perda de estado.
-- O Gestor de tráfego se encarrega da automática ativação pós-falha para a aplicação de função em bom estado automaticamente.
-- O Gestor de tráfego novamente a estabelece automaticamente o tráfego para a aplicação de função principal após a falha foi corrigida.
+- Se a infraestrutura de computação falhar, o trabalho poderá continuar na região de failover sem perda de estado.
+- O Gerenciador de tráfego cuida do failover automático para o aplicativo de função íntegro automaticamente.
+- O Gerenciador de tráfego restabelece automaticamente o tráfego para o aplicativo de funções primário depois que a interrupção é corrigida.
 
-No entanto, considere a utilização deste cenário:
+No entanto, ao usar esse cenário, considere:
 
-- Se a aplicação de função é implementada com um plano de serviço de aplicações dedicado, replicar a infraestrutura de computação no falhe ao longo do Centro de dados aumenta os custos.
-- Este cenário aborda as falhas na infraestrutura de computação, mas a conta de armazenamento continua a ser o ponto único de falha para a aplicação de função. Se houver uma falha no armazenamento, o aplicativo sofre um período de indisponibilidade.
-- Se a aplicação de funções é a ativação pós-falha, haverá uma maior latência, uma vez que ele irá acessar sua conta de armazenamento em várias regiões.
-- Acessando o serviço de armazenamento de uma região diferente, onde está localizado incorre num custo mais elevado devido ao tráfego de saída de rede.
-- Neste cenário depende no Gestor de tráfego. Considerando [como funciona o Gestor de tráfego](../../traffic-manager/traffic-manager-how-it-works.md), poderá ser algum tempo até que uma aplicação de cliente que consome uma função durável precisa consultar novamente o endereço de aplicação de função do Gestor de tráfego.
+- Se o aplicativo de funções for implantado usando um plano do serviço de aplicativo dedicado, a replicação da infraestrutura de computação no datacenter de failover aumentará os custos.
+- Esse cenário abrange interrupções na infraestrutura de computação, mas a conta de armazenamento continua a ser o ponto único de falha para o aplicativo de funções. Se houver uma interrupção de armazenamento, o aplicativo sofrerá um tempo de inatividade.
+- Se o aplicativo de funções passar por failover, haverá maior latência, pois ele acessará sua conta de armazenamento entre regiões.
+- O acesso ao serviço de armazenamento de uma região diferente na qual ele está localizado incorre em um custo maior devido ao tráfego de saída da rede.
+- Esse cenário depende do Gerenciador de tráfego. Considerando [como funciona o Gerenciador de tráfego](../../traffic-manager/traffic-manager-how-it-works.md), pode ser algum tempo até que um aplicativo cliente que consuma uma função durável precise consultar novamente o endereço do aplicativo de funções do Gerenciador de tráfego.
 
-## <a name="scenario-2---load-balanced-compute-with-regional-storage"></a>Cenário 2 - com balanceamento de carga computação com o armazenamento regional
+## <a name="scenario-2---load-balanced-compute-with-regional-storage"></a>Cenário 2-computação com balanceamento de carga com armazenamento regional
 
-O cenário anterior abrange apenas o caso de falha na infraestrutura de computação. Se o serviço de armazenamento falhar, irá resultar num período de indisponibilidade da aplicação de função.
-Para garantir a operação contínua das funções duráveis, este cenário utiliza uma conta de armazenamento local em cada região aos quais as aplicações de função são implementadas.
+O cenário anterior abrange apenas o caso de falha na infraestrutura de computação. Se o serviço de armazenamento falhar, isso resultará em uma interrupção do aplicativo de funções.
+Para garantir a operação contínua das funções duráveis, esse cenário usa uma conta de armazenamento local em cada região para a qual os aplicativos de funções são implantados.
 
-![Diagrama que mostra o cenário 2.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario02.png)
+![Diagrama mostrando o cenário 2.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario02.png)
 
-Esta abordagem adiciona melhorias no cenário anterior:
+Essa abordagem adiciona melhorias ao cenário anterior:
 
-- Se a aplicação de funções falhar, o Gestor de tráfego se encarrega de ativação pós-falha para a região secundária. No entanto, uma vez que a aplicação de funções de suporte de dados baseia-se na sua própria conta de armazenamento, as funções duráveis continuam a funcionar.
-- Durante uma ativação pós-falha, não existe nenhuma latência adicional no falhe ao longo de região, uma vez que a aplicação de funções e a conta de armazenamento estão localizadas conjuntamente.
-- Falha da camada de armazenamento irá causar falhas no funções duráveis, o que, por sua vez, irão acionar um redirecionamento para a ativação pós-falha região. Novamente, uma vez que a aplicação de função e armazenamento são isolados por região, as funções duráveis continuarão a funcionar.
+- Se o aplicativo de funções falhar, o Gerenciador de tráfego cuidará do failover para a região secundária. No entanto, como o aplicativo de funções depende de sua própria conta de armazenamento, as funções duráveis continuam a funcionar.
+- Durante um failover, não há nenhuma latência adicional na região de failover, pois o aplicativo de funções e a conta de armazenamento estão colocalizados.
+- A falha da camada de armazenamento causará falhas nas funções duráveis, que, por sua vez, disparará um redirecionamento para a região de failover. Novamente, como o aplicativo de funções e o armazenamento são isolados por região, as funções duráveis continuarão a funcionar.
 
 Considerações importantes para este cenário:
 
-- Se a aplicação de função é implementada com um plano de serviço de aplicações dedicado, replicar a infraestrutura de computação no falhe ao longo do Centro de dados aumenta os custos.
-- Estado atual não é efetuado a ativação pós-falha, que indica que a execução e as funções foi efetuada a verificação irão falhar. Cabe-lhe para a aplicação de cliente para o trabalho de repetição/reinicialização.
+- Se o aplicativo de funções for implantado usando um plano de AppService dedicado, a replicação da infraestrutura de computação no datacenter de failover aumentará os custos.
+- O estado atual não faz failover, o que implica que as funções de execução e ponto de verificação falharão. Cabe ao aplicativo cliente tentar novamente/reiniciar o trabalho.
 
-## <a name="scenario-3---load-balanced-compute-with-grs-shared-storage"></a>Cenário 3 - com balanceamento de carga computação com o armazenamento GRS partilhado
+## <a name="scenario-3---load-balanced-compute-with-grs-shared-storage"></a>Cenário 3-computação com balanceamento de carga com armazenamento compartilhado GRS
 
-Este cenário é uma modificação ao longo do primeiro cenário, a implementação de uma conta de armazenamento partilhado. A principal diferença que a conta de armazenamento é criada com georreplicação ativada.
-Funcionalmente, este cenário fornece as mesmas vantagens cenário 1, mas permite que as vantagens de recuperação de dados adicionais:
+Esse cenário é uma modificação no primeiro cenário, implementando uma conta de armazenamento compartilhado. A principal diferença de que a conta de armazenamento é criada com a replicação geográfica habilitada.
+Funcionalmente, esse cenário fornece as mesmas vantagens que o cenário 1, mas permite vantagens de recuperação de dados adicionais:
 
-- Armazenamento georredundante (GRS) e GRS de acesso de leitura (RA-GRS) maximizar a disponibilidade para a sua conta de armazenamento.
-- Se houver uma falha de região do serviço de armazenamento, uma das possibilidades é que as operações de datacenter determinam que armazenamento deve efetuar a ativação pós-falha para a região secundária. Neste caso, acesso de conta de armazenamento será redirecionado forma transparente para a cópia georreplicado da conta do storage, sem intervenção do utilizador.
-- Neste caso, o estado das funções duráveis será mantido até a última replicação da conta de armazenamento, o que ocorre a intervalos de poucos minutos.
+- O GRS (armazenamento com redundância geográfica) e o GRS de acesso de leitura (RA-GRS) maximizam a disponibilidade para sua conta de armazenamento.
+- Se houver uma interrupção de região do serviço de armazenamento, uma das possibilidades é que as operações do datacenter determinem que o failover do armazenamento deve ser realizado na região secundária. Nesse caso, o acesso à conta de armazenamento será Redirecionado de forma transparente para a cópia replicada geograficamente da conta de armazenamento, sem a intervenção do usuário.
+- Nesse caso, o estado das funções duráveis será preservado até a última replicação da conta de armazenamento, que ocorre a cada poucos minutos.
 
-Tal como acontece com os outros cenários, existem considerações importantes:
+Assim como nos outros cenários, há considerações importantes:
 
-- Ativação pós-falha para a réplica é feita por operadores de centro de dados e pode demorar algum tempo. Até esse momento, a aplicação de funções sofrerá um período de indisponibilidade.
-- Há um custo maior para a utilização de contas de armazenamento georreplicado.
-- GRS ocorre de forma assíncrona. Algumas das mais recentes transações poderão perder-se devido a latência do processo de replicação.
+- O failover para a réplica é feito por operadores do datacenter e pode levar algum tempo. Até esse momento, o aplicativo de funções sofrerá uma interrupção.
+- Há um custo maior para o uso de contas de armazenamento replicadas geograficamente.
+- GRS ocorre de forma assíncrona. Algumas das transações mais recentes podem ser perdidas devido à latência do processo de replicação.
 
-![Diagrama que mostra o cenário 3.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario03.png)
+![Diagrama mostrando o cenário 3.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario03.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Pode ler mais sobre [criação altamente disponíveis de aplicativos com RA-GRS](../../storage/common/storage-designing-ha-apps-with-ragrs.md)
+Você pode ler mais sobre como [criar aplicativos altamente disponíveis usando o Ra-grs](../../storage/common/storage-designing-ha-apps-with-ragrs.md)

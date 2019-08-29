@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fed118ee78e6a11f3492060a55ac9847bb5b6a88
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 60f74de308938ee155cf61f3360f73d92feaa67c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720036"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102500"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Início rápido: Criar uma máquina virtual do Windows no portal do Azure
 
@@ -37,9 +36,9 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 1. Selecione **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 
-1. Na **New** página, em **Popular**, selecione **Windows Server 2016 Datacenter**.
+1. Na **nova** página, em **popular**, selecione **Windows Server 2016 datacenter**.
 
-1. No separador **Noções básicas**, em **Detalhes do projeto**, certifique-se de que está selecionada a subscrição correta e, em seguida, selecione **Criar novo** no grupo de recursos. Tipo *myResourceGroup* para o nome. 
+1. No separador **Noções básicas**, em **Detalhes do projeto**, certifique-se de que está selecionada a subscrição correta e, em seguida, selecione **Criar novo** no grupo de recursos. Digite myresourceship para o nome. 
 
     ![Criar um novo grupo de recursos para a VM](./media/quick-create-portal/project-details.png)
 
@@ -95,9 +94,9 @@ No portal, selecione a VM e na descrição geral da VM, utilize o botão **Clica
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não forem necessários, pode eliminar o grupo de recursos, a máquina virtual e todos os recursos relacionados. Selecione o grupo de recursos para a máquina virtual, em seguida, selecione **eliminar**. Certifique-se o nome do grupo de recursos para concluir a eliminação de recursos.
+Quando já não forem necessários, pode eliminar o grupo de recursos, a máquina virtual e todos os recursos relacionados. Selecione o grupo de recursos para a máquina virtual e, em seguida, selecione **excluir**. Confirme o nome do grupo de recursos para concluir a exclusão dos recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, implementou uma máquina virtual simples, abriu uma porta de rede para o tráfego Web e instalou um servidor Web básico. Para saber mais sobre as máquinas virtuais do Azure, continue com o tutorial para VMs do Windows.
 

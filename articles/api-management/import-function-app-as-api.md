@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: f9e5c531e387ba8d2c61c6d46b1e8935bc7d42cf
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7e9215d7250628ed9177e097d127a1554a1f0ea0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67429048"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073342"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar uma Function App do Azure como uma API na Gestão de API do Azure
 
@@ -111,14 +110,14 @@ Siga os passos abaixo para anexar a Function App do Azure a uma API existente.
 
     ![Anexar a partir da Function App](./media/import-function-app-as-api/append-04.png)
 
-## <a name="authorization"></a> Autorização
+## <a name="authorization"></a>Nesse
 
 A importação de uma Function App do Azure gera automaticamente:
 
-* chave de anfitrião dentro da aplicação de função com o nome apim-{*o nome de instância do serviço de gestão de API do Azure*},
-* nome do valor dentro da instância de gestão de API do Azure com o nome {*seu nome de instância de aplicação de funções do Azure*}-chave, que contém a chave de anfitrião criado.
+* Chave de host dentro do Aplicativo de funções com o nome APIM-{*nome da instância do serviço de gerenciamento de API do Azure*},
+* Valor nomeado dentro da instância de gerenciamento de API do Azure com o nome {*seu nome de instância do aplicativo de funções do Azure*}-chave, que contém a chave de host criada.
 
-Para APIs criadas depois de 2019 4 de Abril, a chave do anfitrião é passada em pedidos de HTTP da gestão de API para a aplicação de funções num cabeçalho. As APIs antigas passam a chave do anfitrião como [um parâmetro de consulta](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Esse comportamento pode ser alterado por meio do `PATCH Backend` [chamada à REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) no *back-end* entidade associada à aplicação de função.
+Para APIs criadas após 4º de abril de 2019, a chave do host é passada em solicitações HTTP do gerenciamento de API para o Aplicativo de funções em um cabeçalho. APIs mais antigas passam a chave de host como [um parâmetro de consulta](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Esse comportamento pode ser alterado por meio `PATCH Backend` da [chamada à API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) na entidade de *back-end* associada ao aplicativo de funções.
 
 > [!WARNING]
 > Remover ou alterar o valor da chave de anfitrião da Aplicação de Funções do Azure ou o valor nomeado da Gestão de API do Azure irá interromper a comunicação entre os serviços. Os valores não são sincronizados automaticamente.
@@ -163,7 +162,7 @@ Pode chamar operações diretamente a partir do portal do Azure. Utilizar o port
 
 Também pode chamar operações do portal do programador para testar as APIs. 
 
-1. Selecione a API que criou no importar e publicar uma API de back-end.
+1. Selecione a API que você criou em importar e publique uma API de back-end.
 
 2. Selecione **Portal de programador**.
 

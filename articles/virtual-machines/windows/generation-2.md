@@ -10,16 +10,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 7cd938369cdc4f4ca711a442d89cd6ef3d6d08e8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: fd794662ef41112cb04bdfde087253c8abdb6983
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477091"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079372"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Suporte para VMs de geração 2 (versão prévia) no Azure
 

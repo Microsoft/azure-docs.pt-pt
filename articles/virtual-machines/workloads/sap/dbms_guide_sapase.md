@@ -1,5 +1,5 @@
 ---
-title: Implementação de SAP ASE DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP | Documentos da Microsoft
+title: Implantação de DBMS de máquinas virtuais do Azure ASE SAP para carga de trabalho do SAP | Microsoft Docs
 description: Implementação em SAP ASE do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/1/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f50f013020c704ddc294a59f8c6c5dac24bbd5a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51e97089b1de88ccf9f45b1a0f429abc0cfac9f3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835282"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101326"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação em SAP ASE do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 
@@ -309,67 +308,67 @@ ms.locfileid: "60835282"
 
 
 
-Neste documento, abrange várias áreas diferentes a serem considerados ao implementar o SAP ASE no IaaS do Azure. Como pré-condição para este documento, deve ter ler o documento [considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md) e outros guias do [carga de trabalho SAP na documentação do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+Neste documento, cobre várias áreas diferentes a serem consideradas ao implantar o SAP ASE no Azure IaaS. Como uma pré-condição deste documento, você deve ter lido as [Considerações sobre o documento para a implantação do DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md) e outros guias na documentação da carga de trabalho do [SAP no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
-## <a name="specifics-to-sap-ase-on-windows"></a>Informações específicas para o SAP ASE no Windows
-A partir do Microsoft Azure, pode migrar as suas aplicações SAP ASE existentes para máquinas de virtuais do Azure. SAP ASE na máquina Virtual do Azure permite-lhe reduzir o custo total de propriedade de implantação, gerenciamento e manutenção de aplicativos de amplitude empresariais ao migrar facilmente esses aplicativos para o Microsoft Azure. Com o SAP ASE na máquina Virtual do Azure, os administradores e desenvolvedores podem continuar a utilizar as ferramentas de administração que estão disponíveis no local e o desenvolvimento mesmo.
+## <a name="specifics-to-sap-ase-on-windows"></a>Especificações do SAP ASE no Windows
+A partir do Microsoft Azure, você pode migrar seus aplicativos SAP ASE existentes para máquinas virtuais do Azure. O SAP ASE em uma máquina virtual do Azure permite que você reduza o custo total de propriedade de implantação, gerenciamento e manutenção de aplicativos de amplitude empresarial migrando facilmente esses aplicativos para Microsoft Azure. Com o SAP ASE em uma máquina virtual do Azure, os administradores e desenvolvedores ainda podem usar as mesmas ferramentas de desenvolvimento e administração que estão disponíveis localmente.
 
-SLAs para máquinas de virtuais do Azure, pode ser encontrada aqui: <https://azure.microsoft.com/support/legal/sla/virtual-machines>
+Os SLAs para máquinas virtuais do Azure podem ser encontrados aqui:<https://azure.microsoft.com/support/legal/sla/virtual-machines>
 
-O Microsoft Azure oferece vários tipos diferentes de máquinas virtuais que permitem-lhe executar menor sistemas SAP e panoramas até sistemas de grande dimensão SAP e panoramas com milhares de usuários. Certificação de SAP dimensionamento números SAPS do SAP diferente SKUs de VM é fornecido na nota SAP [1928533].
+O Microsoft Azure oferece vários tipos diferentes de máquina virtual que permitem executar os menores sistemas SAP e cenários até grandes sistemas SAP e cenários com milhares de usuários. Os números de SAPS de dimensionamento SAP de diferentes SKUs de VM certificadas pelo SAP são fornecidos na observação SAP [1928533].
 
-Instruções e recomendações relativamente à utilização do armazenamento do Azure, a implementação de VMs de SAP ou a monitorização de SAP feitas no [considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md) aplicam-se demasiado para implementações do SAP ASE.
+Instruções e recomendações relacionadas ao uso do armazenamento do Azure, implantação de VMs SAP ou monitoramento SAP feitos em [considerações para a implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md) também se aplicam a implantações do SAP ASE.
 
-### <a name="sap-ase-version-support"></a>Suporte para a versão de ASE SAP
-SAP atualmente suporta SAP ASE versão 16.0 para uso com produtos SAP Business Suite. Todas as atualizações para o servidor SAP ASE ou os controladores ODBC e JDBC para ser utilizado com produtos SAP Business Suite, são fornecidas exclusivamente através do SAP Service Marketplace em: <https://support.sap.com/swdc>.
+### <a name="sap-ase-version-support"></a>Suporte de versão do SAP ASE
+Atualmente, o SAP oferece suporte ao SAP ASE versão 16,0 para uso com produtos SAP Business Suite. Todas as atualizações para o servidor SAP ASE ou drivers JDBC e ODBC a serem usadas com produtos SAP Business Suite são fornecidas exclusivamente por meio do SAP Service Marketplace <https://support.sap.com/swdc>em:.
 
-Não transferir atualizações para o servidor SAP ASE ou para os controladores ODBC e JDBC diretamente a partir de Web sites do Sybase. Para obter informações detalhadas sobre patches, que são suportadas para utilização com o SAP produtos no local e em máquinas de virtuais do Azure consulte as notas de SAP seguintes:
+Não baixe atualizações para o servidor do SAP ASE ou para os drivers JDBC e ODBC diretamente dos sites do Sybase. Para obter informações detalhadas sobre patches, que têm suporte para uso com produtos SAP locais e em máquinas virtuais do Azure, consulte as seguintes notas SAP:
 
 * [1590719]
 * [1973241]
 
 Informações gerais sobre como executar o SAP Business Suite no SAP ASE podem ser encontradas no [SCN](https://www.sap.com/community/topic/ase.html)
 
-### <a name="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms"></a>Diretrizes de configuração do SAP ASE para SAP relacionados com o SAP ASE instalações em VMs do Azure
-#### <a name="structure-of-the-sap-ase-deployment"></a>Estrutura de implementação SAP ASE
-Executáveis de SAP ASE devem ser localizado ou instalado numa unidade de sistema de disco do SO da VM (unidade c:\). Normalmente, a maioria das bases de dados do sistema e as ferramentas SAP ASE não está a experienciar elevada carga de trabalho. Por conseguinte, as bases de dados e ferramentas de sistema (master, model, saptools, sybmgmtdb, sybsystemdb) podem permanecer na unidade C:\. 
+### <a name="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms"></a>Diretrizes de configuração do SAP ASE para instalações SAP ASE relacionadas ao SAP em VMs do Azure
+#### <a name="structure-of-the-sap-ase-deployment"></a>Estrutura da implantação do SAP ASE
+Os executáveis do SAP ASE devem ser localizados ou instalados na unidade do sistema do disco do sistema operacional da VM (\)unidade c:. Normalmente, a maioria dos bancos de dados de ferramentas e sistema do SAP ASE não está apresentando alta carga de trabalho. Portanto, os bancos de dados de ferramentas e sistema (Mestre, modelo, saptools, sybmgmtdb, sybsystemdb) podem permanecer em C:\ Dirigir. 
 
-Uma exceção pode ser a base de dados temporário, que, no caso de alguns SAP ERP e todas as cargas de trabalho BW, poderão necessitar de mais alto volume de dados ou volume de operações de e/s. Volumes ou de IOPS que não podem ser fornecidas por disco de SO da VM (unidade c:\).
+Uma exceção pode ser o banco de dados temporário, que, no caso de algumas cargas de trabalho do SAP ERP e de todas as de BW, talvez exijam um volume maior de operações de e/s. Volumes ou IOPS que não podem ser fornecidos pelo disco do sistema operacional da VM (unidade\)C:.
 
-Depende da versão do SAPInst/SWPM utilizada para instalar, a configuração de instância do SAP ASE pode ter o seguinte aspeto:
+Dependendo da versão do SAPInst/SWPM usada para instalar, a configuração da instância do SAP ASE poderia ser semelhante a:
 
-* Um único tempdb SAP ASE, o que é criado ao instalar o SAP ASE
-* Um tempdb SAP ASE criado ao instalar o SAP ASE e um saptempdb adicional criados pela rotina de instalação SAP
-* Um tempdb SAP ASE criado ao instalar o SAP ASE e um tempdb adicionais que tenha sido criado manualmente (por exemplo a seguir a nota SAP [1752266]) para satisfazer os requisitos de tempdb específicos de ERP/BW
+* Um único tempdb do SAP ASE, que é criado durante a instalação do SAP ASE
+* Um tempdb do SAP ASE criado pela instalação do SAP ASE e um saptempdb adicional criado pela rotina de instalação do SAP
+* Um tempdb do SAP ASE criado pela instalação do SAP ASE e um tempdb adicional que foi criado manualmente (por exemplo, após a observação SAP [1752266]) para atender aos requisitos de tempdb específicos de ERP/BW
 
-Motivos de desempenho para ERP específico ou todas as cargas de trabalho BW, pode fazer sentido para armazenar os dispositivos de tempdb da tempdb além disso, criado numa unidade que não seja C:\. Não se existir nenhuma tempdb adicionais, é recomendado para criar um (a nota SAP [1752266]).
+Por motivos de desempenho para cargas de trabalho específicas de ERP ou todas as de BW, pode fazer sentido armazenar os dispositivos tempdb do tempdb criado adicionalmente em uma unidade diferente de C:\. Se nenhum tempdb adicional existir, será recomendável criar um (SAP Note [1752266]).
 
-Para esses sistemas, os seguintes passos devem ser executados para o tempdb adicionalmente criado:
+Para esses sistemas, as etapas a seguir devem ser executadas para o tempdb criado adicionalmente:
 
-* Mover o primeiro dispositivo de tempdb para o primeiro dispositivo de base de dados do SAP
-* Adicionar dispositivos de tempdb para cada um dos VHDs que contém um dispositivo da base de dados SAP
+* Mover o primeiro dispositivo tempdb para o primeiro dispositivo do banco de dados SAP
+* Adicionar dispositivos tempdb a cada um dos VHDs contendo um dispositivo do banco de dados SAP
 
-Tempdb de permite esta configuração consomem mais espaço do que a unidade do sistema pode fornecer. Como uma referência um pode verificar os tamanhos de dispositivo de tempdb em sistemas já existentes, que são executadas no local. Ou esta configuração permite que os números IOPS contra tempdb, que não pode ser fornecido com a unidade do sistema. Sistemas que estejam a executar no local podem ser utilizados para monitorizar a carga de trabalho de e/s em tempdb.
+Essa configuração permite que o tempdb consuma mais espaço do que a unidade do sistema pode fornecer. Como referência, é possível verificar os tamanhos de dispositivo tempdb em sistemas existentes, que são executados localmente. Ou essa configuração habilita números de IOPS em relação a tempdb, que não podem ser fornecidos com a unidade do sistema. Os sistemas que estão em execução no local podem ser usados para monitorar a carga de trabalho de e/s em relação ao tempdb.
 
-Nunca coloca todos os dispositivos SAP ASE na unidade D:\ da VM. Para o SAP ASE, esse aviso também se aplica a tempdb, mesmo que os objetos mantidos no tempdb são apenas temporários.
+Nunca coloque nenhum dispositivo do SAP ASE no D:\ unidade da VM. Para o SAP ASE, esse aviso também se aplica ao tempdb, mesmo que os objetos mantidos no tempdb sejam apenas temporários.
 
-Para dados e implementações de ficheiros de registo de transação, as instruções e sugestões feitas no [considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md). No caso de Implantações baseadas em Windows, a utilização de espaços de armazenamento do Windows é recomendada usar para criar conjuntos de stripe com IOPS, débito e volume suficiente.  
+Para implantações de arquivos de log de transações e de dados, as instruções e sugestões feitas em [Considerações sobre a implantação de DBMS de máquinas virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md). No caso das implantações baseadas no Windows, o uso de espaços de armazenamento do Windows é recomendado para criar conjuntos de distribuição com IOPS, taxa de transferência e volume suficientes.  
 
-#### <a name="impact-of-database-compression"></a>Impacto da compressão de base de dados
-Em configurações em que a largura de banda de e/s pode ser um fator restritivo, a cada medida, que reduz o IOPS poderá ajudar a Stretch Database a carga de trabalho é possível executar um cenário de IaaS, como o Azure. Por isso, recomenda-se para se certificar de que é utilizada compressão de SAP ASE antes de carregar uma base de dados existente do SAP para o Azure.
+#### <a name="impact-of-database-compression"></a>Impacto da compactação do banco de dados
+Em configurações nas quais a largura de banda de e/s pode se tornar um fator limitante, cada medida, que reduz o IOPS, pode ajudar a ampliar a carga de trabalho que uma pode executar em um cenário de IaaS como o Azure. Portanto, é recomendável garantir que a compactação do SAP ASE seja usada antes de carregar um banco de dados SAP existente no Azure.
 
-A recomendação para aplicar a compactação antes de carregar para o Azure é fornecida fora de vários motivos:
+A recomendação para aplicar a compactação antes de carregar no Azure é dada por vários motivos:
 
-* A quantidade de dados a ser carregado para o Azure é mais baixa
-* Durante a execução de compactação é mais curta, partindo do princípio que é possível usar o hardware mais forte com mais CPUs ou largura de banda de e/s superior ou menos e/s latência no local
-* Tamanhos de base de dados menores podem originar menos os custos de alocação do disco
+* A quantidade de dados a serem carregados no Azure é menor
+* A duração da execução da compactação é mais curta supondo que seja possível usar um hardware mais forte com mais CPUs ou maior largura de banda de e/s ou menos latência de e/s no local
+* Tamanhos de banco de dados menores podem levar a menos custos para alocação de disco
 
-Compressão de dados e de LOB trabalhar numa VM alojada em máquinas de virtuais do Azure, como o faz no local. Para obter mais detalhes sobre como verificar se compressão já se encontra em utilização na base de dados existente do SAP ASE, veja a nota SAP [1750510].
+A compactação de dados e LOB funciona em uma VM hospedada em máquinas virtuais do Azure, como no local. Para obter mais detalhes sobre como verificar se a compactação já está em uso em um banco de dados do SAP ASE existente, consulte a observação do SAP [1750510].
 
-#### <a name="using-dbacockpit-to-monitor-database-instances"></a>Utilizar DBACockpit para monitorizar instâncias de base de dados
-Para os sistemas SAP, o que estiver a utilizar o SAP ASE como plataforma de base de dados, o DBACockpit é acessível como janelas do browser incorporado na transação DBACockpit ou como Webdynpro. No entanto todas as funcionalidades de monitorização e administrar a base de dados estão disponível na implementação de Webdynpro de apenas o DBACockpit.
+#### <a name="using-dbacockpit-to-monitor-database-instances"></a>Usando DBACockpit para monitorar instâncias de banco de dados
+Para sistemas SAP, que estão usando o SAP ASE como plataforma de banco de dados, o DBACockpit é acessível como janelas de navegador incorporadas na transação DBACockpit ou como Webdynpro. No entanto, a funcionalidade completa para monitorar e administrar o banco de dados está disponível apenas na implementação Webdynpro do DBACockpit.
 
-Como com sistemas no local vários passos são necessários para ativar todas as funcionalidades do SAP NetWeaver utilizada pela implementação Webdynpro do DBACockpit. Siga a nota SAP [1245200] para ativar a utilização de webdynpros e gerar aqueles necessários. Ao seguir as instruções nas notas para o acima, também configurar o Gestor de comunicação de Internet (icm), juntamente com as portas a utilizar para ligações http e https. A predefinição para http é semelhante a:
+Assim como acontece com sistemas locais, várias etapas são necessárias para habilitar toda a funcionalidade do SAP NetWeaver usada pela implementação de WebDynpro do DBACockpit. Siga a observação do SAP [1245200] para habilitar o uso de webdynpros e gerar os necessários. Ao seguir as instruções nas observações acima, você também configura o ICM (Internet Communication Manager) junto com as portas a serem usadas para conexões http e HTTPS. A configuração padrão para http é semelhante a:
 
 > icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
 > 
@@ -377,42 +376,42 @@ Como com sistemas no local vários passos são necessários para ativar todas as
 > 
 > 
 
-e os links gerados na transação que dbacockpit é semelhante a:
+e os links gerados na transação DBACockpit se assemelham a:
 
-> https:\//\<fullyqualifiedhostname>:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//fullyqualifiedhostname>:44300/SAP/BC/Webdynpro\</SAP/dba_cockpit
 > 
-> http:\//\<fullyqualifiedhostname>:8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//fullyqualifiedhostname>:8000/SAP/BC/Webdynpro\</SAP/dba_cockpit
 > 
 > 
 
-Dependendo da forma como a Máquina Virtual do Azure que aloja o sistema SAP está ligada ao seu AD e DNS, terá de certificar-se de que o ICM está a utilizar um nome de anfitrião totalmente qualificado que pode ser resolvido na máquina onde abrir o DBACockpit do. Consulte a nota SAP [773830] para compreender como ICM determina o nome de anfitrião totalmente qualificado com base nos parâmetros de perfil e defina o parâmetro icm/host_name_full explicitamente se necessário.
+Dependendo de como a máquina virtual do Azure que hospeda o sistema SAP estiver conectada ao seu AD e DNS, você precisará certificar-se de que o ICM está usando um nome de host totalmente qualificado que pode ser resolvido no computador no qual você está abrindo o DBACockpit. Consulte SAP Note [773830] para entender como o ICM determina o nome de host totalmente qualificado com base nos parâmetros de perfil e defina o parâmetro ICM/host_name_full explicitamente, se necessário.
 
-Se tiver de implementar a VM num cenário de apenas na Cloud sem conectividade em vários locais entre no local e o Azure, terá de definir um endereço IP público e um domainlabel. O formato do nome DNS público da VM é semelhante a:
+Se você implantou a VM em um cenário somente de nuvem sem conectividade entre locais entre o local e o Azure, você precisa definir um endereço IP público e um domainlabel. O formato do nome DNS público da VM é semelhante a:
 
 > `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
 > 
 > 
 
-Podem encontrar mais detalhes relacionados com o nome DNS [aqui][virtual-machines-azurerm-versus-azuresm].
+Mais detalhes relacionados ao nome DNS podem ser encontrados [aqui][virtual-machines-azurerm-versus-azuresm].
 
-Definir o parâmetro de perfil icm/host_name_full para o SAP para o nome DNS da VM do Azure a ligação poderá ter um aspeto semelhante:
+Definindo o parâmetro de perfil SAP ICM/host_name_full como o nome DNS da VM do Azure, o link pode ser semelhante a:
 
 > https:\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > http:\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
 
-Neste caso, precisa certificar-se de que para:
+Nesse caso, você precisa se certificar de:
 
-* Adicionar regras de entrada para o grupo de segurança de rede no portal do Azure para as portas TCP/IP utilizada para comunicar com ICM
-* Adicionar regras de entrada para a configuração da Firewall do Windows para as portas TCP/IP utilizada para comunicar com o ICM
+* Adicionar regras de entrada ao grupo de segurança de rede no portal do Azure para as portas TCP/IP usadas para se comunicar com o ICM
+* Adicionar regras de entrada à configuração do firewall do Windows para as portas TCP/IP usadas para se comunicar com o ICM
 
-Para um automatizada importados de todas as correções disponíveis, é recomendado para periodicamente aplicam-se a coleção de correção a nota SAP aplicáveis à sua versão SAP:
+Para uma importação automatizada de todas as correções disponíveis, é recomendável aplicar periodicamente a anotação SAP da coleção de correção aplicável à sua versão SAP:
 
 * [1558958]
 * [1619967]
 * [1882376]
 
-Podem encontrar mais informações sobre o DBA Cockpit para SAP ASE nas notas para o SAP seguintes:
+Mais informações sobre o DBA cockpit para SAP ASE podem ser encontradas nas seguintes notas SAP:
 
 * [1605680]
 * [1757924]
@@ -423,106 +422,106 @@ Podem encontrar mais informações sobre o DBA Cockpit para SAP ASE nas notas pa
 * [1922555]
 * [1956005]
 
-#### <a name="backuprecovery-considerations-for-sap-ase"></a>Considerações sobre a cópia de segurança/recuperação para o SAP ASE
-Ao implementar o SAP ASE para o Azure, tem de ser revista sua metodologia de cópia de segurança. Mesmo para sistemas de não produção, as bases de dados do SAP devem ser cópias periodicamente. Uma vez que o armazenamento do Azure mantém três imagens, uma cópia de segurança poderá ser menos importante em relativamente a uma falha de armazenamento de compensação. A principal razão para a manutenção de um plano de cópia de segurança e restauro adequado é mais do que compensar erros de lógica/manual, fornecendo o ponto em recursos em tempo de recuperação. Assim, o objetivo é qualquer uma das cópias de segurança de uso para restaurar a base de dados para um determinado ponto no tempo ou para utilizar as cópias de segurança no Azure para efetuar o seeding outro sistema ao copiar a base de dados existente. 
+#### <a name="backuprecovery-considerations-for-sap-ase"></a>Considerações de backup/recuperação para o SAP ASE
+Ao implantar o SAP ASE no Azure, sua metodologia de backup deve ser revisada. Mesmo para sistemas de não produção, o backup dos bancos de dados SAP deve ser feito periodicamente. Como o armazenamento do Azure mantém três imagens, um backup pode ser menos importante em relação à compensação de uma falha de armazenamento. O principal motivo para manter um plano de backup e restauração adequado é mais que você pode compensar erros lógicos/manuais fornecendo recursos de recuperação pontual. Portanto, o objetivo é usar backups para restaurar o banco de dados de volta a um determinado ponto no tempo ou usar os backups no Azure para propagar outro sistema copiando o banco de dados existente. 
 
-Fazer backup e restaurar uma base de dados do Azure funcionam da mesma forma como no local. Consulte as notas de SAP:
+O backup e a restauração de um banco de dados no Azure funcionam da mesma maneira que no local. Consulte as observações do SAP:
 
 * [1588316]
 * [1585981]
 
-Para obter detalhes sobre a criação de despejo de configurações e agendamento de cópias de segurança. Dependendo de suas necessidades pode configurar e a estratégia de base de dados e registo de informações do Estado para o disco para um dos discos existentes ou adicionar um disco adicional para a cópia de segurança. Para reduzir o risco de perda de dados em caso de erro, é recomendado para utilizar um disco em que não existem ficheiros de base de dados estão localizados.
+para obter detalhes sobre como criar configurações de despejo e agendar backups. Dependendo da estratégia e das necessidades, você pode configurar o banco de dados e os despejos de log para o disco em um dos discos existentes ou adicionar um disco adicional para o backup. Para reduzir o perigo de perda de dados em caso de erro, é recomendável usar um disco onde não há nenhum arquivo de banco de dados localizado.
 
-Além de dados - e compressão de LOB, o SAP ASE também oferece compactação de backup. Para consumir menos espaço com informações de estado da base de dados e de registo é recomendado para utilizar a compressão de cópias de segurança. Para obter mais informações, consulte a nota SAP [1588316]. Comprimir a cópia de segurança também é crucial para reduzir a quantidade de dados a serem transferidos, se planear transferir cópias de segurança ou VHDs que contêm informações de cópia de segurança da máquina de Virtual do Azure para o local.
+Além da compactação de dados e LOB, o SAP ASE também oferece compactação de backup. Para consumir menos espaço com o banco de dados e os despejos de log, é recomendável usar a compactação de backup. Para obter mais informações, consulte SAP Note [1588316]. A compactação do backup também é crucial para reduzir a quantidade de dados a serem transferidos se você planeja baixar backups ou VHDs contendo despejos de backup da máquina virtual do Azure para o local.
 
-Não utilize a unidade D:\ como destino de despejo de base de dados ou log.
+Não usar a unidade D:\ como banco de dados ou destino de despejo de log.
 
-#### <a name="performance-considerations-for-backupsrestores"></a>Considerações de desempenho para Backups/restaurações
-Como nas implementações bare-metal, cópia de segurança/restaurar desempenho é dependente de quantos volumes podem ser lidos em paralelo e o que pode ser o débito desses volumes. Tenha em atenção que a compactação de backup consome recursos da CPU. Esse consumo da CPU de compactação de backup pode desempenham um papel significativo em VMs com um número pequeno de threads de CPU. Portanto, pode assumir:
+#### <a name="performance-considerations-for-backupsrestores"></a>Considerações de desempenho para backups/restaurações
+Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Tenha em mente que a compactação de backup consome recursos de CPU. Esse consumo de CPU de compactação de backup pode desempenhar uma função significativa em VMs com um pequeno número de threads de CPU. Portanto, você pode assumir:
 
-* Menos o número de discos utilizados para armazenar os dispositivos de base de dados, menor será a produtividade geral em ler
-* Menor será que o número de CPU threads na VM, o mais grave o impacto da compactação de backup
-* Os destinos menos (diretórios do Stripe, discos) para gravar a cópia de segurança, o menor a taxa de transferência
+* Quanto menor o número de discos usados para armazenar os dispositivos de banco de dados, menor é a taxa de transferência geral na leitura
+* Quanto menor o número de threads de CPU na VM, mais grave o impacto da compactação de backup
+* Quanto menos destinos (diretórios de distribuição, discos) nos quais gravar o backup, menor será a taxa de transferência
 
-Para aumentar o número de destinos para escrever existem duas opções, que podem ser utilizado/combinadas consoante as suas necessidades:
+Para aumentar o número de destinos a serem gravados, há duas opções, que podem ser usadas/combinadas dependendo de suas necessidades:
 
-* Repartição de volume de destino de cópia de segurança ao longo de vários discos montados para melhorar o débito IOPS nesse volume repartidos
-* Criação de uma configuração de informação no nível de SAP ASE, que utiliza a mais do que um diretório de destino para escrever o despejo para
+* Distribuição do volume de destino de backup em vários discos montados para melhorar a taxa de transferência de IOPS nesse volume distribuído
+* Criando uma configuração de despejo no nível do SAP ASE, que usa mais de um diretório de destino no qual gravar o despejo
 
-Repartição de um volume de disco ao longo de vários discos montados já foi discutida na [considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md). Para obter mais informações sobre como utilizar vários diretórios na configuração de despejo do SAP ASE, consulte a documentação no sp_config_dump de procedimento armazenado, o que é utilizada para criar a configuração de informação sobre o [centros de informações do Sybase](http://infocenter.sybase.com/help/index.jsp).
+A distribuição de um volume de disco em vários discos montados foi discutida em [Considerações sobre a implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md). Para obter mais informações sobre como usar vários diretórios na configuração de despejo do SAP ASE, consulte a documentação sobre o procedimento armazenado sp_config_dump, que é usado para criar a configuração de despejo no [InfoCenter do Sybase](http://infocenter.sybase.com/help/index.jsp).
 
-### <a name="disaster-recovery-with-azure-vms"></a>Recuperação após desastre com VMs do Azure
+### <a name="disaster-recovery-with-azure-vms"></a>Recuperação de desastre com VMs do Azure
 #### <a name="data-replication-with-sap-sybase-replication-server"></a>Replicação de dados com o servidor de replicação do SAP Sybase
-Com o servidor de replicação do Sybase de SAP (SRS), o SAP ASE fornece uma solução de reserva quente para transferir transações da base de dados para um local distante de forma assíncrona. 
+Com o servidor de replicação do SAP Sybase (SRS), o SAP ASE fornece uma solução de espera passiva para transferir transações de banco de dados para um local distante de forma assíncrona. 
 
-A instalação e a operação de SRS também funciona funcionalmente numa VM alojada nos serviços de Máquina Virtual do Azure, como o faz no local.
+A instalação e a operação do SRS funcionam também de forma funcional em uma VM hospedada nos serviços de máquina virtual do Azure, como no local.
 
-SAP ASE HADR não necessita de um balanceador de carga interno do Azure e não tem dependências no nível clustering do SO. Ele funciona no Windows Azure e VMs do Linux. Para obter detalhes sobre o SAP ASE HADR leia os [Guia do usuário do SAP ASE HADR](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.3/en-US/a6645e28bc2b1014b54b8815a64b87ba.html).
+O HADR do SAP ASE não requer um Load Balancer interno do Azure e não tem dependências no cluster de nível do sistema operacional. Funciona em VMs do Windows e Linux do Azure. Para obter detalhes sobre o SAP ASE HADR, leia o [Guia de usuários do SAP ase HADR](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.3/en-US/a6645e28bc2b1014b54b8815a64b87ba.html).
 
-## <a name="specifics-to-sap-ase-on-linux"></a>Informações específicas para o SAP ASE no Linux
-A partir do Microsoft Azure, pode migrar facilmente as aplicações SAP ASE existentes para máquinas de virtuais do Azure. SAP ASE numa máquina Virtual permite-lhe reduzir o custo total de propriedade de implantação, gerenciamento e manutenção de aplicativos de amplitude empresariais ao migrar facilmente esses aplicativos para o Microsoft Azure. Com o SAP ASE na máquina Virtual do Azure, os administradores e desenvolvedores podem continuar a utilizar as ferramentas de administração que estão disponíveis no local e o desenvolvimento mesmo.
+## <a name="specifics-to-sap-ase-on-linux"></a>Especificações do SAP ASE no Linux
+A partir do Microsoft Azure, você pode migrar facilmente seus aplicativos SAP ASE existentes para as máquinas virtuais do Azure. O SAP ASE em uma máquina virtual permite reduzir o custo total de propriedade da implantação, do gerenciamento e da manutenção de aplicativos de amplitude empresarial, migrando facilmente esses aplicativos para Microsoft Azure. Com o SAP ASE em uma máquina virtual do Azure, os administradores e desenvolvedores ainda podem usar as mesmas ferramentas de desenvolvimento e administração que estão disponíveis localmente.
 
-Para implementar VMs do Azure é importante saber os SLAs oficiais, que podem ser encontrados aqui: <https://azure.microsoft.com/support/legal/sla>
+Para implantar VMs do Azure, é importante conhecer os SLAs oficiais, que podem ser encontrados aqui:<https://azure.microsoft.com/support/legal/sla>
 
-Informações de tamanho do SAP e uma lista de SKUs de VM com certificação do SAP é fornecido na nota SAP [1928533]. SAP adicional documentos de dimensionamento de máquinas virtuais do Azure podem ser encontradas aqui <https://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> e aqui <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+As informações de dimensionamento SAP e uma lista de SKUs de VM certificadas pelo SAP são fornecidas na observação SAP [1928533]. Documentos adicionais de dimensionamento do SAP para máquinas virtuais do Azure <https://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> podem ser encontrados aqui e aqui<https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
-Instruções e recomendações sobre a utilização de armazenamento do Azure, VMs de implementação de SAP ou SAP de monitorização aplicável a implementações do SAP ASE em conjunto com as aplicações SAP, conforme indicado em todo os quatro primeiros capítulos deste documento.
+Instruções e recomendações relacionadas ao uso do armazenamento do Azure, implantação de VMs SAP ou monitoramento do SAP se aplicam a implantações do SAP ASE em conjunto com aplicativos SAP, conforme indicado nos quatro primeiros capítulos deste documento.
 
-As notas de SAP duas seguintes incluem informações gerais sobre o ASE em Linux e o ASE na Cloud:
+As duas notas SAP a seguir incluem informações gerais sobre o ASE no Linux e ASE na nuvem:
 
 * [2134316]
 * [1941500]
 
-### <a name="sap-ase-version-support"></a>Suporte para a versão de ASE SAP
-SAP atualmente suporta SAP ASE versão 16.0 para uso com produtos SAP Business Suite. Todas as atualizações para o servidor SAP ASE ou os controladores ODBC e JDBC para ser utilizado com produtos SAP Business Suite, são fornecidas exclusivamente através do SAP Service Marketplace em: <https://support.sap.com/swdc>.
+### <a name="sap-ase-version-support"></a>Suporte de versão do SAP ASE
+Atualmente, o SAP oferece suporte ao SAP ASE versão 16,0 para uso com produtos SAP Business Suite. Todas as atualizações para o servidor SAP ASE ou drivers JDBC e ODBC a serem usadas com produtos SAP Business Suite são fornecidas exclusivamente por meio do SAP Service Marketplace <https://support.sap.com/swdc>em:.
 
-Como para as instalações no local, não transferir as atualizações para o servidor SAP ASE ou para os controladores ODBC e JDBC diretamente a partir de Web sites do Sybase. Para obter informações detalhadas sobre patches, que são suportadas para utilização com o SAP Business Suite produtos no local e em máquinas de virtuais do Azure consulte as notas de SAP seguintes:
+Para instalações locais, não baixe atualizações para o servidor do SAP ASE ou para os drivers JDBC e ODBC diretamente dos sites do Sybase. Para obter informações detalhadas sobre patches, que têm suporte para uso com produtos do SAP Business Suite locais e em máquinas virtuais do Azure, consulte as seguintes notas SAP:
 
 * [1590719]
 * [1973241]
 
 Informações gerais sobre como executar o SAP Business Suite no SAP ASE podem ser encontradas no [SCN](https://www.sap.com/community/topic/ase.html)
 
-### <a name="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms"></a>Diretrizes de configuração do SAP ASE para SAP relacionados com o SAP ASE instalações em VMs do Azure
-#### <a name="structure-of-the-sap-ase-deployment"></a>Estrutura de implementação SAP ASE
-Executáveis de SAP ASE devem ser localizado ou instalados no sistema de arquivo de raiz da VM (/sybase). Normalmente, a maioria das bases de dados do sistema e as ferramentas SAP ASE não está a experienciar elevada carga de trabalho. Por conseguinte, as bases de dados e ferramentas de sistema (master, model, saptools, sybmgmtdb, sybsystemdb) podem ser armazenados no sistema de ficheiros de raiz. 
+### <a name="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms"></a>Diretrizes de configuração do SAP ASE para instalações SAP ASE relacionadas ao SAP em VMs do Azure
+#### <a name="structure-of-the-sap-ase-deployment"></a>Estrutura da implantação do SAP ASE
+Os executáveis do SAP ASE devem ser localizados ou instalados no sistema de arquivos raiz da VM (/Sybase). Normalmente, a maioria dos bancos de dados de ferramentas e sistema do SAP ASE não está apresentando alta carga de trabalho. Portanto, os bancos de dados de ferramentas e sistema (Mestre, modelo, saptools, sybmgmtdb, sybsystemdb) podem ser armazenados no sistema de arquivos raiz. 
 
-Uma exceção pode ser a base de dados temporário, que, no caso de alguns SAP ERP e todas as cargas de trabalho BW, poderão necessitar de mais alto volume de dados ou volume de operações de e/s. Volumes ou de IOPS que não podem ser fornecidas por disco de SO da VM 
+Uma exceção pode ser o banco de dados temporário, que, no caso de algumas cargas de trabalho do SAP ERP e de todas as de BW, talvez exijam um volume maior de operações de e/s. Volumes ou IOPS que não podem ser fornecidos pelo disco do sistema operacional da VM 
 
-Dependendo da versão do SAPInst/SWPM utilizado para instalar o sistema, pode conter a base de dados:
+Dependendo da versão do SAPInst/SWPM usada para instalar o sistema, o banco de dados pode conter:
 
-* Um único tempdb de SAP ASE criado ao instalar o SAP ASE
-* Um tempdb SAP ASE criado ao instalar o SAP ASE e um saptempdb adicional criados pela rotina de instalação SAP
-* Um tempdb SAP ASE criado ao instalar o SAP ASE e um tempdb adicionais que tenha sido criado manualmente (por exemplo a seguir a nota SAP [1752266]) para satisfazer os requisitos de tempdb específicos de ERP/BW
+* Um único tempdb do SAP ASE criado ao instalar o SAP ASE
+* Um tempdb do SAP ASE criado pela instalação do SAP ASE e um saptempdb adicional criado pela rotina de instalação do SAP
+* Um tempdb do SAP ASE criado pela instalação do SAP ASE e um tempdb adicional que foi criado manualmente (por exemplo, após a observação SAP [1752266]) para atender aos requisitos de tempdb específicos de ERP/BW
 
-Fora de motivos de desempenho para ERP específico ou todas as cargas de trabalho BW, pode fazer sentido armazenar os dispositivos de tempdb da tempdb adicionalmente criado (por SWPM ou manualmente) num sistema de arquivo separado, que pode ser representado por um disco de dados do Azure individual ou um RAID de Linux que abrange m discos de dados do Azure de múltiplas. Não se existir nenhuma tempdb adicionais, é recomendado para criar um (a nota SAP [1752266]).
+Por motivos de desempenho para cargas de trabalho específicas de ERP ou todas as de BW, pode fazer sentido armazenar os dispositivos tempdb do tempdb criado adicionalmente (por SWPM ou manualmente) em um sistema de arquivos separado, que pode ser representado por um único disco de dados do Azure ou um RAID do Linux abrangendo m ultiple discos de dados do Azure. Se nenhum tempdb adicional existir, será recomendável criar um (SAP Note [1752266]).
 
-Para esses sistemas, os seguintes passos devem ser efetuados para o tempdb adicionalmente criado:
+Para esses sistemas, as etapas a seguir devem ser executadas para o tempdb criado adicionalmente:
 
-* Mova o diretório de tempdb primeiro para o primeiro sistema de ficheiros da base de dados SAP
-* Adicionar diretórios de tempdb para cada um dos discos que contém um sistema de ficheiros da base de dados SAP
+* Mover o primeiro diretório tempdb para o primeiro sistema de arquivos do banco de dados SAP
+* Adicionar diretórios tempdb a cada um dos discos que contêm um sistema de arquivos do banco de dados SAP
 
-Tempdb de permite esta configuração consomem mais espaço do que a unidade do sistema pode fornecer. Como uma referência um pode verificar os tamanhos de dispositivo de tempdb em sistemas já existentes, que são executadas no local. Ou esta configuração permite que os números IOPS contra tempdb, que não pode ser fornecido com a unidade do sistema. Sistemas que estejam a executar no local podem ser utilizados para monitorizar a carga de trabalho de e/s em tempdb.
+Essa configuração permite que o tempdb consuma mais espaço do que a unidade do sistema pode fornecer. Como referência, é possível verificar os tamanhos de dispositivo tempdb em sistemas existentes, que são executados localmente. Ou essa configuração habilita números de IOPS em relação a tempdb, que não podem ser fornecidos com a unidade do sistema. Os sistemas que estão em execução no local podem ser usados para monitorar a carga de trabalho de e/s em relação ao tempdb.
 
-Nunca coloca todos os diretórios SAP ASE no /mnt ou /mnt/resource da VM. Para o SAP ASE, esse aviso também se aplica a tempdb, mesmo que os objetos mantidos no tempdb são apenas temporários. Porque /mnt ou /mnt/resource é um espaço de temporário da VM do Azure predefinido, que não é persistente. Podem encontrar mais detalhes sobre o espaço temporário da VM do Azure no [neste artigo][virtual-machines-linux-how-to-attach-disk]
+Nunca coloque quaisquer diretórios do SAP ASE em/mnt ou/mnt/Resource da VM. Para o SAP ASE, esse aviso também se aplica ao tempdb, mesmo que os objetos mantidos no tempdb sejam apenas temporários. Como/mnt ou/mnt/Resource é um espaço temporário de VM do Azure padrão, que não é persistente. Mais detalhes sobre o espaço temporário da VM do Azure podem ser encontrados neste [artigo][virtual-machines-linux-how-to-attach-disk]
 
-Para dados e implementações de ficheiros de registo de transação, as instruções e sugestões feitas no [considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md). Em caso de Implantações baseadas em Linux a utilização de LVM ou MDADM é recomendada usar para criar conjuntos de stripe com IOPS, débito e volume suficiente. 
+Para implantações de arquivos de log de transações e de dados, as instruções e sugestões feitas em [Considerações sobre a implantação de DBMS de máquinas virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md). No caso de implantações baseadas em Linux, é recomendável usar o LVM ou o MDADM para criar conjuntos de distribuição com IOPS, taxa de transferência e volume suficientes. 
 
-#### <a name="impact-of-database-compression"></a>Impacto da compressão de base de dados
-Em configurações em que a largura de banda de e/s pode ser um fator restritivo, a cada medida, que reduz o IOPS poderá ajudar a Stretch Database a carga de trabalho é possível executar um cenário de IaaS, como o Azure. Por isso, recomenda-se para se certificar de que é utilizada compressão de SAP ASE antes de carregar uma base de dados existente do SAP para o Azure.
+#### <a name="impact-of-database-compression"></a>Impacto da compactação do banco de dados
+Em configurações nas quais a largura de banda de e/s pode se tornar um fator limitante, cada medida, que reduz o IOPS, pode ajudar a ampliar a carga de trabalho que uma pode executar em um cenário de IaaS como o Azure. Portanto, é recomendável garantir que a compactação do SAP ASE seja usada antes de carregar um banco de dados SAP existente no Azure.
 
-A recomendação para aplicar a compactação antes de carregar para o Azure é fornecida fora de vários motivos:
+A recomendação para aplicar a compactação antes de carregar no Azure é dada por vários motivos:
 
-* A quantidade de dados a ser carregado para o Azure é mais baixa
-* Durante a execução de compactação é mais curta, partindo do princípio que é possível usar o hardware mais forte com mais CPUs ou largura de banda de e/s superior ou menos e/s latência no local
-* Tamanhos de base de dados menores podem originar menos os custos de alocação do disco
+* A quantidade de dados a serem carregados no Azure é menor
+* A duração da execução da compactação é mais curta supondo que seja possível usar um hardware mais forte com mais CPUs ou maior largura de banda de e/s ou menos latência de e/s no local
+* Tamanhos de banco de dados menores podem levar a menos custos para alocação de disco
 
-Compressão de dados e de LOB trabalhar numa VM alojada em máquinas de virtuais do Azure, como o faz no local. Para obter mais detalhes sobre como verificar se compressão já se encontra em utilização na base de dados existente do SAP ASE, veja a nota SAP [1750510]. Para obter mais informações sobre a compressão de base de dados, consulte a nota SAP [2121797].
+A compactação de dados e LOB funciona em uma VM hospedada em máquinas virtuais do Azure, como no local. Para obter mais detalhes sobre como verificar se a compactação já está em uso em um banco de dados do SAP ASE existente, consulte a observação do SAP [1750510]. Para obter mais informações sobre a compactação de banco de dados, consulte SAP Note [2121797].
 
-#### <a name="using-dbacockpit-to-monitor-database-instances"></a>Utilizar DBACockpit para monitorizar instâncias de base de dados
-Para os sistemas SAP, o que estiver a utilizar o SAP ASE como plataforma de base de dados, o DBACockpit é acessível como janelas do browser incorporado na transação DBACockpit ou como Webdynpro. No entanto todas as funcionalidades de monitorização e administrar a base de dados estão disponível na implementação de Webdynpro de apenas o DBACockpit.
+#### <a name="using-dbacockpit-to-monitor-database-instances"></a>Usando DBACockpit para monitorar instâncias de banco de dados
+Para sistemas SAP, que estão usando o SAP ASE como plataforma de banco de dados, o DBACockpit é acessível como janelas de navegador incorporadas na transação DBACockpit ou como Webdynpro. No entanto, a funcionalidade completa para monitorar e administrar o banco de dados está disponível apenas na implementação Webdynpro do DBACockpit.
 
-Como com sistemas no local vários passos são necessários para ativar todas as funcionalidades do SAP NetWeaver utilizada pela implementação Webdynpro do DBACockpit. Siga a nota SAP [1245200] para ativar a utilização de webdynpros e gerar aqueles necessários. Ao seguir as instruções nas notas para o acima, também configurar o Gestor de comunicação de Internet (icm), juntamente com as portas a utilizar para ligações http e https. A predefinição para http tem esta aparência:
+Assim como acontece com sistemas locais, várias etapas são necessárias para habilitar toda a funcionalidade do SAP NetWeaver usada pela implementação de WebDynpro do DBACockpit. Siga a observação do SAP [1245200] para habilitar o uso de webdynpros e gerar os necessários. Ao seguir as instruções nas observações acima, você também configura o ICM (Internet Communication Manager) junto com as portas a serem usadas para conexões http e HTTPS. A configuração padrão para http tem esta aparência:
 
 > icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
 > 
@@ -530,42 +529,42 @@ Como com sistemas no local vários passos são necessários para ativar todas as
 > 
 > 
 
-e os links gerados na transação DBACockpit terá um aspeto semelhante a este:
+e os links gerados na transação DBACockpit serão semelhantes a este:
 
-> https:\//\<fullyqualifiedhostname>:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//fullyqualifiedhostname>:44300/SAP/BC/Webdynpro\</SAP/dba_cockpit
 > 
-> http:\//\<fullyqualifiedhostname>:8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//fullyqualifiedhostname>:8000/SAP/BC/Webdynpro\</SAP/dba_cockpit
 > 
 > 
 
-Dependendo da forma como a Máquina Virtual do Azure que aloja o sistema SAP está ligada ao seu AD e DNS, terá de certificar-se de que o ICM está a utilizar um nome de anfitrião totalmente qualificado que pode ser resolvido na máquina onde abrir o DBACockpit do. Consulte a nota SAP [773830] para compreender como ICM determina o nome de anfitrião totalmente qualificado, consoante os parâmetros de perfil e o parâmetro de conjunto icm/host_name_full explicitamente se necessário.
+Dependendo de como a máquina virtual do Azure que hospeda o sistema SAP estiver conectada ao seu AD e DNS, você precisará certificar-se de que o ICM está usando um nome de host totalmente qualificado que pode ser resolvido no computador no qual você está abrindo o DBACockpit. Consulte SAP Note [773830] para entender como o ICM determina o nome de host totalmente qualificado, dependendo dos parâmetros de perfil e defina o parâmetro ICM/host_name_full explicitamente, se necessário.
 
-Se tiver de implementar a VM num cenário de apenas na Cloud sem conectividade em vários locais entre no local e o Azure, terá de definir um endereço IP público e um domainlabel. O formato do nome DNS público da VM é semelhante a:
+Se você implantou a VM em um cenário somente de nuvem sem conectividade entre locais entre o local e o Azure, você precisa definir um endereço IP público e um domainlabel. O formato do nome DNS público da VM é semelhante a:
 
 > `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
 > 
 > 
 
-Podem encontrar mais detalhes relacionados com o nome DNS [aqui][virtual-machines-azurerm-versus-azuresm].
+Mais detalhes relacionados ao nome DNS podem ser encontrados [aqui][virtual-machines-azurerm-versus-azuresm].
 
-Definir o parâmetro de perfil icm/host_name_full para o SAP para o nome DNS da VM do Azure a ligação poderá ter um aspeto semelhante:
+Definindo o parâmetro de perfil SAP ICM/host_name_full como o nome DNS da VM do Azure, o link pode ser semelhante a:
 
 > https:\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > http:\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
 
-Neste caso, precisa certificar-se de que para:
+Nesse caso, você precisa se certificar de:
 
-* Adicionar regras de entrada para o grupo de segurança de rede no portal do Azure para as portas TCP/IP utilizada para comunicar com ICM
-* Adicionar regras de entrada para a configuração da Firewall do Windows para as portas TCP/IP utilizada para comunicar com o ICM
+* Adicionar regras de entrada ao grupo de segurança de rede no portal do Azure para as portas TCP/IP usadas para se comunicar com o ICM
+* Adicionar regras de entrada à configuração do firewall do Windows para as portas TCP/IP usadas para se comunicar com o ICM
 
-Para um automatizada importados de todas as correções disponíveis, é recomendado para periodicamente aplicam-se a coleção de correção a nota SAP aplicáveis à sua versão SAP:
+Para uma importação automatizada de todas as correções disponíveis, é recomendável aplicar periodicamente a anotação SAP da coleção de correção aplicável à sua versão SAP:
 
 * [1558958]
 * [1619967]
 * [1882376]
 
-Podem encontrar mais informações sobre o DBA Cockpit para SAP ASE nas notas para o SAP seguintes:
+Mais informações sobre o DBA cockpit para SAP ASE podem ser encontradas nas seguintes notas SAP:
 
 * [1605680]
 * [1757924]
@@ -576,38 +575,38 @@ Podem encontrar mais informações sobre o DBA Cockpit para SAP ASE nas notas pa
 * [1922555]
 * [1956005]
 
-#### <a name="backuprecovery-considerations-for-sap-ase"></a>Considerações sobre a cópia de segurança/recuperação para o SAP ASE
-Ao implementar o SAP ASE para o Azure, tem de ser revista sua metodologia de cópia de segurança. Mesmo para sistemas de não produção, as bases de dados do SAP devem ser cópias periodicamente. Uma vez que o armazenamento do Azure mantém três imagens, uma cópia de segurança poderá ser menos importante em relativamente a uma falha de armazenamento de compensação. A principal razão para a manutenção de um plano de cópia de segurança e restauro adequado é mais do que compensar erros de lógica/manual, fornecendo o ponto em recursos em tempo de recuperação. Assim, o objetivo é qualquer uma das cópias de segurança de uso para restaurar a base de dados para um determinado ponto no tempo ou para utilizar as cópias de segurança no Azure para efetuar o seeding outro sistema ao copiar a base de dados existente. 
+#### <a name="backuprecovery-considerations-for-sap-ase"></a>Considerações de backup/recuperação para o SAP ASE
+Ao implantar o SAP ASE no Azure, sua metodologia de backup deve ser revisada. Mesmo para sistemas de não produção, o backup dos bancos de dados SAP deve ser feito periodicamente. Como o armazenamento do Azure mantém três imagens, um backup pode ser menos importante em relação à compensação de uma falha de armazenamento. O principal motivo para manter um plano de backup e restauração adequado é mais que você pode compensar erros lógicos/manuais fornecendo recursos de recuperação pontual. Portanto, o objetivo é usar backups para restaurar o banco de dados de volta a um determinado ponto no tempo ou usar os backups no Azure para propagar outro sistema copiando o banco de dados existente. 
 
-Fazer backup e restaurar uma base de dados do Azure funcionam da mesma forma como no local. Consulte as notas de SAP:
+O backup e a restauração de um banco de dados no Azure funcionam da mesma maneira que no local. Consulte as observações do SAP:
 
 * [1588316]
 * [1585981]
 
-Para obter detalhes sobre a criação de despejo de configurações e agendamento de cópias de segurança. Dependendo das suas necessidades e estratégia, pode configurar despejos de registo e base de dados para disco para um dos discos existentes ou adicionar um disco adicional para a cópia de segurança. Para reduzir o risco de perda de dados em caso de erro, é recomendado para utilizar um disco onde não está localizado nenhum diretório/ficheiro de base de dados.
+para obter detalhes sobre como criar configurações de despejo e agendar backups. Dependendo de sua estratégia e necessidades, você pode configurar despejos de log e banco de dados para o disco em um dos discos existentes ou adicionar um disco adicional para o backup. Para reduzir o perigo de perda de dados em caso de erro, é recomendável usar um disco onde nenhum arquivo/diretório de banco de dado está localizado.
 
-Além de dados - e compressão de LOB, o SAP ASE também oferece compactação de backup. Para consumir menos espaço com informações de estado da base de dados e de registo é recomendado para utilizar a compressão de cópias de segurança. Para obter mais informações, consulte a nota SAP [1588316]. Comprimir a cópia de segurança também é crucial para reduzir a quantidade de dados a serem transferidos, se planear transferir cópias de segurança ou VHDs que contêm informações de cópia de segurança da máquina de Virtual do Azure para o local.
+Além da compactação de dados e LOB, o SAP ASE também oferece compactação de backup. Para consumir menos espaço com o banco de dados e os despejos de log, é recomendável usar a compactação de backup. Para obter mais informações, consulte SAP Note [1588316]. A compactação do backup também é crucial para reduzir a quantidade de dados a serem transferidos se você planeja baixar backups ou VHDs contendo despejos de backup da máquina virtual do Azure para o local.
 
-Não utilize o /mnt de espaço temporário da VM do Azure ou /mnt/resource como destino de despejo de base de dados ou log.
+Não use o espaço temporário de VM do Azure/mnt ou/mnt/Resource como banco de dados ou destino de despejo de log.
 
-#### <a name="performance-considerations-for-backupsrestores"></a>Considerações de desempenho para Backups/restaurações
-Como nas implementações bare-metal, cópia de segurança/restaurar desempenho é dependente de quantos volumes podem ser lidos em paralelo e o que pode ser o débito desses volumes. Tenha em atenção que a compactação de backup consome recursos da CPU. Esse consumo da CPU de compactação de backup pode desempenham um papel significativo em VMs com um número pequeno de threads de CPU.  Portanto, pode assumir:
+#### <a name="performance-considerations-for-backupsrestores"></a>Considerações de desempenho para backups/restaurações
+Como em implantações bare-metal, o desempenho de backup/restauração depende de quantos volumes podem ser lidos em paralelo e qual pode ser a taxa de transferência desses volumes. Tenha em mente que a compactação de backup consome recursos de CPU. Esse consumo de CPU de compactação de backup pode desempenhar uma função significativa em VMs com um pequeno número de threads de CPU.  Portanto, você pode assumir:
 
-* Menos o número de discos utilizados para armazenar os dispositivos de base de dados, menor será a produtividade geral em ler
-* Menor será que o número de CPU threads na VM, o mais grave o impacto da compactação de backup
-* Os destinos menos (Linux RAID de software, discos) para gravar a cópia de segurança, o menor a taxa de transferência
+* Quanto menor o número de discos usados para armazenar os dispositivos de banco de dados, menor é a taxa de transferência geral na leitura
+* Quanto menor o número de threads de CPU na VM, mais grave o impacto da compactação de backup
+* Quanto menos destinos (RAID de software do Linux, discos) nos quais gravar o backup, menor será a taxa de transferência
 
-Para aumentar o número de destinos para escrever existem duas opções, que podem ser utilizado/combinadas consoante as suas necessidades:
+Para aumentar o número de destinos a serem gravados, há duas opções, que podem ser usadas/combinadas dependendo de suas necessidades:
 
-* Repartição de volume de destino de cópia de segurança ao longo de vários discos montados para melhorar o débito IOPS nesse volume repartidos
-* Criação de uma configuração de informação no nível de SAP ASE, que utiliza a mais do que um diretório de destino para escrever o despejo para
+* Distribuição do volume de destino de backup em vários discos montados para melhorar a taxa de transferência de IOPS nesse volume distribuído
+* Criando uma configuração de despejo no nível do SAP ASE, que usa mais de um diretório de destino no qual gravar o despejo
 
-Repartição de um volume de disco ao longo de vários discos montados já foi discutida na [considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md). Para obter mais informações sobre como utilizar vários diretórios na configuração de despejo do SAP ASE, consulte a documentação no sp_config_dump de procedimento armazenado, o que é utilizada para criar a configuração de informação sobre o [centros de informações do Sybase](http://infocenter.sybase.com/help/index.jsp).
+A distribuição de um volume de disco em vários discos montados foi discutida em [Considerações sobre a implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md). Para obter mais informações sobre como usar vários diretórios na configuração de despejo do SAP ASE, consulte a documentação sobre o procedimento armazenado sp_config_dump, que é usado para criar a configuração de despejo no [InfoCenter do Sybase](http://infocenter.sybase.com/help/index.jsp).
 
-### <a name="disaster-recovery-with-azure-vms"></a>Recuperação após desastre com VMs do Azure
+### <a name="disaster-recovery-with-azure-vms"></a>Recuperação de desastre com VMs do Azure
 #### <a name="data-replication-with-sap-sybase-replication-server"></a>Replicação de dados com o servidor de replicação do SAP Sybase
-Com o servidor de replicação do Sybase de SAP (SRS), o SAP ASE fornece uma solução de reserva quente para transferir transações da base de dados para um local distante de forma assíncrona. 
+Com o servidor de replicação do SAP Sybase (SRS), o SAP ASE fornece uma solução de espera passiva para transferir transações de banco de dados para um local distante de forma assíncrona. 
 
-A instalação e a operação de SRS também funciona funcionalmente numa VM alojada nos serviços de Máquina Virtual do Azure, como o faz no local.
+A instalação e a operação do SRS funcionam também de forma funcional em uma VM hospedada nos serviços de máquina virtual do Azure, como no local.
 
-É suportado o ASE HADR através do servidor de replicação de SAP. É altamente recomendado para utilizar o SAP ASE 16.03 para tentar essa configuração. Instruções mais detalhadas para instalar essas configurações podem ser encontradas em detalhe neste [blogue](https://blogs.msdn.microsoft.com/saponsqlserver/2018/06/18/installation-procedure-for-sybase-16-3-patch-level-3-always-on-dr-on-suse-12-3-recent-customer-proof-of-concept/).
+Há suporte para o ASE HADR por meio do servidor de replicação do SAP. É altamente recomendável usar o SAP ASE 16, 3 para tentar essa configuração. Instruções mais detalhadas para instalar essas configurações podem ser encontradas em detalhes neste [blog](https://blogs.msdn.microsoft.com/saponsqlserver/2018/06/18/installation-procedure-for-sybase-16-3-patch-level-3-always-on-dr-on-suse-12-3-recent-customer-proof-of-concept/).

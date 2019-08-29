@@ -1,6 +1,6 @@
 ---
-title: Integrar o ambiente de serviço de aplicações ILB com o Gateway de aplicação - Azure
-description: Passo a passo sobre como integrar uma aplicação no seu ambiente de serviço de aplicações ILB com um Gateway de aplicação
+title: Integrar o ILB Ambiente do Serviço de Aplicativo ao gateway de aplicativo – Azure
+description: Orientações sobre como integrar um aplicativo em seu Ambiente do Serviço de Aplicativo ILB com um gateway de aplicativo
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -9,117 +9,116 @@ ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ea46b5e57e4e508a3311de8633ae61d346b574eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 090952a065b8c3b2b25ad737992b68b9bc9aa9ec
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764927"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069473"
 ---
-# <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrar o seu ambiente de serviço de aplicações ILB com o Gateway de aplicação do Azure #
+# <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrar o Ambiente do Serviço de Aplicativo ILB com o gateway de Aplicativo Azure #
 
-O [ambiente do serviço de aplicações](./intro.md) é uma implementação do serviço de aplicações do Azure na sub-rede da rede virtual do Azure de um cliente. Pode ser implementado com um ponto de extremidade público ou privado para aceder à aplicação. A implementação do ambiente de serviço de aplicações com um ponto final privado (ou seja, um balanceador de carga interno) é chamada de um ambiente de serviço de aplicações ILB.  
+A [ambiente do serviço de aplicativo](./intro.md) é uma implantação do serviço de Azure app na sub-rede da rede virtual do Azure de um cliente. Ele pode ser implantado com um ponto de extremidade público ou privado para acesso ao aplicativo. A implantação do Ambiente do Serviço de Aplicativo com um ponto de extremidade privado (ou seja, um balanceador de carga interno) é chamada de Ambiente do Serviço de Aplicativo ILB.  
 
-A firewalls de aplicações Web ajudam a proteger seus aplicativos web ao inspecionar o tráfego da web de entrada para bloquear os carregamentos de malware de injeções, scripts entre sites, SQL e DDoS de aplicações e outros ataques. Ele também inspeciona as respostas dos servidores web de back-end para prevenção de perda de dados (DLP). Pode obter um dispositivo WAF no Azure marketplace ou pode utilizar o [Gateway de aplicação do Azure][appgw].
+Os firewalls do aplicativo Web ajudam a proteger seus aplicativos Web inspecionando o tráfego da Web de entrada para bloquear injeções de SQL, scripts entre sites, carregamentos de malware & DDoS do aplicativo e outros ataques. Ele também inspeciona as respostas dos servidores Web back-end para DLP (prevenção contra perda de dados). Você pode obter um dispositivo WAF do Azure Marketplace ou pode usar o gateway de [aplicativo Azure][appgw].
 
-O Gateway de aplicação do Azure é uma aplicação virtual que fornece balanceamento de carga de camada 7, a descarga de SSL e a proteção do web application firewall (WAF). Ele pode escutar-se um público IP endereço e encaminhar o tráfego para o ponto de final do aplicativo. As informações seguintes descrevem como integrar um gateway de aplicação WAF-configurado com uma aplicação num ambiente de serviço de aplicações ILB.  
+O gateway de Aplicativo Azure é uma solução de virtualização que fornece balanceamento de carga de camada 7, descarregamento de SSL e proteção WAF (firewall de aplicativo Web). Ele pode escutar em um endereço IP público e rotear o tráfego para o ponto de extremidade do aplicativo. As informações a seguir descrevem como integrar um gateway de aplicativo configurado WAF com um aplicativo em um Ambiente do Serviço de Aplicativo de ILB.  
 
-A integração entre o gateway de aplicação com o ambiente de serviço de aplicações ILB é ao nível da aplicação. Quando configurar o gateway de aplicação com o ambiente de serviço de aplicações do ILB, está fazendo isso para aplicações específicas no seu ambiente de serviço de aplicações ILB. Essa técnica permite alojar aplicações multi-inquilino seguras num único ambiente de serviço de aplicações ILB.  
+A integração do gateway de aplicativo com o Ambiente do Serviço de Aplicativo ILB está em um nível de aplicativo. Ao configurar o gateway de aplicativo com sua Ambiente do Serviço de Aplicativo do ILB, você está fazendo isso para aplicativos específicos em seu Ambiente do Serviço de Aplicativo do ILB. Essa técnica permite hospedar aplicativos multilocatários seguros em um único Ambiente do Serviço de Aplicativo ILB.  
 
-![Gateway de aplicação que aponte para a aplicação num ambiente de serviço de aplicações do ILB][1]
+![Gateway de aplicativo apontando para o aplicativo em um Ambiente do Serviço de Aplicativo ILB][1]
 
 Nestas instruções, irá:
 
-* Crie um Gateway de aplicação do Azure.
-* Configure o Gateway de aplicação para apontar para uma aplicação no seu ambiente de serviço de aplicações ILB.
-* Configure a sua aplicação que respeite o nome de domínio personalizado.
-* Edite o nome de anfitrião DNS público que aponta para o gateway de aplicação.
+* Crie um gateway de Aplicativo Azure.
+* Configure o gateway de aplicativo para apontar para um aplicativo em seu Ambiente do Serviço de Aplicativo ILB.
+* Configure seu aplicativo para honrar o nome de domínio personalizado.
+* Edite o nome de host DNS público que aponta para o gateway de aplicativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para integrar o Gateway de aplicação com o ambiente de serviço de aplicações do ILB, terá de:
+Para integrar o gateway de aplicativo ao seu ILB Ambiente do Serviço de Aplicativo, você precisará de:
 
-* Um ambiente de serviço de aplicações ILB.
-* Uma aplicação em execução no ambiente de serviço de aplicações ILB.
-* Um nome de domínio encaminhável da internet a ser utilizado com a sua aplicação no ambiente de serviço de aplicações ILB.
-* O endereço ILB que utiliza o ambiente de serviço de aplicações ILB. Estas informações estão no portal do ambiente de serviço de aplicações em **configurações** > **endereços IP**:
+* Um Ambiente do Serviço de Aplicativo ILB.
+* Um aplicativo em execução no Ambiente do Serviço de Aplicativo ILB.
+* Um nome de domínio roteável da Internet a ser usado com seu aplicativo no Ambiente do Serviço de Aplicativo ILB.
+* O endereço ILB que seu ILB Ambiente do Serviço de Aplicativo usa. Essas informações estão no portal do ambiente do serviço de aplicativo em **configurações** > **endereços IP**:
 
-    ![Lista de exemplo de endereços IP utilizados pelo ambiente de serviço de aplicações ILB][9]
+    ![Exemplo de lista de endereços IP usados pelo Ambiente do Serviço de Aplicativo ILB][9]
     
-* Um nome DNS público que é utilizado mais tarde para apontar para o Gateway de aplicação. 
+* Um nome DNS público que é usado posteriormente para apontar para o gateway de aplicativo. 
 
-Para obter detalhes sobre como criar um ambiente de serviço de aplicações do ILB, veja [criando e usando um ambiente de serviço de aplicações ILB][ilbase].
+Para obter detalhes sobre como criar um Ambiente do Serviço de Aplicativo ILB, consulte [criando e usando um ambiente do serviço de aplicativo de ILB][ilbase].
 
-Este artigo pressupõe que deseja um Gateway de aplicação na mesma rede virtual do Azure em que o ambiente de serviço de aplicações é implementado. Antes de começar a criar o Gateway de aplicação, escolha ou crie uma sub-rede que irá utilizar para alojar o gateway. 
+Este artigo pressupõe que você deseja um gateway de aplicativo na mesma rede virtual do Azure em que o Ambiente do Serviço de Aplicativo é implantado. Antes de começar a criar o gateway de aplicativo, escolha ou crie uma sub-rede que será usada para hospedar o gateway. 
 
-Deve usar uma sub-rede que é não um com o nome GatewaySubnet. Se colocar o Gateway de aplicação no GatewaySubnet, ficará não é possível criar um gateway de rede virtual mais tarde. 
+Você deve usar uma sub-rede que não seja uma chamada GatewaySubnet. Se você colocar o gateway de aplicativo no GatewaySubnet, não será possível criar um gateway de rede virtual mais tarde. 
 
-Não é possível colocar o gateway na sub-rede que utiliza o ambiente de serviço de aplicações ILB. O ambiente de serviço de aplicações é a única coisa que pode ser nesta sub-rede.
+Você também não pode colocar o gateway na sub-rede que seu ILB Ambiente do Serviço de Aplicativo usa. A Ambiente do Serviço de Aplicativo é a única coisa que pode estar nessa sub-rede.
 
 ## <a name="configuration-steps"></a>Passos de configuração ##
 
-1. No portal do Azure, aceda a **New** > **rede** > **Gateway de aplicação**.
+1. Na portal do Azure, vá para **novo** > **rede** > **Gateway de aplicativo**.
 
-2. Na **Noções básicas** área:
+2. Na área **básico** :
 
-   a. Para **nome**, introduza o nome do Gateway de aplicação.
+   a. Para **nome**, insira o nome do gateway de aplicativo.
 
-   b. Para **escalão**, selecione **WAF**.
+   b. Para **camada**, selecione **WAF**.
 
-   c. Para **subscrição**, selecione a mesma subscrição que utiliza a rede virtual do ambiente de serviço de aplicações.
+   c. Para **assinatura**, selecione a mesma assinatura que a rede virtual ambiente do serviço de aplicativo usa.
 
    d. Para **grupo de recursos**, crie ou selecione o grupo de recursos.
 
-   e. Para **localização**, selecione a localização da rede virtual do ambiente de serviço de aplicações.
+   e. Para **local**, selecione o local da rede virtual ambiente do serviço de aplicativo.
 
-   ![Noções básicas de criação do novo Gateway de aplicação][2]
+   ![Noções básicas de criação de novo gateway de aplicativo][2]
 
-3. Na **definições** área:
+3. Na área **configurações** :
 
-   a. Para **rede Virtual**, selecione a rede virtual do ambiente de serviço de aplicações.
+   a. Para **rede virtual**, selecione o ambiente do serviço de aplicativo rede virtual.
 
-   b. Para **sub-rede**, selecione a sub-rede onde o Gateway de aplicação tem de ser implementado. Não utilize GatewaySubnet, uma vez que ele irá impedir que a criação de gateways de VPN.
+   b. Para **sub-rede**, selecione a sub-rede na qual o gateway de aplicativo precisa ser implantado. Não use GatewaySubnet, pois isso impedirá a criação de gateways de VPN.
 
    c. Para **tipo de endereço IP**, selecione **público**.
 
-   d. Para **endereço IP público**, selecione um endereço IP público. Se não tiver uma, crie uma agora.
+   d. Para **endereço IP público**, selecione um endereço IP público. Se você não tiver um, crie um agora.
 
-   e. Para **protocolo**, selecione **HTTP** ou **HTTPS**. Se estiver a configurar para HTTPS, terá de fornecer um certificado PFX.
+   e. Para **protocolo**, selecione **http** ou **https**. Se estiver configurando para HTTPS, você precisará fornecer um certificado PFX.
 
-   f. Para **firewall de aplicações Web**, pode ativar a firewall e também defini-lo por qualquer **deteção** ou **prevenção** como quiser.
+   f. Para o **Firewall do aplicativo Web**, você pode habilitar o firewall e também defini-lo para **detecção** ou **prevenção** , como se desejar.
 
-   ![Novas definições de criação do Gateway de aplicação][3]
+   ![Novas configurações de criação do gateway de aplicativo][3]
     
-4. Na **resumo** secção, reveja as definições e selecione **OK**. O Gateway de aplicação pode demorar um pouco mais de 30 minutos para concluir a configuração.  
+4. Na seção **Resumo** , examine as configurações e selecione **OK**. O gateway de aplicativo pode levar um pouco mais de 30 minutos para concluir a instalação.  
 
-5. Após a conclusão da configuração do seu Gateway de aplicação, aceda ao seu portal de Gateway de aplicação. Selecione **conjunto back-end**. Adicione o endereço do ILB para o ambiente de serviço de aplicações ILB.
+5. Depois que o gateway de aplicativo concluir a instalação, vá para o portal do gateway de aplicativo. Selecione **pool de back-end**. Adicione o endereço ILB para seu Ambiente do Serviço de Aplicativo de ILB.
 
-   ![Configurar o conjunto de back-end][4]
+   ![Configurar pool de back-end][4]
 
-6. Depois de concluído o processo de configuração de seu conjunto de back-end, selecione **sondas de estado de funcionamento**. Crie uma sonda de estado de funcionamento para o nome de domínio que pretende utilizar para a sua aplicação. 
+6. Depois que o processo de configuração do pool de back-end for concluído, selecione **investigações de integridade**. Crie uma investigação de integridade para o nome de domínio que você deseja usar para seu aplicativo. 
 
    ![Configurar sondas do estado de funcionamento][5]
     
-7. Depois de concluído o processo de configuração de seu sondas de estado de funcionamento, selecione **definições de HTTP**. Editar as definições existentes, selecione **sonda de utilização personalizada**e escolha a sonda que configurou.
+7. Depois que o processo de configuração de suas investigações de integridade for concluído, selecione **configurações de http**. Edite as configurações existentes, selecione **usar investigação personalizada**e escolha a investigação que você configurou.
 
-   ![Configurar as definições de HTTP][6]
+   ![Definir configurações de HTTP][6]
     
-8. Vá para o Gateway de aplicação **descrição geral** secção e copie o endereço IP público que utiliza o Gateway de aplicação. Definir esse endereço IP como um registo para o seu nome de domínio de aplicação ou utilize o nome DNS para esse endereço num registo CNAME. É mais fácil selecionar o endereço IP público e copiá-lo a partir da IU do endereço IP público em vez de copiá-lo a partir da ligação no Gateway de aplicação **descrição geral** secção. 
+8. Vá para a seção **visão geral** do gateway de aplicativo e copie o endereço IP público que o gateway de aplicativo usa. Defina esse endereço IP como um registro para o nome de domínio do aplicativo ou use o nome DNS para esse endereço em um registro CNAME. É mais fácil selecionar o endereço IP público e copiá-lo da interface do usuário do endereço IP público em vez de copiá-lo do link na seção **visão geral** do gateway de aplicativo. 
 
-   ![Portal de Gateway de aplicação][7]
+   ![Portal do gateway de aplicativo][7]
 
-9. Defina o nome de domínio personalizado para a sua aplicação no seu ambiente de serviço de aplicações ILB. Aceda à sua aplicação no portal e, em **configurações**, selecione **domínios personalizados**.
+9. Defina o nome de domínio personalizado para seu aplicativo no Ambiente do Serviço de Aplicativo ILB. Vá para seu aplicativo no portal e, em **configurações**, selecione **domínios personalizados**.
 
-   ![Defina o nome de domínio personalizado da aplicação][8]
+   ![Definir nome de domínio personalizado no aplicativo][8]
 
-Há informações sobre a definição de nomes de domínio personalizados para as suas aplicações web no artigo [definir nomes de domínio personalizado para a sua aplicação web][custom-domain]. Mas para uma aplicação num ambiente de serviço de aplicações do ILB, não há nenhuma validação no nome de domínio. Uma vez que for o proprietário o DNS que gere os pontos de extremidade do aplicativo, pode colocar que quiser lá. O nome de domínio personalizado que neste caso adicionar não tem de estar no seu DNS, mas ainda precisa ser configurado com a sua aplicação. 
+Há informações sobre como configurar nomes de domínio personalizados para seus aplicativos Web no artigo [Configurando nomes de domínio personalizados para seu aplicativo Web][custom-domain]. Mas, para um aplicativo em um Ambiente do Serviço de Aplicativo ILB, não há nenhuma validação no nome de domínio. Como você possui o DNS que gerencia os pontos de extremidade do aplicativo, você pode colocar o que desejar ali. O nome de domínio personalizado que você adiciona nesse caso não precisa estar no DNS, mas ele ainda precisa ser configurado com seu aplicativo. 
 
-Após a conclusão da configuração e que tenham permitido um curto período de tempo para as alterações DNS se propague, pode aceder à sua aplicação ao utilizar o nome de domínio personalizado que criou. 
+Depois que a instalação for concluída e você tiver permitido um curto período de tempo para as alterações de DNS serem propagadas, você poderá acessar seu aplicativo usando o nome de domínio personalizado que você criou. 
 
 
 <!--IMAGES-->

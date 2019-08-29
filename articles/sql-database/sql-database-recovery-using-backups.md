@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/30/2019
-ms.openlocfilehash: 55d60ec332515fcfa3deb565a4a770027681537a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/27/2019
+ms.openlocfilehash: 00982ea837783a7e7a9dca257f04c77d48aceef2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566970"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103106"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automático
 
@@ -37,7 +37,7 @@ Ao usar a camada de serviço Standard ou Premium, um banco de dados restaurado g
 - Restauração de P11 – P15 para S4-S12 ou P1 – P6 se o tamanho máximo do banco de dados for maior que 500 GB.
 - Restauração de P1 – P6 para S4-S12 se o tamanho máximo do banco de dados for maior que 250 GB.
 
-O custo extra é icurred quando o tamanho máximo do banco de dados restaurado é maior do que a quantidade de armazenamento incluída na camada de serviço e no nível de desempenho do banco de dados de destino. O armazenamento extra provisionado acima do valor incluído é cobrado como extra. Para obter detalhes de preços de armazenamento extra, consulte a [página de preços do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço usado for menor que a quantidade de armazenamento incluída, você poderá evitar esse custo extra definindo o tamanho máximo do banco de dados para o valor incluído.
+O custo extra é incorrido quando o tamanho máximo do banco de dados restaurado é maior do que a quantidade de armazenamento incluída na camada de serviço e no nível de desempenho do banco de dados de destino. O armazenamento extra provisionado acima do valor incluído é cobrado como extra. Para obter detalhes de preços de armazenamento extra, consulte a [página de preços do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço usado for menor que a quantidade de armazenamento incluída, você poderá evitar esse custo extra definindo o tamanho máximo do banco de dados para o valor incluído.
 
 > [!NOTE]
 > [Backups de banco de dados automatizados](sql-database-automated-backups.md) são usados quando você cria uma [cópia de banco de dados](sql-database-copy.md).
@@ -127,7 +127,7 @@ Atualmente, não há suporte para a restauração pontual em um secundário geog
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Restauração geográfica usando o portal do Azure
 
-Para restaurar geograficamente um banco de dados durante seu [período de retenção de modelo baseado em DTU](sql-database-service-tiers-dtu.md) ou [período de retenção de modelo baseado em vCore](sql-database-service-tiers-vcore.md) usando o portal do Azure, abra a página bancos de dados SQL e clique em **Adicionar**. Na caixa de texto **selecionar origem** , selecione **backup**. Especifique o backup do qual executar a recuperação na região e no servidor de sua escolha.
+Para fazer a restauração geográfica de um banco de dados usando o portal do Azure, abra a página SQL databases e clique em **Adicionar**. Na caixa de texto **selecionar origem** , selecione **backup**. Especifique o backup do qual executar a recuperação na região e no servidor de sua escolha.
 
 > [!Note]
 > A restauração geográfica usando o portal do Azure não está disponível no Instância Gerenciada. Em vez disso, use o PowerShell.

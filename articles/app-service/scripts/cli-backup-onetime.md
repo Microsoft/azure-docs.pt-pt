@@ -1,6 +1,6 @@
 ---
-title: Exemplo de Script da CLI do Azure - fazer cópia de segurança uma aplicação | Documentos da Microsoft
-description: Exemplo de Script da CLI do Azure - fazer cópia de segurança uma aplicação
+title: Exemplo de script CLI do Azure – fazer backup de um aplicativo | Microsoft Docs
+description: Exemplo de script CLI do Azure – fazer backup de um aplicativo
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -9,22 +9,21 @@ editor: ''
 tags: azure-service-management
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4fb44440e68f8205b18eba3a3418e5a498e6b2ba
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 07ca1a167a2c7bf2f2946772b97cca4d2c1bd9c9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613536"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098514"
 ---
-# <a name="back-up-an-app-using-cli"></a>Fazer cópias de segurança de uma aplicação com a CLI
+# <a name="back-up-an-app-using-cli"></a>Fazer backup de um aplicativo usando a CLI
 
-Este script de exemplo cria uma aplicação no serviço de aplicações com os respetivos recursos relacionados e, em seguida, cria uma cópia de segurança única para o mesmo. 
+Este script de exemplo cria um aplicativo no serviço de aplicativo com seus recursos relacionados e, em seguida, cria um backup único para ele. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,9 +48,9 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [`az storage container create`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) | Cria um contentor de armazenamento do Azure. |
 | [`az storage container generate-sas`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-generate-sas) | Gera um token SAS para um contentor de armazenamento do Azure.  |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de serviço de aplicações. |
-| [`az webapp config backup create`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-create) | Cria uma cópia de segurança para uma aplicação de serviço de aplicações. |
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Obtém uma lista de cópias de segurança para uma aplicação de serviço de aplicações. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria um aplicativo do serviço de aplicativo. |
+| [`az webapp config backup create`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-create) | Cria um backup para um aplicativo do serviço de aplicativo. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Obtém uma lista de backups para um aplicativo do serviço de aplicativo. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

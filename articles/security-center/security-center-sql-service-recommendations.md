@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 0704db7444756fb44c5587ae8e8e743f671c9dcc
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 5f34f5e0c622ff107da880d9a4a77c63568b63b0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907951"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100944"
 ---
 # <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Proteger os serviços de armazenamento e dados do Azure na central de segurança do Azure
 Este tópico mostra como exibir e implementar recomendações de segurança para dados e recursos de armazenamento. A central de segurança do Azure encontrou essas recomendações ao analisar o estado de segurança de seus recursos do Azure.
@@ -78,7 +78,6 @@ Nessa página, você pode:
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte os seguintes tópicos:
 
 * [Proteger as máquinas e aplicações no Centro de Segurança do Azure](security-center-virtual-machine-protection.md)
-* [Proteger as aplicações no Centro de Segurança do Azure](security-center-application-recommendations.md)
 * [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)
 
 Para saber mais sobre a central de segurança, consulte os seguintes tópicos:

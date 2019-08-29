@@ -7,19 +7,18 @@ author: roiyz-msft
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz
 ms.reviewer: cynthn
-ms.openlocfilehash: 79a65dc0e7aa85b2f8cef5f884fab7bc6cd076fe
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 49f56d5bd258a75efaed03b51076ca194749830e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876715"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092359"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Usar Azure Policy para restringir a instalação de extensões em VMs Linux
 
@@ -116,7 +115,7 @@ az policy definition create \
 
 ## <a name="assign-the-policy"></a>Atribuir a política
 
-Este exemplo atribui a política a um grupo de recursos usando a [atribuição de política AZ Create](/cli/azure/policy/assignment). Qualquer VM criada no grupo  de recursos MyResource Group não será capaz de instalar o acesso de VM do Linux ou as extensões de script personalizado para Linux. O grupo de recursos deve existir antes que você possa atribuir a política.
+Este exemplo atribui a política a um grupo de recursos usando a [atribuição de política AZ Create](/cli/azure/policy/assignment). Qualquer VM criada no grupo de recursos MyResource Group não será capaz de instalar o acesso de VM do Linux ou as extensões de script personalizado para Linux. O grupo de recursos deve existir antes que você possa atribuir a política.
 
 Use a [lista de contas AZ](/cli/azure/account?view=azure-cli-latest) para obter sua ID de assinatura a ser usada no lugar do exemplo.
 

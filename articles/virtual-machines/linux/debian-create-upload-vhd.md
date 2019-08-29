@@ -1,6 +1,6 @@
 ---
-title: Preparar um VHD Debian do Linux no Azure | Documentos da Microsoft
-description: Saiba como criar imagens de Debian VHD para implementação no Azure.
+title: Preparar um VHD do Debian Linux no Azure | Microsoft Docs
+description: Saiba como criar imagens de VHD Debian para implantação no Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
@@ -11,30 +11,29 @@ ms.assetid: a6de7a7c-cc70-44e7-aed0-2ae6884d401a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: szark
-ms.openlocfilehash: bdeaf4ec4a276e7cdd94402159f6adac474b3af8
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 009918a95ca1ff6189553d502fd06773fcd0d402
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671536"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083459"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Preparar um VHD Debian para o Azure
 ## <a name="prerequisites"></a>Pré-requisitos
-Esta secção assume que já tem instalado um sistema operativo Debian Linux de um arquivo. ISO transferido a partir da [Web site Debian](https://www.debian.org/distrib/) para um disco rígido virtual. Várias ferramentas existem para criar ficheiros. vhd; Hyper-V é apenas um exemplo. Para obter instruções sobre como utilizar o Hyper-V, consulte [instalar a função Hyper-V e configurar uma Máquina Virtual](https://technet.microsoft.com/library/hh846766.aspx).
+Esta seção pressupõe que você já tenha instalado um sistema operacional Linux Debian a partir de um arquivo. ISO baixado do [site Debian](https://www.debian.org/distrib/) para um disco rígido virtual. Existem várias ferramentas para criar arquivos. vhd; O Hyper-V é apenas um exemplo. Para obter instruções sobre como usar o Hyper-V, consulte [instalar a função Hyper-v e configurar uma máquina virtual](https://technet.microsoft.com/library/hh846766.aspx).
 
-## <a name="installation-notes"></a>Observações de instalação
-* Consulte também [observações de instalação de Linux geral](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas sobre como preparar o Linux para o Azure.
-* O formato mais recente do VHDX não é suportado no Azure. Pode converter o disco para o formato VHD utilizando o Gestor de Hyper-V ou o **convert-vhd** cmdlet.
-* Ao instalar o sistema Linux, é recomendado que utilize partições padrão em vez de LVM (muitas vezes, o padrão para muitas instalações). Isso evitará LVM nome entra em conflito com VMs Clonadas, especialmente se um disco de SO algum dia precisar ser anexados a outra VM para resolução de problemas. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pode ser utilizada em discos de dados, se preferirem.
-* Não configure uma partição de troca no disco do SO. O agente Linux do Azure pode ser configurado para criar um ficheiro de troca no disco de recursos temporário. Podem encontrar mais informações nos passos abaixo.
-* Todos os VHDs no Azure tem de ter um tamanho virtual alinhado para 1MB. Ao converter a partir de um disco não processado para o VHD, certifique-se de que o tamanho de disco bruto é um múltiplo de 1MB antes da conversão. Para obter mais informações, consulte [observações de instalação de Linux](create-upload-generic.md#general-linux-installation-notes).
+## <a name="installation-notes"></a>Notas de instalação
+* Confira também [notas de instalação gerais do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas sobre como preparar o Linux para o Azure.
+* Não há suporte para o formato VHDX mais recente no Azure. Você pode converter o disco para o formato VHD usando o Gerenciador do Hyper-V ou o cmdlet **Convert-VHD** .
+* Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso evitará conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. O [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou o [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pode ser usado em discos de dados, se for preferencial.
+* Não configure uma partição de permuta no disco do sistema operacional. O agente Linux do Azure pode ser configurado para criar um arquivo de permuta no disco de recursos temporário. Mais informações podem ser encontradas nas etapas abaixo.
+* Todos os VHDs no Azure devem ter um tamanho virtual alinhado a 1 MB. Ao converter de um disco bruto para VHD, você deve garantir que o tamanho do disco bruto seja um múltiplo de 1 MB antes da conversão. Para obter mais informações, consulte [notas de instalação do Linux](create-upload-generic.md#general-linux-installation-notes).
 
-## <a name="use-azure-manage-to-create-debian-vhds"></a>Utilizar a gerir o Azure para criar o VHD Debian
-Existem ferramentas disponíveis para gerar o VHD Debian para o Azure, tais como o [azure-gerenciar](https://github.com/credativ/azure-manage) scripts a partir de [Credativ](https://www.credativ.com/). Esta é a abordagem recomendada versus criar uma imagem a partir do zero. Por exemplo, para criar uma execução de Debian 8 VHD os seguintes comandos para transferir os `azure-manage` utilitário (e as dependências) e execute o `azure_build_image` script:
+## <a name="use-azure-manage-to-create-debian-vhds"></a>Usar o Azure-Manage para criar VHDs Debian
+Há ferramentas disponíveis para gerar VHDs de Debian para o Azure, como os scripts do [Azure-Manage](https://github.com/credativ/azure-manage) de [credativ](https://www.credativ.com/). Essa é a abordagem recomendada em relação à criação de uma imagem do zero. Por exemplo, para criar um VHD Debian 8, execute os seguintes comandos para baixar `azure-manage` o utilitário (e as dependências) `azure_build_image` e executar o script:
 
     # sudo apt-get update
     # sudo apt-get install git qemu-utils mbr kpartx debootstrap
@@ -48,12 +47,12 @@ Existem ferramentas disponíveis para gerar o VHD Debian para o Azure, tais como
     # sudo azure_build_image --option release=jessie --option image_size_gb=30 --option image_prefix=debian-jessie-azure section
 
 
-## <a name="manually-prepare-a-debian-vhd"></a>Preparar um VHD Debian manualmente
-1. No Gestor de Hyper-V, selecione a máquina virtual.
-2. Clique em **Connect** para abrir uma janela de consola para a máquina virtual.
-3. Se tiver instalado o sistema operacional usando uma imagem ISO, em seguida, comente a qualquer linha relacionados ao "`deb cdrom`" no `/etc/apt/source.list`.
+## <a name="manually-prepare-a-debian-vhd"></a>Preparar manualmente um VHD Debian
+1. No Gerenciador do Hyper-V, selecione a máquina virtual.
+2. Clique em **conectar** para abrir uma janela de console para a máquina virtual.
+3. Se você instalou o sistema operacional usando um ISO, comente qualquer linha relacionada a "`deb cdrom`" em. `/etc/apt/source.list`
 
-4. Editar a `/etc/default/grub` de ficheiros e modificar o **GRUB_CMDLINE_LINUX** parâmetro da seguinte forma para incluir parâmetros de kernel adicionais para o Azure.
+4. Edite `/etc/default/grub` o arquivo e modifique o parâmetro **GRUB_CMDLINE_LINUX** da seguinte maneira para incluir parâmetros de kernel adicionais para o Azure.
    
         GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200n8 earlyprintk=ttyS0,115200"
 
@@ -61,9 +60,9 @@ Existem ferramentas disponíveis para gerar o VHD Debian para o Azure, tais como
 
         # sudo update-grub
 
-6. Adicione repositórios de Azure do Debian a /etc/apt/sources.list para Debian 8 ou 9:
+6. Adicione repositórios do Azure de Debian ao/etc/apt/sources.List para o Debian 8 ou 9:
 
-    **Debian 8.x "Jessie"**
+    **Debian 8. x "Jessie"**
 
         deb http://debian-archive.trafficmanager.net/debian jessie main
         deb-src http://debian-archive.trafficmanager.net/debian jessie main
@@ -74,7 +73,7 @@ Existem ferramentas disponíveis para gerar o VHD Debian para o Azure, tais como
         deb http://debian-archive.trafficmanager.net/debian jessie-backports main
         deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
 
-    **Debian 9.x "Stretch"**
+    **"Stretch" do Debian 9. x**
 
         deb http://debian-archive.trafficmanager.net/debian stretch main
         deb-src http://debian-archive.trafficmanager.net/debian stretch main
@@ -91,22 +90,22 @@ Existem ferramentas disponíveis para gerar o VHD Debian para o Azure, tais como
         # sudo apt-get update
         # sudo apt-get install waagent
 
-8. Para Debian 9 +, recomenda-se para utilizar o novo kernel de Debian Cloud para utilização com as VMs no Azure. Para instalar este novo kernel, primeiro crie um arquivo chamado /etc/apt/preferences.d/linux.pref com o seguinte conteúdo:
+8. Para Debian 9 +, é recomendável usar o novo kernel de nuvem Debian para uso com VMs no Azure. Para instalar esse novo kernel, primeiro crie um arquivo chamado/etc/apt/preferences.d/Linux.pref com o seguinte conteúdo:
    
         Package: linux-* initramfs-tools
         Pin: release n=stretch-backports
         Pin-Priority: 500
    
-    Em seguida, executar "sudo apt-get install linux-imagem-cloud-amd64" para instalar o novo kernel de Debian Cloud.
+    Em seguida, execute "sudo apt-obter instalar Linux-Image-Cloud-amd64" para instalar o novo kernel de nuvem Debian.
 
-9. Desaprovisionar a máquina virtual e prepará-lo para o aprovisionamento no Azure e execute:
+9. Desprovisione a máquina virtual e prepare-a para provisionamento no Azure e execute:
    
         # sudo waagent –force -deprovision
         # export HISTSIZE=0
         # logout
 
-10. Clique em **ação** -> Encerrar para baixo no Gestor de Hyper-V. O VHD do Linux está agora pronto para ser carregado para o Azure.
+10. Clique em **ação** -> desligar no Gerenciador do Hyper-V. Seu VHD do Linux agora está pronto para ser carregado no Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora, está pronto para utilizar o seu disco rígido virtual Debian para criar novas máquinas virtuais no Azure. Se esta for a primeira vez que está a carregar o ficheiro. vhd para o Azure, veja [criar uma VM do Linux a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).
+Agora você está pronto para usar o disco rígido virtual Debian para criar novas máquinas virtuais no Azure. Se esta for a primeira vez que você está carregando o arquivo. vhd no Azure, consulte [criar uma VM do Linux a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).
 

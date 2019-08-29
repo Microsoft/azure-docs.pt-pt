@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/02/2019
+ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 776b8303e3454b40979691ea32fdcca11be4fa71
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: fb1007929a26384da60e542865c750fd1d642440
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013378"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114659"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 
@@ -70,6 +70,8 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 | [Leitor de cobrança](#billing-reader) | Permite o acesso de leitura aos dados de cobrança |
 | [Colaborador do BizTalk](#biztalk-contributor) | Permite que você gerencie serviços BizTalk, mas não tem acesso a eles. |
 | [Acesso ao nó de membro Blockchain (visualização)](#blockchain-member-node-access-preview) | Permite o acesso a nós membro Blockchain |
+| [Colaborador do Blueprint](#blueprint-contributor) | Pode gerenciar definições de plantas, mas não atribuí-las. |
+| [Operador Blueprint](#blueprint-operator) | Pode atribuir plantas publicadas existentes, mas não pode criar novas plantas. Observação: isso só funcionará se a atribuição for feita com uma identidade gerenciada atribuída pelo usuário. |
 | [Colaborador do ponto de extremidade da CDN](#cdn-endpoint-contributor) | Pode gerenciar pontos de extremidade CDN, mas não pode conceder acesso a outros usuários. |
 | [Leitor de ponto de extremidade CDN](#cdn-endpoint-reader) | Pode exibir pontos de extremidade CDN, mas não pode fazer alterações. |
 | [Colaborador do perfil CDN](#cdn-profile-contributor) | Pode gerenciar perfis CDN e seus pontos de extremidade, mas não pode conceder acesso a outros usuários. |
@@ -139,7 +141,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 | [Colaborador de dados do blob de armazenamento](#storage-blob-data-contributor) | Ler, gravar e excluir contêineres e blobs de armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, confira [permissões para chamar operações de BLOB e de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Proprietário de dados do blob de armazenamento](#storage-blob-data-owner) | Fornece acesso completo aos dados e contêineres de blob do armazenamento do Azure, incluindo a atribuição de controle de acesso POSIX. Para saber quais ações são necessárias para uma determinada operação de dados, confira [permissões para chamar operações de BLOB e de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Leitor de dados de blob de armazenamento](#storage-blob-data-reader) | Leia e liste contêineres e blobs de armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, confira [permissões para chamar operações de BLOB e de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
-| [Delegador de blob de armazenamento](#storage-blob-delegator) | Obtenha a chave de delegação de usuário, que pode ser usada para criar uma assinatura de acesso compartilhado para um contêiner ou BLOB que é assinado com as credenciais do Azure AD. Para obter mais informações, consulte [criar uma SAS de delegação de usuário](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). |
+| [Delegador de blob de armazenamento](#storage-blob-delegator) | Obtenha uma chave de delegação de usuário, que pode ser usada para criar uma assinatura de acesso compartilhado para um contêiner ou BLOB que é assinado com as credenciais do Azure AD. Para obter mais informações, consulte [criar uma SAS de delegação de usuário](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). |
 | [Colaborador de compartilhamento SMB de dados de arquivo de armazenamento](#storage-file-data-smb-share-contributor) | Permite acesso de leitura, gravação e exclusão em compartilhamentos de arquivos de armazenamento do Azure via SMB |
 | [Colaborador elevado de compartilhamento SMB de dados de arquivo de armazenamento](#storage-file-data-smb-share-elevated-contributor) | Permite ler, gravar, excluir e modificar o acesso de permissão NTFS em compartilhamentos de arquivos de armazenamento do Azure via SMB |
 | [Leitor de compartilhamento SMB de dados de arquivo de armazenamento](#storage-file-data-smb-share-reader) | Permite o acesso de leitura ao compartilhamento de arquivos do Azure por SMB |
@@ -948,6 +950,44 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
+## <a name="blueprint-contributor"></a>Colaborador do Blueprint
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Pode gerenciar definições de plantas, mas não atribuí-las. |
+> | **Id** | 41077137-E803-4205-871c-5a86e6a753b4 |
+> | **Ações** |  |
+> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
+> | Microsoft. Blueprint/plantas/* | Crie e gerencie definições de plantas ou artefatos de Blueprint. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
+> | Microsoft.Resources/deployments/* | Criar e gerenciar implantações de grupo de recursos |
+> | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+> | **NotActions** |  |
+> | *None* |  |
+> | **DataActions** |  |
+> | *None* |  |
+> | **NotDataActions** |  |
+> | *None* |  |
+
+## <a name="blueprint-operator"></a>Operador Blueprint
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Pode atribuir plantas publicadas existentes, mas não pode criar novas plantas. Observação: isso só funcionará se a atribuição for feita com uma identidade gerenciada atribuída pelo usuário. |
+> | **Id** | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
+> | **Ações** |  |
+> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
+> | Microsoft. Blueprint/blueprintAssignments/* | Criar e gerenciar atribuições de plano gráfico. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
+> | Microsoft.Resources/deployments/* | Criar e gerenciar implantações de grupo de recursos |
+> | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+> | **NotActions** |  |
+> | *None* |  |
+> | **DataActions** |  |
+> | *None* |  |
+> | **NotDataActions** |  |
+> | *None* |  |
+
 ## <a name="cdn-endpoint-contributor"></a>Contribuidor de Ponto Final de CDN
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1268,7 +1308,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Ações** |  |
 > | Microsoft. consumo/* |  |
 > | Microsoft. CostManagement/* |  |
-> | Microsoft.Billing/billingPeriods/read | Lista os períodos de cobrança disponíveis |
+> | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Resources/subscriptions/read | Obtém a lista de assinaturas. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
@@ -1291,7 +1331,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Ações** |  |
 > | Microsoft.Consumption/*/read |  |
 > | Microsoft.CostManagement/*/read |  |
-> | Microsoft.Billing/billingPeriods/read | Lista os períodos de cobrança disponíveis |
+> | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Resources/subscriptions/read | Obtém a lista de assinaturas. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
@@ -1899,6 +1939,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Insights/Register/Action | Registar o fornecedor do Microsoft Insights |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Ler/gravar/excluir Application Insights testes da Web. |
+> | Microsoft. insights/pastas de trabalho/* |  |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Ler/gravar/excluir pacotes de solução do log Analytics. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | Ler/gravar/excluir pesquisas salvas do log Analytics. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Executa uma consulta de pesquisa |
@@ -2474,6 +2515,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
+> | Microsoft. SQL/managedInstances/bancos de dados/transparentDataEncryption/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Criar e gerenciar políticas de auditoria do SQL Server |
 > | Microsoft.Sql/servers/auditingSettings/* | Criar e gerenciar a configuração de auditoria do SQL Server |
@@ -2494,6 +2536,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Criar e gerenciar políticas de alerta de segurança de banco de dados do SQL Server |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | Criar e gerenciar métricas de segurança de banco de dados do SQL Server |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
+> | Microsoft. SQL/servidores/bancos de dados/transparentDataEncryption/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
@@ -2975,7 +3018,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *None* |  |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Custom roles for Azure resources](custom-roles.md) (Funções personalizadas para recursos do Azure)
 - [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)

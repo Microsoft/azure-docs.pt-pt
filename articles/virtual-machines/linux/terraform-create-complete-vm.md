@@ -9,20 +9,19 @@ editor: na
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: gwallace
-ms.openlocfilehash: be8bfd8b6a0ba8afa43869366b4482e1b202727f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 83fba1ae29c2912e440f8983ded844414443a1a7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876320"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100809"
 ---
-# <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Criar uma infraestrutura completa de máquina virtual do Linux no Azure com o Terraform
+# <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Create a complete Linux virtual machine infrastructure in Azure with Terraform (Criar uma infraestrutura completa de máquina virtual do Linux no Azure com o Terraform)
 
 O Terraform permite que você defina e crie implantações de infraestrutura completas no Azure. Você cria modelos de Terraform em um formato legível que cria e configura recursos do Azure de maneira consistente e reproduzível. Este artigo mostra como criar um ambiente completo do Linux e recursos de suporte com o Terraform. Você também pode aprender a [instalar e configurar o Terraform](terraform-install-configure.md).
 
@@ -76,7 +75,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
 }
 ```
 
-A seção a seguir cria uma sub-rede  chamada mysubnet na rede virtual *myVnet* :
+A seção a seguir cria uma sub-rede chamada mysubnet na rede virtual *myVnet* :
 
 ```tf
 resource "azurerm_subnet" "myterraformsubnet" {
@@ -88,7 +87,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 ```
 
 
-## <a name="create-public-ip-address"></a>Criar endereço IP público
+## <a name="create-public-ip-address"></a>Criar um endereço IP público
 Para acessar recursos na Internet, crie e atribua um endereço IP público à sua VM. A seção a seguir cria um endereço IP público chamado *myPublicIP*:
 
 ```tf

@@ -1,6 +1,6 @@
 ---
-title: Exemplo de Script do PowerShell do Azure - restaurar cópia de segurança de aplicação para outra subscrição | Documentos da Microsoft
-description: Exemplo de Script do PowerShell do Azure - restaurar uma aplicação web a partir de uma cópia de segurança noutra subscrição
+title: Azure PowerShell exemplo de script – restaurar backup de aplicativo para outra assinatura | Microsoft Docs
+description: Azure PowerShell exemplo de script – restaurar um aplicativo Web de um backup em outra assinatura
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -10,21 +10,20 @@ tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: a33df69a10dc803c60652c64a11a137f085e5c61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f293f290bd0c8b6c5546d37a43dde64a5af4f82
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136561"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098406"
 ---
-# <a name="restore-a-web-app-from-a-backup-in-another-subscription-using-powershell"></a>Restaurar uma aplicação web a partir de uma cópia de segurança noutra subscrição com o PowerShell
+# <a name="restore-a-web-app-from-a-backup-in-another-subscription-using-powershell"></a>Restaurar um aplicativo Web de um backup em outra assinatura usando o PowerShell
 
-Este script de exemplo obtém uma cópia de segurança concluída anteriormente a partir de uma aplicação web existente e restaurá-lo para uma aplicação web noutra subscrição. 
+Este script de exemplo recupera um backup concluído anteriormente de um aplicativo Web existente e o restaura em um aplicativo Web em outra assinatura. 
 
 Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure. 
 
@@ -36,7 +35,7 @@ Se for preciso, instale o Azure PowerShell com a instrução que se encontra no 
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação 
 
-Se já não precisar da aplicação web, utilize o seguinte comando para remover o grupo de recursos, a aplicação web e todos os recursos relacionados.
+Se você não precisar mais do aplicativo Web, use o comando a seguir para remover o grupo de recursos, o aplicativo Web e todos os recursos relacionados.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroupName -Force
@@ -48,12 +47,12 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-| [Add-AzAccount](/powershell/module/az.accounts/connect-azaccount) | Adiciona uma conta autenticada a utilizar para pedidos de cmdlet do Azure Resource Manager.  |
+| [Add-AzAccount](/powershell/module/az.accounts/connect-azaccount) | Adiciona uma conta autenticada a ser usada para Azure Resource Manager solicitações de cmdlet.  |
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Obtém uma lista de cópias de segurança para uma aplicação Web. |
-| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação web |
-| [Restore-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | Restaura uma aplicação web a partir de uma cópia de segurança anteriormente concluída. |
+| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria um aplicativo Web |
+| [Restore-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | Restaura um aplicativo Web de um backup concluído anteriormente. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

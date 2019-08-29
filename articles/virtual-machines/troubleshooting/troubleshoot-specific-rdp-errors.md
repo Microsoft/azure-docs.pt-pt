@@ -1,7 +1,7 @@
 ---
-title: Mensagens de erro do RDP específicas para as VMs do Azure | Documentos da Microsoft
-description: Compreender as mensagens de erro específicas que possa receber ao tentar utilizam a ligação de ambiente de trabalho remoto a uma máquina virtual do Windows no Azure
-keywords: Erro de área de trabalho remoto, erro de conexão de área de trabalho remoto, não é possível ligar à VM, resolução de problemas área de trabalho remoto
+title: Mensagens de erro específicas de RDP para VMs do Azure | Microsoft Docs
+description: Entenda as mensagens de erro específicas que você pode receber ao tentar usar a conexão Área de Trabalho Remota com uma máquina virtual do Windows no Azure
+keywords: Erro de área de trabalho remota, erro de conexão de área de trabalho remota, não é possível conectar-se à VM, solução de problemas
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -12,102 +12,101 @@ ms.assetid: 5feb1d64-ee6f-4907-949a-a7cffcbc6153
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: ea8a2fa3a37815f3a7a48078e408e6607dc37eb4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: eb9929c66275959ed64ab66517f8b38190f1bdbd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709287"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089672"
 ---
-# <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Resolução de mensagens de erro do RDP específicas a uma VM do Windows no Azure
-Poderá receber uma mensagem de erro específico ao utilizar a ligação de ambiente de trabalho remoto a uma máquina virtual de Windows (VM) no Azure. Este artigo detalha algumas das mensagens de erro mais comuns encontradas, juntamente com passos para resolvê-los de resolução de problemas. Se estiver a ter problemas de ligação à sua VM através de RDP mas não encontrar uma mensagem de erro específica, consulte a [guia para o ambiente de trabalho remoto de resolução de problemas](troubleshoot-rdp-connection.md).
+# <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Solucionando problemas de mensagens de erro específicas de RDP para uma VM do Windows no Azure
+Você pode receber uma mensagem de erro específica ao usar Área de Trabalho Remota conexão com uma VM (máquina virtual) do Windows no Azure. Este artigo detalha algumas das mensagens de erro mais comuns encontradas, juntamente com as etapas de solução de problemas para resolvê-las. Se você estiver tendo problemas para se conectar à sua VM usando o RDP, mas não encontrar uma mensagem de erro específica, consulte o [Guia de solução de problemas para área de trabalho remota](troubleshoot-rdp-connection.md).
 
 Para obter informações sobre mensagens de erro específicas, consulte o seguinte:
 
-* [A sessão remota foi desligada porque existem não existem servidores de licença de ambiente de trabalho remoto disponíveis para fornecer uma licença](#rdplicense).
-* [Ambiente de trabalho remoto não é possível localizar o computador "name"](#rdpname).
-* [Ocorreu um erro de autenticação. Não é possível contactar a autoridade de segurança Local](#rdpauth).
-* [Erro de segurança do Windows: As suas credenciais não funcionavam](#wincred).
-* [Este computador não é possível ligar ao computador remoto](#rdpconnect).
+* [A sessão remota foi desconectada porque não há servidores de licença área de trabalho remota disponíveis para fornecer uma licença](#rdplicense).
+* [Área de trabalho remota não pode localizar o computador "nome"](#rdpname).
+* [Ocorreu um erro de autenticação. Não é possível contatar](#rdpauth)a autoridade de segurança local.
+* [Erro de segurança do Windows: Suas credenciais não funcionaram](#wincred).
+* [Este computador não pode se conectar ao computador remoto](#rdpconnect).
 
 <a id="rdplicense"></a>
 
-## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>A sessão remota foi desligada porque existem não existem servidores de licença de ambiente de trabalho remoto disponíveis para fornecer uma licença.
-Causa: O período de tolerância licenciamento 120 dias para a função de servidor de ambiente de trabalho remoto expirou e tem de instalar licenças.
+## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>A sessão remota foi desconectada porque não há servidores de licença Área de Trabalho Remota disponíveis para fornecer uma licença.
+Motivo: O período de carência de licenciamento de 120 dias para a função de servidor Área de Trabalho Remota expirou e você precisa instalar licenças.
 
-Como solução, guardar uma cópia local do ficheiro RDP a partir do portal e execute este comando no prompt de comando do PowerShell para ligar. Este passo desativa o licenciamento para apenas essa ligação:
+Como alternativa, salve uma cópia local do arquivo RDP do portal e execute esse comando em um prompt de comando do PowerShell para se conectar. Esta etapa desabilita o licenciamento apenas para essa conexão:
 
         mstsc <File name>.RDP /admin
 
-Se não precisar verdadeiramente de mais de duas ligações de ambiente de trabalho remoto simultâneas para a VM, pode utilizar o Gestor de servidor para remover a função de servidor de ambiente de trabalho remoto.
+Se você não precisar realmente de mais de duas conexões Área de Trabalho Remota simultâneas com a VM, poderá usar Gerenciador do Servidor para remover a função de servidor Área de Trabalho Remota.
 
-Para obter mais informações, consulte a mensagem de blogue [VM do Azure falha com "Nenhuma área de trabalho licença servidores remotos disponíveis"](https://blogs.msdn.microsoft.com/mast/2014/01/21/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available/).
+Para obter mais informações, consulte a postagem do blog [falha na VM do Azure com "sem área de trabalho remota licença de servidores disponíveis"](https://blogs.msdn.microsoft.com/mast/2014/01/21/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available/).
 
 <a id="rdpname"></a>
 
-## <a name="remote-desktop-cant-find-the-computer-name"></a>Ambiente de trabalho remoto não é possível localizar o computador "name".
-Causa: O cliente de ambiente de trabalho remoto no seu computador não é possível resolver o nome do computador em que as definições do ficheiro RDP.
+## <a name="remote-desktop-cant-find-the-computer-name"></a>Área de Trabalho Remota não pode localizar o computador "nome".
+Motivo: O cliente do Área de Trabalho Remota no computador não pode resolver o nome do computador nas configurações do arquivo RDP.
 
 Possíveis soluções:
 
-* Se estiver na intranet da organização, certifique-se de que o seu computador tem acesso ao servidor proxy e pode enviar o tráfego HTTPS para o mesmo.
-* Se estiver a utilizar um ficheiro RDP armazenado localmente, experimente utilizar aquele que é gerado pelo portal. Este passo garante que tem o nome DNS correto para a máquina virtual, ou o serviço em nuvem e a porta de ponto final da VM. Este é um ficheiro de RDP de exemplo gerado pelo portal:
+* Se você estiver na intranet de uma organização, verifique se o computador tem acesso ao servidor proxy e pode enviar tráfego HTTPS para ele.
+* Se você estiver usando um arquivo RDP armazenado localmente, tente usar aquele gerado pelo portal. Essa etapa garante que você tenha o nome DNS correto para a máquina virtual ou o serviço de nuvem e a porta do ponto de extremidade da VM. Aqui está um arquivo RDP de exemplo gerado pelo portal:
   
         full address:s:tailspin-azdatatier.cloudapp.net:55919
         prompt for credentials:i:1
 
-A parte do endereço deste ficheiro RDP tem:
+A parte do endereço deste arquivo RDP tem:
 
-* O nome de domínio completamente qualificado do serviço cloud que contém a VM ("tailspin-azdatatier.cloudapp.net" neste exemplo).
-* A porta TCP externa do ponto final para o tráfego de ambiente de trabalho remoto (55919).
+* O nome de domínio totalmente qualificado do serviço de nuvem que contém a VM ("tailspin-azdatatier.cloudapp.net" neste exemplo).
+* A porta TCP externa do ponto de extremidade para o tráfego de Área de Trabalho Remota (55919).
 
 <a id="rdpauth"></a>
 
-## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Ocorreu um erro de autenticação. Não é possível contactar a autoridade de segurança Local.
-Causa: A VM de destino não é possível localizar a autoridade de segurança na parte do nome do usuário das credenciais.
+## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Ocorreu um erro de autenticação. Não é possível contatar a autoridade de segurança local.
+Motivo: A VM de destino não pode localizar a autoridade de segurança na parte do nome de usuário de suas credenciais.
 
-Quando o seu nome de utilizador está no formato *SecurityAuthority*\\*UserName* (exemplo: CORP\User1), o *SecurityAuthority* parte é o nome do computador da VM (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
+Quando seu nome de usuário estiver no formato *SecurityAuthority*\\*username* (exemplo: CORP\User1), a parte *SecurityAuthority* é o nome do computador da VM (para a autoridade de segurança local) ou um nome de domínio Active Directory.
 
 Possíveis soluções:
 
-* Se a conta seja local para a VM, certifique-se de que o nome da VM está escrito corretamente.
-* Se a conta está num domínio do Active Directory, verifique a ortografia do nome do domínio.
-* Se for uma conta de domínio do Active Directory e o nome de domínio está escrito corretamente, certifique-se de que está disponível um controlador de domínio nesse domínio. É um problema comum em redes virtuais do Azure que contêm os controladores de domínio que um controlador de domínio está indisponível porque este ainda não foi iniciado. Como solução, pode utilizar uma conta de administrador local em vez de uma conta de domínio.
+* Se a conta for local para a VM, verifique se o nome da VM está escrito corretamente.
+* Se a conta estiver em um domínio Active Directory, verifique a ortografia do nome de domínio.
+* Se for uma conta de domínio Active Directory e o nome de domínio estiver grafado corretamente, verifique se um controlador de domínio está disponível nesse domínio. É um problema comum nas redes virtuais do Azure que contêm controladores de domínio que um controlador de domínio está indisponível porque não foi iniciado. Como alternativa, você pode usar uma conta de administrador local em vez de uma conta de domínio.
 
 <a id="wincred"></a>
 
-## <a name="windows-security-error-your-credentials-did-not-work"></a>Erro de segurança do Windows: As suas credenciais não funcionava.
-Causa: A VM de destino não é possível validar o nome de conta e palavra-passe.
+## <a name="windows-security-error-your-credentials-did-not-work"></a>Erro de segurança do Windows: Suas credenciais não funcionaram.
+Motivo: A VM de destino não pode validar o nome da conta e a senha.
 
-Um computador baseado em Windows pode validar as credenciais de uma conta local ou uma conta de domínio.
+Um computador baseado no Windows pode validar as credenciais de uma conta local ou de uma conta de domínio.
 
-* Para contas locais, utilize o *nomedocomputador*\\*UserName* sintaxe (exemplo: SQL1\Admin4798).
-* Para contas de domínio, utilize o *DomainName*\\*UserName* sintaxe (exemplo: CONTOSO\peterodman).
+* Para contas locais, use a sintaxe *ComputerName*\\*nome de usuário* (exemplo: SQL1\Admin4798).
+* Para contas de domínio, use\\a sintaxe de*nome de usuário* DomainName (exemplo: CONTOSO\peterodman).
 
-Se o ter promovido a VM para um controlador de domínio numa nova floresta do Active Directory, a conta de administrador local com que iniciou sessão é convertida para uma conta equivalente com a mesma palavra-passe na nova floresta e no domínio. A conta local, em seguida, é eliminada.
+Se você tiver promovido sua VM para um controlador de domínio em uma nova floresta Active Directory, a conta de administrador local com a qual você se conectou será convertida em uma conta equivalente com a mesma senha na nova floresta e no mesmo domínio. A conta local é então excluída.
 
-Por exemplo, se tiver iniciado sessão com a conta local DC1\DCAdmin e, em seguida, promovido a máquina virtual como controlador de domínio numa floresta de novo para o domínio corp.contoso.com, a conta local DC1\DCAdmin é eliminada e é uma nova conta de domínio (CORP\DCAdmin) criado com a mesma palavra-passe.
+Por exemplo, se você entrou com a conta local DC1\DCAdmin e promoveu a máquina virtual como um controlador de domínio em uma nova floresta para o domínio corp.contoso.com, a conta local DC1\DCAdmin é excluída e uma nova conta de domínio (CORP\DCAdmin) é criado com a mesma senha.
 
-Certifique-se de que o nome da conta é um nome que a máquina virtual pode verificar como uma conta válida e que a palavra-passe está correta.
+Verifique se o nome da conta é um nome que a máquina virtual pode verificar como uma conta válida e que a senha está correta.
 
-Se precisar de alterar a palavra-passe da conta de administrador local, consulte [como repor uma palavra-passe ou o serviço de ambiente de trabalho remoto para máquinas de virtuais do Windows](reset-rdp.md).
+Se você precisar alterar a senha da conta de administrador local, consulte [como redefinir uma senha ou o serviço de área de trabalho remota para máquinas virtuais do Windows](reset-rdp.md).
 
 <a id="rdpconnect"></a>
 
-## <a name="this-computer-cant-connect-to-the-remote-computer"></a>Este computador não é possível ligar ao computador remoto.
-Causa: A conta que é utilizada para ligar não tem direitos de início de sessão de ambiente de trabalho remoto.
+## <a name="this-computer-cant-connect-to-the-remote-computer"></a>Este computador não pode se conectar ao computador remoto.
+Motivo: A conta que é usada para se conectar não tem Área de Trabalho Remota direitos de entrada.
 
-Todos os computadores do Windows tem um ambiente de trabalho remoto utilizadores local grupo que contém as contas e grupos que podem iniciar sessão para o mesmo remotamente. Membros do grupo Administradores locais também tem acesso, mesmo que essas contas não estão listadas no grupo local de utilizadores de ambiente de trabalho remoto. Para computadores associados a um domínio, o grupo de administradores locais também contém os administradores de domínio para o domínio.
+Cada computador com Windows tem um grupo local Área de Trabalho Remota usuários, que contém as contas e os grupos que podem entrar remotamente. Os membros do grupo Administradores local também têm acesso, embora essas contas não estejam listadas no grupo local Área de Trabalho Remota usuários. Para computadores ingressados no domínio, o grupo Administradores local também contém os administradores de domínio para o domínio.
 
-Certifique-se de que a conta que estiver a utilizar para ligar com tem direitos de início de sessão de ambiente de trabalho remoto. Como solução, utilize um domínio ou conta de administrador local para ligar através do ambiente de trabalho remoto. Para adicionar a conta pretendida para o grupo local de utilizadores de ambiente de trabalho remoto, utilize o snap-in do Console de gerenciamento Microsoft (**ferramentas do sistema > utilizadores e grupos locais > grupos > Remote Desktop Users**).
+Verifique se a conta que você está usando para se conectar tem Área de Trabalho Remota direitos de entrada. Como alternativa, use uma conta de administrador local ou de domínio para se conectar por Área de Trabalho Remota. Para adicionar a conta desejada ao grupo local Área de Trabalho Remota usuários, use o snap-in do console de gerenciamento Microsoft (**Ferramentas do sistema > usuários e grupos locais > grupos > área de trabalho remota usuários**).
 
-## <a name="next-steps"></a>Passos seguintes
-Se nenhum destes erros ocorreram e tiver um desconhecido emitir com a ligação com o protocolo RDP, consulte a [guia para o ambiente de trabalho remoto de resolução de problemas](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+## <a name="next-steps"></a>Passos Seguintes
+Se nenhum desses erros ocorreu e você tiver um problema desconhecido com a conexão usando o RDP, consulte o [Guia de solução de problemas para área de trabalho remota](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* Para passos ao aceder ao aplicações em execução numa VM de resolução de problemas, consulte [resolver problemas de acesso para uma aplicação em execução numa VM do Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Se estiver a ter problemas com o Secure Shell (SSH) para ligar a uma VM do Linux no Azure, consulte [resolver problemas de SSH ligações a uma VM do Linux no Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Para obter as etapas de solução de problemas de acesso a aplicativos executados em uma VM, consulte [solucionar problemas de acesso a um aplicativo em execução em uma VM do Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Se você estiver tendo problemas ao usar o Secure Shell (SSH) para se conectar a uma VM do Linux no Azure, consulte [solucionar problemas de conexões SSH para uma VM do Linux no Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

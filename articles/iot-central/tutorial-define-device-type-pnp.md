@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 877769041d1587c6c1b0f4dbaff51d5a1a7924b5
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 660b2ead146695657ae13444cb7936eff8224f3a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997717"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099522"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-preview-features"></a>Tutorial: Definir um novo tipo de dispositivo no aplicativo de IoT Central do Azure (recursos de visualização)
 
@@ -44,7 +44,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial, precisa de uma aplicação do Azure IoT Central. Se concluiu o início rápido [Criar uma aplicação do Azure IoT Central](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json), pode reutilizar a aplicação que criou no início rápido. Caso contrário, execute os seguintes passos para criar uma aplicação do Azure IoT Central vazia:
 
-1. Navegue para a página do [Gestor de Aplicações](https://aka.ms/iotcentral) do Azure IoT Central.
+1. Navegue até o site [do Azure IOT central Application Manager](https://aka.ms/iotcentral) .
 
 1. Se você tiver uma assinatura do Azure, entre com as credenciais usadas para acessá-lo, caso contrário, assine-o usando uma conta Microsoft:
 

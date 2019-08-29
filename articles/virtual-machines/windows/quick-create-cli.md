@@ -1,6 +1,6 @@
 ---
-title: Guia de Início Rápido – Criar uma VM do Windows com o Azure PowerShell | Microsoft Docs
-description: Neste guia de início rápido, irá aprender a utilizar o Azure PowerShell para criar uma máquina virtual do Windows
+title: Início rápido-criar uma VM do Windows usando o CLI do Azure | Microsoft Docs
+description: Neste guia de início rápido, você aprende a usar o CLI do Azure para criar uma máquina virtual do Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d50c3cc59bffba1c9124c59bbd6ed197025dabc8
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: e6709a6efff80df01d7504db8b39f8ff5c2c5e49
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722992"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088847"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Início rápido: Criar uma máquina virtual do Windows com a CLI do Azure
 
@@ -33,7 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **cópia** para copiar os blocos de código, cole-o para o Cloud Shell e prima **Enter** executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **copiar** para copiar os blocos de código, Cole-o na Cloud Shell e pressione **Enter** para executá-lo.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -45,10 +44,10 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-Crie uma VM com [az vm create](/cli/azure/vm). O exemplo seguinte cria uma VM com o nome *myVM*. Este exemplo utiliza *azureuser* para um nome de utilizador administrativo. 
+Crie uma VM com [az vm create](/cli/azure/vm). O exemplo seguinte cria uma VM com o nome *myVM*. Este exemplo usa *azureuser* para um nome de usuário administrativo. 
 
-Tem de alterar o valor para `--admin-password` ou ocorrerá uma falha. Altere-o para uma palavra-passe que cumpra os [requisitos de palavra-passe para as VMs do Azure](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
-). O nome de utilizador e palavra-passe serão utilizados mais tarde, quando se liga à VM.
+Você deve alterar o valor para `--admin-password` ou haverá falha. Altere-o [para uma senha que atenda aos requisitos de senha para](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
+)VMs do Azure. O nome de usuário e a senha serão usados posteriormente, quando você se conectar à VM.
 
 ```azurecli-interactive
 az vm create \

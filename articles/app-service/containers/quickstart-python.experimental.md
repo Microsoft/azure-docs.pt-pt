@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c971e84a12b23625326d63b3493395f1d1381937
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 08b1b85b980f992e799fc5198891290ec0d55c5d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996901"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071010"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Criar um aplicativo Python no serviço de Azure App no Linux (versão prévia)
 
@@ -163,7 +162,7 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 A imagem interna do Python no serviço de aplicativo no Linux está atualmente em versão prévia e você pode personalizar o comando usado para iniciar seu aplicativo. Em alternativa, também pode criar aplicações Python de produção com um contentor personalizado.
 

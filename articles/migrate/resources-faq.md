@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 96fde6ade45bb92036fbc9ac803eebd50640bf85
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: af95ad892b62cb5d8bece554d6026525d9279777
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013453"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102876"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate: Perguntas Mais Frequentes (FAQ)
 
@@ -157,7 +157,7 @@ Para usar a visualização de dependência, você precisa baixar e instalar agen
 
 Você precisa instalar os seguintes agentes em cada computador:
 - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).
-- [Agente de dependência](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure).
+- [Agente de dependência](../azure-monitor/platform/agents-overview.md#dependency-agent).
 - Se você tiver computadores sem conectividade com a Internet, será necessário baixar e instalar Log Analytics gateway neles.
 
 Você não precisa desses agentes, a menos que esteja usando a visualização de dependência.

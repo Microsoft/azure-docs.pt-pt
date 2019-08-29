@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 46f4e1b3df5f1c77a57d432297685d6d1a0a14a8
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: d71d71c4d289235e5b67a5201c1f7417274b8fca
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405795"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072332"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Como usar valores nomeados em políticas de gerenciamento de API do Azure
 
@@ -37,9 +36,9 @@ Cada instância de serviço de gerenciamento de API tem uma coleção de proprie
 
 Os valores nomeados podem conter cadeias de caracteres literais e [expressões de política](/azure/api-management/api-management-policy-expressions). Por exemplo, o valor de `Expression` é uma expressão de política que retorna uma cadeia de caracteres que contém a data e a hora atuais. O valor `Credential` nomeado é marcado como um segredo, portanto, seu valor não é exibido por padrão.
 
-| Nome       | Value                      | Secret | Tags          |
+| Name       | Value                      | Secret | Tags          |
 | ---------- | -------------------------- | ------ | ------------- |
-| Valor      | 42                         | False  | números vitais |
+| Value      | 42                         | False  | números vitais |
 | Credencial | ••••••••••••••••••••••     | True   | Segurança      |
 | Expressão | @(DateTime.Now.ToString()) | False  |               |
 
@@ -108,7 +107,7 @@ Se você examinar o [rastreamento do Inspetor de API](api-management-howto-api-i
 
 Embora os valores de propriedade possam conter expressões de política, os valores de propriedade não podem conter outros valores nomeados. Se o texto que contém uma referência de propriedade for usado para um valor de `Property value text {{MyProperty}}`Propriedade, como, essa referência de propriedade não será substituída e será incluída como parte do valor da propriedade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 -   Saiba mais sobre como trabalhar com políticas
     -   [Políticas no gerenciamento de API](api-management-howto-policies.md)

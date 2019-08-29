@@ -1,5 +1,5 @@
 ---
-title: Script do Azure PowerShell de exemplo - criar aplicação com a implementação contínua do GitHub | Documentos da Microsoft
+title: Exemplo de script Azure PowerShell – criar aplicativo com a implantação contínua do GitHub | Microsoft Docs
 description: Exemplo do Script do Azure PowerShell – Criar uma aplicação Web com implementação contínua a partir do GitHub
 services: app-service\web
 documentationcenter: ''
@@ -10,27 +10,25 @@ tags: azure-service-management
 ms.assetid: 42f901f8-02f7-4869-b22d-d99ef59f874c
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d60fc1afbd129471ba56dddb6e2d5beba5ca2330
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc8be33ede80070b8e9928e01d07b6066f1c887c
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136486"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113582"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>Criar uma aplicação Web com implementação contínua a partir do GitHub
 
-Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, configura a implementação contínua a partir de um repositório do GitHub. Para a implementação do GitHub sem implementação contínua, veja [Criar uma aplicação Web e implementar código a partir do GitHub](powershell-deploy-github.md).
+Este script de exemplo cria um aplicativo Web no serviço de aplicativo com seus recursos relacionados e, em seguida, configura a [implantação contínua](../deploy-continuous-deployment.md) de um repositório github. Para a implementação do GitHub sem implementação contínua, veja [Criar uma aplicação Web e implementar código a partir do GitHub](powershell-deploy-github.md).
 
 Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure. Além disso, certifique-se de que:
 
-- foi criada uma ligação com o Azure utilizando o comando `az login`.
-- o código da aplicação está num repositório do GitHub público ou privado do qual é proprietário.
-- [criou um token de acesso na sua conta do GitHub](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
+- o código da aplicação está num repositório do GitHub público ou privado do qual é proprietário. Para obter compilações automáticas, estruture seu repositório de acordo com a tabela [preparar seu repositório](../deploy-continuous-deployment.md#prepare-your-repository) .
+- Você [criou um token de acesso pessoal em sua conta do GitHub](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
 
 ## <a name="sample-script"></a>Script de exemplo
 

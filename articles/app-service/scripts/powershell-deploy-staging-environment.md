@@ -1,5 +1,5 @@
 ---
-title: Script do Azure PowerShell de exemplo - criar aplicação e implementar código no bloco de teste | Documentos da Microsoft
+title: Azure PowerShell exemplo de script – criar aplicativo e implantar o código no slot de preparo | Microsoft Docs
 description: Exemplo do Script do Azure PowerShell - Criar uma aplicação Web e implementar código num ambiente de teste
 services: app-service\web
 documentationcenter: ''
@@ -10,17 +10,16 @@ tags: azure-service-management
 ms.assetid: 27cf0680-c3a9-4a58-9f71-6dec09f6b874
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 79d5efc9e30bd5bd12e8ea89da942fd0b5ad160c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7d65a5977ff8db8d31fe7a46d4f99569a8c2270a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136427"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087601"
 ---
 # <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>Criar uma aplicação Web e implementar código para um ambiente de teste
 
@@ -56,7 +55,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifica um recurso num grupo de recursos. |
 | [Switch-AzWebAppSlot](/powershell/module/az.websites/switch-azwebappslot) | Alterna um bloco de implementação da aplicação Web para produção. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

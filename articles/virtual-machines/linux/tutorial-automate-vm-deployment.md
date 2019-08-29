@@ -1,6 +1,6 @@
 ---
 title: Tutorial – Personalizar uma VM do Linux com o cloud-init no Azure | Microsoft Docs
-description: Neste tutorial, irá aprender a utilizar o cloud-init e o Key Vault para personalizar as VMs do Linux na primeira vez que iniciam no Azure
+description: Neste tutorial, você aprenderá a usar Cloud-init e Key Vault para personalizar VMs do Linux na primeira vez que forem inicializadas no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d56aa1c9b86542df3c2a7154669856686823e1dd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7215a8f169a878b10663347cf9560d822c6aa7e1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708607"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081771"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como utilizar o cloud-init para personalizar uma máquina virtual do Linux no Azure no primeiro arranque
 
@@ -131,7 +130,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
 ## <a name="test-web-app"></a>Testar a aplicação Web
-Agora, pode abrir um browser e introduzir *http:\/\/\<publicIpAddress >* na barra de endereço. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. A aplicação Node.js é apresentada conforme mostrada no exemplo seguinte:
+Agora você pode abrir um navegador da Web e inserir *http\/:\/\<publicIpAddress >* na barra de endereços. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. A aplicação Node.js é apresentada conforme mostrada no exemplo seguinte:
 
 ![Ver site NGINX em execução](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -262,7 +261,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Testar uma aplicação Web segura
-Agora, pode abrir um browser e introduzir *https:\/\/\<publicIpAddress >* na barra de endereço. Forneça o seu próprio endereço IP público conforme apresentado na saída do processo de criação da VM anterior. Aceite o aviso de segurança se utilizou um certificado autoassinado:
+Agora você pode abrir um navegador da Web e digitar *https\/:\/\<publicIpAddress >* na barra de endereços. Forneça o seu próprio endereço IP público conforme apresentado na saída do processo de criação da VM anterior. Aceite o aviso de segurança se utilizou um certificado autoassinado:
 
 ![Aceitar o aviso de segurança do browser](./media/tutorial-automate-vm-deployment/browser-warning.png)
 
@@ -271,7 +270,7 @@ O site NGINX protegido e a aplicação Node.js são apresentados como no exemplo
 ![Ver site NGINX seguro em execução](./media/tutorial-automate-vm-deployment/secured-nginx.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, configurou as VMs no primeiro arranque com o cloud-init. Aprendeu a:
 
 > [!div class="checklist"]

@@ -9,18 +9,17 @@ ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 47db310f6affa6317a74020d182c521d65cd32f3
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9714052de5cdfbdbf0789c7b4711469ee9202bac
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875235"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070648"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implantação do git local no serviço Azure App
 

@@ -6,21 +6,43 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 08/27/2019
 ms.author: alkohli
-ms.openlocfilehash: bd591ff30755fd68bb2dc673899d0ac993215e68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6e9854bf46de40cc288a04ac67beb48e8a4fb959
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405567"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098774"
 ---
-# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Início rápido: Implementar o Azure Data Box através do portal do Azure
+::: zone target="docs"
+
+# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Início rápido: Implantar Azure Data Box usando o portal do Azure
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Introdução ao Disco do Azure Data Box usando portal do Azure
+
+::: zone-end
+
+::: zone target="docs"
 
 Este início rápido descreve como implementar o Azure Data Box com o portal do Azure. Os passos incluem como instalar os cabos, configurar e copiar os dados para o Data Box, para que este os carregue para o Azure. O início rápido é efetuado no portal do Azure e na IU da Web local do dispositivo.
 
-Para implementação passo a passo detalhada e instruções de controlo, aceda a [Tutorial: Pedido do Azure Data Box](data-box-deploy-ordered.md)
+Para obter instruções detalhadas de implantação e acompanhamento passo a [passo, acesse tutorial: Ordem Azure Data Box](data-box-deploy-ordered.md)
 
+::: zone-end 
+
+::: zone target="chromeless"
+
+Este guia descreve como implantar o Azure Data Box usando o portal do Azure. As etapas incluem examinar os pré-requisitos, o cabo e conectar seu dispositivo e copiar dados para o dispositivo para que ele seja carregado no Azure.
+
+::: zone-end
+
+::: zone target="docs"
+ 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
@@ -41,6 +63,31 @@ Antes de começar:
     - Um cabo de rede RJ-45 CAT 6 (utilizar com interface de rede MGMT)
     - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (utilizar com a interface de rede DADOS 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
 
+::: zone-end 
+
+::: zone target="chromeless"
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Antes de começar, verifique se você tem:
+
+1. Concluído o [tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+2. Recebeu sua Data Box e o status do pedido no portal é **entregue**. 
+3. Revisou as [diretrizes de segurança do data Box](data-box-safety.md).
+4. Recebeu um cabo de alimentação com aterramento para usar com seu dispositivo de armazenamento 100-TB.
+5. Acesso a um computador host que tem os dados que você deseja copiar para Data Box. O computador anfitrião tem de
+    - Executar um [sistema operativo suportado](data-box-system-requirements.md).
+    - Estar ligado a uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se não estiver disponível uma ligação de 10 GbE, poderá ser utilizada uma ligação de dados de 1 GbE, mas as velocidades de cópia serão afetadas. 
+6. Acesso a uma superfície plana para posicionar o Data Box. Para colocar o dispositivo simples ou verticalmente em uma prateleira de rack padrão, você precisa de um slot de 7U em seu rack.
+7. O adquiriu os seguintes cabos para conectar o Data Box ao computador host.
+    - Um ou mais cabos 10 GbE SFP + twinax de cobre ou SFP + fibra (use com dados 1, interfaces de rede de dados 2). Para obter mais informações, consulte a [lista de cabos com suporte e comutadores de Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf) que são compatíveis com adaptador mellanox ConnectX®-3 pro en Dual-Port 10Gbase-T Adapters w/PCI Express 3,0 network interface.
+    - Um cabo de rede RJ-45 CAT 6 (utilizar com interface de rede MGMT)
+    - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (utilizar com a interface de rede DADOS 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
+
+::: zone-end
+
+::: zone target="docs"
+
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
@@ -55,6 +102,8 @@ Este passo demora cerca de 5 minutos.
 4. Introduza os detalhes da encomenda e as informações de envio. Se o serviço estiver disponível na sua região, indique os endereços de e-mail de notificação, reveja o resumo e, em seguida, crie a encomenda.
 
 Assim que a encomenda for criada, o dispositivo é preparado para envio.
+
+
 
 ## <a name="cable"></a>Instalar os cabos 
 
@@ -126,11 +175,13 @@ Este passo demora entre 2 a 3 minutos.
 
 - Pode eliminar a encomenda assim que o estado for apresentado como **Concluído** ou **Cancelado** no portal do Azure. Para eliminar a encomenda, aceda a **Descrição geral** e clique em **Eliminar** na barra de comandos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, implementou um Azure Data Box para ajudar a importar os seus dados para o Azure. Para saber mais sobre a gestão do Azure Data Box, avance para o tutorial seguinte: 
 
 > [!div class="nextstepaction"]
 > [Utilizar o portal do Azure para administrar o Data Box](data-box-portal-admin.md)
+
+::: zone-end
 
 

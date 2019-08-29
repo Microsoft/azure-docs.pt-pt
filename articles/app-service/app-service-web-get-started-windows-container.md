@@ -1,5 +1,5 @@
 ---
-title: Executar o contentor personalizado do Windows (pré-visualização) - serviço de aplicações do Azure | Documentos da Microsoft
+title: Executar contêiner do Windows personalizado (versão prévia)-serviço de Azure App | Microsoft Docs
 description: Saiba como implementar um contentor do Windows personalizado no Serviço de Aplicações do Azure.
 services: app-service\web
 documentationcenter: ''
@@ -9,17 +9,16 @@ editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/12/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 089334d32ca54035abfbf59446366ecbe3378c15
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 791017fffe96455157388fb43e0c1d65faba8933
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919746"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071529"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Executar um contentor do Windows personalizado no Azure (Pré-visualização)
 
@@ -42,7 +41,7 @@ Para concluir este tutorial:
 
 No Visual Studio, crie um projeto ao selecionar **Ficheiro > Novo > Projeto**. 
 
-Na caixa de diálogo **Novo projeto**, clique em **Visual C# > Web > Aplicação Web ASP.NET (.NET Framework)**.
+Na caixa de diálogo **Novo projeto**, clique em **Visual C# > Web > Aplicação Web ASP.NET (.NET Framework)** .
 
 Atribua à aplicação o nome _myFirstAzureWebApp_ e clique em **OK**.
    
@@ -96,7 +95,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 2. Na caixa de pesquisa acima da lista de recursos do Azure Marketplace, procure e selecione **Aplicação Web para Contentores**.
 
-3. Indique um nome para a aplicação, como *win-container-demo*, aceite as predefinições para criar um grupo de recursos novo e clique em **Windows (Pré-visualização)**, na caixa **SO**.
+3. Indique um nome para a aplicação, como *win-container-demo*, aceite as predefinições para criar um grupo de recursos novo e clique em **Windows (Pré-visualização)** , na caixa **SO**.
 
     ![](media/app-service-web-get-started-windows-container/portal-create-page.png)
 
@@ -178,13 +177,13 @@ Para dizer ao Serviço de Aplicações para obter a nova imagem do Hub do Docker
 
 Pode utilizar outra imagem do Docker personalizada para executar a sua aplicação. Contudo, tem de escolher a [imagem principal](https://docs.docker.com/develop/develop-images/baseimages/) certa para a arquitetura que pretende: 
 
-- Para implementar aplicações de .NET Framework, utilizar uma imagem de principal com base no núcleo de servidor Windows 2019 [canal de manutenção de longo prazo (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) de versão. 
-- Para implementar aplicações de .NET Core, utilize uma imagem principal com base no 1809 de Nano do Windows Server [canal semi-anual de manutenção (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) de versão. 
+- Para implantar .NET Framework aplicativos, use uma imagem pai baseada na versão [LTSC (canal de manutenção em longo prazo)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) do Windows Server Core 2019. 
+- Para implantar aplicativos do .NET Core, use uma imagem pai com base na versão do [SAC (canal de manutenção semestral)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) do Windows Server nano 1809. 
 
 O carregamento das imagens principais durante o arranque da aplicação demora algum tempo. No entanto, pode utilizar uma das seguintes imagens principais que já estão em cache no Serviço de Aplicações do Azure para reduzir o tempo de arranque:
 
 - [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
-- [MCR.microsoft.com/Windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/): 1809 - este é o contentor de base utilizado em todo o Microsoft [ASP.NET Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet) imagens do servidor de Nano do Microsoft Windows.
+- [MCR.Microsoft.com/Windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/): 1809-este é o contêiner de base usado em imagens do Microsoft Windows Nano Server [ASP.NET Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet) Microsoft.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

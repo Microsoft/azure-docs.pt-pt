@@ -10,19 +10,18 @@ tags: azure-service-management
 ms.assetid: fc755f82-ca3e-4532-b251-690b699324d6
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 43a99835776563f469efa3e0b14992203b34915e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1c43e8523a46971e99b2d91b9c121de3dc57681
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136647"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087957"
 ---
-# <a name="back-up-a-web-app-using-powershell"></a>Fazer uma cópia de segurança de uma aplicação web com o PowerShell
+# <a name="back-up-a-web-app-using-powershell"></a>Fazer backup de um aplicativo Web usando o PowerShell
 
 Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, cria uma cópia de segurança única para o mesmo. 
 
@@ -57,7 +56,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [New-AzWebAppBackup](/powershell/module/az.websites/new-azwebappbackup) | Cria uma cópia de segurança de uma aplicação Web. |
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Obtém uma lista de cópias de segurança para uma aplicação Web. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

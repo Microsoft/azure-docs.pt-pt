@@ -11,17 +11,16 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
 ms.custom: ''
-ms.openlocfilehash: 2beb35002cb98119db90f4cd278decc185ea35d7
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: d1b6444b8512b1b55ac46370e805f8f662f5f555
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69536498"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070689"
 ---
 # <a name="deployment-best-practices"></a>Práticas recomendadas de implantação
 

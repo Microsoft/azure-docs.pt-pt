@@ -9,21 +9,20 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b1093c75e5552fea875f81d2860deb0d61405022
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 0c60cd335e9d280d59fd872d1d0724f2eabd3afb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707962"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101583"
 ---
-# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Criar e gerir VMs do Windows com o Azure PowerShell
+# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Criar e gerenciar VMs do Windows com o Azure PowerShell
 
 As máquinas virtuais do Azure proporcionam um ambiente informático totalmente configurável e flexível. Este tutorial abrange tarefas de implementação básicas de máquinas virtuais (VM) do Azure, como selecionar um tamanho de VM, selecionar uma imagem de VM e implementar uma VM. Saiba como:
 
@@ -42,7 +41,7 @@ Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior di
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Criar um grupo de recursos com o [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) comando.
+Crie um grupo de recursos com o comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) .
 
 Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos tem de ser criado antes de uma máquina virtual. No exemplo seguinte, é criado um grupo de recursos designado *myResourceGroupVM* na região *EastUS*:
 
@@ -56,7 +55,7 @@ O grupo de recursos é especificado ao criar ou modificar uma VM, o que pode ser
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
-Ao criar uma VM, várias opções estão disponíveis, como a imagem do sistema operativo, a configuração de rede e as credenciais administrativas. Este exemplo cria uma VM denominada *myVM*, que executa a versão predefinida do Windows Server 2016 Datacenter.
+Ao criar uma VM, várias opções estão disponíveis como a imagem do sistema operacional, a configuração de rede e as credenciais administrativas. Este exemplo cria uma VM denominada *myVM*, que executa a versão predefinida do Windows Server 2016 Datacenter.
 
 Defina o nome de utilizador e a palavra-passe necessários para a conta de administrador na VM com [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
 
@@ -64,7 +63,7 @@ Defina o nome de utilizador e a palavra-passe necessários para a conta de admin
 $cred = Get-Credential
 ```
 
-Criar a VM com [novo-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
+Crie a VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -101,13 +100,13 @@ Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar um
 
 O Azure Marketplace inclui várias imagens que podem ser utilizadas para criar uma VM nova. Nos passos anteriores, foi criada uma VM com uma imagem do Windows Server 2016 Datacenter. Neste passo, o módulo do PowerShell serve para pesquisar outras imagens do Windows no marketplace, que pode também ser utilizado como base para novas VMs. Este processo consiste em encontrar o publicador, a oferta, o SKU e, opcionalmente, um número de versão para [identificar](cli-ps-findimage.md#terminology) a imagem.
 
-Utilize o [Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) comando para devolver uma lista de publicadores de imagem:
+Use o comando [Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) para retornar uma lista de editores de imagem:
 
 ```azurepowershell-interactive
 Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-Utilize o [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) para devolver uma lista de ofertas de imagem. Com este comando, a lista devolvida é filtrada no publicador especificado, denominado `MicrosoftWindowsServer`:
+Use [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) para retornar uma lista de ofertas de imagem. Com este comando, a lista devolvida é filtrada no publicador especificado, denominado `MicrosoftWindowsServer`:
 
 ```azurepowershell-interactive
 Get-AzVMImageOffer `
@@ -125,7 +124,7 @@ WindowsServer     MicrosoftWindowsServer EastUS
 WindowsServer-HUB MicrosoftWindowsServer EastUS
 ```
 
-O [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) comando, em seguida, irá filtrar no nome do publicador e da oferta para devolver uma lista de nomes de imagem.
+O comando [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) filtrará o editor e o nome da oferta para retornar uma lista de nomes de imagem.
 
 ```azurepowershell-interactive
 Get-AzVMImageSku `
@@ -175,13 +174,13 @@ O parâmetro `-AsJob` cria a VM como uma tarefa em segundo plano, para que os pe
 
 ## <a name="understand-vm-sizes"></a>Compreender os tamanhos de VM
 
-O tamanho da VM determina a quantidade de recursos de computação, como CPU, memória e GPU que ficam disponíveis para a VM. Máquinas virtuais devem ser criadas com um tamanho de VM adequado para a carga de trabalho. Se a carga de trabalho aumentar, uma máquina virtual existente também pode ser redimensionada.
+O tamanho da VM determina a quantidade de recursos de computação, como CPU, GPU e memória que são disponibilizados para a VM. As máquinas virtuais devem ser criadas usando um tamanho de VM apropriado para a carga de trabalho. Se a carga de trabalho aumentar, uma máquina virtual existente também pode ser redimensionada.
 
 ### <a name="vm-sizes"></a>Tamanhos de VMs
 
 A tabela seguinte categoriza tamanhos em casos de utilização.  
 
-| Tipo                     | Tamanhos comuns           |    Descrição       |
+| Type                     | Tamanhos comuns           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Fins gerais](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU-para-memória equilibrada. Ideal para desenvolvimento/teste e aplicações e soluções de dados pequenas a médias.  |
 | [Com otimização de computação](sizes-compute.md)   | Fsv2          | CPU-para-memória elevada. É adequado para aplicações de tráfego médio, dispositivos de rede e processos em lote.        |
@@ -192,7 +191,7 @@ A tabela seguinte categoriza tamanhos em casos de utilização.
 
 ### <a name="find-available-vm-sizes"></a>Encontrar todos os tamanhos de VM disponíveis
 
-Para ver uma lista de tamanhos VM disponíveis numa região específica, utilize o [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) comando.
+Para ver uma lista de tamanhos de VM disponíveis em uma região específica, use o comando [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) .
 
 ```azurepowershell-interactive
 Get-AzVMSize -Location "EastUS"
@@ -202,13 +201,13 @@ Get-AzVMSize -Location "EastUS"
 
 Depois de implementar uma VM, esta pode ser redimensionada para aumentar ou diminuir a alocação de recursos.
 
-Antes de redimensionar uma VM, verifique se o tamanho pretendido está disponível no cluster da VM atual. O [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) comando devolve uma lista de tamanhos.
+Antes de redimensionar uma VM, verifique se o tamanho desejado está disponível no cluster da VM atual. O comando [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) retorna uma lista de tamanhos.
 
 ```azurepowershell-interactive
 Get-AzVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
 ```
 
-Se o tamanho estiver disponível, a VM pode ser redimensionada de um estado ligado, no entanto, é reiniciada durante a operação.
+Se o tamanho estiver disponível, a VM poderá ser redimensionada de um estado ligado, no entanto, ela será reinicializada durante a operação.
 
 ```azurepowershell-interactive
 $vm = Get-AzVM `
@@ -220,7 +219,7 @@ Update-AzVM `
    -ResourceGroupName "myResourceGroupVM"
 ```
 
-Se o tamanho pretendido não estiver disponível no cluster atual, a VM tem de ser desalocada antes da operação de redimensionamento poder ocorrer. Desalocar a VM remove os dados no disco temporário e o endereço IP público é alterado, a menos que esteja a ser utilizado um endereço IP estático.
+Se o tamanho desejado não estiver disponível no cluster atual, a VM precisará ser desalocada para que a operação de redimensionamento possa ocorrer. Desalocar a VM remove os dados no disco temporário e o endereço IP público é alterado, a menos que esteja a ser utilizado um endereço IP estático.
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -244,16 +243,16 @@ Uma VM do Azure pode ter um de vários estados de energia.
 
 | Estado de energia | Descrição
 |----|----|
-| A iniciar | A máquina virtual está a ser iniciada. |
+| A iniciar | A máquina virtual está sendo iniciada. |
 | A executar | A máquina virtual está em execução. |
-| A parar | A máquina virtual está a ser parada. |
+| A parar | A máquina virtual está sendo interrompida. |
 | Parada | A VM está parada. As máquinas virtuais no estado de paragem continuam a incorrer em custos de computação.  |
-| A desalocar | A VM está a ser desalocada. |
-| Desalocada | Indica que a VM é removida do hipervisor, mas ainda está disponível no painel de controlo. As máquinas virtuais no estado `Deallocated` não incorrem em custos de computação. |
+| A desalocar | A VM está sendo desalocada. |
+| Desalocado | Indica que a VM é removida do hipervisor, mas ainda está disponível no plano de controle. As máquinas virtuais no estado `Deallocated` não incorrem em custos de computação. |
 | - | O estado de energia da VM é desconhecido. |
 
 
-Para obter o estado de uma VM específica, utilize o [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) comando. Certifique-se de que especifica um nome válido para uma VM e um grupo de recursos.
+Para obter o estado de uma VM específica, use o comando [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) . Certifique-se de que especifica um nome válido para uma VM e um grupo de recursos.
 
 ```azurepowershell-interactive
 Get-AzVM `
@@ -272,11 +271,11 @@ PowerState/running
 
 ## <a name="management-tasks"></a>Tarefas de gestão
 
-Durante o ciclo de vida de uma VM, pode querer executar tarefas de gestão, como iniciar, parar ou eliminar uma VM. Além disso, pode querer criar scripts para automatizar tarefas repetitivas ou complexas. Ao utilizar o Azure PowerShell, muitas tarefas comuns de gestão podem ser executadas na linha de comandos ou em scripts.
+Durante o ciclo de vida de uma VM, talvez você queira executar tarefas de gerenciamento, como iniciar, parar ou excluir uma VM. Além disso, pode querer criar scripts para automatizar tarefas repetitivas ou complexas. Ao utilizar o Azure PowerShell, muitas tarefas comuns de gestão podem ser executadas na linha de comandos ou em scripts.
 
 ### <a name="stop-a-vm"></a>Parar uma VM
 
-Parar e desalocar uma VM com [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm):
+Pare e desaloque uma VM com [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm):
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -296,7 +295,7 @@ Start-AzVM `
 
 ### <a name="delete-resource-group"></a>Eliminar grupo de recursos
 
-Tudo dentro de um grupo de recursos é eliminado quando elimina o grupo de recursos.
+Tudo dentro de um grupo de recursos é excluído quando você exclui o grupo de recursos.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup `

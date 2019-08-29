@@ -10,19 +10,18 @@ tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: acb17386a2c2e0b2a89f46c607befb56eadaee48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b0223d093cc82becf66a903ea80c03c8435ea84c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136585"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098389"
 ---
-# <a name="create-a-scheduled-backup-for-a-web-app-using-powershell"></a>Criar uma cópia de segurança agendada para uma aplicação web com o PowerShell
+# <a name="create-a-scheduled-backup-for-a-web-app-using-powershell"></a>Criar um backup agendado para um aplicativo Web usando o PowerShell
 
 Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, cria uma cópia de segurança agendada para o mesmo. 
 
@@ -58,7 +57,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Obtém uma lista de cópias de segurança para uma aplicação Web. |
 | [Get-AzWebAppBackupConfiguration](/powershell/module/az.websites/get-azwebappbackupconfiguration) | Obtém a configuração de cópia de segurança para a aplicação Web. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

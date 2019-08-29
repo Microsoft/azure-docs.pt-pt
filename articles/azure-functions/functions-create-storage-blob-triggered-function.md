@@ -7,17 +7,16 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: cc730650f7bd570f237c06b074afb3678b54448f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b8855fa061e07ec77482ca960971db8252608b51
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107209"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096869"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Criar uma função acionada pelo Armazenamento de blobs do Azure
 
@@ -42,7 +41,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Criar uma função acionada pelo Armazenamento de blobs
 
-1. Expanda a aplicação de funções e clique no botão **+**, junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
+1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
 
    ![Página de início rápido das funções no portal do Azure](./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-portal.png)
 
@@ -62,7 +61,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
     | Definição | Valor sugerido | Descrição |
     |---|---|---|
-    | **Nome** | Exclusivo na aplicação Function App | Nome desta função acionada por blob. |
+    | **Name** | Exclusivo na aplicação Function App | Nome desta função acionada por blob. |
     | **Caminho**   | samples-workitems/{name}    | Localização no Armazenamento de blobs a ser monitorizado. O nome do ficheiro do blob é transmitido no enlace como o parâmetro _name_.  |
     | **Ligação da conta de armazenamento** | AzureWebJobsStorage | Pode utilizar a ligação da conta de armazenamento que já está a ser utilizada pela sua aplicação Function App ou criar uma nova.  |
 
@@ -94,7 +93,7 @@ Agora que já tem um contentor de blobs, pode carregar um ficheiro para o mesmo 
 
 1. Novamente no portal do Azure, navegue para a função, expanda os **Registos**, na parte inferior da página, e confirme que a transmissão de registos não está em pausa.
 
-1. No Explorador de Armazenamento, expanda a conta de armazenamento, **Contentores de blobs** e **samples-workitems**. Clique em **Carregar** e em **Carregar ficheiros...**.
+1. No Explorador de Armazenamento, expanda a conta de armazenamento, **Contentores de blobs** e **samples-workitems**. Clique em **Carregar** e em **Carregar ficheiros...** .
 
     ![Carregue um ficheiro para o contentor de blobs.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 
