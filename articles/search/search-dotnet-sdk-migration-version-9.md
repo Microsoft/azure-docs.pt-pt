@@ -1,8 +1,8 @@
 ---
-title: Atualizar para o SDK .NET da Azure Search versão 9 - Azure Search
-description: Migre o código para o SDK .NET da Azure Search versão 9 de versões mais antigas. Saiba quais são as novidades e quais alterações de código são necessárias.
+title: Atualizar para o SDK do .NET Azure Search versão 9-Azure Search
+description: Migre o código para o Azure Search SDK do .NET versão 9 de versões mais antigas. Saiba o que há de novo e quais alterações de código são necessárias.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
@@ -10,69 +10,69 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: a59deed4ac0cec669ddc5e0335f7274586c702e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32908ab209cbe05a0acf9da896e1e1fb11e6f5dd
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65541768"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183237"
 ---
-# <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>Atualizar para o SDK .NET da Azure Search versão 9
+# <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>Atualizar para o SDK do .NET Azure Search versão 9
 
-Se estiver a utilizar versão 7.0-pré-visualização ou mais antiga do [SDK .NET da Azure Search](https://aka.ms/search-sdk), este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 9.
-
-> [!NOTE]
-> Se pretender utilizar a versão 8.0-pré-visualização para avaliar os recursos que ainda não estão em disponibilidade geral, também pode seguir as instruções neste artigo para atualizar 8.0-pré-visualização às versões anteriores.
-
-Para obter instruções mais geral do SDK, incluindo exemplos, consulte [como utilizar o Azure Search a partir de um aplicativo .NET](search-howto-dotnet-sdk.md).
-
-Versão 9 do Azure Search .NET SDK contém muitas alterações de versões anteriores. Algumas dessas alterações são significativas, mas eles só devem exigir feitas pequenas alterações no seu código. Ver [passos para atualizar](#UpgradeSteps) para obter instruções sobre como alterar o seu código para utilizar a nova versão do SDK.
+Se você estiver usando a versão 7,0-Preview ou anterior do [SDK Azure Search .net](https://aka.ms/search-sdk), este artigo ajudará você a atualizar seu aplicativo para usar a versão 9.
 
 > [!NOTE]
-> Se estiver usando a versão 4.0-pré-visualização ou mais antigo, deve atualizar primeiro para a versão 5 e, em seguida, atualize para a versão 9. Ver [atualizar para o SDK .NET da Azure Search versão 5](search-dotnet-sdk-migration-version-5.md) para obter instruções.
+> Se você quiser usar a versão 8,0-Preview para avaliar recursos que ainda não estão disponíveis, você também pode seguir as instruções neste artigo para atualizar para 8,0-preview de versões anteriores.
+
+Para obter uma explicação mais geral do SDK, incluindo exemplos, consulte [como usar Azure Search de um aplicativo .net](search-howto-dotnet-sdk.md).
+
+A versão 9 do SDK do .NET Azure Search contém muitas alterações de versões anteriores. Algumas dessas alterações são significativas, mas elas devem exigir apenas alterações relativamente secundárias em seu código. Consulte [as etapas para atualizar](#UpgradeSteps) para obter instruções sobre como alterar seu código para usar a nova versão do SDK.
+
+> [!NOTE]
+> Se você estiver usando a versão 4,0-Preview ou mais antiga, atualize para a versão 5 primeiro e, em seguida, atualize para a versão 9. Consulte [Atualizando para o SDK do .net Azure Search versão 5](search-dotnet-sdk-migration-version-5.md) para obter instruções.
 >
-> A instância de serviço do Azure Search oferece suporte a várias versões de REST API, incluindo o mais recente. Pode continuar a utilizar uma versão quando ele é já não é a mais recente, mas recomendamos que migre o código para usar a versão mais recente. Ao utilizar a API REST, tem de especificar a versão de API em cada solicitação por meio do parâmetro de versão de api. Quando utilizar o SDK de .NET, a versão do SDK que está a utilizar determina a versão da REST API correspondente. Se estiver a utilizar um SDK mais antigo, pode continuar a executar esse código sem alterações, mesmo que o serviço é atualizado para suportar uma versão mais recente do API.
+> Sua instância do serviço de Azure Search dá suporte a várias versões da API REST, incluindo a mais recente. Você pode continuar a usar uma versão quando ela não for mais a mais recente, mas é recomendável migrar seu código para usar a versão mais recente. Ao usar a API REST, você deve especificar a versão da API em cada solicitação por meio do parâmetro API-Version. Ao usar o SDK do .NET, a versão do SDK que você está usando determina a versão correspondente da API REST. Se você estiver usando um SDK mais antigo, poderá continuar a executar esse código sem alterações, mesmo que o serviço seja atualizado para dar suporte a uma versão mais recente da API.
 
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-9"></a>O que há de novo na versão 9
-Versão 9 do SDK de .NET de pesquisa do Azure destina-se a versão mais recente versão disponível em geral da API de REST de pesquisa do Azure, especificamente 2019-05-06. Isto torna possível usar novos recursos do Azure Search a partir de um aplicativo .NET, incluindo o seguinte:
+A versão 9 do SDK do .NET Azure Search tem como alvo a versão mais recente disponível da API REST do Azure Search, especificamente 2019-05-06. Isso possibilita o uso de novos recursos do Azure Search de um aplicativo .NET, incluindo o seguinte:
 
-* [Pesquisa cognitiva](cognitive-search-concept-intro.md) é uma funcionalidade de IA no Azure Search, utilizado para extrair texto de imagens, blobs e outras origens de dados não estruturados - aprimorando o conteúdo para torná-lo mais pesquisáveis no índice da Azure Search.
-* Suporte para [tipos complexos](search-howto-complex-data-types.md) , pode modelar quase qualquer estrutura JSON aninhada num índice da Azure Search.
-* [Preenchimento automático](search-autocomplete-tutorial.md) fornece uma alternativa para o **sugere** API para implementar o comportamento de pesquisa-como--type. Preenchimento automático "termina" a palavra ou expressão que um usuário está digitando atualmente.
-* [Modo de análise de JsonLines](search-howto-index-json-blobs.md), parte de Blobs do Azure, indexação, cria um documento de pesquisa por entidade JSON que é separado por um caractere de nova linha.
+* A [pesquisa cognitiva](cognitive-search-concept-intro.md) é um recurso de ia em Azure Search, usado para extrair texto de imagens, BLOBs e outras fontes de dados não estruturadas – enriquecendo o conteúdo para torná-lo mais pesquisável em um índice de Azure Search.
+* O suporte para [tipos complexos](search-howto-complex-data-types.md) permite modelar quase todas as estruturas JSON aninhadas em um índice de Azure Search.
+* O [preenchimento automático](search-autocomplete-tutorial.md) fornece uma alternativa para a API de **sugestão** para implementar o comportamento de pesquisa conforme o tipo. Preenchimento automático "conclui" a palavra ou frase que um usuário está digitando no momento.
+* O [modo de análise de JsonLines](search-howto-index-json-blobs.md), parte da indexação de BLOBs do Azure, cria um documento de pesquisa por entidade JSON que é separado por uma nova linha.
 
-### <a name="new-preview-features-in-version-80-preview"></a>Novas funcionalidades de pré-visualização na versão 8.0-pré-visualização
-Versão 8.0-pré-visualização do Azure Search .NET SDK destina-se versão 2017-11-11-a pré-visualização da API. Esta versão inclui as mesmas funcionalidades da versão 9, além de:
+### <a name="new-preview-features-in-version-80-preview"></a>Novos recursos de visualização na versão 8,0-Preview
+Versão 8,0-visualização da API de destinos do SDK do .NET Azure Search versão 2017-11-11-Preview. Esta versão inclui todos os mesmos recursos da versão 9, além de:
 
-* [Chaves de encriptação gerida pelo cliente](search-security-manage-encryption-keys.md) para o lado do serviço de encriptação em repouso é uma nova funcionalidade de pré-visualização. Para além do incorporada encriptação em repouso gerenciado pela Microsoft, pode aplicar uma camada adicional de onde está a única proprietária das chaves de encriptação.
+* [As chaves de criptografia gerenciadas pelo cliente](search-security-manage-encryption-keys.md) para criptografia do lado do serviço em repouso são um novo recurso de visualização. Além da criptografia interna em repouso gerenciada pela Microsoft, você pode aplicar uma camada adicional de criptografia em que você é o único proprietário das chaves.
 
 <a name="UpgradeSteps"></a>
 
-## <a name="steps-to-upgrade"></a>Passos para atualizar
-Em primeiro lugar, atualizar a sua referência de NuGet para `Microsoft.Azure.Search` utilizando a consola de Gestor de pacotes NuGet ou ao clicar com o botão direito em suas referências de projeto e selecionando "Gerir NuGet pacotes..." no Visual Studio.
+## <a name="steps-to-upgrade"></a>Etapas para atualizar
+Primeiro, atualize a referência do NuGet `Microsoft.Azure.Search` para usar o console do Gerenciador de pacotes NuGet ou clicando com o botão direito do mouse nas referências do projeto e selecionando "gerenciar pacotes NuGet..." no Visual Studio.
 
-Assim que o NuGet tiver baixado os novos pacotes e suas dependências, recrie seu projeto. Dependendo de como o seu código está estruturado, ele poderá reconstruir os com êxito. Nesse caso, está pronto para começar!
+Depois que o NuGet tiver baixado os novos pacotes e suas dependências, recompile o projeto. Dependendo de como seu código é estruturado, ele pode ser recriado com êxito. Nesse caso, você está pronto para começar!
 
-Se sua compilação falhar, terá de corrigir cada erro de compilação. Ver [alterações significativas na versão 9](#ListOfChanges) para obter detalhes sobre como resolver cada potencial erro de compilação.
+Se sua compilação falhar, você precisará corrigir cada erro de compilação. Consulte [alterações significativas na versão 9](#ListOfChanges) para obter detalhes sobre como resolver cada erro de compilação em potencial.
 
-Poderá ver avisos de compilação adicionais relacionados com a propriedades ou métodos obsoletos. Os avisos inclui instruções sobre o que utilizar em vez da funcionalidade despromovida. Por exemplo, se a sua aplicação utiliza o `DataSourceType.DocumentDb` propriedade, obterá um aviso que diz "este membro é preterido. Utilize o cosmos DB em vez disso,".
+Você pode ver avisos de compilação adicionais relacionados a propriedades ou métodos obsoletos. Os avisos incluirão instruções sobre o que usar em vez do recurso preterido. Por exemplo, se seu aplicativo usar a `DataSourceType.DocumentDb` Propriedade, você deverá receber um aviso dizendo que "Este membro foi preterido. Use CosmosDb em vez disso ".
 
-Uma vez que corrigiu os erros de compilação e avisos, pode efetuar alterações à sua aplicação para tirar partido das novas funcionalidades, se desejar. Novas funcionalidades no SDK são detalhadas no [quais são as novidades na versão 9](#WhatsNew).
+Depois de corrigir quaisquer erros ou avisos de compilação, você poderá fazer alterações em seu aplicativo para tirar proveito da nova funcionalidade, se desejar. Os novos recursos do SDK são detalhados no [que há de novo na versão 9](#WhatsNew).
 
 <a name="ListOfChanges"></a>
 
-## <a name="breaking-changes-in-version-9"></a>Alterações significativas na versão 9
+## <a name="breaking-changes-in-version-9"></a>Alterações recentes na versão 9
 
-Existem várias alterações de última hora na versão 9 que pode necessitar de alterações de código, além de reconstruir a sua aplicação.
+Há várias alterações significativas na versão 9 que podem exigir alterações de código, além de recompilar seu aplicativo.
 
 > [!NOTE]
-> A lista de alterações abaixo não é exaustiva. Algumas alterações provavelmente não resultará em erros de compilação, mas são tecnicamente significativas, uma vez que eles quebraram a compatibilidade binária com assemblies que dependem de versões anteriores dos assemblies do SDK .NET da Azure Search. Essas alterações não estão listadas abaixo. Recrie seu aplicativo ao atualizar para versão 9 para evitar quaisquer problemas de compatibilidade binária.
+> A lista de alterações abaixo não é exaustiva. Algumas alterações provavelmente não resultarão em erros de compilação, mas são tecnicamente quebradas, pois elas violam a compatibilidade binária com assemblies que dependem de versões anteriores do Azure Search assemblies do SDK do .NET. Essas alterações não estão listadas abaixo. Recompile seu aplicativo ao atualizar para a versão 9 para evitar problemas de compatibilidade binária.
 
 ### <a name="immutable-properties"></a>Propriedades imutáveis
 
-As propriedades públicas de várias classes de modelo agora são imutáveis. Se precisar de criar personalizadas instâncias dessas classes para fins de teste, pode usar os novos construtores parametrizados:
+As propriedades públicas de várias classes de modelo agora são imutáveis. Se você precisar criar instâncias personalizadas dessas classes para teste, poderá usar os novos construtores com parâmetros:
 
   - `AutocompleteItem`
   - `DocumentSearchResult`
@@ -81,11 +81,11 @@ As propriedades públicas de várias classes de modelo agora são imutáveis. Se
   - `SearchResult`
   - `SuggestResult`
 
-### <a name="changes-to-field"></a>Alterações ao campo
+### <a name="changes-to-field"></a>Alterações no campo
 
-O `Field` classe foi alterado, agora que também possa representar campos complexos.
+A `Field` classe foi alterada agora que ela também pode representar campos complexos.
 
-O seguinte `bool` propriedades agora são anuláveis:
+As propriedades `bool` a seguir agora são anuláveis:
 
   - `IsFilterable`
   - `IsFacetable`
@@ -94,33 +94,33 @@ O seguinte `bool` propriedades agora são anuláveis:
   - `IsRetrievable`
   - `IsKey`
 
-Isto acontece porque essas propriedades agora tem de ser `null` no caso de campos complexos. Se tiver o código que lê essas propriedades, tem de ser preparado para lidar com `null`. Tenha em atenção que todas as outras propriedades de `Field` sempre foram e continuam a ser anulável, e alguns desses também será `null` no caso de campos complexos, especificamente o seguinte:
+Isso ocorre porque essas propriedades agora devem estar `null` no caso de campos complexos. Se você tiver um código que leia essas propriedades, ele precisa estar preparado para lidar `null`. Observe que todas as outras propriedades `Field` de sempre foram e continuam anuláveis, e algumas delas `null` também estarão no caso de campos complexos, especificamente o seguinte:
 
   - `Analyzer`
   - `SearchAnalyzer`
   - `IndexAnalyzer`
   - `SynonymMaps`
 
-O construtor sem parâmetros de `Field` tornou `internal`. De agora em diante, cada `Field` requer um tipo de dados e o nome explícito no momento da construção.
+O construtor sem parâmetros de `Field` foi feito. `internal` De agora em diante, `Field` cada um exige um nome explícito e um tipo de dados no momento da construção.
 
-### <a name="simplified-batch-and-results-types"></a>Tipos de batch e os resultados simplificados
+### <a name="simplified-batch-and-results-types"></a>Tipos de resultados e lote simplificados
 
-Na versão 7.0-pré-visualização e anterior, as diversas classes que encapsulam os grupos de documentos foram estruturadas em hierarquias de classe parallel:
+Na versão 7,0-Preview e versões anteriores, as várias classes que encapsulam grupos de documentos foram estruturadas em hierarquias de classe paralelas:
 
-  -  `DocumentSearchResult` e `DocumentSearchResult<T>` herdado de `DocumentSearchResultBase`
-  -  `DocumentSuggestResult` e `DocumentSuggestResult<T>` herdado de `DocumentSuggestResultBase`
-  -  `IndexAction` e `IndexAction<T>` herdado de `IndexActionBase`
-  -  `IndexBatch` e `IndexBatch<T>` herdado de `IndexBatchBase`
-  -  `SearchResult` e `SearchResult<T>` herdado de `SearchResultBase`
-  -  `SuggestResult` e `SuggestResult<T>` herdado de `SuggestResultBase`
+  -  `DocumentSearchResult`e `DocumentSearchResult<T>` herdado de`DocumentSearchResultBase`
+  -  `DocumentSuggestResult`e `DocumentSuggestResult<T>` herdado de`DocumentSuggestResultBase`
+  -  `IndexAction`e `IndexAction<T>` herdado de`IndexActionBase`
+  -  `IndexBatch`e `IndexBatch<T>` herdado de`IndexBatchBase`
+  -  `SearchResult`e `SearchResult<T>` herdado de`SearchResultBase`
+  -  `SuggestResult`e `SuggestResult<T>` herdado de`SuggestResultBase`
 
-Os tipos derivados sem um parâmetro de tipo genérico foram indicados para ser usado em cenários de "dinâmicos" e pressupõe-se a utilização do `Document` tipo.
+Os tipos derivados sem um parâmetro de tipo genérico foram destinados a serem usados em cenários de "tipo dinâmico" e no `Document` uso assumido do tipo.
 
-A partir da versão 8.0-preview, as base classes e classes derivadas de não-genérica todos foram removidos. Para cenários dinâmicos, pode utilizar `IndexBatch<Document>`, `DocumentSearchResult<Document>`e assim por diante.
+A partir da versão 8,0-Preview, as classes base e as classes derivadas não genéricas foram removidas. Para cenários de tipo dinâmico, você pode usar `IndexBatch<Document>`, `DocumentSearchResult<Document>`e assim por diante.
  
 ### <a name="removed-extensibleenum"></a>ExtensibleEnum removido
 
-O `ExtensibleEnum` classe base foi removido. Todas as classes derivam de ele agora são estruturas, como `AnalyzerName`, `DataType`, e `DataSourceType` por exemplo. Seus `Create` métodos também foram removidos. Apenas pode remover chamadas para `Create` uma vez que esses tipos são implicitamente convertidos de cadeias de caracteres. Se o que resulta em erros do compilador, pode invocar explicitamente o operador de conversão por meio de transmissão para eliminar a ambiguidade tipos. Por exemplo, pode alterar o código como este:
+A `ExtensibleEnum` classe base foi removida. Todas as classes que derivam dela são agora structs, `AnalyzerName`como, `DataType`e `DataSourceType` por exemplo. Seus `Create` métodos também foram removidos. Você pode apenas remover chamadas para `Create` , pois esses tipos são implicitamente conversíveis de cadeias de caracteres. Se isso resultar em erros de compilador, você poderá invocar explicitamente o operador de conversão via conversão para tipos de ambiguidade. Por exemplo, você pode alterar um código como este:
 
 ```csharp
 var index = new Index()
@@ -148,11 +148,11 @@ var index = new Index()
 }
 ```
 
-Propriedades que mantidos valores opcionais desses tipos são agora explicitamente o tipo que pode ser nulo para que eles continuam sendo opcional.
+As propriedades que mantinham valores opcionais desses tipos agora são explicitamente digitadas como anuláveis para que continuem a ser opcionais.
 
-### <a name="removed-facetresults-and-hithighlights"></a>FacetResults removidos e HitHighlights
+### <a name="removed-facetresults-and-hithighlights"></a>FacetResults e HitHighlights removidos
 
-O `FacetResults` e `HitHighlights` classes foram removidas. Agora tipificados como resultados de faceta `IDictionary<string, IList<FacetResult>>` e prima realça como `IDictionary<string, IList<string>>`. Uma forma rápida de resolver erros de compilação introduzidos por esta alteração é adicionar `using` aliases na parte superior de cada arquivo que usa os tipos foi removidos. Por exemplo:
+As `FacetResults` classes `HitHighlights` e foram removidas. Os resultados da faceta agora são `IDictionary<string, IList<FacetResult>>` digitados como e `IDictionary<string, IList<string>>`os realces de clique como. Uma maneira rápida de resolver erros de compilação apresentados por essa alteração é adicionar `using` aliases na parte superior de cada arquivo que usa os tipos removidos. Por exemplo:
 
 ```csharp
 using FacetResults = System.Collections.Generic.IDictionary<string, System.Collections.Generic.IList<Models.FacetResult>>;
@@ -161,30 +161,30 @@ using HitHighlights = System.Collections.Generic.IDictionary<string, System.Coll
 
 ### <a name="change-to-synonymmap"></a>Alterar para SynonymMap 
 
-O `SynonymMap` construtor já não tem uma `enum` parâmetro para `SynonymMapFormat`. Essa enumeração apenas tinha um valor e, portanto, era redundante. Se vir erros como resultado de compilação, simplesmente remover as referências para o `SynonymMapFormat` parâmetro.
+O `SynonymMap` Construtor não tem mais um `enum` parâmetro para `SynonymMapFormat`. Esse enum tem apenas um valor e, portanto, era redundante. Se você vir erros de compilação como resultado disso, simplesmente remova as `SynonymMapFormat` referências ao parâmetro.
 
-### <a name="miscellaneous-model-class-changes"></a>Alterações de classe de modelo diversos
+### <a name="miscellaneous-model-class-changes"></a>Alterações de classe de modelo diversas
 
-O `AutocompleteMode` propriedade do `AutocompleteParameters` já não pode ser nula. Se tiver o código que atribui essa propriedade `null`, simplesmente pode removê-lo e a propriedade será inicializada automaticamente para o valor predefinido.
+A `AutocompleteMode` propriedade de `AutocompleteParameters` não é mais anulável. Se você tiver um código ao `null`qual atribui essa propriedade, poderá simplesmente removê-la e a propriedade será inicializada automaticamente para o valor padrão.
 
-A ordem dos parâmetros para o `IndexAction` construtor mudou agora que esse construtor é gerado automaticamente. Em vez de usar o construtor, recomendamos que utilize os métodos de fábrica `IndexAction.Upload`, `IndexAction.Merge`e assim por diante.
+A ordem dos parâmetros para o `IndexAction` Construtor foi alterada agora que esse construtor é gerado automaticamente. Em vez de usar o construtor, é recomendável usar os `IndexAction.Upload`métodos `IndexAction.Merge`de fábrica,, e assim por diante.
 
-### <a name="removed-preview-features"></a>Funcionalidades de pré-visualização foi removido
+### <a name="removed-preview-features"></a>Recursos de visualização removidos
 
-Se estiver a atualizar da versão 8.0-pré-visualização para a versão 9, tenha em atenção que a encriptação com chaves geridas pelo cliente foi removida, uma vez que esta funcionalidade ainda está em pré-visualização. Especificamente, o `EncryptionKey` propriedades de `Index` e `SynonymMap` foram removidos.
+Se você estiver atualizando da versão 8,0-Preview para a versão 9, lembre-se de que a criptografia com chaves gerenciadas pelo cliente foi removida, pois esse recurso ainda está em versão prévia. Especificamente, as `EncryptionKey` Propriedades de `Index` e `SynonymMap` foram removidas.
 
-Se seu aplicativo tiver uma dependência sobre esta funcionalidade, não será capaz de atualizar para a versão 9 do SDK de .NET de pesquisa do Azure. Pode continuar a utilizar a versão 8.0-preview. No entanto,. tenha em atenção que **Recomendamos que não utilize SDKs de pré-visualização em aplicações de produção**. Funcionalidades de pré-visualização destinam-se apenas de avaliação e pode ser alterada.
+Se seu aplicativo tiver uma dependência difícil desse recurso, você não poderá atualizar para a versão 9 do SDK do .NET Azure Search. Você pode continuar a usar a versão 8,0-Preview. No entanto, tenha em mente que não recomendamos o **uso de SDKs de visualização em aplicativos de produção**. Os recursos de visualização são apenas para avaliação e podem ser alterados.
 
 > [!NOTE]
-> Se tiver criado encriptados índices ou sinónimo mapas usando a versão 8.0-pré-visualização do SDK, continuará a poder utilizá-los e modificar as respetivas definições a utilizar a versão 9 do SDK sem afetar negativamente o respetivo estado de encriptação. Versão 9 do SDK não envia o `encryptionKey` propriedade para a API REST e, como resultado da API REST não alterará o estado de encriptação do recurso. 
+> Se você criou índices criptografados ou mapas de sinônimos usando a versão 8,0-preview do SDK, ainda poderá usá-los e modificar suas definições usando a versão 9 do SDK sem afetar negativamente seu status de criptografia. A versão 9 do SDK não enviará a `encryptionKey` propriedade para a API REST e, como resultado, a API REST não alterará o status de criptografia do recurso. 
 
-### <a name="behavioral-change-in-data-retrieval"></a>Alteração comportamental na obtenção de dados
+### <a name="behavioral-change-in-data-retrieval"></a>Alteração comportamental na recuperação de dados
 
-Se estiver a utilizar o "tipo dinâmico" `Search`, `Suggest`, ou `Get` APIs que retornam instâncias do tipo `Document`, lembre-se de que eles agora anular a serialização matrizes JSON vazias `object[]` em vez de `string[]`.
+Se você estiver usando as APIs "tipificadas `Search`dinamicamente `Suggest`", `Get` ou que retornam instâncias do `Document`tipo, lembre-se de que agora elas desserializam matrizes JSON `string[]`vazias para `object[]` em vez de.
 
 ## <a name="conclusion"></a>Conclusão
-Se precisar de obter mais detalhes sobre como utilizar o SDK .NET da Azure Search, consulte a [.NET procedimentos](search-howto-dotnet-sdk.md).
+Se você precisar de mais detalhes sobre como usar o SDK do .NET Azure Search, consulte o [instruções .net](search-howto-dotnet-sdk.md).
 
-Apreciamos os seus comentários sobre o SDK. Se tiver problemas, fique à vontade contacte-nos para obter ajuda na [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Se encontrar um bug, comunique o assunto na [repositório do GitHub do Azure .NET SDK](https://github.com/Azure/azure-sdk-for-net/issues). Certifique-se para o prefixo seu título do problema com o "[o Azure Search]".
+Agradecemos seus comentários sobre o SDK. Se você encontrar problemas, sinta-se à vontade para nos pedir ajuda sobre [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Se você encontrar um bug, poderá arquivar um problema no [repositório GitHub do SDK do .net do Azure](https://github.com/Azure/azure-sdk-for-net/issues). Certifique-se de prefixar o título do problema com "[Azure Search]".
 
-Obrigado por utilizar o Azure Search!
+Obrigado por usar Azure Search!

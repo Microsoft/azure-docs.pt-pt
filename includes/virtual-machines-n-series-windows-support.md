@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 508d13356a7dd221b0767a0cedd60b4f1402baf4
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: bab282fded7e4b30d2eca6ed51ceaecf22206869
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68286283"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70166766"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos e controladores suportados
 
@@ -34,7 +34,9 @@ Os drivers NVIDIA Tesla (CUDA) para as VMs NC, NCv2, NCv3, ND e NDv2 (opcional p
 
 A Microsoft redistribui os instaladores de driver de grade NVIDIA para VMs de série NVv3 e NV usadas como estações de trabalho virtuais ou para aplicativos virtuais. Instale somente esses drivers de grade nas VMs da série NV do Azure, somente nos sistemas operacionais listados na tabela a seguir. Esses drivers incluem licenciamento para o software de GPU virtual de grade no Azure. Você não precisa configurar um servidor de licença de software de vGPU NVIDIA.
 
+Observe que a extensão NVIDIA sempre instalará o driver latst. Fornecemos links para a versão anterior aqui para os clientes que têm dependência em uma versão mais antiga.
+
 | OS | Controlador |
 | -------- |------------- |
-| Windows Server de 2019<br/><br/>Windows Server 2016<br/><br/>Windows 10 | [Grade 9,0 (431, 2)](https://go.microsoft.com/fwlink/?linkid=874181) (. exe) |
-| Windows Server 2012 R2<br/><br/>Windows Server 2008 R2<br/><br/>Windows 8<br/><br/>Windows 7 | [Grade 9,0 (431, 2)](https://go.microsoft.com/fwlink/?linkid=874184) (. exe)  |
+| Windows Server de 2019<br/><br/>Windows Server 2016<br/><br/>Windows 10 | [Grade 9,0 (431, 2)](https://go.microsoft.com/fwlink/?linkid=874181) (. exe) <br/><br/> [Grade 8,0 (425,31)](https://download.microsoft.com/download/4/8/C/48C2D46E-EB64-460E-A8D9-0F55737D0D68/425.31_grid_win10_server2016_64bit_international.exe) (. exe)  |
+| Windows Server 2012 R2<br/><br/>Windows Server 2008 R2<br/><br/>Windows 8<br/><br/>Windows 7 | [Grade 9,0 (431, 2)](https://go.microsoft.com/fwlink/?linkid=874184) (. exe)<br/><br/> [Grade 8,0 (425,31)](https://download.microsoft.com/download/6/D/7/6D73C628-B5FB-4243-9520-DAEF363223CB/425.31_grid_win8_win7_server2012R2_server2008R2_64bit_international.exe) (. exe)  |

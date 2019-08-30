@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 76d47353c5b81d7ed735f11a81e3e77514054076
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3cf262f2c2f14ea66a40facfd5b32139fc648e47
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082649"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165331"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planejando a migração de recursos de IaaS do clássico para o Azure Resource Manager
 Embora Azure Resource Manager ofereça muitos recursos incríveis, é essencial planejar sua jornada de migração para garantir que as coisas sejam tranqüilas. Gastar tempo no planejamento garantirá que você não encontre problemas durante a execução de atividades de migração. 
@@ -31,7 +31,7 @@ Há quatro fases gerais da jornada de migração:
 
 ![Fases de migração](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## <a name="plan"></a>Plano
+## <a name="plan"></a>Planear
 
 ### <a name="technical-considerations-and-tradeoffs"></a>Considerações técnicas e compensações
 
@@ -115,7 +115,7 @@ Os problemas a seguir foram descobertos em muitas das migrações maiores. Essa 
 
   - Interfaces de Rede
   - Balanceador de Carga
-  - IPs Públicos
+  - IPs públicos
   - IPs públicos estáticos
   - Núcleos
   - Grupos de Segurança de Rede
@@ -192,7 +192,7 @@ Coisas a considerar:
 Não se esqueça de quais serviços você agora deseja habilitar no Azure Resource Manager.  Muitos clientes consideram os seguintes atrativos para seus ambientes do Azure:
 
 - [Controle de acesso baseado em função](../../role-based-access-control/overview.md).
-- [Azure Resource Manager modelos para implantação mais fácil e mais controlada](../../azure-resource-manager/resource-group-overview.md#template-deployment).
+- [Azure Resource Manager modelos para implantação mais fácil e mais controlada](../../azure-resource-manager/template-deployment-overview.md).
 - [Marcações](../../azure-resource-manager/resource-group-using-tags.md).
 - [Controle de atividade](../../azure-resource-manager/resource-group-audit.md)
 - [Políticas do Azure](../../governance/policy/overview.md)

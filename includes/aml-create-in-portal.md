@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 08/14/2019
-ms.openlocfilehash: 507a6d998f83f5a399f78566967067d0ed92f8b0
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 3955995ed1a7a48cfe323db5bf0e767446d89534
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534424"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164071"
 ---
 1. Entre no [portal do Azure](https://portal.azure.com/) usando as credenciais para a assinatura do Azure que você usa. 
 
@@ -37,7 +37,10 @@ ms.locfileid: "69534424"
 
 1. Depois de concluir a configuração do espaço de trabalho, selecione **criar**. 
 
-   Pode levar alguns minutos para criar o espaço de trabalho.
+   > [!Warning] 
+   > Pode levar alguns minutos para criar seu espaço de trabalho na nuvem.
 
-   Quando o processo for concluído, uma mensagem de êxito de implantação será exibida. Para exibir o novo espaço de trabalho, selecione **ir para o recurso**.
+   Quando o processo for concluído, uma mensagem de êxito de implantação será exibida. 
+ 
+ 1. Para exibir o novo espaço de trabalho, selecione **ir para o recurso**.
 

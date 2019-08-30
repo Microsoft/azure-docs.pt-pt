@@ -4,23 +4,19 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/24/2019
 ms.author: glenga
-ms.openlocfilehash: a3f75b7273164abc5318f16e9ab8d9883ff0c0aa
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9381f436aaeedb31732f853a6c4765ac43c6a752
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184041"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170900"
 ---
 ## <a name="test"></a>Testar a função no Azure
 
-Utilize o cURL para testar a função implementada. Com o URL que copiou no passo anterior, anexe a cadeia de consulta `&name=<yourname>` para o URL, como no exemplo seguinte:
+Use a rotação para testar a função implantada. Usando a URL, incluindo a chave de função, que você copiou da etapa anterior, acrescente a cadeia de `&name=<yourname>` caracteres de consulta à URL.
 
-```bash
-curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
-```
+![usando a rotação para chamar a função no Azure.](./media/functions-test-function-code/functions-azure-cli-function-test-curl.png) 
 
-![com o cURL para chamar a função no Azure.](./media/functions-test-function-code/functions-azure-cli-function-test-curl.png) 
+Você também pode colar a URL copiada, incluindo a chave de função, no endereço do seu navegador da Web. Novamente, acrescente a cadeia de `&name=<yourname>` caracteres de consulta à URL antes de executar a solicitação.
 
-Também pode colar o URL copiado para o endereço do seu navegador da web. Novamente, anexe a cadeia de consulta `&name=<yourname>` para o URL antes de executar o pedido.
-
-![Usando um navegador da web para chamar a função.](./media/functions-test-function-code/functions-azure-cli-function-test-browser.png)  
+![Usando um navegador da Web para chamar a função.](./media/functions-test-function-code/functions-azure-cli-function-test-browser.png)  

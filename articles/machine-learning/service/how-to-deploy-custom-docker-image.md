@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: a86dd021d8f9cfe275b3af3f0cb71b99857c26d7
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 753f0bece5b8b52ebb50ab2a6e93056ce209cfbc
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971508"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183556"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implantar um modelo usando uma imagem de base do Docker personalizada
 
@@ -23,7 +23,7 @@ Saiba como usar uma imagem de base do Docker personalizada ao implantar modelos 
 
 Quando você implanta um modelo treinado em um serviço Web ou IoT Edge dispositivo, é criado um pacote que contém um servidor Web para lidar com solicitações de entrada.
 
-Azure Machine Learning serviço fornece uma imagem base padrão do Docker para que você não precise se preocupar com a criação de uma. Você também pode usar uma imagem de base personalizada que você cria como uma _imagem de base_. 
+Azure Machine Learning serviço fornece uma imagem base padrão do Docker para que você não precise se preocupar com a criação de uma. Você também pode usar os __ambientes__ de serviço Azure Machine Learning para selecionar uma imagem de base específica ou usar um personalizado que você fornecer.
 
 Uma imagem base é usada como ponto de partida quando uma imagem é criada para uma implantação. Ele fornece o sistema operacional e os componentes subjacentes. Em seguida, o processo de implantação adiciona componentes adicionais, como seu modelo, ambiente Conda e outros ativos, à imagem antes de implantá-lo.
 
@@ -193,6 +193,8 @@ A Microsoft fornece várias imagens do Docker em um repositório publicamente ac
 > [!IMPORTANT]
 > As imagens da Microsoft que usam CUDA ou TensorRT devem ser usadas somente em serviços Microsoft Azures.
 
+Para obter mais informações, consulte [Azure Machine Learning contêineres de serviço](https://github.com/Azure/AzureML-Containers).
+
 > [!TIP]
 >__Se seu modelo for treinado em Azure Machine Learning computação__, usando a __versão 1.0.22 ou superior__ do SDK do Azure Machine Learning, uma imagem será criada durante o treinamento. Para descobrir o nome desta imagem, use `run.properties["AzureML.DerivedImageName"]`. O exemplo a seguir demonstra como usar essa imagem:
 >
@@ -203,29 +205,50 @@ A Microsoft fornece várias imagens do Docker em um repositório publicamente ac
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Usar uma imagem com o SDK do Azure Machine Learning
 
-Para usar uma imagem personalizada, defina a `base_image` Propriedade do [objeto de configuração](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) de inferência como o endereço da imagem:
+Para usar uma imagem armazenada no **registro de contêiner do Azure para seu espaço de trabalho**ou um **registro de contêiner que esteja publicamente acessível**, defina os seguintes atributos de [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) :
+
++ `docker.enabled=True`
++ `docker.base_image`: Defina como o registro e o caminho para a imagem.
 
 ```python
-# use an image from a registry named 'myregistry'
-inference_config.base_image = "myregistry.azurecr.io/myimage:v1"
+from azureml.core import Environment
+# Create the environment
+myenv = Environment(name="myenv")
+# Enable Docker and reference an image
+myenv.docker.enabled = True
+myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
 ```
 
-Esse formato funciona para as duas imagens armazenadas no registro de contêiner do Azure para seu espaço de trabalho e registros de contêiner que estão publicamente acessíveis. Por exemplo, o código a seguir usa uma imagem padrão fornecida pela Microsoft:
+Para usar uma imagem de um __registro de contêiner privado__ que não está em seu espaço de trabalho, `docker.base_image_registry` você deve usar para especificar o endereço do repositório e um nome de usuário e senha:
 
 ```python
-# use an image available in public Container Registry without authentication
-inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+# Set the container registry information
+myenv.docker.base_image_repository.address = "myregistry.azurecr.io"
+myenv.docker.base_image_repository.username = "username"
+myenv.docker.base_image_repository.password = "password"
 ```
 
-Para usar uma imagem de um __registro de contêiner privado__ que não está em seu espaço de trabalho, você deve especificar o endereço do repositório e um nome de usuário e senha:
+Depois de definir o ambiente, use-o com um objeto [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) para definir o ambiente de inferência no qual o modelo e o serviço Web serão executados.
 
 ```python
-# Use an image available in a private Container Registry
-inference_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
-inference_config.base_image_registry.address = "myregistry.azurecr.io"
-inference_config.base_image_registry.username = "username"
-inference_config.base_image_registry.password = "password"
+from azureml.core.model import InferenceConfig
+# Use environment in InferenceConfig
+inference_config = InferenceConfig(entry_script="score.py",
+                                   environment=myenv)
 ```
+
+Neste ponto, você pode continuar a implantação. Por exemplo, o trecho de código a seguir implantaria um serviço Web localmente usando a configuração de inferência e a imagem personalizada:
+
+```python
+from azureml.core.webservice import LocalWebservice, Webservice
+
+deployment_config = LocalWebservice.deploy_configuration(port=8890)
+service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
+service.wait_for_deployment(show_output = True)
+print(service.state)
+```
+
+Para obter mais informações sobre a implantação, consulte [implantar modelos com o serviço Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### <a name="use-an-image-with-the-machine-learning-cli"></a>Usar uma imagem com a CLI do Machine Learning
 
