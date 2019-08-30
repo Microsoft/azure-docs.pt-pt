@@ -1,5 +1,5 @@
 ---
-title: Arquitetura de recuperação de desastre do Hyper-V para o Azure no Azure Site Recovery | Microsoft Docs
+title: Arquitetura de recuperação de desastre do Hyper-V para o Azure no Azure Site Recovery
 description: Este artigo fornece uma visão geral dos componentes e da arquitetura usada ao implantar a recuperação de desastre para VMs do Hyper-V locais (sem VMM) no Azure com o serviço Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 3af96fd03ed8e9878c3418e66cfcf24c7f30088c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 4035746772b44d7267d6a9cd90c7bdc02c804a8a
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845791"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147080"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Hyper-V para o Azure
 

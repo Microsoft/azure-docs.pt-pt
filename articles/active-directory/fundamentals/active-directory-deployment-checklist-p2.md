@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 767e3caf577bc1b7a49bd56570b8aeedbe307edc
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 7b5678fb0edcecae9ffa6a3c27f3dc6334ecf505
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693880"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125348"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guia de implantação de recurso Azure Active Directory
 
@@ -37,7 +37,7 @@ Informações adicionais sobre o licenciamento podem ser encontradas nas página
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 * [Diretrizes de licenciamento B2B do Azure AD](../b2b/licensing-guidance.md)
 
-## <a name="phase-1-build-a-foundation-of-security"></a>Fase 1: Crie uma base de segurança
+## <a name="phase-1-build-a-foundation-of-security"></a>Fase 1: Crie uma base de segurança
 
 Nesta fase, os administradores habilitam os recursos de segurança de linha de base para criar uma base mais segura e fácil de usar no Azure AD antes de importar ou criar contas de usuário normais. Essa fase fundamental garante que você esteja em um estado mais seguro desde o início e que seus usuários finais precisem ser introduzidos a novos conceitos apenas uma vez.
 
@@ -55,10 +55,10 @@ Nesta fase, os administradores habilitam os recursos de segurança de linha de b
 | [Habilitar o bloqueio inteligente de extranet para AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | AD FS bloqueio de extranet protege contra ataques de adivinhação de senha de força bruta, ao mesmo tempo que permite que usuários de AD FS válidos continuem a usar suas contas. | |
 | [Implantar a autenticação multifator do Azure AD usando políticas de acesso condicional](../authentication/howto-mfa-getstarted.md) | Exigir que os usuários executem a verificação em duas etapas ao acessar aplicativos confidenciais usando políticas de acesso condicional. | Azure AD Premium P1 |
 | [Ativar o Azure Active Directory Identity Protection](../identity-protection/enable.md) | Habilite o acompanhamento de entradas arriscadas e credenciais comprometidas para usuários em sua organização. | Azure AD Premium P2 |
-| [Usar eventos de risco para disparar a autenticação multifator e as alterações de senha](../authentication/tutorial-risk-based-sspr-mfa.md) | Habilite a automação que pode disparar eventos como autenticação multifator, redefinição de senha e bloqueio de entradas com base em risco. | Azure AD Premium P2 |
+| [Usar as detecções de risco para disparar a autenticação multifator e as alterações de senha](../authentication/tutorial-risk-based-sspr-mfa.md) | Habilite a automação que pode disparar eventos como autenticação multifator, redefinição de senha e bloqueio de entradas com base em risco. | Azure AD Premium P2 |
 | [Ativar o registo convergido para reposição de palavra-passe self-service e do Azure AD multi-factor Authentication (pré-visualização)](../authentication/concept-registration-mfa-sspr-converged.md) | Permita que os usuários se registrem de uma experiência comum para a autenticação multifator do Azure e a redefinição de senha de autoatendimento. | Azure AD Premium P1 |
 
-## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fase 2: Importar usuários, habilitar a sincronização e gerenciar dispositivos
+## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fase 2: Importar usuários, habilitar a sincronização e gerenciar dispositivos
 
 Em seguida, adicionamos à Fundação dividida na fase 1 importando nossos usuários e habilitando a sincronização, planejando o acesso de convidado e preparando-se para oferecer suporte a funcionalidades adicionais.
 
@@ -84,7 +84,7 @@ Em seguida, adicionamos à Fundação dividida na fase 1 importando nossos usuá
 | [Integrar aplicativos SaaS com suporte na Galeria](../manage-apps/add-application-portal.md) | O Azure AD tem uma galeria que contém milhares de aplicativos previamente integrados. Alguns dos aplicativos que sua organização usa provavelmente estão na Galeria acessível diretamente do portal do Azure. | Azure AD Gratuito |
 | [Usar o proxy de aplicativo para integrar aplicativos locais](../manage-apps/application-proxy-add-on-premises-application.md) | O proxy de aplicativo permite que os usuários acessem aplicativos locais ao entrar com sua conta do Azure AD. | |
 
-## <a name="phase-4-audit-privileged-identities-complete-an-access-review-and-manage-user-lifecycle"></a>Fase 4: Auditar identidades com privilégios, concluir uma revisão de acesso e gerenciar o ciclo de vida do usuário
+## <a name="phase-4-audit-privileged-identities-complete-an-access-review-and-manage-user-lifecycle"></a>Fase 4: Auditar identidades com privilégios, concluir uma revisão de acesso e gerenciar o ciclo de vida do usuário
 
 A fase 4 vê os administradores impondo os princípios de privilégio mínimo para administração, concluindo suas primeiras revisões de acesso e habilitando a automação de tarefas comuns do ciclo de vida do usuário.
 

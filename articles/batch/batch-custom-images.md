@@ -6,14 +6,14 @@ author: laurenhughes
 manager: gwallace
 ms.service: batch
 ms.topic: article
-ms.date: 08/14/2019
+ms.date: 08/28/2019
 ms.author: lahugh
-ms.openlocfilehash: 00da17512cbc2e713955ea83c7d9fa7517958169
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3c2213c25a8fdc6d6545711bd2af9b94662ee609
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036697"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141831"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-pool"></a>Usar a Galeria de imagens compartilhadas para criar um pool
 
@@ -23,7 +23,7 @@ Ao criar um pool do lote do Azure usando a configuração de máquina virtual, v
 
 Ao usar a Galeria de imagens compartilhadas para sua imagem personalizada, você tem controle sobre o tipo e a configuração do sistema operacional, bem como o tipo de discos de dados. Sua imagem compartilhada pode incluir aplicativos e dados de referência que se tornam disponíveis em todos os nós do pool do lote assim que eles são provisionados.
 
-Você também pode ter várias versões de uma imagem conforme necessário para seu ambiente. Quando você usa uma versão de imagem para criar uma VM, a versão da imagem é usada para criar novos discos para a VM. 
+Você também pode ter várias versões de uma imagem conforme necessário para seu ambiente. Quando você usa uma versão de imagem para criar uma VM, a versão da imagem é usada para criar novos discos para a VM.
 
 O uso de uma imagem compartilhada poupa tempo na preparação dos nós de computação do pool para executar a carga de trabalho do lote. É possível usar uma imagem do Azure Marketplace e instalar o software em cada nó de computação após o provisionamento, mas usar uma imagem compartilhada normalmente é mais eficiente. Além disso, você pode especificar várias réplicas para a imagem compartilhada para que, ao criar pools com várias VMs (mais de 600 VMs), Economize tempo na criação do pool.
 
@@ -91,6 +91,19 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
     ...
 }
 ```
+
+## <a name="create-a-pool-from-a-shared-image-using-the-azure-portal"></a>Criar um pool com base em uma imagem compartilhada usando o portal do Azure
+
+Use as etapas a seguir para criar um pool de uma imagem compartilhada no portal do Azure.
+
+1. Abra o [Portal do Azure](https://portal.azure.com).
+1. Vá para **contas do lote** e selecione sua conta.
+1. Selecione **pools** e, em seguida, **Adicionar** para criar um novo pool.
+1. Na seção **tipo de imagem** , selecione **Galeria de imagens**compartilhadas.
+1. Conclua as seções restantes com informações sobre sua imagem gerenciada.
+1. Selecione **OK**.
+
+![Crie um pool com base em uma imagem compartilhada com o Portal.](media/batch-custom-images/create-custom-pool.png)
 
 ## <a name="considerations-for-large-pools"></a>Considerações para grandes pools
 

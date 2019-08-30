@@ -1,7 +1,7 @@
 ---
-title: 'Limpe dados em falta: Referência do módulo'
+title: 'Limpar dados ausentes: Referência de módulo'
 titleSuffix: Azure Machine Learning service
-description: Saiba como utilizar o módulo de apagar dados em falta no serviço Azure Machine Learning para remover, substituir ou inferir valores em falta.
+description: Saiba como usar o módulo limpar dados ausentes no serviço de Azure Machine Learning para remover, substituir ou inferir valores ausentes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,110 +9,109 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: de81204219a102734f1820258a3c32e59a64c685
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a65e8224b00bb592d6e0e42abdd304cf325d4412
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028789"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128941"
 ---
-# <a name="clean-missing-data-module"></a>Módulo de dados em falta limpo
+# <a name="clean-missing-data-module"></a>Limpar módulo de dados ausentes
 
-Este artigo descreve um módulo da interface visual (pré-visualização) para o serviço Azure Machine Learning.
+Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
 
-Utilize este módulo para remover, substituir ou inferir valores em falta. 
+Use este módulo para remover, substituir ou inferir valores ausentes. 
 
-Os cientistas de dados, muitas vezes, verifique valores em falta nos dados e, em seguida, executam várias operações para corrigir os dados ou inserir novos valores. O objetivo destas operações de limpeza é evitar problemas causados por dados em falta que podem surgir quando preparar um modelo. 
+Os cientistas de dados geralmente verificam os dados em busca de valores ausentes e, em seguida, executam várias operações para corrigir os dados ou inserir novos valores. O objetivo dessas operações de limpeza é evitar problemas causados por dados ausentes que podem surgir durante o treinamento de um modelo. 
 
-Este módulo suporta vários tipo das operações para a "limpeza" valores em falta, incluindo:
+Este módulo dá suporte a vários tipos de operações para "limpeza" de valores ausentes, incluindo:
 
-+ Substituir valores em falta com um marcador de posição, média ou outro valor
-+ Remover completamente linhas e colunas que tenham valores em falta
-+ Inferindo os valores com base em métodos estatísticos
++ Substituindo valores ausentes por um espaço reservado, média ou outro valor
++ Removendo completamente linhas e colunas com valores ausentes
++ Inferindo valores com base em métodos estatísticos
 
 
-Utilizar este módulo não altera o conjunto de dados de origem. Em vez disso, ele cria um novo conjunto de dados na sua área de trabalho que pode utilizar no fluxo de trabalho subsequente. Também pode guardar o conjunto de dados novo e limpo para reutilização.
+O uso desse módulo não altera o conjunto de fonte de origem. Em vez disso, ele cria um novo conjunto de novos conjuntos de espaço de trabalho que você pode usar no Workflow subsequente. Você também pode salvar o conjunto de um novo e limpo para reutilização.
 
-Este módulo também gera uma definição da transformação utilizada para limpar os valores em falta. Pode reutilizar essa transformação em outros conjuntos de dados que tenham o mesmo esquema, ao utilizar o [transformação de aplicar](./apply-transformation.md) módulo.  
+Esse módulo também gera uma definição da transformação usada para limpar os valores ausentes. Você pode usar novamente essa transformação em outros conjuntos de valores que têm o mesmo esquema, usando o módulo [aplicar transformação](./apply-transformation.md) .  
 
-## <a name="how-to-use-clean-missing-data"></a>Como utilizar apagar dados em falta
+## <a name="how-to-use-clean-missing-data"></a>Como usar dados ausentes limpos
 
-Este módulo permite-lhe definir uma operação de limpeza. Também pode guardar a operação de limpeza para que pode aplicá-lo mais tarde para novos dados. Veja as ligações seguintes para obter uma descrição de como criar e guardar um processo de limpeza: 
+Esse módulo permite que você defina uma operação de limpeza. Você também pode salvar a operação de limpeza para que possa aplicá-la posteriormente aos novos dados. Consulte os links a seguir para obter uma descrição de como criar e salvar um processo de limpeza: 
  
-+ Para substituir valores em falta
++ Para substituir valores ausentes
   
-+ Para aplicar uma transformação de limpeza para novos dados
++ Para aplicar uma transformação limpeza a novos dados
  
 > [!IMPORTANT]
-> O método de limpeza que utiliza para lidar com valores em falta drasticamente pode afetar os resultados. Recomendamos que experimente com diferentes métodos. Considere a justificativa para utilização de um método em particular e a qualidade dos resultados.
+> O método de limpeza que você usa para lidar com valores ausentes pode afetar drasticamente os resultados. Recomendamos que você experimente métodos diferentes. Considere a justificativa para uso de um método específico e a qualidade dos resultados.
 
-### <a name="replace-missing-values"></a>Substituir valores em falta  
+### <a name="replace-missing-values"></a>Substituir valores ausentes  
 
-Sempre que aplicar a [Clean Missing Data](./clean-missing-data.md) módulo para um conjunto de dados, a mesma operação de limpeza é aplicado a todas as colunas que selecionar. Portanto, se precisar de limpar a utilizando métodos diferentes de colunas diferentes, use instâncias separadas do módulo.
+Cada vez que você aplicar o módulo [limpar dados ausentes](./clean-missing-data.md) a um conjunto de dados, a mesma operação de limpeza será aplicada a todas as colunas que você selecionar. Portanto, se você precisar limpar colunas diferentes usando métodos diferentes, use instâncias separadas do módulo.
 
-1.  Adicionar a [Clean Missing Data](./clean-missing-data.md) módulo à sua experimentação e ligue-se o conjunto de dados que tem valores em falta.  
+1.  Adicione o módulo [limpar dados ausentes](./clean-missing-data.md) ao seu experimento e conecte-o com valores ausentes.  
   
-2.  Para **colunas ser apagados**, escolha as colunas que contêm os valores em falta que pretende alterar. Pode selecionar várias colunas, mas tem de utilizar o mesmo método de substituição em todas as colunas selecionadas. Portanto, normalmente, precisa limpar colunas numéricas e de colunas de cadeia de caracteres em separado.
+2.  Para as **colunas a serem limpas**, escolha as colunas que contêm os valores ausentes que você deseja alterar. Você pode escolher várias colunas, mas deve usar o mesmo método de substituição em todas as colunas selecionadas. Portanto, normalmente, você precisa limpar colunas de cadeia de caracteres e colunas numéricas separadamente.
 
-    Por exemplo, para verificar a existência de valores em falta em todas as colunas numéricas:
+    Por exemplo, para verificar se há valores ausentes em todas as colunas numéricas:
 
-    1. Abra o Seletor de colunas e selecione **com regras**.
-    2. Para **começar com**, selecione **sem colunas**.
+    1. Abra o seletor de coluna e selecione **com regras**.
+    2. Para **começar com**, selecione **nenhuma coluna**.
 
-        Pode também iniciar com todas as colunas e, em seguida, excluir colunas. Inicialmente, as regras não são apresentadas se primeiro clique em **todas as colunas**, mas é possível clicar **sem colunas** e, em seguida, clique em **todas as colunas** novamente para começar com todas as colunas e, em seguida, filtrar colunas (excluir) com base no nome do tipo de dados, ou índice de colunas.
+        Você também pode iniciar com todas as colunas e, em seguida, excluir colunas. Inicialmente, as regras não são mostradas se você clicar primeiro em **todas as colunas**, mas você pode clicar em **nenhuma coluna** e, em seguida, clicar em **todas as colunas** novamente para iniciar com todas as colunas e, em seguida, filtrar (excluir) colunas com base no índice de nome, tipo de dados ou colunas.
 
-    3. Para **inclusão**, selecione **tipo de coluna** na lista pendente e, em seguida, selecione **numérico**, ou um tipo numérico mais específico. 
+    3. Para **incluir**, selecione **tipo de coluna** na lista suspensa e, em seguida, selecione **numérico**ou um tipo numérico mais específico. 
   
-    Qualquer método de limpeza ou substituição que escolher tem de ser aplicável a **todos os** colunas na seleção. Se os dados em qualquer coluna são incompatíveis com a operação especificada, o módulo retorna um erro e interrompe a experimentação.
+    Qualquer método de limpeza ou substituição que você escolher deve ser aplicável a **todas as** colunas na seleção. Se os dados em qualquer coluna forem incompatíveis com a operação especificada, o módulo retornará um erro e interromperá o experimento.
   
-3.  Para **mínimo em falta a proporção de valor**, especifique o número mínimo de valores em falta necessário para a operação a ser executada.  
+3.  Para a **proporção mínima de valor ausente**, especifique o número mínimo de valores ausentes necessários para a operação a ser executada.  
   
-    Utilize esta opção em combinação com **máximo em falta a proporção de valor** para definir as condições sob as quais uma operação de limpeza é executada no conjunto de dados. Se existirem demasiados ou muito poucas linhas que têm em falta valores, não é possível efetuar a operação. 
+    Use essa opção em combinação com a **taxa máxima de valor ausente** para definir as condições sob as quais uma operação de limpeza é executada no conjunto de valores. Se houver excesso ou poucas linhas que não tenham valores, a operação não poderá ser executada. 
   
-    O número que introduz representa a **proporção** de valores em falta para todos os valores na coluna. Por predefinição, o **proporção de valor em falta mínimo** propriedade está definida como 0. Isso significa que os valores em falta são limpos mesmo que haja apenas um valor em falta. 
+    O número inserido representa a **taxa** de valores ausentes para todos os valores na coluna. Por padrão, a propriedade **taxa mínima de valor ausente** está definida como 0. Isso significa que os valores ausentes são limpos mesmo se houver apenas um valor ausente. 
 
     > [!WARNING]
-    > Esta condição têm de ser cumprida por cada coluna para que a operação especificada aplicar. Por exemplo, suponha três colunas selecionadas e, em seguida, defina o rácio mínimo de valores em falta para.2 (20%), mas apenas uma coluna, na verdade, tem de 20% de valores em falta. Neste caso, a operação de limpeza aplicaria somente para a coluna com mais de 20% em falta valores. Por conseguinte, as outras colunas seria inalteradas.
+    > Essa condição deve ser atendida por cada coluna para que a operação especificada seja aplicada. Por exemplo, suponha que você selecionou três colunas e, em seguida, defina a taxa mínima de valores ausentes como 0,2 (20%), mas apenas uma coluna tem, na verdade, 20% de valores ausentes. Nesse caso, a operação de limpeza se aplicaria somente à coluna com mais de 20% de valores ausentes. Portanto, as outras colunas ficarão inalteradas.
     > 
-    > Se tiver qualquer dúvida sobre se os valores em falta foram alteradas, selecione a opção **gerar a coluna de indicador de valor em falta**. Uma coluna é acrescentada ao conjunto de dados para indicar se é ou não cada coluna cumpre os critérios especificados para os intervalos mínimos e máximo.  
+    > Se você tiver alguma dúvida sobre se os valores ausentes foram alterados, selecione a opção **gerar coluna de indicador de valor ausente**. Uma coluna é anexada ao DataSet para indicar se cada coluna atende aos critérios especificados para os intervalos mínimo e máximo.  
   
-4. Para **máximo em falta a proporção de valor**, especifique o número máximo de valores em falta, que pode estar presente para a operação a ser executada.   
+4. Para obter a **taxa máxima**de valores ausentes, especifique o número máximo de valores ausentes que podem estar presentes para a operação ser executada.   
   
-    Por exemplo, poderá querer efetuar em falta de valor de substituição apenas se a 30% ou menos uma das linhas contêm valores em falta, mas deixam os valores como-é se mais de 30% das linhas têm valores em falta.  
+    Por exemplo, talvez você queira executar a substituição de valor ausente somente se 30% ou menos das linhas contiverem valores ausentes, mas deixar os valores como estão se mais de 30% das linhas tiverem valores ausentes.  
   
-    Definir o número como a proporção de valores em falta para todos os valores na coluna. Por predefinição, o **máximo em falta a proporção de valor** está definido como 1. Isso significa que os valores em falta são limpos, mesmo se 100% dos valores na coluna em falta.  
+    Você define o número como a taxa de valores ausentes para todos os valores na coluna. Por padrão, a **taxa máxima de valores ausentes** é definida como 1. Isso significa que os valores ausentes serão limpos mesmo se 100% dos valores na coluna estiverem ausentes.  
   
    
   
-5. Para **modo de limpeza**, selecione uma das seguintes opções para substituir ou em falta a remover valores:  
+5. Para o **modo de limpeza**, selecione uma das seguintes opções para substituir ou remover valores ausentes:  
   
   
-    + **Valor de substituição personalizado**: Utilize esta opção para especificar um valor de marcador de posição (por exemplo, 0 ou ND) que se aplica a todos os valores em falta. O valor que especificar como uma substituição tem de ser compatível com o tipo de dados da coluna.
+    + **Valor personalizado de substituição**: Use esta opção para especificar um valor de espaço reservado (como 0 ou NA) que se aplica a todos os valores ausentes. O valor que você especifica como uma substituição deve ser compatível com o tipo de dados da coluna.
   
-    + **Substitua a média**: Calcula a média de coluna e usa a média como o valor de substituição para cada valor em falta na coluna.  
+    + **Substituir por média**: Calcula a média da coluna e usa a média como o valor de substituição para cada valor ausente na coluna.  
   
-        Aplica-se apenas às colunas que tenham o Integer, Double ou tipos de dados booleano.  
+        Aplica-se somente a colunas que têm tipos de dados inteiros, duplos ou boolianos.  
   
-    + **Substitua o valor mediano**: Calcula o valor mediano da coluna e, utiliza o valor mediano como a substituição para qualquer valor em falta na coluna.  
+    + **Substituir por mediana**: Calcula o valor mediano da coluna e usa o valor mediano como a substituição para qualquer valor ausente na coluna.  
   
-        Aplica-se apenas às colunas que têm tipos de dados de número inteiro ou duplo. 
+        Aplica-se somente a colunas que têm tipos de dados inteiros ou duplos. 
   
-    + **Substitua com o modo**: Calcula o modo para a coluna e, utiliza o modo como o valor de substituição para cada valor em falta na coluna.  
+    + **Substituir pelo modo**: Calcula o modo da coluna e usa o modo como o valor de substituição para cada valor ausente na coluna.  
   
-        Aplica-se às colunas que têm tipos de dados Integer, Double, booleano ou Categórico. 
+        Aplica-se a colunas que têm tipos de dados inteiros, duplos, boolianos ou categóricos. 
   
-    + **Remover linha inteira**: Remove completamente todas as linhas no conjunto de dados que tenha um ou mais valores em falta. Isto é útil se o valor em falta pode ser considerado aleatoriamente em falta.  
+    + **Remover linha inteira**: Remove completamente qualquer linha no conjunto de informações que tenha um ou mais valores ausentes. Isso será útil se o valor ausente puder ser considerado aleatoriamente ausente.  
   
-    + **Remover coluna inteira**: Remove completamente qualquer coluna no conjunto de dados que tenha um ou mais valores em falta.  
+    + **Remover coluna inteira**: Remove completamente qualquer coluna no conjunto de informações que tenha um ou mais valores ausentes.  
   
     
   
-6. A opção **valor de substituição** está disponível se tiver selecionado a opção **valor de substituição personalizado**. Escreva um novo valor a utilizar como o valor de substituição para todos os valores em falta na coluna.  
+6. O **valor de substituição** de opção estará disponível se você tiver selecionado a opção **valor personalizado de substituição**. Digite um novo valor a ser usado como o valor de substituição para todos os valores ausentes na coluna.  
   
-    Tenha em atenção que pode utilizar esta opção apenas em colunas que tenham os tipos de dados Integer, Double, booleano ou data. Para colunas de data, o valor de substituição pode também ser inserido como o número de tiques de 100 nanossegundos desde 1/1/0001 12 horas  
+    Observe que você pode usar essa opção somente em colunas que têm os tipos de dados inteiro, duplo, booliano ou data. Para colunas de data, o valor de substituição também pode ser inserido como o número de tiques de 100 nanossegundos desde 1/1/0001 12:00 A.M.  
   
-7. **Gerar a coluna de indicador de valor em falta**: Selecione esta opção se quiser alguma indicação de se os valores na coluna cumpre os critérios para limpar o valor em falta de saída. Esta opção é particularmente útil quando é como configurar uma nova operação de limpeza e deseja para se certificar de que funciona conforme projetado.
+7. **Gerar coluna de indicador de valor ausente**: Selecione esta opção se desejar gerar uma indicação de se os valores na coluna atendem aos critérios de limpeza de valor ausente. Essa opção é particularmente útil quando você está configurando uma nova operação de limpeza e deseja certificar-se de que ela funciona como projetado.
   
 8. Execute a experimentação.
 
@@ -120,30 +119,30 @@ Sempre que aplicar a [Clean Missing Data](./clean-missing-data.md) módulo para 
 
 O módulo retorna duas saídas:  
 
--   **Conjunto de dados limpo**: Um conjunto de dados composto por colunas selecionadas, com valores em falta é tratada como especificado, juntamente com uma coluna de indicador, se tiver selecionado essa opção.  
+-   **Conjunto**de uma limpeza: Um DataSet composto pelas colunas selecionadas, com valores ausentes tratados como especificado, juntamente com uma coluna de indicador, se você tiver selecionado essa opção.  
 
-    Colunas não selecionadas para a limpeza são também "transmitidas".  
+    As colunas não selecionadas para limpeza também são "passadas".  
   
--  **Transformação de limpeza**: Transformação de dados utilizada para a limpeza, que pode ser guardada na sua área de trabalho e aplicada aos dados de novo mais tarde.
+-  **Limpando a transformação**: Uma transformação de dados usada para limpeza, que pode ser salva em seu espaço de trabalho e aplicada a novos dados posteriormente.
 
-### <a name="apply-a-saved-cleaning-operation-to-new-data"></a>Aplicar uma operação de limpeza guardada para novos dados  
+### <a name="apply-a-saved-cleaning-operation-to-new-data"></a>Aplicar uma operação de limpeza salva a novos dados  
 
-Se precisar de muitas vezes a repetir operações de limpeza, recomendamos que guarde sua receita de limpeza de dados como um *transformar*, reutilizar com o mesmo conjunto de dados. A guardar uma transformação de limpeza é particularmente útil se tem frequentemente voltar a importar e, em seguida, limpar dados que tem o mesmo esquema.  
+Se você precisar repetir as operações de limpeza com frequência, recomendamos que você salve sua receita para a limpeza de dados como uma *transformação*, para reutilizar com o mesmo DataSet. Salvar uma transformação de limpeza é particularmente útil se você deve reimportar com frequência e limpar dados que têm o mesmo esquema.  
       
-1.  Adicionar a [transformação de aplicar](./apply-transformation.md) módulo à sua experimentação.  
+1.  Adicione o módulo [aplicar transformação](./apply-transformation.md) ao seu experimento.  
   
-2.  Adicione o conjunto de dados que pretende limpar e ligar o conjunto de dados para a porta de entrada da direita.  
+2.  Adicione o DataSet que você deseja limpar e conecte o conjunto de dados à porta de entrada à direita.  
   
-3.  Expanda a **transforma** grupo no painel à esquerda da interface. Localize a transformação guardada e arraste-o para a experimentação.  
+3.  Expanda o grupo transformações no painel esquerdo da interface. Localize a transformação salva e arraste-a para o experimento.  
   
-4.  Ligar a transformação guardada para a porta de entrada à esquerda dos [transformação de aplicar](./apply-transformation.md). 
+4.  Conecte a transformação salva à porta de entrada à esquerda de [aplicar transformação](./apply-transformation.md). 
 
-    Quando aplica uma transformação guardada, não é possível selecionar as colunas para o qual são aplicadas a transformação. Isso ocorre porque a transformação já definida e aplica-se automaticamente para as colunas especificadas da operação original.
+    Ao aplicar uma transformação salva, não é possível selecionar as colunas às quais a transformação é aplicada. Isso ocorre porque a transformação já foi definida e se aplica automaticamente às colunas especificadas na operação original.
 
-    No entanto, suponha que criou uma transformação num subconjunto de colunas numéricas. Pode aplicar essa transformação para um conjunto de dados de tipos de coluna misto sem gerar um erro, porque os valores em falta são alterados apenas nas colunas numéricas correspondentes.
+    No entanto, suponha que você criou uma transformação em um subconjunto de colunas numéricas. Você pode aplicar essa transformação a um conjunto de uma série de tipos de coluna misto sem gerar um erro, pois os valores ausentes são alterados somente nas colunas numéricas correspondentes.
 
 6.  Execute a experimentação.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Consulte a [conjunto de módulos disponíveis](module-reference.md) ao serviço Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

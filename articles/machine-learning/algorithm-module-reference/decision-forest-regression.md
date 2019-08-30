@@ -1,7 +1,7 @@
 ---
-title: 'Regressão de floresta de decisão: Referência do módulo'
+title: 'Regressão de floresta de decisão: Referência de módulo'
 titleSuffix: Azure Machine Learning service
-description: Saiba como utilizar o módulo de regressão de floresta de decisão no serviço Azure Machine Learning para criar um modelo de regressão com base num ensemble das árvores de decisão.
+description: Saiba como usar o módulo regressão de floresta de decisão no serviço Azure Machine Learning para criar um modelo de regressão com base em uma Ensemble de árvores de decisão.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,77 +9,76 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: d372adf75d46fdedb7a6f2b17e47822475d1f155
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8bb3285aecb6aff399606e6263f014027a86581
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65442374"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128892"
 ---
 # <a name="decision-forest-regression-module"></a>Módulo de regressão de floresta de decisão
 
-Este artigo descreve um módulo da interface visual (pré-visualização) para o serviço Azure Machine Learning.
+Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
 
-Utilize este módulo para criar um modelo de regressão com base num ensemble das árvores de decisão.
+Use este módulo para criar um modelo de regressão com base em uma Ensemble de árvores de decisão.
 
-Depois de ter configurado o modelo, deve preparar o modelo utilizando um conjunto de dados com nome e o [modelo de formação](./train-model.md) módulo.  O modelo preparado, em seguida, pode ser utilizado para fazer previsões. 
+Depois de configurar o modelo, você deve treinar o modelo usando um DataSet rotulado e o módulo [treinar modelo](./train-model.md) .  O modelo treinado pode então ser usado para fazer previsões. 
 
 ## <a name="how-it-works"></a>Como funciona
 
-Árvores de decisões são modelos não paramétrica que realizam uma seqüência de testes simples para cada instância, percorrer uma estrutura de dados de árvore binária até que um nó de folha (decisão) seja atingido.
+As árvores de decisão são modelos não paramétricos que executam uma sequência de testes simples para cada instância, atravessando uma estrutura de dados de árvore binária até que um nó folha (decisão) seja atingido.
 
-Árvores de decisão de ter essas vantagens:
+As árvores de decisão têm essas vantagens:
 
-- Eles são eficientes em computação e o uso de memória durante a formação e predição.
+- Eles são eficientes no uso de memória e computação durante o treinamento e a previsão.
 
-- Podem representar os limites de decisão de não-lineares.
+- Eles podem representar limites de decisão não lineares.
 
-- Eles executam classificação e seleção de funcionalidades integradas e são resilientes na presença de funcionalidades ruidosos.
+- Eles executam seleção e classificação de recursos integrados e são resilientes na presença de recursos ruidosas.
 
-Este modelo de regressão consiste num ensemble das árvores de decisão. Cada árvore numa floresta de decisão de regressão produz uma distribuição Gaussiana como uma predição. Uma agregação é efetuada através de ensemble de árvores para encontrar uma distribuição Gaussiana mais próximo para a distribuição combinada para todas as árvores no modelo.
+Esse modelo de regressão consiste em um Ensemble de árvores de decisão. Cada árvore em uma floresta de decisão de regressão gera uma distribuição gaussiana como uma previsão. Uma agregação é executada sobre o Ensemble de árvores para encontrar uma distribuição gaussiana mais próxima da distribuição combinada para todas as árvores no modelo.
 
-Para obter mais informações sobre a arquitetura teórica desse algoritmo e sua implementação, consulte este artigo: [Florestas de decisão: Uma arquitetura unificada para classificação, regressão, densidade estimativa, aprendizagem Manifold e aprendizagem supervisionada semiestruturados](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+Para obter mais informações sobre a estrutura teórica para esse algoritmo e sua implementação, consulte este artigo: [Florestas de decisão: Uma estrutura unificada para classificação, regressão, estimativa de densidade, aprendizado diversa e aprendizado semisupervisionado](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Como configurar o modelo de regressão de floresta de decisão
 
-1. Adicionar a **regressão de floresta de decisão** módulo para a experimentação. Pode encontrar o módulo na interface do sob **Machine Learning**, **inicializar modelo**, e **regressão**.
+1. Adicione o módulo regressão de **floresta de decisão** ao experimento. Você pode encontrar o módulo na interface em **Machine Learning**, **inicializar modelo**e regressão.
 
-2. Abra as propriedades do módulo e para **Resampling método**, escolha o método utilizado para criar as árvores individuais.  Pode escolher entre **Bagging** ou **replicar**.
+2. Abra as propriedades do módulo e, para o **método**de reamostragem, escolha o método usado para criar as árvores individuais.  Você pode escolher entre **bagging** ou **replicar**.
 
-    - **Bagging**: Também é denominado bagging *agregar bootstrap*. Cada árvore numa floresta de decisão de regressão produz uma distribuição Gaussiana por meio de predição. A agregação é encontrar uma Gaussiana cujos duas primeiras momentos correspondem os momentos de mistura de Gaussians tendo em conta ao combinar todos os Gaussians devolvidos pelo árvores individuais.
+    - **Bagging**: Bagging também é chamado de agregação de *Bootstrap*. Cada árvore em uma floresta de decisão de regressão gera uma distribuição gaussiana por meio de previsão. A agregação é para localizar um gaussiano cujo primeiro dois momentos corresponda ao tempo da mistura de gaussianos, dado pela combinação de todos os gaussianos retornados por árvores individuais.
 
-         Para obter mais informações, consulte a entrada da Wikipedia [agregar Bootstrap](https://wikipedia.org/wiki/Bootstrap_aggregating).
+         Para obter mais informações, consulte a entrada da Wikipédia para agregação de [Bootstrap](https://wikipedia.org/wiki/Bootstrap_aggregating).
 
-    - **Replicar**: Na replicação, cada árvore é preparado no exatamente os mesmos dados de entrada. A determinação de qual dividir o predicado é utilizado para cada nó de árvore permanece aleatória e as árvores será diversificadas.
+    - **Replicar**: Na replicação, cada árvore é treinada exatamente com os mesmos dados de entrada. A determinação de qual predicado de divisão é usado para cada nó de árvore permanece aleatório e as árvores serão diversificadas.
 
-         Para obter mais informações sobre o processo de treinamento com o **replicar** opção, consulte [florestas de decisão para imagem digitalizada e análise de imagens médicas. Criminisi e J. Shotton. Springer 2013.](https://research.microsoft.com/projects/decisionforests/).
+         Para obter mais informações sobre o processo de treinamento com a opção replicar [, consulte florestas de decisão para pesquisa Visual computacional e análise de imagem médica. Criminisi e J. Shotton. Springer 2013. ](https://research.microsoft.com/projects/decisionforests/).
 
-3. Especifique como pretende que o modelo de formação, definindo a **modo de instrutor de criação** opção.
+3. Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .
 
     - **Parâmetro único**
 
-      Se souber como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos. Poderá ter aprendido estes valores por experimentação ou recebido-los como orientação.
+      Se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos. Você pode ter aprendido esses valores por experimentação ou os recebeu como orientação.
 
 
 
-4. Para **número de árvores de decisão**, indicar o número total de árvores de decisão para criar o ensemble. Ao criar árvores de decisões mais, pode potencialmente obter uma melhor cobertura, mas irá aumentar o tempo de treinamento.
+4. Para o **número de árvores de decisão**, indique o número total de árvores de decisão a serem criadas no Ensemble. Ao criar mais árvores de decisão, você pode potencialmente obter uma cobertura melhor, mas o tempo de treinamento aumentará.
 
     > [!TIP]
-    > Este valor também controla o número de árvores apresentado quando visualizar o modelo preparado. Se pretender ver ou imprimir uma única árvore, pode definir o valor como 1; No entanto, isso significa que apenas uma árvore será produzido (a árvore com o conjunto inicial de parâmetros) e não mais iterações serão executadas.
+    > Esse valor também controla o número de árvores exibidas ao visualizar o modelo treinado. Se você quiser ver ou imprimir uma única árvore, poderá definir o valor como 1; no entanto, isso significa que apenas uma árvore será produzida (a árvore com o conjunto inicial de parâmetros) e nenhuma iteração adicional será executada.
 
-5. Para **profundidade máximo das árvores de decisão**, escreva um número para limitar a profundidade máxima de qualquer árvore de decisão. Aumentando a profundidade da árvore pode aumentar a precisão, sob alguma overfitting e maior tempo de treinamento.
+5. Para obter a **profundidade máxima das árvores de decisão**, digite um número para limitar a profundidade máxima de qualquer árvore de decisão. Aumentar a profundidade da árvore pode aumentar a precisão, com o risco de algum superajuste e um tempo de treinamento maior.
 
-6. Para **número de divisões aleatórios por nó de**, escreva o número de divisões de usar para criar cada nó da árvore. R *dividir* significa que os recursos em cada nível da árvore (node) é divididas aleatoriamente.
+6. Para o **número de divisões aleatórias por nó**, digite o número de divisões a serem usadas ao compilar cada nó da árvore. Uma *divisão* significa que os recursos em cada nível da árvore (nó) são divididos aleatoriamente.
 
-7. Para **número mínimo de exemplos por nó folha**, indicar o número mínimo de cenários que são necessários para criar qualquer nó de terminal (folha) numa árvore.
+7. Para o **número mínimo de amostras por nó folha**, indique o número mínimo de casos necessários para criar qualquer nó de terminal (folha) em uma árvore.
 
-     Ao aumentar este valor, aumentar o limiar para a criação de novas regras. Por exemplo, com o valor predefinido de 1, até mesmo um único caso pode fazer com que uma nova regra a ser criada. Se aumentar o valor para 5, os dados de treinamento seriam têm de conter, pelo menos, cinco casos que cumprem as mesmas condições.
+     Ao aumentar esse valor, você aumenta o limite para a criação de novas regras. Por exemplo, com o valor padrão de 1, mesmo um único caso pode fazer com que uma nova regra seja criada. Se você aumentar o valor para 5, os dados de treinamento precisarão conter pelo menos cinco casos que atendam às mesmas condições.
 
 
-9. Ligar um conjunto de dados com nome, selecione uma coluna de etiqueta única que contém os resultados de mais do que dois e ligar à [Train Model](./train-model.md).
+9. Conecte um conjunto de informações rotulado, selecione uma única coluna de rótulo contendo no máximo dois resultados e conecte-se ao [modelo de treinamento](./train-model.md).
 
-    - Se definir **modo de instrutor de criação** a opção de **único parâmetro**, preparar o modelo utilizando o [modelo de formação](./train-model.md) módulo.
+    - Se você definir a opção **criar modo de instrutor** como **parâmetro único**, treine o modelo usando o módulo [treinar modelo](./train-model.md) .
 
    
 
@@ -89,12 +88,12 @@ Para obter mais informações sobre a arquitetura teórica desse algoritmo e sua
 
 Após a conclusão do treinamento:
 
-+ Para ver a árvore que foi criada em cada iteração, a saída do módulo de treinamento com o botão direito e selecione **Visualize**.
++ Para ver a árvore que foi criada em cada iteração, clique com o botão direito do mouse na saída do módulo de treinamento e selecione **Visualizar**.
 
-+ Para ver as regras para cada nó, clique em cada árvore e desagregar para as divisões.
++ Para ver as regras para cada nó, clique em cada árvore e faça uma busca detalhada nas divisões.
 
-+ Para guardar um instantâneo do modelo preparado, com o botão direito a saída do módulo de treinamento e selecione **guardar como modelo preparado**. Esta cópia do modelo não é atualizada em sucessivas execuções da experimentação. 
++ Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do módulo de treinamento e selecione **salvar como modelo treinado**. Essa cópia do modelo não é atualizada em execuções sucessivas do experimento. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte a [conjunto de módulos disponíveis](module-reference.md) ao serviço Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

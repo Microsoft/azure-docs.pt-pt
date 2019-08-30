@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
-ms.openlocfilehash: 9ddc7ad8882b30a17be5820116da72c5ab32fad9
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 308eb90e7ae244442a603491044e90dc3b8d052a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640615"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141154"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço no Azure Search
 Os limites máximos de armazenamento, cargas de trabalho e quantidades de índices, documentos e outros objetos dependem de você [provisionar Azure Search](search-create-service-portal.md) nos tipos de preço **gratuito**, **básico**, **padrão**ou otimizado para **armazenamento** .
@@ -124,6 +124,15 @@ Existem tempos de execução máximos para fornecer balanceamento e estabilidade
 <sup>4</sup> máximo de 30 habilidades por habilidade.
 
 <sup>5</sup> as cargas de trabalho de pesquisa cognitiva e a análise de imagem na indexação de blob do Azure têm tempos de execução menores do que a indexação de texto regular. A análise de imagem e o processamento de linguagem natural são computacionalmente intensivas e consomem quantidades desproporcionais de capacidade de processamento disponível. O tempo de execução foi reduzido para fornecer a outros trabalhos na fila uma oportunidade de execução.  
+
+## <a name="synonym-limits"></a>Limites de sinônimo
+
+O número máximo de mapas de sinônimos permitido varia de acordo com o tipo de preço. Cada regra pode ter até 20 expansões, em que uma expansão é um termo equivalvent. Por exemplo, dado "gato", associação com "Kitty", "felinos" e "Felis" (o genus para gatos) contaria como 3 expansões.
+
+| Resource | Livre | Básica | S1 | S2 | S3 | S3-HD |L1 | ERROS DE L2 |
+| -------- | -----|------ |----|----|----|-------|---|----|
+| Máximo de mapas de sinônimo |3 |3|5 |10 |20 |20 | 10 | 10 |
+| Número máximo de regras por mapa |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
 
 ## <a name="queries-per-second-qps"></a>Consultas por segundo (QPS)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2cc8f4f81ad95376dcbc10c2952c1b2ed95ffe42
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 30ec36067b4a047478abc294361b015d12d21319
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907917"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129340"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição geral
@@ -113,7 +113,7 @@ A seção fornece informações adicionais sobre os principais recursos de segur
 ### <a name="web-application-vulnerability-scanning"></a>Verificação de vulnerabilidade do aplicativo Web
 Uma das maneiras mais fáceis de começar a testar vulnerabilidades no aplicativo do serviço de [aplicativo](../../app-service/overview.md) é usar a [integração com o tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) para executar a verificação de vulnerabilidades com um clique em seu aplicativo. Você pode exibir os resultados do teste em um relatório fácil de entender e saber como corrigir cada vulnerabilidade com instruções passo a passo.
 
-### <a name="penetration-testing"></a>Testes de Penetração
+### <a name="penetration-testing"></a>Teste de Penetração
 Se preferir executar seus próprios testes de penetração ou desejar usar outro pacote de scanner ou provedor, você deverá seguir o [processo de aprovação de teste de penetração do Azure](https://docs.microsoft.com/azure/security/fundamentals/pen-testing ) e obter aprovação anterior para executar os testes de penetração desejados.
 
 ### <a name="web-application-firewall"></a>Firewall do aplicativo Web
@@ -251,10 +251,10 @@ Fornece ativação pós-falha, pedidos HTTP de encaminhamento de desempenho entr
 
 O aplicativo fornece muitos recursos do ADC (controlador de entrega de aplicativos), incluindo balanceamento de carga HTTP, afinidade de sessão baseada em cookie, descarregamento de [protocolo SSL (SSL)](../../application-gateway/tutorial-restrict-web-traffic-powershell.md) , investigações de integridade personalizadas, suporte para vários sites e muitos outros.
 
-### <a name="web-application-firewall"></a>Firewall de Aplicação Web
+### <a name="web-application-firewall"></a>Firewall de Aplicações Web
 O Firewall do aplicativo Web é um recurso do [Gateway de aplicativo Azure](../../application-gateway/overview.md) que fornece proteção para aplicativos Web que usam o gateway de aplicativo para funções de ADC (controle de entrega de aplicativos) padrão. A Firewall de aplicações Web fá-lo ao protegê-las contra a maioria das 10 principais vulnerabilidades Web da OWASP.
 
-![Firewall de Aplicação Web](./media/overview/azure-security-fig1.png)
+![Firewall de Aplicações Web](./media/overview/azure-security-fig1.png)
 
 -   Proteção contra injeção de SQL
 
@@ -365,7 +365,7 @@ A Microsoft usa várias práticas e tecnologias de segurança em seus produtos e
 
 - [Cloud app Discovery](../../active-directory/cloudappdiscovery-get-started.md) é um recurso premium do Azure Active Directory que permite identificar aplicativos de nuvem que são usados pelos funcionários em sua organização.
 
-- O [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) é um serviço de segurança que usa Azure Active Directory recursos de detecção de anomalias para fornecer uma visão consolidada dos eventos de risco e possíveis vulnerabilidades que podem afetar a sua organização Identities.
+- O [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) é um serviço de segurança que usa Azure Active Directory recursos de detecção de anomalias para fornecer uma visão consolidada das detecções de risco e possíveis vulnerabilidades que podem afetar a sua organização Identities.
 
 - [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) permite que você ingresse VMs do Azure em um domínio sem a necessidade de implantar controladores de domínio. Os usuários entram nessas VMs usando suas credenciais de Active Directory corporativas e podem acessar os recursos diretamente.
 

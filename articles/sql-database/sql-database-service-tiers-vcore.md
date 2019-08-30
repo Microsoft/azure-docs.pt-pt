@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: a23f71a38324d9751846f1308f79d3a4e746fd85
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: MT
+ms.openlocfilehash: c35863ed1d564adf4190efa1888d24f4f4f68ddf
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637293"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147862"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Escolha entre as camadas de serviço vCore e migre das camadas de serviço de DTU
 
@@ -43,7 +43,7 @@ A tabela a seguir explica as diferenças entre as três camadas:
 ||**Fins gerais**|**Comercialmente crítico**|**Em hiperescala**|
 |---|---|---|---|
 |Melhores para|A maioria das cargas de trabalho de negócios. Oferece opções de armazenamento e de computação voltadas para o orçamento, equilibradas e escalonáveis.|Aplicativos de negócios com requisitos de e/s altos. Oferece maior resiliência a falhas usando várias réplicas isoladas.|A maioria das cargas de trabalho de negócios com requisitos de armazenamento e escala de leitura altamente escalonáveis.|
-|Computação|**Computação**provisionada:<br/>Gen4: 1 a 24 vCores<br/>Gen5 2 a 80 vCores<br/>**Computação sem servidor**:<br/>Gen5 0,5-4 vCores|**Computação**provisionada:<br/>Gen4: 1 a 24 vCores<br/>Gen5 2 a 80 vCores|**Computação**provisionada:<br/>Gen4: 1 a 24 vCores<br/>Gen5 2 a 80 vCores|
+|Computação|**Computação**provisionada:<br/>Gen4: 1 a 24 vCores<br/>Gen5 2 a 80 vCores<br/>**Computação sem servidor**:<br/>Gen5 0,5-16 vCores|**Computação**provisionada:<br/>Gen4: 1 a 24 vCores<br/>Gen5 2 a 80 vCores|**Computação**provisionada:<br/>Gen4: 1 a 24 vCores<br/>Gen5 2 a 80 vCores|
 |Memória|**Computação**provisionada:<br/>Gen4: 7 GB por vCore<br/>Gen5 5,1 GB por vCore<br/>**Computação sem servidor**:<br/>Gen5 3 GB por vCore|**Computação**provisionada:<br/>Gen4: 7 GB por vCore<br/>Gen5 5,1 GB por vCore |**Computação**provisionada:<br/>Gen4: 7 GB por vCore<br/>Gen5 5,1 GB por vCore|
 |Armazenamento|Usa o armazenamento remoto.<br/>**Computação provisionada de banco de dados individual**:<br/>5 GB – 4 TB<br/>**Computação sem servidor de banco de dados individual**:<br/>5 GB-1 TB<br/>**Instância gerenciada**: 32 GB-8 TB |Usa o armazenamento SSD local.<br/>**Computação provisionada de banco de dados individual**:<br/>5 GB – 4 TB<br/>**Instância gerenciada**:<br/>32 GB-4 TB |Crescimento automático flexível do armazenamento, conforme necessário. Dá suporte a até 100 TB de armazenamento. Usa o armazenamento SSD local para o cache do pool de buffers local e o armazenamento de dados local. Usa o armazenamento remoto do Azure como armazenamento de dados de longo prazo final. |
 |Taxa de transferência de e/s (aproximada)|**Banco de dados individual**: 500 IOPS por vCore com 7000 IOPS máximo.<br/>**Instância gerenciada**: Depende [do tamanho do arquivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS por núcleo com máximo de 200.000 IOPS|O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPs efetivo dependerá da carga de trabalho.|
@@ -135,7 +135,7 @@ Se você estiver criando um secundário geográfico no pool elástico para um ú
 
 Você pode copiar qualquer banco de dados com um tamanho de computação baseado em DTU para um banco de dados com um tamanho de computação baseado em vCore sem restrições ou sequenciamento especial, contanto que o tamanho de computação de destino dê suporte ao tamanho máximo do banco de dados de origem. A cópia de banco de dados cria um instantâneo dos dados a partir da hora de início da operação de cópia e não sincroniza os dados entre a origem e o destino.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter os tamanhos de computação específicos e as opções de tamanho de armazenamento disponíveis para bancos de dados individuais, consulte [limites de recursos baseados em vCore do banco de dados SQL para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md).
 - Para obter os tamanhos de computação específicos e as opções de tamanho de armazenamento disponíveis para pools elásticos, consulte [limites de recursos baseados em vCore do banco de dados SQL para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)

@@ -1,6 +1,6 @@
 ---
-title: SDKs do Azure NetApp Files | Microsoft Docs
-description: Lista os SDKs com suporte pelo Azure NetApp Files.
+title: SDKs de Azure NetApp Files e ferramentas CLI | Microsoft Docs
+description: Lista os SDKs e as ferramentas de linha de comando (CLI) com suporte pelo Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,33 +12,49 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 08/28/2019
 ms.author: b-juche
-ms.openlocfilehash: 499f9d14a20f665f545f5fdc3b31015cb57c193c
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: a99fb3b61d8193f1671fa1d8e228439941659d57
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667501"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141168"
 ---
-# <a name="azure-netapp-files-sdks"></a>SDKs do Azure NetApp Files
+# <a name="azure-netapp-files-sdks-and-cli-tools"></a>SDKs de Azure NetApp Files e ferramentas CLI
 
-Este artigo lista os SDKs com suporte pelo Azure NetApp Files.
+Este artigo lista os SDKs e as ferramentas de linha de comando (CLI) com suporte pelo Azure NetApp Files.
 
 ## <a name="supported-sdks"></a>SDKs com suporte 
 
 A tabela a seguir lista os SDKs com suporte.  Você pode encontrar detalhes sobre os SDKs com suporte em seus locais publicados no GitHub.  
 
-|    Idioma    |    Local de publicação do SDK    |
-|------------------|--------------------------------------------------------------------------------------------|
-|    [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |    `https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp`    |
-|    [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |    `https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp`    |
-|    [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)    |    `https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp`       |
-|    [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager) | `https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager` |
-|    [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |    `https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp`    |
-|    [Ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |    `https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp`    |
+|    Idioma    |    Local publicado do SDK no GitHub    |
+|------------------|--------------------------------------------------------------|
+|    .NET  |    [Azure/Azure-SDK-para-rede](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |
+|    Python  |  [Azure/Azure-SDK-para-Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |
+|    Ir Para    |    [Azure/Azure-SDK-para-go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
+|    Java |     [Azure/Azure-SDK-para-Java](https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager) |
+|    JavaScript    |    [Azure/Azure-SDK-para-JS](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |
+|    Ruby   |    [Azure/Azure-SDK-para-Ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |
 
-<!-- ## Command-line tools -->
+## <a name="cli-tools"></a>Ferramentas da CLI
+
+A tabela a seguir lista as ferramentas de CLI com suporte e sua referência de comando.   
+
+|    Ferramenta    |    Referência de comando    |
+|------------------|--------------------------------------------|
+|    CLI do Azure  |    [AZ netappfiles](https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest)    |
+|    PowerShell   |    [Azure PowerShell para Azure NetApp Files](https://docs.microsoft.com/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
+
+## <a name="code-samples"></a>Exemplos de código
+
+A tabela a seguir lista exemplos de código para sua referência.   
+
+|    Idioma/ferramenta    |    Documentação de exemplo de código    |
+|------------------|--------------------------------------------|
+|    .NET   |    [Azure NetApp Files exemplo de SDK para. NETCore](https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-netcore/)    |    
+|    Pythons    |    [Exemplo de SDK Azure NetApp Files para Python](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
 
 ## <a name="next-steps"></a>Passos seguintes   
  [Baixar SDKs do Azure](https://azure.microsoft.com/downloads/)

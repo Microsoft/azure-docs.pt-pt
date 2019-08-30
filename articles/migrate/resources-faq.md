@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: af95ad892b62cb5d8bece554d6026525d9279777
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 03651ecb073d02a373c434b8cb55bdafec6d142a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102876"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142207"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate: Perguntas Mais Frequentes (FAQ)
 
@@ -172,7 +172,7 @@ Não, a visualização de dependência não pode ser exportada. Mas como as migr
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-the-dependency-agent"></a>Como é possível automatizar a instalação do Microsoft Monitoring Agent (MMA) e o Dependency Agent?
 
-Use esse [script para instalar os agentes](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples). Siga estas [instruções para instalar o MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) usando a linha de comando ou automação. Para MMA, use [este script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
+Use esse [script para instalar o Dependency Agent](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Siga estas [instruções para instalar o MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) usando a linha de comando ou automação. Para MMA, use [este script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 
 Além de scripts, você também pode usar ferramentas de implantação como System Center Configuration Manager e [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) para implantar os agentes.
 
@@ -183,8 +183,7 @@ Além de scripts, você também pode usar ferramentas de implantação como Syst
 
 ### <a name="what-operating-systems-are-supported-by-the-dependency-agent"></a>Quais sistemas operacionais são compatíveis com o Dependency Agent?
 
-- Exiba a lista de [sistemas operacionais Windows com suporte pelo Dependency Agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
-- Exiba a lista de [sistemas operacionais Linux com suporte pelo Dependency Agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+Exiba a lista de [sistemas operacionais Windows e Linux às quais o Azure monitor para VMs dá suporte](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-an-hour"></a>Posso Visualizar dependências no Azure migrar por mais de uma hora?
 Não. Você pode visualizar dependências por até uma hora. Você pode voltar para uma data específica no histórico, até um mês, mas a duração máxima da visualização é de uma hora. Por exemplo, você pode usar a duração de tempo no mapa de dependências para exibir dependências de ontem, mas você pode exibi-las apenas para uma janela de uma hora. No entanto, você pode usar os logs de Azure Monitor para [consultar dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) por uma duração maior.

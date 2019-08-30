@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: e0dea5fcc7860e8653d542653e279010f8ede200
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: bd3f31f4247a9d80615634a64fee0c6eb3297fe5
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898858"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147250"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implantar um cluster do AKS (serviço kubernetes do Azure)
 
@@ -83,13 +83,16 @@ Crie um cluster do AKS com [az aks create][]. O exemplo seguinte cria um cluster
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --node-count 1 \
+    --node-count 2 \
     --service-principal <appId> \
     --client-secret <password> \
     --generate-ssh-keys
 ```
 
 Depois de alguns minutos, a implantação é concluída e retorna informações formatadas em JSON sobre a implantação do AKS.
+
+> [!NOTE]
+> Para garantir que o cluster opere de forma confiável, você deve executar pelo menos 2 (dois) nós.
 
 ## <a name="install-the-kubernetes-cli"></a>Instalar a CLI do Kubernetes
 
@@ -118,7 +121,7 @@ NAME                       STATUS   ROLES   AGE   VERSION
 aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.10
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, um cluster do cluster do Kubernetes foi implementado no AKS e configurou `kubectl` para se ligar ao mesmo. Aprendeu a:
 

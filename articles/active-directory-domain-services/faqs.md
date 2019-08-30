@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 509bd472fe5f930ac830b8b4016129f8acb67324
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 80bc5ef78a73430dea23bdd644767d9fa9b3c9a8
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612877"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124665"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Perguntas Mais Frequentes (FAQs)
 Esta página responde às perguntas frequentes sobre o Azure Active Directory Domain Services. Continue verificando as atualizações.
@@ -61,6 +61,9 @@ Não. O domínio fornecido pelo Azure AD Domain Services é um domínio gerencia
 
 ### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>Os usuários convidados podem ser convidados para o meu diretório usar Azure AD Domain Services?
 Não. Os usuários convidados convidados para seu diretório do Azure AD usando o processo de convite [B2B do Azure ad](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) são sincronizados em seu Azure AD Domain Services domínio gerenciado. No entanto, as senhas para esses usuários não são armazenadas no seu diretório do Azure AD. Portanto, Azure AD Domain Services não tem como sincronizar os hashes NTLM e Kerberos para esses usuários em seu domínio gerenciado. Como resultado, esses usuários não podem fazer logon no domínio gerenciado ou ingressar computadores no domínio gerenciado.
+
+### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>Posso mover um domínio gerenciado Azure AD Domain Services existente para uma assinatura, um grupo de recursos, uma região ou uma rede virtual diferente?
+Não. Depois de criar um Azure AD Domain Services domínio gerenciado, você não poderá mover a instância para um grupo de recursos diferente, rede virtual, assinatura, etc. Tome cuidado para selecionar a assinatura, o grupo de recursos, a região e a rede virtual mais apropriados ao implantar a instância de AD DS do Azure.
 
 ## <a name="administration-and-operations"></a>Administração e operações
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Posso me conectar ao controlador de domínio para meu domínio gerenciado usando Área de Trabalho Remota?

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 7ff4db2e349d0da811ef262e308477bde3b27a3c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ac9a62a810a957c67d9c24063d01eff822c8294f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934585"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129303"
 ---
 # <a name="azure-security-technical-capabilities"></a>Recursos técnicos de segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança no Azure que ajudam a proteger seus dados, recursos e aplicativos na nuvem e atender às necessidades de segurança de sua empresa.
@@ -73,7 +73,7 @@ A seguir estão os principais recursos de gerenciamento de identidade do Azure:
 
 - Início de sessão único
 
-- Autenticação multifator
+- Multi-Factor Authentication
 
 - Monitoramento de segurança, alertas e relatórios baseados em Machine Learning
 
@@ -95,7 +95,7 @@ Muitas organizações contam com aplicativos SaaS (software como serviço) como 
 
 Não apenas os usuários não precisam gerenciar vários conjuntos de nomes de usuário e senhas, o acesso ao aplicativo pode ser automaticamente provisionado ou desprovisionado com base em grupos organizacionais e seu status como funcionário. O [Azure ad introduz controles de governança de segurança e acesso](../../active-directory/active-directory-enterprise-apps-manage-sso.md) que permitem que você gerencie centralmente o acesso dos usuários em aplicativos SaaS.
 
-#### <a name="multi-factor-authentication"></a>Autenticação multifator
+#### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 A autenticação multifator do [Azure (MFA)](../../active-directory/authentication/multi-factor-authentication.md) é um método de autenticação que requer o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança a entradas e transações do usuário. O [MFA ajuda a proteger](../../active-directory/authentication/concept-mfa-howitworks.md) o acesso a dados e aplicativos enquanto atende à demanda do usuário por um processo de entrada simples. Ele fornece autenticação forte por meio de uma variedade de opções de verificação: chamada telefônica, mensagem de texto ou notificação de aplicativo móvel ou código de verificação e tokens OAuth de terceiros.
 
@@ -147,7 +147,7 @@ Azure AD Privileged Identity Management permite que você:
 
 #### <a name="identity-protection"></a>Proteção de identidade
 
-[Azure ad Identity Protection](../../active-directory/identity-protection/overview.md) é um serviço de segurança que fornece uma visão consolidada dos eventos de risco e possíveis vulnerabilidades que afetam as identidades da sua organização. A proteção de identidade usa os recursos de detecção de anomalias de Azure Active Directory existentes (disponíveis por meio dos relatórios de atividade anômala do Azure AD) e introduz novos tipos de evento de risco que podem detectar anomalias em tempo real.
+[Azure ad Identity Protection](../../active-directory/identity-protection/overview.md) é um serviço de segurança que fornece uma visão consolidada das detecções de risco e das possíveis vulnerabilidades que afetam as identidades da sua organização. A proteção de identidade usa os recursos de detecção de anomalias de Azure Active Directory existentes (disponíveis por meio dos relatórios de atividade anômala do Azure AD) e introduz novos tipos de detecção de riscos que podem detectar anomalias em tempo real.
 
 ## <a name="secure-resource-access"></a>Proteger o acesso a recursos
 
@@ -386,7 +386,7 @@ A [segurança operacional do Azure](operational-security.md) refere-se aos servi
 
 ![validação de segurança (detectar)](./media/technical-capabilities/azure-security-technical-capabilities-fig7.png)
 
-A segurança operacional do Azure baseia-se em uma estrutura que incorpora o conhecimento obtido por meio de vários recursos que são exclusivos à Microsoft, incluindo o SDL (ciclo de vida do desenvolvimento de segurança da Microsoft), o programa Microsoft Security Response Centre e conscientização profunda do panorama de ameaças do segurança cibernética.
+A segurança operacional do Azure é criada em uma estrutura que incorpora o conhecimento obtido por meio de vários recursos que são exclusivos à Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Centre e conscientização profunda do panorama de ameaças do segurança cibernética.
 
 ### <a name="microsoft-azure-monitor"></a>Monitor do Microsoft Azure
 
@@ -501,7 +501,7 @@ O Resource Manager oferece várias vantagens:
 > [!Note]
 > O Resource Manager proporciona uma nova forma de implementar e gerir as suas soluções. Se você usou o modelo de implantação anterior e deseja saber mais sobre as alterações, consulte [noções básicas sobre a implantação do Resource Manager e a implantação clássica](../../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre segurança lendo alguns dos nossos tópicos de segurança aprofundados:
 

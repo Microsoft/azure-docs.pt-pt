@@ -6,19 +6,31 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 796335fddf6107284b589d70094ff4f5a0e3acd5
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
-ms.translationtype: MT
+ms.openlocfilehash: a0c34e30e52bd2a6d57e2cf8299f231f7f2960d9
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049997"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147947"
 ---
 ::: zone target="docs"
 
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copiar dados para Disco do Azure Data Box e verificar
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="copy-data-to-azure-data-box-disk-and-validate"></a>Copiar dados para Disco do Azure Data Box e validar
+
+Depois que os discos estiverem conectados e desbloqueados, você poderá copiar dados do seu servidor de dados de origem para seus discos. Depois que a cópia de dados for concluída, você deverá ter os dados copiados. A validação garante que os dados serão carregados com êxito no Azure posteriormente.
+
+::: zone-end
+
+::: zone target="docs"
 
 Este tutorial descreve como copiar dados do computador anfitrião e, em seguida, gerar somas de verificação para verificar a integridade dos dados.
 
@@ -294,19 +306,18 @@ Avance para o tutorial seguinte para saber como devolver o Data Box Disk e verif
 
 ::: zone target="chromeless"
 
-## <a name="copy-data-to-disks"></a>Copiar dados para discos
+### <a name="copy-data-to-disks"></a>Copiar dados para discos
 
 Execute as etapas a seguir para conectar e copiar dados do seu computador para o Disco do Data Box.
 
 1. Veja o conteúdo da unidade desbloqueada. A lista de pastas e subpastas criadas na unidade é diferente dependendo das opções selecionadas ao colocar a ordem de Disco do Data Box.
 2. Copie os dados para pastas que correspondem ao formato de dados apropriado. Por exemplo, copie os dados não estruturados para a pasta para a pasta *BlockBlob* , os dados VHD ou VHDX para a pasta *PageBlob* e os arquivos para o *azurefile*. Se o formato de dados não corresponder à pasta apropriada (tipo de armazenamento), em uma etapa posterior, o carregamento de dados para o Azure falhará.
 
-    - Verifique se todos os contêineres, BLOBs e arquivos estão de acordo com as [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions) e [os limites de tamanho de objeto do Azure](data-box-disk-limits.md#azure-object-size-limits). Se essas regras ou limites não forem seguidos, o carregamento de dados para o Azure falhará.
-    - É criado um contentor na conta de armazenamento do Azure para cada subpasta nas pastas BlockBlob e PageBlob. Todos os arquivos em pastas *BlockBlob* e *PageBlob* são copiados em um contêiner padrão $root na conta de armazenamento do Azure. 
-    - Todos os arquivos no contêiner de $root são sempre carregados como BLOBs de blocos.
-    - Copie os arquivos para uma pasta na pasta *do azurefile* . Uma subpasta na pasta *do azurefile* cria um compartilhamento de itens. Os arquivos copiados diretamente para a pasta *do azurefile* falham e são carregados como BLOBs de blocos.
-    - Se existirem ficheiros e pastas no diretório de raiz, tem de movê-los para uma pasta diferente antes de iniciar a cópia de dados.
+    - Verifique se todos os contêineres, BLOBs e arquivos estão de acordo com as [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions) e [os limites de tamanho de objeto do Azure](data-box-disk-limits.md#azure-object-size-limits). Se essas regras ou limites não forem seguidos, o carregamento de dados para o Azure falhará.     
     - Se seu pedido tiver Managed Disks como um dos destinos de armazenamento, consulte as convenções de nomenclatura para [Managed disks](data-box-disk-limits.md#managed-disk-naming-conventions).
+    - É criado um contentor na conta de armazenamento do Azure para cada subpasta nas pastas BlockBlob e PageBlob. Todos os arquivos em pastas *BlockBlob* e *PageBlob* são copiados em um contêiner padrão $root na conta de armazenamento do Azure. Todos os arquivos no contêiner de $root são sempre carregados como BLOBs de blocos.
+    - Crie uma subpasta dentro da pasta *do azurefile* . Essa subpasta é mapeada para um compartilhamento de itens na nuvem. Copie os arquivos para a subpasta. Os arquivos copiados diretamente para a pasta *do azurefile* falham e são carregados como BLOBs de blocos.
+    - Se existirem ficheiros e pastas no diretório de raiz, tem de movê-los para uma pasta diferente antes de iniciar a cópia de dados.
 
 3. Use o recurso de arrastar e soltar com o explorador de arquivos ou qualquer ferramenta de cópia de arquivo compatível com SMB, como o Robocopy, para copiar seus dados. Vários trabalhos de cópia podem ser iniciados usando o seguinte comando:
 
@@ -317,13 +328,13 @@ Execute as etapas a seguir para conectar e copiar dados do seu computador para o
 
 Use o procedimento opcional de [dividir e copiar](data-box-disk-deploy-copy-data.md#split-and-copy-data-to-disks) quando você estiver usando vários discos e tiver um grande conjunto de grandes que precise ser dividido e copiado em todos os discos.
 
-## <a name="validate-data"></a>Validar dados
+### <a name="validate-data"></a>Validar dados
 
 Execute as etapas a seguir para verificar os dados.
 
 1. Execute o `DataBoxDiskValidation.cmd` para validação da soma de verificação na pasta *DataBoxDiskImport* da unidade.
 2. Use a opção 2 para validar seus arquivos e gerar somas de verificação. Consoante o tamanho dos dados, este passo pode demorar algum tempo. Se correrem erros durante a validação e a geração da soma de verificação, será notificado e também é fornecida uma ligação para os registos de erros.
 
-    Para obter mais informações sobre validação de dados, consulte [Validate data](data-box-disk-deploy-copy-data.md#validate-data). Se você tiver erros durante a validação, consulte [solucionar problemas de erros de validação](data-box-disk-troubleshoot.md).
+    Para obter mais informações sobre validação de dados, consulte [Validate data](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). Se você tiver erros durante a validação, consulte [solucionar erros de validação](https://docs.microsoft.com/en-us/azure/databox/data-box-disk-troubleshoot){: target = "_ blank"}.
 
 ::: zone-end

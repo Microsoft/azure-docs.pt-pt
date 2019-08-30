@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 0e26b9b5aee61f399a39c032cdbd2084884538c9
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 27b180d8d95d7dad967b8ac2495a795ed70836b9
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982701"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147226"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do kubernetes com suporte no serviço kubernetes do Azure (AKS)
 
@@ -49,13 +49,13 @@ O AKS suporta quatro versões secundárias do Kubernetes:
 
 Isso é conhecido como "N-3"-(N (versão mais recente)-3 (versões secundárias)).
 
-Por exemplo, se AKS apresentar *1.13. x* hoje, o suporte será fornecido para as seguintes versões:
+Por exemplo, se AKS apresentar *1.13. a* hoje, o suporte será fornecido para as seguintes versões:
 
 Nova versão secundária    |    Lista de versões com suporte
 -----------------    |    ----------------------
-1.13. x               |    1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
+1.13. a               |    1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
 
-Onde "x" e ". a" e ". b" são versões representativas de patch.
+Onde ". a" e ". b" são versões representativas de patch. " um "de 1.13. a pode ser diferente de 1.12. a. Por exemplo, 1.13.9 e 1.12.8.
 
 Para obter detalhes sobre as comunicações relacionadas a alterações de versão e expectativas, consulte "comunicações" abaixo.
 
@@ -72,7 +72,7 @@ Quando uma nova versão secundária é introduzida, a versão secundária mais a
 1.9.b
 ```
 
-E as versões AKS 1.13. x, isso significa que as versões 1.9. x (todas as versões 1,9) serão removidas e não terão suporte.
+E AKS versões 1,13. *, isso significa que o 1,9.* as versões (todas as versões 1,9) serão removidas e estarão fora de suporte.
 
 > [!NOTE]
 > Observe que, se os clientes estiverem executando uma versão sem suporte do kubernetes, eles serão solicitados a atualizar ao solicitar suporte para o cluster. Os clusters que executam versões kubernetes sem suporte não são cobertos pelas [políticas de suporte do AKS](https://docs.microsoft.com/azure/aks/support-policies).
@@ -126,7 +126,7 @@ Versões de patch específicas podem ser ignoradas ou a distribuição acelerada
 
 ### <a name="azure-portal-and-cli-default-versions"></a>portal do Azure e versões padrão da CLI
 
-Quando você implanta um cluster AKS no portal ou com o CLI do Azure, o cluster é sempre definido como a versão secundária N-1 e o patch mais recente. Por exemplo, se AKs dá suporte a *1.13. x*, *1.12. a* + *1.12. b*, *1.11. a* + *1.11*. b, *1,10. a* + *1,10 b*, a versão padrão para novos clusters é *1.12. b* .
+Quando você implanta um cluster AKS no portal ou com o CLI do Azure, o cluster é sempre definido como a versão secundária N-1 e o patch mais recente. Por exemplo, se AKs dá *suporte a 1.13. a*, *1.12. a* + *1.12. b*, *1.11. a* + *1.11*. b, *1,10. a* + *1,10 b*, a versão padrão para novos clusters é *1.12. b* .
 
 O padrão AKS é N-1 (Minor. latestPatch, ex 1.12. b) para fornecer aos clientes uma versão conhecida, estável e corrigida por padrão.
 
@@ -161,8 +161,8 @@ KubernetesVersion    Upgrades
 
 Se você estiver na versão *n-4* , você estará fora do suporte e será solicitado a fazer a atualização. Se a atualização da versão n-4 para o n-3 tiver sucesso, agora você estará dentro de nossas políticas de suporte. Por exemplo:
 
-- Se as versões do AKS com suporte forem *1.13. x*, *1.12. a* + *1.12. b*, *1.11. c* + *1.11 d*e *1,10. e* + *1,10 f* e você está em *1.9. g* ou *1.9. h*, você está fora do suporte.
-- Se a atualização de *1.9. g* ou *1.9. h* para *1,10. e* ou *1,10. f* tiver sucesso, você voltará para dentro de nossas políticas de suporte.
+- Se as versões do AKS com suporte forem *1.13. a*, *1.12. b* + *1.12. c*, *1.11. d* + *1.11*. e, e *1,10. f* + *1,10. g* e você estiver em *1.9. h* ou *1.9. i* , você está fora do suporte.
+- Se a atualização de *1.9. h* ou *1.9. i* para *1,10. f* ou *1,10. g* for realizada com sucesso, você voltará ao em nossas políticas de suporte.
 
 Não há suporte para atualizações para versões anteriores a *n-4* . Nesses casos, recomendamos que os clientes criem novos clusters AKS e reimplantem suas cargas de trabalho.
 
@@ -182,7 +182,7 @@ Sim. No entanto, se o cluster não estiver em uma das versões com suporte do AK
 
 O mestre é atualizado automaticamente para a versão mais recente com suporte.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre como atualizar o cluster, consulte [atualizar um cluster do AKS (serviço kubernetes do Azure)][aks-upgrade].
 

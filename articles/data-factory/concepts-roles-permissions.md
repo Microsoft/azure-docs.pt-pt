@@ -8,15 +8,15 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 765464f8593e217fba0b564a1fabad7777e94a36
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9df65322958bffd3182aaa8d734e8b29717d939d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873603"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142531"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões para Azure Data Factory
 

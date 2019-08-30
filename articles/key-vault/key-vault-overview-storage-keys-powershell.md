@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: df377b19d78a63b3cfc57347fff00345a9c63ead
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 21b046a54c2fbe309113222f54dbad4405fc409d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562528"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70136572"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Azure Key Vault conta de armazenamento gerenciado-PowerShell
 
@@ -21,6 +21,7 @@ ms.locfileid: "69562528"
 > - Autentique seu aplicativo cliente usando uma identidade de aplicativo ou de usuário, em vez de credenciais de conta de armazenamento. 
 > - Use uma [identidade gerenciada do Azure ad](/azure/active-directory/managed-identities-azure-resources/) ao executar no Azure. Identidades gerenciadas eliminam a necessidade de autenticação de cliente e armazenam credenciais em ou com seu aplicativo.
 > - Use o RBAC (controle de acesso baseado em função) para gerenciar a autorização, que também tem suporte pelo Key Vault.
+> - O acesso do AAD à conta de armazenamento não funciona para acessar tabelas a partir de ainda.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -142,7 +143,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Habilitar regeneração de chave
 
-Se desejar que Key Vault regenerar as chaves da conta de armazenamento periodicamente, você poderá definir um período de regeneração. No exemplo a seguir, definimos um período de regeneração de três dias. Após três dias, Key Vault regenerará ' key1 ' e permutará a chave ativa de ' Key2 ' para ' key1 '.
+Se desejar que Key Vault regenerar as chaves da conta de armazenamento periodicamente, você poderá definir um período de regeneração. No exemplo a seguir, definimos um período de regeneração de três dias. Após três dias, Key Vault regenerará ' Key2 ' e alternará a chave ativa de ' Key2 ' para ' key1 '.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)

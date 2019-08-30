@@ -3,21 +3,20 @@ title: Atividade da Web no Azure Data Factory | Microsoft Docs
 description: Saiba como você pode usar a atividade da Web, uma das atividades de fluxo de controle com suporte pelo Data Factory, para invocar um ponto de extremidade REST de um pipeline.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.author: shlo
-ms.openlocfilehash: f6153bf1162eaa1c7eab2c358977d754695b64fd
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 73770e559af8a999c17fff5ea1aa6ee53ac17e83
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325397"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141593"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade da Web no Azure Data Factory
 A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir.
@@ -64,14 +63,14 @@ A atividade Web pode ser utilizada para chamar um ponto final REST personalizado
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Requerido
 -------- | ----------- | -------------- | --------
 name | Nome da atividade da Web | Cadeia | Sim
 type | Deve ser definido como **webactivity**. | Cadeia | Sim
 method | Método de API REST para o ponto de extremidade de destino. | Strings. <br/><br/>Tipos com suporte: "GET", "POST" E "PUT" | Sim
 url | Caminho e ponto de extremidade de destino | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres). A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto de extremidade. | Sim
-Conector | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`:. | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Sim, o cabeçalho Content-Type é necessário. `"headers":{ "Content-Type":"application/json"}`
-Conteúdo | Representa a carga que é enviada para o ponto de extremidade.  | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres). <br/><br/>Consulte o esquema da carga de solicitação na seção [esquema de carga de solicitação](#request-payload-schema) . | Necessário para os métodos POST/PUT.
+conector | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`:. | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Sim, o cabeçalho Content-Type é necessário. `"headers":{ "Content-Type":"application/json"}`
+corpo | Representa a carga que é enviada para o ponto de extremidade.  | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres). <br/><br/>Consulte o esquema da carga de solicitação na seção [esquema de carga de solicitação](#request-payload-schema) . | Necessário para os métodos POST/PUT.
 autenticação | Método de autenticação usado para chamar o ponto de extremidade. Os tipos com suporte são "Basic ou ClientCertificate". Para obter mais informações, consulte a seção [autenticação](#authentication) . Se a autenticação não for necessária, exclua essa propriedade. | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Não
 datasets | Lista de conjuntos de valores passados para o ponto de extremidade. | Matriz de referências de DataSet. Pode ser uma matriz vazia. | Sim
 linkedServices | Lista de serviços vinculados passados para o ponto de extremidade. | Matriz de referências de serviço vinculado. Pode ser uma matriz vazia. | Sim
@@ -105,7 +104,7 @@ Especifique o nome de usuário e a senha a serem usados com a autenticação bá
 }
 ```
 
-### <a name="client-certificate"></a>Certificado do cliente
+### <a name="client-certificate"></a>Certificado de cliente
 Especifique o conteúdo codificado na Base64 de um arquivo PFX e a senha.
 
 ```json

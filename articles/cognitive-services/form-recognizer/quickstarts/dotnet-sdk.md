@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: f6cb364c231c2415bf49a24e6e9406a14640b892
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ada570196c916a8101e8e968d284a3b280199cf3
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600274"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142806"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Início rápido: Biblioteca de cliente do reconhecedor de formulário para .NET
 
@@ -95,7 +95,7 @@ Se você estiver usando o IDE do Visual Studio, a biblioteca de cliente estará 
 
 As classes a seguir tratam da funcionalidade principal do SDK do reconhecedor de formulário.
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |[FormRecognizerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.formrecognizerclient?view=azure-dotnet-preview)|Essa classe é necessária para toda a funcionalidade do reconhecedor de formulário. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes.|
 |[TrainRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainrequest?view=azure-dotnet-preview)| Você usa essa classe para treinar um modelo de reconhecedor de formulário personalizado usando seus próprios dados de entrada de treinamento. |
@@ -173,6 +173,10 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+Além disso, se você tiver treinado um modelo personalizado que deseja excluir da sua conta, use o seguinte método:
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_deletemodel)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 

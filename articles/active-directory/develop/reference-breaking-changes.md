@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38383685f74020f5208d42df4428f896931fbe2a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6dd50aa00368469a9c5b42c41826da28566268d4
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931793"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125423"
 ---
 # <a name="whats-new-for-authentication"></a>O que há de novo para autenticação? 
 
@@ -41,7 +41,24 @@ O sistema de autenticação altera e adiciona recursos de forma contínua para m
 
 ## <a name="upcoming-changes"></a>Alterações futuras
 
-Agosto de 2019: Impor semântica de POSTAgem de acordo com as regras de análise de URL – parâmetros duplicados dispararão um erro, as aspas entre parâmetros não serão mais ignoradas e a [bom](https://www.w3.org/International/questions/qa-byte-order-mark) será ignorada.
+Setembro de 2019: Imposição adicional de semântica de POST de acordo com as regras de análise de URL-parâmetros duplicados dispararão um erro e uma [bom](https://www.w3.org/International/questions/qa-byte-order-mark) ignorada.
+
+## <a name="august-2019"></a>Agosto de 2019
+
+### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>A semântica do formulário de POSTAgem será imposta mais estritamente espaços e aspas será ignorada
+
+**Data**de efetivação: 2 de setembro de 2019
+
+**Pontos de extremidade afetados**: V 1.0 e v 2.0
+
+**Protocolo afetado**: Em qualquer lugar, a POSTAgem é usada ([credenciais do cliente](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [resgate de código de autorização](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [obo](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)e resgate de [token de atualização](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+
+A partir da semana de 9/2, as solicitações de autenticação que usam o método POST serão validadas usando padrões de HTTP mais estritos.  Especificamente, espaços e aspas duplas (") não serão mais removidos dos valores do formulário de solicitação. Não se espera que essas alterações interrompam os clientes existentes e garantirão que as solicitações enviadas ao Azure AD sejam manipuladas de forma confiável a cada vez. No futuro (veja acima), planejamos rejeitar ainda mais parâmetros duplicados e ignorar a BOM em solicitações. 
+
+Exemplo:
+
+Hoje, `?e=    "f"&g=h` `?e=f&g=h` o é analisado de forma `e`  ==  `f`idêntica.  Com essa alteração, agora ela seria analisada para que `e`  ==  `    "f"` , provavelmente, isso não seja um argumento válido, e a solicitação agora falharia. 
+
 
 ## <a name="july-2019"></a>Julho de 2019
 

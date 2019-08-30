@@ -1,7 +1,7 @@
 ---
-title: Resolver erros de módulo
+title: Solucionar erros de módulo
 titleSuffix: Azure Machine Learning service
-description: Resolver problemas relacionados com exceções de módulo no Azure Machine Learning Studio com códigos de erro
+description: Solucionar problemas de exceções de módulo no Azure Machine Learning Studio usando códigos de erro
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,248 +9,247 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 5ce3d86d37940f66065debce30b348371b7aa6af
-ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
+ms.openlocfilehash: dc383d302fb3e9920ee8ef2d7d908a5b406ea1da
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67568235"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128669"
 ---
-# <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Exceções e códigos de erro de algoritmo de & referência do módulo
+# <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Exceções e códigos de erro para o algoritmo & referência de módulo
 
-Saiba mais sobre as mensagens de erro e códigos de exceção que poderá encontrar a utilização de módulos no Azure Machine Learning Studio. 
+Saiba mais sobre as mensagens de erro e os códigos de exceção que você pode encontrar usando módulos no Azure Machine Learning Studio. 
 
-Para resolver o problema, procure o erro neste artigo para ler mais sobre as causas comuns. Existem duas formas de obter o texto completo de uma mensagem de erro no Studio:  
+Para resolver o problema, procure o erro neste artigo para ler sobre as causas comuns. Há duas maneiras de obter o texto completo de uma mensagem de erro no estúdio:  
  
-- Clique no link **ver o registo de saída**, no painel direito e desloque-se para a parte inferior. É apresentada a mensagem de erro detalhada nas duas últimas linhas da janela.  
+- Clique no link, **exiba o log de saída**, no painel direito e role até a parte inferior. A mensagem de erro detalhada é exibida nas duas últimas linhas da janela.  
   
-- Selecione o módulo com o erro e clique no X vermelho. É apresentado apenas o texto de erro pertinentes.  
+- Selecione o módulo que tem o erro e clique no X vermelho. Somente o texto de erro pertinente é exibido.  
   
-Se o texto da mensagem de erro não é útil, envie-nos informações sobre o contexto e qualquer pretendidas adições ou alterações. Pode enviar comentários sobre o tópico de erro ou visite o [fórum do Azure Machine Learning STUDIO](https://aka.ms/aml-forum-studio) e poste uma pergunta.  
+Se o texto da mensagem de erro não for útil, envie-nos informações sobre o contexto e sobre as adições ou alterações desejadas. Você pode enviar comentários sobre o tópico de erro ou visitar o [Fórum do Azure Machine Learning Studio](https://aka.ms/aml-forum-studio) e postar uma pergunta.  
 
 
 ## <a name="error-0001"></a>Erro 0001  
- Ocorre uma exceção se não foi possível encontrar um ou mais colunas especificadas de conjunto de dados.  
+ Ocorrerá uma exceção se uma ou mais colunas especificadas do conjunto de dados não puder ser encontrada.  
   
- Irá receber este erro se é efetuada uma seleção de coluna para um módulo, mas não existem colunas selecionadas no conjunto de dados de entrada. Este erro pode ocorrer se o ter digitado manualmente num nome de coluna ou se o Seletor de colunas forneceu uma coluna sugerida que não existe no conjunto de dados quando executou a experimentação.  
+ Você receberá esse erro se uma seleção de coluna for feita para um módulo, mas as colunas selecionadas não existirem no conjunto de dados de entrada. Esse erro pode ocorrer se você tiver digitado manualmente um nome de coluna ou se o seletor de coluna tiver fornecido uma coluna sugerida que não existia no conjunto de seus quando você executou o experimento.  
   
-**Resolução:** Examine o módulo de gerar esta exceção e validar se o nome de coluna ou nomes estão corretos e que todas as colunas referenciadas existe.  
+**Resolução:** Revisite o módulo lançando essa exceção e valide se o nome ou os nomes da coluna estão corretos e se todas as colunas referenciadas existem.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não foram encontradas um ou mais colunas especificadas|  
-|Coluna com o nome ou o índice "{0}" não encontrado|  
-|Coluna com o nome ou o índice "{0}"não existe na"{1}"|  
+|Uma ou mais colunas especificadas não foram encontradas|  
+|Coluna com nome ou índice "{0}" não encontrada|  
+|A coluna com o nome ou{0}o índice "" não existe{1}em ""|  
  
 
 ## <a name="error-0002"></a>Erro 0002  
- Ocorre uma exceção se um ou mais parâmetros não podem ser analisado ou convertido do tipo especificado em necessária por tipo de método de destino.  
+ Ocorrerá uma exceção se um ou mais parâmetros não puderem ser analisados ou convertidos do tipo especificado em exigido pelo tipo de método de destino.  
   
- Este erro ocorre no Azure Machine Learning, quando especificar um parâmetro como entrada e o tipo de valor é diferente do tipo que é esperado e não é possível efetuar a conversão implícita.  
+ Esse erro ocorre em Azure Machine Learning quando você especifica um parâmetro como entrada e o tipo de valor é diferente do tipo esperado e a conversão implícita não pode ser executada.  
   
-**Resolução:** Verifique os requisitos de módulo e determinar que tipo de valor é necessário (string, integer, double, etc.)  
+**Resolução:** Verifique os requisitos do módulo e determine qual tipo de valor é necessário (cadeia de caracteres, inteiro, duplo, etc.)  
   
 |Mensagens de exceção|  
 |------------------------|  
 |Falha ao analisar o parâmetro|  
-|Falha ao analisar "{0}" parâmetro|  
-|Falha ao analisar (converter) "{0}"parâmetro para"{1}"|  
-|Falha ao converter "{0}"parâmetro de"{1}"para"{2}"|  
-|Falha ao converter "{0}"valor de parâmetro"{1}"de"{2}"para"{3}"|  
-|Falha ao converter o valor "{0}"na coluna"{1}"de"{2}"para"{3}"com a utilização do formato de"{4}" fornecido|  
+|Falha ao analisar o{0}parâmetro ""|  
+|Falha ao analisar o parâmetro (Convert{0}) "" para{1}""|  
+|Falha ao converter o{0}parâmetro "" de{1}"" em{2}""|  
+|Falha ao converter "{0}" valor do parâmetro{1}"" de{2}"" em{3}""|  
+|Falha ao converter o valor{0}"" na coluna{1}""{3}de{2}"" em "" com uso do formato "{4}" fornecido|  
   
 
 ## <a name="error-0003"></a>Erro 0003  
- Ocorre uma exceção se uma ou mais das entradas são nulos ou estar vazio.  
+ Ocorrerá uma exceção se uma ou mais das entradas forem nulas ou estiverem vazias.  
   
- Irá receber este erro no Azure Machine Learning, se quaisquer entradas ou parâmetros a um módulo são nulo ou estar vazio.  Este erro poderá ocorrer, por exemplo, quando não digitamos em qualquer valor para um parâmetro. Também pode acontecer se optou por um conjunto de dados que tem valores em falta ou um conjunto de dados vazio.  
+ Você receberá esse erro em Azure Machine Learning se quaisquer entradas ou parâmetros para um módulo forem nulos ou vazios.  Esse erro pode ocorrer, por exemplo, quando você não digitou nenhum valor para um parâmetro. Isso também pode acontecer se você escolher um conjunto de um DataSet que tem valores ausentes ou um conjunto de um DataSet vazio.  
   
 **Resolução:**
  
-+ Abra o módulo que produziu a exceção e certifique-se de que todas as entradas foram especificadas. Certifique-se de que todas as entradas são especificadas necessárias. 
-+ Certifique-se de que os dados que são carregados a partir do armazenamento do Azure estão acessíveis e que o nome da conta ou a chave não foi alterado.  
-+ Verifique os dados de entrada para valores em falta ou nulos.
-+ Se utilizar uma consulta numa origem de dados, certifique-se de que estão a ser devolvidos dados no formato esperado. 
-+ Verificar a existência de erros de digitação ou outras alterações na especificação de dados.
++ Abra o módulo que produziu a exceção e verifique se todas as entradas foram especificadas. Certifique-se de que todas as entradas necessárias sejam especificadas. 
++ Verifique se os dados carregados do armazenamento do Azure estão acessíveis e se o nome ou a chave da conta não foi alterado.  
++ Verifique os dados de entrada quanto a valores ausentes ou nulos.
++ Se estiver usando uma consulta em uma fonte de dados, verifique se os dados estão sendo retornados no formato esperado. 
++ Verifique se há erros de digitação ou outras alterações na especificação dos dados.
   
 |Mensagens de exceção|  
 |------------------------|  
-|Uma ou mais das entradas são nulos ou estar vazio|  
-|Entrada "{0}" é nulo ou está vazio|  
+|Uma ou mais entradas são nulas ou estão vazias|  
+|A entrada{0}"" é nula ou está vazia|  
   
 
 ## <a name="error-0004"></a>Erro 0004  
- Ocorre uma exceção se o parâmetro é inferior ou igual ao valor específico.  
+ Ocorrerá uma exceção se o parâmetro for menor ou igual ao valor específico.  
   
- Irá receber este erro no Azure Machine Learning, se o parâmetro na mensagem for inferior a um valor de limite necessário para o módulo processar os dados.  
+ Você receberá esse erro em Azure Machine Learning se o parâmetro na mensagem estiver abaixo de um valor de limite necessário para o módulo processar os dados.  
   
-**Resolução:** Examine o módulo gera a exceção e modifique o parâmetro de ser maior que o valor especificado.  
+**Resolução:** Revisite o módulo lançando a exceção e modifique o parâmetro para que seja maior que o valor especificado.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Parâmetro deve ser superior ao valor de limite.|  
-|Parâmetro "{0}" valor deve ser maior que {1}.|  
-|Parâmetro "{0}"tem o valor"{1}" que deve ser superior a {2}|  
+|O parâmetro deve ser maior que o valor de limite.|  
+|O valor{0}do parâmetro "" deve ser {1}maior que.|  
+|O parâmetro{0}"" tem o{1}valor "", que deve ser maior que{2}|  
   
 
 
 ## <a name="error-0005"></a>Erro 0005  
- Ocorre uma exceção se o parâmetro é menor do que um valor específico.  
+ Ocorrerá uma exceção se o parâmetro for menor que um valor específico.  
   
- Irá receber este erro no Azure Machine Learning, se o parâmetro na mensagem é inferior ou igual a um valor de limite necessário para o módulo processar os dados.  
+ Você receberá esse erro em Azure Machine Learning se o parâmetro na mensagem estiver abaixo ou for igual a um valor de limite necessário para o módulo processar os dados.  
   
-**Resolução:** Examine o módulo gera a exceção e modifique o parâmetro de ser maior ou igual ao valor especificado.  
+**Resolução:** Revisite o módulo lançando a exceção e modifique o parâmetro para que seja maior ou igual ao valor especificado.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Parâmetro deve ser maior ou igual ao valor de limite.|  
-|Parâmetro "{0}" valor deve ser maior ou igual a {1}.|  
-|Parâmetro "{0}"tem o valor"{1}" que deve ser maior ou igual a {2}.|  
+|O parâmetro deve ser maior ou igual ao valor de limite.|  
+|O valor{0}do parâmetro "" deve ser maior ou igual {1}a.|  
+|O parâmetro{0}"" tem o{1}valor "", que deve ser maior ou {2}igual a.|  
   
 
 ## <a name="error-0006"></a>Erro 0006  
- Ocorre uma exceção se o parâmetro é maior que ou igual ao valor especificado.  
+ Ocorrerá uma exceção se o parâmetro for maior ou igual ao valor especificado.  
   
- Irá receber este erro no Azure Machine Learning, se o parâmetro na mensagem for maior que ou igual a um valor de limite necessário para o módulo processar os dados.  
+ Você receberá esse erro em Azure Machine Learning se o parâmetro na mensagem for maior ou igual ao valor de limite necessário para o módulo processar os dados.  
   
-**Resolução:** Examine o módulo gera a exceção e modifique o parâmetro de ser inferior ao valor especificado.  
+**Resolução:** Revisite o módulo lançando a exceção e modifique o parâmetro para ser menor que o valor especificado.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Erro de correspondência de parâmetros. Um dos parâmetros deve ser menor que o outro.|  
-|Parâmetro "{0}"valor deve ser inferior ao parâmetro"{1}" valor.|  
-|Parâmetro "{0}"tem o valor"{1}" que deve ser inferior a {2}.|  
+|Parâmetros incompatíveis. Um dos parâmetros deve ser menor que outro.|  
+|O valor{0}do parâmetro "" deve ser menor que{1}o valor do parâmetro "".|  
+|O parâmetro{0}"" tem o{1}valor "", que deve {2}ser menor que.|  
   
 
 ## <a name="error-0007"></a>Erro 0007  
- Ocorre uma exceção se o parâmetro é maior do que um valor específico.  
+ Ocorrerá uma exceção se o parâmetro for maior que um valor específico.  
   
- Irá receber este erro no Azure Machine Learning, se, nas propriedades para o módulo, tiver especificado um valor que é maior do que é permitido. Por exemplo, poderá especificar um de dados que está fora do intervalo de datas suportados, ou pode indicar que cinco colunas utilizada quando apenas três colunas estão disponíveis. 
+ Você receberá esse erro em Azure Machine Learning se, nas propriedades do módulo, você tiver especificado um valor maior do que o permitido. Por exemplo, você pode especificar um dado que está fora do intervalo de datas com suporte ou pode indicar que cinco colunas serão usadas quando apenas três colunas estiverem disponíveis. 
  
- Também poderá ver este erro se estiver especificando dois conjuntos de dados que precisam de correspondência de alguma forma. Por exemplo, se está renomeando colunas e especifica as colunas pelo índice, o número de nomes que é fornecer deve corresponder ao número de índices de colunas. Outro exemplo poderá ser uma operação matemática que utiliza duas colunas, onde as colunas tem de ter o mesmo número de linhas. 
+ Você também poderá ver esse erro se estiver especificando dois conjuntos de dados que precisam corresponder de alguma maneira. Por exemplo, se você estiver renomeando colunas e especificar as colunas por índice, o número de nomes que você fornecer deve corresponder ao número de índices de coluna. Outro exemplo pode ser uma operação matemática que usa duas colunas, em que as colunas devem ter o mesmo número de linhas. 
   
 **Resolução:**
  
- + Abra o módulo em questão e reveja as definições de propriedade numérica.
- + Certifique-se de que quaisquer valores de parâmetro enquadram-se no intervalo suportado de valores para essa propriedade.
- + Se o módulo precisar de várias entradas, certifique-se de que as entradas são do mesmo tamanho.
+ + Abra o módulo em questão e revise as configurações de propriedade numérica.
+ + Verifique se os valores de parâmetro estão dentro do intervalo de valores com suporte para essa propriedade.
+ + Se o módulo usar várias entradas, certifique-se de que as entradas tenham o mesmo tamanho.
 <!-- + If the module has multiple properties that can be set, ensure that related properties have appropriate values. For example, when using [Group Data into Bins](group-data-into-bins.md), if you use the option to specify custom bin edges, the number of bins must match the number of values you provide as bin boundaries.-->
- + Verifique se a origem de dados ou conjunto de dados foram alterados. Por vezes, um valor que funcionou com uma versão anterior dos dados irá falhar depois do número de colunas, os tipos de dados de coluna ou o tamanho dos dados foi alterado.  
+ + Verifique se o DataSet ou a fonte de dados foi alterado. Às vezes, um valor que funcionava com uma versão anterior dos dados falhará depois que o número de colunas, os tipos de dados da coluna ou o tamanho dos dados forem alterados.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Erro de correspondência de parâmetros. Um dos parâmetros deve ser menor ou igual a outro.|  
-|Parâmetro "{0}"valor deve ser inferior ou igual ao parâmetro"{1}" valor.|  
-|Parâmetro "{0}"tem o valor"{1}" que deve ser inferior ou igual a {2}.|  
+|Parâmetros incompatíveis. Um dos parâmetros deve ser menor ou igual a outro.|  
+|O valor{0}do parâmetro "" deve ser menor ou igual ao valor{1}do parâmetro "".|  
+|O parâmetro{0}"" tem o{1}valor "", que deve ser menor ou {2}igual a.|  
   
 
 ## <a name="error-0008"></a>Erro 0008  
- Ocorre uma exceção se o parâmetro não está no intervalo.  
+ Ocorrerá uma exceção se o parâmetro não estiver no intervalo.  
   
- Irá receber este erro no Azure Machine Learning, se o parâmetro na mensagem está fora dos limites necessários para o módulo processar os dados.  
+ Você receberá esse erro em Azure Machine Learning se o parâmetro na mensagem estiver fora dos limites necessários para o módulo processar os dados.  
   
- Por exemplo, é apresentado este erro se tentar usar [adicionar linhas](add-rows.md) combinar dois conjuntos de dados que têm um número diferente de colunas.  
+ Por exemplo, esse erro será exibido se você tentar usar [adicionar linhas](add-rows.md) para combinar dois conjuntos de valores que têm um número diferente de colunas.  
   
-**Resolução:** Examine o módulo gera a exceção e modifique o parâmetro de estar no intervalo especificado.  
+**Resolução:** Revisite o módulo lançando a exceção e modifique o parâmetro para estar dentro do intervalo especificado.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Valor do parâmetro não está no intervalo especificado.|  
-|Parâmetro "{0}" valor não está no intervalo.|  
-|Parâmetro "{0}" valor deve estar no intervalo [{1}, {2}].|  
+|O valor do parâmetro não está no intervalo especificado.|  
+|O valor{0}do parâmetro "" não está no intervalo.|  
+|O valor{0}do parâmetro "" deve estar no intervalo de{1}[ {2},].|  
   
 
 ## <a name="error-0009"></a>Erro 0009  
- Exceção ocorre quando o nome da conta de armazenamento do Azure ou o nome de contentor foi incorretamente especificado.  
+ Ocorrerá uma exceção quando o nome da conta de armazenamento do Azure ou o nome do contêiner for especificado incorretamente.  
   
-Este erro ocorre no Azure Machine Learning Studio quando especificar parâmetros para uma conta de armazenamento do Azure, mas não é possível resolver o nome ou a palavra-passe. Erros de palavras-passe ou nomes de conta podem ocorrer por diversos motivos:
+Esse erro ocorre em Azure Machine Learning Studio quando você especifica parâmetros para uma conta de armazenamento do Azure, mas o nome ou a senha não podem ser resolvidos. Erros em senhas ou nomes de conta podem ocorrer por vários motivos:
  
- + A conta é o tipo errado. Alguns novos tipos de conta não são suportados para utilização com o Machine Learning Studio. Ver [importar dados](import-data.md) para obter detalhes.
- + Que introduziu o nome de conta incorreta
- + A conta já não existe
- + A palavra-passe para a conta de armazenamento está errada ou foi alterada
- + Não especificou o nome do contentor ou o contentor não existe
- + Não especificou totalmente o caminho do ficheiro (caminho para o blob)
+ + A conta é do tipo incorreto. Não há suporte para alguns novos tipos de conta para uso com Machine Learning Studio. Consulte [importar dados](import-data.md) para obter detalhes.
+ + Você inseriu o nome da conta incorreta
+ + A conta não existe mais
+ + A senha da conta de armazenamento está incorreta ou foi alterada
+ + Você não especificou o nome do contêiner ou o contêiner não existe
+ + Você não especificou totalmente o caminho do arquivo (caminho para o blob)
    
 **Resolução:**
 
-Esse tipo de problema ocorre, muitas vezes, quando tenta introduzir manualmente o caminho de nome, a palavra-passe ou o contentor da conta. Recomendamos que utilize o Assistente de novo para o [importar dados](import-data.md) módulo, que lhe permite procurar e verificar nomes.
+Esses problemas geralmente ocorrem quando você tenta inserir manualmente o nome da conta, a senha ou o caminho do contêiner. Recomendamos que você use o novo assistente para o módulo [importar dados](import-data.md) , que ajuda você a Pesquisar e verificar nomes.
 
-Também pode verificar se a conta, contentor ou blob foi eliminado. Utilize outro utilitário de armazenamento do Azure para verificar que o nome da conta e palavra-passe tenham sido introduzidos corretamente e se o contentor existe. 
+Verifique também se a conta, o contêiner ou o blob foram excluídos. Use outro utilitário de armazenamento do Azure para verificar se o nome da conta e a senha foram inseridos corretamente e se o contêiner existe. 
 
-Alguns tipos de conta mais recente não são suportados pelo Azure Machine Learning. Por exemplo, o novo "acesso frequente" ou tipos de armazenamento "frios" não podem ser utilizados para o machine learning. Contas de armazenamento clássicas e contas de armazenamento criadas como "Fins gerais" funcionam bem.
+Não há suporte para alguns tipos de conta mais novos pelo Azure Machine Learning. Por exemplo, os novos tipos de armazenamento "quente" ou "frio" não podem ser usados para o aprendizado de máquina. As contas de armazenamento clássicas e as contas de armazenamento criadas como "finalidade geral" funcionam bem.
 
-Se foi especificado o caminho completo para um blob, certifique-se de que o caminho é especificado como **contentor/blobname**, e que o contentor e blob existem na conta.  
+Se o caminho completo para um blob tiver sido especificado, verifique se o caminho está especificado como **container/blobname**e se o contêiner e o blob existem na conta.  
   
- O caminho não deve conter uma barra à esquerda. Por exemplo **blob/contentor/** estão incorretas e devem ser introduzidos como **blob/contentor**.  
+ O caminho não deve conter uma barra à esquerda. Por exemplo, **/container/blob** está incorreto e deve ser inserido como **contêiner/blob**.  
 
   
 |Mensagens de exceção|  
 |------------------------|  
-|O nome da conta de armazenamento do Azure ou o nome do contentor está incorreto.|  
-|O nome da conta de armazenamento do Azure "{0}"ou o nome do contentor"{1}" está incorreto; era esperado um nome de contentor do formato contentor/blob.|  
+|O nome da conta de armazenamento do Azure ou o nome do contêiner está incorreto.|  
+|O nome da conta de armazenamento{0}do Azure "" ou{1}o nome do contêiner "" está incorreto; um nome de contêiner do formato contêiner/blob era esperado.|  
   
 
 ## <a name="error-0010"></a>Erro 0010  
- Ocorre uma exceção se os conjuntos de dados de entrada têm nomes de coluna que devem corresponder a, mas não o fizer.  
+ Ocorrerá uma exceção se os conjuntos de dados de entrada tiverem nomes de coluna que devem corresponder, mas não.  
   
- Irá receber este erro no Azure Machine Learning, se o índice de coluna na mensagem tem diferentes nomes de coluna nos dois conjuntos de dados de entrada.  
+ Você receberá esse erro em Azure Machine Learning se o índice da coluna na mensagem tiver nomes de coluna diferentes nos dois conjuntos de dados de entrada.  
   
-**Resolução:** Uso [Editar metadados](edit-metadata.md) ou modificar o conjunto de dados original para ter o mesmo nome de coluna para o índice de coluna especificada.  
+**Resolução:** Use [Editar metadados](edit-metadata.md) ou modificar o conjunto de um original para ter o mesmo nome de coluna para o índice de coluna especificado.  
   
 |Mensagens de exceção|  
 |------------------------|  
 |Colunas com índice correspondente em conjuntos de dados de entrada têm nomes diferentes.|  
-|Nomes de coluna não são o mesmo para coluna {0} (baseado em zero) de conjuntos de dados de entrada ({1} e {2} respectivamente).|  
+|Os nomes de coluna não são os mesmos {0} para a coluna (com base em zero) dos{1} conjuntos {2} de dados de entrada (e, respectivamente).|  
   
 
 ## <a name="error-0011"></a>Erro 0011  
- Ocorre uma exceção se transmitido argumento de conjunto de coluna não é aplicável a qualquer uma das colunas do conjunto de dados.  
+ Ocorrerá uma exceção se o argumento de conjunto de colunas aprovado não se aplicar a nenhuma coluna de conjunto de linhas.  
   
- Irá receber este erro no Azure Machine Learning, se a seleção da coluna especificada não corresponder a qualquer uma das colunas no conjunto de dados indicado.  
+ Você receberá esse erro em Azure Machine Learning se a seleção de coluna especificada não corresponder a nenhuma das colunas no conjunto de dados fornecido.  
   
- Também pode obter este erro se não selecionou uma coluna e pelo menos uma coluna for necessária para o módulo trabalhar.  
+ Você também poderá obter esse erro se não tiver selecionado uma coluna e pelo menos uma coluna for necessária para que o módulo funcione.  
   
-**Resolução:** Modifique a seleção de coluna no módulo, para que ele se aplicará às colunas no conjunto de dados.  
+**Resolução:** Modifique a seleção de coluna no módulo para que ela seja aplicada às colunas no conjunto de linhas.  
   
- Se o módulo requer que selecione uma coluna de específica, como uma coluna de etiqueta, certifique-se de que a coluna da direita é selecionada.  
+ Se o módulo exigir que você selecione uma coluna específica, como uma coluna de rótulo, verifique se a coluna à direita está selecionada.  
   
- Se forem selecionadas colunas inadequadas, removê-los e execute novamente a experimentação.  
+ Se forem selecionadas colunas inadequadas, remova-as e execute o experimento novamente.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Conjunto de colunas especificado não é aplicável a qualquer uma das colunas do conjunto de dados.|  
-|Especificar um conjunto de colunas "{0}" não é aplicável a qualquer uma das colunas do conjunto de dados.|  
+|O conjunto de colunas especificado não se aplica a nenhuma coluna de conjunto de linhas.|  
+|O conjunto de colunas{0}especificado "" não se aplica a nenhuma coluna de conjunto de linhas.|  
   
 
 ## <a name="error-0012"></a>Erro 0012  
- Ocorre uma exceção se não foi possível criar a instância da classe com um conjunto com êxito de argumentos.  
+ Ocorrerá uma exceção se a instância da classe não puder ser criada com um conjunto de argumentos aprovado.  
   
-**Resolução:** Este erro não é possível acionar pelo usuário e será preterido numa versão futura.  
+**Resolução:** Esse erro não é acionável pelo usuário e será preterido em uma versão futura.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Destreinado modelar, preparar modelo pela primeira vez.|  
-|Modelo destreinado ({0}), utilize o modelo preparado.|  
+|Modelo não treinado, treinar modelo primeiro.|  
+|Modelo não treinado ({0}), use o modelo treinado.|  
   
 
 ## <a name="error-0013"></a>Erro 0013  
- Ocorre uma exceção se o aprendiz passado para o módulo é um tipo inválido.  
+ Ocorrerá uma exceção se o aprendiz passado para o módulo for um tipo inválido.  
   
- Este erro ocorre sempre que um modelo preparado é incompatível com o módulo de pontuação ligado. <!--For example, connecting the output of [Train Matchbox Recommender](train-matchbox-recommender.md) to [Score Model](score-model.md) (instead of [Score Matchbox Recommender](score-matchbox-recommender.md)) will generate this error when the experiment is run.  -->
+ Esse erro ocorre sempre que um modelo treinado é incompatível com o módulo de Pontuação conectado. <!--For example, connecting the output of [Train Matchbox Recommender](train-matchbox-recommender.md) to [Score Model](score-model.md) (instead of [Score Matchbox Recommender](score-matchbox-recommender.md)) will generate this error when the experiment is run.  -->
   
 **Resolução:**
 
-Determinar o tipo de aprendiz é produzido pelo módulo de treinamento e determine o módulo de pontuação que é adequado para o aprendiz. 
+Determine o tipo de aprendiz que é produzido pelo módulo de treinamento e determine o módulo de Pontuação apropriado para o aprendiz. 
 
-Se foi preparado o modelo usando qualquer um dos módulos de treinamento especializadas, ligue-se o modelo treinado apenas para o módulo de pontuação especializado correspondente. 
+Se o modelo foi treinado usando qualquer um dos módulos de treinamento especializados, conecte o modelo treinado somente ao módulo de Pontuação especializado correspondente. 
 
 
-|Tipo de modelo|Módulo de treinamento| Módulo de pontuação|
+|Tipo de modelo|Módulo de treinamento| Módulo de Pontuação|
 |----|----|----|
-|qualquer classificador|[Preparar modelo](train-model.md) |[Modelo de pontuação](score-model.md)|
-|qualquer modelo de regressão|[Preparar modelo](train-model.md) |[Modelo de pontuação](score-model.md)|
+|qualquer classificador|[Modelo de treinamento](train-model.md) |[Modelo de Pontuação](score-model.md)|
+|qualquer modelo de regressão|[Modelo de treinamento](train-model.md) |[Modelo de Pontuação](score-model.md)|
 
 <!--| clustering models| [Train Clustering Model](train-clustering-model.md) or [Sweep Clustering](sweep-clustering.md)| [Assign Data to Clusters](assign-data-to-clusters.md)|
 | anomaly detection - One-Class SVM | [Train Anomaly Detection Model](train-anomaly-detection-model.md) |[Score Model](score-model.md)|
@@ -264,795 +263,795 @@ Se foi preparado o modelo usando qualquer um dos módulos de treinamento especia
   
 |Mensagens de exceção|  
 |------------------------|  
-|Aprendiz de tipo inválido é passado.|  
-|Aprendiz "{0}" tem um tipo inválido.|  
+|Um aprendiz de tipo inválido é passado.|  
+|O aprendiz "{0}" tem um tipo inválido.|  
 
 
 ## <a name="error-0014"></a>Erro 0014  
- Ocorre uma exceção se a contagem de valores de coluna exclusivos é superior ao limite permitido.  
+ Ocorrerá uma exceção se a contagem de valores exclusivos de coluna for maior que o permitido.  
   
- Este erro ocorre quando uma coluna contém demasiados valores exclusivos.  Por exemplo, poderá ver este erro se especificar que uma coluna ser tratados como em dados categóricos, mas existem demasiados valores exclusivos na coluna para permitir o processamento seja concluído. Também poderá ver este erro se não existir um erro de correspondência entre o número de valores exclusivos nas duas entradas.   
+ Esse erro ocorre quando uma coluna contém um número excessivo de valores exclusivos.  Por exemplo, você poderá ver esse erro se especificar que uma coluna seja tratada como dados categóricos, mas há muitos valores exclusivos na coluna para permitir que o processamento seja concluído. Você também poderá ver esse erro se houver uma incompatibilidade entre o número de valores exclusivos em duas entradas.   
   
 **Resolução:**
 
-Abra o módulo que gerou o erro e identifique as colunas usadas como entradas. Para alguns módulos, pode com o botão direito do conjunto de dados de entrada e selecione **Visualize** para obter as estatísticas em colunas individuais, incluindo o número de valores exclusivos e a distribuição dos mesmos.
+Abra o módulo que gerou o erro e identifique as colunas usadas como entradas. Para alguns módulos, você pode clicar com o botão direito do mouse na entrada do conjunto de dados e selecionar **Visualizar** para obter estatísticas em colunas individuais, incluindo o número de valores exclusivos e sua distribuição.
 
-Para colunas que pretende utilizar para o agrupamento ou categorização, tome medidas para reduzir o número de valores exclusivos nas colunas. Pode reduzir de diversas formas, consoante o tipo de dados da coluna. 
+Para as colunas que você pretende usar para Agrupamento ou categorização, execute as etapas para reduzir o número de valores exclusivos em colunas. Você pode reduzir de maneiras diferentes, dependendo do tipo de dados da coluna. 
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  
 -->
 > [!TIP]
-> Não é possível encontrar uma resolução que corresponda ao seu cenário? Pode fornecer seus comentários sobre este tópico, que inclui o nome do módulo que gerou o erro e o tipo de dados e a cardinalidade da coluna. Utilizaremos as informações para fornecer mais direcionada passos para cenários comuns de resolução de problemas.   
+> Não foi possível encontrar uma resolução que corresponda ao seu cenário? Você pode fornecer comentários sobre este tópico que inclui o nome do módulo que gerou o erro e o tipo de dados e a cardinalidade da coluna. Usaremos as informações para fornecer etapas de solução de problemas mais direcionadas para cenários comuns.   
   
 |Mensagens de exceção|  
 |------------------------|  
-|Número de valores de coluna exclusivos é superior ao limite permitido.|  
-|Número de valores exclusivos na coluna: "{0}" excede a contagem de cadeias de identificação de {1}.|  
+|O número de valores exclusivos de coluna é maior que o permitido.|  
+|Número de valores exclusivos na coluna: "{0}" excede a contagem de {1}tupla de.|  
   
 
 ## <a name="error-0015"></a>Erro 0015  
- Ocorre uma exceção se a ligação de base de dados falhou.  
+ Ocorrerá uma exceção se a conexão do banco de dados falhar.  
   
- Irá receber este erro, se introduzir um nome de conta SQL incorreto, palavra-passe, o servidor de base de dados ou nome de base de dados, ou se não é possível estabelecer uma ligação com a base de dados devido a problemas com a base de dados ou o servidor.  
+ Você receberá esse erro se inserir um nome de conta SQL incorreto, uma senha, um servidor de banco de dados ou um nome de banco de dados ou se uma conexão com o banco de dados não puder ser estabelecida devido a problemas com o banco de dados ou servidor.  
   
-**Resolução:** Certifique-se de que o nome da conta, palavra-passe, o servidor de base de dados e base de dados tenham sido introduzidos corretamente e se a conta especificada tem o nível correto de permissões. Certifique-se de que a base de dados está atualmente acessível.  
+**Resolução:** Verifique se o nome da conta, a senha, o servidor de banco de dados e o banco de dados foram inseridos corretamente e se a conta especificada tem o nível correto de permissões. Verifique se o banco de dados está acessível no momento.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Erro ao efetuar a ligação de base de dados.|  
-|Erro ao efetuar a ligação de base de dados: {0}.|  
+|Erro ao fazer conexão de banco de dados.|  
+|Erro ao fazer conexão de {0}banco de dados:.|  
   
 
 
 ## <a name="error-0016"></a>Erro 0016  
- Ocorre uma exceção se conjuntos de dados de entrada transmitidos para o módulo devem ter tipos de coluna compatível, mas não o fizer.  
+ Ocorrerá uma exceção se os conjuntos de dados de entrada passados para o módulo devem ter tipos de coluna compatíveis, mas não o fazem.  
   
- Irá receber este erro no Azure Machine Learning, se os tipos de colunas passados em duas ou mais conjuntos de dados não forem compatíveis entre si.  
+ Você receberá esse erro em Azure Machine Learning se os tipos das colunas passados em dois ou mais conjuntos de valores não forem compatíveis entre si.  
   
-**Resolução:** Uso [Editar metadados](edit-metadata.md) ou modificar o conjunto de dados de entrada original<!--, or use [Convert to Dataset](convert-to-dataset.md)--> para garantir que os tipos de colunas são compatíveis.  
+**Resolução:** Usar [Editar metadados](edit-metadata.md) ou modificar o conjunto de dados de entrada original<!--, or use [Convert to Dataset](convert-to-dataset.md)--> para garantir que os tipos de colunas sejam compatíveis.  
   
 |Mensagens de exceção|  
 |------------------------|  
 |Colunas com índice correspondente em conjuntos de dados de entrada têm tipos incompatíveis.|  
-|Colunas {0} e {1} são incompatíveis.|  
-|Tipos de elementos de coluna não são compatíveis para a coluna {0} (baseado em zero) de conjuntos de dados de entrada ({1} e {2} respectivamente).|  
+|Colunas {0} e{1} são incompatíveis.|  
+|Os tipos de elemento de coluna não são {0} compatíveis com a coluna (baseada em zero) dos{1} conjuntos {2} de dados de entrada (e, respectivamente).|  
   
 
 ## <a name="error-0017"></a>Erro 0017  
- Ocorre uma exceção se uma coluna selecionada utiliza um tipo de dados que não é suportado pelo módulo de atual.  
+ Ocorrerá uma exceção se uma coluna selecionada usar um tipo de dados que não é suportado pelo módulo atual.  
   
- Por exemplo, poderá receber este erro no Azure Machine Learning se sua seleção de coluna inclui uma coluna com um tipo de dados que não consegue processar o módulo, tal como uma coluna de cadeia de caracteres para uma operação matemática, ou uma coluna de classificação em que é uma coluna de funcionalidade categóricos é necessário.  
+ Por exemplo, você pode receber esse erro em Azure Machine Learning se a seleção de coluna incluir uma coluna com um tipo de dados que não pode ser processado pelo módulo, como uma coluna de cadeia de caracteres para uma operação matemática ou uma coluna de pontuação em que uma coluna de recurso categórico é Necessário.  
   
 **Resolução:**
  1. Identifique a coluna que é o problema.
- 2. Reveja os requisitos do módulo.
- 3. Modificar a coluna para torná-lo a estar em conformidade com os requisitos. Poderá ter de utilizar vários dos seguintes módulos para fazer alterações, consoante a coluna e a conversão que está a tentar:
-    + Uso [Editar metadados](edit-metadata.md) para alterar o tipo de dados das colunas, ou para alterar a utilização de coluna de funcionalidade para numéricos, categóricos para não categóricos e assim por diante.
+ 2. Examine os requisitos do módulo.
+ 3. Modifique a coluna para que ela fique em conformidade com os requisitos. Talvez seja necessário usar vários dos seguintes módulos para fazer alterações, dependendo da coluna e da conversão que você está tentando:
+    + Use [Editar metadados](edit-metadata.md) para alterar o tipo de dados de colunas ou para alterar o uso da coluna de recurso para numérico, categórica para não categórica e assim por diante.
 <!--    + Use [Convert to Dataset](convert-to-dataset.md) to ensure that all included columns use data types that are supported by Azure Machine Learning.  If you cannot convert the columns, consider removing them from the input dataset.
     + Use the [Apply SQL Transformation](apply-sql-transformation.md) or [Execute R Script](execute-r-script.md) modules to cast or convert any columns that cannot be modified using [Edit Metadata](edit-metadata.md). These modules provide more flexibility for working with datetime data types.
     + For numeric data types, you can use the [Apply Math Operation](apply-math-operation.md) module to round or truncate values, or use the [Clip Values](clip-values.md) module to remove out of range values.  -->
- 4. Como último recurso, poderá ter de modificar o conjunto de dados de entrada original.
+ 4. Como último recurso, talvez seja necessário modificar o conjunto de dados de entrada original.
 
 > [!TIP]
-> Não é possível encontrar uma resolução que corresponda ao seu cenário? Pode fornecer seus comentários sobre este tópico, que inclui o nome do módulo que gerou o erro e o tipo de dados e a cardinalidade da coluna. Utilizaremos as informações para fornecer mais direcionada passos para cenários comuns de resolução de problemas. 
+> Não foi possível encontrar uma resolução que corresponda ao seu cenário? Você pode fornecer comentários sobre este tópico que inclui o nome do módulo que gerou o erro e o tipo de dados e a cardinalidade da coluna. Usaremos as informações para fornecer etapas de solução de problemas mais direcionadas para cenários comuns. 
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não é possível processar a coluna do tipo atual. O tipo não é suportado pelo módulo.|  
-|Não é possível processar a coluna do tipo {0}. O tipo não é suportado pelo módulo.|  
-|Não é possível processar a coluna "{1}" do tipo {0}. O tipo não é suportado pelo módulo.|  
-|Não é possível processar a coluna "{1}" do tipo {0}. O tipo não é suportado pelo módulo. Nome do parâmetro: {2}|  
+|Não é possível processar a coluna do tipo atual. O módulo não dá suporte ao tipo.|  
+|Não é possível processar a {0}coluna do tipo. O módulo não dá suporte ao tipo.|  
+|Não é possível processar{1}a coluna " {0}" do tipo. O módulo não dá suporte ao tipo.|  
+|Não é possível processar{1}a coluna " {0}" do tipo. O módulo não dá suporte ao tipo. Nome do parâmetro:{2}|  
   
 
 ## <a name="error-0018"></a>Erro 0018  
- Ocorre uma exceção se o conjunto de dados de entrada não é válido.  
+ Ocorrerá uma exceção se o conjunto de dados de entrada não for válido.  
   
-**Resolução:** Este erro no Azure Machine Learning pode aparecer em vários contextos, portanto, não há não uma resolução única. Em geral, o erro indica que os dados fornecidos como entrada para um módulo tem um número incorreto de colunas ou que o tipo de dados não coincide com os requisitos do módulo. Por exemplo:  
+**Resolução:** Esse erro no Azure Machine Learning pode aparecer em muitos contextos, portanto, não há uma única resolução. Em geral, o erro indica que os dados fornecidos como entrada para um módulo têm o número incorreto de colunas ou que o tipo de dados não corresponde aos requisitos do módulo. Por exemplo:  
   
--   O módulo requer uma coluna de etiqueta, mas não existe nenhuma coluna está marcada como uma etiqueta ou não selecionou uma coluna de etiqueta ainda.  
+-   O módulo requer uma coluna de rótulo, mas nenhuma coluna é marcada como um rótulo ou você ainda não selecionou uma coluna de rótulo.  
   
--   O módulo requer que dados ser categóricos, mas os seus dados são numéricos.  
+-   O módulo requer que os dados sejam categóricos, mas seus dados são numéricos.  
   
 <!---   The module requires a specific data type. For example, ratings provided to [Train Matchbox Recommender](train-matchbox-recommender.md) can be either numeric or categorical, but cannot be floating point numbers.  -->
   
--   Os dados estão no formato errado.  
+-   Os dados estão no formato incorreto.  
   
--   Os dados importados contém carateres inválidos, valores incorretos, ou para fora de valores de intervalo.  
--   A coluna está vazia ou contém demasiados valores em falta.  
+-   Os dados importados contêm caracteres inválidos, valores inválidos ou valores fora do intervalo.  
+-   A coluna está vazia ou contém muitos valores ausentes.  
   
- Para determinar os requisitos e como os dados podem, reveja o tópico de ajuda para o módulo que irão consumir o conjunto de dados como entrada.  
+ Para determinar os requisitos e como seus dados podem, examine o tópico da ajuda para o módulo que consumirá o DataSet como entrada.  
   
  <!--We also recommend that you use [Summarize Data](summarize-data.md) or [Compute Elementary Statistics](compute-elementary-statistics.md) to profile your data, and use these modules to fix metadata and clean values: [Edit Metadata](edit-metadata.md) and [Clean Missing Data](clean-missing-data.md), [Clip Values](clip-values.md)-->.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Conjunto de dados não é válido.|  
-|{0} contém dados inválidos.|  
-|{0} e {1} deve ser consistente coluna inteligente.|  
+|DataSet não é válido.|  
+|{0}contém dados inválidos.|  
+|{0}e {1} deve ser uma coluna consistente.|  
   
 
 ## <a name="error-0019"></a>Erro 0019  
- Ocorre uma exceção se a coluna é esperada que contenha valores classificados, mas não existir.  
+ Ocorrerá uma exceção se a coluna deve conter valores classificados, mas não tem.  
   
- Irá receber este erro no Azure Machine Learning, se os valores de coluna especificados estão fora de ordem.  
+ Você receberá esse erro em Azure Machine Learning se os valores de coluna especificados estiverem fora de ordem.  
   
-**Resolução:** Ordenar os valores da coluna ao modificar manualmente o conjunto de dados de entrada e volte a executar o módulo.  
+**Resolução:** Classifique os valores de coluna modificando manualmente o conjunto de dados de entrada e execute o módulo novamente.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não são ordenados valores existentes na coluna.|  
-|Valores existentes na coluna "{0}" não são ordenados.|  
-|Valores existentes na coluna "{0}"do conjunto de dados"{1}" não são ordenados.|  
+|Os valores na coluna não são classificados.|  
+|Os valores na coluna{0}"" não são classificados.|  
+|Os valores na coluna{0}"" do conjunto{1}de valores "" não estão classificados.|  
   
 
 ## <a name="error-0020"></a>Erro 0020  
- Ocorre uma exceção se o número de colunas em alguns dos conjuntos de dados passados para o módulo é demasiado pequeno.  
+ Ocorrerá uma exceção se o número de colunas em alguns dos conjuntos de valores passados para o módulo for muito pequeno.  
   
- Irá receber este erro no Azure Machine Learning se não for suficiente colunas foram selecionadas para um módulo.  
+ Você receberá esse erro em Azure Machine Learning se não houver colunas suficientes selecionadas para um módulo.  
   
-**Resolução:** Examine o módulo e certifique-se de que Seletor de colunas tem o número correto de colunas selecionadas.  
+**Resolução:** Revisite o módulo e verifique se o seletor de coluna tem o número correto de colunas selecionado.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Número de colunas no conjunto de dados de entrada é inferior ao mínimo permitido.|  
-|Número de colunas no conjunto de dados de entrada é inferior ao mínimo permitido de {0} coluna (s).|  
-|Número de colunas no conjunto de dados de entrada "{0}" é inferior ao mínimo permitido de {1} coluna (s).|
+|O número de colunas no conjunto de dados de entrada é menor que o mínimo permitido.|  
+|O número de colunas no conjunto de dados de entrada é menor {0} que o mínimo permitido de coluna (s).|  
+|O número de colunas no conjunto de{0}dados de entrada "" é menor {1} que o mínimo permitido de coluna (s).|
 
 ## <a name="error-0021"></a>Erro 0021  
- Ocorre uma exceção se o número de linhas em alguns dos conjuntos de dados passados para o módulo é demasiado pequeno.  
+ Ocorrerá uma exceção se o número de linhas em alguns dos conjuntos de registros passados para o módulo for muito pequeno.  
   
- Este erro no visto no Azure Machine Learning quando existem linhas não suficientes no conjunto de dados para executar a operação especificada. Por exemplo, poderá ver este erro se o conjunto de dados de entrada estiver vazio ou se estiver a tentar realizar uma operação que exige um número mínimo de linhas para ser válida. Essas operações podem incluir (mas não se limitam a) agrupamento ou classificação com base nos métodos estatísticos, determinados tipos de discretização e aprender com as contagens.  
+ Esse erro em visto no Azure Machine Learning quando não há linhas suficientes no conjunto de registros para executar a operação especificada. Por exemplo, você poderá ver esse erro se o conjunto de dados de entrada estiver vazio ou se você estiver tentando executar uma operação que exige que um número mínimo de linhas seja válido. Essas operações podem incluir (mas não se limitam a) agrupamento ou classificação com base em métodos estatísticos, determinados tipos de compartimentalização e aprendizado com contagens.  
   
 **Resolução:**
  
- + Abra o módulo que devolveu o erro e verificar as propriedades do conjunto de dados e o módulo de entrada. 
- + Certifique-se de que o conjunto de dados de entrada não está vazio e que existem suficientes linhas de dados para cumprir os requisitos descritos na ajuda do módulo.  
- + Se os dados são carregados a partir de uma origem externa, certifique-se de que a origem de dados está disponível e que não há nenhum erro ou alterar a definição de dados que faria com que o processo de importação obter menos linhas.
- + Se estiver a efetuar uma operação no upstream dos dados do módulo que poderá afetar o tipo de dados ou o número de valores, tais como de limpeza, dividir, ou ingresse em operações, verifica os resultados dessas operações para determinar o número de linhas devolvidas.  
+ + Abra o módulo que retornou o erro e verifique as propriedades do conjunto de dados de entrada e do módulo. 
+ + Verifique se o conjunto de dados de entrada não está vazio e se há linhas suficientes para atender aos requisitos descritos na ajuda do módulo.  
+ + Se os dados forem carregados de uma fonte externa, verifique se a fonte de dados está disponível e se não há erro ou alteração na definição de dados que faria com que o processo de importação obtivesse menos linhas.
+ + Se você estiver executando uma operação no upstream de dados do módulo que pode afetar o tipo de dados ou o número de valores, como operações de limpeza, divisão ou junção, verifique as saídas dessas operações para determinar o número de linhas retornadas.  
 
 
 
 ## <a name="error-0022"></a>Erro 0022  
- Ocorre uma exceção se o número de colunas selecionadas no conjunto de dados de entrada não é igual para o número esperado.  
+ Ocorrerá uma exceção se o número de colunas selecionadas no conjunto de dados de entrada não for igual ao número esperado.  
   
- Este erro no Azure Machine Learning pode ocorrer quando o módulo de downstream ou a operação requer um determinado número de colunas ou entradas, e forneceu muito poucos ou demasiadas colunas ou entradas. Por exemplo:  
+ Esse erro no Azure Machine Learning pode ocorrer quando o módulo downstream ou a operação requer um número específico de colunas ou entradas e você forneceu poucas ou muitas colunas ou entradas. Por exemplo:  
   
--   Especificar uma coluna de etiqueta única ou de uma coluna de chave e selecionou acidentalmente várias colunas.  
+-   Você especifica uma única coluna de rótulo ou coluna de chave e selecionou várias colunas acidentalmente.  
   
--   Está renomeando colunas, mas fornecidos nomes mais ou menos do que colunas.  
+-   Você está renomeando colunas, mas forneceu mais ou menos nomes do que as colunas.  
   
--   O número de colunas na origem ou destino tiver sido alterado ou não corresponde ao número de colunas utilizado pelo módulo.  
+-   O número de colunas na origem ou no destino foi alterado ou não corresponde ao número de colunas usadas pelo módulo.  
   
--   Forneceu uma lista separada por vírgulas de valores de entradas de dados, mas não coincide com o número de valores ou várias entradas não são suportadas.  
+-   Você forneceu uma lista de valores separados por vírgulas para entradas, mas o número de valores não corresponde ou não há suporte para várias entradas.  
   
-**Resolução:** Examine o módulo e verifique a seleção de coluna para se certificar de que o número correto de colunas está selecionado. Certifique-se de que as saídas de módulos a montante e os requisitos de operações de downstream.  
+**Resolução:** Revisite o módulo e marque a seleção de coluna para garantir que o número correto de colunas esteja selecionado. Verifique as saídas dos módulos upstream e os requisitos das operações downstream.  
   
- Se utilizou uma das opções de seleção da coluna, que podem selecionar várias colunas (índices de colunas, todos os recursos, todos os números, etc.), valide o número exato de colunas retornadas pela seleção.  
+ Se você usou uma das opções de seleção de coluna que pode selecionar várias colunas (índices de coluna, todos os recursos, todos os números, etc.), valide o número exato de colunas retornadas pela seleção.  
   
  <!--If you are trying to specify a comma-separated list of datasets as inputs to [Unpack Zipped Datasets](unpack-zipped-datasets.md), unpack only one dataset at a time. Multiple inputs are not supported.  -->
   
- Certifique-se de que o número ou tipo de colunas a montante não foi alterado.  
+ Verifique se o número ou o tipo de colunas de upstream não foi alterado.  
   
- Se estiver a utilizar um conjunto de dados de recomendação para preparar um modelo, lembre-se de que o recomendador espera um número limitado de colunas, correspondente pares item-utilizador ou de classificações de item de utilizador. Remova colunas adicionais antes do modelo de formação ou divisão de conjuntos de dados de recomendação. Para obter mais informações, consulte [Split Data](split-data.md).  
+ Se você estiver usando um conjunto de uma recomendação para treinar um modelo, lembre-se de que o recomendador espera um número limitado de colunas, que corresponde a pares de item de usuário ou classificações de item de usuário. Remova colunas adicionais antes de treinar o modelo ou dividir conjuntos de valores de recomendação. Para obter mais informações, consulte [dividir dados](split-data.md).  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Número de colunas selecionadas no conjunto de dados de entrada não é igual para o número esperado.|  
-|Número de colunas selecionadas no conjunto de dados de entrada não é igual para {0}.|  
-|Padrão de seleção da coluna "{0}" fornece o número de colunas selecionadas no conjunto de dados entrada não é igual a {1}.|  
-|Padrão de seleção da coluna "{0}" é esperado para fornecer {1} coluna (s) selecionado no conjunto de dados de entrada, mas {2} coluna (s) é/é fornecido.|  
+|O número de colunas selecionadas no conjunto de dados de entrada não é igual ao número esperado.|  
+|O número de colunas selecionadas no conjunto de dados de entrada {0}não é igual a.|  
+|Padrão de seleção de{0}coluna "" fornece o número de colunas selecionadas no conjunto de {1}dados de entrada diferente de.|  
+|O padrão de seleção{0}de coluna "" deve {1} fornecer colunas selecionadas no conjunto de dados de entrada, {2} mas as colunas são fornecidas.|  
 
 
 
 ## <a name="error-0023"></a>Erro 0023  
- Ocorre uma exceção se a coluna de destino do conjunto de dados de entrada não é válida para o módulo atual do instrutor.  
+ Ocorrerá uma exceção se a coluna de destino do conjunto de dados de entrada não for válida para o módulo do instrutor atual.  
   
- Este erro no Azure Machine Learning ocorre se a coluna de destino (como selecionado nos parâmetros do módulo) não é do tipo de dados válido, contidos todos os valores em falta ou não era categórica conforme esperado.  
+ Esse erro em Azure Machine Learning ocorrerá se a coluna de destino (conforme selecionada nos parâmetros do módulo) não for do tipo de dados válido, contiver todos os valores ausentes ou não for categórica como o esperado.  
   
-**Resolução:** Examine o módulo de entrada para inspecionar o conteúdo da coluna etiqueta/destino. Certifique-se de que não dispõe de todos os valores em falta. Se o módulo está esperando a coluna de destino para que seja categóricos, certifique-se de que existem mais de valores distintos da coluna de destino.  
+**Resolução:** Reveja a entrada do módulo para inspecionar o conteúdo da coluna rótulo/destino. Verifique se ele não tem todos os valores ausentes. Se o módulo estiver esperando que a coluna de destino seja categórica, verifique se há mais de um valor distinto na coluna de destino.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Conjunto de dados de entrada tem não suportadas coluna de destino.|  
-|Conjunto de dados de entrada tem não suportados a coluna de destino "{0}".|  
-|Conjunto de dados de entrada tem não suportados a coluna de destino "{0}" para o aprendiz do tipo {1}.|  
+|O conjunto de dados de entrada tem uma coluna de destino sem suporte.|  
+|O conjunto de dados de entrada tem uma coluna{0}de destino não suportada "".|  
+|O conjunto de dados de entrada tem uma coluna{0}de destino sem suporte "" {1}para o aprendiz do tipo.|  
  
 
 ## <a name="error-0024"></a>Erro 0024  
-Ocorre uma exceção se o conjunto de dados não contém uma coluna de etiqueta.  
+Ocorrerá uma exceção se o conjunto de um não contiver uma coluna de rótulo.  
 
- Este erro no Azure Machine Learning ocorre quando o módulo requer uma coluna de etiqueta e o conjunto de dados não tem uma coluna de etiqueta. Por exemplo, avaliação de um conjunto de dados com a pontuação normalmente, requer que uma coluna de etiqueta está presente para computar métricas de precisão.  
+ Esse erro em Azure Machine Learning ocorre quando o módulo requer uma coluna de rótulo e o conjunto de um não tem uma coluna de rótulo. Por exemplo, a avaliação de um conjunto de uma pontuação geralmente requer que uma coluna de rótulo esteja presente para computar métricas de precisão.  
  
-Também pode acontecer que uma coluna de etiqueta está presente no conjunto de dados, mas não detetada corretamente pelo Azure Machine Learning.
+Também pode acontecer que uma coluna de rótulo esteja presente no conjunto de, mas não seja detectada corretamente pelo Azure Machine Learning.
   
 **Resolução:**
 
-+ Abra o módulo que gerou o erro e determinar se existe uma coluna de etiqueta. O tipo de dados ou o nome da coluna não importa, contanto que a coluna contém um único resultado (ou variável dependente) que está a tentar prever. Se não tiver a certeza de que a coluna tem a etiqueta, procure um nome genérico, como *classe* ou *destino*. 
-+  Se o conjunto de dados não inclui uma coluna de etiqueta, é possível que a coluna de etiqueta foi acidentalmente ou explicitamente removida a montante. Também pode ser que o conjunto de dados não é a saída de um módulo de classificação a montante.
-+ Para marcar explicitamente a coluna como a coluna de etiqueta, adicione a [Editar metadados](edit-metadata.md) módulo e ligue-se o conjunto de dados. Selecione apenas a coluna de etiqueta e selecione **rótulo** partir a **campos** lista suspensa. 
-+ Se a coluna errada é escolhida como a etiqueta, pode selecionar **etiqueta clara** partir do **campos** para corrigir os metadados na coluna. 
++ Abra o módulo que gerou o erro e determine se uma coluna de rótulo está presente. O nome ou tipo de dados da coluna não importa, desde que a coluna contenha um único resultado (ou variável dependente) que você esteja tentando prever. Se você não tiver certeza de qual coluna tem o rótulo, procure um nome genérico, como *classe* ou *destino*. 
++  Se o conjunto de um não incluir uma coluna de rótulo, é possível que a coluna de rótulo tenha sido removida explícita ou acidentalmente upstream. Também pode ser que o conjunto de resultados não seja a saída de um módulo de Pontuação upstream.
++ Para marcar explicitamente a coluna como a coluna de rótulo, adicione o módulo [Editar metadados](edit-metadata.md) e conecte o conjunto de um. Selecione apenas a coluna rótulo e selecione **rótulo** na lista suspensa **campos** . 
++ Se a coluna errada for escolhida como o rótulo, você poderá selecionar **limpar rótulo** nos **campos** para corrigir os metadados na coluna. 
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não existe nenhuma coluna de etiqueta no conjunto de dados.|  
-|Não existe nenhuma coluna de etiqueta na "{0}".|  
+|Não há nenhuma coluna de rótulo no DataSet.|  
+|Não há nenhuma coluna de rótulo em{0}"".|  
   
 
 ## <a name="error-0025"></a>Erro 0025  
- Ocorre uma exceção se o conjunto de dados não contém uma coluna de pontuação.  
+ Ocorrerá uma exceção se o conjunto de um não contiver uma coluna de pontuação.  
   
- Este erro no Azure Machine Learning ocorre se a entrada para o modelo de evaluate não contém pontuação válida colunas. Por exemplo, o utilizador tenta avaliar um conjunto de dados antes de ele foi classificado com um modelo preparado correto ou a coluna de pontuação explicitamente foi removida a montante. Essa exceção ocorre também se as colunas de pontuação nos dois conjuntos de dados são incompatíveis. Por exemplo, poderá estar a tentar comparar a precisão de um regressor foi linear com que um classificador binário.  
+ Esse erro em Azure Machine Learning ocorrerá se a entrada para o modelo de avaliação não contiver colunas de Pontuação válidas. Por exemplo, o usuário tenta avaliar um conjunto de uma antes de ele ter sido pontuado com um modelo treinado correto ou a coluna de pontuação foi explicitamente descartada com upstream. Essa exceção também ocorrerá se as colunas de pontuação nos dois conjuntos de valores forem incompatíveis. Por exemplo, você pode estar tentando comparar a precisão de um regressor linear com o de um classificador binário.  
   
-**Resolução:** Examine a entrada para o modelo de evaluate e examinar se contiver uma ou mais colunas de pontuação. Caso contrário, o conjunto de dados não foi classificado ou as colunas de pontuação foram removidas num módulo a montante.  
+**Resolução:** Reveja a entrada para o modelo de avaliação e examine se ela contém uma ou mais colunas de pontuação. Caso contrário, o conjunto de linhas não foi pontuado ou as colunas de Pontuação foram descartadas em um módulo upstream.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não existe nenhuma coluna de classificação no conjunto de dados.|  
-|Não existe nenhuma coluna de pontuação na "{0}".|  
-|Não existe nenhuma coluna de pontuação na "{0}" que é produzido por um "{1}". Classificar o conjunto de dados com o tipo correto de aprendiz.|  
+|Não há nenhuma coluna de pontuação no DataSet.|  
+|Não há nenhuma coluna de pontuação em{0}"".|  
+|Não há nenhuma coluna de pontuação em{0}"" que é produzida por um{1}"". Pontuar o conjunto de informações usando o tipo correto de aprendiz.|  
   
 
 ## <a name="error-0026"></a>Erro 0026  
- Ocorre uma exceção se não são permitidas colunas com o mesmo nome.  
+ Ocorrerá uma exceção se as colunas com o mesmo nome não forem permitidas.  
   
- Este erro no Azure Machine Learning ocorre se várias colunas têm o mesmo nome. Uma forma, poderá receber este erro é se o conjunto de dados não tem uma linha de cabeçalho e os nomes das colunas são atribuídos automaticamente: Col0, Col1, etc.  
+ Esse erro em Azure Machine Learning ocorrerá se várias colunas tiverem o mesmo nome. Uma maneira de receber esse erro é se o conjunto de linhas não tiver uma linha de cabeçalho e os nomes de coluna forem atribuídos automaticamente: Col0, Col1, etc.  
   
-**Resolução:** Se as colunas de ter o mesmo nome, inserir um [Editar metadados](edit-metadata.md) módulo entre o conjunto de dados de entrada e o módulo. Utilize o Seletor de coluna na [Editar metadados](edit-metadata.md) para selecionar colunas para mudar o nome, escrevendo os nomes dos novos para o **novos nomes das colunas** caixa de texto.  
+**Resolução:** Se as colunas tiverem o mesmo nome, insira um módulo [Editar metadados](edit-metadata.md) entre o conjunto de dados de entrada e o módulo. Use o seletor de coluna em [Editar metadados](edit-metadata.md) para selecionar as colunas a serem renomeadas, digitando os novos nomes na caixa de texto **nomes de nova coluna** .  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Os nomes das colunas igual são especificadas nos argumentos. Os nomes das colunas igual não são permitidas por módulo.|  
-|Igual a nomes das colunas de argumentos "{0}"e"{1}" não são permitidos. Especifique nomes diferentes.|  
+|Os nomes de coluna iguais são especificados em argumentos. Nomes de coluna iguais não são permitidos pelo módulo.|  
+|Não são permitidos nomes de coluna{0}iguais nos argumentos{1}"" e "". Especifique nomes diferentes.|  
   
 
 ## <a name="error-0027"></a>Erro 0027  
- Ocorre uma exceção caso quando dois objetos têm de ser do mesmo tamanho, mas não são.  
+ Ocorrerá uma exceção no caso de dois objetos precisarem ter o mesmo tamanho, mas não forem.  
   
- Este é um erro comum no Azure Machine Learning e pode ser causado por várias condições.  
+ Esse é um erro comum no Azure Machine Learning e pode ser causado por muitas condições.  
   
-**Resolução:** Não há nenhuma resolução específica. No entanto, pode verificar condições como o seguinte:  
+**Resolução:** Não há nenhuma resolução específica. No entanto, você pode verificar se há condições como as seguintes:  
   
--   Se está renomeando colunas, certifique-se de que cada lista (as colunas de entrada e a lista de nomes novo) tem o mesmo número de itens.  
+-   Se você estiver renomeando colunas, certifique-se de que cada lista (as colunas de entrada e a lista de novos nomes) tenha o mesmo número de itens.  
   
--   Se estiver se juntar ou concatenar dois conjuntos de dados, certifique-se de que têm o mesmo esquema.  
+-   Se você estiver unindo ou concatenando dois conjuntos de os, verifique se eles têm o mesmo esquema.  
   
--   Se estiver associando dois conjuntos de dados que têm várias colunas, certifique-se de que as colunas chave têm os mesmos dados, escreva e selecione a opção **permite duplicatas e preservar a ordem das colunas na seleção**.  
+-   Se você estiver unindo dois conjuntos de dados que têm várias colunas, verifique se as colunas de chave têm o mesmo tipo de dado e selecione a opção **permitir duplicatas e preservar a ordem das colunas na seleção**.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|O tamanho dos objetos com êxito é inconsistente.|  
-|O tamanho de "{0}"é inconsistente com o tamanho de"{1}".|  
+|O tamanho dos objetos passados é inconsistente.|  
+|O tamanho de "{0}" é inconsistente com o tamanho{1}de "".|  
   
 
 ## <a name="error-0028"></a>Erro 0028  
- Ocorre uma exceção no caso de quando um conjunto de colunas contém nomes de coluna duplicada e não é permitido.  
+ Ocorrerá uma exceção no caso em que o conjunto de colunas contiver nomes de coluna duplicados e não for permitido.  
   
- Este erro no Azure Machine Learning ocorre quando os nomes das colunas são duplicados; ou seja, não exclusiva.  
+ Esse erro em Azure Machine Learning ocorre quando os nomes de coluna são duplicados; ou seja, não exclusivo.  
   
-**Resolução:** Se quaisquer colunas têm o mesmo nome, adicionar uma instância da [Editar metadados](edit-metadata.md) entre o conjunto de dados de entrada e o módulo de elevar o erro. Utilize o Seletor de coluna na [Editar metadados](edit-metadata.md) para selecionar colunas para mudar o nome e escreva os novos nomes de colunas para o **novos nomes das colunas** caixa de texto. Se está renomeando várias colunas, certifique-se de que os valores que digitar a **novos nomes das colunas** são exclusivos.  
+**Resolução:** Se alguma coluna tiver o mesmo nome, adicione uma instância de [Editar metadados](edit-metadata.md) entre o conjunto de dados de entrada e o módulo gerando o erro. Use o seletor de coluna em [Editar metadados](edit-metadata.md) para selecionar as colunas a serem renomeadas e digite os nomes das novas colunas na caixa de texto **nomes de nova coluna** . Se você estiver renomeando várias colunas, certifique-se de que os valores digitados nos **novos nomes de coluna** sejam exclusivos.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Conjunto de colunas contém nomes de coluna duplicada.|  
+|O conjunto de colunas contém nome (s) de coluna duplicados.|  
 |O nome "{0}" está duplicado.|  
-|O nome "{0}"são duplicados em"{1}".|  
+|O nome "{0}" está duplicado em "{1}".|  
   
 
 ## <a name="error-0029"></a>Erro 0029  
- Ocorre uma exceção caso quando inválido é passado.  
+ Ocorrerá uma exceção caso o URI inválido seja passado.  
   
- Este erro no Azure Machine Learning ocorre no caso de quando o URI inválido for passado.  Irá receber este erro se uma das seguintes condições for verdadeira:, ou.  
+ Esse erro em Azure Machine Learning ocorre no caso quando um URI inválido é passado.  Você receberá esse erro se qualquer uma das seguintes condições for verdadeira: ou.  
   
--   O público ou o URI de SAS fornecido para o armazenamento de Blobs do Azure para leitura ou escrita contém um erro.  
+-   O URI público ou SAS fornecido para o armazenamento de BLOBs do Azure para leitura ou gravação contém um erro.  
   
--   A janela de tempo a SAs expirou.  
+-   A janela de tempo para a SAS expirou.  
   
--   O URL de Web por meio de origem HTTP representa um ficheiro ou um URI de loopback.  
+-   A URL da Web via origem HTTP representa um arquivo ou um URI de loopback.  
   
--   O URL do Web via HTTP contém um URL formatado incorretamente.  
+-   A URL da Web via HTTP contém uma URL formatada incorretamente.  
   
--   O URL não é possível resolver a origem remota.  
+-   A URL não pode ser resolvida pela origem remota.  
   
-**Resolução:** Examine o módulo e verifique se o formato do URI. Se a origem de dados é um URL de Web via HTTP, certifique-se de que a origem pretendida não é um ficheiro ou um loopback URI (localhost).  
+**Resolução:** Revisite o módulo e verifique o formato do URI. Se a fonte de dados for uma URL da Web via HTTP, verifique se a origem pretendida não é um arquivo ou um URI de loopback (localhost).  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Uri inválido é passado.|  
+|URI inválido passado.|  
   
 
 ## <a name="error-0030"></a>Erro 0030  
- Ocorre uma exceção no caso de quando não é possível transferir um ficheiro.  
+ Ocorrerá uma exceção no caso de não ser possível baixar um arquivo.  
   
- Essa exceção no Azure Machine Learning ocorre quando não é possível transferir um ficheiro. Receberá esta exceção, quando uma tentativa de leitura de uma origem HTTP falhou depois de repetir três (3) tentativas.  
+ Essa exceção no Azure Machine Learning ocorre quando não é possível baixar um arquivo. Você receberá essa exceção quando uma tentativa de ler de uma origem HTTP falhar após três (3) tentativas de repetição.  
   
-**Resolução:** Certifique-se de que o URI para a origem HTTP está correto e se o site é atualmente acessível através da Internet.  
+**Resolução:** Verifique se o URI para a origem HTTP está correto e se o site está acessível no momento pela Internet.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não é possível transferir um ficheiro.|  
-|Erro ao transferir o ficheiro: {0}.|  
+|Não é possível baixar um arquivo.|  
+|Erro ao baixar o arquivo: {0}.|  
   
 
 ## <a name="error-0031"></a>Erro 0031  
- Ocorre uma exceção se o número de colunas no conjunto de colunas é menor que o necessário.  
+ Ocorrerá uma exceção se o número de colunas no conjunto de colunas for menor que o necessário.  
   
- Este erro no Azure Machine Learning ocorre se o número de colunas selecionado é menor do que necessário.  Irá receber este erro se o mínimo necessário de número de colunas não está selecionado.  
+ Esse erro em Azure Machine Learning ocorrerá se o número de colunas selecionado for menor que o necessário.  Você receberá esse erro se o número mínimo necessário de colunas não estiver selecionado.  
   
-**Resolução:** Adicionar colunas adicionais para a seleção de coluna com o **Seletor de colunas**.  
+**Resolução:** Adicione colunas adicionais à seleção de coluna usando o seletor de **coluna**.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Número de colunas no conjunto de colunas é menor que o necessário.|  
-|{0} coluna (s) deve ser especificado. O número real de colunas especificados é {1}.|  
+|O número de colunas no conjunto de colunas é menor que o necessário.|  
+|{0}as colunas devem ser especificadas. O número real de colunas especificadas é {1}.|  
 
 ## <a name="error-0032"></a>Erro 0032  
- Ocorre uma exceção se o argumento não é um número.  
+ Ocorrerá uma exceção se o argumento não for um número.  
   
- Irá receber este erro no Azure Machine Learning, se o argumento é um valor de duplo ou NaN.  
+ Você receberá esse erro em Azure Machine Learning se o argumento for double ou NaN.  
   
-**Resolução:** Modifique o argumento especificado para utilizar um valor válido.  
+**Resolução:** Modifique o argumento especificado para usar um valor válido.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Argumento não é um número.|  
+|O argumento não é um número.|  
 |"{0}" não é um número.|  
   
 
 ## <a name="error-0033"></a>Erro 0033  
- Ocorre uma exceção se o argumento é infinito.  
+ Ocorrerá uma exceção se o argumento for infinito.  
   
- Este erro no Azure Machine Learning ocorre se o argumento é infinito. Irá receber este erro se o argumento `double.NegativeInfinity` ou `double.PositiveInfinity`.  
+ Esse erro em Azure Machine Learning ocorrerá se o argumento for infinito. Você receberá esse erro se o argumento for `double.NegativeInfinity` ou. `double.PositiveInfinity`  
   
-**Resolução:** Modifique o argumento especificado para ser um valor válido.  
+**Resolução:** Modifique o argumento especificado para que seja um valor válido.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|É o argumento tem de ser finito.|  
-|"{0}" não é finita.|  
+|O argumento deve ser finito.|  
+|"{0}" não é finito.|  
   
 
 ## <a name="error-0034"></a>Erro 0034  
- Ocorre uma exceção se não existe mais do que uma classificação para um par de determinado item do utilizador.  
+ Ocorrerá uma exceção se houver mais de uma classificação para um determinado par de item de usuário.  
   
- Este erro no Azure Machine Learning ocorre na recomendação se um par de item de utilizador tem o valor de mais do que uma classificação.  
+ Esse erro em Azure Machine Learning ocorrerá na recomendação se um par usuário-item tiver mais de um valor de classificação.  
   
-**Resolução:** Certifique-se de que o par de item de utilizador tiver apenas um valor de classificação.  
+**Resolução:** Verifique se o par usuário-item possui apenas um valor de classificação.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Existe mais do que uma classificação para o valor ou valores no conjunto de dados.|  
-|Mais do que uma classificação para usuário {0} item e {1} na tabela de dados de predição de classificação.|  
+|Há mais de uma classificação para o (s) valor (es) no conjunto de informações.|  
+|Mais de uma classificação para o {0} usuário e {1} o item na tabela de dados de previsão de classificação.|  
   
 
 ## <a name="error-0035"></a>Erro 0035  
- Ocorre uma exceção se nenhum recurso foram fornecido para um determinado usuário ou um item.  
+ Ocorrerá uma exceção se nenhum recurso tiver sido fornecido para um determinado usuário ou item.  
   
- Este erro no Azure Machine Learning ocorre está a tentar utilizar um modelo de recomendação para a classificação, mas não é possível encontrar um vetor de funcionalidade.  
+ Esse erro em Azure Machine Learning ocorre que você está tentando usar um modelo de recomendação para pontuação, mas um vetor de recurso não pode ser encontrado.  
   
 **Resolução:**
 
-O recomendador Matchbox tem determinados requisitos que têm de ser cumpridos ao utilizar funcionalidades de item ou recursos do usuário.  Este erro indica que um vetor de recurso está em falta para um utilizador ou um item fornecido como entrada.  Tem de se certificar de que um vetor de recursos está disponível nos dados para cada utilizador ou o item.  
+O recomendador Matchbox tem determinados requisitos que devem ser atendidos ao usar recursos de item ou recursos de usuário.  Esse erro indica que um vetor de recurso está ausente para um usuário ou item que você forneceu como entrada.  Você deve garantir que um vetor de recursos esteja disponível nos dados para cada usuário ou item.  
   
- Por exemplo, se treinados uma recomendação com funcionalidades como a idade do usuário, localização ou renda de modelo, mas agora pretende criar as pontuações para novos utilizadores que não foram observadas durante o treinamento, tem de fornecer um conjunto equivalente de recursos (ou seja, idade, localização, e valores de renda) para os novos utilizadores para fazer previsões adequados para eles. 
+ Por exemplo, se você treinasse um modelo de recomendação usando recursos como a idade, o local ou a renda do usuário, mas agora deseja criar pontuações para novos usuários que não foram vistos durante o treinamento, você deve fornecer algum conjunto equivalente de recursos (ou seja, idade, local e valores de renda) para os novos usuários a fim de fazer previsões apropriadas para eles. 
  
- Se não tiver quaisquer funcionalidades para estes utilizadores, considere a engenharia de funcionalidades para gerar recursos apropriados.  Por exemplo, se não tiver valores de idade ou rendimentos a utilizadores individuais, pode gerar valores aproximados para utilizar para um grupo de utilizadores. 
+ Se você não tiver nenhum recurso para esses usuários, considere a engenharia de recursos para gerar os recursos apropriados.  Por exemplo, se você não tiver valores de idade de usuário ou de renda individuais, poderá gerar valores aproximados a serem usados para um grupo de usuários. 
  
 <!--When you are scoring from a recommendation mode, you can use item or user features only if you previously used item or user features during training. For more information, see [Score Matchbox Recommender](score-matchbox-recommender.md).
  
 For general information about how the Matchbox recommendation algorithm works, and how to prepare a dataset of item features or user features, see [Train Matchbox Recommender](train-matchbox-recommender.md).  -->
   
  > [!TIP]
- > Resolução não aplicável ao seu caso? Está bem-vindo ao enviar comentários sobre este artigo e fornecer informações sobre o cenário, incluindo o módulo e o número de linhas na coluna. Nós usaremos estas informações para fornecer mais detalhado passos resolução de problemas no futuro.
+ > A resolução não se aplica ao seu caso? Você é bem-vindo a enviar comentários sobre este artigo e fornecer informações sobre o cenário, incluindo o módulo e o número de linhas na coluna. Usaremos essas informações para fornecer etapas de solução de problemas mais detalhadas no futuro.
    
 |Mensagens de exceção|  
 |------------------------|  
-|Não existem funcionalidades foram fornecidas para um item ou o utilizador necessário.|  
-|Funcionalidades para {0} necessária mas não foi fornecida.|  
+|Nenhum recurso foi fornecido para um usuário ou item necessário.|  
+|{0} Recursos necessários, mas não fornecidos.|  
   
 
 ## <a name="error-0036"></a>Erro 0036  
- Ocorre uma exceção se vários vetores de funcionalidade foram fornecidos para um determinado usuário ou um item.  
+ Ocorrerá uma exceção se vários vetores de recurso foram fornecidos para um determinado usuário ou item.  
   
- Este erro no Azure Machine Learning ocorre se um vetor de recurso é definido mais do que uma vez.  
+ Esse erro em Azure Machine Learning ocorrerá se um vetor de recurso for definido mais de uma vez.  
   
-**Resolução:** Certifique-se de que o vetor de funcionalidade não está definido mais do que uma vez.  
+**Resolução:** Verifique se o vetor de recurso não está definido mais de uma vez.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Duplicar a definição de recurso para um utilizador ou o item.|  
-|Duplicar a definição de recurso para {0}.|  
+|Definição de recurso duplicada para um usuário ou item.|  
+|Definição de recurso duplicada para {0}.|  
   
 
 ## <a name="error-0037"></a>Erro 0037  
- Ocorre uma exceção se forem especificadas várias colunas de etiqueta e apenas um é permitido.  
+ Ocorrerá uma exceção se várias colunas de rótulo forem especificadas e apenas uma for permitida.  
   
- Este erro no Azure Machine Learning ocorre se mais de uma coluna é selecionada para ser a nova coluna de etiqueta. Mais os algoritmos de aprendizagem supervisionado necessitam de uma única coluna seja marcado como o destino ou etiqueta.  
+ Esse erro em Azure Machine Learning ocorrerá se mais de uma coluna estiver selecionada para ser a nova coluna de rótulo. A maioria dos algoritmos de aprendizado supervisionados exige que uma única coluna seja marcada como o destino ou o rótulo.  
   
-**Resolução:** Certifique-se de selecionar uma única coluna como a nova coluna de etiqueta.  
+**Resolução:** Certifique-se de selecionar uma única coluna como a nova coluna de rótulo.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Foram especificadas várias colunas de etiqueta.|  
+|Várias colunas de rótulo são especificadas.|  
   
 
-## <a name="error-0038"></a>Error 0038  
- Exceção ocorre se o número de elementos esperado deve ser um valor exato, mas não é.  
+## <a name="error-0038"></a>Erro 0038  
+ Ocorrerá uma exceção se o número de elementos esperado deve ser um valor exato, mas não é.  
   
- Este erro no Azure Machine Learning ocorre se o número de elementos esperado deve ser um valor exato, mas não é.  Irá receber este erro se o número de elementos não for igual ao valor esperado válido.  
+ Esse erro em Azure Machine Learning ocorre se o número de elementos esperado deve ser um valor exato, mas não é.  Você receberá esse erro se o número de elementos não for igual ao valor esperado válido.  
   
 **Resolução:** Modifique a entrada para ter o número correto de elementos.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Número de elementos não é válido.|  
-|Número de elementos na "{0}" não é válido.|  
-|Número de elementos na "{0}" não é igual ao número válido de {1} elemento (s).|  
+|O número de elementos não é válido.|  
+|O número de elementos em{0}"" não é válido.|  
+|O número de elementos em{0}"" não é igual ao número válido {1} de elemento (s).|  
   
 
 ## <a name="error-0039"></a>Erro 0039  
- Ocorre uma exceção se uma operação falhou.  
+ Ocorrerá uma exceção se uma operação tiver falhado.  
   
- Este erro no Azure Machine Learning ocorre quando não é possível concluir uma operação interna.  
+ Esse erro em Azure Machine Learning ocorre quando uma operação interna não pode ser concluída.  
   
-**Resolução:** Este erro é causado por várias condições e não há nenhum recurso específico.  
- A tabela seguinte contém as mensagens genéricas para este erro, que são seguidas de uma descrição específica da condição. 
+**Resolução:** Esse erro é causado por muitas condições e não há uma solução específica.  
+ A tabela a seguir contém mensagens genéricas para esse erro, que são seguidas por uma descrição específica da condição. 
  
- Se não estão disponíveis, detalhes [enviar comentários](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) e fornecer informações sobre os módulos que gerou o erro e as condições relacionadas.
+ Se não houver detalhes disponíveis, [envie comentários](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) e forneça informações sobre os módulos que geraram o erro e as condições relacionadas.
   
 |Mensagens de exceção|  
 |------------------------|  
 |Falha na operação.|  
-|Ocorreu um erro ao concluir a operação: {0}.|  
+|Erro ao concluir a operação {0}:.|  
   
 
 ## <a name="error-0040"></a>Erro 0040  
  Ocorre uma exceção ao chamar um módulo preterido.  
   
- Este erro no Azure Machine Learning é produzido ao chamar um módulo preterido.  
+ Esse erro no Azure Machine Learning é produzido ao chamar um módulo preterido.  
   
-**Resolução:** Substitua o módulo preterido por um suportados. Consulte o registo de saída do módulo para obter as informações sobre qual módulo para utilizar em vez disso.  
+**Resolução:** Substitua o módulo preterido por um com suporte. Consulte o log de saída do módulo para obter as informações sobre qual módulo usar em vez disso.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Aceder ao módulo preterido.|  
-|Módulo "{0}" foi preterida. Módulo de utilização "{1}" em vez disso.|  
+|Acessando o módulo preterido.|  
+|O módulo{0}"" foi preterido. Em vez disso{1}, use o módulo "".|  
  
 
 ## <a name="error-0041"></a>Erro 0041  
  Ocorre uma exceção ao chamar um módulo preterido.  
   
- Este erro no Azure Machine Learning é produzido ao chamar um módulo preterido.  
+ Esse erro no Azure Machine Learning é produzido ao chamar um módulo preterido.  
   
-**Resolução:** Substitua o módulo preterido um conjunto de aplicações suportadas. Estas informações devem estar visíveis no log de saída do módulo.  
+**Resolução:** Substitua o módulo preterido por um conjunto de itens com suporte. Essas informações devem estar visíveis no log de saída do módulo.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Aceder ao módulo preterido.|  
-|Módulo "{0}" foi preterida. Utilizar os módulos "{1}" para a funcionalidade pedida.|  
+|Acessando o módulo preterido.|  
+|O módulo{0}"" foi preterido. Use os módulos "{1}" para a funcionalidade solicitada.|  
  
 
 ## <a name="error-0042"></a>Erro 0042  
- Exceção ocorre quando não é possível converter a coluna a outro tipo.  
+ Ocorre uma exceção quando não é possível converter a coluna em outro tipo.  
   
- Este erro no Azure Machine Learning ocorre quando não é possível converter a coluna no tipo especificado.  Irá receber este erro, se um módulo exigir um tipo de dados específico, como datetime, texto, um número de vírgula flutuante ou inteiros, mas não é possível converter uma coluna existente para o tipo solicitado.  
+ Esse erro no Azure Machine Learning ocorre quando não é possível converter a coluna para o tipo especificado.  Você receberá esse erro se um módulo exigir um tipo de dados específico, como DateTime, Text, um número de ponto flutuante ou inteiro, mas não for possível converter uma coluna existente para o tipo necessário.  
  
-Por exemplo, poderá selecionar uma coluna e tentar convertê-lo para um tipo de dados numéricos para utilização numa operação matemática e obter este erro se a coluna continha dados inválidos. 
+Por exemplo, você pode selecionar uma coluna e tentar convertê-la em um tipo de dados numérico para uso em uma operação matemática e obter esse erro se a coluna contiver dados inválidos. 
 
-Outro motivo, que poderá receber este erro se tentar usar uma coluna que contém os números de ponto flutuante ou muitos valores exclusivos, como uma coluna categórica. 
+Outro motivo para você receber esse erro se tentar usar uma coluna que contém números de ponto flutuante ou muitos valores exclusivos como uma coluna categórica. 
   
 **Resolução:**
 
-+ Abra a página de ajuda para o módulo que gerou o erro e certifique-se os requisitos de tipo de dados.
-+ Reveja os tipos de dados das colunas do conjunto de dados de entrada.
-+ Inspecione com origem em origens de dados de esquema chamado.
-+ Verifique o conjunto de dados para valores em falta ou carateres especiais que poderão bloquear a conversão para o tipo de dados pretendido. 
-    + Tipos de dados numéricos devem ser consistentes: por exemplo, verificar a existência de números de pontos de vírgula flutuante numa coluna de números inteiros.
-    + Procure cadeias de texto ou valores de ND numa coluna do número. 
-    + Valores booleanos podem ser convertidos numa representação adequada consoante o tipo de dados necessários.
-    + Examinar as colunas de texto para caracteres de não-unicode, carateres de separador ou carateres de controlo
-    + Os dados de DateTime devem estar consistentes para evitar erros de modelagem, mas limpeza pode ser complexa devido os muitos formatos. Considere a utilização <!--the [Execute R Script](execute-r-script.md) or -->[Executar o Script de Python](execute-python-script.md) módulos para executar a limpeza.  
-+ Se necessário, modifique os valores do conjunto de dados de entrada para que a coluna pode ser convertida com êxito. Modificação pode incluir discretização, truncamento ou operações de arredondamento, eliminação de valores atípicos ou imputation de valores em falta. Veja os artigos seguintes para alguns cenários comuns para a transformação de dados no machine learning:
-    + [Limpar dados em falta](clean-missing-data.md)
++ Abra a página de ajuda do módulo que gerou o erro e verifique os requisitos de tipo de dados.
++ Examine os tipos de dados das colunas no conjunto de dado de entrada.
++ Inspecione os dados originados em chamadas de fontes de dados sem esquema.
++ Verifique se há valores ausentes ou caracteres especiais no conjunto de dados que possam bloquear a conversão para o tipo de dado desejado. 
+    + Os tipos de dados numéricos devem ser consistentes: por exemplo, verifique se há números de ponto flutuante em uma coluna de inteiros.
+    + Procure cadeias de caracteres de texto ou valores na em uma coluna de número. 
+    + Valores Boolianos podem ser convertidos em uma representação apropriada dependendo do tipo de dados necessário.
+    + Examinar colunas de texto para caracteres não Unicode, caracteres de tabulação ou caracteres de controle
+    + Os dados de data e hora devem ser consistentes para evitar erros de modelagem, mas a limpeza pode ser devido complexa para os vários formatos. Considere usar <!--the [Execute R Script](execute-r-script.md) or -->Execute os módulos de [script Python](execute-python-script.md) para executar a limpeza.  
++ Se necessário, modifique os valores no conjunto de dados de entrada para que a coluna possa ser convertida com êxito. A modificação pode incluir compartimentalização, truncamento ou operações de arredondamento, eliminação de exceções ou imputação de valores ausentes. Consulte os seguintes artigos para ver alguns cenários comuns de transformação de dados no aprendizado de máquina:
+    + [Limpar dados ausentes](clean-missing-data.md)
     + [Normalizar dados](normalize-data.md)
 <!--+ [Clip Values](clip-values.md) 
     + [Group Data Into Bins](group-data-into-bins.md)
   -->
  
 > [!TIP]
-> Resolução clara, ou não é aplicável ao seu caso? Está bem-vindo ao enviar comentários sobre este artigo e fornecer informações sobre o cenário, incluindo o módulo e o tipo de dados da coluna. Nós usaremos estas informações para fornecer mais detalhado passos resolução de problemas no futuro.  
+> Resolução desclarada ou não aplicável ao seu caso? Você é bem-vindo a enviar comentários sobre este artigo e fornecer informações sobre o cenário, incluindo o módulo e o tipo de dados da coluna. Usaremos essas informações para fornecer etapas de solução de problemas mais detalhadas no futuro.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não permitido conversão.|  
-|Não foi possível converter a coluna do tipo {0} a coluna do tipo {1}.|  
-|Não foi possível converter a coluna "{2}" do tipo {0} a coluna do tipo {1}.|  
-|Não foi possível converter a coluna "{2}" do tipo {0} a coluna "{3}" do tipo {1}.|  
+|Conversão não permitida.|  
+|Não foi possível converter a coluna {0} do tipo para a {1}coluna do tipo.|  
+|Não foi possível converter a{2}coluna "" {0} do tipo na coluna {1}do tipo.|  
+|Não foi possível converter a{2}coluna "" {0} do tipo para{3}a coluna " {1}" do tipo.|  
   
 
 ## <a name="error-0043"></a>Erro 0043  
- Exceção ocorre quando o tipo de elemento não implementa explicitamente é igual a.  
+ Ocorre uma exceção quando o tipo de elemento não implementa explicitamente Equals.  
   
- Este erro no Azure Machine Learning é não utilizado e vai ser preterido.  
+ Esse erro em Azure Machine Learning não é usado e será preterido.  
   
 **Resolução:** Nenhum.  
   
 |Mensagens de exceção|  
 |------------------------|  
 |Nenhum método explícito acessível é igual a encontrado.|  
-|Não é possível comparar valores de coluna \\"{0}\\" do tipo {1}. Nenhum método explícito acessível é igual a encontrado.|  
+|Não é possível comparar valores \\para{0}a coluna " {1}\\" do tipo. Nenhum método explícito acessível é igual a encontrado.|  
 
 
 ## <a name="error-0044"></a>Erro 0044  
- Exceção ocorre quando não é possível derivar o tipo de elemento da coluna dos valores existentes.  
+ Ocorrerá uma exceção quando não for possível derivar o tipo de elemento da coluna a partir dos valores existentes.  
   
- Este erro no Azure Machine Learning ocorre quando não é possível inferir o tipo de uma coluna ou colunas num conjunto de dados. Esta situação ocorre normalmente quando concatenar dois ou mais conjuntos de dados com tipos de elementos diferentes. Se não é possível determinar um tipo comum que é capaz de representar todos os valores numa coluna ou colunas sem perda de informações do Azure Machine Learning, irá gerar este erro.  
+ Esse erro em Azure Machine Learning ocorre quando não é possível inferir o tipo de uma coluna ou colunas em um DataSet. Isso normalmente acontece ao concatenar dois ou mais conjuntos de valores com diferentes tipos de elementos. Se Azure Machine Learning não puder determinar um tipo comum que possa representar todos os valores em uma coluna ou colunas sem perda de informações, ele gerará esse erro.  
   
-**Resolução:** Certifique-se de que todos os valores numa coluna indicada em ambos os conjuntos de dados que serão combinados são do mesmo tipo (numérica, booleana, categórica, cadeia de caracteres, data, etc.) ou pode ser forçada para o mesmo tipo.  
+**Resolução:** Verifique se todos os valores em uma determinada coluna em ambos os conjuntos de dados que estão sendo combinados são do mesmo tipo (Numeric, Boolean, categórico, String, Date, etc.) ou podem ser forçados para o mesmo tipo.  
   
 |Mensagens de exceção|  
 |------------------------|  
 |Não é possível derivar o tipo de elemento da coluna.|  
-|Não é possível derivar o tipo de elemento para a coluna "{0}" – todos os elementos são referências nulas.|  
-|Não é possível derivar o tipo de elemento para a coluna "{0}"do conjunto de dados"{1}" – todos os elementos são referências nulas.|  
+|Não é possível derivar o tipo{0}de elemento para a coluna ""-todos os elementos são referências nulas.|  
+|Não é possível derivar o tipo{0}de elemento para a{1}coluna "" do conjunto de valores ""-todos os elementos são referências nulas.|  
   
 
 ## <a name="error-0045"></a>Erro 0045  
- Exceção ocorre quando não é possível criar uma coluna devido a tipos de elementos mista na origem.  
+ Ocorre uma exceção quando não é possível criar uma coluna devido a tipos de elementos mistos na origem.  
   
- Este erro no Azure Machine Learning é produzido quando os tipos de elemento de dois conjuntos de dados que serão combinados são diferentes.  
+ Esse erro no Azure Machine Learning é produzido quando os tipos de elementos de dois conjuntos de valores que estão sendo combinados são diferentes.  
   
-**Resolução:** Certifique-se de que todos os valores numa coluna indicada em ambos os conjuntos de dados que serão combinados são do mesmo tipo (numérica, booleana, categórica, cadeia de caracteres, data, etc.).  
+**Resolução:** Verifique se todos os valores em uma determinada coluna em ambos os conjuntos de dados que estão sendo combinados são do mesmo tipo (Numeric, Boolean, categórico, String, Date, etc.).  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não é possível criar a coluna com tipos de elementos misto.|  
-|Não é possível criar a coluna com o ID "{0}" do elemento misto tipos: \n\tType de dados [{1}, {0}] é {2}\n\tType de dados [{3}, {0}] é {4}.|  
+|Não é possível criar coluna com tipos de elementos mistos.|  
+|Não é possível criar a coluna{0}com a ID "" de tipos de elementos mistos{1}: \ n\tType {2}de dados [,{3} {0}] {0}é \n\tType {4}de dados [,] é.|  
   
 
 ## <a name="error-0046"></a>Erro 0046  
- Exceção ocorre quando não é possível criar o diretório no caminho especificado.  
+ Ocorrerá uma exceção quando não for possível criar o diretório no caminho especificado.  
   
- Este erro no Azure Machine Learning ocorre quando não é possível criar um diretório no caminho especificado. Irá receber este erro se qualquer parte do caminho para o diretório de saída para uma consulta do Hive é incorreto ou inacessível.  
+ Esse erro no Azure Machine Learning ocorre quando não é possível criar um diretório no caminho especificado. Você receberá esse erro se qualquer parte do caminho para o diretório de saída de uma consulta de Hive estiver incorreta ou inacessível.  
   
-**Resolução:** Examine o módulo e certifique-se de que o caminho do diretório está formatado corretamente e que é acessível com as credenciais atuais.  
+**Resolução:** Revisite o módulo e verifique se o caminho do diretório está formatado corretamente e se está acessível com as credenciais atuais.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Especifique um diretório de saída válida.|  
-|Diretório: {0} não é possível criar. Especifique o caminho válido.|  
+|Especifique um diretório de saída válido.|  
+|Diretório: {0} não pode ser criado. Especifique um caminho válido.|  
   
 
 ## <a name="error-0047"></a>Erro 0047  
- Ocorre uma exceção se o número de colunas de funcionalidades em alguns dos conjuntos de dados passados para o módulo é demasiado pequeno.  
+ Ocorrerá uma exceção se o número de colunas de recursos em alguns dos conjuntos de valores passados para o módulo for muito pequeno.  
   
- Este erro no Azure Machine Learning ocorre se o conjunto de dados de entrada para treinamento não contém o número mínimo de colunas necessárias para o algoritmo. Normalmente, o conjunto de dados está vazio ou contém apenas as colunas de treinamento.  
+ Esse erro em Azure Machine Learning ocorrerá se o conjunto de dados de entrada para treinamento não contiver o número mínimo de colunas exigidas pelo algoritmo. Normalmente, o conjunto de linhas está vazio ou contém apenas colunas de treinamento.  
   
-**Resolução:** Rever o conjunto de dados de entrada para tornar-se de que há um ou mais colunas adicionais para além da coluna de etiqueta.  
+**Resolução:** Reveja o conjunto de dados de entrada para ter certeza de que há uma ou mais colunas adicionais separadas da coluna de rótulo.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Número de colunas de funcionalidades no conjunto de dados de entrada é inferior ao mínimo permitido.|  
-|Número de colunas de funcionalidades no conjunto de dados de entrada é inferior ao mínimo permitido de {0} coluna (s).|  
-|Número de colunas de funcionalidades no conjunto de dados de entrada "{0}" é inferior ao mínimo permitido de {1} coluna (s).|  
+|O número de colunas de recurso no conjunto de dados de entrada é menor que o mínimo permitido.|  
+|O número de colunas de recurso no conjunto de dados de entrada é {0} menor que o mínimo permitido de coluna (s).|  
+|O número de colunas de recurso no conjunto{0}de dados de entrada "" é {1} menor que o mínimo permitido de coluna (s).|  
   
 
-## <a name="error-0048"></a>Error 0048  
- Ocorre uma exceção no caso de quando não é possível abrir um arquivo.  
+## <a name="error-0048"></a>Erro 0048  
+ Ocorrerá uma exceção no caso de não ser possível abrir um arquivo.  
   
- Este erro no Azure Machine Learning ocorre quando não é possível abrir um ficheiro para leitura ou escrita. Pode receber este erro por esses motivos:  
+ Esse erro no Azure Machine Learning ocorre quando não é possível abrir um arquivo para leitura ou gravação. Você pode receber esse erro por estes motivos:  
   
--   O contentor ou o ficheiro (blob) não existe  
+-   O contêiner ou o arquivo (BLOB) não existe  
   
--   O nível de acesso do ficheiro ou contentor não lhe permite aceder ao ficheiro  
+-   O nível de acesso do arquivo ou contêiner não permite que você acesse o arquivo  
   
--   O ficheiro é demasiado grande para leitura ou o formato incorreto  
+-   O arquivo é muito grande para ler ou para o formato incorreto  
   
-**Resolução:** Examine o módulo e o ficheiro que está a tentar ler.  
+**Resolução:** Revisite o módulo e o arquivo que você está tentando ler.  
   
- Certifique-se de que os nomes de contentor e do ficheiro estão corretos.  
+ Verifique se os nomes do contêiner e do arquivo estão corretos.  
   
- Utilize o portal clássico do Azure ou uma ferramenta de armazenamento do Azure para verificar se tem permissão para aceder ao ficheiro.  
+ Use o portal clássico do Azure ou uma ferramenta de armazenamento do Azure para verificar se você tem permissão para acessar o arquivo.  
   
   <!--If you are trying to read an image file, make sure that it meets the requirements for image files in terms of size, number of pixels, and so forth. For more information, see [Import Images](import-images.md).  -->
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não é possível abrir um ficheiro.|  
-|Erro ao abrir o ficheiro: {0}.|  
+|Não é possível abrir um arquivo.|  
+|Erro ao abrir o arquivo: {0}.|  
 
 
 ## <a name="error-0049"></a>Erro 0049  
- Ocorre uma exceção no caso de quando não é possível analisar um ficheiro.  
+ Ocorrerá uma exceção no caso de não ser possível analisar um arquivo.  
   
- Este erro no Azure Machine Learning ocorre quando não é possível analisar um ficheiro. Irá receber este erro se o formato de ficheiro selecionado na [importar dados](import-data.md) módulo não coincide com o formato real do arquivo, ou se o ficheiro contém um caráter irreconhecível.  
+ Esse erro no Azure Machine Learning ocorre quando não é possível analisar um arquivo. Você receberá esse erro se o formato de arquivo selecionado no módulo [importar dados](import-data.md) não corresponder ao formato real do arquivo ou se o arquivo contiver um caractere irreconhecível.  
   
-**Resolução:** Examine o módulo e corrigir a seleção do formato de ficheiro, se ele não corresponde ao formato do ficheiro. Se possível, Inspecione o ficheiro para confirmar que não contém quaisquer carateres ilegais.  
+**Resolução:** Revisite o módulo e corrija a seleção de formato de arquivo se ele não corresponder ao formato do arquivo. Se possível, inspecione o arquivo para confirmar se ele não contém nenhum caractere ilegal.  
   
 |Mensagens de exceção|  
 |------------------------|  
 |Não é possível analisar um arquivo.|  
-|Ocorreu um erro ao analisar o ficheiro: {0}.|  
+|Erro ao analisar o arquivo: {0}.|  
   
 
 ## <a name="error-0050"></a>Erro 0050  
- No caso de entrada quando ocorre uma exceção e ficheiros de saída são os mesmos.  
+ Ocorrerá uma exceção no caso de os arquivos de entrada e saída serem os mesmos.  
   
-**Resolução:** Este erro no Azure Machine Learning é não utilizado e vai ser preterido.  
+**Resolução:** Esse erro em Azure Machine Learning não é usado e será preterido.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Os ficheiros especificados para entrada e saída não podem ser o mesmo.|
+|Os arquivos especificados para entrada e saída não podem ser iguais.|
 
 
 ## <a name="error-0051"></a>Erro 0051  
- Ocorre uma exceção no caso de quando vários arquivos de saída são os mesmos.  
+ Ocorrerá uma exceção no caso de vários arquivos de saída serem iguais.  
   
-**Resolução:** Este erro no Azure Machine Learning é não utilizado e vai ser preterido.  
+**Resolução:** Esse erro em Azure Machine Learning não é usado e será preterido.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Os ficheiros especificados para saídas não podem ser o mesmo.|
+|Os arquivos especificados para saídas não podem ser iguais.|
 
 
 ## <a name="error-0052"></a>Erro 0052  
- Ocorre uma exceção se a chave de conta de armazenamento do Azure foi incorretamente especificado.  
+ Ocorrerá uma exceção se a chave de conta de armazenamento do Azure for especificada incorretamente.  
   
- Este erro no Azure Machine Learning ocorre se a chave utilizada para aceder à conta de armazenamento do Azure está incorreta. Por exemplo, poderá ver este erro se a chave de armazenamento do Azure foi truncada quando copiados e colados ou se foi utilizada uma chave incorreta.  
+ Esse erro em Azure Machine Learning ocorrerá se a chave usada para acessar a conta de armazenamento do Azure estiver incorreta. Por exemplo, você poderá ver esse erro se a chave de armazenamento do Azure estava truncada quando copiada e colada, ou se a chave errada foi usada.  
   
- Para obter mais informações sobre como obter a chave para uma conta de armazenamento do Azure, consulte [ver, copiar e voltar a gerar armazenamento de chaves de acesso](https://azure.microsoft.com/documentation/articles/storage-create-storage-account-classic-portal/).  
+ Para obter mais informações sobre como obter a chave para uma conta de armazenamento do Azure, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](https://azure.microsoft.com/documentation/articles/storage-create-storage-account-classic-portal/).  
   
-**Resolução:** Examine o módulo e certifique-se de que a chave de armazenamento do Azure está correta para a conta. Copie a chave novamente no portal clássico do Azure se for necessário.  
+**Resolução:** Revisite o módulo e verifique se a chave de armazenamento do Azure está correta para a conta; Copie a chave novamente no portal clássico do Azure, se necessário.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|A chave de conta de armazenamento do Azure está incorreta.|  
+|A chave da conta de armazenamento do Azure está incorreta.|  
   
 
 ## <a name="error-0053"></a>Erro 0053  
- Ocorre uma exceção no caso de quando não são recursos do usuário ou itens para recomendações de matchbox.  
+ Ocorrerá uma exceção no caso de não haver recursos de usuário ou itens para recomendações de Matchbox.  
   
- Este erro no Azure Machine Learning é produzido quando não é possível encontrar um vetor de funcionalidade.  
+ Esse erro no Azure Machine Learning é produzido quando um vetor de recurso não pode ser encontrado.  
   
-**Resolução:** Certifique-se de que um vetor de recurso está presente no conjunto de dados de entrada.  
+**Resolução:** Verifique se um vetor de recurso está presente no conjunto de dados de entrada.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Recursos do usuário ou / e os itens são necessários, mas não fornecidos.|  
+|Recursos de usuário ou/e itens são necessários, mas não fornecidos.|  
 
-## <a name="error-0054"></a>Error 0054  
- Ocorre uma exceção se há valores distintos da coluna para concluir a operação.  
+## <a name="error-0054"></a>Erro 0054  
+ Ocorrerá uma exceção se houver poucos valores distintos na coluna para concluir a operação.  
   
-**Resolução:** Este erro no Azure Machine Learning é não utilizado e vai ser preterido.  
+**Resolução:** Esse erro em Azure Machine Learning não é usado e será preterido.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Dados têm valores distintos na coluna especificada para concluir a operação.|  
-|Dados têm valores distintos na coluna especificada para concluir a operação. É o mínimo exigido {0} elementos.|  
-|Dados têm valores distintos na coluna "{1}" para concluir a operação. É o mínimo exigido {0} elementos.|  
+|Os dados têm poucos valores distintos na coluna especificada para concluir a operação.|  
+|Os dados têm poucos valores distintos na coluna especificada para concluir a operação. O mínimo necessário é {0} de elementos.|  
+|Os dados têm poucos valores distintos na coluna "{1}" para concluir a operação. O mínimo necessário é {0} de elementos.|  
   
 
 ## <a name="error-0055"></a>Erro 0055  
- Ocorre uma exceção ao chamar um módulo preterido.  Este erro no Azure Machine Learning é apresentada se tentar chamar um módulo que foi preterido.
+ Ocorre uma exceção ao chamar um módulo preterido.  Esse erro em Azure Machine Learning aparecerá se você tentar chamar um módulo que foi preterido.
   
 **Resolução:**
   
 |Mensagens de exceção|  
 |------------------------|  
-|Aceder ao módulo preterido.|  
-|Módulo "{0}" foi preterida.|  
+|Acessando o módulo preterido.|  
+|O módulo{0}"" foi preterido.|  
 
 ## <a name="error-0056"></a>Erro 0056  
- Ocorre uma exceção se as colunas que selecionou para uma operação viola requisitos.  
+ Ocorrerá uma exceção se as colunas selecionadas para uma operação violarem os requisitos.  
   
- Este erro no Azure Machine Learning ocorre ao escolher colunas para uma operação que exige que a coluna ter um tipo de dados específico. 
+ Esse erro em Azure Machine Learning ocorre quando você está escolhendo colunas para uma operação que requer que a coluna seja de um tipo de dados específico. 
  
- Este erro também pode acontecer se a coluna é o tipo de dados correto, mas o módulo que está a utilizar requer que a coluna também ser marcada como um recurso, uma etiqueta ou uma coluna categórica.  
+ Esse erro também pode ocorrer se a coluna for do tipo de dados correto, mas o módulo que você está usando exigir que a coluna também seja marcada como um recurso, rótulo ou coluna categórica.  
   
   <!--For example, the [Convert to Indicator Values](convert-to-indicator-values.md) module requires that columns be categorical, and will raise this error if you select a feature column or label column.  -->
   
 **Resolução:**
   
-1.  Reveja o tipo de dados das colunas atualmente selecionadas. 
+1.  Examine o tipo de dados das colunas que estão selecionadas no momento. 
 
-2. Determinar se as colunas selecionadas são categóricos, etiqueta ou colunas de funcionalidades.  
+2. Verificar se as colunas selecionadas são categóricos, rótulo ou colunas de recurso.  
   
-3.  Reveja o tópico de ajuda para o módulo no qual efetuar a seleção de coluna, para determinar se existem requisitos específicos para a utilização de tipo ou coluna de dados.  
+3.  Examine o tópico da ajuda para o módulo no qual você fez a seleção de coluna, para determinar se há requisitos específicos para o tipo de dados ou o uso da coluna.  
   
-3.  Uso [Editar metadados](edit-metadata.md) para alterar o tipo de coluna para a duração desta operação. Não se esqueça de alterar o tipo de coluna para o valor original, a utilizar outra instância do [Editar metadados](edit-metadata.md), se precisar dela para operações de downstream.  
+3.  Use [Editar metadados](edit-metadata.md) para alterar o tipo de coluna durante essa operação. Certifique-se de alterar o tipo de coluna de volta para seu valor original, usando outra instância de [Editar metadados](edit-metadata.md), se necessário, para operações de downstream.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Um ou mais colunas selecionadas não eram uma categoria permitidos.|  
-|Coluna com o nome "{0}" não é uma categoria permitidos.|  
+|Uma ou mais colunas selecionadas não estavam em uma categoria permitida.|  
+|A coluna com o{0}nome "" não está em uma categoria permitida.|  
   
 
 ## <a name="error-0057"></a>Erro 0057  
- Ocorre uma exceção ao tentar criar um ficheiro ou blob que já existe.  
+ Ocorre uma exceção ao tentar criar um arquivo ou BLOB que já existe.  
   
- Essa exceção ocorre quando estiver a utilizar o [exportar dados](export-data.md) módulo ou outro módulo para salvar os resultados de uma experimentação no Azure Machine Learning para o armazenamento de Blobs do Azure, mas tentar criar um ficheiro ou blob que já existe.   
+ Essa exceção ocorre quando você está usando o módulo [exportar dados](export-data.md) ou outro módulo para salvar os resultados de um experimento em Azure Machine Learning ao armazenamento de BLOBs do Azure, mas tenta criar um arquivo ou BLOB que já existe.   
   
 **Resolução:**
  
- Irá receber este erro apenas se definir a propriedade anteriormente **modo de escrita de armazenamento de Blobs do Azure** ao **erro**. Por predefinição, este módulo gera um erro se tentar escrever um conjunto de dados para um blob que já existe.
+ Você receberá esse erro somente se você tiver definido anteriormente a propriedade **modo de gravação do armazenamento de BLOBs do Azure** para **erro**. Por design, esse módulo gera um erro se você tentar gravar um conjunto de uma em um blob que já existe.
  
- - Abra as propriedades do módulo e altere a propriedade **modo de escrita de armazenamento de Blobs do Azure** ao **substituir**.
- - Em alternativa, pode escreva o nome de um blob de destino diferente ou ficheiro e certifique-se de que especifique um blob que já não existe.  
+ - Abra as propriedades do módulo e altere a propriedade **modo de gravação do armazenamento de BLOBs do Azure** para **substituir**.
+ - Como alternativa, você pode digitar o nome de um BLOB ou arquivo de destino diferente e especificar um blob que ainda não existe.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Ficheiro ou Blob já existe.|  
-|Ficheiro ou Blob "{0}" já existe.|  
+|O arquivo ou BLOB já existe.|  
+|O arquivo ou o{0}blob "" já existe.|  
   
 
 ## <a name="error-0058"></a>Erro 0058  
- Este erro no Azure Machine Learning ocorre se o conjunto de dados não contém a coluna de etiqueta esperado.  
+ Esse erro em Azure Machine Learning ocorrerá se o conjunto de um não contiver a coluna de rótulo esperada.  
   
- Essa exceção também pode ocorrer quando a coluna de etiqueta fornecido não corresponde a dados ou o tipo de dados esperado pelo aprendiz ou com os valores de errado. Por exemplo, esta exceção é produzida quando utilizar uma coluna de etiqueta de valor real ao treinar um classificador binário.  
+ Essa exceção também pode ocorrer quando a coluna de rótulo fornecida não corresponde aos dados ou DataType esperados pelo aprendiz ou tem os valores errados. Por exemplo, essa exceção é produzida ao usar uma coluna de rótulo de valor real ao treinar um classificador binário.  
   
-**Resolução:** A resolução depende o aprendiz ou instrutor que está a utilizar e os tipos de dados das colunas no conjunto de dados. Em primeiro lugar, verifique se os requisitos do algoritmo de machine learning ou do módulo de treinamento.  
+**Resolução:** A resolução depende do aprendiz ou do treinador que você está usando, e os tipos de dados das colunas no seu DataSet. Primeiro, verifique os requisitos do módulo de treinamento ou de algoritmo do Machine Learning.  
   
- Rever o conjunto de dados de entrada. Certifique-se de que a coluna espera que deve ser tratada como a etiqueta tiver os dados corretos, escreva para o modelo que está a criar.  
+ Revisite o conjunto de dados de entrada. Verifique se a coluna que você espera que seja tratada como o rótulo tem o tipo de dados correto para o modelo que você está criando.  
   
- Verifique as entradas para valores em falta e eliminar ou substituí-las conforme necessário.  
+ Verificar as entradas de valores ausentes e eliminá-los ou substituí-los, se necessário.  
   
- Se necessário, adicione a [Editar metadados](edit-metadata.md) módulo e certifique-se de que a coluna de etiqueta está marcada como uma etiqueta.  
+ Se necessário, adicione o módulo [Editar metadados](edit-metadata.md) e verifique se a coluna rótulo está marcada como um rótulo.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|A coluna de etiqueta não é conforme esperado|  
-|A coluna de etiqueta não é funciona como esperado no "{0}".|  
-|A coluna de etiqueta "{0}"não é esperado no"{1}".|  
+|A coluna de rótulo não é como esperado|  
+|A coluna de rótulo não é como esperado em{0}"".|  
+|A coluna de rótulo{0}"" não é esperada{1}em "".|  
   
 
-## <a name="error-0059"></a>Error 0059  
- Ocorre uma exceção se um índice de coluna especificado num Seletor de coluna não pode ser analisado.  
+## <a name="error-0059"></a>Erro 0059  
+ Ocorrerá uma exceção se um índice de coluna especificado em um seletor de coluna não puder ser analisado.  
   
- Este erro no Azure Machine Learning ocorre se um índice de coluna especificado quando é utilizado o Seletor de coluna não pode ser analisado.  Irá receber este erro quando o índice de coluna está num formato inválido que não pode ser analisado.  
+ Esse erro em Azure Machine Learning ocorrerá se um índice de coluna especificado ao usar o seletor de coluna não puder ser analisado.  Você receberá esse erro quando o índice de coluna estiver em um formato inválido que não pode ser analisado.  
   
-**Resolução:** Modificar o índice de coluna para utilizar um valor de índice válido.  
+**Resolução:** Modifique o índice de coluna para usar um valor de índice válido.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não foi possível analisar um ou mais índices de colunas especificado ou intervalos de índice.|  
-|Índice de coluna ou de intervalo "{0}" não foi possível analisar.|  
+|Um ou mais índices de coluna ou intervalos de índice especificados não puderam ser analisados.|  
+|Não foi possível analisar o{0}índice de coluna ou o intervalo "".|  
   
 
 ## <a name="error-0060"></a>Erro 0060  
- Exceção ocorre quando um fora do intervalo de coluna de intervalo é especificado num Seletor de coluna.  
+ Ocorre uma exceção quando um intervalo de coluna fora do intervalo é especificado em um seletor de coluna.  
   
- Este erro no Azure Machine Learning ocorre quando um intervalo de coluna fora do intervalo é especificado no Seletor de colunas. Irá receber este erro se o intervalo de coluna no selecionador de coluna não correspondem às colunas no conjunto de dados.  
+ Esse erro em Azure Machine Learning ocorre quando um intervalo de coluna fora do intervalo é especificado no seletor de coluna. Você receberá esse erro se o intervalo de coluna no seletor de coluna não corresponder às colunas no conjunto de linhas.  
   
-**Resolução:** Modificar o intervalo de coluna no selecionador de coluna para correspondem às colunas no conjunto de dados.  
+**Resolução:** Modifique o intervalo de coluna no seletor de coluna para corresponder às colunas no conjunto de linhas.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Inválido ou fora do intervalo de índice de coluna de intervalo especificado.|  
-|Intervalo de coluna "{0}" é inválido ou fora do intervalo.|  
+|Intervalo de índice de coluna inválido ou fora do intervalo especificado.|  
+|O intervalo de{0}colunas "" é inválido ou está fora do intervalo.|  
   
 
 ## <a name="error-0061"></a>Erro 0061  
- Ocorre uma exceção ao tentar adicionar uma linha a uma DataTable com um número diferente de colunas do que a tabela.  
+ Ocorre uma exceção ao tentar adicionar uma linha a uma DataTable que tem um número diferente de colunas que a tabela.  
   
- Este erro no Azure Machine Learning ocorre quando tentar adicionar uma linha para um conjunto de dados que tem um número diferente de colunas do que o conjunto de dados.  Irá receber este erro se a linha que está a ser adicionada ao conjunto de dados tem um número diferente de colunas do conjunto de dados de entrada.  A linha não pode ser anexada ao conjunto de dados se o número de colunas é diferente.  
+ Esse erro em Azure Machine Learning ocorre quando você tenta adicionar uma linha a um conjunto de um DataSet que tem um número diferente de colunas do que o DataSet.  Você receberá esse erro se a linha que está sendo adicionada ao conjunto de dados tiver um número diferente de colunas do conjunto de dados de entrada.  A linha não poderá ser acrescentada ao conjunto de linhas se o número de colunas for diferente.  
   
-**Resolução:** Modificar o conjunto de dados de entrada para ter o mesmo número de colunas como a linha adicionada ou modificar a linha adicionada para ter o mesmo número de colunas como o conjunto de dados.  
+**Resolução:** Modifique o conjunto de dados de entrada para ter o mesmo número de colunas que a linha adicionada, ou modifique a linha adicionada para ter o mesmo número de colunas que o conjunto de dados.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Todas as tabelas tem de ter o mesmo número de colunas.|  
+|Todas as tabelas devem ter o mesmo número de colunas.|  
   
 
 ## <a name="error-0062"></a>Erro 0062  
- Ocorre uma exceção ao tentar comparar dois modelos com tipos diferentes de aprendiz.  
+ Ocorre uma exceção ao tentar comparar dois modelos com tipos de aprendiz diferentes.  
   
- Este erro no Azure Machine Learning é produzido quando as métricas de avaliação de dois diferentes com a pontuação conjuntos de dados não podem ser comparadas. Neste caso, não é possível comparar a eficiência, os modelos usados para produzir os dois conjuntos de dados com a pontuação.  
+ Esse erro no Azure Machine Learning é produzido quando as métricas de avaliação para dois conjuntos de valores de DataSet diferentes não podem ser comparadas. Nesse caso, não é possível comparar a eficácia dos modelos usados para produzir os dois conjuntos de valores classificados.  
   
-**Resolução:** Certifique-se de que os resultados com a pontuação são produzidos pelo mesmo tipo de modelo de aprendizagem automática (classificação binária, regressão, classificação de Roc, recomendação, clustering, deteção de anomalias, etc.) Todos os modelos que compare tem de ter o mesmo tipo de aprendiz.  
+**Resolução:** Verifique se os resultados pontuados são produzidos pelo mesmo tipo de modelo de aprendizado de máquina (classificação binária, regressão, classificação de várias classes, recomendação, clustering, detecção de anomalias, etc.) Todos os modelos que você compara devem ter o mesmo tipo de aprendiz.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Todos os modelos de tem de ter o mesmo tipo de aprendiz.|  
+|Todos os modelos devem ter o mesmo tipo de aprendiz.|  
   
 
  <!--## Error 0063  
@@ -1085,339 +1084,339 @@ Outro motivo, que poderá receber este erro se tentar usar uma coluna que conté
 -->  
 |Mensagens de exceção|  
 |------------------------|  
-|Erro durante a avaliação de R script.|  
-|Ocorreu o erro seguinte durante a avaliação de R script:---início da mensagem de erro do R--- {0} ---final da mensagem de erro do R--|  
-|Durante a avaliação de R script "{1}" Ocorreu o erro seguinte:---início da mensagem de erro do R--- {0} ---final da mensagem de erro do R--|  
+|Erro durante a avaliação do script R.|  
+|Ocorreu o seguinte erro durante a avaliação do script r:----------início da mensagem de erro do {0} r---------------------fim da mensagem de erro do r-----------|  
+|Durante a avaliação do script R "{1}" ocorreu o seguinte erro:----------início da mensagem de erro do r {0} ---------------------fim da mensagem de erro do r-----------|  
   
 
 
 ## <a name="error-0064"></a>Erro 0064  
- Ocorre uma exceção se o nome da conta de armazenamento do Azure ou a chave de armazenamento foi incorretamente especificada.  
+ Ocorrerá uma exceção se a chave de armazenamento ou o nome da conta de armazenamento do Azure for especificado incorretamente.  
   
- Este erro no Azure Machine Learning ocorre se o nome da conta de armazenamento do Azure ou a chave de armazenamento foi incorretamente especificado. Irá receber este erro, se introduzir um nome de conta incorreta ou a palavra-passe para a conta de armazenamento. Isto pode ocorrer se introduzir manualmente o nome de conta ou palavra-passe. Também pode ocorrer se a conta tiver sido eliminada.  
+ Esse erro em Azure Machine Learning ocorrerá se o nome da conta de armazenamento do Azure ou a chave de armazenamento for especificada incorretamente. Você receberá esse erro se inserir um nome de conta ou senha incorretos para a conta de armazenamento. Isso pode ocorrer se você inserir manualmente o nome da conta ou a senha. Isso também pode ocorrer se a conta tiver sido excluída.  
   
-**Resolução:** Certifique-se de que o nome da conta e palavra-passe tenham sido introduzidos corretamente e que a conta existe.  
+**Resolução:** Verifique se o nome da conta e a senha foram inseridos corretamente e se a conta existe.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|O nome da conta de armazenamento do Azure ou a chave de armazenamento está incorreto.|  
-|O nome da conta de armazenamento do Azure "{0}" ou a chave de armazenamento para o nome da conta está incorreta.|  
+|O nome ou a chave de armazenamento da conta de armazenamento do Azure está incorreta.|  
+|O nome da conta de armazenamento{0}do Azure "" ou a chave de armazenamento para o nome da conta está incorreto.|  
   
 
 ## <a name="error-0065"></a>Erro 0065  
- Ocorre uma exceção se o nome do blob do Azure foi incorretamente especificado.  
+ Ocorrerá uma exceção se o nome do blob do Azure for especificado incorretamente.  
   
- Este erro no Azure Machine Learning ocorre se o nome do blob do Azure foi incorretamente especificado.  Receberá o erro se:  
+ Esse erro em Azure Machine Learning ocorrerá se o nome do blob do Azure for especificado incorretamente.  Você receberá o erro se:  
   
--   Não é possível encontrar o blob no contentor especificado.  
+-   O BLOB não pode ser encontrado no contêiner especificado.  
   
  <!---   The fully qualified name of the blob specified for output in one of the [Learning with Counts](data-transformation-learning-with-counts.md) modules is greater than 512 characters.  -->
   
--   Apenas o contentor foi especificado como a origem num [importar dados](import-data.md) quando era o formato Excel ou CSV com codificação do pedido; concatenação do conteúdo de todos os blobs num contentor não é permitida com esses formatos.  
+-   Somente o contêiner foi especificado como a origem em uma solicitação de [importação de dados](import-data.md) quando o formato era Excel ou CSV com codificação; a concatenação do conteúdo de todos os BLOBs dentro de um contêiner não é permitida com esses formatos.  
   
--   Um URI de SAS não contém o nome de um blob válido.  
+-   Um URI SAS não contém o nome de um blob válido.  
   
-**Resolução:** Examine o módulo gera a exceção. Certifique-se de que o blob especificado existir no contentor na conta de armazenamento e que as permissões permitirem-lhe ver o blob. Certifique-se de que a entrada é o formato **containername/filename** se tiver o Excel ou CSV com formatos de codificação. Certifique-se de que um URI de SAS contém o nome de um blob válido.  
+**Resolução:** Revisite o módulo lançando a exceção. Verifique se o blob especificado existe no contêiner na conta de armazenamento e se as permissões permitem que você veja o blob. Verifique se a entrada está no formato **ContainerName/filename** se você tiver o Excel ou CSV com formatos de codificação. Verifique se um URI de SAS contém o nome de um blob válido.  
   
 |Mensagens de exceção|  
 |------------------------|  
 |O blob de armazenamento do Azure está incorreto.|  
-|O nome do blob de armazenamento do Azure "{0}" está incorreto|  
+|O nome do blob de armazenamento{0}do Azure "" está incorreto|  
   
 
 ## <a name="error-0066"></a>Erro 0066  
- Ocorre uma exceção se não foi possível carregar um recurso para um Blob do Azure.  
+ Ocorrerá uma exceção se um recurso não puder ser carregado em um blob do Azure.  
   
- Este erro no Azure Machine Learning ocorre se um recurso não foi possível carregar para um Blob do Azure.  <!--You will receive this message if [Train Vowpal Wabbit 7-4 Model](train-vowpal-wabbit-version-7-4-model.md) encounters an error attempting to save either the model or the hash created when training the model.--> Ambos são guardadas para a mesma conta de armazenamento do Azure como a conta que contém o ficheiro de entrada.  
+ Esse erro em Azure Machine Learning ocorrerá se um recurso não pôde ser carregado em um blob do Azure.  <!--You will receive this message if [Train Vowpal Wabbit 7-4 Model](train-vowpal-wabbit-version-7-4-model.md) encounters an error attempting to save either the model or the hash created when training the model.--> Ambos são salvos na mesma conta de armazenamento do Azure que a conta que contém o arquivo de entrada.  
   
-**Resolução:** Examine o módulo. Certifique-se de que o nome da conta do Azure, a chave de armazenamento e o contentor estão corretas e que a conta tem permissão de escrita ao contentor.  
+**Resolução:** Revisite o módulo. Verifique se o nome da conta do Azure, a chave de armazenamento e o contêiner estão corretos e se a conta tem permissão para gravar no contêiner.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não foi possível carregar o recurso para o armazenamento do Azure.|  
-|O ficheiro "{0}" não foi possível carregar para o armazenamento do Azure como {1}.|  
+|Não foi possível carregar o recurso no armazenamento do Azure.|  
+|O arquivo "{0}" não pôde ser carregado no armazenamento do Azure {1}como.|  
   
 
 ## <a name="error-0067"></a>Erro 0067  
- Ocorre uma exceção se a um conjunto de dados tiver um número diferente de colunas que o esperado.  
+ Ocorrerá uma exceção se um conjunto de linhas tiver um número diferente de colunas do que o esperado.  
   
- Este erro no Azure Machine Learning ocorre se a um conjunto de dados tiver um número diferente de colunas que o esperado.  Irá receber este erro quando o número de colunas no conjunto de dados é diferente do número de colunas que o módulo de espera durante a execução.  
+ Esse erro em Azure Machine Learning ocorrerá se um conjunto de um DataSet tiver um número diferente de colunas do que o esperado.  Você receberá esse erro quando o número de colunas no conjunto de linhas for diferente do número de colunas que o módulo espera durante a execução.  
   
-**Resolução:** Modificar o conjunto de dados de entrada ou os parâmetros.  
+**Resolução:** Modifique o conjunto de dados de entrada ou os parâmetros.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Número inesperado de colunas na datatable.|  
-|Era esperado "{0}"colunas, mas encontrada"{1}" colunas em vez disso.|  
+|Número inesperado de colunas na DataTable.|  
+|Esperava-{0}se "" colunas,{1}mas foram encontradas "" colunas.|  
   
 
 ## <a name="error-0068"></a>Erro 0068  
- Ocorre uma exceção se o script de ramo de registo especificado não está correto.  
+ Ocorrerá uma exceção se o script do hive especificado não estiver correto.  
   
- Este erro no Azure Machine Learning ocorre se existem erros de sintaxe num script de Hive QL, ou se o interpretador de Hive encontra um erro ao executar a consulta ou script.  
+ Esse erro em Azure Machine Learning ocorrerá se houver erros de sintaxe em um script de QL do hive ou se o intérprete do hive encontrar um erro ao executar a consulta ou o script.  
   
 **Resolução:**
 
-A mensagem de erro do Hive é normalmente relatada no registo de erros para que pode agir com base no erro específico. 
+A mensagem de erro do hive normalmente é relatada de volta no log de erros para que você possa tomar medidas com base no erro específico. 
 
-+ Abra o módulo e inspecionar a consulta para erros.  
-+ Certifique-se de que a consulta funciona, corretamente fora do Azure Machine Learning, iniciando sessão consola do Hive do cluster do Hadoop e executar a consulta.  
-+ Tente colocar comentários numa linha separada em vez de misturar instruções executáveis e comentários numa única linha do script do Hive.  
++ Abra o módulo e inspecione a consulta para obter erros.  
++ Verifique se a consulta funciona corretamente fora do Azure Machine Learning fazendo logon no console do hive do seu cluster Hadoop e executando a consulta.  
++ Tente inserir comentários no script do hive em uma linha separada, em vez de misturar instruções e comentários executáveis em uma única linha.  
 
 ### <a name="resources"></a>Recursos
 
-Veja os artigos seguintes para obter ajuda com consultas do Hive para machine learning:
+Consulte os artigos a seguir para obter ajuda com consultas de Hive para aprendizado de máquina:
 
-+ [Criar tabelas do Hive e carregar dados do armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-move-hive-tables)
-+ [Explorar dados em tabelas com consultas do Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-explore-data-hive-tables)
-+ [Criar características para dados num cluster de Hadoop com consultas do Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive)
-+ [Hive para folha de referência rápida de usuários do SQL (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf)
++ [Criar tabelas do hive e carregar dados do armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-move-hive-tables)
++ [Explorar dados em tabelas com consultas de Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-explore-data-hive-tables)
++ [Criar recursos para dados em um cluster Hadoop usando consultas do hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive)
++ [Folha de consulta de usuários do hive para SQL (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf)
 
   
 |Mensagens de exceção|  
 |------------------------|  
-|Script de ramo de registo está incorreto.|  
-|Script de ramo de registo {0} não está correto.|  
+|O script do hive está incorreto.|  
+|O script {0} do hive não está correto.|  
   
 
 ## <a name="error-0069"></a>Erro 0069  
- Ocorre uma exceção se o script SQL especificado não está correto.  
+ Ocorrerá uma exceção se o script SQL especificado não estiver correto.  
   
- Este erro no Azure Machine Learning ocorre se o script SQL especificado tem problemas de sintaxe ou, se as colunas ou tabela especificada no script não é válido. 
+ Esse erro em Azure Machine Learning ocorrerá se o script SQL especificado tiver problemas de sintaxe ou se as colunas ou a tabela especificada no script não forem válidas. 
  
- Irá receber este erro se o motor SQL encontra qualquer erro ao executar a consulta ou script. A mensagem de erro SQL é normalmente relatada no registo de erros para que pode agir com base no erro específico.  
+ Você receberá esse erro se o mecanismo do SQL encontrar algum erro ao executar a consulta ou o script. A mensagem de erro do SQL normalmente é relatada de volta no log de erros para que você possa tomar medidas com base no erro específico.  
   
-**Resolução:** Examine o módulo e inspecionar a consulta SQL para erros.  
+**Resolução:** Revisite o módulo e inspecione a consulta SQL para obter erros.  
   
- Certifique-se de que a consulta funciona corretamente fora do Azure ML iniciando sessão diretamente no servidor de base de dados e executar a consulta.  
+ Verifique se a consulta funciona corretamente fora do Azure ML fazendo logon no servidor de banco de dados diretamente e executando a consulta.  
   
- Se existir uma mensagem SQL gerado comunicada pela exceção de módulo, agir com base no erro comunicado. Por exemplo, as mensagens de erro incluem, por vezes, obter instruções específicas sobre a probabilidade de erro:
-+ *Não existe esse coluna ou a base de dados em falta*, indicando que pode ter escrito um nome de coluna errado. Se tiver a certeza de que o nome de coluna está correto, tente utilizar parênteses ou aspas delimitar o identificador de coluna.
-+ *Erro de lógica SQL junto \<palavra-chave SQL\>* , indicando que poderá ter um erro de sintaxe antes da palavra-chave especificada
+ Se houver uma mensagem gerada pelo SQL relatada pela exceção do módulo, execute uma ação com base no erro relatado. Por exemplo, as mensagens de erro às vezes incluem diretrizes específicas sobre o erro provável:
++ *Nenhuma coluna ou banco de dados ausente*, indicando que você pode ter digitado um nome de coluna errado. Se você tiver certeza de que o nome da coluna está correto, tente usar colchetes ou aspas para colocar o identificador de coluna.
++ *Erro lógico do SQL \<próximo à\>palavra-chave SQL*, indicando que você pode ter um erro de sintaxe antes da palavra-chave especificada
 
   
 |Mensagens de exceção|  
 |------------------------|  
-|Script SQL está incorreto.|  
-|Consulta SQL "{0}" não está correto.|  
-|Consulta SQL "{0}" não está correto: {1}|  
+|O script SQL está incorreto.|  
+|A consulta SQL{0}"" não está correta.|  
+|A consulta SQL{0}"" não está correta:{1}|  
   
 
 ## <a name="error-0070"></a>Erro 0070  
- Ocorre uma exceção quando tentar aceder a tabelas do Azure de não existente.  
+ Ocorre uma exceção ao tentar acessar uma tabela não existente do Azure.  
   
- Este erro no Azure Machine Learning ocorre quando tenta acessar uma tabela do Azure não existente. Irá receber este erro, se especificar uma tabela no armazenamento do Azure, que não existe ao ler a partir de ou escrever no armazenamento de tabelas do Azure. Isto pode acontecer se digitar o nome da tabela desejada, ou tem um erro de correspondência entre o nome de destino e o tipo de armazenamento. Por exemplo, se destina a ler a partir de uma tabela mas introduzido o nome de um blob em vez disso.  
+ Esse erro em Azure Machine Learning ocorre quando você tenta acessar uma tabela não existente do Azure. Você receberá esse erro se especificar uma tabela no armazenamento do Azure, que não existe durante a leitura ou gravação no armazenamento de tabelas do Azure. Isso pode acontecer se você digitar incorretamente o nome da tabela desejada ou se houver uma incompatibilidade entre o nome de destino e o tipo de armazenamento. Por exemplo, você pretende ler em uma tabela, mas inseriu o nome de um blob.  
   
-**Resolução:** Examine o módulo para verificar se o nome da tabela está correto.  
+**Resolução:** Revisite o módulo para verificar se o nome da tabela está correto.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Tabela do Azure não existe.|  
-|Tabela do Azure "{0}" não existe.|  
+|A tabela do Azure não existe.|  
+|A tabela do{0}Azure "" não existe.|  
   
 ## <a name="error-0071"></a>Erro 0071  
- Ocorre uma exceção se fornecido as credenciais estão incorretas.  
+ Ocorrerá uma exceção se as credenciais fornecidas estiverem incorretas.  
   
- Este erro no Azure Machine Learning ocorre se as credenciais fornecidas estão incorretas.  
+ Esse erro em Azure Machine Learning ocorrerá se as credenciais fornecidas estiverem incorretas.  
   
- Também poderá receber este erro se o módulo não é possível ligar a um cluster do HDInsight.  
+ Você também poderá receber esse erro se o módulo não puder se conectar a um cluster HDInsight.  
   
-**Resolução:** Reveja as entradas para o módulo e verifique se o nome da conta e palavra-passe.  
+**Resolução:** Examine as entradas para o módulo e verifique o nome da conta e a senha.  
   
  Verifique os seguintes problemas que podem causar um erro:  
   
--   O esquema do conjunto de dados não coincide com o esquema da datatable de destino.  
+-   O esquema do conjunto de um não corresponde ao esquema da DataTable de destino.  
   
--   Os nomes de coluna estão em falta ou com erros ortográficos  
+-   Nomes de coluna ausentes ou com ortografia incorreta  
   
--   Estiver a escrever para uma tabela com nomes de colunas com carateres ilegais. Normalmente pode incluir esses nomes de colunas em parênteses Retos, mas se isto não resultar, editar os nomes das colunas para utilizar apenas letras e carateres de sublinhado (_)  
+-   Você está gravando em uma tabela com nomes de coluna com caracteres ilegais. Normalmente, você pode incluir esses nomes de coluna entre colchetes, mas se isso não funcionar, edite os nomes de coluna para usar apenas letras e sublinhados (_)  
   
--   Cadeias de caracteres que está a tentar escrever contenham plicas  
+-   As cadeias de caracteres que você está tentando gravar contêm aspas simples  
   
- Se estiver a tentar ligar a um cluster do HDInsight, certifique-se de que o cluster de destino está acessível com as credenciais fornecidas.  
+ Se você estiver tentando se conectar a um cluster HDInsight, verifique se o cluster de destino está acessível com as credenciais fornecidas.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|São transmitidas credenciais incorretas.|  
-|Nome de utilizador incorreta "{0}" ou palavra-passe é passado|  
+|Credenciais incorretas são passadas.|  
+|Nome de usuário{0}incorreto "" ou a senha é passada|  
   
 
 ## <a name="error-0072"></a>Erro 0072  
- Ocorre uma exceção no caso de tempo limite da ligação.  
+ Ocorre uma exceção no caso de tempo limite de conexão.  
   
- Este erro no Azure Machine Learning ocorre quando uma ligação exceder o tempo limite. Irá receber este erro se não existem atualmente problemas de conectividade com a origem de dados ou de destino, como conectividade de internet lenta, ou se o conjunto de dados é grande e/ou a consulta SQL para os dados de leitura realiza processamento complexo.  
+ Esse erro no Azure Machine Learning ocorre quando uma conexão atinge o tempo limite. Você receberá esse erro se houver problemas de conectividade com a fonte de dados ou destino, como conectividade lenta com a Internet, ou se o DataSet for grande e/ou se a consulta SQL a ser lida nos dados executar um processamento complicado.  
   
-**Resolução:** Determine se existem atualmente problemas com conexões lentas para o armazenamento do Azure ou na internet.  
+**Resolução:** Determine se há problemas no momento com conexões lentas com o armazenamento do Azure ou com a Internet.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Ocorreu um tempo limite da ligação.|  
+|O tempo limite da conexão ocorreu.|  
   
 
 ## <a name="error-0073"></a>Erro 0073  
- Ocorre uma exceção se ocorrer um erro ao converter uma coluna a outro tipo.  
+ Ocorrerá uma exceção se ocorrer um erro durante a conversão de uma coluna em outro tipo.  
   
- Este erro no Azure Machine Learning ocorre quando não é possível converter a coluna a outro tipo.  Irá receber este erro, se um módulo exigir um tipo específico e não é possível converter a coluna para o novo tipo.  
+ Esse erro no Azure Machine Learning ocorre quando não é possível converter a coluna em outro tipo.  Você receberá esse erro se um módulo exigir um tipo específico e não for possível converter a coluna para o novo tipo.  
   
-**Resolução:** Modifique o conjunto de dados de entrada para que a coluna pode ser convertida com base na exceção interna.  
+**Resolução:** Modifique o conjunto de dados de entrada para que a coluna possa ser convertida com base na exceção interna.  
   
 |Mensagens de exceção|  
 |------------------------|  
 |Falha ao converter a coluna.|  
-|Falha ao converter a coluna para {0}.|  
+|Falha ao converter a coluna {0}em.|  
   
 
 ## <a name="error-0074"></a>Erro 0074  
- Ocorre uma exceção quando o [Editar metadados](edit-metadata.md) tenta converter uma coluna dispersa para categóricos.  
+ A exceção ocorre quando os [metadados de edição](edit-metadata.md) tentam converter uma coluna esparsa em categórico.  
   
- Este erro no Azure Machine Learning ocorre quando o [Editar metadados](edit-metadata.md) tenta converter uma coluna dispersa para categóricos.  Irá receber este erro quando tentar converter colunas dispersas categóricos com o **tornar categóricos** opção.  Do Azure machine Learning não suporta dispersas matrizes categóricas, para que o módulo irá falhar.  
+ Esse erro no Azure Machine Learning ocorre quando os [metadados de edição](edit-metadata.md) tentam converter uma coluna esparsa em categórico.  Você receberá esse erro ao tentar converter colunas esparsas em categóricos com a opção **tornar categórica** .  O Azure Machine Learning não dá suporte a matrizes categóricos esparsas, portanto, o módulo falhará.  
   
  <!--**Resolution:**
  Make the column dense by using [Convert to Dataset](convert-to-dataset.md) first or do not convert the column to categorical.  -->
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não não possível converter colunas dispersas Categórico.|  
+|Colunas esparsas não podem ser convertidas em categóricos.|  
   
 
 ## <a name="error-0075"></a>Erro 0075  
-Exceção ocorre quando uma função de discretização inválida é utilizada quando quantizing um conjunto de dados.  
+Ocorrerá uma exceção quando uma função compartimentalização inválida for usada ao quantificar um conjunto de um DataSet.  
   
-Este erro no Azure Machine Learning ocorre quando está a tentar a compartimentação de dados usando um método não suportado, ou quando as combinações de parâmetro são inválidas.  
+Esse erro em Azure Machine Learning ocorre quando você está tentando desagrupar dados usando um método sem suporte ou quando as combinações de parâmetros são inválidas.  
   
 **Resolução:**
 
-Tratamento de erro para este evento foi introduzido numa versão anterior do Azure Machine Learning que permissão mais personalização de discretização métodos. Atualmente todos os métodos de discretização baseiam-se numa seleção de uma lista suspensa, tecnicamente, já não deve ser possível obter este erro.
+O tratamento de erros para esse evento foi introduzido em uma versão anterior do Azure Machine Learning que permitia mais personalização dos métodos compartimentalização. Atualmente, todos os métodos compartimentalização são baseados em uma seleção de uma lista suspensa, portanto, tecnicamente, não deve mais ser possível obter esse erro.
 
  <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Azure Machine Learning forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning), providing the data types, parameter settings, and the exact error message.  -->
   
 |Mensagens de exceção|  
 |------------------------|  
-|Foi utilizada uma função de discretização inválida.|  
+|Função compartimentalização inválida usada.|  
   
 
 ## <a name="error-0077"></a>Erro 0077  
- Exceção ocorre quando o ficheiro blob desconhecido escreve modo passado.  
+ Ocorrerá uma exceção quando o modo de gravação de arquivo de blob desconhecido for passado.  
   
- Este erro no Azure Machine Learning ocorre se um argumento inválido for passado nas especificações para um destino de ficheiro blob ou uma fonte.  
+ Esse erro em Azure Machine Learning ocorrerá se um argumento inválido for passado nas especificações de um destino de arquivo de BLOB ou origem.  
   
-**Resolução:** Em quase todos os módulos que importar ou exportar dados para e do armazenamento de Blobs do Azure, os valores de parâmetro controlar o modo de escrita são atribuídos ao utilizar uma lista suspensa; Por conseguinte, não é possível passar um valor inválido e não deve aparecer este erro. Este erro vai ser preterido numa versão posterior.  
+**Resolução:** Em quase todos os módulos que importam ou exportam dados de e para o armazenamento de BLOBs do Azure, os valores de parâmetros que controlam o modo de gravação são atribuídos usando uma lista suspensa; Portanto, não é possível passar um valor inválido, e esse erro não deve aparecer. Esse erro será preterido em uma versão posterior.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Os BLOBs não suportado escreve modo.|  
-|Modo de escritas de blob não suportado: {0}.|  
+|Modo de gravações de blob sem suporte.|  
+|Modo de gravações de blob sem suporte {0}:.|  
   
 
 ## <a name="error-0078"></a>Erro 0078  
- Ocorre uma exceção quando o HTTP opção para [importar dados](import-data.md) recebe um código de estado de 3xx indicando o redirecionamento.  
+ Ocorrerá uma exceção quando a opção HTTP para [importar dados](import-data.md) receber um código de status 3xx indicando redirecionamento.  
   
- Este erro no Azure Machine Learning ocorre quando o HTTP opção para [importar dados](import-data.md) recebe um 3xx (301, 302, 304, etc.) o código de estado que indica o redirecionamento. Irá receber este erro se tentar ligar a uma origem HTTP que redireciona o navegador para outra página. Para segurança motivos, redirecionando os Web sites não são permitidos como fontes de dados do Azure Machine Learning.  
+ Esse erro em Azure Machine Learning ocorre quando a opção HTTP para [importar dados](import-data.md) recebe um código de status 3xx (301, 302, 304, etc.) indicando o redirecionamento. Você receberá esse erro se tentar se conectar a uma origem HTTP que redireciona o navegador para outra página. Por motivos de segurança, o redirecionamento de sites não é permitido como fontes de dados para Azure Machine Learning.  
   
-**Resolução:** Se o Web site é um Web site fidedigno, introduza o URL redirecionado diretamente.  
+**Resolução:** Se o site for um site confiável, insira a URL redirecionada diretamente.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Redirecionamento de HTTP não permitido|  
+|Redirecionamento de http não permitido|  
   
 
 ## <a name="error-0079"></a>Erro 0079  
- Ocorre uma exceção se o nome do contentor de armazenamento do Azure foi incorretamente especificado.  
+ Ocorrerá uma exceção se o nome do contêiner de armazenamento do Azure for especificado incorretamente.  
   
- Este erro no Azure Machine Learning ocorre se o nome do contentor de armazenamento do Azure foi incorretamente especificado. Irá receber este erro se não tiver especificado o contentor e o nome de blob (ficheiro) com o **o caminho para o início com o contentor de BLOBs** opção ao escrever no armazenamento de Blobs do Azure.  
+ Esse erro em Azure Machine Learning ocorrerá se o nome do contêiner de armazenamento do Azure for especificado incorretamente. Você receberá esse erro se não tiver especificado o contêiner e o nome do blob (arquivo) usando **a opção caminho para o blob começando com o contêiner** ao gravar no armazenamento de BLOBs do Azure.  
   
-**Resolução:** Examine os [exportar dados](export-data.md) módulo e certifique-se de que o caminho especificado para o blob contém o contentor e o nome de ficheiro, no formato **contentor/filename**.  
+**Resolução:** Revisite o módulo [exportar dados](export-data.md) e verifique se o caminho especificado para o BLOB contém o contêiner e o nome do arquivo, no formato **contêiner/nome**de caminho.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|O nome do contentor de armazenamento do Azure está incorreto.|  
-|O nome do contentor de armazenamento do Azure "{0}" está incorreto; era esperado um nome de contentor do formato contentor/blob.|  
+|O nome do contêiner de armazenamento do Azure está incorreto.|  
+|O nome do contêiner de armazenamento{0}do Azure "" está incorreto; era esperado um nome de contêiner do formato contêiner/BLOB.|  
   
 
 ## <a name="error-0080"></a>Erro 0080  
- Exceção ocorre quando a coluna com todos os valores em falta não é permitida pelo módulo.  
+ A exceção ocorre quando a coluna com todos os valores ausentes não é permitida pelo módulo.  
   
- Este erro no Azure Machine Learning é produzido quando um ou mais das colunas consumidas pelo módulo contém todos os valores em falta. Por exemplo, se um módulo é a informática estatísticas agregadas para cada coluna, ele não pode operar numa coluna que contém dados não. Nesses casos, a execução do módulo é suspensa com essa exceção.  
+ Esse erro no Azure Machine Learning é produzido quando uma ou mais colunas consumidas pelo módulo contêm todos os valores ausentes. Por exemplo, se um módulo estiver Computando estatísticas de agregação para cada coluna, ele não poderá operar em uma coluna que não contenha dados. Nesses casos, a execução do módulo é interrompida com essa exceção.  
   
-**Resolução:** Examine o conjunto de dados de entrada e remova todas as colunas que contêm todos os valores em falta.  
+**Resolução:** Reveja o conjunto de dados de entrada e remova todas as colunas que contêm todos os valores ausentes.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não são permitidas colunas com todos os valores em falta.|  
-|Coluna {0} tem todos os valores em falta.|  
+|Colunas com todos os valores ausentes não são permitidas.|  
+|A {0} coluna tem todos os valores ausentes.|  
   
 
 ## <a name="error-0081"></a>Erro 0081  
- Ocorre uma exceção no módulo do PCA se o número de dimensões para reduzir o de é igual ao número de colunas de funcionalidades no conjunto de dados de entrada, que contém pelo menos uma coluna dispersa funcionalidade.  
+ Ocorrerá uma exceção no módulo do PCA se o número de dimensões para reduzir for igual ao número de colunas de recursos no conjunto de dados de entrada, contendo pelo menos uma coluna de recursos esparsos.  
   
- Este erro no Azure Machine Learning é produzido se as seguintes condições são cumpridas: (a) o conjunto de dados de entrada tem pelo menos uma coluna dispersa e (b) o número final de dimensões solicitado é o mesmo que o número de dimensões de entrada.  
+ Esse erro no Azure Machine Learning será produzido se as seguintes condições forem atendidas: (a) o conjunto de dados de entrada tem pelo menos uma coluna esparsa e (b) o número final de dimensões solicitadas é o mesmo que o número de dimensões de entrada.  
   
-**Resolução:** Considere reduzir o número de dimensões na saída a ser menos do que o número de dimensões na entrada. Isso é comum em aplicativos do PCA.   <!--For more information, see [Principal Component Analysis](principal-component-analysis.md).  -->
+**Resolução:** Considere reduzir o número de dimensões na saída para ser menor que o número de dimensões na entrada. Isso é típico em aplicativos do PCA.   <!--For more information, see [Principal Component Analysis](principal-component-analysis.md).  -->
   
 |Mensagens de exceção|  
 |------------------------|  
-|Para o conjunto de dados que contém colunas dispersas funcionalidade número de dimensões para reduzir deve ser inferior ao número de colunas de funcionalidades.|  
+|Para o conjunto de conteúdo que contém colunas de recursos esparsos, o número de dimensões para reduzir deve ser menor que o número de colunas de recursos.|  
  
 
 ## <a name="error-0082"></a>Erro 0082  
- Exceção ocorre quando um modelo não pode ser com êxito a serialização anulado.  
+ Ocorre uma exceção quando um modelo não pode ser desserializado com êxito.  
   
- Este erro no Azure Machine Learning ocorre quando uma modelo de aprendizagem guardada ou transformação não pode ser carregada por uma versão mais recente do runtime do Azure Machine Learning como resultado de uma alteração de última hora.  
+ Esse erro no Azure Machine Learning ocorre quando um modelo ou uma transformação salva do Machine Learning não pode ser carregada por uma versão mais recente do tempo de execução Azure Machine Learning como resultado de uma alteração significativa.  
   
-**Resolução:** A experimentação de preparação que produziu o modelo ou a transformação tem de ser volte a executar e o modelo ou transformação tem de ser resaved.  
+**Resolução:** O teste de treinamento que produziu o modelo ou a transformação deve ser executado novamente e o modelo ou a transformação deve ser salva novamente.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não foi possível anular o modelo porque ele provavelmente é serializado com um formato de serialização mais antigo. Voltar a preparar e volte a guardar o modelo.|  
+|Não foi possível desserializar o modelo porque ele provavelmente é serializado com um formato de serialização mais antigo. Readaptação e salve novamente o modelo.|  
   
 
 ## <a name="error-0083"></a>Erro 0083  
- Ocorre uma exceção se o conjunto de dados utilizado para treinamento não pode ser utilizado para o tipo concreto de aprendiz.  
+ Ocorrerá uma exceção se o conjunto de informações usado para treinamento não puder ser usado para o tipo concreto de aprendiz.  
   
- Este erro no Azure Machine Learning é produzido quando o conjunto de dados é incompatível com o aprendiz a ser preparado. Por exemplo, o conjunto de dados pode conter, pelo menos, um valor em falta em cada linha, e como resultado, todo o conjunto de dados poderia ser ignorado durante o treinamento. Em outros casos, alguns algoritmos de machine learning, como deteção de anomalias não espera etiquetas estar presente e podem emitir esta exceção se as etiquetas estão presentes no conjunto de dados.  
+ Esse erro no Azure Machine Learning é produzido quando o conjunto de informações é incompatível com o aprendiz sendo treinado. Por exemplo, o conjunto de resultados pode conter pelo menos um valor ausente em cada linha e, como resultado, todo o conjunto de resultados seria ignorado durante o treinamento. Em outros casos, alguns algoritmos de aprendizado de máquina, como a detecção de anomalias, não esperam que os rótulos estejam presentes e possam gerar essa exceção se os rótulos estiverem presentes no conjunto de informações.  
   
-**Resolução:** Consulte a documentação de aprendiz a ser utilizado para verificar os requisitos para o conjunto de dados de entrada. Examine as colunas para ver todas as colunas necessárias estão presentes.  
+**Resolução:** Consulte a documentação do aprendiz que está sendo usado para verificar os requisitos para o conjunto de dados de entrada. Examine as colunas para ver se todas as colunas necessárias estão presentes.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Conjunto de dados usado para treinamento é inválido.|  
-|{0} contém dados inválidos para treinamento.|  
-|{0} contém dados inválidos para treinamento. Tipo de aprendiz: {1}.|  
+|O DataSet usado para treinamento é inválido.|  
+|{0}contém dados inválidos para treinamento.|  
+|{0}contém dados inválidos para treinamento. Tipo de aprendiz: {1}.|  
   
 
 ## <a name="error-0084"></a>Erro 0084  
- Ocorre uma exceção quando são avaliadas as pontuações produzidas a partir de um Script R. Isso não é atualmente suportado.  
+ Ocorrerá uma exceção quando as pontuações produzidas de um script R forem avaliadas. Não há suporte para isso no momento.  
   
- Este erro no Azure Machine Learning ocorre se tentar usar um dos módulos para avaliar um modelo com a saída de um script R que contém as pontuações.  
+ Esse erro em Azure Machine Learning ocorrerá se você tentar usar um dos módulos para avaliar um modelo com saída de um script R que contém pontuações.  
   
 **Resolução:**
   
 |Mensagens de exceção|  
 |------------------------|  
-|Avaliar as pontuações produzidas pelo R não é atualmente suportado.|  
+|No momento, não há suporte para a avaliação de pontuações produzidas pelo R.|  
   
 
 ## <a name="error-0085"></a>Erro 0085  
- Exceção ocorre quando a avaliação de script falha com um erro.  
+ Ocorrerá uma exceção quando a avaliação de script falhar com um erro.  
   
- Este erro no Azure Machine Learning ocorre quando estiver a executar o script personalizado que contém erros de sintaxe.  
+ Esse erro em Azure Machine Learning ocorre quando você está executando um script personalizado que contém erros de sintaxe.  
   
-**Resolução:** Reveja o seu código num editor de externa e verificação de erros.  
+**Resolução:** Examine seu código em um editor externo e verifique se há erros.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Erro durante a avaliação de script.|  
-|Ocorreu o erro seguinte durante a avaliação de script, consulte o registo de saída para obter mais informações:---início da mensagem de erro da {0} interpretador--- {1} ---final da mensagem de erro do {0} interpretador-- ------|  
+|Erro durante a avaliação do script.|  
+|O seguinte erro ocorreu durante a avaliação do script, exiba o log de saída para obter mais informações:----------início {0} da mensagem de {1} erro do intérprete--------------------fim {0} da mensagem de erro do intérprete---- ------|  
   
 
 ## <a name="error-0086"></a>Erro 0086  
- Exceção ocorre quando uma transformação contagem é inválida.  
+ Ocorre uma exceção quando uma transformação de contagem é inválida.  
   
- Este erro no Azure Machine Learning ocorre quando seleciona uma transformação com base numa tabela de contagem, mas a transformação selecionada não é compatível com os dados atuais, ou com a nova tabela de contagem.  
+ Esse erro no Azure Machine Learning ocorre quando você seleciona uma transformação com base em uma tabela de contagem, mas a transformação selecionada é incompatível com os dados atuais ou com a nova tabela de contagem.  
   
-**Resolução:** O módulo suporta a guardar as contagens e regras que compõem a transformação em dois formatos diferentes. Se está a intercalar contagem de tabelas, certifique-se de que ambas as tabelas que pretende intercalar utilizam o mesmo formato.  
+**Resolução:** O módulo oferece suporte ao salvamento das contagens e regras que compõem a transformação em dois formatos diferentes. Se você estiver mesclando tabelas de contagem, verifique se ambas as tabelas que você pretende mesclar usam o mesmo formato.  
   
-Em geral, uma transformação com base em contagem só pode ser aplicada a conjuntos de dados que têm o mesmo esquema como o conjunto de dados em que a transformação foi originalmente criada.  
+Em geral, uma transformação baseada em contagem só pode ser aplicada a conjuntos de valores que têm o mesmo esquema que o conjunto de um no qual a transformação foi criada originalmente.  
   
  <!-- For general information, see [Learning with Counts](data-transformation-learning-with-counts.md). For requirements specific to creating and merging count-based features, see these topics:  
   
@@ -1430,28 +1429,28 @@ Em geral, uma transformação com base em contagem só pode ser aplicada a conju
 |Mensagens de exceção|  
 |------------------------|  
 |Transformação de contagem inválida especificada.|  
-|A transformação contagem na porta de entrada "{0}" é inválido.|  
-|A transformação contagem na porta de entrada "{0}"não pode ser intercalada com a transformação contagem na porta de entrada"{1}'. Consulte para verificar os metadados usado para contagem de correspondências.|  
+|A transformação de contagem na porta de{0}entrada ' ' é inválida.|  
+|A transformação de contagem na porta de{0}entrada ' ' não pode ser mesclada com a transformação de contagem{1}na porta de entrada ' '. Marque para verificar os metadados usados para a contagem de correspondências.|  
   
 
 ## <a name="error-0087"></a>Erro 0087  
- Exceção ocorre quando é especificado um tipo de tabela de contagem inválida para a aprendizagem automática com contagens de módulos.  
+ Ocorre uma exceção quando um tipo de tabela de contagem inválido é especificado para aprender com módulos de contagens.  
   
- Este erro no Azure Machine Learning ocorre quando tentar importar uma tabela de contagem existente, mas a tabela não é compatível com os dados atuais, ou com a nova tabela de contagem.  
+ Esse erro em Azure Machine Learning ocorre quando você tenta importar uma tabela de contagem existente, mas a tabela é incompatível com os dados atuais ou com a nova tabela de contagem.  
   
-**Resolução:** Existem diferentes formatos para salvar as contagens e regras que compõem a transformação. Se está a intercalar contagem de tabelas, certifique-se de que usem o mesmo formato.  
+**Resolução:** Há formatos diferentes para salvar as contagens e as regras que compõem a transformação. Se você estiver mesclando tabelas de contagem, verifique se ambas usam o mesmo formato.  
   
- Em geral, uma transformação com base em contagem só pode ser aplicada a conjuntos de dados que têm o mesmo esquema como o conjunto de dados em que a transformação foi originalmente criada.  
+ Em geral, uma transformação baseada em contagem só pode ser aplicada a conjuntos de valores que têm o mesmo esquema do conjunto de linhas no qual a transformação foi originalmente criada.  
   
   <!--For general information, see [Learning with Counts](data-transformation-learning-with-counts.md). -->
   
 
 ## <a name="error-0088"></a>Erro 0088  
- Exceção ocorre quando uma contagem inválida o tipo é especificado para a aprendizagem automática com contagens de módulos.  
+ A exceção ocorre quando um tipo de contagem inválido é especificado para aprender com módulos de contagens.  
   
- Este erro no Azure Machine Learning ocorre quando tenta utilizar um método de contagem diferente do que é suportado para featurization com base em contagem.  
+ Esse erro no Azure Machine Learning ocorre quando você tenta usar um método de contagem diferente do que o tem suporte para personalização com base em contagem.  
   
-**Resolução:** Em geral, os métodos de contagem são escolhidos numa lista suspensa, para que não verá este erro.  
+**Resolução:** Em geral, os métodos de contagem são escolhidos em uma lista suspensa, portanto, você não deve ver esse erro.  
   
   <!--For general information, see [Learning with Counts](data-transformation-learning-with-counts.md). For requirements specific to creating and merging count-based features, see these topics:  
   
@@ -1463,321 +1462,321 @@ Em geral, uma transformação com base em contagem só pode ser aplicada a conju
   -->
 |Mensagens de exceção|  
 |------------------------|  
-|Foi especificado inválido, tipo de contagem.|  
-|O tipo de contagem especificado '{0}' não é um tipo de contagem válido.|  
+|Tipo de contagem inválido especificado.|  
+|O tipo de contagem especificado{0}' ' não é um tipo de contagem válido.|  
   
 
 ## <a name="error-0089"></a>Erro 0089  
- Exceção ocorre quando o número de classes especificado é inferior ao número real de classes num conjunto de dados usado para contagem.  
+ A exceção ocorre quando o número especificado de classes é menor que o número real de classes em um conjunto de dados usado para contagem.  
   
- Este erro no Azure Machine Learning ocorre quando estiver a criar uma tabela de contagem e a etiqueta contém um número diferente de classes que especificado nos parâmetros do módulo.  
+ Esse erro em Azure Machine Learning ocorre quando você está criando uma tabela de contagem e a coluna de rótulo contém um número diferente de classes que você especificou nos parâmetros do módulo.  
   
-**Resolução:** Verifique o seu conjunto de dados e descobrir exatamente quantos valores distintos (classes possíveis) há na coluna de etiqueta. Quando cria a tabela de contagem, tem de especificar, pelo menos, este número de classes.  
+**Resolução:** Verifique seu conjunto de e descubra exatamente quantos valores distintos (classes possíveis) existem na coluna rótulo. Ao criar a tabela de contagem, você deve especificar pelo menos esse número de classes.  
   
- A tabela contagem não pode determinar automaticamente o número de classes disponíveis.  
+ A tabela de contagem não pode determinar automaticamente o número de classes disponíveis.  
   
- Quando cria a tabela de contagem, não é possível especificar 0 ou qualquer número que é inferior ao número real de classes na coluna de etiqueta.  
+ Quando você cria a tabela de contagem, não pode especificar 0 ou qualquer número que seja menor do que o número real de classes na coluna de rótulo.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|O número de classes está incorreto. Certifique-se de que o número de classes que especificar no painel de parâmetro é maior que ou igual ao número de classes na coluna de etiqueta.|  
-|O número de classes especificado é '{0}', que não é maior do que um valor de etiqueta'{1}' no conjunto de dados utilizado para contar. Certifique-se de que o número de classes que especificar no painel de parâmetro é maior que ou igual ao número de classes na coluna de etiqueta.|  
+|O número de classes está incorreto. Certifique-se de que o número de classes especificado no painel parâmetro seja maior ou igual ao número de classes na coluna rótulo.|  
+|O número de classes especificado é '{0}', que não é maior que um valor de rótulo{1}' ' no conjunto de dados usado para contagem. Certifique-se de que o número de classes especificado no painel parâmetro seja maior ou igual ao número de classes na coluna rótulo.|  
   
 
 ## <a name="error-0090"></a>Erro 0090  
- Ocorre uma exceção quando ocorre uma falha de criação de tabelas do Hive.  
+ Ocorrerá uma exceção quando a criação da tabela do hive falhar.  
   
- Este erro no Azure Machine Learning ocorre quando estiver a utilizar [exportar dados](export-data.md) ou outra opção para guardar os dados para um cluster do HDInsight e a tabela de ramo de registo especificada não é possível criar.  
+ Esse erro no Azure Machine Learning ocorre quando você está usando [dados de exportação](export-data.md) ou outra opção para salvar dados em um cluster HDInsight e a tabela Hive especificada não pode ser criada.  
   
-**Resolução:** Verifique o nome de conta de armazenamento do Azure associado ao cluster e certifique-se de que está a utilizar a mesma conta nas propriedades do módulo.  
+**Resolução:** Verifique o nome da conta de armazenamento do Azure associada ao cluster e verifique se você está usando a mesma conta nas propriedades do módulo.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não foi possível criar a tabela do Hive. Para um cluster do HDInsight, certifique-se de que o nome da conta de armazenamento do Azure associado cluster é o mesmo que o que é transmitido através do parâmetro do módulo.|  
-|Tabela do Hive "{0}" não foi possível criar. Para um cluster do HDInsight, certifique-se de que o nome da conta de armazenamento do Azure associado cluster é o mesmo que o que é transmitido através do parâmetro do módulo.|  
-|Tabela do Hive "{0}" não foi possível criar. Para um cluster do HDInsight, certifique-se o nome da conta de armazenamento do Azure associado cluster é "{1}".|  
+|Não foi possível criar a tabela Hive. Para um cluster HDInsight, verifique se o nome da conta de armazenamento do Azure associado ao cluster é o mesmo que o passado por meio do parâmetro Module.|  
+|Não foi possível criar{0}a tabela de Hive "". Para um cluster HDInsight, verifique se o nome da conta de armazenamento do Azure associado ao cluster é o mesmo que o passado por meio do parâmetro Module.|  
+|Não foi possível criar{0}a tabela de Hive "". Para um cluster HDInsight, verifique se o nome da conta de armazenamento do Azure associado{1}ao cluster é "".|  
  
 
 ## <a name="error-0100"></a>Erro 0100  
- Exceção ocorre quando um idioma não suportado foi especificado para um módulo personalizado.  
+ Ocorrerá uma exceção quando um idioma sem suporte for especificado para um módulo personalizado.  
   
- Este erro no Azure Machine Learning ocorre quando a criação de um módulo personalizado e a propriedade de nome de **linguagem** elemento num arquivo de definição de xml de módulo personalizado tem um valor inválido. Atualmente, o único valor válido para esta propriedade é `R`. Por exemplo:  
+ Esse erro no Azure Machine Learning ocorre ao criar um módulo personalizado e a propriedade Name do elemento **Language** em um arquivo de definição XML de módulo personalizado tem um valor inválido. Atualmente, o único valor válido para essa propriedade é `R`. Por exemplo:  
   
  `<Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />`  
   
-**Resolução:** Certifique-se de que a propriedade de nome de **linguagem** elemento no arquivo de definição de xml do módulo personalizado é definido como `R`. Guarde o ficheiro, atualizar o pacote zip do módulo personalizado e tentar adicionar o módulo personalizado novamente.  
+**Resolução:** Verifique se a propriedade Name do elemento **Language** no arquivo de definição XML do módulo personalizado está definida como `R`. Salve o arquivo, atualize o pacote zip do módulo personalizado e tente adicionar o módulo personalizado novamente.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Idioma de sem suporte de módulo personalizado especificado|  
+|Linguagem de módulo personalizada sem suporte especificada|  
   
 
 ## <a name="error-0101"></a>Erro 0101  
- Todos os IDs de porta e o parâmetro tem de ser exclusivos.  
+ Todas as IDs de porta e parâmetro devem ser exclusivas.  
   
- Este erro no Azure Machine Learning ocorre quando um ou mais portas ou os parâmetros recebem o mesmo valor de ID num arquivo de definição XML de módulo personalizado.  
+ Esse erro em Azure Machine Learning ocorre quando uma ou mais portas ou parâmetros recebem o mesmo valor de ID em um arquivo de definição XML de módulo personalizado.  
   
-**Resolução:** Verifique que os valores de ID em todas as portas e os parâmetros são exclusivos. Guarde o ficheiro xml, atualizar o pacote zip do módulo personalizado e tentar adicionar o módulo personalizado novamente.  
+**Resolução:** Verifique se os valores de ID em todas as portas e parâmetros são exclusivos. Salve o arquivo XML, atualize o pacote zip do módulo personalizado e tente adicionar o módulo personalizado novamente.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Todas as portas e IDs de parâmetro para um módulo tem de ser exclusivos|  
-|Módulo '{0}' tem duplicado porta/argumento IDs. Todos os IDs de porta/argumento tem de ser exclusivos para um módulo.|  
+|Todas as IDs de porta e parâmetro para um módulo devem ser exclusivas|  
+|O módulo{0}' ' tem IDs de porta/argumento duplicadas. Todas as IDs de porta/argumento devem ser exclusivas para um módulo.|  
   
 
 ## <a name="error-0102"></a>Erro 0102  
- Lançada quando não é possível extrair um arquivo ZIP.  
+ Gerado quando um arquivo ZIP não pode ser extraído.  
   
- Este erro no Azure Machine Learning ocorre quando estiver a importar um pacote zipado com a extensão. zip, mas o pacote de não é um arquivo zip, ou o ficheiro não utiliza um formato de zip suportados.  
+ Esse erro no Azure Machine Learning ocorre quando você está importando um pacote compactado com a extensão. zip, mas o pacote não é um arquivo zip ou o arquivo não usa um formato zip com suporte.  
   
-**Resolução:** Certificar-se de que o ficheiro selecionado é um ficheiro. zip válido e que foi comprimida utilizando um dos algoritmos de compressão suportados.  
+**Resolução:** Verifique se o arquivo selecionado é um arquivo. zip válido e se ele foi compactado usando um dos algoritmos de compactação com suporte.  
   
- Se obtiver este erro ao importar os conjuntos de dados em formato compactado, certifique-se de que todos os arquivos contidos utilizam um dos formatos de ficheiro suportados e estão no formato Unicode.  <!--For more information, see [Unpack Zipped Datasets](unpack-zipped-datasets.md).  -->
+ Se você receber esse erro ao importar conjuntos de valores em formato compactado, verifique se todos os arquivos contidos usam um dos formatos de arquivo com suporte e se estão no formato Unicode.  <!--For more information, see [Unpack Zipped Datasets](unpack-zipped-datasets.md).  -->
   
- Tente adicionar novamente os ficheiros pretendidos para uma nova pasta compactada zipada e tente adicionar o módulo personalizado novamente.  
+ Tente adicionar novamente os arquivos desejados a uma nova pasta compactada compactada e tente adicionar o módulo personalizado novamente.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Fornecido ZIP de ficheiro não está no formato correto|  
+|O arquivo ZIP fornecido não está no formato correto|  
 
 
 ## <a name="error-0103"></a>Erro 0103  
- Emitida quando um ficheiro ZIP não contém quaisquer ficheiros. XML  
+ Gerado quando um arquivo ZIP não contém arquivos. xml  
   
- Este erro no Azure Machine Learning ocorre quando o pacote zip do módulo personalizado não contém quaisquer ficheiros de definição (. xml) do módulo. Esses arquivos precisam de residir na raiz do pacote zip (por exemplo, não numa subpasta.)  
+ Esse erro em Azure Machine Learning ocorre quando o pacote zip do módulo personalizado não contém nenhum arquivo de definição de módulo (. xml). Esses arquivos precisam residir na raiz do pacote zip (por exemplo, não dentro de uma subpasta.)  
   
-**Resolução:** Certifique-se de que um ou mais ficheiros de definição de módulo de xml na pasta raiz do pacote zip por extraí-lo para uma pasta temporária na sua unidade de disco. Todos os arquivos xml devem ser diretamente na pasta da que qual extraiu o pacote zip para. Certifique-se de que ao criar o pacote zip que não seleciona uma pasta que contém os arquivos xml, zip como este procedimento criará uma subpasta dentro do pacote zip com o mesmo nome que a pasta que selecionou zip.  
+**Resolução:** Verifique se um ou mais arquivos de definição de módulo XML estão na pasta raiz do pacote zip, extraindo-os para uma pasta temporária na unidade de disco. Todos os arquivos XML devem estar diretamente na pasta para a qual você extraiu o pacote zip. Certifique-se de criar o pacote zip que você não selecionou uma pasta que contém arquivos XML para zip, pois isso criará uma subpasta dentro do pacote zip com o mesmo nome da pasta que você selecionou para zip.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Fornecido ZIP ficheiro não contém quaisquer ficheiros de definição de módulo (arquivos. xml)|  
+|O arquivo ZIP fornecido não contém arquivos de definição de módulo (arquivos. xml)|  
 
 
 ## <a name="error-0104"></a>Erro 0104  
- Lançada quando um script que não é possível localizar faz referência a um ficheiro de definição de módulo  
+ Gerado quando um arquivo de definição de módulo faz referência a um script que não pode ser localizado  
   
- Este erro no Azure Machine Learning é apresentado quando um ficheiro de definição de xml de módulo personalizado faz referência um ficheiro de script no **linguagem** elemento que não existe no pacote zip. O caminho do ficheiro de script é definido no **sourceFile** propriedade da **linguagem** elemento. O caminho para o ficheiro de origem é relativo à raiz do pacote zip (mesma localização que os ficheiros de definição de xml do módulo). Se o ficheiro de script numa subpasta, o caminho relativo para o ficheiro de script tem de ser especificado. Por exemplo, se todos os scripts foram armazenados num **myScripts** pasta dentro do pacote zip, o **linguagem** elemento seria necessário adicionar este caminho para o **sourceFile** propriedade como abaixo. Por exemplo:  
+ Esse erro no Azure Machine Learning é gerado quando um arquivo de definição XML de módulo personalizado faz referência a um arquivo de script no elemento de **linguagem** que não existe no pacote zip. O caminho do arquivo de script é definido na propriedade SourceFile do elemento **Language** . O caminho para o arquivo de origem é relativo à raiz do pacote zip (mesmo local que os arquivos de definição XML do módulo). Se o arquivo de script estiver em uma subpasta, o caminho relativo para o arquivo de script deverá ser especificado. Por exemplo, se todos os scripts foram armazenados em uma pasta myscripts dentro do pacote zip, o elemento **Language** teria que adicionar esse caminho à propriedade **SourceFile** , como abaixo. Por exemplo:  
   
  `<Language name="R" sourceFile="myScripts/CustomAddRows.R" entryPoint="CustomAddRows" />`  
   
-**Resolução:** Certifique-se de que o valor do **sourceFile** propriedade na **linguagem** elemento de definição de xml do módulo personalizado está correto e se o ficheiro de origem existe no caminho relativo correto no pacote zip.  
+**Resolução:** Verifique se o valor da propriedade **SourceFile** no elemento **Language** da definição XML do módulo personalizado está correto e se o arquivo de origem existe no caminho relativo correto no pacote zip.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Ficheiro de script R referenciado não existe.|  
-|Ficheiro de script R referenciado '{0}' não é possível encontrar. Certifique-se de que o caminho relativo para o ficheiro está correto da localização de definições.|  
+|O arquivo de script R referenciado não existe.|  
+|O arquivo de script R{0}' ' referenciado não foi encontrado. Verifique se o caminho relativo para o arquivo está correto no local de definições.|  
 
 
 ## <a name="error-0105"></a>Erro 0105  
- Este erro é apresentado quando um ficheiro de definição de módulo contém um tipo de parâmetro não suportado  
+ Esse erro é exibido quando um arquivo de definição de módulo contém um tipo de parâmetro sem suporte  
   
- Este erro no Azure Machine Learning é produzido quando a criar uma definição de xml de módulo personalizado e o tipo de um parâmetro ou o argumento na definição não corresponde um tipo suportado.  
+ Esse erro no Azure Machine Learning é produzido quando você cria uma definição XML de módulo personalizado e o tipo de parâmetro ou argumento na definição não corresponde a um tipo com suporte.  
   
-**Resolução:** Certifique-se de que a propriedade de tipo de qualquer **Arg** elemento no arquivo de definição de xml do módulo personalizado é um tipo suportado.  
+**Resolução:** Verifique se a propriedade Type de qualquer elemento **ARG** no arquivo de definição XML do módulo personalizado é um tipo com suporte.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Tipo de parâmetro não suportado.|  
-|Tipo de parâmetro não suportado '{0}' especificado.|  
+|Tipo de parâmetro sem suporte.|  
+|Tipo de parâmetro sem suporte '{0}' especificado.|  
 
 
 ## <a name="error-0106"></a>Erro 0106  
- Lançada quando um ficheiro de definição de módulo define um tipo de entrada não suportado  
+ Gerado quando um arquivo de definição de módulo define um tipo de entrada sem suporte  
   
- Este erro no Azure Machine Learning é produzido quando o tipo de uma porta de entrada num módulo personalizado definição XML não corresponde um tipo suportado.  
+ Esse erro no Azure Machine Learning é produzido quando o tipo de uma porta de entrada em uma definição XML de módulo personalizado não corresponde a um tipo com suporte.  
   
-**Resolução:** Certifique-se de que a propriedade de tipo de um elemento de entrada no arquivo de definição de XML do módulo personalizado é um tipo suportado.  
+**Resolução:** Verifique se a propriedade Type de um elemento input no arquivo de definição XML do módulo personalizado é um tipo com suporte.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Tipo de entrada não suportado.|  
-|Tipo de entrada não suportado '{0}' especificado.|  
+|Tipo de entrada sem suporte.|  
+|Tipo de entrada sem suporte '{0}' especificado.|  
 
 
 ## <a name="error-0107"></a>Erro 0107  
- Lançada quando um ficheiro de definição de módulo define um tipo de saída não suportado  
+ Gerado quando um arquivo de definição de módulo define um tipo de saída sem suporte  
   
- Este erro no Azure Machine Learning é produzido quando o tipo de uma porta de saída numa definição de xml de módulo personalizado não corresponde um tipo suportado.  
+ Esse erro no Azure Machine Learning é produzido quando o tipo de uma porta de saída em uma definição XML de módulo personalizado não corresponde a um tipo com suporte.  
   
-**Resolução:** Certifique-se de que a propriedade de tipo de um elemento de saída no arquivo de definição de xml do módulo personalizado é um tipo suportado.  
+**Resolução:** Verifique se a propriedade Type de um elemento Output no arquivo de definição XML do módulo personalizado é um tipo com suporte.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Tipo de saída não suportado.|  
-|Tipo de saída não suportado '{0}' especificado.|  
+|Tipo de saída sem suporte.|  
+|Tipo de saída '{0}' especificado sem suporte.|  
 
 
 ## <a name="error-0108"></a>Erro 0108  
- Lançada quando um ficheiro de definição de módulo define mais portas de entrada ou de saída que são suportados  
+ Gerado quando um arquivo de definição de módulo define mais portas de entrada ou saída do que o suportado  
   
- Este erro no Azure Machine Learning é produzido quando muitas portas de entrada ou de saída são definidas numa definição de xml de módulo personalizado.  
+ Esse erro no Azure Machine Learning é produzido quando muitas portas de entrada ou saída são definidas em uma definição XML de módulo personalizado.  
   
-**Resolução:** Certifica-se de que o número máximo de portas de entrada e saídas definido na definição de xml de módulo personalizado não excede o número máximo de portas suportadas.  
+**Resolução:** Garante que o número máximo de portas de entrada e saída definidas na definição XML do módulo personalizado não exceda o número máximo de portas com suporte.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Foi excedido o número suportado de portas de entrada ou de saída.|  
-|Excedeu o número de suportado '{0}' portas. Número de máximo permitido '{0}'é de portas'{1}'.| 
+|Excedido o número de portas de entrada ou saída com suporte.|  
+|O número de portas '{0}' com suporte foi excedido. O número máximo permitido de{0}' ' portas é{1}' '.| 
 
 ## <a name="error-0109"></a>Erro 0109  
- Lançada quando um ficheiro de definição de módulo define um Seletor de coluna incorretamente  
+ Gerado quando um arquivo de definição de módulo define um seletor de coluna incorretamente  
   
- Este erro no Azure Machine Learning é produzido quando a sintaxe para um argumento de Seletor de coluna contém um erro numa definição de xml de módulo personalizado.  
+ Esse erro no Azure Machine Learning é produzido quando a sintaxe de um argumento de seletor de coluna contém um erro em uma definição XML de módulo personalizado.  
   
-**Resolução:** Este erro é produzido quando a sintaxe para um argumento de Seletor de coluna contém um erro numa definição de xml de módulo personalizado.  
+**Resolução:** Esse erro é produzido quando a sintaxe de um argumento de seletor de coluna contém um erro em uma definição XML de módulo personalizado.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Sintaxe não suportada para o Seletor de coluna.|  
+|Sintaxe sem suporte para o seletor de coluna.|  
   
 
 ## <a name="error-0110"></a>Erro 0110  
- Lançada quando um ficheiro de definição de módulo define um Seletor de coluna que faz referência a um ID de porta de entrada não existente  
+ Gerado quando um arquivo de definição de módulo define um seletor de coluna que faz referência a uma ID de porta de entrada não existente  
   
- Este erro no Azure Machine Learning é produzido quando os *portId* propriedade dentro do elemento de propriedades de um Arg do tipo ColumnPicker não coincide com o valor de ID de uma porta de entrada.  
+ Esse erro em Azure Machine Learning é produzido quando a Propriedade portid dentro do elemento Properties de um ARG do tipo columnpickerfor não corresponde ao valor de ID de uma porta de entrada.  
   
-**Resolução:** Certifique-se de que a propriedade de portId coincide com o valor de ID de uma porta de entrada definido na definição de xml de módulo personalizado.  
+**Resolução:** Certifique-se de que a propriedade portid corresponda ao valor de ID de uma porta de entrada definida na definição XML do módulo personalizado.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Seletor de coluna faz referência a um ID de porta de entrada não existente.|  
-|Seletor de coluna faz referência a um ID de porta de entrada não existente '{0}'.|  
+|O seletor de coluna faz referência a uma ID de porta de entrada não existente.|  
+|O seletor de coluna faz referência a uma ID de{0}porta de entrada não existente ' '.|  
   
 
 ## <a name="error-0111"></a>Erro 0111  
- Lançada quando um ficheiro de definição de módulo define uma propriedade inválida  
+ Gerado quando um arquivo de definição de módulo define uma propriedade inválida  
   
- Este erro no Azure Machine Learning é produzido quando uma propriedade inválida é atribuída a um elemento no módulo personalizado definição XML.  
+ Esse erro no Azure Machine Learning é produzido quando uma propriedade inválida é atribuída a um elemento na definição XML do módulo personalizado.  
   
-**Resolução:** Certifique-se de que a propriedade é suportada pelo elemento do módulo personalizado.  
+**Resolução:** Verifique se a propriedade tem suporte no elemento de módulo personalizado.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Definição de propriedade é inválida.|  
-|Definição de propriedade '{0}"é inválido.|  
+|Definição de propriedade inválida.|  
+|A definição de{0}Propriedade ' ' é inválida.|  
   
 
 ## <a name="error-0112"></a>Erro 0112  
- Lançada quando não é possível analisar um ficheiro de definição de módulo  
+ Gerado quando um arquivo de definição de módulo não pode ser analisado  
   
- Este erro no Azure Machine Learning é produzido quando existe um erro no formato xml que impede o definição de XML de ser analisado como um ficheiro XML válido de módulo personalizado.  
+ Esse erro no Azure Machine Learning é produzido quando há um erro no formato XML que impede que a definição XML do módulo personalizado seja analisada como um arquivo XML válido.  
   
-**Resolução:** Certifique-se de que cada elemento é aberto e fechado corretamente. Certifique-se de que não há nenhum erro na formatação de XML.  
+**Resolução:** Certifique-se de que cada elemento seja aberto e fechado corretamente. Certifique-se de que não haja erros na formatação XML.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não é possível analisar o ficheiro de definição de módulo.|  
-|Não é possível analisar o ficheiro de definição de módulo "{0}'.|  
+|Não é possível analisar o arquivo de definição de módulo.|  
+|Não é possível analisar o arquivo de{0}definição de módulo ' '.|  
   
 
 ## <a name="error-0113"></a>Erro 0113  
- Acionada quando um ficheiro de definição de módulo contém erros.  
+ Gerado quando um arquivo de definição de módulo contém erros.  
   
- Este erro no Azure Machine Learning é produzido quando o arquivo de definição XML de módulo personalizado pode ser analisado, mas contém erros, tais como a definição de elementos não suportado por módulos personalizados.  
+ Esse erro no Azure Machine Learning é produzido quando o arquivo de definição XML do módulo personalizado pode ser analisado, mas contém erros, como a definição de elementos sem suporte nos módulos personalizados.  
   
-**Resolução:** Certifique-se de que o ficheiro de definição de módulo personalizado define elementos e propriedades que são suportadas por módulos personalizados.  
+**Resolução:** Verifique se o arquivo de definição de módulo personalizado define elementos e propriedades que são suportados por módulos personalizados.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Ficheiro de definição de módulo contém erros.|  
-|Ficheiro de definição de módulo "{0}" contém erros.|  
-|Ficheiro de definição de módulo "{0}" contém erros. {1}|  
+|O arquivo de definição de módulo contém erros.|  
+|O arquivo de definição{0}de módulo ' ' contém erros.|  
+|O arquivo de definição{0}de módulo ' ' contém erros. [https://doi.org/10.13012/J8PN93H8]({1})|  
   
 
 ## <a name="error-0114"></a>Erro 0114  
- Emitida ao criar um módulo personalizado falha.  
+ Gerado durante a criação de um módulo personalizado falha.  
   
- Este erro no Azure Machine Learning é produzido quando ocorre uma falha de uma compilação de módulo personalizado. Isto ocorre quando um ou mais erros personalizados relacionados com o módulo são encontrados ao adicionar o módulo personalizado. Os erros adicionais são comunicados dentro desta mensagem de erro.  
+ Esse erro no Azure Machine Learning é produzido quando uma compilação de módulo personalizada falha. Isso ocorre quando um ou mais erros relacionados ao módulo personalizado são encontrados durante a adição do módulo personalizado. Os erros adicionais são relatados nessa mensagem de erro.  
   
-**Resolução:** Resolva os erros comunicados dentro desta mensagem de exceção.  
+**Resolução:** Resolva os erros relatados nesta mensagem de exceção.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Falha ao criar módulo personalizado.|  
-|Módulo personalizado baseia-se com falha com erro (s): {0}|  
+|Falha ao criar o módulo personalizado.|  
+|As compilações do módulo personalizado falharam com erro (s):{0}|  
   
 
 ## <a name="error-0115"></a>Erro 0115  
- Acionada quando um script padrão do módulo personalizado tem uma extensão não suportada.  
+ Gerado quando um script padrão de módulo personalizado tem uma extensão sem suporte.  
   
- Este erro no Azure Machine Learning ocorre quando é fornecer um script para um módulo personalizado que utiliza uma extensão de nome de arquivo desconhecido.  
+ Esse erro em Azure Machine Learning ocorre quando você fornece um script para um módulo personalizado que usa uma extensão de nome de arquivo desconhecido.  
   
-**Resolução:** Certifique-se a extensão de formato e o nome de ficheiro do ficheiro de qualquer arquivo de script incluídos no módulo personalizado.  
+**Resolução:** Verifique o formato e a extensão de nome de arquivo de qualquer arquivo de script incluído no módulo personalizado.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Extensão não suportada para o script de predefinição.|  
-|Essa extensão do ficheiro não suportado {0} para script padrão.|  
+|Extensão sem suporte para o script padrão.|  
+|Extensão {0} de arquivo sem suporte para o script padrão.|  
   
 
 ## <a name="error-0121"></a>Erro 0121  
- Lançada quando o SQL escreve falha porque a tabela se unwriteable  
+ Gerado quando há falha nas gravações do SQL porque a tabela não é gravável  
   
- Este erro no Azure Machine Learning é produzido quando estiver a utilizar o [exportar dados](export-data.md) módulo para salvar os resultados numa tabela numa base de dados SQL e a tabela não pode ser escrito. Normalmente, verá este erro se o [exportar dados](export-data.md) módulo com êxito estabelece uma conexão com a instância do SQL Server, mas é, em seguida, não é possível escrever o conteúdo do conjunto de dados do Azure ML na tabela.  
+ Esse erro no Azure Machine Learning é produzido quando você está usando o módulo [exportar dados](export-data.md) para salvar os resultados em uma tabela em um banco de dado SQL, e a tabela não pode ser gravada. Normalmente, você verá esse erro se o módulo [exportar dados](export-data.md) estabelecer com êxito uma conexão com a instância de SQL Server, mas, em seguida, não puder gravar o conteúdo do conjunto de dados ml do Azure na tabela.  
   
 **Resolução:**
- - Abrir o painel de propriedades do [exportar dados](export-data.md) módulo e certifique-se de que os nomes de base de dados e tabela são introduzidos corretamente. 
- - Reveja o esquema do conjunto de dados que está a exportar e certifique-se de que os dados são compatíveis com a tabela de destino.
- - Certifique-se de que o SQL iniciar sessão associado ao nome de utilizador e palavra-passe tem permissões para escrever na tabela. 
- - Se a exceção contém informações de erro adicionais do SQL Server, use essas informações para fazer correções.  
+ - Abra o painel Propriedades do módulo [exportar dados](export-data.md) e verifique se os nomes de tabela e de banco de dado foram inseridos corretamente. 
+ - Revise o esquema do conjunto de dados que você está exportando e verifique se os dados são compatíveis com a tabela de destino.
+ - Verifique se a entrada SQL associada ao nome de usuário e à senha tem permissões para gravar na tabela. 
+ - Se a exceção contiver informações de erro adicionais de SQL Server, use essas informações para fazer correções.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Ligado ao servidor, não é possível escrever à tabela.|  
-|Não é possível escrever a tabela de Sql: {0}|  
+|Conectado ao servidor, não é possível gravar na tabela.|  
+|Não é possível gravar na tabela SQL:{0}|  
 
 
 ## <a name="error-0122"></a>Erro 0122  
- Ocorre uma exceção se forem especificadas várias colunas de peso e apenas um é permitido.  
+ Ocorrerá uma exceção se várias colunas de peso forem especificadas e apenas uma for permitida.  
   
- Este erro no Azure Machine Learning ocorre quando foram selecionadas demasiadas colunas como colunas de peso.  
+ Esse erro em Azure Machine Learning ocorre quando muitas colunas foram selecionadas como colunas de peso.  
   
-**Resolução:** Reveja o conjunto de dados de entrada e seus metadados. Certifique-se de que apenas uma coluna contém pesos.  
+**Resolução:** Examine o conjunto de dados de entrada e seus metadados. Certifique-se de que apenas uma coluna contenha pesos.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Foram especificadas várias colunas de peso.|  
+|Várias colunas de peso são especificadas.|  
 
 
 ## <a name="error-0123"></a>Erro 0123  
- Ocorre uma exceção se a coluna de vetores está especificada a coluna de etiqueta.  
+ Ocorrerá uma exceção se a coluna de vetores for especificada para rotular a coluna.  
   
- Este erro no Azure Machine Learning ocorre se usar um vetor como a coluna de etiqueta.  
+ Esse erro em Azure Machine Learning ocorrerá se você usar um vetor como a coluna de rótulo.  
   
-**Resolução:** Alterar o formato de dados da coluna, se necessário, ou escolha uma coluna diferente.  
+**Resolução:** Altere o formato de dados da coluna, se necessário, ou escolha uma coluna diferente.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Coluna de vetores está especificada como coluna de etiqueta.|  
+|A coluna de vetores é especificada como coluna de rótulo.|  
 
 
 ## <a name="error-0124"></a>Erro 0124  
- Ocorre uma exceção se não numéricos colunas são especificadas para ser a coluna de peso.  
+ Ocorrerá uma exceção se colunas não numéricas forem especificadas como a coluna de peso.  
   
 **Resolução:**
   
 |Mensagens de exceção|  
 |------------------------|  
-|Coluna de não numéricas é especificada como a coluna de peso.|  
+|A coluna não numérica é especificada como a coluna de peso.|  
   
 
 
 ## <a name="error-0125"></a>Erro 0125  
- Lançada quando não corresponde ao esquema para vários conjuntos de dados.  
+ Gerado quando o esquema para vários conjuntos de valores não corresponde.  
   
 **Resolução:**
   
 |Mensagens de exceção|  
 |------------------------|  
-|Esquema de conjunto de dados não corresponde.|  
+|O esquema do conjunto de conjuntos não corresponde.|  
 
 
 ## <a name="error-0126"></a>Erro 0126  
- Ocorre uma exceção se o usuário especificar um domínio SQL que não é suportado no Azure ML.  
+ Ocorrerá uma exceção se o usuário especificar um domínio do SQL que não tem suporte no Azure ML.  
   
- Este erro é produzido quando o usuário Especifica um domínio SQL que não é suportado no Azure Machine Learning. Irá receber este erro se está a tentar ligar a um servidor de base de dados num domínio que não está na lista de permissões. Atualmente, os domínios SQL permitidos são: ". database.windows.net",". cloudapp.net", ou ". database.secure.windows.net". Ou seja, o servidor tem de ser um servidor SQL do Azure ou um servidor numa máquina virtual no Azure.  
+ Esse erro é produzido quando o usuário especifica um domínio do SQL que não tem suporte no Azure Machine Learning. Você receberá esse erro se estiver tentando se conectar a um servidor de banco de dados em um domínio que não está na lista de permissões. Atualmente, os domínios SQL permitidos são: ". database.windows.net", ". cloudapp.net" ou ". database.secure.windows.net". Ou seja, o servidor deve ser um SQL Server do Azure ou um servidor em uma máquina virtual no Azure.  
   
-**Resolução:** Examine o módulo. Certifique-se de que o servidor de base de dados SQL pertence a um dos domínios aceites:  
+**Resolução:** Revisite o módulo. Verifique se o servidor do banco de dados SQL pertence a um dos domínios aceitos:  
   
 -   .database.windows.net  
   
@@ -1787,14 +1786,14 @@ Em geral, uma transformação com base em contagem só pode ser aplicada a conju
   
 |Mensagens de exceção|  
 |------------------------|  
-|Domínio SQL não suportado.|  
-|O domínio SQL {0} não é atualmente suportado no Azure ML|  
+|Domínio SQL sem suporte.|  
+|No momento, {0} o domínio SQL não tem suporte no Azure ml|  
   
 
 ## <a name="error-0127"></a>Erro 0127  
- Tamanho de pixel de imagem excede o limite permitido  
+ O tamanho do pixel da imagem excede o limite permitido  
   
- Este erro ocorre se estiver lendo as imagens de um conjunto de dados de imagem para classificação e as imagens são maiores do que pode processar o modelo.  
+ Esse erro ocorrerá se você estiver lendo imagens de um conjunto de uma imagem para classificação e as imagens forem maiores do que o modelo pode manipular.  
   
  <!--**Resolution:**
  For more information about the image size and other requirements, see these topics:  
@@ -1805,143 +1804,143 @@ Em geral, uma transformação com base em contagem só pode ser aplicada a conju
   
 |Mensagens de exceção|  
 |------------------------|  
-|Tamanho de pixel de imagem excede o limite permitido.|  
-|Tamanho de pixel no arquivo da imagem "{0}' excede o limite permitido:"{1}'|  
+|O tamanho do pixel da imagem excede o limite permitido.|  
+|O tamanho do pixel da imagem no{0}arquivo ' ' excede o limite{1}permitido: ' '|  
 
 
 ## <a name="error-0128"></a>Erro 0128  
- Número de probabilidades condicionais para colunas categóricas excede o limite.  
+ O número de probabilidades condicionais para colunas categóricas excede o limite.  
   
 **Resolução:**
   
 |Mensagens de exceção|  
 |------------------------|  
-|Número de probabilidades condicionais para colunas categóricas excede o limite.|  
-|Número de probabilidades condicionais para colunas categóricas excede o limite. Das colunas{0}"e"{1}"são o par problemático.|  
+|O número de probabilidades condicionais para colunas categóricas excede o limite.|  
+|O número de probabilidades condicionais para colunas categóricas excede o limite. As colunas{0}' ' e{1}' ' são o par problemático.|  
 
 
 ## <a name="error-0129"></a>Erro 0129  
- Número de colunas no conjunto de dados excede o limite permitido.  
+ O número de colunas no conjunto de tempo excede o limite permitido.  
   
 **Resolução:**
   
 |Mensagens de exceção|  
 |------------------------|  
-|Número de colunas no conjunto de dados excede o limite permitido.|  
-|Número de colunas no conjunto de dados em "{0}"excede permitido."|  
-|Número de colunas no conjunto de dados no '{0}"excede o limite permitido de"{1}'.'|  
-|Número de colunas no conjunto de dados no '{0}"excede permitido"{1}"limite de"{2}'.'|  
+|O número de colunas no conjunto de tempo excede o limite permitido.|  
+|O número de colunas no conjunto de um{0}' ' excede permitido. '|  
+|O número de colunas no conjunto de um{0}' ' excede o limite permitido{1}de ' '. '|  
+|O número de colunas no conjunto de um{0}' ' excede o{1}limite ' ' permitido{2}de ' '. '|  
 ## <a name="error-0130"></a>Erro 0130  
- Ocorre uma exceção quando todas as linhas no conjunto de dados de treinamento contém valores em falta.  
+ Ocorrerá uma exceção quando todas as linhas no conjunto de registros de treinamento contiverem valores ausentes.  
   
- Isto ocorre quando algumas colunas no conjunto de dados de treinamento está vazia.  
+ Isso ocorre quando alguma coluna no conjunto de e de treinamento está vazia.  
   
-**Resolução:** Utilize o [Clean Missing Data](clean-missing-data.md) módulo para remover colunas com todos os valores em falta.  
+**Resolução:** Use o módulo [limpar dados ausentes](clean-missing-data.md) para remover colunas com todos os valores ausentes.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Todas as linhas no conjunto de dados de treinamento contêm valores em falta.  Considere utilizar o módulo de apagar dados em falta para remover valores em falta.|  
+|Todas as linhas no conjunto de registros de treinamento contêm valores ausentes.  Considere usar o módulo limpar dados ausentes para remover valores ausentes.|  
  
 
 ## <a name="error-0131"></a>Erro 0131  
- Ocorre uma exceção se uma ou mais conjuntos de dados num arquivo zip não conseguir ser descompactei e registrado corretamente  
+ Ocorrerá uma exceção se um ou mais conjuntos de arquivos em um arquivo zip não puderem ser descompactados e registrados corretamente  
   
- Este erro é produzido quando um ou mais conjuntos de dados num arquivo zip não consegue ser descompactei e ler corretamente. Irá receber este erro se o descompactar falhar porque o próprio ficheiro zip ou um dos ficheiros na mesma está danificado ou existe um erro de sistema ao tentar descompactar e expandir um ficheiro.  
+ Esse erro é produzido quando um ou mais conjuntos de arquivos em um arquivo zip não são descompactados e lidos corretamente. Você receberá esse erro se o desempacotamento falhar porque o próprio arquivo zip ou um dos arquivos contidos nele está corrompido ou há um erro do sistema ao tentar desempacotar e expandir um arquivo.  
   
-**Resolução:** Utilize os detalhes fornecidos na mensagem de erro para determinar como proceder.  
+**Resolução:** Use os detalhes fornecidos na mensagem de erro para determinar como proceder.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Carregar conjuntos de dados zipados falhou|  
-|Conjunto de dados de comprimido {0} falhou com a seguinte mensagem: {1}|  
-|Comprimido o conjunto de dados {0} falhou com um {1} exceção com a mensagem: {2}|  
+|Falha ao carregar conjuntos de itens compactados|  
+|Falha no {0} conjunto de mensagens compactado com a seguinte mensagem:{1}|  
+|Falha no {0} conjunto de mensagens {1} compactado com uma exceção com a mensagem:{2}|  
   
 
 ## <a name="error-0132"></a>Erro 0132  
- Foi especificado nenhum nome de ficheiro para descompactar; vários arquivos foram encontrados no arquivo zip.  
+ Nenhum nome de arquivo foi especificado para desempacotamento; vários arquivos foram encontrados no arquivo zip.  
   
- Este erro é produzido quando foi especificado nenhum nome de ficheiro para descompactar; vários arquivos foram encontrados no arquivo zip. Irá receber este erro se o ficheiro. zip contém mais do que um ficheiro comprimido, mas não especificou um ficheiro de extração no **conjunto de dados para Unpack** caixa de texto, além do **propriedade** painel do módulo. Atualmente, apenas um ficheiro pode ser extraído sempre que o módulo for executado.  
+ Esse erro é produzido quando nenhum nome de arquivo foi especificado para desempacotamento; vários arquivos foram encontrados no arquivo zip. Você receberá esse erro se o arquivo. zip contiver mais de um arquivo compactado, mas você não especificou um arquivo para extração na caixa de texto do conjunto de informações **a ser** desempacotado, no painel de **Propriedades** do módulo. Atualmente, apenas um arquivo pode ser extraído cada vez que o módulo é executado.  
   
-**Resolução:** A mensagem de erro fornece uma lista dos ficheiros encontrados no arquivo. zip. Copie o nome do ficheiro pretendido e cole-o para o **conjunto de dados para Unpack** caixa de texto.  
+**Resolução:** A mensagem de erro fornece uma lista dos arquivos encontrados no arquivo. zip. Copie o nome do arquivo desejado e cole-o na caixa de texto conjunto de um **para** desempacotar.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Ficheiro zip contém vários ficheiros; tem de especificar o ficheiro para expandir.|  
-|O ficheiro contém mais de um ficheiro. Especifique o ficheiro para expandir. Foram encontrados os seguintes ficheiros: {0}|  
+|O arquivo zip contém vários arquivos; Você deve especificar o arquivo a ser expandido.|  
+|O arquivo contém mais de um arquivo. Especifique o arquivo a ser expandido. Os seguintes arquivos foram encontrados:{0}|  
   
 
 ## <a name="error-0133"></a>Erro 0133  
- O ficheiro especificado não foi encontrado no ficheiro zip  
+ O arquivo especificado não foi encontrado no arquivo zip  
   
- Este erro é produzido quando o nome do ficheiro introduzido na **conjunto de dados para Unpack** campo a **propriedade** painel não corresponde ao nome de qualquer ficheiro encontrado no arquivo. zip. As causas mais comuns deste erro são um erro de digitação ou procurar o ficheiro de arquivo errada para o ficheiro expandir.  
+ Esse erro é produzido quando o nome de arquivo inserido no campo conjunto de campos **para** desempacotar do painel de **Propriedades** não corresponde ao nome de qualquer arquivo encontrado no arquivo. zip. As causas mais comuns desse erro são um erro de digitação ou a pesquisa do arquivo morto incorreto para expandir o arquivo.  
   
-**Resolução:** Examine o módulo. Se o nome do ficheiro que se destina a descomprimir aparece na lista de arquivos encontrados, copie o nome de ficheiro e cole-o para o **conjunto de dados para Unpack** caixa da propriedade. Se não vir o nome de ficheiro pretendido na lista, certifique-se de que tem o ficheiro. zip correto e o nome correto para o arquivo desejado.  
+**Resolução:** Revisite o módulo. Se o nome do arquivo que você pretende descompactar aparecer na lista de arquivos encontrados, copie o nome do arquivo e cole-o na caixa de propriedade conjunto de propriedades **para** desempacotar. Se você não vir o nome de arquivo desejado na lista, verifique se você tem o arquivo. zip correto e o nome correto para o arquivo desejado.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|O ficheiro especificado não foi encontrado o ficheiro zip de int.|  
-|O ficheiro especificado não foi encontrado. Foram encontrados os seguintes ficheiros: {0}|  
+|O arquivo especificado não foi encontrado em int o arquivo zip.|  
+|O arquivo especificado não foi encontrado. Encontrados os seguintes arquivos:{0}|  
   
 
 ## <a name="error-0134"></a>Erro 0134
-Exceção ocorre quando a coluna de etiqueta está em falta ou tem um número insuficiente de linhas com nome.  
+Ocorre uma exceção quando a coluna de rótulo está ausente ou tem número insuficiente de linhas rotuladas.  
   
-Este erro ocorre quando o módulo requer uma coluna de etiqueta, mas não incluía um na seleção de coluna ou a coluna de etiqueta está em falta demasiados valores.
+Esse erro ocorre quando o módulo requer uma coluna de rótulo, mas você não incluiu uma na seleção de coluna ou a coluna de rótulo está sem muitos valores.
 
-Este erro também pode ocorrer quando uma operação anterior altera o conjunto de dados que linhas insuficientes estão disponíveis para uma operação de downstream. Por exemplo, suponha que use uma expressão na **partição e amostras** módulo dividir um conjunto de dados por valores. Se não forem encontradas correspondências para a sua expressão, um dos conjuntos de dados resultante da partição deve estar vazio.
+Esse erro também pode ocorrer quando uma operação anterior altera o conjunto de registros, de modo que as linhas insuficientes estejam disponíveis para uma operação downstream. Por exemplo, suponha que você use uma expressão no módulo **partição e exemplo** para dividir um conjunto de um DataSet por valores. Se nenhuma correspondência for encontrada para sua expressão, um dos conjuntos de resultados resultante da partição estaria vazio.
 
 Resolução: 
 
- Se incluir uma coluna de etiqueta na seleção de coluna, mas não é reconhecido, utilize o [Editar metadados](edit-metadata.md) módulo para marcá-lo como uma coluna de etiqueta.
+ Se você incluir uma coluna de rótulo na seleção de coluna, mas ela não for reconhecida, use o módulo [Editar metadados](edit-metadata.md) para marcá-la como uma coluna de rótulo.
   
-  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->Em seguida, pode utilizar o [Clean Missing Data](clean-missing-data.md) módulo para remover linhas com valores em falta na coluna de etiqueta. 
+  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->Em seguida, você pode usar o módulo [limpar dados ausentes](clean-missing-data.md) para remover linhas com valores ausentes na coluna rótulo. 
 
- Verifique os conjuntos de dados de entrada para se certificar de que eles contenham dados válidos e linhas suficientes para satisfazer os requisitos da operação. Muitos algoritmos irão gerar uma mensagem de erro, se eles exigem algumas linhas de número mínimo de dados, mas os dados contêm apenas algumas linhas, ou apenas um cabeçalho.
+ Verifique os conjuntos de dados de entrada para certificar-se de que eles contêm um dado válido e linhas suficientes para atender aos requisitos da operação. Muitos algoritmos gerarão uma mensagem de erro se exigirem um número mínimo de linhas de dados, mas os dados contiverem apenas algumas linhas ou apenas um cabeçalho.
   
 |Mensagens de exceção|
 |------------------------|
-|Exceção ocorre quando a coluna de etiqueta está em falta ou tem um número insuficiente de linhas com nome.|  
-|Exceção ocorre quando a coluna de etiqueta está em falta ou tem menos de {0} rotulado como linhas|  
+|Ocorre uma exceção quando a coluna de rótulo está ausente ou tem número insuficiente de linhas rotuladas.|  
+|Ocorre uma exceção quando a coluna de rótulo está ausente ou {0} tem menos de linhas rotuladas|  
   
 
 ## <a name="error-0135"></a>Erro 0135  
- Com base em centroide o cluster só é suportado.  
+ Há suporte apenas para o cluster baseado em centróide.  
   
-**Resolução:** Poderá encontrar esta mensagem de erro se foi efetuada uma tentativa avaliar um modelo de clustering que se baseia num algoritmo de clustering personalizado que não utiliza centróides para inicializar o cluster.  
+**Resolução:** Você poderá encontrar essa mensagem de erro se tiver tentado avaliar um modelo de clustering baseado em um algoritmo de clustering personalizado que não usa centróides para inicializar o cluster.  
   
   <!--You can use [Evaluate Model](evaluate-model.md) to evaluate clustering models that are based on the  [K-Means Clustering](k-means-clustering.md) module. For custom algorithms, use the [Execute R Script](execute-r-script.md) module to create a custom evaluation script.  -->
   
 |Mensagens de exceção|  
 |------------------------|  
-|Com base em centroide o cluster só é suportado.|  
+|Há suporte apenas para o cluster baseado em centróide.|  
   
 
 ## <a name="error-0136"></a>Erro 0136  
- Não foi devolvido nenhum nome de ficheiro; Não é possível processar o ficheiro como resultado.  
+ Nenhum nome de arquivo foi retornado; Não é possível processar o arquivo como resultado.  
   
 **Resolução:**
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não foi devolvido nenhum nome de ficheiro; Não é possível processar o ficheiro como resultado.|  
+|Nenhum nome de arquivo foi retornado; Não é possível processar o arquivo como resultado.|  
   
 
 ## <a name="error-0137"></a>Erro 0137  
- SDK de armazenamento do Azure encontrou um erro ao converter entre propriedades de tabela e colunas do conjunto de dados durante a leitura ou escrita.  
+ O SDK do armazenamento do Azure encontrou um erro ao converter as propriedades da tabela e do conjunto de linhas durante leitura ou gravação.  
   
 **Resolução:**
   
 |Mensagens de exceção|  
 |------------------------|  
-|Erro de conversão entre a coluna de propriedade e o conjunto de dados do armazenamento de tabelas do Azure.|  
-|Erro de conversão entre a coluna de propriedade e o conjunto de dados do armazenamento de tabelas do Azure. Informações adicionais: {0}|  
+|Erro de conversão entre a propriedade de armazenamento de tabela do Azure e a coluna de conjunto de de|  
+|Erro de conversão entre a propriedade de armazenamento de tabela do Azure e a coluna de conjunto de de Informações adicionais:{0}|  
 
-## <a name="error-0138"></a>Error 0138  
- Memória foi esgotada, não é possível para a execução completa do módulo. Downsampling o conjunto de dados pode ajudar a minimizar o problema.  
+## <a name="error-0138"></a>Erro 0138  
+ A memória foi esgotada, não é possível concluir a execução do módulo. A redução do conjunto de os pode ajudar a aliviar o problema.  
   
- Este erro ocorre quando o módulo que está a executar requer mais memória do que está disponível no contentor do Azure. Isto pode acontecer se estiver a trabalhar com um grande conjunto de dados e a operação atual não é possível se encaixam na memória.  
+ Esse erro ocorre quando o módulo que está sendo executado requer mais memória do que está disponível no contêiner do Azure. Isso pode acontecer se você estiver trabalhando com um grande conjunto de grandes e a operação atual não couber na memória.  
   
-**Resolução:** Se estiver a tentar ler um grande conjunto de dados e não é possível concluir a operação, downsampling o conjunto de dados pode ajudar.  
+**Resolução:** Se você estiver tentando ler um grande conjunto de grandes e a operação não puder ser concluída, a redução da resolução do conjunto de um pode ajudar.  
   
   <!--If you use the visualizations on datasets to check the cardinality of columns, only some rows are sampled. To get a full report, use [Summarize Data](summarize-data.md). You can also use the [Apply SQL Transformation](apply-sql-transformation.md) to check for the number of unique values in each column.  
   
@@ -1951,144 +1950,144 @@ Resolução:
   
 |Mensagens de exceção|  
 |------------------------|  
-|Memória foi esgotada, não é possível para a execução completa do módulo.|  
+|A memória foi esgotada, não é possível concluir a execução do módulo.|  
   
 
 ## <a name="error-0139"></a>Erro 0139  
- Exceção ocorre quando não é possível converter uma coluna a outro tipo.  
+ Ocorre uma exceção quando não é possível converter uma coluna em outro tipo.  
   
- Este erro no Azure Machine Learning ocorre quando tentar converter uma coluna para um tipo de dados diferentes, mas que tipo não é suportado a operação atual ou o módulo.  
+ Esse erro no Azure Machine Learning ocorre quando você tenta converter uma coluna em um tipo de dados diferente, mas esse tipo não é suportado pela operação atual ou pelo módulo.  
   
- Também pode aparecer o erro quando um módulo tenta converter implicitamente os dados para atender aos requisitos do módulo atual, mas a conversão não é possível.  
+ O erro também pode aparecer quando um módulo tenta converter dados implicitamente para atender aos requisitos do módulo atual, mas a conversão não é possível.  
   
 **Resolução:**
 
-1. Reveja os dados de entrada e determinar o tipo de exatamente os dados da coluna que pretende utilizar e o tipo de dados da coluna que produz o erro. Por vezes, pode pensar o tipo de dados está correto, mas encontrar o que uma operação a montante tiver modificado o tipo de dados ou a utilização de uma coluna. Utilize o [Editar metadados](edit-metadata.md) módulo repor os metadados da coluna para seu estado original. 
-2. Ver a página de ajuda do módulo para verificar os requisitos para a operação especificada. Determine que tipos de dados são suportados pelo módulo de atual e o intervalo de valores é suportado. 
+1. Examine os dados de entrada e determine o tipo de dados exato da coluna que você deseja usar e o tipo de dados da coluna que está produzindo o erro. Às vezes, você pode achar que o tipo de dados está correto, mas descobrir que uma operação upstream modificou o tipo de dados ou o uso de uma coluna. Use o módulo [Editar metadados](edit-metadata.md) para redefinir os metadados da coluna para seu estado original. 
+2. Examine a página de ajuda do módulo para verificar os requisitos para a operação especificada. Determine quais tipos de dados têm suporte no módulo atual e qual intervalo de valores tem suporte. 
  <!--3. If values need to be truncated, rounded, or outliers removed, use the [Apply Math Operation](apply-math-operation.md) or [Clip Values](clip-values.md) modules to make corrections.-->
-4. Considere se é possível converter ou converter a coluna para um tipo de dados diferentes. Os seguintes módulos todos os fornecem considerável flexibilidade e poder para modificar os dados: 
+4. Considere se é possível converter ou fazer a conversão da coluna em um tipo de dados diferente. Todos os módulos a seguir fornecem flexibilidade e capacidade consideráveis para modificar dados: 
  <!--
    + [Apply SQL Transformation](apply-sql-transformation.md)
    + [Execute R Script](execute-r-script.md)
 -->   
-   + [Executar o Script de Python](execute-python-script.md).  
+   + [Execute o script Python](execute-python-script.md).  
 
 > [!NOTE]
-> Ainda não funcionar? Considere fornecer comentários adicionais sobre o problema, para ajudar-na desenvolver as orientações para a melhor resolução. Basta enviar comentários sobre esta página e forneça o nome do módulo que gerou o erro e a conversão de tipo de dados que falhou.
+> Ainda não está funcionando? Considere fornecer comentários adicionais sobre o problema para nos ajudar a desenvolver melhores diretrizes de solução de problemas. Basta enviar comentários nesta página e fornecer o nome do módulo que gerou o erro e a conversão de tipo de dados que falhou.
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não permitido conversão.|  
-|Não foi possível converter: {0}.|  
-|Não foi possível converter: {0}, na linha {1}.|  
-|Não foi possível converter a coluna do tipo {0} a coluna do tipo {1} na linha {2}.|  
-|Não foi possível converter a coluna "{2}" do tipo {0} a coluna do tipo {1} na linha {3}.|  
-|Não foi possível converter a coluna "{2}" do tipo {0} a coluna "{3}" do tipo {1} na linha {4}.| 
+|Conversão não permitida.|  
+|Não foi possível converter {0}:.|  
+|Não foi possível converter {0}:, na {1}linha.|  
+|Não foi possível converter a coluna {0} do tipo em coluna {1} do tipo {2}na linha.|  
+|Não foi possível converter a{2}coluna "" {0} do tipo em uma {1} coluna do {3}tipo na linha.|  
+|Não foi possível converter a{2}coluna "" {0} do tipo para{3}a coluna " {1} " do {4}tipo na linha.| 
 
 ## <a name="error-0140"></a>Erro 0140  
- Ocorre uma exceção se transmitido argumento de conjunto de colunas não contém outras colunas, exceto a coluna de etiqueta.  
+ Ocorrerá uma exceção se o argumento de conjunto de colunas aprovado não contiver outras colunas, exceto a coluna de rótulo.  
   
- Este erro ocorre se estiver ligado um conjunto de dados a um módulo que requer várias colunas, incluindo recursos, mas que forneceu apenas a coluna de etiqueta.  
+ Esse erro ocorre se você conectou um conjunto de um DataSet a um módulo que requer várias colunas, incluindo recursos, mas você forneceu apenas a coluna rótulo.  
   
-**Resolução:** Escolha pelo menos uma coluna de funcionalidade para incluir no conjunto de dados.  
+**Resolução:** Escolha pelo menos uma coluna de recurso para incluir no conjunto de recursos.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Conjunto de colunas especificado não contém outras colunas, exceto a coluna de etiqueta.|  
+|O conjunto de colunas especificado não contém outras colunas, exceto a coluna de rótulo.|  
   
 
 ## <a name="error-0141"></a>Erro 0141  
- Ocorre uma exceção se o número das colunas numéricas selecionadas e valores exclusivos na categórica e as colunas de cadeia de caracteres é demasiado pequeno.  
+ Ocorrerá uma exceção se o número das colunas numéricas selecionadas e os valores exclusivos nas colunas categóricas e de cadeia de caracteres forem muito pequenos.  
   
- Este erro no Azure Machine Learning ocorre quando não existem suficientes valores exclusivos na coluna selecionada para efetuar a operação.  
+ Esse erro em Azure Machine Learning ocorre quando não há valores exclusivos suficientes na coluna selecionada para executar a operação.  
   
-**Resolução:** Algumas operações de efetuar operações estatísticas no recurso e colunas categóricas e se não forem suficientes valores, a operação poderá falhar ou devolver um resultado inválido. Verifique o seu conjunto de dados para ver quantos valores existem nas colunas de funcionalidade e a etiqueta e determinar se a operação que está a tentar executar é estatisticamente válida.  
+**Resolução:** Algumas operações executam operações estatísticas em colunas de recursos e categóricas e, se não houver valores suficientes, a operação poderá falhar ou retornar um resultado inválido. Verifique o conjunto de recursos para ver quantos valores existem nas colunas de recurso e rótulo e determine se a operação que você está tentando executar é estatisticamente válida.  
   
- Se o conjunto de dados de origem for válido, também pode verificar se uma operação de manipulação ou metadados de dados a montante tem os dados alterados e removido alguns valores.  
+ Se o conjunto de dados de origem for válido, você também poderá verificar se alguma operação de manipulação ou metadados upstream alterou os dados e removeu alguns valores.  
   
- Se as operações a montante incluem a divisão, amostragem ou resampling, certifique-se de que as saídas contém o número esperado de linhas e valores.  
+ Se as operações de upstream incluírem divisão, amostragem ou reamostragem, verifique se as saídas contêm o número esperado de linhas e valores.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|O número das colunas numéricas selecionadas e valores exclusivos na categórica e as colunas de cadeia de caracteres é demasiado pequeno.|  
-|O número total das colunas numéricas selecionadas e valores exclusivos na categórica e as colunas de cadeia de caracteres (atualmente {0}) deve ser, pelo menos, {1}|  
+|O número de colunas numéricas selecionadas e valores exclusivos nas colunas categóricas e de cadeia de caracteres é muito pequeno.|  
+|O número total de colunas numéricas selecionadas e valores exclusivos nas colunas categóricas e de cadeia de caracteres {0}(no momento) devem ser pelo menos{1}|  
   
 
 ## <a name="error-0142"></a>Erro 0142  
- Exceção ocorre quando o sistema não é possível carregar o certificado para autenticar.  
+ Ocorrerá uma exceção quando o sistema não puder carregar o certificado para autenticar.  
   
 **Resolução:**
   
 |Mensagens de exceção|  
 |------------------------|  
 |Não é possível carregar o certificado.|  
-|O certificado {0} não pode ser carregado. Sua impressão digital é {1}.|  
+|Não é {0} possível carregar o certificado. Sua impressão digital {1}é.|  
   
 
 ## <a name="error-0143"></a>Erro 0143  
- Não é possível analisar o URL fornecido pelo utilizador que deve para ser a partir do GitHub.  
+ Não é possível analisar a URL fornecida pelo usuário que deveria ser do GitHub.  
   
- Este erro no Azure Machine Learning ocorre quando especificar um URL inválido e o módulo requer um URL válido do GitHub.  
+ Esse erro em Azure Machine Learning ocorre quando você especifica uma URL inválida e o módulo requer uma URL do GitHub válida.  
   
-**Resolução:** Certifique-se de que o URL se refere a um repositório do GitHub válido. Não são suportados outros tipos de site.  
+**Resolução:** Verifique se a URL refere-se a um repositório GitHub válido. Não há suporte para outros tipos de site.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|URL não é do github.com.|  
-|O URL não é do github.com: {0}|  
+|A URL não é de github.com.|  
+|A URL não é de github.com:{0}|  
 
 ## <a name="error-0144"></a>Erro 0144  
- Utilizador url fornecido pelo GitHub está em falta a parte esperada.  
+ A URL do GitHub fornecida pelo usuário está sem a parte esperada.  
   
- Este erro no Azure Machine Learning ocorre quando especificar uma origem de ficheiro do GitHub com um formato de URL inválido.  
+ Esse erro em Azure Machine Learning ocorre quando você especifica uma origem de arquivo do GitHub usando um formato de URL inválido.  
   
-**Resolução:** Verifique se o URL do repositório do GitHub é válido e termina com \blob\ ou \tree\\.  
+**Resolução:** Verifique se a URL do repositório do GitHub é válida e termina com \blob\ ou \tree\\.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não é possível analisar o URL do GitHub.|  
-|Não é possível analisar o URL do GitHub (era esperado ' \blob\\' ou ' \tree\\"após o nome do repositório): {0}|  
+|Não é possível analisar a URL do GitHub.|  
+|Não é possível analisar a URL do GitHub\\(esperando ' \blob\\' ou ' \tree ' após o nome do repositório):{0}|  
 
 ## <a name="error-0145"></a>Erro 0145  
  Não é possível criar o diretório de replicação por algum motivo.  
   
- Este erro no Azure Machine Learning ocorre quando o módulo não consegue criar o diretório especificado.  
+ Esse erro em Azure Machine Learning ocorre quando o módulo falha ao criar o diretório especificado.  
   
 **Resolução:**
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não é possível criar o diretório de replicação.|  
+|Não é possível criar diretório de replicação.|  
   
 
 ## <a name="error-0146"></a>Erro 0146  
- Quando os ficheiros de utilizador estão descompactados para o diretório local, o caminho combinado pode ser demasiado longo.  
+ Quando os arquivos de usuário são descompactados no diretório local, o caminho combinado pode ser muito longo.  
   
- Este erro no Azure Machine Learning ocorre quando está a extrair arquivos, mas alguns nomes de ficheiro são demasiado longos quando descompactei.  
+ Esse erro no Azure Machine Learning ocorre quando você está extraindo arquivos, mas alguns nomes de arquivo são muito longos quando descompactados.  
   
-**Resolução:** Edite os nomes dos ficheiros, de modo a que combinados caminho e nome de ficheiro é não ultrapassa a 248 carateres.  
+**Resolução:** Edite os nomes de arquivo de modo que o caminho combinado e o nome do arquivo não tenham mais de 248 caracteres.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Caminho de replicação tiver mais de 248 carateres, Encurte o nome do script ou o caminho.|  
+|O caminho de replicação tem mais de 248 caracteres, diminua o nome ou o caminho do script.|  
 
 ## <a name="error-0147"></a>Erro 0147  
- Não foi possível transferir coisas do GitHub por algum motivo  
+ Não foi possível baixar itens do GitHub por algum motivo  
   
- Este erro no Azure Machine Learning ocorre quando não é possível ler ou transferir os ficheiros especificados a partir do GitHub.  
+ Esse erro no Azure Machine Learning ocorre quando você não pode ler ou baixar os arquivos especificados do GitHub.  
   
-**Resolução:** O problema poderá ser temporário; poderia tentar aceder aos ficheiros em outro momento. Ou certifique-se de que tem as permissões necessárias e que a origem é válida.  
+**Resolução:** O problema pode ser temporário; Você pode tentar acessar os arquivos em outro momento. Ou verifique se você tem as permissões necessárias e se a origem é válida.  
   
 |Mensagens de exceção|  
 |------------------------|  
 |Erro de acesso do GitHub.|  
-|Erro de acesso do GitHub. {0}|  
+|Erro de acesso do GitHub. [https://doi.org/10.13012/J8PN93H8]({0})|  
   
 
 ## <a name="error-0148"></a>Erro 0148  
- Problemas de acesso não autorizado ao extrair dados ou a criar o diretório.  
+ Problemas de acesso não autorizado ao extrair dados ou criar diretório.  
   
- Este erro no Azure Machine Learning ocorre quando está tentando criar um diretório ou ler os dados do armazenamento, mas não tem as permissões necessárias.  
+ Esse erro no Azure Machine Learning ocorre quando você está tentando criar um diretório ou ler dados do armazenamento, mas não tem as permissões necessárias.  
   
 **Resolução:**
   
@@ -2098,98 +2097,98 @@ Resolução:
   
 
 ## <a name="error-0149"></a>Erro 0149  
- O ficheiro de utilizador não existe no interior do pacote do GitHub.  
+ O arquivo de usuário não existe no pacote do GitHub.  
   
- Este erro no Azure Machine Learning ocorre quando não é possível localizar o ficheiro especificado.  
+ Esse erro no Azure Machine Learning ocorre quando o arquivo especificado não pode ser encontrado.  
   
 Resolução: 
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não foi encontrado o ficheiro do GitHub.|  
-|Arquivo do GitHub não for encontrado.: {0}|  
+|O arquivo GitHub não foi encontrado.|  
+|O arquivo GitHub não foi encontrado.:{0}|  
   
 
 ## <a name="error-0150"></a>Erro 0150  
- Os scripts que são provenientes do pacote de utilizador não foi possível descompactados, provavelmente devido a uma colisão de ficheiros do GitHub.  
+ Os scripts provenientes do pacote do usuário não puderam ser descompactados, provavelmente devido a uma colisão com arquivos do GitHub.  
   
- Este erro no Azure Machine Learning ocorre quando um script não é possível extrair, normalmente, quando existe um ficheiro existente, o mesmo nome.  
+ Esse erro em Azure Machine Learning ocorre quando um script não pode ser extraído, normalmente quando há um arquivo existente com o mesmo nome.  
   
 Resolução:
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não é possível descomprimir o pacote; colisão de nomes de possíveis com os ficheiros do GitHub.|  
+|Não é possível descompactar o pacote; possível colisão de nomes com arquivos GitHub.|  
   
 
 ## <a name="error-0151"></a>Erro 0151  
- Ocorreu um erro ao escrever no armazenamento na nuvem. Verifique o URL.  
+ Erro ao gravar no armazenamento em nuvem. Verifique a URL.  
   
- Este erro no Azure Machine Learning ocorre quando o módulo tenta gravar dados no armazenamento na cloud, mas o URL está indisponível ou é inválido.  
+ Esse erro em Azure Machine Learning ocorre quando o módulo tenta gravar dados no armazenamento em nuvem, mas a URL está indisponível ou é inválida.  
   
-Resolução: Verifique o URL e certifique-se de que é gravável.  
+Resolução: Verifique a URL e verifique se ela é gravável.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Erro ao escrever (possivelmente uma url ruim) de armazenamento na nuvem.|  
-|Erro ao escrever no armazenamento na nuvem: {0}. Verifique o url.|  
+|Erro ao gravar no armazenamento em nuvem (possivelmente uma URL inadequada).|  
+|Erro ao gravar no armazenamento em {0}nuvem:. Verifique a URL.|  
   
 ## <a name="error-0152"></a>Erro 0152  
- O tipo de cloud do Azure foi incorretamente especificado no contexto do módulo.  
+ O tipo de nuvem do Azure foi especificado incorretamente no contexto do módulo.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Tipo de nuvem do Azure|  
-|Tipo de nuvem do Azure: {0}|  
+|Tipo de nuvem do Azure inadequado|  
+|Tipo de nuvem do Azure inadequado:{0}|  
   
 ## <a name="error-0153"></a>Erro 0153  
- O ponto de final de armazenamento especificado é inválido.  
+ O ponto de extremidade de armazenamento especificado é inválido.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Tipo de nuvem do Azure|  
-|Ponto de final de armazenamento ruim: {0}|  
+|Tipo de nuvem do Azure inadequado|  
+|Ponto de extremidade de armazenamento inadequado:{0}|  
 
-## <a name="error-0154"></a>Error 0154  
- Não foi possível resolver o nome de servidor especificado  
+## <a name="error-0154"></a>Erro 0154  
+ O nome do servidor especificado não pôde ser resolvido  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Não foi possível resolver o nome de servidor especificado|  
-|O servidor especificado {0}. não foi possível resolver documents.azure.com|
+|O nome do servidor especificado não pôde ser resolvido|  
+|O Server {0}. Documents.Azure.com especificado não pôde ser resolvido|
 
 ## <a name="error-0155"></a>Erro 0155  
- O cliente de DocDb emitiu uma exceção  
+ O cliente DocDb lançou uma exceção  
   
 |Mensagens de exceção|  
 |------------------------|  
-|O cliente de DocDb emitiu uma exceção|  
-|Cliente de DocDb: {0}|
+|O cliente DocDb lançou uma exceção|  
+|Cliente DocDb:{0}|
 
 ## <a name="error-0156"></a>Erro 0156  
- Resposta incorreta para o servidor de HCatalog.  
+ Resposta inadequada para o servidor HCatalog.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Resposta incorreta para o servidor de HCatalog. Verifique se todos os serviços estão em execução.|  
-|Resposta incorreta para o servidor de HCatalog. Verifique se todos os serviços estão em execução. Detalhes do erro: {0}|
+|Resposta inadequada para o servidor HCatalog. Verifique se todos os serviços estão em execução.|  
+|Resposta inadequada para o servidor HCatalog. Verifique se todos os serviços estão em execução. Detalhes do erro: {0}|
 
 ## <a name="error-0157"></a>Erro 0157  
- Ocorreu um erro ao ler a partir do Azure Cosmos DB devido a esquemas inconsistentes ou outro documento. Leitor requer que todos os documentos para ter o mesmo esquema.  
+ Erro ao ler de Azure Cosmos DB devido a esquemas de documento inconsistentes ou diferentes. O leitor requer que todos os documentos tenham o mesmo esquema.  
   
 |Mensagens de exceção|  
 |------------------------|  
-|Detetado documentos com esquemas diferentes. Certifique-se de que todos os documentos com o mesmo esquema|
+|Documentos detectados com esquemas diferentes. Verifique se todos os documentos têm o mesmo esquema|
 
-## <a name="error-1000"></a>Erro de 1000  
-Exceção da biblioteca interna.  
+## <a name="error-1000"></a>Erro 1000  
+Exceção de biblioteca interna.  
   
-Este erro é fornecido capturar, caso contrário, não processada erros de motor interno. Por conseguinte, a causa deste erro poderá ser diferente consoante o módulo que gerou o erro.  
+Esse erro é fornecido para capturar erros de mecanismo interno de outra forma sem tratamento. Portanto, a causa desse erro pode ser diferente dependendo do módulo que gerou o erro.  
   
-Para obter mais ajuda, recomendamos que publique a mensagem detalhada que acompanha o erro para o Fórum do Azure Machine Learning, juntamente com uma descrição do cenário, incluindo os dados utilizados como entradas. Estes comentários nos ajudarão a priorizar erros e identificar os problemas mais importantes para o trabalho adicional.  
+Para obter mais ajuda, recomendamos que você poste a mensagem detalhada que acompanha o erro no fórum de Azure Machine Learning, junto com uma descrição do cenário, incluindo os dados usados como entradas. Esses comentários nos ajudarão a priorizar erros e identificar os problemas mais importantes para um trabalho adicional.  
   
 |Mensagens de exceção|  
 |------------------------|  
 |Exceção de biblioteca.|  
-|Exceção de biblioteca: {0}|  
-|{0} Exceção de biblioteca: {1}|  
+|Exceção de biblioteca:{0}|  
+|{0}exceção de biblioteca:{1}|  

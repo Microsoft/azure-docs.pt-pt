@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: fa1e7fcf89ccc06e429831191ba5dfce3cf33797
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 7fea6d16c8846909a8ce9bb33aae74ce343018fa
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828310"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142328"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -199,17 +199,17 @@ SO Linux não endossado | O computador pode iniciar no Azure, mas o Azure não f
 Sistema operacional desconhecido | O sistema operacional da VM foi especificado como "other" em vCenter Server. Esse comportamento impede que as migrações para Azure verifiquem a prontidão do Azure da VM. Verifique se o sistema operacional do computador tem [suporte](https://aka.ms/azureoslist) no Azure antes de migrar o computador.
 Número de bits do SO não suportados | As VMs com um sistema operacional de 32 bits podem ser inicializadas no Azure, mas recomendamos que você atualize o sistema operacional da VM para 64 bits antes de migrar para o Azure.
 Requer uma assinatura Microsoft Visual Studio | O computador está executando um sistema operacional cliente Windows, que tem suporte apenas por meio de uma assinatura do Visual Studio.
-Não foi encontrada uma VM para o desempenho de armazenamento necessário | O desempenho de armazenamento (operações de entrada/saída por segundo [IOPS] e taxa de transferência) necessários para o computador excede o suporte à VM do Azure. Reduza os requisitos de armazenamento para a máquina antes da migração.
-Não foi encontrada uma VM para o desempenho de rede necessário | O desempenho de rede (entrada/saída) necessário para o computador excede o suporte de VM do Azure. Reduza os requisitos de rede para o computador.
-Não foi encontrada uma VM na localização especificada | Use um local de destino diferente antes da migração.
+VM não encontrada para o desempenho de armazenamento necessário | O desempenho de armazenamento (operações de entrada/saída por segundo [IOPS] e taxa de transferência) necessários para o computador excede o suporte à VM do Azure. Reduza os requisitos de armazenamento para a máquina antes da migração.
+VM não encontrada para o desempenho de rede necessário | O desempenho de rede (entrada/saída) necessário para o computador excede o suporte de VM do Azure. Reduza os requisitos de rede para o computador.
+VM não encontrada no local especificado | Use um local de destino diferente antes da migração.
 Um ou mais discos não são adequados | Um ou mais discos anexados à VM não atendem aos requisitos do Azure. Azure Migrate: Atualmente, a avaliação do servidor não dá suporte a discos SSD Ultra e avalia os discos com base nos limites de disco para discos gerenciados Premium (32 TB).  Para cada disco anexado à VM, verifique se o tamanho do disco é < 64 TB (com suporte de discos SSD Ultra), caso contrário, reduza o tamanho do disco antes de migrar para o Azure ou use vários discos no Azure e distribua [-os](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) para obter limites de armazenamento mais altos. Certifique-se de que o desempenho (IOPS e taxa de transferência) necessário para cada disco tem suporte dos [discos de máquina virtual gerenciada](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits)pelo Azure.
 Um ou mais adaptadores de rede inadequados. | Remova adaptadores de rede não utilizados do computador antes da migração.
 A contagem do disco excede o limite | Remova os discos não utilizados do computador antes da migração.
 O tamanho do disco excede o limite | Azure Migrate: Atualmente, a avaliação do servidor não dá suporte a discos SSD Ultra e avalia os discos com base nos limites de disco Premium (32 TB). No entanto, o Azure dá suporte a discos com tamanho de até 64 TB (com suporte de discos SSD Ultra). Reduza os discos para menos de 64 TB antes da migração ou use vários discos no Azure e distribua [-os juntos](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) para obter limites de armazenamento mais altos.
-Disco indisponível na localização especificada | Verifique se o disco está em seu local de destino antes de migrar.
-Disco indisponível para a redundância especificada | O disco deve usar o tipo de armazenamento de redundância definido nas configurações de avaliação (LRS por padrão).
+Disco não disponível no local especificado | Verifique se o disco está em seu local de destino antes de migrar.
+Disco não disponível para a redundância especificada | O disco deve usar o tipo de armazenamento de redundância definido nas configurações de avaliação (LRS por padrão).
 Não foi possível determinar a adequação do disco devido a um erro interno | Tente criar uma nova avaliação para o grupo.
-Não foi encontrada uma VM com os núcleos e memória necessários | O Azure não pôde encontrar um tipo de VM adequado. Reduza a memória e o número de núcleos do computador local antes de migrar.
+VM com núcleos necessários e memória não encontrada | O Azure não pôde encontrar um tipo de VM adequado. Reduza a memória e o número de núcleos do computador local antes de migrar.
 Não foi possível determinar a adequação da VM devido a um erro interno | Tente criar uma nova avaliação para o grupo.
 Não foi possível determinar a adequação para um ou mais discos devido a um erro interno | Tente criar uma nova avaliação para o grupo.
 Não foi possível determinar a adequação para um ou mais adaptadores de rede devido a um erro interno | Tente criar uma nova avaliação para o grupo.
@@ -271,7 +271,7 @@ E [aqui está uma lista de sistemas operacionais Linux com suporte do MMA](https
 
 ### <a name="what-operating-systems-does-the-dependency-agent-support"></a>A quais sistemas operacionais o agente de dependência oferece suporte?
 
-[Aqui está uma lista de sistemas operacionais Windows com suporte pelo Dependency Agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems). E [aqui está uma lista de sistemas operacionais Linux com suporte pelo Dependency Agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+[Aqui está uma lista de [sistemas operacionais Windows e Linux aos quais Azure monitor para VMs dá suporte](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems).
 
 ### <a name="i-cant-visualize-dependencies-in-azure-migrate-for-more-than-a-one-hour-duration"></a>Não consigo visualizar dependências em migrações do Azure por mais de uma duração de uma hora.
 Nas migrações para Azure, você pode visualizar dependências por até uma duração de uma hora. Embora as migrações para Azure permitam que você volte para uma data específica no último mês, a duração máxima para a qual você pode visualizar as dependências é de uma hora.

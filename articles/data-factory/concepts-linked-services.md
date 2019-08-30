@@ -3,21 +3,20 @@ title: Serviços vinculados no Azure Data Factory | Microsoft Docs
 description: Saiba mais sobre os serviços vinculados no Data Factory. Vínculos de dados de computação/armazenamento de serviços vinculados para data factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: shlo
-ms.openlocfilehash: 904e063ae64a971de7f34fbfac63b7679f3bc363
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 80e9cee0d973dc8575e9645c537b6b69fbeef700
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019944"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137125"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Serviços vinculados no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -92,19 +91,16 @@ O serviço vinculado a seguir é um serviço vinculado do armazenamento do Azure
 ```
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
+
 Você pode criar serviços vinculados usando uma destas ferramentas ou SDKs: [API .net](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), Azure Resource Manager modelo e portal do Azure
 
 ## <a name="data-store-linked-services"></a>Serviços vinculados do repositório de dados
-A conexão a repositórios de dados pode ser encontrada em nossos armazenamentos de [dados e formatos com suporte](copy-activity-overview.md#supported-data-stores-and-formats). Referencie a lista para propriedades de conexão específicas necessárias para diferentes repositórios.
-
-## <a name="data-store-supported-activities"></a>Atividades com suporte do repositório de dados
-
-[!INCLUDE [Connector-activity support matrix](../../includes/connector-activity-support-matrix.md)]
+Você pode encontrar a lista de dados armazenados com suporte pelo Data Factory do artigo [visão geral do conector](copy-activity-overview.md#supported-data-stores-and-formats) . Clique em um armazenamento de dados para aprender as propriedades de conexão com suporte.
 
 ## <a name="compute-linked-services"></a>Serviços ligados de computação
 Faça referência a [ambientes de computação com suporte](compute-linked-services.md) para obter detalhes sobre diferentes ambientes de computação aos quais você pode se conectar do data Factory, bem como as diferentes configurações.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte o tutorial a seguir para obter instruções passo a passo para criar pipelines e conjuntos de valores usando uma dessas ferramentas ou SDKs.
 
 - [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md) (Início rápido: criar uma fábrica de dados com .NET)

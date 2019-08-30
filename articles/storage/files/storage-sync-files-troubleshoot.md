@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 33e29b02adfccf94da84dd99451117485b892ba3
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
-ms.translationtype: HT
+ms.openlocfilehash: c6b9c0a8615960772ccac824c293b5f4ea6cfe55
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072913"
+ms.locfileid: "70129199"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas do Azure File Sync
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -717,7 +717,7 @@ Esse erro ocorre porque a conta de armazenamento fez failover para outra região
 | **Cadeia de caracteres de erro** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
 | **Correção necessária** | Não |
 
-Esse erro ocorre devido a um problema interno com o banco de dados de sincronização. Esse erro será resolvido automaticamente quando o Sincronização de Arquivos do Azure quando a sincronização for repetida. Se esse erro continuar por um período de tempo excedido, crie uma solicitação de suporte e entraremos em contato para ajudá-lo a resolver esse problema.
+Esse erro ocorre devido a um problema interno com o banco de dados de sincronização. Esse erro será resolvido automaticamente quando a sincronização tentar novamente. Se esse erro continuar por um período de tempo excedido, crie uma solicitação de suporte e entraremos em contato para ajudá-lo a resolver esse problema.
 
 <a id="-2134364024"></a>**Falha na sincronização devido à alteração no locatário Azure Active Directory**  
 

@@ -1,7 +1,7 @@
 ---
-title: 'Regressão de floresta de decisão: Referência do módulo'
+title: 'Regressão de floresta de decisão: Referência de módulo'
 titleSuffix: Azure Machine Learning service
-description: Saiba como utilizar o módulo de Perceptron apresentou uma média de duas classes no serviço Azure Machine Learning para criar um modelo de machine learning com base no algoritmo perceptron média.
+description: Saiba como usar o módulo perceptron médio de duas classes no serviço Azure Machine Learning para criar um modelo de aprendizado de máquina com base no algoritmo de média de perceptron.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,57 +9,56 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: f0fec525ed87f91cf102053383b2934aac4b71c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f560923b0a5457ac5fd03c7f76fc4315c6ca08e8
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029239"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128429"
 ---
-# <a name="two-class-averaged-perceptron-module"></a>Módulo de Perceptron apresentou uma média de duas classes
+# <a name="two-class-averaged-perceptron-module"></a>Módulo perceptron médio de duas classes
 
-Este artigo descreve um módulo da interface visual (pré-visualização) para o serviço Azure Machine Learning.
+Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
 
-Utilize este módulo para criar um modelo de machine learning com base no algoritmo perceptron média.  
+Use este módulo para criar um modelo de aprendizado de máquina com base no algoritmo médio de perceptron.  
   
-Esse algoritmo de classificação é um método de aprendizagem supervisionada e requer uma *etiquetados de conjunto de dados*, que inclui uma coluna de etiqueta. Pode preparar o modelo, fornecendo o modelo e o conjunto de dados marcado como entrada para [modelo de formação](./train-model.md). O modelo preparado, em seguida, pode ser utilizado para prever valores para os exemplos de entrada novo.  
+Esse algoritmo de classificação é um método de aprendizado supervisionado e requer um conjunto de informações *marcado*, que inclui uma coluna de rótulo. Você pode treinar o modelo fornecendo o modelo e o conjunto de dados marcado como uma entrada para [treinar o modelo](./train-model.md). O modelo treinado pode então ser usado para prever valores para os novos exemplos de entrada.  
 
-### <a name="about-averaged-perceptron-models"></a>Acerca dos modelos de perceptron média
+### <a name="about-averaged-perceptron-models"></a>Sobre os modelos de média de perceptron
 
-O *apresentou uma média de método perceptron* é uma versão cedo e simple de uma rede neural. Nesta abordagem, as entradas são classificadas em várias saídas possíveis com base numa função linear e, em seguida, combinados com um conjunto de pesos que são derivados do vetor de funcionalidade —, por conseguinte, o nome "perceptron."
+O *Método Average perceptron* é uma versão inicial e simples de uma rede neural. Nessa abordagem, as entradas são classificadas em várias saídas possíveis com base em uma função linear e, em seguida, combinadas com um conjunto de pesos que são derivados do vetor de recurso — por isso o nome "perceptron".
 
-Os modelos de perceptron mais simples são adequados para aprender os padrões de maneira linear separados, ao passo que as redes neurais (especialmente redes neurais profundas) pode modelar os limites de classe mais complexos. No entanto, perceptrons são mais rápidos e porque eles processam casos em série, perceptrons pode ser utilizado com a formação contínua.
+Os modelos perceptron mais simples são adequados para aprender padrões separáveis lineares, enquanto as redes neurais (especialmente redes neurais profundas) podem modelar limites de classe mais complexos. No entanto, o perceptrons é mais rápido e, como eles processam casos em série, o perceptrons pode ser usado com treinamento contínuo.
 
-## <a name="how-to-configure-two-class-averaged-perceptron"></a>Como configurar Perceptron apresentou uma média de duas classes
+## <a name="how-to-configure-two-class-averaged-perceptron"></a>Como configurar o perceptron médio de duas classes
 
-1.  Adicionar a **Perceptron apresentou uma média de duas classes** módulo à sua experimentação.  
+1.  Adicione o módulo **perceptron médio de duas classes** ao seu experimento.  
 
-2.  Especifique como pretende que o modelo de formação, definindo a **modo de instrutor de criação** opção.  
+2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Único parâmetro**: Se souber como pretende configurar o modelo, fornecem um conjunto específico de valores como argumentos.
+    -   **Parâmetro único**: Se você souber como deseja configurar o modelo, forneça um conjunto específico de valores como argumentos.
   
-3.  Para **taxa de aprendizagem**, especifique um valor para o *taxa de aprendizagem*. A taxa de aprendizagem os valores de controle o tamanho do passo de utilizado no stochastic gradient descendente gradação sempre que o modelo é testado e corrigido.
+3.  Para **taxa de aprendizagem**, especifique um valor para a *taxa de aprendizado*. Os valores de taxa de aprendizagem controlam o tamanho da etapa usada em estocástico Grad descendente cada vez que o modelo é testado e corrigido.
   
-     Ao fazer a taxa de menor, testar o modelo com mais freqüência, com o risco de que pode ficar preso num patamar local. Ao fazer o passo maior, pode convergir com mais rapidez, sob as verdadeiras mínimas errar o alvo.
+     Ao tornar a taxa menor, você testa o modelo com mais frequência, com o risco que você pode ficar preso em um limite local. Ao aumentar a etapa, você pode convergir mais rapidamente, com o risco de sobretornar o verdadeiro mínimo.
   
-4.  Para **número máximo de iterações**, escreva o número de vezes que pretende que o algoritmo para examinar os dados de treinamento.  
+4.  Para **número máximo de iterações**, digite o número de vezes que você deseja que o algoritmo examine os dados de treinamento.  
   
-     A parar no início, muitas vezes, fornece o melhor generalização. Aumentar o número de iterações melhora o ajuste, sob overfitting.
+     A interrupção inicial geralmente fornece melhor generalização. Aumentar o número de iterações melhora o ajuste, com o risco de superajuste.
   
-5.  Para **seed número aleatório**, opcionalmente, escreva um valor inteiro para utilizar como a semente. É recomendado utilizar uma semente se quiser garantir a capacidade de reprodução da experimentação em execução.  
+5.  Para **semente de número aleatório**, opcionalmente, digite um valor inteiro para usar como a semente. Usar uma semente é recomendado se você quiser garantir reprodução do experimento entre execuções.  
   
-1.  Ligue-se de um conjunto de dados de treinamento e um dos módulos de treinamento:
+1.  Conecte um conjunto de e um dos módulos de treinamento:
   
-    -   Se definir **modo de instrutor de criação** para **único parâmetro**, utilize o [Train Model](train-model.md) módulo.
+    -   Se você definir **criar modo de instrutor** como **um único parâmetro**, use o módulo [treinar modelo](train-model.md) .
 
 ## <a name="results"></a>Resultados
 
 Após a conclusão do treinamento:
 
-+ Para ver um resumo dos parâmetros do modelo, juntamente com os pesos de funcionalidade aprendidos treinamento, com o botão direito a saída de [Train Model](./train-model.md).
++ Para ver um resumo dos parâmetros do modelo, junto com os pesos do recurso aprendidos do treinamento, clique com o botão direito do mouse na saída do [modelo](./train-model.md)de treinamento.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte a [conjunto de módulos disponíveis](module-reference.md) ao serviço Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

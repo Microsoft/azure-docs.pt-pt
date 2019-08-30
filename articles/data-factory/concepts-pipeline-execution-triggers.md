@@ -3,24 +3,23 @@ title: Execução de pipelines e acionadores no Azure Data Factory | Microsoft D
 description: Este artigo disponibiliza informações sobre como executar um pipeline no Azure Data Factory a pedido ou mediante a criação de um acionador.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.author: shlo
-ms.openlocfilehash: 21e66f962d1cc0bbbe8d780a702216d40abe2836
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34ff075a604afdcbef67c7b10ce1ef8cbe2924e7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155229"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137038"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Execução de pipelines e acionadores no Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-scheduling-and-execution.md)
 > * [Versão atual](concepts-pipeline-execution-triggers.md)
 
@@ -91,7 +90,7 @@ POST
 https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory/pipelines/copyPipeline/createRun?api-version=2017-03-01-preview
 ```
 
-Para obter um exemplo completo, consulte [início rápido: Criar uma fábrica de dados com a API de REST](quickstart-create-data-factory-rest-api.md).
+Para obter um exemplo completo, [consulte início rápido: Crie um data factory usando a API](quickstart-create-data-factory-rest-api.md)REST.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -120,7 +119,7 @@ O payload de resposta é um ID exclusivo da execução de pipeline:
 }
 ```
 
-Para obter um exemplo completo, consulte [início rápido: Criar uma fábrica de dados com o Azure PowerShell](quickstart-create-data-factory-powershell.md).
+Para obter um exemplo completo, [consulte início rápido: Crie um data factory usando Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="net-sdk"></a>SDK .NET
 A chamada de exemplo que se segue mostra como executar manualmente o pipeline com o SDK de .NET:
@@ -129,7 +128,7 @@ A chamada de exemplo que se segue mostra como executar manualmente o pipeline co
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
 ```
 
-Para obter um exemplo completo, consulte [início rápido: Criar uma fábrica de dados com o SDK de .NET](quickstart-create-data-factory-dot-net.md).
+Para obter um exemplo completo, [consulte início rápido: Crie um data factory usando o SDK](quickstart-create-data-factory-dot-net.md)do .net.
 
 > [!NOTE]
 > Pode utilizar o SDK de .NET para invocar pipelines do Data Factory a partir de Funções do Azure, dos seus próprios serviços Web, etc.
@@ -137,11 +136,11 @@ Para obter um exemplo completo, consulte [início rápido: Criar uma fábrica de
 <h2 id="triggers">Execução de acionadores</h2>
 Os acionadores são outra forma de executar uma execução de pipeline. Representam uma unidade de processamento que determina quando é que uma execução de pipeline tem de arrancar. Atualmente, o Data Factory suporta três tipos de acionadores:
 
-- Acionador de agenda: Um acionador que invoca um pipeline com uma agenda de relógio.
+- Gatilho de agendamento: Um gatilho que invoca um pipeline em uma agenda de relógio de parede.
 
-- Acionador de janela em cascata: Um acionador que opera num intervalo periódico, mantendo também o estado.
+- Gatilho de janela em cascata: Um gatilho que opera em um intervalo periódico, enquanto também mantém o estado.
 
-- Baseado em evento acionador: Um acionador que responde a um evento.
+- Gatilho baseado em evento: Um gatilho que responde a um evento.
 
 Os pipelines e os acionadores têm uma relação muitos para muitos. Vários acionadores podem desencadear um único pipeline ou um só acionador pode desencadear vários pipelines. Na definição de acionador que se segue, a propriedade **pipelines** refere-se a uma lista de pipelines que são acionados pelo acionador especificado. A definição da propriedade inclui valores para os parâmetros do pipeline.
 
@@ -295,7 +294,7 @@ A tabela que se segue mostra o modo como a propriedade **startTime** controla a 
 
 Vejamos um exemplo do que acontece quando a hora de início (startTime) se situa no passado, com periodicidade, mas sem agenda. Parta do princípio de que a hora atual é 2017-04-08 13:00, a hora de início é 2017-04-07 14:00 e a periodicidade é de dois em dois dias. (O valor **recurrence** é especificado mediante a definição da propriedade **frequency** como "day" e da propriedade **interval** como 2.) Repare que o valor de **startTime** se situa no passado e ocorre antes da hora atual.
 
-Nestas condições, a primeira execução é 2017-04-09 às 14:00. O motor do Scheduler calcula as ocorrências de execução a partir da hora de início. Quaisquer instâncias no passado são eliminadas. O motor utiliza a instância seguinte que ocorre no futuro. Neste cenário, a hora de início é 2017-04-07 às 14:00. A instância seguinte é dois dias a contar dessa hora, que é o dia 2017-04-09, às 14:00.
+Sob essas condições, a primeira execução é 2017-04-09 às 14:00. O motor do Scheduler calcula as ocorrências de execução a partir da hora de início. Quaisquer instâncias no passado são eliminadas. O motor utiliza a instância seguinte que ocorre no futuro. Neste cenário, a hora de início é 2017-04-07 às 14:00. A instância seguinte é dois dias a contar dessa hora, que é o dia 2017-04-09, às 14:00.
 
 A primeira hora de execução é a mesma, mesmo que **startTime** seja 2017-04-05 14:00 ou 2017-04-01 14:00. Após a primeira execução, as execuções subsequentes são calculadas com base na agenda. Por conseguinte, as próximas execuções são a 2017-04-11 às 14:00 PM, depois a 2017-04-13 às 14:00 PM, depois a 2017-04-15 às 14:00 PM e assim sucessivamente.
 
@@ -315,7 +314,7 @@ A tabela seguinte descreve os elementos de **schedule** de forma detalhada:
 | **minutes** | Minutos da hora em que o acionador é executado. |- Número inteiro<br />- Matriz de números inteiros|
 | **hours** | Horas do dia em que o acionador é executado. |- Número inteiro<br />- Matriz de números inteiros|
 | **weekDays** | Dias da semana em que o acionador é executado. O valor só pode ser especificado com uma frequência semanal.|<br />- Segunda-feira<br />- Terça-feira<br />- Quarta-feira<br />- Quinta-feira<br />- Sexta-feira<br />- Sábado<br />- Domingo<br />- Matriz de valores de dia (o tamanho máximo da matriz é 7)<br /><br />Os valores de dia não são sensíveis às maiúsculas e minúsculas|
-| **monthlyOccurrences** | Dias do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. |-Matriz de **monthlyOccurrence** objetos: `{ "day": day, "occurrence": occurrence }`<br />- O atributo **day** é o dia da semana em que o acionador é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor **day** igual a `{Sunday}` significa todos os domingos do mês. O atributo **day** é obrigatório.<br />- O atributo **occurrence** é a ocorrência do valor **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.|
+| **monthlyOccurrences** | Dias do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. |-Matriz de objetos **monthlyOccurrence** :`{ "day": day, "occurrence": occurrence }`<br />- O atributo **day** é o dia da semana em que o acionador é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor **day** igual a `{Sunday}` significa todos os domingos do mês. O atributo **day** é obrigatório.<br />- O atributo **occurrence** é a ocorrência do valor **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.|
 | **monthDays** | Dia do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. |- Qualquer valor <= -1 e >= -31<br />- Qualquer valor >= 1 e <= 31<br />- Matriz de valores|
 
 ## <a name="tumbling-window-trigger"></a>Acionador de janela em cascata
@@ -325,7 +324,7 @@ Para obter mais informações sobre acionadores de janela em cascata e exemplos,
 
 ## <a name="event-based-trigger"></a>Acionador baseado em eventos
 
-Um acionador com base em eventos executa pipelines em resposta a um evento, como a chegada de um ficheiro ou a eliminação de um arquivo, no armazenamento de Blobs do Azure.
+Um gatilho baseado em evento executa pipelines em resposta a um evento, como a chegada de um arquivo ou a exclusão de um arquivo, no armazenamento de BLOBs do Azure.
 
 Para obter mais informações sobre acionadores baseados em eventos, veja [Criar um acionador que executa um pipeline em resposta a um evento](how-to-create-event-trigger.md).
 
@@ -372,7 +371,7 @@ A tabela que se segue oferece uma comparação entre o acionador de janela em ca
 |:--- |:--- |:--- |
 | **Cenários de reposição** | Suportado. As execuções de pipeline podem ser agendadas para períodos de tempo no passado. | Não suportado. As execuções de pipeline só podem ser executadas em períodos de na hora atual ou numa hora futura. |
 | **Fiabilidade** | 100% de fiabilidade. As execuções de pipeline podem ser agendadas para todos os períodos de tempo a partir de uma data de início especificada sem lacunas. | Menos fiável. |
-| **Capacidade de repetição** | Suportado. As execuções de pipeline com falhas têm uma política de repetição predefinida de 0 ou uma política especificada pelo utilizador na definição do acionador. Repete automaticamente quando as execuções de pipeline falham devido a limites de simultaneidade/servidor/limitação (ou seja, códigos de estado 400: Erro de utilizador, 429: Demasiados pedidos e 500: Erro de servidor interno). | Não suportado. |
+| **Capacidade de repetição** | Suportado. As execuções de pipeline com falhas têm uma política de repetição predefinida de 0 ou uma política especificada pelo utilizador na definição do acionador. Repete automaticamente quando a execução do pipeline falha devido a limites de simultaneidade/servidor/limitação (ou seja, códigos de status 400: Erro do usuário, 429: Número excessivo de solicitações e 500: Erro interno do servidor). | Não suportado. |
 | **Simultaneidade** | Suportado. Os utilizadores podem definir explicitamente limites de simultaneidade para o acionador. Permite entre uma e 50 execuções de pipeline acionadas em simultâneo. | Não suportado. |
 | **Variáveis do sistema** | Suporta a utilização das variáveis do sistema **WindowStart** e **WindowEnd**. Os utilizadores podem aceder a `triggerOutputs().windowStartTime` e `triggerOutputs().windowEndTime` como variáveis do sistema de acionador na definição do acionador. Os valores são utilizados como a hora de início e a hora de fim do período de tempo, respetivamente. Por exemplo, para um acionador de janela em cascata executado de hora a hora, para o período de tempo das 1:00 às 2:00, a definição é `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` e `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Não suportado. |
 | **Relação de pipeline para acionador** | Suporta uma relação um para um. Apenas um pipeline pode ser acionado. | Suporta relações muitos para muitos. Múltiplos acionadores podem arrancar um pipeline individual. Um acionador único pode arrancar vários pipelines. |
@@ -380,6 +379,6 @@ A tabela que se segue oferece uma comparação entre o acionador de janela em ca
 ## <a name="next-steps"></a>Passos seguintes
 Veja os tutoriais seguintes:
 
-- [Quickstart: Criar uma fábrica de dados com o SDK de .NET](quickstart-create-data-factory-dot-net.md)
+- [Quickstart: Criar um data factory usando o SDK do .NET](quickstart-create-data-factory-dot-net.md)
 - [Criar um acionador de agenda](how-to-create-schedule-trigger.md)
 - [Criar um acionador de janela em cascata](how-to-create-tumbling-window-trigger.md)

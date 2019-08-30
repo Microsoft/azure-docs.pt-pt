@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Clever | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Clever.
+title: 'Tutorial: Integração do Azure Active Directory com o inteligente | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o inteligente.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,49 +15,49 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a0c0795ff859b6ecf95e1627693c4a7b066081a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 999f947170528c1ae89a1cf44f714e96af7bddbf
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105320"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70136920"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clever"></a>Tutorial: Integração do Active Directory do Azure com Clever
+# <a name="tutorial-azure-active-directory-integration-with-clever"></a>Tutorial: Integração do Azure Active Directory com o inteligente
 
-Neste tutorial, saiba como integrar Clever com o Azure Active Directory (Azure AD).
-Integrar Clever no Azure AD fornece as seguintes vantagens:
+Neste tutorial, você aprenderá a integrar o inteligente ao Azure Active Directory (Azure AD).
+A integração do inteligente ao Azure AD oferece os seguintes benefícios:
 
-* Pode controlar no Azure AD que tenha acesso ao Clever.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Clever (Single Sign-On) com as suas contas do Azure AD.
+* No Azure AD, é possível controlar quem tem acesso ao inteligente.
+* Você pode permitir que seus usuários sejam automaticamente conectados ao inteligente (logon único) com suas contas do Azure AD.
 * Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Clever, terá dos seguintes itens:
+Para configurar a integração do Azure AD com o inteligente, você precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Inteligente logon único habilitado subscrição
+* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Assinatura habilitada para logon único inteligente
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* Suporta inteligente **SP** iniciada SSO
+* O inteligente dá suporte ao SSO iniciado por **SP**
 
-## <a name="adding-clever-from-the-gallery"></a>Adicionando Clever da Galeria
+## <a name="adding-clever-from-the-gallery"></a>Adicionar o inteligente da Galeria
 
-Para configurar a integração do Clever com o Azure AD, terá de adicionar Clever a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do inteligente ao Azure AD, você precisa adicionar o inteligente da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar Clever a partir da galeria, execute os seguintes passos:**
+**Para adicionar o inteligente da galeria, execute as seguintes etapas:**
 
 1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
@@ -65,111 +65,112 @@ Para configurar a integração do Clever com o Azure AD, terá de adicionar Clev
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Clever**, selecione **Clever** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, digite **inteligente**, selecione **inteligente** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Inteligente, na lista de resultados](common/search-new-app.png)
+     ![Inteligente na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Clever com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Clever deve ser estabelecido.
+Nesta seção, você configurará e testará o logon único do Azure AD com o inteligente, com base em um usuário de teste chamado **Brenda Simon**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no inteligente.
 
-Para configurar e testar o Azure AD início de sessão único com Clever, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o logon único do Azure AD com o inteligente, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar inteligente início de sessão único](#configure-clever-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+2. **[Configurar o logon único inteligente](#configure-clever-single-sign-on)** -para configurar as configurações de logon único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
 4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste inteligente](#create-clever-test-user)**  - para ter um equivalente da Eduarda Almeida na Clever que está ligado à representação de utilizador do Azure AD.
+5. **[Criar um usuário de teste inteligente](#create-clever-test-user)** – para ter um equivalente de Brenda Simon em inteligente que esteja vinculado à representação do usuário no Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com Clever, execute os seguintes passos:
+Para configurar o logon único do Azure AD com o inteligente, execute as seguintes etapas:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Clever** página de integração de aplicações, selecione **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos **inteligente** , selecione **logon único**.
 
     ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-** enalimentado para habilitar o logon único.
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Modo de seleção de logon único](common/select-saml-option.png)
 
 3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+4. Na seção **configuração básica do SAML** , execute as seguintes etapas:
 
-    ![Inteligente URLs de domínio e única informações de início de sessão](common/sp-identifier.png)
+    ![Informações de logon único de domínio e URLs do inteligente](common/sp-identifier.png)
 
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://clever.com/in/<companyname>`
+    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://clever.com/in/<companyname>`
 
-    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL: `https://clever.com/oauth/saml/metadata.xml`
+    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL:`https://clever.com/oauth/saml/metadata.xml`
 
     > [!NOTE]
-    > O valor do URL de início de sessão não é real. Atualize o valor com o início de sessão real no URL. Contacte [equipa de suporte de cliente inteligente](https://clever.com/about/contact/) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > O valor da URL de logon não é real. Atualize o valor com a URL de logon real. Contate a [equipe de suporte ao cliente inteligente](https://clever.com/about/contact/) para obter o valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-5. Aplicação inteligente espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
+5. O aplicativo inteligente espera as asserções SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **atributos de usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML** , clique no botão **Editar** para abrir a caixa de diálogo **atributos de usuário** .
 
     ![image](common/edit-attribute.png)
 
-6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos: 
+6. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML, conforme mostrado na imagem acima, e execute as seguintes etapas: 
 
     | Name | Atributo de origem|
     | ---------------| --------------- |
-    | clever.teacher.credentials.district_username|user.userprincipalname|
+    | clever.teacher.credentials.district_username|user.userprincipalname |
     | clever.student.credentials.district_username| user.userprincipalname |
+    | inteligente. staff. Credentials. district_username| user.userprincipalname |
     | FirstName  | user.givenname |
-    | Apelido  | user.surname |
+    | LastName  | User. sobrenome |
 
-    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
+    a. Clique em **Adicionar nova declaração** para abrir a caixa de diálogo **gerenciar declarações do usuário** .
 
     ![image](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 
-    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
+    b. Na caixa de texto **nome** , digite o nome do atributo mostrado para essa linha.
 
-    c. Deixe o **espaço de nomes** em branco.
+    c. Deixe o **namespace** em branco.
 
-    d. Selecione a origem de dado **atributo**.
+    d. Selecione origem como **atributo**.
 
-    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
+    e. Na lista **atributo de origem** , digite o valor do atributo mostrado para essa linha.
 
     f. Clique em **Ok**
 
     g. Clique em **Guardar**.
 
-7. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em botão Copiar para copiar **Url de metadados de Federação de aplicação** e guarde-o no seu computador.
+7. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique no botão Copiar para copiar a URL de **metadados de Federação do aplicativo** e salvá-la no computador.
 
     ![O link de download de certificado](common/copy-metadataurl.png)
 
-### <a name="configure-clever-single-sign-on"></a>Configurar inteligente início de sessão único
+### <a name="configure-clever-single-sign-on"></a>Configurar o logon único inteligente
 
-1. Numa janela do browser web diferente, inicie sessão no site da sua empresa inteligente como administrador.
+1. Em uma janela diferente do navegador da Web, faça logon em seu site de empresa inteligente como administrador.
 
-1. Na barra de ferramentas, clique em **instantânea de início de sessão**.
+1. Na barra de ferramentas, clique em **logon instantâneo**.
 
-    ![Início de sessão instantâneo](./media/clever-tutorial/ic798984.png "instantâneo início de sessão")
+    ![Logon instantâneo](./media/clever-tutorial/ic798984.png "Logon instantâneo")
 
     > [!NOTE]
-    > Antes de testar o início de sessão único, tem de contactar [equipa de suporte de cliente inteligente](https://clever.com/about/contact/) para ativar o SSO do Office 365 no back-end.
+    > Antes de poder testar o logon único, você precisa entrar em contato com a [equipe de suporte ao cliente inteligente](https://clever.com/about/contact/) para habilitar o SSO do Office 365 no back-end.
 
-1. Sobre o **instantânea de início de sessão** página, execute os seguintes passos:
+1. Na página de **logon instantâneo** , execute as seguintes etapas:
     
-      ![Início de sessão instantâneo](./media/clever-tutorial/ic798985.png "instantâneo início de sessão")
+      ![Logon instantâneo](./media/clever-tutorial/ic798985.png "Logon instantâneo")
     
-      a. Tipo de **URL de início de sessão**.
+      a. Digite a **URL de logon**.
     
       >[!NOTE]
-      >O **URL de início de sessão** é um valor personalizado. Contacte [equipa de suporte de cliente inteligente](https://clever.com/about/contact/) para obter este valor.
+      >A **URL de logon** é um valor personalizado. Contate a [equipe de suporte ao cliente inteligente](https://clever.com/about/contact/) para obter esse valor.
     
       b. Como **sistema de identidade**, selecione **ADFS**.
 
-      c. Na **URL de metadados** caixa de texto, colar **Url de metadados de Federação de aplicação** valor que copiou do portal do Azure.
+      c. Na caixa de texto **URL de metadados** , Cole o valor da URL de metadados de **Federação do aplicativo** que você copiou do portal do Azure.
     
       d. Clique em **Guardar**.
 
@@ -183,61 +184,61 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![Botão novo usuário](common/new-user.png)
 
 3. Nas propriedades do utilizador, execute os seguintes passos.
 
     ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    a. No campo **nome** , insira **brendafernandes**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
+    b. No campo **nome de usuário** , **digite\@brendafernandes yourcompanydomain. Extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
 
     d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Clever.
+Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao inteligente.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Clever**.
+1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **inteligente**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Clever**.
+2. Na lista de aplicativos, selecione **inteligente**.
 
-    ![O Clever ligação na lista de aplicativos](common/all-applications.png)
+    ![O link inteligente na lista de aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No menu à esquerda, selecione **usuários e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
     ![O painel Adicionar atribuição](common/add-assign-user.png)
 
 5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-### <a name="create-clever-test-user"></a>Criar utilizador de teste inteligente
+### <a name="create-clever-test-user"></a>Criar um usuário de teste inteligente
 
-Para ativar a utilizadores do Azure AD iniciar sessão no Clever, tem de ser aprovisionados em Clever.
+Para permitir que os usuários do Azure AD façam logon no inteligente, eles devem ser provisionados no inteligente.
 
-Em caso de Clever, trabalhar com [equipa de suporte de cliente inteligente](https://clever.com/about/contact/) para adicionar os utilizadores na plataforma inteligente. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+No caso de inteligente, trabalhe com a [equipe de suporte ao cliente inteligente](https://clever.com/about/contact/) para adicionar os usuários na plataforma inteligente. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 >[!NOTE]
->Pode utilizar quaisquer outras ferramentas do utilizador inteligente conta criação ou APIs fornecidas pelo Clever para aprovisionar contas de utilizador do Azure AD.
+>Você pode usar qualquer outra ferramenta de criação de conta de usuário inteligente ou APIs fornecidas pelo inteligente para provisionar contas de usuário do Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Ao clicar no mosaico inteligente no painel de acesso, deve ter automaticamente sessão iniciada no Clever para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando você clica no bloco inteligente no painel de acesso, deve ser automaticamente conectado ao inteligente para o qual você configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 

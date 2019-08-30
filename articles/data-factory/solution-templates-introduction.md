@@ -8,15 +8,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/04/2019
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: d239e44364c3a4879f2f131717511385a4bd7037
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: c4a3fc20e806ec91ed2646e6131f682bf5c80e38
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234451"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140840"
 ---
 # <a name="templates"></a>Modelos
 
@@ -34,7 +34,7 @@ Você pode começar a criar um pipeline de Data Factory de um modelo das duas ma
 
     ![Abrir a Galeria de modelos na guia autor](media/solution-templates-introduction/templates-intro-image2.png)
 
-## <a name="template-gallery"></a>Galeria de modelos
+## <a name="template-gallery"></a>Galeria de Modelos
 
 ![A Galeria de modelos](media/solution-templates-introduction/templates-intro-image3.png)
 
@@ -72,7 +72,7 @@ Data Factory usa modelos de Azure Resource Manager para salvar data factory mode
 
 -   Modelos SSIS
 
-    -   Agendar Integration Runtime do Azure-SSIS para executar pacotes do SSIS
+    -   Agendar Azure-SSIS Integration Runtime para executar pacotes SSIS
 
 -   Transformar modelos
 

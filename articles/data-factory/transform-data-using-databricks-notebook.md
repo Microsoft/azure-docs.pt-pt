@@ -7,17 +7,16 @@ author: nabhishek
 manager: craigg
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: fad8045ac8bddb236f0f80ad223ebafc7aa7e93a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: b6426017b7608742866cedb08b5ac9298400d433
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002863"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140892"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Executar um Databricks Notebook com a Atividade do Databricks Notebook no Azure Data Factory
 
@@ -71,7 +70,7 @@ Para uma introdução e demonstração de onze minutos desta funcionalidade, vej
 
 1.  Em **Localização**, selecione a localização para a fábrica de dados.
 
-    Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que lhe interessam, na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (como o Armazenamento do Azure e a Base de Dados SQL do Azure) e as computações (como o HDInsight) utilizados pelo Data Factory podem estar noutras regiões.
+    Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam na página a seguir e expanda **análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (como o Armazenamento do Azure e a Base de Dados SQL do Azure) e as computações (como o HDInsight) utilizados pelo Data Factory podem estar noutras regiões.
 1.  Selecione **Criar**.
 
 
@@ -109,9 +108,9 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
     1.  Para **Token de Acesso**, gere-o a partir da área de trabalho do Azure Databricks. Pode encontrar os passos [aqui](https://docs.databricks.com/api/latest/authentication.html#generate-token).
 
-    1.  Para **versão do Cluster**, selecione **4.2** (com o Apache Spark 2.3.1, Scala 2.11)
+    1.  Para a **versão do cluster**, selecione **4,2** (com Apache Spark 2.3.1, escala 2,11)
 
-    1.  Para este tutorial, em **Tipo de nó do cluster**, selecione **Standard\_D3\_v2** na categoria **Fins Gerais (HDD)**. 
+    1.  Para este tutorial, em **Tipo de nó do cluster**, selecione **Standard\_D3\_v2** na categoria **Fins Gerais (HDD)** . 
     
     1.  Em **Funções de trabalho**, introduza **2**.
     
@@ -151,7 +150,7 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
           ![Criar uma nova pasta](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       1. [Criar um novo notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) e vamos chamá-lo **mynotebook** sob **adftutorial** pasta, clique em **criar.**
+       1. [Criar um novo bloco de anotações](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), vamos chamá-lo de mynotebook na pasta **adftutorial** , clicar em **Create (criar).**
 
           ![Criar um novo Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
@@ -179,7 +178,7 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
        ![Adicionar um parâmetro](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
-    b.  Nome do parâmetro como **entrada** e forneça o valor como expressão  **\@pipeline ().parameters.name**.
+    b.  Nomeie o parâmetro como **entrada** e forneça o valor como pipeline de expressão  **\@(). Parameters. Name**.
 
 1.  Para validar o pipeline, selecione o botão **Validar** na barra de ferramentas. Para fechar a janela de validação, selecione o botão **\>\>** (seta para a direita).
 

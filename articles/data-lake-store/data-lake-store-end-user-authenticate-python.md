@@ -1,6 +1,6 @@
 ---
-title: 'Autenticação de utilizador final: Python com Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory | Documentos da Microsoft'
-description: Saiba como conseguir a autenticação de utilizador final com Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory com o Python
+title: 'Autenticação do usuário final: Python com Azure Data Lake Storage Gen1 usando Azure Active Directory | Microsoft Docs'
+description: Saiba como obter a autenticação do usuário final com Azure Data Lake Storage Gen1 usando Azure Active Directory com Python
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 8b72604d7e736230911d0a0987b88d372be4ddf3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71ca7bec7f69007fd0290211fac308eb5f3983a7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60878055"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139058"
 ---
-# <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autenticação de utilizador final com Gen1 de armazenamento do Azure Data Lake com o Python
+# <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autenticação do usuário final com Azure Data Lake Storage Gen1 usando Python
 > [!div class="op_single_selector"]
 > * [Utilizar o Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Utilizar o SDK .NET](data-lake-store-end-user-authenticate-net-sdk.md)
@@ -27,12 +27,12 @@ ms.locfileid: "60878055"
 > 
 > 
 
-Neste artigo, saiba como utilizar o SDK de Python para fazer a autenticação de utilizador final com Gen1 de armazenamento do Azure Data Lake. Autenticação de utilizador final ainda mais pode ser dividida em duas categorias:
+Neste artigo, você aprenderá como usar o SDK do Python para fazer a autenticação do usuário final com o Azure Data Lake Storage Gen1. A autenticação do usuário final pode ser dividida em duas categorias:
 
-* Autenticação de utilizador final sem multi-factor authentication
-* Autenticação de utilizador final com multi-factor authentication
+* Autenticação do usuário final sem autenticação multifator
+* Autenticação do usuário final com autenticação multifator
 
-Ambas estas opções são abordadas neste artigo. Para a autenticação serviço a serviço com a geração 1 de armazenamento do Data Lake com o Python, veja [autenticação de serviço para serviço com geração 1 de armazenamento do Data Lake com o Python](data-lake-store-service-to-service-authenticate-python.md).
+Essas duas opções são discutidas neste artigo. Para autenticação serviço a serviço com Data Lake Storage Gen1 usando Python, consulte [Autenticação serviço a serviço com data Lake Storage Gen1 usando Python](data-lake-store-service-to-service-authenticate-python.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,15 +40,15 @@ Ambas estas opções são abordadas neste artigo. Para a autenticação serviço
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Criar uma aplicação de "Nativa" do Azure Active Directory**. Tem de ter concluído os passos em [autenticação de utilizador final com geração 1 de armazenamento do Data Lake com o Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Crie um aplicativo Azure Active Directory "nativo"** . Você deve ter concluído as etapas em [autenticação do usuário final com data Lake Storage Gen1 usando Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## <a name="install-the-modules"></a>Instalar os módulos
 
-Para trabalhar com a geração 1 de armazenamento do Data Lake com o Python, tem de instalar três módulos.
+Para trabalhar com Data Lake Storage Gen1 usando Python, você precisa instalar três módulos.
 
 * O módulo `azure-mgmt-resource`, que inclui módulos do Azure para o Active Directory, etc.
-* O `azure-mgmt-datalake-store` módulo, que inclui as operações de gestão de conta de geração 1 de armazenamento do Azure Data Lake. Para obter mais informações sobre este módulo, consulte [referência do módulo de gestão de geração 1 do armazenamento do Azure Data Lake](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* O `azure-datalake-store` módulo, que inclui as operações de sistema de ficheiros de geração 1 de armazenamento do Azure Data Lake. Para obter mais informações sobre este módulo, consulte [referência de módulo do sistema de ficheiros do azure-datalake-store](https://azure-datalake-store.readthedocs.io/en/latest/).
+* O `azure-mgmt-datalake-store` módulo, que inclui as operações de gerenciamento de conta Azure data Lake Storage Gen1. Para obter mais informações sobre esse módulo, consulte [Azure data Lake Storage Gen1 referência do módulo de gerenciamento](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
+* O `azure-datalake-store` módulo, que inclui as operações de sistema de arquivos Azure data Lake Storage Gen1. Para obter mais informações sobre esse módulo, consulte [referência do módulo do sistema de arquivos Azure-datalake-Store](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Utilize os comandos seguintes para instalar os módulos.
 
@@ -60,7 +60,7 @@ pip install azure-datalake-store
 
 ## <a name="create-a-new-python-application"></a>Criar uma aplicação Python nova
 
-1. No IDE à sua escolha, crie uma aplicação Python nova, por exemplo, **mysample.py**.
+1. No IDE de sua escolha, crie um novo aplicativo Python, por exemplo, **MySample.py**.
 
 2. Adicione o fragmento de código seguinte para importar os módulos necessários
 
@@ -86,11 +86,11 @@ pip install azure-datalake-store
 
 3. Guarde as alterações a mysample.py.
 
-## <a name="end-user-authentication-with-multi-factor-authentication"></a>Autenticação de utilizador final com multi-factor authentication
+## <a name="end-user-authentication-with-multi-factor-authentication"></a>Autenticação do usuário final com autenticação multifator
 
-### <a name="for-account-management"></a>Para a gestão de conta
+### <a name="for-account-management"></a>Para gerenciamento de conta
 
-Utilize o seguinte fragmento para autenticar com o Azure AD para operações de gestão de conta numa conta de geração 1 de armazenamento do Data Lake. O fragmento seguinte pode ser utilizado para autenticar a sua aplicação com a autenticação multifator. Forneça os valores abaixo para um Azure AD existente **nativo** aplicação.
+Use o trecho a seguir para autenticar com o Azure AD para operações de gerenciamento de conta em uma conta de Data Lake Storage Gen1. O fragmento seguinte pode ser utilizado para autenticar a sua aplicação com a autenticação multifator. Forneça os valores abaixo para um aplicativo **nativo** existente do Azure AD.
 
     authority_host_url = "https://login.microsoftonline.com"
     tenant = "FILL-IN-HERE"
@@ -105,19 +105,19 @@ Utilize o seguinte fragmento para autenticar com o Azure AD para operações de 
     mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
     armCreds = AADTokenCredentials(mgmt_token, client_id, resource = RESOURCE)
 
-### <a name="for-filesystem-operations"></a>Para operações de sistema de ficheiros
+### <a name="for-filesystem-operations"></a>Para operações de sistema de arquivos
 
-Utilize esta opção para autenticar com o Azure AD para operações de sistema de ficheiros numa conta do Data Lake Storage Gen1. O fragmento seguinte pode ser utilizado para autenticar a sua aplicação com a autenticação multifator. Forneça os valores abaixo para um Azure AD existente **nativo** aplicação.
+Use isso para autenticar com o Azure AD para operações de sistema de arquivos em uma conta de Data Lake Storage Gen1. O fragmento seguinte pode ser utilizado para autenticar a sua aplicação com a autenticação multifator. Forneça os valores abaixo para um aplicativo **nativo** existente do Azure AD.
 
     adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure.net/')
 
-## <a name="end-user-authentication-without-multi-factor-authentication"></a>Autenticação de utilizador final sem multi-factor authentication
+## <a name="end-user-authentication-without-multi-factor-authentication"></a>Autenticação do usuário final sem autenticação multifator
 
-Este é preterido. Para obter mais informações, consulte [Authentication do Azure com o SDK de Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python#mgmt-auth-token).
+Isso é preterido. Para obter mais informações, consulte [autenticação do Azure usando o SDK do Python](/azure/python/python-sdk-azure-authenticate).
    
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu a utilizar a autenticação de utilizador final para se autenticar com a geração 1 de armazenamento do Azure Data Lake com o Python. Agora, pode ver os seguintes artigos que falam sobre como utilizar Python para trabalhar com a geração 1 de armazenamento do Azure Data Lake.
+Neste artigo, você aprendeu a usar a autenticação do usuário final para se autenticar com Azure Data Lake Storage Gen1 usando o Python. Agora você pode examinar os artigos a seguir que falam sobre como usar o Python para trabalhar com Azure Data Lake Storage Gen1.
 
-* [Operações de gestão de conta na geração 1 de armazenamento do Data Lake com o Python](data-lake-store-get-started-python.md)
-* [Operações de dados no Data Lake Storage Gen1 com Python](data-lake-store-data-operations-python.md)
+* [Operações de gerenciamento de conta em Data Lake Storage Gen1 usando Python](data-lake-store-get-started-python.md)
+* [Operações de dados em Data Lake Storage Gen1 usando Python](data-lake-store-data-operations-python.md)
 

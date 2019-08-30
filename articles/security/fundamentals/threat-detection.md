@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 86b17efdb811e9e4040b8b267c161b950f6de5fd
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6278e848a82fb31939117fa9b916a92a2fb74a3e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036184"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129285"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detecção avançada de ameaças do Azure
 
@@ -30,13 +30,13 @@ O Azure fornece uma ampla gama de opções para configurar e personalizar a segu
 
 ## <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
-[Azure ad Identity Protection](../../active-directory/identity-protection/overview.md) é um recurso de edição [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md) que fornece uma visão geral dos eventos de risco e possíveis vulnerabilidades que podem afetar as identidades da sua organização. A proteção de identidade usa recursos de detecção de anomalias do Azure AD existentes que estão disponíveis por meio de [relatórios de atividade anômala do Azure ad](../../active-directory/active-directory-reporting-azure-portal.md)e apresenta novos tipos de evento de risco que podem detectar anomalias em tempo real.
+[Azure ad Identity Protection](../../active-directory/identity-protection/overview.md) é um recurso de edição [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md) que fornece uma visão geral das detecções de risco e das possíveis vulnerabilidades que podem afetar as identidades da sua organização. A proteção de identidade usa recursos de detecção de anomalias do Azure AD existentes que estão disponíveis por meio de [relatórios de atividade anômala do Azure ad](../../active-directory/active-directory-reporting-azure-portal.md)e apresenta novos tipos de detecção de riscos que podem detectar anomalias em tempo real.
 
 ![Diagrama de Azure AD Identity Protection](./media/threat-detection/azure-threat-detection-fig1.png)
 
-A proteção de identidade usa algoritmos de aprendizado de máquina adaptáveis e heurística para detectar anomalias e eventos de risco que podem indicar que uma identidade foi comprometida. Usando esses dados, a proteção de identidade gera relatórios e alertas para que você possa investigar esses eventos de risco e tomar a ação apropriada de correção ou mitigação.
+A proteção de identidade usa algoritmos de aprendizado de máquina adaptáveis e heurística para detectar anomalias e detecções de risco que podem indicar que uma identidade foi comprometida. Usando esses dados, a proteção de identidade gera relatórios e alertas para que você possa investigar essas detecções de risco e tomar a ação apropriada de correção ou mitigação.
 
-Azure Active Directory Identity Protection é mais do que uma ferramenta de monitoramento e relatório. Com base em eventos de risco, a proteção de identidade calcula um nível de risco do usuário para cada usuário, para que você possa configurar políticas baseadas em risco para proteger automaticamente as identidades da sua organização.
+Azure Active Directory Identity Protection é mais do que uma ferramenta de monitoramento e relatório. Com base nas detecções de riscos, a proteção de identidade calcula um nível de risco do usuário para cada usuário, para que você possa configurar políticas baseadas em risco para proteger automaticamente as identidades da sua organização.
 
 Essas políticas baseadas em risco, além de outros [controles de acesso condicional](../../active-directory/active-directory-conditional-access-azure-portal.md) fornecidos pelo Azure Active Directory e pelo [EMS](../../active-directory/active-directory-conditional-access-azure-portal.md), podem bloquear automaticamente ou oferecer ações de correção adaptável que incluem redefinições de senha e multifator imposição de autenticação.
 
@@ -46,14 +46,14 @@ Azure Active Directory Identity Protection é mais do que uma ferramenta de moni
 
 Exemplos de algumas das maneiras pelas quais a proteção de identidade do Azure pode ajudar a proteger suas contas e identidades incluem:
 
-[Detectando eventos de risco e contas arriscadas](../../active-directory/identity-protection/overview.md)
--   Detecte seis tipos de evento de risco usando regras heurísticas e aprendizado de máquina.
+[Detectando detecções de risco e contas arriscadas](../../active-directory/identity-protection/overview.md)
+-   Detecte seis tipos de detecção de risco usando regras heurísticas e aprendizado de máquina.
 -   Calcule os níveis de risco do usuário.
 -   Forneça recomendações personalizadas para melhorar a postura geral de segurança realçando vulnerabilidades.
 
-[Investigando eventos de risco](../../active-directory/identity-protection/overview.md)
--   Enviar notificações para eventos de risco.
--   Investigue os eventos de risco usando informações relevantes e contextuais.
+[Investigando as detecções de risco](../../active-directory/identity-protection/overview.md)
+-   Envie notificações para detecções de risco.
+-   Investigue as detecções de risco usando informações relevantes e contextuais.
 -   Forneça fluxos de trabalho básicos para controlar investigações.
 -   Fornecer acesso fácil a ações de correção, como redefinição de senha.
 
@@ -382,7 +382,7 @@ O Firewall do aplicativo Web oferece os seguintes benefícios:
 
 Para obter exemplos de firewalls do aplicativo Web que estão disponíveis no Azure Marketplace, consulte [Barracuda WAF, vWAF (firewall do aplicativo Web virtual) da Brocade, Imperva SecureSphere e o firewall de IP do ThreatSTOP](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Respondendo às ameaças atuais](../../security-center/security-center-alerts-overview.md#respond-threats): Ajuda a identificar ameaças ativas direcionadas aos recursos do Azure e fornece as informações que você precisa responder rapidamente.
 

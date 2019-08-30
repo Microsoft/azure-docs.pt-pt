@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Analisar uma imagem - SDK,C#'
+title: 'Início rápido: Analisar um SDK de imagem,C#'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá analisar uma imagem através da biblioteca de cliente da Imagem Digitalizada do Windows com C#.
 services: cognitive-services
@@ -11,20 +11,20 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 48c96ac55ca2192506f9190a9dd9be9c1ee0058f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 59641973a953d1db501f7b660b04df900bc55cb0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603479"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141026"
 ---
-# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Início rápido: Analisar uma imagem usando o SDK de visão do computador eC#
+# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Início rápido: Analisar uma imagem usando o SDK do Pesquisa Visual Computacional eC#
 
-Neste início rápido, analisará um tanto localmente como uma imagem remota para extrair recursos visuais usando a biblioteca de cliente de imagem digitalizada para C#. Se desejar, pode transferir o código neste guia como uma aplicação de exemplo completa a partir da [visão de Csharp de serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) repositório no GitHub.
+Neste guia de início rápido, você analisará uma imagem local e uma remota para extrair recursos visuais usando a biblioteca de cliente C#do pesquisa Visual computacional para o. Se desejar, você pode baixar o código neste guia como um aplicativo de exemplo completo do repositório de [visão de Csharp dos serviços cognitivas](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) no github.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma chave de assinatura de imagem digitalizada. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a imagem digitalizada e obtenha a chave.
+* Uma chave de assinatura Pesquisa Visual Computacional. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de `COMPUTER_VISION_SUBSCRIPTION_KEY` caracteres do ponto de extremidade de serviço, denominada e `COMPUTER_VISION_ENDPOINT`, respectivamente.
 * Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 * O pacote NuGet da biblioteca de cliente [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision). Não é necessário transferir o pacote. Abaixo, são fornecidas as instruções de instalação.
 
@@ -37,7 +37,7 @@ Para executar o exemplo, siga os seguintes passos:
     1. No menu, clique em **Ferramentas**, selecione **Gestor de Pacotes NuGet** e, em seguida, **Gerir Pacotes NuGet para Solução**.
     1. Clique no separador **Procurar** e na caixa **Pesquisar** escreva "Microsoft.Azure.CognitiveServices.Vision.ComputerVision".
     1. Selecione **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** quando for apresentado e, em seguida, clique na caixa de verificação junto do nome do projeto e em **Instalar**.
-1. Substitua o conteúdo do *Program.cs* com o código a seguir. O `AnalyzeImageAsync` e `AnalyzeImageInStreamAsync` métodos encapsular o [API de REST de imagem analisar](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para imagens remotas e locais, respectivamente.
+1. Substitua o conteúdo de *Program.cs* pelo código a seguir. Os `AnalyzeImageAsync` métodos `AnalyzeImageInStreamAsync` e encapsulam a [API de análise REST de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para imagens locais e remotas, respectivamente.
 
     ```csharp
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
@@ -151,14 +151,14 @@ Para executar o exemplo, siga os seguintes passos:
 1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
 1. Altere `computerVision.Endpoint` para a região do Azure associada às chaves de subscrição, se necessário.
 1. Substitua `<LocalImage>` pelo caminho e o nome de ficheiro de uma imagem local.
-1. Opcionalmente, defina `remoteImageUrl` para um URL de imagem diferentes.
+1. Opcionalmente, defina `remoteImageUrl` como uma URL de imagem diferente.
 1. Execute o programa.
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta de êxito apresenta a legenda mais relevante para cada imagem. Pode alterar o `DisplayResults` dados de imagem do método de saída diferentes. Consulte a [AnalyzeLocalAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions.analyzeimageinstreamasync?view=azure-dotnet) método para obter mais informações.
+Uma resposta de êxito apresenta a legenda mais relevante para cada imagem. Você pode alterar o `DisplayResults` método para gerar dados de imagem diferentes. Consulte o método [AnalyzeLocalAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions.analyzeimageinstreamasync?view=azure-dotnet) para saber mais.
 
-Consulte [inícios rápidos de API: Analisar uma imagem local com o C# ](../QuickStarts/CSharp-analyze.md#examine-the-response) para obter um exemplo de um JSON não processado de saída.
+Consulte [os guias de início rápido da API: Analise uma imagem local com C# ](../QuickStarts/CSharp-analyze.md#examine-the-response) para obter um exemplo de uma saída JSON bruta.
 
 ```console
 https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg

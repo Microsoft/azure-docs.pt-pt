@@ -1,175 +1,176 @@
 ---
-title: Compreender o por meio de exemplos de preços do Azure Data Factory | Documentos da Microsoft
-description: Este artigo explica e demonstra o modelo com exemplos detalhados de preços do Azure Data Factory
+title: Noções básicas sobre preços Azure Data Factory por meio de exemplos | Microsoft Docs
+description: Este artigo explica e demonstra o modelo de preços de Azure Data Factory com exemplos detalhados
 documentationcenter: ''
-author: shlo
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: shlo
-ms.openlocfilehash: a825982532047f6e311c5508394df243310f02ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f08dea90e7700082b6eeb708b576451060f81255
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233918"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140947"
 ---
-# <a name="understanding-data-factory-pricing-through-examples"></a>Noções básicas sobre preços de fábrica de dados por meio de exemplos
+# <a name="understanding-data-factory-pricing-through-examples"></a>Noções básicas sobre preços Data Factory por meio de exemplos
 
-Este artigo explica e demonstra o modelo com exemplos detalhados de preços do Azure Data Factory.
+Este artigo explica e demonstra o modelo de preços de Azure Data Factory com exemplos detalhados.
 
 > [!NOTE]
-> Os preços usados nesses exemplos abaixo são hipotéticos e destinam-se não implica, preços reais.
+> Os preços usados nestes exemplos abaixo são hipotéticos e não têm o objetivo de implicar no preço real.
 
-## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>Copiar dados de AWS S3 para armazenamento de Blobs do Azure por hora
+## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>Copiar dados do AWS S3 para o armazenamento de BLOBs do Azure por hora
 
-Neste cenário, desejar copiar dados do AWS S3 para o armazenamento de Blobs do Azure numa agenda hora a hora.
+Nesse cenário, você deseja copiar dados do AWS S3 para o armazenamento de BLOBs do Azure em um agendamento por hora.
 
-Para realizar o cenário, terá de criar um pipeline com os seguintes itens:
+Para realizar o cenário, você precisa criar um pipeline com os seguintes itens:
 
-1. Uma atividade de cópia com um conjunto de dados de entrada para os dados a ser copiados do AWS S3.
+1. Uma atividade de cópia com um conjunto de dados de entrada para o dado a ser copiado do AWS S3.
 
-2. Um conjunto de dados de saída para os dados no armazenamento do Azure.
+2. Um DataSet de saída para os dados no armazenamento do Azure.
 
-3. Um acionador de agenda para executar o pipeline a cada hora.
+3. Um gatilho de agendamento para executar o pipeline a cada hora.
 
    ![Scenario1](media/pricing-concepts/scenario1.png)
 
 | **Operações** | **Tipos e unidades** |
 | --- | --- |
-| Criar serviço ligado | 2 de leitura/escrita entidade  |
-| Criar conjuntos de dados | 4 entidades de leitura/gravação (2 para a criação de conjunto de dados, 2 para referências de serviço ligado) |
-| Criar Pipeline | 3 entidades de leitura/gravação (1 para a criação do pipeline, 2 para referências do conjunto de dados) |
-| Obter o Pipeline | 1 entidade de leitura/escrita |
-| Executar o Pipeline | 2 execuções de Atividades (1 para 1 para execuções de atividades, execução do acionador) |
-| Tempo de execução do pressuposto de dados de cópia: = 10 min | 10 \* 4 Runtime de integração do azure (DIU definição predefinida = 4) para obter mais informações sobre unidades de integração de dados e a otimização de desempenho de cópia, consulte [neste artigo](copy-activity-performance.md) |
-| Pressuposição de Pipeline do monitor: 1 apenas executar Ocorreu | 2 registos de monitorização run repetida (1 para 1 para a execução da atividade, execução de pipeline) |
+| Criar serviço vinculado | 2 entidade de leitura/gravação  |
+| Criar conjuntos de os | 4 entidades de leitura/gravação (2 para criação de conjunto de conjuntos, 2 para referências de serviço vinculado) |
+| Criar Pipeline | 3 entidades de leitura/gravação (1 para criação de pipeline, 2 para referências de DataSet) |
+| Obter pipeline | 1 entidade de leitura/gravação |
+| Executar pipeline | 2 execuções de atividade (1 para execução de gatilho, 1 para execuções de atividade) |
+| Pressuposição de Copiar Dados: tempo de execução = 10 min | 10 \* 4 Azure Integration Runtime (configuração padrão de DIU = 4) para obter mais informações sobre unidades de integração de dados e otimizar o desempenho de cópia, consulte [Este artigo](copy-activity-performance.md) |
+| Monitorar a pressuposição do pipeline: Somente 1 execução ocorreu | 2 registros de execução de monitoramento repetidos (1 para execução de pipeline, 1 para execução de atividade) |
 
-**Total de preços de cenário: $0.16811**
+**Preço do cenário total: $0.16811**
 
-- Operações da fábrica de dados = **US $0,0001**
-  - Leitura/escrita = 10\*00001 = US $0,0001 [1 R/W = US $ 0,50/50000 = 0,00001]
-  - Monitorização = 2\*000005 = US $0,00001 [monitorização 1 = US $ 0,25/50000 = 0.000005]
-- Orquestração do pipeline &amp; execução = **US $0.168**
-  - Execuções de atividades = 001\*2 = 0.002 [1 executar = US $1/1000 = 0,001]
-  - Atividades de movimento de dados = US $0.166 (Prorated durante 10 minutos de tempo de execução. US $ 0,25/hora no Runtime de integração do Azure)
+- Operações de Data Factory = **$0.01**
+  - Leitura/gravação = 10\*00001 = $0.01 [1 R/W = US $0,50/50000 = 0, 1]
+  - Monitoramento = 2\*000005 = $0.01 [1 monitoramento = $0,25/50000 = 0, 5]
+- &amp; Execução de orquestração de pipeline = **$0.168**
+  - Execuções de atividade\*= 001 2 = 0, 2 [1 Run = $1/1000 = 0, 1]
+  - Atividades de movimentação de dados = $0.166 (rateado por 10 minutos de tempo de execução. US $0,25/hora no Azure Integration Runtime)
 
-## <a name="copy-data-and-transform-with-azure-databricks-hourly"></a>Copiar dados e transformação com o Azure Databricks, uma vez por hora
+## <a name="copy-data-and-transform-with-azure-databricks-hourly"></a>Copiar dados e transformar com Azure Databricks por hora
 
-Neste cenário, deseja copiar dados do AWS S3 para o armazenamento de Blobs do Azure e transformar os dados com o Azure Databricks um cronograma de hora a hora.
+Nesse cenário, você deseja copiar dados do AWS S3 para o armazenamento de BLOBs do Azure e transformar os dados com Azure Databricks em uma agenda por hora.
 
-Para realizar o cenário, terá de criar um pipeline com os seguintes itens:
+Para realizar o cenário, você precisa criar um pipeline com os seguintes itens:
 
-1. Uma atividade de cópia com um conjunto de dados de entrada para os dados a ser copiados do AWS S3 e um conjunto de dados de saída para os dados no armazenamento do Azure.
-2. Uma atividade do Azure Databricks para a transformação de dados.
-3. Acionador de agenda de um para executar o pipeline a cada hora.
+1. Uma atividade de cópia com um conjunto de dados de entrada para o data a ser copiado do AWS S3, e um conjunto de dados de saída para o armazenamento do Azure.
+2. Uma Azure Databricks atividade para a transformação de dados.
+3. Um gatilho de agendamento para executar o pipeline a cada hora.
 
 ![Scenario2](media/pricing-concepts/scenario2.png)
 
 | **Operações** | **Tipos e unidades** |
 | --- | --- |
-| Criar serviço ligado | 3 de leitura/escrita entidade  |
-| Criar conjuntos de dados | 4 entidades de leitura/gravação (2 para a criação de conjunto de dados, 2 para referências de serviço ligado) |
-| Criar Pipeline | 3 entidades de leitura/gravação (1 para a criação do pipeline, 2 para referências do conjunto de dados) |
-| Obter o Pipeline | 1 entidade de leitura/escrita |
-| Executar o Pipeline | 3 execuções de Atividades (1 para 2 para execuções de atividades, execução do acionador) |
-| Tempo de execução do pressuposto de dados de cópia: = 10 min | 10 \* 4 Runtime de integração do azure (DIU definição predefinida = 4) para obter mais informações sobre unidades de integração de dados e a otimização de desempenho de cópia, consulte [neste artigo](copy-activity-performance.md) |
-| Pressuposição de Pipeline do monitor: 1 apenas executar Ocorreu | 3 registos de monitorização run repetida (1 para 2 para a execução da atividade, execução de pipeline) |
-| Executar a atividade do Databricks pressuposição: tempo de execução = 10 min | Execução de atividade do Pipeline externo de 10 minutos |
+| Criar serviço vinculado | 3 entidade de leitura/gravação  |
+| Criar conjuntos de os | 4 entidades de leitura/gravação (2 para criação de conjunto de conjuntos, 2 para referências de serviço vinculado) |
+| Criar Pipeline | 3 entidades de leitura/gravação (1 para criação de pipeline, 2 para referências de DataSet) |
+| Obter pipeline | 1 entidade de leitura/gravação |
+| Executar pipeline | 3 execuções de atividade (1 para execução de gatilho, 2 para execuções de atividade) |
+| Pressuposição de Copiar Dados: tempo de execução = 10 min | 10 \* 4 Azure Integration Runtime (configuração padrão de DIU = 4) para obter mais informações sobre unidades de integração de dados e otimizar o desempenho de cópia, consulte [Este artigo](copy-activity-performance.md) |
+| Monitorar a pressuposição do pipeline: Somente 1 execução ocorreu | 3 registros de execução de monitoramento repetidos (1 para execução de pipeline, 2 para execução de atividade) |
+| Executar pressuposição de atividade do databricks: tempo de execução = 10 min | 10 minutos de execução de atividade de pipeline externo |
 
-**Total de preços de cenário: $0.16916**
+**Preço do cenário total: $0.16916**
 
-- Operações da fábrica de dados = **US $0.00012**
-  - Leitura/escrita = 11\*00001 = US $0.00011 [1 R/W = US $ 0,50/50000 = 0,00001]
-  - Monitorização = 3\*000005 = US $0,00001 [monitorização 1 = US $ 0,25/50000 = 0.000005]
-- Orquestração do pipeline &amp; execução = **US $0.16904**
-  - Execuções de atividades = 001\*3 = 0,003 [1 executar = US $1/1000 = 0,001]
-  - Atividades de movimento de dados = US $0.166 (Prorated durante 10 minutos de tempo de execução. US $ 0,25/hora no Runtime de integração do Azure)
-  - Atividade do Pipeline externo = US $0.000041 (Prorated durante 10 minutos de tempo de execução. US $0.00025/hora no Runtime de integração do Azure)
+- Operações de Data Factory = **$0.12**
+  - Leitura/gravação = 11\*00001 = $0.11 [1 R/W = US $0,50/50000 = 0, 1]
+  - Monitoramento = 3\*000005 = $0.01 [1 monitoramento = $0,25/50000 = 0, 5]
+- &amp; Execução de orquestração de pipeline = **$0.16904**
+  - Execuções de atividade\*= 001 3 = 0, 3 [1 Run = $1/1000 = 0, 1]
+  - Atividades de movimentação de dados = $0.166 (rateado por 10 minutos de tempo de execução. US $0,25/hora no Azure Integration Runtime)
+  - Atividade de pipeline externo = $0.41 (rateado por 10 minutos de tempo de execução. $0.00025/hora em Azure Integration Runtime)
 
-## <a name="copy-data-and-transform-with-dynamic-parameters-hourly"></a>Copie os dados e transforme com parâmetros dinâmicos, uma vez por hora
+## <a name="copy-data-and-transform-with-dynamic-parameters-hourly"></a>Copiar dados e transformar com parâmetros dinâmicos por hora
 
-Neste cenário, copiar dados de AWS S3 para armazenamento de Blobs do Azure e a transformação com o Azure Databricks (com parâmetros dinâmicos no script) numa programação de hora em hora.
+Nesse cenário, você deseja copiar dados do AWS S3 para o armazenamento de BLOBs do Azure e transformar com Azure Databricks (com parâmetros dinâmicos no script) em uma agenda por hora.
 
-Para realizar o cenário, terá de criar um pipeline com os seguintes itens:
+Para realizar o cenário, você precisa criar um pipeline com os seguintes itens:
 
-1. Uma atividade de cópia com um conjunto de dados de entrada para os dados a ser copiados do AWS S3, um conjunto de dados de saída para os dados no armazenamento do Azure.
+1. Uma atividade de cópia com um conjunto de dados de entrada para o dado a ser copiado do AWS S3, um conjunto de dados de saída para o armazenamento do Azure.
 2. Uma atividade de pesquisa para passar parâmetros dinamicamente para o script de transformação.
-3. Uma atividade do Azure Databricks para a transformação de dados.
-4. Acionador de agenda de um para executar o pipeline a cada hora.
+3. Uma Azure Databricks atividade para a transformação de dados.
+4. Um gatilho de agendamento para executar o pipeline a cada hora.
 
 ![Scenario3](media/pricing-concepts/scenario3.png)
 
 | **Operações** | **Tipos e unidades** |
 | --- | --- |
-| Criar serviço ligado | 3 de leitura/escrita entidade  |
-| Criar conjuntos de dados | 4 entidades de leitura/gravação (2 para a criação de conjunto de dados, 2 para referências de serviço ligado) |
-| Criar Pipeline | 3 entidades de leitura/gravação (1 para a criação do pipeline, 2 para referências do conjunto de dados) |
-| Obter o Pipeline | 1 entidade de leitura/escrita |
-| Executar o Pipeline | 4 execuções de Atividades (1 para execução, 3 para execuções de atividades do acionador) |
-| Tempo de execução do pressuposto de dados de cópia: = 10 min | 10 \* 4 Runtime de integração do azure (DIU definição predefinida = 4) para obter mais informações sobre unidades de integração de dados e a otimização de desempenho de cópia, consulte [neste artigo](copy-activity-performance.md) |
-| Pressuposição de Pipeline do monitor: 1 apenas executar Ocorreu | 4 registos de monitorização run repetida (1 para execução de pipeline, 3 para execução de atividade) |
-| Executar a atividade de pesquisa pressuposição: tempo de execução = 1 min | execução de atividade do Pipeline de 1 min |
-| Executar a atividade do Databricks pressuposição: tempo de execução = 10 min | 10 minutos a execução de atividade do Pipeline externo |
+| Criar serviço vinculado | 3 entidade de leitura/gravação  |
+| Criar conjuntos de os | 4 entidades de leitura/gravação (2 para criação de conjunto de conjuntos, 2 para referências de serviço vinculado) |
+| Criar Pipeline | 3 entidades de leitura/gravação (1 para criação de pipeline, 2 para referências de DataSet) |
+| Obter pipeline | 1 entidade de leitura/gravação |
+| Executar pipeline | 4 execuções de atividade (1 para execução de gatilho, 3 para execuções de atividade) |
+| Pressuposição de Copiar Dados: tempo de execução = 10 min | 10 \* 4 Azure Integration Runtime (configuração padrão de DIU = 4) para obter mais informações sobre unidades de integração de dados e otimizar o desempenho de cópia, consulte [Este artigo](copy-activity-performance.md) |
+| Monitorar a pressuposição do pipeline: Somente 1 execução ocorreu | 4 registros de execução de monitoramento repetidos (1 para execução de pipeline, 3 para execução de atividade) |
+| Executar pressuposição de atividade de pesquisa: tempo de execução = 1 min | uma execução de atividade de pipeline mín. |
+| Executar pressuposição de atividade do databricks: tempo de execução = 10 min | 10 minutos de execução de atividade de pipeline externo |
 
-**Total de preços de cenário: $0.17020**
+**Preço do cenário total: $0.17020**
 
-- Operações da fábrica de dados = **US $0.00013**
-  - Leitura/escrita = 11\*00001 = US $0.00011 [1 R/W = US $ 0,50/50000 = 0,00001]
-  - Monitorização = 4\*000005 = US $0.00002 [monitorização 1 = US $ 0,25/50000 = 0.000005]
-- Orquestração do pipeline &amp; execução = **US $0.17007**
-  - Execuções de atividades = 001\*4 = 0.004 [1 executar = US $1/1000 = 0,001]
-  - Atividades de movimento de dados = US $0.166 (Prorated durante 10 minutos de tempo de execução. US $ 0,25/hora no Runtime de integração do Azure)
-  - Atividade do pipeline = US $0.00003 (Prorated para 1 minuto de tempo de execução. US $0.002/hora no Runtime de integração do Azure)
-  - Atividade do Pipeline externo = US $0.000041 (Prorated durante 10 minutos de tempo de execução. US $0.00025/hora no Runtime de integração do Azure)
+- Operações de Data Factory = **$0.13**
+  - Leitura/gravação = 11\*00001 = $0.11 [1 R/W = US $0,50/50000 = 0, 1]
+  - Monitoramento = 4\*000005 = $0.02 [1 monitoramento = $0,25/50000 = 0, 5]
+- &amp; Execução de orquestração de pipeline = **$0.17007**
+  - Execuções de atividade\*= 001 4 = 0, 4 [1 Run = $1/1000 = 0, 1]
+  - Atividades de movimentação de dados = $0.166 (rateado por 10 minutos de tempo de execução. US $0,25/hora no Azure Integration Runtime)
+  - Atividade de pipeline = $0.03 (rateado por 1 minuto de tempo de execução. $0,002/hora em Azure Integration Runtime)
+  - Atividade de pipeline externo = $0.41 (rateado por 10 minutos de tempo de execução. $0.00025/hora em Azure Integration Runtime)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>Com a depuração de fluxo de dados de mapeamento para um dia de trabalho normal (preços de pré-visualização)
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>Usando a depuração de fluxo de dados de mapeamento para um workday normal (preço de visualização)
 
-Como engenheiro de dados, é responsável por estruturar, criar e testar fluxos de dados de mapeamento de todos os dias. Iniciar sessão na IU do ADF da manhã e ativar o modo de depuração para fluxos de dados. O TTL predefinido para sessões de depuração é 60 minutos. Funciona ao longo do dia durante 10 horas, para que a sua sessão de depuração nunca expira. Por conseguinte, o custo para o dia será:
+Como engenheiro de dados, você é responsável por criar, criar e testar fluxos de dados de mapeamento todos os dias. Faça logon na interface do usuário do ADF na manhã e habilite o modo de depuração para fluxos de dados. O TTL padrão para sessões de depuração é de 60 minutos. Você trabalha ao longo do dia por 10 horas, portanto, sua sessão de depuração nunca expira. Portanto, sua cobrança pelo dia será:
 
-**10 (horas) x 8 (núcleos) x US $0.112 = us $8.96**
+**10 (horas) x 8 (núcleos) x $0.112 = $8.96**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>Transformar dados no armazenamento de Blobs com o mapeamento de fluxos de dados (preços de pré-visualização)
+## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>Transformar dados no repositório de blob com o mapeamento de fluxos de dados (preço de visualização)
 
-Neste cenário, deseja transformar dados no Blob Store visualmente no ADF mapeando os dados fluem um cronograma de hora a hora.
+Nesse cenário, você deseja transformar os dados no repositório de blob visualmente nos fluxos de dados de mapeamento do ADF em uma agenda por hora.
 
-Para realizar o cenário, terá de criar um pipeline com os seguintes itens:
+Para realizar o cenário, você precisa criar um pipeline com os seguintes itens:
 
-1. Uma atividade de fluxo de dados de mensagens em fila com a lógica de transformação.
+1. Uma atividade de fluxo de dados com a lógica de transformação.
 
-2. Um conjunto de dados entrado para os dados no armazenamento do Azure.
+2. Um DataSet de entrada para os dados no armazenamento do Azure.
 
-3. Um conjunto de dados de saída para os dados no armazenamento do Azure.
+3. Um DataSet de saída para os dados no armazenamento do Azure.
 
-4. Um acionador de agenda para executar o pipeline a cada hora.
+4. Um gatilho de agendamento para executar o pipeline a cada hora.
 
 | **Operações** | **Tipos e unidades** |
 | --- | --- |
-| Criar serviço ligado | 2 de leitura/escrita entidade  |
-| Criar conjuntos de dados | 4 entidades de leitura/gravação (2 para a criação de conjunto de dados, 2 para referências de serviço ligado) |
-| Criar Pipeline | 3 entidades de leitura/gravação (1 para a criação do pipeline, 2 para referências do conjunto de dados) |
-| Obter o Pipeline | 1 entidade de leitura/escrita |
-| Executar o Pipeline | 2 execuções de Atividades (1 para 1 para execuções de atividades, execução do acionador) |
-| Tempo de execução de suposições de fluxo de dados: = 10 min + 10 min TTL | 10 \* 8 núcleos de computação geral com o valor de TTL de 10 |
-| Pressuposição de Pipeline do monitor: 1 apenas executar Ocorreu | 2 registos de monitorização run repetida (1 para 1 para a execução da atividade, execução de pipeline) |
+| Criar serviço vinculado | 2 entidade de leitura/gravação  |
+| Criar conjuntos de os | 4 entidades de leitura/gravação (2 para criação de conjunto de conjuntos, 2 para referências de serviço vinculado) |
+| Criar Pipeline | 3 entidades de leitura/gravação (1 para criação de pipeline, 2 para referências de DataSet) |
+| Obter pipeline | 1 entidade de leitura/gravação |
+| Executar pipeline | 2 execuções de atividade (1 para execução de gatilho, 1 para execuções de atividade) |
+| Pressuposições de fluxo de dados: tempo de execução = 10 min + 10 min TTL | 10 \* 8 núcleos de computação geral com TTL de 10 |
+| Monitorar a pressuposição do pipeline: Somente 1 execução ocorreu | 2 registros de execução de monitoramento repetidos (1 para execução de pipeline, 1 para execução de atividade) |
 
-**Total de preços de cenário: $0.3011**
+**Preço do cenário total: $0.3011**
 
-- Operações da fábrica de dados = **US $0,0001**
-  - Leitura/escrita = 10\*00001 = US $0,0001 [1 R/W = US $ 0,50/50000 = 0,00001]
-  - Monitorização = 2\*000005 = US $0,00001 [monitorização 1 = US $ 0,25/50000 = 0.000005]
-- Orquestração do pipeline &amp; execução = **US $0.301**
-  - Execuções de atividades = 001\*2 = 0.002 [1 executar = US $1/1000 = 0,001]
-  - Atividades de fluxo de dados = US $0.299 Prorated durante 20 minutos (tempo de execução de 10 minutos + 10 minutos TTL). US $0.112/ hora no Runtime de integração do Azure com gerais de 8 núcleos de computação
+- Operações de Data Factory = **$0.01**
+  - Leitura/gravação = 10\*00001 = $0.01 [1 R/W = US $0,50/50000 = 0, 1]
+  - Monitoramento = 2\*000005 = $0.01 [1 monitoramento = $0,25/50000 = 0, 5]
+- &amp; Execução de orquestração de pipeline = **$0.301**
+  - Execuções de atividade\*= 001 2 = 0, 2 [1 Run = $1/1000 = 0, 1]
+  - Atividades de fluxo de dados = $0.299 rateado por 20 minutos (tempo de execução de 10 min + 10 minutos TTL). $0.112/hora em Azure Integration Runtime com 8 núcleos de computação geral
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que compreende os preços do Azure Data Factory, pode começar a utilizar!
+Agora que você entendeu os preços de Azure Data Factory, você pode começar!
 
-- [Criar uma fábrica de dados utilizando a IU do Azure Data Factory](quickstart-create-data-factory-portal.md)
+- [Criar um data factory usando a interface do usuário do Azure Data Factory](quickstart-create-data-factory-portal.md)
 
 - [Introdução ao Azure Data Factory](introduction.md)
 
-- [Criação no Azure Data Factory](author-visually.md)
+- [Criação visual no Azure Data Factory](author-visually.md)

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: 5f387310e737982b824d0ac9662822d9a74f39e9
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e606b4fee2c46f66f13c45586bcc25577bd90a1f
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67616008"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147192"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos principais do kubernetes para o serviço kubernetes do Azure (AKS)
 
@@ -100,6 +100,9 @@ Para obter as práticas recomendadas associadas, consulte [práticas recomendada
 ### <a name="node-pools"></a>Conjuntos de nós
 
 Os nós da mesma configuração são agrupados em pools de *nós*. Um cluster kubernetes contém um ou mais pools de nós. O número inicial de nós e tamanho é definido quando você cria um cluster AKS, que cria um *pool de nós padrão*. Esse pool de nós padrão no AKS contém as VMs subjacentes que executam seus nós de agente. O suporte ao pool de vários nós está atualmente em visualização no AKS.
+
+> [!NOTE]
+> Para garantir que o cluster opere de forma confiável, você deve executar pelo menos 2 (dois) nós no pool de nós padrão.
 
 Quando você dimensiona ou atualiza um cluster AKS, a ação é executada no pool de nós padrão. Você também pode optar por dimensionar ou atualizar um pool de nós específico. Para operações de atualização, os contêineres em execução são agendados em outros nós no pool de nós até que todos os nós sejam atualizados com êxito.
 

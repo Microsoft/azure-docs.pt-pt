@@ -1,7 +1,7 @@
 ---
-title: 'Máquina de Vetor com suporte de classe dois: Referência do módulo'
+title: 'Computador de vetor de suporte de duas classes: Referência de módulo'
 titleSuffix: Azure Machine Learning service
-description: Saiba como utilizar o **máquina de Vetor com suporte a duas classes** módulo no serviço do Azure Machine Learning para criar um modelo com base no algoritmo da máquina de vetor suporte.
+description: Saiba como usar o módulo de **máquina de vetor de suporte de duas classes** no serviço Azure Machine Learning para criar um modelo baseado no algoritmo máquina de vetor de suporte.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,63 +9,62 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 2f076dd3a5b1ceb9e24548652a71fda5b9aa48b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23f5c638146472b72078e76745e557b6babe7a49
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65027934"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128314"
 ---
-# <a name="two-class-support-vector-machine-module"></a>Módulo de máquina de Vetor com suporte a duas classes
+# <a name="two-class-support-vector-machine-module"></a>Módulo de máquina de vetor de suporte de duas classes
 
-Este artigo descreve um módulo da interface visual (pré-visualização) para o serviço Azure Machine Learning.
+Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
 
-Utilize este módulo para criar um modelo com base no algoritmo da máquina de vetor suporte. 
+Use este módulo para criar um modelo baseado no algoritmo máquina de vetor de suporte. 
 
-Máquinas de vetores de suporte (SVMs) são uma classe bem pesquisada dos métodos de aprendizagem supervisionado. Essa implementação particular é adequada para a predição de dois resultados possíveis, com base nas variáveis contínuas ou categóricos.
+As máquinas de vetor de suporte (SVMs) são uma classe bem pesquisada de métodos de aprendizado supervisionados. Essa implementação específica é adequada à previsão de dois resultados possíveis, com base em variáveis contínuas ou categóricas.
 
-Depois de definir os parâmetros de modelo, treiná-lo ao utilizar os módulos de treinamento e fornecendo um *etiquetados de conjunto de dados* que inclui uma coluna de etiqueta ou o resultado.
+Depois de definir os parâmetros do modelo, treine o modelo usando os módulos de treinamento e fornecendo um conjunto de um *DataSet marcado* que inclui um rótulo ou uma coluna de resultado.
 
-## <a name="about-support-vector-machines"></a>Sobre as máquinas de vetores de suporte
+## <a name="about-support-vector-machines"></a>Sobre as máquinas de vetor de suporte
 
-Máquinas de vetores de suporte estão entre o mais cedo possível de algoritmos de machine learning e modelos SVM tenham sido utilizados em muitas aplicações, de obtenção de informações a classificação de texto e imagem. SVMs podem ser utilizados para tarefas de classificação e regressão.
+Os computadores de vetor de suporte estão entre os mais antigos dos algoritmos de aprendizado de máquina, e os modelos SVM foram usados em muitos aplicativos, da recuperação de informações à classificação de texto e imagem. SVMs pode ser usado para tarefas de classificação e regressão.
 
-Este modelo SVM é um modelo de aprendizagem supervisionada que requer que os dados etiquetados. No processo de treinamento, o algoritmo analisa os dados de entrada e reconhece padrões num espaço de funcionalidade multidimensional chamada a *hyperplane*.  Todos os exemplos de entrada são representados como pontos neste espaço e são mapeados para categorias de tal forma que categorias são divididas pela como toda a e limpar um intervalo possível de saída.
+Esse modelo de SVM é um modelo de aprendizado supervisionado que requer dados rotulados. No processo de treinamento, o algoritmo analisa dados de entrada e reconhece padrões em um espaço de recurso multidimensional chamadode hiperplano.  Todos os exemplos de entrada são representados como pontos neste espaço e são mapeados para categorias de saída de tal forma que as categorias são divididas por uma grande e limpam uma lacuna possível.
 
-Para predição, o algoritmo SVM atribui novos exemplos numa categoria ou outro, mapeando-os para esse mesmo espaço. 
+Para previsão, o algoritmo SVM atribui novos exemplos em uma categoria ou na outra, mapeando-os para esse mesmo espaço. 
 
 ## <a name="how-to-configure"></a>Como configurar 
 
-Para este tipo de modelo, recomenda-se que normalizar o conjunto de dados antes de o utilizar para treinar o classificador.
+Para esse tipo de modelo, é recomendável que você Normalize o conjunto de os antes de usá-lo para treinar o classificador.
   
-1.  Adicionar a **máquina de Vetor com suporte a duas classes** módulo à sua experimentação.  
+1.  Adicione o módulo **máquina de vetor de suporte de duas classes** ao seu experimento.  
   
-2.  Especifique como pretende que o modelo de formação, definindo a **modo de instrutor de criação** opção.  
+2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Único parâmetro**: Se souber como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos.  
+    -   **Parâmetro único**: Se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.  
 
-3.  Para **número de iterações**, escreva um número que indica o número de iterações utilizado ao criar o modelo.  
+3.  Para **número de iterações**, digite um número que denota o número de iterações usadas durante a criação do modelo.  
   
-     Este parâmetro pode ser utilizado para controlar diferentes aspetos de velocidade de treinamento e precisão.  
+     Esse parâmetro pode ser usado para controlar a compensação entre a precisão e a velocidade de treinamento.  
   
-4.  Para **Lambda**, escreva um valor a utilizar como o peso para L1 regularização.  
+4.  Para **lambda**, digite um valor a ser usado como o peso para regularização L1.  
   
-     Este coeficiente de regularização pode ser utilizado para otimizar o modelo. Valores maiores penalize modelos mais complexos.  
+     Esse coeficiente de regularização pode ser usado para ajustar o modelo. Valores maiores penalizam modelos mais complexos.  
   
-5.  Selecione a opção **normalizar funcionalidades**, se quiser normalizar funcionalidades antes de treinamento.
+5.  Selecione a opção **normalizar recursos**, se desejar normalizar os recursos antes do treinamento.
   
-     Se aplicar a normalização, antes de treinamento, pontos de dados são centrados na média e dimensionados para ter uma unidade de desvio padrão.
+     Se você aplicar a normalização, antes do treinamento, os pontos de dados serão centralizados na média e dimensionados para ter uma unidade de desvio padrão.
   
-6.  Selecione a opção **projeto para a esfera unidade**, normalizar coeficientes.
+6.  Selecione a opção, **projeto para a esfera de unidade**, para normalizar coeficientes.
   
-     Projeção de valores para o espaço da unidade significa que antes de treinamento, pontos de dados são centrados em 0 e dimensionados para ter uma unidade de desvio padrão.
+     A projeção de valores para o espaço de unidade significa que, antes do treinamento, os pontos de dados são centralizados em 0 e dimensionados para ter uma unidade de desvio padrão.
   
-7.  Na **seed número aleatório**, escreva um valor inteiro para utilizar como uma semente, se quiser garantir a capacidade de reprodução em execuções.  Caso contrário, um valor de relógio do sistema é usado como uma semente, o que pode resultar em resultados ligeiramente diferentes nas execuções.
+7.  Em **semente de número aleatório**, digite um valor inteiro para usar como semente se você quiser garantir reprodução em execuções.  Caso contrário, um valor de relógio do sistema será usado como uma semente, o que pode resultar em resultados ligeiramente diferentes entre as execuções.
   
-9. Ligar um conjunto de dados com nome e uma da [módulos de treinamento](module-reference.md):
+9. Conecte um DataSet rotulado e um dos módulos de [treinamento](module-reference.md):
   
-    -   Se definir **modo de instrutor de criação** para **único parâmetro**, utilize o [Train Model](train-model.md) módulo.
+    -   Se você definir **criar modo de instrutor** como **um único parâmetro**, use o módulo [treinar modelo](train-model.md) .
   
 
 10. Execute a experimentação.
@@ -74,11 +73,11 @@ Para este tipo de modelo, recomenda-se que normalizar o conjunto de dados antes 
 
 Após a conclusão do treinamento:
 
-+ Para ver um resumo dos parâmetros do modelo, juntamente com os pesos de funcionalidade aprendidos treinamento, com o botão direito a saída de [Train Model](./train-model.md)e selecione **Visualize**.
++ Para ver um resumo dos parâmetros do modelo, junto com os pesos do recurso aprendidos do treinamento, clique com o botão direito do mouse na saída do [modelo](./train-model.md)de treinamento e selecione **Visualizar**.
 
-+ Para utilizar os modelos treinados para fazer previsões, ligue-se o modelo preparado para o [modelo de pontuação](score-model.md) módulo.
++ Para usar os modelos treinados para fazer previsões, conecte o modelo treinado ao módulo [modelo de Pontuação](score-model.md) .
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Consulte a [conjunto de módulos disponíveis](module-reference.md) ao serviço Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

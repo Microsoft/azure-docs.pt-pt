@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 4847a69e7ffaefca8e0c738aee6e1077f421ec62
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: db4824203f63fa2fe0d4256a475d18a501b17e0e
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049036"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147741"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Agendar e difundir trabalhos (.NET)
 
@@ -50,8 +50,6 @@ No final deste tutorial, você tem dois aplicativos de console .NETC#():
 * **ScheduleJob**. Esse aplicativo usa trabalhos para chamar o método direto **LockDoor** e atualizar as propriedades desejadas do dispositivo em vários dispositivos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
-Para concluir este tutorial, precisa de:
 
 * Visual Studio.
 
@@ -304,7 +302,7 @@ Já está pronto para executar as aplicações.
 
     ![Executar os aplicativos para agendar trabalhos](./media/iot-hub-csharp-csharp-schedule-jobs/schedule-jobs-console-results.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você usou um trabalho para agendar um método direto para um dispositivo e a atualização das propriedades de FileUp do dispositivo.
 

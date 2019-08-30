@@ -1,31 +1,30 @@
 ---
-title: Transformar dados com a atividade do Hive - Azure | Documentos da Microsoft
-description: Saiba como pode utilizar a atividade de ramo de registo de uma fábrica de dados do Azure para executar consultas do Hive num cluster do HDInsight no, a pedido/suas próprio.
+title: Transformar dados usando a atividade do hive – Azure | Microsoft Docs
+description: Saiba como você pode usar a atividade do hive em uma data factory do Azure para executar consultas do hive em um cluster do HDInsight sob demanda/.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: 80083218-743e-4da8-bdd2-60d1c77b1227
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: a63ef969f17fc48145174d99fec53e77b61885a4
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 8a7e6748f450ae398a05097ac6b192d074f5f1f7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827982"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139539"
 ---
-# <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformar dados com a atividade do Hive no Azure Data Factory 
+# <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do hive no Azure Data Factory 
 > [!div class="op_single_selector" title1="Atividades de transformação"]
-> * [Atividade do Hive](data-factory-hive-activity.md) 
-> * [Atividade PIg](data-factory-pig-activity.md)
+> * [Atividade do hive](data-factory-hive-activity.md) 
+> * [Atividade Pig](data-factory-pig-activity.md)
 > * [Atividade MapReduce](data-factory-map-reduce.md)
-> * [Atividade de transmissão em fluxo do Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade do Spark](data-factory-spark.md)
 > * [Atividade de Execução em Lote do Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Atividade de Recursos de Atualização de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
@@ -34,12 +33,12 @@ ms.locfileid: "67827982"
 > * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [transformar dados com a atividade do Hive no Data Factory](../transform-data-using-hadoop-hive.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço de Data Factory, consulte [transformar dados usando a atividade do hive no data Factory](../transform-data-using-hadoop-hive.md).
 
-A atividade Hive do HDInsight numa fábrica de dados [pipeline](data-factory-create-pipelines.md) executa consultas do Hive no [seu próprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) cluster do HDInsight baseado em Windows/Linux. Este artigo baseia-se a [atividades de transformação de dados](data-factory-data-transformation-activities.md) artigo, que apresenta uma visão geral de transformação de dados e as atividades de transformação suportados.
+A atividade do hive do HDInsight em um [pipeline](data-factory-create-pipelines.md) data Factory executa consultas de Hive em [seu próprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster do HDInsight baseado em Windows/Linux [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . Este artigo se baseia no artigo [atividades de transformação de dados](data-factory-data-transformation-activities.md) , que apresenta uma visão geral da transformação de dados e das atividades de transformação com suporte.
 
 > [!NOTE] 
-> Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure Data Factory](data-factory-introduction.md) e fazer o tutorial: [Crie seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
+> Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Factory](data-factory-introduction.md) e faça o tutorial: [Crie seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -73,22 +72,22 @@ A atividade Hive do HDInsight numa fábrica de dados [pipeline](data-factory-cre
 }
 ```
 ## <a name="syntax-details"></a>Detalhes da sintaxe
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Requerido |
 | --- | --- | --- |
 | name |Nome da atividade |Sim |
-| description |Texto que descreve o que a atividade é utilizada para |Não |
+| description |Texto que descreve para que a atividade é usada |Não |
 | type |HDinsightHive |Sim |
-| inputs |Entradas consumidas pela atividade do Hive |Não |
-| outputs |Saídas produzidas pela atividade do Hive |Sim |
-| linkedServiceName |Referência para o cluster de HDInsight registado como um serviço ligado no Data Factory |Sim |
-| script |Especifique o inline de script do Hive |Não |
-| scriptPath |Store o script do Hive num armazenamento de Blobs do Azure e forneça o caminho para o ficheiro. Utilize a propriedade "script" ou 'scriptPath'. Não podem ser utilizados em conjunto. O nome de ficheiro diferencia maiúsculas de minúsculas. |Não |
-| defines |Especifique parâmetros como pares chave/valor para a referenciar dentro do script do Hive com o 'hiveconf' |Não |
+| inputs |Entradas consumidas pela atividade de Hive |Não |
+| outputs |Saídas produzidas pela atividade de Hive |Sim |
+| linkedServiceName |Referência ao cluster HDInsight registrado como um serviço vinculado no Data Factory |Sim |
+| script |Especificar o script do hive embutido |Não |
+| scriptPath |Armazene o script do hive em um armazenamento de BLOBs do Azure e forneça o caminho para o arquivo. Use a propriedade ' script ' ou ' scriptPath '. Ambos não podem ser usados juntos. O nome do arquivo diferencia maiúsculas de minúsculas. |Não |
+| defines |Especifique parâmetros como pares de chave/valor para referência no script do hive usando ' hiveconf ' |Não |
 
 ## <a name="example"></a>Exemplo
-Vamos considerar um exemplo de registos de jogos analytics onde pretende identificar o tempo gasto pelos utilizadores jogar jogos, iniciados pela sua empresa. 
+Vamos considerar um exemplo de análise de logs de jogos em que você deseja identificar o tempo gasto pelos usuários que desempenham jogos lançados por sua empresa. 
 
-O log seguinte é um registo de jogos de exemplo, que é a vírgula (`,`) separados e contém os seguintes campos – ProfileID, SessionStart, duração, SrcIPAddress e GameType.
+O log a seguir é um log de jogo de exemplo, que`,`é separado por vírgula () e contém os campos a seguir – ProfileId, SessionStart, Duration, SrcIPAddress e gametype.
 
 ```
 1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
@@ -98,7 +97,7 @@ O log seguinte é um registo de jogos de exemplo, que é a vírgula (`,`) separa
 .....
 ```
 
-O **script de ramo de registo** para processar estes dados:
+O **script do hive** para processar esses dados:
 
 ```
 DROP TABLE IF EXISTS HiveSampleIn; 
@@ -125,15 +124,15 @@ Select
 FROM HiveSampleIn Group by ProfileID
 ```
 
-Para executar este script do Hive no pipeline do Data Factory, tem de fazer o seguinte
+Para executar esse script do hive em um pipeline Data Factory, você precisa fazer o seguinte
 
-1. Criar um serviço ligado para registrar [cluster de cálculo do seu próprio HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configure [cluster de cálculo do HDInsight a pedido](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Vamos chamar este serviço ligado "HDInsightLinkedService".
-2. Criar uma [serviço ligado](data-factory-azure-blob-connector.md) para configurar a ligação para o armazenamento de Blobs do Azure que aloja os dados. Vamos chamar este serviço ligado "StorageLinkedService"
-3. Crie [conjuntos de dados](data-factory-create-datasets.md) apontando para a entrada e os dados de saída. Vamos chamar o conjunto de dados de entrada "HiveSampleIn" e o conjunto de dados de saída "HiveSampleOut"
-4. A consulta do Hive como um ficheiro para o armazenamento de Blobs do Azure de cópia configurada no passo 2 de #. Se o armazenamento para alojar os dados é diferente daquele que aloja este ficheiro de consulta, crie um serviço ligado do armazenamento do Azure separado e fazer referência a ele na atividade. Uso **scriptPath** para especificar o caminho para o ficheiro de consulta de hive e **scriptLinkedService** para especificar o armazenamento do Azure que contém o ficheiro de script. 
+1. Crie um serviço vinculado para registrar [seu próprio cluster de computação hdinsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurar o [cluster de computação hdinsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Vamos chamar esse serviço vinculado "HDInsightLinkedService".
+2. Crie um [serviço vinculado](data-factory-azure-blob-connector.md) para configurar a conexão com o armazenamento de BLOBs do Azure que hospeda os dados. Vamos chamar esse serviço vinculado "StorageLinkedService"
+3. Crie [conjuntos](data-factory-create-datasets.md) de dados que apontam para a entrada e os de saída. Vamos chamar o DataSet de entrada "HiveSampleIn" e o conjunto de dados de saída "HiveSampleOut"
+4. Copie a consulta do hive como um arquivo para o armazenamento de BLOBs do Azure configurado na etapa #2. Se o armazenamento para hospedar os dados for diferente daquele que hospeda esse arquivo de consulta, crie um serviço vinculado do armazenamento do Azure separado e consulte-o na atividade. Use **ScriptPath** para especificar o caminho para o arquivo de consulta do hive e **scriptLinkedService** para especificar o armazenamento do Azure que contém o arquivo de script. 
    
    > [!NOTE]
-   > Também pode fornecer o inline de script de ramo de registo na definição da atividade, utilizando o **script** propriedade. Não recomendamos esta abordagem como todos os carateres especiais no script dentro as necessidades de documentos JSON de caracteres de escape e pode causar problemas de depuração. A prática recomendada é seguir o passo 4 de #.
+   > Você também pode fornecer o script do hive embutido na definição da atividade usando a propriedade **script** . Não recomendamos essa abordagem, pois todos os caracteres especiais no script dentro do documento JSON precisam ser ignorados e podem causar problemas de depuração. A prática recomendada é seguir a etapa #4.
    > 
    > 
 5. Crie um pipeline com a atividade HDInsightHive. A atividade processa/transforma os dados.
@@ -170,15 +169,15 @@ Para executar este script do Hive no pipeline do Data Factory, tem de fazer o se
         }
     }
     ```
-6. Implemente o pipeline. Ver [Criar pipelines](data-factory-create-pipelines.md) artigo para obter detalhes. 
-7. Monitorize o pipeline com as vistas de monitorização e gestão da fábrica de dados. Ver [monitorização e gerir pipelines do Data Factory](data-factory-monitor-manage-pipelines.md) artigo para obter detalhes. 
+6. Implante o pipeline. Consulte o artigo [criando pipelines](data-factory-create-pipelines.md) para obter detalhes. 
+7. Monitore o pipeline usando as exibições de monitoramento e gerenciamento de data factory. Consulte o artigo [monitoramento e gerenciar pipelines de data Factory](data-factory-monitor-manage-pipelines.md) para obter detalhes. 
 
-## <a name="specifying-parameters-for-a-hive-script"></a>Especificar parâmetros para um script do Hive
-Neste exemplo, registos de jogos são ingeridos diariamente no armazenamento de Blobs do Azure e são armazenados numa pasta particionada com a data e hora. Queira parametrizar o script do Hive e passar a localização da pasta de entrada dinamicamente durante o tempo de execução e também produzir a saída particionada com a data e hora.
+## <a name="specifying-parameters-for-a-hive-script"></a>Especificando parâmetros para um script do hive
+Neste exemplo, os logs de jogos são ingeridos diariamente no armazenamento de BLOBs do Azure e são armazenados em uma pasta particionada com data e hora. Você deseja parametrizar o script do hive e passar o local da pasta de entrada dinamicamente durante o tempo de execução e também produzir a saída particionada com data e hora.
 
-Para utilizar o script de Hive parametrizado, faça o seguinte
+Para usar o script Hive com parâmetros, faça o seguinte
 
-* Definir os parâmetros **define**.
+* Defina os parâmetros em **define**.
 
     ```JSON  
     {
@@ -216,7 +215,7 @@ Para utilizar o script de Hive parametrizado, faça o seguinte
       }
     }
     ```
-* No Script do Hive, consulte usando o parâmetro **${hiveconf:parameterName}** . 
+* No script do hive, consulte o parâmetro usando **$ {hiveconf: ParameterName}** . 
   
     ```
     DROP TABLE IF EXISTS HiveSampleIn; 
@@ -243,9 +242,9 @@ Para utilizar o script de Hive parametrizado, faça o seguinte
     FROM HiveSampleIn Group by ProfileID
     ```
   ## <a name="see-also"></a>Consultar Também
-* [Atividade PIg](data-factory-pig-activity.md)
+* [Atividade Pig](data-factory-pig-activity.md)
 * [Atividade MapReduce](data-factory-map-reduce.md)
-* [Atividade de transmissão em fluxo do Hadoop](data-factory-hadoop-streaming-activity.md)
+* [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Invocar programas do Spark](data-factory-spark.md)
 * [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 

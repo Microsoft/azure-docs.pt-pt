@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a978e2755818e88cad580753e041eacd50a9e6d2
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 1b5615de8df42bca64822b0e459c7815412300af
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980473"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125387"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivada para o que há de novo? no Azure Active Directory
 
@@ -1843,11 +1843,11 @@ Para obter mais informações sobre a listagem a sua aplicação na Galeria de a
 **Categoria de serviço:** Identity Protection  
 **Funcionalidade do produto:** Proteção de & de segurança de identidade
 
-A informação que obtém um evento de risco detetados está associada à sua subscrição do Azure AD. Com a edição do Azure AD Premium P2, obtenha as informações mais detalhadas sobre todas as detecções subjacentes.
+O insight que você obtém para uma detecção de risco detectado está vinculado à sua assinatura do Azure AD. Com a edição do Azure AD Premium P2, obtenha as informações mais detalhadas sobre todas as detecções subjacentes.
 
-Com a edição do Azure AD Premium P1, deteções de Trojans não são cobertas pela sua licença aparecem como o evento de risco de início de sessão com risco adicional detetado.
+Com a edição P1 do Azure AD Premium, as detecções que não são cobertas pela sua licença são exibidas como a entrada de detecção de risco com risco adicional detectado.
 
-Para obter mais informações, consulte [Eventos de risco do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events).
+Para obter mais informações, consulte [Azure Active Directory as detecções de risco](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events).
  
 ---
 
@@ -1913,7 +1913,7 @@ Com a disponibilidade geral do novo console de administração do Active Directo
 
 **O que está disponível?**
 
-Como parte da transição para a nova consola de administração, que fizemos 2 novas APIs disponíveis para recuperar os registos de atividade do Azure AD. O novo conjunto de APIs fornece mais avançado de filtragem e ordenação funcionalidade além de fornecermos o auditoria mais rica e atividades de início de sessão. Os dados anteriormente disponíveis através de relatórios de segurança agora podem ser acedidos através de eventos de risco do Identity Protection API no Microsoft Graph.
+Como parte da transição para a nova consola de administração, que fizemos 2 novas APIs disponíveis para recuperar os registos de atividade do Azure AD. O novo conjunto de APIs fornece mais avançado de filtragem e ordenação funcionalidade além de fornecermos o auditoria mais rica e atividades de início de sessão. Os dados anteriormente disponíveis por meio dos relatórios de segurança agora podem ser acessados por meio da API de detecções de risco da proteção de identidade no Microsoft Graph.
 
 Para obter mais informações, consulte:
 
@@ -2264,13 +2264,13 @@ Para obter mais informações, consulte [controles no acesso condicional do Azur
  
 ---
 
-### <a name="aggregation-of-real-time-risk-events"></a>Agregação de eventos de risco em tempo real
+### <a name="aggregation-of-real-time-risk-detections"></a>Agregação de detecções de risco em tempo real
 
 **Escreva** Funcionalidade alterada    
 **Categoria de serviço:** Proteção de identidade  
 **Funcionalidade do produto:** Segurança e proteção de identidade
 
-No Azure AD Identity Protection, todos os eventos de risco em tempo real provenientes do mesmo endereço IP num determinado dia agora são agregados para cada tipo de evento de risco. Esta alteração limita o volume de eventos de risco mostrado sem qualquer alteração na segurança do utilizador.
+Em Azure AD Identity Protection, todas as detecções de risco em tempo real originadas do mesmo endereço IP em um determinado dia agora são agregadas para cada tipo de detecção de risco. Essa alteração limita o volume de detecções de risco mostrado sem nenhuma alteração na segurança do usuário.
 
 A deteção em tempo real subjacente funciona sempre que o utilizador inicia sessão. Se tiver uma política de segurança de risco de início de sessão para o multi-factor Authentication ou bloquear o acesso, ainda é acionado durante cada risco início de sessão.
  
@@ -2388,7 +2388,7 @@ Para obter mais informações, consulte [ocultar uma aplicação de terceiros da
 
 **O que está disponível?**
 
- Como parte da transição para a nova consola de administração, duas novas APIs para recuperação das atividades do Azure AD, os registos estão disponíveis. O novo conjunto de APIs fornece mais avançado de filtragem e ordenação funcionalidade além de fornecermos o auditoria mais rica e atividades de início de sessão. Os dados anteriormente disponíveis através de relatórios de segurança, agora podem ser acessados por meio da API de eventos de risco do Identity Protection no Microsoft Graph.
+ Como parte da transição para a nova consola de administração, duas novas APIs para recuperação das atividades do Azure AD, os registos estão disponíveis. O novo conjunto de APIs fornece mais avançado de filtragem e ordenação funcionalidade além de fornecermos o auditoria mais rica e atividades de início de sessão. Os dados anteriormente disponíveis por meio dos relatórios de segurança agora podem ser acessados por meio da API de detecções de risco da proteção de identidade no Microsoft Graph.
 
 
 ## <a name="september-2017"></a>Setembro de 2017

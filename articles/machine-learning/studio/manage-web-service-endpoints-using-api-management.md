@@ -1,5 +1,5 @@
 ---
-title: Gerir os serviços da web com a gestão de API
+title: Gerenciar serviços Web usando o gerenciamento de API
 titleSuffix: Azure Machine Learning Studio
 description: Um guia que mostram como gerir os serviços de web do AzureML com a gestão de API. Gerir os pontos finais de REST API com a definição de acesso de utilizador, a otimização do uso e a monitorização do dashboard.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8b424696c3350ff2592df9a97189dde3df57845f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347385"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138566"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gerir os serviços de web do Azure Machine Learning Studio com a gestão de API
 ## <a name="overview"></a>Descrição geral
@@ -182,11 +182,11 @@ Mude o nome para **SimpleFeatureHashingExperiment**. Expanda **conjuntos de dado
 
 Expanda **transformação de dados** e **manipulação** e arraste **selecionar colunas no conjunto de dados** na experimentação. Ligue-se **revisões de livros da Amazon** ao **selecionar colunas no conjunto de dados**.
 
-![Ligar o módulo de conjunto de dados do livro revisões para um módulo de colunas do projeto](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![Conectar o módulo conjunto de registros de análises de livros a um módulo de colunas de projeto](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 Clique em **Select Columns in Dataset** e, em seguida, clique em **iniciar Seletor de colunas** e selecione **Col2**. Clique na marca de verificação para aplicar estas alterações.
 
-![Selecionar colunas com nomes de coluna](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![Selecionar colunas usando nomes de coluna](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 Expanda **análise de texto** e arraste **Hashing de funcionalidade** para a experimentação. Ligue-se **selecionar colunas no conjunto de dados** ao **Hashing de funcionalidade**.
 
@@ -214,7 +214,7 @@ Clique em **Sim** para publicar a experimentação.
 ![Sim para publicar](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Testar o serviço web
-Um serviço web do AzureML consiste em RSS (serviço de solicitação/resposta) e pontos de extremidade do BES (serviço de execução do batch). RSS destina-se a execução síncrona. BES destina-se a execução da tarefa assíncrona. Para testar o serviço da web com a origem de Python de exemplo abaixo, poderá ter de transferir e instalar o Azure SDK para Python (consulte: [Como instalar o Python](../../python-how-to-install.md)).
+Um serviço web do AzureML consiste em RSS (serviço de solicitação/resposta) e pontos de extremidade do BES (serviço de execução do batch). RSS destina-se a execução síncrona. BES destina-se a execução da tarefa assíncrona. Para testar seu serviço Web com a fonte Python de exemplo abaixo, talvez seja necessário baixar e instalar o SDK do Azure para Python (consulte: [Como instalar o Python](/azure/python/python-sdk-azure-install)).
 
 Também terá do **área de trabalho**, **service**, e **api_key** da sua experimentação para a origem de exemplo abaixo. Pode encontrar a área de trabalho e o serviço clicando em **solicitação/resposta** ou **execução de lotes** para a experimentação no dashboard do serviço web.
 

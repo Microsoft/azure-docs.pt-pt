@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 8fffc74075abf6dcc4b5c293819f739a9725646b
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 7233bea4a030b814a5332284a80f07a71f288dba
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998164"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128206"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -30,15 +30,15 @@ O artigo mostra como utilizar a API [Carregar vídeo](https://api-portal.videoin
 Após o carregamento do vídeo, Video Indexer, opcionalmente, codifica o vídeo (discutido no artigo). Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção pago, você cria uma conta de Video Indexer que está [conectada à sua assinatura do Azure e uma conta dos serviços de mídia do Azure](connect-to-azure.md). Irá pagar pelos minutos indexados, bem como pelas cobranças relacionadas com a Conta de Multimédia. 
 
 ## <a name="uploading-considerations"></a>Considerações de carregamento
-
-- Ao carregar o seu vídeo com base no URL (preferencial), o ponto final tem de estar protegido por TLS 1.2 (ou posterior)
-- O tamanho do carregamento com a opção de URL é limitado a 30 GB
-- O comprimento da URL de solicitação é limitado a 2048 caracteres
-- O tamanho do carregamento com a opção de matriz de bytes é limitado a 2GB
-- A opção de matriz de bytes atinge o tempo limite após 30 min
-- O URL fornecido no parâmetro `videoURL` tem de ser codificado
-- A indexação de ativos de serviços de mídia tem a mesma limitação de indexação da URL
-- Video Indexer tem um limite de duração máximo de 4 horas para um único arquivo
+ 
+- Ao carregar o vídeo com base na URL (preferencial), o ponto de extremidade deve ser protegido com o TLS 1,2 (ou superior).
+- O tamanho do carregamento com a opção de URL é limitado a 30 GB.
+- O comprimento da URL de solicitação é limitado a 6144 caracteres em que o comprimento da URL da cadeia de caracteres de consulta é limitado a 4096 caracteres.
+- O tamanho do carregamento com a opção de matriz de bytes é limitado a 2GB.
+- A opção de matriz de bytes atinge o tempo limite após 30 min.
+- A URL fornecida no `videoURL` parâmetro precisa ser codificada.
+- A indexação de ativos de serviços de mídia tem a mesma limitação de indexação da URL.
+- Video Indexer tem um limite de duração máximo de 4 horas para um único arquivo.
 
 > [!Tip]
 > Recomenda-se a utilização da versão 4.6.2 do .NET Framework ou superior porque as versões .NET Framework mais antigas não têm como predefinição o TLS 1.2.
@@ -289,6 +289,6 @@ Os códigos de estado indicados na tabela seguinte podem ser devolvidos pela ope
 |400|VIDEO_ALREADY_IN_PROGRESS|O mesmo vídeo já está a ser processado na conta específica.|
 |400|VIDEO_ALREADY_FAILED|Falha ao processar o mesmo vídeo na conta específica há menos de 2 horas. Os clientes da API devem aguardar pelo menos 2 horas antes de voltarem a carregar um vídeo.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Examinar a saída do Video Indexer do Azure produzida pela API](video-indexer-output-json-v2.md)

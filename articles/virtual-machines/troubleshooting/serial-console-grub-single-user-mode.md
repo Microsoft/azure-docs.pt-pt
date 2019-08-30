@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 73bf7424e7c1aedff271ed3653592d174416003c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1bd850fe2cac7194d78005f4c0a57523bc8323c6
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090196"
+ms.locfileid: "70124488"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usar o console serial para acessar o GRUB e o modo de usuário único
 GRUB é o carregador de inicialização unificado geral, que é provavelmente a primeira coisa que você verá ao inicializar uma VM. Como ele é exibido antes do sistema operacional ser iniciado, ele não é acessível via SSH. No GRUB, você pode modificar a configuração de inicialização para inicializar no modo de usuário único, entre outras coisas.
@@ -58,9 +58,24 @@ Quando você estiver no modo de usuário único, faça o seguinte para adicionar
 O RHEL colocará você no modo de usuário único automaticamente se ele não puder ser inicializado normalmente. No entanto, se você não tiver configurado o acesso de raiz para o modo de usuário único, não terá uma senha raiz e não poderá fazer logon. Há uma solução alternativa (consulte ' inserindo manualmente o modo de usuário único ' abaixo), mas a sugestão é configurar o acesso à raiz inicialmente.
 
 ### <a name="grub-access-in-rhel"></a>Acesso do GRUB no RHEL
-O RHEL vem com o GRUB habilitado para uso. Para entrar no grub, reinicialize `sudo reboot` sua VM com e pressione qualquer tecla. Você verá a tela GRUB aparecer.
+O RHEL vem com o GRUB habilitado para uso. Para entrar no grub, reinicialize `sudo reboot` sua VM com e pressione qualquer tecla. Você verá a tela GRUB aparecer. Se ele não aparecer, verifique se as seguintes linhas estão presentes no arquivo GRUB (`/etc/default/grub`):
 
-> Nota: A Red Hat também fornece documentação para inicialização no modo de resgate, no modo de emergência, no modo de depuração e na redefinição da senha raiz. [Clique aqui para acessá-lo](https://aka.ms/rhel7grubterminal).
+#### <a name="rhel-8"></a>RHEL 8:
+```
+GRUB_TIMEOUT=5
+GRUB_TERMINAL="serial console"
+GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+```
+
+#### <a name="rhel-7"></a>RHEL 7:
+```
+GRUB_TIMEOUT=5
+GRUB_TERMINAL_OUTPUT="serial console"
+GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300 net.ifnames=0"
+```
+
+> [!NOTE]
+> A Red Hat também fornece documentação para inicialização no modo de resgate, no modo de emergência, no modo de depuração e na redefinição da senha raiz. [Clique aqui para acessá-lo](https://aka.ms/rhel7grubterminal).
 
 ### <a name="set-up-root-access-for-single-user-mode-in-rhel"></a>Configurar o acesso à raiz para o modo de usuário único no RHEL
 O modo de usuário único no RHEL requer que o usuário raiz seja habilitado, o que está desabilitado por padrão. Se você tiver a necessidade de habilitar o modo de usuário único, use as seguintes instruções:
@@ -193,7 +208,7 @@ Você será automaticamente Descartado no Shell de emergência se o SLES não pu
 Assim como Red Hat Enterprise Linux, o modo de usuário único no Oracle Linux requer GRUB e o usuário raiz a ser habilitado.
 
 ### <a name="grub-access-in-oracle-linux"></a>Acesso de GRUB no Oracle Linux
-Oracle Linux vem com o GRUB habilitado pronto para uso. Para entrar no grub, reinicialize `sudo reboot` sua VM com e pressione ' Esc '. Você verá a tela GRUB aparecer. Se você não vir o grub, verifique se o valor da `GRUB_TERMINAL` linha contém "console serial", desta forma:. `GRUB_TERMINAL="serial console"`
+Oracle Linux vem com o GRUB habilitado pronto para uso. Para entrar no grub, reinicialize `sudo reboot` sua VM com e pressione ' Esc '. Você verá a tela GRUB aparecer. Se você não vir o grub, verifique se o valor da `GRUB_TERMINAL` linha contém "console serial", desta forma:. `GRUB_TERMINAL="serial console"` Recompile o `grub2-mkconfig -o /boot/grub/grub.cfg`grub com.
 
 ### <a name="single-user-mode-in-oracle-linux"></a>Modo de usuário único no Oracle Linux
 Siga as instruções para RHEL acima para habilitar o modo de usuário único no Oracle Linux.

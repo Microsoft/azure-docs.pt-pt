@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Extrair texto manuscrito - SDK,C#'
+title: 'Início rápido: Extrair texto manuscrito-SDK,C#'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá extrair texto de uma imagem através da biblioteca de cliente C# do Windows de Imagem Digitalizada.
 services: cognitive-services
@@ -11,20 +11,20 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ba72fdce42a8313903a26aead4a1c1922a9bb586
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 315e35535c29771fb12a97f26e6e2c294e888d07
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603452"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137428"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Início rápido: Extrair texto manuscrito usando a imagem digitalizada C# SDK
+# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Início rápido: Extrair texto manuscrito usando o SDK C# do pesquisa Visual computacional
 
-Neste início rápido, irá extrair texto manuscrito ou impresso de uma imagem usando o SDK de visão do computador para C#. Se desejar, pode transferir o código neste guia como uma aplicação de exemplo completa a partir da [visão de Csharp de serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) repositório no GitHub.
+Neste guia de início rápido, você extrairá texto manuscrito ou impresso de uma imagem usando o SDK C#do pesquisa Visual computacional para o. Se desejar, você pode baixar o código neste guia como um aplicativo de exemplo completo do repositório de [visão de Csharp dos serviços cognitivas](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) no github.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma chave de assinatura de imagem digitalizada. Pode obter uma chave de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a imagem digitalizada e obtenha a chave.
+* Uma chave de assinatura Pesquisa Visual Computacional. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de `COMPUTER_VISION_SUBSCRIPTION_KEY` caracteres do ponto de extremidade de serviço, denominada e `COMPUTER_VISION_ENDPOINT`, respectivamente.
 * Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 * O pacote NuGet da biblioteca de cliente [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision). Não é necessário transferir o pacote. Abaixo, são fornecidas as instruções de instalação.
 
@@ -37,7 +37,7 @@ Para executar o exemplo, siga os seguintes passos:
     1. No menu, clique em **Ferramentas**, selecione **Gestor de Pacotes NuGet** e, em seguida, **Gerir Pacotes NuGet para Solução**.
     1. Clique no separador **Procurar** e na caixa **Pesquisar** escreva "Microsoft.Azure.CognitiveServices.Vision.ComputerVision".
     1. Selecione **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** quando for apresentado e, em seguida, clique na caixa de verificação junto do nome do projeto e em **Instalar**.
-1. Substitua `Program.cs` pelo código abaixo. O `BatchReadFileAsync` e `BatchReadFileInStreamAsync` métodos encapsular o [API de leitura do lote](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) para imagens remotas e locais, respectivamente. O `GetReadOperationResultAsync` método inclui o [obter API de resultado de operação de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d).
+1. Substitua `Program.cs` pelo código abaixo. Os `BatchReadFileAsync` métodos `BatchReadFileInStreamAsync` e encapsulam a [API de leitura em lote](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) para imagens locais e remotas, respectivamente. O `GetReadOperationResultAsync` método encapsula a [API de resultado da operação obter leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d).
 
     ```csharp
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
@@ -179,7 +179,7 @@ Para executar o exemplo, siga os seguintes passos:
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta com êxito imprime as linhas de texto reconhecido para cada imagem.
+Uma resposta bem-sucedida imprime as linhas de texto reconhecido para cada imagem.
 
 ```console
 Calling GetHandwritingRecognitionOperationResultAsync()
@@ -193,7 +193,7 @@ The quick brown fox jumps over the lazy
 Pack my box with five dozen liquor jugs
 ```
 
-Consulte [início rápido: Extrair texto manuscrito - REST, C# ](../QuickStarts/CSharp-hand-text.md#examine-the-response) para obter um exemplo da saída JSON não processado da chamada API.
+Consulte [início rápido: Extraia o texto manuscrito- C# ](../QuickStarts/CSharp-hand-text.md#examine-the-response) REST, para obter um exemplo da saída JSON bruta da chamada à API.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,7 +1,7 @@
 ---
-title: 'Selecione colunas no conjunto de dados: Referência do módulo'
+title: 'Selecionar colunas no conjunto de conjuntos: Referência de módulo'
 titleSuffix: Azure Machine Learning service
-description: Saiba como utilizar a selecionar colunas no módulo de conjunto de dados no serviço Azure Machine Learning para escolher um subconjunto de colunas para utilizar nas operações de downstream.
+description: Saiba como usar o módulo selecionar colunas no conjunto de informações no serviço de Azure Machine Learning para escolher um subconjunto de colunas a ser usado em operações de downstream.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,103 +9,102 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: e7407f62bd3401411d56076b298bd8cd134ece62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 097477fb9fc10d954954815c7f4b0fef8947a526
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028099"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128500"
 ---
-# <a name="select-columns-in-dataset-module"></a>Selecionar colunas no módulo de conjunto de dados
+# <a name="select-columns-in-dataset-module"></a>Selecionar colunas no módulo DataSet
 
-Este artigo descreve um módulo da interface visual (pré-visualização) para o serviço Azure Machine Learning.
+Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
 
-Utilize este módulo para escolher um subconjunto de colunas para utilizar nas operações de downstream. O módulo não remove fisicamente as colunas do conjunto de dados de origem; em vez disso, ele cria um subconjunto de colunas, tal como uma base de dados *view* ou *projeção*.
+Use este módulo para escolher um subconjunto de colunas a ser usado em operações de downstream. O módulo não remove fisicamente as colunas do conjunto de fonte de origem; em vez disso, ele cria um subconjunto de colunas, assim como uma *exibição* ou *projeção*de banco de dados.
 
-Este módulo é útil quando tiver de limitar as colunas disponíveis para uma operação de downstream, ou se quiser reduzir o tamanho do conjunto de dados ao remover colunas desnecessárias.
+Esse módulo é útil quando você precisa limitar as colunas disponíveis para uma operação downstream ou se deseja reduzir o tamanho do conjunto de um removendo colunas desnecessárias.
 
-As colunas no conjunto de dados são produzidas pela mesma ordem como os dados originais, mesmo que especifique-os numa ordem diferente.
+As colunas no DataSet são geradas na mesma ordem que nos dados originais, mesmo se você especificá-las em uma ordem diferente.
 
 ## <a name="how-to-use"></a>Como utilizar
 
-Este módulo não tem parâmetros. Utilize o Seletor de colunas para escolher as colunas a incluir ou excluir.
+Este módulo não tem parâmetros. Use o seletor de coluna para escolher as colunas a serem incluídas ou excluídas.
 
 ### <a name="choose-columns-by-name"></a>Escolher colunas por nome
 
-Existem várias opções no módulo para escolher colunas por nome: 
+Há várias opções no módulo para escolher colunas por nome: 
 
-+ Filtrar e pesquisar
++ Filtrar e Pesquisar
 
-    Clique nas **pelo nome** opção.
+    Clique na opção **por nome** .
 
-    Se tiver ligado um conjunto de dados que já está preenchido, deverá aparecer uma lista de colunas disponíveis. Se não existem colunas aparecerem, precisará de executar os módulos a montante para ver a lista de colunas.
+    Se você tiver conectado um conjunto de um que já está populado, uma lista de colunas disponíveis deverá aparecer. Se nenhuma coluna aparecer, talvez seja necessário executar módulos upstream para exibir a lista de colunas.
 
-    Para filtrar a lista, escreva na caixa de pesquisa. Por exemplo, se digitar a letra `w` na caixa de pesquisa, a lista está filtrada para mostrar os nomes das colunas que contêm essa letra `w`.
+    Para filtrar a lista, digite na caixa de pesquisa. Por exemplo, se você digitar a letra `w` na caixa de pesquisa, a lista será filtrada para mostrar os nomes de coluna que contêm `w`a letra.
 
-    Selecionar colunas e clique no botão de seta para a direita para mover as colunas selecionadas para a lista no painel da direita.
+    Selecione colunas e clique no botão de seta para a direita para mover as colunas selecionadas para a lista no painel à direita.
 
-    + Selecionar um intervalo contínuo de nomes de colunas, prima **Shift + clique**.
-    + Para adicionar colunas individuais para a seleção, prima **Ctrl + clique**.
+    + Para selecionar um intervalo contínuo de nomes de coluna, pressione **Shift + clique**.
+    + Para adicionar colunas individuais à seleção, pressione **Ctrl + clique**.
 
-    Clique no botão de marca de verificação para guardar e fechar.
+    Clique no botão de marca de seleção para salvar e fechar.
 
-+ Utilize nomes em combinação com outras regras
++ Usar nomes em combinação com outras regras
 
-    Clique nas **com regras** opção.
+    Clique na opção **com regras** .
     
-    Escolha uma regra, como mostrar colunas de um tipo de dados específicos.
+    Escolha uma regra, como mostrar colunas de um tipo de dados específico.
 
-    Em seguida, clique em colunas individuais desse tipo por nome, adicioná-los à lista de seleção.
+    Em seguida, clique em colunas individuais desse tipo por nome para adicioná-las à lista de seleção.
 
-+ Escreva ou cole uma lista separada por vírgulas de nomes de colunas
++ Digite ou cole uma lista separada por vírgulas de nomes de coluna
 
-    Se o conjunto de dados é grande, ela poderá ser mais fácil de usar os índices ou gerado listas de nomes, em vez de selecionar colunas individualmente. Partindo do princípio de que está preparado a lista com antecedência:
+    Se seu conjunto de seus conjuntos de seus for amplo, pode ser mais fácil usar índices ou listas de nomes geradas, em vez de selecionar colunas individualmente. Supondo que você preparou a lista com antecedência:
 
-    1. Clique nas **com regras** opção. 
-    2. Selecione **nenhuma coluna**, selecione **inclusão**e, em seguida, clique dentro da caixa de texto com o ponto de exclamação vermelho. 
-    3. Colar ou escreva uma lista separada por vírgulas de nomes de colunas anteriormente validados. Não é possível guardar o módulo se qualquer coluna tem um nome inválido, por isso, certifique-se verificar os nomes com antecedência.
+    1. Clique na opção **com regras** . 
+    2. Selecione **nenhuma coluna**, selecione **incluir**e, em seguida, clique dentro da caixa de texto com o ponto de exclamação vermelho. 
+    3. Cole ou digite uma lista separada por vírgulas de nomes de coluna validados anteriormente. Você não poderá salvar o módulo se alguma coluna tiver um nome inválido, portanto, certifique-se de verificar os nomes com antecedência.
     
-    Também pode utilizar este método para especificar uma lista de colunas com seus valores de índice. 
+    Você também pode usar esse método para especificar uma lista de colunas usando seus valores de índice. 
 
-### <a name="choose-by-type"></a>Escolha por tipo
+### <a name="choose-by-type"></a>Escolher por tipo
 
-Se utilizar o **com regras** opção, pode aplicar várias condições nas seleções de coluna. Por exemplo, poderá ter de obter apenas as colunas de funcionalidades de um tipo de dados numéricos.
+Se você usar a opção **with Rules** , poderá aplicar várias condições nas seleções de coluna. Por exemplo, talvez seja necessário obter apenas colunas de recursos de um tipo de dados numérico.
 
-O **começar com** opção determina o seu ponto de partida e é importante para compreender os resultados. 
+A opção **begin with** determina seu ponto de partida e é importante para entender os resultados. 
 
-+ Se selecionar a **todas as colunas** opção, todas as colunas são adicionadas à lista. Em seguida, tem de utilizar o **excluir** a opção de *remover* colunas que atendem a determinadas condições. 
++ Se você selecionar a opção **todas as colunas** , todas as colunas serão adicionadas à lista. Em seguida, você deve usar a opção **excluir** para *remover* colunas que atendam a determinadas condições. 
 
-    Por exemplo, pode começar com todas as colunas e, em seguida, remover colunas por nome ou por tipo.
+    Por exemplo, você pode iniciar com todas as colunas e, em seguida, remover colunas por nome ou por tipo.
 
-+ Se selecionar a **colunas não** opção, a lista de colunas começa vazio. Em seguida, especificar condições para *adicionar* colunas à lista. 
++ Se você selecionar a opção **sem colunas** , a lista de colunas começará vazia. Em seguida, especifique as condições para *Adicionar* colunas à lista. 
 
-    Se aplicar várias regras, cada condição for **aditiva**. Por exemplo, digamos que comece com nenhuma coluna e, em seguida, adicione uma regra para obter todas as colunas numéricas. No conjunto de dados do preço automóvel, o que resulta em 16 colunas. Em seguida, clique a **+** iniciar sessão para adicionar uma nova condição e selecionar **incluir todos os recursos**. O conjunto de dados resultante inclui todas as colunas numéricas, além de todas as colunas de funcionalidades, incluindo algumas colunas de recurso de cadeia de caracteres.
+    Se você aplicar várias regras, cada condição será **aditiva**. Por exemplo, digamos que você inicie sem colunas e, em seguida, adicione uma regra para obter todas as colunas numéricas. No conjunto de linhas de preço do automóvel, isso resulta em 16 colunas. Em seguida, clique no **+** sinal para adicionar uma nova condição e selecione **incluir todos os recursos**. O conjunto de resultados resultante inclui todas as colunas numéricas, além de todas as colunas de recurso, incluindo algumas colunas de recursos de cadeia de caracteres.
 
-### <a name="choose-by-column-index"></a>Escolha ao índice de coluna
+### <a name="choose-by-column-index"></a>Escolher por índice de coluna
 
-O índice de coluna refere-se to the order of a coluna no conjunto de dados original.
+O índice de coluna refere-se à ordem da coluna dentro do DataSet original.
 
-+ Colunas são numeradas sequencialmente começando em 1.  
-+ Para obter um intervalo de colunas, utilize um hífen. 
-+ Especificações abertas tal como `1-` ou `-3` não são permitidos.
-+ Valores de índice duplicado (ou nomes de colunas) não são permitidos e poderão resultar num erro.
++ As colunas são numeradas sequencialmente a partir de 1.  
++ Para obter um intervalo de colunas, use um hífen. 
++ Especificações abertas, `1-` como ou `-3` não são permitidas.
++ Valores de índice duplicados (ou nomes de coluna) não são permitidos e podem resultar em um erro.
 
-Por exemplo, partindo do princípio de que o conjunto de dados tem colunas, pelo menos, oito, pode colar em qualquer um dos exemplos a seguir para retornar a várias colunas não contíguas: 
+Por exemplo, supondo que o conjunto de seus conjuntos de seus tem pelo menos oito colunas, você pode colar qualquer um dos seguintes exemplos para retornar várias colunas não contíguas: 
 
 + `8,1-4,6`
 + `1,3-8`
 + `1,3-6,4` 
 
-o exemplo final não resulta num erro; No entanto, ele retorna uma única instância da coluna `4`.
+o exemplo final não resulta em um erro; no entanto, ele retorna uma única instância `4`da coluna.
 
 
 
 ### <a name="change-order-of-columns"></a>Alterar a ordem das colunas
 
-A opção **permite duplicatas e preservar a ordem das colunas na seleção** começa com uma lista vazia e adiciona as colunas que especificar por nome ou pelo índice. Ao contrário de outras opções, que sempre devolvem colunas, "por ordem natural", esta opção devolve as colunas pela ordem em que o nome ou listá-los. 
+A opção **permitir duplicatas e preservar a ordem das colunas na seleção** começa com uma lista vazia e adiciona colunas que você especifica por nome ou por índice. Ao contrário de outras opções, que sempre retornam colunas em sua "ordem natural", essa opção gera as colunas na ordem em que você as nomeou ou lista. 
 
-Por exemplo, num conjunto de dados com as colunas Col1, Col2, Col3 e Col4, foi possível inverter a ordem das colunas e omitir a coluna 2, ao especificar qualquer uma das seguintes listas:
+Por exemplo, em um conjunto de linhas com as colunas Col1, Col2, Col3 e COL4, você pode inverter a ordem das colunas e deixar a coluna 2, especificando uma das seguintes listas:
 
 + `Col4, Col3, Col1`
 + `4,3,1`
@@ -113,4 +112,4 @@ Por exemplo, num conjunto de dados com as colunas Col1, Col2, Col3 e Col4, foi p
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte a [conjunto de módulos disponíveis](module-reference.md) ao serviço Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

@@ -1,7 +1,7 @@
 ---
-title: 'Regressão logística várias classes: Referência do módulo'
+title: 'Regressão logística multiclasse: Referência de módulo'
 titleSuffix: Azure Machine Learning service
-description: Saiba como utilizar o módulo de várias classes de regressão logística no serviço Azure Machine Learning para criar um modelo de regressão logística, que pode ser utilizado para prever vários valores.
+description: Saiba como usar o módulo regressão logística multiclasse no serviço Azure Machine Learning para criar um modelo de regressão logística que pode ser usado para prever vários valores.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,63 +9,62 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: ac4310e851808d6e6d89d1a2b506975eea3b1d69
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d51bc48944204b4c7c50790949927849869f26fc
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029329"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128640"
 ---
-# <a name="multiclass-logistic-regression-module"></a>Módulo de regressão logística várias classes
+# <a name="multiclass-logistic-regression-module"></a>Módulo de regressão logística multiclasse
 
-Este artigo descreve um módulo da interface visual (pré-visualização) para o serviço Azure Machine Learning.
+Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
 
-Utilize este módulo para criar um modelo de regressão logística, que pode ser utilizado para prever vários valores.
+Use este módulo para criar um modelo de regressão logística que pode ser usado para prever vários valores.
 
-Utilizar regressão logística de classificação é um método de aprendizagem supervisionada e, portanto, requer um conjunto de dados etiquetado. Preparar o modelo, fornecendo, tais como o modelo e o conjunto de dados etiquetado como entrada para um módulo [modelo de formação](./train-model.md). O modelo preparado, em seguida, pode ser utilizado para prever valores para obter exemplos de entrada novo.
+A classificação usando a regressão logística é um método de aprendizado supervisionado e, portanto, requer um conjunto de informações rotulado. Você treina o modelo fornecendo o modelo e o conjunto de dados rotulado como uma entrada para um módulo, como o [modelo de treinamento](./train-model.md). O modelo treinado pode então ser usado para prever valores para novos exemplos de entrada.
 
-O Azure Machine Learning também fornece um [regressão logística de duas classes](./two-class-logistic-regression.md) módulo, que é adequado para a classificação do binárias ou dichotomous variáveis.
+Azure Machine Learning também fornece um módulo de [regressão logística de duas classes](./two-class-logistic-regression.md) , que é adequado para classificação de variáveis binárias ou dicotômicass.
 
-## <a name="about-multiclass-logistic-regression"></a>Sobre várias classes regressão logística
+## <a name="about-multiclass-logistic-regression"></a>Sobre a regressão logística multiclasse
 
-Regressão logística é um método bem conhecido estatística que é utilizado para prever a probabilidade de um resultado e é popular para tarefas de classificação. O algoritmo prevê a probabilidade de ocorrência de um evento, pelo que se ajusta a dados para uma função de logística. 
+A regressão logística é um método bem conhecido em estatísticas que é usado para prever a probabilidade de um resultado e é popular para tarefas de classificação. O algoritmo prevê a probabilidade de ocorrência de um evento ajustando dados a uma função logística. 
 
-Em várias classes regressão logística, o classificador pode ser utilizado para prever resultados de várias.
+Em regressão logística multiclasse, o classificador pode ser usado para prever vários resultados.
 
-## <a name="configure-a-multiclass-logistic-regression"></a>Configurar um regressão logística várias classes
+## <a name="configure-a-multiclass-logistic-regression"></a>Configurar uma regressão logística multiclasse
 
-1. Adicionar a **regressão logística de várias classes** módulo para a experimentação.
+1. Adicione o módulo **regressão logística multiclasse** ao experimento.
 
-2. Especifique como pretende que o modelo de formação, definindo a **modo de instrutor de criação** opção.
+2. Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .
 
-    + **Único parâmetro**: Utilize esta opção se souber como pretende configurar o modelo e forneça um conjunto específico de valores como argumentos.
+    + **Parâmetro único**: Use esta opção se você souber como deseja configurar o modelo e fornecer um conjunto específico de valores como argumentos.
 
-    + **Intervalo de parâmetro**: Utilize esta opção se não estiver certo dos melhores parâmetros e pretende utilizar varrimentos.
+    + **Intervalo de parâmetros**: Use esta opção se você não tiver certeza dos melhores parâmetros e quiser usar uma varredura de parâmetro.
 
-3. **Tolerância de otimização**, especifique o valor de limiar para a convergência de otimizador. Se a melhoria entre as iterações for inferior ao limiar, o algoritmo interrompe e devolve o modelo atual.
+3. **Tolerância de otimização**, especifique o valor de limite para a convergência do otimizador. Se a melhoria entre as iterações for menor que o limite, o algoritmo parará e retornará o modelo atual.
 
-4. **Peso de regularização de L1**, **peso de regularização de L2**: Escreva um valor a utilizar para os parâmetros de regularização L1 e L2. Para ambos, recomenda-se um valor diferente de zero.
+4. **Peso**de regularização de L1, **peso de regularização L2**: Digite um valor a ser usado para os parâmetros de regularização L1 e L2. Um valor diferente de zero é recomendado para ambos.
 
-    Regularização é um método para impedir a overfitting por modelos penalizing com valores de coeficiente extremo. Regularização funciona adicionando a penalidade que estão associada com valores de coeficiente para o erro da hipótese. Um modelo preciso com valores de coeficiente extreme poderia ser penalizado mais, mas um modelo de menos preciso com valores mais conservadoras poderia ser penalizado menos.
+    A regularização é um método para evitar o superajuste por meio da penalização de modelos com valores de coeficiente extremo. A regularização funciona adicionando a penalidade associada aos valores de coeficiente ao erro da hipótese. Um modelo preciso com valores de coeficiente extremo seria penalizado mais, mas um modelo menos preciso com valores mais conservadores seria penalizado menos.
 
-     L1 e L2 regularização ter efeitos diferentes e usa. L1 podem ser aplicadas a modelos dispersos, que é útil ao trabalhar com dados altamente dimensionais. Por outro lado, os erros de L2 regularização é preferível para dados que não estão dispersos.  Esse algoritmo suporta uma combinação de linear de valores de regularização de L1 e L2: ou seja, se `x = L1` e `y = L2`, `ax + by = c` define o intervalo linear dos termos de regularização.
+     A regularização L1 e L2 tem efeitos e usos diferentes. L1 pode ser aplicado a modelos esparsos, o que é útil ao trabalhar com dados altamente dimensionais. Por outro lado, a regularização L2 é preferível para dados que não são esparsos.  Este algoritmo dá suporte a uma combinação linear de valores de regularização L1 e L2: ou `x = L1` seja `y = L2`, `ax + by = c` se e, define o intervalo linear dos termos de regularização.
 
-     Diferentes combinações de linear dos termos de L1 e L2 ser pensadas para modelos de regressão logística, tal como [elástica regularização net](https://wikipedia.org/wiki/Elastic_net_regularization).
+     Combinações lineares diferentes de termos de L1 e L2 foram desenvolvedas para modelos de regressão logística, como regularização de [rede elástica](https://wikipedia.org/wiki/Elastic_net_regularization).
 
-6. **Propagação de números aleatórias**: Escreva um valor inteiro para utilizar como a semente para o algoritmo, se pretender que os resultados para poder ser repetidos ao longo de execuções. Caso contrário, um valor de relógio do sistema é utilizado como a semente, o que pode produzir resultados ligeiramente diferentes nas execuções da experimentação mesmo.
+6. **Semente de número aleatório**: Digite um valor inteiro para usar como a semente do algoritmo se você quiser que os resultados sejam repetidos em execuções. Caso contrário, um valor de relógio do sistema será usado como semente, o que pode produzir resultados ligeiramente diferentes em execuções do mesmo experimento.
 
-8. Ligue-se de um conjunto de dados com nome e um dos módulos de treinamento:
+8. Conecte um DataSet rotulado e um dos módulos de treinamento:
 
-    + Se definir **modo de instrutor de criação** para **único parâmetro**, utilize o [Train Model](./train-model.md) módulo.
+    + Se você definir **criar modo de instrutor** como **um único parâmetro**, use o módulo [treinar modelo](./train-model.md) .
 
 9. Execute a experimentação.
 
 ## <a name="results"></a>Resultados
 
-Após a conclusão do treinamento, pode ver um resumo dos parâmetros do modelo, juntamente com os pesos de funcionalidade aprendidos treinamento, com o botão direito a saída do [Train Model](./train-model.md) módulo e selecione **Visualize**.
+Após a conclusão do treinamento, você pode ver um resumo dos parâmetros do modelo, junto com os pesos do recurso aprendidos do treinamento, clique com o botão direito do mouse na saída do módulo [modelo](./train-model.md) de treinamento e selecione **Visualizar**.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Consulte a [conjunto de módulos disponíveis](module-reference.md) ao serviço Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

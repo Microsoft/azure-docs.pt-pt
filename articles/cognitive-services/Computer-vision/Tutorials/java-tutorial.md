@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.author: kefre
 ms.custom: seodec18
 ms.date: 04/30/2019
-ms.openlocfilehash: fc3a4bb1fad836d8f3dadd5a06169b705ef4d4fc
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4fdafee622a67582787829bb63331a8d0225506f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881262"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137499"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Usar recursos de Pesquisa Visual Computacional com a API REST e o Java
 
@@ -44,7 +44,7 @@ Este tutorial foi elaborado recorrendo ao IDE NetBeans. Mais especificamente, a 
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Subscrever a API de Imagem Digitalizada e obter uma chave de subscrição
 
-Antes de criar o exemplo, você deve assinar API da Pesquisa Visual Computacional que faz parte dos serviços cognitivas do Azure. Para obter os detalhes da subscrição e da gestão de chaves, veja [Subscrições](https://azure.microsoft.com/try/cognitive-services/). Ambas as chaves primárias e secundárias são válidas para utilizar neste tutorial.
+Antes de criar o exemplo, você deve ter uma chave de assinatura para Pesquisa Visual Computacional. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Anote também a URL do ponto de extremidade do serviço.
 
 ## <a name="acquire-incomplete-tutorial-project"></a>Adquirir projeto de tutorial incompleto
 

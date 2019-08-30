@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9be48d8f403d3ddde993ebdcf0142b55e52afce
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 675e970bbdaeb035273eb87394dda610e070aa39
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779680"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125115"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crie uma estratégia de gerenciamento de controle de acesso resiliente com Azure Active Directory
 
@@ -80,12 +80,12 @@ Esse conjunto de políticas de exemplo concederá aos usuários selecionados no 
 * Política 1: Bloquear o acesso a pessoas fora dos grupos de destino
   * Usuários e grupos: Incluir todos os usuários. Excluir AppUsers, CoreAdmins e EmergencyAccess
   * Aplicativos de nuvem: Incluir todos os aplicativos
-  * Situações (Nenhum)
+  * Situações None
   * Controle de concessão: Bloquear
 * Política 2: Conceda acesso ao AppUsers que exija MFA ou dispositivo confiável.
   * Usuários e grupos: Inclua AppUsers. Excluir CoreAdmins e EmergencyAccess
   * Aplicativos de nuvem: Incluir todos os aplicativos
-  * Situações (Nenhum)
+  * Situações None
   * Controle de concessão: Conceder acesso, exigir autenticação multifator, exigir que o dispositivo esteja em conformidade. Para vários controles: Requer um dos controles selecionados.
 
 ### <a name="contingencies-for-user-lockout"></a>Contingências para bloqueio de usuário
@@ -185,7 +185,7 @@ Neste próximo exemplo, **exemplo B-políticas de AC de contingência para permi
   * Nome: EM001-HABILITAR EM EMERGÊNCIA: Interrupção de conformidade do dispositivo [1/2]-Salesforce-bloquear todos os usuários, exceto SalesforceContingency
   * Usuários e grupos: Incluir todos os usuários. Excluir SalesAdmins e SalesforceContingency
   * Aplicativos de nuvem: Equipe.
-  * Situações Nenhuma
+  * Situações Nenhum
   * Controle de concessão: Bloquear
   * Estado: Desativado
 * Política 2: Bloquear a equipe de vendas de qualquer plataforma que não seja a móvel (para reduzir a área de ataque da superfície)
@@ -232,7 +232,7 @@ Dependendo de quais atenuações ou contingências são usadas durante uma inter
 1. Como parte da sua estratégia de controle de alterações, documente cada alteração e o estado anterior para poder reverter quaisquer contingências que você implementou assim que os controles de acesso estiverem totalmente operacionais.
 2. Suponha que os atores mal-intencionados tentarão coletar senhas por meio de ataques de phishing ou de irrigação de senha enquanto você desabilita a MFA. Além disso, os atores ruins já podem ter senhas que anteriormente não concederam acesso a nenhum recurso que possa ser tentado durante essa janela. Para usuários críticos, como executivos, você pode reduzir parcialmente esse risco redefinindo suas senhas antes de desabilitar a MFA para elas.
 3. Arquive todas as atividades de entrada para identificar quem acessa o que durante o tempo que o MFA foi desabilitado.
-4. Fazer triagem de [todos os eventos de risco](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) relatados durante esta janela.
+4. Fazer triagem de [todas as detecções de risco](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) relatadas durante esta janela.
 
 ## <a name="after-a-disruption"></a>Após uma interrupção
 
@@ -242,7 +242,7 @@ Desfaça as alterações feitas como parte do plano de contingência ativado dep
 2. Desabilite suas políticas de contingência. 
 3. Reverter quaisquer outras alterações feitas e documentadas durante a interrupção.
 4. Se você usou uma conta de acesso de emergência, lembre-se de regenerar as credenciais e proteger fisicamente os novos detalhes de credenciais como parte dos procedimentos da sua conta de acesso de emergência.
-5. Continue a fazer a triagem de [todos os eventos de risco](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) relatados após a interrupção de atividade suspeita.
+5. Continue a fazer a triagem de [todas as detecções de risco](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) relatadas após a interrupção de atividade suspeita.
 6. Revogue todos os tokens de atualização que foram emitidos [usando o PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) para direcionar um conjunto de usuários. A revogação de todos os tokens de atualização é importante para contas privilegiadas usadas durante a interrupção e fazê-lo irá forçá-los a autenticar novamente e a atender ao controle das políticas restauradas.
 
 ## <a name="emergency-options"></a>Opções de emergência
@@ -254,7 +254,7 @@ Se sua organização estiver usando políticas herdadas de MFA por usuário, voc
    1. Se você não tiver o inventário de endereços IP de saída ou precisar habilitar o acesso dentro e fora da rede corporativa, poderá adicionar todo o espaço de endereço IPv4 como IPs confiáveis, especificando 0.0.0.0/1 e 128.0.0.0/1.
 
 >[!IMPORTANT]
- > Se você ampliar os endereços IP confiáveis para desbloquear o acesso, os eventos de risco associados a endereços IP (por exemplo, viagens impossíveis ou locais desconhecidos) não serão gerados.
+ > Se você ampliar os endereços IP confiáveis para desbloquear o acesso, as detecções de risco associadas a endereços IP (por exemplo, viagens impossíveis ou locais desconhecidos) não serão geradas.
 
 >[!NOTE]
  > A configuração de [IPs confiáveis](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings) para o Azure MFA só está disponível com [licenças Azure ad Premium](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing).

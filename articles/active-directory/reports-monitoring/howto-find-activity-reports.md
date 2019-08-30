@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356412bfca19e72d09338faf8c8bcac5ec8f273a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 13f1746b710acd24316de3d294c1822ba108a378
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988291"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127399"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no portal do Azure
 
@@ -112,12 +112,12 @@ Você pode usar o relatório de entradas para exibir detalhes sobre o uso do apl
 
 ### <a name="anomalous-activity-reports"></a>Relatórios de atividade anômala
 
-Os relatórios de atividade anômala fornecem informações sobre eventos de risco relacionados à segurança que o Azure AD pode detectar e relatar.
+Os relatórios de atividade anômala fornecem informações sobre as detecções de riscos relacionadas à segurança que o Azure AD pode detectar e relatar.
 
-A tabela a seguir lista os relatórios de segurança da atividade anômala do Azure AD e os tipos de evento de risco correspondentes no portal do Azure. Para obter mais informações, consulte [Eventos de risco do Azure Active Directory](concept-risk-events.md).  
+A tabela a seguir lista os relatórios de segurança da atividade anômala do Azure AD e os tipos de detecção de risco correspondentes no portal do Azure. Para obter mais informações, consulte [Azure Active Directory as detecções de risco](concept-risk-events.md).  
 
 
-| Relatório de atividade anômala do Azure AD |  Tipo de evento de risco de proteção de identidade|
+| Relatório de atividade anômala do Azure AD |  Tipo de detecção de risco de proteção de identidade|
 | :--- | :--- |
 | Utilizadores com fuga de credenciais | Fuga de credenciais |
 | Atividades irregulares de início de sessão | Deslocação impossível para localizações atípicas |
@@ -126,15 +126,15 @@ A tabela a seguir lista os relatórios de segurança da atividade anômala do Az
 | Inícios de sessão de endereços IP com atividade suspeita | Inícios de sessão de endereços IP com atividade suspeita |
 | - | Inícios de sessão de localizações desconhecidas |
 
-Os seguintes relatórios de segurança de atividade anômala do Azure AD não são incluídos como eventos de risco no portal do Azure:
+Os seguintes relatórios de segurança de atividade anômala do Azure AD não estão incluídos como detecções de risco no portal do Azure:
 
 * Inícios de sessão após várias falhas
 * Inícios de sessão de várias localizações geográficas
 
 
-### <a name="detected-risk-events"></a>Eventos de risco detectados
+### <a name="detected-risk-detections"></a>Detecções de risco detectadas
 
-Você pode acessar relatórios sobre eventos de risco detectados na seção **segurança** da folha **Azure Active Directory** na [portal do Azure](https://portal.azure.com). Os eventos de risco detectados são acompanhados nos seguintes relatórios:   
+Você pode acessar relatórios sobre as detecções de risco detectadas na seção **segurança** da folha **Azure Active Directory** na [portal do Azure](https://portal.azure.com). As detecções de risco detectadas são controladas nos seguintes relatórios:   
 
 - [Utilizadores em risco](concept-user-at-risk.md)
 - [Inícios de sessão de risco](concept-risky-sign-ins.md)

@@ -3,21 +3,20 @@ title: Monitorar fábricas de dados usando Azure Monitor | Microsoft Docs
 description: Saiba como usar Azure Monitor para monitorar pipelines de Data Factory habilitando logs de diagnóstico com informações de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: shlo
-ms.openlocfilehash: 6bad74d33f5d50bb7a35de69927bf97daad07798
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0614de8bbb1429c84bf5f2e55c1765f3e4863f3a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326844"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141137"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alertar e monitorar fábricas de dados usando Azure Monitor
 Os aplicativos de nuvem são complexos com muitas partes móveis. O monitoramento fornece dados para garantir que seu aplicativo permaneça em funcionamento em um estado íntegro. Ele também ajuda a afastarr problemas em potencial ou a solucionar problemas anteriores. Além disso, você pode usar dados de monitoramento para obter informações aprofundadas sobre seu aplicativo. Esse conhecimento pode ajudá-lo a melhorar o desempenho ou a manutenção do aplicativo, ou automatizar ações que, caso contrário, exigirão intervenção manual.
@@ -391,17 +390,17 @@ Log Analytics herda o esquema do Azure Monitor com as seguintes exceções:
 
     | Azure Monitor coluna | Log Analytics coluna | Type |
     | --- | --- | --- |
-    | $. Properties. UserProperties | UserProperties | Dinâmica |
-    | $. Properties. Anotações | Anotações | Dinâmica |
-    | $. Properties. Entrada | Input | Dinâmica |
-    | $. Properties. Der | Output | Dinâmica |
+    | $. Properties. UserProperties | UserProperties | Dinâmico |
+    | $. Properties. Anotações | Anotações | Dinâmico |
+    | $. Properties. Entrada | Input | Dinâmico |
+    | $. Properties. Der | Output | Dinâmico |
     | $. Properties. Erro. errorCode | Código de erro | int |
     | $. Properties. Erro. mensagem | ErrorMessage | string |
-    | $. Properties. Ao | Erro | Dinâmica |
-    | $. Properties. Predecessores | Predecessores | Dinâmica |
-    | $. Properties. Parâmetro | Parâmetros | Dinâmica |
-    | $. Properties. Sistemaparameters | Sistemaparameters | Dinâmica |
-    | $. Properties. Sinalizadores | Tags | Dinâmica |
+    | $. Properties. Ao | Erro | Dinâmico |
+    | $. Properties. Predecessores | Predecessores | Dinâmico |
+    | $. Properties. Parâmetro | Parâmetros | Dinâmico |
+    | $. Properties. Sistemaparameters | Sistemaparameters | Dinâmico |
+    | $. Properties. Sinalizadores | Tags | Dinâmico |
     
 ## <a name="metrics"></a>Métricas
 
@@ -505,7 +504,7 @@ Entre no portal do Azure e clique em **monitorar** > **alertas** para criar aler
 
 ![Alertas no menu do portal](media/monitor-using-azure-monitor/alerts_image3.png)
 
-### <a name="create-alerts"></a>Criar alertas
+### <a name="create-alerts"></a>Criar Alertas
 
 1.  Clique em **+ nova regra de alerta** para criar um novo alerta.
 
@@ -536,6 +535,6 @@ Entre no portal do Azure e clique em **monitorar** > **alertas** para criar aler
 
     ![Grupo de ações, tela 4 de 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Confira o artigo [monitorar e gerenciar pipelines](monitor-programmatically.md) programaticamente para saber mais sobre como monitorar e gerenciar pipelines com código.

@@ -1,23 +1,22 @@
 ---
-title: O Azure Site Recovery - exclusão de discos durante a replicação de máquinas virtuais do Azure com o Azure PowerShell | Documentos da Microsoft
-description: Saiba como excluir discos de máquinas virtuais do Azure durante a recuperação de Site do Azure com o Azure PowerShell.
-services: site-recovery
+title: Azure Site Recovery-excluir discos durante a replicação de máquinas virtuais do Azure usando Azure PowerShell | Microsoft Docs
+description: Saiba como excluir discos de máquinas virtuais do Azure durante Azure Site Recovery usando Azure PowerShell.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: asgang
-ms.openlocfilehash: 54a32d7f7aa4bcab73f5828da3e7eba9d25276be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81d22250262351e3c1bbb2fe28960b3d158bbf57
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160300"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147055"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Excluir discos da replicação do PowerShell de VMs do Azure
 
-Este artigo descreve como excluir discos quando replicar VMs do Azure. Pode excluir discos para otimizar a largura de banda de replicação consumida ou os recursos do lado do destino que esses discos utilizam. Atualmente, esta capacidade está disponível apenas através do PowerShell do Azure.
+Este artigo descreve como excluir discos ao replicar VMs do Azure. Você pode excluir discos para otimizar a largura de banda de replicação consumida ou os recursos do lado de destino que esses discos usam. Atualmente, essa funcionalidade está disponível apenas por meio de Azure PowerShell.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -26,25 +25,25 @@ Este artigo descreve como excluir discos quando replicar VMs do Azure. Pode excl
 
 Antes de começar:
 
-- Certifique-se de que compreende os [arquitetura de recuperação após desastre e os componentes](azure-to-azure-architecture.md).
+- Certifique-se de compreender a [arquitetura e os componentes de recuperação de desastre](azure-to-azure-architecture.md).
 - Reveja os [requisitos de suporte](azure-to-azure-support-matrix.md) de todos os componentes.
-- Certifique-se de que tem AzureRm PowerShell "Az" módulo. Para instalar ou atualizar o PowerShell, veja [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Certifique-se de que criou um cofre dos serviços de recuperação e protegidas máquinas virtuais, pelo menos, uma vez. Se ainda não fez tudo isto, siga o processo na [configurar a recuperação após desastre para máquinas virtuais do Azure com o Azure PowerShell](azure-to-azure-powershell.md).
+- Verifique se você tem o módulo "AZ" do AzureRm PowerShell. Para instalar ou atualizar o PowerShell, consulte [instalar o Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Certifique-se de que você criou um cofre de serviços de recuperação e máquinas virtuais protegidas pelo menos uma vez. Se você ainda não fez essas coisas, siga o processo em [Configurar a recuperação de desastre para máquinas virtuais do Azure usando Azure PowerShell](azure-to-azure-powershell.md).
 
-## <a name="why-exclude-disks-from-replication"></a>Porquê excluir discos da replicação
-Poderá ter de excluir discos da replicação porque:
+## <a name="why-exclude-disks-from-replication"></a>Por que excluir discos da replicação
+Talvez seja necessário excluir discos da replicação porque:
 
-- Atingiu a sua máquina virtual [taxas de alteração de limites do Azure Site Recovery para replicar dados](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+- Sua máquina virtual atingiu [Azure site Recovery limites para replicar taxas de alteração de dados](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
 
-- Os dados de alterações no disco excluído não não importantes ou não têm de ser replicados.
+- Os dados que estão sendo rotatividade no disco excluído não são importantes ou não precisam ser replicados.
 
-- Pretende guardar os recursos de armazenamento e de rede ao não replicar os dados.
+- Você deseja salvar os recursos de armazenamento e rede não replicando os dados.
 
 ## <a name="how-to-exclude-disks-from-replication"></a>Como excluir discos da replicação
 
-No nosso exemplo, replicar uma máquina virtual que tenha um SO e de três discos de dados, ou seja, na região E.U.A. Leste para a região E.U.A. oeste 2. O nome da máquina virtual é *AzureDemoVM*. Vamos excluir o disco 1 e manter os discos de 2 e 3.
+Em nosso exemplo, replicamos uma máquina virtual que tem um sistema operacional e três discos de dados que estão na região leste dos EUA para a região oeste dos EUA 2. O nome da máquina virtual é *AzureDemoVM*. Excluímos o disco 1 e mantemos os discos 2 e 3.
 
-## <a name="get-details-of-the-virtual-machines-to-replicate"></a>Obter os detalhes das máquinas virtuais a replicar
+## <a name="get-details-of-the-virtual-machines-to-replicate"></a>Obter detalhes das máquinas virtuais a serem replicadas
 
 ```azurepowershell
 # Get details of the virtual machine
@@ -69,18 +68,18 @@ ProvisioningState  : Succeeded
 StorageProfile     : {ImageReference, OsDisk, DataDisks}
 ```
 
-Obtenha detalhes sobre os discos da máquina virtual. Estas informações serão utilizadas mais tarde, quando inicia a replicação da VM.
+Obtenha detalhes sobre os discos da máquina virtual. Essas informações serão usadas posteriormente quando você iniciar a replicação da VM.
 
 ```azurepowershell
 $OSDiskVhdURI = $VM.StorageProfile.OsDisk.Vhd
 $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 ```
 
-## <a name="replicate-an-azure-virtual-machine"></a>Replicar máquinas virtuais do Azure
+## <a name="replicate-an-azure-virtual-machine"></a>Replicar uma máquina virtual do Azure
 
-Para o exemplo a seguir, partimos do princípio que já tem uma conta de armazenamento de cache, política de replicação e mapeamentos. Se não tiver essas coisas, siga o processo na [configurar a recuperação após desastre para máquinas virtuais do Azure com o Azure PowerShell](azure-to-azure-powershell.md).
+Para o exemplo a seguir, presumimos que você já tenha uma conta de armazenamento em cache, uma política de replicação e mapeamentos. Se você não tiver essas coisas, siga o processo em [Configurar a recuperação de desastre para máquinas virtuais do Azure usando Azure PowerShell](azure-to-azure-powershell.md).
 
-Replicar máquinas virtuais do Azure, com *discos geridos*.
+Replique uma máquina virtual do Azure com *discos gerenciados*.
 
 ```azurepowershell
 
@@ -128,14 +127,14 @@ $diskconfigs += $OSDiskReplicationConfig, $DataDisk2ReplicationConfig, $DataDisk
 $TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
 ```
 
-Quando a operação de replicação inicial for concluída com êxito, os dados da VM são replicados para a região de recuperação.
+Quando a operação de replicação de inicialização for concluída com sucesso, os dados da VM serão replicados para a região de recuperação.
 
-Pode ir ao portal do Azure e ver as VMs replicadas em "itens replicados."
+Você pode ir para a portal do Azure e ver as VMs replicadas em "itens replicados".
 
-Inicia o processo de replicação, propagando uma cópia de discos de replicação da máquina virtual na região de recuperação. Nesta fase é chamada a fase de replicação inicial.
+O processo de replicação começa propagando uma cópia dos discos de replicação da máquina virtual na região de recuperação. Essa fase é chamada de fase de replicação inicial.
 
-Depois de concluída a replicação inicial, replicação passa para a fase de sincronização diferencial. Neste momento, a máquina virtual está protegida. Selecione a máquina virtual protegida para ver se os discos são excluídos.
+Após a conclusão da replicação inicial, a replicação passa para a fase de sincronização diferencial. Neste ponto, a máquina virtual é protegida. Selecione a máquina virtual protegida para ver se algum disco foi excluído.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre [executar uma ativação pós-falha de teste](site-recovery-test-failover-to-azure.md).
+Saiba mais sobre como [executar um failover de teste](site-recovery-test-failover-to-azure.md).

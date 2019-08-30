@@ -9,13 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 926e2004207472d16a195ceba2ecf3f2a4590885
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 01fb3325bed889911c79a4f828afa27b86d746db
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019130"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128808"
 ---
 # <a name="execute-r-script"></a>Executar Script R
 

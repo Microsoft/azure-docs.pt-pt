@@ -5,25 +5,36 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.author: raynew
-ms.openlocfilehash: 3dc20036ead29c62d47b4a628d7ce8101b9d31f4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 5cd4b86c9c70f713a207f7feea9fa8efc06b6247
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972511"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146905"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
 O serviço de [Azure site Recovery](site-recovery-overview.md) é atualizado e aprimorado em uma base contínua. Para ajudá-lo a se manter atualizado, este artigo fornece informações sobre as versões mais recentes, novos recursos e novos conteúdos. Esta página é atualizada regularmente.
 
-Se você tiver sugestões para Site Recovery recursos, adoraríamos [ouvir seus comentários](https://feedback.azure.com/forums/256299-site-recovery).
+Você pode seguir e assinar Site Recovery notificações de atualização no canal de [atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery) .
 
+## <a name="supported-updates"></a>Atualizações com suporte
 
-## <a name="installing-updates"></a>Instalar as atualizações
+Para componentes de Site Recovery, damos suporte a versões N-4, em que N é a versão mais recente lançada. Eles são resumidos na tabela a seguir.
 
-[Leia este artigo](service-updates-how-to.md) para obter site Recovery suporte e instruções de atualização.
+**Atualização** |  **Configuração unificada** | **Ova do servidor de configuração** | **Agente de serviço de mobilidade** | **Provedor de Site Recovery** | **Agente dos serviços de recuperação** 
+--- | --- | --- | --- | ---
+[ROLLUP 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
+[ROLLUP 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
+[ROLLUP 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
+[ROLLUP 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
+[ROLLUP 35](https://support.microsoft.com/help/4494485/) | 9.23.5163.1 | 5.1.4000.0 | 9.23.5163.1 | 5.1.4000.0 | 2.0.9156.0 
+        
+
+[Saiba mais](service-updates-how-to.md) sobre a instalação e o suporte da atualização.
+
 
 ## <a name="updates-august-2019"></a>Atualizações (agosto de 2019)
 
@@ -139,7 +150,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---
-**Discos gerenciados** | A replicação de VMs VMware locais e servidores físicos agora é diretamente para discos gerenciados no Azure. Os dados locais são enviados para uma conta de armazenamento de cache no Azure, e os pontos de recuperação são criados em discos gerenciados no local de destino. Isso garante que você não precisa gerenciar várias contas de armazenamento de destino.
+**Discos geridos** | A replicação de VMs VMware locais e servidores físicos agora é diretamente para discos gerenciados no Azure. Os dados locais são enviados para uma conta de armazenamento de cache no Azure, e os pontos de recuperação são criados em discos gerenciados no local de destino. Isso garante que você não precisa gerenciar várias contas de armazenamento de destino.
 **Servidor de configuração** | O Site Recovery agora dá suporte a servidores de configuração com várias NICs. Adicione outros adaptadores à VM do servidor de configuração antes de registrar o servidor de configuração no cofre. Se você adicionar posteriormente, precisará registrar novamente o servidor no cofre.
 
 
@@ -360,6 +371,6 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Mantenha-se atualizado com nossas atualizações na página [atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery) .

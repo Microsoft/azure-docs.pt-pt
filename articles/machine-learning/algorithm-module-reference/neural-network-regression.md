@@ -1,7 +1,7 @@
 ---
-title: 'Regressão de rede neural: Referência do módulo'
+title: 'Regressão de rede neural: Referência de módulo'
 titleSuffix: Azure Machine Learning service
-description: Saiba como utilizar o módulo de regressão de rede Neural no serviço Azure Machine Learning para criar um modelo de regressão usando um algoritmo de rede neural personalizável....
+description: Saiba como usar o módulo de regressão de rede neural no serviço Azure Machine Learning para criar um modelo de regressão usando um algoritmo de rede neural personalizável.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,81 +9,80 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: bc6a7505ab09e929e5add61eea687f871aedf242
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93f27458a2571b2e26a090c06b01d8abe3e79c2a
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029314"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128576"
 ---
 # <a name="neural-network-regression-module"></a>Módulo de regressão de rede neural
 
 *Cria um modelo de regressão usando um algoritmo de rede neural*  
   
- Categoria: Machine Learning / inicializar modelo / regressão
+ Categorias Machine Learning/inicializar modelo/regressão
   
-## <a name="module-overview"></a>Descrição geral do módulo  
+## <a name="module-overview"></a>Visão geral do módulo  
 
-Este artigo descreve um módulo da interface visual (pré-visualização) para o serviço Azure Machine Learning.
+Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
 
-Utilize este módulo para criar um modelo de regressão usando um algoritmo de rede neural personalizáveis.
+Use este módulo para criar um modelo de regressão usando um algoritmo de rede neural personalizável.
   
- Embora as redes neurais são muito conhecidas para uso em problemas complexos, como reconhecimento de imagem de modelagem e de aprendizagem profunda, eles estão adaptados facilmente em problemas de regressão. Qualquer classe de modelos de estatísticos pode ser denominadas como uma rede neural se utilizar pesos adaptáveis e pode fazer uma aproximação de funções não-lineares das respetivas entradas. Assim, regressão de rede neural é adequada para onde um modelo de regressão mais tradicional não couber uma solução de problemas.
+ Embora as redes neurais sejam amplamente conhecidas para uso em problemas complexos de aprendizado e modelagem, como reconhecimento de imagem, elas são facilmente adaptadas a problemas de regressão. Qualquer classe de modelos estatísticos pode ser chamada de rede neural se usar pesos adaptáveis e puder aproximar funções não lineares de suas entradas. Portanto, a regressão de rede neural é adequada para problemas em que um modelo de regressão mais tradicional não pode se ajustar a uma solução.
   
- Regressão de rede neural é um método de aprendizagem supervisionada e, portanto, requer uma *etiquetados de conjunto de dados*, que inclui uma coluna de etiqueta. Uma vez que um modelo de regressão prevê um valor numérico, a coluna de etiqueta tem de ser um tipo de dados numéricos.  
+ A regressão de rede neural é um método de aprendizado supervisionado e, portanto, requer um conjunto de informações *marcado*, que inclui uma coluna de rótulo. Como um modelo de regressão prevê um valor numérico, a coluna de rótulo deve ser um tipo de dados numérico.  
   
- Pode preparar o modelo, fornecendo o modelo e o conjunto de dados marcado como entrada para [modelo de formação](./train-model.md). O modelo preparado, em seguida, pode ser utilizado para prever valores para os exemplos de entrada novo.  
+ Você pode treinar o modelo fornecendo o modelo e o conjunto de dados marcado como uma entrada para [treinar o modelo](./train-model.md). O modelo treinado pode então ser usado para prever valores para os novos exemplos de entrada.  
   
-## <a name="configure-neural-network-regression"></a>Configurar a rede Neural regressão 
+## <a name="configure-neural-network-regression"></a>Configurar a regressão de rede neural 
 
-As redes neurais podem ser personalizadas amplamente. Esta secção descreve como criar um modelo através de dois métodos:
+As redes neurais podem ser amplamente personalizadas. Esta seção descreve como criar um modelo usando dois métodos:
   
-+ [Criar um modelo de rede neural usando a arquitetura de padrão](#bkmk_DefaultArchitecture)  
++ [Criar um modelo de rede neural usando a arquitetura padrão](#bkmk_DefaultArchitecture)  
   
-    Se aceitar a arquitetura de rede neural padrão, utilize o **propriedades** painel para definir os parâmetros que controlam o comportamento da rede neural, como o número de nós na camada oculta, taxa de aprendizagem e normalização.
+    Se você aceitar a arquitetura de rede neural padrão, use o painel **Propriedades** para definir parâmetros que controlam o comportamento da rede neural, como o número de nós na camada oculta, a taxa de aprendizado e a normalização.
 
-    Comece por aqui se estiver familiarizado com as redes neurais. O módulo suporta muitas personalizações, bem como modelo de otimização, sem o conhecimento profundo das redes neurais. 
+    Comece aqui se você for novo nas redes neurais. O módulo dá suporte a muitas personalizações, bem como ao ajuste de modelo, sem conhecimento profundo das redes neurais. 
 
 + Definir uma arquitetura personalizada para uma rede neural 
 
-    Utilize esta opção se pretender adicionar camadas ocultas extra ou personalizar por completo as funções de arquitetura, as suas ligações e ativação de rede.
+    Use esta opção se você quiser adicionar camadas ocultas extras ou personalizar totalmente a arquitetura de rede, suas conexões e funções de ativação.
     
-    Esta opção é melhor se já esteja minimamente familiarizado com as redes neurais. Utilize a linguagem Net # para definir a arquitetura de rede.  
+    Essa opção é melhor se você já estiver um pouco familiarizado com redes neurais. Você usa a linguagem net # para definir a arquitetura de rede.  
 
-##  <a name="bkmk_DefaultArchitecture"></a> Criar um modelo de rede neural usando a arquitetura de padrão
+##  <a name="bkmk_DefaultArchitecture"></a>Criar um modelo de rede neural usando a arquitetura padrão
   
-1.  Adicionar a **regressão de rede Neural** módulo à sua experimentação na interface. Pode encontrar este módulo sob **Machine Learning**, **inicializar**, no **regressão** categoria. 
+1.  Adicione o módulo de regressão de **rede neural** ao seu experimento na interface. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **regressão** . 
   
-2. Indicar como pretende que o modelo de formação, definindo a **modo de instrutor de criação** opção.  
+2. Indique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Único parâmetro**: Escolha esta opção se já sabe como pretende configurar o modelo.  
+    -   **Parâmetro único**: Escolha esta opção se você já souber como deseja configurar o modelo.  
 
-3.  Na **oculta a especificação de camada**, selecione **totalmente conectada caso**. Esta opção cria um modelo usando a arquitetura de rede neural padrão, que, para um modelo de regressão de rede neural, tenha estes atributos:  
+3.  Em **especificação de camada oculta**, selecione **caso totalmente conectado**. Essa opção cria um modelo usando a arquitetura de rede neural padrão, que, para um modelo de regressão de rede neural, tem estes atributos:  
   
     + A rede tem exatamente uma camada oculta.
-    + A camada de saída é totalmente conectada aos camada oculta e camada oculta é totalmente conectada à camada de entrada.
-    + O número de nós na camada oculta pode ser definido pelo utilizador (o valor predefinido é 100).  
+    + A camada de saída é totalmente conectada à camada oculta e a camada oculta é totalmente conectada à camada de entrada.
+    + O número de nós na camada oculta pode ser definido pelo usuário (o valor padrão é 100).  
   
-    Como o número de nós na camada de entrada é determinado pelo número de recursos nos dados de treinamento, num modelo de regressão pode haver apenas um nó na camada de saída.  
+    Como o número de nós na camada de entrada é determinado pelo número de recursos nos dados de treinamento, em um modelo de regressão pode haver apenas um nó na camada de saída.  
   
-4. Para **número de nós ocultos**, escreva o número de nós ocultos. A predefinição é uma camada oculta com 100 nós. (Esta opção não está disponível se definir uma arquitetura personalizada com o Net #.)
+4. Para **número de nós ocultos**, digite o número de nós ocultos. O padrão é uma camada oculta com nós 100. (Essa opção não estará disponível se você definir uma arquitetura personalizada usando net #.)
   
-5.  Para **taxa de aprendizagem**, escreva um valor que define o passo efetuado em cada iteração, antes de correção. Um valor maior para a taxa de aprendizagem pode fazer com que o modelo convergir mais rapidamente, mas ele pode overshoot mínimas locais.
+5.  Para **taxa de aprendizagem**, digite um valor que defina a etapa realizada em cada iteração, antes da correção. Um valor maior para a taxa de aprendizagem pode fazer com que o modelo seja convergido mais rapidamente, mas pode Sobreusar mínimo locais.
 
-6.  Para **número de iterações de aprendizagem**, especifique o número máximo de vezes que o algoritmo processa os casos de treinamento.
+6.  Para **número de iterações de aprendizado**, especifique o número máximo de vezes que o algoritmo processa os casos de treinamento.
 
-7.  Para * * a aprendizagem inicial de pesos diâmetro, escreva um valor que determina os pesos de nó no início do processo de aprendizado.
+7.  Para * * o diâmetro inicial dos pesos de aprendizado, digite um valor que determina os pesos do nó no início do processo de aprendizado.
 
-8.  Para **a dinâmica**, escreva um valor para aplicar durante o aprendizado de como um peso em nós de iterações anteriores.
+8.  Para **a dinâmica**, digite um valor a ser aplicado durante o aprendizado como um peso em nós de iterações anteriores.
 
-10. Selecione a opção **misturar os exemplos**, para alterar a ordem dos casos, entre as iterações. Se desmarcar esta opção, casos são processados por ordem exatamente o mesmo sempre que executar a experimentação.
+10. Selecione a opção, **embaralhar exemplos**, para alterar a ordem dos casos entre as iterações. Se você desmarcar essa opção, os casos serão processados exatamente na mesma ordem toda vez que você executar o experimento.
   
-11. Para **seed número aleatório**, opcionalmente, pode escrever um valor para utilizar como a semente. Valor especificando uma semente é útil quando pretende garantir a capacidade de repetição em execuções da experimentação mesmo.
+11. Para a **semente de número aleatório**, você pode, opcionalmente, digitar um valor a ser usado como a semente. A especificação de um valor de semente é útil quando você deseja garantir a capacidade de repetição entre as execuções do mesmo experimento.
   
-13. Ligar um conjunto de dados de treinamento e uma da [módulos de treinamento](module-reference.md): 
+13. Conecte um conjunto de uma de treinamento e um dos [módulos de treinamento](module-reference.md): 
   
-    -   Se definir **modo de instrutor de criação** ao **único parâmetro**, utilize [Train Model](./train-model.md).  
+    -   Se você definir **criar modo de instrutor** como **parâmetro único**, use [treinar modelo](./train-model.md).  
   
    
 14. Execute a experimentação.  
@@ -92,11 +91,11 @@ As redes neurais podem ser personalizadas amplamente. Esta secção descreve com
 
 Após a conclusão do treinamento:
 
-+ Para ver um resumo dos parâmetros do modelo, juntamente com a funcionalidade de pesos aprendidos de treinamento e outros parâmetros da rede neural, com o botão direito a saída de [Train Model](./train-model.md)e selecione **Visualize**.  
++ Para ver um resumo dos parâmetros do modelo, junto com os pesos do recurso aprendidos do treinamento e outros parâmetros da rede neural, clique com o botão direito do mouse na saída do [modelo](./train-model.md)de treino e selecione **Visualizar**.  
 
-+ Para guardar um instantâneo do modelo preparado, com o botão direito a **modelo Trained** de saída e selecione **guardar como modelo preparado**. Este modelo não é atualizado em sucessivas execuções da experimentação mesmo.
++ Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do **modelo treinado** e selecione **salvar como modelo treinado**. Esse modelo não é atualizado em execuções sucessivas do mesmo experimento.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte a [conjunto de módulos disponíveis](module-reference.md) ao serviço Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

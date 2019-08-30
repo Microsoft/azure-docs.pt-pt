@@ -1,42 +1,46 @@
 ---
-title: Replicar os dados na base de dados do Azure para MariaDB.
-description: Este artigo descreve os dados na replicação da base de dados do Azure para MariaDB.
+title: Replicar dados para o Azure Database para MariaDB.
+description: Este artigo descreve a replicação de dados do Azure para MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: c19ec06ce353d653086fa693dde975a55f51f823
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 28c2c01e85120ec17e6f782fb0686a627d50d0d0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839260"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70136752"
 ---
-# <a name="replicate-data-into-azure-database-for-mariadb"></a>Replicar os dados na base de dados do Azure para MariaDB
+# <a name="replicate-data-into-azure-database-for-mariadb"></a>Replicar dados para o Azure Database para MariaDB
 
-Replicação de dados-in permite-lhe sincronizar dados de um servidor de MariaDB em execução no local, nas máquinas virtuais ou serviços de base de dados hospedados por outros fornecedores de cloud para a base de dados do Azure para MariaDB serviço. Replicação de dados baseia-se o registo binário (binlog) com base na posição replicação de ficheiros nativa para MariaDB. Para saber mais sobre a replicação de binlog, consulte a [descrição geral da replicação de binlog](https://mariadb.com/kb/en/library/replication-overview/).
+A Replicação de Dados de Entrada permite sincronizar dados de um servidor MariaDB em execução no local, em máquinas virtuais (VMs) ou serviços de bases de dados alojados por outros fornecedores de cloud para o serviço Azure Database for MariaDB. A Replicação de Dados de Entrada é baseada na replicação baseada na posição dos ficheiros de registo binário (binlog) nativo para o MariaDB. Para saber mais sobre a replicação do binlog, consulte a [visão geral da replicação do binlog](https://mariadb.com/kb/en/library/replication-overview/).
 
-## <a name="when-to-use-data-in-replication"></a>Quando utilizar a replicação de dados
-Os principais cenários para considerar a utilização de replicação de dados são:
+## <a name="when-to-use-data-in-replication"></a>Quando usar Replicação de Dados
+Os principais cenários a serem considerados no uso de Replicação de Dados são:
 
-- **Sincronização de dados híbrida:** Com a replicação de dados, pode manter os dados sincronizados entre os servidores no local e a base de dados do Azure para MariaDB. Esta sincronização é útil para criar aplicações híbridas. Este método é atraente quando existir um servidor da base de dados local, mas quiser mover os dados para uma região mais perto dos utilizadores finais.
-- **Sincronização de várias Cloud:** Para soluções de cloud complexas, utilize a replicação de dados para sincronizar dados entre a base de dados do Azure para MariaDB e fornecedores de cloud diferentes, incluindo máquinas virtuais e serviços de base de dados hospedados nessas nuvens.
+- **Sincronização de dados híbridos:** Com o Replicação de Dados, você pode manter os dados sincronizados entre os servidores locais e o banco de dados do Azure para MariaDB. Essa sincronização é útil para a criação de aplicativos híbridos. Esse método é atraente quando você tem um servidor de banco de dados local existente, mas deseja mover os dados para uma região mais próxima dos usuários finais.
+- **Sincronização de várias nuvens:** Para soluções de nuvem complexas, use Replicação de Dados para sincronizar os dados entre o Azure Database para MariaDB e provedores de nuvem diferentes, incluindo máquinas virtuais e serviços de banco de dados hospedados nessas nuvens.
 
 ## <a name="limitations-and-considerations"></a>Limitações e considerações
 
-### <a name="data-not-replicated"></a>Dados replicados não
-O [ *base de dados de sistema de mysql* ](https://mariadb.com/kb/en/library/the-mysql-database-tables/) no servidor principal não é replicado. Alterações às contas e permissões no servidor principal não são replicadas. Se criar uma conta no servidor principal e esta conta tem de aceder ao servidor de réplica, em seguida, crie manualmente a mesma conta no lado do servidor de réplica. Para compreender quais tabelas estão contidas na base de dados do sistema, consulte a [MariaDB documentação](https://mariadb.com/kb/en/library/the-mysql-database-tables/).
+### <a name="data-not-replicated"></a>Dados não replicados
+O [*banco de dados do sistema MySQL*](https://mariadb.com/kb/en/library/the-mysql-database-tables/) no servidor mestre não é replicado. As alterações nas contas e permissões no servidor mestre não são replicadas. Se você criar uma conta no servidor mestre e essa conta precisar acessar o servidor de réplica, crie manualmente a mesma conta no lado do servidor de réplica. Para entender quais tabelas estão contidas no banco de dados do sistema, consulte a [documentação do MariaDB](https://mariadb.com/kb/en/library/the-mysql-database-tables/).
 
 ### <a name="requirements"></a>Requisitos
-- A versão do servidor principal tem de ser, pelo menos, MariaDB versão 10.2.
-- As versões de servidor mestre e de réplica tem de ser o mesmo. Por exemplo, ambos tem de ser MariaDB versão 10.2.
+- A versão do servidor mestre deve ser pelo menos MariaDB versão 10,2.
+- As versões do servidor mestre e de réplica devem ser as mesmas. Por exemplo, ambos devem ser MariaDB versão 10,2.
 - Cada tabela tem de ter uma chave primária.
-- Servidor mestre deve utilizar o motor InnoDB.
-- Utilizador tem de ter permissões para configurar o registo binário e criar novos utilizadores no servidor principal.
+- O servidor mestre deve usar o mecanismo InnoDB.
+- O usuário deve ter permissões para configurar o log binário e criar novos usuários no servidor mestre.
+- Se o servidor mestre tiver o SSL habilitado, verifique se o certificado de autoridade de certificação SSL fornecido para o domínio `mariadb.az_replication_change_master` foi incluído no procedimento armazenado. Consulte os [exemplos](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) a seguir e o `master_ssl_ca` parâmetro.
+- Confirme se o endereço IP do servidor mestre foi adicionado às regras de firewall do servidor de réplica do Azure Database for MariaDB. Atualize as regras de firewall com o [portal do Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) ou a [CLI do Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
+- Verifique se o computador que aloja o servidor mestre permite tráfego de entrada e de saída na porta 3306.
+- Verifique se o servidor mestre tem o **Endereço IP público** ou se o DNS está acessível ao público
 
 ### <a name="other"></a>Outros
-- Replicação de dados é apenas suportado, em geral, objetivo e com a otimização de memória escalões de preço.
+- Só há suporte para replicação de dados em Uso Geral e tipos de preço com otimização de memória.
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba como [configurar a replicação de dados-in](howto-data-in-replication.md).
+- Saiba como [Configurar a replicação de dados](howto-data-in-replication.md).

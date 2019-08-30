@@ -5,18 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/09/2019
-author: sharonlo101
-ms.author: shlo
-manager: craigg
-ms.openlocfilehash: e4d204e9bcf601bf968f06b5d9df3f36414bd5a5
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 6e23cc583c9b403619ad2e47f2085ef7c0149bd2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884198"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142374"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Copiar ou clonar uma data factory no Azure Data Factory
 
@@ -46,6 +46,6 @@ Aqui estão algumas das circunstâncias em que você pode achar útil copiar ou 
 
 1. Por motivos de segurança, o modelo do Resource Manager gerado não contém nenhuma informação secreta, como senhas para serviços vinculados. Como resultado, você precisa fornecer essas senhas como parâmetros de implantação. Se fornecer parâmetros não for desejável, você precisará obter as cadeias de conexão e as senhas dos serviços vinculados de Azure Key Vault.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Examine as diretrizes para criar um data factory no portal do Azure em [criar um data Factory usando a interface do usuário do Azure data Factory](quickstart-create-data-factory-portal.md).

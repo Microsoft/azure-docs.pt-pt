@@ -1,7 +1,7 @@
 ---
-title: 'Dividir os dados: Referência do módulo'
+title: 'Dividir dados: Referência de módulo'
 titleSuffix: Azure Machine Learning service
-description: Saiba como utilizar o módulo de dividir dados no serviço Azure Machine Learning para dividir um conjunto de dados em dois conjuntos distintos.
+description: Saiba como usar o módulo dividir dados no serviço de Azure Machine Learning para dividir um conjunto em dois conjuntos distintos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,110 +9,109 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: a7395280ed9a2e9dcb94a081f0b3bf10a28da719
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31612e10e7978e94f1ed467b5ffbecde40910ef9
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029404"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128471"
 ---
-# <a name="split-data-module"></a>Módulo split Data
+# <a name="split-data-module"></a>Módulo dividir dados
 
-Este artigo descreve um módulo da interface visual (pré-visualização) para o serviço Azure Machine Learning.
+Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
 
-Utilize este módulo para dividir um conjunto de dados em dois conjuntos distintos.
+Use este módulo para dividir um conjunto de módulos em dois conjuntos distintos.
 
-Este módulo é particularmente útil quando precisa separar dados em preparação e teste conjuntos. Pode personalizar a forma que os dados são divididos também. Algumas opções de suportam a randomização de dados. outros são adaptados para um determinado tipo de dados ou tipo de modelo.
+Esse módulo é particularmente útil quando você precisa separar dados em conjuntos de treinamento e teste. Você pode personalizar a maneira como os dados são divididos também. Algumas opções dão suporte à randomização de dados; outras são adaptadas para um determinado tipo de dados ou tipo de modelo.
 
 ## <a name="how-to-configure"></a>Como configurar
 
 > [!TIP]
-> Antes de escolher o modo divisão, todas as opções para determinar o tipo de divisão de leitura, precisa.
-> Se alterar o modo divisão, todas as outras opções foi repostas.
+> Antes de escolher o modo de divisão, Leia todas as opções para determinar o tipo de divisão de que você precisa.
+> Se você alterar o modo de divisão, todas as outras opções poderão ser redefinidas.
 
-1. Adicionar a **Split Data** módulo à sua experimentação na interface. Pode encontrar este módulo sob **transformação de dados**, na **exemplo e divisão** categoria.
+1. Adicione o módulo **dividir dados** ao seu experimento na interface. Você pode encontrar esse módulo em **transformação de dados**, na categoria **exemplo e dividir** .
 
-2. **A divisão de modo**: Escolha um dos seguintes modos, dependendo do tipo de dados que tiver e como deseja dividi-la. Cada modo divisão tem opções diferentes. Clique nos seguintes tópicos para obter instruções detalhadas e exemplos. 
+2. **Modo de divisão**: Escolha um dos seguintes modos, dependendo do tipo de dados que você tem e de como deseja dividi-lo. Cada modo de divisão tem opções diferentes. Clique nos tópicos a seguir para obter instruções e exemplos detalhados. 
 
-    - **Dividir linhas**: Utilize esta opção se pretender dividir os dados em duas partes. Pode especificar a percentagem de dados para colocar em cada divisão, mas por predefinição, os dados são divididos 50 a 50.
+    - **Dividir linhas**: Use essa opção se desejar apenas dividir os dados em duas partes. Você pode especificar a porcentagem de dados a serem colocados em cada divisão, mas por padrão, os dados são divididos 50-50.
 
-        Também pode tornar aleatórios a seleção de linhas em cada grupo e usar stratified amostragem. Amostragem stratified, tem de selecionar uma única coluna de dados para o qual pretende que os valores a ser distribuídos de acordo com igualmente entre os conjuntos de dados de duas resultado.  
+        Você também pode tornar aleatória a seleção de linhas em cada grupo e usar a amostragem de sobreratificação. Em amostragem de sobreratificação, você deve selecionar uma única coluna de dados para a qual você deseja que os valores sejam distribuídos igualmente entre os dois conjuntos de dado de resultado.  
 
-    - **Divisão de expressão regular** Escolha esta opção quando pretender dividir o conjunto de dados por uma única coluna para um valor de teste.
+    - **Divisão de expressão regular**  Escolha esta opção quando desejar dividir o conjunto de um testando uma única coluna para um valor.
 
-        Por exemplo, se analisar sentimentos, foi possível verificar a presença de um nome de produto em particular num campo de texto e, em seguida, dividir o conjunto de dados em linhas com o nome de produto de destino e pessoas sem.
+        Por exemplo, se você estiver analisando sentimentos, poderá verificar a presença de um nome de produto específico em um campo de texto e, em seguida, dividir o conjunto de dado em linhas com o nome do produto de destino e aqueles sem.
 
-    - **Divisão de expressão relativo**:  Utilize esta opção sempre que pretender aplicar uma condição para uma coluna do número. O número pode ser um campo de data/hora, um coluna que contém idade ou quantidades de dólar ou até mesmo uma percentagem. Por exemplo, talvez queira dividir seu conjunto de dados consoante o custo dos itens, grupo de pessoas por intervalos de idade ou dados separado por uma data de calendário.
+    - **Divisão de expressão relativa**:  Use essa opção sempre que desejar aplicar uma condição a uma coluna de número. O número pode ser um campo de data/hora, uma coluna que contém valores de idade ou moeda, ou até mesmo uma porcentagem. Por exemplo, talvez você queira dividir seu conjunto de dados dependendo do custo dos itens, agrupar pessoas por intervalos de idade ou separar dados por uma data de calendário.
 
-### <a name="split-rows"></a>Linhas de divisão
-1.  Adicionar a [Split Data](./split-data.md) módulo à sua experimentação na interface e ligue-se o conjunto de dados que pretende dividir.
+### <a name="split-rows"></a>Dividir linhas
+1.  Adicione o módulo [dividir dados](./split-data.md) ao seu experimento na interface do e conecte o DataSet que você deseja dividir.
   
-2.  Para **modo de separação**, escolha **Dividir linhas**. 
+2.  Para o **modo de divisão**, escolha **dividir linhas**. 
 
-3.  **Fração de linhas no primeiro conjunto de dados de saída**. Utilize esta opção para determinar o número de linhas vai para o primeiro resultado (lado esquerdo). Todas as outras linhas passará para a segunda saída (direita).
+3.  **Fração de linhas no primeiro conjunto de resultados de saída**. Use esta opção para determinar quantas linhas vão para a primeira saída (à esquerda). Todas as outras linhas vão para a segunda saída (à direita).
 
-    O rácio representa a porcentagem das linhas enviada para o primeiro conjunto de dados de saída, tem de introduzir um número decimal entre 0 e 1.
+    A taxa representa a porcentagem de linhas enviadas para o primeiro conjunto de resultados de saída, portanto, você deve digitar um número decimal entre 0 e 1.
      
-     Por exemplo, se digitar 0,75 como o valor, o conjunto de dados poderia ser dividido utilizando um rácio de 75:25 com 75% das linhas enviadas para o primeiro conjunto de dados de saída e 25% enviados para o segundo conjunto de dados de saída.
+     Por exemplo, se você digitar 0,75 como o valor, o conjunto de registros será dividido usando uma proporção de 75:25, com 75% das linhas enviadas para o primeiro conjunto de resultados de saída e 25% enviado para o segundo conjunto de resultados de saída.
   
-4. Selecione o **Randomized split** opção se pretender tornar aleatórios a seleção de dados em dois grupos. Esta é a opção preferencial, durante a criação de conjuntos de dados de preparação e teste.
+4. Selecione a opção **divisão aleatória** se desejar tornar aleatória a seleção de dados nos dois grupos. Essa é a opção preferida ao criar conjuntos de testes de treinamento e de teste.
 
-5.  **Seed Aleatório**: Escreva um valor de número inteiro não negativo para inicializar a sequência de pseudoaleatórios das instâncias para ser utilizado. Seed este padrão é usado em todos os módulos que geram números aleatórios. 
+5.  **Semente aleatória**: Digite um valor inteiro não negativo para inicializar a sequência pseudoaleatória de instâncias a serem usadas. Essa semente padrão é usada em todos os módulos que geram números aleatórios. 
 
-     Especificar uma semente torna os resultados geralmente reproduzível. Se precisar repetir os resultados de uma operação de divisão, deve especificar uma semente para o gerador de números aleatórios. Caso contrário, o seed aleatório é definido por predefinição como 0, o que significa que o valor semente inicial é obtido a partir do relógio do sistema. Como resultado, a distribuição de dados poderão ser ligeiramente diferentes sempre que executar uma divisão. 
+     A especificação de uma semente torna os resultados geralmente reproduzíveis. Se você precisar repetir os resultados de uma operação de divisão, deverá especificar uma semente para o gerador de número aleatório. Caso contrário, a semente aleatória é definida por padrão como 0, o que significa que o valor de semente inicial é obtido do relógio do sistema. Como resultado, a distribuição de dados pode ser um pouco diferente cada vez que você executar uma divisão. 
 
-6. **Divisão stratified**: Defina esta opção como **True** para garantir que os conjuntos de dados de dois saída contenham uma amostra representativa dos valores a *coluna strata* ou *coluna de chave stratification*. 
+6. **Divisão**de desratificação: Defina essa opção como **true** para garantir que os dois conjuntos de resultados de saída contenham uma amostra representativa dos valores na coluna *Strata* ou na *coluna de chave estratificação*. 
 
-    Com a amostragem stratified, os dados são divididos de forma a que cada conjunto de dados de saída é aproximadamente o mesmo valor de percentagem de cada destino. Por exemplo, poderá querer garantir que seu treinamento e conjuntos de testes são balanceadas mais ou menos em relação ao resultado ou com considerar ou alguma outra coluna, como género.
+    Com a amostragem de sobreratificação, os dados são divididos de forma que cada conjunto de dado de saída Obtém aproximadamente a mesma porcentagem de cada valor de destino. Por exemplo, talvez você queira garantir que seus conjuntos de treinamento e teste sejam aproximadamente equilibrados em relação ao resultado, ou em relação a alguma outra coluna, como sexo.
 
 7. Execute a experimentação.
 
 
 ## <a name="regular-expression-split"></a>Divisão de expressão regular
 
-1.  Adicionar a [Split Data](./split-data.md) módulo à sua experimentação e ligue-o como entrada para o conjunto de dados que pretende dividir.  
+1.  Adicione o módulo [dividir dados](./split-data.md) ao seu experimento e conecte-o como entrada para o conjunto que você deseja dividir.  
   
-2.  Para **modo de separação**, selecione **divisão da expressão Regular**.
+2.  Para o **modo de divisão**, selecione divisão de **expressão regular**.
 
-3. Na **expressão Regular** , escreva uma expressão regular válida. 
+3. Na caixa **expressão regular** , digite uma expressão regular válida. 
   
-   A expressão regular deve seguir a sintaxe de expressão regular de Python.
+   A expressão regular deve seguir a sintaxe de expressão regular do Python.
 
 
 4. Execute a experimentação.
 
-    Com base na expressão regular é fornecer, o conjunto de dados está dividido em dois conjuntos de linhas: linhas com valores que correspondem a expressão e todas as linhas restantes. 
+    Com base na expressão regular que você fornece, o conjunto de registros é dividido em dois conjuntos de linhas: linhas com valores que correspondem à expressão e todas as linhas restantes. 
 
-## <a name="relative-expression-split"></a>Divisão de expressão relativo.
+## <a name="relative-expression-split"></a>Divisão de expressão relativa.
 
-1. Adicionar a [Split Data](./split-data.md) módulo à sua experimentação e ligue-o como entrada para o conjunto de dados que pretende dividir.
+1. Adicione o módulo [dividir dados](./split-data.md) ao seu experimento e conecte-o como entrada para o conjunto que você deseja dividir.
   
-2. Para **modo de separação**, selecione **divisão da expressão relativo**.
+2. Para o **modo de divisão**, selecione a divisão de **expressão relativa**.
   
-3. Na **expressão relacional** , digite uma expressão que realiza uma operação de comparação, numa única coluna:
+3. Na caixa de texto **expressão relacional** , digite uma expressão que executa uma operação de comparação, em uma única coluna:
 
 
  - Coluna numérica:
-    - A coluna contenha números de qualquer tipo de dados numéricos, incluindo tipos de dados de data/hora.
+    - A coluna contém números de qualquer tipo de dados numéricos, incluindo tipos de dados de data/hora.
 
-    - A expressão pode fazer referência a um máximo de nome de uma coluna.
+    - A expressão pode fazer referência a um máximo de um nome de coluna.
 
-    - Utilizar o caráter ' e ' comercial (&) para a operação AND e a utilização do pipe de caracteres (|) para a operação OR.
+    - Use o caractere de e comercial (&) para a operação e e use o caractere de barra vertical (|) para a operação ou.
 
-    - São suportados os seguintes operadores: `<`, `>`, `<=`, `>=`, `==`, `!=`
+    - Há suporte para os seguintes operadores `<`: `>` `<=` `>=` ,`==`,,,,`!=`
 
-    - Não é possível grupo operações usando `(` e `)`.
+    - Não é possível agrupar operações usando `(` o `)`e o.
 
  - Coluna de cadeia de caracteres: 
-    - São suportados os seguintes operadores: `==`, `!=`
+    - Há suporte para os seguintes operadores `==`:,`!=`
 
 
 
 4. Execute a experimentação.
 
-    A expressão divide o conjunto de dados em dois conjuntos de linhas: linhas com valores que satisfazem a condição e todas as linhas restantes.
+    A expressão divide o conjunto de um em dois conjuntos de linhas: linhas com valores que atendem à condição e todas as linhas restantes.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte a [conjunto de módulos disponíveis](module-reference.md) ao serviço Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: v-mohabe
-ms.openlocfilehash: 8fc287826d1a98b5d61229979544fdb3780455d4
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 7533a8636697db92a69cfec99d0e89138164d7b7
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967932"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147890"
 ---
-# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Proteger os seus recursos com o Centro de segurança do Azure
-O Centro de Segurança limita a exposição a ameaças ao utilizar controlos de acesso e aplicações para bloquear atividade maliciosa. Acesso de máquina virtual (VM) just-in-Time (JIT) reduz a exposição a ataques ao permitir a negação do acesso persistente a VMs. Em alternativa, o utilizador fornece acesso controlado e auditado a VMs apenas quando necessário. Os controlos de aplicações adaptáveis ajudam a proteger as VMs contra software maligno ao controlar as aplicações que podem ser executadas nas suas VMs. O Centro de Segurança utiliza machine learning para analisar os processos que estão a ser executados na VM e ajuda-o a aplicar regras de inclusão nas listas de permissões com base nessas informações.
+# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Proteja seus recursos com a central de segurança do Azure
+O Centro de Segurança limita a exposição a ameaças ao utilizar controlos de acesso e aplicações para bloquear atividade maliciosa. O acesso à VM (just-in-time) de máquina virtual (JIT) reduz sua exposição a ataques, permitindo que você negue o acesso persistente às VMs. Em alternativa, o utilizador fornece acesso controlado e auditado a VMs apenas quando necessário. Os controlos de aplicações adaptáveis ajudam a proteger as VMs contra software maligno ao controlar as aplicações que podem ser executadas nas suas VMs. O Centro de Segurança utiliza machine learning para analisar os processos que estão a ser executados na VM e ajuda-o a aplicar regras de inclusão nas listas de permissões com base nessas informações.
 
 Neste tutorial, ficará a saber como:
 
@@ -34,18 +34,18 @@ Neste tutorial, ficará a saber como:
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para acompanhar as funcionalidades abrangidas neste tutorial, tem de estar no escalão de preço Standard do Centro de Segurança. Pode experimentar o Centro de segurança Standard sem encargos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
+Para acompanhar as funcionalidades abrangidas neste tutorial, tem de estar no escalão de preço Standard do Centro de Segurança. Você pode experimentar a central de segurança Standard sem nenhum custo. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
 
 ## <a name="manage-vm-access"></a>Gerir o acesso à VM
-Acesso de JIT da VM pode ser utilizado para bloquear o tráfego de entrada para as VMs do Azure, reduzindo a exposição a ataques, fornecendo acesso fácil para ligar a VMs quando necessário.
+O acesso à VM JIT pode ser usado para bloquear o tráfego de entrada para suas VMs do Azure, reduzindo a exposição a ataques e, ao mesmo tempo, fornecendo acesso fácil para se conectar às VMs quando necessário.
 
 As portas de gestão não precisam de estar abertas permanentemente. Apenas têm de estar abertas enquanto estiver ligado à VM, por exemplo, para realizar tarefas de gestão ou manutenção. Quando o acesso just-in-time estiver ativado, o Centro de Segurança utiliza regras do Grupo de Segurança de Rede (NSG), que restringem o acesso às portas de gestão, para que não possam ser visadas pelos atacantes.
 
-1. No menu principal do Centro de segurança, selecione **aceder a Just-in-Time VM** sob **defesa de CLOUD avançada**.
+1. No menu principal da central de segurança, selecione **acesso à VM just-in-time** em **defesa de nuvem avançada**.
 
    ![Acesso à VM just-in-time][1]
 
-   **O acesso à VM just-in-Time** fornece informações sobre o estado das suas VMs:
+   O **acesso just-in-time à VM** fornece informações sobre o estado de suas VMs:
 
    - **Configurado** - VMs que foram configuradas para suportar o acesso à VM just-in-time.
    - **Recomendado** - VMs que conseguem suportar o acesso à VM just-in-time, mas não foram configuradas para tal.
@@ -73,17 +73,15 @@ As portas de gestão não precisam de estar abertas permanentemente. Apenas têm
 ## <a name="harden-vms-against-malware"></a>Proteger VMs contra software maligno
 Os controlos de aplicações adaptáveis ajudam a definir um conjunto de aplicações cuja execução é permitida em grupos de recursos configurados, o que, entre outras vantagens, ajuda a proteger as suas VMs contra software maligno. O Centro de Segurança utiliza machine learning para analisar os processos que estão a ser executados na VM e ajuda-o a aplicar regras de inclusão nas listas de permissões com base nessas informações.
 
-Esta funcionalidade só está disponível para máquinas Windows.
-
 1. Volte ao menu principal do Centro de Segurança. Em **DEFESA DE CLOUD AVANÇADA**, selecione **Controlos de aplicações adaptáveis**.
 
    ![Controlos de aplicação adaptável][3]
 
    A secção **Grupos de recursos** contém três separadores:
 
-   - **Configurado**: Lista de grupos de recursos que contém as VMs que foram configuradas com o controlo de aplicações.
-   - **Recomendado**: Lista de grupos de recursos para que aplicação de controlo é recomendado.
-   - **Nenhuma recomendação**: Lista de grupos de recursos que contém as VMs sem recomendações de controlo de aplicações. Por exemplo, VMs em que as aplicações estão sempre a ser alteradas e que não atingiram um estado estável.
+   - **Configurado**: Lista de grupos de recursos que contêm as VMs que foram configuradas com o controle de aplicativo.
+   - **Recomendado**: Lista de grupos de recursos para os quais o controle de aplicativo é recomendado.
+   - **Nenhuma recomendação**: Lista de grupos de recursos que contêm VMs sem nenhuma recomendação de controle de aplicativo. Por exemplo, VMs em que as aplicações estão sempre a ser alteradas e que não atingiram um estado estável.
 
 2. Selecione o separador **Recomendados** para ver uma lista dos grupos de recursos com recomendações de controlo de aplicações.
 
@@ -91,10 +89,10 @@ Esta funcionalidade só está disponível para máquinas Windows.
 
 3. Selecione um grupo de recursos para abrir a opção **Criar regras de controlo de aplicações**. Em **Selecionar VMs**, reveja a lista de VMs recomendadas e desmarque aquelas às quais não pretende aplicar o controlo de aplicações. Em **Selecionar processos para regras de inclusão em listas de permissões**, reveja a lista de aplicações recomendadas e desmarque aquelas às quais não pretende aplicar. A lista inclui:
 
-   - **NOME**: O caminho completo da aplicação
-   - **PROCESSOS**: Quantas aplicações residem em cada caminho
-   - **COMUNS**: "Sim" indica que estes processos foram executados na maioria das VMs neste grupo de recursos
-   - **EXPLORÁVEIS**: Um ícone de aviso indica se as aplicações podem ser utilizadas por um atacante para ignorar as listas de permissões de aplicação. Recomenda-se que reveja estas aplicações antes da respetiva aprovação.
+   - **NOME**: O caminho completo do aplicativo
+   - **PROCESSOS**: Quantos aplicativos residem em cada caminho
+   - **COMUM**: "Sim" indica que esses processos foram executados na maioria das VMs neste grupo de recursos
+   - **EXPLORÁVEL**: Um ícone de aviso indica se os aplicativos podem ser usados por um invasor para ignorar a lista de permissões do aplicativo. Recomenda-se que reveja estas aplicações antes da respetiva aprovação.
 
 4. Depois de concluir as suas seleções, selecione **Criar**.
 
