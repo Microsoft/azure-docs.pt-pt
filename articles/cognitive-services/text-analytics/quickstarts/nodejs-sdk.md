@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 08/28/2019
 ms.author: shthowse
-ms.openlocfilehash: 8590acbbd6001c1f214589298e454c1e75f93d67
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5b18ba4e06e8a44d7bd59b12a69a14ae15506234
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883525"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134987"
 ---
 # <a name="quickstart-text-analytics-client-library-for-nodejs"></a>Início rápido: Biblioteca de cliente de análise de texto para node. js
 <a name="HOLTop"></a>
@@ -64,30 +64,34 @@ npm init
 Crie um arquivo chamado `index.js` e importe as seguintes bibliotecas:
 
 ```javascript
-const CognitiveServicesCredentials = require("ms-rest-azure").CognitiveServicesCredentials;
-const TextAnalyticsAPIClient = require("azure-cognitiveservices-textanalytics");
+const CognitiveServicesCredentials = require("@azure/ms-rest-js");
+const TextAnalyticsAPIClient = require("@azure/cognitiveservices-textanalytics");
 ```
 
-Crie variáveis para o ponto de extremidade e a chave do Azure do recurso. Se você criou a variável de ambiente depois de iniciar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que o executa para acessar a variável.
+Crie variáveis para a chave de assinatura e o ponto de extremidade do Azure do recurso. Obtenha esses valores das variáveis de ambiente TEXT_ANALYTICS_SUBSCRIPTION_KEY e TEXT_ANALYTICS_ENDPOINT. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis.
 
 [!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
 ```javascript
-// replace this endpoint with the correct one for your Azure resource. 
-let endpoint = "https://westus.api.cognitive.microsoft.com/";
-// This sample assumes you have created an environment variable for your key
-let key = var apiKey = process.env.TEXTANALYTICS_SUBSCRIPTION_KEY;
-let credentials = new CognitiveServicesCredentials(
-    key
-);
+const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
+if (!process.env[key_var]) {
+    throw new Error('please set/export the following environment variable: ' + key_var);
+}
+const subscription_key = process.env[key_var];
+
+const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
+if (!process.env[endpoint_var]) {
+    throw new Error('please set/export the following environment variable: ' + endpoint_var);
+}
+const endpoint = process.env[endpoint_var];
 ```
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca de cliente
 
-Instale os `ms-rest-azure` pacotes `azure-cognitiveservices-textanalytics` e NPM:
+Instale os `@azure/ms-rest-js` pacotes `@azure/cognitiveservices-textanalytics` e NPM:
 
 ```console
-npm install azure-cognitiveservices-textanalytics ms-rest-azure
+npm install @azure/cognitiveservices-textanalytics @azure/ms-rest-js
 ```
 
 O arquivo do `package.json` aplicativo será atualizado com as dependências.
@@ -114,11 +118,8 @@ O objeto de resposta é uma lista que contém as informações de análise de ca
 Crie um novo objeto [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest) com `credentials` e `endpoint` como um parâmetro.
 
 ```javascript
-//Replace 'westus' with the correct region for your Text Analytics subscription
-let client = new TextAnalyticsAPIClient(
-    credentials,
-    endpoint
-);
+const creds = new CognitiveServicesCredentials.ApiKeyCredentials({ inHeader: { 'Ocp-Apim-Subscription-Key': subscription_key } });
+const client = new TextAnalyticsAPIClient.TextAnalyticsClient(creds, endpoint);
 ```
 
 ## <a name="sentiment-analysis"></a>Análise de sentimentos
@@ -199,11 +200,10 @@ ID: 1 Language English
 Crie uma lista de objetos, contendo seus documentos.
 
 ```javascript
-
-    const inputDocuments = {documents:[
-        {language:"en", id:"1", text:"Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800"}
-        ]}
-
+const inputDocuments = {
+    documents: [
+        { language: "en", id: "1", text: "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800" }
+    ]
 }
 ```
 
@@ -304,7 +304,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)

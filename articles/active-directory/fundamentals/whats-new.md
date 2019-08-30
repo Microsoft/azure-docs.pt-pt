@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93327091d0065a67d441dd56cadd83f4f7d2d1f2
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: afab194c984dcbfa96a9342f46b892c7ec08d321
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69970387"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135677"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que há de novo no Azure Active Directory?
 
@@ -85,7 +85,7 @@ Novas alterações de interface do usuário estão chegando ao design do **Adici
 **Categoria de serviço:** MFA  
 **Funcionalidade do produto:** Proteção de & de segurança de identidade
 
-Estamos removendo o endereço IP do servidor MFA do [endereço IP do Office 365 e do serviço Web URL](https://docs.microsoft.com/office365/enterprise/office-365-ip-web-service). Se, no momento, você confiar nessas páginas para atualizar as configurações do firewall, deverá ter certeza de que também está incluindo a lista de endereços IP documentados na seção **requisitos do firewall do Azure servidor de autenticação multifator** de [introdução com o artigo do servidor de autenticação multifator do Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy#azure-multi-factor-authentication-server-firewall-requirements) .
+Estamos removendo o endereço IP do servidor MFA do [endereço IP do Office 365 e do serviço Web URL](https://docs.microsoft.com/office365/enterprise/office-365-ip-web-service). Se, no momento, você confiar nessas páginas para atualizar as configurações do firewall, deverá ter certeza de que também está incluindo a lista de endereços IP documentados na seção **requisitos do firewall do Azure servidor de autenticação multifator** de [introdução com o artigo Servidor de Autenticação Multifator do Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy#azure-multi-factor-authentication-server-firewall-requirements) .
 
 ---
 
@@ -164,7 +164,7 @@ Para obter mais informações sobre como proteger melhor sua organização usand
 
 Se estiver cansado de gerenciar listas longas de endereços IP e intervalos, você poderá usar a nova marca de serviço de rede **AzureActiveDirectoryDomainServices** em seu grupo de segurança de rede do Azure para ajudar a proteger o tráfego de entrada para seu Azure AD Domain Services virtual sub-rede.
 
-Para obter mais informações sobre essa nova marca de serviço, consulte [grupos de segurança de rede para Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/network-considerations#default-network-service-group).
+Para obter mais informações sobre essa nova marca de serviço, consulte [grupos de segurança de rede para Azure AD Domain Services](../../active-directory-domain-services/network-considerations.md#network-security-groups-and-required-ports).
 
 ---
 
@@ -590,7 +590,7 @@ Para obter mais informações sobre o acesso condicional e a redefinição de se
 
 A detecção de inteligência contra ameaças do Azure AD agora está disponível como parte do recurso de Azure AD Identity Protection atualizado. Essa nova funcionalidade ajuda a indicar atividade de usuário incomum para um usuário ou atividade específica que é consistente com padrões de ataque conhecidos com base nas fontes de inteligência contra ameaças internas e externas da Microsoft.
 
-Para obter mais informações sobre a versão atualizada do Azure AD Identity Protection, consulte os [quatro principais aprimoramentos de Azure ad Identity Protection agora estão no blog de visualização pública](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935) e o [que é Azure Active Directory Identity Protection (atualizado)?](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2) artigo. Para obter mais informações sobre a detecção de inteligência contra ameaças do Azure AD, consulte o artigo [Azure Active Directory Identity Protection eventos de risco](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#azure-ad-threat-intelligence) .
+Para obter mais informações sobre a versão atualizada do Azure AD Identity Protection, consulte os [quatro principais aprimoramentos de Azure ad Identity Protection agora estão no blog de visualização pública](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935) e o [que é Azure Active Directory Identity Protection (atualizado)?](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2) artigo. Para obter mais informações sobre a detecção de inteligência contra ameaças do Azure AD, consulte o artigo [Azure Active Directory Identity Protection de detecções de risco](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#azure-ad-threat-intelligence) .
 
 ---
 

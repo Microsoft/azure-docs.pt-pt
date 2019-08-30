@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Utilizar a REST API para criar um pipeline do Azure Data Factory | Documentos da Microsoft'
+title: 'Tutorial: Usar a API REST para criar um pipeline de Azure Data Factory | Microsoft Docs'
 description: Neste tutorial, vai utilizar a API REST para criar um pipeline do Azure Data Factory com uma Atividade de Cópia, para copiar dados de um armazenamento de blobs do Azure e uma base de dados SQL do Azure.
 services: data-factory
 documentationcenter: ''
@@ -9,19 +9,18 @@ editor: ''
 ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6b5698d94a09096d58b316ca3b23bead5b1a39a7
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 187d8375220c5dbfbaf0b92d41231dedd7e71ee6
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839398"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140229"
 ---
-# <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar a API REST para criar um pipeline do Azure Data Factory para copiar dados 
+# <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Usar a API REST para criar um pipeline de Azure Data Factory para copiar dados 
 > [!div class="op_single_selector"]
 > * [Descrição geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
@@ -38,14 +37,14 @@ ms.locfileid: "67839398"
 
 Neste artigo, vai aprender a utilizar a API REST para criar uma fábrica de dados com um pipeline que copia dados de um armazenamento de blobs do Azure para uma Base de Dados SQL do Azure. Se não estiver familiarizado com o Azure Data Factory, leia o artigo [Introduction to Azure Data Factory](data-factory-introduction.md) (Introdução ao Azure Data Factory) antes de fazer este tutorial.   
 
-Neste tutorial, vai criar um pipeline com uma atividade no mesmo: Atividade de cópia. A Atividade de Cópia copia dados de um arquivo de dados suportado para um arquivo de dados sink suportado. Para obter uma lista dos arquivos de dados suportados como origens e sinks, veja [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Arquivos de dados suportados). A atividade utiliza a tecnologia de um serviço globalmente disponível que pode copiar dados entre vários arquivos de dados de uma forma segura, fiável e dimensionável. Para obter mais informações sobre a Atividade de Cópia, veja [Data Movement Activities](data-factory-data-movement-activities.md) (Atividades de Movimento de Dados).
+Neste tutorial, você cria um pipeline com uma atividade nele: Atividade de cópia. A Atividade de Cópia copia dados de um arquivo de dados suportado para um arquivo de dados sink suportado. Para obter uma lista dos arquivos de dados suportados como origens e sinks, veja [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Arquivos de dados suportados). A atividade utiliza a tecnologia de um serviço globalmente disponível que pode copiar dados entre vários arquivos de dados de uma forma segura, fiável e dimensionável. Para obter mais informações sobre a Atividade de Cópia, veja [Data Movement Activities](data-factory-data-movement-activities.md) (Atividades de Movimento de Dados).
 
 Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas atividades (executar uma atividade após a outra) ao definir o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra. Para obter mais informações, veja [Multiple activities in a pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Várias atividades num pipeline).
 
 > [!NOTE]
 > Este artigo não abrange toda a API REST do Data Factory. Veja [Referência da API REST do Data Factory](/rest/api/datafactory/) para obter a documentação completa sobre os cmdlets do Data Factory.
 >  
-> O pipeline de dados neste tutorial copia dados a partir de um arquivo de dados de origem para um arquivo de dados de destino. Para obter um tutorial sobre como transformar dados com o Azure Data Factory, veja [Tutorial: Criar um pipeline para transformar dados com o cluster do Hadoop](data-factory-build-your-first-pipeline.md).
+> O pipeline de dados neste tutorial copia dados a partir de um arquivo de dados de origem para um arquivo de dados de destino. Para obter um tutorial sobre como transformar dados usando Azure data Factory, consulte [o tutorial: Crie um pipeline para transformar dados usando o cluster](data-factory-build-your-first-pipeline.md)Hadoop.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -352,7 +351,7 @@ Neste passo, irá criar uma fábrica de dados do Azure com o nome **ADFCopyTutor
 
 Tenha em atenção os seguintes pontos:
 
-* O nome do Azure Data Factory deve ser globalmente exclusivo. Se vir o erro nos resultados: **Nome da fábrica de dados "ADFCopyTutorialDF" não está disponível**, siga os passos abaixo:  
+* O nome do Azure Data Factory deve ser globalmente exclusivo. Se você vir o erro nos resultados: O **nome do data Factory "ADFCopyTutorialDF" não está disponível**, execute as seguintes etapas:  
   
   1. Altere o nome (por exemplo, oseunomeADFCopyTutorialDF) no ficheiro **datafactory.json**.
   2. No primeiro comando em que está atribuído um valor à variável **$cmd**, substitua ADFCopyTutorialDF pelo novo nome e execute o comando. 
@@ -361,7 +360,7 @@ Tenha em atenção os seguintes pontos:
      Veja o tópico [Data Factory – Naming Rules (Data Factory – Regras de Nomenclatura)](data-factory-naming-rules.md) para obter as regras de nomenclatura dos artefactos do Data Factory.
 * Para criar instâncias do Data Factory, tem de ser um contribuidor/administrador da subscrição do Azure
 * O nome da fábrica de dados pode ser registado como um nome DNS no futuro e, por conseguinte, ficar publicamente visível.
-* Se receber o erro: "**Esta subscrição não está registada para utilizar o espaço de nomes DataFactory**", realize um dos seguintes procedimentos e tente publicar novamente: 
+* Se você receber o erro: "**Esta assinatura não está registrada para usar o namespace Microsoft.** datafactory", execute uma das ações a seguir e tente publicar novamente: 
   
   * No Azure PowerShell, execute o seguinte comando para registar o fornecedor do Data Factory: 
 
@@ -378,7 +377,7 @@ Tenha em atenção os seguintes pontos:
 Antes de criar um pipeline, deve primeiro criar algumas entidades do Data Factory. Primeiro, crie serviços ligados para ligar os arquivos de dados de origem e de destino ao arquivo de dados. Em seguida, defina conjuntos de dados de entrada e de saída para representar dados nos arquivos de dados ligados. Por fim, crie o pipeline com uma atividade que utiliza estes conjuntos de dados.
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
-Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Neste tutorial, não vai utilizar serviços de computação, como o Azure HDInsight ou o Azure Data Lake Analytics. Vai utilizar dois arquivos de dados do tipo Armazenamento do Azure (origem) e Base de Dados SQL do Azure (destino). Portanto, cria dois serviços ligados com o nome AzureStorageLinkedService e AzureSqlLinkedService dos tipos: AzureStorage e AzureSqlDatabase.  
+Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Neste tutorial, não vai utilizar serviços de computação, como o Azure HDInsight ou o Azure Data Lake Analytics. Vai utilizar dois arquivos de dados do tipo Armazenamento do Azure (origem) e Base de Dados SQL do Azure (destino). Portanto, você cria dois serviços vinculados chamados AzureStorageLinkedService e AzureSqlLinkedService dos tipos: AzureStorage e AzureSqlDatabase.  
 
 O AzureStorageLinkedService liga a sua conta do Armazenamento do Azure à fábrica de dados. Esta conta de armazenamento é aquela em que criou um contentor e para a qual carregou os dados como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 

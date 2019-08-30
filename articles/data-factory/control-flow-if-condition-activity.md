@@ -1,25 +1,24 @@
 ---
-title: Se a condição de atividade no Azure Data Factory | Documentos da Microsoft
-description: A atividade se condição permite-lhe controlar o fluxo de processamento com base numa condição.
+title: Atividade de condição if em Azure Data Factory | Microsoft Docs
+description: A atividade If Condition permite controlar o fluxo de processamento com base em uma condição.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-ms.openlocfilehash: 52f96b8fc2a1288c652169817a3a73d7b26caac9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc6318b5033ff1297f917ab95b28f8ed9285e930
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153464"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142494"
 ---
-# <a name="if-condition-activity-in-azure-data-factory"></a>Se a condição de atividade no Azure Data Factory
+# <a name="if-condition-activity-in-azure-data-factory"></a>Atividade de condição if no Azure Data Factory
 A atividade Se Condição disponibiliza a mesma funcionalidade que as instruções “se” fornecem nas linguagens de programação. Avalia um conjunto de atividades quando a condição é avaliada como `true` e outro conjunto de atividades quando é avaliada como `false`. 
 
 ## <a name="syntax"></a>Sintaxe
@@ -64,21 +63,21 @@ A atividade Se Condição disponibiliza a mesma funcionalidade que as instruçõ
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Requerido
 -------- | ----------- | -------------- | --------
-name | Nome da atividade condição-if. | String | Sim
-type | Tem de ser definido como **IfCondition** | String | Sim
-expression | Expressão que tem de avaliar como VERDADEIRO ou FALSO | Expressão com o resultado do tipo Booleano | Sim
-ifTrueActivities | Conjunto de atividades que são executadas quando a expressão avalia `true`. | Array | Sim
-ifFalseActivities | Conjunto de atividades que são executadas quando a expressão avalia `false`. | Array | Sim
+name | Nome da atividade If-Condition. | Cadeia | Sim
+type | Deve ser definido como **IfCondition** | Cadeia | Sim
+expression | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão com tipo de resultado booliano | Sim
+ifTrueActivities | Conjunto de atividades que são executadas quando a expressão é avaliada `true`como. | Array | Sim
+ifFalseActivities | Conjunto de atividades que são executadas quando a expressão é avaliada `false`como. | Array | Sim
 
 ## <a name="example"></a>Exemplo
-O pipeline neste exemplo copia dados a partir de uma pasta de entrada para uma pasta de saída. A pasta de saída é determinada pelo valor do parâmetro de pipeline: routeSelection. Se o valor de routeSelection for VERDADEIRO, os dados são copiados para outputPath1. E, se o valor de routeSelection for false, os dados são copiados para outputPath2. 
+O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de saída. A pasta de saída é determinada pelo valor do parâmetro de pipeline: routeSelection. Se o valor de routeSelection for true, os dados serão copiados para outputPath1. E, se o valor de routeSelection for false, os dados serão copiados para outputPath2. 
 
 > [!NOTE]
-> Esta seção fornece definições de JSON e comandos de exemplo de PowerShell para executar o pipeline. Para obter instruções com instruções passo a passo para criar um pipeline de fábrica de dados com as definições do Azure PowerShell e JSON, veja [tutorial: criar uma fábrica de dados com o Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Esta seção fornece definições de JSON e comandos do PowerShell de exemplo para executar o pipeline. Para obter instruções passo a passo de como criar um pipeline de Data Factory usando definições de Azure PowerShell e JSON, consulte [tutorial: criar um data Factory usando Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pipeline com atividade condição-IF (Adfv2QuickStartPipeline.json)
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pipeline com atividade IF-Condition (Adfv2QuickStartPipeline. JSON)
 
 ```json
 {
@@ -179,7 +178,7 @@ O pipeline neste exemplo copia dados a partir de uma pasta de entrada para uma p
 }
 ```
 
-Outro exemplo para a expressão é: 
+Outro exemplo de expressão é: 
 
 ```json
 "expression":  {
@@ -189,7 +188,7 @@ Outro exemplo para a expressão é:
 ```
 
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Serviço ligado do armazenamento do Azure (azurestoragelinkedservice. JSON)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Serviço vinculado do armazenamento do Azure (AzureStorageLinkedService. JSON)
 
 ```json
 {
@@ -206,8 +205,8 @@ Outro exemplo para a expressão é:
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametrizado conjunto de dados de Blobs do Azure (blobdataset. JSON)
-Os conjuntos de pipeline os **folderPath** para o valor **outputPath1** ou **outputPath2** parâmetro do pipeline. 
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Conjunto de conjuntos de BLOBs do Azure com parâmetros (BlobDataset. JSON)
+O pipeline define **FolderPath** como o valor do parâmetro **outputPath1** ou **outputPath2** do pipeline. 
 
 ```json
 {
@@ -233,7 +232,7 @@ Os conjuntos de pipeline os **folderPath** para o valor **outputPath1** ou **out
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parâmetro de pipeline JSON (pipelineparameters. JSON)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parâmetro de pipeline JSON (Pipelineparameters. JSON)
 
 ```json
 {
@@ -248,7 +247,7 @@ Os conjuntos de pipeline os **folderPath** para o valor **outputPath1** ou **out
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Estes comandos partem do princípio de que guardou os ficheiros JSON para a pasta: C:\ADF. 
+Esses comandos pressupõem que você salvou os arquivos JSON na pasta: C:\ADF,. 
 
 ```powershell
 Connect-AzAccount
@@ -290,10 +289,10 @@ $result.Error -join "`r`n"
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte outras atividades de fluxo de controle suportadas pelo Data Factory: 
+Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade Web](control-flow-web-activity.md)
+- [Atividade da Web](control-flow-web-activity.md)

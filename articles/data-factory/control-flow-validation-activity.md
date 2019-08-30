@@ -1,26 +1,25 @@
 ---
-title: Actividade de validação no Azure Data Factory | Documentos da Microsoft
-description: A actividade de validação não continue a execução do pipeline até que ele valida o conjunto de dados anexado com determinados critérios que especifica o utilizador.
+title: Atividade de validação no Azure Data Factory | Microsoft Docs
+description: A atividade de validação não continua a execução do pipeline até que ele valide o conjunto de dado anexado com determinados critérios que o usuário especifica.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.author: shlo
-ms.openlocfilehash: 46447bdbea93d1f99c5682cf878c2035e6f49b78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77fdab04e03429d135875cb2ef223e8c23d312a2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764327"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141612"
 ---
-# <a name="validation-activity-in-azure-data-factory"></a>Actividade de validação no Azure Data Factory
-Pode usar uma validação num pipeline para garantir que o pipeline apenas continua a execução assim que validou a anexado existe de referência de conjunto de dados, que ele cumpre os critérios especificados ou tempo limite foi atingido.
+# <a name="validation-activity-in-azure-data-factory"></a>Atividade de validação no Azure Data Factory
+Você pode usar uma validação em um pipeline para garantir que o pipeline continue a execução apenas depois de ter validado a referência do conjunto de entrada anexado, que ele atende aos critérios especificados ou que o tempo limite tenha sido atingido.
 
 
 ## <a name="syntax"></a>Sintaxe
@@ -59,24 +58,24 @@ Pode usar uma validação num pipeline para garantir que o pipeline apenas conti
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Requerido
 -------- | ----------- | -------------- | --------
-name | Nome da atividade 'Validação' | String | Sim |
-type | Tem de ser definido como **validação**. | String | Sim |
-Conjunto de dados | Atividade irá bloquear a execução até que ele foi validado essa referência de conjunto de dados existe e que cumpre os critérios especificados, ou foi atingido o tempo limite. Conjunto de dados fornecido deve dar suporte a propriedade "MinimumSize" ou "ChildItems". | Referência de conjunto de dados | Sim |
-timeout | Especifica o tempo limite para a execução da atividade. Se for especificado nenhum valor, o valor padrão é sete dias ("7.00:00:00"). O formato é d.hh:mm:ss | String | Não |
-Modo de suspensão | Um atraso em segundos, entre tentativas de validação. Se for especificado nenhum valor, o valor predefinido é 10 segundos. | Integer | Não |
-childItems | Verifica se a pasta tem itens subordinados. Pode ser definido para verdadeiro: Valide que a pasta existe e que tem itens. Bloqueia até que pelo menos um item está presente na pasta ou valor de tempo limite for atingido.-false: Confirme que a pasta existe e que está vazia. Permanece bloqueado até a pasta está vazia ou até que o tempo limite é atingido o valor. Se for especificado nenhum valor, atividade será bloqueado até que a pasta existe ou até que o tempo limite for atingido. | Boolean | Não |
-minimumSize | Tamanho mínimo de um ficheiro em bytes. Se for especificado nenhum valor, o valor predefinido é 0 bytes | Integer | Não |
+name | Nome da atividade de ' validação ' | Cadeia | Sim |
+type | Deve ser definido como **validação**. | Cadeia | Sim |
+DataSet | A atividade bloqueará a execução até que tenha validado essa referência de conjunto de e que ele atenda aos critérios especificados ou que o tempo limite tenha sido atingido. O conjunto de conjuntos fornecido deve dar suporte à propriedade "MinimumSize" ou "ChildItems". | Referência de DataSet | Sim |
+timeout | Especifica o tempo limite para a execução da atividade. Se nenhum valor for especificado, o valor padrão será 7 dias ("7.00:00:00"). O formato é d. hh: mm: SS | Cadeia | Não |
+num | Um atraso em segundos entre as tentativas de validação. Se nenhum valor for especificado, o valor padrão será 10 segundos. | Integer | Não |
+childItems | Verifica se a pasta tem itens filhos. Pode ser definido como-true: Valide se a pasta existe e se ela tem itens. Bloqueia até que pelo menos um item esteja presente na pasta ou o valor de tempo limite seja atingido.-falso: Valide se a pasta existe e se está vazia. Bloqueia até a pasta estar vazia ou até que o valor de tempo limite seja atingido. Se nenhum valor for especificado, a atividade será bloqueada até que a pasta exista ou até que o tempo limite seja atingido. | Booleano | Não |
+minimumSize | Tamanho mínimo de um arquivo em bytes. Se nenhum valor for especificado, o valor padrão será 0 bytes | Integer | Não |
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte outras atividades de fluxo de controle suportadas pelo Data Factory:
+Consulte outras atividades de fluxo de controle com suporte pelo Data Factory:
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade Web](control-flow-web-activity.md)
+- [Atividade da Web](control-flow-web-activity.md)
 - [Atividade Until](control-flow-until-activity.md)

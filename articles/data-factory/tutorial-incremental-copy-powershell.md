@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 568b00007f2c95a5a63c236863f0c599c6b6f86f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 604b859bc144331550db9b71e6b216e35fd2d88a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66161753"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140610"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure
 Neste tutorial, vai criar uma fábrica de dados do Azure com um pipeline que carrega dados delta de uma tabela numa base de dados SQL do Azure para o armazenamento de Blobs do Azure. 
@@ -175,7 +174,7 @@ END
     ```powershell
     $dataFactoryName = "ADFIncCopyTutorialFactory";
     ```
-5. Para criar a fábrica de dados, execute o seguinte procedimento **Set-AzDataFactoryV2** cmdlet: 
+5. Para criar o data factory, execute o seguinte cmdlet **set-AzDataFactoryV2** : 
     
     ```powershell       
     Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
@@ -190,7 +189,7 @@ Tenha em atenção os seguintes pontos:
     ```
 
 * Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser membro das funções contribuidor ou proprietário ou administrador da subscrição do Azure.
-* Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que lhe interessam, na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento, Base de Dados SQL, etc.) e as computações (HDInsight do Azure, etc.) que a fábrica de dados utiliza podem estar noutras regiões.
+* Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam na página a seguir e expanda **análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento, Base de Dados SQL, etc.) e as computações (HDInsight do Azure, etc.) que a fábrica de dados utiliza podem estar noutras regiões.
 
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
@@ -215,7 +214,7 @@ Os serviços ligados são criados numa fábrica de dados para ligar os seus arqu
     ```
 2. No PowerShell, mude para a pasta ADF.
 
-3. Executar o **Set-AzDataFactoryV2LinkedService** cmdlet para criar o serviço ligado AzureStorageLinkedService. No exemplo seguinte, vai transmitir os valores para os parâmetros *ResourceGroupName* e *DataFactoryName*: 
+3. Execute o cmdlet **set-AzDataFactoryV2LinkedService** para criar o serviço vinculado AzureStorageLinkedService. No exemplo seguinte, vai transmitir os valores para os parâmetros *ResourceGroupName* e *DataFactoryName*: 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -249,7 +248,7 @@ Os serviços ligados são criados numa fábrica de dados para ligar os seus arqu
     ```
 2. No PowerShell, mude para a pasta ADF.
 
-3. Executar o **Set-AzDataFactoryV2LinkedService** cmdlet para criar o serviço ligado AzureSQLDatabaseLinkedService. 
+3. Execute o cmdlet **set-AzDataFactoryV2LinkedService** para criar o serviço vinculado AzureSQLDatabaseLinkedService. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -290,7 +289,7 @@ Neste passo, vai criar conjuntos de dados para representar os dados de origem e 
     ```
     Neste tutorial, vai utilizar o nome de tabela data_source_table. Substitua-o se utilizar uma tabela com um nome diferente.
 
-2. Executar o **Set-AzDataFactoryV2Dataset** cmdlet para criar o conjunto de dados SourceDataset.
+2. Execute o cmdlet **set-AzDataFactoryV2Dataset** para criar o conjunto de SourceDataset.
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -333,7 +332,7 @@ Neste passo, vai criar conjuntos de dados para representar os dados de origem e 
     > [!IMPORTANT]
     > Este fragmento parte do princípio de que tem um contentor de blobs denominado adftutorial no armazenamento de blobs. Crie o contentor se ainda não existir ou defina-o como o nome de um contentor existente. A pasta de saída `incrementalcopy` é criada automaticamente se não existir no contentor. Neste tutorial, o nome de ficheiro é gerado dinamicamente através da expressão `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
-2. Executar o **Set-AzDataFactoryV2Dataset** cmdlet para criar o conjunto de dados SinkDataset.
+2. Execute o cmdlet **set-AzDataFactoryV2Dataset** para criar o conjunto de SinkDataset.
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -369,7 +368,7 @@ Neste passo, vai criar um conjunto de dados para armazenar um valor de limite su
         }
     }    
     ```
-2.  Executar o **Set-AzDataFactoryV2Dataset** cmdlet para criar o conjunto de dados WatermarkDataset.
+2.  Execute o cmdlet **set-AzDataFactoryV2Dataset** para criar o conjunto de WatermarkDataset.
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
@@ -501,7 +500,7 @@ Neste tutorial, vai criar um pipeline com duas atividades Lookup uma atividade C
     ```
     
 
-2. Executar o **Set-AzDataFactoryV2Pipeline** cmdlet para criar o pipeline IncrementalCopyPipeline.
+2. Execute o cmdlet **set-AzDataFactoryV2Pipeline** para criar o pipeline IncrementalCopyPipeline.
     
    ```powershell
    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
@@ -519,12 +518,12 @@ Neste tutorial, vai criar um pipeline com duas atividades Lookup uma atividade C
  
 ## <a name="run-the-pipeline"></a>Executar o pipeline
 
-1. Execute o pipeline IncrementalCopyPipeline com o **Invoke-AzDataFactoryV2Pipeline** cmdlet. Substitua os marcadores de posição pelos nomes do seu grupo de recursos e da sua fábrica de dados.
+1. Execute o pipeline IncrementalCopyPipeline usando o cmdlet **Invoke-AzDataFactoryV2Pipeline** . Substitua os marcadores de posição pelos nomes do seu grupo de recursos e da sua fábrica de dados.
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ``` 
-2. Verifique o estado do pipeline, executando o **Get-AzDataFactoryV2ActivityRun** cmdlet até ver todas as atividades executadas com êxito. Substitua os marcadores de posição pela sua hora apropriada para os parâmetros *RunStartedAfter* e *RunStartedBefore*. Neste tutorial, vai utilizar *-RunStartedAfter "2017/09/14"* e *-RunStartedBefore "2017/09/15"*.
+2. Verifique o status do pipeline executando o cmdlet **Get-AzDataFactoryV2ActivityRun** até ver todas as atividades em execução com êxito. Substitua os marcadores de posição pela sua hora apropriada para os parâmetros *RunStartedAfter* e *RunStartedBefore*. Neste tutorial, vai utilizar *-RunStartedAfter "2017/09/14"* e *-RunStartedBefore "2017/09/15"* .
 
     ```powershell
     Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -639,12 +638,12 @@ Neste tutorial, vai criar um pipeline com duas atividades Lookup uma atividade C
     6 | newdata | 2017-09-06 02:23:00.000
     7 | newdata | 2017-09-07 09:01:00.000
     ```
-2. Execute o pipeline IncrementalCopyPipeline novamente com o **Invoke-AzDataFactoryV2Pipeline** cmdlet. Substitua os marcadores de posição pelos nomes do seu grupo de recursos e da sua fábrica de dados.
+2. Execute o pipeline IncrementalCopyPipeline novamente usando o cmdlet **Invoke-AzDataFactoryV2Pipeline** . Substitua os marcadores de posição pelos nomes do seu grupo de recursos e da sua fábrica de dados.
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
-3. Verifique o estado do pipeline, executando o **Get-AzDataFactoryV2ActivityRun** cmdlet até ver todas as atividades executadas com êxito. Substitua os marcadores de posição pela sua hora apropriada para os parâmetros *RunStartedAfter* e *RunStartedBefore*. Neste tutorial, vai utilizar *-RunStartedAfter "2017/09/14"* e *-RunStartedBefore "2017/09/15"*.
+3. Verifique o status do pipeline executando o cmdlet **Get-AzDataFactoryV2ActivityRun** até ver todas as atividades em execução com êxito. Substitua os marcadores de posição pela sua hora apropriada para os parâmetros *RunStartedAfter* e *RunStartedBefore*. Neste tutorial, vai utilizar *-RunStartedAfter "2017/09/14"* e *-RunStartedBefore "2017/09/15"* .
 
     ```powershell
     Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"

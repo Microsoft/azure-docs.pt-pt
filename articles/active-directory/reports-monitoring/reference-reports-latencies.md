@@ -17,12 +17,12 @@ ms.date: 05/13/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f57f09f146e542768c83fa034f0b4e65bc6b2ae
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ce62a5059304fe83d933a46ae69f4b8e0c276ba7
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987916"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127042"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latências de Azure Active Directory relatórios
 
@@ -64,11 +64,11 @@ A tabela a seguir lista as informações de latência para relatórios de segura
 | Utilizadores em risco          | 5 minutos   | 15 minutos  | Duas horas  |
 | Inícios de sessão de risco         | 5 minutos   | 15 minutos  | Duas horas  |
 
-## <a name="risk-events"></a>Eventos de risco
+## <a name="risk-detections"></a>Detecções de risco
 
-O Azure AD usa algoritmos de aprendizado de máquina adaptáveis e heurística para detectar ações suspeitas relacionadas às suas contas de usuário. Cada ação suspeita detectada é armazenada em um registro chamado **evento de risco**.
+O Azure AD usa algoritmos de aprendizado de máquina adaptáveis e heurística para detectar ações suspeitas relacionadas às suas contas de usuário. Cada ação suspeita detectada é armazenada em um registro chamado **detecção de risco**.
 
-A tabela a seguir lista as informações de latência para eventos de risco.
+A tabela a seguir lista as informações de latência para as detecções de risco.
 
 | Relatório | Mínimo | Average | Máximo |
 | :-- | --- | --- | --- |
@@ -80,8 +80,8 @@ A tabela a seguir lista as informações de latência para eventos de risco.
 | Inícios de sessão de endereços IP com atividade suspeita |Duas horas |4 horas |8 horas  |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Visão geral dos relatórios do Azure AD](overview-reports.md)
 * [Acesso programático aos relatórios do Azure AD](concept-reporting-api.md)
-* [Eventos de risco do Azure Active Directory](concept-risk-events.md)
+* [Azure Active Directory de detecções de risco](concept-risk-events.md)

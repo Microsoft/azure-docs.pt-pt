@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 1c6a0ce3e4e8d098d2bc048a331b0ae0cb5c6b13
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: bb28171ceca9861fb5cc0b7be1db9ab58ef72a1b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881392"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124110"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -258,6 +258,7 @@ Para correlacionar a telemetria no aplicativo de Spring boot assíncrono, siga [
 ## <a name="next-steps"></a>Passos seguintes
 
 - Gravar [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md).
+- Para cenários de correlação avançada em ASP.NET Core e ASP.NET, consulte o artigo [rastrear operações personalizadas](custom-operations-tracking.md) .
 - Saiba mais sobre como [definir cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name) para outros SDKs.
 - Integre todos os componentes do seu microserviço em Application Insights. Confira as [plataformas com suporte](../../azure-monitor/app/platforms.md).
 - Consulte o [modelo de dados](../../azure-monitor/app/data-model.md) para tipos de Application insights.

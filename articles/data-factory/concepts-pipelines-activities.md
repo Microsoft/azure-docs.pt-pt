@@ -3,21 +3,20 @@ title: Pipelines e atividades no Azure Data Factory | Microsoft Docs
 description: Saiba mais sobre os pipelines e as atividades no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.author: shlo
-ms.openlocfilehash: 5e34dae5570c64ec2c9fdc478ba8ec1bf4bce9d2
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: c986b4efea905ce4e1d9ee6f08b688fe6ef6ef5e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976752"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142561"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -173,7 +172,7 @@ As políticas afetam o comportamento de runtime de uma atividade, proporcionando
 Nome JSON | Descrição | Valores Permitidos | Necessário
 --------- | ----------- | -------------- | --------
 timeout | Especifica o tempo limite para a execução da atividade. | Período de tempo | Não. O tempo limite predefinido é de 7 dias.
-retry | Número máximo de repetições | Número inteiro | Não. A predefinição é 0
+retry | Número máximo de repetições | Integer | Não. A predefinição é 0
 retryIntervalInSeconds | O atraso entre as tentativas de repetição em segundos | Número inteiro | Não. O padrão é 30 segundos
 secureOutput | Quando definido como verdadeiro, o resultado da atividade é considerado seguro e não será registado na monitorização. | Booleano | Não. A predefinição é falso.
 

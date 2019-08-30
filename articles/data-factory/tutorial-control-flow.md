@@ -3,27 +3,26 @@ title: Ramificação no pipeline do Azure Data Factory | Microsoft Docs
 description: Saiba como controlar o fluxo de dados no Azure Data Factory através de atividades de ramificação e encadeamento.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
-ms.author: shlo
-ms.openlocfilehash: 9a03094683a973db16aa949f0610bc7f9914be45
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 264d8e049cc7b714e00aaa77441cdc81a1e0a0c9
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457034"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140740"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 
 Neste tutorial, vai criar um pipeline do Data Factory que demonstra algumas das funcionalidades de fluxo de controlo. Este pipeline cria uma cópia simples de um contentor do Armazenamento de Blobs do Azure para outro contentor na mesma conta de armazenamento. Se a atividade de cópia for bem sucedida, vai querer enviar detalhes da operação de cópia com êxito (por exemplo, a quantidade de dados escritos) num e-mail de êxito. Se a atividade de cópia falhar, vai querer enviar detalhes da falha de cópia (por exemplo, a mensagem de erro) num e-mail de falha. Ao longo do tutorial, vai ver como passar os parâmetros.
 
-Uma visão geral do cenário: ![Descrição geral](media/tutorial-control-flow/overview.png)
+Uma visão geral de alto nível do cenário: ![Descrição Geral](media/tutorial-control-flow/overview.png)
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -46,7 +45,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 * **Conta de Armazenamento do Azure**. Utilize o armazenamento de blobs como arquivo de dados de **origem**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para obter os passos para criar uma.
 * **Base de Dados SQL do Azure**. Pode utilizar a base de dados como arquivo de dados **sink**. Se não tiver uma Base de Dados SQL do Azure, veja o artigo [Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para obter os passos para criar uma.
 * **Visual Studio** 2013, 2015 ou 2017. As instruções neste artigo utilizam o Visual Studio 2017.
-* **Transferir e instalar o [SDK .NET do Azure](https://azure.microsoft.com/downloads/)**.
+* **Transferir e instalar o [SDK .NET do Azure](https://azure.microsoft.com/downloads/)** .
 * **Criar uma Aplicação no Azure Active Directory**, seguindo [estas instruções](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota dos seguintes valores que vai utilizar em passos posteriores: **ID da aplicação**, **chave de autenticação** e **ID de inquilino**. Atribua a aplicação à função "**Contribuidor**", seguindo as instruções no mesmo artigo.
 
 ### <a name="create-blob-table"></a>Criar a tabela de blobs
@@ -73,7 +72,7 @@ Com o Visual Studio 2015/2017, crie uma aplicação de consola de C# .NET.
 ## <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
 1. clique em **Ferramentas** -> **Gestor de Pacotes NuGet** -> **Consola de Gestor de Pacotes**.
-2. Na **Package Manager Console**, execute os seguintes comandos para instalar pacotes. Consulte a [pacote de nuget Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) com detalhes.
+2. No **console do Gerenciador de pacotes**, execute os seguintes comandos para instalar pacotes. Consulte [o pacote do NuGet Microsoft. Azure. Management.](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) datafactory com detalhes.
 
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
@@ -96,7 +95,7 @@ Com o Visual Studio 2015/2017, crie uma aplicação de consola de C# .NET.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Adicione estas variáveis estáticas à **Classe do programa**. Substitua os marcadores de posição pelos seus próprios valores. Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que lhe interessam, na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
+2. Adicione estas variáveis estáticas à **Classe do programa**. Substitua os marcadores de posição pelos seus próprios valores. Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam na página a seguir e expanda **análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
     ```csharp
         // Set variables
@@ -209,7 +208,7 @@ Adicione o código seguinte ao método **Main** que cria um **conjunto de dados 
 
 Defina um conjunto de dados que represente os dados de origem no Blob do Azure. Este conjunto de dados do Blob refere-se ao serviço ligado de Armazenamento do Microsoft Azure que criou no passo anterior e descreve:
 
-- A localização do blob a copiar de: **FolderPath** e **FileName**;
+- O local do blob do qual copiar: **FolderPath** e **filename**;
 - Repare na utilização de parâmetros para FolderPath. "sourceBlobContainer" é o nome do parâmetro e a expressão é substituída pelos valores transmitidos na execução do pipeline. A sintaxe para definir os parâmetros é `@pipeline().parameters.<parameterName>`
 
 Crie uma função “SourceBlobDatasetDefinition” no ficheiro Program.cs
@@ -263,14 +262,14 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSourceDataset
 client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetName, SinkBlobDatasetDefinition(client));
 ```
 
-## <a name="create-a-c-class-emailrequest"></a>Criar um C# classe: EmailRequest
+## <a name="create-a-c-class-emailrequest"></a>Criar uma C# classe: EmailRequest
 
 No projeto C#, crie uma classe com o nome **EmailRequest**. Esta classe define as propriedades que o pipeline envia no corpo do pedido ao enviar uma mensagem de e-mail. Neste tutorial, o pipeline envia quatro propriedades do pipeline para o e-mail:
 
 - **Mensagem**: o corpo da mensagem de e-mail. No caso de uma cópia com êxito, esta propriedade contém detalhes da execução (número de dados escritos). No caso de uma cópia falhada, esta propriedade contém detalhes do erro.
 - **Nome da fábrica de dados**: o nome da fábrica de dados
 - **Nome do pipeline**: o nome do pipeline
-- **Recetor**: Parâmetro é transmitido. Esta propriedade especifica o recetor do e-mail.
+- **Destinatário**: Parâmetro que é passado pelo. Esta propriedade especifica o recetor do e-mail.
 
 ```csharp
     class EmailRequest
@@ -757,7 +756,7 @@ Checking copy activity run details...
 Press any key to exit...
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, executou os passos seguintes: 
 
