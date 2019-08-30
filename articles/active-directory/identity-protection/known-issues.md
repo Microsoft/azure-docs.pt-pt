@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d5aa50aec98b3944aed92b9da49182f0608f34c
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: fe7125174129752e6d6dbe0e00d01d4f32755333
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333902"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126095"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Perguntas frequentes e problemas conhecidos com a proteção de identidade (atualizada) no Azure Active Directory
 
@@ -34,15 +34,15 @@ As consultas no campo nome de **usuário** diferenciam maiúsculas de minúscula
 
 A alternância de **Mostrar datas como** oculta a coluna **risco da última atualização** . Para ler a coluna, clique em **colunas** na parte superior da folha usuários arriscados.
 
-**Ignorar todos os eventos** no clássico identidade Protection define o status dos eventos de risco como **fechados (resolvido)** .
+**Ignorar todos os eventos** em clássico identidade Protection define o status das detecções de risco para **fechado (resolvido)** .
 
 ## <a name="risky-sign-ins-report-known-issues"></a>Problemas conhecidos do relatório de entradas arriscadas
 
-**Resolver** em um evento de risco define o status para **os usuários passaram pela MFA controlada pela política baseada em risco**.
+**Resolver** em uma detecção de risco define o status para **os usuários passaram pela MFA controlada pela política baseada em risco**.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-event"></a>Por que não posso definir meus próprios níveis de risco para cada evento de risco?
+### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-detection"></a>Por que não posso definir meus próprios níveis de risco para cada detecção de riscos?
 
 Os níveis de risco na proteção de identidade baseiam-se na precisão da detecção e da plataforma de aprendizado de máquina supervisionado. Para personalizar a experiência que os usuários são apresentados, o administrador pode incluir/excluir determinados usuários/grupos das políticas de risco do usuário e de entrada.
 
@@ -68,11 +68,11 @@ O mapeamento de localização geográfica de IP é um desafio em todo o setor. S
 - Além disso, fornecemos as informações para nossos sistemas de aprendizado de máquina para aprimoramentos futuros na avaliação de riscos.
 
     > [!NOTE]
-    > Se você acreditar que o usuário não está comprometido, use **ignorar o risco do usuário** no nível do usuário, em vez de usar a segurança confirmada no nível de entrada. Um **risco de ignorar usuário** no nível do usuário fecha o risco do usuário e todos os eventos de risco e entradas arriscados anteriores.
+    > Se você acreditar que o usuário não está comprometido, use **ignorar o risco do usuário** no nível do usuário, em vez de usar a segurança confirmada no nível de entrada. Um **risco de ignorar usuário** no nível do usuário fecha o risco do usuário e todos os logons e as detecções de risco anteriores.
 
-### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-events-are-shown-in-identity-protection"></a>Por que estou vendo um usuário com uma pontuação de risco baixa (ou acima), mesmo que nenhuma entrada arriscada ou evento de risco seja mostrado na proteção de identidade?
+### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-detections-are-shown-in-identity-protection"></a>Por que estou vendo um usuário com uma pontuação de risco baixa (ou acima), mesmo que nenhuma entrada arriscada ou detecção de risco seja mostrada na proteção de identidade?
 
-Considerando que o risco do usuário é cumulativo por natureza e não expira, um usuário pode ter um risco de usuário baixo ou superior, mesmo que não haja entradas arriscadas recentes ou eventos de risco mostrados na proteção de identidade. Isso pode acontecer se a única atividade mal-intencionada em um usuário fosse feita além do período de tempo para o qual armazenamos os detalhes de entradas arriscadas e eventos de risco. Não expiramos o risco do usuário porque os atores inválidos permanecem no ambiente dos clientes em mais de 140 dias atrás de uma identidade comprometida antes de aumentar o ataque. Os clientes podem examinar a linha do tempo de risco do usuário para entender por que um usuário está em risco, acessando:`Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
+Considerando que o risco do usuário é cumulativo por natureza e não expira, um usuário pode ter um risco de usuário baixo ou superior, mesmo que não haja entradas arriscadas recentes ou detecções de risco mostradas na proteção de identidade. Isso pode acontecer se a única atividade mal-intencionada em um usuário fosse feita além do período de tempo para o qual armazenamos os detalhes de entradas arriscadas e detecções de risco. Não expiramos o risco do usuário porque os atores inválidos permanecem no ambiente dos clientes em mais de 140 dias atrás de uma identidade comprometida antes de aumentar o ataque. Os clientes podem examinar a linha do tempo de risco do usuário para entender por que um usuário está em risco, acessando:`Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
 
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Por que uma entrada tem uma pontuação alta de "risco de entrada (agregada)" quando as detecções associadas a ela são de risco baixo ou médio?
 

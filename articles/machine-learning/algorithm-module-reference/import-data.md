@@ -1,7 +1,7 @@
 ---
-title: 'Importar dados: Referência do módulo'
+title: 'Importar dados: Referência de módulo'
 titleSuffix: Azure Machine Learning service
-description: Saiba como utilizar o módulo de importação de dados no serviço Azure Machine Learning para carregar dados para uma experimentação do machine learning dos serviços de dados de cloud existente.
+description: Saiba como usar o módulo importar dados no serviço de Azure Machine Learning para carregar dados em um experimento de Machine Learning de serviços de dados em nuvem existentes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,80 +9,79 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: ed51c4e7b6c7d226c7827d1ba00bc96a7be1e6b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8522c759efb0cc599bbcf8e7569f6045da571a8
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028309"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128791"
 ---
-# <a name="import-data-module"></a>Módulo de importação de dados
+# <a name="import-data-module"></a>Importar módulo de dados
 
-Este artigo descreve um módulo da interface visual (pré-visualização) para o serviço Azure Machine Learning.
+Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
 
-Utilize este módulo para carregar dados para uma experimentação do machine learning dos serviços de dados de cloud existente.  
-O módulo agora inclui um Assistente para ajudar a escolher uma opção de armazenamento e de selecionar um existente de subscrições e contas para configurar rapidamente todas as opções. Tem de editar uma ligação de dados existente? Sem problemas. o assistente carrega todos os detalhes de configuração anteriores, para que não precisa começar novamente do zero. 
+Use este módulo para carregar dados em um experimento de Machine Learning de serviços de dados de nuvem existentes.  
+Agora, o módulo apresenta um assistente para ajudá-lo a escolher uma opção de armazenamento e selecionar entre assinaturas existentes e contas para configurar rapidamente todas as opções. Precisa editar uma conexão de dados existente? Sem problemas; o assistente carrega todos os detalhes de configuração anteriores para que você não precise recomeçar do zero. 
   
-Depois de definir os dados que pretende e liga à origem de [importar dados](./import-data.md) infere o tipo de dados de cada coluna com base nos valores contém e carrega os dados para a área de trabalho do Azure Machine Learning. A saída de [importar dados](./import-data.md) é um conjunto de dados que pode ser utilizado com qualquer experimentação.
+Depois de definir os dados desejados e conectar-se à origem, [importar dados](./import-data.md) infere o tipo de dados de cada coluna com base nos valores que ele contém e carrega os dados em seu espaço de trabalho Azure Machine Learning. A saída de [Import data](./import-data.md) é um conjunto de dados que pode ser usado com qualquer experimento.
 
   
-Se os dados de origem forem alterados, pode atualizar o conjunto de dados e adicionar novos dados executando novamente [importar dados](./import-data.md). No entanto, se não quiser ler novamente a partir da origem sempre que executar a experimentação, selecione o **resultados em cache de utilização** opção como TRUE. Quando esta opção está selecionada, o módulo verifica se a experimentação foi executado anteriormente utilizando a mesma origem e as mesmas opções de entrada. Se for encontrada uma execução anterior, o que os dados na cache são usados, em vez de recarregar os dados da origem.
+Se os dados de origem forem alterados, você poderá atualizar o conjunto de dados e adicionar novos data executando novamente os [dados de importação](./import-data.md). No entanto, se você não quiser ler novamente a origem toda vez que executar o experimento, selecione a opção **usar resultados em cache** para verdadeiro. Quando essa opção é selecionada, o módulo verifica se o experimento foi executado anteriormente usando a mesma origem e as mesmas opções de entrada. Se uma execução anterior for encontrada, os dados no cache serão usados, em vez de recarregar os dados da origem.
  
 
 ## <a name="data-sources"></a>Origens de dados
 
-O módulo importar dados suporta as seguintes origens de dados. Clique nos links para obter instruções detalhadas e exemplos de como utilizar cada origem de dados. 
+O módulo importar dados dá suporte às seguintes fontes de dados. Clique nos links para obter instruções detalhadas e exemplos de como usar cada fonte de dados. 
  
-Se não tiver a certeza como ou em que deve armazenar os seus dados, consulte este guia para cenários comuns de dados no processo de ciência de dados:  [Cenários de análises avançadas no Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-plan-sample-scenarios). 
+Se você não tiver certeza de como ou onde deve armazenar seus dados, consulte este guia para cenários de dados comuns no processo de ciência de dados:  [Cenários para análise avançada no Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-plan-sample-scenarios). 
 
 
-|Origem de dados| Utilizar com o|
+|Origem de dados| Usar com|
 |-----------|-----------|  
-|[URL de Web por meio de HTTP](./import-from-web-url-via-http.md)|Obter dados que estão hospedados numa URL da web que utiliza HTTP e que foi fornecido pelos formatos CSV, TSV, ARFF ou SvmLight|  
-|[Importar do armazenamento de Blobs do Azure](./import-from-azure-blob-storage.md) |Obter dados que são armazenados no serviço de Blobs do Azure|  
+|[URL da Web via HTTP](./import-from-web-url-via-http.md)|Obter dados hospedados em uma URL da Web que usa HTTP e que foi fornecido nos formatos CSV, TSV, ARFF ou SvmLight|  
+|[Importar do armazenamento de BLOBs do Azure](./import-from-azure-blob-storage.md) |Obter dados armazenados no serviço blob do Azure|  
 
-## <a name="how-to-use-import-data"></a>Como utilizar a importar dados
+## <a name="how-to-use-import-data"></a>Como usar os dados de importação
  
-1. Adicionar a **importar dados** módulo à sua experimentação. Pode encontrar este módulo na **dados de entrada e saída** categoria na interface.
+1. Adicione o módulo **importar dados** ao seu experimento. Você pode encontrar esse módulo na categoria **entrada e saída de dados** na interface.
 
-2. Clique em **iniciar o Assistente de importação de dados** para configurar a origem de dados usando um assistente.
+2. Clique em **iniciar o assistente de importação de dados** para configurar a fonte de dados usando um assistente.
 
-    O assistente obtém o nome da conta e as credenciais e o ajudam a configurar outras opções. Se estiver a editar uma configuração existente, ele carrega primeiro os valores atuais.
+    O assistente Obtém o nome e as credenciais da conta e ajuda você a configurar outras opções. Se você estiver editando uma configuração existente, ela carregará os valores atuais primeiro.
 
-3. Se não pretender utilizar o assistente, clique em **origem de dados**e escolha o tipo de armazenamento com base na cloud que está a ler. 
+3. Se você não quiser usar o assistente, clique em **fonte de dados**e escolha o tipo de armazenamento baseado em nuvem do qual você está lendo. 
 
-    Definições adicionais dependem do tipo de armazenamento que escolher, e se o armazenamento está protegido ou não. Poderá ter de fornecer o nome da conta, tipo de ficheiro ou as credenciais. Algumas origens não necessitam de autenticação; para outros, poderá ter de saber o nome da conta, uma chave ou o nome do contentor.
+    As configurações adicionais dependem do tipo de armazenamento escolhido e se o armazenamento está protegido ou não. Talvez seja necessário fornecer o nome da conta, o tipo de arquivo ou as credenciais. Algumas fontes não exigem autenticação; para outros, talvez seja necessário saber o nome da conta, uma chave ou um nome de contêiner.
 
-4. Selecione o **resultados em cache de utilização** opção se pretende colocar em cache o conjunto de dados para reutilização em execuções sucessivas.
+4. Selecione a opção **usar resultados em cache** se você quiser armazenar em cache o conjunto de armazenamento para reutilização em execuções sucessivas.
 
-    Partindo do princípio de que não tem havido nenhuma outra alteração aos parâmetros do módulo, a experimentação carrega o tempo de dados apenas o primeiro o módulo é executado e, posteriormente, utiliza uma versão em cache do conjunto de dados.
+    Supondo que não houvesse nenhuma outra alteração nos parâmetros do módulo, o experimento carrega os dados somente na primeira vez em que o módulo é executado e depois usa uma versão armazenada em cache do conjunto de dados.
 
-    Desmarcar esta opção se precisar de recarregar os dados sempre que executar a experimentação.
+    Desmarque essa opção se precisar recarregar os dados cada vez que executar o experimento.
 
 5. Execute a experimentação.
 
-    Quando importar dados carrega os dados para a interface, ele infere o tipo de dados de cada coluna com base nos valores nele contidos, numéricos ou categóricos.
+    Quando os dados de importação carregam os dados na interface, ele infere o tipo de dados de cada coluna com base nos valores que ele contém, numéricos ou categóricos.
 
-    - Se um cabeçalho estiver presente, o cabeçalho é usado para nomear as colunas do conjunto de dados de saída.
+    - Se um cabeçalho estiver presente, o cabeçalho será usado para nomear as colunas do conjunto de resultados de saída.
 
-    - Se não houver nenhum cabeçalho de coluna existente nos dados, novos nomes das colunas são gerados com o formato col1, col2,... , coln *.
+    - Se não houver nenhum cabeçalho de coluna existente nos dados, novos nomes de coluna serão gerados usando o formato Col1, Col2,... , coln*.
 
 ## <a name="results"></a>Resultados
 
-Quando a importação estiver concluída, clique com o conjunto de dados de saída e selecione **Visualize** para ver se os dados foi importados com êxito.
+Quando a importação for concluída, clique no conjunto de dados de saída e selecione **Visualizar** para ver se os dados foram importados com êxito.
 
-Se quiser salvar os dados para reutilização, em vez de importar um novo conjunto de dados sempre que a experimentação é executada, com o botão direito a saída e selecione **guardar como conjunto de dados**. Escolha um nome para o conjunto de dados. O conjunto de dados guardado preserva os dados no momento da economia e dados não são atualizados quando a experimentação será novamente executada, mesmo que altera o conjunto de dados na experimentação. Isso pode ser útil para obtenção de instantâneos de dados.
+Se você quiser salvar os dados para reutilização, em vez de importar um novo conjunto de dados cada vez que o experimento for executado, clique com o botão direito do mouse na saída e selecione **salvar como DataSet**. Escolha um nome para o conjunto de um. O DataSet salvo preserva os dados no momento do salvamento, e os dados não são atualizados quando o experimento é executado novamente, mesmo se o conjunto do dados no experimento for alterado. Isso pode ser útil para tirar instantâneos de dados.
 
-Depois de importar os dados, pode ter alguns preparativos adicionais para modelagem e análise:
+Depois de importar os dados, talvez sejam necessários alguns preparativos adicionais para modelagem e análise:
 
 
-- Uso [Editar metadados](./edit-metadata.md) para alterar os nomes das colunas, para lidar com uma coluna como um tipo de dados diferentes ou para indicar que algumas colunas são etiquetas ou funcionalidades.
+- Use [Editar metadados](./edit-metadata.md) para alterar nomes de coluna, para manipular uma coluna como um tipo de dados diferente ou para indicar que algumas colunas são rótulos ou recursos.
 
-- Utilizar [Select Columns in Dataset](./select-columns-in-dataset.md) para selecionar um subconjunto de colunas para transformar ou utilizar na modelagem. As colunas removidas ou transformadas podem facilmente ser reintegradas ao conjunto de dados original utilizando o [adicionar colunas](./add-columns.md) módulo.  
+- Use [selecionar colunas no conjunto](./select-columns-in-dataset.md) de linhas para selecionar um subconjunto de colunas para transformar ou usar na modelagem. As colunas transformadas ou removidas podem ser facilmente reassociadas ao conjunto de os originais usando o módulo [adicionar colunas](./add-columns.md) .  
 
-- Uso [partição e amostras](./partition-and-sample.md) para dividir o conjunto de dados, realizar a amostragem ou obter as primeiras n linhas.
+- Use [Partition e Sample](./partition-and-sample.md) para dividir o conjunto de registros, executar amostragem ou obter as n primeiras linhas.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte a [conjunto de módulos disponíveis](module-reference.md) ao serviço Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

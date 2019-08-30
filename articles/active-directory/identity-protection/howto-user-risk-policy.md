@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc7ea05497d69a7ca833cc783e7a2bc6bf1a8b07
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 92bfb921833d99a3538ffa8c4c5d16a9f0cd3acd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335450"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126288"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Como: Configurar a política de utilizador de risco
 
@@ -26,9 +26,9 @@ Este artigo fornece as informações necessárias para configurar uma política 
 
 ## <a name="what-is-a-user-risk-policy"></a>O que é uma política de risco de usuário?
 
-O Azure AD analisa cada entrada de um usuário. O objetivo da análise é detectar ações suspeitas que venham junto com a entrada. No Azure AD, as ações suspeitas que o sistema pode detectar também são conhecidas como eventos de risco. Embora alguns eventos de risco possam ser detectados em tempo real, também há eventos de risco que exigem mais tempo. Por exemplo, para detectar uma viagem impossível para locais atípicoss, o sistema requer um período de aprendizado inicial de 14 dias para aprender sobre o comportamento regular de um usuário. Há várias opções para resolver os eventos de risco detectados. Por exemplo, você pode resolver manualmente os eventos de risco individuais ou pode obtê-los resolvidos usando um risco de entrada ou uma política de acesso condicional de risco do usuário.
+O Azure AD analisa cada entrada de um usuário. O objetivo da análise é detectar ações suspeitas que venham junto com a entrada. No Azure AD, as ações suspeitas que o sistema pode detectar também são conhecidas como detecções de risco. Embora algumas detecções de risco possam ser detectadas em tempo real, também há detecções de risco que exigem mais tempo. Por exemplo, para detectar uma viagem impossível para locais atípicoss, o sistema requer um período de aprendizado inicial de 14 dias para aprender sobre o comportamento regular de um usuário. Há várias opções para resolver as detecções de risco detectadas. Por exemplo, você pode resolver manualmente as detecções de riscos individuais ou pode obtê-las resolvidas usando um risco de entrada ou uma política de acesso condicional de risco do usuário.
 
-Todos os eventos de risco que foram detectados para um usuário e que não foram resolvidos são conhecidos como eventos de risco ativos. Os eventos de risco ativos associados a um usuário são conhecidos como risco do usuário. Com base no risco do usuário, o Azure AD calcula uma probabilidade (baixa, média, alta) de que um usuário foi comprometido. A probabilidade é chamada de nível de risco do usuário.
+Todas as detecções de risco que foram detectadas para um usuário e que não foram resolvidas são conhecidas como detecções de riscos ativas. As detecções de riscos ativas associadas a um usuário são conhecidas como risco do usuário. Com base no risco do usuário, o Azure AD calcula uma probabilidade (baixa, média, alta) de que um usuário foi comprometido. A probabilidade é chamada de nível de risco do usuário.
 
 ![Riscos do usuário](./media/howto-user-risk-policy/1031.png)
 
@@ -72,8 +72,8 @@ Você pode definir uma política de segurança de risco do usuário para bloquea
 
 Bloqueando uma entrada:
 
-* Impede a geração de novos eventos de risco do usuário para o usuário afetado
-* Permite aos administradores corrigir manualmente os eventos de risco que afetam a identidade do usuário e restaurá-los para um estado seguro
+* Impede a geração de novas detecções de riscos de usuário para o usuário afetado
+* Permite aos administradores corrigir manualmente as detecções de risco que afetam a identidade do usuário e restaurá-lo para um estado seguro
 
 ## <a name="best-practices"></a>Melhores práticas
 

@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: b9dafd31ed84298c97932b1cdb5593eb17769ef9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d46c460f7158635e520b47517fb3aab005af94a2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582385"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140757"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de forma incremental a partir de várias tabelas no SQL Server para uma base de dados SQL do Azure
 Neste tutorial, vai criar um pipeline do Azure Data Factory que carrega dados delta a partir de várias tabelas no SQL Server local para uma base de dados SQL do Azure.    
@@ -175,9 +174,9 @@ END
 ### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Criar tipos de dados e procedimentos armazenados adicionais na base de dados SQL do Azure
 Execute a consulta seguinte para criar dois procedimentos armazenados e dois tipos de dados de dois na sua base de dados SQL. São utilizados para intercalar os dados das tabelas de origem nas tabelas de destino.
 
-Para facilitar a jornada para começar, vamos utilizar estes procedimentos armazenados, passando os dados delta através de uma variável de tabela diretamente e, em seguida, intercalar no arquivo de destino. Tenha cuidado-se de que ele não está esperando um "grande" número de linhas de delta (mais de 100) para ser armazenado na variável de tabela.  
+Para facilitar o início da jornada com o, usamos diretamente esses procedimentos armazenados passando os dados Delta por meio de uma variável de tabela e, em seguida, mesclando-os no repositório de destino. Tenha cuidado para que ele não esteja esperando um número "grande" de linhas Delta (mais de 100) para ser armazenado na variável de tabela.  
 
-Se precisar de um grande número de linhas de delta de intercalação para o arquivo de destino, sugerimos que utilize a atividade de cópia para copiar todos os dados delta para uma tabela temporária de "teste" no destino armazenar primeiro e, em seguida, criou seu próprio procedimento armazenado sem utilizar a tabela vari é possível combiná-los a partir da tabela de "teste" para a tabela "final". 
+Se você precisar mesclar um grande número de linhas Delta no repositório de destino, sugerimos que você use a atividade de cópia para copiar todos os dados Delta para uma tabela temporária de "preparo" no armazenamento de destino primeiro e, em seguida, criar seu próprio procedimento armazenado sem usar a tabela acento grave é possível mesclá-los da tabela "preparo" para a tabela "final". 
 
 
 ```sql
@@ -252,7 +251,7 @@ END
 1. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 1. Selecione **Afixar ao dashboard**.     
 1. Clique em **Criar**.      
-1. No dashboard, verá o mosaico seguinte com o estado: **Implementar fábrica de dados**. 
+1. No painel, você verá o seguinte bloco com status: **Implantando data Factory**. 
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-incremental-copy-multiple-tables-portal/deploying-data-factory.png)
 1. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
@@ -281,10 +280,10 @@ Como está a mover dados de um arquivo de dados numa rede privada (no local) par
 1. Introduza **MySelfHostedIR** em **Nome** e clique em **Seguinte**. 
 
    ![Nome do IR autoalojado](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
-1. Clique em **clique aqui para iniciar a configuração rápida neste computador** no **opção 1: Configuração rápida** secção. 
+1. Clique **em clique aqui para iniciar a instalação expressa para este computador** na **opção 1: Seção de** instalação expressa. 
 
    ![Clicar na ligação de Configuração Rápida](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
-1. Na janela **Configuração Rápida do Integration Runtime (Autoalojado)**, clique em **Fechar**. 
+1. Na janela **Configuração Rápida do Integration Runtime (Autoalojado)** , clique em **Fechar**. 
 
    ![Configuração do runtime de integração - êxito](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
 1. No browser, na janela **Configuração do Runtime de Integração**, clique em **Concluir**. 
@@ -440,7 +439,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
 1. Mude para o separador **Definições** da janela **Propriedades** e introduza `@pipeline().parameters.tableList` em **Itens**. A atividade ForEach itera através da lista de tabelas e realiza a operação de cópia incremental. 
 
     ![Atividade ForEach - definições](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
-1. Selecione a atividade **ForEach** no pipeline, se ainda não estiver selecionada. Clique no botão **Editar (Ícone de lápis)**.
+1. Selecione a atividade **ForEach** no pipeline, se ainda não estiver selecionada. Clique no botão **Editar (Ícone de lápis)** .
 
     ![Atividade ForEach - editar](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
 1. Na caixa de ferramentas **Atividades**, expanda **Geral**, arraste e largue a atividade **Lookup** na superfície de estruturador do pipeline e introduza **LookupOldWaterMarkActivity** em **Nome**.
@@ -491,11 +490,11 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
 1. Mude para o separador **Sink** e selecione **SinkDataset** em **Conjunto de Dados de Sink**. 
         
     ![Atividade Copy - definições do sink](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
-1. Siga os passos abaixo:
+1. Execute as seguintes etapas:
 
-    1. Na **conjunto de dados** propriedade, para **SinkTableName** parâmetro, introduza `@{item().TABLE_NAME}`.
-    1. Para **nome do procedimento armazenado** propriedade, introduza `@{item().StoredProcedureNameForMergeOperation}`.
-    1. Para **tipo de tabela** propriedade, introduza `@{item().TableType}`.
+    1. Na propriedade **DataSet** , para o parâmetro **SinkTableName** , insira `@{item().TABLE_NAME}`.
+    1. Para a propriedade **nome do procedimento armazenado** , digite `@{item().StoredProcedureNameForMergeOperation}`.
+    1. Para Propriedade do **tipo** de tabela `@{item().TableType}`, digite.
 
 
         ![Atividade Copiar - parâmetros](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
@@ -517,7 +516,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
         | Name | Tipo | Valor | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | TableName | Cadeia | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Atividade de procedimento armazenado - definições do procedimento armazenado](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. No painel esquerdo, clique em **Publicar**. Esta ação publica as entidades que criou para o serviço Fábrica de Dados. 

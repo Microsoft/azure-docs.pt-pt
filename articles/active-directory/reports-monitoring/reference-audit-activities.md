@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a687823d1344ca11864523cb9187f48d7373fd41
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 56a94ef3f6ea5737b629efe44bd3e1cc1f36a693
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989641"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127132"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência da atividade de auditoria do Azure AD
 
@@ -65,11 +65,11 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Revisões de Acesso|Desassociar controlo de programa|
 |Revisões de Acesso|Atualizar Revisão de Acesso|
 |Revisões de Acesso|Atualizar o status de integração das revisões de acesso do Azure AD|
-|Revisões de Acesso|Atualizar definições de revisão de acesso a notificações de e-mail|
-|Revisões de Acesso|Atualizar a definição de contagem de periodicidade de revisões de acesso|
-|Revisões de Acesso|Atualizar a definição de duração em dias de periodicidade de revisões de acesso|
-|Revisões de Acesso|Atualizar a definição de tipo de fim de periodicidade de revisões de acesso|
-|Revisões de Acesso|Atualizar definição de tipo de periodicidade de revisões de acesso|
+|Revisões de Acesso|Atualizar definições de notificação de correio da revisão de acesso|
+|Revisões de Acesso|Atualizar configuração de contagem de recorrência de revisão de acesso|
+|Revisões de Acesso|Atualizar duração da recorrência da revisão de acesso na configuração de dias|
+|Revisões de Acesso|Atualizar configuração de tipo de término de recorrência de revisão de acesso|
+|Revisões de Acesso|Atualizar configuração de tipo de recorrência de revisão de acesso|
 |Revisões de Acesso|Atualizar definições de revisão de acesso a lembretes|
 |Revisões de Acesso|Atualizar programa|
 |Revisões de Acesso|Atualizar aprovação de pedidos|
@@ -348,10 +348,10 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 
 |Categoria de Auditoria|Atividade|
 |---|---|
-|Gestão de Unidade Administrativa|Transferir um tipo de eventos de risco único|
+|Gestão de Unidade Administrativa|Baixar um tipo de detecção de risco único|
 |Gestão de Unidade Administrativa|Transferir administradores e estado de aceitação de resumo semanal|
-|Gestão de Unidade Administrativa|Transferir todos os tipos de eventos de risco|
-|Gestão de Unidade Administrativa|Transferir eventos sem risco do utilizador|
+|Gestão de Unidade Administrativa|Baixar todos os tipos de detecção de riscos|
+|Gestão de Unidade Administrativa|Baixar detecções de risco de usuário gratuitas|
 |Gestão de Unidade Administrativa|Transferir utilizadores sinalizados para risco|
 |Gestão de Aplicações|Convites em lote processados|
 |Gestão de Aplicações|Convites em lote carregados|
@@ -517,11 +517,11 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |---|---|
 |Gestão de Grupos|Rever pedido de aprovação de pedidos|
 |Gestão de Grupos|Atualizar Revisão de Acesso|
-|Gestão de Grupos|Atualizar definições de revisão de acesso a notificações de e-mail|
-|Gestão de Grupos|Atualizar a definição de contagem de periodicidade de revisões de acesso|
-|Gestão de Grupos|Atualizar a definição de duração em dias de periodicidade de revisões de acesso|
-|Gestão de Utilizadores|Atualizar a definição de tipo de fim de periodicidade de revisões de acesso|
-|Gestão de Utilizadores|Atualizar definição de tipo de periodicidade de revisões de acesso|
+|Gestão de Grupos|Atualizar definições de notificação de correio da revisão de acesso|
+|Gestão de Grupos|Atualizar configuração de contagem de recorrência de revisão de acesso|
+|Gestão de Grupos|Atualizar duração da recorrência da revisão de acesso na configuração de dias|
+|Gestão de Utilizadores|Atualizar configuração de tipo de término de recorrência de revisão de acesso|
+|Gestão de Utilizadores|Atualizar configuração de tipo de recorrência de revisão de acesso|
 
 
 

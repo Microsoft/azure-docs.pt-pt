@@ -10,12 +10,12 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: 97b66bff0e6413b7774a054a01a0dc73649c9cce
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: b0d8eef025efb6398f1d7c734ca558540b157fef
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68962989"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128260"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Executar previsões de lote em conjuntos de dados grandes com pipelines de Azure Machine Learning
 
@@ -114,7 +114,7 @@ output_dir = PipelineData(name="scores",
 
 ### <a name="set-up-compute-target"></a>Configurar o destino de computação
 
-No Azure Machine Learning, *computação* (ou *destino de computação*) refere-se aos computadores ou clusters que executam as etapas computacionais no pipeline do Machine Learning. Por exemplo, pode criar um `Azure Machine Learning compute`.
+No Azure Machine Learning, *computação* (ou *destino de computação*) refere-se aos computadores ou clusters que executam as etapas computacionais no pipeline do Machine Learning. Por exemplo, você pode criar um Azure Machine Learning computação com a classe [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) .
 
 ```python
 from azureml.core.compute import AmlCompute

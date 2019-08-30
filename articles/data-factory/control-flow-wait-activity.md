@@ -1,25 +1,24 @@
 ---
-title: Aguardar atividade no Azure Data Factory | Documentos da Microsoft
-description: A atividade de espera coloca em pausa a execução do pipeline para o período de tempo especificado.
+title: Atividade de espera no Azure Data Factory | Microsoft Docs
+description: A atividade Wait pausa a execução do pipeline para o período especificado.
 services: data-factory
 documentationcenter: ''
-author: shlo
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.author: shlo
-ms.openlocfilehash: 66d79bc1597cd8f3c7e01eb8227eb7c91ba04d1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48a722979e61209a855dd1fec22fcdcc756ae1ce
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764756"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142424"
 ---
-# <a name="execute-wait-activity-in-azure-data-factory"></a>Executar a atividade de espera no Azure Data Factory
+# <a name="execute-wait-activity-in-azure-data-factory"></a>Executar atividade de espera no Azure Data Factory
 Quando utiliza uma atividade Aguardar num pipeline, este aguarda o período de tempo especificado antes de continuar a execução das atividades subsequentes. 
 
 ## <a name="syntax"></a>Sintaxe
@@ -37,19 +36,19 @@ Quando utiliza uma atividade Aguardar num pipeline, este aguarda o período de t
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Requerido
 -------- | ----------- | -------------- | --------
-name | Nome do `Wait` atividade. | String | Sim
-type | Tem de ser definido como **aguarde**. | String | Sim
+name | Nome da `Wait` atividade. | Cadeia | Sim
+type | Deve ser definido como **aguardar**. | Cadeia | Sim
 waitTimeInSeconds | O número de segundos que o pipeline aguarda antes de continuar com o processamento. | Integer | Sim
 
 ## <a name="example"></a>Exemplo
 
 > [!NOTE]
-> Esta seção fornece definições de JSON e comandos de exemplo de PowerShell para executar o pipeline. Para obter instruções com instruções passo a passo para criar um pipeline de fábrica de dados com as definições do Azure PowerShell e JSON, veja [tutorial: criar uma fábrica de dados com o Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Esta seção fornece definições de JSON e comandos do PowerShell de exemplo para executar o pipeline. Para obter instruções passo a passo de como criar um pipeline de Data Factory usando definições de Azure PowerShell e JSON, consulte [tutorial: criar um data Factory usando Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-wait-activity"></a>Pipeline com atividade de espera
-Neste exemplo, o pipeline tem duas atividades: **Até** e **aguarde**. A atividade de espera é configurada para esperar por um segundo. O pipeline é executado a atividade Web num loop com um segundo a aguardar o tempo entre cada execução. 
+Neste exemplo, o pipeline tem duas atividades: **Até** e **aguardar**. A atividade Wait está configurada para aguardar um segundo. O pipeline executa a atividade da Web em um loop com um segundo tempo de espera entre cada execução. 
 
 ```json
 {
@@ -100,12 +99,12 @@ Neste exemplo, o pipeline tem duas atividades: **Até** e **aguarde**. A ativida
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte outras atividades de fluxo de controle suportadas pelo Data Factory: 
+Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade Web](control-flow-web-activity.md)
+- [Atividade da Web](control-flow-web-activity.md)
 - [Atividade Until](control-flow-until-activity.md)

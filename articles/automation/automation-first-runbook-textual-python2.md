@@ -1,6 +1,6 @@
 ---
-title: O meu primeiro runbook de Python na automatização do Azure
-description: Tutorial explica-lhe a criação, teste e da publicação de um runbook de Python simples.
+title: Meu primeiro runbook do Python na automação do Azure
+description: Tutorial que orienta você durante a criação, o teste e a publicação de um runbook simples do Python.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,14 +9,14 @@ ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a030005d73df61c31c5aa1c2e1b56e52b03a56e3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6808ad101a828708ff4fe77bb4b8a55cf8c5fec7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478510"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135438"
 ---
-# <a name="my-first-python-runbook"></a>O meu primeiro runbook de Python
+# <a name="my-first-python-runbook"></a>Meu primeiro runbook do Python
 
 > [!div class="op_single_selector"]
 > - [Gráficos](automation-first-runbook-graphical.md)
@@ -24,10 +24,10 @@ ms.locfileid: "67478510"
 > - [Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
 > - [Python](automation-first-runbook-textual-python2.md)
 
-Este tutorial explica-lhe a criação de um [runbook de Python](automation-runbook-types.md#python-runbooks) na automatização do Azure. Comece com um runbook simples que testar e publicar. Em seguida, modifique o runbook para gerir recursos do Azure, neste caso, iniciar uma máquina virtual do Azure. Por último, tornar o runbook mais robusto ao adicionar parâmetros do runbook.
+Este tutorial orienta você durante a criação de um [runbook do Python](automation-runbook-types.md#python-runbooks) na automação do Azure. Você começa com um runbook simples que você testa e publica. Em seguida, modifique o runbook para gerir recursos do Azure, neste caso, iniciar uma máquina virtual do Azure. Por fim, você torna o runbook mais robusto adicionando parâmetros de runbook.
 
 > [!NOTE]
-> Não é suportada a utilizar um webhook para iniciar um runbook de Python.
+> Não há suporte para o uso de um webhook para iniciar um runbook do Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,27 +39,27 @@ Para concluir este tutorial, precisa do seguinte:
 
 ## <a name="create-a-new-runbook"></a>Criar um novo runbook
 
-Comece por criar um runbook simples que produz o texto *Olá, mundo*.
+Você começa criando um runbook simples que gera o texto *Olá, mundo*.
 
 1. No portal do Azure, abra a sua conta da Automatização.
 
     A página da conta da Automatização dá-lhe uma vista rápida dos recursos nesta conta. Já deverá ter alguns recursos. A maioria destes ativos são os módulos que estão incluídos automaticamente na nova conta da Automatização. Também deverá ter o recurso da Credencial que está mencionado nos [Pré-requisitos](#prerequisites).<br>
 
 1. Selecione **Runbooks** em **GESTÃO DE PROCESSOS** para abrir a lista de runbooks.
-1. Selecione **+ adicionar um runbook** para criar um novo runbook.
-1. Atribua ao runbook o nome *MyFirstRunbook-Python*.
-1. Neste caso, vamos criar um [runbook de Python](automation-runbook-types.md#python-runbooks) por isso, selecione **Python 2** para **tipo de Runbook**.
+1. Selecione **+ Adicionar um runbook** para criar um novo runbook.
+1. Dê ao runbook o nome *MyFirstRunbook-Python*.
+1. Nesse caso, você criará um [runbook do Python](automation-runbook-types.md#python-runbooks) , portanto, selecione **Python 2** para **tipo de runbook**.
 1. Clique em **Criar** para criar o runbook e abra o editor de texto.
 
 ## <a name="add-code-to-the-runbook"></a>Adicionar código ao runbook
 
-Agora adicionar um comando simples para imprimir o texto "Hello World":
+Agora, você adiciona um comando simples para imprimir o texto "Olá, Mundo":
 
 ```python
 print("Hello World!")
 ```
 
-Clique em **guardar** para guardar o runbook.
+Clique em **salvar** para salvar o runbook.
 
 ## <a name="test-the-runbook"></a>Testar o runbook
 
@@ -68,42 +68,42 @@ Antes de publicar o runbook para o disponibilizar na produção, deve testá-lo 
 1. Clique em **Painel de teste** para abrir o Painel de teste.
 1. Clique em **Iniciar** para iniciar o teste. Esta deve ser a única opção ativada.
 1. Uma [tarefa do runbook](automation-runbook-execution.md) é criada e o respetivo estado é apresentado.
-   O estado da tarefa começa como *Em fila* com a indicação de que está à espera que uma função de trabalho de runbook na cloud fique disponível. Move para *inicial* quando uma função de trabalho reivindicar a tarefa e, em seguida *em execução* quando o runbook começa a ser executado.
-1. Quando a tarefa de runbook tiver concluído, o resultado é apresentado. Neste caso, verá *Olá, mundo*.
+   O estado da tarefa começa como *Em fila* com a indicação de que está à espera que uma função de trabalho de runbook na cloud fique disponível. Ele é movido para *iniciando* quando um trabalho alega o trabalho e, em seguida, é *executado* quando o runbook realmente começa a ser executado.
+1. Quando a tarefa de runbook tiver concluído, o resultado é apresentado. Nesse caso, você deve ver *Olá, mundo*.
 1. Feche o painel de Teste para voltar à tela.
 
 ## <a name="publish-and-start-the-runbook"></a>Publicar e iniciar o runbook
 
-O runbook que criou ainda está no modo de rascunho. Tem de publicá-lo antes de pode executá-lo em produção.
-Quando publica um runbook, substitui a versão publicada existente pela versão de rascunho.
-Neste caso, ainda não tem uma versão publicada porque acabou de criar o runbook.
+O runbook que você criou ainda está no modo de rascunho. Você precisa publicá-lo antes de poder executá-lo em produção.
+Ao publicar um runbook, você substitui a versão publicada existente pela versão de rascunho.
+Nesse caso, você ainda não tem uma versão publicada porque acabou de criar o runbook.
 
 1. Clique em **Publicar** para publicar o runbook e, em seguida, em **Sim** quando lhe for pedido.
-1. Se se deslocar para a esquerda para ver o runbook no **Runbooks** painel, ele mostra agora uma **estado de criação** de **publicada**.
-1. Desloque-se para a direita para ver o painel para **MyFirstRunbook-Python**.
-   As opções na parte superior permitem-nos iniciar o runbook, ver o runbook ou agendá-la para iniciar em algum momento no futuro.
-2. Pretende iniciar o runbook, por isso, clique em **começar** e, em seguida, clique em **Ok** quando o Painel Iniciar Runbook for aberto.
-3. É aberto um painel de tarefas para a tarefa de runbook que criou. Pode fechar este painel, mas neste caso, deixá-lo aberto para que possa ver o progresso da tarefa.
-1. O estado da tarefa é mostrado na **resumo da tarefa** e corresponde aos Estados que vimos quando testado o runbook.
-2. Quando o estado de runbook mostrar *Concluído*, clique em **Resultado**. É aberto o painel de resultados, e pode ver seus *Olá, mundo*.
+1. Se você rolar para a esquerda para exibir o runbook no painel **Runbooks** agora, ele mostrará um **status de criação** **publicado**.
+1. Role de volta à direita para exibir o painel para **MyFirstRunbook-Python**.
+   As opções na parte superior nos permitem iniciar o runbook, exibir o runbook ou agendá-lo para iniciar em algum momento no futuro.
+2. Você deseja iniciar o runbook, portanto, clique em **Iniciar** e em **OK** quando a folha iniciar runbook for aberta.
+3. Um painel de trabalho é aberto para o trabalho de runbook que você criou. Você pode fechar esse painel, mas, nesse caso, deixá-lo aberto para que você possa observar o progresso do trabalho.
+1. O status do trabalho é mostrado no **Resumo do trabalho** e corresponde aos status que você viu quando testou o runbook.
+2. Quando o estado de runbook mostrar *Concluído*, clique em **Resultado**. O painel saída é aberto e você pode ver sua *Olá, mundo*.
 3. Feche o painel Resultado.
 4. Clique em **Todos os Registos** para abrir o painel Fluxos da tarefa de runbook. Apenas deve conseguir ver *Hello World* no fluxo de saída, mas isto pode mostrar outros fluxos de uma tarefa de runbook, tais como Verboso e Erro se o runbook escrever nos mesmos.
-5. Feche o painel de fluxos e o painel de tarefas para regressar ao painel MyFirstRunbook-Python.
+5. Feche o painel fluxos e o painel trabalho para retornar ao painel MyFirstRunbook-Python.
 6. Clique em **Tarefas** para abrir o painel Tarefas para este runbook. Isto apresenta uma lista de todas as tarefas criadas por este runbook. Apenas deve conseguir ver uma tarefa listada, uma vez que apenas executou a tarefa uma vez.
 7. Pode clicar nesta tarefa para abrir o mesmo painel Tarefas que visualizou quando iniciou o runbook. Isto permite-lhe voltar atrás no tempo e ver os detalhes de qualquer tarefa que foi criada para um determinado runbook.
 
-## <a name="add-authentication-to-manage-azure-resources"></a>Adicionar autenticação para gerir recursos do Azure
+## <a name="add-authentication-to-manage-azure-resources"></a>Adicionar autenticação para gerenciar recursos do Azure
 
 Testou e publicou o seu runbook, mas, até ao momento, não faz nada de útil. Deve fazer com que gira os recursos do Azure.
-Para gerir recursos do Azure, o script tem de autenticar com as credenciais da sua conta de automatização. Para ajudá-lo, pode utilizar o [pacote de utilitário de automatização do Azure](https://github.com/azureautomation/azure_automation_utility) para facilitar a autenticar e interagir com os recursos do Azure.
+Para gerenciar recursos do Azure, o script precisa se autenticar usando as credenciais de sua conta de automação. Para ajudá-lo, você pode usar o [pacote do utilitário de automação do Azure](https://github.com/azureautomation/azure_automation_utility) para facilitar a autenticação e a interação com os recursos do Azure.
 
 > [!NOTE]
-> A conta de automatização necessário tenham sido criada com a funcionalidade principal de serviço de haver um executar como certificado.
-> Se a sua conta de automatização não foi criada com o principal de serviço, pode autenticar ao utilizar o método descrito em [autenticar com as bibliotecas de gestão do Azure para Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate).
+> A conta de automação deve ter sido criada com o recurso de entidade de serviço para que haja um certificado executar como.
+> Se sua conta de automação não tiver sido criada com a entidade de serviço, você poderá autenticar usando o método descrito em [autenticar com as bibliotecas de gerenciamento do Azure para Python](/azure/python/python-sdk-azure-authenticate).
 
-1. Abra o editor de texto ao clicar em **editar** no painel MyFirstRunbook-Python.
+1. Abra o editor de texto clicando em **Editar** no painel MyFirstRunbook-Python.
 
-2. Adicione o seguinte código para autenticar para o Azure:
+2. Adicione o seguinte código para autenticar no Azure:
 
    ```python
    import os
@@ -144,11 +144,11 @@ Para gerir recursos do Azure, o script tem de autenticar com as credenciais da s
    azure_credential = get_automation_runas_credential(runas_connection)
    ```
 
-## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Adicionar código para criar o cliente Python de computação e iniciar a VM
+## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Adicionar código para criar o cliente de computação do Python e iniciar a VM
 
 Para trabalhar com VMs do Azure, crie uma instância do [cliente de computação do Azure para Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python).
 
-Utilize o cliente de computação para iniciar a VM. Adicione o seguinte código ao runbook:
+Use o cliente de computação para iniciar a VM. Adicione o seguinte código ao runbook:
 
 ```python
 # Initialize the compute management client with the RunAs credential and specify the subscription to work against.
@@ -164,17 +164,17 @@ async_vm_start = compute_client.virtual_machines.start(
 async_vm_start.wait()
 ```
 
-Em que _MyResourceGroup_ é o nome do grupo de recursos que contém a VM, e _TestVM_ é o nome da VM que pretende iniciar.
+Em que MyResource Group é o nome do grupo de recursos que contém a VM e _TestVM_ é o nome da VM que você deseja iniciar.
 
-Testar e executar o runbook novamente para ver o que ela começa a VM.
+Teste e execute o runbook novamente para ver que ele inicia a VM.
 
 ## <a name="use-input-parameters"></a>Usar parâmetros de entrada
 
-Atualmente, o runbook utiliza os valores codificados para os nomes de grupo de recursos e a VM.
-Agora vamos adicionar código que obtém estes valores de parâmetros de entrada.
+Atualmente, o runbook usa valores embutidos em código para os nomes do grupo de recursos e da VM.
+Agora, vamos adicionar o código que obtém esses valores dos parâmetros de entrada.
 
-Utilizar o `sys.argv` variável para obter os valores de parâmetro.
-Adicione o seguinte código ao runbook imediatamente após o outro `import` instruções:
+Você usa a `sys.argv` variável para obter os valores de parâmetro.
+Adicione o seguinte código ao runbook imediatamente após as outras `import` instruções:
 
 ```python
 import sys
@@ -183,10 +183,10 @@ resource_group_name = str(sys.argv[1])
 vm_name = str(sys.argv[2])
 ```
 
-Esta ação importa o `sys` módulo e cria duas variáveis para armazenar os nomes de grupo de recursos e a VM.
-Tenha em atenção que o elemento da lista de argumentos, `sys.argv[0]`, é o nome do script e não é a entrada pelo utilizador.
+Isso importa o `sys` módulo e cria duas variáveis para manter os nomes do grupo de recursos e da VM.
+Observe que o elemento da lista de argumentos, `sys.argv[0]`, é o nome do script e não é inserido pelo usuário.
 
-Agora pode modificar as duas últimas linhas do runbook para utilizar os valores de parâmetro de entrada em vez de usar valores embutidos:
+Agora você pode modificar as duas últimas linhas do runbook para usar os valores de parâmetro de entrada em vez de usar valores embutidos em código:
 
 ```python
 async_vm_start = compute_client.virtual_machines.start(
@@ -194,23 +194,23 @@ async_vm_start = compute_client.virtual_machines.start(
 async_vm_start.wait()
 ```
 
-Quando inicia um runbook de Python (no **teste** página ou como um runbook publicado), pode introduzir os valores para parâmetros na **iniciar Runbook** página sob **parâmetros** .
+Ao iniciar um runbook do Python (na página de **teste** ou como um runbook publicado), você pode inserir os valores dos parâmetros na página **Iniciar runbook** em **parâmetros**.
 
-Depois de começar a introduzir um valor na primeira caixa, um segundo irá aparecer e assim por diante, para que pode inserir tantos valores de parâmetro conforme necessário.
+Depois que você começar a inserir um valor na primeira caixa, um segundo será exibido, e assim por diante, para que você possa inserir quantos valores de parâmetro forem necessários.
 
-Os valores estão disponíveis para o script como o `sys.argv` matriz como no código que acabou de adicionar.
+Os valores estão disponíveis para o script como a `sys.argv` matriz, como no código que você acabou de adicionar.
 
-Introduza o nome do seu grupo de recursos como o valor para o primeiro parâmetro e o nome da VM para começar a como o valor do segundo parâmetro.
+Insira o nome do seu grupo de recursos como o valor do primeiro parâmetro e o nome da VM para iniciar como o valor do segundo parâmetro.
 
-![Introduza os valores de parâmetro](media/automation-first-runbook-textual-python/runbook-python-params.png)
+![Inserir valores de parâmetro](media/automation-first-runbook-textual-python/runbook-python-params.png)
 
-Clique em **OK** para iniciar o runbook. O runbook é executado e inicia a VM que especificou.
+Clique em **OK** para iniciar o runbook. O runbook é executado e inicia a VM que você especificou.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar com runbooks do PowerShell, consulte [O meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)
 - Para começar com runbooks Gráficos, consulte o artigo [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 - Para começar com runbooks do fluxo de trabalho do PowerShell, consulte o artigo [O meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
 - Para saber mais sobre os tipos de runbook, as vantagens e limitações, consulte o artigo [Tipos de runbook da Automatização do Azure](automation-runbook-types.md)
-- Para saber mais sobre o desenvolvimento do Azure com Python, veja [do Azure para programadores de Python](https://docs.microsoft.com/python/azure/?view=azure-python)
-- Para ver os runbooks de exemplo do Python 2, consulte o [GitHub de automatização do Azure](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)
+- Para saber mais sobre como desenvolver para o Azure com Python, confira [Azure para desenvolvedores de Python](/azure/python/)
+- Para exibir os runbooks de exemplo do Python 2, consulte o [GitHub de automação do Azure](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)

@@ -1,32 +1,30 @@
 ---
-title: Criar pipelines de dados Preditiva com o Azure Data Factory | Documentos da Microsoft
-description: Descreve como criar crie pipelines previsíveis utilizando o Azure Data Factory e o Azure Machine Learning
+title: Criar pipelines de dados de previsão usando Azure Data Factory | Microsoft Docs
+description: Descreve como criar pipelines de previsão usando Azure Data Factory e Azure Machine Learning
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 4fad8445-4e96-4ce0-aa23-9b88e5ec1965
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 4093febd19d71512e3c80704e88f9d5cf669d7d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7c48c1d91ae08be29531f4a99ea75ab7a928f34
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567444"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140491"
 ---
-# <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Crie pipelines previsíveis utilizando o Azure Machine Learning e Azure Data Factory
+# <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Criar pipelines preditivas usando Azure Machine Learning e Azure Data Factory
 
 > [!div class="op_single_selector" title1="Atividades de transformação"]
-> * [Atividade do Hive](data-factory-hive-activity.md)
-> * [Atividade PIg](data-factory-pig-activity.md)
+> * [Atividade do hive](data-factory-hive-activity.md)
+> * [Atividade Pig](data-factory-pig-activity.md)
 > * [Atividade MapReduce](data-factory-map-reduce.md)
-> * [Atividade de transmissão em fluxo do Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade do Spark](data-factory-spark.md)
 > * [Atividade de Execução em Lote do Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Atividade de Recursos de Atualização de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
@@ -36,55 +34,55 @@ ms.locfileid: "60567444"
 
 ## <a name="introduction"></a>Introdução
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [transformar dados com o machine learning no Data Factory](../transform-data-using-machine-learning.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [transformar dados usando o Machine Learning no data Factory](../transform-data-using-machine-learning.md).
 
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-[O Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) permite-lhe criar, testar e implementar soluções de Análise Preditiva. Do ponto de vista alto nível, é feita em três passos:
+[Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) permite criar, testar e implantar soluções de análise preditiva. De um ponto de vista de alto nível, isso é feito em três etapas:
 
-1. **Criar uma experimentação de preparação**. Efetue este passo com o Azure Machine Learning studio. O Azure Machine Learning studio é um ambiente de colaboração de desenvolvimento visual que utilizar para dar formação e testar um modelo de Análise Preditiva com dados de treinamento.
-2. **Convertê-lo para uma experimentação preditiva**. Assim que o seu modelo foi treinado com os dados existentes e está pronto para usá-lo para pontuar novos dados, preparar e simplifique a sua experimentação para a classificação.
-3. **Implementá-lo como um serviço web**. Pode publicar a sua experiência de classificação como um serviço web do Azure. Pode enviar dados para o seu modelo através deste ponto de final de serviço web e a receber de previsões de resultado para o modelo.
+1. **Crie um teste de treinamento**. Você faz essa etapa usando o Azure Machine Learning Studio. O Azure Machine Learning Studio é um ambiente de desenvolvimento Visual colaborativo que você usa para treinar e testar um modelo de análise preditiva usando dados de treinamento.
+2. **Converta-o em um experimento de previsão**. Depois que o modelo tiver sido treinado com os dados existentes e você estiver pronto para usá-lo para pontuar novos dados, prepare e simplifique seu experimento para pontuação.
+3. **Implante-o como um serviço Web**. Você pode publicar seu experimento de Pontuação como um serviço Web do Azure. Você pode enviar dados para seu modelo por meio deste ponto de extremidade de serviço Web e receber previsões de resultado partir o modelo.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
-O Data Factory é um serviço de integração de dados baseado na nuvem que orquestra e automatiza o **movimento** e a **transformação** de dados. Pode criar soluções de integração de dados com o Azure Data Factory que podem ingerir dados de vários arquivos de dados, transformar/processar os dados e publicar os dados resultantes nos arquivos de dados.
+O Data Factory é um serviço de integração de dados baseado na nuvem que orquestra e automatiza o **movimento** e a **transformação** de dados. Você pode criar soluções de integração de dados usando Azure Data Factory que podem ingerir dados de vários armazenamentos de dados, transformar/processar os dados e publicar os dados de resultado nos armazenamentos de dados.
 
 O serviço Data Factory permite-lhe criar pipelines de dados que movimentam e transformam dados e, depois, executar esses pipelines numa agenda especificada (hora a hora, diariamente, semanalmente, etc.). Também proporciona visualizações ricas para apresentar a linhagem e as dependências entre os pipelines de dados e monitorizá-los a partir de uma vista unificada única, para identificar facilmente problemas e configurar alertas de monitorização.
 
-Ver [introdução ao Azure Data Factory](data-factory-introduction.md) e [crie seu primeiro pipeline](data-factory-build-your-first-pipeline.md) artigos para começar rapidamente com o serviço do Azure Data Factory.
+Consulte [introdução ao Azure data Factory](data-factory-introduction.md) e [crie seus primeiros](data-factory-build-your-first-pipeline.md) artigos de pipeline para começar rapidamente a usar o serviço de Azure data Factory.
 
-### <a name="data-factory-and-machine-learning-together"></a>Fábrica de dados e Machine Learning em conjunto
-O Azure Data Factory permite-lhe facilmente criar pipelines que utilizem um publicados [do Azure Machine Learning] [ azure-machine-learning] web service para Análise Preditiva. Utilizar o **atividade de execução de Batch** num pipeline do Azure Data Factory, pode invocar um serviço web do Azure Machine Learning studio para fazer previsões sobre os dados no batch. Ver invocar um serviço web do Azure Machine Learning studio usando a seção de atividade de execução do Batch para obter detalhes.
+### <a name="data-factory-and-machine-learning-together"></a>Data Factory e Machine Learning em conjunto
+Azure Data Factory permite que você crie facilmente pipelines que usam um serviço Web publicado [Azure Machine Learning][azure-machine-learning] para análise preditiva. Usando a **atividade de execução em lote** em um pipeline Azure data Factory, você pode invocar um serviço web do Azure Machine Learning Studio para fazer previsões sobre os dados no lote. Consulte invocando um serviço Web Azure Machine Learning Studio usando a seção atividade de execução em lote para obter detalhes.
 
-Ao longo do tempo, os modelos preditivos no experiências de classificação do Azure Machine Learning studio necessário reestruturar utilizando conjuntos de dados de entrada novo. Pode voltar a preparar um modelo de studio do Azure Machine Learning a partir de um pipeline de fábrica de dados, efetuando os seguintes passos:
+Ao longo do tempo, os modelos de previsão no Azure Machine Learning Studio pontuando experimentos precisam ser retreinados usando novos conjuntos de dados de entrada. Você pode treinar novamente um modelo do Azure Machine Learning Studio de um pipeline de Data Factory executando as seguintes etapas:
 
-1. Publica a experimentação de preparação (experimentação preditiva não) como um serviço web. Efetue este passo no studio do Azure Machine Learning como fez para expor experimentação preditiva como um serviço web no cenário anterior.
-2. Utilize o atividade de execução de lote do Azure Machine Learning studio para invocar o serviço web para a experimentação de preparação. Basicamente, pode utilizar o Azure Machine Learning studio atividade de execução de lotes para invocar serviço web de formação e serviço web de pontuação.
+1. Publique o teste de treinamento (sem experimentos de previsão) como um serviço Web. Você faz essa etapa no Azure Machine Learning Studio como fez para expor o experimento de previsão como um serviço Web no cenário anterior.
+2. Use a atividade de execução em lote do Azure Machine Learning Studio para invocar o serviço Web para o teste de treinamento. Basicamente, você pode usar a atividade de execução em lote do Azure Machine Learning Studio para invocar o serviço Web de treinamento e o serviço Web de pontuação.
 
-Depois de terminar com reparametrização, atualizar o serviço web de pontuação (experimentação preditiva exposto como um serviço web) com o modelo treinado recentemente e com o **atualizar atividade de recursos do Azure Machine Learning studio**. Ver [atualizar modelos com a atividade de recursos de atualização](data-factory-azure-ml-update-resource-activity.md) artigo para obter detalhes.
+Depois de concluir o treinamento, atualize o serviço Web de Pontuação (teste de previsão exposto como um serviço Web) com o modelo treinado recentemente usando a atividade de **recurso de atualização do Azure Machine Learning Studio**. Veja [atualizando modelos usando o artigo atualizar atividade de recursos](data-factory-azure-ml-update-resource-activity.md) para obter detalhes.
 
-## <a name="invoking-a-web-service-using-batch-execution-activity"></a>Invocar um serviço web com a atividade de execução do Batch
-Utilizar o Azure Data Factory para orquestrar o movimento de dados e processamento e, em seguida, executar a execução de lote com o Azure Machine Learning. Eis os passos de nível superior:
+## <a name="invoking-a-web-service-using-batch-execution-activity"></a>Invocar um serviço Web usando a atividade de execução em lote
+Você usa Azure Data Factory para orquestrar a movimentação e o processamento de dados e, em seguida, executar a execução em lote usando Azure Machine Learning. Aqui estão as etapas de nível superior:
 
-1. Crie um serviço ligado do Azure Machine Learning. Terá dos seguintes valores:
+1. Crie um Azure Machine Learning serviço vinculado. Você precisa dos seguintes valores:
 
-   1. **URI do pedido** para a API de execução do Batch. Pode encontrar o URI do pedido ao clicar o **execução de lotes** link na página de serviços da web.
-   2. **Chave de API** para a publicação do Azure Machine Learning web service. Pode encontrar a chave de API ao clicar o serviço web que publicou.
-   3. Utilize o **AzureMLBatchExecution** atividade.
+   1. **URI de solicitação** para a API de execução em lote. Você pode encontrar o URI de solicitação clicando no link **execução em lote** na página serviços Web.
+   2. **Chave de API** para o serviço web do Azure Machine Learning publicado. Você pode encontrar a chave de API clicando no serviço Web que você publicou.
+   3. Use a atividade **AzureMLBatchExecution** .
 
-      ![Dashboard do Machine Learning](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
+      ![Painel do Machine Learning](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
 
-      ![URI do batch](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
+      ![URI do lote](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
 
-### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Cenário: Experimentações com o Web service entradas/saídas que se referem aos dados no armazenamento de Blobs do Azure
-Neste cenário, o serviço Web do Azure Machine Learning faz predições com dados a partir de um ficheiro num armazenamento de Blobs do Azure e armazena os resultados da predição no armazenamento de Blobs. O seguinte JSON define um pipeline do Data Factory com uma atividade de AzureMLBatchExecution. A atividade possui o conjunto de dados **DecisionTreeInputBlob** como entrada e **DecisionTreeResultBlob** como o resultado. O **DecisionTreeInputBlob** é passado como entrada para o serviço web utilizando o **webServiceInput** propriedade JSON. O **DecisionTreeResultBlob** é transmitido como uma saída para o serviço Web utilizando o **webServiceOutputs** propriedade JSON.
+### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Cenário: Experimentos usando entradas/saídas do serviço Web que se referem aos dados no armazenamento de BLOBs do Azure
+Nesse cenário, o serviço Web Azure Machine Learning faz previsões usando dados de um arquivo em um armazenamento de BLOBs do Azure e armazena os resultados da previsão no armazenamento de BLOBs. O JSON a seguir define um pipeline de Data Factory com uma atividade AzureMLBatchExecution. A atividade tem o conjunto de dados **DecisionTreeInputBlob** como entrada e **DecisionTreeResultBlob** como a saída. O **DecisionTreeInputBlob** é passado como uma entrada para o serviço Web usando a propriedade JSON **webServiceInput** . O **DecisionTreeResultBlob** é passado como uma saída para o serviço Web usando a propriedade JSON **webServiceOutputs** .
 
 > [!IMPORTANT]
-> Se o serviço web tem várias entradas, utilize o **webServiceInputs** propriedade em vez de usar **webServiceInput**. Consulte a [serviço Web requer várias entradas](#web-service-requires-multiple-inputs) secção para obter um exemplo de uso da propriedade webServiceInputs.
+> Se o serviço Web usa várias entradas, use a propriedade **webServiceInputs** em vez de usar **webServiceInput**. Consulte a seção [serviço Web requer várias entradas](#web-service-requires-multiple-inputs) para obter um exemplo de como usar a propriedade webServiceInputs.
 >
-> Conjuntos de dados que são referenciados pela **webServiceInput**/**webServiceInputs** e **webServiceOutputs** propriedades (no  **typeProperties**) também têm de ser incluídos na atividade **entradas** e **produz**.
+> Os conjuntos de resultados que são referenciados pelas propriedades **webServiceInput**/**webServiceInputs** e **webServiceOutputs** (em **typeproperties**) também devem ser incluídos nas **entradas** e **saídas**da atividade.
 >
-> Na sua experimentação do studio do Azure Machine Learning, entrada do serviço web e de portas de saída e de parâmetros globais têm nomes predefinidos ("input1", "input2") que pode personalizar. Os nomes que utiliza para definições de globalParameters, webServiceOutputs e webServiceInputs devem corresponder exatamente os nomes nas experimentações. Pode ver o payload de pedido de exemplo na página de ajuda de Execusão de Batch para o ponto final do Azure Machine Learning studio verificar o mapeamento esperado.
+> No experimento do Azure Machine Learning Studio, as portas de entrada e saída do serviço Web e os parâmetros globais têm nomes padrão ("entrada1", "entrada2") que você pode personalizar. Os nomes que você usa para as configurações webServiceInputs, webServiceOutputs e globalparameters devem corresponder exatamente aos nomes nos experimentos. Você pode exibir o conteúdo de solicitação de exemplo na página de ajuda de execução do lote para o ponto de extremidade do Azure Machine Learning Studio para verificar o mapeamento esperado.
 >
 >
 
@@ -130,16 +128,16 @@ Neste cenário, o serviço Web do Azure Machine Learning faz predições com dad
 }
 ```
 > [!NOTE]
-> Apenas entradas e saídas da atividade AzureMLBatchExecution podem ser passadas como parâmetros para o serviço Web. Por exemplo, no fragmento JSON acima, DecisionTreeInputBlob for uma entrada para a atividade de AzureMLBatchExecution, que é passada como entrada para o serviço Web via parâmetro webServiceInput.
+> Somente as entradas e saídas da atividade AzureMLBatchExecution podem ser passadas como parâmetros para o serviço Web. Por exemplo, no trecho JSON acima, DecisionTreeInputBlob é uma entrada para a atividade AzureMLBatchExecution, que é passada como uma entrada para o serviço Web por meio do parâmetro webServiceInput.
 >
 >
 
 ### <a name="example"></a>Exemplo
-Este exemplo utiliza o armazenamento do Azure para manter tanto os dados de entrada e saídos.
+Este exemplo usa o armazenamento do Azure para manter os dados de entrada e saída.
 
-Recomendamos que passe pela [criar seu primeiro pipeline com o Data Factory] [ adf-build-1st-pipeline] tutorial antes de realizar a este exemplo. Utilize o Editor do Data Factory para criar artefactos do Data Factory (serviços ligados, conjuntos de dados e pipeline) neste exemplo.
+Recomendamos que você passe pelo tutorial [criar seu primeiro pipeline com data Factory antes de][adf-build-1st-pipeline] passar por este exemplo. Use o editor de Data Factory para criar artefatos Data Factory (serviços vinculados, conjuntos de valores, Pipeline) neste exemplo.
 
-1. Criar uma **serviço ligado** para a sua **armazenamento do Azure**. Se os ficheiros de entrada e saídos estão nas contas de armazenamento diferente, terá dois serviços ligados. Eis um exemplo JSON:
+1. Crie um **serviço vinculado** para o **armazenamento do Azure**. Se os arquivos de entrada e saída estiverem em contas de armazenamento diferentes, você precisará de dois serviços vinculados. Aqui está um exemplo de JSON:
 
     ```JSON
     {
@@ -152,7 +150,7 @@ Recomendamos que passe pela [criar seu primeiro pipeline com o Data Factory] [ a
       }
     }
     ```
-2. Criar a **entrada** do Azure Data Factory **conjunto de dados**. Ao contrário de alguns outros Data Factory conjuntos de dados, estes conjuntos de dados tem de conter ambos **folderPath** e **fileName** valores. Pode usar a criação de partições para fazer com que cada execução de lotes (cada setor de dados) processar ou produzir entrada exclusiva e ficheiros de saída. Se pretender incluir alguma atividade a montante para transformar a entrada em formato de ficheiro CSV e colocá-lo na conta de armazenamento para cada setor. Nesse caso, não incluiria o **externo** e **externalData** definições mostradas no exemplo a seguir e seu DecisionTreeInputBlob seria o conjunto de dados de saída de uma atividade diferente.
+2. Crie o **conjunto**de dados de Azure data Factory de **entrada** . Ao contrário de alguns outros conjuntos de Data Factory, esses conjuntos de datadevem conter os valores **FolderPath** e **filename** . Você pode usar o particionamento para fazer com que cada execução em lotes (cada fatia de dados) processe ou produza arquivos de entrada e saída exclusivos. Talvez seja necessário incluir algumas atividades upstream para transformar a entrada no formato de arquivo CSV e colocá-la na conta de armazenamento para cada fatia. Nesse caso, você não incluirá as configurações de **externalData** e **externas** mostradas no exemplo a seguir, e seu DecisionTreeInputBlob seria o conjunto de resultados de saída de uma atividade diferente.
 
     ```JSON
     {
@@ -184,7 +182,7 @@ Recomendamos que passe pela [criar seu primeiro pipeline com o Data Factory] [ a
     }
     ```
 
-    O ficheiro csv de entrada tem de ter a linha de cabeçalho de coluna. Se estiver a utilizar o **atividade de cópia** para criar/mover o csv para o armazenamento de BLOBs, deve definir a propriedade de sink **blobWriterAddHeader** para **verdadeiro**. Por exemplo:
+    O arquivo CSV de entrada deve ter a linha de cabeçalho da coluna. Se você estiver usando a **atividade de cópia** para criar/mover o CSV para o armazenamento de BLOBs, defina a propriedade de coletor **blobWriterAddHeader** como **true**. Por exemplo:
 
     ```JSON
     sink:
@@ -194,8 +192,8 @@ Recomendamos que passe pela [criar seu primeiro pipeline com o Data Factory] [ a
     }
     ```
 
-    Se o ficheiro csv não tiver a linha de cabeçalho, poderá ver o erro seguinte: **Erro na atividade: Cadeia de leitura de erro. Token inesperado: StartObject. Caminho ', linha 1, posicionar 1**.
-3. Criar a **saída** do Azure Data Factory **conjunto de dados**. Este exemplo utiliza a criação de partições para criar um caminho de saída exclusivo para cada execução do setor. Sem a criação de partições, a atividade substituiria o ficheiro.
+    Se o arquivo CSV não tiver a linha de cabeçalho, você poderá ver o seguinte erro: **Erro na atividade: Erro ao ler a cadeia de caracteres. Token inesperado: StartObject. Caminho ' ', linha 1, posição 1**.
+3. Crie o **conjunto**de Azure data Factory de **saída** . Este exemplo usa o particionamento para criar um caminho de saída exclusivo para cada execução de fatia. Sem o particionamento, a atividade substituiria o arquivo.
 
     ```JSON
     {
@@ -236,7 +234,7 @@ Recomendamos que passe pela [criar seu primeiro pipeline com o Data Factory] [ a
       }
     }
     ```
-4. Criar uma **serviço ligado** do tipo: **AzureMLLinkedService**, fornecendo a chave de API e o URL da execução de batch de modelo.
+4. Criar um **serviço vinculado** do tipo: **AzureMLLinkedService**, fornecendo a chave de API e a URL de execução em lote de modelo.
 
     ```JSON
     {
@@ -250,14 +248,14 @@ Recomendamos que passe pela [criar seu primeiro pipeline com o Data Factory] [ a
       }
     }
     ```
-5. Por fim, criar um pipeline que contém um **AzureMLBatchExecution** atividade. No tempo de execução, o pipeline executa os seguintes passos:
+5. Por fim, crie um pipeline que contenha uma atividade **AzureMLBatchExecution** . Em tempo de execução, o pipeline executa as seguintes etapas:
 
-   1. Obtém a localização do ficheiro de entrada de seus conjuntos de dados de entrada.
-   2. Invoca a execução de lote do Azure Machine Learning API
-   3. Copia o resultado da execução de lote para o blob fornecido no seu conjunto de dados de saída.
+   1. Obtém o local do arquivo de entrada dos conjuntos de dados de entrada.
+   2. Invoca a API de execução de Azure Machine Learning lote
+   3. Copia a saída de execução em lotes para o blob fornecido em seu conjunto de dados de saída.
 
       > [!NOTE]
-      > Atividade de AzureMLBatchExecution pode ter zero ou mais entradas e saídas de um ou mais.
+      > A atividade AzureMLBatchExecution pode ter zero ou mais entradas e uma ou mais saídas.
       >
       >
 
@@ -303,24 +301,24 @@ Recomendamos que passe pela [criar seu primeiro pipeline com o Data Factory] [ a
       }
       ```
 
-      Ambos **começar** e **final** datetimes tem de estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O **final** tempo é opcional. Se não especificar valor para o **final** propriedade, esta é calculada como "**início + 48 horas.** " Para executar o pipeline de forma indefinida, especifique **9999-09-09** como o valor da propriedade **end**. Veja [Referência de Processamento de Scripts JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter mais detalhes sobre as propriedades de JSON.
+      Os DateTimes de **início** e **término** devem estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **término** é opcional. Se você não especificar o valor para a propriedade **end** , ele será calculado como "**Start + 48 hours".** Para executar o pipeline de forma indefinida, especifique **9999-09-09** como o valor da propriedade **end**. Veja [Referência de Processamento de Scripts JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter mais detalhes sobre as propriedades de JSON.
 
       > [!NOTE]
-      > Especificação de entrada para o AzureMLBatchExecution atividade é opcional.
+      > A especificação da entrada para a atividade AzureMLBatchExecution é opcional.
       >
       >
 
-### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Cenário: Utilização de módulos de Leitor/gravador para fazer referência aos dados em vários armazenamentos de experimentações
-Outro cenário comum ao criar experimentações do Azure Machine Learning studio consiste em utilizar o leitor e gravador de módulos. O módulo de leitor é utilizado para carregar dados para uma experimentação e o módulo de escritor é salvar dados a partir das suas experimentações. Para obter detalhes sobre o leitor e gravador de módulos, consulte [leitor](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [escritor](https://msdn.microsoft.com/library/azure/dn905984.aspx) tópicos na biblioteca MSDN.
+### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Cenário: Experimentos usando módulos de leitor/gravador para se referir a dados em vários armazenamentos
+Outro cenário comum na criação de experimentos Azure Machine Learning Studio é usar módulos de leitor e gravador. O módulo leitor é usado para carregar dados em um experimento e o módulo gravador é para salvar dados de seus experimentos. Para obter detalhes sobre os módulos de leitor e gravador, consulte os tópicos de [leitor](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [gravador](https://msdn.microsoft.com/library/azure/dn905984.aspx) na biblioteca MSDN.
 
-Ao utilizar os módulos do leitor e gravador, é recomendável usar um parâmetro de serviço da Web para cada propriedade estes módulos de Leitor/gravador. Estes parâmetros da web permitem-lhe configurar os valores durante o tempo de execução. Por exemplo, pode criar uma experimentação com um módulo leitor de que utiliza uma base de dados do SQL do Azure: XXX.database.windows.net. Depois de implementar o serviço web, que pretende permitir aos consumidores do serviço web especificar outro Azure SQL Server chamado YYY.database.windows.net. Pode utilizar um parâmetro de serviço da Web para permitir que este valor a ser configurado.
+Ao usar os módulos leitor e gravador, é uma boa prática usar um parâmetro de serviço Web para cada propriedade desses módulos de leitor/gravador. Esses parâmetros da Web permitem que você configure os valores durante o tempo de execução. Por exemplo, você pode criar um experimento com um módulo leitor que usa um banco de dados SQL do Azure: XXX.database.windows.net. Depois que o serviço Web for implantado, você deseja habilitar os consumidores do serviço Web para especificar outro SQL Server do Azure chamado YYY.database.windows.net. Você pode usar um parâmetro de serviço Web para permitir que esse valor seja configurado.
 
 > [!NOTE]
-> Entrada do serviço Web e de saída são diferentes dos parâmetros do serviço Web. O primeiro cenário, viu como uma entrada e saída podem ser especificados para um serviço Web do Azure Machine Learning studio. Neste cenário, transmita os parâmetros para um serviço Web que correspondem às propriedades dos módulos de Leitor/gravador.
+> A entrada e saída do serviço Web são diferentes dos parâmetros do serviço Web. No primeiro cenário, você viu como uma entrada e saída podem ser especificadas para um serviço Web Azure Machine Learning Studio. Nesse cenário, você passa parâmetros para um serviço Web que corresponde às propriedades de módulos de leitor/gravador.
 >
 >
 
-Vamos examinar um cenário de utilização de parâmetros do serviço Web. Tem um serviço de web do Azure Machine Learning implementado que utiliza um módulo de leitor para ler dados a partir de uma das origens de dados suportadas pelo Azure Machine Learning (por exemplo: Base de dados SQL do Azure). Após ter sido efetuada a execução de lote, os resultados são escritos usando um módulo de escritor (base de dados do Azure SQL).  Não existem entradas de serviço da web e as saídas são definidas nas experimentações. Neste caso, recomendamos que configure parâmetros de serviço da web relevantes para os módulos do leitor e gravador. Esta configuração permite que o Leitor/gravador módulos de ser configurada ao utilizar a atividade de AzureMLBatchExecution. Especificar parâmetros do serviço Web na **globalParameters** secção no JSON de atividade da seguinte forma.
+Vejamos um cenário para usar parâmetros de serviço Web. Você tem um serviço Web Azure Machine Learning implantado que usa um módulo leitor para ler dados de uma das fontes de dados com suporte no Azure Machine Learning (por exemplo: Banco de dados SQL do Azure). Depois que a execução do lote é executada, os resultados são gravados usando um módulo gravador (banco de dados SQL do Azure).  Nenhuma entrada e saída de serviço Web é definida nos experimentos. Nesse caso, recomendamos que você configure os parâmetros de serviço Web relevantes para os módulos leitor e gravador. Essa configuração permite que os módulos de leitor/gravador sejam configurados ao usar a atividade AzureMLBatchExecution. Você especifica parâmetros de serviço Web na seção globalparameters na atividade JSON da seguinte maneira.
 
 ```JSON
 "typeProperties": {
@@ -331,7 +329,7 @@ Vamos examinar um cenário de utilização de parâmetros do serviço Web. Tem u
 }
 ```
 
-Também pode utilizar [funções de fábrica de dados](data-factory-functions-variables.md) em transmitir os valores para a Web service parâmetros, como mostrado no exemplo a seguir:
+Você também pode usar [Data Factory funções](data-factory-functions-variables.md) na passagem de valores para os parâmetros do serviço Web, conforme mostrado no exemplo a seguir:
 
 ```JSON
 "typeProperties": {
@@ -342,19 +340,19 @@ Também pode utilizar [funções de fábrica de dados](data-factory-functions-va
 ```
 
 > [!NOTE]
-> Os parâmetros de serviço Web diferenciam maiúsculas de minúsculas, por isso, certifique-se de que os nomes que especificar na atividade JSON corresponder aos perfis expostos pelo serviço Web.
+> Os parâmetros de serviço Web diferenciam maiúsculas de minúsculas, portanto, certifique-se de que os nomes que você especificar na atividade JSON correspondam àqueles expostos pelo serviço Web.
 >
 >
 
-### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Utilizar um módulo de leitor para ler os dados de vários ficheiros no Blob do Azure
-Grandes volumes de dados, pipelines com atividades, tais como o Pig e Hive pode produzir um ou mais ficheiros de saída com nenhuma extensão. Por exemplo, quando especificar uma tabela do Hive externa, os dados de tabela do Hive externo podem ser armazenados no armazenamento de Blobs do Azure com o seguinte 000000_0 de nome. Pode utilizar o módulo de leitor numa experimentação para ler vários ficheiros e utilizá-los para previsões.
+### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Usando um módulo leitor para ler dados de vários arquivos no blob do Azure
+Pipelines de Big data com atividades como Pig e Hive podem produzir um ou mais arquivos de saída sem extensões. Por exemplo, quando você especifica uma tabela externa do hive, os dados da tabela externa do hive podem ser armazenados no armazenamento de BLOBs do Azure com o seguinte nome 000000_0. Você pode usar o módulo leitor em um experimento para ler vários arquivos e usá-los para previsões.
 
-Ao utilizar o módulo leitor de uma experimentação do Azure Machine Learning, pode especificar o Blob do Azure como entrada. Os ficheiros no armazenamento de Blobs do Azure podem ser os ficheiros de saída (exemplo: 000000_0) que são produzidos por um script Pig e Hive em execução no HDInsight. O módulo de leitor permite-lhe ler arquivos (com nenhuma extensão) ao configurar o **caminho para o contentor, blob/diretório**. O **caminho para o contentor** aponta para o contentor e **directory/blob** aponta para a pasta que contém os ficheiros, conforme mostrado na imagem seguinte. O asterisco ou seja, \*) **Especifica que todos os ficheiros na pasta/contentor (ou seja, aggregateddata/dados/ano = 2014/mês-6 /\*)** são de leitura como parte da experimentação.
+Ao usar o módulo leitor em um experimento Azure Machine Learning, você pode especificar o blob do Azure como uma entrada. Os arquivos no armazenamento de BLOBs do Azure podem ser os arquivos de saída (exemplo: 000000_0) que são produzidos por um script Pig e Hive em execução no HDInsight. O módulo leitor permite que você leia arquivos (sem extensões) configurando o **caminho para o contêiner, o diretório/blob**. O **caminho para o contêiner** aponta para o contêiner e o **diretório/blob** aponta para a pasta que contém os arquivos, conforme mostrado na imagem a seguir. O asterisco, \*) **especifica que todos os arquivos no contêiner/pasta (ou seja, data/aggregateddata/ano = 2014/month-6/\*)** são lidos como parte do experimento.
 
-![Propriedades do Blob do Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
+![Propriedades de blob do Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
 ### <a name="example"></a>Exemplo
-#### <a name="pipeline-with-azuremlbatchexecution-activity-with-web-service-parameters"></a>Pipeline com atividade AzureMLBatchExecution com parâmetros do serviço Web
+#### <a name="pipeline-with-azuremlbatchexecution-activity-with-web-service-parameters"></a>Pipeline com atividade AzureMLBatchExecution com parâmetros de serviço Web
 
 ```JSON
 {
@@ -404,16 +402,16 @@ Ao utilizar o módulo leitor de uma experimentação do Azure Machine Learning, 
 }
 ```
 
-No exemplo acima de JSON:
+No exemplo de JSON acima:
 
-* O serviço Azure Machine Learning Web implementado utiliza um leitor e um módulo de escritor de dados de/para uma base de dados do SQL do Azure de leitura/escrita. Esse Web service expõe os seguintes quatro parâmetros:  Nome do servidor de base de dados, nome de base de dados, nome de conta de utilizador do servidor e palavra-passe de conta de utilizador Server.
-* Ambos **começar** e **final** datetimes tem de estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O **final** tempo é opcional. Se não especificar valor para o **final** propriedade, esta é calculada como "**início + 48 horas.** " Para executar o pipeline de forma indefinida, especifique **9999-09-09** como o valor da propriedade **end**. Veja [Referência de Processamento de Scripts JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter mais detalhes sobre as propriedades de JSON.
+* O serviço Web Azure Machine Learning implantado usa um módulo leitor e gravador para ler/gravar dados de/para um banco de dado SQL do Azure. Este serviço Web expõe os quatro parâmetros a seguir:  Nome do servidor de banco de dados, nome do banco de dados, nome da conta de usuário do servidor e senha da conta de usuário
+* Os DateTimes de **início** e **término** devem estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **término** é opcional. Se você não especificar o valor para a propriedade **end** , ele será calculado como "**Start + 48 hours".** Para executar o pipeline de forma indefinida, especifique **9999-09-09** como o valor da propriedade **end**. Veja [Referência de Processamento de Scripts JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter mais detalhes sobre as propriedades de JSON.
 
 ### <a name="other-scenarios"></a>Outros cenários
-#### <a name="web-service-requires-multiple-inputs"></a>Serviço Web requer várias entradas
-Se o serviço web tem várias entradas, utilize o **webServiceInputs** propriedade em vez de usar **webServiceInput**. Conjuntos de dados que são referenciados pela **webServiceInputs** também têm de ser incluídos na atividade **entradas**.
+#### <a name="web-service-requires-multiple-inputs"></a>O serviço Web requer várias entradas
+Se o serviço Web usa várias entradas, use a propriedade **webServiceInputs** em vez de usar **webServiceInput**. Os conjuntos de valores que são referenciados pelo **webServiceInputs** também devem ser incluídos nas **entradas**da atividade.
 
-Na sua experimentação do studio do Azure Machine Learning, entrada do serviço web e de portas de saída e de parâmetros globais têm nomes predefinidos ("input1", "input2") que pode personalizar. Os nomes que utiliza para definições de globalParameters, webServiceOutputs e webServiceInputs devem corresponder exatamente os nomes nas experimentações. Pode ver o payload de pedido de exemplo na página de ajuda de Execusão de Batch para o ponto final do Azure Machine Learning studio verificar o mapeamento esperado.
+No experimento do Azure Machine Learning Studio, as portas de entrada e saída do serviço Web e os parâmetros globais têm nomes padrão ("entrada1", "entrada2") que você pode personalizar. Os nomes que você usa para as configurações webServiceInputs, webServiceOutputs e globalparameters devem corresponder exatamente aos nomes nos experimentos. Você pode exibir o conteúdo de solicitação de exemplo na página de ajuda de execução do lote para o ponto de extremidade do Azure Machine Learning Studio para verificar o mapeamento esperado.
 
 ```JSON
 {
@@ -455,8 +453,8 @@ Na sua experimentação do studio do Azure Machine Learning, entrada do serviço
 }
 ```
 
-#### <a name="web-service-does-not-require-an-input"></a>Serviço Web não requer uma entrada
-Serviços do Azure Machine Learning studio batch execução web podem ser utilizados para executar quaisquer fluxos de trabalho, para R ou Python scripts de exemplo, que não, requerer quaisquer entradas. Em alternativa, a experimentação pode ser configurada com um módulo de leitor não expõe qualquer GlobalParameters. Nesse caso, a atividade de AzureMLBatchExecution seria configurada da seguinte forma:
+#### <a name="web-service-does-not-require-an-input"></a>O serviço Web não requer uma entrada
+Os serviços Web de execução em lote do Azure Machine Learning Studio podem ser usados para executar qualquer fluxo de trabalho, por exemplo, scripts R ou Python, que podem não exigir entradas. Ou, o experimento pode ser configurado com um módulo leitor que não expõe Globalparameters. Nesse caso, a atividade AzureMLBatchExecution seria configurada da seguinte maneira:
 
 ```JSON
 {
@@ -482,8 +480,8 @@ Serviços do Azure Machine Learning studio batch execução web podem ser utiliz
 },
 ```
 
-#### <a name="web-service-does-not-require-an-inputoutput"></a>Serviço Web não requer uma entrada/saída
-O serviço web do Azure Machine Learning studio batch execução poderá não ter qualquer saída de serviço da Web configurada. Neste exemplo, não há nenhuma entrada do serviço Web ou de saída, nem qualquer GlobalParameters configurados. Ainda há uma saída configurada na própria atividade, mas não é fornecido como um webServiceOutput.
+#### <a name="web-service-does-not-require-an-inputoutput"></a>O serviço Web não requer uma entrada/saída
+O serviço Web de execução em lote do Azure Machine Learning Studio pode não ter nenhuma saída de serviço Web configurada. Neste exemplo, não há nenhuma entrada ou saída de serviço Web, nem os Globalparameters configurados. Ainda há uma saída configurada na própria atividade, mas ela não é fornecida como um webServiceOutput.
 
 ```JSON
 {
@@ -506,8 +504,8 @@ O serviço web do Azure Machine Learning studio batch execução poderá não te
 },
 ```
 
-#### <a name="web-service-uses-readers-and-writers-and-the-activity-runs-only-when-other-activities-have-succeeded"></a>Web Service utiliza leitores e gravadores e as execuções de atividade apenas quando outras atividades tiveram êxito
-Os Azure Machine Learning web service leitor e gravador de módulos do studio podem ser configurados para ser executado com ou sem qualquer GlobalParameters. No entanto, convém incorporar chamadas de serviço num pipeline que utiliza as dependências do conjunto de dados para invocar o serviço apenas quando algum processamento a montante foi concluída. Também pode acionar qualquer outra ação depois de concluída a execução de lote usando essa abordagem. Nesse caso, pode expressar as dependências com entradas de atividade e saídas, sem nomear qualquer um deles como serviço Web de entrada ou saída.
+#### <a name="web-service-uses-readers-and-writers-and-the-activity-runs-only-when-other-activities-have-succeeded"></a>O serviço Web usa leitores e gravadores e a atividade é executada somente quando outras atividades tiverem êxito
+Os módulos leitor e gravador do serviço Web Azure Machine Learning Studio podem ser configurados para serem executados com ou sem Globalparameters. No entanto, talvez você queira inserir chamadas de serviço em um pipeline que usa dependências de conjunto de serviços para invocar o serviço somente quando algum processamento upstream tiver sido concluído. Você também pode disparar alguma outra ação depois que a execução do lote for concluída usando essa abordagem. Nesse caso, você pode expressar as dependências usando entradas e saídas de atividade, sem nomeá-las como entradas ou saídas do serviço Web.
 
 ```JSON
 {
@@ -538,35 +536,35 @@ Os Azure Machine Learning web service leitor e gravador de módulos do studio po
 },
 ```
 
-O **pedidas** são:
+Os **argumentos** são:
 
-* Se o ponto final de experimentação utiliza um webServiceInput: ele é representado por um conjunto de dados do blob e está incluído nas entradas de atividade e a propriedade webServiceInput. Caso contrário, a propriedade webServiceInput for omitida.
-* Se o ponto de final de experimentação utilizar webServiceOutput(s): eles são representados por conjuntos de dados do blob e estão incluídos nas saídas de atividade e na propriedade webServiceOutputs. A atividade produz e webServiceOutputs são mapeados com o nome de cada resultado na experimentação. Caso contrário, a propriedade webServiceOutputs for omitida.
-* Se o ponto final de experimentação expõe globalParameter(s), eles são fornecidos na propriedade globalParameters atividade como chave, pares de valor. Caso contrário, a propriedade globalParameters for omitida. As chaves são maiúsculas e minúsculas. [As funções do Azure do Data Factory](data-factory-functions-variables.md) podem ser utilizados os valores.
-* Conjuntos de dados adicionais podem ser incluídos nas propriedades de entradas e saídas de atividade, sem a ser referenciado em typeProperties a atividade. Estes conjuntos de dados regulam a utilização das dependências do setor de execução, mas, caso contrário, são ignorados pela atividade AzureMLBatchExecution.
+* Se o seu ponto de extremidade de experimento usa um webServiceInput: ele é representado por um conjunto de informações de BLOB e é incluído nas entradas de atividade e na propriedade webServiceInput. Caso contrário, a propriedade webServiceInput será omitida.
+* Se seu ponto de extremidade de experimento usa webServiceOutput (s): eles são representados por conjuntos de BLOBs e são incluídos nas saídas de atividade e na propriedade webServiceOutputs. As saídas de atividade e webServiceOutputs são mapeadas pelo nome de cada saída no experimento. Caso contrário, a propriedade webServiceOutputs será omitida.
+* Se o ponto de extremidade do experimento expõe globalParameter (s), eles são fornecidos na propriedade globalparameters da atividade como pares chave, valor. Caso contrário, a propriedade globalparameters será omitida. As chaves diferenciam maiúsculas de minúsculas. [Azure data Factory funções](data-factory-functions-variables.md) podem ser usadas nos valores.
+* Os conjuntos de resultados adicionais podem ser incluídos nas propriedades de entradas e saídas da atividade, sem ser referenciado no tipo de Atividadeproperties. Esses conjuntos de valores controlam a execução usando dependências de fatias, mas são ignorados pela atividade AzureMLBatchExecution.
 
 
-## <a name="updating-models-using-update-resource-activity"></a>Atualizar Modelos com a atividade de recursos de atualização
-Depois de terminar com reparametrização, atualizar o serviço web de pontuação (experimentação preditiva exposto como um serviço web) com o modelo treinado recentemente e com o **atualizar atividade de recursos do Azure Machine Learning studio**. Ver [atualizar modelos com a atividade de recursos de atualização](data-factory-azure-ml-update-resource-activity.md) artigo para obter detalhes.
+## <a name="updating-models-using-update-resource-activity"></a>Atualizando modelos usando a atividade atualizar recurso
+Depois de concluir o treinamento, atualize o serviço Web de Pontuação (teste de previsão exposto como um serviço Web) com o modelo treinado recentemente usando a atividade de **recurso de atualização do Azure Machine Learning Studio**. Veja [atualizando modelos usando o artigo atualizar atividade de recursos](data-factory-azure-ml-update-resource-activity.md) para obter detalhes.
 
-### <a name="reader-and-writer-modules"></a>Leitor e gravador de módulos
-Um cenário comum para a utilização de parâmetros do serviço Web é a utilização do Azure SQL leitores e gravadores. O módulo de leitor é utilizado para carregar dados para uma experimentação dos serviços de gestão de dados fora do Azure Machine Learning Studio. O módulo de escritor é salvar dados a partir das suas experimentações para os serviços de gestão de dados fora do Azure Machine Learning Studio.
+### <a name="reader-and-writer-modules"></a>Módulos de leitor e gravador
+Um cenário comum para usar parâmetros de serviço Web é o uso de leitores e gravadores SQL do Azure. O módulo leitor é usado para carregar dados em um experimento de serviços de gerenciamento de dados fora Azure Machine Learning Studio. O módulo gravador é para salvar dados de suas experiências em serviços de gerenciamento de dados fora Azure Machine Learning Studio.
 
-Para obter detalhes sobre SQL do Blob/Azure do Azure. o Leitor/gravador, consulte [leitor](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [escritor](https://msdn.microsoft.com/library/azure/dn905984.aspx) tópicos na biblioteca MSDN. O exemplo na secção anterior utilizou o leitor de Blobs do Azure e o gravador de Blobs do Azure. Esta secção aborda o uso do leitor de SQL do Azure e gravador de SQL do Azure.
+Para obter detalhes sobre o Azure Blob/leitor/gravador SQL do Azure, consulte os tópicos de [leitor](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [gravador](https://msdn.microsoft.com/library/azure/dn905984.aspx) na biblioteca MSDN. O exemplo na seção anterior usou o leitor de blob do Azure e o gravador de blob do Azure. Esta seção aborda o uso do leitor do SQL Azure e do gravador do SQL do Azure.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
-**P:** Posso ter vários arquivos que são gerados pelo meu pipelines de macrodados. Pode utilizar a atividade de AzureMLBatchExecution funcione em todos os ficheiros?
+**P:** Tenho vários arquivos que são gerados por meus pipelines de Big Data. Posso usar a atividade AzureMLBatchExecution para trabalhar em todos os arquivos?
 
-**R:** Sim. Consulte a **utilização de um módulo de leitor para ler os dados de vários ficheiros no Blob do Azure** secção para obter detalhes.
+**R:** Sim. Consulte a seção **usando um módulo leitor para ler dados de vários arquivos no blob do Azure** para obter detalhes.
 
-## <a name="azure-machine-learning-studio-batch-scoring-activity"></a>O Azure Machine Learning studio atividade de classificação de Batch
-Se estiver a utilizar o **AzureMLBatchScoring** atividade para integrar com o Azure Machine Learning, recomendamos que utilize a versão mais recente **AzureMLBatchExecution** atividade.
+## <a name="azure-machine-learning-studio-batch-scoring-activity"></a>Atividade de Pontuação de lote do Azure Machine Learning Studio
+Se você estiver usando a atividade **AzureMLBatchScoring** para integrar com Azure Machine Learning, recomendamos que você use a atividade de **AzureMLBatchExecution** mais recente.
 
-A atividade de AzureMLBatchExecution é introduzida na versão de Agosto de 2015 do SDK do Azure e o Azure PowerShell.
+A atividade AzureMLBatchExecution é introduzida na versão de agosto de 2015 do SDK do Azure e Azure PowerShell.
 
-Se pretender continuar a utilizar a atividade de AzureMLBatchScoring, continue lendo esta secção.
+Se você quiser continuar usando a atividade AzureMLBatchScoring, continue lendo esta seção.
 
-### <a name="azure-machine-learning-studio-batch-scoring-activity-using-azure-storage-for-inputoutput"></a>O Azure Machine Learning studio atividade de classificação de lote de mensagens em fila com o armazenamento do Azure para a entrada/saída
+### <a name="azure-machine-learning-studio-batch-scoring-activity-using-azure-storage-for-inputoutput"></a>Atividade de Pontuação de lote do Azure Machine Learning Studio usando o armazenamento do Azure para entrada/saída
 
 ```JSON
 {
@@ -603,8 +601,8 @@ Se pretender continuar a utilizar a atividade de AzureMLBatchScoring, continue l
 }
 ```
 
-### <a name="web-service-parameters"></a>Parâmetros do serviço Web
-Para especificar valores para parâmetros do serviço Web, adicione uma **typeProperties** secção para o **AzureMLBatchScoringActivity** secção no pipeline JSON, conforme mostrado no exemplo a seguir:
+### <a name="web-service-parameters"></a>Parâmetros de serviço Web
+Para especificar valores para parâmetros de serviço Web, adicione uma seção typeproperties à seção **AZUREMLBATCHSCORINGACTIVITY** no pipeline JSON, conforme mostrado no exemplo a seguir:
 
 ```JSON
 "typeProperties": {
@@ -614,7 +612,7 @@ Para especificar valores para parâmetros do serviço Web, adicione uma **typePr
     }
 }
 ```
-Também pode utilizar [funções de fábrica de dados](data-factory-functions-variables.md) em transmitir os valores para a Web service parâmetros, como mostrado no exemplo a seguir:
+Você também pode usar [Data Factory funções](data-factory-functions-variables.md) na passagem de valores para os parâmetros do serviço Web, conforme mostrado no exemplo a seguir:
 
 ```JSON
 "typeProperties": {
@@ -625,12 +623,12 @@ Também pode utilizar [funções de fábrica de dados](data-factory-functions-va
 ```
 
 > [!NOTE]
-> Os parâmetros de serviço Web diferenciam maiúsculas de minúsculas, por isso, certifique-se de que os nomes que especificar na atividade JSON corresponder aos perfis expostos pelo serviço Web.
+> Os parâmetros de serviço Web diferenciam maiúsculas de minúsculas, portanto, certifique-se de que os nomes que você especificar na atividade JSON correspondam àqueles expostos pelo serviço Web.
 >
 >
 
 ## <a name="see-also"></a>Consultar Também
-* [Mensagem de blogue do Azure: Introdução ao Azure Data Factory e o Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
+* [Postagem no blog do Azure: Introdução ao Azure Data Factory e Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 

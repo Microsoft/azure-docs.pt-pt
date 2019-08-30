@@ -1,39 +1,39 @@
 ---
-title: Implementar contentores com Helm no Kubernetes no Azure
-description: Saiba como utilizar a ferramenta de empacotamento do Helm para implementar contentores num cluster do Azure Kubernetes Service (AKS)
+title: Implantar contêineres com Helm no kubernetes no Azure
+description: Saiba como usar a ferramenta de empacotamento Helm para implantar contêineres em um cluster do AKS (serviço kubernetes do Azure)
 services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: zarhoads
-ms.openlocfilehash: 76a5391cbe142851d9b1f60ea9346af2e7a35d6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27d557ab12093223450fd7bc1b88c68e1f156947
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66392148"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135507"
 ---
-# <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalar aplicações com Helm no Azure Kubernetes Service (AKS)
+# <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalar aplicativos com o Helm no AKS (serviço kubernetes do Azure)
 
-[Helm] [ helm] é uma ferramenta de empacotamento de código-fonte aberto que ajuda a instalar e gerenciar o ciclo de vida de aplicações do Kubernetes. Semelhante a gestores de pacotes do Linux, como *APT* e *Yum*, Helm é utilizado para gerir gráficos de Kubernetes, que são pacotes de recursos do Kubernetes pré-configurada.
+O [Helm][helm] é uma ferramenta de empacotamento de software livre que ajuda você a instalar e gerenciar o ciclo de vida de aplicativos kubernetes. Assim como os gerenciadores de pacotes do Linux, como *apt* e *yum*, o Helm é usado para gerenciar os gráficos do kubernetes, que são pacotes de recursos kubernetes pré-configurados.
 
-Este artigo mostra-lhe como configurar e utilizar o Helm num cluster do Kubernetes no AKS.
+Este artigo mostra como configurar e usar o Helm em um cluster kubernetes no AKS.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo pressupõe que tem um cluster do AKS existente. Se precisar de um cluster do AKS, consulte o guia de introdução do AKS [com a CLI do Azure] [ aks-quickstart-cli] ou [no portal do Azure][aks-quickstart-portal].
+Este artigo pressupõe que você tenha um cluster AKS existente. Se você precisar de um cluster AKS, consulte o guia de início rápido do AKS [usando o CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
 
-Também tem a CLI do Helm instalado, que é o cliente que é executado no sistema de desenvolvimento. Permite-lhe iniciar, parar e gerir aplicações com Helm. Se utilizar o Azure Cloud Shell, o Helm CLI já está instalado. Para obter instruções de instalação na sua plataforma de local, veja [instalar o Helm][helm-install].
+Você também precisa da CLI do Helm instalada, que é o cliente que é executado no seu sistema de desenvolvimento. Ele permite que você inicie, pare e gerencie aplicativos com o Helm. Se você usar o Azure Cloud Shell, a CLI do Helm já estará instalada. Para obter instruções de instalação em sua plataforma local, consulte Instalando o [Helm][helm-install].
 
 > [!IMPORTANT]
-> Helm destina-se para ser executado em nós do Linux. Se tiver nós do Windows Server no seu cluster, certifique-se de que os Helm pods apenas estão agendados para serem executadas em nós do Linux. Também tem de garantir que quaisquer gráficos do Helm que instalar também estão agendados para execução em nós de corretos. Os comandos neste artigo utilizam [seletores de nó] [ k8s-node-selector] para se certificar-se de que pods são agendadas para os nós corretos, mas nem todos os gráficos do Helm podem expor um Seletor de nó. Também pode considerar utilizar outras opções no seu cluster, tal como [taints][taints].
+> O Helm destina-se a ser executado em nós do Linux. Se você tiver nós do Windows Server em seu cluster, deverá garantir que Helm pods sejam agendadas apenas para execução em nós do Linux. Você também precisa garantir que todos os gráficos do Helm instalados também estejam agendados para execução nos nós corretos. Os comandos neste artigo usam seletores de [nó][k8s-node-selector] para garantir que os pods estejam agendados para os nós corretos, mas nem todos os gráficos Helm podem expor um seletor de nó. Você também pode considerar o uso de outras opções em seu cluster, [][taints]como os seus contras.
 
 ## <a name="create-a-service-account"></a>Criar uma conta de serviço
 
-Antes de poder implementar Helm num cluster do AKS habilitados no RBAC, terá uma conta de serviço e o enlace de função para o serviço de Tiller. Para obter mais informações sobre como proteger o Helm / Tiller num RBAC ativado o cluster, consulte [Tiller, espaços de nomes e RBAC][tiller-rbac]. Se o cluster do AKS não for RBAC ativada, ignore este passo.
+Antes de implantar o Helm em um cluster AKS habilitado para RBAC, você precisa de uma conta de serviço e uma associação de função para o serviço da gaveta. Para obter mais informações sobre como proteger o Helm/gaveta em um cluster habilitado para RBAC, consulte o [gaveta, namespaces e RBAC][tiller-rbac]. Se o cluster AKS não estiver habilitado para RBAC, ignore esta etapa.
 
-Crie um ficheiro denominado `helm-rbac.yaml` e copie o YAML seguinte:
+Crie um arquivo chamado `helm-rbac.yaml` e copie o seguinte YAML:
 
 ```yaml
 apiVersion: v1
@@ -56,27 +56,27 @@ subjects:
     namespace: kube-system
 ```
 
-Criar a conta de serviço e a associação de função com o `kubectl apply` comando:
+Crie a conta de serviço e a associação de `kubectl apply` função com o comando:
 
 ```console
 kubectl apply -f helm-rbac.yaml
 ```
 
-## <a name="secure-tiller-and-helm"></a>Proteger Tiller e Helm
+## <a name="secure-tiller-and-helm"></a>Proteger o gaveta e o Helm
 
-O cliente do Helm e o serviço de Tiller autenticarem e se comunicar entre si através de TLS/SSL. Este método de autenticação ajuda a proteger o cluster de Kubernetes e que serviços podem ser implementados. Para melhorar a segurança, pode gerar seus próprios certificados assinados. Cada utilizador Helm receberia seu próprio certificado de cliente e Tiller seria possível inicializar no cluster de Kubernetes com certificados aplicados. Para obter mais informações, consulte [utilizando TLS/SSL entre o Helm e Tiller][helm-ssl].
+O cliente Helm e o serviço de gaveta se autenticam e se comunicam entre si usando TLS/SSL. Esse método de autenticação ajuda a proteger o cluster kubernetes e quais serviços podem ser implantados. Para melhorar a segurança, você pode gerar seus próprios certificados assinados. Cada usuário Helm receberia seu próprio certificado de cliente, e o gaveta seria inicializado no cluster kubernetes com certificados aplicados. Para obter mais informações, consulte [usando TLS/SSL entre Helm e o gaveta][helm-ssl].
 
-Com um cluster de Kubernetes habilitados no RBAC, pode controlar o nível de acesso que tem de Tiller no cluster. Pode definir o espaço de nomes do Kubernetes que o Tiller está implementado na e restringir os espaços de nomes Tiller, em seguida, pode implementar recursos no. Esta abordagem permite-lhe criar instâncias de Tiller em diferentes namespaces e limites de implementação de limite e definir o âmbito os utilizadores do cliente do Helm para determinados espaços de nomes. Para obter mais informações, consulte [executar Helm controlos de acesso baseado em funções][helm-rbac].
+Com um cluster kubernetes habilitado para RBAC, você pode controlar o nível de acesso que o tem ao cluster. Você pode definir o namespace kubernetes no qual o gaveta está implantado e restringir em quais namespaces o gaveta pode implantar recursos. Essa abordagem permite criar instâncias do gaveta em namespaces diferentes e limitar os limites de implantação e o escopo dos usuários do Helm Client para determinados namespaces. Para obter mais informações, consulte [controles de acesso baseado em função do Helm][helm-rbac].
 
 ## <a name="configure-helm"></a>Configurar o Helm
 
-Para implementar um Tiller básico para um cluster do AKS, utilize o [helm init] [ helm-init] comando. Se o cluster não for RBAC ativada, remova o `--service-account` argumento e o valor. Se tiver configurado o TLS/SSL para Tiller e Helm, ignore este passo de inicialização básico e em vez disso, forneça o necessário `--tiller-tls-` conforme mostrado no exemplo seguinte.
+Para implantar um gaveta básico em um cluster AKS, use o comando [init Helm][helm-init] . Se o cluster não estiver habilitado para RBAC, remova `--service-account` o argumento e o valor. Se você configurou o TLS/SSL para o gaveta e o Helm, pule essa etapa básica de inicialização e `--tiller-tls-` forneça o necessário, conforme mostrado no exemplo a seguir.
 
 ```console
-helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
+helm init --service-account tiller --node-selectors "beta.kubernetes.io/os=linux"
 ```
 
-Se configurou o TLS/SSL entre o Helm e Tiller fornecem o `--tiller-tls-*` parâmetros e os nomes dos seus próprios certificados, conforme mostrado no exemplo a seguir:
+Se você configurou o TLS/SSL entre o Helm e o `--tiller-tls-*` gaveta, forneça os parâmetros e os nomes dos seus próprios certificados, conforme mostrado no exemplo a seguir:
 
 ```console
 helm init \
@@ -89,15 +89,15 @@ helm init \
     --node-selectors "beta.kubernetes.io/os"="linux"
 ```
 
-## <a name="find-helm-charts"></a>Encontrar gráficos Helm
+## <a name="find-helm-charts"></a>Localizar gráficos do Helm
 
-Gráficos Helm são utilizados para implementar aplicações num cluster do Kubernetes. Para pesquisar por gráficos do Helm previamente criados, utilize o [pesquisa helm] [ helm-search] comando:
+Os gráficos Helm são usados para implantar aplicativos em um cluster kubernetes. Para pesquisar gráficos Helm criados previamente, use o comando [Helm Search][helm-search] :
 
 ```console
 helm search
 ```
 
-O resultado de exemplo condensado seguinte mostra alguns dos gráficos Helm disponíveis para utilização:
+A seguinte saída de exemplo condensada mostra alguns dos gráficos Helm disponíveis para uso:
 
 ```
 $ helm search
@@ -132,7 +132,7 @@ stable/datadog                 0.18.0           6.3.0        DataDog Agent
 ...
 ```
 
-Para atualizar a lista de gráficos, utilize o [atualização de repositório helm] [ helm-repo-update] comando. O exemplo seguinte mostra uma atualização do repositório com êxito:
+Para atualizar a lista de gráficos, use o comando de [atualização do repositório Helm][helm-repo-update] . O exemplo a seguir mostra uma atualização de repositório bem-sucedida:
 
 ```console
 $ helm repo update
@@ -143,9 +143,9 @@ Hold tight while we grab the latest from your chart repositories...
 Update Complete. ⎈ Happy Helming!⎈
 ```
 
-## <a name="run-helm-charts"></a>Executar gráficos Helm
+## <a name="run-helm-charts"></a>Executar gráficos do Helm
 
-Para instalar os gráficos com Helm, utilize o [helm install] [ helm-install] de comando e especifique o nome do gráfico para instalar. Para ver a instalação de um gráfico do Helm em ação, vamos instalar uma implementação de nginx básico com um gráfico Helm. Se tiver configurado o TLS/SSL, adicione o `--tls` parâmetro a utilizar o certificado de cliente do Helm.
+Para instalar gráficos com o Helm, use o comando de [instalação do Helm][helm-install] e especifique o nome do gráfico a ser instalado. Para ver a instalação de um gráfico do Helm em ação, vamos instalar uma implantação básica do Nginx usando um gráfico do Helm. Se você configurou o TLS/SSL, `--tls` adicione o parâmetro para usar seu certificado de cliente do Helm.
 
 ```console
 helm install stable/nginx-ingress \
@@ -153,7 +153,7 @@ helm install stable/nginx-ingress \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-O resultado de exemplo condensado seguinte mostra o estado de implementação dos recursos do Kubernetes criados pelo gráfico Helm:
+A seguinte saída de exemplo condensada mostra o status de implantação dos recursos de kubernetes criados pelo gráfico Helm:
 
 ```
 $ helm install stable/nginx-ingress --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
@@ -180,11 +180,11 @@ flailing-alpaca-nginx-ingress-default-backend  ClusterIP     10.0.44.97  <none> 
 ...
 ```
 
-Demora um minuto ou dois para o *EXTERNAL-IP* endereço do serviço de controlador de entradas de nginx para ser preenchido e permitem-lhe aceder ao mesmo com um navegador da web.
+Leva um minuto ou dois para o endereço *IP externo* do serviço Nginx-ingress-Controller a ser populado e permitir que você o acesse com um navegador da Web.
 
-## <a name="list-helm-releases"></a>Lista de versões do Helm
+## <a name="list-helm-releases"></a>Listar versões do Helm
 
-Para ver uma lista das versões instaladas no seu cluster, utilize o [o comando helm list] [ helm-list] comando. O exemplo seguinte mostra a versão de entrada do nginx implementada no passo anterior. Se tiver configurado o TLS/SSL, adicione o `--tls` parâmetro a utilizar o certificado de cliente do Helm.
+Para ver uma lista de versões instaladas no cluster, use o comando [Helm List][helm-list] . O exemplo a seguir mostra a versão Nginx-ingress implantada na etapa anterior. Se você configurou o TLS/SSL, `--tls` adicione o parâmetro para usar seu certificado de cliente do Helm.
 
 ```console
 $ helm list
@@ -195,7 +195,7 @@ flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingres
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando implementa um gráfico Helm, um número de recursos do Kubernetes é criado. Esses recursos incluem pods, implementações e serviços. Para limpar esses recursos, utilize o `helm delete` comando e especifique o nome do seu lançamento, como encontrada no anterior `helm list` comando. O exemplo seguinte elimina a versão com o nome *flailing alpaca*:
+Quando você implanta um gráfico do Helm, vários recursos do kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, use o `helm delete` comando e especifique o nome da versão, conforme encontrado no comando anterior. `helm list` O exemplo a seguir exclui a versão chamada *flailing-alpaca*:
 
 ```console
 $ helm delete flailing-alpaca
@@ -205,7 +205,7 @@ release "flailing-alpaca" deleted
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre como gerir implementações de aplicações do Kubernetes com Helm, consulte a documentação do Helm.
+Para obter mais informações sobre como gerenciar implantações de aplicativos kubernetes com o Helm, consulte a documentação do Helm.
 
 > [!div class="nextstepaction"]
 > [Documentação do Helm][helm-documentation]

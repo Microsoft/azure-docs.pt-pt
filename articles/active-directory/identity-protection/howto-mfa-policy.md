@@ -11,12 +11,12 @@ manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27ff7512bb3f9422ed4c8edd7ab50fce23f0ed07
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 939f08fd16cf27e641cf6436a00396ad2db8e6c3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499552"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126394"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Como: Configurar a política de registro da autenticação multifator do Azure
 
@@ -31,7 +31,7 @@ A autenticação multifator do Azure fornece um meio de verificar quem você est
 Recomendamos que você exija a autenticação multifator do Azure para entradas de usuário porque:
 
 - Fornece autenticação forte com uma variedade de opções de verificação fáceis
-- Desempenha um papel fundamental na preparação de sua organização para proteger e recuperar-se de eventos de risco no Identity Protection
+- Desempenha um papel fundamental na preparação de sua organização para proteger e recuperar-se das detecções de risco no Identity Protection
 
 Para obter mais detalhes sobre o MFA, consulte [o que é a autenticação multifator do Azure?](../authentication/howto-mfa-getstarted.md)
 

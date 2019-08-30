@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 1c102d05d4c570f9415fad18c004847de11d50cc
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: e58e33efebfe372bd5cacc45f0a8045cec18878d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035710"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135048"
 ---
 ::: zone target="chromeless"
 
-# <a name="return-azure-data-box-disk"></a>Disco do Azure Data Box de retorno 
+## <a name="return-azure-data-box-disk"></a>Disco do Azure Data Box de retorno 
 
 ::: zone-end
 
@@ -49,22 +49,9 @@ Antes de começar, verifique se você concluiu o [tutorial: Copie dados para Dis
     - É recomendável que você empacote os discos usando um encapsulamento bolha bem protegido.
     - Certifique-se de que o ajuste esteja ajustado para reduzir os movimentos na caixa.
 
-As próximas etapas são determinadas por onde você está retornando o dispositivo.
+As próximas etapas são determinadas por onde você está retornando o dispositivo. As instruções são diferentes para nós/Canadá, Austrália ou países na Ásia.
 
-
-
-- [Agende uma retirada com UPS se retornar o dispositivo nos EUA e no Canadá](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
-- [Agende uma retirada com a DHL para a Europa](data-box-disk-deploy-picked-up.md#pick-up-in-europe) visitando seu site e especificando o número de Bill aéreo.
-- [Agendar uma retirada na Austrália](data-box-disk-deploy-picked-up.md#pick-up-in-australia).
-- [Agende uma retirada para países na Ásia](data-box-disk-deploy-picked-up.md#pick-up-in-asia) , como Japão, Coreia e Cingapura.
-
-::: zone target="chromeless"
-
-Depois que os discos são coletados pela sua operadora, o status do pedido no portal é atualizado e uma ID de rastreamento é exibida.
-
-::: zone-end
-
-## <a name="pick-up-in-us-canada"></a>Escolha nos EUA, Canadá
+### <a name="pick-up-in-us-canada"></a>Escolha nos EUA, Canadá
 
 Execute as etapas a seguir se retornar o dispositivo nos EUA ou no Canadá.
 
@@ -80,7 +67,7 @@ Execute as etapas a seguir se retornar o dispositivo nos EUA ou no Canadá.
     - Se o número de rastreamento não estiver entre aspas, o UPS exigirá que você pague um encargo adicional durante a retirada.
     - Em vez de agendar a retirada, você também pode remover o Disco do Data Box no local de distribuição mais próximo.
 
-## <a name="pick-up-in-europe"></a>Escolha na Europa
+### <a name="pick-up-in-europe"></a>Escolha na Europa
 
 Execute as etapas a seguir se retornar o dispositivo na Europa.
 
@@ -93,7 +80,7 @@ Execute as etapas a seguir se retornar o dispositivo na Europa.
 4. Vá para o site país/região DHL Express e escolha **agendar uma coleção do Courier > remessa do eReturn**.    
 3. Especifique o número de carta de porte aéreo e clique em **Schedule Pickup (Agendar Recolha)** para marcar uma recolha.
 
-## <a name="pick-up-in-australia"></a>Escolha na Austrália
+### <a name="pick-up-in-australia"></a>Escolha na Austrália
 
 Os data centers do Azure na Austrália têm uma notificação de segurança adicional. Todas as remessas de entrada devem ter uma notificação avançada. Execute as etapas a seguir para a retirada na Austrália.
 
@@ -104,11 +91,11 @@ Os data centers do Azure na Austrália têm uma notificação de segurança adic
     - Endereço
     - Nome do contacto
 
-## <a name="pick-up-in-asia"></a>Escolha na Ásia
+### <a name="pick-up-in-asia"></a>Escolha na Ásia
 
 As instruções de retirada são diferentes para o Japão, a Coreia e a Cingapura.
 
-### <a name="pick-up-in-japan"></a>Escolha no Japão
+#### <a name="pick-up-in-japan"></a>Escolha no Japão
 
 1. Grave as informações de nome e endereço da sua empresa na nota de consignação como as informações do remetente.
 2. Envie uma solução de Quantium de email usando o modelo de email a seguir.
@@ -135,7 +122,7 @@ Se necessário, você pode entrar em contato com o suporte da solução Quantium
 - Email:Customerservice.JP@quantiumsolutions.com 
 - Telefone: 03-5755-0150 
 
-### <a name="pick-up-in-korea"></a>Escolha na Coreia
+#### <a name="pick-up-in-korea"></a>Escolha na Coreia
 
 1. Certifique-se de incluir a nota de consignação de retorno.
 2. Para solicitar retirada quando a nota de consignação estiver presente:
@@ -149,13 +136,10 @@ Se necessário, você pode entrar em contato com o suporte da solução Quantium
     3. Se a Courier não chegar à coleta, chame a linha direta do *Quantium Solutions International* para obter as disposições alternativas. 
     4. Você receberá uma confirmação verbal se a solicitação for feita por telefone.
 
-### <a name="pick-up-in-singapore"></a>Escolha em Cingapura
+#### <a name="pick-up-in-singapore"></a>Escolha em Cingapura
 
 1. Imprima o rótulo de remessa e anexe na caixa. Se o rótulo estiver danificado ou perdido:
     - Acesse **visão geral > baixar o rótulo de envio** e obter um rótulo de envio de devolução.
-
-        ![Transferir etiqueta de envio](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
-
     - Afixar o rótulo no dispositivo. Verifique se o rótulo está visível.
 
 2. Para solicitar retirada:

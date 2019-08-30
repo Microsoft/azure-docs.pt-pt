@@ -7,22 +7,22 @@ author: luiscabrer
 ms.service: search
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/28/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 8cf72ba2fff65cf3382344fd2851c9c6027676c2
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 2bdb65355f835eec232efd4f0493ecefbecfdd26
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635872"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128197"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Habilidade cognitiva de análise de imagem
 
 A habilidade de **análise de imagem** extrai um conjunto avançado de recursos visuais com base no conteúdo da imagem. Por exemplo, você pode gerar uma legenda de uma imagem, gerar marcas ou identificar celebridades e pontos de referência. Essa habilidade usa os modelos de aprendizado de máquina fornecidos pelo [Pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) em serviços cognitivas. 
 
 > [!NOTE]
-> Ao expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de ia, você precisará [anexar um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Search. Não há encargos para a extração de texto de documentos.
+> Volumes pequenos (menos de 20 transações) podem ser executados gratuitamente em Azure Search, mas cargas de trabalho maiores exigem [a anexação de um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Search. Não há encargos para a extração de texto de documentos.
 >
 > A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
@@ -37,9 +37,8 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | defaultLanguageCode   |  Uma cadeia de caracteres que indica o idioma a ser retornado. O serviço retorna resultados de reconhecimento em um idioma especificado. Se esse parâmetro não for especificado, o valor padrão será "en". <br/><br/>Os idiomas com suporte são: <br/>*en* -inglês (padrão) <br/> *zh* -chinês simplificado|
-|visualFeatures |   Uma matriz de cadeias de caracteres que indica os tipos de recursos visuais a serem retornados. Os tipos de recursos visuais válidos incluem:  <ul><li> *categorias* – categoriza o conteúdo da imagem de acordo com uma taxonomia definida na [documentação](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)de serviços cognitivas.</li><li> *marcas* – marca a imagem com uma lista detalhada de palavras relacionadas ao conteúdo da imagem.</li><li>*Descrição* -descreve o conteúdo da imagem com uma frase do inglês completa.</li><li>*faces* – detecta se há faces presentes. Se presente, gera coordenadas, sexo e idade.</li><li> *ImageType* – detecta se a imagem é uma clip-art ou um desenho de linha.</li><li>  *cor* -determina a cor de destaque, a cor dominante e se uma imagem é preta & branca.</li><li>*adulto* – detecta se a imagem é pornográfico por natureza (descreve nudez ou lei sexo). O conteúdo de sexo sugerido também é detectado.</li></ul> Os nomes dos recursos visuais diferenciam maiúsculas de minúsculas.|
-| details   | Uma matriz de cadeias de caracteres que indica quais detalhes específicos de domínio retornar. Os tipos de recursos visuais válidos incluem: <ul><li>*celebridades* -identifica celebridades se detectada na imagem.</li><li>*pontos de referência* – identifica os pontos de referência, se detectados na imagem.</li></ul>
- |
+|visualFeatures |   Uma matriz de cadeias de caracteres que indica os tipos de recursos visuais a serem retornados. Os tipos de recursos visuais válidos incluem:  <ul><li> *categorias* – categoriza o conteúdo da imagem de acordo com uma taxonomia definida na documentação de [Pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)de serviços cognitivas. </li><li> *marcas* – marca a imagem com uma lista detalhada de palavras relacionadas ao conteúdo da imagem.</li><li>*Descrição* -descreve o conteúdo da imagem com uma frase do inglês completa.</li><li>*faces* – detecta se há faces presentes. Se presente, gera coordenadas, sexo e idade.</li><li>    *ImageType* – detecta se a imagem é uma clip-art ou um desenho de linha.</li><li>  *cor* -determina a cor de destaque, a cor dominante e se uma imagem é preta & branca.</li><li>*adulto* – detecta se a imagem é pornográfico por natureza (descreve nudez ou lei sexo). O conteúdo de sexo sugerido também é detectado.</li></ul> Os nomes dos recursos visuais diferenciam maiúsculas de minúsculas.|
+| details   | Uma matriz de cadeias de caracteres que indica quais detalhes específicos de domínio retornar. Os tipos de recursos visuais válidos incluem: <ul><li>*celebridades* -identifica celebridades se detectada na imagem.</li><li>*pontos de referência* – identifica os pontos de referência, se detectados na imagem. </li></ul> |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
@@ -49,7 +48,8 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 
 
-##  <a name="sample-definition"></a>Definição de exemplo
+##  <a name="sample-skill-definition"></a>Exemplo de definição de habilidade
+
 ```json
         {
             "description": "Extract image analysis.",
@@ -316,7 +316,17 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
             "targetFieldName": "faces"
         }
 ```
+### <a name="variation-on-output-field-mappings-nested-properties"></a>Variação em mapeamentos de campo de saída (propriedades aninhadas)
 
+Você pode definir mapeamentos de campo de saída para propriedades de nível inferior, como apenas pontos de referência ou celebridades. Nesse caso, verifique se o seu esquema de índice tem um campo para conter pontos de referência especificamente.
+
+```json
+    "outputFieldMappings": [
+        {
+            "sourceFieldName": /document/normalized_images/*/categories/details/landmarks/*",
+            "targetFieldName": "landmarks"
+        }
+```
 ##  <a name="sample-input"></a>Entrada de exemplo
 
 ```json
@@ -493,6 +503,22 @@ Nos casos de erro a seguir, nenhum elemento é extraído.
 | NotSupportedVisualFeature  | O tipo de recurso especificado não é válido. |
 | NotSupportedImage | Imagem sem suporte, por exemplo, pornografia infantil. |
 | InvalidDetails | Modelo específico de domínio sem suporte. |
+
+Se você receber o erro semelhante a `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`, verifique o caminho. Celebridades e pontos de referência são propriedades em `detail`.
+
+```json
+"categories":[  
+      {  
+         "name":"building_",
+         "score":0.97265625,
+         "detail":{  
+            "landmarks":[  
+               {  
+                  "name":"Forbidden City",
+                  "confidence":0.92013400793075562
+               }
+            ]
+```
 
 ## <a name="see-also"></a>Consulte também
 

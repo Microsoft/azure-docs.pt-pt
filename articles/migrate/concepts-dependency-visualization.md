@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 4b6a140ec428ce3b053c41074f02f65f19b8dc72
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e7b69e57d4e01c292a2c6d032ba995d1936b88dc
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102896"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142892"
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -45,7 +45,7 @@ As migrações para Azure usam a solução [mapa do serviço](../operations-mana
 
 - Ao associar um espaço de trabalho, você terá a opção de criar um novo espaço de trabalho ou anexar um existente:
   - Ao criar um novo espaço de trabalho, você precisa especificar um nome para o espaço de trabalho. Em seguida, o espaço de trabalho é criado em uma região na mesma [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que o projeto de migração.
-  - Ao anexar um espaço de trabalho existente, você pode escolher entre todos os espaços de trabalho disponíveis na mesma assinatura que o projeto de migração. Observe que somente os espaços de trabalho são listados, que foram criados em uma região onde [mapa do serviço tem suporte](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Para poder anexar um espaço de trabalho, verifique se você tem acesso de ' leitor ' ao espaço de trabalho.
+  - Ao anexar um espaço de trabalho existente, você pode escolher entre todos os espaços de trabalho disponíveis na mesma assinatura que o projeto de migração. Observe que somente os espaços de trabalho são listados, que foram criados em uma região onde [mapa do serviço tem suporte](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). Para poder anexar um espaço de trabalho, verifique se você tem acesso de ' leitor ' ao espaço de trabalho.
 
   > [!NOTE]
   > Depois de anexar um espaço de trabalho a um projeto, você não poderá alterá-lo mais tarde.
@@ -85,6 +85,6 @@ Você pode usar o espaço de trabalho Log Analytics fora das migrações para Az
 
 Não exclua o espaço de trabalho criado pela migração do Azure, a menos que você exclua o projeto de migrações para Azure. Se você fizer isso, a funcionalidade de visualização de dependência não funcionará conforme o esperado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Agrupar computadores usando dependências de máquina](how-to-create-group-machine-dependencies.md)
 - [Saiba mais](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization) sobre as perguntas frequentes sobre a visualização de dependência.

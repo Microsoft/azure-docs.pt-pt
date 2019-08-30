@@ -1,76 +1,76 @@
 ---
-title: Go-To-Market Services - seus benefícios do marketplace | Azure
-description: Go-To-Market Services - recursos da Microsoft que podem utilizar os publicadores são descritas nesta secção.
+title: Serviços para o mercado – seus benefícios do Marketplace | Azure
+description: Serviços de entrada no mercado-recursos da Microsoft que os editores podem usar são descritos nesta seção.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 297a6f9058b220d1f2e3a0ca69d018858218b774
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02fcda2d851ddefa1c592bf0b5b09d5e5d59828f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65909717"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128229"
 ---
-# <a name="your-marketplace-benefits"></a>Os benefícios do Marketplace
+# <a name="your-marketplace-benefits"></a>Seus benefícios do Marketplace
 
-Como parte da sua jornada de publicação, terá de criar os recursos técnicos e de marketing da sua oferta. Como resultado, há benefícios técnicos e de marketing que o Azure Marketplace e AppSource publicadores, podem utilizar para melhorar o envolvimento do cliente na sua oferta. Pode encontrar os recursos técnicos abaixo útil.
+Como parte de sua jornada de publicação, você precisa criar ativos técnicos e de marketing para sua oferta. Como resultado, há benefícios técnicos e de marketing que os editores do Azure Marketplace e do AppSource podem usar para melhorar o envolvimento do cliente com sua oferta. Você pode achar os recursos técnicos abaixo úteis.
 
-## <a name="technical-resources-provided-by-microsoft"></a>Recursos técnicos, fornecidos pela Microsoft
+## <a name="technical-resources-provided-by-microsoft"></a>Recursos técnicos fornecidos pela Microsoft
 
-Enquanto estiver a criar sua oferta, pode tirar partido de um número de recursos da Microsoft, como consultar um especialista técnico ou obter suporte para teste de uma solução específica do marketplace.
+Ao criar sua oferta, você pode aproveitar vários recursos da Microsoft, como consultoria com um especialista técnico, ou obter suporte para testar uma solução específica do Marketplace.
 
-Recursos técnicos podem ser utilizados em qualquer altura.  A tabela abaixo lista as vantagens:
+Os recursos técnicos podem ser usados a qualquer momento.  A tabela a seguir lista os benefícios:
 
 ![](./media/marketplace-publishers-guide/technical-benefit-table.png)
 
-## <a name="how-to-access-microsoft-resources"></a>Como aceder aos recursos da Microsoft
+## <a name="how-to-access-microsoft-resources"></a>Como acessar recursos da Microsoft
 
-Os benefícios Go-to-Market estão acessíveis aos parceiros que publicou recentemente uma oferta. 
+Os benefícios para o mercado estão acessíveis para os parceiros que publicaram recentemente uma oferta. 
 
-1. Integração: [Registar](https://azuremarketplace.microsoft.com/sell) para obter acesso para o Portal de parceiros da Cloud e integração de recursos de suporte.
-2. Consultoria de Marketplaces da Microsoft: Tirar partido disto [consultoria gratuita](https://support.microsoft.com/help/4010317/microsoft-marketplaces-consultation) para ajudar a planear a arquitetura da sua aplicação no marketplace.
-3. Fóruns do Marketplace: Colocar as suas questões diretamente para os funcionários da Microsoft e outros parceiros do marketplace no [fórum Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
-4. Suporte técnico: Utilize o menu de ajuda na [Cloud Partner Portal](https://cloudpartner.azure.com/) para obter ajuda sobre suas perguntas de suporte relacionado com o marketplace. 
-5. Integração do AAD e o desenvolvimento e teste de patrocínio: será excluído quando vai em direto com uma transactable (implementável e cobrar oferta). Veja a secção seguinte para saber como começar com benefícios go-to-market.
+1. Integração [Registre-](https://azuremarketplace.microsoft.com/sell) se para obter acesso ao portal do Cloud Partner e recursos de suporte de integração.
+2. Consultoria do Microsoft Marketplace: Aproveite essa [consultoria gratuita](https://support.microsoft.com/help/4010317/microsoft-marketplaces-consultation) para ajudar a planejar a arquitetura do seu aplicativo no Marketplace.
+3. Fóruns do Marketplace: Faça suas perguntas diretamente aos funcionários da Microsoft e outros parceiros do Marketplace no [Fórum do Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
+4. Suporte técnico: Use o menu ajuda no [portal do Cloud Partner](https://cloudpartner.azure.com/) para obter ajuda sobre suas perguntas de suporte relacionadas ao Marketplace. 
+5. Patrocínio de integração e desenvolvimento e teste do AAD: você será optado por quando entrar no ar com uma oferta de transação (implantável e Faturável). Consulte a próxima seção sobre como começar a usar os benefícios para o mercado.
 
-## <a name="go-to-market-gtm-benefits-in-the-marketplace"></a>Benefícios Go-to-market (GTM) no Marketplace
+## <a name="go-to-market-gtm-benefits-in-the-marketplace"></a>Benefícios do GTM (entrar no mercado) no Marketplace
 
-As novas listagens no Azure Marketplace e AppSource são elegíveis para receber os benefícios GTM do marketplace gratuitas por meio da nossa equipa de serviços Microsoft GTM. Esta equipa irá ajudá-lo a otimizar suas listagens e aumentar o conhecimento para as suas soluções no mercado do Microsoft.
+Novas listagens no Azure Marketplace e no AppSource são elegíveis para receber benefícios gratuitos do Marketplace GTM por meio da nossa equipe de serviços do Microsoft GTM. Esta equipe ajudará você a otimizar suas listagens e a aumentar a conscientização de suas soluções no Microsoft Marketplace.
 
-| Loja | Benefícios disponíveis adicionais |
+| Loja | Benefícios adicionais disponíveis |
 |:--- |:--- |
-| AppSource |  Parceiros da Microsoft Gold <br> Transact ofertas – remunerações do Marketplace <br> Aplicações de avaliação |
-| O Azure Marketplace | Transact ofertas – remunerações do Marketplace <br> Ofertas de avaliação |
+| AppSource |  Parceiros Gold da Microsoft <br> Ofertas do Transact – recompensas do Marketplace <br> Aplicativos de avaliação |
+| O Azure Marketplace | Ofertas do Transact – recompensas do Marketplace <br> Ofertas de avaliação |
 
-O suporte GTM inclui modelos, conteúdo da web, treinamento e ferramentas para promover o seu negócio.
+O suporte do GTM inclui modelos, conteúdo da Web, treinamento e ferramentas para promover seus negócios.
 
-Para aceder a esses benefícios, precisará para:
+Para acessar esses benefícios, você precisará:
 
 1. Publicar uma oferta no Azure Marketplace ou no AppSource.
-2. Certifique-se de que introduziu um contacto marketing a **informações de contacto** parte da sua oferta. Deve ser um recurso de marketing dedicado, em vez de um alias de catch-all. (ou seja, evitar o uso de "suportam\@", "informações\@", "marketing\@", etc.)
+2. Verifique se você inseriu um contato de marketing na parte de **informações de contato** de sua oferta. Esse deve ser um recurso de marketing dedicado, em oposição a um alias catch-all. (ou seja, evite usar "\@suporte", "\@informações", "\@marketing" etc.)
 
-Com base no seu estado de solução, oferta, a lista, versão de avaliação ou Transact – remunerações do Marketplace, receberá um email com recursos de ajuda autónoma, ou um convite para uma chamada de consultoria com um Gestor de envolvimento dedicado. Não é necessário fazer nada para iniciar a chamada — a equipa de integração do Marketplace irá contactá-lo com base nas informações que fornecer no [Cloud Partner Portal](https://cloudpartner.azure.com/).
+Com base nas recompensas de status da sua solução, oferta de lista, avaliação ou Transact-Marketplace, você receberá um email com recursos de autoatendimento ou um convite para uma chamada de consulta com um gerente de envolvimento dedicado. Você não precisa fazer nada para iniciar a chamada – a equipe de integração do Marketplace entrará em contato com você com base nas informações fornecidas na [portal do Cloud Partner](https://cloudpartner.azure.com/).
 
-O âmbito das atividades disponíveis para expande-se à medida que cresce suas ofertas no marketplace. Todas as listagens recebem um nível base de recomendações de Otimização e à promoção.  Estas listas também são elegíveis para benefícios adicionais de marketing com base no mercado de estado (lista, versão de avaliação ou Transact - remunerações de marketplace), escolhido de solução e medalha de competência de parceiro da Microsoft.
+O escopo das atividades disponíveis se expande conforme você aumenta suas ofertas no Marketplace. Todas as listagens recebem um nível básico de recomendações de otimização e promoção.  Essas listagens também estão qualificadas para benefícios de marketing adicionais com base no status da solução (recompensas de lista, avaliação ou do Transact-Marketplace), no Marketplace escolhido e na conquista de competência para parceiros da Microsoft.
 
-A tabela a seguir resumem os requisitos de elegibilidade de lista e ofertas de avaliação:
+A tabela a seguir resume os requisitos de qualificação para as ofertas de lista e avaliação:
 
 ![](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
-\* Necessita de competência silver ou gold. <br>
-\*\* Requer a competência gold. <br>
-\*\*\* Requer a competência gold e venda conjunta pronto em listagens de parceiros. <br>
-^ Apenas, transact aplicável ao Azure Marketplace.
+\*Requer competência Silver ou ouro. <br>
+\*\*Requer competência ouro. <br>
+\*\*\*Requer competência Gold e co-venda pronta em listagens de parceiros. <br>
+^ Somente para transação, aplicável ao Azure Marketplace.
 
-## <a name="marketplace-rewards-for-transact-partners"></a>Remunerações de mercado para os parceiros de transact
+## <a name="marketplace-rewards-for-transact-partners"></a>Recompensas do Marketplace para parceiros do Transact
 
-A lista completa de vantagens para as remunerações de marketplace pode ser visualizada no [resumos de slides do programa](https://onedrive.live.com/view.aspx?resid=1900675C97CA6FE0!630&ithint=file%2cpptx&authkey=!APQ6LSnDenx2FKM).
+A lista completa de benefícios para recompensas do Marketplace pode ser exibida nos [slides de resumo do programa](https://aka.ms/marketplacerewards).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Inicie sessão para o [Cloud Partner Portal](https://cloudpartner.azure.com/) para criar e configurar a sua oferta.
+Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/) para criar e configurar sua oferta.
 
 ---

@@ -11,23 +11,23 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6751fe74bfd9b8a07aec2263582d9f1a4bc0b2ac
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: b1a1c35929670891c38bb1b3e26806b4c9bed6a0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333980"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126451"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossário de Azure Active Directory Identity Protection
 
 ### <a name="at-risk-user"></a>Em risco (usuário)
-Um usuário com um ou mais eventos de risco ativos. 
+Um usuário com uma ou mais detecções de risco ativas. 
 
 ### <a name="atypical-sign-in-location"></a>Local de entrada do atípicos
 Uma entrada de uma localização geográfica que não é típica para o usuário específico, usuários semelhantes ou o locatário.
 
 ### <a name="azure-ad-identity-protection"></a>Azure AD Identity Protection
-Um módulo de segurança do Azure Active Directory que fornece uma exibição consolidada dos eventos de risco e possíveis vulnerabilidades que afetam as identidades de uma organização.
+Um módulo de segurança do Azure Active Directory que fornece uma visão consolidada das detecções de risco e das possíveis vulnerabilidades que afetam as identidades de uma organização.
 
 ### <a name="conditional-access"></a>Acesso Condicional
 Uma política para proteger o acesso aos recursos. As regras de acesso condicional são armazenadas no Azure Active Directory e são avaliadas pelo Azure AD antes de conceder acesso ao recurso.  As regras de exemplo incluem a restrição do acesso com base no local do usuário, na integridade do dispositivo ou no método de autenticação do usuário.
@@ -38,31 +38,31 @@ Informações que incluem identificação e prova de identificação que são us
 ### <a name="event"></a>Evento
 Um registro de uma atividade no Azure Active Directory.
 
-### <a name="false-positive-risk-event"></a>Falso-positivo (evento de risco)
-Um status de evento de risco definido manualmente por um usuário de proteção de identidade, indicando que o evento de risco foi investigado e foi sinalizado incorretamente como um evento de risco.
+### <a name="false-positive-risk-detection"></a>Falso-positivo (detecção de risco)
+Um status de detecção de risco definido manualmente por um usuário de proteção de identidade, indicando que a detecção de risco foi investigada e foi sinalizada incorretamente como uma detecção de risco.
 
 ### <a name="identity"></a>identidade
 Uma pessoa ou entidade que deve ser verificada por meio de autenticação, com base em critérios como senha ou um certificado.
 
-### <a name="identity-risk-event"></a>Evento de risco de identidade
+### <a name="identity-risk-detection"></a>Detecção de risco de identidade
 Evento do AAD que foi sinalizado como anômala pela proteção de identidade e pode indicar que uma identidade foi comprometida.
 
-### <a name="ignored-risk-event"></a>Ignorado (evento de risco)
-Um status de evento de risco definido manualmente por um usuário de proteção de identidade, indicando que o evento de risco está fechado sem realizar uma ação de correção.
+### <a name="ignored-risk-detection"></a>Ignorado (detecção de risco)
+Um status de detecção de risco definido manualmente por um usuário de proteção de identidade, indicando que a detecção de risco está fechada sem realizar uma ação de correção.
 
 ### <a name="impossible-travel-from-atypical-locations"></a>Viagem impossível de locais atípicoss
-Um evento de risco disparado quando duas entradas para o mesmo usuário são detectadas, em que pelo menos uma delas é de um local de entrada do atípicos e onde o tempo entre as entradas é menor do que o tempo mínimo necessário para viajar fisicamente entre esses locais.  
+Uma detecção de risco disparada quando duas entradas para o mesmo usuário são detectadas, em que pelo menos uma delas é de um local de entrada do atípicos e onde o tempo entre as entradas é menor do que o tempo mínimo necessário para viajar fisicamente entre elas locais.  
 
 ### <a name="investigation"></a>Investigação
-O processo de revisar as atividades, os logs e outras informações relevantes relacionadas a um evento de risco para decidir se as etapas de correção ou mitigação são necessárias, entender se e como a identidade foi comprometida e entender como a identidade comprometida foi usado.
+O processo de revisar as atividades, os logs e outras informações relevantes relacionadas a uma detecção de risco para decidir se as etapas de correção ou mitigação são necessárias, entender se e como a identidade foi comprometida e entender como o comprometimento a identidade foi usada.
 
 ### <a name="leaked-credentials"></a>Fuga de credenciais
-Um evento de risco disparado quando as credenciais do usuário atual (nome de usuário e senha) são encontradas publicamente na Web escura por nossos pesquisadores.
+Uma detecção de risco disparada quando as credenciais do usuário atual (nome de usuário e senha) são encontradas publicadas publicamente na Web escura por nossos pesquisadores.
 
 ### <a name="mitigation"></a>Mitigação
-Uma ação para limitar ou eliminar a capacidade de um invasor explorar uma identidade ou um dispositivo comprometido sem restaurar a identidade ou o dispositivo para um estado seguro. Uma mitigação não resolve eventos de risco anteriores associados à identidade ou ao dispositivo.
+Uma ação para limitar ou eliminar a capacidade de um invasor explorar uma identidade ou um dispositivo comprometido sem restaurar a identidade ou o dispositivo para um estado seguro. Uma mitigação não resolve as detecções de riscos anteriores associadas à identidade ou ao dispositivo.
 
-### <a name="multi-factor-authentication"></a>Autenticação multifator
+### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 Um método de autenticação que requer dois ou mais métodos de autenticação, que podem incluir algo que o usuário tem, tal certificado; algo que o usuário sabe, como nomes de usuário, senhas ou frases secretas; atributos físicos, como uma impressão digital; e atributos pessoais, como uma assinatura pessoal.
 
 ### <a name="offline-detection"></a>Detecção offline
@@ -75,34 +75,34 @@ Uma parte de uma política de segurança, que define as entidades (grupos, usuá
 A parte de uma política de segurança que descreve as circunstâncias que dispararia a política e as ações tomadas quando a política é disparada.
 
 ### <a name="prevention"></a>Prevenção
-Uma ação para evitar danos à organização por meio do abuso de uma identidade ou um dispositivo suspeito ou de saber que está comprometido. Uma ação de prevenção não protege o dispositivo ou a identidade e não resolve os eventos de risco anteriores.
+Uma ação para evitar danos à organização por meio do abuso de uma identidade ou um dispositivo suspeito ou de saber que está comprometido. Uma ação de prevenção não protege o dispositivo ou a identidade e não resolve as detecções de riscos anteriores.
 
 ### <a name="privileged-user"></a>Com privilégios (usuário)
-Um usuário que, no momento de um evento de risco, tinha permissões de administrador permanentes ou temporárias para um ou mais recursos no Azure Active Directory, como um administrador global, administrador de cobrança, administrador de serviços, administrador de usuários e administrador de senha. 
+Um usuário que, no momento de uma detecção de risco, tinha permissões de administrador permanentes ou temporárias para um ou mais recursos no Azure Active Directory, como um administrador global, administrador de cobrança, administrador de serviços, administrador de usuários e senha Administradores. 
 
-### <a name="real-time"></a>Em tempo real
+### <a name="real-time"></a>Tempo real
 Consulte detecção em tempo real.
 
 ### <a name="real-time-detection"></a>Detecção em tempo real
 A detecção de anomalias e a avaliação do risco de um evento, como a tentativa de entrada, antes que o evento possa continuar.
 
-### <a name="remediated-risk-event"></a>Corrigido (evento de risco)
-Um status de evento de risco definido automaticamente pela proteção de identidade, indicando que o evento de risco foi corrigido usando a ação de correção padrão para esse tipo de evento de risco. Por exemplo, quando a senha do usuário é redefinida, muitos eventos de risco que indicam que a senha anterior foi comprometida são automaticamente corrigidos.
+### <a name="remediated-risk-detection"></a>Corrigido (detecção de risco)
+Um status de detecção de risco definido automaticamente pela proteção de identidade, indicando que a detecção de risco foi corrigida usando a ação de correção padrão para esse tipo de detecção de risco. Por exemplo, quando a senha do usuário é redefinida, muitas detecções de risco que indicam que a senha anterior foi comprometida são automaticamente corrigidas.
 
 ### <a name="remediation"></a>Remediação
-Uma ação para proteger uma identidade ou um dispositivo que foi suspeito ou comprometido anteriormente. Uma ação de correção restaura a identidade ou o dispositivo para um estado seguro e resolve os eventos de risco anteriores associados à identidade ou ao dispositivo.
+Uma ação para proteger uma identidade ou um dispositivo que foi suspeito ou comprometido anteriormente. Uma ação de correção restaura a identidade ou o dispositivo para um estado seguro e resolve as detecções de risco anteriores associadas à identidade ou ao dispositivo.
 
-### <a name="resolved-risk-event"></a>Resolvido (evento de risco)
-Um status de evento de risco definido manualmente por um usuário de proteção de identidade, indicando que o usuário realizou uma ação de correção apropriada fora da proteção de identidade e que o evento de risco deve ser considerado fechado.
+### <a name="resolved-risk-detection"></a>Resolvido (detecção de risco)
+Um status de detecção de risco definido manualmente por um usuário de proteção de identidade, indicando que o usuário realizou uma ação de correção apropriada fora da proteção de identidade e que a detecção de risco deve ser considerada fechada.
 
-### <a name="risk-event-status"></a>Status do evento de risco
-Uma propriedade de um evento de risco, que indica se o evento está ativo e, se fechado, o motivo para fechá-lo.
+### <a name="risk-detection-status"></a>Status de detecção de risco
+Uma propriedade de uma detecção de risco, que indica se o evento está ativo e, se fechado, o motivo para fechá-lo.
 
-### <a name="risk-event-type"></a>Tipo de evento de risco
-Uma categoria para o evento de risco, que indica o tipo de anomalia que fez com que o evento fosse considerado arriscado.
+### <a name="risk-detection-type"></a>Tipo de detecção de risco
+Uma categoria para a detecção de risco, que indica o tipo de anomalia que fez com que o evento fosse considerado arriscado.
 
-### <a name="risk-level-risk-event"></a>Nível de risco (evento de risco)
-Uma indicação (alta, média ou baixa) da severidade do evento de risco para ajudar os usuários de proteção de identidade a priorizar as ações que eles levam para reduzir o risco para sua organização. 
+### <a name="risk-level-risk-detection"></a>Nível de risco (detecção de risco)
+Uma indicação (alta, média ou baixa) da severidade da detecção de risco para ajudar os usuários de proteção de identidade a priorizar as ações que eles levam para reduzir o risco para sua organização. 
 
 ### <a name="risk-level-sign-in"></a>Nível de risco (entrada)
 Uma indicação (alta, média ou baixa) da probabilidade de uma entrada específica, outra pessoa está tentando usar a identidade do usuário.
@@ -126,21 +126,21 @@ Para autenticar em uma identidade no Azure Active Directory.
 O processo ou a ação de autenticar uma identidade no Azure Active Directory e o evento que captura essa operação.
 
 ### <a name="sign-in-from-anonymous-ip-address"></a>Entrar de um endereço IP anônimo
-Um evento de risco disparado após uma entrada bem-sucedida do endereço IP que foi identificado como um endereço IP de proxy anônimo.
+Uma detecção de risco disparada após uma entrada bem-sucedida do endereço IP que foi identificada como um endereço IP de proxy anônimo.
 
 ### <a name="sign-in-from-infected-device"></a>Entrar do dispositivo infectado
-Um evento de risco disparado quando uma entrada se origina de um endereço IP, que é conhecido por ser usado por um ou mais dispositivos comprometidos, que estão tentando ativamente se comunicar com um servidor de bot.
+Uma detecção de risco disparada quando uma entrada é originada de um endereço IP, que é conhecido por ser usado por um ou mais dispositivos comprometidos, que estão ativamente tentando se comunicar com um servidor de bot.
 
 ### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Entrar do endereço IP com atividade suspeita
-Um evento de risco disparado após uma entrada bem-sucedida de um endereço IP com um número alto de tentativas de logon com falha em várias contas de usuário em um curto período de tempo.
+Uma detecção de risco disparada após uma entrada bem-sucedida de um endereço IP com um número alto de tentativas de logon com falha em várias contas de usuário em um curto período de tempo.
 
 ### <a name="sign-in-from-unfamiliar-location"></a>Entrar de um local desconhecido
-Um evento de risco disparado quando um usuário entra com êxito de um novo local (IP, latitude/longitude e ASN).
+Uma detecção de risco disparada quando um usuário entra com êxito de um novo local (IP, latitude/longitude e ASN).
 
-### <a name="sign-in-risk"></a>Risco de início de sessão
+### <a name="sign-in-risk"></a>Risco de entrada
 Ver o nível de risco (entrar)
 
-### <a name="sign-in-risk-policy"></a>Política de risco de início de sessão
+### <a name="sign-in-risk-policy"></a>Política de risco de entrada
 Uma política de acesso condicional que avalia o risco para uma entrada específica e aplica mitigações com base em condições e regras predefinidas.
 
 ### <a name="user-compromise-risk"></a>Risco de comprometimento do usuário
@@ -153,7 +153,7 @@ Consulte nível de risco (comprometimento do usuário).
 Uma política de acesso condicional que considera a entrada e aplica mitigações com base em condições e regras predefinidas.
 
 ### <a name="users-flagged-for-risk"></a>Utilizadores marcados em risco
-Usuários que têm eventos de risco, que são ativos ou corrigidos
+Usuários que têm detecções de risco, que são ativas ou corrigidas
 
 ### <a name="vulnerability"></a>Vulnerabilidade
 Uma configuração ou condição no Azure Active Directory, o que torna o diretório suscetível a explorações ou ameaças.
