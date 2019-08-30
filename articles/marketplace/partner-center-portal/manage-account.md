@@ -1,380 +1,364 @@
 ---
-title: Como gerir uma conta de Marketplace comercial no Centro de parceiros
-description: Saiba como gerir uma conta do Marketplace comercial no Centro de parceiros.
+title: Como gerenciar uma conta do Marketplace comercial no Partner Center
+description: Saiba como gerenciar uma conta do Marketplace comercial no Partner Center.
 author: mattwojo
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: e0c9f1fcf2d9d7e806645f1bdf9e8a6c74245a60
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f0557f21e791dd22df16451003d5efcfc72c56b4
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619323"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164724"
 ---
-# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerir a sua conta do Marketplace comercial no Centro de parceiros 
+# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerenciar sua conta do Marketplace comercial no Partner Center 
 
-Assim que tiver [criou uma conta do Centro de parceiros](./create-account.md), pode gerir a sua conta e ofertas utilizando o [dashboard Marketplace comerciais](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
+Depois de [criar uma conta do Partner Center](./create-account.md), você poderá gerenciar sua conta e ofertas usando o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
-Neste artigo, nos aprofundaremos nas como gerir a sua conta do Centro de parceiros, incluindo como: 
+Neste artigo, vamos nos aprofundar em como gerenciar sua conta do Partner Center, incluindo como: 
 
-- [As definições da sua conta do Centro de parceiros de acesso](#access-your-account-settings)
-- [Localizar sua ID de publicador, ID do vendedor, ID de utilizador e inquilinos do Azure AD](#account-details)
-- [Atualizar informações de contacto](#contact-info)
-- [Gerir dados financeiros (conta dividendos e impostos perfil, estado de espera de dividendos)](#financial-details)
-- [Configurar o controlo GUIDs para monitorizar a utilização do cliente](#tracking-guids)
-- [Utilizadores do Gestor](#manage-users)
-- [Gestor de grupos](#manage-groups)
-- [Aplicações Manager do Azure AD](#manage-azure-ad-applications)
-- [Definir funções de utilizador e permissões](#define-user-roles-and-permissions)
-- [Gerir inquilinos do Azure AD (contas de trabalho)](#manage-tenants)
-- [Contratos de centro de parceiros do Gestor](#agreements)
+- [Acessar as configurações de conta do Partner Center](#access-your-account-settings)
+- [Localizar sua ID do editor, ID do vendedor, ID de usuário e locatários do Azure AD](#account-details)
+- [Atualizar informações de contato](#contact-info)
+- [Gerenciar detalhes financeiros (conta de pagamento, perfil de imposto, status de espera de pagamento)](#financial-details)
+- [Configurar GUIDs de acompanhamento para monitorar o uso do cliente](#tracking-guids)
+- [Gerir utilizadores](#manage-users)
+- [Gerir grupos](#manage-groups)
+- [Gerenciar aplicativos do Azure AD](#manage-azure-ad-applications)
+- [Definir funções e permissões de usuário](#define-user-roles-and-permissions)
+- [Gerenciar locatários do Azure AD (contas de trabalho)](#manage-tenants)
+- [Gerenciar contratos do Partner Center](#agreements)
 
 
-## <a name="access-your-account-settings"></a>Definições da sua conta de acesso
+## <a name="access-your-account-settings"></a>Acessar as configurações da sua conta
 
-Se ainda não o tiver feito, (ou o administrador da organização) deve acessar os [definições da conta](https://partner.microsoft.com/dashboard/account/management) para a sua conta do Centro de parceiros para:
-- verificar o estado de verificação de conta da sua empresa
-- Confirme a sua ID do vendedor, o MPN ID, o ID de publicador e, entre em contato com informações, incluindo o contacto da empresa de aprovador e vendedor
-- configurar os detalhes financeiro da sua empresa, incluindo isenções de imposto sobre se tal for apropriado
-- criar contas de utilizador para qualquer pessoa que irá utilizar a sua conta de empresa no Centro de parceiros
+Se você ainda não tiver feito isso, você (ou o administrador da sua organização) deverá acessar as [configurações de conta](https://partner.microsoft.com/dashboard/account/management) da sua conta do Partner Center para:
+- verificar o status de verificação da conta da sua empresa
+- Confirme sua ID do vendedor, ID do MPN, ID do editor e informações de contato, incluindo o aprovador da empresa e o contato do vendedor
+- Configure os detalhes financeiros da sua empresa, incluindo isenção de impostos, se apropriado
+- criar contas de usuário para qualquer pessoa que usará sua conta de negócios no Partner Center
 
-### <a name="open-developer-settings"></a>Abra as definições de programador
+### <a name="open-developer-settings"></a>Abrir configurações do desenvolvedor
 
-Definições da conta está localizada no canto superior direito da sua [dashboard Marketplace comerciais](https://partner.microsoft.com/dashboard/commercial-marketplace) no Centro de parceiros. Selecione o ícone de engrenagem (perto do canto superior direito do dashboard) e, em seguida, selecione **definições de programador**. 
+As configurações de conta estão localizadas no canto superior direito do [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace) no Partner Center. Selecione o ícone de engrenagem (próximo ao canto superior direito do painel) e, em seguida, selecione **configurações do desenvolvedor**. 
 
-![Menu de definições de conta no Centro de parceiros](./media/dashboard-developer-settings.png)
+![Menu de configurações de conta no Partner Center](./media/dashboard-developer-settings.png)
 
-Dentro **definições da conta**, poderá ver sua:
-- **Detalhes da conta**: Tipo de conta e o estado da conta
-- **IDs de publicador**: ID do vendedor, ID de utilizador, ID de publicador, inquilinos do Azure AD, etc.
-- **Informações de contacto**: Nome a apresentar do publicador, nome do contacto do vendedor, e-mail, telefone e endereço
-- **Detalhes financeiros**: Conta dividendos, o perfil de imposto e o estado de espera de dividendos
-- **dispositivos**: Quaisquer dispositivos de testes associados à sua conta
-- **Controlo GUIDs**: Qualquer controlo GUIDs associado com a sua conta
+Dentro **das configurações de conta**, você poderá exibir seu:
+- **Detalhes da conta**: Tipo de conta e status da conta
+- **IDs**do Publicador: ID do vendedor, ID de usuário, ID de editor, locatários do Azure AD, etc.
+- **Informações de contato**: Nome de exibição do editor, nome do contato do vendedor, email, telefone e endereço
+- **Detalhes financeiros**: Conta de pagamento, perfil de imposto e status de retenção de pagamento
+- **Dispositivos**: Todos os dispositivos de teste associados à sua conta
+- **GUIDs de acompanhamento**: Quaisquer GUIDs de acompanhamento associados à sua conta
 
 ### <a name="account-details"></a>Detalhes da conta
 
-Na secção de detalhes de conta, pode ver informações básicas, como o seu **tipo de conta** (empresa ou indivíduo) e o **estado da verificação** da sua conta. Durante o processo de verificação de conta, estas definições apresentará cada passo é necessário, incluindo a verificação de e-mail, verificação de emprego e verificação de negócios. Também pode atualizar o seu e-mail aqui e reenviar a verificação, se necessário. 
+Na seção detalhes da conta, você pode ver informações básicas, como o **tipo de conta** (empresa ou indivíduo) e o **status de verificação** da sua conta. Durante o processo de verificação de sua conta, essas configurações exibirão cada etapa necessária, incluindo verificação de email, verificação de emprego e verificação de negócios. Você também pode atualizar seu email aqui e reenviar a verificação, se necessário. 
 
-### <a name="publisher-ids"></a>IDs de publicador
+### <a name="publisher-ids"></a>IDs do Publicador
 
-Na secção de IDs de publicador, pode ver seus **ID do vendedor**, **MPN ID**, e **ID de publicador**. Estes valores são atribuídos pela Microsoft para identificar exclusivamente a sua conta de desenvolvedor e não podem ser editados.
+Na seção IDs do Publicador, você pode ver sua **ID do vendedor**, ID do **MPN**e ID do **Editor**. Esses valores são atribuídos pela Microsoft para identificar exclusivamente sua conta de desenvolvedor e não podem ser editados.
 
 ### <a name="contact-info"></a>Informações de contacto
 
-Na secção de informações de contacto, pode ver seus **nome a apresentar do publicador**, **informações de contacto do vendedor** (o nome de contato, e-mail, número de telefone e endereço para o vendedor de empresa) e o **empresa aprovador** (o nome, e-mail e número de telefone do indivíduo com autoridade para aprovar decisões para a empresa). 
+Na seção informações de contato, você pode ver o **nome de exibição do editor**, **informações de contato do vendedor** (o nome do contato, email, número de telefone e endereço para o vendedor da empresa) e o aprovador **da empresa** (o nome, o email e o número de telefone do indivíduo com autoridade para aprovar decisões para a empresa). 
 
 ### <a name="financial-details"></a>Detalhes financeiros
 
-Na secção de detalhes financeiros, pode fornecer ou atualizar as suas informações financeiras se publicar aplicações pagas, suplementos ou serviços. 
+Na seção detalhes financeiros, você pode fornecer ou atualizar suas informações financeiras se publicar aplicativos, suplementos ou serviços pagos. 
 
-Se pretender apenas listar ofertas gratuitas, não precisa de configurar uma conta de dividendos ou preencher todos os formulários de imposto. Se mudar de ideias mais tarde e decidir que pretende vender através da Microsoft, pode configurar a sua conta de dividendos e preencher os formulários de imposto sobre nesse momento. 
+Se você planeja listar ofertas gratuitas, não precisa configurar uma conta de pagamento nem preencher os formulários de impostos. Se você mudar de ideia mais tarde e decidir que deseja vender pela Microsoft, poderá configurar sua conta de pagamento e preencher os formulários de impostos nesse momento. 
 
-#### <a name="payout-account"></a>Conta de dividendos
+#### <a name="payout-account"></a>Conta de pagamento
 
-Uma conta de dividendos é a conta bancária para a qual receita é enviadas do suas vendas. Essa conta bancária tem de estar no mesmo país em que registrou a sua conta do Centro de parceiros.
+Uma conta de pagamento é a conta bancária para a qual os prosseguimentos são enviados de suas vendas. Essa conta bancária deve estar no mesmo país em que você registrou sua conta do Partner Center.
 
-Para configurar a sua conta de dividendos, precisa **associar a sua Account Microsoft**:
-1. Na **definições da conta**, no **detalhes financeiros** secção, selecione **associar a sua Account Microsoft**. 
-2. Quando lhe for pedido, inicie sessão com a sua conta Microsoft (MSA). Esta conta já não pode ser associada a outra conta do Centro de parceiros. 
-3. Para concluir a configuração da sua conta de dividendos, terminar sessão completamente no Centro de parceiros, em seguida, inicie sessão novamente com sua Account Microsoft (em vez de sua conta profissional). 
+Para configurar sua conta de pagamento, você precisa **associar sua conta da Microsoft**:
+1. Em **configurações da conta**, na seção **detalhes financeiros** , selecione **associar sua conta da Microsoft**. 
+2. Quando solicitado, entre com sua conta da Microsoft (MSA). Esta conta já não pode estar associada a outra conta do centro do parceiro. 
+3. Para concluir a configuração da sua conta de pagamento, faça o log completamente fora do Partner Center e, em seguida, faça logon novamente com sua conta da Microsoft (em vez de sua conta corporativa). 
 
-Agora que sua Account Microsoft está associado, para adicionar uma conta de dividendos, terá:
+Agora que sua conta da Microsoft está associada, para adicionar uma conta de pagamento, você precisará:
 - **Escolha um método de pagamento**: Conta bancária ou PayPal
-- **Adicionar informações de pagamento**: Isto pode incluir a escolher um tipo de conta (a verificação ou poupanças), introduzir o nome do titular de conta, o número da conta e encaminhamento de número, o endereço para faturação, o número de telefone ou o endereço de e-mail de PayPal. \* Para obter mais informações sobre como utilizar PayPal, como o seu método de pagamento da conta e para saber se é suportada na sua região de mercado, consulte [PayPal informações](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+- **Adicionar informações de pagamento**: Isso pode incluir escolher um tipo de conta (verificação ou economia), inserir o nome do titular da conta, o número da conta e o número de roteamento, endereço de cobrança, número de telefone ou endereço de email do PayPal. \* Para obter mais informações sobre como usar o PayPal como seu método de pagamento de conta e descobrir se há suporte em sua região de mercado, consulte [informações de PayPal](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
 > [!IMPORTANT]
-> Alterar a sua conta de dividendos pode atrasar os pagamentos pelo máximo de um ciclo de pagamento. Este atraso ocorre porque precisamos de verificar a alteração da conta, tal como fazemos quando configurar a conta de dividendos pela primeira vez. Ainda vai ser pago pela quantia total após a verificação da sua conta; qualquer pagamentos devido para pagamento atual ciclo será adicionado para o seguinte.  
+> Alterar sua conta de pagamento pode atrasar seus pagamentos em até um ciclo de pagamento. Esse atraso ocorre porque precisamos verificar a alteração da conta, assim como fazemos ao configurar a conta de pagamento pela primeira vez. Você ainda será pago pelo valor total depois que sua conta tiver sido verificada; todos os pagamentos devidos ao ciclo de pagamento atual serão adicionados ao próximo.  
 
 #### <a name="tax-profile"></a>Perfil de imposto
 
-Examinar seu status de perfil atual imposto, confirmar o correto **tipo de entidade** e **informações do certificado de imposto sobre** é apresentado. Selecione **editar** atualizar ou concluir qualquer necessário formulários.
+Examine o status do perfil de imposto atual, confirmando o **tipo de entidade** correto e **as informações do certificado de imposto** são exibidas. Selecione **Editar** para atualizar ou concluir todos os formulários necessários.
 
-Para estabelecer o estado imposto, tem de especificar o seu país de residência e cidadania e concluir os formulários de impostos apropriado associados com o seu país/região.
+Para estabelecer o status do imposto, você deve especificar seu país de residência e cidadania e concluir os formulários de impostos apropriados associados ao seu país/região.
 
-Independentemente do seu país de residência ou cidadania, deve preencher os formulários de imposto sobre Estados Unidos para vender quaisquer ofertas através do Microsoft. Parceiros que satisfazem determinados requisitos de residência dos Estados Unidos devem preencher um formulário de IRS W-9. Outros parceiros fora dos Estados Unidos devem preencher um formulário de IRS W-8. Pode preencher esses formulários online à medida que concluir o seu perfil de imposto.
+Independentemente do seu país de residência ou cidadania, você deve preencher formulários de impostos de Estados Unidos para vender quaisquer ofertas por meio da Microsoft. Os parceiros que atendem a determinados requisitos de residência de Estados Unidos devem preencher um formulário IRS W-9. Outros parceiros fora do Estados Unidos devem preencher um formulário IRS W-8. Você pode preencher esses formulários online enquanto conclui seu perfil de imposto.
 
-Um número de identificação de Taxpayer individuais dos Estados Unidos (ou ITIN) não é necessário para receber os pagamentos da Microsoft ou para reclamar o imposto sobre treaty benefícios.
+Um Estados Unidos número de identificação do contribuinte individual (ou certa) não é necessário para receber pagamentos da Microsoft ou para reivindicar benefícios de tratados de impostos.
 
-Pode concluir e enviar os formulários de imposto sobre eletronicamente no Centro de parceiros na maioria dos casos, não terá de impressão e correio de todos os formulários.
+Você pode concluir e enviar seus formulários de impostos eletronicamente no Partner Center; na maioria dos casos, você não precisa imprimir e enviar nenhum formulário.
 
-Diferentes países e regiões têm requisitos de imposto diferente. A quantidade exata de que tem de pagar impostos depende de países e regiões onde vende as suas ofertas. Microsoft remits vendas e imposto sobre o uso em seu nome em alguns países. Nestes países serão identificados no processo de listagem a sua oferta. Em outros países, consoante onde estão registadas, terá de remeter vendas e imposto sobre o uso de suas vendas diretamente à autoridade tributária local. Além disso, a receita de vendas que receberá pode ser tributáveis como renda. É altamente recomendável que entre em contato com a autoridade relevante para o seu país ou região que melhor pode ajudar a determinar as informações de imposto sobre certa para suas transações de vendas da Microsoft.
+Diferentes países e regiões têm requisitos de imposto diferentes. O valor exato que você deve pagar em impostos depende dos países e regiões em que você vende suas ofertas. A Microsoft remete as vendas e o imposto sobre o uso em alguns países. Esses países serão identificados no processo de listagem de sua oferta. Em outros países, dependendo de onde você está registrado, talvez seja necessário remeter vendas e usar impostos para suas vendas diretamente para a autoridade fiscal local. Além disso, as vendas continuarão a receber podem ser tributáveis como renda. Recomendamos que você entre em contato com a autoridade relevante para seu país ou região que possa ajudá-lo a determinar as informações de impostos certas para suas transações de vendas da Microsoft.
 
 ##### <a name="withholding-rates"></a>Taxas de retenção
-As informações que submeter em seus formulários de imposto sobre determina fiscal competente, taxa de retenção. A taxa de retenção só se aplica a vendas efetuadas em Estados Unidos; vendas em localizações fora dos EUA não estão sujeitas a retenção. As taxas de retenção variam, mas para a maioria dos desenvolvedores registar fora dos Estados Unidos, a taxa de predefinição é 30 %). Tem a opção de reduzir esta tarifa se o seu país/região concordou em treaty um imposto de renda com os Estados Unidos.
+As informações que você envia em seus formulários de imposto determinam a taxa de retenção de imposto apropriada. A taxa de retenção se aplica somente às vendas que você faz na Estados Unidos; as vendas feitas em locais fora dos EUA não estão sujeitas à retenção. As taxas de retenção variam, mas para a maioria dos desenvolvedores que se registram fora do Estados Unidos, a taxa padrão é 30%. Você tem a opção de reduzir essa taxa se o seu país tiver acordado uma Tratado de imposto de renda com o Estados Unidos.
 
-##### <a name="tax-treaty-benefits"></a>Imposto treaty benefícios
-Se estiver fora dos Estados Unidos, poderá tirar partido do imposto sobre benefícios treaty. Esses benefícios variam de país para país e permitem-lhe reduzir a quantidade de impostos que withholds da Microsoft. Pode solicitar o imposto sobre treaty benefícios ao concluir a parte II do formulário W 8BEN. Recomendamos que se comunica com recursos adequados no seu país ou região para determinar se esses benefícios se aplicar a.
+##### <a name="tax-treaty-benefits"></a>Benefícios de tratados de imposto
+Se você estiver fora do Estados Unidos, poderá aproveitar os benefícios de tratados de impostos. Esses benefícios variam de país para país e podem permitir que você reduza a quantidade de impostos que a Microsoft retém. Você pode reivindicar benefícios de tratados de imposto concluindo a parte II do formulário W-8BEN. Recomendamos que você se comunique com os recursos apropriados em seu país ou região para determinar se esses benefícios se aplicam a você.
 
-[Saiba mais sobre os detalhes de imposto para programadores de aplicações/jogo do Windows e os publicadores do Azure Marketplace](https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps).
+[Saiba mais sobre os detalhes de impostos para desenvolvedores de aplicativos/jogos do Windows e publicadores do Azure Marketplace](https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps).
 
-#### <a name="payout-hold-status"></a>Estado de espera de dividendos
+#### <a name="payout-hold-status"></a>Status de espera de pagamento
 
-Por predefinição, a Microsoft envia pagamentos mensalmente. No entanto, tem a opção de colocar seu dividendos em espera, o que evitará a enviar de pagamentos para a sua conta. Se optar por colocar sua dividendos em espera, vamos continuar a gravar qualquer receita que ganha e forneça os detalhes no seu **resumo de dividendos**. No entanto, apenas enviaremos qualquer pagamentos à sua conta até que remove a suspensão. 
+Por padrão, a Microsoft envia pagamentos mensalmente. No entanto, você tem a opção de colocar seus pagamentos em espera, o que impedirá o envio de pagamento à sua conta. Se você optar por colocar seus pagamentos em espera, continuaremos registrando qualquer receita obtida e forneceremos os detalhes em seu **Resumo de pagamento**. No entanto, não enviaremos nenhum pagamento à sua conta até que você remova a espera. 
 
-Para colocar os pagamentos em espera, aceda a **definições da conta**. Sob **detalhes financeiros**, na **dividendos reter estado** secção, ativar/desativar o controlo de deslize para **no**. Pode alterar seu status de espera de dividendos em qualquer altura, mas lembre-se de que a sua decisão irá afetar os dividendos mensal seguinte. Por exemplo, se quiser manter dividendos de Abril, certifique-se de definir o estado de espera de dividendos para **no** antes do final de Março.
+Para posicionar seus pagamentos em espera, vá para **configurações de conta**. Em **detalhes financeiros**, na seção **status de retenção de pagamento** , alterne o controle deslizante para **ativado**. Você pode alterar o status de espera de pagamento a qualquer momento, mas lembre-se de que sua decisão afetará o pagamento mensal seguinte. Por exemplo, se você quiser manter o pagamento de abril, certifique-se de definir seu status de espera de pagamento como **ativado** antes do fim de março.
 
-Depois de definir seu dividendos manter o estado para **no**, todos os dividendos estarão em espera até que a mudar o controlo de deslize para **desativar**. Ao fazê-lo, estará incluído durante o próximo ciclo de dividendos mensal (desde que tiverem sido cumpridos quaisquer limiares de pagamento aplicável). Por exemplo, se já teve seu dividendos em espera, mas seria gostam de ter um dividendos gerado em Junho, em seguida, certifique-se Ativar/desativar o dividendos reter estado para **desativar** antes do final de Maio.
+Depois de definir o status de suspensão de pagamento como **ativado**, todos os pagamentos estarão em espera até que você alterne o controle deslizante de volta para **desativado**. Ao fazer isso, você será incluído durante o próximo ciclo de pagamento mensal (desde que todos os limites de pagamentos aplicáveis tenham sido atendidos). Por exemplo, se você tiver seus pagamentos em espera, mas quiser ter um pagamento gerado em junho, certifique-se de alternar o status de espera de pagamento para **desativado** antes do final de maio.
 
 > [!NOTE]
-> Sua **dividendos manter o estado** seleção aplica-se ao **todos os** fontes de receita pagos por meio do Microsoft Partner Center, incluindo o Azure Marketplace, AppSource, Microsoft Store, publicidade, etc.). Não é possível selecionar Estados de suspensão diferentes para cada origem de receita.
+> A seleção de **status de retenção de pagamento** se aplica a **todas as** fontes de receita pagas por meio do Microsoft Partner Center, incluindo o Azure Marketplace, AppSource, Microsoft Store, publicidade, etc.). Não é possível selecionar diferentes status de retenção para cada fonte de receita.
 
 ### <a name="devices"></a>Dispositivos
 
-As definições de gestão do dispositivo, aplicam-se apenas a publicação do UWP. [Saiba mais](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
+As configurações de gerenciamento de dispositivo se aplicam somente à publicação UWP. [Saiba mais](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
 
-### <a name="tracking-guids"></a>Os GUIDs de controlo
+### <a name="tracking-guids"></a>GUIDs de acompanhamento
 
-Globalmente identificadores exclusivos (GUIDs) são números de referência exclusivo (com 32 dígitos hexadecimais), que podem ser utilizados para controlar a utilização do Azure. 
+Os GUIDs (identificadores globalmente exclusivos) são números de referência exclusivos (com 32 dígitos hexadecimais) que podem ser usados para controlar o uso do Azure. 
 
-Para criar os GUIDs para acompanhamento, deve utilizar um gerador GUID. A equipe de armazenamento do Azure criou um [formulário de gerador GUID](https://aka.ms/StoragePartners) que será enviada uma mensagem é um GUID no formato correto e pode ser reutilizado entre os sistemas de controle diferentes.
+Para criar GUIDs para acompanhamento, você deve usar um gerador de GUID. A equipe de armazenamento do Azure criou um [formulário de gerador de GUID](https://aka.ms/StoragePartners) que enviará um email a um GUID do formato correto e poderá ser reutilizado nos diferentes sistemas de controle.
 
-Recomendamos que crie um GUID exclusivo para cada oferta e a distribuição do canal para cada produto. Pode optar por utilizar um GUID único para vários canais de distribuição do produto se não pretender que o relatório ser dividida.
+Recomendamos que você crie um GUID exclusivo para cada oferta e canal de distribuição para cada produto. Você pode optar por usar um único GUID para vários canais de distribuição do produto se não quiser que os relatórios sejam divididos.
 
-Se implementar um produto ao utilizar um modelo e está disponível no Marketplace do Azure e no GitHub, pode criar e registar 2 GUIDS distintos:
+Se você implantar um produto usando um modelo e ele estiver disponível no Azure Marketplace e no GitHub, você poderá criar e registrar 2 GUIDs distintos:
 
 *   Produto A no Azure Marketplace
 *   Produto A no GitHub
 
-A comunicação é efetuada pelo valor de parceiro (ID de parceiro da Microsoft) e os GUIDs. Também pode controlar GUIDs num nível mais granular, alinhando a cada plano na sua oferta.
+O relatório é feito pelo valor do parceiro (ID do parceiro da Microsoft) e pelos GUIDs. Você também pode acompanhar GUIDs em um nível mais granular, alinhando a cada plano dentro de sua oferta.
 
-Para obter mais informações, consulte a [utilização do cliente de controlo do Azure com perguntas frequentes de GUIDs](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
+Para obter mais informações, consulte as [perguntas frequentes sobre como controlar o uso do cliente do Azure com GUIDs](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
 
 
 
-## <a name="multi-user-account-management"></a>Gestão de contas de vários utilizadores
+## <a name="multi-user-account-management"></a>Gerenciamento de contas de vários usuários
 
-Tira partido do Centro de parceiros [do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) para a gestão e acesso de conta de multiutilizador. Da sua organização do Azure AD é associado automaticamente a sua conta do Centro de parceiros como parte do processo de inscrição. 
+O Partner Center aproveita o [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) para acesso e gerenciamento de contas de vários usuários. O Azure AD da sua organização é associado automaticamente à sua conta do Partner Center como parte do processo de registro. 
 
-## <a name="manage-users"></a>Gerir utilizadores
+## <a name="manage-users"></a>Gerir Utilizadores
 
-O **usuários** secção do Centro de parceiros (sob **definições de conta**) vamos utilizar o Azure AD para gerir os utilizadores, grupos e aplicações do Azure AD que têm acesso à sua conta do Centro de parceiros. Tenha em atenção que para Gerenciar usuários, precisa estar conectado com seu [conta profissional](./company-work-accounts.md) (inquilino do Azure AD associado). Para gerir utilizadores dentro de uma conta de trabalho diferentes / inquilino, terá de terminar e, em seguida, inicie sessão novamente como um utilizador com **Manager** que as permissões de conta profissional / inquilino. 
+A seção **usuários** do Partner Center (em **configurações de conta**) permite que você use o Azure ad para gerenciar usuários, grupos e aplicativos do Azure AD que têm acesso à sua conta do Partner Center. Observe que, para gerenciar os usuários, você deve estar conectado com sua [conta corporativa](./company-work-accounts.md) (o locatário do Azure ad associado). Para gerenciar usuários em uma conta de trabalho/locatário diferente, você precisará sair e entrar novamente como um usuário com permissões de **gerente** nessa conta/locatário de trabalho. 
 
-Depois de iniciar sessão com a sua conta profissional (inquilino do Azure AD), pode:
-- [Adicionar ou remover utilizadores](#add-or-remove-users)
-- [Alterar uma palavra-passe do utilizador](#change-a-user-password)
+Depois de entrar com sua conta corporativa (locatário do Azure AD), você pode:
+- [Adicionar ou remover usuários](#add-or-remove-users)
+- [Alterar uma senha de usuário](#change-a-user-password)
 - [Adicionar ou remover grupos](#add-or-remove-users)
-- [Adicionar ou remover aplicações do Azure AD](#add-new-azure-ad-applications)
-- [Gerir as chaves de uma aplicação do Azure AD](#manage-keys-for-an-azure-ad-application)
-- [Definir funções de utilizador e permissões](#define-user-roles-and-permissions)
+- [Adicionar ou remover aplicativos do Azure AD](#add-new-azure-ad-applications)
+- [Gerenciar chaves para um aplicativo do Azure AD](#manage-keys-for-an-azure-ad-application)
+- [Definir funções e permissões de usuário](#define-user-roles-and-permissions)
 
 
-Lembre-se de que todos os utilizadores do Centro de parceiros (incluindo os grupos e aplicações do Azure AD) tem de ter uma conta de trabalho ativo numa [inquilino do Azure AD](#manage-tenants) que está associado com a sua conta do Centro de parceiros. 
+Tenha em mente que todos os usuários do Partner Center (incluindo grupos e aplicativos do Azure AD) devem ter uma conta corporativa ativa em um [locatário do Azure ad](#manage-tenants) associado à sua conta do Partner Center. 
 
-### <a name="add-or-remove-users"></a>Adicionar ou remover utilizadores
+### <a name="add-or-remove-users"></a>Adicionar ou remover usuários
 
-Sua conta tem de ter [ **ao nível do Gestor** ](#define-user-roles-and-permissions) permissões para o [conta (inquilino do Azure AD) profissional](./company-work-accounts.md) no qual pretende adicionar ou editar utilizadores.
+Sua conta deve ter permissões de [**nível de gerente**](#define-user-roles-and-permissions) para a [conta de trabalho (locatário do Azure AD)](./company-work-accounts.md) na qual você deseja adicionar ou editar usuários.
 
-#### <a name="add-existing-users"></a>Adicionar utilizadores existentes
+#### <a name="add-existing-users"></a>Adicionar usuários existentes
 
-Para adicionar utilizadores à sua conta do Centro de parceiros que já existem na sua empresa [(inquilino do Azure AD) de conta profissional](./company-work-accounts.md):
+Para adicionar usuários à sua conta do Partner Center que já existe na conta corporativa da sua empresa [(locatário do Azure AD)](./company-work-accounts.md):
 
-1. Aceda a **usuários** (sob **definições da conta**) e selecione **adicionar utilizadores**.
-2. Selecione um ou mais utilizadores na lista apresentada. Pode utilizar a caixa de pesquisa para procurar utilizadores específicos.
-\* Se selecionar mais do que um utilizador para adicionar à sua conta do Centro de parceiros, tem de o atribuir a mesma função ou conjunto de permissões personalizadas. Para adicionar vários usuários com permissões/funções diferentes, repita estes passos para cada função ou um conjunto de permissões personalizadas.
-3.  Quando terminar de selecionar utilizadores, clique em **adicionar selecionado**.
-5.  Na **funções** secção, especifique as funções ou permissões personalizadas para os utilizador ou utilizadores selecionados.
+1. Vá para **usuários** (em **configurações de conta**) e selecione **Adicionar usuários**.
+2. Selecione um ou mais usuários na lista que aparece. Você pode usar a caixa de pesquisa para procurar usuários específicos.
+\* Se você selecionar mais de um usuário para adicionar à sua conta do Partner Center, deverá atribuir a mesma função ou conjunto de permissões personalizadas. Para adicionar vários usuários com diferentes funções/permissões, repita essas etapas para cada função ou conjunto de permissões personalizadas.
+3.  Quando terminar de escolher usuários, clique em **Adicionar selecionado**.
+5.  Na seção **funções** , especifique a (s) função (ões) ou as permissões personalizadas para os usuários selecionados.
 6.  Selecione **Guardar**.
 
-#### <a name="create-new-users"></a>Criar novos utilizadores
+#### <a name="create-new-users"></a>Criar novos usuários
 
-Para criar contas de utilizador totalmente nova, tem de ter uma conta com [ **Administrador Global** ](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissões. 
+Para criar contas de usuário totalmente novas, você deve ter uma conta com permissões de [**administrador global**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) . 
 
-1. Aceda a **usuários** (sob **definições da conta**), selecione **adicionar utilizadores**, em seguida, selecione **criar novos utilizadores**.
-1. Introduza um nome próprio, apelido e nome de utilizador para cada novo utilizador. 
-1. Se pretender ao novo utilizador para ter uma conta de administrador global no diretório da sua organização, marque a caixa rotulada **tornar este utilizador um Administrador Global no seu Azure AD, com controlo total sobre todos os recursos de diretório**. Isso dará ao usuário de acesso total a todas as funcionalidades administrativas na sua empresa do Azure AD. Poderão adicionar e gerir os utilizadores na conta de trabalho da sua organização (inquilino do Azure AD), apesar de não parceiros do Datacenter, a menos que concede à conta as permissões/função apropriadas. 
-1. Se tiver selecionado a caixa para **tornar este utilizador um Administrador Global**, terá de fornecer um **e-mail de recuperação de palavra-passe** para o usuário recuperar a palavra-passe, se necessário.
-1. Na **associação de grupo** secção, selecione todos os grupos aos quais pretende que o novo utilizador pertence.
-1. Na **funções** secção, especifique as funções ou permissões personalizadas para o utilizador.
+1. Vá para **usuários** (em **configurações de conta**), selecione **Adicionar usuários**e, em seguida, escolha **criar novos usuários**.
+1. Insira um nome, o sobrenome e o nome de usuário para cada novo usuário. 
+1. Se você quiser que o novo usuário tenha uma conta de administrador global no diretório da sua organização, marque a caixa rotulada **tornar esse usuário um administrador global no Azure AD, com controle total sobre todos os recursos de diretório**. Isso dará ao usuário acesso completo a todos os recursos administrativos no Azure AD da sua empresa. Eles poderão adicionar e gerenciar usuários na conta corporativa da sua organização (locatário do Azure AD), embora não estejam no Partner Center, a menos que você conceda à conta as permissões/funções apropriadas. 
+1. Se tiver marcado a caixa para **tornar esse usuário um administrador global**, você precisará fornecer um **email de recuperação de senha** para que o usuário recupere sua senha, se necessário.
+1. Na seção **Associação de grupo** , selecione os grupos aos quais você deseja que o novo usuário pertença.
+1. Na seção **funções** , especifique a (s) função (ões) ou as permissões personalizadas para o usuário.
 1. Selecione **Guardar**.
 
-Criar um novo utilizador no Centro de parceiros também irá criar uma conta para que o utilizador na conta profissional (inquilino do Azure AD) para o qual tem sessão iniciada. Efetuar alterações ao nome de um utilizador no Centro de parceiros fará com que as mesmas alterações na conta de trabalho da sua organização (inquilino do Azure AD).
+A criação de um novo usuário no Partner Center também criará uma conta para esse usuário na conta de trabalho (locatário do Azure AD) na qual você está conectado. Fazer alterações no nome de um usuário no Partner Center fará as mesmas alterações na conta corporativa da sua organização (locatário do Azure AD).
 
-#### <a name="invite-new-users-by-email"></a>Convidar novos utilizadores por e-mail
+#### <a name="invite-new-users-by-email"></a>Convidar novos usuários por email
 
-Para convidar utilizadores que atualmente não fazem parte da sua conta de trabalho da empresa (inquilino do Azure AD) através de e-mail, tem de ter uma conta com [ **Administrador Global** ](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissões. 
+Para convidar usuários que atualmente não fazem parte de sua conta de trabalho da empresa (locatário do Azure AD) por email, você deve ter uma conta com permissões de [**administrador global**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) . 
 
-1. Aceda a **usuários** (sob **definições da conta**), selecione **adicionar utilizadores**, em seguida, selecione **convidar utilizadores por e-mail**.
-2. Introduza o e-mail de um ou mais endereços (até dez), separados por vírgulas ou ponto e vírgula.
-3. Na **funções** secção, especifique as funções ou permissões personalizadas para o utilizador.
+1. Vá para **usuários** (em **configurações de conta**), selecione **Adicionar usuários**e, em seguida, escolha **convidar usuários por email**.
+2. Insira um ou mais endereços de email (até dez), separados por vírgulas ou pontos-e-vírgulas.
+3. Na seção **funções** , especifique a (s) função (ões) ou as permissões personalizadas para o usuário.
 4. Selecione **Guardar**.
 
-Os utilizadores que convidado irão receber um convite por e-mail para aderir a sua conta do Centro de parceiros. Será criada uma nova conta de utilizador convidado na sua conta profissional (inquilino do Azure AD). Cada utilizador tem de aceitar o convite, antes de poderem aceder a sua conta.
+Os usuários que você convidou receberão um convite por email para ingressar na sua conta do Partner Center. Uma nova conta de usuário convidado será criada em sua conta corporativa (locatário do Azure AD). Cada usuário precisará aceitar seu convite antes que possa acessar sua conta.
 
-Se precisar de reenviar um convite, visite o **usuários** página, localize o convite na lista de utilizadores, selecione o respetivo endereço de e-mail (ou o texto que indica *convite pendente*). Em seguida, na parte inferior da página, selecione **reenviar convite**.
+Se você precisar reenviar um convite, visite a página **usuários** , localize o convite na lista de usuários, selecione seu endereço de email (ou o texto que informa o *convite pendente*). Em seguida, na parte inferior da página, selecione **reenviar convite**.
  
 
 > [!NOTE]
-> Se a sua organização utiliza [integração de diretórios](https://go.microsoft.com/fwlink/p/?LinkID=724033) para sincronizar o serviço de diretório no local com o Azure AD, não será possível criar novos utilizadores, grupos ou aplicações do Azure AD no Centro de parceiros. (Ou outro administrador no seu diretório no local) terá de criá-los diretamente no diretório no local, antes de que, poderá ver e adicioná-los no Centro de parceiros.
+> Se sua organização usar a [integração de diretórios](https://go.microsoft.com/fwlink/p/?LinkID=724033) para sincronizar o serviço de diretório local com o Azure AD, você não poderá criar novos usuários, grupos ou aplicativos do Azure AD no Partner Center. Você (ou outro administrador em seu diretório local) precisará criá-los diretamente no diretório local antes que você possa vê-los e adicioná-los no Partner Center.
 
 #### <a name="remove-a-user"></a>Remover um utilizador
 
-Para remover um utilizador da sua conta profissional (inquilino do Azure AD), aceda a **usuários** (sob **definições da conta**), selecione o utilizador que pretende remover usando a caixa de verificação na coluna extrema direita, em seguida, escolha  **Remover** das ações disponíveis. Será apresentada uma janela de pop-up para que possa confirmar que pretende remover os utilizador ou utilizadores selecionados.
+Para remover um usuário de sua conta de trabalho (locatário do Azure AD), vá para **usuários** (em **configurações de conta**), selecione o usuário que você deseja remover usando a caixa de seleção na coluna mais à direita e escolha **remover** das ações disponíveis. Uma janela pop-up será exibida para que você confirme que deseja remover os usuários selecionados.
 
-#### <a name="change-a-user-password"></a>Alterar uma palavra-passe do utilizador
+#### <a name="change-a-user-password"></a>Alterar uma senha de usuário
 
-Se um dos seus utilizadores tem de alterar a palavra-passe, ela poderá fazer isso se se tiver indicado um **e-mail de recuperação de palavra-passe** ao criar a conta de utilizador. Também pode atualizar a palavra-passe de um utilizador ao seguir os passos abaixo. Para alterar a palavra-passe de um utilizador na sua conta de trabalho da empresa (inquilino do Azure AD), tem de ser iniciada numa conta com [ **Administrador Global** ](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissões. Tenha em atenção que isto vai alterar a senha do usuário no seu inquilino do Azure AD, juntamente com a palavra-passe que utilizam para aceder ao centro de parceiros.
+Se um dos seus usuários precisar alterar sua senha, ele poderá fazê-lo se você tiver fornecido um **email de recuperação de senha** ao criar a conta de usuário. Você também pode atualizar a senha de um usuário seguindo as etapas abaixo. Para alterar a senha de um usuário em sua conta corporativa corporativa (locatário do Azure AD), você deve estar conectado a uma conta com permissões de [**administrador global**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) . Observe que isso alterará a senha do usuário em seu locatário do Azure AD, juntamente com a senha que eles usam para acessar o Partner Center.
 
-1.  Do **usuários** página (sob **definições da conta**), selecione o nome da conta de utilizador que pretende editar.
-2.  Selecione o **Repor palavra-passe** na parte inferior da página.
-3.  Aparecerá uma página de confirmação que mostra as informações de início de sessão do utilizador, incluindo uma palavra-passe temporária. Não se esqueça de imprimir ou copiar estas informações e fornecê-lo ao usuário, pois não será possível aceder a palavra-passe temporária, depois de sair desta página.
+1.  Na página **usuários** (em **configurações de conta**), selecione o nome da conta de usuário que você deseja editar.
+2.  Selecione o botão **Redefinir senha** na parte inferior da página.
+3.  Uma página de confirmação será exibida mostrando as informações de logon para o usuário, incluindo uma senha temporária. Certifique-se de imprimir ou copiar essas informações e fornecê-las ao usuário, pois você não poderá acessar a senha temporária depois de sair dessa página.
 
 
-## <a name="manage-groups"></a>Gerir grupos
+## <a name="manage-groups"></a>Gerir Grupos
 
-Os grupos permitem-lhe controlar várias funções de utilizador e permissões em conjunto.
+Os grupos permitem controlar várias funções de usuário e todas as permissões juntas.
 
 #### <a name="add-an-existing-group"></a>Adicionar um grupo existente
 
-Para adicionar que um grupo que já existe na conta de trabalho da sua organização (inquilino do Azure AD) para a sua conta do Centro de parceiros: 
+Para adicionar um grupo que já existe na conta corporativa da sua organização (locatário do Azure AD) à sua conta do Partner Center: 
 
-1.  Do **usuários** página (sob **definições da conta**), selecione **adicionar grupos**.
-2.  Selecione um ou mais grupos na lista apresentada. Pode utilizar a caixa de pesquisa para procurar grupos específicos.
-Se selecionar mais de um grupo para adicionar à sua conta do Centro de parceiros, tem de o atribuir a mesma função ou conjunto de permissões personalizadas. Para adicionar vários grupos de funções/permissões diferentes, repita estes passos para cada função ou um conjunto de permissões personalizadas.
-3.  Quando terminar de selecionar os grupos, clique em **adicionar selecionado**.
-4.  Na **funções** secção, especifique as funções ou permissões personalizadas para os grupos selecionados. Todos os membros do grupo será capazes de aceder à sua conta do Centro de parceiros com as permissões que se aplicam ao grupo, independentemente das funções e permissões associadas à sua conta individual.
+1.  Na página **usuários** (em **configurações de conta**), selecione **Adicionar grupos**.
+2.  Selecione um ou mais grupos na lista que aparece. Você pode usar a caixa de pesquisa para procurar grupos específicos.
+Se você selecionar mais de um grupo para adicionar à sua conta do Partner Center, deverá atribuir a mesma função ou conjunto de permissões personalizadas. Para adicionar vários grupos com diferentes funções/permissões, repita essas etapas para cada função ou conjunto de permissões personalizadas.
+3.  Quando terminar de escolher grupos, clique em **Adicionar selecionado**.
+4.  Na seção **funções** , especifique a (s) função (ões) ou as permissões personalizadas para os grupos selecionados. Todos os membros do grupo poderão acessar sua conta do Partner Center com as permissões que você aplicar ao grupo, independentemente das funções e permissões associadas à sua conta individual.
 5.  Selecione **Guardar**.
 
-Quando adiciona um grupo existente, cada utilizador que seja um membro desse grupo será capaz de aceder à sua conta de centro de parceiros, com as permissões associadas à função atribuída do grupo.
+Quando você adiciona um grupo existente, todos os usuários que são membros desse grupo poderão acessar sua conta do Partner Center, com as permissões associadas à função atribuída do grupo.
 
 #### <a name="add-a-new-group"></a>Adicionar um novo grupo
 
-Para adicionar um grupo novo em folha para a sua conta do Centro de parceiros: 
+Para adicionar um grupo novo à marca à sua conta do Partner Center: 
 
-1.  Do **usuários** página (sob **definições da conta**), selecione **adicionar grupos**.
+1.  Na página **usuários** (em **configurações de conta**), selecione **Adicionar grupos**.
 2.  Na página seguinte, selecione **novo grupo**.
-3.  Introduza o nome a apresentar para o novo grupo.
-4.  Especifique o funções ou permissões personalizadas para o grupo. Todos os membros do grupo será capazes de aceder à sua conta do Centro de parceiros com as permissões que se aplicam aqui, independentemente das funções/permissões associadas a sua conta individual.
-5.  Selecione o utilizador (es) para o novo grupo na lista apresentada. Pode utilizar a caixa de pesquisa para procurar utilizadores específicos.
-6.  Quando tiver terminado de selecionar utilizadores, clique em **adicionar selecionado** para adicioná-los ao novo grupo.
+3.  Insira o nome de exibição para o novo grupo.
+4.  Especifique a (s) função (ões) ou as permissões personalizadas para o grupo. Todos os membros do grupo poderão acessar sua conta do Partner Center com as permissões que você aplicar aqui, independentemente das funções/permissões associadas à sua conta individual.
+5.  Selecione usuário (s) para o novo grupo na lista que aparece. Você pode usar a caixa de pesquisa para procurar usuários específicos.
+6.  Quando terminar de selecionar usuários, clique em **Adicionar selecionado** para adicioná-los ao novo grupo.
 7.  Selecione **Guardar**.
 
-Tenha em atenção que este novo grupo será criado na conta de trabalho da sua organização (inquilino do Azure AD) Além disso, não apenas na sua conta do Centro de parceiros.
+Observe que esse novo grupo será criado na conta corporativa da sua organização (locatário do Azure AD) também, não apenas na sua conta do Partner Center.
 
 #### <a name="remove-a-group"></a>Remover um grupo
 
-Para remover um grupo de sua conta profissional (inquilino do Azure AD), aceda a **usuários** (sob **definições da conta**), selecione o grupo que pretende remover usando a caixa de verificação na coluna extrema direita, em seguida, escolha  **Remover** das ações disponíveis. Será apresentada uma janela de pop-up para que possa confirmar que pretende remover os grupos selecionados.
+Para remover um grupo de sua conta corporativa (locatário do Azure AD), vá para **usuários** (em **configurações de conta**), selecione o grupo que você deseja remover usando a caixa de seleção na coluna mais à direita e escolha **remover** das ações disponíveis. Uma janela pop-up será exibida para que você confirme que deseja remover os grupos selecionados.
 
-## <a name="manage-azure-ad-applications"></a>Gerir aplicações do Azure AD
+## <a name="manage-azure-ad-applications"></a>Gerenciar aplicativos do Azure AD
 
-Pode permitir que aplicações ou serviços que fazem parte da Azure sua empresa AD para aceder à sua conta do Centro de parceiros. 
+Você pode permitir que aplicativos ou serviços que fazem parte do Azure AD da sua empresa acessem sua conta do Partner Center. 
 
-#### <a name="add-existing-azure-ad-applications"></a>Adicionar as aplicações existentes do Azure AD 
+#### <a name="add-existing-azure-ad-applications"></a>Adicionar aplicativos existentes do Azure AD 
 
-Para adicionar aplicações que já existem no Azure Active Directory da sua empresa: 
+Para adicionar aplicativos que já existem no Azure Active Directory da sua empresa: 
 
-1.  Do **usuários** página (sob **definições da conta**), selecione **adicionar aplicações do Azure AD**.
-2.  Selecione uma ou mais aplicações do Azure AD na lista apresentada. Pode utilizar a caixa de pesquisa para procurar específicos de aplicações do Azure AD. Se selecionar mais do que uma aplicação do Azure AD para adicionar à sua conta do Centro de parceiros, tem de o atribuir a mesma função ou conjunto de permissões personalizadas. Para adicionar várias aplicações do Azure AD com permissões/funções diferentes, repita estes passos para cada função ou um conjunto de permissões personalizadas.
-3.  Quando tiver terminado de selecionar as aplicações do Azure AD, clique em **adicionar selecionado**.
-5.  Na **funções** secção, especifique o funções ou permissões personalizadas selecionado para aplicações do Azure AD.
+1.  Na página **usuários** (em **configurações de conta**), selecione **adicionar aplicativos do Azure ad**.
+2.  Selecione um ou mais aplicativos do Azure AD na lista exibida. Você pode usar a caixa de pesquisa para procurar aplicativos específicos do Azure AD. Se você selecionar mais de um aplicativo do Azure AD para adicionar à sua conta do Partner Center, deverá atribuir a mesma função ou conjunto de permissões personalizadas. Para adicionar vários aplicativos do Azure AD com diferentes funções/permissões, repita essas etapas para cada função ou conjunto de permissões personalizadas.
+3.  Quando terminar de selecionar aplicativos do Azure AD, clique em **Adicionar selecionado**.
+5.  Na seção **funções** , especifique a (s) função (ões) ou permissões personalizadas para os aplicativos do Azure ad selecionados.
 6.  Selecione **Guardar**.
 
-#### <a name="add-new-azure-ad-applications"></a>Adicionar o novo Azure aplicações AD 
+#### <a name="add-new-azure-ad-applications"></a>Adicionar novos aplicativos do Azure AD 
 
-Se quiser conceder acesso de centro de parceiros para um Azure totalmente nova conta de aplicação do AD, pode criar uma no **utilizadores** secção. Tenha em atenção que isto irá criar uma nova conta na sua conta de trabalho da empresa (inquilino do Azure AD), não apenas na sua conta do Centro de parceiros. Se principalmente estiver a utilizar esta aplicação do Azure AD para autenticação de centro de parceiros e não é necessário que os utilizadores acedam diretamente a ele, pode introduzir qualquer endereço válido para o **URL de resposta** e **URI de ID de aplicação**, desde como esses valores não são utilizados por qualquer outra aplicação do Azure AD no seu diretório.
+Se você quiser conceder acesso à central de parceiros a uma conta de aplicativo do Azure AD de marca nova, poderá criar uma na seção **usuários** . Observe que isso criará uma nova conta em sua conta corporativa corporativa (locatário do Azure AD), não apenas na sua conta do Partner Center. Se você estiver usando principalmente esse aplicativo do Azure AD para a autenticação do Partner Center e não precisar que os usuários o acessem diretamente, poderá inserir qualquer endereço válido para a **URL de resposta** e o URI da **ID do aplicativo**, desde que esses valores não sejam usados por nenhum outro Azure Aplicativo do AD em seu diretório.
 
-1.  Do **usuários** página (sob **definições da conta**), selecione **adicionar aplicações do Azure AD**.
-2.  Na página seguinte, selecione **do Azure AD de nova aplicação**.
-3.  Introduza o **URL de resposta** para a nova aplicação do Azure AD. Este é o URL em que os utilizadores podem iniciar sessão e utilizar a aplicação do Azure AD (por vezes, também conhecido como o URL da aplicação ou um URL de início de sessão). O **URL de resposta** não pode ter mais de 256 carateres e tem de ser exclusivo no diretório.
-4.  Introduza o **URI de ID de aplicação** para a nova aplicação do Azure AD. Este é um identificador lógico para a aplicação do Azure AD que é apresentada quando é enviado um pedido de início de início de sessão único para o Azure AD. Tenha em atenção que o **URI de ID de aplicação** tem de ser exclusivo para cada aplicação do Azure AD no seu diretório. Este ID não pode ter mais de 256 carateres. Para mais informações sobre o URI de ID de aplicação, veja [integrar aplicações com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
-5.  Na **funções** secção, especifique as funções ou permissões personalizadas para a aplicação do Azure AD.
+1.  Na página **usuários** (em **configurações de conta**), selecione **adicionar aplicativos do Azure ad**.
+2.  Na página seguinte, selecione **novo aplicativo Azure ad**.
+3.  Insira a **URL de resposta** para o novo aplicativo do Azure AD. Essa é a URL em que os usuários podem entrar e usar seu aplicativo do Azure AD (às vezes, também conhecido como URL do aplicativo ou URL de logon). A **URL de resposta** não pode ter mais de 256 caracteres e deve ser exclusiva em seu diretório.
+4.  Insira o **URI da ID do aplicativo** para o novo aplicativo do Azure AD. Esse é um identificador lógico para o aplicativo do Azure AD que é apresentado quando uma solicitação de logon único é enviada ao Azure AD. Observe que o **URI da ID do aplicativo** deve ser exclusivo para cada aplicativo do Azure AD em seu diretório. Esta ID não pode ter mais de 256 caracteres. Para obter mais informações sobre o URI da ID do aplicativo, consulte [integrando aplicativos com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
+5.  Na seção **funções** , especifique a (s) função (ões) ou as permissões personalizadas para o aplicativo do Azure AD.
 6.  Selecione **Guardar**.
 
-Depois de adicionar ou criar uma aplicação do Azure AD, pode retornar para o **utilizadores** secção e selecione o nome da aplicação para rever as definições da aplicação, incluindo o ID do inquilino, o ID de cliente, o URL de resposta e o URI de ID de aplicação.
+Depois de adicionar ou criar um aplicativo do Azure AD, você pode retornar à seção **usuários** e selecionar o nome do aplicativo para examinar as configurações do aplicativo, incluindo a ID do locatário, a ID do cliente, a URL de resposta e o URI da ID do aplicativo.
 
 #### <a name="remove-an-application"></a>Remover uma aplicação
 
-Para remover uma aplicação da sua conta profissional (inquilino do Azure AD), aceda a **usuários** (sob **definições da conta**), selecione a aplicação que pretende remover usando a caixa de verificação na coluna extrema direita, em seguida, escolha **remover** das ações disponíveis. Será apresentada uma janela de pop-up para que possa confirmar que pretende remover as aplicações selecionadas.
+Para remover um aplicativo de sua conta de trabalho (locatário do Azure AD), vá para **usuários** (em **configurações de conta**), selecione o aplicativo que você deseja remover usando a caixa de seleção na coluna mais à direita e, em seguida, escolha **remover** da ações disponíveis. Uma janela pop-up será exibida para que você confirme que deseja remover os aplicativos selecionados.
 
-#### <a name="manage-keys-for-an-azure-ad-application"></a>Gerir as chaves de uma aplicação do Azure AD
+#### <a name="manage-keys-for-an-azure-ad-application"></a>Gerenciar chaves para um aplicativo do Azure AD
 
-Se a sua aplicação do Azure AD lê e escreve dados no Microsoft Azure AD, será necessário uma chave. Pode criar chaves para uma aplicação do Azure AD ao editar a informação no Centro de parceiros. Também pode remover as chaves que já não são necessários.
+Se o seu aplicativo do Azure AD lê e grava dados em Microsoft Azure AD, ele precisará de uma chave. Você pode criar chaves para um aplicativo do Azure AD editando suas informações no Partner Center. Você também pode remover as chaves que não são mais necessárias.
 
-1.  Do **usuários** página (sob **definições da conta**), selecione o nome da aplicação do Azure AD. Verá todas as chaves de Active Directory para a aplicação do Azure AD, incluindo a data em que a chave foi criada e quando irá expirar. 
-2. Para remover uma chave que já não é necessário, selecione **remover**.
+1.  Na página **usuários** (em **configurações de conta**), selecione o nome do aplicativo do Azure AD. Você verá todas as chaves ativas para o aplicativo do Azure AD, incluindo a data em que a chave foi criada e a expiração. 
+2. Para remover uma chave que não é mais necessária, selecione **remover**.
 3.  Para adicionar uma nova chave, selecione **Adicionar nova chave**.
-4.  Irá ver uma apresentação de ecrã a **ID de cliente** e **valores da chave**. Não se esqueça de imprimir ou copiar estas informações, como não poderá acessá-lo novamente depois de sair desta página.
-4.  Se quiser criar mais chaves, selecione **adicionar outra chave**.
+4.  Você verá uma tela mostrando os valores de ID e **chave**do **cliente** . Certifique-se de imprimir ou copiar essas informações, pois você não poderá acessá-las novamente depois de sair desta página.
+4.  Se você quiser criar mais chaves, selecione **adicionar outra chave**.
 
 
-### <a name="define-user-roles-and-permissions"></a>Definir funções de utilizador e permissões
+### <a name="define-user-roles-and-permissions"></a>Definir funções e permissões de usuário
 
-Podem ser atribuídos a utilizadores da sua empresa das seguintes funções e permissões no programa de Marketplace comercial no Centro de parceiros. 
-
-Tenha em atenção de que as funções de inquilino do Azure Active Directory (AAD) incluem administrador global, administrador de utilizadores e funções CSP. Funções do AAD não são dessas funções que não gerir o inquilino e eles incluem-se ao administrador, business perfil administrador, administrador de referência, incentivo administrador e utilizador incentivo MPN.
-
+Os usuários da sua empresa podem receber as seguintes funções e permissões para o programa comercial do Marketplace no Partner Center. 
 
 |**Função**|**Permissões**|
 |----------------------------------|:---------------------------------|
-|Administrador global|• Podem aceder a todos os Microsoft/Serviços de contas com privilégio total
-|      |• Criar pedidos de suporte para o Centro de parceiros
-||• Contratos de exibição, listas de preços e ofertas
-||• Ver, criar e gerir utilizadores parceiros|
-|Manager|• Podem aceder a todas as funcionalidades de conta Microsoft, exceto as definições de imposto e dividendos
-|      |• Podem gerir utilizadores, funções e trabalhar contas (inquilinos)|
-|Programador|• Pode carregar pacotes, submeter aplicações e suplementos e ver o relatório de utilização para obter detalhes de telemetria
-|      |• Não é possível aceder a definições de conta ou informações financeiras|
-|Contribuinte de negócios|• Pode aceder a informações financeiras e definir os detalhes dos preços
-|      |• Não é possível criar ou submeter novos aplicativos e complementos|
-|Contribuinte Financeiro|• Podem visualizar os relatórios de dividendos
-|      |• Não é possível efetuar alterações a aplicações ou definições|
-|Comerciante|• Pode responder a revisões de cliente e os relatórios não-financeiros
-|      |• Não é possível efetuar alterações a aplicações ou definições|
 
-Para obter mais informações sobre a gestão de funções e permissões no outras áreas do Centro de parceiros, como o Azure Active Directory (AD), fornecedor de soluções Cloud (CSP), o fornecedor de painel de controle (CPV), os utilizadores convidados ou Microsoft Partner Network (MPN), consulte [atribuir funções de utilizadores e permissões no Centro de parceiros](https://docs.microsoft.com/partner-center/permissions-overview).
+| Manager | • pode acessar todos os recursos do conta Microsoft, exceto as configurações de imposto e pagamento |      | • Pode gerenciar usuários, funções e contas de trabalho (locatários) | | Developer | • pode gerenciar e publicar ofertas |      | • Pode exibir alguns relatórios do Publicador | | Administrador global | • não é relevante para o Marketplace comercial | | Colaborador de negócios | • não é relevante para o Marketplace comercial | | Colaborador financeiro | • não é relevante para o Marketplace comercial | | Marketer | • não relevante para o Marketplace comercial |
+
+Para obter mais informações sobre como gerenciar funções e permissões em outras áreas do Partner Center, como Azure Active Directory (AD), provedor de soluções de nuvem (CSP), fornecedor do painel de controle (CPV), usuários convidados ou Microsoft Partner Network (MPN), consulte [atribuir funções de usuários e permissões no Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
 
 
-## <a name="manage-tenants"></a>Gerir os inquilinos
+## <a name="manage-tenants"></a>Gerenciar locatários
 
-Um inquilino do Azure Active Directory (AD), também conhecido como sua "conta profissional" ao longo desta documentação, é uma representação da sua organização configurar no portal do Azure e ajuda-o a gerir uma instância específica de serviços cloud da Microsoft para interno e os utilizadores externos. Se sua organização subscreveu um serviço cloud da Microsoft, como o Azure, Microsoft Intune ou do Office 365, o inquilino do Azure AD foi estabelecido para. 
+Um locatário do Azure Active Directory (AD), também conhecido como sua "conta de trabalho", em toda esta documentação, é uma representação da sua organização configurada na portal do Azure e ajuda a gerenciar uma instância específica dos serviços de nuvem da Microsoft para seu interno e usuários externos. Se sua organização assinou um serviço de nuvem da Microsoft, como o Azure, Microsoft Intune ou o Office 365, um locatário do Azure AD foi estabelecido para você. 
 
-Pode configurar vários inquilinos para utilizar com o Centro de parceiros. Qualquer utilizador com o **Manager** função na conta do Centro de parceiros terá a opção para adicionar e remover inquilinos do Azure AD a partir da conta.  
+Você pode configurar vários locatários para usar com o Partner Center. Qualquer usuário com a função de **gerente** na conta do Partner Center terá a opção de adicionar e remover locatários do Azure ad da conta.  
 
-### <a name="add-an-existing-tenant"></a>Adicionar um inquilino existente
+### <a name="add-an-existing-tenant"></a>Adicionar um locatário existente
 
-Para associar a outro inquilino do Azure AD com a sua conta do Centro de parceiros:
+Para associar outro locatário do Azure AD à sua conta do Partner Center:
 
-1.  Partir do **inquilinos** página (sob **definições da conta**), selecione **associar outro inquilino do Azure AD**.
-2. Introduza as credenciais do Azure AD para o inquilino que pretende associar.
-3. Reveja o nome de organização e o domínio para o seu inquilino do Azure AD. Para concluir a associação, selecione **confirmar**.
+1.  Na página **locatários** (em **configurações de conta**), selecione **associar outro locatário do Azure ad**.
+2. Insira suas credenciais do Azure AD para o locatário que você deseja associar.
+3. Examine a organização e o nome de domínio do seu locatário do Azure AD. Para concluir a associação, selecione **confirmar**.
 
-Se a associação é efetuada com êxito, em seguida, estará pronto para adicionar e gerir os utilizadores da conta no **utilizadores** secção no Centro de parceiros.
+Se a associação for bem-sucedida, você estará pronto para adicionar e gerenciar usuários da conta na seção **usuários** no Partner Center.
 
-### <a name="create-a-new-tenant"></a>Criar um novo inquilino
+### <a name="create-a-new-tenant"></a>Criar um novo locatário
 
-Para criar um inquilino de marca novo do Azure AD com a sua conta do Centro de parceiros:
+Para criar um novo locatário do Azure AD com sua conta do Partner Center:
 
-1.  Partir do **inquilinos** página (sob **definições da conta**), selecione **inquilino do Azure AD de criar uma nova**.
-2. Introduza as informações de diretório do Azure AD nova:
-    - **Nome de domínio**: O nome exclusivo que usaremos para o seu domínio do Azure AD, juntamente com ". onmicrosoft.com". Por exemplo, se tiver introduzido "exemplo", o seu domínio do Azure AD seria "example.onmicrosoft.com".
-    - **E-mail de contacto**: Um endereço de e-mail onde poderemos contactá-lo sobre a sua conta se necessário.
-    - **Informações de conta de utilizador de administrador global**: O nome próprio, último nome, nome de utilizador e palavra-passe que pretende utilizar para a nova conta de administrador global.
-3. Selecione **criar** para confirmar as informações de domínio e a conta nova.
-4. Inicie sessão com do Azure novo nome de utilizador de administrador global de AD e a palavra-passe para começar [adicionar e gerir os utilizadores](#manage-users).
+1.  Na página **locatários** (em **configurações de conta**), selecione **criar um novo locatário do Azure ad**.
+2. Insira as informações de diretório para seu novo Azure AD:
+    - **Nome de domínio**: O nome exclusivo que usaremos para seu domínio do Azure AD, junto com ". onmicrosoft.com". Por exemplo, se você inseriu "example", seu domínio do Azure AD seria "example.onmicrosoft.com".
+    - **Email de contato**: Um endereço de email no qual podemos contatá-lo sobre sua conta, se necessário.
+    - **Informações da conta de usuário de administrador global**: Nome, sobrenome, nome de usuário e senha que você deseja usar para a nova conta de administrador global.
+3. Selecione **criar** para confirmar as novas informações de domínio e conta.
+4. Entre com seu novo nome de usuário e senha de administrador global do Azure AD para começar a [Adicionar e gerenciar usuários](#manage-users).
 
-Para obter mais informações sobre a criação de novos inquilinos no portal do Azure, em vez de através do portal do Centro de parceiros, consulte o artigo [criar um novo inquilino no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+Para obter mais informações sobre como criar novos locatários dentro de seu portal do Azure, em vez de por meio do portal do Partner Center, consulte o artigo [criar um novo locatário no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
 
-### <a name="remove-a-tenant"></a>Remover um inquilino
+### <a name="remove-a-tenant"></a>Remover um locatário
 
-Para remover um inquilino da sua conta do Centro de parceiros, encontrar o seu nome na **inquilinos** página (na **definições da conta**), em seguida, selecione **remover**. Será solicitado a confirmar que pretende remover o inquilino. Depois de fazer isso, não existem utilizadores nesse inquilino vão conseguir iniciar sessão na conta do Centro de parceiros e todas as permissões que configurou para os utilizadores serão removidas.
+Para remover um locatário de sua conta do Partner Center, localize seu nome na página locatários (em **configurações da conta**) e selecione **remover**. Você será solicitado a confirmar que deseja remover o locatário. Depois de fazer isso, nenhum usuário nesse locatário poderá entrar na conta do Partner Center e todas as permissões configuradas para esses usuários serão removidas.
 
-Quando remove um inquilino, todos os utilizadores que foram adicionados à conta do Centro de parceiros de inquilino já não será capazes de iniciar sessão conta.
+Quando você remove um locatário, todos os usuários que foram adicionados à conta do Partner Center desse locatário não poderão mais entrar na conta.
 
 > [!TIP]
-> Não é possível remover um inquilino se tem atualmente sessão iniciada no Centro de parceiros através de uma conta no mesmo inquilino. Para remover um inquilino, tem de iniciar sessão Centro de parceiros como um **Manager** para outro inquilino que está associado a conta. Se houver apenas um inquilino associado à conta, esse inquilino só pode ser removido depois de iniciar sessão com a conta da Microsoft que abriu a conta.
+> Você não poderá remover um locatário se estiver conectado no momento ao Partner Center usando uma conta no mesmo locatário. Para remover um locatário, você deve entrar no Partner Center como um **gerente** para outro locatário que está associado à conta. Se houver apenas um locatário associado à conta, esse locatário só poderá ser removido depois de entrar com o conta Microsoft que abriu a conta.
 
 
 ## <a name="agreements"></a>Contratos
 
-O **contratos** secção do Centro de parceiros (sob **definições de conta**) Vejamos uma lista dos contratos da publicação que autorizou. Estes contratos estão listados, de acordo com nome e número de versão, incluindo a data foi aceite e o nome do utilizador que aceite o contrato. 
+A seção **contratos** do Partner Center (em **configurações de conta**) permite que você veja uma lista dos acordos de publicação que você autorizou. Esses contratos são listados de acordo com o nome e o número de versão, incluindo a data em que foi aceito e o nome do usuário que aceitou o contrato. 
 
-**Ações necessárias** pode aparecer na parte superior desta página, se existem atualizações de contrato que precisam da sua atenção. Para aceitar um contrato atualizado, primeiro ler a versão de contrato de ligado, em seguida, selecione **aceitar o contrato**. 
+As **ações necessárias** podem aparecer na parte superior desta página se houver atualizações de contrato que precisam de sua atenção. Para aceitar um contrato atualizado, primeiro leia a versão do contrato vinculado e, em seguida, selecione **aceitar contrato**. 
 
-Para obter informações sobre os contratos de fornecedor de soluções Cloud (CSP) no Centro de parceiros, visite [contratos de nuvem da Microsoft por região e idioma](https://docs.microsoft.com/partner-center/agreements).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Criar uma nova oferta de SaaS](./create-new-saas-offer.md)

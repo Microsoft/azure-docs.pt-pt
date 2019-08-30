@@ -1,105 +1,107 @@
 ---
-title: Navegue de APIs de duplos Digital do Azure | Documentos da Microsoft
-description: Saiba como padrões comuns de consultar as APIs de gestão de duplos Digital do Azure.
+title: Navegar pelas APIs do Azure digital gêmeos | Microsoft Docs
+description: Saiba como padrões comuns de consulta das APIs de gerenciamento de gêmeos digital do Azure.
 author: kingdomofends
 manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/29/2019
 ms.author: v-adgera
-ms.openlocfilehash: da1493d2d52f2c8a964df3b72c1622a9c6b66abf
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 8472a86800d13cedd228ca881a7c095ff748350a
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719863"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172824"
 ---
-# <a name="how-to-use-azure-digital-twins-management-apis"></a>Como utilizar as APIs de gestão de duplos Digital do Azure
+# <a name="how-to-use-azure-digital-twins-management-apis"></a>Como usar as APIs de gerenciamento de gêmeos digital do Azure
 
-As APIs de gestão de duplos Digital do Azure fornecem funcionalidades poderosas para as suas aplicações de IoT. Este artigo mostra-lhe como navegar pela estrutura de API.  
+As APIs de gerenciamento de gêmeos digital do Azure fornecem funcionalidades poderosas para seus aplicativos de IoT. Este artigo mostra como navegar pela estrutura de API.  
 
 ## <a name="api-summary"></a>Resumo da API
 
-A lista seguinte mostra os componentes das APIs de duplos Digital.
+A lista a seguir mostra os componentes das APIs do digital gêmeos.
 
-* [/spaces](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces): Essas APIs interagirem com os locais físicos em sua configuração. Isso o ajudará a criar, eliminar e gerir os mapeamentos digital de suas localizações físicas na forma de um [geográfico gráfico](concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph).
+* [/spaces](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces): Essas APIs interagem com os locais físicos na sua configuração. Eles ajudam a criar, excluir e gerenciar os mapeamentos digitais de seus locais físicos na forma de um [grafo espacial](concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph).
 
-* [/Devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices): Essas APIs interagirem com os dispositivos em sua configuração. Estes dispositivos podem gerir os sensores de uma ou mais. Por exemplo, um dispositivo pode ser o seu telemóvel, ou um pod de sensor Raspberry Pi ou um gateway Lora e assim por diante.
+* [/Devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices): Essas APIs interagem com os dispositivos na sua configuração. Esses dispositivos podem gerenciar um ou mais sensores. Por exemplo, um dispositivo pode ser seu telefone ou um pod de sensor Raspberry Pi ou um gateway Lora,, e assim por diante.
 
-* [/Sensors](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Sensors): Estas APIs ajudam a comunicar com os sensores associados com seus dispositivos e suas localizações físicas. Os sensores de registos e enviar valores de ambiente que, em seguida, podem ser usados para manipular o seu ambiente espacial.  
+* [/Sensors](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Sensors): Essas APIs ajudam você a se comunicar com os sensores associados aos seus dispositivos e seus locais físicos. Os sensores registram e enviam valores de ambiente que podem ser usados para manipular seu ambiente espacial.  
 
-* [/resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): Estas APIs ajudam a configurar recursos, tais como um hub IoT, para a sua instância de duplos Digital.
+* [/Resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): Essas APIs ajudam a configurar recursos, como um hub IoT, para sua instância de gêmeos digital.
 
-* [/ tipos](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Types): Essas APIs permitem que associe tipos expandidos com seus objetos duplos digitais, para adicionar características específicas a esses objetos. Esses tipos permitem a fácil de filtragem e agrupamento de objetos na interface do Usuário e as funções personalizadas que processam os seus dados de telemetria. São exemplos dos tipos de expandida *DeviceType*, *SensorType*, *SensorDataType*, *SpaceType*, *SpaceSubType* , *SpaceBlobType*, *SpaceResourceType*e assim por diante.
+* [/Types](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Types): Essas APIs permitem que você associe tipos estendidos a seus objetos gêmeos digitais para adicionar características específicas a esses objetos. Esses tipos permitem a filtragem fácil e o agrupamento de objetos na interface do usuário e as funções personalizadas que processam os dados de telemetria. Os exemplos de tipos estendidos são o DeviceType, o *SensorType*, o *SensorDataType*, o *spacetype*, o *SpaceSubType*, o *SpaceBlobType*, o *SpaceResourceType*e assim por diante.
 
-* [/ontologies](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Ontologies): Estas APIs ajudam a gerir ontologies, que são coleções de tipos expandidas. Ontologies fornecer nomes para tipos de objeto de acordo com o espaço físico que elas representam. Por exemplo, o *BACnet* ontologia fornece nomes específicos para *tipos de sensores*, *tipos de dados*, *datasubtypes*e o *dataunittypes*. Ontologies são geridos e criados pelo serviço. Os utilizadores podem carregar e descarregar ontologies. Quando uma ontologia é carregada, todos seus nomes de tipo associado estão ativadas e pronto a ser aprovisionado no seu gráfico espacial. 
+* [/ontologies](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Ontologies): Essas APIs ajudam você a gerenciar ontologies, que são coleções de tipos estendidos. Ontologies fornece nomes para tipos de objeto de acordo com o espaço físico que eles representam. Por exemplo, o *BACnet* ontologia fornece nomes específicos para *tipos de sensor*, *tipo*de datatipos, *datasubtypes*e *dataunittypes*. Ontologies são gerenciados e criados pelo serviço. Os usuários podem carregar e descarregar o ontologies. Quando um ontologia é carregado, todos os seus nomes de tipo associados são habilitados e prontos para serem provisionados no grafo espacial. 
 
-* [/propertyKeys](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/PropertyKeys): Pode usar essas APIs para criar propriedades personalizadas para seus *espaços*, *dispositivos*, *utilizadores*, e *sensores*. Estas propriedades são criadas como pares chave/valor. Pode definir o tipo de dados para estas propriedades definindo suas *PrimitiveDataType*. Por exemplo, pode definir uma propriedade chamada *BasicTemperatureDeltaProcessingRefreshTime* do tipo *uint* para sua sensores e, em seguida, atribuir um valor para esta propriedade para cada um dos seus sensores. Também pode adicionar restrições para esses valores ao criar a propriedade, tal como *Min* e *máx* intervalos, bem como os valores permitidos como *ValidationData*.
+* [/propertyKeys](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/PropertyKeys): Você pode usar essas APIs para criar propriedades personalizadas para seus *espaços*, *dispositivos*, *usuários*e *sensores*. Essas propriedades são criadas como pares de chave/valor. Você pode definir o tipo de dados para essas propriedades definindo seu *PrimitiveDataType*. Por exemplo, você pode definir uma propriedade chamada *BasicTemperatureDeltaProcessingRefreshTime* do tipo *uint* para seus sensores e, em seguida, atribuir um valor para essa propriedade para cada um dos sensores. Você também pode adicionar restrições para esses valores ao criar a propriedade, como intervalos *mínimos* e *máximos* , bem como os valores permitidos como *ValidationData*.
 
-* [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers): Essas APIs permitem-lhe especificar as condições que pretende avaliar a partir dos seus dados de dispositivo de entrada. Ver [este artigo](concepts-user-defined-functions.md#matchers) para obter mais informações. 
+* [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers): Essas APIs permitem que você especifique as condições que deseja avaliar dos dados de seu dispositivo de entrada. Consulte [Este artigo](concepts-user-defined-functions.md#matchers) para obter mais informações. 
 
-* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions): Essas APIs permitem-lhe criar, delete ou update em condições de uma função personalizada que será executado quando definidos pelos *matchers* ocorrem, para processar dados provenientes da sua configuração. Ver [este artigo](concepts-user-defined-functions.md#user-defined-functions) para obter mais informações sobre estas funções personalizadas, também denominado o *funções definidas pelo utilizador*. 
+* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions): Essas APIs permitem criar, excluir ou atualizar uma função personalizada que será executada quando as condições definidas pelos *correspondentes* ocorrerem, para processar dados provenientes da sua instalação. Consulte [Este artigo](concepts-user-defined-functions.md#user-defined-functions) para obter mais informações sobre essas funções personalizadas, também chamadas de *funções definidas pelo usuário*. 
 
-* [/Endpoints](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Endpoints): Essas APIs permitem-lhe criar pontos finais para que a sua solução de duplos Digital pode comunicar com outros serviços do Azure para armazenamento de dados e análise. Leia [este artigo](concepts-events-routing.md) para obter mais informações. 
+* [/Endpoints](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Endpoints): Essas APIs permitem que você crie pontos de extremidade para que sua solução digital gêmeos possa se comunicar com outros serviços do Azure para o armazenamento e a análise de dados. Leia [Este artigo](concepts-events-routing.md) para obter mais informações. 
 
-* [/keyStores](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/KeyStores): Essas APIs permitem que gerencie arquivos de chave de segurança para seus espaços. Estes arquivos podem conter uma coleção de chaves de segurança e permitir que recupere facilmente as chaves mais recente válidas.
+* [/keyStores](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/KeyStores): Essas APIs permitem que você gerencie repositórios de chaves de segurança para seus espaços. Esses armazenamentos podem conter uma coleção de chaves de segurança e permitem que você recupere facilmente as chaves válidas mais recentes.
 
-* [/utilizadores](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Users): Essas APIs permitem que associe utilizadores ao seu espaços, para localizar estes indivíduos quando necessário. 
+* [/Users](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Users): Essas APIs permitem que você associe usuários a seus espaços para localizar esses indivíduos quando necessário. 
 
-* [. cmd /System](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/System): Essas APIs permitem-lhe gerir as definições globais do sistema, tais como os tipos de padrão de espaços e sensores. 
+* [/estado](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/System): Essas APIs permitem que você gerencie configurações de todo o sistema, como os tipos padrão de espaços e sensores. 
 
-* [/roleAssignments](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/RoleAssignments): Essas APIs permitem-lhe associar funções de entidades, como ID de utilizador, ID de função definida pelo utilizador, etc. Cada atribuição de função inclui o ID da entidade para associar, o tipo de entidade, o ID da função para associar, o ID de inquilino e um caminho que define o limite superior do recurso que a entidade pode acessar com essa associação. Leia [este artigo](security-role-based-access-control.md) para obter mais informações.
+* [/roleAssignments](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/RoleAssignments): Essas APIs permitem que você associe funções a entidades, como ID de usuário, ID de função definida pelo usuário etc. Cada atribuição de função inclui a ID da entidade a ser associada, o tipo de entidade, a ID da função a ser associada, a ID do locatário e um caminho que define o limite superior do recurso que a entidade pode acessar com essa associação. Leia [Este artigo](security-role-based-access-control.md) para obter mais informações.
 
 
 ## <a name="api-navigation"></a>Navegação de API
 
-As APIs de duplos Digital suportam a filtragem e de navegação em todo o gráfico geográfico utilizando os seguintes parâmetros:
+As APIs do digital gêmeos dão suporte à filtragem e navegação em todo o grafo espacial usando os seguintes parâmetros:
 
-- **spaceId**: A API irá filtrar os resultados pelo ID de determinado espaço. Além disso, o sinalizador booleano **useParentSpace** aplica-se para o [/espaços](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces) APIs, o que indica que o ID de determinado espaço refere-se ao espaço de principal em vez do atual espaço. 
+- **spaceId**: A API filtrará os resultados pela ID de espaço fornecida. Além disso, o sinalizador booliano **useParentSpace** é aplicável às APIs [/Spaces](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces) , que indica que a ID de espaço fornecida se refere ao espaço pai em vez do espaço atual. 
 
-- **minLevel** e **maxLevel**: Espaços de raiz são considerados como nível 1. Espaços com o principal ao nível do espaço *n* no nível *n + 1*. Com este conjunto de valores, pode filtrar os resultados em níveis específicos. Estes são os valores, inclusivos quando definido. Dispositivos, sensores e outros objetos são considerados para ser o mesmo nível, como o seu espaço de mais próximo. Para obter todos os objetos num determinado nível, definir ambos **minLevel** e **maxLevel** para o mesmo valor.
+- **minLevel** e **maxLevel**: Os espaços raiz são considerados no nível 1. Espaços com espaço pai no nível *n* estão no nível *n + 1*. Com esses valores definidos, você pode filtrar os resultados em níveis específicos. Esses são valores inclusivos quando definidos. Dispositivos, sensores e outros objetos são considerados no mesmo nível que o espaço mais próximo. Para obter todos os objetos em um determinado nível, defina **minLevel** e **maxLevel** com o mesmo valor.
 
-- **minRelative** e **maxRelative**: Quando estes filtros são dado, o nível correspondente é relativo ao nível do ID de determinado espaço:
-   - Nível relativo *0* é como o mesmo nível que o ID de determinado espaço.
-   - Nível relativo *1* representa espaços no mesmo nível, como os filhos do ID de determinado espaço. Nível relativo *n* representa espaços menores do que o espaço especificado pelo *n* níveis.
-   - Nível relativo *-1* representa espaços no mesmo nível, como o espaço de principal do espaço especificado.
+- **minRelative** e **maxRelative**: Quando esses filtros são fornecidos, o nível correspondente é relativo ao nível da ID de espaço fornecida:
+   - O nível relativo *0* é igual ao mesmo nível da ID de espaço fornecida.
+   - O nível relativo *1* representa espaços no mesmo nível que os filhos da ID de espaço fornecida. O nível relativo *n* representa os espaços inferiores ao espaço especificado em *n* níveis.
+   - Nível relativo *-1* representa espaços no mesmo nível que o espaço pai do espaço especificado.
 
-- **atravessar**: Pode percorrer em ambas as direções de um ID de determinado espaço, conforme especificado pelos seguintes valores.
-   - **Nenhum**: Este valor predefinido filtros para o ID de determinado espaço.
-   - **Baixo**: Este procedimento filtra o ID de determinado espaço e respetivos descendentes. 
-   - **Cópia de segurança**: Este procedimento filtra o ID de determinado espaço e respetivos predecessores. 
-   - **Marca span**: Este procedimento filtra uma parte horizontal do gráfico espacial, o mesmo nível, como o ID de determinado espaço. Isto tem um a **minRelative** ou o **maxRelative** para ser como true. 
+- **percorrer**: Permite que você percorra em ambas as direções de uma determinada ID de espaço, conforme especificado pelos valores a seguir.
+   - **Nenhum**: Esse valor padrão é filtrado para a ID de espaço fornecida.
+   - **Para baixo**: Isso filtra pela ID de espaço e seus descendentes fornecidos. 
+   - **Para cima**: Isso filtra pela ID de espaço e seus ancestrais. 
+   - **Span**: Isso filtra uma parte horizontal do grafo espacial, no mesmo nível da ID de espaço fornecida. Isso precisa que o **minRelative** ou o **maxRelative** seja definido como true. 
 
 
 ### <a name="examples"></a>Exemplos
 
-A lista seguinte mostra alguns exemplos de navegação por meio da [/devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices) APIs. Tenha em atenção que o marcador de posição `YOUR_MANAGEMENT_API_URL` refere-se para o URI das APIs de duplos Digital no formato `https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/`, onde `YOUR_INSTANCE_NAME` é o nome da sua instância de duplos Digital do Azure, e `YOUR_LOCATION` é a região onde está alojada a sua instância.
+A lista a seguir mostra alguns exemplos de navegação por meio das APIs [/Devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices) . Observe que o espaço `YOUR_MANAGEMENT_API_URL` reservado refere-se ao URI das APIs do digital gêmeos no `https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/`formato, `YOUR_INSTANCE_NAME` em que é o nome da instância do gêmeos digital do `YOUR_LOCATION` Azure e é a região em que sua instância está hospedada.
 
-- `YOUR_MANAGEMENT_API_URL/devices?maxLevel=1` Devolve todos os dispositivos ligados aos espaços de raiz.
-- `YOUR_MANAGEMENT_API_URL/devices?minLevel=2&maxLevel=4` Devolve todos os dispositivos ligados a espaços de níveis 2, 3 ou 4.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId` Devolve todos os dispositivos ligados diretamente a mySpaceId.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down` Devolve todos os dispositivos ligados a mySpaceId ou um dos respetivos descendentes.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&minLevel=1&minRelative=true` Devolve todos os dispositivos ligados a descendentes de mySpaceId, excluindo mySpaceId.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&minLevel=1&minRelative=true&maxLevel=1&maxRelative=true` Devolve todos os dispositivos ligados a subordinados imediatos mySpaceId.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Up&maxLevel=-1&maxRelative=true` Devolve todos os dispositivos ligados a um dos predecessores de mySpaceId.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&maxLevel=5` Devolve todos os dispositivos ligados a descendentes de mySpaceId que estão no nível inferior ou igual a 5.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true` Devolve todos os dispositivos ligados a espaços que estejam no mesmo nível como mySpaceId.
+- `YOUR_MANAGEMENT_API_URL/devices?maxLevel=1`Retorna todos os dispositivos anexados a espaços raiz.
+- `YOUR_MANAGEMENT_API_URL/devices?minLevel=2&maxLevel=4`Retorna todos os dispositivos conectados a espaços de níveis 2, 3 ou 4.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId`Retorna todos os dispositivos diretamente anexados a myspaceid.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down`Retorna todos os dispositivos conectados a myspaceid ou um de seus descendentes.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&minLevel=1&minRelative=true`Retorna todos os dispositivos anexados a descendentes de myspaceid, excluindo myspaceid.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&minLevel=1&minRelative=true&maxLevel=1&maxRelative=true`Retorna todos os dispositivos anexados a filhos imediatos de myspaceid.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Up&maxLevel=-1&maxRelative=true`Retorna todos os dispositivos anexados a um dos ancestrais de myspaceid.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&maxLevel=5`Retorna todos os dispositivos anexados a descendentes de myspaceid que estão no nível menor ou igual a 5.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true`Retorna todos os dispositivos anexados a espaços que estão no mesmo nível que myspaceid.
 
 
-## <a name="odata-support"></a>Suporte de OData
-A maioria das APIs que retornam coleções, por exemplo, uma chamada para GET /spaces, suporta o seguinte subconjunto de genérica [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) opções de consulta de sistema:  
+## <a name="odata-support"></a>Suporte a OData
+
+A maioria das APIs que retornam coleções, como uma chamada GET em/Spaces, oferece suporte ao seguinte subconjunto das opções de consulta genérica do sistema [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) :  
 
 * **$filter**
 * **$orderby** 
 * **$top**
-* **$skip** -se de que pretende apresentar toda a coleção, deverá solicitá-la como um conjunto numa única chamada e, em seguida, realizar a paginação em seu aplicativo. 
+* **$Skip** -se você pretende exibir a coleção inteira, solicite-a como um conjunto completo em uma única chamada e, em seguida, execute a paginação em seu aplicativo. 
 
-Tenha em atenção que as outras opções de consulta, como $count, $expandir, $search, não são suportadas.
+> [!NOTE]
+> Algumas opções de OData (como opções de consulta **$Count**, **$Expand**e **$Search**) não têm suporte atualmente.
 
 ### <a name="examples"></a>Exemplos
 
-A lista seguinte mostra alguns exemplos de consultas com opções de consulta de sistema do OData:
+A lista a seguir descreve várias consultas com sintaxe de OData válida:
 
 - `YOUR_MANAGEMENT_API_URL/devices?$top=3&$orderby=Name desc`
 - `YOUR_MANAGEMENT_API_URL/keystores?$filter=endswith(Description,’space’)`
@@ -108,9 +110,10 @@ A lista seguinte mostra alguns exemplos de consultas com opções de consulta de
 - `YOUR_MANAGEMENT_API_URL/users?$top=4&$filter=endswith(LastName,’k’)&$orderby=LastName`
 - `YOUR_MANAGEMENT_API_URL/spaces?$orderby=Name desc&$top=3&$filter=substringof('Floor’,Name)`
  
+## <a name="next-steps"></a>Passos Seguintes
 
-## <a name="next-steps"></a>Passos seguintes
+Para aprender alguns padrões comuns de consulta de API, leia [como consultar as APIs do Azure digital gêmeos para tarefas comuns](./how-to-query-common-apis.md).
 
-Para obter alguns padrões comuns de consulta de API, leia [como consultar APIs de duplos Digital do Azure para tarefas comuns](how-to-query-common-apis.md).
+Para saber mais sobre seus pontos de extremidade de API, leia [como usar o Swagger digital gêmeos](./how-to-use-swagger.md).
 
-Para saber mais sobre os pontos finais de API, leia [como utilizar o Swagger de duplos Digital](./how-to-use-swagger.md).
+Para examinar a sintaxe do OData e os operadores de comparação disponíveis, leia [operadores de comparação OData no Azure Search](../search/search-query-odata-comparison-operators.md).

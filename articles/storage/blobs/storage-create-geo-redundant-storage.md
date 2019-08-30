@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 0ccd57e1614f23d775df2fe8e963d2cc7f9a4358
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 124b10607f710ddfb76787eac09dea7ec6ffc03c
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360748"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173059"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Crie um aplicativo altamente disponível com o armazenamento de BLOBs
 
@@ -120,7 +120,7 @@ git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 [Baixe o projeto de exemplo](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) e descompacte o arquivo. Também pode utilizar o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. O projeto de exemplo contém um aplicativo node. js básico.
 
 ```bash
-git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
+git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 ```
 
 ---
@@ -428,7 +428,7 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 
 ---
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Na parte um da série, você aprendeu a tornar um aplicativo altamente disponível com contas de armazenamento RA-GRS.
 

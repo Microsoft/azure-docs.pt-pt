@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2019
+ms.date: 08/26/2019
 ms.author: barclayn
-ms.openlocfilehash: 0e8be1675dd2b400f89ab17fe85c037066302409
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 1f662c34f557d382b3d6181bac18a6402b233412
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906026"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061909"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho IaaS no Azure
 Este artigo descreve as práticas recomendadas de segurança para VMs e sistemas operacionais.
@@ -70,7 +70,7 @@ Seus administradores de assinatura e coadministradores podem alterar essa config
 As organizações que controlam o acesso à VM e a instalação melhoram a segurança geral da VM.
 
 ## <a name="use-multiple-vms-for-better-availability"></a>Use várias VMs para melhorar a disponibilidade
-Se sua VM executar aplicativos críticos que precisam ter alta disponibilidade, é altamente recomendável que você use várias VMs. Para obter melhor disponibilidade, use um [conjunto de disponibilidade](../../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+Se sua VM executar aplicativos críticos que precisam ter alta disponibilidade, é altamente recomendável que você use várias VMs. Para obter melhor disponibilidade, use um [conjunto de disponibilidade](../../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) ou [zonas](../../availability-zones/az-overview.md)de disponibilidade.
 
 Um conjunto de disponibilidade é um agrupamento lógico que você pode usar no Azure para garantir que os recursos de VM colocados dentro dele sejam isolados uns dos outros quando forem implantados em um datacenter do Azure. O Azure garante que as VMs colocadas em um conjunto de disponibilidade sejam executadas em vários servidores físicos, racks de computação, unidades de armazenamento e comutadores de rede. Se ocorrer uma falha de hardware ou de software do Azure, apenas um subconjunto de suas VMs será afetado e seu aplicativo geral continuará disponível para seus clientes. Os conjuntos de disponibilidade são uma funcionalidade essencial quando você deseja criar soluções de nuvem confiáveis.
 

@@ -133,12 +133,6 @@
       href: concept-detecting-adult-content.md
 - name: Guias de procedimentos
   items:
-    - name: Utilizar a Imagem Digitalizada
-      items:
-        - name: Java
-          href: Tutorials/java-tutorial.md
-        - name: JavaScript
-          href: Tutorials/javascript-tutorial.md
     - name: Chamar a API de Imagem Digitalizada
       href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
     - name: Utilizar contentores
