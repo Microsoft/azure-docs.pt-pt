@@ -3,15 +3,15 @@ title: Funções de modelo de Azure Resource Manager – matrizes e objetos | Mi
 description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para trabalhar com matrizes e objetos.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: ec671c8698676b237021352e963ba08e0ddfe47e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: cd4a74a9e9e9bb1c91a0a7a103a1cfb861fa7770
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698210"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194422"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funções de matriz e objeto para modelos de Azure Resource Manager
 
@@ -185,7 +185,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | stringOutput | Cadeia | predefinição |
 | intOutput | Int | 1 |
@@ -303,7 +303,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | concatOutput | Cadeia | prefix-5yj4yjf5mbg72 |
 
@@ -554,7 +554,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | true |
 | objectempty | Bool | true |
@@ -699,7 +699,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | objectOutput | Objeto | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["Two", "três"] |
@@ -837,7 +837,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Cadeia | três |
 | stringOutput | Cadeia | Oriental |
@@ -1210,7 +1210,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | Cadeia | 2 3 |
@@ -1291,7 +1291,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["One", "Two"] |
 | stringOutput | Cadeia | em |
@@ -1370,7 +1370,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | objectOutput | Objeto | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["One", "Two", "três", "quatro"] |

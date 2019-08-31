@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 011345cca1ed1c763a628c94401320862182c9cc
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: d3128144a06f4faa46d18650c3dd2c21f72afc1c
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707370"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164775"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Início rápido: Biblioteca de cliente facial para Python
 
@@ -71,7 +71,7 @@ pip install --upgrade azure-cognitiveservices-Face
 
 As classes e interfaces a seguir tratam de alguns dos principais recursos do SDK do Python facial.
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python) | Essa classe representa sua autorização para usar o serviço de face e você precisa dela para todas as funcionalidades de face. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes. |
 |[FaceOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python)|Essa classe manipula as tarefas básicas de detecção e reconhecimento que você pode fazer com as faces humanas. |
@@ -135,7 +135,7 @@ O código a seguir cria um **Person** com três objetos **Person** diferentes. E
 
 ### <a name="create-persongroup"></a>Criar um Person
 
-Para passar por esse cenário, você precisa salvar as seguintes imagens no diretório raiz do seu projeto: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+Para percorrer esse cenário, você precisa salvar as seguintes imagens no diretório raiz do seu projeto: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 Esse grupo de imagens contém três conjuntos de imagens de face correspondentes a três pessoas diferentes. O código definirá três objetos **Person** e os associará a arquivos de imagem que `woman`começam `man`com, `child`e.
 
@@ -161,7 +161,7 @@ Depois de atribuir faces, você deve treinar o **Person** para que ele possa ide
 
 ## <a name="identify-a-face"></a>Identificar uma face
 
-O código a seguir usa uma imagem com várias faces e procura encontrar a identidade de cada pessoa na imagem. Ele compara cada face detectada a um **Person**, um banco de dados de objetos **Person** diferentes que cada um tem várias faces associadas a eles. 
+O código a seguir usa uma imagem com várias faces e procura encontrar a identidade de cada pessoa na imagem. Ele compara cada face detectada a um **Person**, um banco de dados de objetos **Person** diferentes cujos recursos facial são conhecidos.
 
 > [!IMPORTANT]
 > Para executar este exemplo, você deve primeiro executar o código em [criar e treinar um grupo de pessoas](#create-and-train-a-person-group).
@@ -188,7 +188,7 @@ Neste exemplo, você vai migrar o grupo de **pessoas** que criou em [criar e tre
 
 Primeiro, você deve ter uma segunda assinatura do Azure com um recurso de face; Você pode fazer isso seguindo as etapas na seção [configuração](#setting-up) . 
 
-Em seguida, crie as seguintes variáveis próximo à parte superior do seu script. Você também precisará criar novas variáveis de ambiente para a ID da assinatura da sua conta do Azure, bem como a chave e a ID da assinatura da sua nova conta (destino). 
+Em seguida, crie as seguintes variáveis próximo à parte superior do seu script. Você também precisará criar novas variáveis de ambiente para a ID da assinatura da sua conta do Azure, bem como a chave, o ponto de extremidade e a ID da assinatura da sua nova conta (destino). 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
 
@@ -247,7 +247,7 @@ Se você migrou dados usando o recurso de instantâneo neste guia de início rá
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletetargetgroup)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você aprendeu a usar a biblioteca de detecção de aparência para Java para tarefas de base. Em seguida, explore a documentação de referência para saber mais sobre a biblioteca.
 

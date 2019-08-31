@@ -1,6 +1,6 @@
 ---
-title: Utilizar a captura de pacotes para efetuar a monitorização de rede proativa com alertas e as funções do Azure | Documentos da Microsoft
-description: Este artigo descreve como criar uma captura de pacotes acionadas alerta com o observador de rede do Azure
+title: Use a captura de pacotes para fazer o monitoramento de rede proativo com alertas e Azure Functions | Microsoft Docs
+description: Este artigo descreve como criar uma captura de pacotes disparada por alerta com o observador de rede do Azure
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 37e42b05046be27254d2ceb15a59fbdb931ae161
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d894fabf3cfd4c6949aba94d558751bf007356d9
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711920"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165163"
 ---
-# <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utilizar a captura de pacotes de monitorização de rede proativa com alertas e as funções do Azure
+# <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usar a captura de pacotes para monitoramento de rede proativo com alertas e Azure Functions
 
-Captura de pacotes do observador de rede cria sessões de captura para controlar o tráfego que entra e sai de máquinas virtuais. O arquivo de captura pode ter um filtro que é definido para controlar apenas o tráfego que pretende monitorizar. Estes dados, em seguida, são armazenados num blob de armazenamento ou localmente na máquina convidada.
+A captura de pacotes do observador de rede cria sessões de captura para acompanhar o tráfego dentro e fora das máquinas virtuais. O arquivo de captura pode ter um filtro definido para rastrear apenas o tráfego que você deseja monitorar. Esses dados são armazenados em um blob de armazenamento ou localmente na máquina convidada.
 
-Esta capacidade pode ser iniciada remotamente a partir de outros cenários de automatização, como as funções do Azure. Captura de pacotes dá-lhe a capacidade de executar captures proativa com base em anomalias de rede definida pelo. Outras utilizações incluem a recolha de estatísticas de rede, obter informações sobre invasões de rede, depuração comunicações de cliente-servidor e muito mais.
+Esse recurso pode ser iniciado remotamente de outros cenários de automação, como Azure Functions. A captura de pacotes oferece a capacidade de executar capturas pró-ativas com base em anomalias de rede definidas. Outros usos incluem a coleta de estatísticas de rede, obtenção de informações sobre invasões de rede, depuração de comunicações cliente-servidor e muito mais.
 
-Os recursos que são implementados no Azure executados 24x7. E sua equipe ativamente não é possível monitorizar o estado de todos os recursos 24x7. Por exemplo, o que acontece se ocorrer um problema às 2H?
+Os recursos que são implantados no Azure executam o 24/7. Você e sua equipe não podem monitorar ativamente o status de todos os recursos 24/7. Por exemplo, o que acontece se ocorrer um problema às 2?
 
-Ao utilizar o observador de rede, alertas e funções de dentro do ecossistema do Azure, pode reagir de forma proativa com os dados e ferramentas para resolver problemas na sua rede.
+Usando o observador de rede, alertas e funções de dentro do ecossistema do Azure, você pode responder proativamente com os dados e as ferramentas para resolver problemas em sua rede.
 
 ![Cenário][scenario]
 
@@ -38,55 +38,55 @@ Ao utilizar o observador de rede, alertas e funções de dentro do ecossistema d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A versão mais recente do [do Azure PowerShell](/powershell/azure/install-Az-ps).
-* Uma instância existente do observador de rede. Se não tiver um, já [criar uma instância do observador de rede](network-watcher-create.md).
-* Uma máquina virtual existente na mesma região que o observador de rede com o [extensão do Windows](../virtual-machines/windows/extensions-nwa.md) ou [extensão da máquina virtual Linux](../virtual-machines/linux/extensions-nwa.md).
+* A versão mais recente do [Azure PowerShell](/powershell/azure/install-Az-ps).
+* Uma instância existente do observador de rede. Se você ainda não tiver uma, [crie uma instância do observador de rede](network-watcher-create.md).
+* Uma máquina virtual existente na mesma região que o observador de rede com a extensão do [Windows](../virtual-machines/windows/extensions-nwa.md) ou [extensão de máquina virtual do Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="scenario"></a>Cenário
 
-Neste exemplo, a VM está enviando mais segmentos TCP que o habitual e pretende ser alertado. Segmentos TCP são utilizados como exemplo aqui, mas pode usar qualquer condição do alerta.
+Neste exemplo, sua VM está enviando mais segmentos TCP do que o normal e você deseja ser alertado. Os segmentos TCP são usados como um exemplo aqui, mas você pode usar qualquer condição de alerta.
 
-Quando for alertado, quer receber dados ao nível do pacote para compreender por que a comunicação aumentou. Em seguida, pode tomar medidas para retornar a máquina virtual para a comunicação regular.
+Quando você for alertado, você deseja receber dados em nível de pacote para entender por que a comunicação aumentou. Em seguida, você pode tomar medidas para retornar a máquina virtual para comunicação regular.
 
-Este cenário pressupõe que tem uma instância existente do observador de rede e um grupo de recursos com uma máquina virtual válida.
+Esse cenário pressupõe que você tenha uma instância existente do observador de rede e um grupo de recursos com uma máquina virtual válida.
 
-A lista seguinte é uma visão geral do fluxo de trabalho que também tem lugar:
+A lista a seguir é uma visão geral do fluxo de trabalho que ocorre:
 
-1. É acionado um alerta na sua VM.
-1. O alerta chamar sua função do Azure através de um webhook.
-1. A função do Azure processa o alerta e inicia uma sessão de captura de pacotes do observador de rede.
-1. A captura de pacotes é executado na VM e recolhe tráfego.
-1. O arquivo de captura de pacotes é carregado para uma conta de armazenamento para revisão e diagnóstico.
+1. Um alerta é disparado em sua VM.
+1. O alerta chama sua função do Azure por meio de um webhook.
+1. Sua função do Azure processa o alerta e inicia uma sessão de captura de pacote do observador de rede.
+1. A captura de pacote é executada na VM e coleta o tráfego.
+1. O arquivo de captura de pacote é carregado em uma conta de armazenamento para análise e diagnóstico.
 
-Para automatizar este processo, crie e ligue-se um alerta na nossa VM acionar quando ocorrer o incidente. Também podemos criar uma função para chamar o observador de rede.
+Para automatizar esse processo, criamos e conectamos um alerta em nossa VM para disparar quando o incidente ocorre. Também criamos uma função para chamar no observador de rede.
 
-Este cenário faz o seguinte:
+Esse cenário faz o seguinte:
 
-* Cria uma função do Azure, que inicia uma captura de pacotes.
-* Cria uma regra de alerta numa máquina virtual e configura a regra de alerta para chamar a função do Azure.
+* Cria uma função do Azure que inicia uma captura de pacote.
+* Cria uma regra de alerta em uma máquina virtual e configura a regra de alerta para chamar a função do Azure.
 
 ## <a name="create-an-azure-function"></a>Criar uma função do Azure
 
-A primeira etapa é criar uma função do Azure para processar o alerta e criar uma captura de pacotes.
+A primeira etapa é criar uma função do Azure para processar o alerta e criar uma captura de pacote.
 
-1. Na [portal do Azure](https://portal.azure.com), selecione **criar um recurso** > **computação** > **Function App**.
+1. Na [portal do Azure](https://portal.azure.com), selecione **criar um recurso** > **computação** > **aplicativo de funções**.
 
-    ![Criar uma aplicação de funções][1-1]
+    ![Criando um aplicativo de funções][1-1]
 
-2. Sobre o **aplicação de funções** painel, introduza os seguintes valores e, em seguida, selecione **OK** para criar a aplicação:
+2. Na folha **aplicativo de funções** , insira os seguintes valores e, em seguida, selecione **OK** para criar o aplicativo:
 
     |**Definição** | **Valor** | **Detalhes** |
     |---|---|---|
-    |**Nome da aplicação**|PacketCaptureExample|O nome da aplicação de função.|
-    |**Subscrição**|[A sua subscrição] A subscrição para o qual pretende criar a aplicação de funções.||
-    |**Grupo de Recursos**|PacketCaptureRG|O grupo de recursos que contém a aplicação de funções.|
-    |**Plano de Alojamento**|Plano de Consumo| O tipo de planear a sua aplicação de função utiliza. As opções são consumo ou plano de serviço de aplicações do Azure. |
-    |**Location**|EUA Central| A região na qual pretende criar a aplicação de funções.|
-    |**Storage Account**|{autogenerated}| A conta de armazenamento que precisa de funções do Azure para armazenamento para fins gerais.|
+    |**Nome da aplicação**|PacketCaptureExample|O nome do aplicativo de funções.|
+    |**Subscrição**|[Sua assinatura] A assinatura para a qual criar o aplicativo de funções.||
+    |**Grupo de Recursos**|PacketCaptureRG|O grupo de recursos para conter o aplicativo de funções.|
+    |**Plano de Alojamento**|Plano de Consumo| O tipo de plano usado pelo aplicativo de funções. As opções são o plano de serviço de consumo ou Azure App. |
+    |**Location**|EUA Central| A região na qual criar o aplicativo de funções.|
+    |**Storage Account**|{autogenerated}| A conta de armazenamento que Azure Functions precisa para armazenamento de uso geral.|
 
-3. Sobre o **aplicações de funções de PacketCaptureExample** painel, selecione **funções** > **função personalizada**  >  **+** .
+3. Na folha **aplicativos de função PacketCaptureExample** , selecione **funções** > **função** > **+** personalizada.
 
-4. Selecione **HttpTrigger-Powershell**e, em seguida, introduza as restantes informações. Por fim, para criar a função, selecione **criar**.
+4. Selecione **HttpTrigger-PowerShell**e, em seguida, insira as informações restantes. Por fim, para criar a função, selecione **criar**.
 
     |**Definição** | **Valor** | **Detalhes** |
     |---|---|---|
@@ -97,21 +97,21 @@ A primeira etapa é criar uma função do Azure para processar o alerta e criar 
 ![Exemplo de funções][functions1]
 
 > [!NOTE]
-> O modelo do PowerShell é experimental e não tem suporte total.
+> O modelo do PowerShell é experimental e não tem suporte completo.
 
-As personalizações são necessárias para este exemplo e são explicadas nos passos seguintes.
+As personalizações são necessárias para este exemplo e são explicadas nas etapas a seguir.
 
 ### <a name="add-modules"></a>Adicionar módulos
 
-Para utilizar cmdlets do PowerShell do observador de rede, carregar o módulo do PowerShell mais recente para a aplicação de funções.
+Para usar os cmdlets do PowerShell do observador de rede, carregue o módulo mais recente do PowerShell para o aplicativo de funções.
 
-1. No seu computador local com os módulos Azure PowerShell mais recente instalado, execute o seguinte comando do PowerShell:
+1. No computador local com os módulos de Azure PowerShell mais recentes instalados, execute o seguinte comando do PowerShell:
 
     ```powershell
     (Get-Module Az.Network).Path
     ```
 
-    Neste exemplo dá-lhe o caminho local de seus módulos do Azure PowerShell. Essas pastas são utilizadas num passo posterior. Os módulos utilizados neste cenário são:
+    Este exemplo fornece o caminho local de seus módulos de Azure PowerShell. Essas pastas são usadas em uma etapa posterior. Os módulos usados neste cenário são:
 
    * Az.Network
 
@@ -119,15 +119,15 @@ Para utilizar cmdlets do PowerShell do observador de rede, carregar o módulo do
 
    * Az.Resources
 
-     ![Pastas de PowerShell][functions5]
+     ![Pastas do PowerShell][functions5]
 
-1. Selecione **as definições da aplicação de função** > **Ir para o Editor de serviço de aplicações**.
+1. Selecione **configurações** > do aplicativo**de funções ir para editor do serviço de aplicativo**.
 
     ![Definições da Aplicação de funções][functions2]
 
-1. Com o botão direito a **AlertPacketCapturePowershell** pasta e, em seguida, crie uma pasta chamada **azuremodules**. 
+1. Clique com o botão direito do mouse na pasta **AlertPacketCapturePowershell** e crie uma pasta chamada **azuremodules**. 
 
-4. Crie uma subpasta para cada módulo que precisa.
+4. Crie uma subpasta para cada módulo de que você precisa.
 
     ![Pasta e subpastas][functions3]
 
@@ -137,28 +137,28 @@ Para utilizar cmdlets do PowerShell do observador de rede, carregar o módulo do
 
     * Az.Resources
 
-1. Com o botão direito a **Az.Network** subpasta e, em seguida, selecione **carregar ficheiros**. 
+1. Clique com o botão direito do mouse na subpasta **AZ. Network** e selecione **carregar arquivos**. 
 
-6. Vá para os módulos do Azure. No local **Az.Network** pasta, selecione todos os ficheiros na pasta. Em seguida, selecione **OK**. 
+6. Vá para seus módulos do Azure. Na pasta **AZ. Network** local, selecione todos os arquivos na pasta. Em seguida, selecione **OK**. 
 
-7. Repita estes passos para **Az.Accounts** e **Az.Resources**.
+7. Repita essas etapas para **AZ.** Accounts e **AZ.** Resources.
 
     ![Carregar ficheiros][functions6]
 
-1. Depois de terminar, cada pasta deve ter os arquivos de módulo do PowerShell do seu computador local.
+1. Depois de concluir, cada pasta deve ter os arquivos de módulo do PowerShell do seu computador local.
 
-    ![Ficheiros PowerShell][functions7]
+    ![Arquivos do PowerShell][functions7]
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
-Para utilizar os cmdlets do PowerShell, tem de autenticar. Configurar a autenticação na function app. Para configurar a autenticação, tem de configurar variáveis de ambiente e carregar um ficheiro de chave encriptado para a aplicação de funções.
+Para usar os cmdlets do PowerShell, você deve se autenticar. Você configura a autenticação no aplicativo de funções. Para configurar a autenticação, você deve configurar variáveis de ambiente e carregar um arquivo de chave criptografado para o aplicativo de funções.
 
 > [!NOTE]
-> Este cenário fornece apenas um exemplo de como implementar a autenticação com as funções do Azure. Existem outras maneiras de fazer isso.
+> Esse cenário fornece apenas um exemplo de como implementar a autenticação com Azure Functions. Há outras maneiras de fazer isso.
 
-#### <a name="encrypted-credentials"></a>Credenciais encriptadas
+#### <a name="encrypted-credentials"></a>Credenciais criptografadas
 
-O seguinte script do PowerShell cria um ficheiro de chave chamado **PassEncryptKey.key**. Ele também fornece uma versão criptografada da palavra-passe fornecida. Esta palavra-passe é a mesma palavra-passe que está definido para a aplicação do Azure Active Directory que é utilizada para autenticação.
+O script do PowerShell a seguir cria um arquivo de chave chamado **PassEncryptKey. Key**. Ele também fornece uma versão criptografada da senha fornecida. Essa senha é a mesma senha que é definida para o aplicativo Azure Active Directory usado para autenticação.
 
 ```powershell
 #Variables
@@ -177,13 +177,13 @@ $Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
 $Encryptedpassword
 ```
 
-Na aplicação Editor do serviço da aplicação de função, crie uma pasta denominada **chaves** sob **AlertPacketCapturePowerShell**. Em seguida, carregue o **PassEncryptKey.key** ficheiro que criou no PowerShell de exemplo anterior.
+Na Editor do Serviço de Aplicativo do aplicativo de funções, crie uma pasta chamada **Keys** em **AlertPacketCapturePowerShell**. Em seguida, carregue o arquivo **PassEncryptKey. Key** que você criou no exemplo anterior do PowerShell.
 
 ![Chave de funções][functions8]
 
-### <a name="retrieve-values-for-environment-variables"></a>Obter valores de variáveis de ambiente
+### <a name="retrieve-values-for-environment-variables"></a>Recuperar valores para variáveis de ambiente
 
-O requisito final é configurar as variáveis de ambiente que são necessárias para aceder a valores para a autenticação. A lista seguinte mostra as variáveis de ambiente que são criadas:
+O requisito final é configurar as variáveis de ambiente que são necessárias para acessar os valores para autenticação. A lista a seguir mostra as variáveis de ambiente que são criadas:
 
 * AzureClientID
 
@@ -194,9 +194,9 @@ O requisito final é configurar as variáveis de ambiente que são necessárias 
 
 #### <a name="azureclientid"></a>AzureClientID
 
-O ID de cliente é o ID da aplicação de uma aplicação no Azure Active Directory.
+A ID do cliente é a ID do aplicativo em Azure Active Directory.
 
-1. Se ainda não tiver uma aplicação a utilizar, execute o exemplo a seguir para criar uma aplicação.
+1. Se você ainda não tiver um aplicativo para usar, execute o exemplo a seguir para criar um aplicativo.
 
     ```powershell
     $app = New-AzADApplication -DisplayName "ExampleAutomationAccount_MF" -HomePage "https://exampleapp.com" -IdentifierUris "https://exampleapp1.com/ExampleFunctionsAccount" -Password "<same password as defined earlier>"
@@ -206,19 +206,19 @@ O ID de cliente é o ID da aplicação de uma aplicação no Azure Active Direct
     ```
 
    > [!NOTE]
-   > A palavra-passe que utilizou ao criar o aplicativo deve ser a mesma palavra-passe que criou anteriormente ao guardar o ficheiro de chave.
+   > A senha que você usa ao criar o aplicativo deve ser a mesma senha que você criou anteriormente ao salvar o arquivo de chave.
 
-1. No portal do Azure, selecione **subscrições**. Selecione a subscrição a utilizar e, em seguida, selecione **controlo de acesso (IAM)** .
+1. No portal do Azure, selecione **assinaturas**. Selecione a assinatura a ser usada e, em seguida, selecione **controle de acesso (iam)** .
 
     ![Funções IAM][functions9]
 
-1. Escolha a conta a utilizar e, em seguida, selecione **propriedades**. Copie o ID da aplicação.
+1. Escolha a conta a ser usada e, em seguida, selecione **Propriedades**. Copie a ID do aplicativo.
 
-    ![ID da aplicação de funções][functions10]
+    ![ID do aplicativo de funções][functions10]
 
 #### <a name="azuretenant"></a>AzureTenant
 
-Obter o ID de inquilino ao executar o seguinte exemplo do PowerShell:
+Obtenha a ID do locatário executando o seguinte exemplo do PowerShell:
 
 ```powershell
 (Get-AzSubscription -SubscriptionName "<subscriptionName>").TenantId
@@ -226,7 +226,7 @@ Obter o ID de inquilino ao executar o seguinte exemplo do PowerShell:
 
 #### <a name="azurecredpassword"></a>AzureCredPassword
 
-O valor da variável de ambiente AzureCredPassword é o valor que tem de executar o seguinte exemplo do PowerShell. Neste exemplo é o mesmo que é mostrado na precedente **encriptação das credenciais** secção. O valor que é necessário é o resultado do `$Encryptedpassword` variável.  Esta é a senha de principal de serviço encriptada utilizando o script do PowerShell.
+O valor da variável de ambiente AzureCredPassword é o valor que você obtém da execução do seguinte exemplo do PowerShell. Este exemplo é o mesmo mostrado na seção **credenciais criptografadas** anteriores. O valor necessário é a saída da `$Encryptedpassword` variável.  Essa é a senha da entidade de serviço que você criptografou usando o script do PowerShell.
 
 ```powershell
 #Variables
@@ -245,27 +245,27 @@ $Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
 $Encryptedpassword
 ```
 
-### <a name="store-the-environment-variables"></a>Store as variáveis de ambiente
+### <a name="store-the-environment-variables"></a>Armazenar as variáveis de ambiente
 
-1. Vá para a aplicação de funções. Em seguida, selecione **as definições da aplicação de função** > **configurar definições da aplicação**.
+1. Vá para o aplicativo de funções. Em seguida, selecione **configurações** > do aplicativo de funções**definir configurações do aplicativo**.
 
     ![Configurar as definições da aplicação][functions11]
 
-1. Adicione as variáveis de ambiente e os respetivos valores para as definições da aplicação e, em seguida, selecione **guardar**.
+1. Adicione as variáveis de ambiente e seus valores às configurações do aplicativo e, em seguida, selecione **salvar**.
 
-    ![Definições da aplicação][functions12]
+    ![Definições de aplicação][functions12]
 
-### <a name="add-powershell-to-the-function"></a>Adicionar o PowerShell para a função
+### <a name="add-powershell-to-the-function"></a>Adicionar o PowerShell à função
 
-Agora é hora de fazer chamadas para o observador de rede a partir de dentro da função do Azure. Consoante os requisitos, a implementação desta função pode variar. No entanto, o fluxo geral do código é o seguinte:
+Agora é hora de fazer chamadas no observador de rede de dentro da função do Azure. Dependendo dos requisitos, a implementação dessa função pode variar. No entanto, o fluxo geral do código é o seguinte:
 
-1. Parâmetros de entrada do processo.
-2. Capturas de pacotes de existente de consulta para verificar limites e resolver conflitos de nomes.
-3. Crie uma captura de pacotes com parâmetros apropriados.
-4. Captura de pacotes de consulta periodicamente até esta estar concluída.
-5. Notificar o utilizador que a sessão de captura de pacotes está concluída.
+1. Processar parâmetros de entrada.
+2. Consulte capturas de pacote existentes para verificar limites e resolver conflitos de nome.
+3. Crie uma captura de pacote com os parâmetros apropriados.
+4. Sondar a captura de pacotes periodicamente até que ela seja concluída.
+5. Notifique o usuário de que a sessão de captura de pacote foi concluída.
 
-O exemplo seguinte é o código do PowerShell que pode ser utilizado na função. Há valores que precisam ser substituídos para **subscriptionId**, **resourceGroupName**, e **storageAccountName**.
+O exemplo a seguir é o código do PowerShell que pode ser usado na função. Há valores que precisam ser substituídos por **SubscriptionId**, **resourceGroupName**e **storageAccountName**.
 
 ```powershell
             #Import Azure PowerShell modules required to make calls to Network Watcher
@@ -305,8 +305,7 @@ O exemplo seguinte é o código do PowerShell que pode ser utilizado na função
                 Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
 
                 #Get the Network Watcher in the VM's region
-                $nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
-                $networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+                $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
 
                 #Get existing packetCaptures
                 $packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
@@ -325,56 +324,56 @@ O exemplo seguinte é o código do PowerShell que pode ser utilizado na função
                 }
             } 
  ``` 
-#### <a name="retrieve-the-function-url"></a>Obter o URL da função 
-1. Depois de criar sua função, configure o alerta para chamar o URL que está associada a função. Para obter este valor, copie o URL da função a partir da sua aplicação de função.
+#### <a name="retrieve-the-function-url"></a>Recuperar a URL da função 
+1. Depois de criar sua função, configure seu alerta para chamar a URL associada à função. Para obter esse valor, copie a URL da função do seu aplicativo de funções.
 
-    ![Encontrar o URL da função][functions13]
+    ![Localizando a URL da função][functions13]
 
-2. Copie o URL da função para a sua aplicação de função.
+2. Copie a URL da função para seu aplicativo de funções.
 
-    ![Copiar o URL de função][2]
+    ![Copiando a URL da função][2]
 
-Se necessitar de propriedades personalizadas no payload do pedido POST do webhook, veja [configurar um webhook num alerta de métrica do Azure](../azure-monitor/platform/alerts-webhooks.md).
+Se você precisar de propriedades personalizadas na carga da solicitação de POSTAgem do webhook, consulte [configurar um webhook em um alerta de métrica do Azure](../azure-monitor/platform/alerts-webhooks.md).
 
-## <a name="configure-an-alert-on-a-vm"></a>Configurar um alerta numa VM
+## <a name="configure-an-alert-on-a-vm"></a>Configurar um alerta em uma VM
 
-Alertas podem ser configurados para notificar os indivíduos quando uma métrica específica ultrapassa um limiar que está atribuído à mesma. Neste exemplo, o alerta é nos segmentos TCP que são enviados, mas é possível acionar o alerta para muitas outras métricas. Neste exemplo, um alerta está configurado para chamar um webhook para chamar a função.
+Os alertas podem ser configurados para notificar pessoas quando uma métrica específica ultrapassar um limite atribuído a ela. Neste exemplo, o alerta está nos segmentos TCP que são enviados, mas o alerta pode ser disparado para muitas outras métricas. Neste exemplo, um alerta é configurado para chamar um webhook para chamar a função.
 
 ### <a name="create-the-alert-rule"></a>Criar a regra de alerta
 
-Vá para uma máquina virtual existente e, em seguida, adicione uma regra de alerta. Documentação mais detalhada sobre como configurar alertas pode ser encontrada em [criar alertas no Azure Monitor para serviços do Azure - portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). Introduza os seguintes valores no **regra de alerta** painel e, em seguida, selecione **OK**.
+Vá para uma máquina virtual existente e, em seguida, adicione uma regra de alerta. A documentação mais detalhada sobre a configuração de alertas pode ser encontrada em [criar alertas no Azure monitor para serviços do Azure-portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). Insira os valores a seguir na folha **regra de alerta** e selecione **OK**.
 
   |**Definição** | **Valor** | **Detalhes** |
   |---|---|---|
-  |**Nome**|TCP_Segments_Sent_Exceeded|Nome da regra de alerta.|
-  |**Descrição**|Segmentos TCP enviado limiar excedido|A descrição para a regra de alerta.|
-  |**Métricas**|Segmentos TCP enviados| A métrica para utilizar para acionar o alerta. |
-  |**condição**|Maior que| A condição a utilizar ao avaliar a métrica.|
-  |**Limiar**|100| O valor da métrica que aciona o alerta. Este valor deve ser definido para um valor válido para o seu ambiente.|
-  |**Período**|Durante os últimos cinco minutos| Determina o período em que a procurar o limiar em que a métrica.|
-  |**Webhook**|[URL do webhook da aplicação de funções]| O URL do webhook a partir da aplicação de função que foi criado nos passos anteriores.|
+  |**Name**|TCP_Segments_Sent_Exceeded|Nome da regra de alerta.|
+  |**Descrição**|Os segmentos TCP enviados excederam o limite|A descrição da regra de alerta.|
+  |**Métricas**|Segmentos TCP enviados| A métrica a ser usada para disparar o alerta. |
+  |**Problema**|Maior que| A condição a ser usada ao avaliar a métrica.|
+  |**Os**|100| O valor da métrica que dispara o alerta. Esse valor deve ser definido como um valor válido para o seu ambiente.|
+  |**Período**|Nos últimos cinco minutos| Determina o período no qual procurar o limite na métrica.|
+  |**Webhook**|[URL do webhook do aplicativo de funções]| A URL do webhook do aplicativo de funções que foi criado nas etapas anteriores.|
 
 > [!NOTE]
-> A métrica de segmentos TCP não está ativada por predefinição. Saiba mais sobre como ativar métricas adicionais, visite a página [ativar a monitorização e diagnóstico](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
+> A métrica de segmentos TCP não está habilitada por padrão. Saiba mais sobre como habilitar métricas adicionais visitando [habilitar monitoramento e diagnóstico](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
 
 ## <a name="review-the-results"></a>Rever os resultados
 
-Depois dos critérios para os acionadores de alerta, é criada uma captura de pacotes. Vá para o observador de rede e, em seguida, selecione **captura de pacotes**. Nesta página, pode selecionar o link de arquivo de captura de pacotes para transferir a captura de pacotes.
+Após os critérios para os gatilhos de alerta, uma captura de pacote é criada. Vá para observador de rede e selecione **captura de pacote**. Nessa página, você pode selecionar o link do arquivo de captura de pacote para baixar a captura de pacote.
 
-![Captura de pacotes do Vista][functions14]
+![Exibir captura de pacote][functions14]
 
-Se o arquivo de captura é armazenado localmente, pode recuperá-la ao iniciar sessão para a máquina virtual.
+Se o arquivo de captura for armazenado localmente, você poderá recuperá-lo entrando na máquina virtual.
 
-Para obter instruções sobre o download de arquivos de contas de armazenamento do Azure, consulte [introdução ao armazenamento de Blobs do Azure com o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). É outra ferramenta que pode utilizar [Explorador de armazenamento](https://storageexplorer.com/).
+Para obter instruções sobre como baixar arquivos de contas de armazenamento do Azure, consulte Introdução [ao armazenamento de BLOBs do Azure usando o .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que você pode usar é [Gerenciador de armazenamento](https://storageexplorer.com/).
 
-Após a captura foi transferida, pode vê-lo usando qualquer ferramenta que pode ler um **. cap** ficheiro. Seguem-se ligações para duas dessas ferramentas:
+Depois que a captura for baixada, você poderá exibi-la usando qualquer ferramenta que possa ler um arquivo **. Cap** . A seguir estão os links para duas dessas ferramentas:
 
-- [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)
+- [Analisador de mensagem da Microsoft](https://technet.microsoft.com/library/jj649776.aspx)
 - [WireShark](https://www.wireshark.org/)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como ver capturas de pacotes, visitando [análise de captura do pacote com o Wireshark](network-watcher-deep-packet-inspection.md).
+Saiba como exibir suas capturas de pacote visitando a [análise de captura de pacote com o Wireshark](network-watcher-deep-packet-inspection.md).
 
 
 [1]: ./media/network-watcher-alert-triggered-packet-capture/figure1.png

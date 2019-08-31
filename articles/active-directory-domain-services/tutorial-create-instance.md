@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 7fa2a5088e2eae039d43ecf0db080190f74cd772
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7f913eebb2dd3926165a36c37dcb356aa05f2de4
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125209"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172060"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutorial: Criar e configurar uma instância de Azure Active Directory Domain Services
 
@@ -202,7 +202,7 @@ Para alterar a senha de um usuário somente em nuvem, o usuário deve concluir a
 1. Na página **alterar senha** , insira sua senha existente (antiga) e, em seguida, insira e confirme uma nova senha.
 1. Selecione **submeter**.
 
-Leva alguns minutos após você ter alterado sua senha para que a nova senha possa ser usada no Azure AD DS. Após cerca de 20 minutos, você pode usar a nova senha para entrar em computadores ingressados no domínio gerenciado.
+Levará alguns minutos após você ter alterado sua senha para que a nova senha possa ser usada no Azure AD DS e entrar com êxito em computadores ingressados no domínio gerenciado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

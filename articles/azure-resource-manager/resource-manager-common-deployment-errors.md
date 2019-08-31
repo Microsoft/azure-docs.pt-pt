@@ -6,14 +6,14 @@ author: tfitzmac
 keywords: erro de implantação, implantação do Azure, implantar no Azure
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 07/28/2019
+ms.date: 08/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 639f6b3b29b7effa12de79335d44b0193f3f9932
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: df5362028a38a86ba8df46efae2e3c3109856463
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638548"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194372"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solucionar erros comuns de implantação do Azure com o Azure Resource Manager
 
@@ -41,7 +41,7 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | ImageNotFound | Verifique as configurações de imagem da VM. |  |
 | InUseSubnetCannotBeDeleted | Você pode receber esse erro ao tentar atualizar um recurso, e a solicitação é processada excluindo e criando o recurso. Certifique-se de especificar todos os valores inalterados. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Obtenha o token de acesso para o locatário apropriado. Você só pode obter o token do locatário ao qual sua conta pertence. | |
-| InvalidContentLink | Provavelmente, você tentou vincular a um modelo aninhado que não está disponível. Verifique novamente o URI que você forneceu para o modelo aninhado. Se o modelo existir em uma conta de armazenamento, verifique se o URI está acessível. Talvez seja necessário passar um token SAS. | [Modelos vinculados](resource-group-linked-templates.md) |
+| InvalidContentLink | Você provavelmente tentou vincular a um modelo aninhado que não está disponível. Verifique novamente o URI que você forneceu para o modelo aninhado. Se o modelo existir em uma conta de armazenamento, verifique se o URI está acessível. Talvez seja necessário passar um token SAS. No momento, não é possível vincular a um modelo que está em uma conta de armazenamento por trás de um [Firewall de armazenamento do Azure](../storage/common/storage-network-security.md). Considere mover o modelo para outro repositório, como o GitHub. | [Modelos vinculados](resource-group-linked-templates.md) |
 | InvalidParameter | Um dos valores que você forneceu para um recurso não corresponde ao valor esperado. Esse erro pode resultar de muitas condições diferentes. Por exemplo, uma senha pode ser insuficiente ou um nome de blob pode estar incorreto. A mensagem de erro deve indicar qual valor precisa ser corrigido. | |
 | InvalidRequestContent | Os valores de implantação incluem valores que não são reconhecidos ou valores necessários estão ausentes. Confirme os valores para o tipo de recurso. | [Referência de modelo](/azure/templates/) |
 | InvalidRequestFormat | Habilite o log de depuração ao executar a implantação e verifique o conteúdo da solicitação. | [Log de depuração](#enable-debug-logging) |

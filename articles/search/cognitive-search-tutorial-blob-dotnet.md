@@ -1,7 +1,7 @@
 ---
 title: C#Tutorial para chamar API de Serviços Cognitivos em um pipeline de indexação-Azure Search
 description: Neste tutorial, acompanhe um exemplo de extração de dados, linguagem natural e processamento de imagem por IA na indexação do Azure Search para extração e transformação de dados.
-manager: eladz
+manager: nitinme
 author: MarkHeff
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 58252bdbad8e7775add3805c28b2da076c07d9aa
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ad0710a3492eeecd56989e627211da5d4a5e0e0a
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636068"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186250"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C#Destina Chamar API de Serviços Cognitivos em um pipeline de indexação de Azure Search
 

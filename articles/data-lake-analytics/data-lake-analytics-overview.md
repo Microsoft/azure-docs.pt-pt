@@ -9,12 +9,12 @@ ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: 1f798917548f4a744518b12ba1e2be2095bdf1c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3572c308310c49eed48ccb25dfa7cb0fb161515f
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60811635"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164516"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>O que é o Azure Data Lake Analytics?
 
@@ -42,7 +42,7 @@ O Data Lake Analytics é uma solução económica para executar cargas de trabal
     
 ### <a name="works-with-all-your-azure-data"></a>Funciona com todos os dados do Azure
   
-O Data Lake Analytics pode ser utilizado com o Azure Data Lake Store a fim de proporcionar desempenho, débito e paralelização mais elevados, bem como com o Azure Storage Blob, a Base de Dados SQL do Azure e o Azure Warehouse.
+Data Lake Analytics trabalha com Azure Data Lake Storage para obter o melhor desempenho, taxa de transferência e paralelização e funciona com blobs de armazenamento do Azure, banco de dados SQL do Azure, Azure warehouse.
 
 ### <a name="next-steps"></a>Passos Seguintes
  

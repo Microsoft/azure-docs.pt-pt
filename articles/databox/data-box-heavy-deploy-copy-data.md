@@ -1,74 +1,98 @@
 ---
-title: Tutorial para copiar dados através de SMB em pesadas de caixa de dados do Azure | Documentos da Microsoft
-description: Saiba como copiar dados para o Azure dados caixa pesada através de SMB
+title: Tutorial para copiar dados via SMB em Azure Data Box Heavy | Microsoft Docs
+description: Saiba como copiar dados para seu Azure Data Box Heavy via SMB
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 1c45e06159e4c2850efa2d3ab3290647961fb7e1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 8cb763766ebb151ad1c59b63a33a63493a4f0069
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592422"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164376"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb"></a>Tutorial: Copiar dados para o Azure dados caixa pesada através de SMB
+::: zone target = "docs"
 
-Este tutorial descreve como ligar e copiar dados do computador anfitrião com a IU web local.
+# <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb"></a>Tutorial: Copiar dados para Azure Data Box Heavy via SMB
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+## <a name="copy-data-to-azure-data-box-heavy"></a>Copiar dados para Azure Data Box Heavy
+
+::: zone-end
+
+::: zone target = "docs"
+
+Este tutorial descreve como se conectar e copiar dados do seu computador host usando a interface do usuário da Web local.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Ligar a dados caixa pesado
-> * Copiar dados para dados de caixa pesadas
+> * Conectar-se ao Data Box Heavy
+> * Copiar dados para Data Box Heavy
 
+::: zone-end
+
+::: zone target = "chromeless"
+
+Você pode copiar dados do seu servidor de origem para seu Data Box por meio de SMB, NFS, REST, serviço de cópia de dados ou para discos gerenciados.
+
+Em cada caso, verifique se os nomes de compartilhamento e pasta e o tamanho dos dados seguem as diretrizes descritas nos [limites do serviço de armazenamento e data Box Heavy do Azure](data-box-heavy-limits.md).
+
+::: zone-end
+
+::: zone target = "docs"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de que:
 
-1. Concluiu o [Tutorial: Configurar a caixa de dados do Azure pesada](data-box-deploy-set-up.md).
-2. Tiver recebido seu intenso de caixa de dados e é o estado da encomenda no portal **entregues**.
-3. Possui um computador de anfitrião que tenha os dados que pretende que o copie para dados de caixa pesada. O computador anfitrião tem de
+1. Você concluiu o [tutorial: Configurar Azure Data Box Heavy](data-box-deploy-set-up.md).
+2. Você recebeu sua Data Box Heavy e o status do pedido no portal é **entregue**.
+3. Você tem um computador host que tem os dados que deseja copiar para Data Box Heavy. O computador anfitrião tem de
     - Executar um [sistema operativo suportado](data-box-system-requirements.md).
-    - Estar ligado a uma rede de alta velocidade. Para mais rápidas velocidades de cópia, duas ligações de 40 GbE (um por nó) podem ser utilizadas em paralelo. Se não tiver ligação 40 GbE disponível, recomendamos que tenha, pelo menos, duas ligações de 10 GbE (um por nó).
+    - Estar ligado a uma rede de alta velocidade. Para velocidades de cópia mais rápidas, conexões 2 40-GbE (um por nó) podem ser utilizadas em paralelo. Se você não tiver a conexão 40-GbE disponível, recomendamos que você tenha pelo menos conexões 2 10-GbE (uma por nó).
+   
 
-## <a name="connect-to-data-box-heavy-shares"></a>Ligar a partilhas de dados de caixa pesadas
+## <a name="connect-to-data-box-heavy-shares"></a>Conectar-se a compartilhamentos de Data Box Heavy
 
-Com base na conta de armazenamento selecionada, dados de caixa pesada cria até:
+Com base na conta de armazenamento selecionada, Data Box Heavy cria até:
 - Três partilhas para cada conta de armazenamento associada de GPv1 e GPv2.
-- Um compartilhamento para armazenamento premium.
-- Um compartilhamento para conta de armazenamento de Blobs.
+- Um compartilhamento para armazenamento Premium.
+- Um compartilhamento para a conta de armazenamento de BLOBs.
 
-Estas partilhas são criadas em ambos os nós do dispositivo.
+Esses compartilhamentos são criados em ambos os nós do dispositivo.
 
-Em partilhas de blob de página e BLOBs de bloco:
-- Entidades de primeiro nível são contentores.
-- Entidades de segundo nível são blobs.
+Em blob de blocos e compartilhamentos de blob de páginas:
+- As entidades de primeiro nível são contêineres.
+- As entidades de segundo nível são BLOBs.
 
-Em partilhas de ficheiros do Azure:
-- As entidades de primeiro nível são partilhas.
-- Entidades de segundo nível são ficheiros.
+Em compartilhamentos para os arquivos do Azure:
+- As entidades de primeiro nível são compartilhamentos.
+- As entidades de segundo nível são arquivos.
 
-A tabela seguinte mostra o caminho UNC até as partilhas no seu URL de caminho de dados caixa pesadas e armazenamento do Azure, onde os dados são carregados. O URL de caminho final do armazenamento do Azure pode derivar do caminho da partilha UNC.
+A tabela a seguir mostra o caminho UNC para os compartilhamentos no Data Box Heavy e a URL do caminho de armazenamento do Azure onde os dados são carregados. A URL final do caminho de armazenamento do Azure pode ser derivada do caminho de compartilhamento UNC.
  
 |                   |                                                            |
 |-------------------|--------------------------------------------------------------------------------|
-| Blobs de blocos do Azure | <li>Caminho UNC para partilhas: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>URL de armazenamento do Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
-| Blobs de páginas do Azure  | <li>Caminho UNC para partilhas: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>URL de armazenamento do Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
-| Ficheiros do Azure       |<li>Caminho UNC para partilhas: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>URL de armazenamento do Azure: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      
+| Blobs de blocos do Azure | <li>Caminho UNC para compartilhamentos:`\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>URL de armazenamento do Azure:`https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
+| Blobs de páginas do Azure  | <li>Caminho UNC para compartilhamentos:`\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>URL de armazenamento do Azure:`https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
+| Ficheiros do Azure       |<li>Caminho UNC para compartilhamentos:`\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>URL de armazenamento do Azure:`https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      
 
-Os passos para ligar através de um Windows ou um cliente Linux são diferentes.
+As etapas para se conectar usando um cliente Windows ou Linux são diferentes.
 
 > [!NOTE]
-> Siga os mesmos passos para ligar a nós do dispositivo em paralelo.
+> Siga as mesmas etapas para se conectar a ambos os nós do dispositivo em paralelo.
 
-### <a name="connect-on-a-windows-system"></a>Ligue-se num sistema Windows
+### <a name="connect-on-a-windows-system"></a>Conectar-se em um sistema Windows
 
-Se utilizar um computador de anfitrião do Windows Server, siga estes passos para ligar para os dados de caixa pesada.
+Se estiver usando um computador host do Windows Server, siga estas etapas para se conectar ao Data Box Heavy.
 
 1. O primeiro passo é autenticar e iniciar uma sessão. Aceda a **Ligar e copiar**. Clique em **Obter credenciais** para obter as credenciais de acesso para as partilhas associadas à sua conta de armazenamento.
 
@@ -78,14 +102,14 @@ Se utilizar um computador de anfitrião do Windows Server, siga estes passos par
     
     ![Obter credenciais de partilhas 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-2.png)
 
-3. Para aceder às partilhas associadas à conta de armazenamento (*databoxe2etest* no exemplo a seguir) a partir do seu computador anfitrião, abra uma janela de comando. Na linha de comandos, escreva:
+3. Para acessar os compartilhamentos associados à sua conta de armazenamento (*databoxe2etest* no exemplo a seguir) do seu computador host, abra uma janela de comando. Na linha de comandos, escreva:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
     Consoante o seu formato de dados, os caminhos de partilha são os seguintes:
-    - Blob de blocos do Azure- `\\10.100.10.100\databoxe2etest_BlockBlob`
-    - BLOBs de página do Azure- `\\10.100.10.100\databoxe2etest_PageBlob`
-    - Ficheiros do Azure- `\\10.100.10.100\databoxe2etest_AzFile`
+    - Blob de blocos do Azure-`\\10.100.10.100\databoxe2etest_BlockBlob`
+    - Blob de páginas do Azure-`\\10.100.10.100\databoxe2etest_PageBlob`
+    - Arquivos do Azure-`\\10.100.10.100\databoxe2etest_AzFile`
     
 4. Introduza a palavra-passe da partilha quando lhe for pedido. O exemplo seguinte mostra a ligação a uma partilha através do comando anterior.
 
@@ -95,49 +119,49 @@ Se utilizar um computador de anfitrião do Windows Server, siga estes passos par
     The command completed successfully.
     ```
 
-4. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Clique em **OK** para abrir o Explorador de ficheiros.
+4. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Clique em **OK** para abrir o explorador de arquivos.
     
     ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
 
-    Deverá ver agora as partilhas como pastas.
+    Agora você deve ver os compartilhamentos como pastas.
     
     ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-2.png)
 
-    **Crie sempre uma pasta para os ficheiros que pretende copiar na partilha e, em seguida, copie os ficheiros para essa pasta**. A pasta criada no blob de blocos e partilhas de blob de página representa um contentor para o qual os dados são carregados como blobs. Não é possível copiar o arquivos diretamente à *raiz* pasta na conta de armazenamento.
+    **Crie sempre uma pasta para os ficheiros que pretende copiar na partilha e, em seguida, copie os ficheiros para essa pasta**. A pasta criada em blobs de blocos e blobs de páginas representa um contêiner para o qual os dados são carregados como BLOBs. Não é possível copiar arquivos diretamente para a pasta *raiz* na conta de armazenamento.
     
-### <a name="connect-on-a-linux-system"></a>Ligue-se num sistema Linux
+### <a name="connect-on-a-linux-system"></a>Conectar-se em um sistema Linux
 
-Se utilizar um cliente Linux, utilize o comando seguinte para montar a partilha SMB.
+Se estiver usando um cliente Linux, use o comando a seguir para montar o compartilhamento SMB.
 
 ```
 sudo mount -t nfs -o vers=2.1 10.126.76.172:/databoxe2etest_BlockBlob /home/databoxubuntuhost/databox
 ```
 
-O `vers` parâmetro é a versão do SMB que suporte o anfitrião Linux. Plug-in a versão adequada no comando acima.
+O `vers` parâmetro é a versão do SMB com suporte no host do Linux. Conecte a versão apropriada no comando acima.
 
-Para versões do SMB que suporta a pesadas de caixa de dados, consulte [sistemas de ficheiros suportados por clientes Linux](data-box-heavy-system-requirements.md#supported-file-systems-for-linux-clients).
+Para versões do SMB às quais o Data Box Heavy dá suporte, consulte [sistemas de arquivos com suporte para clientes Linux](data-box-heavy-system-requirements.md#supported-file-systems-for-linux-clients).
 
-## <a name="copy-data-to-data-box-heavy"></a>Copiar dados para dados de caixa pesadas
+## <a name="copy-data-to-data-box-heavy"></a>Copiar dados para Data Box Heavy
 
-Assim que estiver ligado às partilhas de dados de caixa pesada, a próxima etapa é copiar dados.
+Quando você estiver conectado aos compartilhamentos de Data Box Heavy, a próxima etapa será copiar dados.
 
 ### <a name="copy-considerations"></a>Considerações de cópia
 
-Antes de iniciar a cópia de dados, reveja as seguintes considerações:
+Antes de começar a cópia de dados, examine as seguintes considerações:
 
-- Certifique-se de que copia os dados para partilhas correspondentes para o formato de dados apropriados. Por exemplo, copie os dados de blobs de blocos para a partilha de blobs de blocos. Copie os VHDs para BLOBs de páginas.
+- Certifique-se de copiar os dados para compartilhamentos que correspondam ao formato de dados apropriado. Por exemplo, copie os dados de blobs de blocos para a partilha de blobs de blocos. Copie os VHDs para o blob de páginas.
 
-    Se o formato de dados não corresponde ao tipo de partilha apropriadas, em seguida, num passo posterior, o carregamento de dados para o Azure irá falhar.
--  Ao copiar dados, certifique-se de que o tamanho dos dados está em conformidade com os limites de tamanho descritos a [armazenamento do Azure e limites de dados de caixa pesada](data-box-heavy-limits.md).
-- Se os dados, o que está a ser carregados por dados caixa pesada, são carregados em simultâneo por outros aplicativos fora dados caixa pesada, isto pode resultar no carregamento de Corrupção de dados e de falhas de tarefa.
+    Se o formato de dados não corresponder ao tipo de compartilhamento apropriado, em uma etapa posterior, o carregamento de dados para o Azure falhará.
+-  Ao copiar dados, verifique se o tamanho dos dados está de acordo com os limites de tamanho descritos nos [limites de armazenamento e data Box Heavy do Azure](data-box-heavy-limits.md).
+- Se os dados, que estão sendo carregados pelo Data Box Heavy, forem carregados simultaneamente por outros aplicativos fora do Data Box Heavy, isso poderá resultar em falhas de trabalho de upload e corrupção de dados.
 - Recomendamos que:
-    - Não utilize o SMB e NFS ao mesmo tempo.
+    - Você não usa SMB e NFS ao mesmo tempo.
     - Copie os mesmos dados para o mesmo destino final no Azure.
      
-  Nestes casos, não é possível determinar o resultado final.
-- Sempre crie uma pasta para os ficheiros que pretende copiar abaixo da partilha e, em seguida, copie os ficheiros para essa pasta. A pasta criada no blob de blocos e partilhas de blob de página representa um contentor para o qual os dados são carregados como blobs. Não é possível copiar o arquivos diretamente à *raiz* pasta na conta de armazenamento.
+  Nesses casos, o resultado final não pode ser determinado.
+- Sempre crie uma pasta para os arquivos que você pretende copiar sob o compartilhamento e, em seguida, copie os arquivos para essa pasta. A pasta criada em blobs de blocos e blobs de páginas representa um contêiner para o qual os dados são carregados como BLOBs. Não é possível copiar arquivos diretamente para a pasta *raiz* na conta de armazenamento.
 
-Depois de se ligar à partilha de SMB, iniciar a cópia de dados.
+Depois de se conectar ao compartilhamento SMB, comece a cópia de dados.
 
 1. Pode utilizar qualquer ferramenta de cópia de ficheiros compatível com SMB, como o Robocopy, para copiar os dados. É possível iniciar várias tarefas com o Robocopy. Utilize o seguinte comando:
     
@@ -152,8 +176,8 @@ Depois de se ligar à partilha de SMB, iniciar a cópia de dados.
     |/r:     |Especifica o número de repetições nas cópias falhadas.         |
     |/w:     |Especifica o tempo de espera entre as repetições, em segundos.         |
     |/is     |Inclui os mesmos ficheiros.         |
-    |/nfl    |Especifica que os nomes de ficheiro não tiver sessão iniciados.         |
-    |/ndl    |Especifica que os nomes de diretório não tiver sessão iniciados.        |
+    |/nfl    |Especifica que os nomes de arquivo não são registrados.         |
+    |/ndl    |Especifica que os nomes de diretório não são registrados.        |
     |/np     |Especifica que o progresso da operação de cópia (o número de ficheiros ou diretórios copiados até ao momento) não será apresentado. A apresentação do progresso reduz significativamente o desempenho.         |
     |/MT     | Utilize multithreading (são recomendados 32 ou 64 threads). Esta opção não é utilizada com ficheiros encriptados. Pode ter de separar os ficheiros encriptados e não encriptados. No entanto, uma cópia de thread único reduz significativamente o desempenho.           |
     |/fft    | Utilize para reduzir a granularidade de carimbo de data/hora para qualquer sistema de ficheiros.        |
@@ -161,10 +185,10 @@ Depois de se ligar à partilha de SMB, iniciar a cópia de dados.
     |/z      | Copia os ficheiros no modo de Reinício. Utilize se o ambiente for instável. Esta opção reduz o débito devido ao registo adicional.      |
     | /zb    | Utiliza o modo de Reinício. Se o acesso for negado, esta opção utiliza o modo de Cópia de Segurança. Esta opção reduz o débito devido ao ponto de verificação.         |
     |/efsraw | Copia todos os ficheiros encriptados no modo EFS não processado. Utilize apenas com ficheiros encriptados.         |
-    |log+:\<LogFile>| Anexa a saída ao ficheiro de registo existente.|
+    |log +:\<logfile >| Anexa a saída ao ficheiro de registo existente.|
     
  
-    O exemplo a seguir mostra a saída do comando robocopy para copiar ficheiros para os dados de caixa pesada.
+    O exemplo a seguir mostra a saída do comando Robocopy para copiar arquivos para o Data Box Heavy.
 
     ```   
     C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.100.10.100\devicemanagertest1_AzFile\templates /MT:24
@@ -204,56 +228,112 @@ Depois de se ligar à partilha de SMB, iniciar a cópia de dados.
     C:\Users>
     ```       
 
-2. Para otimizar o desempenho, utilize os seguintes parâmetros do Robocopy ao copiar os dados. (Os números a seguir representam cenários de casos de melhor.)
+2. Para otimizar o desempenho, utilize os seguintes parâmetros do Robocopy ao copiar os dados. (Os números abaixo representam os cenários de melhor caso).
 
-    | Plataforma    | Principalmente ficheiros pequenos < 512 KB    | Principalmente médios ficheiros 512 KB - 1 MB  | Principalmente ficheiros grandes > 1 MB                             |
+    | Plataforma    | Principalmente ficheiros pequenos < 512 KB    | Principalmente arquivos médios 512 KB-1 MB  | Principalmente ficheiros grandes > 1 MB                             |
     |-------------|--------------------------------|----------------------------|----------------------------|
-    | Data Box Heavy | 6 sessões de Robocopy <br> 24 threads por sessões | 6 sessões de Robocopy <br> 16 threads por sessões | 6 sessões de Robocopy <br> 16 threads por sessões |
+    | Data Box Heavy | 6 sessões do Robocopy <br> 24 threads por sessões | 6 sessões do Robocopy <br> 16 threads por sessões | 6 sessões do Robocopy <br> 16 threads por sessões |
 
 
     Para obter mais informações sobre o comando do Robocopy, aceda a [Robocopy e alguns exemplos](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
 
 3. Abra a pasta de destino para ver e verificar os ficheiros copiados.
 
-    ![Ver os ficheiros copiados](media/data-box-heavy-deploy-copy-data/view-copied-files-1.png)
+    ![Exibir arquivos copiados](media/data-box-heavy-deploy-copy-data/view-copied-files-1.png)
 
 
-4. Como os dados são copiados:
+4. À medida que os dados são copiados:
 
-    - Os nomes de ficheiros, tamanhos e formato são avaliadas para garantir a que ir ao encontro os limites de objeto e o armazenamento do Azure, bem como ficheiros do Azure e convenções de nomenclatura de contentor.
-    - Para garantir a integridade dos dados, soma de verificação também é calculada inline.
+    - Os nomes de arquivo, os tamanhos e o formato são validados para garantir que eles atendam os limites de armazenamento e de objeto do Azure, bem como as convenções de nomenclatura de contêiner e arquivo do Azure.
+    - Para garantir a integridade dos dados, a soma de verificação também é calculada em linha.
 
-    Se ocorrerem erros durante o processo de cópia, transfira os ficheiros de erro para resolução de problemas. Selecione o ícone de seta para transferir os ficheiros de erro.
+    Se ocorrerem erros durante o processo de cópia, transfira os ficheiros de erro para resolução de problemas. Selecione o ícone de seta para baixar os arquivos de erro.
 
-    ![Transferir os ficheiros de erro](media/data-box-heavy-deploy-copy-data/download-error-files.png)
+    ![Baixar arquivos de erro](media/data-box-heavy-deploy-copy-data/download-error-files.png)
 
-    Para obter mais informações, consulte [ver registos de erros durante a cópia de dados para dados de caixa pesada](data-box-logs.md#view-error-log-during-data-copy). Para obter uma lista detalhada de erros durante a cópia de dados, consulte [problemas de resolução de problemas de dados de caixa pesada](data-box-troubleshoot.md).
+    Para obter mais informações, consulte [Exibir logs de erros durante a cópia de dados para data Box Heavy](data-box-logs.md#view-error-log-during-data-copy). Para obter uma lista detalhada de erros durante a cópia de dados, consulte [solucionar problemas data Box Heavy](data-box-troubleshoot.md).
 
-5. Abra o ficheiro de erro no bloco de notas. O seguinte ficheiro de erro indica que os dados não estão alinhados corretamente.
+5. Abra o arquivo de erro no bloco de notas. O arquivo de erro a seguir indica que os dados não estão alinhados corretamente.
 
-    ![Erro ao abrir ficheiro](media/data-box-heavy-deploy-copy-data/open-error-file.png)
+    ![Abrir arquivo de erro](media/data-box-heavy-deploy-copy-data/open-error-file.png)
     
-    Para um blob de página, os dados têm de ter 512 bytes alinhados. Depois de remover estes dados, o erro é resolvido conforme mostrado na captura de ecrã seguinte.
+    Para um blob de páginas, os dados precisam ser alinhados a 512 bytes. Depois que esses dados forem removidos, o erro será resolvido conforme mostrado na captura de tela a seguir.
 
     ![Erro resolvido](media/data-box-heavy-deploy-copy-data/error-resolved.png)
 
-6. Depois da cópia estiver concluída, aceda ao **ver o Dashboard** página. Verifique se o espaço utilizado e o espaço livre no seu dispositivo.
+6. Depois que a cópia for concluída, vá para a página **exibir painel** . Verifique o espaço usado e o espaço livre em seu dispositivo.
     
     ![Verificar o espaço livre e utilizado no dashboard](media/data-box-heavy-deploy-copy-data/verify-used-space-dashboard.png)
 
-Repita os passos acima para copiar os dados para o segundo nó do dispositivo.
+Repita as etapas acima para copiar dados no segundo nó do dispositivo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, aprendeu sobre tópicos pesadas de caixa de dados do Azure, tais como:
+Neste tutorial, você aprendeu sobre tópicos Azure Data Box Heavy como:
 
 > [!div class="checklist"]
-> * Ligar a dados caixa pesado
-> * Copiar dados para dados de caixa pesadas
+> * Conectar-se ao Data Box Heavy
+> * Copiar dados para Data Box Heavy
 
 
-Avance para o próximo tutorial para saber como enviar seu intenso de caixa de dados à Microsoft.
+Avance para o próximo tutorial para aprender a enviar seus Data Box Heavy de volta à Microsoft.
 
 > [!div class="nextstepaction"]
-> [Envie sua pesado de caixa de dados do Azure para a Microsoft](./data-box-heavy-deploy-picked-up.md)
+> [Envie seu Azure Data Box Heavy para a Microsoft](./data-box-heavy-deploy-picked-up.md)
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+### <a name="copy-data-via-smb"></a>Copiar dados através de SMB
+
+1. Se estiver usando um host do Windows, use o seguinte comando para se conectar aos compartilhamentos SMB:
+
+    `\\<IP address of your device>\ShareName`
+
+2. Para obter as credenciais de acesso de partilha, aceda à página **Ligar e copiar** na IU da Web local do Data Box.
+
+3. Use uma ferramenta de cópia de arquivo compatível com SMB, como o Robocopy, para copiar dados para compartilhamentos.
+
+Para obter instruções passo a passo, acesse [tutorial: Copie dados para Azure Data Box via SMB](data-box-heavy-deploy-copy-data.md).
+
+### <a name="copy-data-via-nfs"></a>Copiar dados através de NFS
+
+1. Se estiver usando um host NFS, use o seguinte comando para montar os compartilhamentos NFS:
+
+    `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
+
+2. Para obter as credenciais de acesso de compartilhamento, vá para a **página conectar & Copiar** na interface do usuário da Web local do data Box Heavy.
+3. Use `cp` o `rsync` comando ou para copiar seus dados. 
+4. Repita essas etapas para se conectar e copiar dados para o segundo nó do seu Data Box Heavy.
+
+Para obter instruções passo a passo, acesse [tutorial: Copie dados para Azure Data Box via NFS](data-box-heavy-deploy-copy-data-via-nfs.md).
+
+### <a name="copy-data-via-rest"></a>Copiar dados via REST
+
+1. Para copiar dados usando Data Box armazenamento de BLOBs por meio de APIs REST, você pode se conectar via *http* ou *https*.
+2. Para copiar dados para Data Box armazenamento de BLOBs, você pode usar AzCopy.
+3. Repita essas etapas para se conectar e copiar dados para o segundo nó do seu Data Box Heavy.
+
+Para obter instruções passo a passo, acesse [tutorial: Copie dados para Azure Data Box armazenamento de BLOBs por](data-box-heavy-deploy-copy-data-via-rest.md)meio de APIs REST.
+
+### <a name="copy-data-via-data-copy-service"></a>Copiar dados por meio do serviço de cópia de dados
+
+1. Para copiar dados usando o serviço de cópia de dados, você precisa criar um trabalho. Na interface do usuário da Web local do seu Data Box Heavy, vá para **gerenciar > copiar dados > criar**.
+2. Preencha os parâmetros e crie um trabalho.
+3. Repita essas etapas para se conectar e copiar dados para o segundo nó do seu Data Box Heavy.
+
+Para obter instruções passo a passo, acesse [tutorial: Use o serviço de cópia de dados para copiar dados](data-box-heavy-deploy-copy-data-via-copy-service.md)em Azure data Box Heavy.
+
+### <a name="copy-data-to-managed-disks"></a>Copiar dados para discos gerenciados
+
+1. Ao solicitar o dispositivo Data Box Heavy, você deve ter selecionado Managed disks como seu destino de armazenamento.
+2. Você pode se conectar a Data Box Heavy por meio de compartilhamentos SMB ou NFS.
+3. Em seguida, você pode copiar dados por meio de ferramentas SMB ou NFS.
+4. Repita essas etapas para se conectar e copiar dados para o segundo nó do seu Data Box Heavy.
+
+Para obter instruções passo a passo, acesse [tutorial: Use Data Box para importar dados pesados como discos gerenciados no](data-box-heavy-deploy-copy-data-from-vhds.md)Azure.
+
+::: zone-end
+
 

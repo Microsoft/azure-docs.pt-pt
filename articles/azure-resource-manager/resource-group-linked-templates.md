@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: c79429d1a39e975c6bcc7fce191846a6205f9a86
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: b48988c04f6b387a8124a812a836e2b92a9d3ada
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311709"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194376"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligados e aninhados modelos durante a implantação de recursos do Azure
 
@@ -479,6 +479,8 @@ done
 Embora o modelo ligado tem de estar disponível externamente, ele não precisa estar disponível ao público. É possível adicionar o seu modelo para uma conta de armazenamento privado que esteja acessível para apenas o proprietário da conta de armazenamento. Depois, vai criar um token de assinatura (SAS) de acesso partilhado para ativar o acesso durante a implementação. Adicionar esse token SAS para o URI para o modelo ligado. Mesmo que o token é passado como uma cadeia segura, o URI do modelo ligado, incluindo o token SAS, é registado nas operações de implementação. Para limitar a exposição, defina uma expiração para o token.
 
 O ficheiro de parâmetros pode também ser limitado a acesso por meio de um token SAS.
+
+No momento, não é possível vincular a um modelo em uma conta de armazenamento que está atrás de um [Firewall de armazenamento do Azure](../storage/common/storage-network-security.md).
 
 O exemplo seguinte mostra como passar um token SAS quando ligar a um modelo:
 

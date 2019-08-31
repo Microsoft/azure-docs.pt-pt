@@ -1,5 +1,5 @@
 ---
-title: Criar uma tarefa de Stream Analytics, utilizando as ferramentas do Azure Stream Analytics para Visual Studio
+title: Criar um trabalho de Azure Stream Analytics usando o Visual Studio
 description: Este início rápido mostra como começar ao criar uma tarefa do Stream Analytics, configurar entradas e saídas, e definir uma consulta com o Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -7,16 +7,16 @@ ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: bd27495266918063c65bf4648b3453e25767e293
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb3b25387df33f8d366a088f9fa63e0dc96290bf
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076208"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173262"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Início rápido: Criar uma tarefa de Stream Analytics, utilizando as ferramentas do Azure Stream Analytics para Visual Studio
+# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Início rápido: Criar um trabalho de Azure Stream Analytics usando o Visual Studio
 
-Este início rápido mostra como criar e executar uma tarefa do Stream Analytics com ferramentas do Azure Stream Analytics para Visual Studio. A tarefa de exemplo lê os dados de transmissão em fluxo de um dispositivo do IoT Hub. É possível definir uma tarefa que calcula a temperatura média quando mais de 27° e grava a saída resultante eventos para um novo ficheiro no armazenamento de Blobs.
+Este início rápido mostra como criar e executar uma tarefa do Stream Analytics com ferramentas do Azure Stream Analytics para Visual Studio. O trabalho de exemplo lê os dados de streaming de um dispositivo de Hub IoT. Você define um trabalho que calcula a temperatura média quando mais de 27 ° e grava os eventos de saída resultantes em um novo arquivo no armazenamento de BLOBs.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -24,58 +24,58 @@ Este início rápido mostra como criar e executar uma tarefa do Stream Analytics
 
 * Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-* Instale o Visual Studio 2019, Visual Studio 2015 ou Visual Studio 2013 atualização 4. As edições Enterprise (Ultimate/Premium), Professional e Community são suportadas. A edição Express não é suportada.
+* Instale o Visual Studio 2019, o Visual Studio 2015 ou o Visual Studio 2013 Update 4. As edições Enterprise (Ultimate/Premium), Professional e Community são suportadas. A edição Express não é suportada.
 
 * Siga as [instruções de instalação](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) para instalar as ferramentas do Stream Analytics para Visual Studio.
 
 ## <a name="prepare-the-input-data"></a>Preparar os dados de entrada
 
-Antes de definir a tarefa do Stream Analytics, deve preparar os dados, o que mais tarde são configurados como a tarefa de entrada. Para preparar os dados de entrada necessários para a tarefa, conclua os seguintes passos:
+Antes de definir o trabalho de Stream Analytics, você deve preparar os dados, que são configurados posteriormente como a entrada do trabalho. Para preparar os dados de entrada exigidos pelo trabalho, conclua as seguintes etapas:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione **Criar um recurso** > **Internet das Coisas** > **Hub IoT**.
 
-3. Na **IoT Hub** painel, introduza as seguintes informações:
+3. No painel **Hub IOT** , insira as seguintes informações:
    
    |**Definição**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
-   |Subscrição  | \<A sua subscrição\> |  Selecione a subscrição do Azure que pretende utilizar. |
-   |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta. |
-   |Região  |  \<Selecione a região mais próxima dos seus utilizadores\> | Selecione uma localização geográfica onde pode alojar o seu IoT Hub. Utilize a localização mais próxima dos seus utilizadores. |
-   |Nome do IoT Hub  | MyASAIoTHub  |   Selecione um nome para o seu IoT Hub.   |
+   |Subscription  | \<A sua subscrição\> |  Selecione a subscrição do Azure que pretende utilizar. |
+   |Resource group   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta. |
+   |Região  |  \<Selecione a região mais próxima dos seus utilizadores\> | Selecione uma localização geográfica na qual você pode hospedar o Hub IoT. Use o local mais próximo de seus usuários. |
+   |Nome do Hub IoT  | MyASAIoTHub  |   Selecione um nome para o Hub IoT.   |
 
    ![Criar um Hub IoT](./media/stream-analytics-quick-create-vs/create-iot-hub.png)
 
-4. Selecione **seguinte: Definir o tamanho e a escala**.
+4. Selecione **avançar: Definir tamanho e escala**.
 
-5. Selecione o seu **Escalão de preço e dimensionamento**. Neste início rápido, selecione o **F1 - gratuito** camada se ela ainda está disponível na sua subscrição. Se o escalão gratuito não está disponível, escolha o escalão mais baixo disponível. Para obter mais informações, consulte [preços do IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
+5. Selecione o seu **Escalão de preço e dimensionamento**. Para este guia de início rápido, selecione a camada **F1-Free** se ela ainda estiver disponível em sua assinatura. Se a camada gratuita não estiver disponível, escolha a camada mais baixa disponível. Para obter mais informações, consulte [preços do Hub IOT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-   ![Redimensionar e dimensione o seu IoT Hub](./media/stream-analytics-quick-create-vs/iot-hub-size-and-scale.png)
+   ![Dimensionar e dimensionar seu hub IoT](./media/stream-analytics-quick-create-vs/iot-hub-size-and-scale.png)
 
-6. Selecione **Rever + criar**. Reveja as suas informações do IoT Hub e clique em **criar**. O IoT Hub pode demorar alguns minutos a criar. Pode monitorizar o progresso no painel **Notificações**.
+6. Selecione **Rever + criar**. Examine as informações do Hub IoT e clique em **criar**. O Hub IoT pode levar alguns minutos para ser criado. Pode monitorizar o progresso no painel **Notificações**.
 
-7. No menu de navegação do IoT Hub, clique em **Add** sob **dispositivos IoT**. Adicionar uma **ID do dispositivo** e clique em **guardar**.
+7. No menu de navegação do Hub IoT, clique em **Adicionar** em **dispositivos IOT**. Adicione uma **ID de dispositivo** e clique em **salvar**.
 
-   ![Adicionar um dispositivo ao IoT Hub](./media/stream-analytics-quick-create-vs/add-device-iot-hub.png)
+   ![Adicionar um dispositivo ao Hub IoT](./media/stream-analytics-quick-create-vs/add-device-iot-hub.png)
 
-8. Depois do dispositivo é criado, abra o dispositivo a partir da **dispositivos IoT** lista. Copiar o **cadeia de ligação – chave primária** e guarde-o para um bloco de notas para utilizar mais tarde.
+8. Depois que o dispositivo for criado, abra o dispositivo na lista de **dispositivos IOT** . Copie a **cadeia de conexão--Primary Key** e salve-a em um bloco de notas para usar posteriormente.
 
-   ![Copie a cadeia de ligação de dispositivos do IoT Hub](./media/stream-analytics-quick-create-vs/save-iot-device-connection-string.png)
+   ![Copiar cadeia de conexão do dispositivo do Hub IoT](./media/stream-analytics-quick-create-vs/save-iot-device-connection-string.png)
 
 ## <a name="create-blob-storage"></a>Criar armazenamento de BLOBs
 
 1. No canto superior esquerdo do portal do Azure, selecione **Criar um recurso** > **Armazenamento** > **Conta de armazenamento**.
 
-2. Na **criar conta de armazenamento** painel, introduza um grupo de recursos, localização e nome da conta de armazenamento. Escolha a mesma localização e grupo de recursos como o IoT Hub que criou. Em seguida, clique em **rever + criar** para criar a conta.
+2. No painel **criar conta de armazenamento** , insira um nome de conta de armazenamento, um local e um grupo de recursos. Escolha o mesmo local e grupo de recursos que o Hub IoT que você criou. Em seguida, clique em revisar **+ criar** para criar a conta.
 
    ![Criar conta de armazenamento](./media/stream-analytics-quick-create-portal/create-storage-account.png)
 
-3. Depois de criar a conta de armazenamento, selecione o **Blobs** mosaico a **descrição geral** painel.
+3. Depois que sua conta de armazenamento for criada, selecione o bloco BLOBs no painel **visão geral** .
 
    ![Descrição geral da conta de armazenamento](./media/stream-analytics-quick-create-portal/blob-storage.png)
 
-4. Do **serviço Blob** página, selecione **contentor** e indique um nome para o contentor, como *container1*. Deixe o **nível de acesso público** como **privado (sem acesso anónimo)** e selecione **OK**.
+4. Na página **serviço blob** , selecione **contêiner** e forneça um nome para o contêiner, como *Container1*. Deixe o **nível de acesso público** como **privado (sem acesso anônimo)** e selecione **OK**.
 
    ![Criar contentor de blobs](./media/stream-analytics-quick-create-portal/create-blob-container.png)
 
@@ -111,11 +111,11 @@ Repare nos elementos que são incluídos num projeto do Azure Stream Analytics.
    |**Definição**  |**Valor sugerido**  |**Descrição**   |
    |---------|---------|---------|
    |Alias de Entrada  |  Input   |  Introduza um nome para identificar a entrada da tarefa.   |
-   |Tipo de Fonte   |  Fluxo de Dados |  Escolha a origem de entrada apropriada: Stream de dados ou dados de referência.   |
-   |source  |  IoT Hub |  Escolha a origem de entrada adequada.   |
+   |Tipo de Fonte   |  Fluxo de Dados |  Escolha a fonte de entrada apropriada: Fluxo de dados ou dados de referência.   |
+   |Source  |  IoT Hub |  Escolha a origem de entrada adequada.   |
    |Resource  | Escolha a origem de dados na conta atual | Opte por introduzir dados manualmente ou selecionar uma conta existente.   |
-   |Subscrição  |  \<A sua subscrição\>   | Selecione a subscrição do Azure com o IoT Hub que criou.   |
-   |IoT Hub  |  MyASAIoTHub   |  Selecione ou introduza o nome do IoT Hub. Os nomes do IoT Hub são detetados automaticamente se forem criados na mesma subscrição.   |
+   |Subscription  |  \<A sua subscrição\>   | Selecione a assinatura do Azure que tem o Hub IoT que você criou.   |
+   |IoT Hub  |  MyASAIoTHub   |  Escolha ou insira o nome do seu hub IoT. Os nomes de Hub IoT serão detectados automaticamente se forem criados na mesma assinatura.   |
    
 3. Mantenha as outras opções com os valores predefinidos e selecione **Guardar** para guardar as definições.  
 
@@ -129,10 +129,10 @@ Repare nos elementos que são incluídos num projeto do Azure Stream Analytics.
 
    |**Definição**  |**Valor sugerido**  |**Descrição**   |
    |---------|---------|---------|
-   |Alias de Saída  |  Saída   |  Introduza um nome para identificar a saída da tarefa.   |
+   |Alias de Saída  |  Output   |  Introduza um nome para identificar a saída da tarefa.   |
    |Sink   |  Blob Storage |  Escolha o sink adequado.    |
    |Resource  |  Apresente as definições da origem de dados manualmente |  Opte por introduzir dados manualmente ou selecionar uma conta existente.   |
-   |Subscrição  |  \<A sua subscrição\>   | Selecione a subscrição do Azure que tem a conta de armazenamento que criou. A conta de armazenamento pode estar na mesma subscrição ou numa diferente. Este exemplo assume que criou a conta de armazenamento na mesma subscrição.   |
+   |Subscription  |  \<A sua subscrição\>   | Selecione a subscrição do Azure que tem a conta de armazenamento que criou. A conta de armazenamento pode estar na mesma subscrição ou numa diferente. Este exemplo assume que criou a conta de armazenamento na mesma subscrição.   |
    |Conta de Armazenamento  |  asaquickstartstorage   |  Escolha ou introduza o nome da conta de armazenamento. Os nomes de contas de armazenamento são detetados automaticamente se forem criados na mesma subscrição.   |
    |Contentor  |  container1   |  Selecione o contentor existente que criou na conta de armazenamento.   |
    |Padrão do Caminho  |  saída   |  Introduza o nome de um caminho de ficheiro a ser criado no contentor.   |
@@ -164,13 +164,13 @@ Repare nos elementos que são incluídos num projeto do Azure Stream Analytics.
 
 ## <a name="run-the-iot-simulator"></a>Executar o simulador de IoT
 
-1. Abra o [Raspberry Pi Azure IoT Online simulador](https://azure-samples.github.io/raspberry-pi-web-simulator/) num novo separador do browser ou janela.
+1. Abra o [simulador online do Azure IOT do Raspberry Pi](https://azure-samples.github.io/raspberry-pi-web-simulator/) em uma nova janela ou guia do navegador.
 
-2. Substitua o marcador de posição na linha 15 a cadeia de ligação de dispositivos do IoT Hub do Azure que guardou na secção anterior.
+2. Substitua o espaço reservado na linha 15 pela cadeia de conexão do dispositivo do Hub IoT do Azure que você salvou em uma seção anterior.
 
-3. Clique em **Executar**. A saída deve mostrar os dados de sensor e as mensagens que estão a ser enviadas ao seu IoT Hub.
+3. Clique em **Executar**. A saída deve mostrar os dados do sensor e as mensagens que estão sendo enviadas para o Hub IoT.
 
-   ![Simulador Online do Azure IoT raspberry Pi](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
+   ![Simulador online do Azure IoT do Raspberry Pi](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-output"></a>Iniciar a tarefa do Stream Analytics e verificar a saída
 
@@ -178,7 +178,7 @@ Repare nos elementos que são incluídos num projeto do Azure Stream Analytics.
 
    ![Iniciar tarefa do Stream Analytics](./media/stream-analytics-quick-create-vs/start-stream-analytics-job-vs.png)
 
-2. Alteração da **modo de início da saída da tarefa** para **JobStartTime** e selecione **iniciar**.
+2. Altere o **modo de início de saída do trabalho** para **JobStartTime** e selecione **Iniciar**.
 
    ![Iniciar configuração da tarefa](./media/stream-analytics-quick-create-vs/stream-analytics-start-configuration.png)
 
@@ -202,7 +202,7 @@ Quando já não for necessário, elimine o grupo de recursos, a tarefa de transm
 
 Neste início rápido, implementou uma tarefa simples do Stream Analytics com o Visual Studio. Também pode implementar tarefas do Stream Analytics com o [portal do Azure](stream-analytics-quick-create-portal.md) e o [PowerShell](stream-analytics-quick-create-powershell.md). 
 
-Para saber mais sobre as ferramentas do Azure Stream Analytics para Visual Studio, avance para o seguinte artigo:
+Para saber mais sobre as ferramentas de Azure Stream Analytics para o Visual Studio, prossiga para o seguinte artigo:
 
 > [!div class="nextstepaction"]
 > [Use o Visual Studio para ver tarefas do Azure Stream Analytics](stream-analytics-vs-tools.md)

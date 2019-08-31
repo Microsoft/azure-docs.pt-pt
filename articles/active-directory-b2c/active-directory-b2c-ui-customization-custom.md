@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0c6186334820d0e419a06b9c60a8279825bf54c2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e79d7a4b97f010b035f5c864682b4d3882a21393
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927298"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171922"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário do seu aplicativo usando uma política personalizada no Azure Active Directory B2C
 
@@ -65,17 +65,16 @@ Para hospedar esse conteúdo HTML no armazenamento de BLOBs, faça o seguinte:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu **Hub** , selecione **novo** > **armazenamento** > **conta de armazenamento**.
-3. Insira um **nome** exclusivo para sua conta de armazenamento.
-4. O **modelo de implantação** pode permanecer no **Resource Manager**.
-5. Altere o **tipo de conta** para o armazenamento de **BLOBs**.
-6. O **desempenho** pode permanecer **padrão**.
-7. A **replicação** pode permanecer **ra-grs**.
-8. A **camada de acesso** pode permanecer **quente**.
-9. A **criptografia do serviço de armazenamento** pode permanecer **desabilitada**.
-10. Selecione uma **assinatura** para sua conta de armazenamento.
-11. Crie um **grupo de recursos** ou selecione um existente.
-12. Selecione a **localização geográfica** da sua conta de armazenamento.
-13. Clique em **Criar** para criar a conta do Storage.  
+3. Selecione uma **assinatura** para sua conta de armazenamento.
+4. Crie um **grupo de recursos** ou selecione um existente.
+5. Insira um **nome** exclusivo para sua conta de armazenamento.
+6. Selecione a **localização geográfica** da sua conta de armazenamento. 
+7. O **modelo de implantação** pode permanecer no **Resource Manager**.
+8. O **desempenho** pode permanecer **padrão**.
+9. Altere o **tipo de conta** para o armazenamento de **BLOBs**.
+10. A **replicação** pode permanecer **ra-grs**.
+11. A **camada de acesso** pode permanecer **quente**. 
+12. Clique em **examinar + criar** para criar a conta de armazenamento.  
     Depois que a implantação for concluída, a folha **conta de armazenamento** será aberta automaticamente.
 
 ## <a name="create-a-container"></a>Criar um contentor

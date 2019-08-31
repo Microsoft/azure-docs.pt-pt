@@ -1,5 +1,5 @@
 ---
-title: Automatizar o NSG de auditoria com a vista de grupo de segurança de observador de rede do Azure | Documentos da Microsoft
+title: Automatizar a auditoria do NSG com o modo de exibição do grupo de segurança do observador de rede do Azure | Microsoft Docs
 description: Esta página fornece instruções sobre como configurar a auditoria de um grupo de segurança de rede
 services: network-watcher
 documentationcenter: na
@@ -14,42 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 016d68de90088314250fef1fcfdb57d7f155ef79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e0eddd07fc0c473e4777d9dd90d0b2c64145e34
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707156"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165144"
 ---
-# <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizar o NSG de auditoria com a vista de grupo de segurança de observador de rede do Azure
+# <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizar a auditoria de NSG com a exibição do grupo de segurança do observador de rede do Azure
 
-Os clientes frequentemente enfrentam o desafio de verificação a postura de segurança da sua infra-estrutura de. Esse desafio não é diferente para as suas VMs no Azure. É importante ter um perfil de segurança semelhante, com base nas regras de grupo de segurança de rede (NSG) aplicadas. Utilizar a vista de grupo de segurança, agora pode obter a lista de regras aplicadas a uma VM dentro de um NSG. Pode definir um perfil de segurança NSG dourado e iniciar a vista de grupo de segurança a uma cadência semanal e comparar o resultado para o perfil de ouro e criar um relatório. Desta forma, pode identificar com facilidade todas as VMs que não estão em conformidade com o perfil de segurança previstas.
+Os clientes costumam enfrentar o desafio de verificar a postura de segurança de sua infraestrutura. Esse desafio não é diferente para suas VMs no Azure. É importante ter um perfil de segurança semelhante com base nas regras do NSG (grupo de segurança de rede) aplicadas. Usando o modo de exibição grupo de segurança, agora você pode obter a lista de regras aplicadas a uma VM em um NSG. Você pode definir um perfil de segurança Golden NSG e iniciar a exibição de grupo de segurança em uma cadência semanal e comparar a saída com o perfil de ouro e criar um relatório. Dessa forma, você pode identificar com facilidade todas as VMs que não estão em conformidade com o perfil de segurança prescrito.
 
-Se não estiver familiarizado com os grupos de segurança de rede, consulte [descrição geral da segurança de rede](../virtual-network/security-overview.md).
+Se você não estiver familiarizado com grupos de segurança de rede, consulte [visão geral de segurança de rede](../virtual-network/security-overview.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Neste cenário, é comparar uma linha de base de bom conhecida para os resultados de vista do grupo de segurança devolvidos para uma máquina virtual.
+Nesse cenário, você compara uma linha de base válida conhecida com os resultados da exibição do grupo de segurança retornados para uma máquina virtual.
 
-Este cenário pressupõe que já tiver seguido os passos em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede. O cenário também parte do princípio de que existe um grupo de recursos com uma máquina virtual válida para ser utilizado.
+Este cenário pressupõe que você já seguiu as etapas em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede. O cenário também pressupõe que um grupo de recursos com uma máquina virtual válida exista para ser usado.
 
 ## <a name="scenario"></a>Cenário
 
-O cenário abordado neste artigo obtém a vista de grupo de segurança para uma máquina virtual.
+O cenário abordado neste artigo Obtém a exibição de grupo de segurança para uma máquina virtual.
 
-Neste cenário, irá:
+Nesse cenário, você irá:
 
-- Obter um conjunto de regras de bom conhecido
-- Recuperar uma máquina virtual com a Rest API
-- Obter vista de grupo de segurança para a máquina virtual
-- Avaliar a resposta
+- Recuperar um conjunto de regras bom conhecido
+- Recuperar uma máquina virtual com a API REST
+- Obter exibição de grupo de segurança para a máquina virtual
+- Avaliar resposta
 
-## <a name="retrieve-rule-set"></a>Obter o conjunto de regras
+## <a name="retrieve-rule-set"></a>Recuperar conjunto de regras
 
-Neste exemplo, a primeira etapa é trabalhar com uma linha de base existente. O exemplo seguinte é alguns json extraída do grupo de segurança de rede uma existente, utilizando o `Get-AzNetworkSecurityGroup` cmdlet que é utilizado como a linha de base para este exemplo.
+A primeira etapa neste exemplo é trabalhar com uma linha de base existente. O exemplo a seguir é um JSON extraído de um grupo de segurança de `Get-AzNetworkSecurityGroup` rede existente usando o cmdlet que é usado como a linha de base para este exemplo.
 
 ```json
 [
@@ -116,44 +116,43 @@ Neste exemplo, a primeira etapa é trabalhar com uma linha de base existente. O 
 ]
 ```
 
-## <a name="convert-rule-set-to-powershell-objects"></a>Converter o conjunto de regras em objetos do PowerShell
+## <a name="convert-rule-set-to-powershell-objects"></a>Converter conjunto de regras em objetos do PowerShell
 
-Neste passo, vamos está a ler um ficheiro json que foi criado anteriormente com as regras que devem estar no grupo de segurança de rede para este exemplo.
+Nesta etapa, estamos lendo um arquivo JSON que foi criado anteriormente com as regras que devem estar no grupo de segurança de rede para este exemplo.
 
 ```powershell
 $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 ```
 
-## <a name="retrieve-network-watcher"></a>Obter o observador de rede
+## <a name="retrieve-network-watcher"></a>Recuperar observador de rede
 
-A próxima etapa é obter a instância do observador de rede. O `$networkWatcher` variável é transmitida para o `AzNetworkWatcherSecurityGroupView` cmdlet.
+A próxima etapa é recuperar a instância do observador de rede. A `$networkWatcher` variável é passada para o `AzNetworkWatcherSecurityGroupView` cmdlet.
 
 ```powershell
-$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
-$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
+$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
 ```
 
-## <a name="get-a-vm"></a>Obtenha uma VM
+## <a name="get-a-vm"></a>Obter uma VM
 
-Uma máquina virtual é necessária para executar o `Get-AzNetworkWatcherSecurityGroupView` cmdlet contra. O exemplo seguinte obtém um objeto VM.
+Uma máquina virtual é necessária para executar o `Get-AzNetworkWatcherSecurityGroupView` cmdlet. O exemplo a seguir obtém um objeto VM.
 
 ```powershell
 $VM = Get-AzVM -ResourceGroupName "testrg" -Name "testvm1"
 ```
 
-## <a name="retrieve-security-group-view"></a>Obter vista de grupo de segurança
+## <a name="retrieve-security-group-view"></a>Recuperar exibição de grupo de segurança
 
-A próxima etapa é obter o resultado de vista do grupo de segurança. Este resultado é comparado com o json de "linha de base" que foi mostrado anteriormente.
+A próxima etapa é recuperar o resultado da exibição do grupo de segurança. Esse resultado é comparado ao JSON de "linha de base" que foi mostrado anteriormente.
 
 ```powershell
 $secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
 ```
 
-## <a name="analyzing-the-results"></a>Analisar os resultados
+## <a name="analyzing-the-results"></a>Analisando os resultados
 
-A resposta é agrupada por interfaces de rede. Os diferentes tipos de regras devolvidos entram em vigor e regras de segurança predefinidas. O resultado é ainda mais dividido por como é aplicada, numa sub-rede ou um NIC virtual.
+A resposta é agrupada por interfaces de rede. Os diferentes tipos de regras retornadas são regras de segurança efetivas e padrão. O resultado é dividido por como ele é aplicado, seja em uma sub-rede ou em uma NIC virtual.
 
-O seguinte script do PowerShell compara os resultados da vista de grupo de segurança para uma saída existente de um NSG. O exemplo seguinte é um exemplo simples de como os resultados podem ser comparados ao `Compare-Object` cmdlet.
+O script do PowerShell a seguir compara os resultados da exibição do grupo de segurança com uma saída existente de um NSG. O exemplo a seguir é um exemplo simples de como os resultados podem ser comparados com `Compare-Object` o cmdlet.
 
 ```powershell
 Compare-Object -ReferenceObject $nsgbaserules `
@@ -161,7 +160,7 @@ Compare-Object -ReferenceObject $nsgbaserules `
 -Property Name,Description,Protocol,SourcePortRange,DestinationPortRange,SourceAddressPrefix,DestinationAddressPrefix,Access,Priority,Direction
 ```
 
-O exemplo seguinte é o resultado. Pode ver duas das regras que foram a primeira regra definidas não estavam presentes na comparação.
+O exemplo a seguir é o resultado. Você pode ver que duas das regras que estavam no primeiro conjunto de regras não estavam presentes na comparação.
 
 ```
 Name                     : My2ndRuleDoNotDelete
@@ -189,9 +188,9 @@ Direction                : Inbound
 SideIndicator            : <=
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se as definições foram alteradas, consulte [gerir grupos de segurança de rede](../virtual-network/manage-network-security-group.md) rastrear as regras de segurança e de grupo de segurança de rede que estão em questão.
+Se as configurações tiverem sido alteradas, consulte [gerenciar grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para rastrear o grupo de segurança de rede e as regras de segurança que estão em questão.
 
 
 

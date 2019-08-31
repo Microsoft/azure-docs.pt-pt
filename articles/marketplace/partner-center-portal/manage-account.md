@@ -1,18 +1,18 @@
 ---
 title: Como gerenciar uma conta do Marketplace comercial no Partner Center
 description: Saiba como gerenciar uma conta do Marketplace comercial no Partner Center.
-author: mattwojo
+author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f0557f21e791dd22df16451003d5efcfc72c56b4
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.date: 08/30/2019
+ms.openlocfilehash: 99f981698daf12bf7d493159fc7fd08a98a28104
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164724"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194258"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerenciar sua conta do Marketplace comercial no Partner Center 
 
@@ -63,7 +63,7 @@ Na seção detalhes da conta, você pode ver informações básicas, como o **ti
 
 Na seção IDs do Publicador, você pode ver sua **ID do vendedor**, ID do **MPN**e ID do **Editor**. Esses valores são atribuídos pela Microsoft para identificar exclusivamente sua conta de desenvolvedor e não podem ser editados.
 
-### <a name="contact-info"></a>Informações de contacto
+### <a name="contact-info"></a>Informação de contacto
 
 Na seção informações de contato, você pode ver o **nome de exibição do editor**, **informações de contato do vendedor** (o nome do contato, email, número de telefone e endereço para o vendedor da empresa) e o aprovador **da empresa** (o nome, o email e o número de telefone do indivíduo com autoridade para aprovar decisões para a empresa). 
 
@@ -149,7 +149,7 @@ Para obter mais informações, consulte as [perguntas frequentes sobre como cont
 
 O Partner Center aproveita o [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) para acesso e gerenciamento de contas de vários usuários. O Azure AD da sua organização é associado automaticamente à sua conta do Partner Center como parte do processo de registro. 
 
-## <a name="manage-users"></a>Gerir Utilizadores
+## <a name="manage-users"></a>Gerir utilizadores
 
 A seção **usuários** do Partner Center (em **configurações de conta**) permite que você use o Azure ad para gerenciar usuários, grupos e aplicativos do Azure AD que têm acesso à sua conta do Partner Center. Observe que, para gerenciar os usuários, você deve estar conectado com sua [conta corporativa](./company-work-accounts.md) (o locatário do Azure ad associado). Para gerenciar usuários em uma conta de trabalho/locatário diferente, você precisará sair e entrar novamente como um usuário com permissões de **gerente** nessa conta/locatário de trabalho. 
 
@@ -223,7 +223,7 @@ Se um dos seus usuários precisar alterar sua senha, ele poderá fazê-lo se voc
 3.  Uma página de confirmação será exibida mostrando as informações de logon para o usuário, incluindo uma senha temporária. Certifique-se de imprimir ou copiar essas informações e fornecê-las ao usuário, pois você não poderá acessar a senha temporária depois de sair dessa página.
 
 
-## <a name="manage-groups"></a>Gerir Grupos
+## <a name="manage-groups"></a>Gerir grupos
 
 Os grupos permitem controlar várias funções de usuário e todas as permissões juntas.
 
@@ -305,9 +305,15 @@ Se o seu aplicativo do Azure AD lê e grava dados em Microsoft Azure AD, ele pre
 Os usuários da sua empresa podem receber as seguintes funções e permissões para o programa comercial do Marketplace no Partner Center. 
 
 |**Função**|**Permissões**|
-|----------------------------------|:---------------------------------|
-
-| Manager | • pode acessar todos os recursos do conta Microsoft, exceto as configurações de imposto e pagamento |      | • Pode gerenciar usuários, funções e contas de trabalho (locatários) | | Developer | • pode gerenciar e publicar ofertas |      | • Pode exibir alguns relatórios do Publicador | | Administrador global | • não é relevante para o Marketplace comercial | | Colaborador de negócios | • não é relevante para o Marketplace comercial | | Colaborador financeiro | • não é relevante para o Marketplace comercial | | Marketer | • não relevante para o Marketplace comercial |
+|----------------------------------|---------------------------------|
+|Manager|-Pode acessar todos os recursos do conta Microsoft, exceto as configurações de imposto e pagamento|
+|      |-Pode gerenciar usuários, funções e contas de trabalho (locatários)|
+|Programador|-Pode gerenciar e publicar ofertas|
+|      |-Pode exibir alguns relatórios do Publicador|
+|Administrador global|-Não é relevante para o Marketplace comercial|
+|Colaborador de negócios|-Não é relevante para o Marketplace comercial|
+|Colaborador financeiro|-Não é relevante para o Marketplace comercial|
+|Comerciante|-Não é relevante para o Marketplace comercial|
 
 Para obter mais informações sobre como gerenciar funções e permissões em outras áreas do Partner Center, como Azure Active Directory (AD), provedor de soluções de nuvem (CSP), fornecedor do painel de controle (CPV), usuários convidados ou Microsoft Partner Network (MPN), consulte [atribuir funções de usuários e permissões no Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
 

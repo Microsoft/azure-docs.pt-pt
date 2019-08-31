@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2019
+ms.date: 08/30/2019
 ms.author: barclayn
-ms.openlocfilehash: 910057e0e81219a68608441530d03ca1a2411b02
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9721f22eb73c68f729ced13480370f6593c58510
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875101"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182790"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados do Azure em repouso
 
@@ -254,14 +254,16 @@ No momento, o suporte para criptografia de servidor é fornecido por meio do rec
 
 A criptografia do lado do cliente de dados do Azure SQL Database é suportada por meio do recurso [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) . Always Encrypted usa uma chave que foi criada e armazenada pelo cliente. Os clientes podem armazenar a chave mestra em um repositório de certificados do Windows, Azure Key Vault ou um módulo de segurança de hardware local. Usando SQL Server Management Studio, os usuários do SQL escolhem qual chave gostaria de usar para criptografar qual coluna.
 
-#### <a name="encryption-model-and-key-management"></a>Modelo de criptografia e gerenciamento de chaves
+#### <a name="encryption-model-and-key-management-table"></a>Modelo de criptografia e tabela de gerenciamento de chaves
 
-| **Lado do servidor usando chave gerenciada pelo serviço** |**Lado do servidor usando chave gerenciada pelo cliente**| **No lado do cliente usando gerenciado pelo cliente** | **IA e Machine Learning**   |
-|--------------------|-------------------|----------------------|--------------------|
+|                                  |                    | **Modelo de criptografia e gerenciamento de chaves** |                    |
+|----------------------------------|--------------------|-----------------------------------------|--------------------|
+|                                  | **Lado do servidor usando chave gerenciada pelo serviço**     | **Lado do servidor usando chave gerenciada pelo cliente**             | **No lado do cliente usando gerenciado pelo cliente**      |
+| **IA e Machine Learning**      |                    |                    |                    |
 | Azure Search                     | Sim                | -                  | -                  |
 | Serviço Azure Machine Learning   | Sim                | -                  | -                  |
 | Azure Machine Learning Studio    | Sim                | Versão prévia, RSA 2048 bits | -               |
-| Power BI                         | Sim                | Versão prévia, RSA 2048 bits | -               |
+| Power BI                         | Sim                | Versão prévia, RSA 2048 bits | -                  |
 | **Análise**                    |                    |                    |                    |
 | Azure Stream Analytics           | Sim                | -                  | -                  |
 | Hubs de Eventos                       | Sim                | -                  | -                  |
@@ -282,7 +284,7 @@ A criptografia do lado do cliente de dados do Azure SQL Database é suportada po
 | Base de Dados SQL do Azure               | Sim                | Sim, RSA 2048 bits  | Sim                |
 | Banco de dados SQL do Azure para MariaDB   | Sim                | -                  | -                  |
 | Banco de dados SQL do Azure para MySQL     | Sim                | -                  | -                  |
-| Banco de dados SQL do Azure para PostgreSQL | Sim                | -                  | -                 |
+| Banco de dados SQL do Azure para PostgreSQL | Sim                | -                  | -                  |
 | Azure SQL Data Warehouse         | Sim                | Sim, RSA 2048 bits  | Sim                |
 | SQL Server Stretch Database      | Sim                | Sim, RSA 2048 bits  | Sim                |
 | Armazenamento de Tabelas                    | Sim                | -                  | Sim                |
@@ -304,13 +306,13 @@ A criptografia do lado do cliente de dados do Azure SQL Database é suportada po
 | **Meio**                        |                    |                    |                    |
 | Serviços de Multimédia                   | Sim                | -                  | Sim                |
 | **Armazenamento**                      |                    |                    |                    |
-| Armazenamento de Blobs                     | Sim                | Sim, RSA 2048 bits  | Sim                |
+| Blob Storage                     | Sim                | Sim, RSA 2048 bits  | Sim                |
 | Armazenamento em Disco                     | Sim                | -                  | -                  |
 | Armazenamento de Disco Gerido             | Sim                | -                  | -                  |
 | Armazenamento de Ficheiros                     | Sim                | Sim, RSA 2048 bits  | -                  |
 | Armazenamento de filas                    | Sim                | -                  | Sim                |
 | Avere vFXT                       | Sim                | -                  | -                  |
-| Ficheiros NetApp do Azure               | Sim                | -                  | -                  |
+| Azure NetApp Files               | Sim                | -                  | -                  |
 | Armazenamento de Arquivo                  | Sim                | Sim, RSA 2048 bits  | -                  |
 | StorSimple                       | Sim                | Sim, RSA 2048 bits  | Sim                |
 | Azure Backup                     | Sim                | -                  | Sim                |

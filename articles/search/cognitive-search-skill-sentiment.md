@@ -2,7 +2,7 @@
 title: Habilidades de pesquisa cognitiva de opiniões-Azure Search
 description: Extraia uma pontuação de sentimentos positiva negativa do texto em um pipeline de enriquecimento Azure Search.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: df5e33cfc19d4e91fdf4eddc50b25a2b380f0dc4
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ad6689dad3789329ad202c82dd10847c618906a2
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638933"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183348"
 ---
 #   <a name="sentiment-cognitive-skill"></a>Habilidade cognitiva de sentimentos
 
@@ -38,7 +38,7 @@ O tamanho máximo de um registro deve ser de 5000 caracteres conforme medido por
 
 Os parâmetros diferenciam maiúsculas de minúsculas.
 
-| Nome do parâmetro |                      |
+| Nome do Parâmetro |                      |
 |----------------|----------------------|
 | defaultLanguageCode | adicional O código de idioma a ser aplicado a documentos que não especificam o idioma explicitamente. <br/> Veja a [lista completa de idiomas com suporte](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
 

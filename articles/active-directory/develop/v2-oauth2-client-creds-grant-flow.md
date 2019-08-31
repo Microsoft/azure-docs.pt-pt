@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a3a097c164628e6d4e4b7886a195901207d83a3
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d3bb18f11de92680d296d747fc34e16c3264c369
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852217"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193278"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidade da Microsoft e o fluxo de credenciais do cliente OAuth 2,0
 
@@ -66,7 +66,7 @@ Esse tipo de autorização é comum para daemons e contas de serviço que precis
 Em vez de usar ACLs, você pode usar APIs para expor um conjunto de permissões de aplicativo. Uma permissão de aplicativo é concedida a um aplicativo pelo administrador de uma organização e pode ser usada somente para acessar dados pertencentes a essa organização e a seus funcionários. Por exemplo, Microsoft Graph expõe várias permissões de aplicativo para fazer o seguinte:
 
 * Ler correio em todas as caixas de correio
-* Ler e escrever correio em todas as caixas de correio
+* Ler e gravar emails em todas as caixas de correio
 * Enviar e-mails como um utilizador qualquer
 * Ler dados do diretório
 
@@ -81,7 +81,7 @@ Para usar permissões de aplicativo em seu aplicativo, siga as etapas discutidas
 3. Localize a seção **permissões de API** e adicione as permissões de **aplicativo** que seu aplicativo requer.
 4. **Salve** o registro do aplicativo.
 
-#### <a name="recommended-sign-the-user-into-your-app"></a>Aconselhável Conectar o usuário ao seu aplicativo
+#### <a name="recommended-sign-the-user-into-your-app"></a>Recomendação: Conectar o usuário ao seu aplicativo
 
 Normalmente, quando você cria um aplicativo que usa permissões de aplicativo, o aplicativo requer uma página ou exibição na qual o administrador aprova as permissões do aplicativo. Essa página pode fazer parte do fluxo de entrada do aplicativo, parte das configurações do aplicativo ou pode ser um fluxo de "conexão" dedicado. Em muitos casos, faz sentido que o aplicativo mostre esse modo de exibição "conectar" somente depois que um usuário tiver entrado com uma conta Microsoft corporativa ou de estudante.
 
@@ -170,7 +170,8 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 ```
 
 ```
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
+// Replace {tenant} with your tenant! 
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
 | Parâmetro | Condição | Descrição |
@@ -250,10 +251,6 @@ Uma resposta de erro é parecida com esta:
 | `trace_id` | Um identificador exclusivo para a solicitação para ajudar com o diagnóstico. |
 | `correlation_id` | Um identificador exclusivo para a solicitação para ajudar com o diagnóstico entre os componentes. |
 
-> [!NOTE]
-> Para que seu aplicativo possa receber o token v2, você pode atualizar o arquivo de manifesto do aplicativo no portal do Azure. Você pode adicionar o atributo `accessTokenAcceptedVersion` e definir o valor como 2 como `"accessTokenAcceptedVersion": 2`. Verifique o artigo [manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-reference) para entender mais sobre o mesmo. Por padrão, o aplicativo recebe atualmente um token v1. Se isso não estiver definido no manifesto do aplicativo/API da Web, o valor desse atributo no manifesto padrão será 1 e, portanto, o aplicativo receberá o token v1.  
-
-
 ## <a name="use-a-token"></a>Usar um token
 
 Agora que você adquiriu um token, use o token para fazer solicitações para o recurso. Quando o token expirar, repita a solicitação para o `/token` ponto de extremidade para adquirir um novo token de acesso.
@@ -269,7 +266,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ```
-curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
+curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
 ## <a name="code-samples-and-other-documentation"></a>Exemplos de código e outras documentações

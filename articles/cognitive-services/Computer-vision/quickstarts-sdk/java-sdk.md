@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: daea1415c42960970d097753bc657392d4e1a1f4
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
-ms.translationtype: HT
+ms.openlocfilehash: fd8abf81589f3338f9e45c6c1d23681269ccc654
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137265"
+ms.locfileid: "70164842"
 ---
 # <a name="quickstart-computer-vision-client-library-for-java"></a>Início rápido: Biblioteca de cliente Pesquisa Visual Computacional para Java
 
@@ -142,6 +142,9 @@ Primeiro, crie um **recurso/** pasta na pasta **src/main/** do seu projeto e adi
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_refs)]
 
+> [!NOTE]
+> Você também pode analisar uma imagem remota usando sua URL. Consulte o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/ComputerVisionQuickstart.java) para cenários que envolvem imagens remotas.
+
 ### <a name="specify-visual-features"></a>Especificar recursos visuais
 
 Em seguida, especifique quais recursos visuais você gostaria de extrair em sua análise. Consulte a enumeração [VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable) para obter uma lista completa.
@@ -149,17 +152,59 @@ Em seguida, especifique quais recursos visuais você gostaria de extrair em sua 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
 
 ### <a name="analyze"></a>Analisar
-Esse método imprime resultados detalhados no console para cada escopo de análise de imagem. Recomendamos que você envolva essa chamada de método em um bloco try/catch
+Esse método imprime resultados detalhados no console para cada escopo de análise de imagem. Recomendamos que você envolva essa chamada de método em um bloco try/catch. O método **analyzeImageInStream** retorna um objeto **ImageAnalysis** que contém todas as informações extraídas.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
 
-### <a name="display-results"></a>Apresentar os resultados
+As seções a seguir mostram como analisar essas informações detalhadamente.
 
-A chamada do método acima retornará um objeto ImageAnalysis que contém todas as informações extraídas. Você pode usar um bloco de código como o seguinte para imprimir os detalhes de um determinado recurso Visual.
+### <a name="get-image-description"></a>Obter descrição da imagem
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_display)]
+O código a seguir obtém a lista de legendas geradas para a imagem. Consulte [descrever imagens](../concept-describing-images.md) para obter mais detalhes.
 
-Consulte o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/ComputerVisionQuickstart.java) para obter um conjunto completo de opções de exibição.
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_captions)]
+
+### <a name="get-image-category"></a>Obter categoria de imagem
+
+O código a seguir obtém a categoria detectada da imagem. Consulte [categorizar imagens](../concept-categorizing-images.md) para obter mais detalhes.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_category)]
+
+### <a name="get-image-tags"></a>Obter marcas de imagem
+
+O código a seguir obtém o conjunto de marcas detectadas na imagem. Consulte [marcas de conteúdo](../concept-tagging-images.md) para obter mais detalhes
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
+
+### <a name="get-faces"></a>Obter rostos
+
+O código a seguir retorna as faces detectadas na imagem com suas coordenadas de retângulo e seleciona atributos de face. Consulte [detecção facial](../concept-detecting-faces.md) para obter mais detalhes.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
+
+### <a name="get-adult-or-racy-content"></a>Obter conteúdo adulto ou erótico
+
+O código a seguir imprime a presença detectada de conteúdo adulto ou erótico na imagem. Consulte [conteúdo adulto e erótico](../concept-detecting-adult-content.md) para obter mais detalhes.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_adult)]
+
+### <a name="get-image-color-scheme"></a>Obter esquema de cores da imagem
+
+O código a seguir imprime os atributos de cor detectados na imagem, como as cores dominantes e a cor de destaque. Consulte [esquemas de cores](../concept-detecting-color-schemes.md) para obter mais detalhes.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_colors)]
+
+### <a name="get-domain-specific-content"></a>Obter conteúdo específico do domínio
+
+Pesquisa Visual Computacional pode usar um modelo especializado para fazer mais análises sobre imagens. Consulte [conteúdo específico do domínio](../concept-detecting-domain-content.md) para obter mais detalhes. 
+
+O código a seguir analisa dados sobre celebridades detectados na imagem.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_celebrities)]
+
+O código a seguir analisa dados sobre os pontos de referência detectados na imagem.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_landmarks)]
 
 ## <a name="run-the-application"></a>Executar a aplicação
 

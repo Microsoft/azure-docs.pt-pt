@@ -1,19 +1,19 @@
 ---
 title: Arquitetura do mecanismo de pesquisa de texto completo (Lucene)-Azure Search
 description: Explicação do processamento de consultas do Lucene e conceitos de recuperação de documentos para pesquisa de texto completo, conforme relacionado a Azure Search.
-manager: jlembicz
+manager: nitinme
 author: yahnoosh
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: jlembicz
-ms.openlocfilehash: 3ce1e0a37357f016373e1ffe5b6a7d5daf2501d9
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: d377d6180f3d2d64f183ed574add3e7307e34fc3
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640571"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186534"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Como funciona a pesquisa de texto completo no Azure Search
 
@@ -379,7 +379,7 @@ Do ponto de vista técnico, a pesquisa de texto completo é altamente complexa, 
 
 Este artigo explorou a pesquisa de texto completo no contexto de Azure Search. Esperamos que ele forneça um plano de fundo suficiente para reconhecer possíveis causas e resoluções para resolver problemas comuns de consulta. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 + Crie o índice de exemplo, experimente consultas diferentes e examine os resultados. Para obter instruções, consulte [criar e consultar um índice no portal](search-get-started-portal.md#query-index).
 

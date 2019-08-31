@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Grovo | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Grovo.
+title: 'Tutorial: Azure Active Directory integração de SSO (logon único) com Grovo | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Grovo.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,261 +8,179 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 399cecc3-aa62-4914-8b6c-5a35289820c1
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/18/2019
+ms.date: 08/28/2019
 ms.author: jeedes
-ms.openlocfilehash: c97b09690885057370910c0c1ec062d6b3f37363
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5fb462905d1f8700214a0c4fc0c2d0bcb3e70a0f
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101582"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163518"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Tutorial: Integração do Active Directory do Azure com Grovo
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grovo"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com Grovo
 
-Neste tutorial, saiba como integrar Grovo com o Azure Active Directory (Azure AD).
-Integrar Grovo no Azure AD fornece as seguintes vantagens:
+Neste tutorial, você aprenderá a integrar o Grovo com o Azure Active Directory (Azure AD). Ao integrar o Grovo ao Azure AD, você pode:
 
-* Pode controlar no Azure AD que tenha acesso ao Grovo.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Grovo (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Controle no Azure AD quem tem acesso ao Grovo.
+* Habilite seus usuários a serem conectados automaticamente ao Grovo com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Grovo, terá dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Grovo logon único habilitado subscrição
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do Grovo.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* Suporta Grovo **SP** e **IDP** iniciada SSO
+* O Grovo dá suporte ao **SP e** ao SSO iniciado pelo IDP
+* O Grovo dá suporte ao provisionamento **de usuário just in time**
 
-* Suporta Grovo **Just In Time** aprovisionamento de utilizadores
+## <a name="adding-grovo-from-the-gallery"></a>Adicionando o Grovo da Galeria
 
-## <a name="adding-grovo-from-the-gallery"></a>Adicionando Grovo da Galeria
+Para configurar a integração do Grovo ao Azure AD, você precisará adicionar o Grovo da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-Para configurar a integração do Grovo com o Azure AD, terá de adicionar Grovo a partir da Galeria à sua lista de aplicações de SaaS geridas.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **Grovo** na caixa de pesquisa.
+1. Selecione **Grovo** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-**Para adicionar Grovo a partir da galeria, execute os seguintes passos:**
+## <a name="configure-and-test-azure-ad-single-sign-on-for-grovo"></a>Configurar e testar o logon único do Azure AD para o Grovo
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+Configure e teste o SSO do Azure AD com o Grovo usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Grovo.
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+Para configurar e testar o SSO do Azure AD com o Grovo, conclua os seguintes blocos de construção:
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar o SSO do Grovo](#configure-grovo-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    1. **[Criar usuário de teste do Grovo](#create-grovo-test-user)** – para ter um equivalente de B. Simon em Grovo que esteja vinculado à representação do usuário no Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Grovo** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-4. Na caixa de pesquisa, escreva **Grovo**, selecione **Grovo** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-     ![Grovo na lista de resultados](common/search-new-app.png)
+1. Na seção **configuração básica do SAML** , se você quiser configurar o aplicativo no modo iniciado pelo **IDP** , insira os valores para os seguintes campos:
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+    a. Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão:`https://<subdomain>.grovo.com/sso/saml2/metadata`
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Grovo com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Grovo deve ser estabelecido.
-
-Para configurar e testar o Azure AD início de sessão único com Grovo, tem de concluir os seguintes blocos de construção:
-
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Grovo Single Sign-On](#configure-grovo-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Grovo](#create-grovo-test-user)**  - para ter um equivalente da Eduarda Almeida na Grovo que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
-
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
-
-Para configurar o Azure AD início de sessão único com Grovo, execute os seguintes passos:
-
-1. Na [portal do Azure](https://portal.azure.com/), na **Grovo** página de integração de aplicações, selecione **início de sessão único**.
-
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
-
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
-
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
-
-3. Sobre o **configuração de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
-
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
-
-4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, execute os seguintes passos:
-
-    ![Grovo domínio e URLs únicas início de sessão em informações](common/idp-relay.png)
-
-    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.grovo.com/sso/saml2/metadata`
-
-    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
+    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão:`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     c. Clique em **definir URLs adicionais**.
 
-    d. Na **estado de reencaminhamento** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.grovo.com`
+    d. Na caixa de texto **estado** de retransmissão, digite uma URL usando o seguinte padrão:`https://<subdomain>.grovo.com`
 
-5. Se desejar configurar a aplicação no **SP** iniciada pelo modo, executar o passo seguinte:
+1. Clique em **definir URLs adicionais** e execute as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-    ![Grovo domínio e URLs únicas início de sessão em informações](common/both-signonurl.png)
-
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
+    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com real identificador, o URL de resposta, URL de início de sessão e estado de reencaminhamento. Contacte [equipa de suporte de cliente Grovo](https://www.grovo.com/contact-us) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta, a URL de logon e o estado de retransmissão reais. Contate a [equipe de suporte ao cliente do Grovo](https://www.grovo.com/contact-us) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-6. Aplicação de Grovo espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos, em que **nameidentifier** está mapeada com **user.userprincipalname**. Aplicação Grovo espera **nameidentifier** seja mapeado com **user.mail**, por isso terá de editar o mapeamento do atributo clicando no **editar** ícone e alterar o atributo mapeamento.
-
-    ![image](common/edit-attribute.png)
-
-7. Além dos acima, o aplicativo Grovo espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
-
-    | Name | Atributo de origem|
-    | ------------------- | -------------------- |    
-    | Nome próprio          | user.givenname |
-    | Apelido           | user.surname |
-    | Endereço de E-mail       | user.mail    |
-    | employeeID          | user.employeeid |
-
-    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
-
-    ![image](common/new-save-attribute.png)
-
-    ![image](common/new-attribute-details.png)
-
-    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
-
-    c. Deixe o **espaço de nomes** em branco.
-
-    d. Selecione a origem de dado **atributo**.
-
-    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
-
-    f. Clique em **Ok**
-
-    g. Clique em **Guardar**.
-
-8. No **configuração de início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download de certificado](common/certificatebase64.png)
 
-9. Sobre o **configurar Grovo** secção, copie os URLs apropriados de acordo com seus requisitos.
+1. Na seção **Configurar Grovo** , copie as URLs apropriadas com base em seu requisito.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-    b. Identificador do Azure AD
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-    c. URL de fim de sessão
-
-### <a name="configure-grovo-single-sign-on"></a>Configurar Grovo Single Sign-On
-
-1. Numa janela do browser web diferente, inicie sessão no Grovo como administrador.
-
-2. Aceda a **administrador** > **integrações**.
- 
-    ![Configuração de Grovo](./media/grovo-tutorial/tutorial_grovo_admin.png) 
-
-3. Clique em **CONFIGURADA** sob **SP iniciada SAML 2.0** secção.
-
-    ![Configuração de Grovo](./media/grovo-tutorial/tutorial_grovo_setup.png)
-
-4. Na **SP iniciada SAML 2.0** janela pop-up, execute os seguintes passos:
-
-    ![Configuração de Grovo](./media/grovo-tutorial/tutorial_grovo_saml.png)
-
-    a. Na **id de entidade** caixa de texto, cole o valor de **do Azure AD identificador**, que copiou do portal do Azure.
-
-    b. Na **ponto final de serviço de início de sessão único** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
-
-    c. Selecione **única ligação de ponto final de serviço de logon** como `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`.
-    
-    d. Abra o transferido **certificado codificado Base64** partir do portal do Azure no bloco de notas, cole-o no **chave pública** caixa de texto.
-
-    e. Clique em **Seguinte**.
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
-
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
-
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
-
-2. Selecione **novo utilizador** na parte superior do ecrã.
-
-    ![Novo utilizador botão](common/new-user.png)
-
-3. Nas propriedades do utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
-
-    a. Na **Name** , insira **BrittaSimon**.
-  
-    b. Na **nome de utilizador** , digite **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **usuário** , siga estas etapas:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Grovo.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao Grovo.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Grovo**.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Grovo**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-2. Na lista de aplicações, selecione **Grovo**.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![A ligação de Grovo na lista de aplicações](common/all-applications.png)
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+## <a name="configure-grovo-sso"></a>Configurar o SSO do Grovo
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Em uma janela diferente do navegador da Web, entre no Grovo como administrador.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+2. Vá para**integrações**do **administrador** > .
+ 
+    ![Configuração do Grovo](./media/grovo-tutorial/tutorial_grovo_admin.png) 
 
-5. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+3. Clique em **Configurar** na seção **SAML 2,0 iniciada pelo SP** .
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador na lista, em seguida, clique nas **selecione** na parte inferior do ecrã.
+    ![Configuração do Grovo](./media/grovo-tutorial/tutorial_grovo_setup.png)
 
-7. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
+4. Na janela pop-up **SAML 2,0 iniciada pelo SP** , execute as seguintes etapas:
 
-### <a name="create-grovo-test-user"></a>Criar utilizador de teste Grovo
+    ![Configuração do Grovo](./media/grovo-tutorial/tutorial_grovo_saml.png)
 
-Nesta secção, um usuário chamado Eduarda Almeida é criado na Grovo. Grovo suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Grovo, é criado um novo após a autenticação.
+    a. Na caixa de texto **ID da entidade** , Cole o valor do **identificador do Azure ad**que você copiou do portal do Azure.
 
->[!Note]
->Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de Grovo](https://www.grovo.com/contact-us).
+    b. Na caixa de texto **ponto de extremidade de serviço de logon único** , Cole o valor da **URL de logon**copiado de portal do Azure.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+    c. Selecione **Associação de ponto de extremidade de serviço de logon único** como `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`.
+    
+    d. Abra o **certificado codificado em base64** baixado em portal do Azure no bloco de notas, Cole-o na caixa de texto **chave pública** .
+
+    e. Clique em **Seguinte**.
+
+### <a name="create-grovo-test-user"></a>Criar usuário de teste do Grovo
+
+Nesta seção, um usuário chamado B. Simon é criado em Grovo. O Grovo dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir no Grovo, um novo será criado após a autenticação.
+
+> [!Note]
+> Se você precisar criar um usuário manualmente, entre em contato com a [equipe de suporte do Grovo](https://www.grovo.com/contact-us).
+
+## <a name="test-sso"></a>Testar SSO 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico Grovo no painel de acesso, deve ser automaticamente sessão iniciada no Grovo para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Grovo no painel de acesso, você deverá ser conectado automaticamente ao Grovo para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Experimente o Grovo com o Azure AD](https://aad.portal.azure.com/)

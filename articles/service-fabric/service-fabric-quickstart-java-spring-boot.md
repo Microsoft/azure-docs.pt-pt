@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019
-ms.openlocfilehash: 403eec7bf4d45b5b210009588c783cc244d24387
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 9314acfa56aac50265ee45b356ae00f89f70446f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977096"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173207"
 ---
-# <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Início rápido: Implantar um aplicativo Spring boot do Java para Service Fabric
+# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Início rápido: Implantar um aplicativo Spring boot do Java no Azure Service Fabric
 
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores.
 

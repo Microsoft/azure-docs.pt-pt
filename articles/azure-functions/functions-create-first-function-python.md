@@ -1,8 +1,6 @@
 ---
 title: Criar uma função disparada por HTTP no Azure
 description: Saiba como criar sua primeira função de Python no Azure com as ferramentas de núcleo de funções do Azure e a CLI do Azure.
-services: functions
-keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 04/24/2019
@@ -10,13 +8,13 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
-manager: jeconnoc
-ms.openlocfilehash: 5b90702f89af260a67b69bf96c2e079a45298723
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+manager: gwallace
+ms.openlocfilehash: cb7f5a10169c8baaecae0fc1916a439d61bfbf7c
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575439"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170898"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Criar uma função disparada por HTTP no Azure
 
@@ -28,7 +26,7 @@ Este artigo é o primeiro de dois guias de início rápido para Azure Functions.
 
 Antes de começar, você deve ter o seguinte:
 
-+ Instale o [Python 3,6](https://www.python.org/downloads/).
++ Instale o [Python 3.6. x](https://www.python.org/downloads/).
 
 + Instale [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.7.1575 ou uma versão posterior.
 
@@ -104,7 +102,7 @@ Uma subpasta denominada _HttpTrigger_ é criada, que contém os seguintes arquiv
 
 O comando a seguir inicia o aplicativo de funções, que é executado localmente usando o mesmo Azure Functions tempo de execução que está no Azure.
 
-```bash
+```console
 func host start
 ```
 
@@ -134,7 +132,7 @@ Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
-        HttpTrigger: http://localhost:7071/api/MyHttpTrigger
+        HttpTrigger: http://localhost:7071/api/HttpTrigger
 
 [8/27/2018 10:38:27 PM] Host started (29486ms)
 [8/27/2018 10:38:27 PM] Job host started
@@ -168,14 +166,40 @@ Esse comando também provisionará uma instância do Aplicativo Azure insights a
 
 Agora você está pronto para publicar seu projeto do Functions local no aplicativo de funções no Azure.
 
-[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
+## <a name="deploy-the-function-app-project-to-azure"></a>Implementar o projeto da aplicação de funções no Azure
+
+Depois que o aplicativo de funções é criado no Azure, você pode [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) usar o comando ferramentas principais para implantar o código do projeto no Azure. Nestes exemplos, substitua `<APP_NAME>` pelo nome do seu aplicativo da etapa anterior.
+
+```command
+func azure functionapp publish <APP_NAME> --build remote
+```
+
+A `--build remote` opção cria seu projeto do Python remotamente no Azure por meio dos arquivos no pacote de implantação. 
+
+Você verá uma saída semelhante à seguinte, que foi truncada para facilitar a leitura:
+
+```output
+Getting site publishing info...
+...
+
+Preparing archive...
+Uploading content...
+Upload completed successfully.
+Deployment completed successfully.
+Syncing triggers...
+Functions in myfunctionapp:
+    HttpTrigger - [httpTrigger]
+        Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
+```
+
+Copie o `Invoke url` valor para seu `HttpTrigger`, que agora você pode usar para testar sua função no Azure. A URL contém um `code` valor de cadeia de caracteres de consulta que é sua chave de função. Essa chave torna difícil para outras pessoas chamarem seu ponto de extremidade de gatilho HTTP no Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
 > [!NOTE]
 > Para exibir logs quase em tempo real para um aplicativo Python publicado, é recomendável usar o [Application Insights Live Metrics Stream](functions-monitoring.md#streaming-logs)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você criou um projeto de funções do Python com uma função disparada por HTTP, a executa em seu computador local e a implantou no Azure. Agora, estenda sua função por...
 

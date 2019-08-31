@@ -1,31 +1,25 @@
 ---
-title: Conjuntos de Máquina Virtual de ciência de dados - Azure | Documentos da Microsoft
+title: Pools compartilhados
+titleSuffix: Azure Data Science Virtual Machine
 description: Implantando pools de DSVMs como um recurso compartilhado para uma equipe
 keywords: IA, ferramentas de ciência de dados, a máquina de virtual de ciência de dados, a análise geoespacial, o processo de ciência de dados de equipa, aprendizagem aprofundada
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/10/2018
+author: vijetajo
 ms.author: vijetaj
-ms.openlocfilehash: 76a715838fa5eb4f806fccc98675ea5acdbe1822
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.topic: conceptual
+ms.date: 12/10/2018
+ms.openlocfilehash: 929040b5dc8650a757fb9c0da58cb82a76a72b5b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992023"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195625"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Criar um conjunto partilhado de máquinas de virtuais de ciência de dados
 
-Este artigo discute como criar um pool compartilhado de máquinas virtuais de ciência de dados (DSVMs) para uma equipe. Os benefícios de usar um pool compartilhado incluem melhor utilização de recursos, colaboração e compartilhamento mais fáceis e gerenciamento mais eficaz de recursos de DSVM.
+Neste artigo, você aprenderá a criar um pool compartilhado de máquinas virtuais de ciência de dados (DSVMs) para uma equipe. Os benefícios de usar um pool compartilhado incluem melhor utilização de recursos, colaboração e compartilhamento mais fáceis e gerenciamento mais eficaz de recursos de DSVM.
 
 Pode usar vários métodos e tecnologias para criar um conjunto de DSVMs. Este artigo se concentra em pools de VMs (máquinas virtuais) interativas. Uma infraestrutura de computação gerenciada alternativa é Azure Machine Learning computação. Para obter mais informações, consulte [Configurar destinos de computação](../service/how-to-set-up-training-targets.md#amlcompute).
 

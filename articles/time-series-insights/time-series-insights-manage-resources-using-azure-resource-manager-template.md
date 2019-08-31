@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: eaa169714006ec948a5790ed5841f9dcf52c2a23
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d3e22df76124185c1e23f04f59145e12a1fec023
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846645"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164253"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar Time Series Insights recursos usando modelos de Azure Resource Manager
 
@@ -33,7 +33,7 @@ O Time Series Insights dá suporte aos seguintes recursos:
 
 Um modelo do Resource Manager é um arquivo JSON que define a infraestrutura e a configuração de recursos em um grupo de recursos. Os documentos a seguir descrevem os arquivos de modelo com mais detalhes:
 
-- [Visão geral de Azure Resource Manager-Implantação de modelo](../azure-resource-manager/resource-group-overview.md#template-deployment)
+- [Implantação de modelo de Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md)
 - [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 - [Tipos de recurso Microsoft. TimeSeriesInsights](/azure/templates/microsoft.timeseriesinsights/allversions)
 

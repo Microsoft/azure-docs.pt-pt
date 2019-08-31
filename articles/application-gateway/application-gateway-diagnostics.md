@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: victorh
-ms.openlocfilehash: 3acae8f7d34bb02905e6e8d479b7de5ccab1bb7a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d9b0c551cdfb92b380a967aaa5bdce7c278fd39e
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850985"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183584"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Integridade de back-end, logs de diagnóstico e métricas para o gateway de aplicativo
 
@@ -105,7 +105,7 @@ Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar pr
 Tem três opções para armazenar os registos:
 
 * **Conta de armazenamento**: As contas de armazenamento são mais bem usadas para logs quando os logs são armazenados por uma duração maior e revisados quando necessário.
-* **Hubs de eventos**: Os hubs de eventos são uma ótima opção para integração com outras ferramentas de SEIM (gerenciamento de informações e eventos de segurança) para obter alertas sobre seus recursos.
+* **Hubs de eventos**: Os hubs de eventos são uma ótima opção para integração com outras ferramentas de SIEM (gerenciamento de eventos e informações de segurança) para obter alertas sobre seus recursos.
 * **Logs de Azure monitor**: Os logs de Azure Monitor são mais bem usados para o monitoramento geral em tempo real de seu aplicativo ou a análise de tendências.
 
 ### <a name="enable-logging-through-powershell"></a>Habilitar o log por meio do PowerShell
@@ -201,7 +201,7 @@ O log de acesso será gerado somente se você o tiver habilitado em cada instân
 ```
 Para o gateway de aplicativo e o WAF v2, os logs mostram um pouco mais de informações:
 
-|Valor  |Descrição  |
+|Value  |Descrição  |
 |---------|---------|
 |instanceId     | Instância do gateway de aplicativo que serviu a solicitação.        |
 |clientIP     | IP de origem para a solicitação.        |
@@ -255,7 +255,7 @@ Para o gateway de aplicativo e o WAF v2, os logs mostram um pouco mais de inform
 O log de desempenho será gerado somente se você o tiver habilitado em cada instância do gateway de aplicativo, conforme detalhado nas etapas anteriores. Os dados são armazenados na conta de armazenamento que você especificou quando habilitou o registro em log. Os dados de log de desempenho são gerados em intervalos de 1 minuto. Os seguintes dados são registrados em log:
 
 
-|Valor  |Descrição  |
+|Value  |Descrição  |
 |---------|---------|
 |instanceId     |  Instância do gateway de aplicativo para a qual os dados de desempenho estão sendo gerados. Para um gateway de aplicativo de várias instâncias, há uma linha por instância.        |
 |healthyHostCount     | Número de hosts íntegros no pool de back-ends.        |

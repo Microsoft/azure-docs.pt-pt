@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 07/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: c5e568dd073376295e4865994fba8ae5b5ac59a0
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 1dfcc69d90daae5869c3b69c922e99eab3585e14
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640987"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164628"
 ---
 # <a name="azure-disk-encryption-overview"></a>Visão geral de Azure Disk Encryption
 
@@ -73,6 +73,7 @@ Azure Disk Encryption não funciona para os seguintes cenários, recursos e tecn
 * Sistema de ficheiros de rede (NFS).
 * Volumes dinâmicos.
 * Discos do sistema operacional efêmero.
+* Criptografia de sistemas de arquivos compartilhados/distribuídos como (mas não se limitando a): DFS, GFS, DRDB, CephFS, etc
 
 ## <a name="encryption-features"></a>Recursos de criptografia
 
@@ -162,7 +163,7 @@ A tabela a seguir define alguns dos termos comuns usados na documentação de cr
 | Chave de criptografia de chave (KEK) | A chave assimétrica (RSA 2048) que você pode usar para proteger ou encapsular o segredo. Pode fornecer um módulo de segurança de hardware (HSM)-chave ou chave protegida por software protegidos. Para obter mais informações, consulte a [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) documentação. |
 | Cmdlets do PowerShell | Para obter mais informações, consulte [cmdlets do Azure PowerShell](/powershell/azure/overview). |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, consulte os [pré-requisitos de Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md).
 

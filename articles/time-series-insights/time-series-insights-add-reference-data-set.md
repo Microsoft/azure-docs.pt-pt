@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 08/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5b48a41f025ef06c69e6de126e0a64ad359ce09a
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 138894f10a4865a5ea251caff6683ed70721c000
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666370"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172911"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Criar um conjunto de dados de referência para seu ambiente de Time Series Insights usando o portal do Azure
 
@@ -96,7 +96,7 @@ Os dados de referência não estão ingressados retroativamente. Assim, somente 
 
     A página confirma o carregamento concluído e exibe o conjunto de mensagens **carregado com êxito**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir dados de referência](time-series-insights-manage-reference-data-csharp.md) através de programação.
 

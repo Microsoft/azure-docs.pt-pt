@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 80bc5ef78a73430dea23bdd644767d9fa9b3c9a8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b079d311e357f4dfb94e55fbca3cafdec198ade9
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124665"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171892"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Perguntas Mais Frequentes (FAQs)
 Esta página responde às perguntas frequentes sobre o Azure Active Directory Domain Services. Continue verificando as atualizações.
@@ -79,7 +79,7 @@ Não. Você não recebe privilégios administrativos no domínio gerenciado. Os 
 Não. As associações de grupo não podem ser modificadas em domínios atendidos por Azure AD Domain Services. O mesmo se aplica a atributos de usuário. No entanto, você pode alterar associações de grupo ou atributos de usuário no Azure AD ou no seu domínio local. Essas alterações são sincronizadas automaticamente para Azure AD Domain Services.
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Quanto tempo leva para que as alterações feitas no meu diretório do Azure AD fiquem visíveis no meu domínio gerenciado?
-As alterações feitas no diretório do Azure AD usando a interface do usuário do Azure AD ou o PowerShell são sincronizadas com o domínio gerenciado. Esse processo de sincronização é executado em segundo plano. Depois que a sincronização inicial for concluída, normalmente levará cerca de 20 minutos para que as alterações feitas no Azure AD sejam refletidas em seu domínio gerenciado.
+As alterações feitas no diretório do Azure AD usando a interface do usuário do Azure AD ou o PowerShell são sincronizadas automaticamente com o domínio gerenciado. Esse processo de sincronização é executado em segundo plano. Não há nenhum período de tempo definido para que essa sincronização conclua todas as alterações de objeto.
 
 ### <a name="can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services"></a>Posso estender o esquema do domínio gerenciado fornecido pelo Azure AD Domain Services?
 Não. O esquema é administrado pela Microsoft para o domínio gerenciado. As extensões de esquema não são suportadas pelo Azure AD Domain Services.

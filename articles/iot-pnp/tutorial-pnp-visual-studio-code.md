@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 10eb9655371177a52d1c1a5a9118665015076b35
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: baf694fbc3176732d43094c8d20ee112af927f16
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047994"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186469"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Tutorial: Criar e testar um modelo de capacidade de dispositivo usando Visual Studio Code
 
@@ -341,7 +341,7 @@ Quando você executa o código, ele se conecta ao Hub IoT e começa a enviar amo
 1. Para criar um hub IoT:
 
     ```azurecli-interactive
-    az group create --name environmentalsensorresources --location eastus
+    az group create --name environmentalsensorresources --location centralus
     az iot hub create --name {your iot hub name} \
       --resource-group environmentalsensorresources --sku F1
     ```
@@ -365,7 +365,7 @@ Quando você executa o código, ele se conecta ao Hub IoT e começa a enviar amo
 
 1. Use a ferramenta do Azure IoT Explorer para interagir com o dispositivo de Plug and Play de IoT conectado ao Hub IoT. Para obter mais informações, consulte [instalar e usar o Azure IOT Explorer](./howto-install-iot-explorer.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você criou um Plug and Play IoT pronto para certificação, saiba como:
 

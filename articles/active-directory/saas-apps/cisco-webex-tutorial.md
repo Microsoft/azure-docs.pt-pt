@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 08/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1adda943676eb4918369d3cb8027f559d5dd0f6e
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 141d3062f231e198b3587efcdf4ae6e9a1c97ed6
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050009"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162667"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com reuniões do Cisco WebEx
 
@@ -78,24 +78,24 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Cisco WebEx encontros** , localize a seção **gerenciar** e selecione **logon único**.
 1. Na página **selecionar um método de logon único** , selecione **SAML**.
-1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
-
-   ![Editar configuração básica de SAML](common/edit-urls.png)
-
-1. Na seção **configuração básica do SAML** , carregue o arquivo de **metadados do provedor de serviços** baixado e configure o aplicativo no modo iniciado pelo **IDP** , executando as seguintes etapas:
-
-    >[!Note]
-    >Você obterá o arquivo de metadados do provedor de serviços, que é explicado posteriormente na seção **configurar SSO de reuniões do Cisco WebEx** do tutorial. 
+1. Na página **Configurar logon único com SAML** , você pode configurar o aplicativo no modo iniciado pelo **IDP** carregando o arquivo de metadados do provedor de **Serviços** da seguinte maneira:
 
     a. Clique em **carregamento de ficheiro de metadados**.
 
     b. Clique em **logótipo da pasta** para selecionar o ficheiro de metadados e clique em **carregar**.
 
-    c. Após a conclusão bem-sucedida do carregamento do arquivo de metadados do provedor de serviços, os valores do **identificador** e da **URL de resposta** serão preenchidos automaticamente na seção **configuração básica do SAML** :
+    c. Após a conclusão bem-sucedida do carregamento do arquivo de metadados do provedor de serviços, os valores do **identificador** e da **URL de resposta** serão preenchidos automaticamente na seção **configuração básica do SAML** .
 
-5. Se desejar configurar o aplicativo no modo iniciado pelo **SP** , execute a seguinte etapa:
+    >[!Note]
+    >Você obterá o arquivo de metadados do provedor de serviços da seção **Configurar o SSO de reuniões do Cisco WebEx** , que é explicada posteriormente no tutorial. 
+
+1. Se desejar configurar o aplicativo no modo iniciado pelo **SP** , execute as seguintes etapas:  
+
+    a. Na seção **configuração básica do SAML** , clique no ícone Editar/caneta.
+
+   ![Editar configuração básica de SAML](common/edit-urls.png)
     
-    Na caixa de texto **URL de logon** , digite a URL usando o seguinte padrão:`https://<customername>.webex.com`
+    b. Na caixa de texto **URL de logon** , digite a URL usando o seguinte padrão:` https://<customername>.my.webex.com`
 
 5. O aplicativo de reuniões Cisco WebEx espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique em **Editar** ícone para abrir a caixa de diálogo atributos de usuário.
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: 86e0f09e957df308f3af868d9590951f29d226b1
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3fd2a50946f0857d527c34b62687b2dbdd71298e
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073896"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172034"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: Associar uma máquina virtual do Windows Server a um domínio gerido
 
@@ -214,7 +214,7 @@ Depois de tentar cada uma dessas etapas de solução de problemas, tente unir a 
 * Certifique-se de que a conta de usuário especificada pertence ao grupo de *Administradores de DC do AAD* .
 * Tente usar o formato UPN para especificar as credenciais, como `contosoadmin@contoso.onmicrosoft.com`. Se houver muitos usuários com o mesmo prefixo UPN em seu locatário ou se o prefixo UPN for excessivamente longo, o *sAMAccountName* para sua conta poderá ser gerado automaticamente. Nesses casos, o formato *sAMAccountName* para sua conta pode ser diferente do que você espera ou usa em seu domínio local.
 * Verifique se você habilitou a [sincronização de senha][password-sync] para seu domínio gerenciado. Sem essa etapa de configuração, os hashes de senha necessários não estarão presentes no domínio gerenciado AD DS do Azure para autenticar corretamente sua tentativa de entrada.
-* Aguarde a conclusão da sincronização de senha. Quando a senha de uma conta de usuário é alterada, pode levar de 15-20 minutos para que a senha esteja disponível para uso de ingresso no domínio.
+* Aguarde a conclusão da sincronização de senha. Quando a senha de uma conta de usuário é alterada, uma sincronização automática em segundo plano do Azure AD atualiza a senha no Azure AD DS. Leva algum tempo para que a senha fique disponível para uso de ingresso no domínio.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

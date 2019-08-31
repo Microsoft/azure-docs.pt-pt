@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d500f6c74bb62322a5e14ce3c489e8dba11dc2f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 190d697dca56fa51d92987f32db0146aa79881aa
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68555793"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162405"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerenciar configurações de usuário com a autenticação multifator do Azure na nuvem
 
@@ -32,9 +32,12 @@ Como um administrador atribuiu a função de administrador de autenticação, vo
 
 ![Gerenciar métodos de autenticação do portal do Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
 
-1. Redefinir senha redefinirá a senha do usuário e atribuirá uma senha temporária que deve ser alterada na próxima entrada.
-2. Exigir o novo registro da MFA fará com que, quando o usuário entrar na próxima vez, será solicitado a configurar um novo método de autenticação de MFA.
-3. Revogar sessões de MFA limpa as sessões do MFA lembradas do usuário e exige que elas executem o MFA na próxima vez que ela for exigida pela política no dispositivo.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. À esquerda, selecione **Azure Active Directory** > **usuários** > **todos os usuários**.
+1. Escolha o usuário no qual você deseja executar uma ação e selecione **métodos de autenticação**.
+   - **Redefinir senha** redefinirá a senha do usuário e atribuirá uma senha temporária que deve ser alterada na próxima entrada.
+   - **Exigir o novo registro da MFA** fará com que, quando o usuário entrar na próxima vez, será solicitado a configurar um novo método de autenticação de MFA.
+   - **Revogar sessões de MFA** limpa as sessões do MFA lembradas do usuário e exige que elas executem o MFA na próxima vez que ela for exigida pela política no dispositivo.
 
 ## <a name="require-users-to-provide-contact-methods-again"></a>Exigir que os usuários forneçam métodos de contato novamente
 
@@ -96,7 +99,7 @@ Quando marcada, **restaure a autenticação multifator em todos os dispositivos 
 7. Clique em **Guardar**.
 8. Clique em **fechar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Obter mais informações sobre como [definir as configurações de autenticação multifator do Azure](howto-mfa-mfasettings.md)
 - Se os usuários precisarem de ajuda, aponte [para o guia do usuário para verificação em duas etapas](../user-help/multi-factor-authentication-end-user.md)

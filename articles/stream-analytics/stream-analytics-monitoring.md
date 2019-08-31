@@ -7,19 +7,19 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: a4fc6db300a24d483e88efe668645d2cdb62496b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9432b43498cd48352427bf1ec2709a2d0f13a797
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612264"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172766"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Compreender a monitorização de tarefa do Stream Analytics e como monitorizar consultas
 
-## <a name="introduction-the-monitor-page"></a>Introdução: A página de monitor
-As métricas de chave de desempenho de superfícies de portal do Azure que podem ser utilizadas para monitorizar e resolver problemas de desempenho da sua consulta e a tarefa. Para ver estas métricas, navegue para a tarefa de Stream Analytics está interessado em ver as métricas para e ver que o **monitorização** secção na página de descrição geral.  
+## <a name="introduction-the-monitor-page"></a>Apresentações A página do monitor
+O portal do Azure superfícies principais métricas de desempenho que podem ser usadas para monitorar e solucionar problemas de desempenho de consulta e de trabalho. Para ver estas métricas, navegue para a tarefa de Stream Analytics está interessado em ver as métricas para e ver que o **monitorização** secção na página de descrição geral.  
 
 ![Monitorização de ligação de tarefa do Stream Analytics](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
@@ -30,24 +30,24 @@ Será apresentada a janela conforme mostrado:
 ## <a name="metrics-available-for-stream-analytics"></a>Métricas disponíveis para o Stream Analytics
 | Métrica                 | Definição                               |
 | ---------------------- | ---------------------------------------- |
-| Eventos de Entrada Pendentes       | Número de eventos de entrada que estão pendentes. Um valor diferente de zero para esta métrica indica que o seu trabalho não é capaz de acompanhar o número de eventos de entrada. Se este valor é lentamente crescente ou consistentemente diferente de zero, deve aumentar horizontalmente o seu trabalho. Pode saber mais, visite a página [compreender e ajustar as unidades transmissão em fluxo](stream-analytics-streaming-unit-consumption.md). |
-| Erros de Conversão de Dados | Número de eventos de saída que não foi possível converter para o esquema de saída esperada. Política de erros pode ser alterada para 'Drop' para remover os eventos que encontram este cenário. |
-| Eventos de Entrada Antigos       | Eventos cujo timestamp de aplicação é anterior ao seu tempo de chegada em mais de 5 minutos. |
+| Eventos de Entrada Pendentes       | Número de eventos de entrada que estão pendentes. Um valor diferente de zero para essa métrica implica que seu trabalho não é capaz de acompanhar o número de eventos de entrada. Se esse valor for lentamente crescente ou consistentemente diferente de zero, você deverá escalar horizontalmente seu trabalho. Você pode saber mais visitando [entender e ajustar as unidades de streaming](stream-analytics-streaming-unit-consumption.md). |
+| Erros de Conversão de Dados | Número de eventos de saída que não foi possível converter para o esquema de saída esperada. A política de erro pode ser alterada para "descartar" para descartar eventos que encontrem esse cenário. |
+| Eventos de Entrada Antigos       | Eventos cujo carimbo de data/hora do aplicativo é anterior ao horário de chegada em mais de 5 minutos. |
 | Falha no pedido de funções | Número de chamadas de função, com falhas do Azure Machine Learning (se presente). |
 | Eventos de Função        | Número de eventos enviados para a função do Azure Machine Learning (se presente). |
 | Pedidos de Função      | Número de chamadas para a função do Azure Machine Learning (se presente). |
-| Erros de Desserialização de entrada       | Número de eventos de entrada que não foi possível anular a serialização.  |
+| Erros de Desserialização de entrada       | Número de eventos de entrada que não puderam ser desserializados.  |
 | Bytes de Evento de Entrada      | Quantidade de dados recebidos pela tarefa de Stream Analytics, em bytes. Isto pode ser utilizado para validar que eventos estão a ser enviados para a origem de entrada. |
-| Eventos de Entrada           | Número de registos de anular a serialização de eventos de entrada. Esta contagem não inclui os eventos de entrada que resultam em erros de desserialização. |
-| Origens de Entrada Recebidas       | Número de mensagens recebidas pela tarefa. Para o Hub de eventos, uma mensagem é um único EventData. Para o Blob, uma mensagem é um único blob. Tenha em atenção que as origens de entrada são contabilizadas antes de desserialização. Se houver erros de desserialização, origens de entrada podem ser superiores a eventos de entrada. Caso contrário, pode ser inferior ou igual aos eventos de entrada, uma vez que cada mensagem pode conter vários eventos. |
-| Eventos de Entrada atrasados      | Eventos que chegaram mais tarde do que a janela de tolerância de chegada tardia configurado. Saiba mais sobre [considerações de ordem de eventos do Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md) . |
+| Eventos de Entrada           | Número de registros desserializados dos eventos de entrada. Essa contagem não inclui eventos de entrada que resultam em erros de desserialização. |
+| Origens de Entrada Recebidas       | Número de mensagens recebidas pelo trabalho. Para o Hub de eventos, uma mensagem é um único EventData. Para BLOB, uma mensagem é um único BLOB. Observe que as fontes de entrada são contadas antes da desserialização. Se houver erros de desserialização, as fontes de entrada poderão ser maiores que os eventos de entrada. Caso contrário, ele pode ser menor ou igual a eventos de entrada, pois cada mensagem pode conter vários eventos. |
+| Eventos de Entrada atrasados      | Eventos que chegaram depois da janela de tolerância de chegada tardia configurada. Saiba mais sobre [Azure Stream Analytics considerações sobre ordem de evento](stream-analytics-out-of-order-and-late-events.md) . |
 | Eventos de fora de ordem    | Número de eventos recebidos fora de ordem que foram removidos ou tendo em conta um período de tempo ajustado com base na política de ordenação de eventos. Isso pode ser afetado pela configuração da definição de janela de tolerância de fora de ordem. |
 | Eventos de Saída          | Quantidade de dados enviados por tarefa do Stream Analytics para o destino de saída, no número de eventos. |
-| Erros de Tempo de Execução         | Número total de erros relacionados com o processamento de consultas (excluindo detetados erros durante a ingestão de eventos ou saída de resultados) |
+| Erros de Tempo de Execução         | Número total de erros relacionados ao processamento de consulta (excluindo erros encontrados ao ingerir eventos ou resultados de saída) |
 | % de utilização SU       | A utilização da unidade de transmissão em fluxo é atribuída a uma tarefa do separador escala da tarefa. Deve este indicador atingir 80% ou acima, há grande probabilidade de que o processamento de eventos poderá ser atrasado ou parado o progresso. |
 | Atraso de Marca de Água       | O atraso de limite de tamanho máximo todas as partições de todos os resultados da tarefa. |
 
-Pode usar essas métricas para [monitorizar o desempenho da sua tarefa do Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor). 
+Você pode usar essas métricas para [monitorar o desempenho de seu trabalho de Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor). 
 
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>Personalizar a monitorização no portal do Azure
 Pode ajustar o tipo de gráfico, métricas apresentadas e intervalo nas definições de editar gráfico de tempo. Para obter detalhes, consulte [como personalizar monitorização](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).

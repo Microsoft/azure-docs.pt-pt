@@ -6,15 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 08/30/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: cbc55433517174c8080b941ca8526e5a4fd3427d
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7623244d8b7de012d80e7e4844a9b3693ccdd662
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126022"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186688"
 ---
 ::: zone target="docs"
 
@@ -40,7 +41,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ::: zone target="chromeless"
 
-Este guia descreve como implantar o Disco do Azure Data Box no portal do Azure. As etapas incluem examinar os pré-requisitos, desbloquear os discos e conectar e copiar dados em discos para que eles sejam carregados no Azure.
+Este guia orienta você pelas etapas de uso do Disco do Azure Data Box no portal do Azure. Este guia ajuda a responder as perguntas a seguir.
 
 ::: zone-end
 
@@ -60,17 +61,16 @@ Inicie sessão no Portal do Azure em [https://aka.ms/azuredataboxfromdiskdocs](h
 
 ::: zone target="chromeless"
 
-### <a name="prerequisites"></a>Pré-requisitos
-
-- Você colocou seu pedido para disco do data box usando o [tutorial: Order Disco do Azure Data Box](data-box-disk-deploy-ordered.md).
-- Recebeu os seus discos e o estado da tarefa no portal foi atualizado para **Entregue**.
-- Você verificou o número de discos recebidos e tem um cabo de conexão por disco.
-- Você tem um computador cliente disponível do qual você pode copiar os dados. O computador cliente tem de:
-
-    - Execute um [sistema operacional com suporte](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
-    - Ter [outro software necessário](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) instalado se for um cliente do Windows.
+> [!div class="checklist"]
+>
+> - **Examine os pré-requisitos**: Verifique o número de discos e cabos, sistema operacional e outros softwares.
+> - **Conectar e desbloquear**: Conecte o dispositivo e desbloqueie o disco para copiar os dados.
+> - **Copie os dados para o disco e valide**: Copie dados para os discos nas pastas precriadas.
+> - **Retorne os discos**: Retorne os discos para o datacenter do Azure onde os dados são carregados em sua conta de armazenamento.
+> - **Verifique os dados no Azure**: Verifique se os dados foram carregados em sua conta de armazenamento antes de excluí-los do servidor de data de origem.
 
 ::: zone-end
+
 
 ::: zone target="docs"
 

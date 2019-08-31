@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: atsenthi
-ms.openlocfilehash: 2c96c421d768b1e75169615d81a03387602a83ac
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 2e730ae8ecf6f1fab12aff23cab0ac3aa246233a
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036072"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173367"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir portas para um Cluster Service Fabric
 
@@ -108,6 +108,6 @@ Em relação `New-AzLoadBalancerRuleConfig` ao comando, `-FrontendPort` o repres
 >[!NOTE]
 >Para obter mais informações sobre como criar um balanceador de carga com o PowerShell, consulte [criar um balanceador de carga com o PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [rede em Service Fabric](service-fabric-patterns-networking.md). Rvice-Fabric-Patterns-Networking.MD).
+Saiba mais sobre a [rede em Service Fabric](service-fabric-patterns-networking.md).

@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: aaeaed22b1e09556452a49d7fc63c15ef0c7fcdb
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 48d2463eee2caeaae36118bf736d00eed84c897a
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061344"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186218"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solucionando problemas com Gerenciamento de Atualizações
 
@@ -113,6 +113,24 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+
+### <a name="updates-nodeployment"></a>Cenário Instalação de atualizações sem uma implantação
+
+### <a name="issue"></a>Problema
+
+Quando você registra um computador Windows no Gerenciamento de Atualizações, você pode ver atualizações instalar sem uma implantação.
+
+### <a name="cause"></a>Causa
+
+No Windows, as atualizações são instaladas automaticamente assim que elas estão disponíveis. Isso pode causar confusão se você não agendou uma atualização para ser implantada no computador.
+
+### <a name="resolution"></a>Resolução
+
+A chave do registro do `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` Windows, por padrão, é "4"- **baixar e instalar automaticamente**.
+
+Para clientes Gerenciamento de Atualizações, é recomendável definir essa chave como "3"- **download automático, mas não instalar automaticamente**.
+
+Para obter mais informações, consulte Configurando [atualizações automáticas](https://docs.microsoft.com/en-us/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
 
 ### <a name="nologs"></a>Cenário Os computadores não aparecem no portal em Gerenciamento de Atualizações
 

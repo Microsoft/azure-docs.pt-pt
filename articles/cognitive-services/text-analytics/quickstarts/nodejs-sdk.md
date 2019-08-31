@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: shthowse
-ms.openlocfilehash: 5b18ba4e06e8a44d7bd59b12a69a14ae15506234
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c3cd64d0a683a60132808bca6a7ceb4aa84db4f1
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134987"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195206"
 ---
 # <a name="quickstart-text-analytics-client-library-for-nodejs"></a>Início rápido: Biblioteca de cliente de análise de texto para node. js
 <a name="HOLTop"></a>
@@ -34,7 +34,7 @@ Use a biblioteca de cliente Análise de Texto para node. js para executar:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
-* A versão atual do [SDK do .NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* A versão atual do [node. js](https://nodejs.org/).
 
 ## <a name="setting-up"></a>Configurando
 
@@ -304,7 +304,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)

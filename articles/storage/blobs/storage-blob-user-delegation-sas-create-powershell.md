@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/29/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: bdb66ec65d493c6af2f33bf6ed6e4a2bb2154235
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8a455fdb8ef81b0e06d1f77f7a9cdd5bec351b2b
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897029"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164273"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com o PowerShell (versão prévia)
 
@@ -165,7 +165,10 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+> [!IMPORTANT]
+> Tanto a chave de delegação do usuário quanto as atribuições de função do RBAC são armazenadas em cache pelo armazenamento do Azure, portanto, pode haver um atraso entre quando você inicia o processo de revogação e quando uma SAS de delegação de usuário existente se torna inválida.
+
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Criar uma SAS de delegação de usuário (API REST)](/rest/api/storageservices/create-user-delegation-sas)
 - [Operação de obtenção de chave de delegação de usuário](/rest/api/storageservices/get-user-delegation-key)

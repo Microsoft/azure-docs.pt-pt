@@ -3,16 +3,16 @@ title: Matriz de suporte para o agente de Serviços de Recuperação do Microsof
 description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
 author: dcurwin
 ms.service: backup
-ms.date: 02/17/2019
+ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 8c983772f58c1ea01db175b47225ccfafa515b96
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 599d3f97ea30b096999d754a995af2ba660c0bc3
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951987"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186168"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -72,20 +72,22 @@ Limitação de rede | Não disponível para computadores com backup que executam
 
 Você pode usar o agente MARS para fazer backup diretamente no Azure em alguns sistemas operacionais que são executados em máquinas locais e VMs do Azure. Os sistemas operacionais devem ser de 64 bits e devem estar executando os serviços e atualizações mais recentes. A tabela a seguir resume estes sistemas operacionais:
 
-**Sistema operativo** | **Arquivos/pastas** | **Estado do sistema** 
---- | --- | --- 
-Windows 10 (Enterprise, Pro, Home) | Sim | Não
-Windows 8.1 (Enterprise, Pro)| Sim |Não
-Windows 8 (Enterprise, Pro) | Sim | Não
-Windows 7 (Ultimate, Enterprise, pro, Home Premium/Basic, Starter) | Sim | Não
-Windows Server 2016 (Standard, Datacenter, Essentials) | Sim | Sim
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sim | Sim
-Windows Server 2012 (Standard, Datacenter, Foundation) | Sim | Sim
-Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sim | Sim
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Sim | Não
-Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sim | Não
+**Sistema operativo** | **Arquivos/pastas** | **Estado do sistema** | **Requisitos de software/módulo**
+--- | --- | --- | ---
+Windows 10 (Enterprise, Pro, Home) | Sim | Não |  Verificar a versão do servidor correspondente para os requisitos de software/módulo
+Windows 8.1 (Enterprise, Pro)| Sim |Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
+Windows 8 (Enterprise, Pro) | Sim | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
+Windows 7 (Ultimate, Enterprise, pro, Home Premium/Basic, Starter) | Sim | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
+Windows Server 2016 (Standard, Datacenter, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
+Windows Server 2012 (Standard, Datacenter, Foundation) | Sim | Sim |-.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe)
+Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sim | Sim | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Microsoft VC + + redistribuível compatível <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe)
+Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Sim | Não | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Microsoft VC + + redistribuível compatível <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe) <br> -Servidor virtual 2005 base + KB KB948515 para O
+Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sim | Não | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
+Windows Server 2019 (Standard, Datacenter, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
 
 Para obter mais informações, consulte [supported mAbs and DPM Operating Systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
+
 
 ## <a name="backup-limits"></a>Limites de backup
 
@@ -104,7 +106,7 @@ Windows 7   | 1\.700 GB
 
 **Tipo** | **Suporte**
 --- | ---
-Encriptado   | Suportado.
+Encriptados   | Suportado.
 Comprimidos | Suportado.
 Dispersos | Suportado.
 Compactados e esparsos | Suportado.

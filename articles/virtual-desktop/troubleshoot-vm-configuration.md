@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: f797d3ee525806d8002b19edb1378d0376508b08
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 03a8e8063f1a66b929311f09bf8e20cd4b951e43
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073919"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163306"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação de inquilinos e conjuntos de anfitriões
 
@@ -208,7 +208,12 @@ Examine as entradas de registro listadas abaixo e confirme se seus valores corre
 **Soluciona** Siga estas instruções para instalar a pilha lado a lado na VM host de sessão.
 
 1. Use protocolo RDP (RDP) para obter diretamente a VM host da sessão como administrador local.
-2. Baixe e importe [o módulo do PowerShell de área de trabalho virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) para usar em sua sessão do PowerShell, se ainda não tiver feito isso.
+2. Baixe e importe [o módulo do PowerShell de área de trabalho virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) para usar em sua sessão do PowerShell, se ainda não tiver feito isso, execute este cmdlet para entrar em sua conta:
+    
+    ```powershell
+    Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+    ```
+    
 3. Instale a pilha lado a lado usando [criar um pool de hosts com o PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Como corrigir uma pilha lado a lado da área de trabalho virtual do Windows que não funciona corretamente

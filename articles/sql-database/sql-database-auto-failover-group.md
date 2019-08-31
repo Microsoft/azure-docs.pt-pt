@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 08/16/2019
-ms.openlocfilehash: 6357b5a477390f484a47167a0b9d2e524d37c9ac
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 08/29/2019
+ms.openlocfilehash: 73aeea42cd843716c845d7712539ae5c81f03dca
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035779"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173076"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 
-Os grupos de failover automático são um recurso de banco de dados SQL que permite que você gerencie a replicação e o failover de um grupo de bancos de dados em um servidor de banco de dados SQL ou de todos os bancos em uma instância gerenciada para outra região. É uma abstração declarativa sobre o recurso de [replicação geográfica ativa](sql-database-active-geo-replication.md) existente, projetado para simplificar a implantação e o gerenciamento de bancos de dados replicados geograficamente em escala. Você pode iniciar o failover manualmente ou pode delegá-lo ao serviço do banco de dados SQL com base em uma política definida pelo usuário. A última opção permite que você recupere automaticamente vários bancos de dados relacionados em uma região secundária após uma falha catastrófica ou outro evento não planejado que resulta em perda total ou parcial da disponibilidade do serviço de banco de dados SQL na região primária. Um grupo de failover pode incluir um ou vários bancos de dados, normalmente usados pelo mesmo aplicativo. Além disso, você pode usar os bancos de dados secundários legíveis para descarregar cargas de trabalho de consulta somente leitura. Como os grupos de failover automático envolvem vários bancos de dados, esses bancos de dados devem ser configurados no servidor primário. Os servidores primário e secundário para os bancos de dados no grupo de failover devem estar na mesma assinatura. Os grupos de failover automático dão suporte à replicação de todos os bancos de dados no grupo para apenas um servidor secundário em uma região diferente.
+Os grupos de failover automático são um recurso de banco de dados SQL que permite que você gerencie a replicação e o failover de um grupo de bancos de dados em um servidor de banco de dados SQL ou de todos os bancos em uma instância gerenciada para outra região. É uma abstração declarativa sobre o recurso de [replicação geográfica ativa](sql-database-active-geo-replication.md) existente, projetado para simplificar a implantação e o gerenciamento de bancos de dados replicados geograficamente em escala. Você pode iniciar o failover manualmente ou pode delegá-lo ao serviço do banco de dados SQL com base em uma política definida pelo usuário. A última opção permite que você recupere automaticamente vários bancos de dados relacionados em uma região secundária após uma falha catastrófica ou outro evento não planejado que resulta em perda total ou parcial da disponibilidade do serviço de banco de dados SQL na região primária. Um grupo de failover pode incluir um ou vários bancos de dados, normalmente usados pelo mesmo aplicativo. Além disso, você pode usar os bancos de dados secundários legíveis para descarregar cargas de trabalho de consulta somente leitura. Como os grupos de failover automático envolvem vários bancos de dados, esses bancos de dados devem ser configurados no servidor primário. Os grupos de failover automático dão suporte à replicação de todos os bancos de dados no grupo para apenas um servidor secundário em uma região diferente.
 
 > [!NOTE]
 > Ao trabalhar com bancos de dados individuais ou em pool em um servidor de banco de dados SQL e você quiser vários secundários nas mesmas ou em regiões diferentes, use a [replicação geográfica ativa](sql-database-active-geo-replication.md). 
@@ -191,12 +191,20 @@ Se seu aplicativo usar a instância gerenciada como a camada de dados, siga esta
 
   Para garantir a conectividade não interrompida com a instância primária após o failover, as instâncias primária e secundária devem estar na mesma zona DNS. Ele garantirá que o mesmo certificado de vários domínios (SAN) possa ser usado para autenticar as conexões do cliente com uma das duas instâncias no grupo de failover. Quando seu aplicativo estiver pronto para implantação de produção, crie uma instância secundária em uma região diferente e verifique se ela compartilha a zona DNS com a instância primária. Você pode fazer isso especificando um `DNS Zone Partner` parâmetro opcional usando o portal do Azure, o PowerShell ou a API REST. 
 
-  Para obter mais informações sobre como criar a instância secundária na mesma zona DNS que a instância primária, consulte [Gerenciando grupos de failover com instâncias gerenciadas (versão prévia)](#powershell-managing-failover-groups-with-managed-instances-preview).
+  Para obter mais informações sobre como criar a instância secundária na mesma zona DNS que a instância primária, consulte [criar uma instância gerenciada secundária](sql-database-managed-instance-failover-group-tutorial.md#3---create-a-secondary-managed-instance).
 
 - **Habilitar o tráfego de replicação entre duas instâncias**
 
   Como cada instância é isolada em sua própria VNet, o tráfego bidirecional entre esses VNets deve ser permitido. Consulte [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
+- **Criar um grupo de failover entre instâncias gerenciadas em assinaturas diferentes**
+
+  Você pode criar um grupo de failover entre instâncias gerenciadas em duas assinaturas diferentes. Ao usar a API do PowerShell, você pode fazer isso `PartnerSubscriptionId` especificando o parâmetro para a instância secundária. Ao usar a API REST, cada ID de instância incluída `properties.managedInstancePairs` no parâmetro pode ter sua própria SubscriptionId. 
+  
+  > [!IMPORTANT]
+  > O portal do Azure não oferece suporte a grupos de failover em assinaturas diferentes.
+
+  
 - **Configurar um grupo de failover para gerenciar o failover de toda a instância**
 
   O grupo de failover gerenciará o failover de todos os bancos de dados na instância do. Quando um grupo é criado, cada banco de dados na instância será replicado geograficamente automaticamente para a instância secundária. Você não pode usar grupos de failover para iniciar um failover parcial de um subconjunto dos bancos de dados.
@@ -326,34 +334,16 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 > Para obter um script de exemplo, consulte [configurar e fazer failover de um grupo de failover para um único banco de dados](scripts/sql-database-add-single-db-to-failover-group-powershell.md).
 >
 
-### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell: Gerenciando grupos de failover com instâncias gerenciadas (versão prévia)
+### <a name="powershell-managing-sql-database-failover-groups-with-managed-instances"></a>PowerShell: Gerenciando grupos de failover do banco de dados SQL com instâncias gerenciadas 
 
-#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Instalar a versão de pré-lançamento mais recente do PowerShell
-
-1. Atualize o módulo PowerShellGet para 1.6.5 (ou versão de visualização mais recente). Consulte o [site de visualização do PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
-
-   ```powershell
-      install-module PowerShellGet -MinimumVersion 1.6.5 -force
-   ```
-
-2. Em uma nova janela do PowerShell, execute os seguintes comandos:
-
-   ```powershell
-      import-module PowerShellGet
-      get-module PowerShellGet #verify version is 1.6.5 (or newer)
-      install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
-      import-module azurerm.sql
-   ```
-
-#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>Commandlets do PowerShell para criar um grupo de failover de instância
-
-| API | Descrição |
+| Cmdlet | Descrição |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |Este comando cria um grupo de failover e o registra em servidores primários e secundários|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifica a configuração do grupo de failover|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Recupera a configuração do grupo de failover|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Dispara o failover do grupo de failover para o servidor secundário|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Remove um grupo de failover|
+| [New-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Este comando cria um grupo de failover e o registra em servidores primários e secundários|
+| [Set-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Modifica a configuração do grupo de failover|
+| [Get-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) |Recupera a configuração do grupo de failover|
+| [Switch-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) |Dispara o failover do grupo de failover para o servidor secundário|
+| [Remove-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabaseinstancefailovergroup) | Remove um grupo de failover|
+|  | |
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: Gerenciar grupos de failover do banco de dados SQL com bancos de dados únicos e em pool
 
@@ -379,7 +369,7 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 | [Obter grupo de failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Obtém um grupo de failover. |
 | [Listar grupos de failover-listar por local](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Lista os grupos de failover em um local. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter tutoriais detalhados, consulte
     - [Adicionar um banco de dados individual a um grupo de failover](sql-database-single-database-failover-group-tutorial.md)

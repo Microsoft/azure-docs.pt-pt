@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 08ace7170a982fbaa186b77b27e342f16349aadd
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: c922799b650de7f921cc0493eb3feb2ad90b9d92
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613317"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183160"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migração de usuário
 
@@ -139,7 +139,9 @@ Altere o `$AppId` valor com sua ID de **aplicativo**do Azure AD.
 
 ## <a name="step-2-pre-migration-application-sample"></a>Passo 2: Exemplo de aplicativo de pré-migração
 
-[Baixe e execute o código de exemplo][UserMigrationSample]. Você pode baixá-lo como um arquivo. zip.
+Você pode encontrar o exemplo de código de pré-migração no repositório GitHub mantido `azure-ad-b2c/user-migration` pela Comunidade:
+
+[Azure-ad-B2C/migração de usuário/pré-migração][UserMigrationSample-code] GitHub
 
 ### <a name="step-21-edit-the-migration-data-file"></a>Etapa 2,1: Editar o arquivo de dados de migração
 
@@ -364,7 +366,7 @@ Você pode exibir e monitorar informações de registro em tempo quase real.
 
 ## <a name="optional-download-the-complete-policy-files"></a>Adicional Baixar os arquivos de política completos
 
-Depois de concluir o passo a passo de [introdução às políticas personalizadas][B2C-GetStartedCustom] , recomendamos que você crie seu cenário usando seus próprios arquivos de política personalizados. Para sua referência, fornecemos [arquivos de política de exemplo][UserMigrationSample].
+Depois de concluir o passo a passo de [introdução às políticas personalizadas][B2C-GetStartedCustom] , recomendamos que você crie seu cenário usando seus próprios arquivos de política personalizados. Para sua referência, fornecemos [arquivos de política de exemplo][UserMigrationSample-policy].
 
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
 [AD-Powershell]: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2
@@ -375,4 +377,5 @@ Depois de concluir o passo a passo de [introdução às políticas personalizada
 [B2C-GraphQuickStart]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet
 [B2C-NavContext]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-navigate-to-b2c-context
 [Portal]: https://portal.azure.com/
-[UserMigrationSample]: https://github.com/azure-ad-b2c/user-migration
+[UserMigrationSample-code]: https://github.com/azure-ad-b2c/user-migration/tree/master/pre-migration/source-code
+[UserMigrationSample-policy]: https://github.com/azure-ad-b2c/user-migration/tree/master/pre-migration/policy

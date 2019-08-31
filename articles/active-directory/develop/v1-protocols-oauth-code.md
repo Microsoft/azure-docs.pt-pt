@@ -12,19 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 719939b393b01938a4d4faa41a5dca163b2a8949
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 81b1f06238b8205e72fd989bb581fba39423f7c3
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834713"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193226"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizar o acesso a aplicações Web do Azure Active Directory através do fluxo de concessão de código do OAuth 2.0
+
+> [!NOTE]
+>  Se você não informar ao servidor qual recurso você planeja chamar, o servidor não irá disparar as políticas de acesso condicional para esse recurso. Portanto, para ter um gatilho MFA, você precisará incluir um recurso em sua URL. 
+>
 
 O Azure Active Directory (AD do Azure) usa o OAuth 2,0 para permitir que você autorize o acesso a aplicativos Web e APIs Web em seu locatário do Azure AD. Este guia é independente de linguagem e descreve como enviar e receber mensagens HTTP sem usar qualquer uma das nossas [bibliotecas](active-directory-authentication-libraries.md)de software livre.
 
@@ -175,7 +179,7 @@ Uma resposta bem-sucedida poderia ser assim:
 
 | Parâmetro | Descrição |
 | --- | --- |
-| access_token |O [token de acesso](access-tokens.md) solicitado como um JWT (token Web JSON) assinado. O aplicativo pode usar esse token para se autenticar no recurso protegido, como uma API da Web. |
+| access_token |O token de acesso solicitado.  Essa é uma cadeia de caracteres opaca, depende do que o recurso espera receber e não se destina ao cliente examinar. O aplicativo pode usar esse token para se autenticar no recurso protegido, como uma API da Web. |
 | token_type |Indica o valor do tipo de token. O único tipo ao qual o Azure AD dá suporte é portador. Para obter mais informações sobre tokens de portador, consulte [estrutura de autorização do OAuth 2.0: Uso de token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |Por quanto tempo o token de acesso é válido (em segundos). |
 | expires_on |A hora em que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0: 0Z UTC até a hora de expiração. Esse valor é usado para determinar o tempo de vida dos tokens armazenados em cache. |
@@ -346,3 +350,6 @@ Uma resposta de erro de exemplo poderia ser assim:
 | correlation_id |Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico entre os componentes. |
 
 Para obter uma descrição dos códigos de erro e a ação recomendada do cliente, consulte [códigos de erro para erros de ponto de extremidade do token](#error-codes-for-token-endpoint-errors).
+
+## <a name="next-steps"></a>Passos Seguintes
+Para saber mais sobre o ponto de extremidade v 1.0 do Azure AD e como adicionar autenticação e autorização para seus aplicativos Web e APIs Web, consulte [aplicativos de exemplo](sample-v1-code.md).

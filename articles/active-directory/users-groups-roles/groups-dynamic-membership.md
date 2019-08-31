@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/30/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f529723abd449891dba845253502b78e8666199f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: b562ccf81a80219caa9f80bec82f64f7d2510626
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650224"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194606"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras de associação dinâmica para grupos no Azure Active Directory
 
@@ -27,30 +27,32 @@ No Azure Active Directory (AD do Azure), você pode criar regras complexas basea
 
 Quando qualquer atributo de um usuário ou dispositivo é alterado, o sistema avalia todas as regras de grupo dinâmicas em um diretório para ver se a alteração dispararia qualquer adição ou remoção de grupo. Se um usuário ou dispositivo satisfizer uma regra em um grupo, eles serão adicionados como um membro desse grupo. Se eles não atenderem mais à regra, eles serão removidos. Você não pode adicionar ou remover manualmente um membro de um grupo dinâmico.
 
-* Você pode criar um grupo dinâmico para dispositivos ou para usuários, mas não pode criar uma regra que contenha usuários e dispositivos.
-* Não é possível criar um grupo de dispositivos com base nos atributos dos proprietários dos dispositivos. As regras de associação de dispositivo só podem referenciar atributos de dispositivo.
+- Você pode criar um grupo dinâmico para dispositivos ou para usuários, mas não pode criar uma regra que contenha usuários e dispositivos.
+- Não é possível criar um grupo de dispositivos com base nos atributos dos proprietários dos dispositivos. As regras de associação de dispositivo só podem referenciar atributos de dispositivo.
 
 > [!NOTE]
 > Esse recurso requer uma licença Azure AD Premium P1 para cada usuário exclusivo que seja membro de um ou mais grupos dinâmicos. Você não precisa atribuir licenças aos usuários para que eles sejam membros de grupos dinâmicos, mas você deve ter o número mínimo de licenças no locatário para cobrir todos esses usuários. Por exemplo, se você tivesse um total de 1.000 usuários exclusivos em todos os grupos dinâmicos em seu locatário, precisaria de pelo menos uma licença de 1.000 para Azure AD Premium P1 para atender ao requisito de licença.
 >
 
-## <a name="constructing-the-body-of-a-membership-rule"></a>Construindo o corpo de uma regra de associação
+## <a name="rule-builder-in-the-azure-portal"></a>Construtor de regras no portal do Azure
 
-Uma regra de associação que preenche automaticamente um grupo com usuários ou dispositivos é uma expressão binária que resulta em um resultado verdadeiro ou falso. As três partes de uma regra simples são:
+O Azure AD fornece um construtor de regras para criar e atualizar suas regras importantes mais rapidamente. O construtor de regras dá suporte à construção de até cinco expressões. O construtor de regras torna mais fácil formar uma regra com algumas expressões simples, no entanto, ela não pode ser usada para reproduzir todas as regras. Se o construtor de regras não oferecer suporte à regra que você deseja criar, você poderá usar a caixa de texto.
 
-* Propriedade
-* Operator
-* Value
+Aqui estão alguns exemplos de regras avançadas ou sintaxe para as quais recomendamos que você construa usando a caixa de texto:
 
-A ordem das partes dentro de uma expressão é importante para evitar erros de sintaxe.
+- Regra com mais de cinco expressões
+- A regra de relatórios diretos
+- Definindo a precedência de [operador](groups-dynamic-membership.md#operator-precedence)
+- [Regras com expressões complexas](groups-dynamic-membership.md#rules-with-complex-expressions); por exemplo`(user.proxyAddresses -any (_ -contains "contoso"))`
 
-### <a name="rule-builder-in-the-azure-portal"></a>Construtor de regras no portal do Azure
+> [!NOTE]
+> O construtor de regras pode não ser capaz de exibir algumas regras construídas na caixa de texto. Você poderá ver uma mensagem quando o construtor de regras não puder exibir a regra. O construtor de regras não altera a sintaxe com suporte, a validação nem o processamento de regras de grupo dinâmicas de forma alguma.
 
-O Azure AD fornece um construtor de regras para criar e atualizar suas regras importantes mais rapidamente. O construtor de regras dá suporte a até cinco regras. Para adicionar um sexto e quaisquer termos de regra subsequentes, você deve usar a caixa de texto. Para obter instruções passo a passo, consulte [atualizar um grupo dinâmico](groups-update-rule.md).
+Para obter instruções passo a passo, consulte [atualizar um grupo dinâmico](groups-update-rule.md).
 
-   ![Adicionar regra de associação a um grupo dinâmico](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Adicionar regra de associação a um grupo dinâmico](./media/groups-update-rule/update-dynamic-group-rule.png)
 
-### <a name="rules-with-a-single-expression"></a>Regras com uma única expressão
+### <a name="rule-syntax-for-a-single-expression"></a>Sintaxe de regra para uma única expressão
 
 Uma única expressão é a forma mais simples de uma regra de associação e só tem as três partes mencionadas acima. Uma regra com uma única expressão é semelhante a esta: `Property Operator Value`, em que a sintaxe da propriedade é o nome de Object. Property.
 
@@ -62,13 +64,23 @@ user.department -eq "Sales"
 
 Os parênteses são opcionais para uma única expressão. O comprimento total do corpo da sua regra de associação não pode exceder 2048 caracteres.
 
+# <a name="constructing-the-body-of-a-membership-rule"></a>Construindo o corpo de uma regra de associação
+
+Uma regra de associação que preenche automaticamente um grupo com usuários ou dispositivos é uma expressão binária que resulta em um resultado verdadeiro ou falso. As três partes de uma regra simples são:
+
+- Propriedade
+- Operator
+- Value
+
+A ordem das partes dentro de uma expressão é importante para evitar erros de sintaxe.
+
 ## <a name="supported-properties"></a>Propriedades com suporte
 
 Há três tipos de propriedades que podem ser usadas para construir uma regra de associação.
 
-* Booleano
-* Cadeia
-* Coleção de cadeias de caracteres
+- Booleano
+- Cadeia
+- Coleção de cadeias de caracteres
 
 A seguir estão as propriedades do usuário que você pode usar para criar uma única expressão.
 
@@ -119,7 +131,7 @@ A seguir estão as propriedades do usuário que você pode usar para criar uma �
 
 Para as propriedades usadas para regras de dispositivo, consulte [regras para dispositivos](#rules-for-devices).
 
-## <a name="supported-operators"></a>Operadores com suporte
+## <a name="supported-expression-operators"></a>Operadores de expressão com suporte
 
 A tabela a seguir lista todos os operadores com suporte e sua sintaxe para uma única expressão. Os operadores podem ser usados com ou sem o prefixo de hífen (-).
 
@@ -297,10 +309,10 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 As dicas a seguir podem ajudá-lo a usar a regra corretamente.
 
-* A **ID do Gerenciador** é a ID de objeto do gerente. Ele pode ser encontrado no **perfil**do gerente.
-* Para que a regra funcione, verifique se a propriedade **Manager** está definida corretamente para os usuários em seu locatário. Você pode verificar o valor atual no **perfil**do usuário.
-* Esta regra dá suporte apenas aos subordinados diretos do gerente. Em outras palavras, você não pode criar um grupo com os relatórios diretos do gerente *e* seus relatórios.
-* Esta regra não pode ser combinada com nenhuma outra regra de associação.
+- A **ID do Gerenciador** é a ID de objeto do gerente. Ele pode ser encontrado no **perfil**do gerente.
+- Para que a regra funcione, verifique se a propriedade **Manager** está definida corretamente para os usuários em seu locatário. Você pode verificar o valor atual no **perfil**do usuário.
+- Esta regra dá suporte apenas aos subordinados diretos do gerente. Em outras palavras, você não pode criar um grupo com os relatórios diretos do gerente *e* seus relatórios.
+- Esta regra não pode ser combinada com nenhuma outra regra de associação.
 
 ### <a name="create-an-all-users-rule"></a>Criar uma regra de "todos os usuários"
 
@@ -373,8 +385,8 @@ Os atributos de dispositivo a seguir podem ser usados.
 
 Esses artigos fornecem informações adicionais sobre grupos no Azure Active Directory.
 
-* [Ver grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Criar um novo grupo e adicionar membros](../fundamentals/active-directory-groups-create-azure-portal.md)
-* [Gerir definições de um grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Gerir associações de um grupo](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Gerir regras dinâmicas dos utilizadores num grupo](groups-create-rule.md)
+- [Ver grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Criar um novo grupo e adicionar membros](../fundamentals/active-directory-groups-create-azure-portal.md)
+- [Gerir definições de um grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Gerir associações de um grupo](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [Gerir regras dinâmicas dos utilizadores num grupo](groups-create-rule.md)

@@ -1,7 +1,7 @@
 ---
 title: 'Exemplo: Criando uma habilidade cognitiva personalizada com o API de Pesquisa de Entidade do Bing-Azure Search'
 description: Demonstra como usar o serviço de Pesquisa de Entidade do Bing em uma habilidade personalizada mapeada para um pipeline de indexação de pesquisa cognitiva no Azure Search.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 58f98f3807955db0b32cbcd1ed0d409814e35a76
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: d77b4e3a002757bcf6c91b6611876e732273fcf9
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639905"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183519"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemplo: Criar uma habilidade personalizada usando o API de Pesquisa de Entidade do Bing
 

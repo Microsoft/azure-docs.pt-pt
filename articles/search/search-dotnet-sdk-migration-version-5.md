@@ -1,8 +1,8 @@
 ---
-title: Atualizar para o SDK .NET da Azure Search versão 5 - Azure Search
-description: Migre o código para o SDK .NET da Azure Search versão 5 de versões mais antigas. Saiba quais são as novidades e quais alterações de código são necessárias.
+title: Atualizar para o SDK do .NET Azure Search versão 5-Azure Search
+description: Migre o código para o Azure Search .NET SDK versão 5 de versões mais antigas. Saiba o que há de novo e quais alterações de código são necessárias.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
@@ -10,95 +10,95 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 8382884b4ce2965dee4acf191f82eb012b670713
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c64d13e4bcad11ef729f34ee71b7c7461a507fc7
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147482"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183254"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Atualizar para o SDK .NET da Azure Search versão 5
+# <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Atualizando para o SDK do .NET Azure Search versão 5
 
-Se estiver a utilizar versão 4.0-pré-visualização ou mais antiga do [SDK .NET da Azure Search](https://aka.ms/search-sdk), este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 5.
+Se você estiver usando a versão 4,0-Preview ou anterior do [SDK Azure Search .net](https://aka.ms/search-sdk), este artigo ajudará você a atualizar seu aplicativo para usar a versão 5.
 
-Para obter instruções mais geral do SDK, incluindo exemplos, consulte [como utilizar o Azure Search a partir de um aplicativo .NET](search-howto-dotnet-sdk.md).
+Para obter uma explicação mais geral do SDK, incluindo exemplos, consulte [como usar Azure Search de um aplicativo .net](search-howto-dotnet-sdk.md).
 
-Versão 5 do Azure Search .NET SDK contém algumas alterações de versões anteriores. Principalmente são pequenas, para que alterar o seu código deve exigir muito pouco esforço. Ver [passos para atualizar](#UpgradeSteps) para obter instruções sobre como alterar o seu código para utilizar a nova versão do SDK.
+A versão 5 do SDK do .NET Azure Search contém algumas alterações de versões anteriores. Elas são basicamente secundárias, portanto, alterar seu código deve exigir apenas um mínimo de esforço. Consulte [as etapas para atualizar](#UpgradeSteps) para obter instruções sobre como alterar seu código para usar a nova versão do SDK.
 
 > [!NOTE]
-> Se estiver usando a versão pré-visualização do 2.0 ou mais antigo, deve atualizar primeiro para a versão 3 e, em seguida, atualize para a versão 5. Ver [atualizar para o SDK .NET da Azure Search versão 3](search-dotnet-sdk-migration.md) para obter instruções.
+> Se você estiver usando a versão 2,0-Preview ou mais antiga, atualize para a versão 3 primeiro e, em seguida, atualize para a versão 5. Consulte [Atualizando para o SDK do .net Azure Search versão 3](search-dotnet-sdk-migration.md) para obter instruções.
 >
-> A instância de serviço do Azure Search oferece suporte a várias versões de REST API, incluindo o mais recente. Pode continuar a utilizar uma versão quando ele é já não é a mais recente, mas recomendamos que migre o código para usar a versão mais recente. Ao utilizar a API REST, tem de especificar a versão de API em cada solicitação por meio do parâmetro de versão de api. Quando utilizar o SDK de .NET, a versão do SDK que está a utilizar determina a versão da REST API correspondente. Se estiver a utilizar um SDK mais antigo, pode continuar a executar esse código sem alterações, mesmo que o serviço é atualizado para suportar uma versão mais recente do API.
+> Sua instância do serviço de Azure Search dá suporte a várias versões da API REST, incluindo a mais recente. Você pode continuar a usar uma versão quando ela não for mais a mais recente, mas é recomendável migrar seu código para usar a versão mais recente. Ao usar a API REST, você deve especificar a versão da API em cada solicitação por meio do parâmetro API-Version. Ao usar o SDK do .NET, a versão do SDK que você está usando determina a versão correspondente da API REST. Se você estiver usando um SDK mais antigo, poderá continuar a executar esse código sem alterações, mesmo que o serviço seja atualizado para dar suporte a uma versão mais recente da API.
 
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-5"></a>O que há de novo na versão 5
-Versão 5 do SDK de .NET de pesquisa do Azure destina-se a versão mais recente versão disponível em geral da API de REST de pesquisa do Azure, especificamente 2017-11-11. Isto torna possível usar novos recursos do Azure Search a partir de um aplicativo .NET, incluindo o seguinte:
+A versão 5 do SDK do .NET Azure Search tem como alvo a versão mais recente disponível da API REST do Azure Search, especificamente 2017-11-11. Isso possibilita o uso de novos recursos do Azure Search de um aplicativo .NET, incluindo o seguinte:
 
-* [Sinónimos](search-synonyms.md).
-* Agora pode aceder programaticamente avisos no histórico de execução do indexador (consulte a `Warning` propriedade do `IndexerExecutionResult` no [referência de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet) para obter mais detalhes).
+* [Sinônimos](search-synonyms.md).
+* Agora você pode acessar avisos de forma programática no histórico de execução do indexador (consulte a `Warning` propriedade de `IndexerExecutionResult` na [referência do .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet) para obter mais detalhes).
 * Suporte para .NET Core 2.
-* Nova estrutura do pacote suporta a utilização de apenas as partes do SDK que precisa (consulte [alterações significativas na versão 5](#ListOfChanges) para obter detalhes).
+* A nova estrutura de pacote dá suporte ao uso de apenas as partes do SDK de que você precisa (consulte [alterações recentes na versão 5](#ListOfChanges) para obter detalhes).
 
 <a name="UpgradeSteps"></a>
 
-## <a name="steps-to-upgrade"></a>Passos para atualizar
-Em primeiro lugar, atualizar a sua referência de NuGet para `Microsoft.Azure.Search` utilizando a consola de Gestor de pacotes NuGet ou ao clicar com o botão direito em suas referências de projeto e selecionando "Gerir NuGet pacotes..." no Visual Studio.
+## <a name="steps-to-upgrade"></a>Etapas para atualizar
+Primeiro, atualize a referência do NuGet `Microsoft.Azure.Search` para usar o console do Gerenciador de pacotes NuGet ou clicando com o botão direito do mouse nas referências do projeto e selecionando "gerenciar pacotes NuGet..." no Visual Studio.
 
-Assim que o NuGet tiver baixado os novos pacotes e suas dependências, recrie seu projeto. Dependendo de como o seu código está estruturado, ele poderá reconstruir os com êxito. Nesse caso, está pronto para começar!
+Depois que o NuGet tiver baixado os novos pacotes e suas dependências, recompile o projeto. Dependendo de como seu código é estruturado, ele pode ser recriado com êxito. Nesse caso, você está pronto para começar!
 
-Se sua compilação falhar, deverá ver um erro de compilação semelhante ao seguinte:
+Se sua compilação falhar, você deverá ver um erro de compilação como o seguinte:
 
     The name 'SuggesterSearchMode' does not exist in the current context
 
-A próxima etapa é corrigir este erro de compilação. Ver [alterações significativas na versão 5](#ListOfChanges) para obter detalhes sobre o que faz com que o erro e como corrigi-lo.
+A próxima etapa é corrigir esse erro de compilação. Consulte [alterações recentes na versão 5](#ListOfChanges) para obter detalhes sobre o que causa o erro e como corrigi-lo.
 
-Tenha em atenção que devido a alterações do pacote de SDK .NET da Azure Search, é preciso reconstruir a sua aplicação para utilizar a versão 5. Estas alterações são detalhadas no [alterações significativas na versão 5](#ListOfChanges).
+Observe que, devido a alterações no empacotamento do SDK do .NET Azure Search, você deve recompilar seu aplicativo para usar a versão 5. Essas alterações são detalhadas em [alterações significativas na versão 5](#ListOfChanges).
 
-Poderá ver avisos de compilação adicionais relacionados com a propriedades ou métodos obsoletos. Os avisos inclui instruções sobre o que utilizar em vez da funcionalidade despromovida. Por exemplo, se a sua aplicação utiliza o `IndexingParametersExtensions.DoNotFailOnUnsupportedContentType` método, obterá um aviso que diz "Este comportamento está agora ativado por predefinição, para chamar este método já não é necessário."
+Você pode ver avisos de compilação adicionais relacionados a propriedades ou métodos obsoletos. Os avisos incluirão instruções sobre o que usar em vez do recurso preterido. Por exemplo, se seu aplicativo usar o `IndexingParametersExtensions.DoNotFailOnUnsupportedContentType` método, você deverá receber um aviso dizendo "esse comportamento agora está habilitado por padrão, portanto, chamar esse método não é mais necessário".
 
-Uma vez que corrigiu os erros de compilação e avisos, pode efetuar alterações à sua aplicação para tirar partido das novas funcionalidades, se desejar. Novas funcionalidades no SDK são detalhadas no [quais são as novidades na versão 5](#WhatsNew).
+Depois de corrigir quaisquer erros ou avisos de compilação, você poderá fazer alterações em seu aplicativo para tirar proveito da nova funcionalidade, se desejar. Os novos recursos do SDK são detalhados no [que há de novo na versão 5](#WhatsNew).
 
 <a name="ListOfChanges"></a>
 
-## <a name="breaking-changes-in-version-5"></a>Alterações significativas na versão 5
+## <a name="breaking-changes-in-version-5"></a>Alterações recentes na versão 5
 
-### <a name="new-package-structure"></a>Nova estrutura de pacotes
+### <a name="new-package-structure"></a>Nova estrutura de pacote
 
-A alteração de última hora mais substancial na versão 5 é que o `Microsoft.Azure.Search` assembly e o respetivo conteúdo foram dividido em quatro assemblies separados que agora são distribuídos como quatro pacotes do NuGet separados:
+A alteração significativa mais significativa na versão 5 é que o `Microsoft.Azure.Search` assembly e seu conteúdo foram divididos em quatro assemblies separados que agora são distribuídos como quatro pacotes NuGet separados:
 
- - `Microsoft.Azure.Search`: Este é um pacote de metadados que inclui todos os outros pacotes do Azure Search como dependências. Se estiver a atualizar de uma versão anterior do SDK, basta atualizar este pacote e voltar a criar devem ser suficiente para começar a utilizar a nova versão.
- - `Microsoft.Azure.Search.Data`: Utilize este pacote, se estiver desenvolvendo um aplicativo do .NET com o Azure Search e só tem de consultar ou atualizar documentos em índices. Se também terá de criar ou atualizar índices, mapas de sinónimos, ou outros recursos de nível de serviço, utilizam o `Microsoft.Azure.Search` em vez disso, o pacote.
- - `Microsoft.Azure.Search.Service`: Utilize este pacote, se estiver a desenvolver automatização no .NET para gerir os índices da Azure Search, mapas de sinónimos, indexadores, origens de dados ou outros recursos de nível de serviço. Se só precisa de documentos de consulta ou atualização em seus índices, utilize o `Microsoft.Azure.Search.Data` em vez disso, o pacote. Se precisar de todas as funcionalidades do Azure Search, utilize o `Microsoft.Azure.Search` em vez disso, o pacote.
- - `Microsoft.Azure.Search.Common`: Tipos comuns necessários para as bibliotecas .NET de pesquisa do Azure. Não é preciso usar esse pacote diretamente em seu aplicativo; Destina-se apenas a ser utilizado como uma dependência.
+ - `Microsoft.Azure.Search`: Esse é um meta-Package que inclui todos os outros pacotes Azure Search como dependências. Se você estiver atualizando de uma versão anterior do SDK, simplesmente atualizar este pacote e recompilar deve ser suficiente para começar a usar a nova versão.
+ - `Microsoft.Azure.Search.Data`: Use este pacote se você estiver desenvolvendo um aplicativo .NET usando Azure Search e precisar apenas consultar ou atualizar documentos em seus índices. Se você também precisar criar ou atualizar índices, mapas de sinônimos ou outros recursos de nível de serviço, use `Microsoft.Azure.Search` o pacote em vez disso.
+ - `Microsoft.Azure.Search.Service`: Use este pacote se você estiver desenvolvendo automação no .NET para gerenciar índices de Azure Search, mapas de sinônimos, indexadores, fontes de dados ou outros recursos de nível de serviço. Se você precisar apenas consultar ou atualizar documentos em seus índices, use o `Microsoft.Azure.Search.Data` pacote em vez disso. Se você precisar de toda a funcionalidade do Azure Search, use `Microsoft.Azure.Search` o pacote em vez disso.
+ - `Microsoft.Azure.Search.Common`: Tipos comuns necessários para as bibliotecas do Azure Search .NET. Você não precisa usar esse pacote diretamente em seu aplicativo; Ele destina-se apenas a ser usado como uma dependência.
  
-Esta alteração está interrompendo tecnicamente, uma vez que muitos tipos foram movidos entre assemblies. É por isso reconstruir a sua aplicação é necessário para atualizar para versão 5 do SDK.
+Essa alteração é tecnicamente quebrada, pois muitos tipos foram movidos entre assemblies. É por isso que recompilar seu aplicativo é necessário para atualizar para a versão 5 do SDK.
 
-Há um pequeno número de outras alterações de última hora na versão 5, que podem exigir código altera-se para além de reconstruir a sua aplicação.
+Há um pequeno número de outras alterações significativas na versão 5 que podem exigir alterações de código, além da recriação do aplicativo.
 
-### <a name="change-to-suggesters"></a>Alterar para Sugestores 
+### <a name="change-to-suggesters"></a>Alterar para sugestores 
 
-O `Suggester` construtor já não tem uma `enum` parâmetro para `SuggesterSearchMode`. Essa enumeração apenas tinha um valor e, portanto, era redundante. Se vir erros como resultado de compilação, simplesmente remover as referências para o `SuggesterSearchMode` parâmetro.
+O `Suggester` Construtor não tem mais um `enum` parâmetro para `SuggesterSearchMode`. Esse enum tem apenas um valor e, portanto, era redundante. Se você vir erros de compilação como resultado disso, simplesmente remova as `SuggesterSearchMode` referências ao parâmetro.
 
-### <a name="removed-obsolete-members"></a>Remover membros obsoletos
+### <a name="removed-obsolete-members"></a>Membros obsoletos removidos
 
-Poderá ver erros relacionados com métodos ou propriedades que foram marcadas como obsoletos em versões anteriores e, em seguida, removidas numa versão 5 de compilação. Se encontrar esses erros, eis como resolvê-los:
+Você pode ver erros de compilação relacionados a métodos ou propriedades que foram marcados como obsoletos em versões anteriores e, subsequentemente, removidos na versão 5. Se você encontrar esses erros, aqui está como resolvê-los:
 
-- Se estava a utilizar o `IndexingParametersExtensions.IndexStorageMetadataOnly` método, utilize `SetBlobExtractionMode(BlobExtractionMode.StorageMetadata)` em vez disso.
-- Se estava a utilizar o `IndexingParametersExtensions.SkipContent` método, utilize `SetBlobExtractionMode(BlobExtractionMode.AllMetadata)` em vez disso.
+- Se você estava usando o `IndexingParametersExtensions.IndexStorageMetadataOnly` método, use `SetBlobExtractionMode(BlobExtractionMode.StorageMetadata)` em vez disso.
+- Se você estava usando o `IndexingParametersExtensions.SkipContent` método, use `SetBlobExtractionMode(BlobExtractionMode.AllMetadata)` em vez disso.
 
-### <a name="removed-preview-features"></a>Funcionalidades de pré-visualização foi removido
+### <a name="removed-preview-features"></a>Recursos de visualização removidos
 
-Se estiver a atualizar versão 4.0-preview para a versão 5, lembre-se de que a matriz JSON e suporte para indexadores de BLOBs de análise de CSV foi removido, uma vez que estas funcionalidades ainda estão em pré-visualização. Especificamente, os seguintes métodos do `IndexingParametersExtensions` classe foram removidos:
+Se você estiver atualizando da versão 4,0-Preview para a versão 5, lembre-se de que a matriz JSON e o suporte à análise de CSV para indexadores de blob foram removidos, pois esses recursos ainda estão em versão prévia. Especificamente, os seguintes métodos da `IndexingParametersExtensions` classe foram removidos:
 
 - `ParseJsonArrays`
 - `ParseDelimitedTextFiles`
 
-Se seu aplicativo tiver uma dependência sobre estas funcionalidades, não será capaz de atualizar para a versão 5 do SDK de .NET de pesquisa do Azure. Pode continuar a utilizar a versão 4.0-preview. No entanto,. tenha em atenção que **Recomendamos que não utilize SDKs de pré-visualização em aplicações de produção**. Funcionalidades de pré-visualização destinam-se apenas de avaliação e pode ser alterada.
+Se seu aplicativo tiver uma dependência rígida desses recursos, você não poderá atualizar para a versão 5 do SDK do .NET Azure Search. Você pode continuar a usar a versão 4,0-Preview. No entanto, tenha em mente que não recomendamos o **uso de SDKs de visualização em aplicativos de produção**. Os recursos de visualização são apenas para avaliação e podem ser alterados.
 
 ## <a name="conclusion"></a>Conclusão
-Se precisar de obter mais detalhes sobre como utilizar o SDK .NET da Azure Search, consulte a [.NET procedimentos](search-howto-dotnet-sdk.md).
+Se você precisar de mais detalhes sobre como usar o SDK do .NET Azure Search, consulte o [instruções .net](search-howto-dotnet-sdk.md).
 
-Apreciamos os seus comentários sobre o SDK. Se tiver problemas, fique à vontade contacte-nos para obter ajuda na [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Se encontrar um bug, comunique o assunto na [repositório do GitHub do Azure .NET SDK](https://github.com/Azure/azure-sdk-for-net/issues). Certifique-se para o prefixo seu título do problema com o "[o Azure Search]".
+Agradecemos seus comentários sobre o SDK. Se você encontrar problemas, sinta-se à vontade para nos pedir ajuda sobre [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Se você encontrar um bug, poderá arquivar um problema no [repositório GitHub do SDK do .net do Azure](https://github.com/Azure/azure-sdk-for-net/issues). Certifique-se de prefixar o título do problema com "[Azure Search]".
 
-Obrigado por utilizar o Azure Search!
+Obrigado por usar Azure Search!

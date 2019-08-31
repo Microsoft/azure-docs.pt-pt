@@ -2,7 +2,7 @@
 title: Azure Search de habilidades de pesquisa cognitiva de reconhecimento de entidade nomeada
 description: Extraia entidades nomeadas para pessoa, local e organização do texto em um pipeline de pesquisa Azure Search cognitiva.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: b689b577ed940dad03cdf25570187bde98222ee3
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f91d0b17cfc984ccf56ad4a25ef2ece651dcbed5
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635882"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183341"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Habilidade cognitiva de reconhecimento de entidade nomeada
 
@@ -42,7 +42,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| categorias    | Matriz de categorias que devem ser extraídas.  Tipos de categoria possíveis `"Person"`: `"Location"`, `"Organization"`,. Se nenhuma categoria for fornecida, todos os tipos serão retornados.|
+| categories    | Matriz de categorias que devem ser extraídas.  Tipos de categoria possíveis `"Person"`: `"Location"`, `"Organization"`,. Se nenhuma categoria for fornecida, todos os tipos serão retornados.|
 |defaultLanguageCode |  Código de idioma do texto de entrada. Há suporte para os seguintes idiomas:`de, en, es, fr, it`|
 | minimumPrecision  | Um número entre 0 e 1. Se a precisão for menor que esse valor, a entidade não será retornada. O padrão é 0.|
 

@@ -10,16 +10,16 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 90f745d3ef5fd4442a184a51d82cd61b12828e15
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 8cf639a290067e71b562e0df844ee01d018a7557
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036198"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170576"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Tutorial: Treinar modelos de classificação de imagem com dados do MNIST e scikit-aprender a usar Azure Machine Learning
 
-Neste tutorial, você treinará um modelo de aprendizado de máquina em recursos de computação remota. Vai utilizar o fluxo de trabalho de preparação e implementação do serviço do Azure Machine Learning (pré-visualização) num bloco de notas do Jupyter em Python.  Depois, pode utilizar o bloco de notas como um modelo para preparar o seu próprio modelo de machine learning com os seus dados. Este tutorial é a **primeira parte de uma série composta por duas partes**.  
+Neste tutorial, você treinará um modelo de aprendizado de máquina em recursos de computação remota. Usará o treinamento e o fluxo de trabalho de implantação para o serviço Azure Machine Learning num bloco de notas do Jupyter do Python.  Depois, pode utilizar o bloco de notas como um modelo para preparar o seu próprio modelo de machine learning com os seus dados. Este tutorial é a **primeira parte de uma série composta por duas partes**.  
 
 Este tutorial treina uma regressão logística simples usando o conjunto de informações [MNIST](http://yann.lecun.com/exdb/mnist/) e o [scikit-Aprenda](https://scikit-learn.org) com o serviço Azure Machine Learning. O MNIST é um conjunto de dados popular que consiste em 70 000 imagens em tons de cinzento. Cada imagem é um dígito manuscrito de 28 x 28 pixels, representando um número de zero a nove. O objetivo é criar um classificador multiclasse para identificar o dígito que uma determinada imagem representa.
 
@@ -36,7 +36,7 @@ Você aprende a selecionar um modelo e implantá-lo na [parte dois deste tutoria
 Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
 >[!NOTE]
-> O código deste artigo foi testado com Azure Machine Learning SDK versão 1.0.41.
+> O código deste artigo foi testado com [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) versão 1.0.57.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

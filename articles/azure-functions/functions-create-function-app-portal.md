@@ -1,26 +1,23 @@
 ---
 title: Criar uma aplicação de funções a partir do Portal do Azure | Microsoft Docs
-description: Crie uma nova aplicação de funções no Serviço de Aplicações do Azure a partir do portal.
-services: functions
-documentationcenter: na
+description: Crie um novo aplicativo de funções no Azure por meio do Portal.
 author: ggailey777
-manager: jeconnoc
-ms.assetid: ''
+manager: gwallace
 ms.service: azure-functions
-ms.topic: quickstart
-ms.date: 04/11/2017
+ms.topic: conceptual
+ms.date: 08/29/2019
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: eb362ec652b306a12a41e7e96dcbc86638369c17
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 93bce0404c9b3bf630416557726dca0c856528c3
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085898"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170794"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Criar uma aplicação de funções a partir do portal do Azure
 
-As Aplicações das Funções do Azure utilizam a infraestrutura do Serviço de Aplicações do Azure. Este tópico mostra como criar uma aplicação de funções no portal do Azure. Uma aplicação de funções é o contentor que aloja a execução das funções individuais. Quando cria uma aplicação de funções no plano de alojamento do Serviço de Aplicações, a sua aplicação de função pode utilizar todas as funcionalidades do Serviço de Aplicações.
+Este tópico mostra como usar Azure Functions para criar um aplicativo de funções no portal do Azure. Uma aplicação de funções é o contentor que aloja a execução das funções individuais. 
 
 ## <a name="create-a-function-app"></a>Criar uma aplicação de função
 
@@ -34,15 +31,15 @@ Depois da aplicação de funções estar criada, pode criar funções individuai
 
 ## <a name="service-plans"></a>Planos do serviço
 
-Azure Functions tem dois planos de serviço diferentes: Plano de consumo e plano do serviço de aplicativo. O plano de Consumo aloca automaticamente a capacidade de computação quando o código está em execução, aumenta horizontalmente conforme necessário para processar a carga e, em seguida, reduz horizontalmente quando o código não está em execução. O plano do Serviço de Aplicações concede acesso à aplicação de funções a todas as instalações do Serviço de Aplicações. Tem de escolher o plano de serviço quando a aplicação de funções é criada e não pode ser alterada atualmente. Para obter mais informações, veja [Choose an Azure Functions hosting plan (Escolher um plano de alojamento das Funções do Azure)](functions-scale.md) .
+Azure Functions tem três planos de serviço diferentes: Plano de consumo, plano Premium e plano dedicado (serviço de aplicativo). Você deve escolher seu plano de serviço quando seu aplicativo de funções for criado e não puder ser alterado posteriormente. Para obter mais informações, veja [Choose an Azure Functions hosting plan (Escolher um plano de alojamento das Funções do Azure)](functions-scale.md) .
 
-Se estiver a planear executar funções do JavaScript num plano do Serviço de Aplicações, deve escolher um plano com menos núcleos. Para obter mais informações, veja [JavaScript reference for Functions (Referência do JavaScript para Funções)](functions-reference-node.md#choose-single-vcpu-app-service-plans).
+Se você estiver planejando executar funções JavaScript em um plano dedicado (serviço de aplicativo), escolha um plano com menos núcleos. Para obter mais informações, veja [JavaScript reference for Functions (Referência do JavaScript para Funções)](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
 <a name="storage-account-requirements"></a>
 
 ## <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento
 
-Quando criar uma aplicação de funções no Serviço de Aplicações, tem de criar ou ligar a uma conta de Armazenamento do Azure para fins gerais que suporte o armazenamento de Blobs, Filas e Tabelas. Internamente, as Funções utilizam o Armazenamento para operações como a gestão de acionadores e execuções de função de registo. Algumas contas de armazenamento não suportam filas e tabelas, como as contas de armazenamento apenas de blobs, do Armazenamento Premium do Azure e contas de armazenamento para fins gerais com replicação ZRS. Estas contas são filtradas do painel da Conta de Armazenamento ao criar uma aplicação de funções.
+Ao criar um aplicativo de funções, você deve criar ou vincular a uma conta de armazenamento do Azure de uso geral que dá suporte ao armazenamento de BLOBs, filas e tabelas. Internamente, as Funções utilizam o Armazenamento para operações como a gestão de acionadores e execuções de função de registo. Algumas contas de armazenamento não suportam filas e tabelas, como as contas de armazenamento apenas de blobs, do Armazenamento Premium do Azure e contas de armazenamento para fins gerais com replicação ZRS. Estas contas são filtradas do painel da Conta de Armazenamento ao criar uma aplicação de funções.
 
 >[!NOTE]
 >Ao utilizar o plano de Consumo de alojamento, os ficheiros de configuração de enlace e código de função são armazenados no armazenamento de Ficheiro do Azure na conta de armazenamento principal. Ao eliminar a conta de armazenamento principal, este conteúdo é eliminado e não pode ser recuperado.

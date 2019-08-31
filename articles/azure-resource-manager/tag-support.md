@@ -3,15 +3,15 @@ title: Suporte de marca de Azure Resource Manager para recursos
 description: Mostra quais tipos de recursos do Azure dão suporte a marcas. Fornece detalhes para todos os serviços do Azure.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 452230a263e623f53346fcdb8cf310e73f171aee
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: bf10274e8c492363cb54c5610ff8d912ab308d1c
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848611"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194729"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group-using-tags.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo.
@@ -201,7 +201,7 @@ Ir para um namespace do provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | aadsupportcases | Não |Não |
 > | adicionaservices | Não |Não |
-> | agentes | Não |Não |
+> | representantes | Não |Não |
 > | anonymousapiusers | Não |Não |
 > | configuração | Não |Não |
 > | logs | Não |Não |
@@ -2014,6 +2014,6 @@ Ir para um namespace do provedor de recursos:
 > | monitores | Não |Não |
 > | notificationSettings | Não |Não |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber como aplicar marcas a recursos, consulte [usar marcas para organizar os recursos do Azure](resource-group-using-tags.md).

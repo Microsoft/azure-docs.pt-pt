@@ -3,15 +3,15 @@ title: Funções de modelo de Azure Resource Manager-cadeia de caracteres | Micr
 description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para trabalhar com cadeias de caracteres.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1db1eb9be3586f76a8d3abc48a78a1e691da9924
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c30bb47f3f35663a6ffcfc0126758eb82c9dec4e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698182"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194773"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos de Azure Resource Manager
 
@@ -61,7 +61,7 @@ Retorna a representação Base64 da cadeia de caracteres de entrada.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |cadeia |O valor a ser retornado como uma representação base64. |
+| inputString |Sim |Cadeia de caracteres |O valor a ser retornado como uma representação base64. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -110,7 +110,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Cadeia | Um dois três |
@@ -175,7 +175,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Cadeia | Um dois três |
@@ -191,7 +191,7 @@ Converte uma representação base64 em uma cadeia de caracteres.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sim |cadeia |A representação Base64 a ser convertida em uma cadeia de caracteres. |
+| base64Value |Sim |Cadeia de caracteres |A representação Base64 a ser convertida em uma cadeia de caracteres. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -424,7 +424,7 @@ Converte um valor em um URI de dados.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Sim |cadeia |O valor a ser convertido em um URI de dados. |
+| stringToConvert |Sim |Cadeia de caracteres |O valor a ser convertido em um URI de dados. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -583,7 +583,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | true |
 | objectempty | Bool | true |
@@ -599,7 +599,7 @@ Determina se uma cadeia de caracteres termina com um valor. A comparação não 
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |cadeia |O valor que contém o item a ser localizado. |
+| stringToSearch |Sim |Cadeia de caracteres |O valor que contém o item a ser localizado. |
 | stringToFind |Sim |Cadeia de caracteres |O valor a ser localizado. |
 
 ### <a name="return-value"></a>Valor de retorno
@@ -958,7 +958,7 @@ Retorna a última posição de um valor dentro de uma cadeia de caracteres. A co
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |cadeia |O valor que contém o item a ser localizado. |
+| stringToSearch |Sim |Cadeia de caracteres |O valor que contém o item a ser localizado. |
 | stringToFind |Sim |Cadeia de caracteres |O valor a ser localizado. |
 
 ### <a name="return-value"></a>Valor de retorno
@@ -1001,7 +1001,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -1134,7 +1134,7 @@ O modelo de exemplo a seguir mostra um parâmetro com um novo identificador.
 
 A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Value |
 | ---- | ---- | ----- |
 | guidOutput | Cadeia de caracteres | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
@@ -1177,9 +1177,9 @@ O exemplo a seguir usa a função newGuid para criar um nome exclusivo para uma 
 
 A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
-| Nome | Tipo | Value |
+| Name | Tipo | Value |
 | ---- | ---- | ----- |
-| nameOutput | cadeia | storagenziwvyru7uxie |
+| nameOutput | Cadeia de caracteres | storagenziwvyru7uxie |
 
 
 ## <a name="padleft"></a>padLeft
@@ -1228,7 +1228,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | stringOutput | Cadeia | 0000000123 |
 
@@ -1244,7 +1244,7 @@ Retorna uma nova cadeia de caracteres com todas as instâncias de uma cadeia de 
 |:--- |:--- |:--- |:--- |
 | OriginalString |Sim |Cadeia de caracteres |O valor que tem todas as instâncias de uma cadeia de caracteres substituídas por outra cadeia de caracteres. |
 | Cadeiadecaracteresantiga |Sim |Cadeia de caracteres |A cadeia de caracteres a ser removida da cadeia de caracteres original. |
-| Novacadeiadecaracteres |Sim |cadeia |A cadeia de caracteres a ser adicionada no lugar da cadeia de caracteres removida. |
+| Novacadeiadecaracteres |Sim |Cadeia de caracteres |A cadeia de caracteres a ser adicionada no lugar da cadeia de caracteres removida. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1348,7 +1348,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | Cadeia | 2 3 |
@@ -1407,7 +1407,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | firstOutput | Array | ["One", "Two", "três"] |
 | secondOutput | Array | ["One", "Two", "três"] |
@@ -1422,8 +1422,8 @@ Determina se uma cadeia de caracteres começa com um valor. A comparação não 
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |cadeia |O valor que contém o item a ser localizado. |
-| stringToFind |Sim |cadeia |O valor a ser localizado. |
+| stringToSearch |Sim |Cadeia de caracteres |O valor que contém o item a ser localizado. |
+| stringToFind |Sim |Cadeia de caracteres |O valor a ser localizado. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1606,7 +1606,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | substringOutput | Cadeia | dois |
 
@@ -1688,7 +1688,7 @@ Converte a cadeia de caracteres especificada em letras minúsculas.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |cadeia |O valor a ser convertido em minúsculas. |
+| stringToChange |Sim |Cadeia de caracteres |O valor a ser convertido em minúsculas. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1775,7 +1775,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | toLowerOutput | Cadeia | Um dois três |
 | toUpperOutput | Cadeia | UM DOIS TRÊS |
@@ -1836,8 +1836,8 @@ Cria uma cadeia de caracteres de hash determinística com base nos valores forne
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |cadeia |O valor usado na função de hash para criar uma cadeia de caracteres exclusiva. |
-| parâmetros adicionais conforme necessário |Não |cadeia |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
+| baseString |Sim |Cadeia de caracteres |O valor usado na função de hash para criar uma cadeia de caracteres exclusiva. |
+| parâmetros adicionais conforme necessário |Não |Cadeia de caracteres |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
 
 ### <a name="remarks"></a>Observações
 
@@ -2145,10 +2145,10 @@ O modelo de exemplo a seguir mostra formatos diferentes para o valor DateTime.
 
 A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
-| Nome | Tipo | Value |
+| Name | Tipo | Value |
 | ---- | ---- | ----- |
 | utcOutput | Cadeia de caracteres | 20190305T175318Z |
-| utcShortOutput | cadeia | 03/05/2019 |
+| utcShortOutput | Cadeia de caracteres | 03/05/2019 |
 | utcCustomOutput | Cadeia de caracteres | 3 5 |
 
 O exemplo a seguir mostra como usar um valor da função ao definir um valor de marca.

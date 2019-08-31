@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 7/01/2019
+ms.date: 08/30/2019
 ms.author: aahi
-ms.openlocfilehash: 6604e5d5b3b77955c9e5f78df5d2a5b804bf09ef
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e857401591d45048962e9f606973dbf59dfe99c8
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883585"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194307"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Enviar consultas de pesquisa para o API da Pesquisa Visual do Bing
 
@@ -73,7 +73,7 @@ Os pedidos só podem ser enviados como HTTP POST.
 
 Os parâmetros seguintes são os parâmetros de consulta que o pedido deve especificar. No mínimo, você deve incluir o parâmetro `mkt` de consulta:
 
-| Nome | Value | Type | Requerido |
+| Name | Value | Type | Requerido |
 | --- | --- | --- | --- |
 | <a name="cc" />cc  | Um código de país de dois caracteres que representa de onde vêm os resultados.<br /><br /> Se definir este parâmetro, também tem de especificar o cabeçalho [Accept-Language](#acceptlanguage). O Bing utiliza o primeiro idioma suportado que encontra na lista de idiomas e combina-o com o código de país que especificou, de modo a determinar o mercado do qual devolver resultados. Se a lista de idiomas não incluir um idioma suportado, o Bing encontra o idioma e o mercado mais parecidos que suportem o pedido. Em vez do mercado especificado, o Bing também poderá utilizar um mercado agregado ou predefinido para os resultados.<br /><br /> Deve utilizar este parâmetro de consulta e o parâmetro `Accept-Language` apenas se indicar vários idiomas; caso contrário, utilize os parâmetros de consulta `mkt` e `setLang`.<br /><br /> Este parâmetro e o parâmetro de consulta [mkt](#mkt) são mutuamente exclusivos &mdash; não os especifique a ambos. | Cadeia | Não       |
 | <a name="mkt" />mkt   | O mercado de onde os resultados provêm. <br /><br /> **NOTA:** Você sempre deve especificar o mercado, se for conhecido. Desta forma, ajuda o Bing a encaminhar o pedido e a devolver a resposta adequada e ideal.<br /><br /> Este parâmetro e o parâmetro de consulta [cc](#cc) são mutuamente exclusivos &mdash; não os especifique a ambos. | Cadeia | Sim      |
@@ -242,7 +242,7 @@ O campo `tags` contém um nome a apresentar e uma lista de ações (informaçõe
 
 Para obter uma lista de informações padrão, consulte marca de [informações padrão](../default-insights-tag.md).
 
-As restantes etiquetas incluem outras informações que possam ser do interesse do utilizador. Por exemplo, se tiver texto, uma das etiquetas poderá incluir uma informação TextResults, que contém o texto reconhecido. Ou, se o Bing reconhecer uma entidade (ou seja, uma pessoa, lugar ou coisa) na imagem, uma das marcas poderá identificar a entidade. A Pesquisa Visual também devolve um conjunto de diversos termos (etiquetas) que derivam da imagem introduzida. Essas marcas permitem que os usuários explorem os conceitos encontrados na imagem. Por exemplo, se a imagem introduzida for de um atleta famoso, uma das etiquetas pode ser Desporto e incluir ligações para imagens de desporto.
+As restantes etiquetas incluem outras informações que possam ser do interesse do utilizador. Por exemplo, se tiver texto, uma das etiquetas poderá incluir uma informação TextResults, que contém o texto reconhecido. Ou, se o Bing reconhecer uma entidade (ou seja, uma pessoa, lugar ou coisa culturalmente conhecida/popular) na imagem, uma das marcas poderá identificar a entidade. A Pesquisa Visual também devolve um conjunto de diversos termos (etiquetas) que derivam da imagem introduzida. Essas marcas permitem que os usuários explorem os conceitos encontrados na imagem. Por exemplo, se a imagem introduzida for de um atleta famoso, uma das etiquetas pode ser Desporto e incluir ligações para imagens de desporto.
 
 Cada etiqueta inclui um nome a apresentar que pode ser utilizado para categorizar a informação, uma caixa delimitadora que identifica a região de interesse à qual a informação se aplica, as informações propriamente ditas e uma miniatura da imagem. Por exemplo, se for uma imagem de uma pessoa a utilizar uma t-shirt de desporto, uma das etiquetas poderá incluir uma caixa delimitadora que limite a t-shirt e que inclui as informações VisualSearch e ProductVisualSearch. E outra etiqueta poderá incluir uma informação ImageResults que contém um URL para um pedido de API /images/search para obter imagens cujos temas estejam relacionados com o URL de uma pesquisa em Bing.com que direciona o utilizador para os resultados da pesquisa de imagens de Bing.com.
 
@@ -368,7 +368,7 @@ O reconhecimento de texto também pode reconhecer as informações de contacto e
     }
 ```
 
-Se a imagem tiver uma entidade reconhecida, como uma pessoa, um local ou uma coisa, uma das etiquetas poderá incluir uma informação Entity.
+Se a imagem contiver uma entidade reconhecida como uma pessoa, lugar ou coisa culturalmente conhecida/popular, uma das marcas poderá incluir um insight de entidade.
 
 ```json
     {

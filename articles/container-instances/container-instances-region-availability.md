@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 manager: gwallace
 ms.service: container-instances
-ms.topic: overview
+ms.topic: article
 ms.date: 05/14/2019
 ms.author: danlep
-ms.openlocfilehash: 14e7b9a3ea11e59aabeb901c4039e69208ea0cfd
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 24edce511c2d07050db1e77edeae4e587fcd79b0
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325708"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172400"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para instâncias de contêiner do Azure em regiões do Azure
 

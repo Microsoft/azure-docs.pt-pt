@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 1c365790e1633a74be9f5baf41098e7511f99a7d
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 1fb377d482277a4776214d08b879d99f4234ca40
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563284"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163682"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um conjunto de anfitriões com o PowerShell
 
@@ -25,7 +25,7 @@ Primeiro, [Baixe e importe o módulo do PowerShell de área de trabalho virtual 
 Execute o seguinte cmdlet para entrar no ambiente de área de trabalho virtual do Windows
 
 ```powershell
-Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 Em seguida, execute este cmdlet para criar um novo pool de hosts em seu locatário de área de trabalho virtual do Windows:
@@ -82,7 +82,7 @@ Para ingressar no domínio com êxito, execute as ações a seguir em cada máqu
 5. Autentique com uma conta de domínio que tenha privilégios para computadores de ingresso no domínio.
 
     >[!NOTE]
-    > Se você estiver ingressando suas VMs em um ambiente Azure AD Domain Services, verifique se o usuário ingressar no domínio também é um membro do [grupo de administradores de DC do AAD](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+    > Se você estiver ingressando suas VMs em um ambiente Azure Active Directory Domain Services (AD DS do Azure), verifique se o usuário ingressar no domínio também é membro do [grupo de administradores de DC do AAD](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registrar as máquinas virtuais no pool de hosts da visualização de área de trabalho virtual do Windows
 

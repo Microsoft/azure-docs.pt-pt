@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: a8221de15dfa48b4eebcf0fe0df29ea0c3a1868e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 92d397a1bac5a4c65de41b3cb61f566cf42877f2
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854958"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164942"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Início rápido: Executar a primeira consulta do Resource Graph com o Azure PowerShell
 
@@ -48,7 +48,7 @@ O módulo do grafo de recursos para o PowerShell é **AZ. ResourceGraph**.
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Valide se o módulo foi importado e se é a versão correta (0.7.3):
+1. Valide se o módulo foi importado e se é a versão mais recente (0.7.5):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
@@ -108,7 +108,7 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 > [!NOTE]
 > Este comando não elimina o ficheiro do módulo que transferiu anteriormente. Apenas o remove da sessão do PowerShell.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Obter mais informações sobre a [linguagem de consulta](./concepts/query-language.md)
 - Aprender a [explorar recursos](./concepts/explore-resources.md)

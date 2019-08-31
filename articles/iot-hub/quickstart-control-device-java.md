@@ -10,14 +10,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 977bf07c8383bb1086e7878bd10f2519cc2f40ad
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1f05e9916a87f7258dad358ac8fff91c5ba7f25e
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68958643"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172941"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Início rápido: Controlar um dispositivo conectado a um hub IoT (Java)
+# <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>Início rápido: Controlar um dispositivo conectado a um hub IoT do Azure com Java
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -35,9 +35,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Java. Precisa do Java SE 8 ou posterior no seu computador de desenvolvimento.
+As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Java. Você precisa do Java SE 8 em seu computador de desenvolvimento.
 
-Pode transferir o Java para múltiplas plataformas a partir do [Oracle](https://aka.ms/azure-jdks).
+Você pode baixar Java SE Development Kit 8 para várias plataformas de [suporte a longo prazo Java para Azure e Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable). Certifique-se de selecionar **Java 8** em **suporte a longo prazo** para obter downloads para o JDK 8.
 
 Pode verificar qual a versão atual do Java no seu computador de desenvolvimento através do seguinte comando:
 
@@ -177,7 +177,7 @@ A aplicação back-end liga-se a um ponto final do lado do serviço no seu Hub I
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você chamou um método direto em um dispositivo de um aplicativo de back-end e respondeu à chamada de método direto em um aplicativo de dispositivo simulado.
 

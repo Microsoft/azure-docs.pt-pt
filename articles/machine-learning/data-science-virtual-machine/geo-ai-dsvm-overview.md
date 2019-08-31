@@ -1,7 +1,7 @@
 ---
 title: Máquina de Virtual de ciência de dados Inteligência Artificial Geo descrição geral
 titleSuffix: Azure
-description: A máquina de Virtual de ciência de dados de Inteligência Artificial de Georreplicação fornece ArcGIS Pro para trabalhar com dados geográficos. Ele também fornece tookits de ciência de dados, R e Python para trabalhar com o machine learning e inteligência artificial.
+description: A máquina de Virtual de ciência de dados de Inteligência Artificial de Georreplicação fornece ArcGIS Pro para trabalhar com dados geográficos. Ele também fornece kits de informações de Python, R e ciência de dados para trabalhar com o aprendizado de máquina e o ia (inteligência artificial).
 keywords: IA, ferramentas de ciência de dados, a máquina de virtual de ciência de dados, a análise geoespacial, aprendizagem aprofundada
 services: machine-learning
 documentationcenter: ''
@@ -17,39 +17,39 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 03/05/2018
 ms.author: vijetaj
-ms.openlocfilehash: 2f9572e58ec53d53025a02e42818488a838732d0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
-ms.translationtype: MT
+ms.openlocfilehash: 05596ea9a4456b73ec1e398e4a27ec3a49457cd9
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68591967"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172875"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Introdução à máquina de Virtual de ciência de dados de Inteligência Artificial Geo
 
-O Azure **VM de ciência de dados de IA geográfica** (Geo-DSVM) fornece geoespacial capacidades de análise da VM de ciência de dados da Microsoft. Especificamente, esta VM estende os dados e IA ciência Kits de ferramentas no [VM de ciência de dados](overview.md) adicionando o ESRI's líder do mercado [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) geográfica de informações de sistema.
+A inteligência artificial geográfica Máquina Virtual de Ciência de Dados (também conhecida como ia geográfico VM de Ciência de Dados ou geo-DSVM) fornece recursos de análise geoespaciais do Máquina Virtual de Ciência de Dados do Azure (DSVM). Especificamente, essa VM estende os kits de informações de ia e ciência de dados no [DSVM](overview.md) adicionando o sistema de informação geográfica [ArcGIS pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) líder de mercado da Ersi.
 
-A VM de ciência de dados de IA geográfica é um produto, oferta fora resultantes de colaboração entre ESRI e a Microsoft. O resultado é um ambiente potente, que fornece a capacidade de:
+ A ia geográfica VM de Ciência de Dados é uma oferta de produto que surgiu da colaboração entre a ESRI e a Microsoft. O resultado é um ambiente potente, que fornece a capacidade de:
 
-- explorar dados com a IA mais popular e ferramentas de ciência de dados
-- aplicar a análise estatística aos dados com os aspectos geográficos ou espaciais
-- utilizar modelos para Análise Preditiva com o machine learning e algoritmos de aprendizagem profunda
-- criar a visualização avançada
+- Explore dados com as ferramentas de ia e de ciência de dados mais populares
+- Aplicar análise estatística aos dados com aspectos geográficos ou espaciais
+- Treinar modelos para análise preditiva usando o aprendizado de máquina e algoritmos de aprendizado profundo
+- Criar visualizações avançadas
 
-É suportado no Windows 2016 ciência de Máquina Virtual de dados. Interfaces de Python e R a ArcGIS também são previamente configuradas no Geo-DSVM permitir o acesso programático a análise geoespacial nas suas aplicações de IA. Bloco de notas do Jupyter exemplos também são fornecidos para o ajudar a introdução à criação de aplicações de IA infused com inteligência geoespaciais.
+A VM de Ciência de Dados de ia geográfica tem suporte no DSVM do Windows 2016. As interfaces Python e R para ArcGIS também são pré-configuradas no DSVM geográfico, permitindo o acesso programático à análise geoespacial em seus aplicativos de ia. Além disso, Jupyter Notebook exemplos são fornecidos para ajudá-lo a começar a criar aplicativos de ia infundidos com inteligência geoespacial.
 
 
 ## <a name="why-geo-ai-data-science-vm"></a>Por que VM de ciência de dados de IA geográfica? 
 
-Integração de informações de geografia e localização com os seus dados traz uma nova dimensão poderosa para compreender um mundo cada vez mais instrumentado com dispositivos IOT. Existe uma vasta gama de aplicações em praticamente qualquer segmento de civil sociedade, se comerciais, governamentais, académicas ou não fins lucrativos atividades. Análise Geoespacial fornece ferramentas robustas para a recolha, o gerenciamento e análise de dados geográficos e com base na localização e visualização poderosa que pode ativar visões exclusivas de significância desses dados. 
+A integração de Geografia e informações de localização aos seus dados traz uma nova e poderosa dimensão para entender um mundo cada vez mais instrumentado com dispositivos IoT. Agora há uma ampla variedade de aplicativos em praticamente todos os segmentos da sociedade civil, sejam eles comerciais, governamentais, acadêmicos ou não para fins lucrativos. A análise geoespacial fornece ferramentas robustas para reunir, gerenciar e analisar dados geográficos e baseados no local. Eles também oferecem uma visualização avançada que pode permitir informações exclusivas sobre o significado desses dados.
 
-O [Máquina Virtual de ciência de dados (DSVM)](overview.md) da Microsoft é uma experimentação popular e modelar o ambiente no Azure, que fornece uma série de ferramentas de ciência de dados, Machine Learning e IA. Essas plataformas e ferramentas são todos convenientemente previamente configuradas para o ajudar a ser produtivo imediatamente. 
+O [máquina virtual de ciência de dados (DSVM)](overview.md) da Microsoft é um ambiente de experimentação e de modelagem popular no Azure, que fornece uma série de ferramentas de ia, Machine Learning e ciência de dados. Essas plataformas e ferramentas são todas convenientemente pré-configuradas para ajudá-lo a se tornar produtivo imediatamente.
 
-Ao combinar as capacidades de previsão da VM de ciência de dados com a escalabilidade da Cloud do Azure e o software de análise Geoespacial da [ESRI](https://www.esri.com), cientistas de dados e analistas geoespaciais agora tem uma plataforma produtiva de qual é possível obter a nova inteligência dos respetivos dados e identificar novas oportunidades. 
+A ia geográfica VM de Ciência de Dados combina os recursos de previsão do DSVM com a escalabilidade da nuvem do Azure e o software de análise geoespacial do [ESRI](https://www.esri.com). Essa integração pioneira fornece cientistas de dados e analistas geoespaciais com uma plataforma produtiva da qual obter uma nova inteligência de seus dados e para identificar novas oportunidades.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Aprovisionar uma VM de ciência de dados de IA geográfica e começar a utilizá-lo com orientação dos seguintes tópicos:
+Provisione um VM de Ciência de Dados de ia geográfico e comece a usá-lo com as diretrizes dos seguintes recursos:
 
 * [Aprovisionar uma VM de ciência dados de IA geográfica](provision-geo-ai-dsvm.md)
 * [Utilizar a VM de ciência dados de IA geográfica](use-geo-ai-dsvm.md)

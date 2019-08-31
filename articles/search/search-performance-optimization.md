@@ -2,7 +2,7 @@
 title: Estratégias de implantação e práticas recomendadas para otimizar o desempenho Azure Search
 description: Aprenda técnicas e práticas recomendadas para ajustar Azure Search desempenho e configurar a escala ideal.
 author: LiamCavanagh
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: rest-api
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: a4578e26df5a6c29e80a0bbd2e0a30725e3733ee
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 97628535deb79733e9d286977534a6ea97ba60e6
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370652"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182283"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Estratégias de implantação e práticas recomendadas para otimizar o desempenho no Azure Search
 

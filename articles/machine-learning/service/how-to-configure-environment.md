@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 220f68461d47293e9f43a650e4fa5d1d59bce02f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
-ms.translationtype: HT
+ms.openlocfilehash: 33ee006a704cec1fb0d75a953629aec68461a4f4
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128344"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165195"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
@@ -76,7 +76,7 @@ A VM do notebook é:
 
 + **Personalizável**. Enquanto uma oferta de VM gerenciada e segura, você mantém o acesso completo aos recursos de hardware e o personaliza para o desejo do coração. Por exemplo, crie rapidamente a VM mais recente NVidia V100 para executar a depuração passo a passo da arquitetura de rede neural de romance.
 
-Para parar de incorrer em encargos [de VM do bloco de notas, pare a VM do notebook](tutorial-1st-experiment-sdk-setup.md#stop-the-notebook-vm). 
+Para parar de incorrer em encargos [de VM do bloco de notas, pare a VM do notebook](tutorial-1st-experiment-sdk-train.md#clean-up-resources). 
 
 ## <a id="dsvm"></a>Máquina de Virtual de ciência de dados
 

@@ -1,6 +1,6 @@
 ---
-title: Conceber uma base de dados do multi-inquilino com a base de dados do Azure para PostgreSQL – Hiperescala (Citus) (pré-visualização) tutorial
-description: Este tutorial mostra como criar, preencher e consultar tabelas distribuídas na base de dados do Azure para PostgreSQL Hiperescala (Citus) (pré-visualização).
+title: Criar um banco de dados multilocatário com o banco de dados do Azure para PostgreSQL – tutorial de hiperescala (Citus) (visualização)
+description: Este tutorial mostra como criar, popular e consultar tabelas distribuídas no banco de dados do Azure para PostgreSQL (Citus) (visualização).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,35 +9,35 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 73d7aebf3dbff59320e0ef92cbd54811503c71b4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ba20a048faecc9e37a2bfbe750de0fbeba88d538
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792261"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163989"
 ---
-# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Tutorial: conceber uma base de dados do multi-inquilino através da utilização da base de dados do Azure para PostgreSQL – Hiperescala (Citus) (pré-visualização)
+# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Tutorial: criar um banco de dados multilocatário usando o banco de dados do Azure para PostgreSQL – Citus (visualização)
 
-Neste tutorial, vai utilizar base de dados do Azure para PostgreSQL - Hiperescala (Citus) (pré-visualização) para saber como:
+Neste tutorial, você usa o banco de dados do Azure para PostgreSQL-Citus (visualização) para aprender a:
 
 > [!div class="checklist"]
-> * Criar um grupo de servidores de grande escala (Citus)
-> * Utilizar o utilitário psql para criar um esquema
-> * Tabelas de partição horizontal em todos os nós
+> * Criar um grupo do servidor Hyperscale (Citus)
+> * Usar o utilitário psql para criar um esquema
+> * Tabelas de fragmento entre nós
 > * Ingerir dados de exemplo
-> * Consultar dados de inquilino
-> * Partilhar dados entre inquilinos
-> * Personalizar o esquema por inquilino
+> * Consultar dados de locatário
+> * Compartilhar dados entre locatários
+> * Personalizar o esquema por locatário
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
-## <a name="use-psql-utility-to-create-a-schema"></a>Utilizar o utilitário psql para criar um esquema
+## <a name="use-psql-utility-to-create-a-schema"></a>Usar o utilitário psql para criar um esquema
 
-Assim que estiver ligado à base de dados do Azure para PostgreSQL - Hiperescala (Citus) (pré-visualização) com psql, pode concluir algumas tarefas básicas. Este tutorial explica como criar uma aplicação web que permite anunciantes controlar as suas campanhas.
+Uma vez conectado ao banco de dados do Azure para PostgreSQL-hiperescala (Citus) (visualização) usando psql, você pode concluir algumas tarefas básicas. Este tutorial orienta você pela criação de um aplicativo Web que permite que os anunciantes acompanhem suas campanhas.
 
-Várias empresas podem utilizar a aplicação, por isso, vamos criar uma tabela para conter as empresas e outro para as suas campanhas. Na consola do psql, execute estes comandos:
+Várias empresas podem usar o aplicativo, portanto, vamos criar uma tabela para manter as empresas e outra para suas campanhas. No console do psql, execute estes comandos:
 
 ```sql
 CREATE TABLE companies (
@@ -63,7 +63,7 @@ CREATE TABLE campaigns (
 );
 ```
 
-Cada campanha pagará a execução de anúncios. Adicione uma tabela de anúncios, executando o seguinte código no psql depois do código acima:
+Cada campanha será paga para executar anúncios. Adicione uma tabela para anúncios também, executando o seguinte código em psql após o código acima:
 
 ```sql
 CREATE TABLE ads (
@@ -84,7 +84,7 @@ CREATE TABLE ads (
 );
 ```
 
-Por fim, podemos irão controlar estatísticas sobre cliques e as impressões para cada anúncio:
+Por fim, acompanharemos as estatísticas sobre cliques e impressões para cada anúncio:
 
 ```sql
 CREATE TABLE clicks (
@@ -118,19 +118,19 @@ CREATE TABLE impressions (
 );
 ```
 
-Pode ver as tabelas recém-criado na lista de tabelas agora no psql ao executar:
+Você pode ver as tabelas recém-criadas na lista de tabelas agora em psql executando:
 
 ```postgres
 \dt
 ```
 
-Aplicações com multi-inquilinos podem impor a exclusividade apenas por inquilino, que é por isso que todas as chaves primárias e estrangeiras incluem o ID da empresa.
+Os aplicativos multilocatários podem impor exclusividade apenas por locatário, motivo pelo qual todas as chaves primárias e estrangeiras incluem a ID da empresa.
 
-## <a name="shard-tables-across-nodes"></a>Tabelas de partição horizontal em todos os nós
+## <a name="shard-tables-across-nodes"></a>Tabelas de fragmento entre nós
 
-Uma implementação de hiperescala armazena linhas de tabela em nós diferentes com base no valor de uma coluna designado pelo usuário. Este marcas de "coluna de distribuição" qual o inquilino é o proprietário que linhas.
+Uma implantação de hiperescala armazena linhas de tabela em nós diferentes com base no valor de uma coluna designada pelo usuário. Essa "coluna de distribuição" marca qual locatário possui quais linhas.
 
-Vamos definir a coluna de distribuição para ser empresa\_id, o identificador do inquilino. No psql, execute estas funções:
+Vamos definir a coluna de distribuição como ID da\_empresa, o identificador do locatário. No psql, execute estas funções:
 
 ```sql
 SELECT create_distributed_table('companies',   'id');
@@ -142,7 +142,7 @@ SELECT create_distributed_table('impressions', 'company_id');
 
 ## <a name="ingest-sample-data"></a>Ingerir dados de exemplo
 
-Fora do psql agora, na linha de comandos normal, transferir os conjuntos de dados de exemplo:
+Fora do psql Now, na linha de comando normal, baixe os conjuntos de dados de exemplo:
 
 ```bash
 for dataset in companies campaigns ads clicks impressions geo_ips; do
@@ -150,9 +150,11 @@ for dataset in companies campaigns ads clicks impressions geo_ips; do
 done
 ```
 
-Novamente dentro de psql, em massa carregar os dados. Certifique-se de que execute o psql no mesmo diretório onde transferiu os ficheiros de dados.
+De volta dentro do psql, carregue os dados em massa. Certifique-se de executar psql no mesmo diretório em que você baixou os arquivos de dados.
 
 ```sql
+SET CLIENT_ENCODING TO 'utf8';
+
 \copy companies from 'companies.csv' with csv
 \copy campaigns from 'campaigns.csv' with csv
 \copy ads from 'ads.csv' with csv
@@ -160,11 +162,11 @@ Novamente dentro de psql, em massa carregar os dados. Certifique-se de que execu
 \copy impressions from 'impressions.csv' with csv
 ```
 
-Estes dados agora se espalham por nós de trabalho.
+Esses dados agora serão distribuídos entre os nós de trabalho.
 
-## <a name="query-tenant-data"></a>Consultar dados de inquilino
+## <a name="query-tenant-data"></a>Consultar dados de locatário
 
-Quando o aplicativo solicita dados de um único inquilino, a base de dados pode executar a consulta num nó de trabalho única. Consultas de inquilino único filtrar por um ID de inquilino único. Por exemplo, a seguinte consulta filtros `company_id = 5` para anúncios e as impressões. Tente executá-lo no psql para ver os resultados.
+Quando o aplicativo solicita dados para um único locatário, ele pode executar a consulta em um único nó de trabalho. Consultas de locatário único filtram por uma única ID de locatário. Por exemplo, os filtros `company_id = 5` de consulta a seguir para anúncios e impressões. Tente executá-lo em psql para ver os resultados.
 
 ```sql
 SELECT a.campaign_id,
@@ -181,11 +183,11 @@ GROUP BY a.campaign_id, a.id
 ORDER BY a.campaign_id, n_impressions desc;
 ```
 
-## <a name="share-data-between-tenants"></a>Partilhar dados entre inquilinos
+## <a name="share-data-between-tenants"></a>Compartilhar dados entre locatários
 
-Até agora todas as tabelas foram distribuídas pelo `company_id`, mas alguns dados não naturalmente "pertencem" para qualquer inquilino em particular e podem ser partilhados. Por exemplo, todas as empresas na plataforma do ad de exemplo deve-se obter informações geográficas para o público-alvo com base em endereços IP.
+Até agora, todas as tabelas foram distribuídas pelo `company_id`, mas alguns dados não são naturalmente "pertencentes" a qualquer locatário em particular e podem ser compartilhados. Por exemplo, todas as empresas na plataforma de anúncios de exemplo podem querer obter informações geográficas para seu público-alvo com base em endereços IP.
 
-Crie uma tabela para conter informações geográficas partilhadas. Execute os seguintes comandos no psql:
+Crie uma tabela para armazenar informações geográficas compartilhadas. Execute os seguintes comandos no psql:
 
 ```sql
 CREATE TABLE geo_ips (
@@ -197,20 +199,20 @@ CREATE TABLE geo_ips (
 CREATE INDEX ON geo_ips USING gist (addrs inet_ops);
 ```
 
-Em seguida certifique `geo_ips` "tabela de referência" para armazenar uma cópia da tabela em cada nó de trabalho.
+Em seguida `geo_ips` , crie uma "tabela de referência" para armazenar uma cópia da tabela em cada nó de trabalho.
 
 ```sql
 SELECT create_reference_table('geo_ips');
 ```
 
-Carregá-lo com dados de exemplo. Lembre-se executar este comando no psql de dentro do diretório onde transferiu o conjunto de dados.
+Carregue-o com dados de exemplo. Lembre-se de executar esse comando em psql de dentro do diretório em que você baixou o conjunto de os.
 
 ```sql
 \copy geo_ips from 'geo_ips.csv' with csv
 ```
 
-Associar a tabela de cliques com georreplicação\_ips é eficiente em todos os nós.
-Aqui está uma associação para encontrar os locais de todas as pessoas que Cliquei no ad
+Ingressar na tabela de cliques\_com IPs geográficos é eficiente em todos os nós.
+Aqui está uma junção para encontrar os locais de todas as pessoas que clicaram no AD
 290. Tente executar a consulta no psql.
 
 ```sql
@@ -221,14 +223,14 @@ SELECT c.id, clicked_at, latlon
    AND c.ad_id = 290;
 ```
 
-## <a name="customize-the-schema-per-tenant"></a>Personalizar o esquema por inquilino
+## <a name="customize-the-schema-per-tenant"></a>Personalizar o esquema por locatário
 
-Cada inquilino poderá ter de armazenar informações especiais não são necessárias por outras pessoas. No entanto, todos os inquilinos partilham uma infraestrutura comum com um esquema de base de dados idênticos. Onde podem aceder os dados Extras?
+Cada locatário pode precisar armazenar informações especiais não necessárias para outras pessoas. No entanto, todos os locatários compartilham uma infraestrutura comum com um esquema de banco de dados idêntico. Onde os dados adicionais podem ir?
 
-Um truque consiste em utilizar um tipo de coluna aberta como do PostgreSQL JSONB.  Nosso esquema tem um campo JSONB `clicks` chamado `user_data`.
-Uma empresa (Digamos que a empresa cinco), pode utilizar a coluna para controlar se o utilizador está num dispositivo móvel.
+Um truque é usar um tipo de coluna aberta como o JSONB do PostgreSQL.  Nosso esquema tem um campo JSONB em `clicks` chamado `user_data`.
+Uma empresa (por exemplo, a empresa cinco) pode usar a coluna para controlar se o usuário está em um dispositivo móvel.
 
-Eis uma consulta para encontrar o que clica mais: visitantes móveis ou tradicionais.
+Aqui está uma consulta para encontrar quem clica mais: dispositivos móveis ou visitantes tradicionais.
 
 ```sql
 SELECT
@@ -240,7 +242,7 @@ GROUP BY user_data->>'is_mobile'
 ORDER BY count DESC;
 ```
 
-Que podemos otimizar esta consulta para uma única empresa ao criar um [índice parcial](https://www.postgresql.org/docs/current/static/indexes-partial.html).
+Podemos otimizar essa consulta para uma única empresa criando um [índice parcial](https://www.postgresql.org/docs/current/static/indexes-partial.html).
 
 ```sql
 CREATE INDEX click_user_data_is_mobile
@@ -248,7 +250,7 @@ ON clicks ((user_data->>'is_mobile'))
 WHERE company_id = 5;
 ```
 
-Geralmente, podemos criar uma [índices GIN](https://www.postgresql.org/docs/current/static/gin-intro.html) em cada chave e valor dentro da coluna.
+Em geral, podemos criar [índices iniciar](https://www.postgresql.org/docs/current/static/gin-intro.html) em cada chave e valor dentro da coluna.
 
 ```sql
 CREATE INDEX click_user_data
@@ -265,12 +267,12 @@ SELECT id
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Nos passos anteriores, criou os recursos do Azure num grupo de servidor. Se não espera precisa destes recursos no futuro, elimine o grupo de servidor. Prima a *eliminar* botão no *descrição geral* página para o seu grupo de servidor. Quando lhe for pedido numa página de pop-up, confirme o nome do grupo de servidor e clique no último *eliminar* botão.
+Nas etapas anteriores, você criou recursos do Azure em um grupo de servidores. Se você não espera precisar desses recursos no futuro, exclua o grupo de servidores. Pressione o botão *excluir* na página *visão geral* do seu grupo de servidores. Quando solicitado em uma página pop-up, confirme o nome do grupo de servidores e clique no botão *excluir* final.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu como aprovisionar um grupo de servidores de grande escala (Citus). Conectados a ele com psql, criou um esquema e dados distribuídos. Aprendeu a consultar dados dentro e entre inquilinos e para personalizar o esquema por inquilino.
+Neste tutorial, você aprendeu a provisionar um grupo de servidores de hiperescala (Citus). Você se conectou a ele com psql, criou um esquema e distribuiu dados. Você aprendeu a consultar dados dentro e entre locatários e para personalizar o esquema por locatário.
 
 Em seguida, saiba mais sobre os conceitos de hiperescala.
 > [!div class="nextstepaction"]
-> [Tipos de nós de Hiperescala](https://aka.ms/hyperscale-concepts)
+> [Tipos de nó de hiperescala](https://aka.ms/hyperscale-concepts)

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aefa6d21488b617b26ddefe5fa4fc61cdd203f96
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: fd5b1ffa2d66135e0068ef9f459843d616351c19
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032530"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162605"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory
 
@@ -36,7 +36,7 @@ Este tutorial permite:
 
 Para adicionar um aplicativo local ao Azure AD, você precisará de:
 
-* Uma [assinatura Microsoft Azure ad Basic ou Premium](https://azure.microsoft.com/pricing/details/active-directory)
+* Uma [assinatura Microsoft Azure ad Premium](https://azure.microsoft.com/pricing/details/active-directory)
 * Uma conta de administrador de aplicativos
 * As identidades de usuário devem ser sincronizadas de um diretório local ou criadas diretamente em seus locatários do Azure AD. Sincronização de Identidades permite que o Azure AD autentique previamente os usuários antes de conceder a eles acesso aos aplicativos publicados do proxy de aplicativo e ter as informações necessárias do identificador de usuário para executar o logon único (SSO).
 
@@ -94,7 +94,7 @@ Permitir acesso às seguintes URLs:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem do proxy de aplicativo |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O Azure usa essas URLs para verificar os certificados. |
-| login.windows.net<br>login.microsoftonline.com<br>secure.aadcdn.microsoftonline-p.com  | O conector usa essas URLs durante o processo de registro. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*. microsoftonline-p.com<br>\*. msauth.net<br>\*. msauthimages.net<br>\*. msecnd.net<br>\*. msftauth.net<br>\*. msftauthimages.net<br>\*. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | O conector usa essas URLs durante o processo de registro. |
 
 Você pode permitir conexões com \*. msappproxy.net e \*. ServiceBus.Windows.net se o firewall ou o proxy permitir que você configure listas de permissões de DNS. Caso contrário, você precisará permitir o acesso aos [intervalos de IP e marcas de serviço do Azure-nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). Os intervalos de IP são atualizados a cada semana.
 
@@ -213,7 +213,7 @@ Para testar o logon no aplicativo:
 
 Para solucionar problemas, consulte solucionar problemas [de proxy de aplicativo e mensagens de erro](application-proxy-troubleshoot.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você preparou seu ambiente local para trabalhar com o proxy de aplicativo e, em seguida, instalou e registrou o conector de proxy de aplicativo. Em seguida, você adicionou um aplicativo ao seu locatário do Azure AD. Você verificou que um usuário pode fazer logon no aplicativo usando uma conta do Azure AD.
 

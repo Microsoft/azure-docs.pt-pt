@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 3d1f82c5eadde52edb721185a497d9b187eebb7b
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 81b80edcd2e880488e203960f8e2a6aa71b69679
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668071"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70161822"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT (Java)
 
@@ -29,7 +29,7 @@ Este tutorial se baseia no código do tutorial [enviar mensagens da nuvem para o
 O tutorial [Enviar telemetria de um dispositivo para um início rápido do Hub IOT](quickstart-send-telemetry-java.md) e [enviar mensagens da nuvem para o dispositivo com o Hub IOT](iot-hub-java-java-c2d.md) mostrar a funcionalidade básica de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IOT. O tutorial [Configurar o roteamento de mensagens com o Hub IOT](tutorial-routing.md) descreve uma maneira de armazenar de forma confiável as mensagens do dispositivo para a nuvem no armazenamento de BLOBs do Azure. No entanto, em alguns cenários, não é possível mapear facilmente os dados que seus dispositivos enviam para as mensagens relativamente pequenas que o Hub IoT aceita. Por exemplo:
 
 * Arquivos grandes que contêm imagens
-* Os meus vídeos
+* Vídeos
 * Dados de vibração amostrados em alta frequência
 * Alguma forma de dados pré-processados.
 
@@ -44,11 +44,11 @@ Ao final deste tutorial, você executará dois aplicativos de console do Java:
 > [!NOTE]
 > O Hub IoT dá suporte a várias plataformas de dispositivo e linguagens (incluindo C, .NET e JavaScript) por meio de SDKs do dispositivo IoT do Azure. Consulte a [central de desenvolvedores do Azure IOT](https://azure.microsoft.com/develop/iot) para obter instruções passo a passo sobre como conectar seu dispositivo ao Hub IOT do Azure.
 
-Para concluir este tutorial, precisa do seguinte:
+## <a name="prerequisites"></a>Pré-requisitos
 
-* A versão mais recente de [Java SE Development Kit 8](https://aka.ms/azure-jdks)
+* [Java se Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Certifique-se de selecionar **Java 8** em **suporte a longo prazo** para obter downloads para o JDK 8.
 
-* [Maven 3](https://maven.apache.org/install.html)
+* [Maven 3](https://maven.apache.org/download.cgi)
 
 * Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 

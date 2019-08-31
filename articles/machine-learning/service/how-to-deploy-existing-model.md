@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/19/2019
-ms.openlocfilehash: cbbfd5f7beb7270bf55e952c818b4802d9d9ecab
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f30ac3d5e20b3f797e083972ac179fd29f6b1475
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847997"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182536"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning-service"></a>Usar um modelo existente com o serviço Azure Machine Learning
 
@@ -76,23 +76,40 @@ Para obter mais informações sobre o registro de modelo em geral, consulte [ger
 
 ## <a name="define-inference-configuration"></a>Definir configuração de inferência
 
-A configuração de inferência define o ambiente usado para executar o modelo implantado. A configuração de inferência faz referência aos seguintes arquivos que são usados para executar o modelo quando ele é implantado:
+A configuração de inferência define o ambiente usado para executar o modelo implantado. A configuração de inferência referencia as seguintes entidades, que são usadas para executar o modelo quando ela é implantada:
 
-* O tempo de execução. O único valor válido para tempo de execução atualmente é Python.
 * Um script de entrada. Esse arquivo (chamado `score.py`) carrega o modelo quando o serviço implantado é iniciado. Ele também é responsável por receber dados, passá-los para o modelo e, em seguida, retornar uma resposta.
-* Um arquivo de ambiente Conda. Esse arquivo define os pacotes do python necessários para executar o script de modelo e de entrada. 
+* Um [ambiente](how-to-use-environments.md)de serviço Azure Machine Learning. Um ambiente define as dependências de software necessárias para executar o modelo e o script de entrada.
 
-O exemplo a seguir mostra uma configuração básica de inferência usando o SDK do Python:
+O exemplo a seguir mostra como usar o SDK para criar um ambiente e, em seguida, usá-lo com uma configuração de inferência:
 
 ```python
 from azureml.core.model import InferenceConfig
+from azureml.core import Environment
+from azureml.core.environment import CondaDependencies
 
-inference_config = InferenceConfig(runtime= "python", 
-                                   entry_script="score.py",
-                                   conda_file="myenv.yml")
+# Create the environment
+myenv = Environment(name="myenv")
+conda_dep = CondaDependencies()
+
+# Define the packages needed by the model and scripts
+conda_dep.add_conda_package("tensorflow")
+conda_dep.add_conda_package("numpy")
+conda_dep.add_conda_package("scikit-learn")
+conda_dep.add_pip_package("keras")
+
+# Adds dependencies to PythonSection of myenv
+myenv.python.conda_dependencies=conda_dep
+
+inference_config = InferenceConfig(entry_script="score.py",
+                                   environment=myenv)
 ```
 
-Para obter mais informações, consulte a referência de [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) .
+Para obter mais informações, veja os artigos seguintes:
+
++ [Como usar ambientes](how-to-use-environments.md).
++ Referência de [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) .
+
 
 A CLI carrega a configuração de inferência de um arquivo YAML:
 
@@ -102,6 +119,20 @@ A CLI carrega a configuração de inferência de um arquivo YAML:
    "runtime": "python",
    "condaFile": "myenv.yml"
 }
+```
+
+Com a CLI, o ambiente Conda é definido no `myenv.yml` arquivo referenciado pela configuração de inferência. O seguinte YAML é o conteúdo deste arquivo:
+
+```yaml
+name: inference_environment
+dependencies:
+- python=3.6.2
+- tensorflow
+- numpy
+- scikit-learn
+- pip:
+    - azureml-defaults
+    - keras
 ```
 
 Para obter mais informações sobre a configuração de inferência, consulte [implantar modelos com o serviço Azure Machine Learning](how-to-deploy-and-where.md).
@@ -190,24 +221,6 @@ def predict(text, include_neutral=True):
 ```
 
 Para obter mais informações sobre scripts de entrada, consulte [implantar modelos com o serviço Azure Machine Learning](how-to-deploy-and-where.md).
-
-### <a name="conda-environment"></a>Ambiente Conda
-
-O YAML a seguir descreve o ambiente Conda necessário para executar o script de modelo e de entrada:
-
-```yaml
-name: inference_environment
-dependencies:
-- python=3.6.2
-- tensorflow
-- numpy
-- scikit-learn
-- pip:
-    - azureml-defaults
-    - keras
-```
-
-Para obter mais informações, consulte [implantar modelos com o serviço Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="define-deployment"></a>Definir implantação
 

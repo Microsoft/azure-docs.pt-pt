@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 577bf7f157eb89da360fa6cbdd4d22c1054f234f
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: daf2781113016b20c19a6b8f5365033f1ff1479b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966715"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195264"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Use o aprendizado ativo para melhorar sua base de dados de conhecimento
 
@@ -56,7 +56,7 @@ Quando a pontuação de uma pergunta é altamente confiável, como 80%, o interv
 
 ## <a name="upgrade-your-runtime-version-to-use-active-learning"></a>Atualizar sua versão de tempo de execução para usar o aprendizado ativo
 
-O aprendizado ativo tem suporte na versão de tempo de execução 4.4.0 e posteriores. Se sua base de dados de conhecimento foi criada em uma versão anterior, [atualize seu tempo de execução](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) para usar esse recurso. 
+O aprendizado ativo tem suporte na versão de tempo de execução 4.4.0 e posteriores. Se sua base de dados de conhecimento foi criada em uma versão anterior, [atualize seu tempo de execução](set-up-qnamaker-service-azure.md#get-latest-runtime-updates) para usar esse recurso. 
 
 ## <a name="turn-on-active-learning-to-see-suggestions"></a>Ativar o aprendizado ativo para ver sugestões
 
@@ -181,11 +181,11 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|Propriedade de solicitação HTTP|Nome|Type|Objetivo|
+|Propriedade de solicitação HTTP|Name|Type|Objetivo|
 |--|--|--|--|
 |Parâmetro de rota de URL|ID da base de dados de conhecimento|Cadeia de caracteres|O GUID da sua base de dados de conhecimento.|
 |Subdomínio do host|Nome do recurso QnAMaker|Cadeia de caracteres|O nome do host para seu QnA Maker em sua assinatura do Azure. Isso estará disponível na página configurações depois que você publicar a base de dados de conhecimento. |
-|Cabeçalho|Content-Type|Cadeia de caracteres|O tipo de mídia do corpo enviado à API. O valor padrão é:`application/json`|
+|Cabeçalho|Tipo de conteúdo|Cadeia de caracteres|O tipo de mídia do corpo enviado à API. O valor padrão é:`application/json`|
 |Cabeçalho|Autorização|Cadeia de caracteres|Sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo da postagem|Objeto JSON|JSON|Os comentários de treinamento|
 

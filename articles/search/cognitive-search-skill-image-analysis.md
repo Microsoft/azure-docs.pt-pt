@@ -2,7 +2,7 @@
 title: Habilidades de pesquisa cognitiva de análise de imagem-Azure Search
 description: Extraia o texto semântico por meio da análise de imagem usando a habilidade cognitiva ImageAnalysis em um pipeline de enriquecimento de Azure Search.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 2bdb65355f835eec232efd4f0493ecefbecfdd26
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 07969a92286837f8f72b533173ac8d170378d0ea
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128197"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183396"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Habilidade cognitiva de análise de imagem
 

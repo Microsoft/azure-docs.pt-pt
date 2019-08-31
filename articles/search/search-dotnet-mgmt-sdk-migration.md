@@ -1,52 +1,52 @@
 ---
-title: Atualizar para o SDK de gestão .NET da Azure Search versão 2 - Azure Search
-description: Atualizar para o SDK de gestão .NET da Azure Search versão 2 de versões anteriores. Saiba quais são as novidades e quais alterações de código são necessárias.
+title: Atualizando para o SDK de gerenciamento do .NET Azure Search versão 2-Azure Search
+description: Atualize para o SDK de gerenciamento do .NET Azure Search versão 2 de versões anteriores. Saiba o que há de novo e quais alterações de código são necessárias.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 ms.author: brjohnst
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 62c2ed555fcac56677f4950c10d38ded8fb0649d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a59cff7f5313b0ac5a060d698950a4c82160f67
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65025181"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182246"
 ---
-# <a name="upgrading-to-the-azure-search-net-management-sdk-version"></a>Atualizar para a versão do SDK de gestão do Azure Search .NET 
+# <a name="upgrading-to-the-azure-search-net-management-sdk-version"></a>Atualizando para a versão Azure Search SDK de gerenciamento do .NET 
 
 > [!Important]
-> Este conteúdo está ainda estão em construção. A versão 3.0 do SDK de .NET de gestão do Azure Search está disponível em NuGet. Estamos a trabalhar sobre este guia de migração para explicar como atualizar para a nova versão de atualização. 
+> Este conteúdo ainda está em construção. A versão 3,0 do SDK do .NET de gerenciamento de Azure Search está disponível no NuGet. Estamos trabalhando para atualizar este guia de migração para explicar como atualizar para a nova versão. 
 >
 
-Se estiver a utilizar a versão 1.0.2 ou mais antigas do [SDK de gestão do Azure Search .NET](https://aka.ms/search-mgmt-sdk), este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 2.
+Se você estiver usando a versão 1.0.2 ou mais antiga do [SDK de gerenciamento do Azure Search .net](https://aka.ms/search-mgmt-sdk), este artigo ajudará você a atualizar seu aplicativo para usar a versão 2.
 
-Versão 2 do SDK de gestão do Azure Search .NET contém algumas alterações de versões anteriores. Principalmente são pequenas, para que alterar o seu código deve exigir muito pouco esforço. Ver [passos para atualizar](#UpgradeSteps) para obter instruções sobre como alterar o seu código para utilizar a nova versão do SDK.
+A versão 2 do SDK de gerenciamento do .NET Azure Search contém algumas alterações de versões anteriores. Elas são basicamente secundárias, portanto, alterar seu código deve exigir apenas um mínimo de esforço. Consulte [as etapas para atualizar](#UpgradeSteps) para obter instruções sobre como alterar seu código para usar a nova versão do SDK.
 
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-2"></a>O que há de novo na versão 2
-Versão 2 do SDK de gestão do Azure Search .NET destina-se a mesma versão disponível em geral da API de REST de gestão de pesquisa do Azure como versões anteriores do SDK, especificamente 2015-08-19. As alterações para o SDK estão estritamente lado do cliente de alterações para melhorar a usabilidade do SDK em si. Estas alterações incluem o seguinte:
+A versão 2 do SDK de gerenciamento do .NET Azure Search tem como destino a mesma versão disponível em geral da API REST de gerenciamento de Azure Search como versões anteriores do SDK, especificamente 2015-08-19. As alterações no SDK são estritamente alterações no lado do cliente para melhorar a usabilidade do próprio SDK. Essas alterações incluem o seguinte:
 
-* `Services.CreateOrUpdate` e suas versões assíncronas agora automaticamente de inquirir o aprovisionamento `SearchService` e não retorna até que o serviço aprovisionamento estiver concluído. Isso poupa de ter de escrever esse código de consulta por conta própria.
-* Se pretender continuar a consultar o serviço de aprovisionamento manualmente, pode utilizar o novo `Services.BeginCreateOrUpdate` método ou uma das respetivas versões assíncronas.
-* Novos métodos `Services.Update` e suas versões assíncronas foram adicionados para o SDK. Esses métodos usam o PATCH de HTTP para suporta a atualização incremental de um serviço. Por exemplo, pode dimensionar um serviço ao transmitir uma `SearchService` instância para esses métodos, que contém apenas o desejado `partitionCount` e `replicaCount` propriedades. O método antigo de chamar `Services.Get`, modificar retornado `SearchService`e passando-o para `Services.CreateOrUpdate` continua a ser suportado, mas já não é necessário. 
+* `Services.CreateOrUpdate`e suas versões assíncronas agora sondam automaticamente o `SearchService` provisionamento e não retornam até que o provisionamento do serviço seja concluído. Isso evita que você tenha que escrever tal código de sondagem por conta própria.
+* Se você ainda quiser sondar manualmente o provisionamento de serviço, poderá usar o novo `Services.BeginCreateOrUpdate` método ou uma de suas versões assíncronas.
+* Novos métodos `Services.Update` e suas versões assíncronas foram adicionados ao SDK. Esses métodos usam PATCH HTTP para dar suporte à atualização incremental de um serviço. Por exemplo, agora você pode dimensionar um serviço passando uma `SearchService` instância para esses métodos que contenham apenas as propriedades e `replicaCount` desejadas `partitionCount` . A maneira antiga de chamar `Services.Get`, modificar o retornado `SearchService`e passá-lo para `Services.CreateOrUpdate` o ainda é suportada, mas não é mais necessária. 
 
 <a name="UpgradeSteps"></a>
 
-## <a name="steps-to-upgrade"></a>Passos para atualizar
-Em primeiro lugar, atualizar a sua referência de NuGet para `Microsoft.Azure.Management.Search` utilizando a consola de Gestor de pacotes NuGet ou ao clicar com o botão direito em suas referências de projeto e selecionando "Gerir NuGet pacotes..." no Visual Studio.
+## <a name="steps-to-upgrade"></a>Etapas para atualizar
+Primeiro, atualize a referência do NuGet `Microsoft.Azure.Management.Search` para usar o console do Gerenciador de pacotes NuGet ou clicando com o botão direito do mouse nas referências do projeto e selecionando "gerenciar pacotes NuGet..." no Visual Studio.
 
-Assim que o NuGet tiver baixado os novos pacotes e suas dependências, recrie seu projeto. Dependendo de como o seu código está estruturado, ele poderá reconstruir os com êxito. Nesse caso, está pronto para começar!
+Depois que o NuGet tiver baixado os novos pacotes e suas dependências, recompile o projeto. Dependendo de como seu código é estruturado, ele pode ser recriado com êxito. Nesse caso, você está pronto para começar!
 
-Se sua compilação falhar, é possível porque implementou algumas das interfaces SDK (por exemplo, para fins de teste de unidade), que foram alterados. Para resolver este problema, terá de implementar os novos métodos como `BeginCreateOrUpdateWithHttpMessagesAsync`.
+Se sua compilação falhar, pode ser porque você implementou algumas das interfaces do SDK (por exemplo, para fins de teste de unidade), que foram alteradas. Para resolver isso, você precisará implementar os novos métodos, `BeginCreateOrUpdateWithHttpMessagesAsync`como.
 
-Depois de ter de corrigir os erros de compilação, pode efetuar alterações à sua aplicação para tirar partido das novas funcionalidades, se desejar. Novas funcionalidades no SDK são detalhadas no [quais são as novidades na versão 2](#WhatsNew).
+Depois de corrigir os erros de compilação, você poderá fazer alterações em seu aplicativo para tirar proveito da nova funcionalidade, se desejar. Os novos recursos do SDK são detalhados no [que há de novo na versão 2](#WhatsNew).
 
 ## <a name="conclusion"></a>Conclusão
-Apreciamos os seus comentários sobre o SDK. Se tiver problemas, fique à vontade contacte-nos para obter ajuda sobre o [fórum MSDN do Azure Search](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Se encontrar um bug, comunique o assunto na [repositório do GitHub do Azure .NET SDK](https://github.com/Azure/azure-sdk-for-net/issues). Certifique-se para o prefixo seu título do problema com o "[o Azure Search]".
+Agradecemos seus comentários sobre o SDK. Se você encontrar problemas, sinta-se à vontade para nos pedir ajuda no [fórum Azure Search MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Se você encontrar um bug, poderá arquivar um problema no [repositório GitHub do SDK do .net do Azure](https://github.com/Azure/azure-sdk-for-net/issues). Certifique-se de prefixar o título do problema com "[Azure Search]".
 
-Obrigado por utilizar o Azure Search!
+Obrigado por usar Azure Search!

@@ -1,6 +1,6 @@
 ---
-title: Automatizar processos de Azure Application Insights com o Microsoft Flow
-description: Saiba como pode utilizar o Microsoft Flow para rapidamente automatizar processos repetíveis ao utilizar o conector do Application Insights.
+title: Automatizar processos do insights Aplicativo Azure com Microsoft Flow
+description: Saiba como você pode usar Microsoft Flow para automatizar rapidamente os processos repetíveis usando o conector de Application Insights.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -9,70 +9,75 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 08/29/2019
 ms.author: mbullwin
-ms.openlocfilehash: 15299be83758c157bf3bc7d9fb27b50763b9148e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 541d5b70ee56d62831f0947e64b9522e17a07dd9
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60903658"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194905"
 ---
-# <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos de Azure Application Insights com o conector para o Microsoft Flow
+# <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos do insights Aplicativo Azure com o conector para Microsoft Flow
 
-Encontra-se a executar repetidamente as mesmas consultas nos seus dados de telemetria para verificar se o seu serviço está a funcionar corretamente? Está à procura para automatizar estas consultas para localizar tendências e anomalias e, em seguida, criar seus próprios fluxos de trabalho em torno deles? O conector do Application Insights do Azure para Microsoft Flow é a ferramenta certa para estes fins.
+Você se encontra executando repetidamente as mesmas consultas nos dados de telemetria para verificar se o serviço está funcionando corretamente? Você pretende automatizar essas consultas para encontrar tendências e anomalias e, em seguida, criar seus próprios fluxos de trabalho em relação a eles? O conector do Aplicativo Azure insights para Microsoft Flow é a ferramenta certa para essas finalidades.
 
-Com esta integração, agora já pode automatizar vários processos sem ter de escrever uma única linha de código. Depois de criar um fluxo com uma ação do Application Insights, o fluxo executa automaticamente a consulta do Analytics do Application Insights. 
+Com essa integração, agora você pode automatizar vários processos sem escrever uma única linha de código. Depois de criar um fluxo usando uma ação de Application Insights, o fluxo executa automaticamente a consulta Application Insights Analytics.
 
-Pode adicionar ações adicionais também. Microsoft Flow torna a centenas de ações disponíveis. Por exemplo, pode utilizar o Microsoft Flow para enviar uma notificação por e-mail ou criar um bug no DevOps do Azure automaticamente. Também pode utilizar um dos muitos [modelos](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) que estão disponíveis para o conector para o Microsoft Flow. Estes modelos aceleram o processo de criação de um fluxo. 
+Você também pode adicionar ações adicionais. Microsoft Flow torna centenas de ações disponíveis. Por exemplo, você pode usar Microsoft Flow para enviar automaticamente uma notificação por email ou criar um bug no Azure DevOps. Você também pode usar um dos muitos [modelos](https://ms.flow.microsoft.com/connectors/shared_applicationinsights/?slug=azure-application-insights) disponíveis para o conector para Microsoft Flow. Esses modelos aceleram o processo de criação de um fluxo.
 
-<!--The Application Insights connector also works with [Azure Power Apps](https://powerapps.microsoft.com/en-us/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/?v=17.23h). --> 
+<!--The Application Insights connector also works with [Azure Power Apps](https://powerapps.microsoft.com/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/?v=17.23h). -->
 
-## <a name="create-a-flow-for-application-insights"></a>Criar um fluxo para o Application Insights
+## <a name="create-a-flow-for-application-insights"></a>Criar um fluxo para Application Insights
 
-Neste tutorial, irá aprender como criar um fluxo que utiliza o algoritmo de cluster automática de análise para atributos de grupo nos dados de um aplicativo web. O fluxo envia automaticamente os resultados por correio eletrónico, apenas um exemplo de como pode usar o Microsoft Flow e o Application Insights Analytics juntos. 
+Neste tutorial, você aprenderá a criar um fluxo que usa o algoritmo de autocluster do Analytics para agrupar atributos nos dados de um aplicativo Web. O fluxo envia automaticamente os resultados por email, apenas um exemplo de como você pode usar Microsoft Flow e Application Insights Analytics juntos.
 
 ### <a name="step-1-create-a-flow"></a>Passo 1: Criar um fluxo
-1. Inicie sessão no [Microsoft Flow](https://flow.microsoft.com)e, em seguida, selecione **meus fluxos**.
-2. Clique em **New** , em seguida, **criar do zero**.
 
-    ![Criar novo fluxo do zero](./media/automate-with-flow/1createflow.png)
+1. Entre no [Microsoft Flow](https://flow.microsoft.com)e, em seguida, selecione **meus fluxos**.
+2. Clique em **novo** , agendado, em **branco**.
 
-### <a name="step-2-create-a-trigger-for-your-flow"></a>Passo 2: Criar um acionador para o fluxo
-1. Na compilação do separador select **agenda**e, em seguida, selecione **Schedule - Recurrence**.
+    ![Criar novo fluxo de em branco agendado](./media/automate-with-flow/1-create.png)
 
-    ![Selecione agendo na compilação](./media/automate-with-flow/2schedule.png)
+### <a name="step-2-create-a-trigger-for-your-flow"></a>Passo 2: Criar um gatilho para seu fluxo
 
-1. Na **intervalo** , introduza **1**e, no **frequência** caixa, selecione **dia**.
-2. Clique em **novo passo**
+1. No pop-up, **crie um fluxo agendado**, preencha o nome do fluxo e com que frequência você deseja que o fluxo seja executado.
 
-    ![Configurar a periodicidade da agenda com introduzir frequências e intervalos](./media/automate-with-flow/3schedulerecurrence.png)
+    ![Configurar a recorrência de agendamento com a frequência e o intervalo de entrada](./media/automate-with-flow/2-schedule.png)
 
+1. Clique em **Criar**.
 
-### <a name="step-3-add-an-application-insights-action"></a>Passo 3: Adicionar uma ação do Application Insights
-1. Procure **Azure Application Insights**.
-2. Clique em **do Azure Application Insights - consulta do Analytics visualizar**.
- 
-    ![Escolha uma ação: Consulta de Analytics visualizar do Application Insights do Azure](./media/automate-with-flow/4visualize.png)
+### <a name="step-3-add-an-application-insights-action"></a>Passo 3: Adicionar uma ação de Application Insights
 
-### <a name="step-4-connect-to-an-application-insights-resource"></a>Passo 4: Ligar a um recurso do Application Insights
+1. Procure **Application insights**.
+2. Clique em **aplicativo Azure insights – Visualizar consulta do Analytics**.
 
-Para concluir este passo, terá um ID de aplicação e uma chave de API para o seu recurso. Pode recuperá-los no portal do Azure, conforme mostrado no diagrama seguinte:
+    ![Escolha uma ação: Consulta de análise de visualização do Aplicativo Azure insights](./media/automate-with-flow/3-visualize.png)
 
-![ID da aplicação no portal do Azure](./media/automate-with-flow/5apiaccess.png)
+3. Selecione **Novo passo**.
+
+### <a name="step-4-connect-to-an-application-insights-resource"></a>Passo 4: Conectar-se a um recurso de Application Insights
+
+Para concluir esta etapa, você precisa de uma ID de aplicativo e uma chave de API para seu recurso. Você pode recuperá-los do portal do Azure, conforme mostrado no diagrama a seguir:
+
+![ID do aplicativo no portal do Azure](./media/automate-with-flow/5apiaccess.png)
 
 ![Chave de API no portal do Azure](./media/automate-with-flow/6apikey.png)
 
-- Forneça um nome para a sua ligação, juntamente com a chave de API e o ID da aplicação.
+Forneça um nome para a conexão, juntamente com a ID do aplicativo e a chave de API.
 
-    ![Janela de ligação do Microsoft Flow](./media/automate-with-flow/7connection.png)
+   ![Janela de conexão Microsoft Flow](./media/automate-with-flow/4-connection.png)
 
-### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Passo 5: Especifique o tipo de gráfico e de consulta do Analytics
-Esta consulta de exemplo seleciona os pedidos com falhas durante o último dia e correlaciona-los com exceções que ocorreram como parte da operação. Análise correlaciona-los com base no identificador do operation_Id. A consulta, em seguida, segmenta os resultados usando o algoritmo de autocluster. 
+Se a caixa de conexão não aparecer imediatamente e, em vez disso, chegar diretamente à inserção da consulta, clique nas reticências na parte superior direita da caixa. Em seguida, selecione minhas conexões ou use uma existente.
 
-Ao criar suas próprias consultas, certifique-se de que estão a funcionar corretamente no Analytics antes de o adicionar ao seu fluxo.
+Clique em **Criar**.
 
-- Adicione a seguinte consulta do Analytics e selecione o tipo de gráfico de tabela HTML. Em seguida, selecione **novo passo**.
+### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Passo 5: Especificar a consulta de análise e o tipo de gráfico
+Esta consulta de exemplo seleciona as solicitações com falha no último dia e as correlaciona com exceções que ocorreram como parte da operação. O Analytics os correlaciona com base no identificador operation_Id. Em seguida, a consulta segmenta os resultados usando o algoritmo autocluster.
+
+Ao criar suas próprias consultas, verifique se elas estão funcionando corretamente no Analytics antes de adicioná-las ao seu fluxo.
+
+- Adicione a seguinte consulta de análise e selecione o tipo de gráfico de tabela HTML. Em seguida, selecione **nova etapa**.
 
     ```
     requests
@@ -85,59 +90,53 @@ Ao criar suas próprias consultas, certifique-se de que estão a funcionar corre
     | evaluate autocluster()
     ```
     
-    ![Janela de configuração de consulta do Analytics](./media/automate-with-flow/8query.png)
+    ![Janela de configuração de consulta do Analytics](./media/automate-with-flow/5-query.png)
 
-### <a name="step-6-configure-the-flow-to-send-email"></a>Passo 6: Configurar o fluxo para enviar e-mail
+### <a name="step-6-configure-the-flow-to-send-email"></a>Passo 6: Configurar o fluxo para enviar email
 
-1. Procure **Outlook do Office 365**.
-2. Clique em **Office 365 Outlook - enviar um e-mail**.
+1. Pesquise o **Outlook do Office 365**.
+2. Clique em **Office 365 Outlook-enviar um email**.
 
-    ![Janela de seleção do Outlook do Office 365](./media/automate-with-flow/9outlookaction.png)
+    ![Janela de seleção do Outlook do Office 365](./media/automate-with-flow/6-outlook.png)
 
-1. Na **enviar um e-mail** janela, efetue o seguinte procedimento:
+1. Na janela **enviar um email** :
 
-   a. Escreva o endereço de e-mail do destinatário.
+   a. Digite o endereço de email do destinatário.
 
-   b. Escreva um assunto do e-mail.
+   b. Digite um assunto para o email.
 
-   c. Clique em qualquer ponto do **corpo** caixa e, em seguida, no menu conteúdo dinâmico que abre à direita, selecione **corpo**.
+   c. Clique em qualquer lugar na caixa **corpo** e, no menu conteúdo dinâmico que é aberto à direita, selecione **corpo**.
 
-   d. Clique em **Mostrar opções avançadas**.
+   e. Selecione **Mostrar opções avançadas**
 
-    ![Configuração do Outlook do Office 365](./media/automate-with-flow/10sendemailbody.png)
+1. No menu de conteúdo dinâmico:
 
-1. No menu de conteúdo dinâmico, efetue o seguinte:
+    a. Selecione o **nome do anexo**.
 
-    a. Selecione **nome do anexo**.
-
-    b. Selecione **conteúdo do anexo**.
+    b. Selecione o **conteúdo do anexo**.
     
-    c. Na **é HTML** caixa, selecione **Sim**.
+    c. Na caixa **é HTML** , selecione **Sim**.
 
-    ![Janela de configuração de e-mail do Office 365](./media/automate-with-flow/11emailattachment.png)
+    ![Configuração do Office 365 Outlook](./media/automate-with-flow/7-email.png)
 
-### <a name="step-7-save-and-test-your-flow"></a>Passo 7: Guardar e testar o fluxo
-- Na **nome do fluxo** caixa, adicione um nome para o fluxo e, em seguida, clique em **guardar**.
+### <a name="step-7-save-and-test-your-flow"></a>Passo 7: Salvar e testar seu fluxo
 
-    ![Dê um nome fluxo e guardar](./media/automate-with-flow/12nameflow.png)
+Clique em **Guardar**.
 
-Pode aguardar que o acionador executar esta ação, ou pode executar o fluxo imediatamente por [executar o acionador a pedido](https://flow.microsoft.com/blog/run-now-and-six-more-services/).
+Você pode aguardar até que o gatilho execute esta ação, ou pode clicar ![no **teste** de](./media/automate-with-flow/testicon.png) ícone de teste Beaker na parte superior.
 
-Quando o fluxo é executado, os destinatários que especificou na lista de correio eletrónico recebem uma mensagem de e-mail que é semelhante ao seguinte:
+Depois de selecionar **teste**:
 
-![E-mail de exemplo](./media/automate-with-flow/flow9.png)
+1. Selecione **eu executarei a ação do gatilho**.
+2. Selecione **executar fluxo**.
 
+Quando o fluxo é executado, os destinatários que você especificou na lista de emails recebem uma mensagem de email como a exibida abaixo.
+
+![Email de exemplo](./media/automate-with-flow/flow9.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre a criação [consultas de análise](../../azure-monitor/log-query/get-started-queries.md).
+- Saiba mais sobre como criar [consultas de análise](../../azure-monitor/log-query/get-started-queries.md).
 - Saiba mais sobre [Microsoft Flow](https://ms.flow.microsoft.com).
 
-
-
 <!--Link references-->
-
-
-
-
-

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 06/03/2019
-ms.openlocfilehash: e9cc5aaaf11a799b17cc87b40113e166fcd93afb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/29/2019
+ms.openlocfilehash: cdbc79ca6764dd49f427b395dbaf8502c58bf63a
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568994"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173436"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copiar uma cópia transacionalmente consistente de um banco de dados SQL do Azure
 
@@ -24,7 +24,7 @@ O banco de dados SQL do Azure fornece vários métodos para criar uma cópia tra
 
 ## <a name="overview"></a>Descrição geral
 
-Uma cópia de banco de dados é um instantâneo do banco de dados de origem a partir do momento da solicitação de cópia. Você pode selecionar o mesmo servidor ou um servidor diferente. Além disso, você pode optar por manter sua camada de serviço e o tamanho da computação ou usar um tamanho de computação diferente dentro da mesma camada de serviço (edição). Depois que a cópia for concluída, ela se tornará um banco de dados totalmente funcional e independente. Neste ponto, você pode atualizar ou fazer downgrade dele para qualquer edição. Os logons, os usuários e as permissões podem ser gerenciados de forma independente.  
+Uma cópia de banco de dados é um instantâneo do banco de dados de origem a partir do momento da solicitação de cópia. Você pode selecionar o mesmo servidor ou um servidor diferente. Além disso, você pode optar por manter sua camada de serviço e o tamanho da computação ou usar um tamanho de computação diferente dentro da mesma camada de serviço (edição). Depois que a cópia for concluída, ela se tornará um banco de dados totalmente funcional e independente. Neste ponto, você pode atualizar ou fazer downgrade dele para qualquer edição. Os logons, os usuários e as permissões podem ser gerenciados de forma independente. A cópia é criada usando a tecnologia de replicação geográfica e, após a conclusão da propagação, o link de replicação geográfica é encerrado automaticamente. Todos os requisitos para usar a replicação geográfica se aplicam à operação de cópia do banco de dados. Consulte [visão geral da replicação geográfica ativa](sql-database-active-geo-replication.md) para obter detalhes.
 
 > [!NOTE]
 > [Backups de banco de dados automatizados](sql-database-automated-backups.md) são usados quando você cria uma cópia de banco de dados.
@@ -61,6 +61,26 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 ```
 
 Para obter um script de exemplo completo, consulte [copiar um banco de dados para um novo servidor](scripts/sql-database-copy-database-to-new-server-powershell.md).
+
+A cópia do banco de dados é uma operação assíncrona, mas o banco de dados de destino é criado imediatamente depois que a solicitação é aceita. Se você precisar cancelar a operação de cópia enquanto ainda estiver em andamento, remova o banco de dados de destino usando o cmdlet [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) .  
+
+## <a name="rbac-roles-to-manage-database-copy"></a>Funções de RBAC para gerenciar cópia de banco de dados
+
+Para criar uma cópia de banco de dados, você precisará estar nas seguintes funções
+
+- Proprietário da assinatura ou
+- SQL Server função colaborador ou
+- Função personalizada nos bancos de dados de origem e de destino com a seguinte permissão:
+
+   Microsoft. SQL/servidores/bancos de dados/ler Microsoft. SQL/servidores/bancos de dados/gravar
+
+Para cancelar uma cópia de banco de dados, você precisará estar nas seguintes funções
+
+- Proprietário da assinatura ou
+- SQL Server função colaborador ou
+- Função personalizada nos bancos de dados de origem e de destino com a seguinte permissão:
+
+   Microsoft. SQL/servidores/bancos de dados/ler Microsoft. SQL/servidores/bancos de dados/gravar
 
 ## <a name="copy-a-database-by-using-transact-sql"></a>Copiar um banco de dados usando Transact-SQL
 
@@ -107,6 +127,10 @@ Monitore o processo de cópia consultando os modos de exibição sys. databases 
 
 > [!NOTE]
 > Se você decidir cancelar a cópia enquanto ela estiver em andamento, execute a instrução [drop Database](https://msdn.microsoft.com/library/ms178613.aspx) no novo banco de dados. Como alternativa, a execução da instrução DROP DATABASE no banco de dados de origem também cancela o processo de cópia.
+
+> [!IMPORTANT]
+> Se você precisar criar uma cópia com um SLO substancialmente menor do que a origem, o banco de dados de destino poderá não ter recursos suficientes para concluir o processo de propagação e isso poderá fazer com que a operabilidade de cópia falhe. Nesse cenário, use uma solicitação de restauração geográfica para criar uma cópia em um servidor diferente e/ou em uma região diferente. Consulte [recuperar um banco de dados SQL do Azure usando backups de banco de dados](sql-database-recovery-using-backups.md#geo-restore) para obter mais informações.
+
 
 ## <a name="resolve-logins"></a>Resolver logons
 

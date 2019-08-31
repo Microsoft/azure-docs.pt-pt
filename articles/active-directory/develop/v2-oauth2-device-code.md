@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 274c4e89ff3f996cc71cdacdfb7b5b72e813ae4b
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: fdd99899494e9f7b3c0caa4e83f18803b969db1e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297667"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192711"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Plataforma de identidade da Microsoft e o fluxo de código do dispositivo OAuth 2,0
 
@@ -35,7 +35,7 @@ A plataforma de identidade da Microsoft dá suporte à [concessão de código de
 >
 > As contas pessoais que são convidadas para um locatário do Azure AD poderão usar a concessão de fluxo do dispositivo, mas somente no contexto do locatário.
 >
-> Como uma observação adicional, o `verification_uri_complete` campo de resposta não é incluído ou tem suporte no momento.  
+> Como uma observação adicional, o `verification_uri_complete` campo de resposta não é incluído ou tem suporte no momento.  Mencionamos isso porque, se você ler o padrão, verá `verification_uri_complete` que está listado como uma parte opcional do padrão de fluxo de código do dispositivo.
 
 > [!NOTE]
 > O ponto de extremidade da plataforma Microsoft Identity não dá suporte a todos os cenários e recursos de Azure Active Directory. Para determinar se você deve usar o ponto de extremidade da plataforma de identidade da Microsoft, leia sobre as [limitações da plataforma de identidade da Microsoft](active-directory-v2-limitations.md).
@@ -67,8 +67,8 @@ scope=user.read%20openid%20profile
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Necessário |O locatário do diretório do qual você deseja solicitar permissão. Isso pode estar no formato de nome amigável ou GUID.  |
-| `client_id` | Necessário | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
+| `tenant` | Requerido |O locatário do diretório do qual você deseja solicitar permissão. Isso pode estar no formato de nome amigável ou GUID.  |
+| `client_id` | Requerido | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
 | `scope` | Recomendado | Uma lista separada por espaços de [](v2-permissions-and-consent.md) escopos aos quais você deseja que o usuário concorde.  |
 
 ### <a name="device-authorization-response"></a>Resposta de autorização do dispositivo
@@ -99,11 +99,11 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 ```
 
-| Parâmetro | Necessário | Descrição|
+| Parâmetro | Requerido | Descrição|
 | -------- | -------- | ---------- |
-| `grant_type` | Necessário | Deve ser`urn:ietf:params:oauth:grant-type:device_code`|
-| `client_id`  | Necessário | Deve corresponder ao `client_id` usado na solicitação inicial. |
-| `device_code`| Necessário | O `device_code` retornado na solicitação de autorização do dispositivo.  |
+| `grant_type` | Requerido | Deve ser`urn:ietf:params:oauth:grant-type:device_code`|
+| `client_id`  | Requerido | Deve corresponder ao `client_id` usado na solicitação inicial. |
+| `device_code`| Requerido | O `device_code` retornado na solicitação de autorização do dispositivo.  |
 
 ### <a name="expected-errors"></a>Erros esperados
 

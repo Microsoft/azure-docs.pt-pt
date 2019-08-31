@@ -1,19 +1,19 @@
 ---
-title: Exemplos de consultas avançado
-description: Utilize o gráfico de recursos do Azure para executar algumas consultas avançadas, incluindo a capacidade VMSS, todas as etiquetas utilizadas, a listagem e máquinas de virtuais correspondentes com expressões regulares.
+title: Exemplos de consulta avançada
+description: Use o grafo de recursos do Azure para executar algumas consultas avançadas, incluindo capacidade do conjunto de dimensionamento de máquinas virtuais, listagem de todas as marcas usadas e correspondência de máquinas virtuais com expressões regulares.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7684ae6b4ddb6320efc62ef6f9963bef1b9a66fa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b5742d4c14d2599b3efa73e427a5d418e5ef1c1e
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691997"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164906"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas avançadas do Azure Resource Graph
 
@@ -22,7 +22,7 @@ O primeiro passo para compreender as consultas com Azure Resource Graph é obter
 Vamos examinar as seguintes consultas avançadas:
 
 > [!div class="checklist"]
-> - [Obter capacidade do conjunto de dimensionamento de máquina virtual e o tamanho](#vmss-capacity)
+> - [Obter capacidade e tamanho do conjunto de dimensionamento de máquinas virtuais](#vmss-capacity)
 > - [Listar todos os nomes de etiquetas](#list-all-tags)
 > - [Máquinas virtuais correspondidas por regex](#vm-regex)
 
@@ -72,8 +72,8 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 
 ## <a name="vm-regex"></a>Máquinas virtuais correspondidas por regex
 
-Esta consulta procura máquinas virtuais que correspondam a uma [expressão regular](/dotnet/standard/base-types/regular-expression-language-quick-reference) (conhecida como _regex_).
-O **coincide com regex \@**  permite definir o regex para fazer corresponder, que é `^Contoso(.*)[0-9]+$`. Essa definição de regex é explicada como:
+Esta consulta procura máquinas virtuais que correspondam a uma [expressão regular](/dotnet/standard/base-types/regular-expression-language-quick-reference) (conhecida como _regex_). A **Regex \@ corresponde** nos permite definir o Regex para corresponder, que é. `^Contoso(.*)[0-9]+$`
+Essa definição de regex é explicada como:
 
 - `^` – A correspondência tem de começar no início da cadeia de caracteres.
 - `Contoso` - a cadeia sensível às maiúsculas e minúsculas.
@@ -100,7 +100,23 @@ az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name ma
 Search-AzGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="displaynames"></a>Incluir os nomes de locatário e assinatura com displaynames
+
+Essa consulta usa o novo parâmetro **include** com opção displaynames para adicionar **subscriptionDisplayName** e **tenantDisplayName** aos resultados. Esse parâmetro só está disponível para CLI do Azure e Azure PowerShell.
+
+```azurecli-interactive
+az graph query -q "limit 1" --include displayNames
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "limit 1" -Include DisplayNames
+```
+
+> [!NOTE]
+> Se a consulta não usar o **Project** para especificar as propriedades retornadas, **subscriptionDisplayName** e **tenantDisplayName** serão incluídos automaticamente nos resultados.
+> Se a consulta usar o **Project**, cada um dos campos _DisplayName_ deverá ser incluído explicitamente no **projeto** ou não será retornado nos resultados, mesmo quando o parâmetro **include** for usado.
+
+## <a name="next-steps"></a>Passos seguintes
 
 - Ver exemplos de [Consultas de introdução](starter.md)
 - Saber mais sobre a [linguagem de consulta](../concepts/query-language.md)

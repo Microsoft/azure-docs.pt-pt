@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 07/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 24716a9b9fa5174d899cf0678b83b2da0c59957c
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 5ec92e34ffa68718525e9b407dc9e58f4c409975
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358664"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183551"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solução de problemas de implantação Azure Machine Learning serviço kubernetes do Azure e instâncias de contêiner do Azure
 
@@ -204,6 +204,9 @@ print(prediction)
 
 Durante os testes locais, talvez seja necessário atualizar o `score.py` arquivo para adicionar o log ou tentar resolver os problemas que você descobriu. Para recarregar as alterações no `score.py` arquivo, use `reload()`. Por exemplo, o código a seguir recarrega o script para o serviço e, em seguida, envia dados a ele. Os dados são pontuados usando o arquivo `score.py` atualizado:
 
+> [!IMPORTANT]
+> O `reload` método só está disponível para implantações locais. Para obter informações sobre como atualizar uma implantação para outro destino de computação, consulte a seção Atualizar de [implantar modelos](how-to-deploy-and-where.md#update).
+
 ```python
 service.reload()
 print(service.run(input_data=test_sample))
@@ -240,7 +243,7 @@ Depois que a imagem for criada com êxito, o sistema tentará iniciar um contêi
 
 Use as informações na seção [inspecionar o log do Docker](#dockerlog) para verificar os logs.
 
-## <a name="function-fails-getmodelpath"></a>Falha de função: get_model_path()
+## <a name="function-fails-get_model_path"></a>Falha de função: get_model_path()
 
 Geralmente, na `init()` função na função script de pontuação, [Model. Get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) é chamado para localizar um arquivo de modelo ou uma pasta de arquivos de modelo no contêiner. Se a pasta ou o arquivo de modelo não puder ser encontrado, a função falhará. A maneira mais fácil para depurar este erro é executar o abaixo o código de Python no shell do contentor:
 
@@ -255,7 +258,7 @@ Este exemplo imprime o caminho local (em relação `/var/azureml-app`a) no cont�
 
 Definir o nível de log para depurar pode fazer com que informações adicionais sejam registradas, o que pode ser útil para identificar a falha.
 
-## <a name="function-fails-runinputdata"></a>Falha de função: run(input_data)
+## <a name="function-fails-runinput_data"></a>Falha de função: run(input_data)
 
 Se o serviço é implementado com êxito, mas ele falha quando postar dados para o ponto final de classificação, pode adicionar erro capturando instrução em seu `run(input_data)` funcionar, para que ele retorne a mensagem de erro detalhada em vez disso. Por exemplo:
 
@@ -276,7 +279,7 @@ def run(input_data):
 
 ## <a name="http-status-code-503"></a>Código de status HTTP 503
 
-As implantações do serviço kubernetes do Azure dão suporte ao dimensionamento automático, que permite que as réplicas sejam adicionadas para dar suporte à carga adicional. No entanto, o dimensionador automático foi projetado  para lidar com alterações graduais na carga. Se você receber grandes picos em solicitações por segundo, os clientes poderão receber um código de status HTTP 503.
+As implantações do serviço kubernetes do Azure dão suporte ao dimensionamento automático, que permite que as réplicas sejam adicionadas para dar suporte à carga adicional. No entanto, o dimensionador automático foi projetado para lidar com alterações graduais na carga. Se você receber grandes picos em solicitações por segundo, os clientes poderão receber um código de status HTTP 503.
 
 Há duas coisas que podem ajudar a evitar códigos de status 503:
 

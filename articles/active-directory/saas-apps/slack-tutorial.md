@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26e15f704fc9604bd18a1f4848e84065fc507314
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 1c2d877a1dc611e02e9fbc245df230ca669a2ae4
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563088"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171432"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutorial: Integração do Azure Active Directory SSO (logon único) com a margem de atraso
 
@@ -47,6 +47,9 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 * A margem de atraso dá suporte ao SSO iniciado pelo **SP**
 * A margem de atraso dá suporte ao provisionamento **de usuário just in time**
 * A margem de atraso dá suporte ao [ provisionamento automatizado de usuários](https://docs.microsoft.com/en-gb/azure/active-directory/saas-apps/slack-provisioning-tutorial)
+
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
 
 ## <a name="adding-slack-from-the-gallery"></a>Adicionando a margem de atraso da Galeria
 
@@ -90,36 +93,6 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     > [!NOTE]
     > O valor da URL de logon não é real. Atualize o valor com a URL de logon real. Contate a [equipe de suporte ao cliente de margem de atraso](https://slack.com/help/contact) para obter o valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
-
-1. O aplicativo de margem de atraso espera que as asserções SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **atributos de usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML** , clique no botão **Editar** para abrir a caixa de diálogo **atributos de usuário** .
-
-    ![image](common/edit-attribute.png)
-
-    > [!NOTE]
-    > Se você tiver usuários que recebem **endereço de email** não está em uma licença do Office365, a Declaração **User. email** não será exibida no token SAML. Nesses casos, sugerimos o uso de **User. UserPrincipalName** como o valor de atributo **User. email** para mapear como um **identificador exclusivo** .
-
-1. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , configure o atributo de token SAML, conforme mostrado na imagem acima, e execute as seguintes etapas:
-
-    | Name | Atributo de origem |
-    | --- | --- |
-    | first_name | user.givenname |
-    | last_name | User. sobrenome |
-    | Usuário. email | user.mail |
-    | User. username | user.userprincipalname |
-
-    a. Clique em **Adicionar nova declaração** para abrir a caixa de diálogo **gerenciar declarações do usuário** .
-
-    b. Na caixa de texto **nome** , digite o nome do atributo mostrado para essa linha.
-
-    c. Deixe o **namespace** em branco.
-
-    d. Selecione origem como **atributo**.
-
-    e. Na lista **atributo de origem** , digite o valor do atributo mostrado para essa linha.
-
-    f. Clique em **Ok**
-
-    g. Clique em **Guardar**.
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -187,7 +160,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ### <a name="create-slack-test-user"></a>Criar usuário de teste de margem de atraso
 
-O objetivo desta seção é criar um usuário chamado Brenda Simon na margem de atraso. A margem de atraso dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há nenhum item de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar a margem de atraso, caso ele ainda não exista. A margem de atraso também dá suporte ao provisionamento automático de usuário. você pode encontrar mais detalhes [aqui](slack-provisioning-tutorial.md) sobre como configurar o provisionamento automático de usuário.
+O objetivo desta seção é criar um usuário chamado B. Simon na margem de atraso. A margem de atraso dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há nenhum item de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar a margem de atraso, caso ele ainda não exista. A margem de atraso também dá suporte ao provisionamento automático de usuário. você pode encontrar mais detalhes [aqui](slack-provisioning-tutorial.md) sobre como configurar o provisionamento automático de usuário.
 
 > [!NOTE]
 > Se você precisar criar um usuário manualmente, entre em contato com a [equipe de suporte da margem de atraso](https://slack.com/help/contact).

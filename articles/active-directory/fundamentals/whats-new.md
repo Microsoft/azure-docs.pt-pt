@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afab194c984dcbfa96a9342f46b892c7ec08d321
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9b600740f24a16d68e896638e65b9bf3c09e33bb
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135677"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192663"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que há de novo no Azure Active Directory?
 
@@ -41,6 +41,88 @@ Esta página é atualizada mensalmente, por isso, revisitá-lo regularmente. Se 
 
 ## <a name="august-2019"></a>Agosto de 2019
 
+### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>Planejar alteração: Substituição dos pacotes de conteúdo do Power BI
+
+**Escreva** Plano de alteração  
+**Categoria de serviço:** Relatórios  
+**Funcionalidade do produto:** Monitoramento & relatórios
+
+A partir de 1º de outubro de 2019, Power BI começará a substituir todos os pacotes de conteúdo, incluindo o pacote de conteúdo do Azure AD Power BI. Como alternativa para esse pacote de conteúdo, você pode usar pastas de trabalho do Azure AD para obter informações sobre seus serviços relacionados ao Azure AD. Pastas de trabalho adicionais são disponibilizadas, incluindo pastas de trabalho sobre políticas de acesso condicional no modo somente de relatório, informações baseadas em consentimento do aplicativo e muito mais.
+
+Para obter mais informações sobre as pastas de trabalho, consulte [como usar pastas de trabalho do Azure monitor para relatórios Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). Para obter mais informações sobre a substituição dos pacotes de conteúdo, consulte a postagem do blog [anunciando Power bi aplicativos de modelo de disponibilidade geral](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/) .
+
+---
+
+### <a name="new-custom-roles-are-available-for-app-registration-management-public-preview"></a>Novas funções personalizadas estão disponíveis para gerenciamento de registro de aplicativo (visualização pública)
+
+**Escreva** Nova funcionalidade  
+**Categoria de serviço:** RBAC  
+**Funcionalidade do produto:** Controlo de Acesso
+
+As funções personalizadas (disponíveis com uma assinatura P1 ou P2 do Azure AD) agora podem ajudar a fornecer acesso refinado, permitindo que você crie definições de função com permissões específicas e, em seguida, atribua essas funções a recursos específicos. No momento, você cria funções personalizadas usando permissões para gerenciar registros de aplicativo e, em seguida, atribuir a função a um aplicativo específico. Para obter mais informações sobre funções personalizadas, consulte [funções de administrador personalizado no Azure Active Directory (versão prévia)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-custom-overview).
+
+Se você precisar de permissões ou recursos adicionais com suporte, que você não vê no momento, poderá enviar comentários para nosso [site de comentários do Azure](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032) e adicionaremos sua solicitação ao mapa de estrada de atualização.
+
+---
+
+### <a name="new-provisioning-logs-can-help-you-monitor-and-troubleshoot-your-app-provisioning-deployment-public-preview"></a>Novos logs de provisionamento podem ajudá-lo a monitorar e solucionar problemas de implantação de provisionamento de aplicativo (visualização pública)
+
+**Escreva** Nova funcionalidade  
+**Categoria de serviço:** Aprovisionamento de Aplicação  
+**Funcionalidade do produto:** Gestão do Ciclo de Vida de Identidades
+
+Novos logs de provisionamento estão disponíveis para ajudá-lo a monitorar e solucionar problemas de implantação de provisionamento de usuários e grupos. Esses novos arquivos de log incluem informações sobre:
+
+- Quais grupos foram criados com êxito no [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)
+- Quais funções foram importadas de [Amazon Web Services (AWS)](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on)
+- O que os funcionários não foram importados do [workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial)
+
+Para obter mais informações, consulte Provisionando [relatórios no portal de Azure Active Directory (versão prévia)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs).
+
+---
+
+### <a name="new-security-reports-for-all-azure-ad-administrators-general-availability"></a>Novos relatórios de segurança para todos os administradores do Azure AD (disponibilidade geral)
+
+**Escreva** Nova funcionalidade  
+**Categoria de serviço:** Identity Protection  
+**Funcionalidade do produto:** Proteção de & de segurança de identidade
+
+Por padrão, todos os administradores do Azure AD serão capazes de acessar relatórios de segurança modernos no Azure AD. Até o fim de setembro, você poderá usar a faixa na parte superior dos relatórios de segurança modernos para retornar aos relatórios antigos.
+
+Os relatórios de segurança modernos fornecerão recursos adicionais das versões mais antigas, incluindo:
+
+- Filtragem e classificação avançadas
+- Ações em massa, como ignorar o risco do usuário
+- Confirmação de entidades comprometidas ou seguras
+- Estado de risco, abrangendo: Em risco, ignorado, remediado e confirmado comprometido
+- Novas detecções relacionadas a riscos (disponíveis para assinantes Azure AD Premium)
+
+Para obter mais informações, consulte [usuários arriscados](https://aka.ms/RiskyUsersDocs), [entradas arriscadas](https://aka.ms/RiskySigninsDocs)e [detecções de risco](https://aka.ms/RiskDetectionsDocs).
+
+---
+
+### <a name="user-assigned-managed-identity-is-available-for-virtual-machines-and-virtual-machine-scale-sets-general-availability"></a>A identidade gerenciada atribuída pelo usuário está disponível para máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais (disponibilidade geral)
+
+**Escreva** Nova funcionalidade  
+**Categoria de serviço:** Identidades geridas para os recursos do Azure  
+**Funcionalidade do produto:** Experiência de Programação
+
+Agora, as identidades gerenciadas atribuídas pelo usuário estão disponíveis para máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais. Como parte disso, o Azure pode criar uma identidade no locatário do Azure AD que é confiável para a assinatura em uso e pode ser atribuída a uma ou mais instâncias de serviço do Azure. Para obter mais informações sobre identidades gerenciadas atribuídas pelo usuário, consulte [o que são identidades gerenciadas para recursos do Azure?](https://aka.ms/azuremanagedidentity).
+
+---
+
+### <a name="users-can-reset-their-passwords-using-a-mobile-app-or-hardware-token-general-availability"></a>Os usuários podem redefinir suas senhas usando um token de hardware ou aplicativo móvel (disponibilidade geral)
+
+**Escreva** Funcionalidade alterada  
+**Categoria de serviço:** Reposição Autónoma de Palavra-passe  
+**Funcionalidade do produto:** Autenticação de Utilizador
+
+Os usuários que registraram um aplicativo móvel com sua organização agora podem redefinir sua própria senha, aprovando uma notificação do aplicativo Microsoft Authenticator ou inserindo um código de seu aplicativo móvel ou token de hardware.
+
+Para obter mais informações, [consulte Como funciona: Redefinição](https://aka.ms/authappsspr)de senha de autoatendimento do Azure AD. Para obter mais informações sobre a experiência do usuário, consulte [visão geral de redefinir sua própria senha corporativa ou de estudante](https://docs.microsoft.com/azure/active-directory/user-help/user-help-password-reset-overview).
+
+---
+
 ### <a name="adalnet-ignores-the-msalnet-shared-cache-for-on-behalf-of-scenarios"></a>ADAL.NET ignora o cache compartilhado MSAL.NET para cenários em nome de
 
 **Escreva** Fixo  
@@ -50,6 +132,118 @@ Esta página é atualizada mensalmente, por isso, revisitá-lo regularmente. Se 
 A partir da ADAL.NET (biblioteca de autenticação do Azure AD) versão 5.0.0-Preview, os desenvolvedores de aplicativos devem [serializar um cache por conta para aplicativos Web e APIs da Web](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api). Caso contrário, alguns cenários que usam o [fluxo em nome de](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow), juntamente com alguns casos de uso específicos `UserAssertion`do, podem resultar em uma elevação de privilégio. Para evitar essa vulnerabilidade, o ADAL.NET agora ignora o cache compartilhado da biblioteca de autenticação da Microsoft para dotNet (MSAL.NET) para cenários em nome de.
 
 Para obter mais informações sobre esse problema, consulte [Azure Active Directory vulnerabilidade de elevação de privilégio da biblioteca de autenticação](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1258).
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---august-2019"></a>Novos aplicativos federados disponíveis na Galeria de Aplicativo Azure AD – agosto de 2019
+
+**Escreva** Nova funcionalidade  
+**Categoria de serviço:** Aplicações Empresariais  
+**Funcionalidade do produto:** Integração de Terceiros
+
+Em agosto de 2019, adicionamos esses 26 novos aplicativos com suporte à Federação para a Galeria de aplicativos:
+
+[Plataforma cívico](https://docs.microsoft.com/azure/active-directory/saas-apps/civic-platform-tutorial), [Amazon Business](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-business-tutorial), [pronovo Ops Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-ops-manager-tutorial), [Cognidox](https://docs.microsoft.com/azure/active-directory/saas-apps/cognidox-tutorial), [Portal de Inativ da Viareport (Europa)](https://docs.microsoft.com/azure/active-directory/saas-apps/viareports-inativ-portal-europe-tutorial), [Azure Databricks](https://azure.microsoft.com/services/databricks), [Robin](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial), [participação da Academia](https://docs.microsoft.com/azure/active-directory/saas-apps/academy-attendance-tutorial), matriz de [prioridade](https://sync.appfluence.com/pmwebng/), [Cousto MySpace](https://cousto.platformers.be/account/login), [Uploadcare](https://uploadcare.com/accounts/signup/), [Carbonite Endpoint backup](https://docs.microsoft.com/azure/active-directory/saas-apps/carbonite-endpoint-backup-tutorial), [CPQSync by Cincom](https://docs.microsoft.com/azure/active-directory/saas-apps/cpqsync-by-cincom-tutorial), [Chargebee](https://docs.microsoft.com/azure/active-directory/saas-apps/chargebee--tutorial), [entregue. Media™ portal](https://portal.deliver.media), [frente Education](https://docs.microsoft.com/azure/active-directory/saas-apps/frontline-education-tutorial), [F5](https://www.f5.com/products/security/access-policy-manager), [stashcat AD conectar](https://www.stashcat.com), [piscar](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial), [Vocoli](https://docs.microsoft.com/azure/active-directory/saas-apps/vocoli-tutorial), [pronovo análises](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-analytics-tutorial), [Sigstr](https://docs.microsoft.com/azure/active-directory/saas-apps/sigstr-tutorial), [Darwinbox](https://docs.microsoft.com/azure/active-directory/saas-apps/darwinbox-tutorial), [assistir por cores](https://docs.microsoft.com/azure/active-directory/saas-apps/watch-by-colors-tutorial), [Harness](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial), [EAB navegar pelo atendimento estratégico](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-strategic-care-tutorial)
+
+Para obter mais informações sobre as aplicações, consulte [integração de aplicações SaaS com o Azure Active Directory](https://aka.ms/appstutorial). Para obter mais informações sobre a listagem a sua aplicação na Galeria de aplicações do Azure AD, consulte [inclua a sua aplicação na Galeria de aplicações do Azure Active Directory](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="new-versions-of-the-azuread-powershell-and-azureadpreview-powershell-modules-are-available"></a>Novas versões dos módulos AzureAD PowerShell e AzureADPreview PowerShell estão disponíveis
+
+**Escreva** Funcionalidade alterada  
+**Categoria de serviço:** Outros  
+**Funcionalidade do produto:** Diretório
+
+Novas atualizações para os módulos do PowerShell de visualização do AzureAD e AzureAD estão disponíveis:
+
+- Um novo `-Filter` parâmetro foi adicionado `Get-AzureADDirectoryRole` ao parâmetro no módulo AzureAD. Esse parâmetro ajuda você a filtrar as funções de diretório retornadas pelo cmdlet.
+- Novos cmdlets foram adicionados ao módulo AzureADPreview para ajudar a definir e atribuir funções personalizadas no Azure AD, incluindo:
+
+    - `Get-AzureADMSRoleAssignment`
+    - `Get-AzureADMSRoleDefinition`
+    - `New-AzureADMSRoleAssignment`
+    - `New-AzureADMSRoleDefinition`
+    - `Remove-AzureADMSRoleAssignment`
+    - `Remove-AzureADMSRoleDefinition`
+    - `Set-AzureADMSRoleDefinition`
+
+---
+
+### <a name="improvements-to-the-ui-of-the-dynamic-group-rule-builder-in-the-azure-portal"></a>Melhorias na interface do usuário do construtor de regras de grupo dinâmico no portal do Azure
+
+**Escreva** Funcionalidade alterada  
+**Categoria de serviço:** Gestão de Grupos  
+**Funcionalidade do produto:** Colaboração
+
+Fizemos algumas melhorias da interface do usuário no construtor de regras de grupo dinâmico, disponível na portal do Azure, para ajudá-lo a configurar uma nova regra com mais facilidade ou alterar as regras existentes. Essa melhoria de design permite que você crie regras com até cinco expressões, em vez de apenas uma. Também atualizamos a lista de propriedades do dispositivo para remover as propriedades de dispositivo preteridas.
+
+Para obter mais informações, consulte [gerenciar regras de associação dinâmica](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-update-rule).
+
+---
+
+### <a name="new-microsoft-graph-app-permission-available-for-use-with-access-reviews"></a>Nova permissão de aplicativo Microsoft Graph disponível para uso com revisões de acesso
+
+**Escreva** Funcionalidade alterada  
+**Categoria de serviço:** Revisões de Acesso  
+**Funcionalidade do produto:** Identity Governance
+
+Apresentamos uma nova permissão de aplicativo Microsoft Graph, `AccessReview.ReadWrite.Membership`, que permite que os aplicativos criem e recuperem automaticamente as revisões de acesso para associações de grupo e atribuições de aplicativo. Essa permissão pode ser usada por seus trabalhos agendados ou como parte de sua automação, sem a necessidade de um contexto de usuário conectado.
+
+Para obter mais informações, confira o [exemplo como criar revisões de acesso do Azure ad usando Microsoft Graph permissões de aplicativo com o blog do PowerShell](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-how-to-create-Azure-AD-access-reviews-using-Microsoft/m-p/807241).
+
+---
+
+### <a name="azure-ad-activity-logs-are-now-available-for-government-cloud-instances-in-azure-monitor"></a>Os logs de atividade do Azure AD agora estão disponíveis para instâncias de nuvem do governo no Azure Monitor
+
+**Escreva** Funcionalidade alterada  
+**Categoria de serviço:** Relatórios  
+**Funcionalidade do produto:** Monitoramento & relatórios
+
+Estamos empolgados em anunciar que os logs de atividades do Azure AD agora estão disponíveis para instâncias de nuvem do governo no Azure Monitor. Agora você pode enviar logs do Azure AD para sua conta de armazenamento ou para um hub de eventos para integrar com suas ferramentas SIEM, como [Sumologic](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic), [Splunk](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk)e [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight). 
+
+Para obter mais informações sobre como configurar Azure Monitor, consulte [logs de atividades do Azure AD no Azure monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor#cost-considerations).
+
+---
+
+### <a name="update-your-users-to-the-new-enhanced-security-info-experience"></a>Atualize seus usuários para a nova experiência de informações de segurança aprimorada
+
+**Escreva** Funcionalidade alterada  
+**Categoria de serviço:**  Autenticações (logons)   
+**Funcionalidade do produto:** Autenticação de Utilizador
+
+Em 25 de setembro de 2019, vamos desligar a experiência de informações de segurança antiga e não avançada para registrar e gerenciar informações de segurança do usuário e ativar apenas a nova [versão aprimorada](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271). Isso significa que os usuários não poderão mais usar a experiência antiga.
+
+Para obter mais informações sobre a experiência de informações de segurança aprimorada, consulte nossa [documentação](https://aka.ms/securityinfodocs) de administração e a [documentação do usuário](https://aka.ms/securityinfoguide).
+
+#### <a name="to-turn-on-this-new-experience-you-must"></a>Para ativar essa nova experiência, você deve:
+
+1. Entre no portal do Azure como um administrador global ou administrador de usuários.
+
+2. Vá para **Azure Active Directory > configurações de usuário > gerenciar configurações para recursos de visualização do painel de acesso**.
+
+3. No, os **usuários podem usar os recursos de visualização para registrar e gerenciar informações de segurança – área avançada** , selecionar **selecionado**e, em seguida, escolher um grupo de usuários ou escolher **tudo** para ativar esse recurso para todos os usuários no locatário.
+
+4. Em * * os usuários podem usar recursos de visualização para registrar e gerenciar segurança * * info * * * *, selecione **nenhum**.
+
+5. Salve suas configurações.
+
+    Depois de salvar suas configurações, você não terá mais acesso à antiga experiência de informações de segurança.
+
+>[!Important]
+>Se você não concluir essas etapas antes de 25 de setembro de 2019, seu locatário de Azure Active Directory será habilitado automaticamente para a experiência aprimorada. Se você tiver dúvidas, entre em contato conosco registrationpreview@microsoft.comem.
+
+---
+
+### <a name="authentication-requests-using-post-logins-will-be-more-strictly-validated"></a>As solicitações de autenticação que usam os logons POST serão mais rigorosamente validadas
+
+**Escreva** Funcionalidade alterada  
+**Categoria de serviço:** Autenticações (logons)  
+**Funcionalidade do produto:** Padrões
+
+A partir de 2 de setembro de 2019, as solicitações de autenticação usando o método POST serão mais rigorosamente validadas em relação aos padrões HTTP. Especificamente, espaços e aspas duplas (") não serão mais removidos dos valores do formulário de solicitação. Essas alterações não devem interromper nenhum cliente existente e ajudarão a garantir que as solicitações enviadas ao Azure AD sejam manipuladas de maneira confiável todas as vezes.
+
+Para obter mais informações, consulte os [avisos de alterações significativas do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored).
 
 ---
 
@@ -881,123 +1075,5 @@ Estamos no processo de atualizar como o Exchange ActiveSync (EAS) avalia as segu
 - Plataforma de dispositivos
 
 Se você já usou essas condições em suas políticas de acesso condicional, lembre-se de que o comportamento da condição pode ser alterado. Por exemplo, se você usou anteriormente a condição de local de usuário em uma política, você pode achar que a política agora está sendo ignorada com base no local do usuário.
-
----
-
-## <a name="february-2019"></a>Fevereiro de 2019
-
-### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>Criptografia de token SAML do Azure AD configurável (visualização pública) 
-
-**Escreva** Nova funcionalidade  
-**Categoria de serviço:** Aplicações Empresariais  
-**Funcionalidade do produto:** SSO
-
-Agora você pode configurar qualquer aplicativo SAML com suporte para receber tokens SAML criptografados. Quando configurado e usado com um aplicativo, o AD do Azure criptografa as asserções SAML emitidas usando uma chave pública Obtida de um certificado armazenado no Azure AD.
-
-Para obter mais informações sobre como configurar a criptografia de token SAML, consulte [Configurar a criptografia de token SAML do Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/howto-saml-token-encryption).
-
----
-
-### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>Criar uma revisão de acesso para grupos ou aplicativos usando revisões de acesso do Azure AD
-
-**Escreva** Nova funcionalidade  
-**Categoria de serviço:** Revisões de Acesso  
-**Funcionalidade do produto:** Governação
-
-Agora você pode incluir vários grupos ou aplicativos em uma única revisão de acesso do Azure AD para associação de grupo ou atribuição de aplicativo. As revisões de acesso com vários grupos ou aplicativos são configuradas usando as mesmas configurações e todos os revisores incluídos são notificados ao mesmo tempo.
-
-Para obter mais informações sobre como criar uma análise de acesso usando revisões de acesso do Azure AD, consulte [criar uma revisão de acesso de grupos ou aplicativos nas revisões de acesso do Azure ad](https://docs.microsoft.com/azure/active-directory/governance/create-access-review)
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Novos aplicativos federados disponíveis na Galeria de aplicativos do Azure AD – fevereiro de 2019
-
-**Escreva** Nova funcionalidade  
-**Categoria de serviço:** Aplicações Empresariais  
-**Funcionalidade do produto:** Integração de Terceiros
- 
-Em fevereiro de 2019, adicionamos esses 27 novos aplicativos com suporte à Federação para a Galeria de aplicativos:
-
-[Euromonitor Passport](https://docs.microsoft.com/azure/active-directory/saas-apps/euromonitor-passport-tutorial), [MINDTICKLE](https://docs.microsoft.com/azure/active-directory/saas-apps/mindtickle-tutorial), [Fat Finger](https://seeforgetest-exxon.azurewebsites.net/Account/create?Length=7), [enstack](https://docs.microsoft.com/azure/active-directory/saas-apps/airstack-tutorial), [Oracle Fusion ERP](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-fusion-erp-tutorial), [iDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/idrive-tutorial), [Skyward Qmlativ](https://docs.microsoft.com/azure/active-directory/saas-apps/skyward-qmlativ-tutorial), [Brightidea](https://docs.microsoft.com/azure/active-directory/saas-apps/brightidea-tutorial), [AlertOps](https://docs.microsoft.com/azure/active-directory/saas-apps/alertops-tutorial), [Soloinsight-CloudGate SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-tutorial), Permissão Click, [Brandfolder](https://docs.microsoft.com/azure/active-directory/saas-apps/brandfolder-tutorial), [StoregateSmartFile](https://docs.microsoft.com/azure/active-directory/saas-apps/smartfile-tutorial), [Pexip](https://docs.microsoft.com/azure/active-directory/saas-apps/pexip-tutorial), [Stormboard](https://docs.microsoft.com/azure/active-directory/saas-apps/stormboard-tutorial), [sísmica](https://docs.microsoft.com/azure/active-directory/saas-apps/seismic-tutorial), [Share A sonho](https://www.shareadream.org/how-it-works), [Bugsnag](https://docs.microsoft.com/azure/active-directory/saas-apps/bugsnag-tutorial), [WebMethods Integration Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/webmethods-integration-cloud-tutorial), [conhecimento Em qualquer lugar LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/knowledge-anywhere-lms-tutorial), [campus da UO](https://docs.microsoft.com/azure/active-directory/saas-apps/ou-campus-tutorial), [Periscope data](https://docs.microsoft.com/azure/active-directory/saas-apps/periscope-data-tutorial), [NetOp portal](https://docs.microsoft.com/azure/active-directory/saas-apps/netop-portal-tutorial), [Smartvid.Io](https://docs.microsoft.com/azure/active-directory/saas-apps/smartvid.io-tutorial), [PureCloud por Genesys](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-tutorial), [ClickUp Productivity Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/clickup-productivity-platform-tutorial)
-
-Para obter mais informações sobre as aplicações, consulte [integração de aplicações SaaS com o Azure Active Directory](https://aka.ms/appstutorial). Para obter mais informações sobre a listagem a sua aplicação na Galeria de aplicações do Azure AD, consulte [inclua a sua aplicação na Galeria de aplicações do Azure Active Directory](https://aka.ms/azureadapprequest).
-
----
-
-### <a name="enhanced-combined-mfasspr-registration"></a>Registro de MFA/SSPR combinado aprimorado
-
-**Escreva** Funcionalidade alterada  
-**Categoria de serviço:** Reposição Autónoma de Palavra-passe  
-**Funcionalidade do produto:** Autenticação de Utilizador
-
-Em resposta aos comentários dos clientes, aprimoramos a experiência combinada de visualização do registro MFA/SSPR, ajudando seus usuários a registrarem com mais rapidez suas informações de segurança tanto para MFA quanto para SSPR. 
-
-**Para ativar a experiência aprimorada para os seus usuários hoje, siga estas etapas:**
-
-1. Como administrador global ou administrador de usuários, entre no portal do Azure e vá para **Azure Active Directory > configurações de usuário > gerenciar configurações para recursos de visualização do painel de acesso**. 
-
-2. Nos **usuários que podem usar os recursos de visualização para registrar e gerenciar informações de segurança –** opção de atualização, escolha Ativar os recursos para um **grupo de usuários selecionado** ou para **todos os usuários**.
-
-Nas próximas semanas, removeremos a capacidade de ativar a experiência de visualização de registro MFA/SSPR combinada antiga para locatários que ainda não estão ativados.
-
-**Para ver se o controle será removido para seu locatário, siga estas etapas:**
-
-1. Como administrador global ou administrador de usuários, entre no portal do Azure e vá para **Azure Active Directory > configurações de usuário > gerenciar configurações para recursos de visualização do painel de acesso**.  
-
-2. Se os **usuários que podem usar os recursos de visualização para registrar e gerenciar informações de segurança** estiverem definidos como **nenhum**, a opção será removida do seu locatário.
-
-Independentemente de você ter ativado a antiga experiência de visualização de registro MFA/SSPR combinada para usuários ou não, a experiência antiga será desativada em uma data futura. Por isso, é altamente recomendável que você migre para a nova experiência aprimorada assim que possível.
-
-Para obter mais informações sobre a experiência de registro aprimorada, consulte os [aprimoramentos legais para a experiência combinada do Azure AD e do registro de redefinição de senha](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271).
-
----
-
-### <a name="updated-policy-management-experience-for-user-flows"></a>Experiência de gerenciamento de política atualizada para fluxos de usuário
-
-**Escreva** Funcionalidade alterada  
-**Categoria de serviço:** B2C – gerenciamento de identidade do consumidor  
-**Funcionalidade do produto:** B2B/B2C
-
-Atualizamos o processo de criação e gerenciamento de política para fluxos de usuário (anteriormente conhecidos como políticas internas) mais fácil. Essa nova experiência agora é o padrão para todos os seus locatários do Azure AD.
-
-Você pode fornecer comentários e sugestões adicionais usando os ícones Smiley ou rosto triste na área **enviar comentários** na parte superior da tela do Portal.
-
-Para obter mais informações sobre a nova experiência de gerenciamento de política, consulte o blog [Azure ad B2C agora tem personalização de JavaScript e muitos outros recursos novos](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595) .
-
----
-
-### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>Escolha as versões de elemento de página específicas fornecidas pelo Azure AD B2C
-
-**Escreva** Nova funcionalidade  
-**Categoria de serviço:** B2C – gerenciamento de identidade do consumidor  
-**Funcionalidade do produto:** B2B/B2C
-
-Agora você pode escolher uma versão específica dos elementos da página fornecidos por Azure AD B2C. Ao selecionar uma versão específica, você pode testar suas atualizações antes que elas apareçam em uma página e você pode obter um comportamento previsível. Além disso, agora você pode optar por impor versões de página específicas para permitir personalizações de JavaScript. Para ativar esse recurso, vá para a página **Propriedades** em seus fluxos de usuário.
-
-Para obter mais informações sobre como escolher versões específicas de elementos de página, consulte o blog [Azure ad B2C agora tem personalização de JavaScript e muitos outros recursos novos](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595) .
-
----
-
-### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>Requisitos configuráveis de senha do usuário final para B2C (GA)
-
-**Escreva** Nova funcionalidade  
-**Categoria de serviço:** B2C – gerenciamento de identidade do consumidor  
-**Funcionalidade do produto:** B2B/B2C
-
-Agora você pode configurar a complexidade de senha de sua organização para seus usuários finais, em vez de ter que usar sua política de senha nativa do Azure AD. Na folha **Propriedades** de seus fluxos de usuário (anteriormente conhecido como suas políticas internas), você pode escolher uma complexidade de senha **simples** ou **forte**, ou pode criar um conjunto **personalizado** de requisitos.
-
-Para obter mais informações sobre a configuração de requisito de complexidade de senha, consulte [Configurar requisitos de complexidade para senhas no Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-password-complexity).
-
----
-
-### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>Novos modelos padrão para experiências de autenticação personalizada com marca
-
-**Escreva** Nova funcionalidade  
-**Categoria de serviço:** B2C – gerenciamento de identidade do consumidor  
-**Funcionalidade do produto:** B2B/B2C
-
-Você pode usar nossos novos modelos padrão, localizados na folha **layouts de página** de seus fluxos de usuário (anteriormente conhecidos como políticas internas), para criar uma experiência de autenticação com marca personalizada para seus usuários.
-
-Para obter mais informações sobre como usar os modelos, consulte [Azure ad B2C agora tem a personalização de JavaScript e muitos outros recursos novos](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595).
 
 ---

@@ -1,6 +1,6 @@
 ---
-title: Ver registos de atividades de RBAC muda para recursos do Azure | Documentos da Microsoft
-description: Ver registos de atividades para controlo de acesso baseado em funções (RBAC) alterações aos recursos do Azure nos últimos 90 dias.
+title: Exibir logs de atividade para alterações de RBAC para recursos do Azure | Microsoft Docs
+description: Exiba os logs de atividade para as alterações de RBAC (controle de acesso baseado em função) para recursos do Azure nos últimos 90 dias.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,61 +15,61 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 842d3146bf1927871e29eb750cde09e9029b7c12
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5758f480c9216cf71e47509682053b39f0b15bf
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242092"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172405"
 ---
-# <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Ver registos de atividade para alterações RBAC para recursos do Azure
+# <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Exibir logs de atividade para alterações de RBAC para recursos do Azure
 
-Às vezes, precisa de informações sobre as alterações de controlo (RBAC) de acesso baseado em funções aos recursos do Azure, tal como para auditoria ou fins de resolução de problemas. Sempre que alguém faz alterações a atribuições de funções ou definições de funções nas suas subscrições, as alterações de fazer logon [registo de atividades do Azure](../azure-monitor/platform/activity-logs-overview.md). Pode ver os registos de atividade para ver todas as alterações RBAC nos últimos 90 dias.
+Às vezes, você precisa de informações sobre alterações de RBAC (controle de acesso baseado em função) para recursos do Azure, como para fins de auditoria ou solução de problemas. Sempre que alguém fizer alterações nas atribuições de função ou definições de função em suas assinaturas, as alterações serão registradas no [log de atividades do Azure](../azure-monitor/platform/activity-logs-overview.md). Você pode exibir os logs de atividade para ver todas as alterações de RBAC nos últimos 90 dias.
 
-## <a name="operations-that-are-logged"></a>Operações que têm sessão iniciadas
+## <a name="operations-that-are-logged"></a>Operações que são registradas em log
 
-Seguem-se as operações relacionadas com o RBAC que estão registadas no registo de atividades:
+Estas são as operações relacionadas ao RBAC que são registradas no log de atividades:
 
 - Criar atribuição de função
 - Eliminar atribuição de função
-- Criar ou atualizar a definição de função personalizada
+- Criar ou atualizar definição de função personalizada
 - Eliminar definição de função personalizada
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-É a maneira mais fácil para começar a utilizar ver os registos de atividade no portal do Azure. Captura de ecrã seguinte mostra um exemplo de um registo de atividade que foi filtrado para apresentar a atribuição de função e as operações de definição de função. Ele também inclui uma ligação para transferir os registos como um ficheiro CSV.
+A maneira mais fácil de começar é exibir os logs de atividade com o portal do Azure. A captura de tela a seguir mostra um exemplo de um log de atividades que foi filtrado para exibir as operações de atribuição de função e de definição de função. Ele também inclui um link para baixar os logs como um arquivo CSV.
 
-![Registos de atividades com o portal - captura de ecrã](./media/change-history-report/activity-log-portal.png)
+![Logs de atividade usando o portal-captura de tela](./media/change-history-report/activity-log-portal.png)
 
-O registo de atividades no portal do tem vários filtros. Seguem-se os filtros de RBAC:
+O log de atividades no portal tem vários filtros. Estes são os filtros relacionados ao RBAC:
 
 |Filtro  |Value  |
 |---------|---------|
 |Categoria de eventos     | <ul><li>Administrativa</li></ul>         |
-|Operação     | <ul><li>Criar atribuição de função</li> <li>Eliminar atribuição de função</li> <li>Criar ou atualizar a definição de função personalizada</li> <li>Eliminar definição de função personalizada</li></ul>      |
+|Operação     | <ul><li>Criar atribuição de função</li> <li>Eliminar atribuição de função</li> <li>Criar ou atualizar definição de função personalizada</li> <li>Eliminar definição de função personalizada</li></ul>      |
 
 
-Para obter mais informações sobre os registos de atividade, consulte [visualizar eventos no registo de atividades](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+Para obter mais informações sobre logs de atividade, consulte [Exibir eventos no log de atividades](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-Para ver os registos de atividades com o Azure PowerShell, utilize o [Get-AzLog](/powershell/module/Az.Monitor/Get-AzLog) comando.
+Para exibir os logs de atividade com Azure PowerShell, use o comando [Get-AzLog](/powershell/module/Az.Monitor/Get-AzLog) .
 
-Este comando apresenta uma lista de todas as alterações de atribuição de função numa subscrição nos últimos sete dias:
+Este comando lista todas as alterações de atribuição de função em uma assinatura dos últimos sete dias:
 
 ```azurepowershell
 Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
 ```
 
-Este comando apresenta uma lista de todas as alterações de definição de função num grupo de recursos nos últimos sete dias:
+Este comando lista todas as alterações de definição de função em um grupo de recursos nos últimos sete dias:
 
 ```azurepowershell
 Get-AzLog -ResourceGroupName pharma-sales -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
-Este comando apresenta uma lista de todos os atribuição de função e as alterações de definição de função numa subscrição nos últimos sete dias e exibe os resultados numa lista:
+Este comando lista todas as alterações de atribuição de função e definição de função em uma assinatura dos últimos sete dias e exibe os resultados em uma lista:
 
 ```azurepowershell
 Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
@@ -94,15 +94,15 @@ Properties              :
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Para ver os registos de atividades com a CLI do Azure, utilize o [lista de registo de atividade do monitor de az](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) comando.
+Para exibir os logs de atividade com o CLI do Azure, use o comando [AZ monitor Activity-log List](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) .
 
-Este comando lista os registos de atividades num grupo de recursos, desde a hora de início:
+Este comando lista os logs de atividade em um grupo de recursos desde a hora de início:
 
 ```azurecli
 az monitor activity-log list --resource-group pharma-sales --start-time 2018-04-20T00:00:00Z
 ```
 
-Este comando lista os registos de atividade para o fornecedor de recursos de autorização, desde a hora de início:
+Este comando lista os logs de atividade para o provedor de recursos de autorização desde a hora de início:
 
 ```azurecli
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
@@ -110,44 +110,44 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
-[Registos de Monitor do Azure](../log-analytics/log-analytics-overview.md) é outra ferramenta que pode utilizar para recolher e analisar as alterações de RBAC para todos os seus recursos do Azure. Registos de Monitor do Azure tem as seguintes vantagens:
+[Os logs de Azure monitor](../log-analytics/log-analytics-overview.md) é outra ferramenta que você pode usar para coletar e analisar alterações de RBAC para todos os seus recursos do Azure. Os logs de Azure Monitor têm os seguintes benefícios:
 
-- Escrever consultas complexas e lógica
-- Integrar com alertas, o Power BI e outras ferramentas
-- Guardar os dados por períodos de retenção mais longos
-- Referência cruzada com outros registos, como segurança, a máquina virtual e personalizada
+- Escrever consultas e lógicas complexas
+- Integre com alertas, Power BI e outras ferramentas
+- Salvar dados por períodos de retenção maiores
+- Referência cruzada com outros logs, como segurança, máquina virtual e personalizado
 
-Aqui estão as etapas básicas para começar a utilizar:
+Estas são as etapas básicas para começar:
 
-1. [Criar uma área de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+1. [Crie um espaço de trabalho log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
-1. [Configurar a solução Log Analytics da atividade](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution) sua área de trabalho.
+1. [Configure a solução de análise do log de atividades](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution) para seu espaço de trabalho.
 
-1. [Ver os registos de atividade](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Uma forma rápida de navegar para a página de descrição geral de solução do Log Analytics da atividade é clicar o **do Log Analytics** opção.
+1. [Exiba os logs de atividade](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Uma maneira rápida de navegar até a página de visão geral da solução Análise do Log de Atividades é clicar na opção **log Analytics** .
 
-   ![Opção de registos de Monitor do Azure no portal](./media/change-history-report/azure-log-analytics-option.png)
+   ![Opção de logs de Azure Monitor no portal](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Opcionalmente, utilize o [pesquisa de registos](../log-analytics/log-analytics-log-search.md) página ou o [portal da análise avançada](../azure-monitor/log-query/get-started-portal.md) para consultar e ver os registos. Para obter mais informações sobre estas duas opções, consulte [página de pesquisa de registos ou o portal da análise avançada](../azure-monitor/log-query/portals.md).
+1. Opcionalmente, use a página de [pesquisa de log](../log-analytics/log-analytics-log-search.md) ou o [portal de análise avançada](../azure-monitor/log-query/get-started-portal.md) para consultar e exibir os logs. Para obter mais informações sobre essas duas opções, consulte [a página pesquisa de logs ou o portal de análise avançada](../azure-monitor/log-query/portals.md).
 
-Eis uma consulta que retorna as novas atribuições de função organizadas pelo fornecedor de recursos de destino:
+Aqui está uma consulta que retorna novas atribuições de função organizadas por provedor de recursos de destino:
 
 ```
 AzureActivity
-| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments/write" and ActivityStatus == "Succeeded"
+| where TimeGenerated > ago(60d) and OperationNameValue startswith "Microsoft.Authorization/roleAssignments/write" and ActivityStatus == "Succeeded"
 | parse ResourceId with * "/providers/" TargetResourceAuthProvider "/" *
 | summarize count(), makeset(Caller) by TargetResourceAuthProvider
 ```
 
-Eis uma consulta que retorna as alterações de atribuição de função apresentadas num gráfico:
+Aqui está uma consulta que retorna as alterações de atribuição de função exibidas em um gráfico:
 
 ```
 AzureActivity
-| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments"
-| summarize count() by bin(TimeGenerated, 1d), OperationName
+| where TimeGenerated > ago(60d) and OperationNameValue startswith "Microsoft.Authorization/roleAssignments"
+| summarize count() by bin(TimeGenerated, 1d), OperationNameValue
 | render timechart
 ```
 
-![Registos de atividades com o portal do Advanced Analytics - captura de ecrã](./media/change-history-report/azure-log-analytics.png)
+![Logs de atividade usando o portal de análise avançada – captura de tela](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Ver eventos no registo de atividades](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)

@@ -1,103 +1,103 @@
 ---
-title: Atualizar uma oferta do Marketplace comercial existente
-description: Como fazer atualizações para uma oferta do Marketplace comerciais existente, incluindo edição, a eliminação de um rascunho, cancelar um pedido de publicação, pare a venda de uma oferta ou o plano e a sincronizar audiências privadas.
-author: mattwojo
+title: Atualizar uma oferta existente do Marketplace comercial
+description: Como fazer atualizações em uma oferta existente do Marketplace comercial, incluindo edição, exclusão de um rascunho, cancelamento de uma solicitação de publicação, parar de vender uma oferta ou um plano e sincronizar públicos privados.
+author: ChJenk
 manager: evansma
-ms.author: mattwoj
+ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: f591df0fe93336da09e9c441292c97be09f25a2e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9cefdc9354560ac5b7f3789cde2408a4c255c186
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442101"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191773"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Atualizar uma oferta existente no Marketplace comercial
 
-Pode ver as ofertas existentes no **descrição geral** separador da [portal Marketplace comerciais](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) no Centro de parceiros.
+Você pode exibir suas ofertas existentes na guia **visão geral** do [portal do Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) no Partner Center.
 
-Para atualizar uma oferta existente que está atualmente ativa no marketplace: 
+Para atualizar uma oferta existente que está atualmente ativa no Marketplace: 
 
-1. Selecione o nome da oferta que pretende atualizar. O estado da oferta pode ser listado como **Live**, **publicação em curso**, **rascunho**, **atenção necessária**, ou **não estão sendo vendidos no marketplace** (Se tive optado anteriormente por parar a oferta de vendas). Uma vez selecionada, o **descrição geral da oferta** página para essa oferta será aberto.
-2. Selecione **atualizar** de descrição geral do cartão ou o item de menu no painel de navegação esquerdo, para a área que pretende atualizar. Pode querer atualizar a **oferecem a configuração**, **propriedades**, **oferecem listagem**, **pré-visualização**, **configuração técnica** , **Planear descrição geral**, ou **o Test drive**. 
-3. Faça as alterações e, em seguida, selecione **guardar**. Repita este processo até que todas as alterações estejam concluídas.
+1. Selecione o nome da oferta que você deseja atualizar. O status da oferta pode ser listado como **dinâmico**, **publicação em andamento**, **rascunho**, **atenção necessária**ou **não ser vendido no Marketplace** (se você tiver optado por parar de vender a oferta anteriormente). Depois de selecionada, a página **visão geral da oferta** para essa oferta será aberta.
+2. Selecione **Atualizar** no cartão de visão geral ou o item de menu do painel de navegação esquerdo, para a área que você deseja atualizar. Talvez você queira atualizar a **configuração da oferta**, **Propriedades**, **lista de ofertas**, **Visualização**, **configuração técnica**, **visão geral do plano**ou **Test Drive**. 
+3. Faça as alterações e, em seguida, selecione **salvar**. Repita esse processo até que todas as suas alterações sejam concluídas.
 
-## <a name="review-and-publish-an-updated-offer"></a>Reveja e publicar uma oferta atualizada
+## <a name="review-and-publish-an-updated-offer"></a>Examinar e publicar uma oferta atualizada
 
-Quando estiver pronto para publicar a sua oferta atualizada, selecione **publicar** de qualquer página. O **revisão e publicar** será aberta a página. Nesta página, pode:
+Quando estiver pronto para publicar sua oferta atualizada, selecione **publicar** em qualquer página. A página revisar **e publicar** será aberta. Nesta página, você pode:
 
 
-- Ver o estado de conclusão para as secções da oferta que atualizar: 
-    - **Alterações não publicadas**: A seção foi atualizada e está concluída. Foi fornecido todos os dados necessários e não havia nenhum erro introduzido nas atualizações.
-    - **Incompleta**: As atualizações feitas na seção introduzidos erros que têm de ser corrigidos ou requer mais informações sobre como ser fornecido.
-- Fornece informações adicionais para a equipe de teste de certificação para se certificar de que o teste passe sem problemas.
-- Submeter a oferta foi atualizada para publicação selecionando **submeter**.  Enviaremos um e-mail quando uma versão de pré-visualização da oferta atualizada está disponível para revisão e aprovação.
+- Consulte o status de conclusão das seções da oferta que você atualizou: 
+    - **Alterações**não publicadas: A seção foi atualizada e está concluída. Todos os dados necessários foram fornecidos e não houve erros introduzidos nas atualizações.
+    - **Incompleto**: As atualizações feitas na seção introduziram erros que precisam ser corrigidos ou exigem mais informações a serem fornecidas.
+- Forneça informações adicionais à equipe de testes de certificação para garantir que os testes sejam tranqüilamente.
+- Envie a oferta atualizada para publicação selecionando **Enviar**.  Enviaremos um email para você quando uma versão de visualização da oferta atualizada estiver disponível para revisão e aprovação.
 
-**IMPORTANTE**: Tem de consultar a versão de demonstração de oferta, assim que estiver disponível e selecione **Go-live** para publicar a oferta foi atualizada para o seu público-alvo (pública ou privada).
+**IMPORTANTE**: Você deve examinar a versão prévia da oferta, uma vez que ela esteja disponível e selecionar **Go-Live** para publicar sua oferta atualizada em seu público-alvo (público ou privado).
 
-## <a name="update-a-plan-within-an-existing-offer"></a>Atualizar um plano de dentro de uma oferta existente
+## <a name="update-a-plan-within-an-existing-offer"></a>Atualizar um plano em uma oferta existente
 
-Para efetuar alterações a um plano de dentro de uma oferta existente que já tiver publicado:
+Para fazer alterações em um plano dentro de uma oferta existente que você já publicou:
 
-- Com o **descrição geral da oferta** abertas para a sua oferta existente, selecione o plano que pretende alterar. Se o plano não está acessível a partir da **descrição geral do plano** lista, selecione **ver todos os planos**.
-- Pode optar por selecionar o plano **Name**, **modelo de preços**, ou **disponibilidade**. *Atualmente a planos só estão disponíveis em inglês (Estados Unidos)* .
-- Selecione **guardar** depois de efetuar as alterações necessárias para o nome do plano, descrição, preços ou disponibilidade de público-alvo. 
-- Selecione **publicar** assim que estiver pronto para publicar as atualizações. O **[revisão e publique](#review-and-publish-an-updated-offer)** página irá abrir e fornecer um Estado de conclusão para as atualizações. 
+- Com a página **visão geral da oferta** aberta para sua oferta existente, escolha o plano que você deseja alterar. Se o plano não estiver acessível na lista **visão geral do plano** , selecione **Ver todos os planos**.
+- Você pode optar por selecionar o **nome**do plano, o **modelo de preços**ou a **disponibilidade**. *Atualmente, os planos estão disponíveis em inglês (Estados Unidos)* .
+- Selecione **salvar** depois de fazer as alterações necessárias no nome do plano, na descrição, no preço ou na disponibilidade do público. 
+- Selecione **publicar** quando estiver pronto para publicar suas atualizações. A página revisar **[e publicar](#review-and-publish-an-updated-offer)** será aberta e fornecerá um status de conclusão para as atualizações. 
 
-## <a name="delete-a-draft-offer"></a>Eliminar uma oferta de rascunho
+## <a name="delete-a-draft-offer"></a>Excluir uma oferta de rascunho
 
-Pode eliminar uma oferta de rascunho (um que não foi publicado), selecionando **eliminar rascunho** partir a **descrição geral da oferta** página. Esta opção de mensagens em fila não estará disponível para se anteriormente tiver publicado a oferta.
+Você pode excluir uma oferta de rascunho (aquela que não foi publicada) selecionando **excluir rascunho** na página **visão geral da oferta** . Esta opção não estará disponível para você se você já tiver publicado a oferta.
 
-Depois de confirmar que pretende eliminar a oferta de rascunho, a oferta já não será visível ou acessível no Centro de parceiros e o **oferece todos os** será aberta a página.
+Depois de confirmar que deseja excluir a oferta de rascunho, a oferta não estará mais visível ou acessível no Partner Center e a página **todas as ofertas** será aberta.
 
-## <a name="delete-a-draft-plan"></a>Eliminar um esboço de plano
+## <a name="delete-a-draft-plan"></a>Excluir um plano de rascunho
 
-Para eliminar um plano que não foi publicado, selecione **eliminar rascunho** partir do **descrição geral do plano** página. Esta opção não estará disponível para se anteriormente tiver publicado a oferta.
+Para excluir um plano que não foi publicado, selecione **excluir rascunho** na página **visão geral do plano** . Essa opção não estará disponível se você tiver publicado a oferta anteriormente.
 
-Depois de confirmar que pretende eliminar o plano de rascunho, o plano já não será visível ou acessível no Centro de parceiros.
+Depois de confirmar que deseja excluir o plano de rascunho, o plano não estará mais visível ou acessível no Partner Center.
 
-## <a name="cancel-publishing"></a>Cancelar a publicação
+## <a name="cancel-publishing"></a>Cancelar publicação
 
-Para cancelar uma oferta com o **publicação em curso** Estado:
+Para cancelar uma oferta com o status **publicação em andamento** :
 
-- Selecione o nome de oferta para abrir o **descrição geral da oferta** página. 
-- Selecione **Cancelar publicar** do canto superior direito da página.
-- Confirme que pretende parar a oferta de serem publicados. 
+- Selecione o nome da oferta para abrir a página **visão geral da oferta** . 
+- Selecione **Cancelar publicação** no canto superior direito da página.
+- Confirme que você deseja impedir que a oferta seja publicada. 
 
-Se pretender publicar a oferta mais tarde, terá de começar o processo de publicação.
+Se você quiser publicar a oferta em um momento posterior, será necessário iniciar o processo de publicação.
 
 > [!NOTE]
-> Pode parar uma oferta de serem publicados apenas se a oferta ainda não avançou para o passo de aprovação do publicador. Depois de selecionar **implemente** não terá a opção de cancelar a publicar mais.
+> Você pode impedir que uma oferta seja publicada somente se a oferta ainda não tiver progredido para a etapa de logoff do Publicador. Depois de selecionar o **Go Live** , você não terá a opção de cancelar a publicação mais.
 
-## <a name="stop-selling-an-offer-or-plan"></a>Parar uma oferta ou o plano de vendas
+## <a name="stop-selling-an-offer-or-plan"></a>Pare de vender uma oferta ou um plano
 
-Para parar uma oferta de vendas, depois de já tiver publicado, selecione **parar de vendas** partir a **descrição geral da oferta** página. Para parar um plano de vendas, selecione **parar de vendas** partir a **descrição geral do plano** página. (A opção para parar um plano de vendas só está disponível se tiver mais de um plano da oferta. Pode optar por parar de venda de um único plano sem afetar outros planos dentro da sua oferta.)
+Para parar de vender uma oferta depois de tê-la publicado, selecione **parar de vender** na página **visão geral da oferta** . Para parar de vender um plano, selecione **parar de vender** na página **visão geral do plano** . (A opção de parar de vender um plano só estará disponível se você tiver mais de um plano na oferta. Você pode optar por parar de vender um plano sem afetar outros planos dentro de sua oferta.)
 
-Depois de confirmar que pretende parar a oferta ou o plano de vendas, em algumas horas já não estará visível no marketplace e não existem novos clientes podem transferi-lo. 
+Depois de confirmar que deseja parar de vender a oferta ou o plano, em algumas horas ele não estará mais visível no Marketplace e nenhum novo cliente poderá baixá-lo. 
 
-Quaisquer clientes que adquiriu anteriormente a oferta ou o plano ainda podem utilizá-lo. Pode transferi-lo novamente, mas não obterá as atualizações se atualizar e voltar a publicar a oferta ou a planear mais tarde. 
+Todos os clientes que já adquiriram a oferta ou o plano ainda podem usá-lo. Eles podem baixá-lo novamente, mas não receberão atualizações se você atualizar e publicar novamente a oferta ou o plano mais tarde. 
 
-Depois de concluído o pedido para parar o/plano de oferta de vendas, ainda verá-lo no portal do Marketplace comercial no Centro de parceiros. Para eliminar o draft, selecione **eliminar rascunho** em qualquer um a **descrição geral da oferta** ou **descrição geral de planear** página. 
+Depois que sua solicitação para parar de vender a oferta/plano tiver sido concluída, você ainda a verá no portal do Marketplace comercial no Partner Center. Para excluir o rascunho, selecione **excluir rascunho** na página **visão geral da oferta** ou **visão geral do plano** . 
 
-Se optar por listar ou vender esta oferta ou planear novamente, siga as instruções para [atualizar de uma oferta existente](#update-an-existing-offer-in-the-commercial-marketplace). Não se esqueça de que precisará **publicar** a oferta ou plano novamente depois de efetuar alterações.
+Se você decidir listar ou vender esta oferta ou planejar novamente, siga as instruções para [atualizar uma oferta existente](#update-an-existing-offer-in-the-commercial-marketplace). Não se esqueça de que será necessário **publicar** a oferta ou o plano novamente após fazer as alterações.
 
-## <a name="remove-offers-from-existing-customers"></a>Remover as ofertas de clientes existentes
+## <a name="remove-offers-from-existing-customers"></a>Remover ofertas de clientes existentes
 
-Para remover a clientes existentes, ofertas [registar um pedido de suporte](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Selecione o tipo de oferta específica do **tipo de problema** lista e, em seguida, selecione **remover uma oferta publicada** no **categoria** lista. Submeta o pedido. A equipa de suporte irá guiá-lo através do processo de remoção da oferta.
+Para remover ofertas de clientes existentes, [registre uma solicitação de suporte](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Selecione o tipo de oferta específico na lista **tipo de problema** e, em seguida, selecione **remover uma oferta publicada** na lista **categoria** . Envie a solicitação. A equipe de suporte orientará você pelo processo de remoção da oferta.
 
-## <a name="sync-private-plan-audiences"></a>Públicos-alvo privada do plano de sincronização
+## <a name="sync-private-plan-audiences"></a>Sincronizar audiências do plano privado
 
-Se a sua oferta incluir um ou mais planos que estão configurados para só estará disponível para um público restrito privado, é possível atualizar apenas o público-alvo quem pode aceder a esse plano privado sem outras alterações de publicação para a oferta. 
+Se sua oferta incluir um ou mais planos configurados para serem disponibilizados somente para um público restrito privado, será possível atualizar somente o público que pode acessar esse plano privado sem publicar outras alterações na oferta. 
 
-Para atualizar e sincronizar o público-alvo privado para o seu plano (s):
+Para atualizar e sincronizar o público privado para seus planos:
 
-- Modificar o público-alvo num ou mais planos privados usando a + **Adicionar ID** ou **importar (csv) de clientes** botão e, em seguida, guarde as alterações.
-- Selecione **sincronizar o público-alvo privada** da **descrição geral de planear** página.
+- Modifique o público em um ou mais planos privados usando o botão + **Adicionar ID** ou **importar clientes (CSV)** e, em seguida, salve as alterações.
+- Selecione **sincronizar público privado** na página **visão geral do plano** .
 
-**Sincronizar o público-alvo privada** irá publicar apenas as alterações ao seu público privado, sem quaisquer outras atualizações, pode efetuar para a oferta de rascunho de publicação.
+**Sincronizar público privado** publicará somente as alterações em seus públicos privados, sem publicar outras atualizações que você tenha feito na oferta de rascunho.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Verificar o estado de publicação da sua oferta do Marketplace comercial](./publishing-status.md)
+- [Verificar o status de publicação da sua oferta do Marketplace comercial](./publishing-status.md)

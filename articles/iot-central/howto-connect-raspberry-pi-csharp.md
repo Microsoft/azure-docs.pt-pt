@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 3feb0b2b50851903bbd6799f46d489879e62bf43
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9395fa5ba5ae8dfa6ff03aabd1a27942ca4fa60a
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876226"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195182"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Conectar um Raspberry Pi ao seu aplicativo de IoT Central doC#Azure ()
 
@@ -356,10 +356,10 @@ Alternar configurações
 
 ### <a name="properties"></a>properties
 
-| Type            | Display name | Nome do campo | Tipo de dados |
-| --------------- | ------------ | ---------- | --------- |
-| Propriedade do dispositivo | Número do chip   | dieNumber  | número    |
-| Text            | Location     | location   | N/A       |
+| Type            | Display name | Nome do campo | Tipo de dados                              |
+| --------------- | ------------ | ---------- | -------------------------------------- |
+| Propriedade do dispositivo | Número do chip   | dieNumber  | número                                 |
+| Location        | Location     | location   | {Lat: float, Long: float, Alt?: float} |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 1459b6fc45bb3d875b4869d1dcb4302dec21eb96
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: bc32ce59a7ec99278fb193f375d4ca945c227d2f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114810"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172181"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar compilações de imagem de contêiner e manutenção com tarefas ACR
 
@@ -49,6 +49,13 @@ A tabela a seguir mostra alguns exemplos de locais de contexto com suporte para 
 | Branch do GitHub | Branch específico de um repositório GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | Subpasta do GitHub | Arquivos dentro de uma subpasta em um repositório GitHub. O exemplo mostra a combinação de uma especificação de ramificação e subpasta. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Tarball remoto | Arquivos em um arquivo compactado em um servidor webremoto. | `http://remoteserver/myapp.tar.gz` |
+
+Por padrão, as tarefas ACR criam imagens para o SO Linux e a arquitetura AMD64. Especifique a `--platform` marca para criar imagens do Windows ou imagens do Linux para outras arquiteturas. Especifique o sistema operacional e, opcionalmente, uma arquitetura com suporte no formato de sistema operacional `--platform Linux/arm`/arquitetura (por exemplo,). Para arquiteturas ARM, especifique opcionalmente uma variante no formato do sistema operacional/arquitetura/variante (por `--platform Linux/arm64/v8`exemplo,):
+
+| OS | Arquitetura|
+| --- | ------- | 
+| Linux | AMD64<br/>braço<br/>arm64<br/>386 |
+| Windows | AMD64 |
 
 As tarefas ACR são projetadas como um primitivo de ciclo de vida do contêiner. Por exemplo, integre tarefas de ACR à sua solução de CI/CD. Ao executar o [AZ login][az-login] com uma [entidade de serviço][az-login-service-principal], sua solução de CI/CD poderá emitir comandos [AZ ACR Build][az-acr-build] para iniciar a criação de imagens.
 
@@ -109,7 +116,7 @@ A partir de julho de 2019, os dados e logs para tarefas executadas em um registr
 az acr task update-run --registry myregistry --run-id cf11 --no-archive false
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Quando estiver pronto para automatizar a aplicação de patch do sistema operacional e da estrutura criando suas imagens de contêiner na nuvem, confira a [série de tutoriais de tarefas ACR](container-registry-tutorial-quick-task.md)de três partes.
 

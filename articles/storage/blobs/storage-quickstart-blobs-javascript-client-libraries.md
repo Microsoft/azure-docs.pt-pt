@@ -4,16 +4,16 @@ description: Saiba como utilizar uma instância de BlobService para carregar, li
 keywords: armazenamento, javascript, html
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/14/2018
+ms.date: 08/29/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: a759a7638f5c960fd69ce86896cfdf53615241c9
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 3dbd78f9c233515c675cd511924b3d4600b72fbd
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985497"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173094"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -251,7 +251,7 @@ document.getElementById('delete-button').addEventListener('click', () => {
 ## <a name="clean-up-resources"></a>Limpar recursos
 Para limpar os recursos criados durante este início rápido, regresse ao [portal do Azure](https://portal.azure.com) e selecione a sua conta de armazenamento. Depois de selecionado, você pode excluir a conta de armazenamento indo para: **Visão geral > excluir conta de armazenamento**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Explore os exemplos para saber como transferir blobs e comunicar o progresso durante o carregamentos de ficheiros.
 
 > [!div class="nextstepaction"]

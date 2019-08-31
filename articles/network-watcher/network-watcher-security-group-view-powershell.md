@@ -1,6 +1,6 @@
 ---
-title: Analisar a segurança de rede com a vista de grupo de segurança de observador de rede do Azure - PowerShell | Documentos da Microsoft
-description: Este artigo descreve como utilizar o PowerShell para analisar uma segurança de máquinas virtuais com a vista de grupo de segurança.
+title: Analisar a segurança de rede com a exibição do grupo de segurança do observador de rede do Azure-PowerShell | Microsoft Docs
+description: Este artigo descreverá como usar o PowerShell para analisar uma segurança de máquinas virtuais com o modo de exibição de grupo de segurança.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -14,63 +14,62 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 389eab13193b313d8609bfa54d5e0dc42329f5ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c7b79460169612a046b19a4d66f222936710a8e
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720772"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163905"
 ---
-# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analisar a segurança de Máquina Virtual com a vista de grupo de segurança com o PowerShell
+# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analise sua segurança de máquina virtual com a exibição de grupo de segurança usando o PowerShell
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
 > - [CLI do Azure](network-watcher-security-group-view-cli.md)
-> - [API REST](network-watcher-security-group-view-rest.md)
+> - [REST API](network-watcher-security-group-view-rest.md)
 
-Vista de grupo de segurança devolve as regras de segurança de rede configurado e eficaz que são aplicadas a uma máquina virtual. Esta funcionalidade é útil para auditar e diagnosticar os grupos de segurança de rede e regras que estão configuradas numa VM para garantir que o tráfego está a ser corretamente permitido ou negado. Neste artigo, mostramos como obter as regras de segurança configurado e eficaz para uma máquina virtual com o PowerShell
+A exibição de grupo de segurança retorna regras de segurança de rede configuradas e efetivas que são aplicadas a uma máquina virtual. Esse recurso é útil para auditar e diagnosticar grupos de segurança de rede e regras configurados em uma VM para garantir que o tráfego seja corretamente permitido ou negado. Neste artigo, mostraremos como recuperar as regras de segurança configuradas e efetivas para uma máquina virtual usando o PowerShell
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Neste cenário, irá executar o `Get-AzNetworkWatcherSecurityGroupView` cmdlet para obter as informações de regra de segurança.
+Nesse cenário, você executa o `Get-AzNetworkWatcherSecurityGroupView` cmdlet para recuperar as informações da regra de segurança.
 
-Este cenário pressupõe que já tiver seguido os passos em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
+Este cenário pressupõe que você já seguiu as etapas em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
 
 ## <a name="scenario"></a>Cenário
 
-O cenário abordado neste artigo obtém as regras de segurança configurado e eficaz para uma máquina virtual especificada.
+O cenário abordado neste artigo recupera as regras de segurança configuradas e efetivas para uma determinada máquina virtual.
 
-## <a name="retrieve-network-watcher"></a>Obter o observador de rede
+## <a name="retrieve-network-watcher"></a>Recuperar observador de rede
 
-A primeira etapa é obter a instância do observador de rede. Esta variável é passada para o `Get-AzNetworkWatcherSecurityGroupView` cmdlet.
+A primeira etapa é recuperar a instância do observador de rede. Essa variável é passada para o `Get-AzNetworkWatcherSecurityGroupView` cmdlet.
 
 ```powershell
-$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
-$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
 ```
 
-## <a name="get-a-vm"></a>Obtenha uma VM
+## <a name="get-a-vm"></a>Obter uma VM
 
-Uma máquina virtual é necessária para executar o `Get-AzNetworkWatcherSecurityGroupView` cmdlet contra. O exemplo seguinte obtém um objeto VM.
+Uma máquina virtual é necessária para executar o `Get-AzNetworkWatcherSecurityGroupView` cmdlet. O exemplo a seguir obtém um objeto VM.
 
 ```powershell
 $VM = Get-AzVM -ResourceGroupName testrg -Name testvm1
 ```
 
-## <a name="retrieve-security-group-view"></a>Obter vista de grupo de segurança
+## <a name="retrieve-security-group-view"></a>Recuperar exibição de grupo de segurança
 
-A próxima etapa é obter o resultado de vista do grupo de segurança.
+A próxima etapa é recuperar o resultado da exibição do grupo de segurança.
 
 ```powershell
 $secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
 ```
 
-## <a name="viewing-the-results"></a>Visualizar os resultados
+## <a name="viewing-the-results"></a>Exibindo os resultados
 
-O exemplo seguinte é uma resposta abreviada dos resultados retornados. Os resultados mostram todas as regras de segurança eficazes e aplicado na máquina virtual dividida em grupos de **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, e  **EffectiveSecurityRules**.
+O exemplo a seguir é uma resposta abreviada dos resultados retornados. Os resultados mostram todas as regras de segurança efetivas e aplicadas na máquina virtual dividida em grupos de **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**e **EffectiveSecurityRules**.
 
 ```
 NetworkInterfaces : [
@@ -131,6 +130,6 @@ NetworkInterfaces : [
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Visite [auditoria rede grupos de segurança (NSG) com o observador de rede](network-watcher-nsg-auditing-powershell.md) para aprender a automatizar a validação dos grupos de segurança de rede.
+Visite [auditoria de grupos de segurança de rede (NSG) com](network-watcher-nsg-auditing-powershell.md) o observador de rede para saber como automatizar a validação de grupos de segurança de rede.
 
 

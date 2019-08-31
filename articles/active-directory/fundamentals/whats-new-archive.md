@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b5615de8df42bca64822b0e459c7815412300af
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b72bf3c95c1d2217688fbc98a4383aed898f7c0e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125387"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192685"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivada para o que há de novo? no Azure Active Directory
 
@@ -31,6 +31,124 @@ A que há de novo notas de versão lhe fornece informações sobre:
 - Correções de erros
 - Funcionalidades preteridas
 - Planos para que as alterações
+
+---
+
+## <a name="february-2019"></a>Fevereiro de 2019
+
+### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>Criptografia de token SAML do Azure AD configurável (visualização pública) 
+
+**Escreva** Nova funcionalidade  
+**Categoria de serviço:** Aplicações Empresariais  
+**Funcionalidade do produto:** SSO
+
+Agora você pode configurar qualquer aplicativo SAML com suporte para receber tokens SAML criptografados. Quando configurado e usado com um aplicativo, o AD do Azure criptografa as asserções SAML emitidas usando uma chave pública Obtida de um certificado armazenado no Azure AD.
+
+Para obter mais informações sobre como configurar a criptografia de token SAML, consulte [Configurar a criptografia de token SAML do Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/howto-saml-token-encryption).
+
+---
+
+### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>Criar uma revisão de acesso para grupos ou aplicativos usando revisões de acesso do Azure AD
+
+**Escreva** Nova funcionalidade  
+**Categoria de serviço:** Revisões de Acesso  
+**Funcionalidade do produto:** Governação
+
+Agora você pode incluir vários grupos ou aplicativos em uma única revisão de acesso do Azure AD para associação de grupo ou atribuição de aplicativo. As revisões de acesso com vários grupos ou aplicativos são configuradas usando as mesmas configurações e todos os revisores incluídos são notificados ao mesmo tempo.
+
+Para obter mais informações sobre como criar uma análise de acesso usando revisões de acesso do Azure AD, consulte [criar uma revisão de acesso de grupos ou aplicativos nas revisões de acesso do Azure ad](https://docs.microsoft.com/azure/active-directory/governance/create-access-review)
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Novos aplicativos federados disponíveis na Galeria de aplicativos do Azure AD – fevereiro de 2019
+
+**Escreva** Nova funcionalidade  
+**Categoria de serviço:** Aplicações Empresariais  
+**Funcionalidade do produto:** Integração de Terceiros
+ 
+Em fevereiro de 2019, adicionamos esses 27 novos aplicativos com suporte à Federação para a Galeria de aplicativos:
+
+[Euromonitor Passport](https://docs.microsoft.com/azure/active-directory/saas-apps/euromonitor-passport-tutorial), [MINDTICKLE](https://docs.microsoft.com/azure/active-directory/saas-apps/mindtickle-tutorial), [Fat Finger](https://seeforgetest-exxon.azurewebsites.net/Account/create?Length=7), [enstack](https://docs.microsoft.com/azure/active-directory/saas-apps/airstack-tutorial), [Oracle Fusion ERP](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-fusion-erp-tutorial), [iDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/idrive-tutorial), [Skyward Qmlativ](https://docs.microsoft.com/azure/active-directory/saas-apps/skyward-qmlativ-tutorial), [Brightidea](https://docs.microsoft.com/azure/active-directory/saas-apps/brightidea-tutorial), [AlertOps](https://docs.microsoft.com/azure/active-directory/saas-apps/alertops-tutorial), [Soloinsight-CloudGate SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-tutorial), Permissão Click, [Brandfolder](https://docs.microsoft.com/azure/active-directory/saas-apps/brandfolder-tutorial), [StoregateSmartFile](https://docs.microsoft.com/azure/active-directory/saas-apps/smartfile-tutorial), [Pexip](https://docs.microsoft.com/azure/active-directory/saas-apps/pexip-tutorial), [Stormboard](https://docs.microsoft.com/azure/active-directory/saas-apps/stormboard-tutorial), [sísmica](https://docs.microsoft.com/azure/active-directory/saas-apps/seismic-tutorial), [Share A sonho](https://www.shareadream.org/how-it-works), [Bugsnag](https://docs.microsoft.com/azure/active-directory/saas-apps/bugsnag-tutorial), [WebMethods Integration Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/webmethods-integration-cloud-tutorial), [conhecimento Em qualquer lugar LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/knowledge-anywhere-lms-tutorial), [campus da UO](https://docs.microsoft.com/azure/active-directory/saas-apps/ou-campus-tutorial), [Periscope data](https://docs.microsoft.com/azure/active-directory/saas-apps/periscope-data-tutorial), [NetOp portal](https://docs.microsoft.com/azure/active-directory/saas-apps/netop-portal-tutorial), [Smartvid.Io](https://docs.microsoft.com/azure/active-directory/saas-apps/smartvid.io-tutorial), [PureCloud por Genesys](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-tutorial), [ClickUp Productivity Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/clickup-productivity-platform-tutorial)
+
+Para obter mais informações sobre as aplicações, consulte [integração de aplicações SaaS com o Azure Active Directory](https://aka.ms/appstutorial). Para obter mais informações sobre a listagem a sua aplicação na Galeria de aplicações do Azure AD, consulte [inclua a sua aplicação na Galeria de aplicações do Azure Active Directory](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="enhanced-combined-mfasspr-registration"></a>Registro de MFA/SSPR combinado aprimorado
+
+**Escreva** Funcionalidade alterada  
+**Categoria de serviço:** Reposição Autónoma de Palavra-passe  
+**Funcionalidade do produto:** Autenticação de Utilizador
+
+Em resposta aos comentários dos clientes, aprimoramos a experiência combinada de visualização do registro MFA/SSPR, ajudando seus usuários a registrarem com mais rapidez suas informações de segurança tanto para MFA quanto para SSPR. 
+
+**Para ativar a experiência aprimorada para os seus usuários hoje, siga estas etapas:**
+
+1. Como administrador global ou administrador de usuários, entre no portal do Azure e vá para **Azure Active Directory > configurações de usuário > gerenciar configurações para recursos de visualização do painel de acesso**. 
+
+2. Nos **usuários que podem usar os recursos de visualização para registrar e gerenciar informações de segurança –** opção de atualização, escolha Ativar os recursos para um **grupo de usuários selecionado** ou para **todos os usuários**.
+
+Nas próximas semanas, removeremos a capacidade de ativar a experiência de visualização de registro MFA/SSPR combinada antiga para locatários que ainda não estão ativados.
+
+**Para ver se o controle será removido para seu locatário, siga estas etapas:**
+
+1. Como administrador global ou administrador de usuários, entre no portal do Azure e vá para **Azure Active Directory > configurações de usuário > gerenciar configurações para recursos de visualização do painel de acesso**.  
+
+2. Se os **usuários que podem usar os recursos de visualização para registrar e gerenciar informações de segurança** estiverem definidos como **nenhum**, a opção será removida do seu locatário.
+
+Independentemente de você ter ativado a antiga experiência de visualização de registro MFA/SSPR combinada para usuários ou não, a experiência antiga será desativada em uma data futura. Por isso, é altamente recomendável que você migre para a nova experiência aprimorada assim que possível.
+
+Para obter mais informações sobre a experiência de registro aprimorada, consulte os [aprimoramentos legais para a experiência combinada do Azure AD e do registro de redefinição de senha](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271).
+
+---
+
+### <a name="updated-policy-management-experience-for-user-flows"></a>Experiência de gerenciamento de política atualizada para fluxos de usuário
+
+**Escreva** Funcionalidade alterada  
+**Categoria de serviço:** B2C – gerenciamento de identidade do consumidor  
+**Funcionalidade do produto:** B2B/B2C
+
+Atualizamos o processo de criação e gerenciamento de política para fluxos de usuário (anteriormente conhecidos como políticas internas) mais fácil. Essa nova experiência agora é o padrão para todos os seus locatários do Azure AD.
+
+Você pode fornecer comentários e sugestões adicionais usando os ícones Smiley ou rosto triste na área **enviar comentários** na parte superior da tela do Portal.
+
+Para obter mais informações sobre a nova experiência de gerenciamento de política, consulte o blog [Azure ad B2C agora tem personalização de JavaScript e muitos outros recursos novos](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595) .
+
+---
+
+### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>Escolha as versões de elemento de página específicas fornecidas pelo Azure AD B2C
+
+**Escreva** Nova funcionalidade  
+**Categoria de serviço:** B2C – gerenciamento de identidade do consumidor  
+**Funcionalidade do produto:** B2B/B2C
+
+Agora você pode escolher uma versão específica dos elementos da página fornecidos por Azure AD B2C. Ao selecionar uma versão específica, você pode testar suas atualizações antes que elas apareçam em uma página e você pode obter um comportamento previsível. Além disso, agora você pode optar por impor versões de página específicas para permitir personalizações de JavaScript. Para ativar esse recurso, vá para a página **Propriedades** em seus fluxos de usuário.
+
+Para obter mais informações sobre como escolher versões específicas de elementos de página, consulte o blog [Azure ad B2C agora tem personalização de JavaScript e muitos outros recursos novos](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595) .
+
+---
+
+### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>Requisitos configuráveis de senha do usuário final para B2C (GA)
+
+**Escreva** Nova funcionalidade  
+**Categoria de serviço:** B2C – gerenciamento de identidade do consumidor  
+**Funcionalidade do produto:** B2B/B2C
+
+Agora você pode configurar a complexidade de senha de sua organização para seus usuários finais, em vez de ter que usar sua política de senha nativa do Azure AD. Na folha **Propriedades** de seus fluxos de usuário (anteriormente conhecido como suas políticas internas), você pode escolher uma complexidade de senha **simples** ou **forte**, ou pode criar um conjunto **personalizado** de requisitos.
+
+Para obter mais informações sobre a configuração de requisito de complexidade de senha, consulte [Configurar requisitos de complexidade para senhas no Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-password-complexity).
+
+---
+
+### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>Novos modelos padrão para experiências de autenticação personalizada com marca
+
+**Escreva** Nova funcionalidade  
+**Categoria de serviço:** B2C – gerenciamento de identidade do consumidor  
+**Funcionalidade do produto:** B2B/B2C
+
+Você pode usar nossos novos modelos padrão, localizados na folha **layouts de página** de seus fluxos de usuário (anteriormente conhecidos como políticas internas), para criar uma experiência de autenticação com marca personalizada para seus usuários.
+
+Para obter mais informações sobre como usar os modelos, consulte [Azure ad B2C agora tem a personalização de JavaScript e muitos outros recursos novos](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595).
 
 ---
 

@@ -8,13 +8,13 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.custom: seo-java-august2019
-ms.openlocfilehash: 955ce9724d576e56766ab3d87a374a65e4ca5c0e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.custom: seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 06f1c0123d6bdf56b5182605016d2feb80adf18b
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967130"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172972"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implantar do GitHub para Azure App serviço com implantação e integração contínua Jenkins
 

@@ -2,18 +2,18 @@
 title: Conexão do SQL Instância Gerenciada do Azure para indexação de pesquisa-Azure Search
 description: Habilite o ponto de extremidade público para permitir conexões com instâncias gerenciadas do SQL de um indexador em Azure Search.
 author: vl8163264128
-manager: briansmi
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: victliu
-ms.openlocfilehash: ae947e85f600b3bc380898ad5820239aa823794d
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 07bc1a55c0222fda87b28acbaa8bfe552fb8e6ed
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229131"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186641"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-managed-instance"></a>Configurar uma conexão de um indexador Azure Search ao SQL Instância Gerenciada
 Conforme observado na [conexão do banco de dados SQL do Azure para Azure Search usando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), a criação de indexadores em **instâncias gerenciadas do SQL** é suportada por Azure Search por meio do ponto de extremidade público.

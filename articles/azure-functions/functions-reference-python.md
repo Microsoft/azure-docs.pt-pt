@@ -13,30 +13,22 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 637205bd4ad438d7efbee6fb304b0a934aefdfdf
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 16cf6704096f8c1534777ffb1958d2fa858374db
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615887"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170542"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor do Azure Functions Python
 
-Este artigo é uma introdução ao desenvolvimento de Azure Functions usando o Python. O conteúdo abaixo pressupõe que você já tenha lido o [Guia do Azure Functions desenvolvedores](functions-reference.md).
+Este artigo é uma introdução ao desenvolvimento de Azure Functions usando o Python. O conteúdo abaixo pressupõe que você já tenha lido o [Guia do Azure Functions desenvolvedores](functions-reference.md). 
+
+Para projetos de exemplo de função autônoma no Python, consulte os [exemplos de funções do Python](/samples/browse/?products=azure-functions&languages=python). 
 
 ## <a name="programming-model"></a>Modelo de programação
 
-Uma função do Azure deve ser um método sem estado em seu script Python que processa a entrada e produz a saída. Por padrão, o tempo de execução espera que o método seja implementado como um método `main()` global chamado `__init__.py` no arquivo.
-
-Você pode alterar a configuração padrão especificando as `scriptFile` Propriedades e `entryPoint` no arquivo *Function. JSON* . Por exemplo, a _função. JSON_ a seguir informa o tempo de execução `customentry()` para usar o método no arquivo _Main.py_ , como o ponto de entrada para sua função do Azure.
-
-```json
-{
-  "scriptFile": "main.py",
-  "entryPoint": "customentry",
-  ...
-}
-```
+Azure Functions espera que uma função seja um método sem estado em seu script Python que processa a entrada e produz a saída. Por padrão, o tempo de execução espera que o método seja implementado como um método `main()` global chamado `__init__.py` no arquivo. Você também pode [especificar um ponto de entrada alternativo](#alternate-entry-point).
 
 Os dados de gatilhos e associações são associados à função por meio de atributos de `name` método usando a propriedade definida no arquivo *Function. JSON* . Por exemplo, a _Function. JSON_ abaixo descreve uma função simples disparada por uma solicitação `req`http denominada:
 
@@ -66,7 +58,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-Opcionalmente, para aproveitar o IntelliSense e os recursos de preenchimento automático fornecidos pelo editor de código, você também pode declarar os tipos de atributo e tipo de retorno na função usando anotações do tipo Python. 
+Você também pode declarar explicitamente os tipos de atributo e o tipo de retorno na função usando anotações do tipo Python. Isso ajuda você a usar o IntelliSense e os recursos de preenchimento automático fornecidos por muitos editores de código Python.
 
 ```python
 import azure.functions
@@ -79,9 +71,23 @@ def main(req: azure.functions.HttpRequest) -> str:
 
 Use as anotações do Python incluídas no pacote [Azure. Functions. *](/python/api/azure-functions/azure.functions?view=azure-python) para associar entradas e saídas aos seus métodos.
 
+## <a name="alternate-entry-point"></a>Ponto de entrada alternativo
+
+Você pode alterar o comportamento padrão de uma função especificando opcionalmente as `scriptFile` Propriedades e `entryPoint` no arquivo *Function. JSON* . Por exemplo, a _função. JSON_ a seguir informa o tempo de execução `customentry()` para usar o método no arquivo _Main.py_ , como o ponto de entrada para sua função do Azure.
+
+```json
+{
+  "scriptFile": "main.py",
+  "entryPoint": "customentry",
+  "bindings": [
+      ...
+  ]
+}
+```
+
 ## <a name="folder-structure"></a>Estrutura de pastas
 
-A estrutura de pastas para um projeto de funções do Python é semelhante ao seguinte:
+A estrutura de pastas para um projeto de funções do Python é semelhante ao exemplo a seguir:
 
 ```
  FunctionApp
@@ -227,12 +233,48 @@ Há métodos de log adicionais disponíveis que permitem que você grave no cons
 
 | Método                 | Descrição                                |
 | ---------------------- | ------------------------------------------ |
-| logout. **crítico (_mensagem_)**   | Grava uma mensagem com nível crítico no agente raiz.  |
-| logout. **erro (_mensagem_)**   | Grava uma mensagem com um erro de nível no agente raiz.    |
-| logout. **aviso (_mensagem_)**    | Grava uma mensagem com aviso de nível no agente raiz.  |
-| logout. **informações (_mensagem_)**    | Grava uma mensagem com informações de nível no agente raiz.  |
-| logout. **depurar (_mensagem_)** | Grava uma mensagem com depuração de nível no agente raiz.  |
+| **`critical(_message_)`**   | Grava uma mensagem com nível crítico no agente raiz.  |
+| **`error(_message_)`**   | Grava uma mensagem com um erro de nível no agente raiz.    |
+| **`warning(_message_)`**    | Grava uma mensagem com aviso de nível no agente raiz.  |
+| **`info(_message_)`**    | Grava uma mensagem com informações de nível no agente raiz.  |
+| **`debug(_message_)`** | Grava uma mensagem com depuração de nível no agente raiz.  |
 
+Para saber mais sobre registro em log, consulte [monitorar Azure Functions](functions-monitoring.md).
+
+## <a name="http-trigger-and-bindings"></a>Gatilhos e associações HTTP
+
+O gatilho HTTP é definido no arquivo function. Jon. O `name` da associação deve corresponder ao parâmetro nomeado na função. Nos exemplos anteriores, é usado um nome `req` de associação. Esse parâmetro é um objeto [HttpRequest] e um objeto [HttpResponse] é retornado.
+
+No objeto [HttpRequest] , você pode obter cabeçalhos de solicitação, parâmetros de consulta, parâmetros de rota e o corpo da mensagem. 
+
+O exemplo a seguir é do [modelo de gatilho http para Python](https://github.com/Azure/azure-functions-templates/tree/dev/Functions.Templates/Templates/HttpTrigger-Python). 
+
+```python
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    headers = {"my-http-header": "some-value"}
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+            
+    if name:
+        return func.HttpResponse(f"Hello {name}!", headers=headers)
+    else:
+        return func.HttpResponse(
+             "Please pass a name on the query string or in the request body",
+             headers=headers, status_code=400
+        )
+```
+
+Nessa função, o valor do `name` parâmetro de consulta é obtido `params` do parâmetro do objeto [HttpRequest] . O corpo da mensagem codificada em JSON é lido `get_json` usando o método. 
+
+Da mesma forma, você pode `status_code` definir `headers` e para a mensagem de resposta no objeto [HttpResponse] retornado.
+                                                              
 ## <a name="async"></a>Async
 
 Recomendamos que você escreva sua função do Azure como uma corrotina assíncrona `async def` usando a instrução.
@@ -245,7 +287,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-Se a função main () for síncrona (sem `async` qualificador), executaremos automaticamente a função `asyncio` em um pool de threads.
+Se a função main () for síncrona (sem qualificador), executaremos automaticamente a função em `asyncio` um pool de threads.
 
 ```python
 # Would be run in an asyncio thread-pool
@@ -297,6 +339,26 @@ def main(req):
     # ... use CACHED_DATA in code
 ```
 
+## <a name="environment-variables"></a>Variáveis de ambiente
+
+Em funções, [as configurações de aplicativo](functions-app-settings.md), como cadeias de conexão de serviço, são expostas como variáveis de ambiente durante a execução. Você pode acessar essas configurações declarando `import os` e, em seguida, usando,. `setting = os.environ["setting-name"]`
+
+O exemplo a seguir obtém a [configuração do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings), com a `myAppSetting`chave chamada:
+
+```python
+import logging
+import os
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+
+    # Get the setting named 'myAppSetting'
+    my_app_setting_value = os.environ["myAppSetting"]
+    logging.info(f'My app setting value:{my_app_setting_value}')
+```
+
+Para o desenvolvimento local, as configurações do aplicativo são [mantidas no arquivo local. Settings. JSON](functions-run-local.md#local-settings-file).  
+
 ## <a name="python-version-and-package-management"></a>Versão do Python e gerenciamento de pacotes
 
 Atualmente, Azure Functions dá suporte apenas a Python 3.6. x (distribuição oficial do CPython).
@@ -338,7 +400,7 @@ func azure functionapp publish <app name> --build-native-deps
 
 Nos bastidores, as ferramentas principais usarão o Docker para executar a imagem [MCR.Microsoft.com/Azure-Functions/Python](https://hub.docker.com/r/microsoft/azure-functions/) como um contêiner em seu computador local. Usando esse ambiente, ele criará e instalará os módulos necessários da distribuição de origem, antes de compactá-los para implantação final no Azure.
 
-Para criar suas dependências e publicar usando um sistema de entrega contínua (CD), [use pipelines do Azure DevOps](functions-how-to-azure-devops.md). 
+Para criar suas dependências e publicar usando um sistema de entrega contínua (CD), [use Azure pipelines](functions-how-to-azure-devops.md). 
 
 ## <a name="unit-testing"></a>Testes de unidade
 
@@ -462,7 +524,40 @@ class TestFunction(unittest.TestCase):
 
 Todos os problemas conhecidos e as solicitações de recursos são rastreados usando a lista de [problemas do GitHub](https://github.com/Azure/azure-functions-python-worker/issues) . Se você tiver um problema e não conseguir encontrar o problema no GitHub, abra um novo problema e inclua uma descrição detalhada do problema.
 
-## <a name="next-steps"></a>Passos Seguintes
+### <a name="cross-origin-resource-sharing"></a>Partilha de recursos de várias origens
+
+O Azure Functions dá suporte ao compartilhamento de recursos entre origens (CORS). O CORS é configurado [no portal](functions-how-to-use-azure-function-app-settings.md#cors) e por meio do [CLI do Azure](/cli/azure/functionapp/cors). A lista de origens permitidas pelo CORS aplica-se ao nível do aplicativo de funções. Com o CORS habilitado, as respostas `Access-Control-Allow-Origin` incluem o cabeçalho. Para obter mais informações, consulte [Partilha de recursos de várias origens](functions-how-to-use-azure-function-app-settings.md#cors).
+
+Atualmente, a lista de origens permitidas [não tem suporte](https://github.com/Azure/azure-functions-python-worker/issues/444) para aplicativos de funções do Python. Devido a essa limitação, você deve definir expressamente `Access-Control-Allow-Origin` o cabeçalho em suas funções http, conforme mostrado no exemplo a seguir:
+
+```python
+def main(req: func.HttpRequest) -> func.HttpResponse:
+
+    # Define the allow origin headers.
+    headers = {"Access-Control-Allow-Origin": "https://contoso.com"}
+
+    # Set the headers in the response.
+    return func.HttpResponse(
+            f"Allowed origin '{headers}'.",
+            headers=headers, status_code=200
+    )
+``` 
+
+Certifique-se de também atualizar seu function. JSON para dar suporte ao método HTTP OPTIONS:
+
+```json
+    ...
+      "methods": [
+        "get",
+        "post",
+        "options"
+      ]
+    ...
+```
+
+Esse método é usado pelo navegador Chrome para negociar a lista de origens permitidas. 
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 
@@ -473,3 +568,7 @@ Para obter mais informações, consulte os seguintes recursos:
 * [Associações HTTP e webhook](functions-bindings-http-webhook.md)
 * [Associações de armazenamento de filas](functions-bindings-storage-queue.md)
 * [Acionador de temporizador](functions-bindings-timer.md)
+
+
+[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python
+[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python

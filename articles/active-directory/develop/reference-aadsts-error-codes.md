@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57ec69f4bc2e73bfb390a6b23b1da627d77f9b5e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 261fe2142fc3bc45625b5d088a46ad92c34222db
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874240"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193182"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização
 
@@ -31,7 +31,12 @@ Procurando informações sobre os códigos de erro AADSTS que são retornados do
 > [!NOTE]
 > Essas informações são preliminares e estão sujeitas a alterações. Tem uma pergunta ou não consegue encontrar o que está procurando? Crie um problema do GitHub ou consulte [Opções de suporte e ajuda para os desenvolvedores](active-directory-develop-help-support.md) aprenderem sobre outras maneiras que você pode obter ajuda e suporte.
 >
-> Esta documentação é fornecida para diretrizes de desenvolvedor e administrador, mas nunca deve ser usada pelo próprio cliente. Os códigos de erro estão sujeitos a alterações a qualquer momento para fornecer mensagens de erro mais granulares que se destinam a ajudar o desenvolvedor durante a criação de seu aplicativo. Os aplicativos que usam uma dependência de texto ou números de código de erro serão quebrados ao longo do tempo.  
+> Esta documentação é fornecida para diretrizes de desenvolvedor e administrador, mas nunca deve ser usada pelo próprio cliente. Os códigos de erro estão sujeitos a alterações a qualquer momento para fornecer mensagens de erro mais granulares que se destinam a ajudar o desenvolvedor durante a criação de seu aplicativo. Os aplicativos que usam uma dependência de texto ou números de código de erro serão quebrados ao longo do tempo.
+
+## <a name="lookup-current-error-code-information"></a>Pesquisar informações do código de erro atual
+Os códigos de erro e as mensagens estão sujeitos a alterações.  Para obter as informações mais atuais, dê uma olhada [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) na página para encontrar descrições de erro AADSTS, correções e algumas soluções alternativas sugeridas.  
+
+Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você recebeu o código de erro "AADSTS16000", faça uma pesquisa [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) em para "16000".  Você também pode vincular diretamente a um erro específico adicionando o número de código de erro à URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000).
 
 ## <a name="aadsts-error-codes"></a>Códigos de erro AADSTS
 
@@ -194,6 +199,7 @@ Procurando informações sobre os códigos de erro AADSTS que são retornados do
 | AADSTS90019 | MissingTenantRealm-o Azure AD não pôde determinar o identificador do locatário a partir da solicitação. |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat-o formato do nome da entidade de segurança não é válido ou não atende `name[/host][@realm]` ao formato esperado. O nome da entidade de segurança é obrigatório, o host e o realm são opcionais e podem ser definidos como NULL. |
 | AADSTS90023 | InvalidRequest-a solicitação de serviço de autenticação não é válida. |
+| AADSTS9002313 | InvalidRequest-a solicitação está malformada ou é inválida. -O problema aqui é porque houve algo errado com a solicitação para um determinado ponto de extremidade. A sugestão para esse problema é obter um rastreamento Fiddler do erro que está ocorrendo e procurando ver se a solicitação está realmente formatada ou não corretamente. |
 | AADSTS90024 | RequestBudgetExceededError-ocorreu um erro transitório. Tente novamente. |
 | AADSTS90033 | MsodsServiceUnavailable-o MSODS (Microsoft Online Directory Service) não está disponível. |
 | AADSTS90036 | MsodsServiceUnretryableFailure-um erro inesperado e sem nova tentativa do serviço WCF hospedado por MSODS ocorreu. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para obter mais detalhes sobre o erro. |

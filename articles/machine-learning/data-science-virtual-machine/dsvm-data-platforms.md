@@ -1,27 +1,21 @@
 ---
-title: Plataformas de dados para os dados de Máquina Virtual de ciência - Azure | Documentos da Microsoft
-description: Saiba mais sobre as plataformas de dados e ferramentas suportadas na máquina de Virtual de ciência de dados.
+title: Plataformas de dados com suporte
+titleSuffix: Azure Data Science Virtual Machine
+description: Saiba mais sobre as plataformas de dados e as ferramentas com suporte para o Máquina Virtual de Ciência de Dados do Azure.
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vijetaj
-ms.openlocfilehash: a0fe4ee33769a6d8cf14f60dcc0c4615bb00c5e8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e0ba013f7739e7ade717136cb5507af630263a18
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565297"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192204"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de dados suportadas na máquina de Virtual de ciência de dados
 

@@ -1,140 +1,163 @@
 ---
-title: Tutorial para configurar a pesadas de caixa de dados do Azure | Documentos da Microsoft
-description: Saiba como instalar os cabos e ligue-se sua pesadas de caixa de dados do Azure
+title: Tutorial para configurar o Azure Data Box Heavy | Microsoft Docs
+description: Saiba como cabear e conectar seu Azure Data Box Heavy
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 3e6bfe4a93ab8c97bcffb84bda08977f8d811fa8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: b6b353e0e01f3f598048e5fbb2682603045b1037
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592374"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164466"
 ---
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy"></a>Tutorial: Instalar os cabos e ligue à sua pesadas de caixa de dados do Azure
+::: zone target = "docs"
 
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy"></a>Tutorial: Cabo e conecte-se à sua Azure Data Box Heavy
 
-Este tutorial descreve como instalar os cabos, ligue-se e ativar o seu pesadas de caixa de dados do Azure.
+::: zone-end
+
+::: zone target = "chromeless"
+
+## <a name="get-started-with-azure-data-box-heavy"></a>Introdução ao Azure Data Box Heavy
+
+::: zone-end
+
+::: zone target = "docs"
+
+Este tutorial descreve como conectar cabos, conexões e ligar o Azure Data Box Heavy.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Cabo sua pesado de caixa de dados
-> * Ligar ao seu pesado de caixa de dados
+> * Cabear seu Data Box Heavy
+> * Conectar-se ao seu Data Box Heavy
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+Este guia fornece instruções sobre como revisar os pré-requisitos, cabos e conectar seu dispositivo, copiar dados, carregar no Azure e, em seguida, verificar os dados carregados.
+
+::: zone-end
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de que:
 
-1. Concluiu o [Tutorial: Ordenar pesado de caixa de dados do Azure](data-box-heavy-deploy-ordered.md).
-2. Tiver recebido seu intenso de caixa de dados e é o estado da encomenda no portal **entregues**.
-3. Reviu os [diretrizes de segurança de dados de caixa pesada](data-box-safety.md).
-4. Tem de ter acesso a um site simples no Centro de dados com a proximidade para uma ligação de rede disponíveis que pode acomodar um dispositivo com esta presença. Este dispositivo não pode ser montado num bastidor.
-5. Recebi quatro power mantermos cabos para utilizar com o seu dispositivo de armazenamento.
-6. Deve ter um computador anfitrião ligado à rede do datacenter. Sua pesadas de caixa de dados irá copiar os dados deste computador. O computador anfitrião tem de executar uma [sistema de operativo suportados](data-box-heavy-system-requirements.md).
+1. Você concluiu o [tutorial: Order Azure Data Box Heavy](data-box-heavy-deploy-ordered.md).
+2. Você recebeu sua Data Box Heavy e o status do pedido no portal é **entregue**.
+3. Você analisou as [diretrizes de segurança do data Box Heavy](data-box-safety.md).
+4. Você deve ter acesso a um site simples no datacenter com proximidade com uma conexão de rede disponível que possa acomodar um dispositivo com essa superfície. Este dispositivo não pode ser montado em um rack.
+5. Você recebeu quatro cabos de alimentação com aterramento para usar com seu dispositivo de armazenamento.
+6. Deve ter um computador anfitrião ligado à rede do datacenter. Seu Data Box Heavy copiará os dados deste computador. O computador host deve executar um [sistema operacional com suporte](data-box-heavy-system-requirements.md).
 7. O seu datacenter tem de ter uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. 
-8. Tem de ter um laptop com o cabo de RJ-45 para ligar à interface do usuário local e configurar o dispositivo. Utilize o laptop para configurar uma vez a cada nó do dispositivo.
-9. Precisa de um cabo de 40 Gbps ou cabo de 10 Gbps por nó de dispositivo.
-    - Escolha cabos que são compatíveis com o [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html) interface de rede.
-    - Para o cabo de 40 Gbps, a fim de dispositivo do cabo tem de ser QSFP +.
-    - Para o cabo de 10 Gbps, terá de um cabo de SFP + que se conecta um comutador de 10 Gbps no extremo, com um QSFP + SFP + adaptador (ou o adaptador de qsa independente) para o end que se conecta o dispositivo.
+8. Você precisa ter um laptop com cabo RJ-45 para se conectar à interface do usuário local e configurar o dispositivo. Use o laptop para configurar cada nó do dispositivo uma vez.
+9. É necessário um cabo de 1 40 Gbps ou um cabo de 10 Gbps por nó de dispositivo.
+    - Escolha os cabos que são compatíveis com a interface de rede [MELLANOX MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html) .
+    - Para o cabo de 40 Gbps, a extremidade do dispositivo do cabo precisa ser QSFP +.
+    - Para o cabo de 10 Gbps, você precisa de um cabo SFP + que se conecte a um comutador de 10 Gbps em uma extremidade, com um adaptador QSFP + para SFP + (ou o adaptador QSA) para o final que se conecta ao dispositivo.
 
-## <a name="cable-your-device-for-power"></a>Instalar os cabos do dispositivo para poder
+::: zone target = "docs"
 
-Siga os passos seguintes para instalar os cabos do dispositivo.
+## <a name="cable-your-device-for-power"></a>Cabear o dispositivo para energia
 
-1. Inspecione o dispositivo em busca de qualquer evidência de adulteração ou outros danos óbvios. Se o dispositivo estiver adulterado ou gravemente danificado, não continue. [Contacte o Microsoft Support](data-box-disk-contact-microsoft-support.md) imediatamente para o ajudar a avaliar se o dispositivo está em boa ordem funcional e se terá de enviar a uma substituição.
+Execute as etapas a seguir para conectar o dispositivo.
+
+1. Inspecione o dispositivo em busca de qualquer evidência de adulteração ou outros danos óbvios. Se o dispositivo estiver adulterado ou gravemente danificado, não continue. [Entre em contato suporte da Microsoft](data-box-disk-contact-microsoft-support.md) imediatamente para ajudá-lo a avaliar se o dispositivo está em boas condições de funcionamento e se eles precisam enviar uma substituição.
 2. Mova o dispositivo para o site de instalação.
 
-    ![Site de instalação de dispositivo dados pesadas de caixa](media/data-box-heavy-deploy-set-up/data-box-heavy-install-site.png)
+    ![Site de instalação do dispositivo Data Box Heavy](media/data-box-heavy-deploy-set-up/data-box-heavy-install-site.png)
 
-3. Bloquear os casters rear no dispositivo, conforme mostrado abaixo.
+3. Bloqueie os conversões posteriores no dispositivo, conforme mostrado abaixo.
 
-    ![Casters dados caixa pesada dispositivo bloqueados](media/data-box-heavy-deploy-set-up/data-box-heavy-casters-locked.png)
+    ![Data Box Heavy os convertidores de dispositivo bloqueados](media/data-box-heavy-deploy-set-up/data-box-heavy-casters-locked.png)
 
-4. Localize os recursos que promovem a frente e as portas abertas do dispositivo. Desbloquear e mover desde o início até esta estar alinhada com o lado do dispositivo. Repetir isso com a porta também.
-    Ambas as portas têm de permanecer abertas quando o dispositivo está operacional para permitir o fluxo de ar de frente para trás ideal através do dispositivo.
+4. Localize os botões que desbloqueiam a frente e as portas traseiras do dispositivo. Desbloqueie e mova a porta frontal até que ela seja liberada com o lado do dispositivo. Repita isso com a porta traseira também.
+    Ambas as portas devem permanecer abertas quando o dispositivo estiver operacional para permitir o fluxo de ar de frente para trás ideal por meio do dispositivo.
 
-    ![Dados caixa pesada as portas abertas](media/data-box-heavy-deploy-set-up/data-box-heavy-doors-open.png)
+    ![Data Box Heavy portas abertas](media/data-box-heavy-deploy-set-up/data-box-heavy-doors-open.png)
 
-5. O tabuleiro parte traseira desse dispositivo deve ter quatro cabos de energia. Remover todos os cabos do tabuleiro do e colocá-los à parte.
+5. A bandeja na parte posterior do dispositivo deve ter quatro cabos de alimentação. Remova todos os cabos da bandeja e coloque-os de lado.
 
-    ![Dados caixa pesada power cabos na Bandeja](media/data-box-heavy-deploy-set-up/data-box-heavy-power-cords-tray.png)
+    ![Data Box Heavy cabos de alimentação na bandeja](media/data-box-heavy-deploy-set-up/data-box-heavy-power-cords-tray.png)
 
-6. A próxima etapa é identificar as várias portas parte traseira desse dispositivo. Existem dois nós de dispositivo, **NODE1** e **NODE2**. Cada nó tem quatro interfaces de rede **MGMT**, **dados1**, **DATA2**, **DATA3**. **MGMT** é utilizado para configurar a gestão durante a configuração inicial do dispositivo. **Dados1**-**DATA3** são portas de dados. **MGMT** e **DATA3** portas são 1 Gbps, enquanto **dados1**, **DATA2** pode funcionar como portas de 40 Gbps ou portas de 10 Gbps. Na parte inferior de nós dois dispositivos, são quatro unidades de fonte de alimentação de energia (PSUs) que são partilhadas entre os nós de dois dispositivos. À medida que se depara neste dispositivo, o **PSUs** são **PSU1**, **PSU2**, **PSU3**, e **PSU4** da esquerda para a direita.
+6. A próxima etapa é identificar as várias portas na parte posterior do dispositivo. Há dois nós de dispositivo, **Node1** e **NODE2**. Cada nó tem quatro interfaces de rede, **Gerenciamento**, **data1**, **data2**, **DATA3**. O **MGMT** é usado para configurar o gerenciamento durante a configuração inicial do dispositivo. Data1-**DATA3** são portas de dados. As portas **MGMT** e **DATA3** são 1 Gbps, enquanto **dados1**, **data2** pode funcionar como portas de 40 Gbps ou portas de 10 Gbps. Na parte inferior dos dois nós de dispositivo, há quatro PSUs (unidades de fonte de alimentação) que são compartilhadas entre os dois nós de dispositivo. À medida que você enfrenta esse dispositivo, os **PSUs** são **PSU1**, **PSU2**, **PSU3**e **PSU4** da esquerda para a direita.
 
-    ![Portas de caixa intensivo de dados](media/data-box-heavy-deploy-set-up/data-box-heavy-ports.png)
+    ![Portas Data Box Heavy](media/data-box-heavy-deploy-set-up/data-box-heavy-ports.png)
 
-7. Ligar os cabos de quatro power a fontes de alimentação dos dispositivo. O verde LEDs ativassem e blink.
-8. Use os botões de energia no painel de front-para ativar os nós do dispositivo. Mantenha o botão de energia deprimido por alguns segundos até que as luzes azuis vir na. Todos os LEDs de verde para as fontes de alimentação na minha o dispositivo devem agora ter uma base sólidas. O painel frontal de funcionamento do dispositivo também contém LED de falha. Quando uma falha que LED está ativada, ele indica um PSU com falhas ou um fã ou um problema com as unidades de disco.  
+7. Conecte todos os quatro cabos de alimentação às fontes de alimentação do dispositivo. Os LEDs verdes acendem e piscam.
+8. Use os botões de energia no plano frontal para ativar os nós de dispositivo. Mantenha o botão de energia pressionado por alguns segundos até que as luzes azuis apareçam. Todos os LEDs verdes das fontes de alimentação na parte posterior do dispositivo agora devem ser sólidos. O painel operacional frontal do dispositivo também contém LEDs de falha. Quando um LED de falha está aceso, ele indica uma PSU com falha ou um ventilador ou um problema com as unidades de disco.  
 
-    ![Painel de ops front-caixa intensivo de dados](media/data-box-heavy-deploy-set-up/data-box-heavy-front-ops-panel.png)
+    ![Data Box Heavy painel de operações frontal](media/data-box-heavy-deploy-set-up/data-box-heavy-front-ops-panel.png)
 
-## <a name="cable-first-node-for-network"></a>Primeiro nó de cabo de rede
+## <a name="cable-first-node-for-network"></a>Primeiro nó do cabo para rede
 
-Num de nós do dispositivo, siga os passos seguintes para o cabo de rede.
+Em um dos nós do dispositivo, execute as etapas a seguir para conectar a rede.
 
-1. Utilize um cabo de rede CAT 6 RJ-45 (cabo azul na imagem) para ligar o computador anfitrião à porta de gestão de 1 Gbps.
-2. Utilize um QSFP + cabo (fiber ou cobre) para ligar, pelo menos, uma interface de rede de 40 Gbps (preferidas mais de 1 Gbps) para dados. Se utilizar um comutador de 10 Gbps, utilize um cabo de SFP + com um QSFP + SFP + adaptador (adaptador qsa independente) para ligar a interface de rede Gbps 40 para dados.
+1. Use um cabo de rede CAT 6 RJ-45 (cabo azul na imagem) para conectar o computador host à porta de gerenciamento de 1 Gbps.
+2. Use um cabo QSFP + (fibra ou cobre) para conectar pelo menos 1 40-Gbps (preferencial em 1 Gbps) a interface de rede para dados. Se estiver usando uma opção de 10 Gbps, use um cabo SFP + com um adaptador QSFP + para SFP + (o adaptador QSA) para conectar a interface de rede 40 Gbps para dados.
 
-    ![Portas de caixa pesada dados instalou os cabos](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)
+    ![Portas Data Box Heavy conectadas](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)
 
     > [!IMPORTANT]
-    > DADOS de 1 e DATA2 são mudados e não forem iguais, o que é apresentado na IU da web local.
-    > O adaptador de cabo 40 Gbps liga-se quando inserido a forma como mostrado abaixo.
+    > DADOS 1 e DATA2 são alternados e não correspondem ao que é exibido na interface do usuário da Web local.
+    > O adaptador de cabo de 40 Gbps se conecta quando inserido da maneira mostrada abaixo.
 
-    ![Adaptador de cabo de 40 Gbps dados pesadas de caixa](media/data-box-heavy-deploy-set-up/data-box-heavy-cable-adaptor.png)
+    ![Adaptador de cabo Data Box Heavy 40-Gbps](media/data-box-heavy-deploy-set-up/data-box-heavy-cable-adaptor.png)
 
 ## <a name="configure-first-node"></a>Configurar o primeiro nó
 
-Siga os passos seguintes para configurar o seu dispositivo com a configuração local e o portal do Azure.
+Execute as etapas a seguir para configurar seu dispositivo usando a configuração local e a portal do Azure.
 
-1. Transfira as credenciais do dispositivo a partir do portal. Aceda a **Geral > Detalhes do dispositivo**. Copie a **Palavra-passe do dispositivo**. Estas palavras-passe está associadas a uma ordem específica no portal. Correspondente a dois nós em dados de caixa pesada, verá os números de série do dispositivo de duas. A palavra-passe de administrador do dispositivo para ambos os nós é o mesmo.
+1. Transfira as credenciais do dispositivo a partir do portal. Aceda a **Geral > Detalhes do dispositivo**. Copie a **Palavra-passe do dispositivo**. Essas senhas são vinculadas a uma ordem específica no Portal. Correspondendo aos dois nós no Data Box Heavy, você verá os dois números de série do dispositivo. A senha de administrador do dispositivo para ambos os nós é a mesma.
 
-    ![Credenciais de dispositivo caixa pesadas de dados](media/data-box-heavy-deploy-set-up/data-box-heavy-device-credentials.png)
+    ![Data Box Heavy credenciais do dispositivo](media/data-box-heavy-deploy-set-up/data-box-heavy-device-credentials.png)
 
-2. Ligue-se a sua estação de trabalho do cliente para o dispositivo através de um cabo de rede CAT6 RJ-45.
-3. Configure o adaptador Ethernet no computador que está a utilizar para ligar ao dispositivo com um endereço IP estático de `192.168.100.5` e a sub-rede `255.255.255.0`.
+2. Conecte sua estação de trabalho cliente ao dispositivo por meio de um cabo de rede CAT6 RJ-45.
+3. Configure o adaptador Ethernet no computador que você está usando para se conectar ao dispositivo com um endereço `192.168.100.5` IP estático e uma sub-rede. `255.255.255.0`
 
-    ![Liga-se dados caixa pesada a IU web local](media/data-box-heavy-deploy-set-up/data-box-heavy-connect-local-web-ui.png)
+    ![Data Box Heavy conecta-se à interface do usuário da Web local](media/data-box-heavy-deploy-set-up/data-box-heavy-connect-local-web-ui.png)
 
-4. Ligar à IU do dispositivo no seguinte URL da web local: `http://192.168.100.10`. Clique em **avançadas** e, em seguida, clique em **avançar para 192.168.100.10 (não seguro)** .
+4. Conecte-se à interface do usuário da Web local do dispositivo na seguinte `http://192.168.100.10`URL:. Clique em **avançado** e, em seguida, clique em **prosseguir para 192.168.100.10 (não seguro)** .
 5. Verá uma página para **Iniciar sessão** na IU da Web local.
     
-    - Um dos números de série de nó nesta página corresponde entre a IU do portal e IU da web local. Anote o número de nós para o mapeamento do número de série. Existem dois nós e dois números de série do dispositivo no portal. Este mapeamento ajuda-o a compreender o nó que corresponde ao que número de série.
+    - Um dos números de série do nó nesta página corresponde na interface do usuário do portal e na interface do usuário da Web local. Anote o número do nó para o mapeamento de número de série. Há dois nós e dois números de série de dispositivo no Portal. Esse mapeamento ajuda a entender qual nó corresponde a qual número de série.
     - O dispositivo está bloqueado neste momento.
-    - Forneça a senha de administrador do dispositivo que obteve no passo anterior para iniciar sessão no dispositivo. Clique em **Iniciar sessão**.
+    - Forneça a senha de administrador do dispositivo que você obteve na etapa anterior para entrar no dispositivo. Clique em **Iniciar sessão**.
 
-    ![Inicie sessão na IU web local pesadas de caixa de dados](media/data-box-heavy-deploy-set-up/data-box-heavy-unlock-device.png)
+    ![Entrar no Data Box Heavy interface do usuário da Web local](media/data-box-heavy-deploy-set-up/data-box-heavy-unlock-device.png)
 
-5. No Dashboard, certifique-se de que as interfaces de rede estão configuradas. Existem quatro interfaces de rede no seu nó de dispositivo, dois 1 Gbps e dois 40 Gbps. Uma da interface de 1 Gbps é uma interface de gestão e, por conseguinte, não configurável de utilizador. As interfaces de rede de três restantes são dedicadas a dados e podem ser configuradas pelo utilizador.
+5. No painel, verifique se as interfaces de rede estão configuradas. Há quatro interfaces de rede em seu nó de dispositivo, dois 1 Gbps e 2 40 Gbps. Uma das interfaces de 1 Gbps é uma interface de gerenciamento e, portanto, não pode ser configurada pelo usuário. As três interfaces de rede restantes são dedicadas aos dados e podem ser configuradas pelo usuário.
 
 - Se o DHCP estiver ativado no seu ambiente, as interfaces de rede são configuradas automaticamente.
-- Se DHCP não estiver ativado, vá para definir interfaces de rede e atribuir IPs estáticos, se necessário.
+- Se o DHCP não estiver habilitado, vá para definir interfaces de rede e atribua IPs estáticos, se necessário.
 
-    ![Nó caixa pesada do dashboard de dados 1](media/data-box-heavy-deploy-set-up/data-box-heavy-dashboard-1.png)
+    ![Data Box Heavy o nó 1 do painel](media/data-box-heavy-deploy-set-up/data-box-heavy-dashboard-1.png)
 
 ## <a name="configure-second-node"></a>Configurar o segundo nó
 
-Efetue os passos detalhados a [configurar o primeiro nó](#configure-first-node) para o segundo nó do dispositivo.
+Siga as etapas detalhadas em [Configurar o primeiro nó](#configure-first-node) para o segundo nó do dispositivo.
 
-![Nó caixa pesadas de dashboard 2 de dados](media/data-box-heavy-deploy-set-up/data-box-heavy-dashboard-2.png)
+![Nó do painel de Data Box Heavy 2](media/data-box-heavy-deploy-set-up/data-box-heavy-dashboard-2.png)
 
 Quando a configuração do dispositivo estiver concluída, pode ligar às partilhas do dispositivo e copiar os dados do seu computador para o dispositivo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, aprendeu sobre tópicos pesadas de caixa de dados do Azure, tais como:
+Neste tutorial, você aprendeu sobre tópicos Azure Data Box Heavy como:
 
 > [!div class="checklist"]
-> * Cabo sua pesado de caixa de dados
-> * Ligar ao seu pesado de caixa de dados
+> * Cabear seu Data Box Heavy
+> * Conectar-se ao seu Data Box Heavy
 
-Avance para o próximo tutorial para saber como copiar dados no seu intenso de caixa de dados.
+Avance para o próximo tutorial para saber como copiar dados em seu Data Box Heavy.
 
 > [!div class="nextstepaction"]
 > [Copiar dados para o Azure Data Box](./data-box-heavy-deploy-copy-data.md)
+
+::: zone-end

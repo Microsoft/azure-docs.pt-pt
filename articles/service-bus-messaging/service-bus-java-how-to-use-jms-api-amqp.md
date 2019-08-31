@@ -14,15 +14,15 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.custom: seo-java-july2019
-ms.openlocfilehash: f816a5c84416b7f40e3062bf22dd70cbb356c6f1
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.custom: seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 3639eef1e95b354298b718af24217a8fbefb3a74
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662890"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173377"
 ---
-# <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Como usar a API do Java Message Service (JMS) com o barramento de serviço e o AMQP 1,0
+# <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Usar o Java Message Service (JMS) com o barramento de serviço do Azure e o AMQP 1,0
 O Advanced Message Queuing Protocol (AMQP) 1,0 é um protocolo de mensagens eficiente, confiável e de nível de conexão que você pode usar para criar aplicativos de mensagens robustos e entre plataformas.
 
 O suporte para AMQP 1,0 no barramento de serviço significa que você pode usar o enfileiramento e publicar/assinar recursos de mensagens orientadas de uma variedade de plataformas usando um protocolo binário eficiente. Além disso, você pode criar aplicativos compostos por componentes criados usando uma combinação de linguagens, estruturas e sistemas operacionais.

@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1e35baf24b59e7864982d131f44f79458e0d9015
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 01ee8e5b9d7ab1e8ab4086e559ce8dd8df76252f
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971498"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182699"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -84,6 +84,7 @@ Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais 
     + Permitir que os usuários do AutoML descartam a série de treinamento que não são longas o suficiente ao prever.
     + Permita que os usuários do AutoML removam granulares do conjunto de teste que não existem no conjunto de treinamento ao prever.
     + Agora AutoMLStep passa por automl configuração para o back-end para evitar problemas de alterações ou adições de novos parâmetros de configuração.
+    + O AutoML data Guardrail agora está em visualização pública. O usuário verá um relatório de guardrail de dados (para tarefas de classificação/regressão) após o treinamento e também poderá acessá-lo por meio da API do SDK.
   + **azureml-train-core**
     + Adicionado suporte do Torch 1,2 no estimador do PyTorch.
   + **azureml-widgets**
@@ -1011,6 +1012,6 @@ A [versão 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) inclui os se
 Uma nova versão atualizada do Azure Machine Learning: Leia mais sobre esta versão: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Leia a visão geral do [serviço de Azure Machine Learning](../service/overview-what-is-azure-ml.md).

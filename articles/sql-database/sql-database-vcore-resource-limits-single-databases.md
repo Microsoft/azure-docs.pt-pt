@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 08/22/2019
-ms.openlocfilehash: 481419a5db6efd600d74851238cd1a12d8766186
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.date: 08/29/2019
+ms.openlocfilehash: cb7d55db978cb8eb7944ffe3f3f51d025d5fb891
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972536"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164310"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra baseado em vCore
 
@@ -74,7 +74,7 @@ Você pode definir a camada de serviço, o tamanho da computação e a quantidad
 |Tamanho máximo de dados de TempDB (GB)|224|256|288|320|384|384|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de e/s (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)
-|IOPS de dados máximo (64 KB)|3500|4000|4500|5000|7000|7000|
+|IOPS de dados máximo (64 KB)|3500|4000|4500|5000|8000|12000|
 |Taxa máxima de logs (MBps)|26,25|30|30|30|30|30|
 |Máximo de trabalhos simultâneos (solicitações)|1400|1600|1800|2000|3200|4800|
 |Sessões simultâneas máx.|30000|30000|30000|30000|30000|30000|
@@ -120,7 +120,7 @@ Você pode definir a camada de serviço, o tamanho da computação e a quantidad
 |Tamanho máximo de dados de TempDB (GB)|384|384|384|384|384|384|384|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de e/s (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de dados máximo (64 KB)|7000|7000|7000|7000|7000|7000|7000|
+|IOPS de dados máximo (64 KB)|8000|9000|10000|12000|16000|20000|40000|
 |Taxa máxima de logs (MBps)|30|30|30|30|30|30|30|
 |Máximo de trabalhos simultâneos (solicitações)|1600|1800|2000|2400|3200|4000|8000|
 |Sessões simultâneas máx.|30000|30000|30000|30000|30000|30000|30000|
@@ -311,7 +311,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está em ver
 
 O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPS efetivo dependerá da carga de trabalho.
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Passos Seguintes
 
 - Para os limites de recursos de DTU para um único banco de dados, consulte [limites de recursos para bancos de dados individuais usando o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-single-databases.md)
 - Para limites de recursos vCore para pools elásticos, consulte [limites de recursos para pools elásticos usando o modelo de compra baseado em vCore](sql-database-vcore-resource-limits-elastic-pools.md)

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 387865ac229acc5d16f595b96c76e7c9a014e991
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: d626a7768e7070360a6f0249486bfa83407fe998
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70062144"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192052"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Entender os resultados automatizados do Machine Learning
 
@@ -102,7 +102,7 @@ weighted_accuracy|A precisão ponderada é a precisão em que o peso dado a cada
 
 Uma matriz de confusão é usada para descrever o desempenho de um modelo de classificação. Cada linha apresenta as instâncias da classe verdadeira, e cada coluna representa as instâncias da classe prevista. A matriz de confusão mostra as etiquetas classificadas corretamente e as etiquetas classificadas incorretamente de um modelo específico.
 
-Para problemas de classificação, o Azure Machine Learning fornece automaticamente uma matriz de confusão para cada modelo que foi criado. Para cada matriz de confusão, ML automatizada mostrará as etiquetas classificadas corretamente como rótulos de verdes e classificados incorretamente a vermelho. O tamanho do círculo representa o número de amostras no contentor. Além disso, a contagem de frequência de cada etiqueta prevista e cada etiqueta verdadeira é fornecida em gráficos de barras adjacentes. 
+Para problemas de classificação, o Azure Machine Learning fornece automaticamente uma matriz de confusão para cada modelo que foi criado. Para cada matriz de confusão, o ML automatizado mostrará a frequência de cada rótulo previsto e de cada interseção de rótulo verdadeiro. Quanto mais escura a cor, maior a contagem nessa parte específica da matriz. O ideal é que as cores mais escuras sejam ao longo da diagonal da matriz. 
 
 Exemplo 1: Um modelo de classificação com uma ![precisão ruim de um modelo de classificação com precisão insuficiente](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
 

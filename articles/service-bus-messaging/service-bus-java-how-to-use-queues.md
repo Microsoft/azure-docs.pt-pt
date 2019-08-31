@@ -14,15 +14,15 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.custom: seo-java-july2019
-ms.openlocfilehash: 4075ceae6c40a6be8ee2b9f6580a57fafb96e17e
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.custom: seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 84f035a55256ab22c823b2aaed9c9c2400eebf5b
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663429"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173414"
 ---
-# <a name="how-to-use-service-bus-queues-with-java"></a>Como usar filas do barramento de serviço com Java
+# <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Usar filas do barramento de serviço do Azure com Java para enviar e receber mensagens
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 Neste tutorial, você aprenderá a criar aplicativos Java para enviar e receber mensagens de uma fila do barramento de serviço. 
 

@@ -1,35 +1,29 @@
 ---
-title: Exemplos e orientações passo a passo para dados de máquinas virtuais de ciência - Azure | Documentos da Microsoft
+title: Amostras & passo a passos
+titleSuffix: Azure Data Science Virtual Machine
 description: Por meio desses exemplos e orientações, saiba como lidar com as tarefas e cenários comuns com o Máquina Virtual de Ciência de Dados.
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: vijetaj
-ms.openlocfilehash: 628c516553c2304739229c53d725645c799d06ce
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: f3d683ffb91639db64000efa2d9791d13d84b79b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047832"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195672"
 ---
-# <a name="samples-on-data-science-virtual-machines"></a>Exemplos de máquinas de virtuais de ciência de dados
+# <a name="samples-on-azure-data-science-virtual-machines"></a>Exemplos em máquinas virtuais de ciência de dados do Azure
 
 As DSVMs (máquinas virtuais de ciência de dados) do Azure incluem um conjunto abrangente de códigos de exemplo. Esses exemplos incluem blocos de anotações e scripts do Jupyter em linguagens como Python e R.
 > [!NOTE]
 > Para obter mais informações sobre como executar notebooks Jupyter em suas máquinas virtuais de ciência de dados, consulte a seção [Access Jupyter](#access-jupyter) .
 
-## <a name="quick-reference-of-samples"></a>Referência rápida de amostras
+## <a name="available-samples"></a>Exemplos disponíveis
 | Categoria de exemplos | Descrição | Localizações |
 | ------------- | ------------- | ------------- |
 | Linguagem R  | Os exemplos ilustram cenários como a conexão com armazenamentos de dados de nuvem baseados no Azure e como comparar o R e o Microsoft Machine Learning Server de código aberto. Eles também explicam como colocar em operação modelos em Microsoft Machine Learning Server e SQL Server. <br/> [Linguagem R](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|

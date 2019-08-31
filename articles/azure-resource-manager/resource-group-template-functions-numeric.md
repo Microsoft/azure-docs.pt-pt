@@ -1,21 +1,21 @@
 ---
-title: Funções do Azure Resource Manager modelo - numérico | Documentos da Microsoft
-description: Descreve as funções para utilizar num modelo do Azure Resource Manager para trabalhar com números.
+title: Funções de modelo de Azure Resource Manager – numeric | Microsoft Docs
+description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para trabalhar com números.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: f63ce16369fd1ff58d5368b43c3c730008e63d9a
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 3ec5477ca6ea1731f18b09d6393bdde6261e0c32
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206423"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194324"
 ---
-# <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funções numéricas para modelos Azure Resource Manager
+# <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funções numéricas para modelos de Azure Resource Manager
 
-O Resource Manager fornece as seguintes funções para trabalhar com números inteiros:
+O Gerenciador de recursos fornece as seguintes funções para trabalhar com números inteiros:
 
 * [add](#add)
 * [copyIndex](#copyindex)
@@ -25,7 +25,7 @@ O Resource Manager fornece as seguintes funções para trabalhar com números in
 * [max](#max)
 * [min](#min)
 * [mod](#mod)
-* [mul](#mul)
+* [Mul](#mul)
 * [sub](#sub)
 
 <a id="add" />
@@ -35,22 +35,22 @@ O Resource Manager fornece as seguintes funções para trabalhar com números in
 ## <a name="add"></a>adicionar
 `add(operand1, operand2)`
 
-Devolve a soma dos dois inteiros fornecidos.
+Retorna a soma dos dois inteiros fornecidos.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- | 
-|operand1 |Sim |int |Primeiro número para adicionar. |
-|operand2 |Sim |int |Segundo número a adicionar. |
+|Operand1 |Sim |int |Primeiro número a ser adicionado. |
+|operand2 |Sim |int |Segundo número a ser adicionado. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Um número inteiro que contém a soma dos parâmetros.
+Um inteiro que contém a soma dos parâmetros.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json) adiciona dois parâmetros.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json) a seguir adiciona dois parâmetros.
 
 ```json
 {
@@ -106,28 +106,28 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="copyindex"></a>copyIndex
 `copyIndex(loopName, offset)`
 
-Devolve o índice de um loop de iteração. 
+Retorna o índice de um loop de iteração. 
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| loopName | Não | string | O nome do loop, para obter a iteração. |
-| offset |Não |int |O número a adicionar para o valor de iteração com base em zero. |
+| loopName | Não | Cadeia de caracteres | O nome do loop para obter a iteração. |
+| desvio |Não |int |O número a ser adicionado ao valor de iteração com base em zero. |
 
 ### <a name="remarks"></a>Observações
 
-Esta função é sempre usada com um **cópia** objeto. Se não for fornecido nenhum valor para **deslocamento**, é devolvido o valor de iteração atual. O valor de iteração começa em zero. Pode usar os loops de iteração ao definir os recursos ou variáveis.
+Essa função é sempre usada com um objeto de **cópia** . Se nenhum valor for fornecido para **deslocamento**, o valor de iteração atual será retornado. O valor de iteração começa em zero. Você pode usar loops de iteração ao definir recursos ou variáveis.
 
-O **loopName** propriedade permite-lhe especificar se copyIndex se refere a uma iteração de recursos ou a iteração de propriedade. Se não for fornecido nenhum valor para **loopName**, é utilizada a iteração de tipo de recurso atual. Forneça um valor para **loopName** durante a iteração numa propriedade. 
+A Propriedade loopname permite que você especifique se copyIndex está se referindo a uma iteração de recurso ou iteração de propriedade. Se nenhum valor for fornecido para **loopname**, a iteração do tipo de recurso atual será usada. Forneça um valor para **loopname** ao iterar em uma propriedade. 
  
-Para obter uma descrição completa de como usar **copyIndex**, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
+Para obter uma descrição completa de como usar o **copyIndex**, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
 
-Para obter um exemplo de utilização **copyIndex** ao definir uma variável, consulte [variáveis](resource-group-authoring-templates.md#variables).
+Para obter um exemplo de como usar **copyIndex** ao definir uma variável, consulte [variáveis](resource-group-authoring-templates.md#variables).
 
 ### <a name="example"></a>Exemplo
 
-O exemplo seguinte mostra um ciclo de cópia e o valor de índice incluído no nome. 
+O exemplo a seguir mostra um loop de cópia e o valor de índice incluído no nome. 
 
 ```json
 "resources": [ 
@@ -145,29 +145,29 @@ O exemplo seguinte mostra um ciclo de cópia e o valor de índice incluído no n
 
 ### <a name="return-value"></a>Valor de retorno
 
-Um número inteiro que representa o índice atual da iteração.
+Um inteiro que representa o índice atual da iteração.
 
 <a id="div" />
 
 ## <a name="div"></a>div
 `div(operand1, operand2)`
 
-Devolve a divisão de número inteiro dos dois inteiros fornecidos.
+Retorna a divisão de inteiros dos dois inteiros fornecidos.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| operand1 |Sim |int |O número que está sendo dividido. |
-| operand2 |Sim |int |O número é utilizado para dividir. Não pode ser 0. |
+| Operand1 |Sim |int |O número que está sendo dividido. |
+| operand2 |Sim |int |O número que é usado para dividir. Não pode ser 0. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Um número inteiro que representa a divisão.
+Um inteiro que representa a divisão.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json) divide um parâmetro, por outro parâmetro.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json) a seguir divide um parâmetro por outro parâmetro.
 
 ```json
 {
@@ -223,20 +223,20 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="float"></a>float
 `float(arg1)`
 
-Converte o valor flutuante ponto número. Só usar essa função ao transmitir parâmetros personalizados a um aplicativo, como uma aplicação lógica.
+Converte o valor em um número de ponto flutuante. Você só usa essa função ao passar parâmetros personalizados para um aplicativo, como um aplicativo lógico.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia de caracteres ou int |O valor a converter para uma vírgula flutuante ponto número. |
+| arg1 |Sim |Cadeia de caracteres ou int |O valor a ser convertido em um número de ponto flutuante. |
 
 ### <a name="return-value"></a>Valor de retorno
-Número de ponto flutuante.
+Um número de ponto flutuante.
 
 ### <a name="example"></a>Exemplo
 
-O exemplo seguinte mostra como utilizar o número de vírgula flutuante para passar parâmetros para uma aplicação lógica:
+O exemplo a seguir mostra como usar float para passar parâmetros para um aplicativo lógico:
 
 ```json
 {
@@ -257,21 +257,21 @@ O exemplo seguinte mostra como utilizar o número de vírgula flutuante para pas
 ## <a name="int"></a>int
 `int(valueToConvert)`
 
-Converte o valor especificado para um número inteiro.
+Converte o valor especificado em um inteiro.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Sim |cadeia de caracteres ou int |O valor a converter num número inteiro. |
+| valueToConvert |Sim |Cadeia de caracteres ou int |O valor a ser convertido em um inteiro. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Um número inteiro do valor convertido.
+Um inteiro do valor convertido.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json) converte o valor do parâmetro fornecidos pelo usuário para um número inteiro.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json) a seguir converte o valor do parâmetro fornecido pelo usuário em inteiro.
 
 ```json
 {
@@ -314,24 +314,24 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="max" />
 
-## <a name="max"></a>max
+## <a name="max"></a>máx.
 `max (arg1)`
 
-Devolve o valor máximo de uma matriz de inteiros ou uma lista separada por vírgulas de números inteiros.
+Retorna o valor máximo de uma matriz de inteiros ou uma lista de inteiros separados por vírgulas.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz de números inteiros ou lista separada por vírgulas de números inteiros |A coleção para obter o valor máximo. |
+| arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obter o valor máximo. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Um número inteiro que representa o valor máximo da coleção.
+Um inteiro que representa o valor máximo da coleção.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) mostra como utilizar max com uma matriz e uma lista de números inteiros:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) a seguir mostra como usar Max com uma matriz e uma lista de inteiros:
 
 ```json
 {
@@ -378,24 +378,24 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>min.
+## <a name="min"></a>mín.
 `min (arg1)`
 
-Devolve o valor mínimo de uma matriz de inteiros ou uma lista separada por vírgulas de números inteiros.
+Retorna o valor mínimo de uma matriz de inteiros ou uma lista de inteiros separados por vírgulas.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz de números inteiros ou lista separada por vírgulas de números inteiros |A coleção para obter o valor mínimo. |
+| arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obter o valor mínimo. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Um número inteiro que representa o valor mínimo da coleção.
+Um inteiro que representa o valor mínimo da coleção.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) mostra como utilizar min com uma matriz e uma lista de números inteiros:
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) a seguir mostra como usar min com uma matriz e uma lista de inteiros:
 
 ```json
 {
@@ -442,24 +442,24 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="mod" />
 
-## <a name="mod"></a>mod
+## <a name="mod"></a>resto
 `mod(operand1, operand2)`
 
-Devolve o resto da divisão de número inteiro usando os dois inteiros fornecidos.
+Retorna o restante da divisão de inteiros usando os dois inteiros fornecidos.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| operand1 |Sim |int |O número que está sendo dividido. |
-| operand2 |Sim |int |O número que é utilizado para dividir, não pode ser 0. |
+| Operand1 |Sim |int |O número que está sendo dividido. |
+| operand2 |Sim |int |O número que é usado para dividir, não pode ser 0. |
 
 ### <a name="return-value"></a>Valor de retorno
-Um número inteiro que representa o restante.
+Um inteiro que representa o resto.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json) devolve o resto da divisão de um parâmetro, por outro parâmetro.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json) a seguir retorna o resto da divisão de um parâmetro por outro parâmetro.
 
 ```json
 {
@@ -512,25 +512,25 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="mul" />
 
-## <a name="mul"></a>mul
+## <a name="mul"></a>Mul
 `mul(operand1, operand2)`
 
-Devolve a multiplicação dos dois inteiros fornecidos.
+Retorna a multiplicação dos dois inteiros fornecidos.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| operand1 |Sim |int |Número de primeira para multiplicar. |
+| Operand1 |Sim |int |Primeiro número a ser multiplicado. |
 | operand2 |Sim |int |Segundo número para multiplicar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Um número inteiro que representa a multiplicação.
+Um inteiro que representa a multiplicação.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json) Multiplica um parâmetro, por outro parâmetro.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json) a seguir multiplica um parâmetro por outro parâmetro.
 
 ```json
 {
@@ -583,24 +583,24 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="sub" />
 
-## <a name="sub"></a>sub
+## <a name="sub"></a>projeto
 `sub(operand1, operand2)`
 
-Devolve a subtração dos dois inteiros fornecidos.
+Retorna a subtração dos dois inteiros fornecidos.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| operand1 |Sim |int |O número é subtraído. |
-| operand2 |Sim |int |O número é subtraído. |
+| Operand1 |Sim |int |O número do qual é subtraído. |
+| operand2 |Sim |int |O número que é subtraído. |
 
 ### <a name="return-value"></a>Valor de retorno
-Um número inteiro que representa a subtração.
+Um inteiro que representa a subtração.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json) subtrai um parâmetro de outro parâmetro.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json) a seguir subtrai um parâmetro de outro parâmetro.
 
 ```json
 {
@@ -637,7 +637,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| subResult | Int | 4 |
+| subresultado | Int | 4 |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -655,5 +655,5 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Para intercalar vários modelos, veja [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para fazer a iteração de um número especificado de vezes ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
-* Para ver como implementar o modelo que criou, veja [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md).
+* Para ver como implantar o modelo que você criou, consulte [implantar um aplicativo com Azure Resource Manager modelo](resource-group-template-deploy.md).
 

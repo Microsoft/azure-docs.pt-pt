@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: 6e9e7d884b7580d7655921134a7ab63b0b1b0dd6
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: fe981167249e24a43a8cb14c51c9b7c1eb081225
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899993"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164022"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Início rápido: Criar um banco de dados do Azure para PostgreSQL-hiperescala (Citus) (visualização) no portal do Azure
 
@@ -88,6 +88,8 @@ Estamos prontos para carregar dados. No psql ainda, saia do Shell para baixar os
 Em seguida, carregue os dados dos arquivos nas tabelas distribuídas:
 
 ```sql
+SET CLIENT_ENCODING TO 'utf8';
+
 \copy github_events from 'events.csv' WITH CSV
 \copy github_users from 'users.csv' WITH CSV
 ```

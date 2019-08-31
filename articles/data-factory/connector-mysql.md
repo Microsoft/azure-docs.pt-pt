@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: b17b6d12dc60546a29d37cfa12fe1f11186579e1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: fcf56e8088af25c14c022039bf8862f2dc21c77a
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967462"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172556"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiar dados do MySQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -25,6 +25,9 @@ ms.locfileid: "68967462"
 > * [Versão atual](connector-mysql.md)
 
 Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de um banco de dado MySQL. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+
+>[!NOTE]
+>Para copiar dados de ou para o serviço [de banco do dados do Azure para MySQL](../mysql/overview.md) , use o [conector do banco de dados do Azure especializado para MySQL](connector-azure-database-for-mysql.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -58,7 +61,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do MySQL:
 
 É uma cadeia de ligação típica `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Mais de propriedades que pode ser definido por seu caso:
 
-| Propriedade | Descrição | Opções | Requerido |
+| Propriedade | Descrição | Opções | Necessário |
 |:--- |:--- |:--- |:--- |
 | SSLMode | Esta opção especifica se o driver usa a criptografia SSL e a verificação ao se conectar ao MySQL. Por exemplo, `SSLMode=<0/1/2/3/4>`| DISABLED (0)/preferencial (1) **(padrão)** /obrigatório (2)/VERIFY_CA (3)/VERIFY_IDENTITY (4) | Não |
 | UseSystemTrustStore | Esta opção especifica se um certificado de autoridade de certificação deve ser usado do repositório de confiança do sistema ou de um arquivo PEM especificado. Por exemplo, `UseSystemTrustStore=<0/1>;`| Habilitado (1)/desabilitado (0) **(padrão)** | Não |
@@ -148,7 +151,7 @@ Para copiar dados do MySQL, defina a propriedade Type do conjunto de dado como *
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como: **RelationalTable** | Sim |
-| tableName | Nome da tabela no banco de dados MySQL. | Não (se for especificada "consulta" na origem de atividade) |
+| tableName | Nome da tabela no banco de dados MySQL. | Não (se for especificada "query" na origem de atividade) |
 
 **Exemplo**
 

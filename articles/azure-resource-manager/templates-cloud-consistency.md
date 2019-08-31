@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 38da6d39d095ce27cdd26719d9b8b752d2921bc0
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388137"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164771"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desenvolver modelos Azure Resource Manager para consistência de cloud
 
@@ -47,7 +47,7 @@ O resto deste guia descreve as áreas a considerar quando planear desenvolver no
 * Certifique-se de que os parâmetros de modelo que utilizar trabalham nas clouds do destino.
 * Certifique-se de que as propriedades de recursos específicos estão disponíveis as nuvens de destino.
 
-Para obter uma introdução aos modelos do Azure Resource Manager, consulte [implementação do modelo](resource-group-overview.md#template-deployment).
+Para obter uma introdução aos modelos do Azure Resource Manager, consulte [implementação do modelo](template-deployment-overview.md).
 
 ## <a name="ensure-template-functions-work"></a>Certifique-se de que as funções de modelo de trabalho
 
@@ -61,7 +61,7 @@ Capacidades do Gestor de recursos do Azure serão sempre introduzidas para o glo
 
 1. Assim que tiver um clone local do repositório, ligue para o destino do Azure Resource Manager com o PowerShell.
 
-1. Importe o módulo de psm1 e execute o cmdlet Test-AzureRmureRmTemplateFunctions:
+1. Importe o módulo psm1 e execute o cmdlet Test-AzureRmureRmTemplateFunctions:
 
    ```powershell
    # Import the module
@@ -154,7 +154,7 @@ Em todo o modelo, as ligações são geradas, combinando o URI de base (da `_art
 
 Ao utilizar esta abordagem, o valor predefinido para o `_artifactsLocation` parâmetro é utilizado. Se os modelos ligados tem de ser obtido a partir de uma localização diferente, o parâmetro de entrada pode ser utilizado no momento da implementação para substituir o valor predefinido, não é necessária nenhuma alteração para o próprio modelo.
 
-### <a name="use-artifactslocation-instead-of-hardcoding-links"></a>Utilizar artifactslocation em vez de codificar ligações
+### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>Utilizar artifactslocation em vez de codificar ligações
 
 Além de que está a ser utilizado para modelos aninhados, o URL no `_artifactsLocation` parâmetro é utilizado como base para todos os artefactos de um modelo de implementação de relacionados. Algumas extensões VM incluem um link para um script armazenado fora do modelo. Para estas extensões, deve codificar as ligações. Por exemplo, as extensões de Script personalizado e o PowerShell DSC podem ligar a um script externo no GitHub, conforme mostrado: 
 
@@ -211,7 +211,7 @@ Para construir o URI absoluto de um artefato, o método preferencial é usar a f
 }
 ```
 
-Com esta abordagem, todos os artefatos de implementação, incluindo scripts de configuração, podem ser armazenados na mesma localização com o próprio modelo. Para alterar a localização de todas as ligações, só precisa de especificar um URL de base diferente para o _artifactsLocation parâmetros_.
+Com esta abordagem, todos os artefatos de implementação, incluindo scripts de configuração, podem ser armazenados na mesma localização com o próprio modelo. Para alterar o local de todos os links, você só precisa especificar uma URL base diferente para os _parâmetros artifactsLocation_.
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Considerar diferentes capacidades regionais
 

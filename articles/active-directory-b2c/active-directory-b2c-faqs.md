@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e5ceb53cb0fcce40d779bd516fa4cebac6d11209
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 7b569454696717913c325581ca1f00479a371984
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061372"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183186"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas Mais Frequentes (FAQ)
 
@@ -143,7 +143,7 @@ Siga estas etapas para excluir seu locatário de Azure AD B2C:
 1. Selecione **Exibir todos os aplicativos**
 1. Selecione o aplicativo chamado **B2C-Extensions-app**, selecione **excluir**e, em seguida, selecione **Sim** quando solicitado.
 1. Em **gerenciar**, selecione **configurações do usuário**.
-1. Em **conexões da conta do LinkedIn**, selecione **não**e, em seguida, selecione **salvar**.
+1. Se houver, em **conexões de conta do LinkedIn**, selecione **não**e, em seguida, selecione **salvar**.
 1. Em **gerenciar**, selecione **Propriedades**
 1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim**e, em seguida, selecione **salvar**.
 1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.

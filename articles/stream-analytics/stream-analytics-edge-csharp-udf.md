@@ -1,5 +1,5 @@
 ---
-title: Escrever uma função definida pelo utilizador de C# para uma tarefa do Azure Stream Analytics Edge no Visual Studio (Pré-visualização)
+title: Gravar C# funções definidas pelo usuário para Azure Stream Analytics trabalhos de borda no Visual Studio (visualização)
 description: Saiba como escrever funções definidas pelo utilizador de C# para tarefas do Stream Analytics Edge no Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5597109a65a8af88bf286977d039656635565ed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cadc603a94d5d17ad2df419f8507c37f9e3272f8
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60204236"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173313"
 ---
-# <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>Tutorial: Escreva um C# função definida pelo utilizador para a tarefa do Edge do Azure Stream Analytics (pré-visualização)
+# <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>Tutorial: Gravar uma C# função definida pelo usuário para Azure Stream Analytics trabalho de borda (versão prévia)
 
-As funções definidas pelo utilizador (UDFs) de C# criadas no Visual Studio permitem-lhe expandir a linguagem de consulta do Azure Stream Analytics com as suas próprias funções. Pode reutilizar o código existente (incluindo DLLs) e utilizar a lógica de matemática ou complexa com o C#. Existem três formas de implementar UDFs: Projeto de arquivos Code-behind num do Stream Analytics, UDFs do local C# projeto ou UDFs de um pacote existente de uma conta de armazenamento. Este tutorial utiliza o método CodeBehind para implementar uma função de C# básica. A funcionalidade UDF das tarefas do Stream Analytics Edge está atualmente em pré-visualização e não deve ser utilizada em cargas de trabalho de produção.
+As funções definidas pelo utilizador (UDFs) de C# criadas no Visual Studio permitem-lhe expandir a linguagem de consulta do Azure Stream Analytics com as suas próprias funções. Pode reutilizar o código existente (incluindo DLLs) e utilizar a lógica de matemática ou complexa com o C#. Existem três formas de implementar UDFs: Arquivos code-behind em um projeto Stream Analytics, UDFs de C# um projeto local ou UDFs de um pacote existente de uma conta de armazenamento. Este tutorial utiliza o método CodeBehind para implementar uma função de C# básica. A funcionalidade UDF das tarefas do Stream Analytics Edge está atualmente em pré-visualização e não deve ser utilizada em cargas de trabalho de produção.
 
 Neste tutorial, ficará a saber como:
 

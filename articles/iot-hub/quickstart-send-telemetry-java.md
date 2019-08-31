@@ -10,14 +10,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 15d9447d7078fd4858a7957448dd30d07049d6e9
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4ef5c8c9defd0a5da4bc0579d457113f8f4c5e4d
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68958627"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172945"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>Início rápido: Enviar telemetria de um dispositivo para um hub IoT e lê-lo com um aplicativo de back-end (Java)
+# <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Início rápido: Enviar telemetria para um hub IoT do Azure e lê-lo com um aplicativo Java
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -31,9 +31,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Java. Precisa do Java SE 8 ou posterior no seu computador de desenvolvimento.
+As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Java. Você precisa do Java SE 8 em seu computador de desenvolvimento.
 
-Pode transferir o Java para múltiplas plataformas a partir do [Oracle](https://aka.ms/azure-jdks).
+Você pode baixar Java SE Development Kit 8 para várias plataformas de [suporte a longo prazo Java para Azure e Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable). Certifique-se de selecionar **Java 8** em **suporte a longo prazo** para obter downloads para o JDK 8.
 
 Pode verificar qual a versão atual do Java no seu computador de desenvolvimento através do seguinte comando:
 

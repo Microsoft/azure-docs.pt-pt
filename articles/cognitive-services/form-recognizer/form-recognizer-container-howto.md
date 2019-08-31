@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 08/29/2019
 ms.author: dapine
-ms.openlocfilehash: 3c0129275ecf78e6a4e6b9286f975ded2b6f9ae3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 25ea4c96a0e392db2af9c25a150696ca2b25b2dd
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051199"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164543"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Instalar e executar contêineres do reconhecedor de formulário
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Antes de usar contêineres do reconhecedor de formulário, você deve atender aos seguintes pré-requisitos:
 
-|Requerido|Objetivo|
+|Necessário|Objetivo|
 |--|--|
 |Mecanismo do Docker| Você precisa do mecanismo do Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/)e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> No Windows, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | Você deve ter uma compreensão básica dos conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner e conhecimento de comandos básicos `docker` .|
@@ -58,28 +58,25 @@ Os núcleos de CPU mínimos e recomendados e a memória para alocar para cada co
 
 | Contentor | Mínimo | Recomendado |
 |-----------|---------|-------------|
-|cognitive-services-form-recognizer | 2 núcleos, 4 GB de memória | 4 núcleos, 8 GB de memória |
+| Reconhecedor de Formato | 2 núcleos, 4 GB de memória | 4 núcleos, 8 GB de memória |
+| Reconhecimento de Texto | 1 núcleo, 8 GB de memória | 2 núcleos, 8 GB de memória |
 
 * Cada núcleo deve ter pelo menos 2,6 gigahertz (GHz) ou mais rápido.
-* TPS-transações por segundo
 * O núcleo e a `--cpus` memória correspondem às configurações e `--memory` , que são `docker run` usadas como parte do comando.
 
 > [!Note]
 > Os valores mínimos e recomendados se baseiam nos limites do Docker e *não* nos recursos da máquina host.
 
-## <a name="get-the-container-image-with-the-docker-pull-command"></a>Obter a imagem de contêiner com o comando docker pull
+## <a name="get-the-container-images-with-the-docker-pull-command"></a>Obter as imagens de contêiner com o comando docker pull
 
-As imagens de contêiner para o reconhecedor de formulário estão disponíveis no repositório a seguir:
+As imagens de contêiner para as ofertas de reconhecedor de **formulário** e **reconhecimento de texto** estão disponíveis no seguinte registro de contêiner:
 
-| Contentor | Repositório |
+| Contentor | Nome da imagem totalmente qualificado |
 |-----------|------------|
-| cognitive-services-form-recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
+| Reconhecedor de Formato | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
+| Reconhecimento de Texto | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
 
-Se você pretende usar o `cognitive-services-recognize-text` [contêiner](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull), em vez do serviço de reconhecimento de formulário, certifique-se de usar `docker pull` o comando com o nome de contêiner correto: 
-
-```
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
-```
+Você precisará de ambos os contêineres. Observe que o contêiner de **texto** do reconhecedor é [detalhado fora deste artigo.](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull)
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -91,6 +88,15 @@ Para obter o contêiner do reconhecedor de formulário, use o seguinte comando:
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest
+```
+### <a name="docker-pull-for-the-recognize-text-container"></a>Pull do Docker para o contêiner de Reconhecimento de Texto
+
+#### <a name="recognize-text"></a>Reconhecimento de Texto
+
+Para obter o contêiner de Reconhecimento de Texto, use o seguinte comando:
+
+```Docker
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
 ```
 
 ## <a name="how-to-use-the-container"></a>Como usar o contêiner
@@ -312,7 +318,7 @@ Neste artigo, você aprendeu os conceitos e o fluxo de trabalho para baixar, ins
 > [!IMPORTANT]
 >  Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Os contêineres de serviços cognitivas não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Examine [configurar contêineres](form-recognizer-container-configuration.md) para definições de configuração.
 * Use mais [contêineres de serviços cognitivas](../cognitive-services-container-support.md).

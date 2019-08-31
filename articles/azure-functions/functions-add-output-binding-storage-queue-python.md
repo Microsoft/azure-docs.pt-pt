@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 34ec7c678410b2e0814f8dbb7a69257886cb891d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9fdbf3466256c5e24de17541770fa2095fcf38a4
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639143"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171089"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adicionar uma associação de fila de armazenamento do Azure à sua função Python
 
@@ -57,7 +57,7 @@ Em funções, cada tipo de associação requer que um `direction`, a `type`e um 
 
 Para criar uma associação, você adiciona um objeto de configuração de associação ao arquivo function. JSON. Edite o arquivo function. JSON em sua pasta HttpTrigger para adicionar um objeto à `bindings` matriz que tem estas propriedades:
 
-| Propriedade | Valor | Descrição |
+| Propriedade | Value | Descrição |
 | -------- | ----- | ----------- |
 | **`name`** | `msg` | O nome que identifica o parâmetro de associação referenciado no seu código. |
 | **`type`** | `queue` | A associação é uma associação de fila de armazenamento do Azure. |
@@ -192,13 +192,13 @@ Você pode [examinar a mensagem da fila de armazenamento](#query-the-storage-que
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Você atualizou sua função disparada por HTTP para gravar dados em uma fila de armazenamento. Para saber mais sobre como desenvolver Azure Functions com Python, confira o [Guia do desenvolvedor Azure Functions Python](functions-reference-python.md) e [Azure Functions gatilhos e associações](functions-triggers-bindings.md).
+Você atualizou sua função disparada por HTTP para gravar dados em uma fila de armazenamento. Para saber mais sobre como desenvolver Azure Functions com Python, confira o [Guia do desenvolvedor Azure Functions Python](functions-reference-python.md) e [Azure Functions gatilhos e associações](functions-triggers-bindings.md). Para obter exemplos de projetos de funções completos no Python, consulte os [exemplos de funções do Python](/samples/browse/?products=azure-functions&languages=python). 
 
 Em seguida, você deve habilitar o monitoramento de Application Insights para seu aplicativo de funções:
 
 > [!div class="nextstepaction"]
-> [Habilitar integração de Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Ativar a integração do Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource)
 
 [Azure Storage Explorer]: https://storageexplorer.com/
