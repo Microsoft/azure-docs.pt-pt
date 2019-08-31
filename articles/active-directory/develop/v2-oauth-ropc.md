@@ -1,6 +1,6 @@
 ---
-title: Use plataforma de identidade Microsoft para iniciar sessão dos utilizadores através de concessão de credencial (ROPC) da palavra-passe de proprietário de recursos | Azure
-description: Autenticação de navegador sem suporte fluxos com a concessão de credenciais de palavra-passe de proprietário do recurso.
+title: Usar a plataforma de identidade da Microsoft para conectar usuários usando a concessão de credencial de senha do proprietário do recurso (ROPC) | Azure
+description: Suporte a fluxos de autenticação sem navegador usando a concessão de credencial de senha do proprietário do recurso.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -12,46 +12,46 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da111311de7b873be6453862ffcbd56fe546ea7f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 7d5324aba5202abb76f07d1eaf43fe214e690393
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482387"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193217"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Plataforma de identidade da Microsoft e a credencial de palavra-passe de proprietário de recursos do OAuth 2.0
+# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Plataforma Microsoft Identity e a credencial de senha do proprietário do recurso OAuth 2,0
 
-Suporte de plataforma de identidade do Microsoft da [conceder credenciais de palavra-passe de proprietário do recurso (ROPC)](https://tools.ietf.org/html/rfc6749#section-4.3), que permite que um aplicativo iniciar o utilizador ao lidar diretamente com a palavra-passe. O fluxo ROPC requer um alto grau de exposição de utilizador e de confiança e só deve utilizar este fluxo quando os fluxos de outros, mais seguros, não podem ser utilizados.
+A plataforma de identidade da Microsoft oferece suporte à concessão de credencial de [senha (ROPC) do proprietário do recurso](https://tools.ietf.org/html/rfc6749#section-4.3), que permite que um aplicativo Conecte o usuário manipulando sua senha diretamente. O fluxo ROPC requer um alto grau de confiança e exposição do usuário, e você só deve usar esse fluxo quando outros, mais seguros, fluxos não podem ser usados.
 
 > [!IMPORTANT]
 >
-> * O ponto de extremidade de plataforma do Microsoft identity só suporta ROPC para inquilinos do Azure AD, as contas pessoais não. Isso significa que tem de utilizar um ponto de extremidade específico de inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`) ou o `organizations` ponto final.
-> * Contas pessoais que estão convidadas a um inquilino do Azure AD não é possível utilizar ROPC.
-> * Contas que não têm as palavras-passe não podem iniciar sessão através de ROPC. Para este cenário, recomendamos que utilize um fluxo diferente para a sua aplicação em vez disso.
-> * Se os utilizadores têm de utilizar a autenticação multifator (MFA) para iniciar sessão na aplicação, serão bloqueados em vez disso.
+> * O ponto de extremidade da plataforma Microsoft Identity suporta apenas ROPC para locatários do Azure AD, não contas pessoais. Isso significa que você deve usar um ponto de extremidade específico do`https://login.microsoftonline.com/{TenantId_or_Name}`locatário () `organizations` ou o ponto de extremidade.
+> * As contas pessoais que são convidadas para um locatário do Azure AD não podem usar o ROPC.
+> * Contas que não têm senhas não podem entrar por meio de ROPC. Para esse cenário, recomendamos que você use um fluxo diferente para seu aplicativo em vez disso.
+> * Se os usuários precisarem usar a autenticação multifator (MFA) para fazer logon no aplicativo, eles serão bloqueados em vez disso.
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
-O diagrama seguinte mostra o fluxo ROPC.
+O diagrama a seguir mostra o fluxo ROPC.
 
-![Diagrama que mostra o proprietário do recurso fluxo de credenciais de palavra-passe](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
+![Diagrama mostrando o fluxo de credenciais de senha do proprietário do recurso](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
 ## <a name="authorization-request"></a>Pedido de autorização
 
-O fluxo ROPC é uma única solicitação&mdash;envia ao cliente para a identificação e as credenciais do utilizador para o IDP e, em seguida, receber em troca tokens. O cliente tem de pedir endereço de e-mail do utilizador (UPN) e a palavra-passe antes de fazer isso. Imediatamente após um pedido com êxito, o cliente deve libertar de forma segura as credenciais do usuário da memória. Nunca deve guardá-los.
+O fluxo ROPC é uma única solicitação: ele envia a identificação do cliente e as credenciais do usuário para o IDP e, em seguida, recebe tokens em retorno. O cliente deve solicitar o endereço de email (UPN) do usuário e a senha antes de fazer isso. Imediatamente após uma solicitação bem-sucedida, o cliente deve liberar com segurança as credenciais do usuário da memória. Ele nunca deve salvá-los.
 
 > [!TIP]
-> Experimente executar este pedido no Postman!
-> [![Tente executar este pedido no Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Tente executar esta solicitação no postmaster!
+> [![Tente executar esta solicitação no postmaster](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
 ```
-// Line breaks and spaces are for legibility only.
+// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required. 
 
 POST {tenant}/oauth2/v2.0/token
 Host: login.microsoftonline.com
@@ -66,15 +66,18 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Necessário | O inquilino do diretório que pretende registar o utilizador em. Isso pode ser no formato de nome amigável ou de GUID. Este parâmetro não pode ser definido como `common` ou `consumers`, mas pode ser definido como `organizations`. |
-| `grant_type` | Necessário | Tem de ser definido como `password`. |
-| `username` | Necessário | Endereço de e-mail do utilizador. |
-| `password` | Necessário | A senha do usuário. |
-| `scope` | Recomendado | Uma lista separada por espaço de [âmbitos](v2-permissions-and-consent.md), ou permissões, que o aplicativo exige. Num fluxo de interativo, o administrador ou o utilizador tenha de consentir a esses âmbitos antes do tempo. |
+| `tenant` | Requerido | O locatário do diretório no qual você deseja registrar o usuário. Isso pode estar no formato de nome amigável ou GUID. Esse parâmetro não pode ser definido `common` como `consumers`ou, mas pode ser definido `organizations`como. |
+| `client_id` | Requerido | A ID do aplicativo (cliente) que a página de [portal do Azure registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída ao seu aplicativo. | 
+| `grant_type` | Requerido | Tem de ser definido como `password`. |
+| `username` | Requerido | O endereço de email do usuário. |
+| `password` | Requerido | A senha do usuário. |
+| `scope` | Recomendado | Uma lista separada por espaços de [](v2-permissions-and-consent.md)escopos, ou permissões, que o aplicativo requer. Em um fluxo interativo, o administrador ou o usuário deve consentir esses escopos antes do tempo. |
+| `client_secret`| Às vezes é necessário | Se seu aplicativo for um cliente público, o ou `client_secret` `client_assertion` o não poderá ser incluído.  Se o aplicativo for um cliente confidencial, ele deverá ser incluído. | 
+| `client_assertion` | Às vezes é necessário | Uma forma diferente de `client_secret`, gerada usando um certificado.  Consulte [credenciais de certificado](active-directory-certificate-credentials.md) para obter mais detalhes. | 
 
-### <a name="successful-authentication-response"></a>Resposta de autenticação com êxito
+### <a name="successful-authentication-response"></a>Resposta de autenticação bem-sucedida
 
-O exemplo seguinte mostra uma resposta de token com êxito:
+O exemplo a seguir mostra uma resposta de token bem-sucedida:
 
 ```json
 {
@@ -89,26 +92,25 @@ O exemplo seguinte mostra uma resposta de token com êxito:
 
 | Parâmetro | Formato | Descrição |
 | --------- | ------ | ----------- |
-| `token_type` | String | Sempre definido como `Bearer`. |
-| `scope` | Cadeias de caracteres de espaço separado | Se foi devolvido um token de acesso, este parâmetro indica os âmbitos que o token de acesso é válido para. |
-| `expires_in`| int | Número de segundos que o token de acesso incluído é válido para. |
-| `access_token`| Cadeia opaca | Emitido para o [âmbitos](v2-permissions-and-consent.md) que foram solicitados. |
-| `id_token` | JWT | If emitido original `scope` parâmetro incluído o `openid` âmbito. |
-| `refresh_token` | Cadeia opaca | If emitido original `scope` parâmetro incluído `offline_access`. |
+| `token_type` | Cadeia | Sempre definido como `Bearer`. |
+| `scope` | Cadeias de caracteres separadas por espaço | Se um token de acesso for retornado, esse parâmetro listará os escopos para os quais o token de acesso é válido. |
+| `expires_in`| int | Número de segundos para o qual o token de acesso incluído é válido. |
+| `access_token`| Cadeia de caracteres opaca | Emitido para os [](v2-permissions-and-consent.md) escopos que foram solicitados. |
+| `id_token` | JWT | Emitido se o parâmetro `scope` original incluía `openid` o escopo. |
+| `refresh_token` | Cadeia de caracteres opaca | Emitido se o parâmetro `scope` original estiver `offline_access`incluído. |
 
-Pode usar o token de atualização para adquirir novos tokens de acesso e tokens utilizando o mesmo fluxo descrito de atualização do [documentação de fluxo de código de OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
+Você pode usar o token de atualização para adquirir novos tokens de acesso e atualizar tokens usando o mesmo fluxo descrito na [documentação do fluxo de código OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
 
 ### <a name="error-response"></a>Resposta de erro
 
-Se o utilizador ainda não forneceu o nome de utilizador correto ou a palavra-passe ou o cliente não recebeu o pedido de consentimento, a autenticação irá falhar.
+Se o usuário não forneceu o nome de usuário ou a senha correta ou o cliente não recebeu o consentimento solicitado, a autenticação falhará.
 
-| Erro | Descrição | Ação de cliente |
+| Erro | Descrição | Ação do cliente |
 |------ | ----------- | -------------|
-| `invalid_grant` | A autenticação falhou | As credenciais foram incorretas ou o cliente não tem autorização para os âmbitos pedidas. Se os âmbitos não são concedidos, um `consent_required` vai ser devolvido o erro. Se isto ocorrer, o cliente deve enviar o utilizador para uma linha de comandos interativa através de uma webview ou browser. |
-| `invalid_request` | O pedido foi construído incorretamente | O tipo de concessão não é suportado o `/common` ou `/consumers` contextos de autenticação.  Utilize `/organizations` em vez disso. |
-| `invalid_client` | A aplicação está configurada incorretamente | Isto pode acontecer se o `allowPublicClient` propriedade não está definida como verdadeiro para o [manifesto do aplicativo](reference-app-manifest.md). O `allowPublicClient` propriedade é necessária porque a concessão ROPC não tem um URI de redirecionamento. O Azure AD não consegue determinar se a aplicação é um aplicativo de cliente público ou um cliente confidencial, a menos que a propriedade está definida. ROPC só é suportada para aplicações de cliente público. |
+| `invalid_grant` | Falha na autenticação | As credenciais estavam incorretas ou o cliente não tem consentimento para os escopos solicitados. Se os escopos não forem concedidos, um `consent_required` erro será retornado. Se isso ocorrer, o cliente deverá enviar o usuário para um prompt interativo usando uma WebView ou um navegador. |
+| `invalid_request` | A solicitação foi construída de forma inadequada | Não há suporte para o tipo Grant `/common` nos `/consumers` contextos de autenticação ou.  Use `/organizations` ou uma ID de locatário em vez disso. |
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
-* Experimentar o ROPC na utilizando o [exemplo de aplicação de consola](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* Para determinar se deve utilizar o ponto final v2.0, leia sobre [limitações de plataforma de identidade do Microsoft](active-directory-v2-limitations.md).
+* Experimente o ROPC sozinho usando o [aplicativo de console de exemplo](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
+* Para determinar se você deve usar o ponto de extremidade v 2.0, leia sobre as [limitações da plataforma de identidade da Microsoft](active-directory-v2-limitations.md).
