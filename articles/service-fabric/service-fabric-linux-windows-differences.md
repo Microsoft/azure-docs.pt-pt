@@ -14,23 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 829a3ea6e8fafa24831f1731e402a3991c0258c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7ff2d7e02b557676d2ba569f7baa216d07221b9
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719996"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192547"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Diferenças entre o Service Fabric no Linux e no Windows
 
-Existem algumas funcionalidades que são suportadas no Windows, mas no Linux ainda não. Eventualmente, os conjuntos de funcionalidades estarão em paridade e, com cada versão, esta diferença de funcionalidades diminuirá. Existem diferenças entre as versões mais recentes disponíveis.
+Existem algumas funcionalidades que são suportadas no Windows, mas no Linux ainda não. Eventualmente, os conjuntos de funcionalidades estarão em paridade e, com cada versão, esta diferença de funcionalidades diminuirá. Existem as seguintes diferenças entre as versões mais recentes disponíveis.
 
-* O Envoy (Proxy inverso) está em pré-visualização no Linux
+* Envoy (proxy reverso) está em versão prévia no Linux
 * O instalador autónomo para Linux ainda não está disponível no Linux
 * Redirecionamento da consola (não suportado em clusters de produção do Windows ou Linux)
 * O Serviço de Análise de Falhas (FAS) no Linux
 * Serviço DNS para serviços do Service Fabric (o serviço DNS é suportado para contentores no Linux)
 * Equivalentes de comandos da CLI de determinados comandos do Powershell (lista abaixo, a maioria da qual é aplicável apenas a clusters autónomos)
+* [Diferenças na implementação de log que podem afetar a escalabilidade](service-fabric-concepts-scalability.md#choosing-a-platform)
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Cmdlets do PowerShell que não funcionam num cluster do Service Fabric do Linux
 
@@ -89,7 +90,7 @@ Existem algumas funcionalidades que são suportadas no Windows, mas no Linux ain
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Preparar o ambiente de desenvolvimento no Linux](service-fabric-get-started-linux.md)
 * [Prepare your development environment on OSX (Preparar o ambiente de desenvolvimento no OSX)](service-fabric-get-started-mac.md)
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o Yeoman](service-fabric-create-your-first-linux-application-with-java.md)

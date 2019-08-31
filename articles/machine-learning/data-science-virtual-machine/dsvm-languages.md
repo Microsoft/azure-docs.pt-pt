@@ -1,28 +1,21 @@
 ---
-title: Idiomas suportados para a máquina de Virtual de ciência de dados
-titleSuffix: Azure
-description: Saiba mais sobre os idiomas de programa e ferramentas relacionadas que são previamente instaladas na máquina de Virtual de ciência de dados.
+title: Idiomas suportados
+titleSuffix: Azure Data Science Virtual Machine
+description: Os idiomas do programa com suporte e as ferramentas relacionadas pré-instaladas no Máquina Virtual de Ciência de Dados.
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: vijetaj
-ms.openlocfilehash: 1df3c986132de2a3e7ec9547a996abef60ea04ac
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 573b6b75b4534789e4e40fa3d6cc1694c5ede2ea
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558129"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192159"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Idiomas suportados na máquina de Virtual de ciência de dados 
 

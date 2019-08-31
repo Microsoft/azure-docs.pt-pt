@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 545860a394c7eac953c1cbacc9dd05fc3737f6c1
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7b800a7ef38624dbe89a61dd04e2bd97b02066bb
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856177"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191923"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acessar dados nos serviços de armazenamento do Azure
 
@@ -200,6 +200,7 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[datastore1.as_download(), datastore2.path('./foo').as_download(), datastore3.as_upload(path_on_compute='./bar.pkl')])
 ```
+
 ### <a name="compute-and-datastore-matrix"></a>Matriz de computação e armazenamento de datastore
 
 Atualmente, os armazenamentos de dados dão suporte ao armazenamento de informações de conexão para os serviços de armazenamento listados na matriz a seguir. Essa matriz exibe as funcionalidades de acesso a dados disponíveis para os diferentes destinos de computação e cenários de armazenamento de Datastore. Saiba mais sobre os [destinos de computação para Azure Machine Learning](how-to-set-up-training-targets.md#compute-targets-for-training).
@@ -217,6 +218,17 @@ Atualmente, os armazenamentos de dados dão suporte ao armazenamento de informa�
 
 > [!NOTE]
 > Pode haver cenários em que processos altamente iterativos de dados grandes são executados mais `as_download()` rapidamente usando `as_mount()`em vez de; isso pode ser validado experimentalmente.
+
+### <a name="accessing-source-code-during-training"></a>Acessando o código-fonte durante o treinamento
+
+O armazenamento de BLOBs do Azure tem velocidades de taxa de transferência maiores que o compartilhamento de arquivos do Azure e será dimensionado para um grande número de trabalhos iniciados em paralelo Por esse motivo, é recomendável configurar suas execuções para usar o armazenamento de BLOBs para transferir arquivos de código-fonte.
+
+O exemplo de código a seguir especifica na configuração de execução qual repositório de armazenamento de blob usar para transferências de código-fonte.
+
+```python 
+# workspaceblobstore is the default blob storage
+run_config.source_directory_data_store = "workspaceblobstore" 
+```
 
 ## <a name="access-data-during-scoring"></a>Acessar dados durante a Pontuação
 

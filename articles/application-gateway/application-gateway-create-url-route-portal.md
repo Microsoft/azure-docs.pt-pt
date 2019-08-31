@@ -1,34 +1,31 @@
 ---
-title: Criar um gateway de aplicação com o URL com base no caminho regras de encaminhamento - portal do Azure
-description: Saiba como criar URL baseado no caminho regras de encaminhamento para um gateway de aplicação e o conjunto com o portal do Azure de dimensionamento de máquina virtual.
+title: Criar um gateway de aplicativo com regras de roteamento com base em caminho de URL-portal do Azure
+description: Saiba como criar regras de roteamento com base em caminho de URL para um gateway de aplicativo e um conjunto de dimensionamento de máquinas virtuais usando o portal do Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 3/26/2018
+ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 10bc4e4c440e5495afd820f588270b7990108b68
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9809846a8029d819dd847b78dc3c11605ddfc46
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66135394"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194521"
 ---
-# <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Criar um gateway de aplicação com o caminho com base em regras de encaminhamento com o portal do Azure
+# <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Criar um gateway de aplicativo com regras de roteamento com base em caminho usando o portal do Azure
 
-Pode utilizar o portal do Azure para configurar [regras de encaminhamento baseado no caminho de URL](application-gateway-url-route-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, vai criar conjuntos de back-end utilizando as máquinas virtuais. Em seguida, criar regras de encaminhamento que tornam-se de que o tráfego de web chega aos servidores adequados nos agrupamentos.
+Você pode usar o portal do Azure para configurar [regras de roteamento com base no caminho de URL](application-gateway-url-route-overview.md) ao criar um [Gateway de aplicativo](application-gateway-introduction.md). Neste tutorial, você cria pools de back-end usando máquinas virtuais. Em seguida, você cria regras de roteamento que garantem que o tráfego da Web chegue aos servidores apropriados nos pools.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um gateway de aplicação
-> * Crie máquinas virtuais para servidores de back-end
-> * Criar conjuntos de back-end com os servidores de back-end
-> * Criar um serviço de escuta de back-end
-> * Criar uma regra de encaminhamento baseado no caminho
+> * Criar máquinas virtuais para servidores de back-end
+> * Criar pools de back-end com os servidores de back-end
+> * Criar um ouvinte de back-end
+> * Criar uma regra de roteamento com base em caminho
 
 ![Exemplo de encaminhamento de URL](./media/application-gateway-create-url-route-portal/scenario.png)
 
@@ -36,147 +33,178 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
+## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Uma rede virtual é necessária para a comunicação entre os recursos que criar. Neste exemplo, são criadas duas sub-redes: uma para o gateway de aplicação e a outra para os servidores de back-end. Pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicação.
+Neste exemplo, você cria três máquinas virtuais a serem usadas como servidores de back-end para o gateway de aplicativo. Você também instala o IIS nas máquinas virtuais para verificar se o gateway de aplicativo funciona conforme o esperado.
 
-1. Clique em **New** encontrado no canto superior esquerdo do portal do Azure.
-2. Selecione **Rede** e, em seguida, selecione **Gateway de Aplicação** na lista Destaques.
-3. Introduza estes valores para o gateway de aplicação:
+1. Na portal do Azure, selecione **criar um recurso**.
+2. Selecione **Windows Server 2016 datacenter** na lista popular.
+3. Introduza estes valores para a máquina virtual:
 
-   - *myAppGateway* - para o nome do gateway de aplicação.
-   - *myResourceGroupAG* - para o novo grupo de recursos.
+    - **Grupo de recursos**, selecione **criar novo**e, em seguida, digite *myResourceGroupAG*.
+    - **Nome da máquina virtual**: *myVM1*
+    - **Região**: *Digamos Leste dos EUA*
+    - **Nome de usuário**: *azureuser*
+    - **Senha**: *Azure123456!*
 
-     ![Criar um novo gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
-4. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **OK**.
-5. Clique em **escolher uma rede virtual**, clique em **criar nova**e, em seguida, introduza estes valores para a rede virtual:
+4. Selecione **Avançar: discos**.
+5. Selecione **Avançar: rede**
+6. Para **rede virtual**, selecione **criar novo** e digite esses valores para a rede virtual:
 
    - *myVNet* - para o nome da rede virtual.
    - *10.0.0.0/16* - para o espaço de endereços de rede virtual.
-   - *myAGSubnet* - para o nome da sub-rede.
+   - *myBackendSubnet* para o primeiro nome de sub-rede
+   - *10.0.1.0/24* – para o espaço de endereços da sub-rede.
+   - *myAGSubnet* – para o segundo nome de sub-rede.
    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
+7. Selecione **OK**.
 
-     ![Criar a rede virtual](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
-
-6. Clique em **OK** para criar a rede virtual e a sub-rede.
-7. Clique em **escolher um endereço IP público**, clique em **criar nova**e, em seguida, introduza o nome do endereço IP público. Neste exemplo, o endereço IP público tem o nome *myAGPublicIPAddress*. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **OK**.
-8. Aceite os valores predefinidos para a configuração do serviço de escuta, deixe a firewall de aplicações Web desativada e, em seguida, clique em **OK**.
-9. Reveja as definições na página de resumo e, em seguida, clique em **OK** para criar os recursos de rede e o gateway de aplicação. Pode demorar alguns minutos até que o gateway de aplicação ser criado, aguarde até a conclusão da implementação com êxito antes de passar para a secção seguinte.
-
-### <a name="add-a-subnet"></a>Adicionar uma sub-rede
-
-1. Clique em **Todos os recursos** no menu da esquerda e, em seguida, clique em **myVNet** na lista de recursos.
-2. Clique em **sub-redes**e, em seguida, clique em **sub-rede**.
-
-    ![Criar sub-rede](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
-
-3. Introduza *myBackendSubnet* para o nome da sub-rede e clique em **OK**.
-
-## <a name="create-virtual-machines"></a>Criar máquinas virtuais
-
-Neste exemplo, vai criar três máquinas virtuais para serem utilizadas como servidores de back-end para o gateway de aplicação. Vai também instalar o IIS nas máquinas virtuais para verificar se o gateway de aplicação foi criado com êxito.
-
-1. Clique em **Novo**.
-2. Clique em **computação** e, em seguida, selecione **do Windows Server 2016 Datacenter** na lista em destaque.
-3. Introduza estes valores para a máquina virtual:
-
-    - *myVM1* - no nome da máquina virtual.
-    - *azureuser* - no nome de utilizador do administrador.
-    - *Azure123456!* para a palavra-passe.
-    - Selecione **Utilizar existente** e, em seguida, selecione *myResourceGroupAG*.
-
-4. Clique em **OK**.
-5. Selecione **DS1_V2** para o tamanho da máquina virtual e clique em **Selecionar**.
-6. Certifique-se de que **myVNet** está selecionado para a rede virtual e que a sub-rede é **myBackendSubnet**. 
-7. Clique em **Desativado** para desativar o diagnóstico de arranque.
-8. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **Criar**.
+8. Verifique se em **interface de rede**, **myBackendSubnet** está selecionado para a sub-rede e, em **seguida, selecione Avançar: Gerenciamento**.
+9. Selecione **desativado** para desabilitar o diagnóstico de inicialização.
+10. Clique em revisar **+ criar**, examine as configurações na página Resumo e, em seguida, selecione **criar**.
+11. Crie duas máquinas virtuais, *myVM2* e *myVM3* , e coloque-as na rede virtual *MyVNet* e na sub-rede *myBackendSubnet* .
 
 ### <a name="install-iis"></a>Instalar o IIS
 
-1. Abra a shell interativa e certifique-se de que está definida como **PowerShell**.
+1. Abra o shell interativo e verifique se ele está definido como **PowerShell**.
 
     ![Instalar uma extensão personalizada](./media/application-gateway-create-url-route-portal/application-gateway-extension.png)
 
 2. Execute o comando seguinte para instalar o IIS na máquina virtual: 
 
-    ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzVMExtension `
-      -ResourceGroupName myResourceGroupAG `
-      -Location eastus `
-      -ExtensionName IIS `
-      -VMName myVM1 `
-      -Publisher Microsoft.Compute `
-      -ExtensionType CustomScriptExtension `
-      -TypeHandlerVersion 1.4 `
-      -Settings $publicSettings
+    ```azurepowershell
+         $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+
+        Set-AzVMExtension `
+         -ResourceGroupName myResourceGroupAG `
+         -Location eastus `
+         -ExtensionName IIS `
+         -VMName myVM1 `
+         -Publisher Microsoft.Compute `
+         -ExtensionType CustomScriptExtension `
+         -TypeHandlerVersion 1.4 `
+         -Settings $publicSettings
     ```
 
-3. Criar duas máquinas virtuais mais e instalar o IIS com os passos que acabou de concluir. Introduza os nomes dos *myVM2* e *myVM3* para os nomes e valores de VMName no conjunto AzVMExtension.
+3. Crie mais duas máquinas virtuais e instale o IIS usando as etapas que você acabou de concluir. Insira os nomes de *myVM2* e *myVM3* para os nomes e para os valores de VMName em Set-AzVMExtension.
 
-## <a name="create-backend-pools-with-the-virtual-machines"></a>Criar conjuntos de back-end com as máquinas virtuais
+## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
-1. Clique em **todos os recursos** e, em seguida, clique em **myAppGateway**.
-2. Clique em **Conjuntos de back-end**. Um conjunto predefinido foi criado automaticamente com o gateway de aplicação. Clique em **appGatewayBackendPool**.
-3. Clique em **adicionar destino** para adicionar *myVM1* para appGatewayBackendPool.
+1. Selecione **criar um recurso** no menu à esquerda da portal do Azure. A **nova** janela é exibida.
 
-    ![Adicionar servidores back-end](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)
+2. Selecione **rede** e, em seguida, selecione **Gateway de aplicativo** na lista em **destaque** .
 
-4. Clique em **Guardar**.
-5. Clique em **conjuntos de back-end** e, em seguida, clique em **Add**.
-6. Introduza um nome de *imagesBackendPool* e adicione *myVM2* usando **adicionar destino**.
-7. Clique em **OK**.
-8. Clique em **Add** novamente para adicionar outro conjunto de back-end com o nome *videoBackendPool* e adicione *myVM3* a ele.
+### <a name="basics-tab"></a>Guia básico
 
-## <a name="create-a-backend-listener"></a>Criar um serviço de escuta de back-end
+1. Na guia **noções básicas** , insira esses valores para as seguintes configurações do gateway de aplicativo:
 
-1. Clique em **serviços de escuta** e clique em **básica**.
-2. Introduza *myBackendListener* para o nome, *myFrontendPort* para o nome da porta de front-end e, em seguida *8080* como a porta para o serviço de escuta.
-3. Clique em **OK**.
+   - **Grupo de recursos**: Selecione **myResourceGroupAG** para o grupo de recursos.
+   - **Nome do gateway de aplicativo**: Digite *myAppGateway* para o nome do gateway de aplicativo.
+   - **Região** – selecione **leste**dos EUA.
 
-## <a name="create-a-path-based-routing-rule"></a>Criar uma regra de encaminhamento baseado no caminho
+        ![Criar novo gateway de aplicativo: Noções Básicas](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
-1. Clique em **regras** e, em seguida, clique em **baseado no caminho**.
-2. Introduza *rule2* para o nome.
-3. Introduza *imagens* para o nome do caminho primeiro. Introduza */images/* \* para o caminho. Selecione **imagesBackendPool** para o conjunto de back-end.
-4. Introduza *vídeo* para o nome do segundo caminho. Introduza */video/* \* para o caminho. Selecione **videoBackendPool** para o conjunto de back-end.
+2.  Em **Configurar rede virtual**, selecione **myVNet** para o nome da rede virtual.
+3. Selecione **myAGSubnet** para a sub-rede.
+3. Aceite os valores padrão para as outras configurações e, em **seguida, selecione Avançar: Front-ends.**
 
-    ![Criar uma regra baseada em caminho](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
+### <a name="frontends-tab"></a>Guia front-ends
 
-5. Clique em **OK**.
+1. Na guia **front-ends** , verifique se **tipo de endereço IP de front-end** está definido como **público**.
+
+   > [!NOTE]
+   > Para o SKU do gateway de aplicativo v2, você só pode escolher a configuração de IP de front-end **público** . A configuração de IP de front-end privada não está habilitada no momento para este SKU v2.
+
+2. Escolha **criar novo** para o **endereço IP público** e insira *myAGPublicIPAddress* para o nome do endereço IP público e, em seguida, selecione **OK**. 
+3. Selecione **avançar: Back-** ends.
+
+### <a name="backends-tab"></a>Guia back-ends
+
+O pool de back-end é usado para rotear solicitações para os servidores de back-end que atendem à solicitação. Os pools de back-end podem ser compostos de NICs, conjuntos de dimensionamento de máquinas virtuais, IPs públicos, IPs internos, FQDN (nomes de domínio totalmente qualificados) e back-ends de vários locatários como Azure App serviço.
+
+1. Na guia **back-ends** , selecione **+ Adicionar um pool de back-end**.
+
+2. Na janela **Adicionar um pool de back-end** que é aberta, insira os seguintes valores para criar um pool de back-end vazio:
+
+    - **Nome**: Digite *myBackendPool* para o nome do pool de back-end.
+3. Em **destinos de back-end**, **tipo de destino**, selecione **máquina virtual** na lista suspensa.
+
+5. Em **destino** , selecione a interface de rede para **myVM1**.
+6. Selecione **Adicionar**.
+7. Repita para adicionar um pool de back-end de *imagens* com *myVM2* como o destino e um pool de back-end de *vídeo* com *myVM3* como o destino.
+8. Selecione **Adicionar** para salvar a configuração do pool de back-end e retornar à guia **back-ends** .
+
+4. Na guia **back-ends** , selecione **avançar: Configuração**.
+
+### <a name="configuration-tab"></a>Guia de configuração
+
+Na guia **configuração** , você conectará o front-end e o pool de back-end que você criou usando uma regra de roteamento.
+
+1. Selecione **Adicionar uma regra** na coluna **regras de roteamento** .
+
+2. Na janela **Adicionar uma regra de roteamento** que é aberta, insira *myRoutingRule* para o **nome da regra**.
+
+3. Uma regra de roteamento requer um ouvinte. Na guia **ouvinte** na janela **Adicionar uma regra de roteamento** , insira os seguintes valores para o ouvinte:
+
+    - **Nome**do ouvinte: Insira *MyListener* como o nome do ouvinte.
+    - **IP de front-end**: Selecione **público** para escolher o IP público que você criou para o front-end.
+    - **Porta**: Digite *8080*
+  
+        Aceite os valores padrão para as outras configurações na guia **ouvinte** e, em seguida, selecione a guia **destinos de back-end** para configurar o restante da regra de roteamento.
+
+4. Na guia **destinos de back-end** , selecione **myBackendPool** para o **destino de back-end**.
+
+5. Para a **configuração de http**, selecione **criar novo** para criar uma nova configuração de http. A configuração HTTP determinará o comportamento da regra de roteamento. 
+
+6. Na janela **Adicionar uma configuração de http** que é aberta, insira *myHTTPSetting* para o **nome da configuração http**. Aceite os valores padrão para as outras configurações na janela **Adicionar uma configuração de http** e, em seguida, selecione **Adicionar** para retornar à janela **Adicionar uma regra de roteamento** .
+7. Em **roteamento baseado em caminho**, selecione **adicionar vários destinos para criar uma regra com base no caminho**.
+8. Para **caminho**, digite */images/* \*.
+9. Para **nome da regra de caminho**, digite *imagens*.
+10. Para **configuração de http**, selecione **myHTTPSetting**
+11. Para **destino de back-end**, selecione **imagens**.
+12. Selecione **Adicionar** para salvar a regra de caminho e retornar para a guia **Adicionar uma regra de roteamento** .
+13. Repita para adicionar outra regra para vídeo.
+14. Selecione **Adicionar** para adicionar a regra de roteamento e retornar à guia **configuração** .
+15. Selecione **avançar: Marcas** e, **em seguida, avançar: Examine + criar**.
+
+> [!NOTE]
+> Você não precisa adicionar uma regra de caminho */* * personalizada para manipular casos padrão. Isso é manipulado automaticamente pelo pool de back-end padrão.
+
+### <a name="review--create-tab"></a>Revisar + criar guia
+
+Examine as configurações na guia **revisar + criar** e, em seguida, selecione **criar** para criar a rede virtual, o endereço IP público e o gateway de aplicativo. Pode levar vários minutos para que o Azure crie o gateway de aplicativo. Aguarde até que a implantação seja concluída com êxito antes de passar para a próxima seção.
+
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-1. Clique em **todos os recursos**e, em seguida, clique em **myAGPublicIPAddress**.
+1. Selecione **todos os recursos**e, em seguida, selecione **myAppGateway**.
 
     ![Registar o endereço IP público do gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copie o endereço IP público e cole-o na barra de endereço do browser. Por exemplo, http:\//40.121.222.19.
+2. Copie o endereço IP público e cole-o na barra de endereço do browser. Como, http:\//52.188.72.175:8080.
 
     ![Testar o URL base no gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
-3. Altere o URL para http://&lt;ip-address&gt;: 8080/images/test.htm, substituindo &lt;endereço ip&gt; endereço e com o seu IP deverá ver algo semelhante ao seguinte exemplo:
+   O ouvinte na porta 8080 roteia essa solicitação para o pool de back-end padrão.
+
+3. Altere a URL para *http://&lt;IP-address&gt;: 8080/images/test.htm*, substituindo &lt;IP-&gt; address pelo seu endereço IP e você verá algo semelhante ao exemplo a seguir:
 
     ![Testar o URL de imagens no gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
-4. Altere o URL para http://&lt;ip-address&gt;: 8080/video/test.htm, substituindo &lt;endereço ip&gt; endereço e com o seu IP deverá ver algo semelhante ao seguinte exemplo:
+   O ouvinte na porta 8080 roteia essa solicitação para o pool de back-end de *imagens* .
+
+4. Altere a URL para *http://&lt;IP-address&gt;: 8080/Video/Test.htm*, substituindo &lt;IP-&gt; address pelo seu endereço IP e você verá algo semelhante ao exemplo a seguir:
 
     ![Testar o URL de vídeo no gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+   O ouvinte na porta 8080 roteia essa solicitação para o pool de back-end de *vídeo* .
 
-Neste artigo, aprendeu como
 
-> [!div class="checklist"]
-> * Criar um gateway de aplicação
-> * Crie máquinas virtuais para servidores de back-end
-> * Criar conjuntos de back-end com os servidores de back-end
-> * Criar um serviço de escuta de back-end
-> * Criar uma regra de encaminhamento baseado no caminho
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre os gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.
+- [Habilitando o SSL de ponta a ponta no gateway de Aplicativo Azure](application-gateway-backend-ssl.md)
