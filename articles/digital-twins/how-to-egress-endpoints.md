@@ -49,14 +49,14 @@ Os eventos são enviados por objetos IoT (como dispositivos e sensores) para pro
 
 | Atributo | Type | Descrição |
 | --- | --- | --- |
-| id | Cadeia de caracteres | Identificador exclusivo do evento. |
-| subject | Cadeia de caracteres | Caminho definido pelo Publicador para a entidade do evento. |
+| id | string | Identificador exclusivo do evento. |
+| subject | string | Caminho definido pelo Publicador para a entidade do evento. |
 | data | object | Dados de evento específicos para o provedor de recursos. |
-| eventType | Cadeia de caracteres | Um dos tipos de evento registrados para essa origem do evento. |
-| eventTime | Cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| dataVersion | Cadeia de caracteres | A versão do esquema do objeto de dados. O Publicador define a versão do esquema. |
-| metadataVersion | Cadeia de caracteres | A versão do esquema dos metadados do evento. A grade de eventos define o esquema das propriedades de nível superior. A grade de eventos fornece esse valor. |
-| topic | Cadeia de caracteres | Caminho completo do recurso para a origem do evento. Este campo não é gravável. A grade de eventos fornece esse valor. |
+| eventType | string | Um dos tipos de evento registrados para essa origem do evento. |
+| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O Publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. A grade de eventos define o esquema das propriedades de nível superior. A grade de eventos fornece esse valor. |
+| topic | string | Caminho completo do recurso para a origem do evento. Este campo não é gravável. A grade de eventos fornece esse valor. |
 
 Para obter mais informações sobre o esquema de evento da grade de eventos:
 
