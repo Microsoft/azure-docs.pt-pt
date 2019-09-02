@@ -8,7 +8,9 @@
   items:
     - name: Criar uma nova base de dados de conhecimento
       href: How-To/create-knowledge-base.md
-    - name: Receber resposta da base de dados de conhecimento
+    - name: Adicionar perguntas com metadados
+      href: quickstarts/add-question-metadata-portal.md
+    - name: Obter resposta
       items:
         - name: Utilizar o Postman
           href: Quickstarts/get-answer-from-kb-using-postman.md
@@ -40,7 +42,7 @@
               href: 'Quickstarts/create-knowledge-rest-api-nodejs.md##publish-a-knowledge-base'
             - name: Python
               href: Quickstarts/publish-kb-python.md
-        - name: Receber resposta da base de dados de conhecimento
+        - name: Obter resposta
           items:
             - name: 'C#'
               href: Quickstarts/get-answer-from-knowledge-base-csharp.md
@@ -125,20 +127,15 @@
           displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
     - name: Gerir serviço
       items:
-        - name: Configurar o serviço Criador de FAQ
+        - name: Gerir recursos
           href: How-To/set-up-qnamaker-service-azure.md
-        - name: Obter análises da base de dados de conhecimento
+          displayName: 'azure, resource, key, upgrade, pricing, tier,'
+        - name: Obter análise
           href: How-To/get-analytics-knowledge-base.md
-        - name: Gerir chaves
-          href: How-To/key-management.md
-        - name: Escolher a capacidade de implementação do Criador de FAQ
+        - name: Escolher capacidade
           href: Tutorials/choosing-capacity-qnamaker-deployment.md
-        - name: Atualizar o serviço Criador de FAQ
-          href: How-To/upgrade-qnamaker-service.md
-        - name: Criar um plano de continuidade do negócio para o Criador de FAQ
+        - name: Criar um plano de continuidade de negócio
           href: How-To/business-continuity-plan.md
-        - name: Resolver problemas e atualizar o tempo de execução do Criador de FAQ
-          href: How-To/troubleshooting-runtime.md
     - name: Utilizar a API REST
       items:
         - name: 'C#'

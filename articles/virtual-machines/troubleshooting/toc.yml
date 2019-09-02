@@ -96,20 +96,27 @@
   href: reset-network-interface.md
 - name: Reiniciar ou redimensionar uma VM
   href: restart-resize-error-troubleshooting.md
-- name: Utilizar a consola de série
+- name: Consola de Série
+  href: serial-console-overview.md
   items:
-    - name: VM do Linux
+    - name: Consola de Série para Linux
       href: serial-console-linux.md
       items:
         - name: Modo de utilizador GRUB/Único da Consola de Série
           href: serial-console-grub-single-user-mode.md
         - name: Consola de Série NMI/SysRq
           href: serial-console-nmi-sysrq.md
-    - name: VM do Windows
+    - name: Consola de Série para Windows
       href: serial-console-windows.md
       items:
         - name: Comandos de CMD e PowerShell
           href: serial-console-cmd-ps-commands.md
+    - name: Ativar e desativar a Consola de Série
+      href: serial-console-enable-disable.md
+    - name: Opções de energia na Consola de Série
+      href: serial-console-power-options.md
+    - name: Erros comuns da Consola de Série
+      href: serial-console-errors.md
 - name: Erros ao eliminar os recursos de armazenamento
   href: storage-resource-deletion-errors.md
 - name: Erros ao eliminar os recursos de armazenamento clássicos
@@ -153,6 +160,8 @@
 - name: Erros de arranque
   href: boot-error-troubleshoot.md
   items:
+    - name: Erro de arranque de Máquina Virtual do Azure
+      href: troubleshoot-vm-boot-error.md
     - name: Diagnósticos de arranque
       href: boot-diagnostics.md
     - name: Erros de disco BitLocker

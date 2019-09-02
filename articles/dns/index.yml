@@ -1,94 +1,65 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação do DNS do Azure
+summary: Saiba como utilizar o DNS do Azure. Inícios rápidos, tutoriais, exemplos e mais mostram-lhe como configurar e gerir zonas DNS e registos para nomes de domínio.
 metadata:
   title: Documentação do DNS do Azure
-  meta.description: Learn how to manage your DNS records using Azure Domain Name System. Documentation shows how to set up and manage DNS zones and records for domain names.
+  description: Saiba como utilizar o DNS do Azure. Inícios rápidos, tutoriais, exemplos e mais mostram-lhe como configurar e gerir zonas DNS e registos para nomes de domínio.
   services: dns
-  author: KumudD
-  manager: jeconnoc
-  layout: LandingPage
-  ms.assetid: na
   ms.service: dns
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 6/13/2018
-  ms.author: kumud
-abstract:
-  description: 'Saiba como utilizar o DNS do Azure. Inícios rápidos, tutoriais, exemplos e mais mostram-lhe como configurar e gerir zonas DNS e registos para nomes de domínio.'
-sections:
-  - title: Inícios rápidos de cinco minutos
-    items:
-      - type: paragraph
-        text: Saiba como criar zonas DNS e registos para nomes de domínios.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Portal do Azure
-            href: /azure/dns/dns-getstarted-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
-            text: Azure PowerShell
-            href: /azure/dns/dns-getstarted-powershell
-          - image:
-              src: 'https://docs.microsoft.com/media/common/cli.svg'
-            text: CLI do Azure
-            href: /azure/dns/dns-getstarted-cli
-  - title: Tutoriais Passo-a-Passo
-    items:
-      - type: paragraph
-        text: 'Saiba como alojar o seu domínio no DNS do Azure, criar registos de DNS personalizados para uma aplicação web ao utilizar o DNS do Azure e criar uma zona e registos de DNS privados.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/dns/dns-delegate-domain-azure-dns">Alojar o seu domínio no DNS do Azure</a>
-          - html: <a href="/azure/dns/dns-web-sites-custom-domain">Criar registos DNS personalizados para uma aplicação web</a>
-          - html: <a href="/azure/dns/private-dns-getstarted-powershell">Criar zona e um registo DNS privados</a>
-          - html: <a href="/azure/dns/tutorial-alias-pip">Configurar um registo de alias para fazer referência a um endereço IP Público do Azure</a>
-          - html: <a href="/azure/dns/tutorial-alias-tm">Configurar um registo de alias para suportar os nomes de domínio apex com o Gestor de Tráfego</a>
-          - html: <a href="/azure/dns/tutorial-alias-rr">Configurar um registo de alias para os registos de zona</a>
-  - title: Vídeo de Formação Gratuita da PluralSight
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Administrador do Azure
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-          - title: Arquiteto de Soluções do Azure
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
-          - title: Administração do Azure para Administradores AWS
-            href: 'https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents'
-  - title: Amostras
-    items:
-      - type: paragraph
-        text: Exemplos de script para tarefas comuns.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/dns/cli-samples">CLI do Azure</a>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Linha de Comandos
-            html: <p><a href="/powershell/module/az.dns">PowerShell</a></p><p><a href="/cli/azure/network/traffic-manager">CLI do Azure</a></p>
-          - title: Linguagens
-            html: '<p><a href="/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.dns">Java</a></p><p><a href="https://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/">Node.js</a></p><p><a href="https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0">Ruby</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.dns">Python</a></p>'
-          - title: REST
-            html: <p><a href="/rest/api/dns/">Referência da API REST</a></p>
+  author: vhorne
+  ms.author: victorh
+  ms.date: 08/29/2019
+  ms.openlocfilehash: be93b43a72d8a9b33b75abafe15abf65ab8fb58a
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70126043"
+landingContent:
+- title: Saiba mais sobre o Azure DNS
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o DNS do Azure?
+      url: dns-overview.md
+- title: Criar uma zona e um registo DNS do Azure
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Criar uma zona e um registo do DNS do Azure com o portal do Azure
+      url: dns-getstarted-portal.md
+  - linkListType: tutorial
+    links:
+    - text: Alojar o seu domínio no DNS do Azure
+      url: dns-delegate-domain-azure-dns.md
+- title: Implementar uma zona DNS privada
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o DNS Privado do Azure?
+      url: private-dns-overview.md
+  - linkListType: concept
+    links:
+    - text: Cenários de Zonas Privadas do DNS do Azure
+      url: private-dns-scenarios.md
+    - text: FAQ do DNS Privado do Azure
+      url: dns-faq-private.md
+  - linkListType: tutorial
+    links:
+    - text: Criar uma zona DNS privada DNS do Azure com o portal do Azure
+      url: private-dns-portal.md
+- title: Utilizar registos de alias
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Descrição geral dos registos de alias do DNS do Azure
+      url: dns-alias.md
+  - linkListType: tutorial
+    links:
+    - text: Configurar um registo de alias para suportar os nomes de domínio apex com o Gestor de Tráfego
+      url: tutorial-alias-tm.md
+    - text: Configurar um registo de alias para fazer referência a um endereço IP público do Azure
+      url: tutorial-alias-pip.md
+    - text: Criar um registo de alias para fazer referência a um registo de recursos na zona
+      url: tutorial-alias-rr.md

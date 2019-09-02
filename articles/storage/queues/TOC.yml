@@ -1,9 +1,9 @@
-- name: Documentação do Storage do Azure
-  href: /azure/storage/
+- name: Documentação do Armazenamento de Filas do Azure
+  href: /azure/storage/queues/
 - name: Descrição geral
   expanded: true
   items:
-    - name: O que são as Filas do Azure?
+    - name: O que são as filas do Azure?
       href: storage-queues-introduction.md
 - name: Inícios rápidos
   items:

@@ -1,63 +1,55 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação da Leitura Avançada
+summary: A Leitura Avançada é uma ferramenta que implementa técnicas comprovadas para melhorar a compreensão da leitura para os leitores iniciantes, estudantes de idiomas e pessoas com dificuldades de aprendizagem. Pode utilizar a Leitura Avançada na sua aplicação Web com o SDK da Leitura Avançada.
 metadata:
-  title: 'Documentação da Leitura Avançada – Inícios Rápidos, Tutoriais, Referência da API – Serviços Cognitivos do Azure | Microsoft Docs'
-  description: Saiba como utilizar a Leitura Avançada na sua aplicação.
-  services: cognitive-services
-  author: metanMSFT
-  manager: nitinme
+  title: Documentação da Leitura Avançada
+  description: A Leitura Avançada é uma ferramenta que implementa técnicas comprovadas para melhorar a compreensão da leitura para os leitores iniciantes, estudantes de idiomas e pessoas com dificuldades de aprendizagem. Pode utilizar a Leitura Avançada na sua aplicação Web com o SDK da Leitura Avançada.
+  services: service
   ms.service: cognitive-services
   ms.subservice: immersive-reader
   ms.topic: landing-page
-  ms.date: 06/20/2019
-  ms.author: metanMSFT
-abstract:
-  description: 'A Leitura Avançada é uma ferramenta que implementa técnicas comprovadas para melhorar a compreensão da leitura para os leitores iniciantes, estudantes de idiomas e pessoas com dificuldades de aprendizagem. Pode utilizar a Leitura Avançada na sua aplicação Web com o SDK da Leitura Avançada.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/immersive-reader/overview
-            html: <p>Saiba mais sobre a Leitura Avançada e como a integrar nas suas aplicações</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: O que é a Leitura Avançada?
-          - href: /azure/cognitive-services/immersive-reader/reference
-            html: <p>Saiba mais sobre o SDK de Javascript da Leitura Avançada</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Utilizar o SDK da Leitura Avançada
-  - title: Inícios rápidos de cinco minutos
-    items:
-      - type: paragraph
-        text: 'Introdução à Leitura Avançada:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/logo_csharp.svg
-            text: 'C&#35;'
-            alt: 'Logótipo do C#'
-            href: quickstart
-  - title: Tutoriais Passo-a-Passo
-    items:
-      - type: paragraph
-        text: 'Saiba como desenvolver aplicações com a Leitura Avançada:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="tutorial-nodejs.md">Iniciar a Leitura Avançada com o Node.js</a>
-          - html: <a href="tutorial-python.md">Iniciar a Leitura Avançada com o Python</a>
-          - html: <a href="tutorial-ios-picture-immersive-reader.md">Iniciar a Leitura Avançada com o Swift</a>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: SDKs
-            html: <p><a href="reference.md">Javascript</a></p>
+  ms.collection: collection
+  author: IEvangelist
+  ms.author: dapine
+  ms.date: 08/29/2019
+  ms.openlocfilehash: 50185a0bbfc3a9677ebc90f326b0c43ab2a2eb13
+  ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 08/29/2019
+  ms.locfileid: "70164498"
+landingContent:
+- title: Sobre a Leitura Avançada
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a Leitura Avançada?
+      url: overview.md
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Núcleo de ASP.NET
+      url: quickstart.md
+    - text: Swift (iOS)
+      url: ios-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Node.js
+      url: tutorial-nodejs.md
+    - text: Python
+      url: tutorial-python.md
+    - text: Swift (iOS)
+      url: tutorial-ios-picture-immersive-reader.md
+- title: Explorar a Leitura Avançada
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Autenticar com o Azure Active Directory
+      url: azure-active-directory-authentication.md
+  - linkListType: reference
+    links:
+    - text: SDK JavaScript
+      url: reference.md
+    - text: iOS SDK
+      url: ios-reference.md

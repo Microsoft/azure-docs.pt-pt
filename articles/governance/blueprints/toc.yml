@@ -156,6 +156,9 @@
     - name: Atualizar atribuições existentes a partir do portal
       displayName: 'lock, errors'
       href: ./how-to/update-existing-assignments.md
+    - name: Configurar o seu ambiente para um Operador Blueprint
+      displayName: 'rbac, user-assigned, managed, identity, management group'
+      href: ./how-to/configure-for-blueprint-operator.md
     - name: Gerir Esquemas como Código (comunidade)
       href: 'https://github.com/Azure/azure-blueprints/blob/master/README.md'
 - name: Resolução de problemas

@@ -1,65 +1,81 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação de identidade híbrida
+summary: As soluções de identidade da Microsoft abrangem capacidades baseadas na cloud e no local, ao criar uma única identidade de utilizador para autenticação e autorização a todos os recursos, independentemente da localização. Chamamos-lhe identidade híbrida.
 metadata:
-  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275e
-  title: Documentação de identidade híbrida
-  description: 'O Azure AD Connect irá integrar os diretórios no local ao Azure Active Directory. Isto permite-lhe fornecer uma identidade comum para o utilizadores das aplicações do Office 365, do Azure e do SaaS integradas com o Azure AD.'
-  services: active-directory
   author: billmath
+  description: O Azure AD Connect irá integrar os diretórios no local ao Azure Active Directory. Isto permite-lhe fornecer uma identidade comum para o utilizadores das aplicações do Office 365, do Azure e do SaaS integradas com o Azure AD.
   manager: daveba
-  ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 05/18/2018
   ms.author: billmath
-abstract:
-  description: 'As soluções de identidade da Microsoft abrangem capacidades baseadas na cloud e no local, ao criar uma única identidade de utilizador para autenticação e autorização a todos os recursos, independentemente da localização. Chamamos-lhe identidade híbrida.</br></br></br>O Azure AD Connect irá integrar os diretórios no local ao Azure Active Directory. Isto permite-lhe fornecer uma identidade comum para o utilizadores das aplicações do Office 365, do Azure e do SaaS integradas com o Azure AD. Este tópico descreve o planeamento, a implementação e os passos de operação. É uma coleção de ligações para os tópicos relacionados com esta área.'
-  aside:
-    image:
-      alt: vídeo do Channel 9
-      height: 110
-      src: media/index/video2.png
-      width: 250
-    title: 'Expanda os diretórios locais para a cloud (1:11:12)'
-    href: 'https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player'
-    width: 250
-sections:
-  - title: Tutoriais passo-a-passo
-    items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/active-directory/hybrid/tutorial-password-hash-sync
-            html: <p>Saiba como começar a estender as identidades para a cloud com a sincronização de hash de palavra-passe</p>
-            image:
-              alt: sincronização hash de palavras-passe
-              src: media/index/azuread2.png
-            title: Integrar uma única floresta do AD com a sincronização de hash de palavra-passe (PHS)
-          - href: /azure/active-directory/hybrid/tutorial-passthrough-authentication
-            html: <p>Saiba como começar a estender as identidades para a cloud com a autenticação pass-through.</p>
-            image:
-              alt: autenticação pass-through
-              src: media/index/manage2.png
-            title: Integrar uma única floresta do AD através da autenticação pass-through (PTA)
-          - href: /azure/active-directory/hybrid/tutorial-federation
-            html: <p>Saiba como federar o Azure Active Directory (Azure AD) Connect com os Serviços de Federação do Active Directory (AD FS) locais e o Azure AD.</p>
-            image:
-              alt: de federação
-              src: media/index/federate2.png
-            title: Integrar uma única floresta do AD com a federação
-  - title: Guias de Procedimentos
-    items:
-      - type: paragraph
-        text: Saiba como realizar várias tarefas de identidade híbrida
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/hybrid/how-to-connect-install-custom">Instalar o Azure AD Connect no seu ambiente de identidade híbrida</a>
-          - html: <a href="/azure/active-directory/hybrid/how-to-connect-sso">Início de Sessão único integrado com o Azure AD Connect</a>
-          - html: <a href="/azure/active-directory/hybrid/how-to-connect-install-prerequisites">Pré-requisitos do Azure AD Connect</a>
-          - html: <a href="/azure/active-directory/hybrid/reference-connect-version-history">Histórico de versões do Azure AD Connect</a>
-          - html: <a href="/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler">Gerir o agendador da Sincronização do Azure AD Connect</a>
+  ms.collection: na
+  ms.date: 08/15/2019
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: fa9007d0e9ad59ee0ffb29fe1c5c74c8530d84fa
+  ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 08/29/2019
+  ms.locfileid: "70162206"
+landingContent:
+- title: Sobre a Identidade Híbrida
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a identidade híbrida?
+      url: whatis-hybrid-identity.md
+- title: Determinar a melhor solução para gerir o ciclo de vida dos seus utilizadores e grupos
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que são o Azure AD Connect e o Connect Health?
+      url: whatis-azure-ad-connect.md
+  - linkListType: tutorial
+    links:
+    - text: Integrar uma única floresta do AD com a sincronização de hash de palavra-passe (PHS)
+      url: tutorial-password-hash-sync.md
+    - text: Integrar uma única floresta do AD através da autenticação pass-through (PTA)
+      url: tutorial-passthrough-authentication.md
+    - text: Integrar uma única floresta do AD com a federação
+      url: tutorial-federation.md
+- title: Escolher o método de autenticação mais adequada à sua organização
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a sincronização de hash de palavra-passe?
+      url: whatis-phs.md
+    - text: O que é a autenticação pass-through?
+      url: how-to-connect-pta.md
+    - text: O que é a federação?
+      url: whatis-fed.md
+    - text: O que é o início de sessão único?
+      url: how-to-connect-sso.md
+  - linkListType: concept
+    links:
+    - text: Determinar qual é o método autenticação ideal para si
+      url: /azure/security/fundamentals/choose-ad-authn
+- title: Introdução à identidade híbrida
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Instalar o Azure AD Connect com as definições rápidas
+      url: how-to-connect-install-express.md
+    - text: Instalar o Azure AD Connect com as definições personalizadas
+      url: how-to-connect-install-custom.md
+    - text: Configurar a conta do Conector do AD DS
+      url: how-to-connect-configure-ad-ds-connector-account.md
+    - text: Alterar a palavra-passe da conta de serviço de ADSync
+      url: how-to-connect-sync-change-serviceacct-pass.md
+    - text: Alterar a palavra-passe da conta do Conector do Azure AD
+      url: how-to-connect-azureadaccount.md
+    - text: Alterar a palavra-passe da conta do AD DS
+      url: how-to-connect-sync-change-addsacct-pass.md
+  - linkListType: reference
+    links:
+    - text: Portas e protocolos necessários
+      url: reference-connect-ports.md
+    - text: Contas e permissões
+      url: reference-connect-accounts-permissions.md
+    - text: Histórico das versões do Azure AD Connect
+      url: reference-connect-version-history.md

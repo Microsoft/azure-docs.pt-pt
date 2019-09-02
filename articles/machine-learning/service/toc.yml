@@ -145,17 +145,6 @@
         - name: Adicionar e registar conjuntos de dados
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
-        - name: Preparar com azureml.dataprep
-          items:
-            - name: Carregar dados
-              displayName: 'data, etl, data prep, dataprep'
-              href: how-to-load-data.md
-            - name: Transformar dados
-              displayName: 'data, etl, dataprep, data prep'
-              href: how-to-transform-data.md
-            - name: Escrever dados
-              displayName: 'data, etl, data prep, dataprep'
-              href: how-to-write-data.md
     - name: Preparar modelos
       items:
         - name: Configurar ambientes de preparação
@@ -347,6 +336,8 @@
               href: ../algorithm-module-reference/multiclass-neural-network.md
             - name: Floresta de Decisão de Várias Classes
               href: ../algorithm-module-reference/multiclass-decision-forest.md
+            - name: Árvore de Decisões Elevada Multiclasse
+              href: ../algorithm-module-reference/multiclass-boosted-decision-tree.md
             - name: Perceção Média de Duas Classes
               href: ../algorithm-module-reference/two-class-averaged-perceptron.md
             - name: Floresta de Decisão de Duas Classes

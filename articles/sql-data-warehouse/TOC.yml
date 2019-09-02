@@ -57,11 +57,11 @@
       items:
         - name: Descrição geral
           href: sql-data-warehouse-overview-manage-security.md
-        - name: Advanced Data Security
+        - name: Segurança de dados avançada
           items:
             - name: Descrição geral
               href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/sql-data-warehouse/toc.json
-            - name: Deteção e Classificação de Dados
+            - name: Deteção e classificação de dados
               href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/sql-data-warehouse/toc.json
             - name: Avaliação de vulnerabilidades
               href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/sql-data-warehouse/toc.json
@@ -69,7 +69,7 @@
               href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Auditoria
           href: ../sql-database/sql-database-auditing.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Segurança de Rede
+        - name: Segurança da rede
           items:
             - name: Regras da firewall
               href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
@@ -93,7 +93,7 @@
               href: column-level-security.md
             - name: Segurança ao Nível da Linha
               href: 'https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json'
-        - name: Proteção de Dados
+        - name: Proteção de dados
           items:
             - name: Descrição geral de Encriptação de Dados Transparente (TDE)
               href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json

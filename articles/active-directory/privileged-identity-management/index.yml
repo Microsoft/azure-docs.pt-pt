@@ -1,68 +1,75 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação do Privileged Identity Management
+summary: O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) permite-lhe limitar o acesso de administrador permanente a funções com privilégios, descobrir quem tem acesso e rever o acesso privilegiado.
 metadata:
-  document_id: null
-  title: Azure AD Privileged Identity Management (PIM)| Microsoft Docs
-  description: 'Saiba mais sobre o Azure Active Directory (Azure AD) Privileged Identity Management (PIM) para limitar o acesso de administrador permanente a funções com privilégios, descubra quem tem acesso e reveja o acesso privilegiado.'
+  title: Documentação do Privileged Identity Management
+  description: Saiba mais sobre o Azure Active Directory (Azure AD) Privileged Identity Management (PIM) para limitar o acesso de administrador permanente a funções com privilégios, descubra quem tem acesso e reveja o acesso privilegiado.
   services: active-directory
-  author: rolyon
-  manager: mtillman
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: pim
   ms.topic: landing-page
-  ms.date: 09/04/2018
-  ms.author: rolyon
-abstract:
-  description: 'O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) permite-lhe limitar o acesso de administrador permanente a funções com privilégios, descobrir quem tem acesso e rever o acesso privilegiado.'
-  aside:
-    image:
-      alt: null
-      height: 112
-      src: media/index/video-thumb-pim.png
-      width: 200
-    title: 'Proteja as chaves do seu reino (42:45)'
-    href: 'https://www.youtube.com/embed/w7wTpZYJJeQ'
-    width: 200
-sections:
-  - title: Guias de procedimentos para os utilizadores de funções elegíveis e ativas
-    items:
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/Azure Active Directory_COLOR.svg
-            title: Funções do Azure AD
-          - image:
-              src: media/index/Cubes.svg
-            title: Recursos do Azure
-        rows:
-          - title: Ativar as minhas funções
-            values:
-              - href: /azure/active-directory/privileged-identity-management/pim-how-to-activate-role
-              - href: /azure/active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles
-  - title: Guias de procedimentos para administradores
-    items:
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/Azure Active Directory_COLOR.svg
-            title: Funções do Azure AD
-          - image:
-              src: media/index/Cubes.svg
-            title: Recursos do Azure
-        rows:
-          - title: Atribuir funções
-            values:
-              - href: /azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user
-              - href: /azure/active-directory/privileged-identity-management/pim-resource-roles-assign-roles
-          - title: Aprovar pedidos
-            values:
-              - href: /azure/active-directory/privileged-identity-management/azure-ad-pim-approval-workflow
-              - href: /azure/active-directory/privileged-identity-management/pim-resource-roles-approval-workflow
-          - title: Configurar as definições de função
-            values:
-              - href: /azure/active-directory/privileged-identity-management/pim-how-to-change-default-settings
-              - href: /azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings
+  ms.collection: 
+  author: curtand
+  ms.author: curtand
+  ms.date: 08/28/2019
+  ms.openlocfilehash: b1782c41bce2de6a9da0858519dfeb87f6597df8
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70127409"
+landingContent:
+- title: Sobre o Privileged Identity Management
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure AD PIM?
+      url: pim-configure.md
+  - linkListType: concept
+    links:
+    - text: Requisitos de licença
+      url: subscription-requirements.md
+  - linkListType: video
+    links:
+    - text: Proteja as chaves do seu reino
+      url: https://www.youtube.com/embed/w7wTpZYJJeQ
+- title: Introdução
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Implementar o PIM
+      url: pim-deployment-plan.md
+    - text: Comece a utilizar o PIM
+      url: pim-getting-started.md
+- title: Ativar as minhas funções (utilizadores com funções elegíveis e ativas)
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Ativar as minhas funções do Azure AD
+      url: pim-how-to-activate-role.md
+    - text: Ativar as minhas funções de recursos do Azure
+      url: pim-resource-roles-activate-your-roles.md
+- title: Atribuir funções
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Atribuir funções do Azure AD
+      url: pim-how-to-add-role-to-user.md
+    - text: Atribuir funções de recursos do Azure
+      url: pim-resource-roles-assign-roles.md
+- title: Aprovar pedidos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Aprovar pedidos para funções do Azure AD
+      url: azure-ad-pim-approval-workflow.md
+    - text: Aprovar pedidos para funções de recursos do Azure AD
+      url: pim-resource-roles-approval-workflow.md
+- title: Configurar as definições de função
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configurar as definições de funções do Azure
+      url: pim-how-to-change-default-settings.md
+    - text: Configurar as definições de funções de recursos do Azure
+      url: pim-resource-roles-configure-role-settings.md

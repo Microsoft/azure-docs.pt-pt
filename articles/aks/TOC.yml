@@ -306,6 +306,10 @@
               href: istio-install.md
             - name: Encaminhamento inteligente e versões de proteção
               href: istio-scenario-routing.md
+        - name: Utilizar o Hashicorp Consul Connect
+          items:
+            - name: Instalar e configurar
+              href: consul-install.md
         - name: Utilizar a Base de Dados do Azure para PostgreSQL
           href: ../postgresql/concepts-aks.md
           maintainContext: true
