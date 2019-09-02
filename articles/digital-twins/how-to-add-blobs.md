@@ -53,14 +53,14 @@ Os metadados de blob JSON estão em conformidade com o seguinte modelo:
 
 | Atributo | Type | Descrição |
 | --- | --- | --- |
-| **parentId** | Cadeia | A entidade pai para associar o blob (espaços, dispositivos ou usuários) |
-| **name** |Cadeia | Um nome amigável para o blob |
-| **type** | Cadeia | O tipo de BLOB-não é possível usar *Type* e *typeId*  |
-| **typeId** | Número inteiro | A ID do tipo de BLOB-não pode usar *Type* e *typeId* |
-| **subtype** | Cadeia | O subtipo de BLOB-não pode usar subtipo e subtipoid |
-| **subtypeId** | Número inteiro | A ID de subtipo do BLOB-não pode usar subtipo e subtipoid |
-| **description** | Cadeia | Descrição personalizada do blob |
-| **impressoras** | Cadeia | Se o blob pode ser compartilhado-enum [`None`, `Tree`, `Global`] |
+| **parentId** | String | A entidade pai para associar o blob (espaços, dispositivos ou usuários) |
+| **name** |String | Um nome amigável para o blob |
+| **type** | String | O tipo de BLOB-não é possível usar *Type* e *typeId*  |
+| **typeId** | Integer | A ID do tipo de BLOB-não pode usar *Type* e *typeId* |
+| **subtype** | String | O subtipo de BLOB-não pode usar subtipo e subtipoid |
+| **subtypeId** | Integer | A ID de subtipo do BLOB-não pode usar subtipo e subtipoid |
+| **description** | String | Descrição personalizada do blob |
+| **sharing** | String | Se o blob pode ser compartilhado-enum [`None`, `Tree`, `Global`] |
 
 Os metadados de blob são sempre fornecidos como a primeira parte com **Content-Type** `application/json` ou `.json` como um arquivo. Os dados do arquivo são fornecidos na segunda parte e podem ser de qualquer tipo MIME com suporte.
 
