@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a0cf557cec0f20d257c3c70290e2d74f077d881a
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b96586c801acfc0419b80fa725a468dcb896f79e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68593277"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70197174"
 ---
 1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**.
 
@@ -25,7 +25,7 @@ ms.locfileid: "68593277"
     | ------------ |  -------------------------------------------------- |
     | **Plano de consumo de Azure Functions** |   Quando você publica seu projeto em um aplicativo de funções que é executado em um [plano de consumo](../articles/azure-functions/functions-scale.md#consumption-plan), você paga apenas pelas execuções do seu aplicativo de funções. Outros planos de hospedagem incorrem em custos mais altos. Para saber mais, consulte [Azure Functions escala e hospedagem](../articles/azure-functions/functions-scale.md). | 
     | **Criar novo** | Um novo aplicativo de funções, com recursos relacionados, é criado no Azure. Quando escolhe **Selecionar Existente**, todos os ficheiros na aplicação de funções existentes no Azure são substituídos pelos ficheiros do projeto local. Utilize esta opção apenas ao voltar a publicar atualizações numa aplicação de funções existente. |
-    | **Executar do arquivo de pacote** | Seu aplicativo de funções é implantado usando a [implantação de zip](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) com o modo [de execução do pacote](../articles/azure-functions/run-functions-from-deployment-package.md) habilitado. Essa é a maneira recomendada de executar suas funções, o que resulta em um melhor desempenho. |
+    | **Executar do arquivo de pacote** | Seu aplicativo de funções é implantado usando a [implantação de zip](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) com o modo [de execução do pacote](../articles/azure-functions/run-functions-from-deployment-package.md) habilitado. Essa é a maneira recomendada de executar suas funções, o que resulta em um melhor desempenho. Quando não estiver usando essa opção, certifique-se de parar o projeto de aplicativo de funções de ser executado localmente antes de publicar no Azure. |
 
 
 3. Selecione **Publicar**. Se você ainda não entrou em sua conta do Azure por meio do Visual Studio, selecione **entrar**. Você também pode criar uma conta gratuita do Azure.

@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 091fb7cb9e74166b1e01c00834c2346dd2f0fd8b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 699c8ce559d26ad226ad1dfd7f7266fe8c4acdfb
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835532"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207201"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Configurar a declaração de função emitida no token SAML para aplicativos empresariais
 
@@ -59,7 +59,7 @@ Se seu aplicativo espera que as funções personalizadas sejam passadas em uma r
 
     ![Página de propriedades](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Abra o [Explorador do Azure ad Graph](https://developer.microsoft.com/graph/graph-explorer) em outra janela e execute as seguintes etapas:
+6. Abra o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) em outra janela e execute as seguintes etapas:
 
     a. Entre no site do Graph Explorer usando as credenciais de administrador global ou coadmin para seu locatário.
 
@@ -186,7 +186,7 @@ Se seu aplicativo espera que as funções personalizadas sejam passadas em uma r
 
 Para atualizar uma função existente, execute as seguintes etapas:
 
-1. Abra o [Explorador do Azure ad Graph](https://developer.microsoft.com/graph/graph-explorer).
+1. Abra o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
 2. Entre no site do Graph Explorer usando as credenciais de administrador global ou coadmin para seu locatário.
 
@@ -224,7 +224,7 @@ Para atualizar uma função existente, execute as seguintes etapas:
 
 Para excluir uma função existente, execute as seguintes etapas:
 
-1. Abra o [Explorador do Azure ad Graph](https://developer.microsoft.com/graph/graph-explorer) em outra janela.
+1. Abra o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) em outra janela.
 
 2. Entre no site do Graph Explorer usando as credenciais de administrador global ou coadmin para seu locatário.
 

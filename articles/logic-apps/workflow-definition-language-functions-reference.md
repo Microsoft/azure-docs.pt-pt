@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
-ms.date: 07/27/2019
-ms.openlocfilehash: c6fd20a2e1766a8bc9abfc92c6fc11d10dbe1bf2
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.date: 08/23/2019
+ms.openlocfilehash: 484e2776d96d9beaca703f93b22c51299ccf63a7
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516082"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208397"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Referência de funções para linguagem de definição de fluxo de trabalho em aplicativos lógicos do Azure e Microsoft Flow
 
@@ -23,7 +23,7 @@ Para definições de fluxo de trabalho em [aplicativos lógicos do Azure](../log
 > [!NOTE]
 > Essa página de referência se aplica aos aplicativos lógicos do Azure e Microsoft Flow, mas aparece na documentação dos aplicativos lógicos do Azure. Embora essa página se refira especificamente aos aplicativos lógicos, essas funções funcionam tanto para os fluxos quanto para os aplicativos lógicos. Para obter mais informações sobre funções e expressões no Microsoft Flow, consulte [usar expressões em condições](https://docs.microsoft.com/flow/use-expressions-in-conditions).
 
-Por exemplo, você pode calcular valores usando funções matemáticas, como a [função Add ()](../logic-apps/workflow-definition-language-functions-reference.md#add), quando você deseja a soma de inteiros ou floats. Aqui estão algumas outras tarefas de exemplo que você pode executar com o Functions:
+Por exemplo, você pode calcular valores usando funções matemáticas, como a [função Add ()](../logic-apps/workflow-definition-language-functions-reference.md#add), quando você deseja a soma de inteiros ou floats. Aqui estão outras tarefas de exemplo que você pode executar com o Functions:
 
 | Tarefa | Sintaxe da função | Resultado |
 | ---- | --------------- | ------ |
@@ -252,6 +252,7 @@ Para obter a referência completa sobre cada função, consulte a [lista alfabé
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Retorna o corpo de uma parte específica na saída de uma ação que tem várias partes. |
 | [produz](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Retornar a saída de uma ação em tempo de execução. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Retorne o valor para um parâmetro descrito em sua definição de fluxo de trabalho. |
+| [disso](../logic-apps/workflow-definition-language-functions-reference.md#result) | Retornar as entradas e saídas de todas as ações dentro da ação com escopo especificado, `For_each`como, `Until`e `Scope`. |
 | [of](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Retornar a saída de um gatilho em tempo de execução ou de outros pares de nome e valor JSON. Consulte também [triggerOutputs](#triggerOutputs) e [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Retornar a saída de `body` um gatilho em tempo de execução. Consulte [gatilho](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Retornar um único valor correspondente a um nome de chave em *dados de formulário* ou saídas de gatilho *codificadas por formulário* . |
@@ -638,7 +639,7 @@ E retorna esse resultado:`"2018-03-15T00:15:00.0000000Z"`
 
 ### <a name="addproperty"></a>addProperty
 
-Adicione uma propriedade e seu valor, ou par nome-valor, a um objeto JSON, e retorne o objeto atualizado. Se o objeto já existir em tempo de execução, a função gera um erro.
+Adicione uma propriedade e seu valor, ou par nome-valor, a um objeto JSON, e retorne o objeto atualizado. Se a propriedade já existir em tempo de execução, a função falhará e lançará um erro.
 
 ```
 addProperty(<object>, '<property>', <value>)
@@ -656,13 +657,81 @@ addProperty(<object>, '<property>', <value>)
 | <*updated-object*> | Objeto | O objeto JSON atualizado com a propriedade especificada |
 ||||
 
-*Exemplo*
-
-Este exemplo adiciona a `accountNumber` propriedade `customerProfile` ao objeto, que é convertido em JSON com a função [JSON ()](#json) .
-A função atribui um valor que é gerado pela função [GUID ()](#guid) e retorna o objeto atualizado:
+Para adicionar uma propriedade filho a uma propriedade existente, use esta sintaxe:
 
 ```
-addProperty(json('customerProfile'), 'accountNumber', guid())
+addProperty(<object>['<parent-property>'], '<child-property>', <value>)
+```
+
+| Parâmetro | Necessário | Tipo | Descrição |
+| --------- | -------- | ---- | ----------- |
+| <*objeto*> | Sim | Objeto | O objeto JSON em que você deseja adicionar uma propriedade |
+| <*Propriedade pai*> | Sim | Cadeia | O nome da propriedade pai em que você deseja adicionar a propriedade filho |
+| <*Propriedade filho*> | Sim | Cadeia | O nome da propriedade filho a ser adicionada |
+| <*valor*> | Sim | Any | O valor a ser definido para a propriedade especificada |
+|||||
+
+| Valor de retorno | Type | Descrição |
+| ------------ | ---- | ----------- |
+| <*updated-object*> | Objeto | O objeto JSON atualizado cuja propriedade você definiu |
+||||
+
+*Exemplo 1*
+
+Este exemplo adiciona a `middleName` Propriedade a um objeto JSON, que é convertido de uma cadeia de caracteres para JSON usando a função [JSON ()](#json) . O objeto já inclui as `firstName` propriedades `surName` e. A função atribui o valor especificado à nova propriedade e retorna o objeto atualizado:
+
+```
+addProperty(json('{ "firstName": "Sophia", "lastName": "Owen" }'), 'middleName', 'Anne')
+```
+
+Este é o objeto JSON atual:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+Este é o objeto JSON atualizado:
+
+```json
+{
+   "firstName": "Sophia",
+   "middleName": "Anne",
+   "surName": "Owen"
+}
+```
+
+*Exemplo 2*
+
+Este exemplo adiciona a `middleName` Propriedade Child à propriedade existente `customerName` em um objeto JSON, que é convertido de uma cadeia de caracteres para JSON usando a função [JSON ()](#json) . A função atribui o valor especificado à nova propriedade e retorna o objeto atualizado:
+
+```
+addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne')
+```
+
+Este é o objeto JSON atual:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "surName": "Owen"
+   }
+}
+```
+
+Este é o objeto JSON atualizado:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "middleName": "Anne",
+      "surName": "Owen"
+   }
+}
 ```
 
 <a name="addSeconds"></a>
@@ -1025,7 +1094,7 @@ bool(<value>)
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Boolean | A versão booliana para o valor especificado |
+| verdadeiro ou falso | Booleano | A versão booliana para o valor especificado |
 ||||
 
 *Exemplo*
@@ -1136,7 +1205,7 @@ Especificamente, essa função funciona nesses tipos de coleção:
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Boolean | Retornar true quando o item for encontrado. Retorna falso quando não encontrado. |
+| verdadeiro ou falso | Booleano | Retornar true quando o item for encontrado. Retorna falso quando não encontrado. |
 ||||
 
 *Exemplo 1*
@@ -1720,7 +1789,7 @@ endsWith('<text>', '<searchText>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso  | Boolean | Retorna verdadeiro quando a subcadeia de caracteres final é encontrada. Retorna falso quando não encontrado. |
+| verdadeiro ou falso  | Booleano | Retorna verdadeiro quando a subcadeia de caracteres final é encontrada. Retorna falso quando não encontrado. |
 ||||
 
 *Exemplo 1*
@@ -1761,7 +1830,7 @@ equals('<object1>', '<object2>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Boolean | Retornar true quando ambos forem equivalentes. Retornar false quando não for equivalente. |
+| verdadeiro ou falso | Booleano | Retornar true quando ambos forem equivalentes. Retornar false quando não for equivalente. |
 ||||
 
 *Exemplo*
@@ -2625,7 +2694,7 @@ less('<value>', '<compareTo>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Boolean | Retorna true quando o primeiro valor é menor que o segundo valor. Retorna false quando o primeiro valor é igual ou maior que o segundo valor. |
+| verdadeiro ou falso | Booleano | Retorna true quando o primeiro valor é menor que o segundo valor. Retorna false quando o primeiro valor é igual ou maior que o segundo valor. |
 ||||
 
 *Exemplo*
@@ -2662,7 +2731,7 @@ lessOrEquals('<value>', '<compareTo>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso  | Boolean | Retorna true quando o primeiro valor é menor ou igual ao segundo valor. Retorna false quando o primeiro valor é maior que o segundo valor. |
+| verdadeiro ou falso  | Booleano | Retorna true quando o primeiro valor é menor ou igual ao segundo valor. Retorna false quando o primeiro valor é maior que o segundo valor. |
 ||||
 
 *Exemplo*
@@ -2868,7 +2937,7 @@ not(<expression>)
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*expressão*> | Sim | Boolean | A expressão a ser verificada |
+| <*expressão*> | Sim | Booleano | A expressão a ser verificada |
 |||||
 
 | Valor de retorno | Type | Descrição |
@@ -2917,12 +2986,12 @@ or(<expression1>, <expression2>, ...)
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*expressão1*>, <*expression2*>,... | Sim | Boolean | As expressões a serem verificadas |
+| <*expressão1*>, <*expression2*>,... | Sim | Booleano | As expressões a serem verificadas |
 |||||
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Boolean | Retorna true quando pelo menos uma expressão for true. Retorna false quando todas as expressões são false. |
+| verdadeiro ou falso | Booleano | Retorna true quando pelo menos uma expressão for true. Retorna false quando todas as expressões são false. |
 ||||
 
 *Exemplo 1*
@@ -3152,7 +3221,7 @@ E retorna esse resultado:`"the new string"`
 
 ### <a name="removeproperty"></a>removerproperty
 
-Remove uma propriedade de um objeto e retorna o objeto atualizado.
+Remove uma propriedade de um objeto e retorna o objeto atualizado. Se a propriedade que você tentar remover não existir, a função retornará o objeto original.
 
 ```
 removeProperty(<object>, '<property>')
@@ -3169,20 +3238,208 @@ removeProperty(<object>, '<property>')
 | <*updated-object*> | Objeto | O objeto JSON atualizado sem a propriedade especificada |
 ||||
 
-*Exemplo*
-
-Este exemplo remove a `"accountLocation"` propriedade de um `"customerProfile"` objeto, que é convertido em JSON com a função [JSON ()](#json) e retorna o objeto atualizado:
+Para remover uma propriedade filho de uma propriedade existente, use esta sintaxe:
 
 ```
-removeProperty(json('customerProfile'), 'accountLocation')
+removeProperty(<object>['<parent-property>'], '<child-property>')
+```
+
+| Parâmetro | Necessário | Tipo | Descrição |
+| --------- | -------- | ---- | ----------- |
+| <*objeto*> | Sim | Objeto | O objeto JSON cuja propriedade você deseja remover |
+| <*Propriedade pai*> | Sim | Cadeia | O nome da propriedade pai com a propriedade filho que você deseja remover |
+| <*Propriedade filho*> | Sim | Cadeia | O nome da propriedade filho a ser removida |
+|||||
+
+| Valor de retorno | Type | Descrição |
+| ------------ | ---- | ----------- |
+| <*updated-object*> | Objeto | O objeto JSON atualizado cuja propriedade filho você removeu |
+||||
+
+*Exemplo 1*
+
+Este exemplo remove a `middleName` propriedade de um objeto JSON, que é convertido de uma cadeia de caracteres para JSON usando a função [JSON ()](#json) e retorna o objeto atualizado:
+
+```
+removeProperty(json('{ "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" }'), 'middleName')
+```
+
+Este é o objeto JSON atual:
+
+```json
+{
+   "firstName": "Sophia",
+   "middleName": "Anne",
+   "surName": "Owen"
+}
+```
+
+Este é o objeto JSON atualizado:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+*Exemplo 2*
+
+Este exemplo remove a `middleName` Propriedade Child de uma `customerName` Propriedade pai em um objeto JSON, que é convertido de uma cadeia de caracteres para JSON usando a função [JSON ()](#json) e retorna o objeto atualizado:
+
+```
+removeProperty(json('{ "customerName": { "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" } }')['customerName'], 'middleName')
+```
+
+Este é o objeto JSON atual:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "middleName": "Anne",
+      "surName": "Owen"
+   }
+}
+```
+
+Este é o objeto JSON atualizado:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "surName": "Owen"
+   }
+}
+```
+
+<a name="result"></a>
+
+### <a name="result"></a>Resultado
+
+Retornar as entradas e saídas de todas as ações que estão dentro da ação com escopo especificado, como uma `For_each`ação, `Until`ou. `Scope` Essa função é útil, retornando os resultados de uma ação com falha para que você possa diagnosticar e manipular exceções. Para obter mais informações, consulte [obter contexto e resultados para falhas](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
+
+```
+result('<scopedActionName>')
+```
+
+| Parâmetro | Necessário | Tipo | Descrição |
+| --------- | -------- | ---- | ----------- |
+| <*scopedActionName*> | Sim | Cadeia | O nome da ação com escopo da qual retornar as entradas e saídas de todas as ações internas |
+||||
+
+| Valor de retorno | Type | Descrição |
+| ------------ | ---- | ----------- |
+| <*matriz-objeto*> | Objeto de matriz | Uma matriz que contém matrizes de entradas e saídas de cada ação que aparece dentro da ação de escopo especificada |
+||||
+
+*Exemplo*
+
+Este exemplo retorna as entradas e saídas de cada iteração de uma ação http dentro de um `For_each` loop usando a `result()` função na `Compose` ação:
+
+```json
+{
+   "actions": {
+      "Compose": {
+         "inputs": "@result('For_each')",
+         "runAfter": {
+            "For_each": [
+               "Succeeded"
+            ]
+         },
+         "type": "compose"
+      },
+      "For_each": {
+         "actions": {
+            "HTTP": {
+               "inputs": {
+                  "method": "GET",
+                  "uri": "https://httpstat.us/200"
+               },
+               "runAfter": {},
+               "type": "Http"
+            }
+         },
+         "foreach": "@triggerBody()",
+         "runAfter": {},
+         "type": "Foreach"
+      }
+   }
+}
+```
+
+Veja como o exemplo de matriz retornado pode parecer onde o objeto `outputs` externo contém as entradas e saídas de cada iteração das ações dentro da `For_each` ação.
+
+```json
+[
+   {
+      "name": "HTTP",
+      "outputs": [
+         {
+            "name": "HTTP",
+            "inputs": {
+               "uri": "https://httpstat.us/200",
+               "method": "GET"
+            },
+            "outputs": {
+               "statusCode": 200,
+               "headers": {
+                   "X-AspNetMvc-Version": "5.1",
+                   "Access-Control-Allow-Origin": "*",
+                   "Cache-Control": "private",
+                   "Date": "Tue, 20 Aug 2019 22:15:37 GMT",
+                   "Set-Cookie": "ARRAffinity=0285cfbea9f2ee7",
+                   "Server": "Microsoft-IIS/10.0",
+                   "X-AspNet-Version": "4.0.30319",
+                   "X-Powered-By": "ASP.NET",
+                   "Content-Length": "0"
+               },
+               "startTime": "2019-08-20T22:15:37.6919631Z",
+               "endTime": "2019-08-20T22:15:37.95762Z",
+               "trackingId": "6bad3015-0444-4ccd-a971-cbb0c99a7.....",
+               "clientTrackingId": "085863526764.....",
+               "code": "OK",
+               "status": "Succeeded"
+            }
+         },
+         {
+            "name": "HTTP",
+            "inputs": {
+               "uri": "https://httpstat.us/200",
+               "method": "GET"
+            },
+            "outputs": {
+            "statusCode": 200,
+               "headers": {
+                   "X-AspNetMvc-Version": "5.1",
+                   "Access-Control-Allow-Origin": "*",
+                   "Cache-Control": "private",
+                   "Date": "Tue, 20 Aug 2019 22:15:37 GMT",
+                   "Set-Cookie": "ARRAffinity=0285cfbea9f2ee7",
+                   "Server": "Microsoft-IIS/10.0",
+                   "X-AspNet-Version": "4.0.30319",
+                   "X-Powered-By": "ASP.NET",
+                   "Content-Length": "0"
+               },
+               "startTime": "2019-08-20T22:15:37.6919631Z",
+               "endTime": "2019-08-20T22:15:37.95762Z",
+               "trackingId": "9987e889-981b-41c5-aa27-f3e0e59bf69.....",
+               "clientTrackingId": "085863526764.....",
+               "code": "OK",
+               "status": "Succeeded"
+            }
+         }
+      ]
+   }
+]
 ```
 
 <a name="setProperty"></a>
 
 ### <a name="setproperty"></a>setProperty
 
-Defina o valor para a propriedade de um objeto e retorne o objeto atualizado.
-Para adicionar uma nova propriedade, você pode usar essa função ou a função [AddProperty ()](#addProperty) .
+Defina o valor para a propriedade do objeto JSON e retorne o objeto atualizado. Se a propriedade que você tentar definir não existir, a propriedade será adicionada ao objeto. Para adicionar uma nova propriedade, use a função [AddProperty ()](#addProperty) .
 
 ```
 setProperty(<object>, '<property>', <value>)
@@ -3195,18 +3452,79 @@ setProperty(<object>, '<property>', <value>)
 | <*valor*> | Sim | Any | O valor a ser definido para a propriedade especificada |
 |||||
 
+Para definir a propriedade Child em um objeto filho, use uma chamada `setProperty()` aninhada em vez disso. Caso contrário, a função retornará apenas o objeto filho como saída.
+
+```
+setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
+```
+
+| Parâmetro | Necessário | Tipo | Descrição |
+| --------- | -------- | ---- | ----------- |
+| <*objeto*> | Sim | Objeto | O objeto JSON cuja propriedade você deseja definir |
+| <*Propriedade pai*> | Sim | Cadeia | O nome da propriedade pai com a propriedade filho que você deseja definir |
+| <*Propriedade filho*> | Sim | Cadeia | O nome da propriedade filho a ser definida |
+| <*valor*> | Sim | Any | O valor a ser definido para a propriedade especificada |
+|||||
+
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
 | <*updated-object*> | Objeto | O objeto JSON atualizado cuja propriedade você definiu |
 ||||
 
-*Exemplo*
+*Exemplo 1*
 
-Este exemplo define a `"accountNumber"` Propriedade em um `"customerProfile"` objeto, que é convertido em JSON com a função [JSON ()](#json) .
-A função atribui um valor gerado pela função [GUID ()](#guid) e retorna o objeto JSON atualizado:
+Este exemplo define a `surName` Propriedade em um objeto JSON, que é convertido de uma cadeia de caracteres para JSON usando a função [JSON ()](#json) . A função atribui o valor especificado à propriedade e retorna o objeto atualizado:
 
 ```
-setProperty(json('customerProfile'), 'accountNumber', guid())
+setProperty(json('{ "firstName": "Sophia", "surName": "Owen" }'), 'surName', 'Hartnett')
+```
+
+Este é o objeto JSON atual:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+Este é o objeto JSON atualizado:
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Hartnett"
+}
+```
+
+*Exemplo 2*
+
+Este exemplo define a `surName` Propriedade Child para a `customerName` Propriedade Parent em um objeto JSON, que é convertido de uma cadeia de caracteres para JSON usando a função [JSON ()](#json) . A função atribui o valor especificado à propriedade e retorna o objeto atualizado:
+
+```
+setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }'), 'customerName', setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'surName', 'Hartnett'))
+```
+
+Este é o objeto JSON atual:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophie",
+      "surName": "Owen"
+   }
+}
+```
+
+Este é o objeto JSON atualizado:
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophie",
+      "surName": "Hartnett"
+   }
+}
 ```
 
 <a name="skip"></a>
@@ -3384,7 +3702,7 @@ startsWith('<text>', '<searchText>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso  | Boolean | Retorna true quando a subcadeia de caracteres inicial é encontrada. Retorna falso quando não encontrado. |
+| verdadeiro ou falso  | Booleano | Retorna true quando a subcadeia de caracteres inicial é encontrada. Retorna falso quando não encontrado. |
 ||||
 
 *Exemplo 1*

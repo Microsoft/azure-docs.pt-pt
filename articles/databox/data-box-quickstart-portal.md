@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 08/27/2019
+ms.date: 08/30/2019
 ms.author: alkohli
-ms.openlocfilehash: 6e9854bf46de40cc288a04ac67beb48e8a4fb959
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 21e784320bc2b0785cdd28354947c0df6c35daf4
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098774"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207991"
 ---
 ::: zone target="docs"
 
@@ -23,7 +23,7 @@ ms.locfileid: "70098774"
 
 ::: zone target="chromeless"
 
-# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Introdução ao Disco do Azure Data Box usando portal do Azure
+# <a name="get-started-with-azure-data-box"></a>Introdução ao Azure Data Box 
 
 ::: zone-end
 
@@ -175,7 +175,7 @@ Este passo demora entre 2 a 3 minutos.
 
 - Pode eliminar a encomenda assim que o estado for apresentado como **Concluído** ou **Cancelado** no portal do Azure. Para eliminar a encomenda, aceda a **Descrição geral** e clique em **Eliminar** na barra de comandos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, implementou um Azure Data Box para ajudar a importar os seus dados para o Azure. Para saber mais sobre a gestão do Azure Data Box, avance para o tutorial seguinte: 
 

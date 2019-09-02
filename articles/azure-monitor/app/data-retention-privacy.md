@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 18129c625630e7e21e2139ea3967ba5152bc0b30
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: df441a55ef4a9a40fe4defcabca5f667eeddbf29
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991185"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207290"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha de dados, retenção e armazenamento no Application Insights
 
@@ -100,7 +100,7 @@ Ele pode ser exportado por você e pelos membros da equipe e pode ser copiado pa
 A Microsoft usa os dados somente para fornecer o serviço a você.
 
 ## <a name="where-is-the-data-held"></a>Onde os dados são mantidos?
-* Nos EUA, Europa ou sudeste asiático. Você pode selecionar o local ao criar um novo recurso de Application Insights. 
+* Você pode selecionar o local ao criar um novo recurso de Application Insights. Saiba mais sobre a disponibilidade de Application Insights por região [aqui](https://azure.microsoft.com/global-infrastructure/services/?products=all).
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Isso significa que meu aplicativo deve ser hospedado nos EUA, Europa ou sudeste asiático?
 * Não. Seu aplicativo pode ser executado em qualquer lugar, seja em seus próprios hosts locais ou na nuvem.

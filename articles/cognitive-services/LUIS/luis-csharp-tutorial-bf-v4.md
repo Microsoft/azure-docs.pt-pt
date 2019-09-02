@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 210724e8a8b9b585a3e308b8e321d809e4e897a1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c78359920ebc5faab2e0a678a901bcb8581a4e45
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560654"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207326"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Tutorial: Usar um bot de aplicativo Web habilitado com Reconhecimento vocal noC#
 
@@ -54,7 +54,7 @@ Use C# para criar um bot de chat integrado ao Luis (reconhecimento de linguagem)
     |Nome da aplicação|O nome é utilizado como o subdomínio quando o bot é implementado na cloud (por exemplo, humanresourcesbot.azurewebsites.net).|`luis-csharp-bot-` + `<your-name>`, por exemplo, `luis-csharp-bot-johnsmith`|
     |Modelo de bot|Definições do Bot Framework - veja a tabela seguinte|
     |Localização da Aplicação LUIS|Tem de ser a mesma da região de recursos do LUIS|`westus`|
-    |Plano do serviço de aplicações/localização|Não altere o valor padrão fornecido.|
+    |Local/plano do serviço de aplicativo|Não altere o valor padrão fornecido.|
     |Application Insights|Não altere o valor padrão fornecido.|
     |ID e senha do aplicativo Microsoft|Não altere o valor padrão fornecido.|
 
@@ -347,7 +347,7 @@ No Visual Studio, inicie o bot. É aberta uma janela de browser com o site do bo
 
 1. No emulador de bot, marque um vôo digitando o seguinte expressão: 
 
-    ```bot
+    ```console
     Book a flight from Paris to Berlin on March 22, 2020
     ```
 

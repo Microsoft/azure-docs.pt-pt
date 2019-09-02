@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 08/25/2019
+ms.date: 08/28/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 014a2c3cff3804657e4e2bf624b97eceef4bf4b2
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 74e0539095701ec104495bf5a44dec668494d444
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70033328"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207168"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>O que é o Azure AD Identity Governance?
 
@@ -69,6 +69,18 @@ Historicamente, o acesso privilegiado foi descrito por outros fornecedores como 
 ![Ciclo de vida de acesso privilegiado](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
 Azure AD Privileged Identity Management (PIM) fornece controles adicionais adaptados para proteger os direitos de acesso para recursos, no Azure AD, no Azure e em outros serviços online da Microsoft.  O acesso just-in-time e os recursos de alerta de alteração de função fornecidos pelo Azure AD PIM, além da autenticação multifator e do acesso condicional, fornecem um conjunto abrangente de controles de governança para ajudar a proteger os recursos da sua empresa (diretório, Office 365 e funções de recurso do Azure). Assim como ocorre com outras formas de acesso, as organizações podem usar as revisões de acesso para configurar a recertificação de acesso recorrente para todos os usuários em funções de administrador.
+
+## <a name="least-privileged-roles"></a>Funções menos privilegiadas
+
+O uso do PIM permite que as permissões administrativas de um usuário sejam restritas para segurança adicional. A seguir estão as funções de diretório menos privilegiadas para configuração nos recursos de governança de identidade do Azure AD: 
+
+| Funcionalidade | Função com privilégios mínimos |
+| ------- | --------------------- |
+| Gestão de direitos | Administrador do usuário (com exceção da adição de sites do SharePoint Online a catálogos, que requer administrador global) |
+| Termos de utilização | Administradores de segurança ou administrador de acesso condicional |
+| Revisões de acesso | Administrador do usuário (com exceção das revisões de acesso das funções do Azure ou do Azure AD, que exige administrador de função com privilégios) |
+|Privileged Identity Management | Administrador de Funções Privilegiadas |
+
 
 ## <a name="getting-started"></a>Introdução
 

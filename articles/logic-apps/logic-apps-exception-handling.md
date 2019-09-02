@@ -1,21 +1,20 @@
 ---
-title: Tratamento de erros e exceções-aplicativos lógicos do Azure | Microsoft Docs
+title: Tratamento de erros e exceções-aplicativos lógicos do Azure
 description: Saiba mais sobre padrões para tratamento de erros e exceções em aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: dereklee
 ms.author: deli
-manager: jeconnoc
+ms.reviewer: klam, estfan, LADocs
 ms.date: 01/31/2018
 ms.topic: article
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 828bea50a66b90f35843901ae2d7c703ffa58f2d
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60996605"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208185"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Tratar erros e exceções nos aplicativos lógicos do Azure
 
@@ -219,13 +218,15 @@ Para capturar exceções em um escopo **com falha** e executar ações que manip
 
 Para limites em escopos, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md).
 
+<a name="get-results-from-failures"></a>
+
 ### <a name="get-context-and-results-for-failures"></a>Obter contexto e resultados para falhas
 
-Embora a captura de falhas de um escopo seja útil, você também pode querer o contexto para ajudá-lo a entender exatamente quais ações falharam, além de erros ou códigos de status que foram retornados. A `@result()` expressão fornece contexto sobre o resultado de todas as ações em um escopo.
+Embora a captura de falhas de um escopo seja útil, você também pode querer o contexto para ajudá-lo a entender exatamente quais ações falharam, além de erros ou códigos de status que foram retornados.
 
-A `@result()` expressão aceita um único parâmetro (o nome do escopo) e retorna uma matriz de todos os resultados de ação de dentro desse escopo. Esses objetos de ação incluem os mesmos atributos que o  **\@objeto Actions ()** , como a hora de início da ação, a hora de término, o status, as entradas, as IDs de correlação e as saídas. Para enviar o contexto para todas as ações que falharam em um escopo, você pode facilmente emparelhar uma  **\@função Result ()** com uma propriedade **runAfter** .
+A [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) função fornece contexto sobre os resultados de todas as ações em um escopo. A `result()` função aceita um único parâmetro, que é o nome do escopo, e retorna uma matriz que contém todos os resultados de ação de dentro desse escopo. Esses objetos de ação incluem os mesmos atributos que `@actions()` o objeto, como a hora de início da ação, a hora de término, o status, as entradas, as IDs de correlação e as saídas. Para enviar o contexto para todas as ações que falharam em um escopo, você pode `@result()` facilmente emparelhar `runAfter` uma expressão com a propriedade.
 
-Para executar uma ação para cada ação em um escopo que tenha um resultado **com falha** e para filtrar a matriz de resultados para as ações com falha, você pode emparelhar  **\@Result ()** com uma ação de **[matriz de filtro](../connectors/connectors-native-query.md)** e um loop [**for each**](../logic-apps/logic-apps-control-flow-loops.md) . Você pode pegar a matriz de resultados filtrados e executar uma ação para cada falha usando o loop **for each** . 
+Para executar uma ação para cada ação em um escopo que tenha um resultado **com falha** e filtrar a matriz de resultados para as ações com falha, você pode emparelhar uma `@result()` expressão com uma ação [**Filtrar matriz**](../connectors/connectors-native-query.md) e um loop [**for each**](../logic-apps/logic-apps-control-flow-loops.md) . Você pode pegar a matriz de resultados filtrados e executar uma ação para cada falha usando o loop **for each** .
 
 Veja um exemplo, seguido por uma explicação detalhada, que envia uma solicitação HTTP POST com o corpo da resposta para todas as ações que falharam no escopo "My_Scope":
 

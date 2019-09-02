@@ -4,20 +4,23 @@ ms.service: search
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: magottei
-ms.openlocfilehash: 1a375c438682c7afba2c65c049810d7d7234c808
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8fbdbf96106cdf2bd2990042c30d346dc830d398
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184672"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208262"
 ---
 * PDF
-* Formatos do Microsoft Office: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (mensagens de e-mail do Outlook)  
+* Formatos de Microsoft Office: DOCX/DOC/DOCM, XLSX/XLS/XLSM, PPTX/PPT/PPTM, MSG (emails do Outlook), XML (2003 e 2006 WORD XML)
+* Abrir formatos de documento: ODT, ODS, ODP  
 * HTML
 * XML
-* ZIP
+* RÁPIDA
+* GZ
+* EPUB
 * EML
 * RTF
-* Ficheiros de texto simples (Consulte também [texto sem formatação de indexação](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText))
-* JSON (consulte [blobs JSON de indexação](../articles/search/search-howto-index-json-blobs.md))
-* CSV (ver [blobs CSV de indexação](../articles/search/search-howto-index-csv-blobs.md) funcionalidade de pré-visualização)
+* Arquivos de texto sem formatação (consulte também [indexando texto sem formatação](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText))
+* JSON (consulte [indexação de BLOBs JSON](../articles/search/search-howto-index-json-blobs.md))
+* CSV (consulte indexando o recurso de visualização de [BLOBs CSV](../articles/search/search-howto-index-csv-blobs.md) )

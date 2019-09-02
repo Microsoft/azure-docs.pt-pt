@@ -1,26 +1,20 @@
 ---
-title: Introdução ao Máquina Virtual de Ciência de Dados do Azure para Linux e Windows | Microsoft Docs
+title: O que é o Máquina Virtual de Ciência de Dados do Azure
 description: Principais cenários e componentes de análise para Máquinas Virtuais de Ciência de Dados do Windows e Linux.
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: overview
 ms.date: 02/22/2019
-ms.author: vijetaj
-ms.openlocfilehash: 22192d67a946f9f466848b65b9cd763b16e6c5f0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3295a59ee4496d332f0d886c89ca900ab6b4bcd1
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099375"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191906"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>O que é o Máquina Virtual de Ciência de Dados do Azure para Linux e Windows?
 
@@ -170,7 +164,7 @@ A tabela seguinte detalha e compara os principais componentes incluídos nas edi
 | &nbsp;&nbsp;&nbsp;&nbsp;[TensorRT](https://developer.nvidia.com/tensorrt) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;[CUDA, cuDNN, Driver Nvidia](https://developer.nvidia.com/cuda-toolkit) | S | S |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais com estes artigos:
 

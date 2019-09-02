@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: f5db715ecb7d5523f5f52a356198eb547f69d4f8
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 661adb755d076b0cc6114a287855482165ccb817
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194295"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208086"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migração de conta do Portal do Cloud Partner para o Partner Center
 
@@ -26,13 +26,13 @@ Se você for um usuário com a função de proprietário em CPP para uma determi
 
 Clique na faixa para iniciar o processo de migração de sua conta. Você deve inserir os seguintes itens:
 
-### <a name="work-e-mail-address"></a>Endereço de email de trabalho
+### <a name="work-email-address"></a>Endereço de email de trabalho
 
 Na maioria dos casos, entre com o endereço de email que você usa para entrar em CPP. Em determinados casos, um endereço de email diferente deve ser usado:
 
-* Conta da Microsoft: Se a conta de CPP for uma conta da Microsoft, você precisará inserir um endereço de email de trabalho válido associado ao locatário, para quem a ID de MPN está registrada. 
+* Conta Microsoft: Se a conta de CPP for uma conta Microsoft, você precisará inserir um endereço de email de trabalho válido associado ao locatário, para quem a ID de MPN está registrada.
 
-* Incompatibilidade de locatário: Se o seu endereço de email de trabalho não pertencer ao locatário associado à ID de Microsoft Partner Network presente na sua conta de CPP, você verá um erro. Para mover após esse erro, insira um endereço de email associado ao locatário. Uma mensagem de erro fornecerá o nome do locatário. 
+* Incompatibilidade de locatário: Se seu endereço de email de trabalho não pertencer ao locatário associado à ID de Microsoft Partner Network presente na sua conta de CPP, você verá um erro. Para mover após esse erro, insira um endereço de email associado ao locatário. Uma mensagem de erro fornecerá o nome do locatário.
 
 ### <a name="sign-up-for-microsoft-partner-network-program"></a>Inscrever-se no programa Microsoft Partner Network
 
@@ -68,6 +68,6 @@ Se você tiver criado o Dynamics 365 para o envolvimento do cliente ou o Dynamic
 4. Envie cada oferta nova e existente para certificação, mesmo que suas ofertas tenham sido certificadas anteriormente. Se qualificado, você pode solicitar a participação na camada Premium durante esse processo. Se sua oferta foi certificada anteriormente, **você deverá concluir a rescertificação de aplicativo até 15 de outubro de 2019.** A certificação ou a nova certificação exigirá que seu aplicativo dê suporte à versão mais recente de nossa plataforma de Business Applications.
 5. Acesse o [portal de GTM de um parceiro comercial](https://msgtm.azurewebsites.net/en-US/Profile/SignIn) e adicione a URL de listagem do AppSource na seção links do Marketplace. Se precisar de ajuda com esta etapa, envie um email cosell@microsoft.compara.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Gerenciar sua conta do Marketplace comercial no Partner Center](./manage-account.md) 

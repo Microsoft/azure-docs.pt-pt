@@ -1,29 +1,22 @@
 ---
-title: Criar uma máquina de Virtual de ciência de dados do Ubuntu Linux
-titleSuffix: Azure
+title: Início rápido do Linux Ubuntu
+titleSuffix: Azure Data Science Virtual Machine
 description: Configurar e criar um Data Science Virtual Machine para Linux (Ubuntu) no Azure para fazer a análise e machine learning.
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-ms.author: vijetaj
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: quickstart
 ms.date: 08/13/2019
-ms.openlocfilehash: 3aa32d8e42079a1aa4bdd7a18a24f7d5d01f7c3e
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 9b323970e735a3e2a9d2cf418b787ed046c5574d
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011659"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192081"
 ---
-# <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionar a máquina de Virtual de ciência de dados para Linux (Ubuntu)
+# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Início rápido: Configurar o Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
 O Máquina Virtual de Ciência de Dados (DSVM) para Linux é uma imagem de máquina virtual baseada em Ubuntu que facilita a introdução ao aprendizado de máquina, incluindo aprendizado profundo, no Azure. Ferramentas de aprendizagem profunda incluem:
 
@@ -481,7 +474,7 @@ Agora, uma interface gráfica é aberta com um conjunto de guias. Use as etapas 
 
 Você pode sair do Rattle e do R. Agora você pode modificar o script R gerado. Ou então, use o script como ele está e execute-o a qualquer momento para repetir tudo o que foi feito na interface do usuário do amRattle. Especialmente para iniciantes em R, essa é uma maneira de fazer análises e aprendizado de máquina rapidamente em uma interface gráfica simples, ao mesmo tempo em que gera automaticamente código em R para modificar ou aprender.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Eis como pode continuar a sua aprendizagem e a exploração:
 

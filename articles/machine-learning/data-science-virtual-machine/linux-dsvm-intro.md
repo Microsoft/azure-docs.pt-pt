@@ -1,29 +1,22 @@
 ---
-title: Criar uma máquina de Virtual de ciência de dados do Linux do CentOS
-titleSuffix: Azure
+title: 'Início rápido: Criar um CentOS Linux'
+titleSuffix: Azure Data Science Virtual Machine
 description: Crie e configure uma Máquina Virtual de Ciência de Dados do Linux no Azure para análise e aprendizado de máquina.
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: vijetaj
-ms.openlocfilehash: c0464253c55aa5e51e8e86686405ea6b107c8382
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 1ab3a527643bc5a567644a937fdd1eb9e31bf567
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047724"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195327"
 ---
-# <a name="provision-a-linux-centos-data-science-virtual-machine-in-azure"></a>Provisionar um Máquina Virtual de Ciência de Dados de CentOS do Linux no Azure
+# <a name="quickstart-set-up-a-linux-centos-data-science-virtual-machine-in-azure"></a>Início rápido: Configurar um Máquina Virtual de Ciência de Dados de CentOS do Linux no Azure
 
 O Linux Máquina Virtual de Ciência de Dados (DSVM) é uma máquina virtual do Azure baseada em CentOS. O DSVM do Linux vem com uma coleção de ferramentas preinstaladas que você pode usar para análise de dados e aprendizado de máquina. 
 
@@ -422,7 +415,7 @@ Uma interface gráfica que tem um conjunto de guias é aberta. Use as etapas de 
 
 Você pode sair do Rattle e do R. Agora você pode modificar o script R gerado. Ou então, use o script como ele está e execute-o a qualquer momento para repetir tudo o que foi feito na interface do usuário do amRattle. Especialmente para iniciantes em R, essa é uma maneira de fazer análises e aprendizado de máquina rapidamente em uma interface gráfica simples, ao mesmo tempo em que gera automaticamente código em R para modificar ou aprender.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Eis como pode continuar a sua aprendizagem e a exploração:
 

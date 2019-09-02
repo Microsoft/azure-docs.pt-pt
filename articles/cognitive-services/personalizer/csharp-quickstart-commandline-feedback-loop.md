@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 08/5/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 3b583fa7d9c7bab89accabf68034df407cb89a9c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e9dd01a58309a6b65538b19b25df70e3d18866a9
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839931"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207352"
 ---
 # <a name="quickstart-personalize-client-library-for-net"></a>Início rápido: Personalizar a biblioteca de cliente para .NET
 
@@ -244,7 +244,7 @@ Este início rápido atribui um número simples como um recompensa, um zero ou u
 
 Execute o aplicativo com o comando `run` dotnet do diretório do aplicativo.
 
-```dotnet
+```console
 dotnet run
 ```
 
@@ -259,7 +259,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >[Como o personalizador funciona](how-personalizer-works.md)

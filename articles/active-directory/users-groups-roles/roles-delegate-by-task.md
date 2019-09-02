@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62814bb1e2934c406dc5fb1eb3b3bc3f3d2ee3b7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 3799496d13259c943847625a2cf6a39a8edb1d35
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135560"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207240"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administrador no Azure Active Directory
 
@@ -143,6 +143,11 @@ Atualizar o provisionamento de aplicativos empresariais | Proprietário do aplic
 Atualizar autoatendimento de aplicativo empresarial | Proprietário do aplicativo empresarial ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de aplicativos de nuvem, administrador de aplicativos
 Atualizar propriedades de logon único | Proprietário do aplicativo empresarial ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de aplicativos de nuvem, administrador de aplicativos
 
+## <a name="entitlement-management"></a>Gestão de direitos
+Tarefa | Função com privilégios mínimos | Funções adicionais
+---- | --------------------- | ----------------
+Adicionar recursos a um catálogo | Administrador de utilizadores | Com o gerenciamento de direitos, você pode delegar essa tarefa para o proprietário do catálogo ([consulte a documentação](../governance/entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager))
+Adicionar sites do SharePoint Online ao catálogo | Administrador Global
 
 
 ## <a name="groups"></a>Grupos

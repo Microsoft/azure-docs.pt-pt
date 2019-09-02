@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 99f981698daf12bf7d493159fc7fd08a98a28104
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 8c3b9523f6e6991723b0da721dbf7667ee340772
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194258"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207982"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerenciar sua conta do Marketplace comercial no Partner Center 
 
@@ -151,7 +151,7 @@ O Partner Center aproveita o [Azure Active Directory](https://docs.microsoft.com
 
 ## <a name="manage-users"></a>Gerir utilizadores
 
-A seção **usuários** do Partner Center (em **configurações de conta**) permite que você use o Azure ad para gerenciar usuários, grupos e aplicativos do Azure AD que têm acesso à sua conta do Partner Center. Observe que, para gerenciar os usuários, você deve estar conectado com sua [conta corporativa](./company-work-accounts.md) (o locatário do Azure ad associado). Para gerenciar usuários em uma conta de trabalho/locatário diferente, você precisará sair e entrar novamente como um usuário com permissões de **gerente** nessa conta/locatário de trabalho. 
+A seção **usuários** do Partner Center (em **configurações de conta**) permite que você use o Azure ad para gerenciar usuários, grupos e aplicativos do Azure AD que têm acesso à sua conta do Partner Center. Para gerenciar usuários, você deve estar conectado com sua [conta corporativa](./company-work-accounts.md) (o locatário do Azure ad associado). Para gerenciar usuários em uma conta de trabalho/locatário diferente, você precisará sair e entrar novamente como um usuário com permissões de **gerente** nessa conta/locatário de trabalho. 
 
 Depois de entrar com sua conta corporativa (locatário do Azure AD), você pode:
 - [Adicionar ou remover usuários](#add-or-remove-users)
@@ -300,20 +300,19 @@ Se o seu aplicativo do Azure AD lê e grava dados em Microsoft Azure AD, ele pre
 4.  Se você quiser criar mais chaves, selecione **adicionar outra chave**.
 
 
-### <a name="define-user-roles-and-permissions"></a>Definir funções e permissões de usuário
+## <a name="define-user-roles-and-permissions"></a>Definir funções e permissões de usuário
 
-Os usuários da sua empresa podem receber as seguintes funções e permissões para o programa comercial do Marketplace no Partner Center. 
+Os usuários da sua empresa podem receber as seguintes funções e permissões para o programa comercial do Marketplace no Partner Center:
 
-|**Função**|**Permissões**|
-|----------------------------------|---------------------------------|
-|Manager|-Pode acessar todos os recursos do conta Microsoft, exceto as configurações de imposto e pagamento|
-|      |-Pode gerenciar usuários, funções e contas de trabalho (locatários)|
-|Programador|-Pode gerenciar e publicar ofertas|
-|      |-Pode exibir alguns relatórios do Publicador|
-|Administrador global|-Não é relevante para o Marketplace comercial|
-|Colaborador de negócios|-Não é relevante para o Marketplace comercial|
-|Colaborador financeiro|-Não é relevante para o Marketplace comercial|
-|Comerciante|-Não é relevante para o Marketplace comercial|
+- **Manager**
+  - Pode acessar todos os recursos do conta Microsoft, exceto as configurações de imposto e pagamento
+  - Pode gerenciar usuários, funções e contas de trabalho (locatários)
+- **Programador**
+  - Pode gerenciar e publicar ofertas
+  - Pode exibir alguns relatórios do Publicador
+
+> [!NOTE]
+> O administrador global, colaborador de negócios, colaborador financeiro e funções de mercado não são usados no programa do Marketplace comercial e não têm permissões associadas.
 
 Para obter mais informações sobre como gerenciar funções e permissões em outras áreas do Partner Center, como Azure Active Directory (AD), provedor de soluções de nuvem (CSP), fornecedor do painel de controle (CPV), usuários convidados ou Microsoft Partner Network (MPN), consulte [atribuir funções de usuários e permissões no Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
 
@@ -365,6 +364,6 @@ A seção **contratos** do Partner Center (em **configurações de conta**) perm
 As **ações necessárias** podem aparecer na parte superior desta página se houver atualizações de contrato que precisam de sua atenção. Para aceitar um contrato atualizado, primeiro leia a versão do contrato vinculado e, em seguida, selecione **aceitar contrato**. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma nova oferta de SaaS](./create-new-saas-offer.md)

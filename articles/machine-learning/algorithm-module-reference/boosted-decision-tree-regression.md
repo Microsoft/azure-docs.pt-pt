@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: de4135c2e516eb7f26e1b99a22a60501f4577cce
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 5f26dfbdd8d3ef094ed380b7bd00ab0169152502
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128962"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208160"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regressão da árvore de decisão aumentada
 
@@ -87,7 +87,7 @@ O método de aumento de gradiente também pode ser usado para problemas de class
 
 10. Execute a experimentação.  
   
-### <a name="results"></a>Resultados
+## <a name="results"></a>Resultados
 
 Após a conclusão do treinamento:
 

@@ -1,30 +1,23 @@
 ---
-title: Máquina de Virtual de ciência de dados Inteligência Artificial Geo descrição geral
-titleSuffix: Azure
-description: A máquina de Virtual de ciência de dados de Inteligência Artificial de Georreplicação fornece ArcGIS Pro para trabalhar com dados geográficos. Ele também fornece kits de informações de Python, R e ciência de dados para trabalhar com o aprendizado de máquina e o ia (inteligência artificial).
+title: O que é a inteligência artificial geográfica
+titleSuffix: Azure Data Science Virtual Machine
+description: A inteligência artificial geográfica Máquina Virtual de Ciência de Dados fornece ArcGIS pro para trabalhar com dados geográficos, bem como kits de dados de ciência, R e Python para trabalhar com ML e ia.
 keywords: IA, ferramentas de ciência de dados, a máquina de virtual de ciência de dados, a análise geoespacial, aprendizagem aprofundada
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.author: vijetaj
-ms.openlocfilehash: 05596ea9a4456b73ec1e398e4a27ec3a49457cd9
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
-ms.translationtype: HT
+ms.openlocfilehash: 3d17006b9d35f0abbcc0e9c60f38ab693c1d088d
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172875"
+ms.locfileid: "70195595"
 ---
-# <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Introdução à máquina de Virtual de ciência de dados de Inteligência Artificial Geo
+# <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>O que é a inteligência artificial geográfica Máquina Virtual de Ciência de Dados?
 
 A inteligência artificial geográfica Máquina Virtual de Ciência de Dados (também conhecida como ia geográfico VM de Ciência de Dados ou geo-DSVM) fornece recursos de análise geoespaciais do Máquina Virtual de Ciência de Dados do Azure (DSVM). Especificamente, essa VM estende os kits de informações de ia e ciência de dados no [DSVM](overview.md) adicionando o sistema de informação geográfica [ArcGIS pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) líder de mercado da Ersi.
 

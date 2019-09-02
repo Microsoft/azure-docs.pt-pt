@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc6e37b088c6bcbb2de4693eb50be661db869ecd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 92ebd34c20e3733971593344925dcb566a1bf912
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089196"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207363"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instalar drivers NVIDIA GPU em VMs da série N que executam o Windows 
 
@@ -40,6 +40,8 @@ Para obter especificações básicas, capacidades de armazenamento e detalhes de
 Após a instalação do driver de grade em uma VM, uma reinicialização é necessária. Após a instalação do driver CUDA, uma reinicialização não é necessária.
 
 ## <a name="verify-driver-installation"></a>Verificar a instalação do driver
+
+Observe que o painel de controle NVIDIA só está acessível com a instalação do driver de grade. Se você tiver instalado drivers CUDA, o painel de controle nvidia não estará visível.
 
 Você pode verificar a instalação do driver no Device Manager. O exemplo a seguir mostra a configuração bem-sucedida do cartão Tesla K80 em uma VM NC do Azure.
 
@@ -66,7 +68,7 @@ Para instalar a extensão mais recente da versão 1,1 do HpcVMDrivers em uma VM 
 A rede RDMA dá suporte ao tráfego de interface de transmissão de mensagens (MPI) para aplicativos executados com [o Microsoft MPI ou o](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) Intel MPI 5. x. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Os desenvolvedores que criam aplicativos acelerados por GPU para GPUs NVIDIA Tesla também podem baixar e instalar o [Kit de ferramentas do CUDA](https://developer.nvidia.com/cuda-downloads)mais recente. Para obter mais informações, consulte o [Guia de instalação do CUDA](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
 

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: 6629a612f7067394d9da83a81bdf46467a6e033a
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: d6628f1522880f650bfd8c728fe46fd050a8e6a0
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163734"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208377"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Criar um conjunto de anfitriões com o Azure Marketplace
 
@@ -44,9 +44,9 @@ Para executar a oferta do Azure Marketplace para provisionar um novo pool de hos
 2. Insira **área de trabalho virtual do Windows** na janela pesquisa do Marketplace.
 3. Selecione **área de trabalho virtual do Windows-provisionar um pool**de hosts e, em seguida, selecione **criar**.
 
-Siga as orientações para inserir as informações para as folhas apropriadas.
+Depois disso, siga as instruções na próxima seção para inserir as informações para as folhas apropriadas.
 
-### <a name="basics"></a>Noções básicas
+### <a name="basics"></a>Noções Básicas
 
 Veja o que você faz para a folha **noções básicas** :
 
@@ -56,6 +56,9 @@ Veja o que você faz para a folha **noções básicas** :
 4. Selecione **criar novo** e forneça um nome para o novo grupo de recursos.
 5. Para **local**, selecione o mesmo local que a rede virtual que tem conectividade com o servidor de Active Directory.
 6. Selecione **OK**.
+
+>[!IMPORTANT]
+>Se você estiver usando uma solução Azure Active Directory Domain Services e Azure Active Directory pura, certifique-se de implantar o pool de hosts na mesma região que o Azure Active Directory Domain Services para evitar erros de associação de domínio e de credenciais.
 
 ### <a name="configure-virtual-machines"></a>Configurar máquinas virtuais
 

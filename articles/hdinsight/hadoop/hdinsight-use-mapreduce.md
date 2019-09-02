@@ -1,6 +1,6 @@
 ---
-title: MapReduce com o Apache Hadoop no HDInsight
-description: Saiba como executar tarefas de MapReduce no Apache Hadoop em clusters do HDInsight.
+title: MapReduce com Apache Hadoop no HDInsight
+description: Saiba como executar trabalhos MapReduce em Apache Hadoop em clusters HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,59 +8,26 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 9da6b6ba3ab697887e55f9077b44cf6fa100a981
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1bb7a6737115f903391997a5430c32f9a40465f
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707961"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207106"
 ---
-# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Utilizar o MapReduce no Apache Hadoop no HDInsight
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Usar o MapReduce no Apache Hadoop no HDInsight
 
-Saiba como executar tarefas de MapReduce em clusters do HDInsight. 
-
-## <a id="whatis"></a>O que é o MapReduce
-
-Apache Hadoop MapReduce é uma estrutura de software para a escrita de tarefas que processam grandes quantidades de dados. Dados de entrada são divididos em partes independentes. Cada segmento é processado em paralelo em todos os nós do cluster. Uma tarefa de MapReduce consiste em duas funções:
-
-* **Mapper**: Consome dados de entrada, analisa-(normalmente com o filtro e classificação de operações) e emite tuplas (pares chave-valor)
-
-* **Reducer**: Consome tuplas emitidas pelo mapeador de pontos e realiza uma operação de resumida que cria um resultado mais pequeno, combinado a partir dos dados de mapeador de pontos
-
-Um exemplo de tarefa de MapReduce de contagem de palavras básica é ilustrado no diagrama seguinte:
-
-![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
-
-O resultado deste trabalho é uma contagem de quantas vezes cada palavra ocorreu no texto.
-
-* O mapeador de pontos necessária cada linha do texto de entrada como entrada e divide em palavras. Emite um chave/valor par sempre que uma palavra ocorre da palavra é seguido de um 1. A saída é ordenada antes do envio para reducer.
-* O reducer resume essas contagens individuais para cada palavra e emite um par de chaves/valores individual que contenha a palavra seguida pela soma de suas ocorrências.
-
-MapReduce pode ser implementado em várias linguagens. Java é a implementação mais comuns e é utilizado para fins de demonstração neste documento.
-
-## <a name="development-languages"></a>Linguagens de programação
-
-Linguagens ou estruturas baseadas em Java e a Máquina Virtual de Java pode ser executado diretamente como uma tarefa de MapReduce. No exemplo utilizado neste documento é uma aplicação de Java MapReduce. Idiomas não-Java, como c#, Python ou executáveis autônomos, tem de utilizar **transmissão em fluxo do Hadoop**.
-
-Transmissão em fluxo do Hadoop comunica com o mapeador de pontos e reducer através de STDIN e STDOUT. O mapeador de reducer ler uma linha de dados cada vez do STDIN e escrever a saída para STDOUT. Cada linha, ler ou emitidos pela mapeador de pontos e reducer tem de estar no formato de um par chave/valor, delimitado pelo caráter de tabulação:
-
-    [key]/t[value]
-
-Para obter mais informações, consulte [transmissão em fluxo do Hadoop](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
-
-Para obter exemplos de utilização do Hadoop de transmissão em fluxo com o HDInsight, consulte o documento seguinte:
-
-* [Desenvolver trabalhos de MapReduce do c#](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+Saiba como executar trabalhos MapReduce em clusters HDInsight.
 
 ## <a id="data"></a>Dados de exemplo
 
-HDInsight fornece vários conjuntos de dados de exemplo, que são armazenados na `/example/data` e `/HdiSamples` diretório. Esses diretórios são no armazenamento padrão para o seu cluster. Neste documento, usamos o `/example/data/gutenberg/davinci.txt` ficheiro. Este ficheiro contém os blocos de anotações de Leonardo da Vinci.
+O `/example/data` HDInsight fornece vários conjuntos de dados de exemplo, que são armazenados `/HdiSamples` no diretório e. Esses diretórios estão no armazenamento padrão para seu cluster. Neste documento, usamos o `/example/data/gutenberg/davinci.txt` arquivo. Esse arquivo contém os blocos de anotações de Leonardo da Vinci.
 
 ## <a id="job"></a>MapReduce de exemplo
 
-Um exemplo de aplicativo de contagem do MapReduce word está incluído com o seu cluster do HDInsight. Neste exemplo está localizado em `/example/jars/hadoop-mapreduce-examples.jar` no armazenamento padrão para o seu cluster.
+Um exemplo de aplicativo de contagem de palavras MapReduce está incluído no seu cluster HDInsight. Este exemplo está localizado `/example/jars/hadoop-mapreduce-examples.jar` em no armazenamento padrão para seu cluster.
 
-O seguinte código de Java é a fonte do aplicativo MapReduce contida no `hadoop-mapreduce-examples.jar` ficheiro:
+O código Java a seguir é a origem do aplicativo MapReduce contido no `hadoop-mapreduce-examples.jar` arquivo:
 
 ```java
 package org.apache.hadoop.examples;
@@ -134,30 +101,29 @@ public class WordCount {
 }
 ```
 
-Para obter instruções para escrever seus próprios aplicativos de MapReduce, consulte o documento seguinte:
+Para obter instruções sobre como escrever seus próprios aplicativos MapReduce, consulte o seguinte documento:
 
-* [Desenvolver aplicações de Java MapReduce para o HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [Desenvolver aplicativos Java MapReduce para o HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
 ## <a id="run"></a>Executar o MapReduce
 
-HDInsight pode executar tarefas de HiveQL utilizando vários métodos. Utilize a tabela seguinte para decidir qual é o método adequado para si, em seguida, siga a ligação para obter instruções.
+O HDInsight pode executar trabalhos do HiveQL usando vários métodos. Use a tabela a seguir para decidir qual método é ideal para você e, em seguida, siga o link para obter uma explicação.
 
-| **Utilize esta opção**... | **... recurso aleatório fazê-lo** | ... .with isso **sistema operativo do cluster** | ... .from isso **sistema operativo do cliente** |
+| **Use isto**... | **... para fazer isso** | ... com este **sistema operacional de cluster** | ... deste **sistema operacional cliente** |
 |:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Utilize o comando de Hadoop por meio de **SSH** |Linux |Linux, Unix, Mac OS X ou Windows |
-| [Curl](apache-hadoop-use-mapreduce-curl.md) |Submeter a tarefa remotamente utilizando **REST** |Linux ou Windows |Linux, Unix, Mac OS X ou Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submeter a tarefa remotamente utilizando **Windows PowerShell** |Linux ou Windows |Windows |
+| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Usar o comando do Hadoop por meio de **SSH** |Linux |Linux, UNIX, Mac OS X ou Windows |
+| [Curl](apache-hadoop-use-mapreduce-curl.md) |Enviar o trabalho remotamente usando o **REST** |Linux ou Windows |Linux, UNIX, Mac OS X ou Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Enviar o trabalho remotamente usando o **Windows PowerShell** |Linux ou Windows |Windows |
 
 ## <a id="nextsteps"></a>Passos seguintes
 
-Para saber mais sobre como trabalhar com dados no HDInsight, veja os documentos seguintes:
+Para saber mais sobre como trabalhar com dados no HDInsight, consulte os seguintes documentos:
 
 * [Desenvolver programas Java MapReduce para o HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [Utilizar o Apache Hive com o HDInsight][hdinsight-use-hive]
+* [Usar o Apache Hive com o HDInsight][hdinsight-use-hive]
 
-* [Utilizar o Apache Pig com o HDInsight][hdinsight-use-pig]
-
+* [Usar o Apache Pig com o HDInsight][hdinsight-use-pig]
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
@@ -167,5 +133,3 @@ Para saber mais sobre como trabalhar com dados no HDInsight, veja os documentos 
 
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-[image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif

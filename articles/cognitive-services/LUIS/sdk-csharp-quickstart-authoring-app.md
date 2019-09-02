@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 08/12/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 11f40d99a36493272cb6cd51e4a339c19cd0358b
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: d186d0477fd05f4948bd0280ee9ce677ad1b7542
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966726"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207320"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>Início rápido: Biblioteca de cliente de criação de Reconhecimento vocal (LUIS) para .NET
 
@@ -190,7 +190,7 @@ Publique o aplicativo LUIS usando o método [PublishAsync](https://docs.microsof
 
 Execute o aplicativo com o comando `run` dotnet do diretório do aplicativo.
 
-```dotnet
+```console
 dotnet run
 ```
 
@@ -198,7 +198,7 @@ dotnet run
 
 Se você quiser limpar, poderá excluir o aplicativo LUIS. A exclusão do aplicativo é feita com o método [apps. DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.deleteasync?view=azure-dotnet) . Você também pode excluir o aplicativo do [portal do Luis](https://www.luis.ai). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 >[Usar o SDK do .net para consultar o ponto de extremidade de previsão](sdk-csharp-quickstart-query-prediction-endpoint.md)

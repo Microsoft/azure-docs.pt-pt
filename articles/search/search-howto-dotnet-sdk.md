@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: brjohnst
-ms.openlocfilehash: 42d3a4a0840e7241666f66a09e7e6b11342cbfbc
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 3f167ee082b751f6bd686c0543db6a262615e486
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182260"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208254"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Como usar Azure Search de um aplicativo .NET
 
@@ -579,7 +579,7 @@ O SDK usa JSON.NET para serializar e desserializar documentos. Você pode person
 * Mapear entre nomes de propriedade em seu código e nomes de campo no índice.
 * Crie atributos personalizados que podem ser usados para mapear Propriedades para campos de documento.
 
-Você pode encontrar exemplos de implementação de serialização personalizada nos testes de unidade para o SDK Azure Search .NET no GitHub. Um bom ponto de partida é [essa pasta](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models). Ele contém classes que são usadas pelos testes de serialização personalizados.
+Você pode encontrar exemplos de implementação de serialização personalizada nos testes de unidade para o SDK Azure Search .NET no GitHub. Um bom ponto de partida é [essa pasta](https://github.com/Azure/azure-sdk-for-net/tree/4f6f4e4c90200c1b0621c4cead302a91e89f2aba/sdk/search/Microsoft.Azure.Search/tests/Tests/Models). Ele contém classes que são usadas pelos testes de serialização personalizados.
 
 ### <a name="searching-for-documents-in-the-index"></a>Pesquisando documentos no índice
 A última etapa do aplicativo de exemplo é Pesquisar alguns documentos no índice:
@@ -752,7 +752,7 @@ E aqui estão os resultados, que incluem todos os campos, já que nós não `Sel
 
 Esta etapa conclui o tutorial, mas não pare aqui. \* * As próximas etapas fornecem recursos adicionais para saber mais sobre Azure Search.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Procure as referências para o [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e a [API REST](https://docs.microsoft.com/rest/api/searchservice/).
 * Examine as [convenções de nomenclatura](https://docs.microsoft.com/rest/api/searchservice/Naming-rules) para aprender as regras para nomear vários objetos.
 * Examine [os tipos de dados com suporte](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) no Azure Search.
