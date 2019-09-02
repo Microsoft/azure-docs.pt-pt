@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas de instalação do Azure AD Connect | Documentos da Microsoft
-description: Este tópico fornece os passos sobre como resolver problemas com a instalação do Azure AD Connect.
+title: Solucionar problemas de instalação do Azure AD Connect | Microsoft Docs '
+description: Este tópico fornece etapas para solucionar problemas com a instalação do Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -15,37 +15,37 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e077127681f8bd7b650ab22f2d036efd7f9733ee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e75ad29c5b4a76de5317991995f132c6cb53bbe3
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60454796"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211839"
 ---
-# <a name="troubleshoot-azure-ad-connect-install-issues"></a>Resolução de problemas: Problemas de instalação do Azure AD Connect
+# <a name="troubleshoot-azure-ad-connect-install-issues"></a>Solucionar problemas Problemas de instalação do Azure AD Connect
 
 ## <a name="recommended-steps"></a>**Passos Recomendados**
-Certifique-se de que [tipo de instalação do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-select-installation) é adequada para. Se cumprir os critérios de instalação rápida, em seguida, é altamente recomendável que passe com a instalação do express. Instalação rápida dá-lhe opções mínimo necessárias para concluir a instalação, portanto, há menos probabilidade de quaisquer problemas. 
+Verifique qual [tipo de instalação Azure ad Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-select-installation) é adequado para você. Se você atender aos critérios da instalação expressa, é altamente recomendável que você vá para a instalação expressa. A instalação expressa fornece as opções mínimas necessárias para concluir a instalação, portanto, há menos probabilidade de qualquer problema. 
 
-No entanto, se não cumpre os critérios de instalação rápida e terá de efetuar a instalação personalizada, em seguida, estas são algumas práticas recomendadas pode seguir para evitar problemas comuns. Para simplificar apenas seletivas opções são mencionadas aqui:
+No entanto, se você não atender aos critérios de instalação expressa e precisar fazer a instalação personalizada, aqui estão algumas práticas recomendadas que você pode seguir para evitar problemas comuns. Para simplificar, apenas as opções seletivas são mencionadas aqui:
 
-* Certifique-se de que é um administrador no computador no qual está a instalar o AAD Connect. Faça logon máquina com as mesmas credenciais de administrador.
+* Verifique se você é um administrador no computador em que está instalando o AAD Connect. Faça logon no computador com as mesmas credenciais de administrador.
 
-* Permitir que todas as opções para ser predefinido na página seguinte, exceto para "Utilizar um SQL Server existente", se pretender utilizar o SQL Server existente. Seguem-se [mais detalhes](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom) sobre como utilizar as opções de instalação personalizada. 
+* Deixe que todas as opções sejam padrão na página a seguir, com exceção de "usar um SQL Server existente", se você quiser usar SQL Server existentes. Aqui estão [mais detalhes](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom) sobre como usar as opções de instalação personalizadas. 
 
-    ![Utilizar SQL Server existente](media/tshoot-connect-install-issues/tshoot-connect-install-issues/useexistingsqlserver.png)
+    ![Usar SQL Server existentes](media/tshoot-connect-install-issues/tshoot-connect-install-issues/useexistingsqlserver.png)
 
-* Na página seguinte, escolha a opção "Criar AD nova conta", para evitar qualquer permissão, problemas com a conta existente.
+* Na página a seguir, escolha a opção "criar nova conta do AD" para evitar quaisquer problemas de permissão com a conta existente.
 
-    ![Conta de floresta do AD](media/tshoot-connect-install-issues/tshoot-connect-install-issues/createnewaccount.png)
+    ![Conta da floresta do AD](media/tshoot-connect-install-issues/tshoot-connect-install-issues/createnewaccount.png)
 
 ### <a name="common-issues"></a>**Problemas Comuns**
 
-* [Problemas de conectividade do Active Directory no local](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
+* [Problemas de conectividade com Active Directory locais](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
 
-* [Problemas de conectividade com online do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-connectivity).
+* [Problemas de conectividade com Azure Active Directory online](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-connectivity).
 
-* [Problemas de permissão com o Active Directory no local](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
+* [Problemas de permissão com Active Directory locais](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
 
 ## <a name="recommended-documents"></a>**Documentos Recomendados**
 * [Pré-requisitos do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites)
@@ -57,8 +57,8 @@ No entanto, se não cumpre os critérios de instalação rápida e terá de efet
 * [O que é o Módulo ADConnectivityTool do PowerShell?](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-adconnectivitytools)
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md).
-- [O que é a identidade híbrida? ](whatis-hybrid-identity.md).
+- [Sincronização de Azure ad Connect](how-to-connect-sync-whatis.md).
+- [O que é a identidade híbrida?](whatis-hybrid-identity.md)
 
 
 

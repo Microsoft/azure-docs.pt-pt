@@ -17,12 +17,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a2b6d01802fd819471a9cfb382166e6293261ca
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a130878baa10be426072dfe79284a1d602dfb6ff
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852882"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211853"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Início rápido: Adquirir um token e chamar Microsoft Graph API de um aplicativo de console usando a identidade do aplicativo
 
@@ -39,9 +39,7 @@ Este início rápido requer o [.NET Core 2,2](https://www.microsoft.com/net/down
 
 > [!div renderon="docs" class="sxs-lookup"]
 >
-> Tem duas opções para iniciar a aplicação de início rápido:
-> * Express [Opção 1: Registre e configure automaticamente seu aplicativo e, em seguida, baixe seu exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * Manual [Opção 2: Registrar e configurar manualmente seu aplicativo e exemplo de código](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> Tem duas opções para iniciar a aplicação de início rápido: Express (opção 1 abaixo) e manual (opção 2)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registre e configure automaticamente seu aplicativo e, em seguida, baixe seu exemplo de código
 >
@@ -80,12 +78,12 @@ Este início rápido requer o [.NET Core 2,2](https://www.microsoft.com/net/down
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Passo 2: Baixe seu projeto do Visual Studio
 
-[Baixe o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/msal3x.zip)
+[Baixe o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar seu projeto do Visual Studio
 
 1. Extraia o ficheiro zip para uma pasta local próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
-1. Abra a solução no Visual Studio- **daemon-console. sln** (opcional).
+1. Abra a solução no Visual Studio- **1-Call-MSGraph\daemon-console.sln** (opcional).
 1. Edit **appSettings. JSON** e substitua os valores dos campos `ClientId` `Tenant` e `ClientSecret` pelo seguinte:
 
     ```json
@@ -145,7 +143,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 Se você estiver usando o Visual Studio, pressione **F5** para executar o aplicativo, caso contrário, execute o aplicativo via prompt de comando ou console:
 
 ```console
-cd {ProjectFolder}\daemon-console
+cd {ProjectFolder}\daemon-console\1-Call-Graph
 dotnet run
 ```
 
@@ -166,7 +164,7 @@ MSAL ([Microsoft. Identity. Client](https://www.nuget.org/packages/Microsoft.Ide
  Você pode instalar o MSAL.NET executando o seguinte comando no **console do Gerenciador de pacotes**do Visual Studio:
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client
 ```
 
 Como alternativa, se você não estiver usando o Visual Studio, poderá executar o seguinte comando para adicionar o MSAL ao seu projeto:
@@ -219,10 +217,17 @@ Para obter mais informações, consulte a [documentação de referência `Acquir
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
+
+Para saber mais sobre os aplicativos daemon, consulte a página de aterrissagem do cenário
 
 > [!div class="nextstepaction"]
-> [Exemplo de daemon do .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
+> [Aplicativo daemon que chama APIs da Web](scenario-daemon-overview.md)
+
+Para o tutorial do aplicativo daemon, consulte:
+
+> [!div class="nextstepaction"]
+> [Tutorial do console do .NET Core do daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
 
 Saiba mais sobre as permissões e o consentimento:
 
@@ -233,9 +238,6 @@ Para saber mais sobre o fluxo de autenticação para este cenário, consulte o f
 
 > [!div class="nextstepaction"]
 > [Fluxo OAuth de credenciais de cliente](v2-oauth2-client-creds-grant-flow.md)
-
-> [!div class="nextstepaction"]
-> [Fluxos de credencial do cliente com MSAL.NET](https://aka.ms/msal-net-client-credentials)
 
 Ajude-nos a melhorar a plataforma Microsoft Identity. Diga-nos o que você imagina ao concluir uma pesquisa curta de duas perguntas.
 

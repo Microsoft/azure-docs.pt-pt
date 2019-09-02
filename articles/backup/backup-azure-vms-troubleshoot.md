@@ -8,17 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 11e83d0a245b2fba70926723edaf303032f90b8e
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 2f645d290175db9692649d825323313fc207a014
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170589"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210274"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 Você pode solucionar os erros encontrados ao usar o backup do Azure com as informações listadas abaixo:
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Criar cópia de segurança
 Esta seção aborda a falha da operação de backup da máquina virtual do Azure.
 
 ## <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime-a cópia dos dados de backup do cofre atingiu o tempo limite
@@ -84,7 +84,7 @@ Reinicie os gravadores VSS que estão em um estado inadequado. Em um prompt de c
 ## <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure-falha ao analisar a configuração da extensão de backup
 
 Código de erro: ExtensionConfigParsingFailure<br/>
-Mensagem de erro: Falha ao analisar a configuração da extensão de cópia de segurança.
+Mensagem de erro: Falha ao analisar a configuração para a extensão da cópia de segurança.
 
 Esse erro ocorre devido às permissões alteradas no diretório MachineKeys: **%systemdrive%\ProgramData\Microsoft\Crypto\RSA\MachineKeys**.
 Execute o comando a seguir e verifique se as permissões no diretório MachineKeys são padrão:**icacls%systemdrive%\ProgramData\Microsoft\Crypto\RSA\MachineKeys**.
@@ -148,7 +148,7 @@ Falha na operação de backup na VM devido a atraso em chamadas de rede ao execu
 
 Numa linha de comandos elevada (administrador), execute o comando abaixo:
 
-```
+```text
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTimeFromHost /t REG_SZ /d True /f
 ```
@@ -183,7 +183,7 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 | O backup não pode cancelar o trabalho porque ele não está em andamento: <br>O cancelamento tem suporte apenas para trabalhos em andamento. Tente cancelar um trabalho em andamento. |Esse erro ocorre devido a um estado transitório. Aguarde um minuto e repita a operação de cancelamento. |
 | O backup falhou ao cancelar o trabalho: <br>Aguarde até que o trabalho seja concluído. |Nenhum |
 
-## <a name="restore"></a>Restauro
+## <a name="restore"></a>Restaurar
 
 | Detalhes do erro | Solução |
 | --- | --- |
@@ -243,7 +243,7 @@ O backup da VM depende de emitir comandos de instantâneo para o armazenamento s
 - O **acesso à rede para armazenamento é bloqueado usando NSG**. Saiba mais sobre como [estabelecer o acesso à rede](backup-azure-arm-vms-prepare.md#establish-network-connectivity) para armazenamento usando a lista de IPs permitidos ou por meio de um servidor proxy.
 - **VMs com SQL Server Backup configurado podem causar atraso na tarefa de instantâneo**. Por padrão, o backup da VM cria um backup completo do VSS em VMs do Windows. As VMs que executam o SQL Server, com SQL Server Backup configurado, podem ter atrasos de instantâneos. Se os atrasos de instantâneo causarem falhas de backup, defina a seguinte chave do registro:
 
-   ```
+   ```text
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```

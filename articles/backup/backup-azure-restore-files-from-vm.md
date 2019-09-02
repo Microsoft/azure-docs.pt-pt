@@ -7,14 +7,14 @@ manager: carmonm
 keywords: recuperação em nível de item; recuperação de arquivo do backup de VM do Azure; restaurar arquivos da VM do Azure
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/01/2019
+ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 67ba9ba9bc85213ec479a90d205ed9570c62bf8c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5ff4f1ff8a3d6143285b2842c351e1d26bd356ea
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954614"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210364"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos do backup de máquina virtual do Azure
 
@@ -68,7 +68,7 @@ Para restaurar arquivos ou pastas do ponto de recuperação, acesse a máquina v
     - download.microsoft.com
     - URLs do serviço de recuperação (nome geográfico refere-se à região onde reside o cofre do serviço de recuperação)
         - https:\//pod01-REC2.Geo-Name.backup.WindowsAzure.com (para áreas geográficas públicos do Azure)
-        - https:\//pod01-REC2.Geo-Name.backup.WindowsAzure.cn (para o Azure China)
+        - https:\//pod01-REC2.Geo-Name.backup.WindowsAzure.cn (para o Azure China 21vianet)
         - https:\//pod01-REC2.Geo-Name.backup.WindowsAzure.us (para o governo dos EUA do Azure)
         - https:\//pod01-REC2.Geo-Name.backup.WindowsAzure.de (para Azure Alemanha)
     - porta de saída 3260
@@ -247,7 +247,7 @@ Esse recurso foi criado para acessar os dados da VM sem a necessidade de restaur
 
 #### <a name="select-recovery-point-who-can-generate-script"></a>Selecionar ponto de recuperação (que pode gerar script)
 
-O script fornece acesso aos dados da VM, é importante regular quem pode gerá-lo em primeiro lugar. É necessário fazer logon no portal do Azure e ser [autorizado pelo RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) para poder gerar o script.
+O script fornece acesso aos dados da VM, é importante regular quem pode gerá-lo em primeiro lugar. É necessário fazer logon no portal do Azure e ser autorizado pelo [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) para poder gerar o script.
 
 A recuperação de arquivo precisa do mesmo nível de autorização necessário para restauração de VM e restauração de discos. Em outras palavras, somente usuários autorizados podem exibir os dados da VM que podem gerar o script.
 

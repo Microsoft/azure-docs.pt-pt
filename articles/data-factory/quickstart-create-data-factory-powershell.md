@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 8678bacb48bdf63abb2ce517f1bead83d86a5827
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: d4376632b8f912cd76f3af5e9a8819b75f8144b6
+ms.sourcegitcommit: dcea3c1ab715a79ebecd913885fbf9bbee61606a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113750"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209477"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Início rápido: Criar uma fábrica de dados do Azure com o PowerShell
 
@@ -314,7 +314,7 @@ Neste procedimento, você cria um pipeline com uma atividade de cópia que usa o
 
 Nesta etapa, você cria uma execução de pipeline.
 
-1. Execute o cmdlet **Invoke-AzDataFactoryV2Pipeline** para criar uma execução de pipeline. O cmdlet devolve o ID de execução do pipeline para monitorização futura.
+Execute o cmdlet **Invoke-AzDataFactoryV2Pipeline** para criar uma execução de pipeline. O cmdlet devolve o ID de execução do pipeline para monitorização futura.
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline `

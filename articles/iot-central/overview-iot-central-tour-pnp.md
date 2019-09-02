@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 1b6b5aff52673443fe19da684e85663a5ca8fe19
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 4a0c9d16474ddf032ff88382bc240713bc734ff8
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878447"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211895"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-preview-features"></a>Faça um tour pela interface do usuário do IoT Central do Azure (recursos de visualização)
 
@@ -39,9 +39,31 @@ Como _operador_, utilize a IU do Azure IoT Central para gerir a sua solução do
 
 Use o menu de navegação à esquerda para acessar as diferentes áreas do aplicativo. Você pode expandir ou recolher a barra de navegação **<** selecionando **>** ou:
 
-| Menu | Descrição |
-| ---- | ----------- |
-| ![Menu de navegação à esquerda](media/overview-iot-central-tour-pnp/navigationbar.png) | <ul><li>A página **painel** exibe o painel do aplicativo. Como um construtor, você pode personalizar o painel para seus operadores. Os usuários também podem criar seus próprios painéis.</li><li>A página **dispositivos** lista os dispositivos simulados e reais associados a cada modelo de dispositivo no aplicativo. Como um operador, você usa **dispositivos** para gerenciar seus dispositivos conectados.</li><li>A página **grupos de dispositivos** permite exibir e criar grupos de dispositivos. Como um operador, você pode criar grupos de dispositivos como um conjunto lógico de dispositivos especificados por uma consulta.</li><li>A página **regras** permite que você edite regras que são acionadas com base na telemetria do dispositivo e disparam ações personalizáveis.</li><li>A página **análise** mostra a análise derivada da telemetria do dispositivo para dispositivos e grupos de dispositivos. Como operador, pode criar vistas personalizadas com base nos dados dos dispositivos para obter informações da aplicação.</li><li>A página **trabalhos** permite o gerenciamento de dispositivos em massa, fazendo com que você crie e execute trabalhos para atualizar seus dispositivos em escala.</li><li>A página **modelos de dispositivo** mostra as ferramentas que um construtor usa para criar e gerenciar modelos de dispositivo.</li><li>A página **exportação de dados** permite que um administrador configure uma exportação contínua para outros serviços do Azure, como armazenamento e filas.</li><li>A página **Administração** mostra as páginas de administração do aplicativo em que um administrador pode gerenciar configurações, usuários e funções do aplicativo.</li></ul> |
+:::row:::
+  :::column span="":::
+      ![Left navigation menu](media/overview-iot-central-tour-pnp/navigationbar.png)
+  :::column-end:::
+  :::column span="2":::
+
+      **Dashboard** displays your application dashboard. As a builder, you can customize the dashboard for your operators. Users can also create their own  dashboards.
+    
+      **Devices** lists the simulated and real devices associated with each device template in the application. As an operator, you use the **Device Explorer** to manage your connected devices.
+    
+      **Device groups** lets you view and create device groups. As an operator, you can create device groups as a logical collections of devices specified by a query.
+
+      **Rules** lets you edit rules that fire based on device telemetry and trigger customizable actions.
+    
+      **Analytics** shows analytics derived from device telemetry for devices and device groups. As an operator, you can create custom views on top of device data to derive insights from your application.
+    
+      **Jobs** enables bulk device management by having you create and run jobs to update your devices at scale.
+    
+      **Device templates** shows the tools a builder uses to create and manage device templates.
+    
+      **Data export** enables an administrator to configure a continuous export to other Azure services such as storage and queues.
+    
+      **Administration** shows the application administration pages where an administrator can manage application settings, users, and roles.
+   :::column-end:::
+:::row-end:::
 
 ## <a name="search-help-and-support"></a>Pesquisa, ajuda e suporte
 

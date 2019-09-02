@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
 ms.openlocfilehash: 62115dd519336c728b679e4e698182a50660a464
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 09/02/2019
 ms.locfileid: "68949876"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor do Azure Functions JavaScript
@@ -418,7 +418,7 @@ Ao trabalhar com gatilhos HTTP, você pode acessar os objetos de solicitação e
 
 A tabela a seguir mostra a versão do node. js usada por cada versão principal do tempo de execução do Functions:
 
-| Versão das funções | Versão Node.js | 
+| Versão das funções | Versão do node. js | 
 |---|---|
 | 1.x | 6.11.2 (bloqueado pelo tempo de execução) |
 | 2.x  | _Active LTS_ e _Maintenance LTS_ versões node. js (8.11.1 e 10.14.1 recomendado). Defina a versão usando a configuração do [aplicativo](functions-how-to-use-azure-function-app-settings.md#settings)WEBSITE_NODE_DEFAULT_VERSION.|

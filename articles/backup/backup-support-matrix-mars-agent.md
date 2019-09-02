@@ -1,5 +1,5 @@
 ---
-title: Matriz de suporte para o agente de Serviços de Recuperação do Microsoft Azure (MARS)-backup do Azure
+title: Matriz de suporte para o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
 author: dcurwin
 ms.service: backup
@@ -7,12 +7,12 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 599d3f97ea30b096999d754a995af2ba660c0bc3
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 1559bb096baaa8f19718bf0c3bcd6b2dc767235b
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186168"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210121"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -106,7 +106,7 @@ Windows 7   | 1\.700 GB
 
 **Tipo** | **Suporte**
 --- | ---
-Encriptados   | Suportado.
+Encriptado   | Suportado.
 Comprimidos | Suportado.
 Dispersos | Suportado.
 Compactados e esparsos | Suportado.

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 8ed9b86f8dd4f255a6ea8420ef27fbb131df91a9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1bba5e91e3edda41b75a96d8b55495ca5d1c092b
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69644883"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209643"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -338,6 +338,10 @@ Uma instância gerenciada não pode acessar compartilhamentos de arquivos e past
 - `CREATE ASSEMBLY FROM FILE`Não tem suporte. Consulte [criar assembly do arquivo](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY`Não é possível fazer referência a arquivos. Consulte [ALTER assembly](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
+### <a name="database-mail-db_mail"></a>Database Mail (db_mail)
+ - `sp_send_dbmail`Não é possível enviar @file_attachments atachments usando o parâmetro. O sistema de arquivos local e os compartilhamentos de extensão ou o armazenamento de BLOBs do Azure não estão acessíveis neste procedimento.
+ - Consulte os problemas conhecidos relacionados ao `@query` parâmetro e à autenticação.
+ 
 ### <a name="dbcc"></a>DBCC
 
 As instruções DBCC não documentadas que estão habilitadas no SQL Server não têm suporte em instâncias gerenciadas.
@@ -537,6 +541,14 @@ Uma instância gerenciada coloca informações detalhadas nos logs de erros. Há
 
 ## <a name="Issues"></a>Problemas conhecidos
 
+### <a name="cannot-authenicate-to-external-mail-servers-using-secure-connection-ssl"></a>Não é possível autenticar para servidores de email externos usando conexão segura (SSL)
+
+**Date** 2019 de agosto
+
+O Database Mail [configurado usando a conexão segura (SSL)](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-database-mail) não pode autenticar em alguns servidores de email fora do Azure. Esse é um problema de configuração de segurança que será resolvido em breve.
+
+**Resolução** A remoção temporária da conexão segura (SSL) forma a configuração do Database Mail até que o problema seja resolvido. 
+
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>As caixas de diálogo de Service Broker entre bancos de dados devem ser reinicializadas após a atualização da camada de serviço
 
 **Date** 2019 de agosto
@@ -639,7 +651,7 @@ Os módulos CLR colocados em uma instância gerenciada e servidores vinculados o
 
 **Resolução** Use conexões de contexto em um módulo CLR, se possível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter mais informações sobre instâncias gerenciadas, consulte [o que é uma instância gerenciada?](sql-database-managed-instance.md)
 - Para obter uma lista de recursos e comparação, consulte comparação de recursos [do banco de dados SQL do Azure](sql-database-features.md).

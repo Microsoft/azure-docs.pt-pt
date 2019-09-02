@@ -1,18 +1,18 @@
 ---
-title: Restaurar VMs VMware com Servidor de Backup do Azure
+title: Restaurar VMs VMware com o Azure Backup Server
 description: Use Servidor de Backup do Azure (MABS) para restaurar VMs VMware em execução em um servidor VMware vCenter/ESXi.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/18/2019
+ms.date: 08/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: fd851822a7068928a2f332c240bc33b70b1e16f6
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 7d267fcd27a96c5ee7820a5d9fb73c6bbdb80695
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69642308"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210141"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Restaurar máquinas virtuais VMware
 

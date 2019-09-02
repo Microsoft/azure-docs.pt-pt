@@ -1,8 +1,8 @@
 ---
-title: 'Azure AD Connect: Totalmente integrado Single Sign-On - perguntas mais frequentes | Documentos da Microsoft'
-description: Respostas a perguntas mais frequentes sobre o Azure Active Directory totalmente integrada início de sessão único.
+title: 'Azure AD Connect: Logon único contínuo-perguntas frequentes | Microsoft Docs'
+description: Respostas para perguntas frequentes sobre Azure Active Directory logon único contínuo.
 services: active-directory
-keywords: o que é o Azure AD Connect, a instalação do Active Directory, necessário componentes para o Azure AD, SSO, Single Sign-on
+keywords: o que é Azure AD Connect, instalar Active Directory, componentes necessários para o Azure AD, SSO, logon único
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -17,136 +17,136 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 709fb3be37850be37d6378652921ce26f4ff15fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: dcea3c1ab715a79ebecd913885fbf9bbee61606a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/02/2019
 ms.locfileid: "60242216"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>O Azure Active Directory totalmente integrada início de sessão único: Perguntas mais frequentes
+# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory logon único contínuo: Perguntas mais frequentes
 
-Neste artigo, vamos abordar perguntas mais frequentes sobre o Azure Active Directory totalmente integrada logon único (SSO totalmente integrado). Manter a verificação de volta para o novo conteúdo.
+Neste artigo, abordamos perguntas frequentes sobre Azure Active Directory logon único contínuo (SSO contínuo). Continue verificando o novo conteúdo.
 
-## <a name="what-sign-in-methods-do-seamless-sso-work-with"></a>Que métodos de início de sessão funcionam SSO totalmente integrado com?
+## <a name="what-sign-in-methods-do-seamless-sso-work-with"></a>Com quais métodos de entrada o SSO contínuo funciona?
 
-SSO totalmente integrado pode ser combinada com ambos os [sincronização de Hash de palavra-passe](how-to-connect-password-hash-synchronization.md) ou [autenticação pass-through](how-to-connect-pta.md) métodos de início de sessão. No entanto esta funcionalidade não pode ser utilizada com o Active Directory Federation Services (ADFS).
+O SSO contínuo pode ser combinado com os métodos de entrada de [sincronização de hash de senha](how-to-connect-password-hash-synchronization.md) ou de autenticação de [passagem](how-to-connect-pta.md) . No entanto, esse recurso não pode ser usado com Serviços de Federação do Active Directory (AD FS) (ADFS).
 
-## <a name="is-seamless-sso-a-free-feature"></a>É uma funcionalidade gratuita de SSO totalmente integrado?
+## <a name="is-seamless-sso-a-free-feature"></a>O SSO contínuo é um recurso gratuito?
 
-SSO totalmente integrado é uma funcionalidade gratuita e não é necessário qualquer nas edições pagas do Azure AD para utilizá-lo.
+O SSO contínuo é um recurso gratuito e você não precisa de nenhuma edição paga do Azure AD para usá-lo.
 
-## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>É o SSO totalmente integrado disponível na [cloud do Microsoft Azure Alemanha](https://www.microsoft.de/cloud-deutschland) e o [cloud do Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?
+## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>O SSO contínuo está disponível no [Microsoft Azure Alemanha Cloud](https://www.microsoft.de/cloud-deutschland) e na [Microsoft Azure governamental Cloud](https://azure.microsoft.com/features/gov/)?
 
-Não. SSO totalmente integrado só está disponível na instância do Azure AD em todo o mundo.
+Não. O SSO contínuo só está disponível na instância Mundial do Azure AD.
 
-## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Quais aplicativos aproveitar `domain_hint` ou `login_hint` capacidade de parâmetro do SSO totalmente integrado?
+## <a name="what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso"></a>Quais aplicativos tiram proveito `domain_hint` ou `login_hint` capacidade de parâmetro do SSO contínuo?
 
-Abaixo encontra uma lista parcial das aplicações que pode enviar estes parâmetros para o Azure AD e, portanto, fornece aos usuários uma silenciosa experiência de logon usando o SSO totalmente integrado (ou seja, não é necessário para os seus utilizadores introduzir os nomes de utilizador ou palavras-passe):
+Veja abaixo uma lista não exaustiva de aplicativos que podem enviar esses parâmetros ao Azure AD e, portanto, fornece aos usuários uma experiência de logon silenciosa usando o SSO contínuo (ou seja, não há necessidade de que os usuários insiram seus nomes de usuário ou senhas):
 
-| Nome da aplicação | URL da aplicação a ser utilizado |
+| Nome da aplicação | URL do aplicativo a ser usada |
 | -- | -- |
-| Painel de acesso | https:\//myapps.microsoft.com/contoso.com |
-| Outlook na Web | https:\//outlook.office365.com/contoso.com |
-| Portais do Office 365 | https:\//portal.office.com?domain_hint=contoso.com, https:\//www.office.com?domain_hint=contoso.com |
+| Painel de acesso | https:\//myapps.Microsoft.com/contoso.com |
+| Outlook na Web | https:\//Outlook.office365.com/contoso.com |
+| Portais do Office 365 | https:\//Portal.Office.com? domain_hint = contoso. com, https:\//www.Office.com? domain_hint = contoso. com |
 
-Além disso, os utilizadores obtêm uma experiência de início de sessão silenciosa se uma aplicação envia pedidos de início de sessão para os pontos finais do Azure AD configurar como os inquilinos - ou seja, https:\//login.microsoftonline.com/contoso.com/ <.... > ou https:\//login.microsoftonline.com/ < tenant_ID > / <.... > - em vez ponto de extremidade comum do Azure AD - ou seja, https:\//login.microsoftonline.com/common/ <... >. Abaixo encontra uma lista parcial de aplicativos que realizar estes tipos de pedidos de início de sessão.
+Além disso, os usuários terão uma experiência de logon silenciosa se um aplicativo enviar solicitações de entrada para os pontos de extremidade do Azure ad configurados como locatários, ou seja, https\/:/login.microsoftonline.com/contoso.com/<.. > ou https:\//login.microsoftonline.com/<tenant_ID>/<.. >-em vez do ponto de extremidade comum do Azure AD, ou seja\/, https:/login.microsoftonline.com/Common/<... >. Veja abaixo uma lista não exaustiva de aplicativos que fazem esses tipos de solicitações de entrada.
 
-| Nome da aplicação | URL da aplicação a ser utilizado |
+| Nome da aplicação | URL do aplicativo a ser usada |
 | -- | -- |
-| SharePoint Online | https:\//contoso.sharepoint.com |
-| Portal do Azure | https:\//portal.azure.com/contoso.com |
+| SharePoint Online | https:\//contoso.SharePoint.com |
+| Portal do Azure | https:\//Portal.Azure.com/contoso.com |
 
-Nas tabelas acima, substitua "contoso.com" com o seu nome de domínio para obter os URLs de aplicativo adequado para o seu inquilino.
+Nas tabelas acima, substitua "contoso.com" pelo nome de domínio para obter as URLs de aplicativo corretas para seu locatário.
 
-Se pretender que outras aplicações através da nossa experiência de início de sessão silenciosa, fale na secção de comentários.
+Se você quiser outros aplicativos usando nossa experiência de logon silencioso, informe-nos na seção de comentários.
 
-## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Oferece suporte a SSO totalmente integrado `Alternate ID` como o nome de utilizador, em vez de `userPrincipalName`?
+## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>O SSO contínuo é `Alternate ID` compatível como o nome de usuário `userPrincipalName`, em vez de?
 
-Sim. Suporta o SSO totalmente integrado `Alternate ID` como o nome de utilizador quando configurado no Azure AD Connect, conforme mostrado [aqui](how-to-connect-install-custom.md). Nem todas as aplicações do Office 365 suportam `Alternate ID`. Consulte a documentação do aplicativo específicas para a instrução de suporte.
+Sim. O SSO contínuo `Alternate ID` é compatível como o nome de usuário quando configurado no Azure ad Connect, conforme mostrado [aqui](how-to-connect-install-custom.md). Nem todos os aplicativos do Office `Alternate ID`365 dão suporte ao. Consulte a documentação do aplicativo específico para a instrução de suporte.
 
-## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>O que é a diferença entre a experiência de início de sessão única fornecida pela [associação do Azure AD](../active-directory-azureadjoin-overview.md) e SSO totalmente integrado?
+## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>Qual é a diferença entre a experiência de logon único fornecida pelo [ingresso do Azure ad](../active-directory-azureadjoin-overview.md) e o SSO contínuo?
 
-[Associação do Azure AD](../active-directory-azureadjoin-overview.md) fornece o SSO para os utilizadores se os dispositivos estiverem registados com o Azure AD. Estes dispositivos não precisam necessariamente ser associado a um domínio. SSO é fornecido usando *tokens de atualização principal* ou *PRTs*e não Kerberos. A experiência do usuário é ideal em dispositivos Windows 10. SSO ocorre automaticamente no browser Microsoft Edge. Ele também funciona no Chrome com o uso de uma extensão de navegador.
+O [ingresso no Azure ad](../active-directory-azureadjoin-overview.md) fornece o SSO para os usuários se seus dispositivos estiverem registrados no Azure AD. Esses dispositivos não precisam necessariamente ser ingressados no domínio. O SSO é fornecido usando tokens de *atualização primários* ou *PRTs*, e não Kerberos. A experiência do usuário é ideal para dispositivos Windows 10. O SSO ocorre automaticamente no navegador Microsoft Edge. Ele também funciona no Chrome com o uso de uma extensão de navegador.
 
-Pode utilizar a associação do Azure AD e SSO totalmente integrado no seu inquilino. Esses dois recursos são complementares. Se os dois recursos estão ativados, o SSO da associação do Azure AD tem precedência sobre SSO totalmente integrado.
+Você pode usar a junção do Azure AD e o SSO contínuo em seu locatário. Esses dois recursos são complementares. Se ambos os recursos estiverem ativados, o SSO do ingresso no Azure AD terá precedência sobre o SSO contínuo.
 
-## <a name="i-want-to-register-non-windows-10-devices-with-azure-ad-without-using-ad-fs-can-i-use-seamless-sso-instead"></a>Pretende registar dispositivos não Windows 10 no Azure AD, sem utilizar o AD FS. Posso utilizar o SSO totalmente integrado em vez disso?
+## <a name="i-want-to-register-non-windows-10-devices-with-azure-ad-without-using-ad-fs-can-i-use-seamless-sso-instead"></a>Quero registrar dispositivos que não são do Windows 10 com o Azure AD, sem usar AD FS. Em vez disso, posso usar o SSO contínuo?
 
-Sim, este cenário tem a versão 2.1 ou posterior dos [cliente associação à área de trabalho](https://www.microsoft.com/download/details.aspx?id=53554).
+Sim, este cenário precisa da versão 2,1 ou posterior do [cliente de ingresso no local de trabalho](https://www.microsoft.com/download/details.aspx?id=53554).
 
-## <a name="how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account"></a>Como posso reverter sobre a chave de desencriptação do Kerberos do `AZUREADSSOACC` conta de computador?
+## <a name="how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account"></a>Como posso sobrepor a chave de descriptografia Kerberos da `AZUREADSSOACC` conta do computador?
 
-É importante com freqüência o rollover da chave de desencriptação do Kerberos do `AZUREADSSOACC` conta de computador (que representa o Azure AD) criada no seu local floresta do AD.
+É importante passar com frequência a chave de descriptografia Kerberos da `AZUREADSSOACC` conta de computador (que representa o Azure AD) criada em sua floresta do AD local.
 
 >[!IMPORTANT]
->Recomendamos vivamente que efetue o rollover da chave de desencriptação do Kerberos, pelo menos, a cada 30 dias.
+>É altamente recomendável que você reverta a chave de descriptografia Kerberos pelo menos a cada 30 dias.
 
-Siga estes passos no servidor no local onde está a executar o Azure AD Connect:
+Siga estas etapas no servidor local em que você está executando Azure AD Connect:
 
-### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Passo 1. Obter lista de florestas do AD em que tenha sido ativado SSO totalmente integrado
+### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Passo 1. Obter lista de florestas do AD em que o SSO contínuo foi habilitado
 
-1. Em primeiro lugar, transfira e instale [do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+1. Primeiro, baixe e instale o [PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/active-directory/overview).
 2. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
-3. Importe o módulo do PowerShell do SSO totalmente integrado com o comando: `Import-Module .\AzureADSSO.psd1`.
-4. Execute o PowerShell como administrador. No PowerShell, chamar `New-AzureADSSOAuthenticationContext`. Este comando deverá dar-lhe um pop-up para introduzir as credenciais de Administrador Global do seu inquilino.
-5. Chamar `Get-AzureADSSOStatus | ConvertFrom-Json`. Este comando apresenta a lista de florestas do AD (consulte a lista de "Domínios") em que esta funcionalidade foi ativada.
+3. Importe o módulo do PowerShell do SSO contínuo usando este `Import-Module .\AzureADSSO.psd1`comando:.
+4. Execute o PowerShell como administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir as credenciais de administrador global do seu locatário.
+5. Chame `Get-AzureADSSOStatus | ConvertFrom-Json`. Esse comando fornece a lista de florestas do AD (consulte a lista "domínios") na qual esse recurso foi habilitado.
 
-### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>Passo 2. Atualizar a chave de desencriptação do Kerberos em cada floresta do AD que ele foi configurá-lo no
+### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>Passo 2. Atualizar a chave de descriptografia Kerberos em cada floresta do AD na qual ela foi configurada
 
-1. Chamar `$creds = Get-Credential`. Quando lhe for pedido, introduza as credenciais de administrador de domínio de floresta do AD pretendida.
+1. Chame `$creds = Get-Credential`. Quando solicitado, insira as credenciais de administrador de domínio para a floresta do AD pretendida.
 
    > [!NOTE]
-   > Utilizamos o nome de utilizador do administrador de domínio, fornecido em nomes de Principal utilizador (UPN) (johndoe@contoso.com) formato ou o domínio sam conta qualificado (contoso\diogoandrade ou com\johndoe) formato de nome, para localizar a floresta de AD pretendida. Se utilizar o nome qualificado de sam conta de domínio, usamos a parte do nome de utilizador de domínio [localizar o controlador de domínio, o administrador de domínio através de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se utilizar o UPN em vez disso, podemos [traduzi-la para um nome de sam conta qualificado do domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriadas.
+   > Usamos o nome de usuário do administrador de domínio, fornecido no formato UPN (nome principal dojohndoe@contoso.comusuário) () ou no formato Sam qualificado do domínio (contoso\johndoe ou contoso. com\johndoe) para localizar a floresta do AD pretendida. Se você usar o nome de conta Sam qualificado pelo domínio, usaremos a parte de domínio do nome de usuário para [localizar o controlador de domínio do administrador de domínio usando DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se você usar o UPN, [ele será traduzido para um nome de conta Sam qualificado pelo domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriado.
 
-2. Chamar `Update-AzureADSSOForest -OnPremCredentials $creds`. Este comando atualiza a chave de desencriptação do Kerberos para o `AZUREADSSOACC` conta de computador nesta floresta de AD específico e atualiza-o no Azure AD.
-3. Repita os passos anteriores para cada floresta do AD que configurou a funcionalidade no.
-
->[!IMPORTANT]
->Certifique-se de que _não_ executar o `Update-AzureADSSOForest` comando mais de uma vez. Caso contrário, a funcionalidade deixa de funcionar até à hora de permissões de Kerberos dos seus utilizadores expirarem e são emitida novamente por seu Active Directory no local.
-
-## <a name="how-can-i-disable-seamless-sso"></a>Como posso desativar o SSO totalmente integrado?
-
-### <a name="step-1-disable-the-feature-on-your-tenant"></a>Passo 1. Desativar a funcionalidade no seu inquilino
-
-#### <a name="option-a-disable-using-azure-ad-connect"></a>Opção a: Desativar a com o Azure AD Connect
-
-1. Execute o Azure AD Connect, escolha **página de início de sessão da utilizador de alteração** e clique em **próxima**.
-2. Desmarque os **ativar o início de sessão único em** opção. Continue através do assistente.
-
-Depois de concluir o assistente, será desativada SSO totalmente integrado no seu inquilino. No entanto, verá uma mensagem no ecrã que é a seguinte:
-
-"Início de sessão único está agora desativado, mas existem passos manuais adicionais para realizar para concluir a limpeza. Saiba mais"
-
-Para concluir o processo de limpeza, siga os passos 2 e 3 no servidor no local onde está a executar o Azure AD Connect.
-
-#### <a name="option-b-disable-using-powershell"></a>Opção b: Desativar a utilizar o PowerShell
-
-Execute os seguintes passos no servidor no local onde está a executar o Azure AD Connect:
-
-1. Em primeiro lugar, transfira e instale [do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
-2. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
-3. Importe o módulo do PowerShell do SSO totalmente integrado com o comando: `Import-Module .\AzureADSSO.psd1`.
-4. Execute o PowerShell como administrador. No PowerShell, chamar `New-AzureADSSOAuthenticationContext`. Este comando deverá dar-lhe um pop-up para introduzir as credenciais de Administrador Global do seu inquilino.
-5. Chamar `Enable-AzureADSSO -Enable $false`.
+2. Chame `Update-AzureADSSOForest -OnPremCredentials $creds`. Esse comando atualiza a chave de descriptografia Kerberos para `AZUREADSSOACC` a conta de computador nesta floresta específica do AD e a atualiza no Azure AD.
+3. Repita as etapas anteriores para cada floresta do AD na qual você configurou o recurso.
 
 >[!IMPORTANT]
->Desativar o SSO totalmente integrado com o PowerShell não irá alterar o estado no Azure AD Connect. SSO totalmente integrado irá aparecer como ativada no **alterar utilizador inicie sessão** página.
+>Certifique-se de _não_ executar `Update-AzureADSSOForest` o comando mais de uma vez. Caso contrário, o recurso para de funcionar até o momento em que os tíquetes Kerberos de seus usuários expiram e são reemitidos pelo seu Active Directory local.
 
-### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Passo 2. Obter lista de florestas do AD em que tenha sido ativado SSO totalmente integrado
+## <a name="how-can-i-disable-seamless-sso"></a>Como posso desabilitar o SSO contínuo?
 
-Se tiver desativado SSO totalmente integrado com o Azure AD Connect, siga tarefas 1 a 4 abaixo. Se tiver desativado SSO totalmente integrado com o PowerShell em vez disso, ir diretamente para a tarefa 5 abaixo.
+### <a name="step-1-disable-the-feature-on-your-tenant"></a>Passo 1. Desabilitar o recurso em seu locatário
 
-1. Em primeiro lugar, transfira e instale [do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+#### <a name="option-a-disable-using-azure-ad-connect"></a>Opção A: Desabilitar usando Azure AD Connect
+
+1. Execute Azure AD Connect, escolha **alterar página de entrada do usuário** e clique em **Avançar**.
+2. Desmarque a opção **habilitar logon único** . Prossiga com o assistente.
+
+Depois de concluir o assistente, o SSO contínuo será desabilitado em seu locatário. No entanto, você verá uma mensagem na tela que lê da seguinte maneira:
+
+"O logon único agora está desabilitado, mas há etapas manuais adicionais a serem executadas para concluir a limpeza. Saiba mais "
+
+Para concluir o processo de limpeza, siga as etapas 2 e 3 no servidor local em que você está executando o Azure AD Connect.
+
+#### <a name="option-b-disable-using-powershell"></a>Opção B: Desabilitar usando o PowerShell
+
+Execute as seguintes etapas no servidor local em que você está executando Azure AD Connect:
+
+1. Primeiro, baixe e instale o [PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/active-directory/overview).
 2. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
-3. Importe o módulo do PowerShell do SSO totalmente integrado com o comando: `Import-Module .\AzureADSSO.psd1`.
-4. Execute o PowerShell como administrador. No PowerShell, chamar `New-AzureADSSOAuthenticationContext`. Este comando deverá dar-lhe um pop-up para introduzir as credenciais de Administrador Global do seu inquilino.
-5. Chamar `Get-AzureADSSOStatus | ConvertFrom-Json`. Este comando apresenta a lista de florestas do AD (consulte a lista de "Domínios") em que esta funcionalidade foi ativada.
+3. Importe o módulo do PowerShell do SSO contínuo usando este `Import-Module .\AzureADSSO.psd1`comando:.
+4. Execute o PowerShell como administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir as credenciais de administrador global do seu locatário.
+5. Chame `Enable-AzureADSSO -Enable $false`.
 
-### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Passo 3: Elimine manualmente o `AZUREADSSOACCT` conta de computador de cada floresta do AD que vê listados.
+>[!IMPORTANT]
+>Desabilitar o SSO contínuo usando o PowerShell não alterará o estado em Azure AD Connect. O SSO contínuo será exibido como habilitado na página **alterar entrada do usuário** .
+
+### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Passo 2. Obter lista de florestas do AD em que o SSO contínuo foi habilitado
+
+Siga as tarefas 1 a 4 abaixo se você tiver desabilitado o SSO contínuo usando o Azure AD Connect. Se você tiver desabilitado o SSO contínuo usando o PowerShell, vá adiante para a tarefa 5 abaixo.
+
+1. Primeiro, baixe e instale o [PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
+3. Importe o módulo do PowerShell do SSO contínuo usando este `Import-Module .\AzureADSSO.psd1`comando:.
+4. Execute o PowerShell como administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir as credenciais de administrador global do seu locatário.
+5. Chame `Get-AzureADSSOStatus | ConvertFrom-Json`. Esse comando fornece a lista de florestas do AD (consulte a lista "domínios") na qual esse recurso foi habilitado.
+
+### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Passo 3: Exclua manualmente `AZUREADSSOACCT` a conta de computador de cada floresta do AD que você vê listada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [**Início Rápido** ](how-to-connect-sso-quick-start.md) - colocar em funcionamento o SSO totalmente integrado do Azure AD.
-- [**Technical Deep Dive** ](how-to-connect-sso-how-it-works.md) -compreender como funciona esse recurso.
-- [**Resolução de problemas** ](tshoot-connect-sso.md) -Saiba como resolver problemas comuns com a funcionalidade.
-- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para preenchimento de pedidos de novas funcionalidades.
+- [**Início rápido**](how-to-connect-sso-quick-start.md) -obtenha e execute o SSO contínuo do Azure AD.
+- [**Aprofundamento técnico**](how-to-connect-sso-how-it-works.md) – entenda como esse recurso funciona.
+- [**Solução de problemas**](tshoot-connect-sso.md) -saiba como resolver problemas comuns com o recurso.
+- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) -para o arquivamento de novas solicitações de recursos.

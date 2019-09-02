@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 4bce7aeebee729ed253d39720ef520880c261a22
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 3777aecea5e25b33a7010ad90887829406e491ae
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639660"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210162"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Executar uma instalação autônoma do Servidor de Backup do Azure
 
@@ -26,7 +26,7 @@ Essas etapas não se aplicam se você estiver instalando o Servidor de Backup do
 
 2. Cole o código a seguir no arquivo MABSSetup. ini. Substitua o texto dentro dos colchetes (\< \>) por valores do seu ambiente. O texto a seguir é um exemplo:
 
-   ```
+   ```text
    [OPTIONS]
    UserName=administrator
    CompanyName=<Microsoft Corporation>
@@ -49,7 +49,7 @@ Essas etapas não se aplicam se você estiver instalando o Servidor de Backup do
 
 3. Guarde o ficheiro. Em seguida, em um prompt de comando com privilégios elevados no servidor de instalação, digite este comando:
 
-   ```
+   ```cmd
    start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
    ```
 

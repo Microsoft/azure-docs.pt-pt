@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b2fb7496f16359f01ddbbe6db31b2d047a2ab4df
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 322a1d25ed434d8be674288b1b13d6ecf961590b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012816"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193574"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Início rápido: Criar uma base de dados de conhecimento usando o portal do serviço API de QnA Maker
 
@@ -65,9 +65,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Quando terminar a base de dados de conhecimento, remova-a no portal de QnA Maker.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para medidas de economia de custo, você pode [compartilhar](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) alguns, mas não todos os recursos do Azure criados para QnA Maker.
+Para medidas de economia de custo, você pode [compartilhar](set-up-qnamaker-service-azure.md#share-existing-services-with-qna-maker) alguns, mas não todos os recursos do Azure criados para QnA Maker.
 
 > [!div class="nextstepaction"]
-> [Adicionar o pessoal de chit-bate-papo](./chit-chat-knowledge-base.md)
+> [Adicionar perguntas com metadados](../quickstarts/add-question-metadata-portal.md)

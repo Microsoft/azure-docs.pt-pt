@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/12/2019
+ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 08864d6a965921f7f6d284dc53bd2586d30fedd1
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 096b6a13c85d04ebeb4f2ffae72acdd8629ae886
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014434"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191742"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar configurações de Cluster Service Fabric
 Este artigo descreve as várias configurações de malha para o Cluster Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizar as configurações por meio do [portal do Azure](https://portal.azure.com) ou usando um modelo de Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autônomos, você personaliza as configurações atualizando o arquivo *ClusterConfig. JSON* e realizando uma atualização de configuração no cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -236,6 +236,8 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |UserMaxStandByReplicaCount |Int, o padrão é 1 |Dinâmico|O número máximo padrão de réplicas em espera que o sistema mantém para os serviços do usuário. |
 |UserReplicaRestartWaitDuration |Tempo em segundos, o padrão é \* 60,0 30 |Dinâmico|Especifique TimeSpan em segundos. Quando uma réplica persistente fica inativa; Windows Fabric aguarda essa duração para que a réplica volte a ser reativada antes de criar novas réplicas de substituição (o que exigiria uma cópia do estado). |
 |UserStandByReplicaKeepDuration |Tempo em segundos, o padrão é \* 3600,0 \* 24 7 |Dinâmico|Especifique TimeSpan em segundos. Quando uma réplica persistente retorna de um estado inativo; Ele pode já ter sido substituído. Esse temporizador determina por quanto tempo o FM manterá a réplica em espera antes de descartar. |
+|WaitForInBuildReplicaSafetyCheckTimeout|TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (60 * 10)|Dinâmico|Especifique TimeSpan em segundos. Entrada de configuração para o tempo limite de verificação de segurança WaitForInBuildReplica opcional. Essa configuração define o tempo limite para a verificação de segurança WaitForInBuildReplica para as desativações e atualizações de nó. Essa verificação de segurança falhará se qualquer um dos seguintes for verdadeiro:-um primário está sendo criado e o tamanho do conjunto de réplicas de destino ft > 1-se a réplica atual estiver em compilação e persistir – se esse for o primário atual e uma nova réplica estiver sendo criada, essa verificação de segurança será ignorada PED se o tempo limite expirar mesmo que uma das condições anteriores ainda seja verdadeira. |
+|WaitForReconfigurationSafetyCheckTimeout|TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (60,0 * 10)|Dinâmico|Especifique TimeSpan em segundos. Entrada de configuração para o tempo limite de verificação de segurança WaitForReconfiguration opcional. Essa configuração define o tempo limite da verificação de segurança WaitForReconfiguration para desativações e atualizações de nó. Essa verificação de segurança falhará se a réplica que está sendo verificada fizer parte de uma partição que está em reconfiguração. A verificação de segurança será ignorada depois que esse tempo limite expira mesmo que a partição ainda esteja em reconfiguração.|
 
 ## <a name="faultanalysisservice"></a>FaultAnalysisService
 
@@ -647,6 +649,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |AADClusterApplication|Cadeia de caracteres, o padrão é ""|Estático|Nome ou ID do aplicativo da API Web que representa o cluster |
 |AADLoginEndpoint|Cadeia de caracteres, o padrão é ""|Estático|Ponto de extremidade de logon do AAD, padrão do Azure comercial, especificado para um ambiente não padrão, como\/o Azure governamental "https:/login.microsoftonline.us" |
 |AADTenantId|Cadeia de caracteres, o padrão é ""|Estático|ID do locatário (GUID) |
+|AcceptExpiredPinnedClusterCertificate|bool, o padrão é FALSE|Dinâmico|Sinalizador que indica se os certificados de cluster expirados declarados pela impressão digital só se aplicam a certificados de cluster; para manter o cluster em funcionamento. |
 |AdminClientCertThumbprints|Cadeia de caracteres, o padrão é ""|Dinâmico|Impressões digitais de certificados usados por clientes na função de administrador. É uma lista de nomes separados por vírgulas. |
 |AADTokenEndpointFormat|Cadeia de caracteres, o padrão é ""|Estático|Ponto de extremidade de token do AAD, padrão do Azure comercial, especificado para um ambiente não padrão, como\/o Azure{0}governamental "https:/login.microsoftonline.us/" |
 |AdminClientClaims|Cadeia de caracteres, o padrão é ""|Dinâmico|Todas as declarações possíveis esperadas de clientes administradores; o mesmo formato que ClientClaims; Essa lista é adicionada internamente ao ClientClaims; Portanto, não é necessário adicionar as mesmas entradas a ClientClaims. |
