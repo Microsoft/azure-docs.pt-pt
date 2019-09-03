@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0de5f1d03550f65b849a1e3e6cf4be7a94a29aa9
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 82e1f0b72b4f2f3053a13a305df9d0e277894156
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517694"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213545"
 ---
 # <a name="tutorial-integrate-robin-with-azure-active-directory"></a>Tutorial: Integrar o Robin com Azure Active Directory
 
@@ -82,19 +82,19 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Na seção **configuração** básica do SAML, o aplicativo é pré-configurado no modo iniciado pelo **IDP** e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
+1. Na seção **configuração básica do SAML** , o aplicativo é pré-configurado no modo iniciado pelo **IDP** e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
 
 1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
     Na caixa de texto **URL de logon** , digite uma URL:`https://dashboard.robinpowered.com/`
 
-5. O aplicativo Robin espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique em **Editar** ícone para abrir a caixa de diálogo atributos de usuário.
+5. O aplicativo Robin espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique em **Editar** ícone para abrir a caixa de diálogo atributos de usuário.
 
     ![image](common/edit-attribute.png)
 
 6. Além de acima, o aplicativo Robin espera que mais alguns atributos sejam passados de volta na resposta SAML. Na seção declarações do usuário, na caixa de diálogo atributos de usuário, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo: 
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ---------------| --------- |
     | FirstName | user.givenname |
     | LastName | User. sobrenome |

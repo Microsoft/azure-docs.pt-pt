@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af98633e1dfdbe6392199ade282a918c6134a033
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: c0b1471abd7e057af919ed274547daf94d356c2b
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347397"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213602"
 ---
 # <a name="tutorial-integrate-the-cloud-security-fabric-with-azure-active-directory"></a>Tutorial: Integre a malha de segurança de nuvem com o Azure Active Directory
 
@@ -104,7 +104,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![O link de download de certificado](common/metadataxml.png)
 
-5. Para modificar as opções de **assinatura** de acordo com seu requisito, clique no botão **Editar** para abrir a caixa de diálogo **certificado** de autenticação SAML.
+5. Para modificar as opções de **assinatura** de acordo com seu requisito, clique no botão **Editar** para abrir a caixa de diálogo **certificado de autenticação SAML** .
 
     ![Resposta SAML](./media/ciscocloudlock-tutorial/saml.png)
 
@@ -153,7 +153,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ### <a name="create-the-cloud-security-fabric-test-user"></a>Criar o usuário de teste do Cloud Security Fabric
 
-Nesta seção, você criará um usuário chamado B. Simon na malha de segurança de nuvem. Trabalhe com [a equipe de suporte do Cloud Security Fabric](mailto:support@cloudlock.com) para adicionar os usuários na plataforma de malha de segurança de nuvem. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta seção, você criará um usuário chamado B. Simon na malha de segurança de nuvem. Trabalhe com [a equipe de suporte do Cloud Security Fabric](mailto:support@cloudlock.com) para adicionar os usuários na plataforma de malha de segurança de nuvem. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="test-sso"></a>Testar SSO 
 

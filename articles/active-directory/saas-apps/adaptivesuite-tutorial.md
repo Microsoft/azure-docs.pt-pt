@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 599b0c8f45f91f9ecff210264a813e302f18059e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: ad059e6047dd883c0a5aab0d714d999840050584
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488893"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213628"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Tutorial: Integre informações adaptáveis com o Azure Active Directory
 
@@ -81,7 +81,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Na seção **configuração** básica do SAML, execute as seguintes etapas:
+1. Na seção **configuração básica do SAML** , execute as seguintes etapas:
 
     a. Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão:`https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 

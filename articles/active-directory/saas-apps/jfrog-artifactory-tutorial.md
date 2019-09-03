@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d03e43ab2c26131c35eb78815d34cd959cc785
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 78daf578647e087fcc673d612ce24814a53ee331
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347515"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213572"
 ---
 # <a name="tutorial-integrate-jfrog-artifactory-with-azure-active-directory"></a>Tutorial: Integrar o JFrog artefato com Azure Active Directory
 
@@ -95,11 +95,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta e a URL de logon reais. Contate a [equipe de suporte ao cliente do JFrog artefatoy](https://support.jfrog.com) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-1. O aplicativo JFrog de artefatos espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique em **Editar** ícone para abrir a caixa de diálogo atributos de usuário.
+1. O aplicativo JFrog de artefatos espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique em **Editar** ícone para abrir a caixa de diálogo atributos de usuário.
 
     ![image](common/edit-attribute.png)
 
-1. Além de acima, o aplicativo de artefatos JFrog espera que mais alguns atributos sejam passados de volta na resposta SAML. Na seção **atributos de usuário & declarações** na caixa de diálogo **declarações de grupo (versão prévia)**  , execute as seguintes etapas:
+1. Além de acima, o aplicativo de artefatos JFrog espera que mais alguns atributos sejam passados de volta na resposta SAML. Na seção **atributos de usuário & declarações** na caixa de diálogo **declarações de grupo (versão prévia)** , execute as seguintes etapas:
 
     a. Clique na **caneta** ao lado dos **grupos retornados na declaração**.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e22b616e50929d4ac099c3412e89db426b09307
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 95c898dd36387d4474f5129943c6bd76f754ffe2
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489910"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213528"
 ---
 # <a name="tutorial-integrate-pronovos-ops-manager-with-azure-active-directory"></a>Tutorial: Integre o pronovo Ops Manager ao Azure Active Directory
 
@@ -81,7 +81,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Na seção **configuração** básica do SAML, o aplicativo é pré-configurado no modo iniciado pelo **IDP** e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
+1. Na seção **configuração básica do SAML** , o aplicativo é pré-configurado no modo iniciado pelo **IDP** e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
 
 1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
@@ -131,7 +131,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ### <a name="create-pronovos-ops-manager-test-user"></a>Criar usuário de teste do Ops Manager
 
-Nesta seção, você criará um usuário chamado B. Simon no pronovo Ops Manager. Trabalhe com a equipe de suporte do [Ops Manager](mailto:support@pronovos.com) para adicionar os usuários à plataforma do Ops Manager do pronovo. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta seção, você criará um usuário chamado B. Simon no pronovo Ops Manager. Trabalhe com a equipe de suporte do [Ops Manager](mailto:support@pronovos.com) para adicionar os usuários à plataforma do Ops Manager do pronovo. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="test-sso"></a>Testar SSO 
 
