@@ -60,7 +60,7 @@ Os metadados de blob JSON estão em conformidade com o seguinte modelo:
 | **subtype** | String | O subtipo de BLOB-não pode usar subtipo e subtipoid |
 | **subtypeId** | Integer | A ID de subtipo do BLOB-não pode usar subtipo e subtipoid |
 | **description** | String | Descrição personalizada do blob |
-| **impressoras** | String | Se o blob pode ser compartilhado-enum [`None`, `Tree`, `Global`] |
+| **sharing** | String | Se o blob pode ser compartilhado-enum [`None`, `Tree`, `Global`] |
 
 Os metadados de blob são sempre fornecidos como a primeira parte com **Content-Type** `application/json` ou `.json` como um arquivo. Os dados do arquivo são fornecidos na segunda parte e podem ser de qualquer tipo MIME com suporte.
 
@@ -117,7 +117,7 @@ BLOBs retornados individualmente estão em conformidade com o seguinte esquema J
 | **typeId** | Integer | A ID do tipo de BLOB-não pode usar *Type* e *typeId* |
 | **subtype** | String | O subtipo de BLOB-não pode usar subtipo e subtipoid |
 | **subtypeId** | Integer | A ID de subtipo do BLOB-não pode usar subtipo e subtipoid |
-| **impressoras** | String | Se o blob pode ser compartilhado-enum [`None`, `Tree`, `Global`] |
+| **sharing** | String | Se o blob pode ser compartilhado-enum [`None`, `Tree`, `Global`] |
 | **description** | String | Descrição personalizada do blob |
 | **contentInfos** | Array | Especifica informações de metadados não estruturados, incluindo versão |
 | **fullName** | String | O nome completo do blob |
