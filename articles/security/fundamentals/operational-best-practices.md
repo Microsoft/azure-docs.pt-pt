@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 97f061d94209d84b70626f8735d08f89870e7319
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 9da58bf3152867bc13dd1879ec57a69b8bd38cb0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828721"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129333"
 ---
 # <a name="azure-operational-security-best-practices"></a>Práticas recomendadas de segurança operacional do Azure
 Este artigo fornece um conjunto de práticas recomendadas operacionais para proteger seus dados, aplicativos e outros ativos no Azure.
@@ -218,7 +218,7 @@ Para obter mais informações, consulte [criar e gerenciar políticas para impor
 **Detalhe**: O mapeamento de documentos na documentação da sua organização ou na própria política do Azure adicionando uma referência à política organizacional na descrição da [política](../../governance/policy/concepts/definition-structure.md#display-name-and-description) do Azure ou na descrição da [iniciativa](../../governance/policy/concepts/definition-structure.md#initiatives) de política do Azure.
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Monitorar relatórios de risco do Azure AD
-A grande maioria das violações de segurança ocorre quando os invasores têm acesso a um ambiente, roubando a identidade de um usuário. Descobrir identidades comprometidas não é uma tarefa fácil. O Azure AD usa algoritmos de aprendizado de máquina adaptáveis e heurística para detectar ações suspeitas relacionadas às suas contas de usuário. Cada ação suspeita detectada é armazenada em um registro chamado [evento de risco](../../active-directory/reports-monitoring/concept-risk-events.md). Os eventos de risco são registrados nos relatórios de segurança do Azure AD. Para obter mais informações, leia sobre o [relatório de segurança de usuários em risco](../../active-directory/reports-monitoring/concept-user-at-risk.md) e o [relatório de segurança de entradas arriscadas](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
+A grande maioria das violações de segurança ocorre quando os invasores têm acesso a um ambiente, roubando a identidade de um usuário. Descobrir identidades comprometidas não é uma tarefa fácil. O Azure AD usa algoritmos de aprendizado de máquina adaptáveis e heurística para detectar ações suspeitas relacionadas às suas contas de usuário. Cada ação suspeita detectada é armazenada em um registro chamado [detecção de risco](../../active-directory/reports-monitoring/concept-risk-events.md). As detecções de risco são registradas nos relatórios de segurança do Azure AD. Para obter mais informações, leia sobre o [relatório de segurança de usuários em risco](../../active-directory/reports-monitoring/concept-user-at-risk.md) e o [relatório de segurança de entradas arriscadas](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Veja [padrões e práticas recomendadas de segurança do Azure](best-practices-and-patterns.md) para obter mais práticas recomendadas de segurança para usar ao projetar, implantar e gerenciar suas soluções de nuvem usando o Azure.

@@ -3,25 +3,22 @@ title: Criar a primeira fábrica de dados (portal do Azure) | Microsoft Docs
 description: Neste tutorial, vai criar um exemplo de pipeline do Azure Data Factory com o Editor do Data Factory no portal do Azure.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: ''
-editor: ''
-ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 2a7e2f9e5018bdad2a1ed2c6edcb727a2ffdcddd
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: b60f6adf6c13bc86fb4c4604dda7d4b92963b7ca
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839119"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140576"
 ---
-# <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Criar a primeira fábrica de dados com o portal do Azure
+# <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Crie seu primeiro data factory usando o portal do Azure
 > [!div class="op_single_selector"]
 > * [Descrição geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
@@ -31,17 +28,17 @@ ms.locfileid: "67839119"
 
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Azure Data Factory, que está geralmente disponível. Se utilizar a versão atual do serviço Data Factory, veja [início rápido: Criar uma fábrica de dados com o Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Este artigo aplica-se à versão 1 do Azure Data Factory, que está geralmente disponível. Se você usar a versão atual do serviço de data Factory, consulte [início rápido: Crie um data factory usando Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 > [!WARNING]
-> O editor de JSON no Portal do Azure para a criação e implantação v1 do ADF pipelines será desligada em 31 de Julho de 2019. Após 31 de Julho de 2019, pode continuar a utilizar [cmdlets do Powershell do ADF v1](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), [SDK de .net do ADF v1](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet), [APIs de REST do ADF v1](https://docs.microsoft.com/rest/api/datafactory/) criar e implementar a v1 do ADF pipelines.
+> O editor de JSON no portal do Azure para criação & implantação de pipelines ADF v1 será desativado em 31 de julho de 2019. Após 31 de julho de 2019, você pode continuar a usar os cmdlets do [PowerShell do ADF v1](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), o [SDK do .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet)do ADF v1, as [APIs REST](https://docs.microsoft.com/rest/api/datafactory/) do ADF v1 para criar & implantar seus pipelines ADF v1.
 
 Neste artigo, ficará a saber como utilizar o [portal do Azure](https://portal.azure.com/) para criar a sua primeira fábrica de dados. Para fazer o tutorial com outras ferramentas/SDKs, selecione uma das opções na lista pendente. 
 
 O pipeline neste tutorial tem uma atividade: uma atividade do Azure HDInsight Hive. Esta atividade executa um script do Hive num cluster do HDInsight que transforma os dados de entrada para produzir os dados de saída. O pipeline está agendado para ser executado uma vez por mês entre as horas de início e de fim especificadas. 
 
 > [!NOTE]
-> O pipeline de dados neste tutorial transforma os dados de entrada para produzirem dados de saída. Para obter um tutorial sobre como copiar dados com o Data Factory, veja [Tutorial: Copiar dados de armazenamento de Blobs do Azure para a base de dados do Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> O pipeline de dados neste tutorial transforma os dados de entrada para produzirem dados de saída. Para obter um tutorial sobre como copiar dados usando data Factory, consulte [o tutorial: Copiar dados do armazenamento de BLOBs do Azure para](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)o banco de dados SQL do Azure.
 > 
 > Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas atividades (executar uma atividade após a outra) ao definir o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra. Para obter mais informações, veja [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
@@ -66,7 +63,7 @@ Para criar uma fábrica de dados, siga estes passos:
    ![Painel Nova fábrica de dados](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
    > [!IMPORTANT]
-   > O nome da fábrica de dados tem de ser globalmente exclusivo. Se receber o erro «O nome da fábrica de dados “GetStartedDF” não está disponível», altere o nome da fábrica de dados. Por exemplo, utilize oseunomeGetStartedDF e crie a fábrica de dados novamente. Para obter mais informações sobre regras de nomenclatura, consulte [fábrica de dados: Regras de nomenclatura](data-factory-naming-rules.md).
+   > O nome da fábrica de dados tem de ser globalmente exclusivo. Se receber o erro «O nome da fábrica de dados “GetStartedDF” não está disponível», altere o nome da fábrica de dados. Por exemplo, utilize oseunomeGetStartedDF e crie a fábrica de dados novamente. Para obter mais informações sobre regras de nomenclatura [, consulte Data Factory: Regras](data-factory-naming-rules.md)de nomenclatura.
    >
    > O nome da fábrica de dados pode ser registado como um nome DNS no futuro e, por conseguinte, ficar publicamente visível.
    >
@@ -128,7 +125,7 @@ Neste passo, irá ligar um cluster do HDInsight a pedido à sua fábrica de dado
 
 1. No Editor do Data Factory, selecione **Mais** > **Nova computação** > **Cluster do HDInsight a pedido**.
 
-    ![Nova computação](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
+    ![Novo cálculo](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 
 1. Copie e cole o fragmento seguinte na janela Rascunho-1. O fragmento JSON descreve as propriedades que são utilizadas para criar o cluster do HDInsight a pedido.
 
@@ -211,7 +208,7 @@ Neste passo, vai criar conjuntos de dados para representar os dados de entrada e
     ```
     A tabela seguinte fornece descrições das propriedades JSON utilizadas no fragmento.
 
-   | Propriedade | Aninhado | Descrição |
+   | Propriedade | Aninhado em | Descrição |
    |:--- |:--- |:--- |
    | type | properties |O tipo de propriedade está definido como **AzureBlob**, porque os dados estão contidos no armazenamento de blobs. |
    | linkedServiceName | format |Refere-se ao AzureStorageLinkedService que criou anteriormente. |
@@ -328,7 +325,7 @@ Neste passo, vai criar o seu primeiro pipeline com uma atividade do HDInsight Hi
 
     As propriedades de **início** e **fim** do pipeline especificam o período ativo do pipeline.
 
-    No JSON de atividade, especifique que o script do Hive é executado na computação especificada pelo **linkedServiceName**: **HDInsightOnDemandLinkedService**.
+    Na atividade JSON, você especifica que o script do hive é executado na computação especificada por **linkedServiceName**: **HDInsightOnDemandLinkedService**.
 
    > [!NOTE]
    > Para obter mais informações sobre as propriedades JSON utilizadas no exemplo, veja a secção “JSON do Pipeline” em [Pipelines e atividades no Data Factory](data-factory-create-pipelines.md).
@@ -435,7 +432,7 @@ Neste tutorial, criou uma fábrica de dados para processar dados, ao executar o 
 * Criar um pipeline com uma atividade do HDInsight Hive.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script do Hive num cluster do HDInsight a pedido. Para ver como utilizar uma atividade de cópia para copiar dados de armazenamento de BLOBs para base de dados SQL, consulte [Tutorial: Copiar dados de armazenamento de BLOBs para base de dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Neste artigo, criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script do Hive num cluster do HDInsight a pedido. Para ver como usar uma atividade de cópia para copiar dados de um armazenamento de BLOBs para um SQL [Database, consulte o tutorial: Copiar dados do armazenamento de BLOBs para](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)o banco de dados SQL.
 
 ## <a name="see-also"></a>Consulte também
 | Tópico | Descrição |

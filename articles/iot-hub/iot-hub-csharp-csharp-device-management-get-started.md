@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 5a0be55df9be67fcf6ff5d53e18e3eb2b0e69d7f
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 0ab714efc3e9eb0de9d6753854031110e09fe06b
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904467"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147841"
 ---
 # <a name="get-started-with-device-management-net"></a>Introdução ao gerenciamento de dispositivos (.NET)
 
@@ -35,8 +35,6 @@ No final deste tutorial, terá duas aplicações de consola .NET:
 * **TriggerReboot**. Esse aplicativo chama um método direto no aplicativo de dispositivo simulado, exibe a resposta e exibe as propriedades relatadas atualizadas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
-Para concluir este tutorial, precisa de:
 
 * Visual Studio.
 

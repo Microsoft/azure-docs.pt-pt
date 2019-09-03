@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64d1b3e2f36256164420ae6b2e699f0ef48e2e78
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 3cf3281e00560a289fbb4adfe57083644e1a86e3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576553"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125436"
 ---
-# <a name="conditional-access-risk-based-conditional-access"></a>Acesso condicional: Acesso condicional com base em risco
+# <a name="conditional-access-risk-based-conditional-access"></a>Acesso condicional: Acesso Condicional baseado no risco
 
-Organizações com licenças Azure AD Premium P2 podem criar políticas de acesso condicional que incorporam Azure AD Identity Protection eventos de risco. Há três políticas padrão que podem ser habilitadas prontamente. 
+Organizações com licenças Azure AD Premium P2 podem criar políticas de acesso condicional que incorporam Azure AD Identity Protection detecções de risco. Há três políticas padrão que podem ser habilitadas prontamente. 
 
 * Exigir que todos os usuários se registrem para a autenticação multifator do Azure.
 * Exigir uma alteração de senha para usuários que são de alto risco.

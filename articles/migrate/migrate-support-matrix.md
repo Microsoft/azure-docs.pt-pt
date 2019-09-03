@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 08/29/2019
 ms.author: raynew
-ms.openlocfilehash: 49bd193303255cdf7d18fd5da9dec8d84c50a829
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 99ef5c8a4a4291dd1b9d047da9006623dacd0b53
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019194"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147872"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte para migrações para Azure
 
@@ -31,10 +31,10 @@ Há duas versões do serviço migrações para Azure:
 
 A tabela resume os cenários de migração com suporte.
 
-**Implementação** | **Ver*** 
+**Implementação** | **Detalhes** 
 --- | --- 
 **Avaliação local** | Avalie as cargas de trabalho e os dados locais em execução em VMs VMware e VMs do Hyper-V. Avalie usando o DMA (avaliação de servidor e Assistente de Migração de Dados da Microsoft) de migrações do Azure, bem como ferramentas de terceiros que incluem Cloudamize, colocação Tech e O turbonomic Server.
-**Migração local para o Azure** | Migre cargas de trabalho e dados em execução em servidores físicos, VMs VMware, VMs Hyper-V e em instâncias AWS/GCP para o Azure. Migre usando a avaliação de servidor de migrações para Azure e o serviço de migração de banco de dados do Azure (DMS), bem como o uso de ferramentas de terceiros que incluem Carbonite e CorentTech.
+**Migração local para o Azure** | Migre cargas de trabalho e dados em execução em servidores físicos, VMs VMware, VMs Hyper-V, servidores físicos e VMS baseadas em nuvem para o Azure. Migre usando a avaliação de servidor de migrações para Azure e o serviço de migração de banco de dados do Azure (DMS), bem como o uso de ferramentas de terceiros que incluem Carbonite e CorentTech.
 
 O suporte a ferramentas específicas é resumido da seguinte maneira.
 
@@ -53,7 +53,7 @@ CorentTech | Migração | [Saiba mais](https://www.corenttech.com/).
 
 **Suporte** | **Detalhes**
 --- | ---
-Subscription | Você pode ter um único projeto de migrações para Azure em uma assinatura.
+Subscription | Você pode ter vários projetos de migrações para Azure em uma assinatura.
 Permissões do Azure | Você precisa de permissões de colaborador ou de proprietário na assinatura para criar um projeto de migrações para Azure.
 VMs VMware  | Avalie até 35.000 VMs VMware em um único projeto.
 VMs Hyper-V | Avalie até 10.000 VMs do Hyper-V em um único projeto.
@@ -70,7 +70,7 @@ Um projeto pode incluir VMs do VMware e VMs do Hyper-V, até os limites de avali
 [Revise](migrate-support-matrix-hyper-v.md) a matriz de suporte de migração de servidor e avaliação do Azure migrações para VMs do Hyper-V.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Avalie as VMs do VMware](tutorial-assess-vmware.md) para migração.
 - [Avalie as VMs do Hyper-V](tutorial-assess-hyper-v.md) para migração.

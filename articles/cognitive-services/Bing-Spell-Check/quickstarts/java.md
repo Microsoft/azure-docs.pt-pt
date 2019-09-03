@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: 6680ddd65ce43a71873acb823f8ae57b449a56be
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 47b47a91b0cd223a17d6779d7f0db7cdb7c88a0b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423515"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70123287"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Início rápido: Verificar a ortografia com a API REST do Verificação Ortográfica do Bing e o Java
 
@@ -110,7 +110,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
     new InputStreamReader(connection.getInputStream()));
     String line;
     while ((line = in.readLine()) != null) {
-        System.out.println(prettify(line);
+        System.out.println(prettify(line));
     }
     in.close();
     ```
@@ -118,17 +118,16 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
 ## <a name="call-the-api"></a>Chamar a API
 
 Na função principal do seu aplicativo, chame o método check () criado acima.
-
-    ```java
-    public static void main(String[] args) {
-        try {
-            check();
+```java
+        public static void main(String[] args) {
+            try {
+                check();
+            }
+            catch (Exception e) {
+                System.out.println (e);
+            }
         }
-        catch (Exception e) {
-            System.out.println (e);
-        }
-    }
-    ```
+```
 
 ## <a name="run-the-application"></a>Executar a aplicação
 

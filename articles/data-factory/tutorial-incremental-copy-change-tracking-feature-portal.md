@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 41f8769aea841e05887feb6a44511cbf444a7acf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a71c83a190bd7e88edd5008edef670b32905add
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66169218"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140810"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar dados de forma incremental da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure com informações de controlo de alterações 
 Neste tutorial, cria uma fábrica de dados do Azure com um pipeline que carrega dados delta com base em informações de **controlo de alterações** na base de dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -152,7 +151,7 @@ Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. No menu da esquerda, selecione **criar um recurso** > **dados + análise** > **Data Factory**: 
+1. No menu à esquerda, selecione **criar um recurso** > **dados + análise** > **Data Factory**: 
    
    ![Seleção do Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -174,7 +173,7 @@ Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções 
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
 7. Clique em **Criar**.      
-8. No dashboard, verá o mosaico seguinte com o estado: **Implementar fábrica de dados**. 
+8. No painel, você verá o seguinte bloco com status: **Implantando data Factory**. 
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
@@ -261,7 +260,7 @@ Neste passo, cria um conjunto de dados para representar os dados que são copiad
 
     1. Selecione **AzureStorageLinkedService** em **Serviço ligado**.
     2. Introduza **adftutorial/incchgtracking** na parte **folder** de **filePath**.
-    3. Introduza  **\@CONCAT ('Incremental-', pipeline(). RunId, '. txt')** para **arquivo** faz parte da **filePath**.  
+    3. **Insira\@Concat (' incremental-', pipeline (). RunId, '. txt ')** para a parte do **arquivo** do **FilePath**.  
 
        ![Conjunto de dados de sink - ligação](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
@@ -279,7 +278,7 @@ Neste passo, vai criar um conjunto de dados para armazenar a versão de controlo
 ## <a name="create-a-pipeline-for-the-full-copy"></a>Criar um pipeline para a cópia completa
 Neste passo, cria um pipeline com uma atividade de cópia que copia os dados inteiros do arquivo de dados de origem (Base de Dados SQL do Azure) para o arquivo de dados de destino (Armazenamento de Blobs do Azure).
 
-1. Clique em **+ (mais)**, no painel do lado esquerdo, e clique em **Pipeline**. 
+1. Clique em **+ (mais)** , no painel do lado esquerdo, e clique em **Pipeline**. 
 
     ![Menu Novo pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
 2. Verá um separador novo para configurar o pipeline. Também verá o pipeline na vista de árvore. Na janela **Propriedades**, altere o nome do pipeline para **FullCopyPipeline**.
@@ -356,7 +355,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ## <a name="create-a-pipeline-for-the-delta-copy"></a>Criar um pipeline para a cópia do delta
 Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicamente. As duas **atividades de pesquisa** obtêm os SYS_CHANGE_VERSION antigo e novo da Base de Dados SQL do Azure e passe-o para a atividade de cópia. A **atividade de cópia** copia os dados inseridos/atualizados/eliminados entre os dois valores de SYS_CHANGE_VERSION da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure. A **atividade de procedimentos armazenados** atualiza o valor de SYS_CHANGE_VERSION para a próxima execução de pipeline.
 
-1. Na IU do Data Factory, mude para o separador **Editar**. Clique em **+ (mais)**, no painel do lado esquerdo, e clique em **Pipeline**. 
+1. Na IU do Data Factory, mude para o separador **Editar**. Clique em **+ (mais)** , no painel do lado esquerdo, e clique em **Pipeline**. 
 
     ![Menu Novo pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
 2. Verá um separador novo para configurar o pipeline. Também verá o pipeline na vista de árvore. Na janela **Propriedades**, altere o nome do pipeline para **IncrementalCopyPipeline**.
@@ -417,7 +416,7 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
         | Name | Tipo | Value | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
-        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
+        | TableName | Cadeia | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![Atividade Stored Procedure - Parâmetros](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **Ligue a atividade Copy à atividade Stored Procedure**. Arraste e largue o botão **verde** associado à atividade Copy na atividade Stored Procedure. 
@@ -456,7 +455,7 @@ O ficheiro deve ter apenas os dados delta da base de dados SQL do Azure. O regis
 1,update,10,2,U
 6,new,50,1,I
 ```
-As primeiros três colunas são dados alterados de data_source_table. As últimas duas colunas são os metadados da tabela do sistema de controlo de alterações. A quarta coluna é o SYS_CHANGE_VERSION para cada linha alterada. A quinta coluna é a operação:  U = atualizar, eu = inserir.  Para obter detalhes sobre as informações do registo de alterações, consulte [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
+As primeiros três colunas são dados alterados de data_source_table. As últimas duas colunas são os metadados da tabela do sistema de controlo de alterações. A quarta coluna é o SYS_CHANGE_VERSION para cada linha alterada. A quinta coluna é a operação:  U = Update, I = INSERT.  Para obter detalhes sobre as informações do registo de alterações, consulte [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
 
 ```
 ==================================================================
@@ -467,11 +466,11 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ```
 
     
-## <a name="next-steps"></a>Passos Seguintes
-Avance para o tutorial seguinte para saber como copiar ficheiros de novos e alterados apenas com base na respetiva LastModifiedDate:
+## <a name="next-steps"></a>Passos seguintes
+Avance para o tutorial a seguir para saber mais sobre como copiar arquivos novos e alterados somente com base em seus LastModifiedDate:
 
 > [!div class="nextstepaction"]
->[Copiar novos ficheiros ao lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
+>[Copiar novos arquivos por LastModifiedDate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
 
 

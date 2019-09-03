@@ -33,10 +33,10 @@
               href: tutorial-auto-train-models.md
     - name: Interface visual
       items:
-        - name: Preparar o modelo de regressão
+        - name: 1. Preparar o modelo de regressão
           displayName: studio
           href: ui-tutorial-automobile-price-train-score.md
-        - name: Implementar o modelo de regressão
+        - name: 2. Implementar o modelo de regressão
           displayName: studio
           href: ui-tutorial-automobile-price-deploy.md
     - name: Aprendizagem automática automatizada

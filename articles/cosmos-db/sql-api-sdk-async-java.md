@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 3bee473adde9c4762cf400dff6190eb76a4cc8d7
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 156699b8d8c1a645961f4e919bdd843d995a3d18
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624694"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142662"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB SDK Java assíncrono para a API do SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -152,9 +152,13 @@ Novos recursos e funcionalidade e otimizações apenas são adicionadas ao SDK d
 
 Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
+> [!WARNING]
+> Todas as versões **1. x** do SDK do Java assíncrono para a API do SQL serão desativadas em **30 de agosto de 2020**.
+> 
+>
 <br/>
 
-| Versão | Data de lançamento | Data de retirada |
+| Version | Data de lançamento | Data de retirada |
 | --- | --- | --- |
 | [2.4.3](#2.4.3) |5 de março de 2019|--- |
 | [2.4.2](#2.4.2) |1º de março de 2019|--- |
@@ -169,9 +173,9 @@ Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 | [2.1.0](#2.1.0) |5 de Setembro de 2018|--- |
 | [2.0.1](#2.0.1) |16 de Agosto de 2018|--- |
 | [2.0.0](#2.0.0) |20 de junho de 2018|--- |
-| [1.0.2](#1.0.2) |18 de Maio de 2018|--- |
-| [1.0.1](#1.0.1) |20 de Abril de 2018|--- |
-| [1.0.0](#1.0.0) |27 de fevereiro de 2018|--- |
+| [1.0.2](#1.0.2) |18 de Maio de 2018|30 de agosto de 2020 |
+| [1.0.1](#1.0.1) |20 de Abril de 2018|30 de agosto de 2020 |
+| [1.0.0](#1.0.0) |27 de fevereiro de 2018|30 de agosto de 2020 |
 
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]

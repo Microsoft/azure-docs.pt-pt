@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martinco
-ms.openlocfilehash: 80c1ffd27b0668f19fd87e7eda62e578c861ba64
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fb17d1b95d74a67f220651cf198f367bdd31f19f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934608"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129305"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger a sua infraestrutura de identidade
 
@@ -130,7 +130,7 @@ Azure Active Directory tem muitos recursos que interceptam ataques automaticamen
 
 ### <a name="implement-user-risk-security-policy-using-azure-ad-identity-protection"></a>Implementar a política de segurança de risco do usuário usando o Azure AD Identity Protection
 
-Risco do usuário indica a probabilidade de a identidade de um usuário ter sido comprometida e é calculada com base nos [eventos de risco do usuário](../../active-directory/identity-protection/overview.md) que estão associados à identidade de um usuário. Uma política de risco do usuário é uma política de acesso condicional que avalia o nível de risco para um usuário ou grupo específico. Com base no nível baixo, médio e alto de risco, uma política pode ser configurada para bloquear o acesso ou exigir uma alteração de senha segura usando a autenticação multifator. A recomendação da Microsoft é exigir uma alteração de senha segura para os usuários em alto risco.
+Risco do usuário indica a probabilidade de a identidade de um usuário ter sido comprometida e é calculada com base nas [detecções de risco do usuário](../../active-directory/identity-protection/overview.md) que estão associadas à identidade de um usuário. Uma política de risco do usuário é uma política de acesso condicional que avalia o nível de risco para um usuário ou grupo específico. Com base no nível baixo, médio e alto de risco, uma política pode ser configurada para bloquear o acesso ou exigir uma alteração de senha segura usando a autenticação multifator. A recomendação da Microsoft é exigir uma alteração de senha segura para os usuários em alto risco.
 
 ![Utilizadores marcados em risco](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
@@ -156,7 +156,7 @@ O [monitoramento de AD FS com o Azure ad Connect Health](../../active-directory/
 
 ### <a name="monitor-azure-ad-identity-protection-events"></a>Monitorar eventos de Azure AD Identity Protection
 
-[Azure ad Identity Protection](../../active-directory/identity-protection/overview.md) é uma ferramenta de notificação, monitoramento e relatório que pode ser usada para detectar possíveis vulnerabilidades que afetam as identidades da sua organização. Ele detecta eventos de risco, como credenciais vazadas, viagem impossível e entradas de dispositivos infectados, endereços IP anônimos, endereços IP associados à atividade suspeita e locais desconhecidos. Habilite alertas de notificação para receber emails de usuários em risco e/ou um email de resumo semanal.
+[Azure ad Identity Protection](../../active-directory/identity-protection/overview.md) é uma ferramenta de notificação, monitoramento e relatório que pode ser usada para detectar possíveis vulnerabilidades que afetam as identidades da sua organização. Ele detecta as detecções de risco, como credenciais vazadas, viagem impossível e entradas de dispositivos infectados, endereços IP anônimos, endereços IP associados à atividade suspeita e locais desconhecidos. Habilite alertas de notificação para receber emails de usuários em risco e/ou um email de resumo semanal.
 
 Azure AD Identity Protection fornece dois relatórios importantes que você deve monitorar diariamente:
 1. Os relatórios de entrada arriscados orientarão as atividades de entrada do usuário que você deve investigar, o proprietário legítimo pode não ter executado a entrada.
@@ -196,5 +196,5 @@ Há muitos aspectos em uma infraestrutura de identidade segura, mas esta lista d
 
 Agradecemos o quão sério você assume a segurança da identidade e esperamos que este documento seja um roteiro útil para uma postura mais segura para sua organização.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Se você precisar de assistência para planejar e implantar as recomendações, consulte os [planos de implantação de projetos do Azure ad](https://aka.ms/deploymentplans) para obter ajuda.

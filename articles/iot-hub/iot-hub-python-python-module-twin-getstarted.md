@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: menchi
-ms.openlocfilehash: 2c388ff86e782c916916bfb08c7a55ec5c845b13
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: b54b81a78072664ef47ace917fb3db85a5b1f297
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667918"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147616"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Introdução à identidade e módulo do módulo do Hub IoT (Python)
 
@@ -31,7 +31,7 @@ No final deste tutorial, você tem dois aplicativos Python:
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-Veja a seguir as instruções de instalação para os pré-requisitos.
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 

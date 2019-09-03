@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: ed90c22fa8c5b94567a9886ca71c9b35fbb103f0
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 6bc636b751d12bdb576e54f26536ac0045839229
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624630"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137346"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB SDK do Python para API do SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -145,7 +145,12 @@ Novos recursos e funcionalidades e otimizações são adicionados somente ao SDK
 Qualquer solicitação para Cosmos DB usando um SDK desativado é rejeitada pelo serviço.
 
 > [!WARNING]
-> Todas as versões do SDK do SQL do Azure para Python anteriores à versão **1.0.0** foram desativadas em **29 de fevereiro de 2016**. 
+> Todas as versões do SDK do Python para a API do SQL anteriores à versão **1.0.0** foram desativadas em **29 de fevereiro de 2016**. 
+> 
+> 
+
+> [!WARNING]
+> Todas as versões 1. x e 2. x do SDK do Python para a API do SQL serão desativadas em **30 de agosto de 2020**. 
 > 
 > 
 
@@ -155,27 +160,27 @@ Qualquer solicitação para Cosmos DB usando um SDK desativado é rejeitada pelo
 | --- | --- | --- |
 | [3.0.2](#3.0.2) |15 de novembro de 2018 |--- |
 | [3.0.1](#3.0.1) |04 de outubro de 2018 |--- |
-| [2.3.3](#2.3.3) |08 de setembro de 2018 |--- |
-| [2.3.2](#2.3.2) |08 de maio de 2018 |--- |
-| [2.3.1](#2.3.1) |21 de dezembro de 2017 |--- |
-| [2.3.0](#2.3.0) |10 de Novembro de 2017 |--- |
-| [2.2.1](#2.2.1) |29 de setembro de 2017 |--- |
-| [2.2.0](#2.2.0) |10 de maio de 2017 |--- |
-| [2.1.0](#2.1.0) |1º de maio de 2017 |--- |
-| [2.0.1](#2.0.1) |30 de Outubro de 2016 |--- |
-| [2.0.0](#2.0.0) |29 de setembro de 2016 |--- |
-| [1.9.0](#1.9.0) |07 de julho de 2016 |--- |
-| [1.8.0](#1.8.0) |14 de Junho de 2016 |--- |
-| [1.7.0](#1.7.0) |26 de abril de 2016 |--- |
-| [1.6.1](#1.6.1) |08 de abril de 2016 |--- |
-| [1.6.0](#1.6.0) |29 de Março de 2016 |--- |
-| [1.5.0](#1.5.0) |03 de janeiro de 2016 |--- |
-| [1.4.2](#1.4.2) |06 de outubro de 2015 |--- |
-| 1.4.1 |06 de outubro de 2015 |--- |
-| [1.2.0](#1.2.0) |06 de agosto de 2015 |--- |
-| [1.1.0](#1.1.0) |09 de Julho de 2015 |--- |
-| [1.0.1](#1.0.1) |25 de maio de 2015 |--- |
-| [1.0.0](#1.0.0) |07 de Abril de 2015 |--- |
+| [2.3.3](#2.3.3) |08 de setembro de 2018 |30 de agosto de 2020 |
+| [2.3.2](#2.3.2) |08 de maio de 2018 |30 de agosto de 2020 |
+| [2.3.1](#2.3.1) |21 de dezembro de 2017 |30 de agosto de 2020 |
+| [2.3.0](#2.3.0) |10 de Novembro de 2017 |30 de agosto de 2020 |
+| [2.2.1](#2.2.1) |29 de setembro de 2017 |30 de agosto de 2020 |
+| [2.2.0](#2.2.0) |10 de maio de 2017 |30 de agosto de 2020 |
+| [2.1.0](#2.1.0) |1º de maio de 2017 |30 de agosto de 2020 |
+| [2.0.1](#2.0.1) |30 de Outubro de 2016 |30 de agosto de 2020 |
+| [2.0.0](#2.0.0) |29 de setembro de 2016 |30 de agosto de 2020 |
+| [1.9.0](#1.9.0) |07 de julho de 2016 |30 de agosto de 2020 |
+| [1.8.0](#1.8.0) |14 de Junho de 2016 |30 de agosto de 2020 |
+| [1.7.0](#1.7.0) |26 de abril de 2016 |30 de agosto de 2020 |
+| [1.6.1](#1.6.1) |08 de abril de 2016 |30 de agosto de 2020 |
+| [1.6.0](#1.6.0) |29 de Março de 2016 |30 de agosto de 2020 |
+| [1.5.0](#1.5.0) |03 de janeiro de 2016 |30 de agosto de 2020 |
+| [1.4.2](#1.4.2) |06 de outubro de 2015 |30 de agosto de 2020 |
+| 1.4.1 |06 de outubro de 2015 |30 de agosto de 2020 |
+| [1.2.0](#1.2.0) |06 de agosto de 2015 |30 de agosto de 2020 |
+| [1.1.0](#1.1.0) |09 de Julho de 2015 |30 de agosto de 2020 |
+| [1.0.1](#1.0.1) |25 de maio de 2015 |30 de agosto de 2020 |
+| [1.0.0](#1.0.0) |07 de Abril de 2015 |30 de agosto de 2020 |
 | 0.9.4-prelease |14 de janeiro de 2015 |29 de Fevereiro de 2016 |
 | 0.9.3-prelease |09 de dezembro de 2014 |29 de Fevereiro de 2016 |
 | 0.9.2-prelease |25 de novembro de 2014 |29 de Fevereiro de 2016 |

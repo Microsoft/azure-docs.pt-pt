@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 889158aeb40cfcbc69291845acfee833af0930b6
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 20a90a70c66310f6838b41a40aa945308bf338d4
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114284"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147911"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implantar um modelo de aprendizado de máquina no serviço Azure App (versão prévia)
 
@@ -265,8 +265,8 @@ print(response.json())
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter mais informações sobre como configurar seu aplicativo Web, consulte a documentação do [serviço de aplicativo no Linux](/azure/app-service/containers/) .
-* Para obter mais informações sobre o dimensionamento, consulte Introdução [ao dimensionamento automático no Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
-* Para obter mais informações sobre o suporte a SSL, consulte [usar um certificado SSL em seu serviço de Azure app](/azure/app-service/app-service-web-ssl-cert-load).
-* Para obter mais informações sobre autenticação, consulte [configurar seu aplicativo do serviço de aplicativo para usar Azure Active Directory entrar](/azure/app-service/configure-authentication-provider-aad).
+* Saiba como configurar seu aplicativo Web na documentação do [serviço de aplicativo no Linux](/azure/app-service/containers/) .
+* Saiba mais sobre o dimensionamento em introdução [ao dimensionamento automático no Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
+* [Use um certificado SSL em seu serviço de Azure app](/azure/app-service/app-service-web-ssl-cert-load).
+* [Configure seu aplicativo do serviço de aplicativo para usar Azure Active Directory entrar](/azure/app-service/configure-authentication-provider-aad).
 * [Consumir um modelo de ML implementado como um serviço web](how-to-consume-web-service.md)

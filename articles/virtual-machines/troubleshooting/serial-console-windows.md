@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 008502a2edf1f7d28c94139afdf1bd32f94c13dc
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6b62bee2a6159cfd1aa1d7278f0b1ffa744f3a87
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080473"
+ms.locfileid: "70124011"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console serial do Azure para Windows
 
@@ -26,7 +26,7 @@ O console serial no portal do Azure fornece acesso a um console baseado em texto
 
 O console serial funciona da mesma maneira para VMs e instâncias do conjunto de dimensionamento de máquinas virtuais. Neste documento, todas as menção a VMs irão incluir implicitamente as instâncias do conjunto de dimensionamento de máquinas virtuais, salvo indicação em contrário.
 
-Para obter a documentação do console serial para VMs Linux e conjunto de dimensionamento de máquinas virtuais, consulte [console serial do Azure para Linux](serial-console-linux.md).
+Para obter a documentação do console serial para Linux, consulte [console serial do Azure para Linux](serial-console-linux.md).
 
 > [!NOTE]
 > O console serial está geralmente disponível em regiões globais do Azure. Ele ainda não está disponível no Azure government ou a clouds do Azure China.
@@ -40,34 +40,11 @@ Para obter a documentação do console serial para VMs Linux e conjunto de dimen
 
 - Sua VM ou instância do conjunto de dimensionamento de máquinas virtuais deve ter um usuário baseado em senha. Pode criar uma com o [Repor palavra-passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) função da extensão de acesso VM. Selecione **Repor palavra-passe** partir do **suporte + resolução de problemas** secção.
 
-* A VM em que está a aceder à consola de série tem de ter [diagnósticos de arranque](boot-diagnostics.md) ativada.
+* A VM para a instância do conjunto de dimensionamento de máquinas virtuais deve ter o [diagnóstico de inicialização](boot-diagnostics.md) habilitado.
 
     ![Definições de diagnóstico de arranque](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-## <a name="get-started-with-the-serial-console"></a>Começar a utilizar a consola de série
-O console serial para VMs e conjunto de dimensionamento de máquinas virtuais é acessível somente por meio do portal do Azure:
-
-### <a name="serial-console-for-virtual-machines"></a>Console serial para máquinas virtuais
-O console serial para VMs é tão simples quanto clicar em **console serial** na seção **suporte + solução de problemas** no portal do Azure.
-  1. Abra o [Portal do Azure](https://portal.azure.com).
-
-  1. Navegue até **todos os recursos** e selecione uma máquina virtual. A página Visão geral da VM é aberta.
-
-  1. Desloque para baixo para o **suporte + resolução de problemas** secção e selecione **consola de série**. Um novo painel com a consola de série abre e começa a ligação.
-
-### <a name="serial-console-for-virtual-machine-scale-sets"></a>Console serial para conjuntos de dimensionamento de máquinas virtuais
-O console serial está disponível em uma base por instância para conjuntos de dimensionamento de máquinas virtuais. Você precisará navegar até a instância individual de um conjunto de dimensionamento de máquinas virtuais antes de ver o botão de **console serial** . Se o conjunto de dimensionamento de máquinas virtuais não tiver o diagnóstico de inicialização habilitado, atualize o modelo do conjunto de dimensionamento de máquinas virtuais para habilitar o diagnóstico de inicialização e, em seguida, atualize todas as instâncias para o novo modelo a fim de acessar o console serial.
-  1. Abra o [Portal do Azure](https://portal.azure.com).
-
-  1. Navegue até **todos os recursos** e selecione um conjunto de dimensionamento de máquinas virtuais. A página Visão geral do conjunto de dimensionamento de máquinas virtuais é aberta.
-
-  1. Navegar até **instâncias**
-
-  1. Selecionar uma instância do conjunto de dimensionamento de máquinas virtuais
-
-  1. Na seção **suporte + solução de problemas** , selecione **console serial**. Um novo painel com a consola de série abre e começa a ligação.
-
-## <a name="enable-serial-console-functionality"></a>Habilitar a funcionalidade do console serial
+## <a name="enable-serial-console-functionality-for-windows-server"></a>Habilitar a funcionalidade do console serial para o Windows Server
 
 > [!NOTE]
 > Se você não estiver vendo nada no console serial, verifique se o diagnóstico de inicialização está habilitado em sua VM ou conjunto de dimensionamento de máquinas virtuais.
@@ -159,48 +136,8 @@ Isso é útil em situações em que você talvez queira acessar o menu de inicia
 
 ![Reinicialização do console serial do Windows](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
 
-## <a name="disable-serial-console"></a>Desativar a consola de série
-Por predefinição, todas as subscrições têm acesso de consola de série ativado para todas as VMs. Pode desativar a consola de série ao nível da subscrição ou o nível VM.
-
-### <a name="vmvirtual-machine-scale-set-level-disable"></a>Desabilitação no nível do conjunto de dimensionamento de máquinas virtuais/VM
-O console serial pode ser desabilitado para uma VM específica ou um conjunto de dimensionamento de máquinas virtuais desabilitando a configuração de diagnóstico de inicialização. Desative o diagnóstico de inicialização do portal do Azure para desabilitar o console serial para a VM ou o conjunto de dimensionamento de máquinas virtuais. Se você estiver usando o console serial em um conjunto de dimensionamento de máquinas virtuais, certifique-se de atualizar suas instâncias do conjunto de dimensionamento de máquinas virtuais para o modelo mais recente.
-
-> [!NOTE]
-> Para ativar ou desativar a consola de série para uma subscrição, tem de ter permissões de escrita para a subscrição. Estas permissões incluem, mas não sejam limitam às funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de escrita.
-
-### <a name="subscription-level-disable"></a>Desativar o nível de assinatura
-A consola de série pode ser desabilitada para uma subscrição completa através da [chamada à API de REST de consola desativar](/rest/api/serialconsole/console/disableconsole). Essa ação requer acesso no nível de colaborador ou acima à assinatura. Pode utilizar o **experimentar** função disponível nesta página de documentação de API para desativar e ativar a consola de série para uma subscrição. Introduza o seu ID de subscrição para **subscriptionId**, introduza "predefinição" para **predefinição**e, em seguida, selecione **executar**. Os comandos da CLI do Azure ainda não estão disponíveis.
-
-Para reabilitar o console serial de uma assinatura, use a [chamada API REST do console](/rest/api/serialconsole/console/enableconsole).
-
-![Experimente-o API de REST](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
-
-Em alternativa, pode utilizar o seguinte conjunto de comandos de bash no Cloud Shell para desativar, ativar e ver o estado desativado da consola de série para uma subscrição:
-
-* Para obter o estado desativado da consola de série para uma subscrição:
-    ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
-    ```
-* Para desativar a consola de série para uma subscrição:
-    ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
-    ```
-* Para ativar a consola de série para uma subscrição:
-    ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
-    ```
+## <a name="disable-the-serial-console"></a>Desabilitar o console serial
+Por padrão, todas as assinaturas têm o acesso ao console serial habilitado. Você pode desabilitar o console serial no nível de assinatura ou de conjunto de dimensionamento de máquinas virtuais/VM. Para obter instruções detalhadas, visite [habilitar e desabilitar o console serial do Azure](./serial-console-enable-disable.md).
 
 ## <a name="serial-console-security"></a>Segurança da consola de série
 
@@ -241,31 +178,17 @@ Problemas de configuração de RDP | Aceder à consola de série e alterar as de
 Bloqueio de rede para baixo do sistema | Aceda à consola de série do portal do Azure para gerir o sistema. Alguns comandos de rede estão listados [em comandos do Windows: CMD e PowerShell](serial-console-cmd-ps-commands.md).
 Interagir com o carregador de inicialização | Acesso BCD através da consola de série. Para obter informações, consulte [habilitar o menu de arranque do Windows na consola de série do](#enable-the-windows-boot-menu-in-the-serial-console).
 
-
-## <a name="errors"></a>Erros
-Como a maioria dos erros são transitórios, repetir a ligação pode, muitas vezes, corrigi-los. A tabela a seguir mostra uma lista de erros e atenuações para VMs e instâncias do conjunto de dimensionamento de máquinas virtuais.
-
-Erro                            |   Mitigação
-:---------------------------------|:--------------------------------------------|
-Não é possível obter as definições de diagnóstico de arranque de  *&lt;VMNAME&gt;* . Para utilizar a consola de série, certifique-se de que o diagnóstico de arranque está ativado para esta VM. | Certifique-se de que a VM tem [diagnósticos de arranque](boot-diagnostics.md) ativada.
-A VM está num estado parado desalocado. Iniciar a VM e repita a ligação da consola de série. | Máquina virtual deve estar num estado iniciado para aceder à consola de série
-Não tem as permissões necessárias para utilizar esta consola de série de VM. Certifique-se de que tem, pelo menos, permissões de função de contribuinte de Máquina Virtual.| O acesso de consola de série requer determinadas permissões. Para obter mais informações, consulte [pré-requisitos](#prerequisites).
-Não é possível determinar o grupo de recursos para a conta de armazenamento do diagnóstico de arranque  *&lt;STORAGEACCOUNTNAME&gt;* . Certifique-se de que o diagnóstico de arranque está ativado para esta VM e que tem acesso a esta conta de armazenamento. | O acesso de consola de série requer determinadas permissões. Para obter mais informações, consulte [pré-requisitos](#prerequisites).
-Uma resposta de "dizer proibido" foi encontrada ao aceder à conta de armazenamento do diagnóstico de arranque desta VM. | Certifique-se de que o diagnóstico de arranque não tem uma firewall de conta. Uma conta de armazenamento do diagnóstico de arranque acessível é necessária para a consola de série função.
-Web socket foi fechado ou não foi possível abrir. | Poderá ter de lista aprovada `*.console.azure.com`. Um mais detalhado for mas a abordagem mais é à lista de permissões a [intervalos de IP de Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), que alterar bastante regularmente.
-Apenas as informações de estado de funcionamento são mostradas ao ligar a uma VM do Windows| Este erro ocorre se o Console de administração especial não tiver sido ativado para a sua imagem do Windows. Ver [ativar a consola de série em imagens personalizadas ou mais antigas](#enable-the-serial-console-in-custom-or-older-images) para obter instruções sobre como ativar manualmente SAC na sua VM do Windows. Para obter mais informações, consulte [sinais de estado de funcionamento do Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
-
 ## <a name="known-issues"></a>Problemas conhecidos
 Estamos cientes de alguns problemas com a consola de série. Aqui está uma lista desses problemas e os passos para a mitigação. Esses problemas e atenuações se aplicam tanto a VMs quanto a instâncias do conjunto de dimensionamento de máquinas virtuais.
 
 Problema                             |   Mitigação
 :---------------------------------|:--------------------------------------------|
-Premir **Enter** depois da faixa de ligação não causa um prompt de início de sessão a apresentar. | Para obter mais informações, consulte [Hitting introduza não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Este erro pode ocorrer se estiver a executar uma VM personalizada, a aplicação protegida ou a configuração de arranque que faz com que o Windows não sejam corretamente ligar para a porta serial. Este erro também irá ocorrer se estiver a executar um VM, de cliente do Windows 10 porque apenas VMs do Windows Server estão configuradas para terem EMS ativada.
+Premir **Enter** depois da faixa de ligação não causa um prompt de início de sessão a apresentar. | Para obter mais informações, consulte [Hitting introduza não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Este erro pode ocorrer se estiver a executar uma VM personalizada, a aplicação protegida ou a configuração de arranque que faz com que o Windows não sejam corretamente ligar para a porta serial. Esse erro também ocorrerá se você estiver executando uma VM do Windows 10, porque somente as VMs do Windows Server estão configuradas para ter o EMS habilitado.
+Apenas as informações de estado de funcionamento são mostradas ao ligar a uma VM do Windows| Este erro ocorre se o Console de administração especial não tiver sido ativado para a sua imagem do Windows. Ver [ativar a consola de série em imagens personalizadas ou mais antigas](#enable-the-serial-console-in-custom-or-older-images) para obter instruções sobre como ativar manualmente SAC na sua VM do Windows. Para obter mais informações, consulte [sinais de estado de funcionamento do Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Não é possível escreva na linha SAC perguntar se a depuração de kernel está ativada. | RDP para a VM e execute `bcdedit /debug {current} off` num prompt de comando elevado. Se não for possível RDP, em vez disso, pode anexar o disco do SO a outra VM do Azure e modificá-lo enquanto anexado como um disco de dados através da execução `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, em seguida, a troca de volta o disco.
 Colar no PowerShell nos resultados de SAC num caractere de terceiro, se o conteúdo original tinha um caractere repetido. | Para obter uma solução, executar `Remove-Module PSReadLine` descarregar o módulo de PSReadLine da sessão atual. Esta ação não irá eliminar ou desinstalar o módulo.
 Algumas entradas de teclado produzem estranha SAC saída (por exemplo, **[R**, **[3 ~** ). | [VT100](https://aka.ms/vtsequences) seqüências de escape não são suportadas pela linha de comandos da SAC.
 Colar longas seqüências de caracteres não funciona. | A consola de série limita o comprimento de cadeias de caracteres colado no terminal para 2048 carateres para evitar sobrecarregar a largura de banda da porta serial.
-Console serial não funciona com um firewall de conta de armazenamento. | Console serial por design não pode funcionar com firewalls de conta de armazenamento habilitados na conta de armazenamento de diagnóstico de inicialização.
 Console serial não funciona com uma conta de armazenamento usando Azure Data Lake Storage Gen2 com namespaces hierárquicos. | Esse é um problema conhecido com namespaces hierárquicos. Para atenuar, verifique se a conta de armazenamento do diagnóstico de inicialização da VM não foi criada usando Azure Data Lake Storage Gen2. Essa opção só pode ser definida na criação da conta de armazenamento. Talvez seja necessário criar uma conta de armazenamento de diagnóstico de inicialização separada sem Azure Data Lake Storage Gen2 habilitado para atenuar esse problema.
 
 
@@ -293,9 +216,9 @@ R. A imagem é provavelmente mal configurada para acesso à consola de série. P
 
 **P. A consola de série está disponível para os conjuntos de dimensionamento de máquinas virtuais?**
 
-R. Neste momento, o acesso à consola de série para instâncias do conjunto de dimensionamento de máquina virtual não é suportado.
+R. Sim, é! Consulte o [console serial para conjuntos de dimensionamento de máquinas virtuais](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter um guia detalhado para comandos cmd e PowerShell que você pode usar no Windows SAC, consulte [comandos do Windows: CMD e PowerShell](serial-console-cmd-ps-commands.md).
 * Também está disponível para a consola de série [Linux](serial-console-linux.md) VMs.
 * Saiba mais sobre [diagnósticos de arranque](boot-diagnostics.md).

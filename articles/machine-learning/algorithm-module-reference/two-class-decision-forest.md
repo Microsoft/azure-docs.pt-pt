@@ -1,7 +1,7 @@
 ---
-title: 'Floresta de decisão de duas classes: Referência do módulo'
+title: 'Floresta de decisão de duas classes: Referência de módulo'
 titleSuffix: Azure Machine Learning service
-description: Saiba como utilizar o módulo de floresta de decisão de duas classes no serviço Azure Machine Learning para criar um modelo de machine learning com base no algoritmo de florestas decisão.
+description: Saiba como usar o módulo floresta de decisão de duas classes no serviço Azure Machine Learning para criar um modelo de aprendizado de máquina com base no algoritmo florestas de decisão.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,100 +9,99 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 73b7822c56e2b07eeefdedce1bce6d410d110ebc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37a2ce77e438145219df9cb553d1881626e8a2c6
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411486"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128402"
 ---
 # <a name="two-class-decision-forest-module"></a>Módulo de floresta de decisão de duas classes
 
-Este artigo descreve um módulo da interface visual (pré-visualização) para o serviço Azure Machine Learning.
+Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
 
-Utilize este módulo para criar um modelo de machine learning com base no algoritmo de florestas decisão.  
+Use este módulo para criar um modelo de aprendizado de máquina com base no algoritmo florestas de decisão.  
 
-Florestas de decisão são modelos do ensemble rápido, supervisionado. Este módulo é uma boa opção se pretende prever um destino com um máximo de dois resultados. 
+As florestas de decisão são modelos de Ensemble rápidos e supervisionados. Esse módulo é uma boa opção se você quiser prever um destino com um máximo de dois resultados. 
 
-## <a name="understanding-decision-forests"></a>Compreender as florestas de decisão
+## <a name="understanding-decision-forests"></a>Noções básicas sobre florestas de decisão
 
-Esse algoritmo de floresta de decisão é um ensemble método que se destina a tarefas de classificação de aprendizado. Métodos de Ensemble baseiam-se no princípio geral que em vez de depender de um único modelo, pode obter melhores resultados e um modelo mais generalizado, criando vários modelos relacionados e combiná-los de alguma forma. Em geral, os modelos de ensemble fornecem uma melhor cobertura e precisão do que as árvores de decisão única. 
+Esse algoritmo de floresta de decisão é um método de aprendizado Ensemble destinado a tarefas de classificação. Os métodos Ensemble são baseados no princípio geral que, em vez de depender de um único modelo, você pode obter resultados melhores e um modelo mais generalizado criando vários modelos relacionados e combinando-os de alguma forma. Em geral, os modelos de Ensemble fornecem melhor cobertura e precisão do que árvores de decisão única. 
 
-Existem várias formas de criar modelos individuais e combiná-los num ensemble. Essa implementação particular de uma floresta de decisão funciona com a criação de várias árvores de decisão e, em seguida **voto** na classe de saída mais popular. Votação é um dos métodos better-known para gerar os resultados num modelo de ensemble. 
+Há várias maneiras de criar modelos individuais e combiná-los em um Ensemble. Essa implementação específica de uma floresta de decisão funciona criando várias árvores de decisão e , em seguida, votando a classe de saída mais popular. A votação é um dos métodos mais conhecidos para gerar resultados em um modelo Ensemble. 
 
-+ Muitos árvores de classificação individuais são criados, usando o conjunto de dados completo, mas diferentes (normalmente aleatória) pontos de partida. Isto é diferente da abordagem de floresta aleatório, em que as árvores de decisão individual podem utilizar apenas uma parte aleatória dos dados ou funcionalidades.
-+ Cada árvore na árvore da floresta de decisão produz um histograma não normalizado frequência das etiquetas. 
-+ O processo de agregação resume estas histogramas e normaliza o resultado para obter as "probabilidades" para cada etiqueta. 
-+ As árvores que têm confiança na predição elevado terá um peso maior a decisão final da ensemble.
++ Muitas árvores de classificação individuais são criadas, usando o conjunto de um inteiro, mas pontos de partida diferentes (geralmente aleatórios). Isso difere da abordagem de floresta aleatória, na qual as árvores de decisão individuais podem usar apenas uma parte aleatória dos dados ou recursos.
++ Cada árvore na árvore da floresta de decisão gera um histograma de frequência não normalizado dos rótulos. 
++ O processo de agregação soma esses histogramas e normaliza o resultado para obter as "probabilidades" para cada rótulo. 
++ As árvores que têm alta confiança de previsão terão um peso maior na decisão final do Ensemble.
 
-Árvores de decisões em geral têm muitas vantagens para tarefas de classificação:
+As árvores de decisão em geral têm muitas vantagens para tarefas de classificação:
   
-- Eles podem capturar os limites de decisão de não-lineares.
-- Pode dar formação e prever em muitos dados, como eles são eficientes na utilização da memória e de computação.
-- Seleção de funcionalidades está integrada nos processos de formação e classificação.  
-- Árvores capaz de acomodar dados desnecessárias e muitos recursos.  
-- Eles são modelos não paramétrica, que significa que eles possam tratar dados com diversas distribuições. 
+- Eles podem capturar limites de decisão não lineares.
+- Você pode treinar e prever muitos dados, pois eles são eficientes no uso de memória e computação.
+- A seleção de recursos é integrada nos processos de treinamento e classificação.  
+- As árvores podem acomodar dados com ruído e muitos recursos.  
+- Eles são modelos não paramétricos, o que significa que podem manipular dados com distribuições variadas. 
 
-No entanto, as árvores de decisão simples sobre podem overfit nos dados e são menos generalizable de árvores de árvore.
+No entanto, as árvores de decisão simples podem sobreajustar dados e são menos generalizadas do que a árvore conjuntos.
 
 Para obter mais informações, consulte [florestas de decisão](https://go.microsoft.com/fwlink/?LinkId=403677).  
 
 ## <a name="how-to-configure"></a>Como configurar
   
-1.  Adicionar a **floresta de decisão de duas classes** módulo à sua experimentação no Azure Machine Learning e abra o **propriedades** painel do módulo. 
+1.  Adicione o módulo **floresta de decisão de duas classes** ao experimento em Azure Machine Learning e abra o painel **Propriedades** do módulo. 
 
-    Pode encontrar o módulo a ser **Machine Learning**. Expanda **inicializar**e, em seguida **classificação**.  
+    Você pode encontrar o módulo em **Machine Learning**. Expanda **inicializar**e, em seguida, **classificação**.  
   
-2.  Para **Resampling método**, escolha o método utilizado para criar as árvores individuais.  Pode escolher entre **Bagging** ou **replicar**.  
+2.  Para o **método**de reamostragem, escolha o método usado para criar as árvores individuais.  Você pode escolher entre **bagging** ou **replicar**.  
   
-    -   **Bagging**: Também é denominado bagging *agregar bootstrap*. Nesse método, cada árvore é aumentado numa nova amostra, criada pelo conjunto de dados original com a substituição de amostragem aleatoriamente até que tem um conjunto de dados, o tamanho do original.  
+    -   **Bagging**: Bagging também é chamado de agregação de *Bootstrap*. Nesse método, cada árvore é expandida em um novo exemplo, criada pela amostragem aleatória do conjunto de datas original com substituição, até que você tenha um conjunto de um DataSet com o tamanho original.  
   
-         As saídas dos modelos são combinadas pelos *voto*, que é um formulário de agregação. Cada árvore numa floresta de decisão de classificação produz uma histograma unnormalized frequência das etiquetas. A agregação é somar esses histogramas e normalizar para obter as "probabilidades" para cada etiqueta. Desta forma, as árvores que têm confiança na predição elevada terão um peso maior na decisão final da ensemble.  
+         As saídas dos modelos são combinadas por *votação*, que é uma forma de agregação. Cada árvore em uma floresta de decisão de classificação gera um histograma de frequência não normalizado de rótulos. A agregação é somar esses histogramas e normalizar para obter as "probabilidades" para cada rótulo. Dessa forma, as árvores que têm alta confiança de previsão terão um peso maior na decisão final do Ensemble.  
   
-         Para obter mais informações, consulte a entrada de Wikipedia para agregar Bootstrap.  
+         Para obter mais informações, consulte a entrada da Wikipédia para agregação de bootstrap.  
   
-    -   **Replicar**: Na replicação, cada árvore é preparado no exatamente os mesmos dados de entrada. A determinação de qual dividir o predicado é utilizado para cada nó de árvore permanece aleatória e as árvores será diversificadas.   
+    -   **Replicar**: Na replicação, cada árvore é treinada exatamente com os mesmos dados de entrada. A determinação de qual predicado de divisão é usado para cada nó de árvore permanece aleatório e as árvores serão diversificadas.   
   
-3.  Especifique como pretende que o modelo de formação, definindo a **modo de instrutor de criação** opção.  
+3.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Único parâmetro**: Se souber como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos.
+    -   **Parâmetro único**: Se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.
   
-4.  Para **número de árvores de decisão**, escreva o número máximo de árvores de decisão que podem ser criadas no ensemble. Ao criar árvores de decisões mais, pode potencialmente obter uma melhor cobertura, mas aumenta o tempo de treinamento.  
+4.  Para **número de árvores de decisão**, digite o número máximo de árvores de decisão que podem ser criadas no Ensemble. Ao criar mais árvores de decisão, você pode potencialmente obter uma cobertura melhor, mas o tempo de treinamento aumenta.  
   
     > [!NOTE]
-    >  Este valor também controla o número de árvores apresentado quando visualizar o modelo preparado. Se pretender ver ou imprimir uma única árvore, pode definir o valor como 1. No entanto, apenas uma árvore pode ser produzido (a árvore com o conjunto inicial de parâmetros) e são efetuadas sem mais iterações.
+    >  Esse valor também controla o número de árvores exibidas ao visualizar o modelo treinado. Se você quiser ver ou imprimir uma única árvore, poderá definir o valor como 1. No entanto, apenas uma árvore pode ser produzida (a árvore com o conjunto inicial de parâmetros) e nenhuma iteração adicional é executada.
   
-5.  Para **profundidade máximo das árvores de decisão**, escreva um número para limitar a profundidade máxima de qualquer árvore de decisão. Aumentando a profundidade da árvore pode aumentar a precisão, sob alguma overfitting e maior tempo de treinamento.
+5.  Para obter a **profundidade máxima das árvores de decisão**, digite um número para limitar a profundidade máxima de qualquer árvore de decisão. Aumentar a profundidade da árvore pode aumentar a precisão, com o risco de algum superajuste e um tempo de treinamento maior.
   
-6.  Para **número de divisões aleatórios por nó de**, escreva o número de divisões de usar para criar cada nó da árvore. R *dividir* significa que os recursos em cada nível da árvore (node) é divididas aleatoriamente.
+6.  Para o **número de divisões aleatórias por nó**, digite o número de divisões a serem usadas ao compilar cada nó da árvore. Uma *divisão* significa que os recursos em cada nível da árvore (nó) são divididos aleatoriamente.
   
-7.  Para **número mínimo de exemplos por nó folha**, indicar o número mínimo de cenários que são necessários para criar qualquer nó de terminal (folha) numa árvore.
+7.  Para o **número mínimo de amostras por nó folha**, indique o número mínimo de casos necessários para criar qualquer nó de terminal (folha) em uma árvore.
   
-     Ao aumentar este valor, aumentar o limiar para a criação de novas regras. Por exemplo, com o valor predefinido de 1, até mesmo um único caso pode fazer com que uma nova regra a ser criada. Se aumentar o valor para 5, os dados de treinamento seriam têm de conter, pelo menos, cinco casos que cumprem as mesmas condições.  
+     Ao aumentar esse valor, você aumenta o limite para a criação de novas regras. Por exemplo, com o valor padrão de 1, mesmo um único caso pode fazer com que uma nova regra seja criada. Se você aumentar o valor para 5, os dados de treinamento precisarão conter pelo menos cinco casos que atendam às mesmas condições.  
   
-8.  Selecione o **permitir valores desconhecidos para funcionalidades categóricas** opção para criar um grupo para os valores de desconhecido em conjuntos de treinamento ou validação. O modelo pode ser menos preciso para os valores conhecidos, mas ele pode fornecer a obter melhores predições para novos valores (desconhecidos). 
+8.  Selecione a opção **permitir valores desconhecidos para recursos categóricos** para criar um grupo de valores desconhecidos nos conjuntos de treinamento ou validação. O modelo pode ser menos preciso para valores conhecidos, mas pode fornecer previsões melhores para valores novos (desconhecidos). 
 
-     Se desmarcar esta opção, o modelo pode aceitar apenas os valores que estão contidos nos dados de treinamento.
+     Se você desmarcar essa opção, o modelo poderá aceitar somente os valores contidos nos dados de treinamento.
   
-9. Anexar um conjunto de dados com nome e uma da [módulos de treinamento](module-reference.md):  
+9. Anexe um DataSet rotulado e um dos módulos de [treinamento](module-reference.md):  
   
-    -   Se definir **modo de instrutor de criação** para **único parâmetro**, utilize o [Train Model](./train-model.md) módulo.  
+    -   Se você definir **criar modo de instrutor** como **um único parâmetro**, use o módulo [treinar modelo](./train-model.md) .  
   
     
 ## <a name="results"></a>Resultados
 
 Após a conclusão do treinamento:
 
-+ Para ver a árvore que foi criada em cada iteração, com o botão direito a saída do [Train Model](./train-model.md) módulo e selecione **Visualize**.
++ Para ver a árvore que foi criada em cada iteração, clique com o botão direito do mouse na saída do módulo [modelo de treinamento](./train-model.md) e selecione **Visualizar**.
   
-    Clique em cada árvore para desagregar as divisões e ver as regras para cada nó.
+    Clique em cada árvore para fazer uma busca detalhada nas divisões e ver as regras para cada nó.
 
-+ Para guardar um instantâneo do modelo, clique com botão direito a **modelo preparado** de saída e selecione **guardar modelo**. O modelo guardado não é atualizado em sucessivas execuções da experimentação.
++ Para salvar um instantâneo do modelo, clique com o botão direito do mouse na saída do **modelo treinado** e selecione **salvar modelo**. O modelo salvo não é atualizado em execuções sucessivas do experimento.
 
-+ Para utilizar o modelo para a classificação, adicione a **modelo de pontuação** módulo para uma experimentação.
++ Para usar o modelo de pontuação, adicione o módulo **modelo de Pontuação** a um experimento.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Consulte a [conjunto de módulos disponíveis](module-reference.md) ao serviço Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

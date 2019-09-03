@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Utilizar o serviço de migração de base de dados do Azure para efetuar uma migração online do PostgreSQL, a base de dados do Azure para PostgreSQL | Documentos da Microsoft'
-description: Aprenda a efetuar uma migração online do PostgreSQL local à base de dados do Azure para PostgreSQL com o Azure Database Migration Service.
+title: 'Tutorial: Use o serviço de migração de banco de dados do Azure para executar uma migração online do PostgreSQL para o banco de dados do Azure para PostgreSQL | Microsoft Docs'
+description: Saiba como executar uma migração online do PostgreSQL local para o banco de dados do Azure para PostgreSQL usando o serviço de migração de banco de dados do Azure.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -11,59 +11,59 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: 96bfb80602efe8e63f814fc9bf6cff3ae52e5983
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 29776c1a49161daf9cf972c43c1378e52f5c3069
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461536"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141509"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migrar o PostgreSQL para a Base de Dados do Azure para PostgreSQL online com o DMS
 
-Pode utilizar o serviço de migração de base de dados do Azure para migrar as bases de dados de uma instância de PostgreSQL no local para [base de dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/) com período de indisponibilidade mínimo. Em outras palavras, a migração pode ser obtida com o período de indisponibilidade mínimo para a aplicação. Neste tutorial, migra os **aluguel de DVD** de dados de exemplo de uma instância de locais do PostgreSQL 9.6 à base de dados do Azure para PostgreSQL através da atividade de migração online no serviço de migração de base de dados do Azure.
+Você pode usar o serviço de migração de banco de dados do Azure para migrar os bancos de dados de uma instância do PostgreSQL local para o [banco de dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/) com tempo de inatividade mínimo. Em outras palavras, a migração pode ser obtida com o mínimo de tempo de inatividade para o aplicativo. Neste tutorial, você migra o banco de dados de exemplo de **aluguel de DVD** de uma instância local do PostgreSQL 9,6 para o banco de dados do Azure para PostgreSQL usando a atividade de migração online no serviço de migração de banco de dados do Azure.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
-> * Migre o esquema de exemplo usando o utilitário de pg_dump.
+> * Migre o esquema de exemplo usando o utilitário pg_dump.
 > * Criar uma instância do Azure Database Migration Service.
 > * Utilizar o Azure Database Migration Service para criar um projeto de migração.
 > * Executar a migração.
 > * Monitorizar a migração.
 
 > [!NOTE]
-> Utilizar o Azure Database Migration Service para efetuar uma migração online requer a criação de uma instância com base no escalão de preço Premium.
+> Usar o serviço de migração de banco de dados do Azure para executar uma migração online requer a criação de uma instância com base no tipo de preço premium.
 
 > [!IMPORTANT]
-> Para uma experiência de migração ideal, a Microsoft recomenda a criação de uma instância do serviço de migração de base de dados do Azure na mesma região do Azure como a base de dados de destino. Mover dados entre regiões ou geografias pode retardar o processo de migração e introduzir erros.
+> Para uma experiência de migração ideal, a Microsoft recomenda a criação de uma instância do serviço de migração de banco de dados do Azure na mesma região do Azure que o banco de dados de destino. Mover dados entre regiões ou geografias pode retardar o processo de migração e introduzir erros.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa de:
 
-* Transfira e instale [edição Comunidade do PostgreSQL](https://www.postgresql.org/download/) 9,5, 9.6 ou 10. Versão de PostgreSQL Server de origem tem de ser 9.5.11, 9.6.7, 10, ou posterior. Para obter mais informações, consulte o artigo [versões da base de dados PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+* Baixe e instale o [PostgreSQL Community edition](https://www.postgresql.org/download/) 9,5, 9,6 ou 10. A versão do servidor PostgreSQL de origem deve ser 9.5.11, 9.6.7, 10 ou posterior. Para obter mais informações, consulte o artigo [versões de banco de dados PostgreSQL com suporte](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
 
     Além disso, a versão do PostgreSQL no local tem de corresponder à versão da Base de Dados do Azure para PostgreSQL. Por exemplo, o PostgreSQL 9.5.11.5 só pode ser migrado para a Base de Dados do Azure para PostgreSQL 9.5.11 e não para a versão 9.6.7.
 
     > [!NOTE]
-    > Para o PostgreSQL versão 10, atualmente DMS só suporta a migração da versão 10.3 à base de dados do Azure para PostgreSQL.
+    > Para PostgreSQL versão 10, atualmente o DMS dá suporte apenas à migração da versão 10,3 para o banco de dados do Azure para PostgreSQL.
 
 * [Criar uma instância na Base de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
-* Criar uma rede Virtual do Azure (VNet) para o Azure Database Migration Service com o modelo de implementação Azure Resource Manager, que garante uma conectividade site a site aos seus servidores de origem no local através de um [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para obter mais informações sobre como criar uma VNet, veja a [documentação das redes virtuais](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
+* Criar uma VNet (rede virtual) do Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou a [VPN ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para obter mais informações sobre como criar uma VNet, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
 
     > [!NOTE]
-    > Durante a configuração de VNet, se utilizar o ExpressRoute com peering de rede para a Microsoft, adicione o seguinte serviço [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) à sub-rede na qual o serviço será aprovisionado:
-    > * Ponto de extremidade de destino da base de dados (por exemplo, ponto de extremidade do SQL, ponto final do Cosmos DB etc.)
-    > * Ponto final de armazenamento
-    > * Ponto final de barramento de serviço
+    > Durante a configuração da VNet, se você usar o ExpressRoute com emparelhamento de rede para a Microsoft, adicione os seguintes [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de serviço à sub-rede na qual o serviço será provisionado:
+    > * Ponto de extremidade do banco de dados de destino (por exemplo, ponto de extremidade SQL, ponto de extremidade Cosmos DB e assim por diante)
+    > * Ponto de extremidade de armazenamento
+    > * Ponto de extremidade do barramento de serviço
     >
-    > Esta configuração é necessária porque o serviço de migração de base de dados do Azure não tem conectividade à internet.
+    > Essa configuração é necessária porque o serviço de migração de banco de dados do Azure não tem conectividade com a Internet.
 
-* Certifique-se de que as regras do grupo de segurança de rede (NSG) do VNet não bloqueiam as seguintes portas de comunicação de entrada para o Azure Database Migration Service: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego do Azure VNet NSG, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Verifique se suas regras de NSG (grupo de segurança de rede) VNet não bloqueiam as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG VNet do Azure, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * Configurar a sua [Firewall do Windows para acesso ao motor de bases de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* Abra a firewall do Windows para permitir que o serviço de migração de base de dados do Azure aceder à origem de servidor PostgreSQL, o que, por predefinição, é a porta TCP 5432.
+* Abra o Firewall do Windows para permitir que o serviço de migração de banco de dados do Azure acesse o servidor PostgreSQL de origem, que por padrão é a porta TCP 5432.
 * Se estiver a utilizar uma aplicação de firewall à frente da base ou bases de dados, poderá ter de adicionar regras de firewall para permitir que o Azure Database Migration Service aceda à base ou bases de dados de origem para migração.
-* Criar ao nível do servidor [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) para base de dados do Azure para PostgreSQL permitir que o serviço de migração de base de dados do Azure aceder às bases de dados de destino. Forneça o intervalo de sub-rede da VNet utilizada para o Azure Database Migration Service.
+* Crie uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) no nível do servidor para o banco de dados do Azure para PostgreSQL para permitir que o serviço de migração de banco de dados do Azure acesse os bancos de dados de destino. Forneça o intervalo de sub-rede da VNet usada para o serviço de migração de banco de dados do Azure.
 * Existem dois métodos para invocar a CLI:
 
   * No canto superior direito do portal do Azure, selecione o botão Cloud Shell:
@@ -145,7 +145,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
     Execute o script de remoção de chave externa (que é a segunda coluna) no resultado da consulta.
 
-5. Os acionadores nos dados (acionadores de inserção ou adição) irão impor a integridade dos dados no destino antes dos dados replicados da origem. É recomendável que desabilitar disparadores em todas as tabelas **no destino** durante a migração e, em seguida, volte a ativar os acionadores após a migração concluída.
+5. Os acionadores nos dados (acionadores de inserção ou adição) irão impor a integridade dos dados no destino antes dos dados replicados da origem. É recomendável que você desabilite os gatilhos em todas as tabelas **no destino durante a** migração e, em seguida, habilite novamente os gatilhos após a conclusão da migração.
 
     Para desativar os acionadores na base de dados de destino, utilize o seguinte comando:
 
@@ -154,7 +154,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
     from information_schema.triggers;
     ```
 
-6. Se houver um tipo de dados de Enumeração em todas as tabelas, recomenda-se que temporariamente a atualização para um tipo de dados 'variados de caractere' na tabela de destino. Depois da conclusão da replicação de dados, reverta o tipo de dados para ENUM.
+6. Se houver um tipo de dados de enumeração em qualquer tabela, é recomendável atualizá-lo temporariamente para um DataType ' character varying ' na tabela de destino. Depois da conclusão da replicação de dados, reverta o tipo de dados para ENUM.
 
 ## <a name="provisioning-an-instance-of-dms-using-the-cli"></a>Aprovisionar uma instância do DMS com a CLI
 
@@ -211,7 +211,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
    Por exemplo, o seguinte comando vai criar um serviço em:
 
-   * Localização: E.U.A. Leste 2
+   * Local E.U.A. Leste 2
    * Subscrição: 97181df2-909d-420b-ab93-1bff15acb6b7
    * Nome do grupo de recursos: PostgresDemo
    * Nome do serviço DMS: PostgresCLI
@@ -260,7 +260,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
     Por exemplo, o comando seguinte cria um projeto que utiliza estes parâmetros:
 
-   * Localização: EUA Centro-Oeste
+   * Local EUA Centro-Oeste
    * Nome do grupo de recursos: PostgresDemo
    * Nome do serviço: PostgresCLI
    * Nome do projeto: PGMigration
@@ -268,7 +268,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
    * Plataforma de destino: AzureDbForPostgreSql
 
      ```
-     az dms project create -l eastus2 -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
+     az dms project create -l westcentralus -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
      ```
 
 6. Crie uma tarefa de migração do PostgreSQL com os seguintes passos.
@@ -297,7 +297,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
                }
        ```
 
-   * Também é um ficheiro de json de opção de base de dados que lista os objetos json. Para o PostgreSQL, o formato do objeto JSON de opções de base de dados é mostrado abaixo:
+   * Há também um arquivo JSON de opção de banco de dados que lista os objetos JSON. Para o PostgreSQL, o formato do objeto JSON de opções de base de dados é mostrado abaixo:
 
        ```
        [
@@ -522,8 +522,8 @@ Se precisar de cancelar ou eliminar qualquer tarefa, projeto ou serviço do DMS,
     az dms delete -g ProgresDemo -n PostgresCLI
      ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre problemas conhecidos e limitações ao realizar migrações online para a Base de Dados do Azure para PostgreSQL, veja o artigo [Problemas conhecidos e soluções alternativas das migrações online da Base de Dados do Azure para PostgreSQL](known-issues-azure-postgresql-online.md).
 * Para obter informações sobre o Azure Database Migration Service, leia o artigo [O que é o Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
-* Para obter informações sobre a base de dados do Azure para PostgreSQL, consulte o artigo [o que é a base de dados do Azure para PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview).
+* Para obter informações sobre o banco de dados do Azure para PostgreSQL, consulte o artigo [o que é o banco de dados do Azure para PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview).

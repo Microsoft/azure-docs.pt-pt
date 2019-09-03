@@ -1,7 +1,7 @@
 ---
-title: 'Importar do armazenamento de Blobs do Azure: Referência do módulo'
+title: 'Importar do armazenamento de BLOBs do Azure: Referência de módulo'
 titleSuffix: Azure Machine Learning service
-description: Saiba de que este tópico descreve como utilizar a importação do módulo de armazenamento de Blobs do Azure no serviço Azure Machine Learning para ler dados do armazenamento de Blobs do Azure, para que possa utilizar os dados numa experimentação do machine learning.
+description: Aprenda este tópico descreve como usar o módulo importar do armazenamento de BLOBs do Azure no serviço Azure Machine Learning para ler dados do armazenamento de BLOBs do Azure, para que você possa usar os dados em um experimento de aprendizado de máquina.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,88 +9,87 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 4ac98516c1a326e1ede09bbb9660113ffd0642a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fea64070c496379351bb75f2a38aba9b4db70dcd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029689"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128725"
 ---
-# <a name="import-from-azure-blob-storage-module"></a>Importar a partir do módulo de armazenamento de Blobs do Azure
+# <a name="import-from-azure-blob-storage-module"></a>Importar do módulo de armazenamento de BLOBs do Azure
 
-Este artigo descreve um módulo da interface visual (pré-visualização) para o serviço Azure Machine Learning.
+Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
 
-Utilize este módulo para ler dados do armazenamento de Blobs do Azure, para que possa utilizar os dados numa experimentação do machine learning.  
+Use este módulo para ler dados do armazenamento de BLOBs do Azure, para que você possa usar os dados em um experimento de aprendizado de máquina.  
 
-É o serviço de Blobs do Azure para armazenar grandes quantidades de dados, incluindo dados binários. Blobs do Azure podem ser acedidos a partir de qualquer local, utilizando HTTP ou HTTPS. Autenticação poderá ser necessária dependendo do tipo de armazenamento de Blobs. 
+O serviço blob do Azure é para armazenar grandes quantidades de dados, incluindo dados binários. Os BLOBs do Azure podem ser acessados de qualquer lugar, usando HTTP ou HTTPS. A autenticação pode ser necessária dependendo do tipo de armazenamento de BLOBs. 
 
-- Blobs públicos podem ser acedidos por qualquer pessoa, ou pelos utilizadores que têm um URL de SAS.
-- Blobs privadas requerem um início de sessão e as credenciais.
+- Os BLOBs públicos podem ser acessados por qualquer pessoa ou por usuários que têm uma URL SAS.
+- Os BLOBs privados exigem um logon e credenciais.
 
-Importar a partir do armazenamento de BLOBs requer que dados armazenados em blobs que utilizam o **blob de blocos** formato. Os ficheiros armazenados no blob tem de utilizar separados por vírgulas (CSV) ou formatos de (TSV) separados por tabulações. Quando ler o ficheiro, os registos e quaisquer cabeçalhos de atributo aplicáveis são carregados como linhas na memória como um conjunto de dados.
+A importação do armazenamento de BLOBs exige que os dados sejam armazenados em BLOBs que usam o formato de **blob de blocos** . Os arquivos armazenados no blob devem usar formatos separados por vírgulas (CSV) ou separados por tabulação (TSV). Quando você lê o arquivo, os registros e os títulos de atributo aplicáveis são carregados como linhas na memória como um conjunto de uma.
 
 
-Recomendamos vivamente que crie perfis para seus dados antes de importar, para se certificar de que o esquema é conforme esperado. O processo de importação analisa algum número de linhas principais para determinar o esquema, mas linhas posteriores podem conter colunas adicionais ou dados que causam erros.
+É altamente recomendável que você crie o perfil de seus dados antes de importar, para certificar-se de que o esquema está conforme o esperado. O processo de importação examina um número de linhas de cabeçalho para determinar o esquema, mas as linhas posteriores podem conter colunas extras ou dados que causam erros.
 
 
 
 ## <a name="manually-set-properties-in-the-import-data-module"></a>Definir manualmente as propriedades no módulo importar dados
 
-Os passos seguintes descrevem como configurar manualmente a origem de importação.
+As etapas a seguir descrevem como configurar manualmente a origem da importação.
 
-1. Adicionar a **importar dados** módulo à sua experimentação. Pode encontrar este módulo na interface, além de **dados de entrada e saída**
+1. Adicione o módulo **importar dados** ao seu experimento. Você pode encontrar esse módulo na interface, na **entrada e saída de dados**
 
-2. Para **origem de dados**, selecione **armazenamento de Blobs do Azure**.
+2. Para **fonte de dados**, selecione **armazenamento de BLOBs do Azure**.
 
-3. Para **tipo de autenticação**, escolha **público (URL de SAS)** se sabe que as informações foram fornecidas como uma origem de dados públicos. Um URL de SAS é um URL de limite de tempo para acesso público que pode gerar usando um utilitário de armazenamento do Azure.
+3. Para **tipo de autenticação**, escolha **público (URL SAS)** se você souber que as informações foram fornecidas como uma fonte de dados pública. Uma URL SAS é uma URL de limite de tempo para acesso público que você pode gerar usando um utilitário de armazenamento do Azure.
 
     Caso contrário, escolha **conta**.
 
-4. Se os seus dados estão num **público** blob que pode ser acedido ao utilizar um URL de SAS, não necessita de credenciais adicionais porque a cadeia de URL contém todas as informações que é necessária para o download e a autenticação.
+4. Se os dados estiverem em um blob **público** que pode ser acessado usando uma URL SAS, você não precisará de credenciais adicionais porque a cadeia de caracteres de URL contém todas as informações necessárias para download e autenticação.
 
-    Na **URI** campo, escreva ou cole o URI completo que define a conta e o blob público.
+    No campo **URI** , digite ou cole o URI completo que define a conta e o blob público.
 
 
 
-5. Se os seus dados estão num **privada** conta, tem de fornecer credenciais, incluindo o nome da conta e a chave.
+5. Se os dados estiverem em uma conta **privada** , você deverá fornecer credenciais, incluindo o nome da conta e a chave.
 
-    - Para **nome da conta**, escreva ou cole o nome da conta que contém o blob que pretende aceder.
+    - Para **nome da conta**, digite ou cole o nome da conta que contém o blob que você deseja acessar.
 
-        Por exemplo, se o URL completo da conta de armazenamento é `http://myshared.blob.core.windows.net`, teria de escrever `myshared`.
+        Por exemplo, se a URL completa da conta de armazenamento for `http://myshared.blob.core.windows.net`, você digitaria `myshared`.
 
-    - Para **chave de conta**, cole a chave de acesso de armazenamento que estão associada com a conta.
+    - Para **chave de conta**, Cole a chave de acesso de armazenamento associada à conta.
 
-        Se não souber a chave de acesso, consulte a seção, "Gerenciar suas contas de armazenamento do Azure" neste artigo: [Sobre as contas de armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
+        Se você não souber a chave de acesso, consulte a seção "gerenciar suas contas de armazenamento do Azure" neste artigo: [Sobre contas de armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
-6. Para **caminho para o contentor, diretório ou blob**, escreva o nome do blob específico que pretende recuperar.
+6. Para **caminho para contêiner, diretório ou BLOB**, digite o nome do blob específico que você deseja recuperar.
 
-    Por exemplo, se tiver carregado um ficheiro denominado **data01.csv** para o contentor **trainingdata** numa conta com o nome **mymldata**, o URL completo para o ficheiro seria: `http://mymldata.blob.core.windows.net/trainingdata/data01.txt` .
+    Por exemplo, se você carregou um arquivo chamado **data01. csv** para o contêiner **trainingdata** em uma conta chamada **mymldata**, a URL completa para o arquivo seria: `http://mymldata.blob.core.windows.net/trainingdata/data01.txt`.
 
-    Portanto, no campo **caminho para o contentor, diretório ou blob**, teria de escrever: `trainingdata/data01.csv`
+    Portanto, no caminho do campo **para o contêiner, diretório ou BLOB**, você deve digitar:`trainingdata/data01.csv`
 
-    Para importar vários ficheiros, pode utilizar os carateres universais `*` (asterisco) ou `?` (ponto de interrogação).
+    Para importar vários arquivos, você pode usar os caracteres `*` curinga (asterisco) ou `?` (ponto de interrogação).
 
-    Por exemplo, supondo que o contentor `trainingdata` contém vários ficheiros de um formato compatível, poderia usar a especificação do seguinte para ler todos os ficheiros a partir do `data`e a concatená-los num único conjunto de dados:
+    Por exemplo, supondo que `trainingdata` o contêiner contenha vários arquivos de um formato compatível, você pode usar a seguinte especificação para ler todos os `data`arquivos começando com e concatena-los em um único conjunto de um.
 
     `trainingdata/data*.csv`
 
-    Não é possível utilizar carateres universais em nomes de contentor. Se tiver de importar os ficheiros de vários contentores, utilize uma instância separada dos **importar dados** módulo para cada contentor e intercalação, em seguida, os conjuntos de dados com o [adicionar linhas](./add-rows.md) módulo.
+    Você não pode usar caracteres curinga em nomes de contêiner. Se você precisar importar arquivos de vários contêineres, use uma instância separada do módulo **importar dados** para cada contêiner e, em seguida, mescle os DataSets usando o módulo [adicionar linhas](./add-rows.md) .
 
     > [!NOTE]
-    > Se tiver selecionado a opção **resultados em cache de utilização**, quaisquer alterações efetuadas aos ficheiros no contentor não acionam uma atualização dos dados na experimentação.
+    > Se você tiver selecionado a opção, **use resultados armazenados em cache**, quaisquer alterações feitas nos arquivos no contêiner não disparam uma atualização dos dados no experimento.
 
-7. Para **formato de ficheiro Blob**, selecione a opção que indica o formato dos dados que são armazenados no blob, para que o Azure Machine Learning pode processar os dados adequadamente. São suportados os seguintes formatos:
+7. Em **formato de arquivo de blob**, selecione uma opção que indica o formato dos dados armazenados no BLOB, para que Azure Machine Learning possa processar os dados adequadamente. Há suporte para os seguintes formatos:
 
-    - **CSV**: Valores separados por vírgulas (CSV) são o formato de armazenamento padrão para exportar e importar ficheiros no Azure Machine Learning. Se os dados já contém uma linha de cabeçalho, certifique-se de que seleciona a opção **ficheiro tem de linha de cabeçalho**, ou o cabeçalho será tratado como uma linha de dados.
-
-       
-
-    - **TSV**: Valores separados por tabulações (TSV) são um formato utilizado pela máquina muitas ferramentas de aprendizagem. Se os dados já contém uma linha de cabeçalho, certifique-se de que seleciona a opção **ficheiro tem de linha de cabeçalho**, ou o cabeçalho será tratado como uma linha de dados.
+    - **CSV**: Os valores separados por vírgulas (CSV) são o formato de armazenamento padrão para exportar e importar arquivos no Azure Machine Learning. Se os dados já contiverem uma linha de cabeçalho, certifique-se de selecionar a opção, **arquivo tem uma linha de cabeçalho**ou o cabeçalho será tratado como uma linha de dados.
 
        
 
-    - **ARFF**: Este formato suporta a importação de arquivos no formato utilizado pelo conjunto de ferramentas de Weka. 
+    - **TSV**: Os valores separados por tabulações (TSV) são um formato usado por muitas ferramentas de aprendizado de máquina. Se os dados já contiverem uma linha de cabeçalho, certifique-se de selecionar a opção, **arquivo tem uma linha de cabeçalho**ou o cabeçalho será tratado como uma linha de dados.
+
+       
+
+    - **ARFF**: Esse formato dá suporte à importação de arquivos no formato usado pelo conjunto de ferramentas weka. 
 
    
 
@@ -99,4 +98,4 @@ Os passos seguintes descrevem como configurar manualmente a origem de importaç�
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte a [conjunto de módulos disponíveis](module-reference.md) ao serviço Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

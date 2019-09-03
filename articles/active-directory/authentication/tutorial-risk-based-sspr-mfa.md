@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17cea353df0337b062b89cd440f79f7869450f8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9289bfe9e90186896a753e5853d81d2f06669917
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113211"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125187"
 ---
-# <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutorial: Usar eventos de risco para o acionador multi-factor Authentication e alterações de palavra-passe
+# <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutorial: Usar as detecções de risco para disparar a autenticação multifator e as alterações de senha
 
 Neste tutorial, vai ativar funcionalidades do Azure Active Directory (Azure AD) Identity Protection, uma funcionalidade do Azure AD Premium P2 que é mais do que apenas uma ferramenta de monitorização e relatórios. Para proteger as identidades da sua organização, pode configurar políticas baseadas em risco que respondam automaticamente aos comportamentos de risco. Estas políticas podem bloquear ou iniciar imediatamente a remediação, incluindo a exigência de alteração da palavra-passe e a imposição do Multi-Factor Authentication.
 
-O Azure AD Identity Protection políticas podem ser utilizadas para além das políticas de acesso condicional existentes como uma camada extra de proteção. Os utilizadores poderão nunca acionar um comportamento de risco que requeira uma destas políticas mas, como administrador, sabe que eles estão protegidos.
+Azure AD Identity Protection políticas podem ser usadas além das políticas de acesso condicional existentes como uma camada extra de proteção. Os utilizadores poderão nunca acionar um comportamento de risco que requeira uma destas políticas mas, como administrador, sabe que eles estão protegidos.
 
-Alguns itens que podem acionar um evento de risco incluem:
+Alguns itens que podem disparar uma detecção de risco incluem:
 
 * Utilizadores com fuga de credenciais
 * Inícios de sessão de endereços IP anónimos
@@ -52,7 +52,7 @@ A ativação das políticas baseadas em risco é um processo simples. Os passos 
 
 ### <a name="enable-users-to-register-for-multi-factor-authentication"></a>Permitir aos utilizadores registarem-se no Multi-Factor Authentication
 
-O Azure AD Identity Protection inclui uma política predefinida que pode ajudá-lo para obter os seus utilizadores se registou para o multi-factor Authentication e identificar facilmente o estado do registo atual. A ativação desta política não começa a pedir aos utilizadores para executarem o Multi-Factor Authentication, mas irá pedir-lhes que façam o pré-registo.
+Azure AD Identity Protection inclui uma política padrão que pode ajudá-lo a obter seus usuários registrados para autenticação multifator e identificar facilmente o status de registro atual. A ativação desta política não começa a pedir aos utilizadores para executarem o Multi-Factor Authentication, mas irá pedir-lhes que façam o pré-registo.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Clique em **Todos os serviços** e, em seguida, procure **Azure AD Identity Protection**.
@@ -61,7 +61,7 @@ O Azure AD Identity Protection inclui uma política predefinida que pode ajudá-
    1. Definir esta política irá exigir que todos os utilizadores registem os métodos para preparar a utilização do Multi-Factor Authentication.
 1. Clique em **Guardar**.
 
-   ![Exigir que os utilizadores para se registar para MFA no início de sessão](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
+   ![Exigir que os usuários se registrem no MFA na entrada](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
 
 ### <a name="enable-risk-based-password-changes"></a>Permitir alterações de palavra-passe baseadas em risco
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 0bd8c0417b32e93a4f52b545c4d7fc532992a0b1
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 4a20318a4779b06e60d849dea0774d717d87e48e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854335"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141854"
 ---
 # <a name="optimize-expressroute-routing"></a>Otimizar o Encaminhamento do ExpressRoute
 Se tem vários circuitos do ExpressRoute, significa que tem mais do que um caminho para se ligar à Microsoft. Sendo assim, o encaminhamento poderá não ser o ideal, ou seja, o tráfego poderá optar por um caminho mais longo para chegar à Microsoft e da Microsoft à sua rede. Quanto mais longo for o caminho de rede, maior será a latência. A latência tem um impacto direto no desempenho das aplicações e na experiência do utilizador. Este artigo ilustra este problema e explica como otimizar o encaminhamento com as tecnologias de encaminhamento padrão.
@@ -75,7 +75,7 @@ Existem duas soluções para o problema. A primeira é simplesmente anunciar o p
 A segunda solução é continuar a anunciar ambos os prefixos em ambos os circuitos do ExpressRoute e, além disso, dar-nos uma sugestão de qual é o prefixo que está próximo de qual dos seus escritórios. Uma vez que suportamos a prefixação COMO Caminho do BGP, pode configurá-la para o seu prefixo de modo a influenciar o encaminhamento. Neste exemplo, pode aumentar a prefixação COMO Caminho para 172.2.0.0/31 nos EUA Leste de modo a preferirmos o circuito do ExpressRoute nos EUA Oeste para o tráfego destinado a este prefixo (uma vez que a nossa rede irá considerar o caminho para este prefixo mais curto no Oeste). Pode, do mesmo modo, aumentar a prefixação COMO Caminho para 172.2.0.2/31 nos EUA Oeste, de modo a preferirmos o circuito do ExpressRoute nos EUA Leste. O encaminhamento fica otimizado para ambos os escritórios. Com esta estrutura, se um circuito do ExpressRoute for interrompido, o Exchange Online ainda consegue contactá-lo através de outro circuito do ExpressRoute e da sua WAN. 
 
 > [!IMPORTANT]
-> Removemos os números privados COMO no COMO Caminho para os prefixos recebidos no Peering da Microsoft. Temos de acrescentar números públicos COMO no COMO Caminho de modo a influenciar o encaminhamento para o Peering da Microsoft.
+> Removemos os números de as privados no caminho as para os prefixos recebidos no emparelhamento da Microsoft durante o emparelhamento usando um número de AS privado. Você precisa emparelhar com um público como e anexar os números de as no caminho as para influenciar o roteamento para o emparelhamento da Microsoft.
 > 
 > 
 

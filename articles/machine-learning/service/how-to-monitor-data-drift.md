@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 41e357ee53d4c2fbc6683be3446ba2527dd9253f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: c6c4d1d4da3679eaefacb5aa0c91fcf64afc2a6b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623986"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128283"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detectar descompasso de dados (versão prévia) em modelos implantados no serviço kubernetes do Azure (AKS)
 
@@ -178,16 +178,7 @@ Para configurar ações e alertas personalizados, todas as métricas de descompa
 
 ## <a name="retrain-your-model-after-drift"></a>Treinar novamente o modelo após a descompasso
 
-Quando a descompasso de dados afeta negativamente o desempenho do modelo implantado, é hora de treinar novamente o modelo. O método [ a seguir `diff()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#diff-rhs-dataset--compute-target-none--columns-none-
-) fornece uma noção inicial do que mudou entre os conjuntos de dados de treinamento antigo e novo. 
-
-```python
-from azureml.core import Dataset
-
-old_training_dataset.diff(new_training_dataset)
-```
-
-Com base na saída do código anterior, talvez você queira treinar novamente seu modelo. Para fazer isso, continue com as etapas a seguir.
+Quando a descompasso de dados afeta negativamente o desempenho do modelo implantado, é hora de treinar novamente o modelo. Para fazer isso, continue com as etapas a seguir.
 
 * Investigue os dados coletados e prepare os dados para treinar o novo modelo.
 * Divida-o em dados de treinamento/teste.

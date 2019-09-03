@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: bcdb549ce5b522b2d456e2cbeb5471b9df984514
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 945afd4f0a5049985955bbc71bbf6b2250f68d2a
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774416"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129044"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Solucionar problemas de falhas de máquina virtual (VM) e de criação de ambiente no Azure DevTest Labs
 O DevTest Labs fornecerá avisos se um nome de computador for inválido ou se você estiver prestes a violar uma política de laboratório. Às vezes, você vê `X` vermelho ao lado da VM do laboratório ou do status do ambiente informando que algo deu errado.  Este artigo fornece alguns truques que você pode usar para encontrar o problema subjacente e, espero, evitar o problema no futuro.
 
 ## <a name="portal-notifications"></a>Notificações do portal
-Se você estiver usando o portal do Azure, o primeiro lugar a ser examinado é o **painel notificações**.  O painel notificações, disponível na barra de comandos principal, clicando no **ícone de sino**, indicará se a VM do laboratório ou a criação do ambiente foi bem-sucedida ou não.  Se houve uma falha, você verá a mensagem de erro associada à falha de criação. Os detalhes geralmente fornecem mais informações para ajudá-lo a resolver o problema. No exemplo a seguir, a criação da máquina virtual falhou devido à execução de núcleos. A mensagem detalhada informa como corrigir o problema e solicitar um aumento de cota de núcleo.
+Se você estiver usando o portal do Azure, o primeiro lugar a ser examinado é o **painel notificações**.  O painel notificações, disponível na barra de comandos principal, clicando no **ícone de sino**, indicará se a VM do laboratório ou a criação do ambiente foi bem-sucedida ou não.  Se houve uma falha, você verá a mensagem de erro associada à falha de criação. Os detalhes geralmente fornecem mais informações para ajudá-lo a resolver o problema. No exemplo a seguir, a criação da máquina virtual falhou devido à execução de núcleos. A mensagem detalhada informa como corrigir o problema e solicitar um aumento de cota de núcleo.
 
 ![Notificação de portal do Azure](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
 
@@ -76,5 +76,5 @@ Para ver os logs de implantação do modelo de laboratório, siga estas etapas:
 4. Na página **implantação** , selecione **detalhes da operação** link para a operação que falhou.
 5. Você verá detalhes sobre a operação que falhou na janela **detalhes da operação** .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte [Solucionando problemas de falhas de artefato](devtest-lab-troubleshoot-artifact-failure.md)

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c30669c8f5aeefc14db42a32d87f333419758327
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 28c64653ee0f9135e6da4c3768b89f9a0b25b2ef
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989869"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127364"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introdução à API de relatório do Azure Active Directory
 
@@ -49,7 +49,7 @@ Para obter instruções detalhadas, consulte os [pré-requisitos para acessar a 
 
 O ponto de extremidade de API do Microsoft Graph `https://graph.microsoft.com/beta/auditLogs/directoryAudits` para logs de auditoria é e o ponto de extremidade `https://graph.microsoft.com/beta/auditLogs/signIns`da API do Microsoft Graph para entradas é. Para obter mais informações, consulte a referência da [API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) e a [referência da API de entrada](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
 
-Além disso, você pode usar a [API de eventos de risco de proteção de identidade](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) para obter acesso programático a detecções de segurança usando o Microsoft Graph. Para obter mais informações, consulte Introdução [ao Azure Active Directory Identity Protection e Microsoft Graph](../identity-protection/graph-get-started.md). 
+Além disso, você pode usar a [API de detecções de risco da proteção de identidade](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) para obter acesso programático a detecções de segurança usando o Microsoft Graph. Para obter mais informações, consulte Introdução [ao Azure Active Directory Identity Protection e Microsoft Graph](../identity-protection/graph-get-started.md). 
 
 > [!NOTE]
 >  O ponto de extremidade de **relatórios\/\/\/denome\>delocatário\<https:Graph.Windows.netfoipreterido\/.\/** Use os novos pontos de extremidade de API descritos acima para acessar programaticamente os relatórios de atividade e de segurança.
@@ -68,7 +68,7 @@ Use a API de relatórios do Azure AD com certificados se você planeja recuperar
 
 Para obter instruções detalhadas, consulte [obter dados usando a API de relatórios do Azure AD com certificados](tutorial-access-api-with-certificates.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
  * [Pré-requisitos para acessar a API de relatórios](howto-configure-prerequisites-for-reporting-api.md) 
  * [Obter dados usando a API de relatórios do Azure AD com certificados](tutorial-access-api-with-certificates.md)

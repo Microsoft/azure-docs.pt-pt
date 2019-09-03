@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abaf8c910710000930f4e0ab6200d0ebd75b8d46
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: ca82efbd4e26ccb8a169c84332e3d24196fae95e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835205"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135861"
 ---
 # <a name="national-clouds"></a>Nuvens nacionais
 
@@ -68,9 +68,6 @@ Você pode formar solicitações para a autorização do Azure AD ou pontos de e
   - O ponto de extremidade `https://login.microsoftonline.de/common/oauth2/token`comum do token é.
 
 Para aplicativos de locatário único, substitua "Common" nas URLs anteriores pela sua ID de locatário ou nome. Um exemplo é `https://login.microsoftonline.de/contoso.com`.
-
-> [!NOTE]
-> Os pontos de extremidade de autorização e token do [Azure ad v 2.0]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) estão disponíveis somente para o serviço global. Eles não têm suporte para implantações de nuvem nacionais.
 
 ## <a name="microsoft-graph-api"></a>API de Microsoft Graph
 

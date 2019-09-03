@@ -1,29 +1,28 @@
 ---
-title: Suporte para utilizar o Azure Site Recovery com o Azure Backup | Documentos da Microsoft
-description: Fornece uma descrição geral de como Azure Site Recovery e o Azure Backup podem ser utilizado em conjunto.
-services: site-recovery
+title: Suporte para o uso de Azure Site Recovery com o backup do Azure
+description: Fornece uma visão geral de como o Azure Site Recovery e o backup do Azure podem ser usados juntos.
 author: sideeksh
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: sideeksh
-ms.openlocfilehash: e902f70225ec0eb0caa98f7e19a16c87220cb6f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2078aa33ca735b91b5923d94028a286427f107a6
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61035780"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146862"
 ---
-# <a name="support-for-using-site-recovery-with-azure-backup"></a>Suporte para utilizar o Site Recovery com o Azure Backup
+# <a name="support-for-using-site-recovery-with-azure-backup"></a>Suporte para o uso de Site Recovery com o backup do Azure
 
-Este artigo resume o suporte para utilizar o [serviço Site Recovery](site-recovery-overview.md) em conjunto com o [serviço de cópia de segurança do Azure](https://docs.microsoft.com/azure/backup/backup-overview).
+Este artigo resume o suporte para usar o [serviço de site Recovery](site-recovery-overview.md) junto com o [serviço de backup do Azure](https://docs.microsoft.com/azure/backup/backup-overview).
 
-**ação** | **Suporte de recuperação de site** | **Detalhes**
+**ação** | **Suporte a Site Recovery** | **Detalhes**
 --- | --- | ---
-**Implementar serviços em conjunto** | Suportadas | Os serviços são interoperáveis e podem ser configurados em conjunto.
-**Cópia de segurança/restauro de ficheiros** | Suportadas | Quando a cópia de segurança e de replicação estão ativadas para uma VM e backups são feitos, não existe nenhum problema no restauro de ficheiros no lado da origem VMs ou o grupo de VMs. Replicação como de costume continua sem qualquer alteração no estado de funcionamento de replicação.
-**Cópia de segurança/restauro de disco** | Não há suporte atual | Se restaurar um disco de cópia de segurança, terá de desativar e reativar a replicação novamente para a VM.
-**Cópia de segurança/restauro de VMS** | Não há suporte atual | Se criar cópias de segurança ou restaurar uma VM ou um grupo de VMs, terá de desativar e reativar a replicação para a VM.  
+**Implantar serviços juntos** | Suportadas | Os serviços são interoperáveis e podem ser configurados juntos.
+**Backup/restauração de arquivo** | Suportadas | Quando o backup e a replicação estão habilitados para uma VM e os backups são feitos, não há nenhum problema na restauração de arquivos nas VMs do lado da origem ou no grupo de VMs. A replicação continua normalmente sem alteração na integridade da replicação.
+**Backup/restauração de disco** | Não há suporte atual | Se você restaurar um disco de backup, será necessário desabilitar e reabilitar novamente a replicação para a VM.
+**Backup/restauração da VM** | Não há suporte atual | Se você fizer backup ou restaurar uma VM ou um grupo de VMs, será necessário desabilitar e reabilitar a replicação para a VM.  
 
 

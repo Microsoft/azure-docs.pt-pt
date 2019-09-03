@@ -1,7 +1,7 @@
 ---
-title: 'Edite metadados: Referência do módulo'
+title: 'Editar metadados: Referência do módulo'
 titleSuffix: Azure Machine Learning service
-description: Saiba como utilizar o módulo de editar metadados no serviço do Azure Machine Learning para alterar os metadados que está associada a colunas num conjunto de dados.
+description: Saiba como usar o módulo editar metadados no serviço de Azure Machine Learning para alterar os metadados associados às colunas em um conjunto de informações.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,94 +9,93 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 282652adb917450c262e08bf10c3c6e537b829e7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 642b2a038ec434584c8af6dd72d58810e136ed57
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072708"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128871"
 ---
-# <a name="edit-metadata-module"></a>Editar o módulo de metadados
+# <a name="edit-metadata-module"></a>Editar módulo de metadados
 
-Este artigo descreve um módulo da interface visual (pré-visualização) para o serviço Azure Machine Learning.
+Este artigo descreve um módulo da interface visual (visualização) para o serviço Azure Machine Learning.
 
-Utilize o módulo de dados de editar para alterar os metadados que está associada a colunas num conjunto de dados. O tipo de dados de valor e do conjunto de dados será alterado após o uso do módulo Editar metadados.
+Use o módulo editar dados para alterar os metadados que estão associados a colunas em um DataSet. O valor e o tipo de dados do DataSet serão alterados após o uso do módulo editar metadados.
 
-Alterações de metadados típicas podem incluir:
+As alterações de metadados típicas podem incluir:
   
-+ Tratando booleanas ou numérico colunas como valores categóricos.
++ Tratando colunas booleanas ou numéricas como valores categóricos.
   
-+ Que indica a coluna que contém o **classe** etiqueta ou contém os valores que pretende categorizar ou prever.
++ Indicando qual coluna contém o rótulo de **classe** ou contém os valores que você deseja categorizar ou prever.
   
-+ A marcar colunas como recursos.
++ Marcando colunas como recursos.
   
-+ Alterar os valores de data/hora para valores numéricos ou vice-versa.
++ Alterar valores de data/hora para valores numéricos ou vice-versa.
   
-+ Mudar o nome de colunas.
++ Renomeando colunas.
   
- Utilize Editar metadados sempre que necessitar de modificar a definição de uma coluna, normalmente, para satisfazer os requisitos para um módulo de downstream. Por exemplo, alguns módulos trabalhar apenas com tipos de dados específicos ou exigir sinalizadores em colunas, tal como `IsFeature` ou `IsCategorical`.  
+ Use editar metadados sempre que você precisar modificar a definição de uma coluna, normalmente para atender aos requisitos de um módulo downstream. Por exemplo, alguns módulos funcionam apenas com tipos de dados específicos ou exigem sinalizadores nas colunas, `IsFeature` como ou. `IsCategorical`  
   
- Depois de efetuar a operação necessária, pode repor os metadados para o estado original.
+ Depois de executar a operação necessária, você pode redefinir os metadados para seu estado original.
   
-## <a name="configure-edit-metadata"></a>Configurar Editar metadados
+## <a name="configure-edit-metadata"></a>Configurar editar metadados
   
-1. No Azure Machine Learning, adicione o módulo de editar metadados à sua experimentação e ligue-se o conjunto de dados que pretende atualizar. Pode encontrar o conjunto de dados sob **transformação de dados** no **Manipulate** categoria.
+1. No Azure Machine Learning, adicione o módulo editar metadados ao seu experimento e conecte o conjunto de um que você deseja atualizar. Você pode encontrar o conjunto de **dados em data** Transformation na categoria **manipular** .
   
-1. Selecione **inicie o Seletor de colunas** e escolha a coluna ou o conjunto de colunas para trabalhar com. Pode escolher colunas individualmente por nome ou o índice ou pode escolher um grupo de colunas por tipo.  
+1. Selecione **iniciar o seletor de coluna** e escolha a coluna ou conjunto de colunas com a qual trabalhar. Você pode escolher colunas individualmente por nome ou índice, ou pode escolher um grupo de colunas por tipo.  
   
-1. Selecione o **tipo de dados** opção se pretender atribuir um tipo de dados diferentes para as colunas selecionadas. Poderá ter de alterar o tipo de dados em algumas operações. Por exemplo, se o conjunto de dados de origem tiver números tratados como texto, deve alterá-los para um tipo de dados numéricos antes de a utilizar operações matemáticas.
+1. Selecione a opção **tipo de dados** se você precisar atribuir um tipo de dados diferente às colunas selecionadas. Talvez seja necessário alterar o tipo de dados para determinadas operações. Por exemplo, se o conjunto de dados de origem tiver números tratados como texto, você deverá alterá-los para um tipo de dado numérico antes de usar operações matemáticas.
 
-    + Os tipos de dados suportados são **cadeia de caracteres**, **número inteiro**, **duplo**, **booleanos**, e **DateTime**.
+    + Os tipos de dados com suporte são **cadeia de caracteres**, **inteiro**, **duplo**, **booliano**e **DateTime**.
 
-    + Se selecionar várias colunas, tem de aplicar as alterações de metadados *todos os* nas colunas selecionadas. Por exemplo, digamos que selecione dois ou três colunas numéricas. Pode alterá-los a uma cadeia de tipo de dados e renomeá-los numa única operação. No entanto, não é possível alterar uma coluna para um tipo de dados de cadeia de caracteres e outra coluna de um número de vírgula flutuante para um número inteiro.
+    + Se você selecionar várias colunas, deverá aplicar as alterações de metadados a *todas as* colunas selecionadas. Por exemplo, digamos que você escolha duas ou três colunas numéricas. Você pode alterá-los para um tipo de dados de cadeia de caracteres e renomeá-los em uma única operação. No entanto, você não pode alterar uma coluna para um tipo de dados de cadeia de caracteres e outra coluna de um float para um inteiro.
   
-    + Se não especificar um novo tipo de dados, os metadados da coluna não são alterado.
+    + Se você não especificar um novo tipo de dados, os metadados da coluna ficarão inalterados.
 
-    + O tipo de coluna e os valores serão alterados depois de efetuar a operação de editar metadados. Pode recuperar o tipo de dados original em qualquer altura utilizando Editar metadados para repor o tipo de dados de coluna.  
+    + O tipo de coluna e os valores serão alterados depois que você executar a operação de edição de metadados. Você pode recuperar o tipo de dados original a qualquer momento usando editar metadados para redefinir o tipo de dados da coluna.  
 
     > [!NOTE]
-    > Se alterar qualquer tipo de número para o **DateTime** escreva, deixe a **formato DateTime** valor de campo em branco. Atualmente não é possível especificar o formato de dados de destino.  
+    > Se você alterar qualquer tipo de número para o tipo **DateTime** , deixe o campo de **formato DateTime** em branco. Atualmente, não é possível especificar o formato de dados de destino.  
 
-1. Selecione o **Categórico** opção para especificar que os valores nas colunas selecionadas devem ser tratados como categorias.
+1. Selecione a opção **categórica** para especificar que os valores nas colunas selecionadas devem ser tratados como categorias.
 
-    Por exemplo, pode ter uma coluna que contém os números de 0, 1 e 2, mas sabe que os números realmente "Smoker", "Não-smoker" e "Desconhecido". Nesse caso, ao sinalizar a coluna como categóricos é garantir que os valores são utilizados apenas para agrupar dados e não nos cálculos numéricos.
+    Por exemplo, você pode ter uma coluna que contém os números 0, 1 e 2, mas sabe que os números realmente significam "fumaça", "não-fumaça" e "desconhecido". Nesse caso, sinalizando a coluna como categórica você garante que os valores sejam usados apenas para agrupar dados e não em cálculos numéricos.
   
-1. Utilize o **campos** opção se pretender alterar a forma como o que o Azure Machine Learning utiliza os dados num modelo.
+1. Use a opção **campos** se desejar alterar a maneira como Azure Machine Learning usa os dados em um modelo.
 
-    + **Funcionalidade**: Utilize esta opção para sinalizar uma coluna como uma funcionalidade em módulos que funcionam apenas em colunas de funcionalidades. Por predefinição, todas as colunas inicialmente são tratadas como recursos.  
+    + **Recurso**: Use esta opção para sinalizar uma coluna como um recurso em módulos que operam somente em colunas de recursos. Por padrão, todas as colunas são tratadas inicialmente como recursos.  
   
-    + **Etiqueta**: Utilize esta opção para marcar o rótulo, o que é também conhecida como a variável previsível de atributo ou de destino. Muitos módulos exigem que essa coluna exatamente uma etiqueta está presente no conjunto de dados.
+    + **Rótulo**: Use esta opção para marcar o rótulo, que também é conhecido como atributo previsível ou variável de destino. Muitos módulos exigem que exatamente uma coluna de rótulo esteja presente no DataSet.
 
-        Em muitos casos, o Azure Machine Learning pode inferir que uma coluna contém uma etiqueta de classe. Ao definir estes metadados, pode certificar-se de que a coluna é identificada corretamente. Definir esta opção não altera os valores de dados. Ele é alterado apenas da forma que alguns algoritmos de machine learning lidar com os dados.
+        Em muitos casos, Azure Machine Learning pode inferir que uma coluna contém um rótulo de classe. Ao definir esses metadados, você pode garantir que a coluna seja identificada corretamente. Definir essa opção não altera os valores de dados. Ele altera apenas a maneira como alguns algoritmos de aprendizado de máquina manipulam os dados.
   
     > [!TIP]
-    > Tem dados que não se encaixa nessas categorias? Por exemplo, o conjunto de dados pode conter valores como identificadores exclusivos que não são úteis como variáveis. Às vezes, esses IDs podem causar problemas quando utilizado num modelo.
+    > Você tem dados que não se ajustam a essas categorias? Por exemplo, seu conjunto de seus conjuntos de seus pode conter valores como identificadores exclusivos que não são úteis como variáveis. Às vezes, essas IDs podem causar problemas quando usadas em um modelo.
     >
-    > Felizmente, Azure Machine Learning mantém todos os seus dados, para que não precisa de eliminar este tipo de colunas do conjunto de dados. Quando tiver de realizar operações num conjunto especial de colunas, apenas remover todas as outras colunas temporariamente com o [Select Columns in Dataset](select-columns-in-dataset.md) módulo. Mais tarde possível intercalar as colunas de volta para o conjunto de dados utilizando o [adicionar colunas](add-columns.md) módulo.  
+    > Felizmente, Azure Machine Learning mantém todos os seus dados, de modo que você não precisa excluir essas colunas do DataSet. Quando você precisa executar operações em um conjunto especial de colunas, basta remover todas as outras colunas temporariamente usando o módulo [selecionar colunas no conjunto](select-columns-in-dataset.md) de módulos. Posteriormente, você pode mesclar as colunas de volta para o conjunto de um usando o módulo [adicionar colunas](add-columns.md) .  
   
-1. Utilize as seguintes opções para limpar seleções anteriores e restaurar metadados para os valores predefinidos.  
+1. Use as opções a seguir para limpar as seleções anteriores e restaurar os metadados para os valores padrão.  
   
-    + **Funcionalidade clara**: Utilize esta opção para remover o sinalizador de funcionalidade.  
+    + **Limpar recurso**: Use esta opção para remover o sinalizador de recurso.  
   
-         Inicialmente, todas as colunas são tratadas como recursos. Para os módulos que realizam operações matemáticas, poderá ter de utilizar esta opção para impedir que está a ser tratado como variáveis de colunas numéricas.
+         Todas as colunas são tratadas inicialmente como recursos. Para módulos que executam operações matemáticas, talvez seja necessário usar essa opção para impedir que colunas numéricas sejam tratadas como variáveis.
   
-    + **Etiqueta clara**: Utilize esta opção para remover o **etiqueta** metadados a partir da coluna especificada.  
+    + **Limpar rótulo**: Use esta opção para remover os metadados do **rótulo** da coluna especificada.  
   
-    + **Desmarque a classificação**: Utilize esta opção para remover o **pontuação** metadados a partir da coluna especificada.  
+    + **Limpar Pontuação**: Use esta opção para remover os metadados de **Pontuação** da coluna especificada.  
   
-         Não é atualmente possível explicitamente marcar uma coluna como uma pontuação no Azure Machine Learning. No entanto, algumas operações resultam numa coluna a ser sinalizada como uma pontuação internamente. Além disso, um módulo R personalizado poderá saída valores de pontuação.
+         Atualmente, você não pode marcar uma coluna explicitamente como uma pontuação em Azure Machine Learning. No entanto, algumas operações resultam em uma coluna sendo sinalizada como uma pontuação internamente. Além disso, um módulo R personalizado pode gerar valores de pontuação.
 
-1. Para **novos nomes das colunas**, introduza o novo nome da coluna selecionada ou colunas.  
+1. Para **novos nomes de coluna**, insira o novo nome da coluna ou das colunas selecionadas.  
   
-    + Os nomes das colunas, podem utilizar apenas os carateres que são suportados pelo UTF-8 codificação. Cadeias de caracteres vazias, nulos ou nomes consistem inteiramente de espaços não são permitidos.  
+    + Os nomes de coluna podem usar apenas caracteres com suporte na codificação UTF-8. Cadeias de caracteres vazias, nulos ou nomes que consistem inteiramente de espaços não são permitidos.  
   
-    + Para mudar o nome de várias colunas, introduza os nomes como uma lista separada por vírgulas, por ordem de índices de colunas.  
+    + Para renomear várias colunas, insira os nomes como uma lista separada por vírgulas na ordem dos índices de coluna.  
   
-    + Tem de ser mudar o nome de todas as colunas selecionadas. Não é possível omitir ou ignorar colunas.  
+    + Todas as colunas selecionadas devem ser renomeadas. Você não pode omitir ou ignorar colunas.  
   
 1. Execute a experimentação.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte a [conjunto de módulos disponíveis](module-reference.md) para o serviço Azure Machine Learning.
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning.

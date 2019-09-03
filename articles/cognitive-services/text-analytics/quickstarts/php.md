@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: 62dd04b6df465b82bb1b39e23afce410325c4248
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: a1e3484c544478fa6e9414eea1e139b81652ace3
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697328"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135018"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Usando PHP para chamar o serviço de Análise de Texto cognitiva
 <a name="HOLTop"></a>
@@ -34,34 +34,32 @@ Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter
 
 A API Deteção de Idioma deteta o idioma de um documento de texto através do [método Detetar Idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
+1. Crie variáveis `TEXT_ANALYTICS_SUBSCRIPTION_KEY` de ambiente `TEXT_ANALYTICS_ENDPOINT` e para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis.
 1. Crie um novo projeto PHP no seu IDE favorito.
-2. Adicione o código indicado abaixo.
-3. Substitua o valor `accessKey` por uma chave de acesso válida para a sua subscrição.
-4. Substitua a localização em `host` (atualmente `westus`) pela região em que se inscreveu.
-5. Execute o programa.
+1. Adicione o código indicado abaixo.
+1. Execute o programa.
 
 ```php
 <?php
 
 // NOTE: Be sure to uncomment the following line in your php.ini file.
 // ;extension=php_openssl.dll
+// You might need to set the full path, for example:
+// extension="C:\Program Files\Php\ext\php_openssl.dll"
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+$key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+if (!getenv($key_var)) {
+    throw new Exception ("Please set/export the following environment variable: $key_var");
+} else {
+    $subscription_key = getenv($key_var);
+}
+$endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+if (!getenv($endpoint_var)) {
+    throw new Exception ("Please set/export the following environment variable: $endpoint_var");
+} else {
+    $endpoint = getenv($endpoint_var);
+}
 
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
 $path = '/text/analytics/v2.1/languages';
 
 function DetectLanguage ($host, $path, $key, $data) {
@@ -95,7 +93,7 @@ $data = array (
 
 print "Please wait a moment for the results to appear.";
 
-$result = DetectLanguage ($host, $path, $accessKey, $data);
+$result = DetectLanguage ($endpoint, $path, $subscription_key, $data);
 
 echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
@@ -153,42 +151,47 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos de texto através do [método Sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). O seguinte exemplo classifica dois documentos, um em inglês e outro em espanhol.
 
+1. Crie variáveis `TEXT_ANALYTICS_SUBSCRIPTION_KEY` de ambiente `TEXT_ANALYTICS_ENDPOINT` e para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis.
 1. Crie um novo projeto PHP no seu IDE favorito.
-2. Adicione o código indicado abaixo.
-3. Substitua o valor `accessKey` por uma chave de acesso válida para a sua subscrição.
-4. Substitua a localização em `host` (atualmente `westus`) pela região em que se inscreveu.
-5. Execute o programa.
+1. Adicione o código indicado abaixo.
+1. Execute o programa.
 
 ```php
 <?php
 
 // NOTE: Be sure to uncomment the following line in your php.ini file.
 // ;extension=php_openssl.dll
+// You might need to set the full path, for example:
+// extension="C:\Program Files\Php\ext\php_openssl.dll"
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+$key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+if (!getenv($key_var)) {
+    throw new Exception ("Please set/export the following environment variable: $key_var");
+} else {
+    $subscription_key = getenv($key_var);
+}
+$endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+if (!getenv($endpoint_var)) {
+    throw new Exception ("Please set/export the following environment variable: $endpoint_var");
+} else {
+    $endpoint = getenv($endpoint_var);
+}
 
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
 $path = '/text/analytics/v2.1/sentiment';
 
 function GetSentiment ($host, $path, $key, $data) {
-
-    $headers = "Content-type: text/json\r\n" .
-        "Ocp-Apim-Subscription-Key: $key\r\n";
+    // Make sure all text is UTF-8 encoded.
+    foreach ($data as &$item) {
+        foreach ($item as $ignore => &$value) {
+            $value['text'] = utf8_encode($value['text']);
+        }
+    }
 
     $data = json_encode ($data);
+
+    $headers = "Content-type: text/json\r\n" .
+        "Content-Length: " . strlen($data) . "\r\n" .
+        "Ocp-Apim-Subscription-Key: $key\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
     // https://php.net/manual/en/function.stream-context-create.php
@@ -213,7 +216,7 @@ $data = array (
 
 print "Please wait a moment for the results to appear.";
 
-$result = GetSentiment ($host, $path, $accessKey, $data);
+$result = GetSentiment($endpoint, $path, $subscription_key, $data);
 
 echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
@@ -245,34 +248,32 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 A API de Extração de Expressões-Chave extrai expressões-chave de um documento de texto através do [método Expressões-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). O seguinte exemplo extrai expressões-chave para o documento em inglês e o documento em espanhol.
 
+1. Crie variáveis `TEXT_ANALYTICS_SUBSCRIPTION_KEY` de ambiente `TEXT_ANALYTICS_ENDPOINT` e para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis.
 1. Crie um novo projeto PHP no seu IDE favorito.
-2. Adicione o código indicado abaixo.
-3. Substitua o valor `accessKey` por uma chave de acesso válida para a sua subscrição.
-4. Substitua a localização em `host` (atualmente `westus`) pela região em que se inscreveu.
-5. Execute o programa.
+1. Adicione o código indicado abaixo.
+1. Execute o programa.
 
 ```php
 <?php
 
 // NOTE: Be sure to uncomment the following line in your php.ini file.
 // ;extension=php_openssl.dll
+// You might need to set the full path, for example:
+// extension="C:\Program Files\Php\ext\php_openssl.dll"
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+$key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+if (!getenv($key_var)) {
+    throw new Exception ("Please set/export the following environment variable: $key_var");
+} else {
+    $subscription_key = getenv($key_var);
+}
+$endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+if (!getenv($endpoint_var)) {
+    throw new Exception ("Please set/export the following environment variable: $endpoint_var");
+} else {
+    $endpoint = getenv($endpoint_var);
+}
 
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
 $path = '/text/analytics/v2.1/keyPhrases';
 
 function GetKeyPhrases ($host, $path, $key, $data) {
@@ -306,11 +307,10 @@ $data = array (
 
 print "Please wait a moment for the results to appear.";
 
-$result = GetKeyPhrases ($host, $path, $accessKey, $data);
+$result = GetKeyPhrases($endpoint, $path, $subscription_key, $data);
 
 echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
-
 ```
 
 **Resposta de extração de expressões-chave**
@@ -359,41 +359,39 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 A API de Entidades identifica entidades conhecidas num documento de texto através do [método Entidades](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). O seguinte exemplo identifica as entidades dos documentos em inglês.
 
+1. Crie variáveis `TEXT_ANALYTICS_SUBSCRIPTION_KEY` de ambiente `TEXT_ANALYTICS_ENDPOINT` e para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis.
 1. Crie um novo projeto PHP no seu IDE favorito.
-2. Adicione o código indicado abaixo.
-3. Substitua o valor `accessKey` por uma chave de acesso válida para a sua subscrição.
-4. Substitua a localização em `host` (atualmente `westus`) pela região em que se inscreveu.
-5. Execute o programa.
+1. Adicione o código indicado abaixo.
+1. Execute o programa.
 
 ```php
 <?php
 
 // NOTE: Be sure to uncomment the following line in your php.ini file.
 // ;extension=php_openssl.dll
+// You might need to set the full path, for example:
+// extension="C:\Program Files\Php\ext\php_openssl.dll"
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+$key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+if (!getenv($key_var)) {
+    throw new Exception ("Please set/export the following environment variable: $key_var");
+} else {
+    $subscription_key = getenv($key_var);
+}
+$endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+if (!getenv($endpoint_var)) {
+    throw new Exception ("Please set/export the following environment variable: $endpoint_var");
+} else {
+    $endpoint = getenv($endpoint_var);
+}
 
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
 $path = '/text/analytics/v2.1/entities';
 
 function GetEntities ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
+        "Content-Length: " . Length($data) . "\r\n" .
         "Ocp-Apim-Subscription-Key: $key\r\n";
-
     $data = json_encode ($data);
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
@@ -418,11 +416,10 @@ $data = array (
 
 print "Please wait a moment for the results to appear.";
 
-$result = GetEntities ($host, $path, $accessKey, $data);
+$result = GetEntities($endpoint, $path, $subscription_key, $data);
 
 echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
-
 ```
 
 **Resposta de extração de entidades**
@@ -474,7 +471,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)

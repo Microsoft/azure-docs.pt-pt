@@ -1,37 +1,35 @@
 ---
-title: Criar/agendamento de Pipelines, encadear atividades no Data Factory | Documentos da Microsoft
-description: Aprenda a criar um pipeline de dados no Azure Data Factory para mover e transformar dados. Crie um fluxo de trabalho orientados a dados para produzir pronto a utilizar as informações.
+title: Criar/agendar pipelines, atividades de encadeamento em Data Factory | Microsoft Docs
+description: Aprenda a criar um pipeline de dados no Azure Data Factory para mover e transformar dados. Crie um fluxo de trabalho controlado por dados para produzir informações prontas para uso.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 13b137c7-1033-406f-aea7-b66f25b313c0
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 58db6f9903c4dc02c2d76f3784b004972621a000
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 54d9c875ca0117304dbd686f9a8fa6060b275994
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836504"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140067"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](data-factory-create-pipelines.md)
 > * [Versão 2 (versão atual)](../concepts-pipelines-activities.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [Pipelines no V2](../concepts-pipelines-activities.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço de Data Factory, consulte [pipelines na v2](../concepts-pipelines-activities.md).
 
 Este artigo ajuda-o a compreender os pipelines e as atividades no Azure Data Factory e a utilizá-los para construir fluxos de dados completos e orientados por dados para os seus cenários de movimento de dados e processamento de dados.
 
 > [!NOTE]
-> Este artigo pressupõe que já leu [introdução ao Azure Data Factory](data-factory-introduction.md). Se não tiver práticos-práticos-experiência na criação de fábricas de dados, percorrer [tutorial de transformação de dados](data-factory-build-your-first-pipeline.md) e/ou [tutorial de movimento de dados](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) ajuda a compreender melhor este artigo.
+> Este artigo pressupõe que você tenha passado pela [introdução ao Azure data Factory](data-factory-introduction.md). Se você não tiver experiência prática com a criação de fábricas de dados, passar pelo tutorial de [transformação de dados](data-factory-build-your-first-pipeline.md) e/ou no tutorial de movimentação de [dados](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) ajudará você a entender melhor este artigo.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -40,11 +38,11 @@ Uma fábrica de dados pode ter um ou mais pipelines. Os pipelines são agrupamen
 
 Uma atividade pode ter zero ou mais [conjuntos de dados](data-factory-create-datasets.md) de entrada e produzir um ou mais [conjuntos de dados](data-factory-create-datasets.md) de saída. O diagrama seguinte mostra a relação entre pipelines, atividades e conjuntos de dados no Data Factory:
 
-![Relação entre o pipeline, a atividade e o conjunto de dados](media/data-factory-create-pipelines/relationship-pipeline-activity-dataset.png)
+![Relação entre pipeline, atividade e conjunto de conjuntos](media/data-factory-create-pipelines/relationship-pipeline-activity-dataset.png)
 
-Um pipeline permite-lhe gerir atividades como um conjunto em vez de cada um deles individualmente. Por exemplo, pode implementar, agendar, suspender e retomar um pipeline, em vez de lidar com atividades no pipeline de forma independente.
+Um pipeline permite que você gerencie atividades como um conjunto, em vez de cada uma individualmente. Por exemplo, você pode implantar, agendar, suspender e retomar um pipeline, em vez de lidar com atividades no pipeline de forma independente.
 
-O Data Factory suporta dois tipos de atividades -- atividades de movimento de dados e atividades de transformação de dados. Cada atividade pode ter zero ou mais entradas [conjuntos de dados](data-factory-create-datasets.md) e produzem um ou mais conjuntos de dados de saída.
+O Data Factory suporta dois tipos de atividades -- atividades de movimento de dados e atividades de transformação de dados. Cada atividade pode ter zero ou mais [conjuntos](data-factory-create-datasets.md) de dados de entrada e produzir um ou mais conjuntos de dados de saída.
 
 Um conjunto de dados de entrada representa a entrada de uma atividade no pipeline e um conjunto de dados de saída representa a saída da atividade. Os conjuntos de dados identificam dados dentro de diferentes arquivos de dados, como tabelas, ficheiros, pastas e documentos. Depois de criar um conjunto de dados, pode utilizá-lo com atividades num pipeline. Por exemplo, um conjunto de dados pode ser um conjunto de dados de entrada/saída de uma atividade Cópia ou de uma atividade HDInsightHive. Para obter mais informações sobre os conjuntos de dados, veja o artigo [Datasets in Azure Data Factory](data-factory-create-datasets.md) (Conjuntos de Dados no Azure Data Factory).
 
@@ -64,10 +62,10 @@ Para obter mais informações, veja o artigo [Data Movement Activities (Atividad
 Para obter mais informações, veja o artigo [Data Transformation Activities (Atividades de Transformação de Dados)](data-factory-data-transformation-activities.md).
 
 ### <a name="custom-net-activities"></a>Atividades .NET personalizadas
-Se precisar de mover o arquivo de dados num de dados que a atividade de cópia não suporte, ou transformar dados com a sua própria lógica, crie uma **atividade .NET personalizada**. Para obter detalhes sobre criar e utilizar uma atividade personalizada, veja [Use custom activities in an Azure Data Factory pipeline (Utilizar atividades personalizadas num pipeline do Azure Data Factory)](data-factory-use-custom-activities.md).
+Se você precisar mover dados de/para um armazenamento de dados para o qual a atividade de cópia não dá suporte ou transformar dados usando sua própria lógica, crie uma **atividade personalizada do .net**. Para obter detalhes sobre criar e utilizar uma atividade personalizada, veja [Use custom activities in an Azure Data Factory pipeline (Utilizar atividades personalizadas num pipeline do Azure Data Factory)](data-factory-use-custom-activities.md).
 
-## <a name="schedule-pipelines"></a>Pipelines de agenda
-Um pipeline está ativo apenas entre seus **começar** tempo e **final** tempo. Ele não é executado antes da hora de início ou após a hora de fim. Se o pipeline está em pausa, não são executada, independentemente de seu tempo de início e de fim. Para um execução do pipeline, ele deve não ser colocada em pausa. Ver [agendamento e execução](data-factory-scheduling-and-execution.md) para compreender como funciona o agendamento e execução no Azure Data Factory.
+## <a name="schedule-pipelines"></a>Agendar pipelines
+Um pipeline está ativo somente entre a hora de **início** e a hora de **término** . Ele não é executado antes da hora de início ou após a hora de término. Se o pipeline estiver em pausa, ele não será executado independentemente de sua hora de início e de término. Para que um pipeline seja executado, ele não deve ser pausado. Consulte [agendamento e execução](data-factory-scheduling-and-execution.md) para entender como funciona o agendamento e a execução no Azure data Factory.
 
 ## <a name="pipeline-json"></a>JSON dos pipelines
 Vamos ver mais de perto a definição dos pipelines no formato JSON. A estrutura genérica de um pipeline tem o aspeto seguinte:
@@ -94,17 +92,17 @@ Vamos ver mais de perto a definição dos pipelines no formato JSON. A estrutura
 }
 ```
 
-| Etiqueta | Descrição | Necessário |
+| Etiqueta | Descrição | Requerido |
 | --- | --- | --- |
-| name |Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 260</li><li>Tem de começar com um letra, um número ou um caráter de sublinhado (\_)</li><li>Seguintes carateres não são permitidos: ".", "+","?", "/", "<",">", "\*", "%", "&", ":","\\"</li></ul> |Sim |
+| name |Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com um número de letra ou um sublinhado\_()</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">",\*"", "%", "&", ":",\\""</li></ul> |Sim |
 | description | Especifique o texto que descreve para o que é utilizado o pipeline. |Sim |
-| activities | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção seguinte para obter detalhes sobre o elemento JSON de atividades. | Sim |
-| start | Data-hora de início para o pipeline. Tem de estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: `2016-10-14T16:32:41Z`. <br/><br/>É possível especificar uma hora local, por exemplo, um período de tempo EST. Eis um exemplo: `2016-02-27T06:00:00-05:00`", que é 6 AM estimativa<br/><br/>As propriedades de início e de fim especificam em conjunto o período ativo do pipeline. Apenas os setores de saída são produzidos neste período de Active Directory. |Não<br/><br/>Se especificar um valor para a propriedade final, tem de especificar o valor da propriedade de início.<br/><br/>As horas de início e de fim podem de estar vazias para criar um pipeline. Tem de especificar ambos os valores para definir um período de Active Directory para o execução do pipeline. Se não especificar horários de início e fim quando criar um pipeline, pode configurá-los usando o cmdlet Set-AzDataFactoryPipelineActivePeriod mais tarde. |
-| end | Data / hora de fim do pipeline. Se for especificado tem de estar no formato ISO. Por exemplo: `2016-10-14T17:32:41Z` <br/><br/>É possível especificar uma hora local, por exemplo, um período de tempo EST. Eis um exemplo: `2016-02-27T06:00:00-05:00`, que é 6 AM estimativa<br/><br/>Para executar o pipeline de forma indefinida, especifique a 9999-09-09 como o valor para a propriedade final. <br/><br/> Um pipeline está ativo apenas entre a hora de início e hora de fim. Ele não é executado antes da hora de início ou após a hora de fim. Se o pipeline está em pausa, não são executada, independentemente de seu tempo de início e de fim. Para um execução do pipeline, ele deve não ser colocada em pausa. Ver [agendamento e execução](data-factory-scheduling-and-execution.md) para compreender como funciona o agendamento e execução no Azure Data Factory. |Não <br/><br/>Se especificar um valor para a propriedade de início, tem de especificar o valor da propriedade end.<br/><br/>Consulte as notas para o **iniciar** propriedade. |
-| isPaused | Se definido como true, o pipeline não é executado. Ele está no Estado em pausa. Valor predefinido = false. Pode utilizar esta propriedade para ativar ou desativar um pipeline. |Não |
-| pipelineMode | O método para agendar execuções do pipeline. Valores permitidos são: agendada (predefinição), onetime.<br/><br/>"Agendada" indica que o pipeline é executado num intervalo de tempo especificado, de acordo com o período ativo (hora de início e de fim). "Única" indica que o pipeline é executado apenas uma vez. Pipelines onetime, uma vez criadas não podem ser modificado/atualizado atualmente. Ver [Onetime pipeline](#onetime-pipeline) para obter detalhes sobre a definição de onetime. |Não |
-| expirationTime | Duração de tempo após a criação para o qual o [pipeline única](#onetime-pipeline) é válido e deve permanecer aprovisionado. Se não tem qualquer ativo, falha, ou pendente é executado, o pipeline é automaticamente eliminado uma vez atinge o tempo de expiração. O valor predefinido: `"expirationTime": "3.00:00:00"`|Não |
-| datasets |Lista de conjuntos de dados para ser usado por atividades definidas no pipeline. Esta propriedade pode ser utilizada para definir conjuntos de dados que são específicas para este pipeline e não definido na fábrica de dados. Conjuntos de dados definidos dentro este pipeline só podem ser utilizados por este pipeline e não podem ser partilhados. Ver [conjuntos de dados de âmbito](data-factory-create-datasets.md#scoped-datasets) para obter detalhes. |Não |
+| activities | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Consulte a próxima seção para obter detalhes sobre o elemento JSON de atividades. | Sim |
+| start | Data/hora de início do pipeline. Deve estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: `2016-10-14T16:32:41Z`. <br/><br/>É possível especificar uma hora local, por exemplo, uma hora ESTIMAda. Aqui está um exemplo: `2016-02-27T06:00:00-05:00`", que é a 06 est.<br/><br/>As propriedades Start e End juntas especificam o período ativo para o pipeline. As fatias de saída são produzidas somente com neste período ativo. |Não<br/><br/>Se você especificar um valor para a propriedade end, deverá especificar o valor da Propriedade Start.<br/><br/>As horas de início e de término podem estar vazias para criar um pipeline. Você deve especificar os dois valores para definir um período ativo para que o pipeline seja executado. Se você não especificar os horários de início e término ao criar um pipeline, poderá defini-los usando o cmdlet Set-AzDataFactoryPipelineActivePeriod mais tarde. |
+| end | Data/hora de término do pipeline. Se especificado deve estar no formato ISO. Por exemplo: `2016-10-14T17:32:41Z` <br/><br/>É possível especificar uma hora local, por exemplo, uma hora ESTIMAda. Aqui está um exemplo: `2016-02-27T06:00:00-05:00`, que é a 06 est.<br/><br/>Para executar o pipeline indefinidamente, especifique 9999-09-09 como o valor para a propriedade end. <br/><br/> Um pipeline está ativo somente entre a hora de início e a hora de término. Ele não é executado antes da hora de início ou após a hora de término. Se o pipeline estiver em pausa, ele não será executado independentemente de sua hora de início e de término. Para que um pipeline seja executado, ele não deve ser pausado. Consulte [agendamento e execução](data-factory-scheduling-and-execution.md) para entender como funciona o agendamento e a execução no Azure data Factory. |Não <br/><br/>Se você especificar um valor para a propriedade Start, deverá especificar o valor da Propriedade End.<br/><br/>Consulte Observações para a propriedade **Iniciar** . |
+| isPaused | Se definido como true, o pipeline não será executado. Ele está no estado em pausa. Valor padrão = false. Você pode usar essa propriedade para habilitar ou desabilitar um pipeline. |Não |
+| pipelineMode | O método para o agendamento de execuções para o pipeline. Os valores permitidos são: Scheduled (padrão), OneTime.<br/><br/>' Scheduled ' indica que o pipeline é executado em um intervalo de tempo especificado de acordo com seu período ativo (hora de início e término). ' OneTime ' indica que o pipeline é executado apenas uma vez. Pipelines de OneTime depois de criados não podem ser modificados/atualizados no momento. Consulte [pipeline de OneTime](#onetime-pipeline) para obter detalhes sobre a configuração de OneTime. |Não |
+| expirationTime | Duração do tempo após a criação para a qual o [pipeline de uso único](#onetime-pipeline) é válido e deve permanecer provisionado. Se não houver execuções ativas, com falha ou pendentes, o pipeline será excluído automaticamente quando atingir o tempo de expiração. O valor padrão:`"expirationTime": "3.00:00:00"`|Não |
+| datasets |Lista de conjuntos de valores a serem usados por atividades definidas no pipeline. Essa propriedade pode ser usada para definir conjuntos de valores específicos para esse pipeline e não definidos dentro do data factory. Os conjuntos de itens definidos nesse pipeline só podem ser usados por esse pipeline e não podem ser compartilhados. Consulte [conjuntos de valores com escopo](data-factory-create-datasets.md#scoped-datasets) para obter detalhes. |Não |
 
 ## <a name="activity-json"></a>JSON da Atividade
 A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Cada atividade tem a seguinte estrutura de nível superior:
@@ -132,30 +130,30 @@ A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Ca
 
 A tabela seguinte descreve as propriedades na definição JSON da atividade:
 
-| Etiqueta | Descrição | Necessário |
+| Etiqueta | Descrição | Requerido |
 | --- | --- | --- |
-| name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 260</li><li>Tem de começar com um letra, um número ou um caráter de sublinhado (\_)</li><li>Seguintes carateres não são permitidos: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Sim |
+| name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com um número de letra ou um sublinhado\_()</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":",\\""</li></ul> |Sim |
 | description | Texto que descreve para o que é utilizada a atividade |Sim |
-| type | Tipo de atividade. Consulte a [atividades de movimento de dados](#data-movement-activities) e [atividades de transformação de dados](#data-transformation-activities) secções para diferentes tipos de atividades. |Sim |
-| inputs |Tabelas de entrada utilizadas pela atividade<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Sim |
-| outputs |Tabelas de saída utilizadas pela atividade.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Sim |
-| linkedServiceName |Nome do serviço ligado utilizado pela atividade. <br/><br/>Uma atividade pode exigir que especifique o serviço ligado que liga ao ambiente de computação necessário. |Sim para a atividade do HDInsight e Azure Machine Learning a atividade de classificação de Batch <br/><br/>Não para todas as outras. |
-| typeProperties |Propriedades no **typeProperties** secção dependem do tipo da atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | Não |
-| policy |Políticas que afetam o comportamento de runtime da atividade. Se não for especificado, são utilizadas políticas predefinidas. |Não |
-| scheduler | propriedade de "scheduler" é utilizada para definir um agendamento pretendida para a atividade. Seu subproperties são as mesmas que na [propriedade de disponibilidade num conjunto de dados](data-factory-create-datasets.md#dataset-availability). |Não |
+| type | Tipo de atividade. Confira as seções atividades de [movimentação de dados](#data-movement-activities) e atividades de [transformação de dados](#data-transformation-activities) para diferentes tipos de atividades. |Sim |
+| inputs |Tabelas de entrada usadas pela atividade<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Sim |
+| outputs |Tabelas de saída usadas pela atividade.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Sim |
+| linkedServiceName |Nome do serviço ligado utilizado pela atividade. <br/><br/>Uma atividade pode exigir que especifique o serviço ligado que liga ao ambiente de computação necessário. |Sim para a atividade do HDInsight e Azure Machine Learning atividade de Pontuação de lote <br/><br/>Não para todas as outras. |
+| typeProperties |As propriedades na seção typeproperties dependem do tipo da atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | Não |
+| policy |Políticas que afetam o comportamento de runtime da atividade. Se não for especificado, as políticas padrão serão usadas. |Não |
+| scheduler | a propriedade "scheduler" é usada para definir o agendamento desejado para a atividade. Suas subpropriedades são as mesmas que as da [propriedade de disponibilidade em um conjunto de um](data-factory-create-datasets.md#dataset-availability). |Não |
 
 ### <a name="policies"></a>Políticas
-As políticas afetam o comportamento de tempo de execução de uma atividade, especificamente quando o setor de uma tabela é processado. A tabela seguinte fornece os detalhes.
+As políticas afetam o comportamento de tempo de execução de uma atividade, especificamente quando a fatia de uma tabela é processada. A tabela a seguir fornece os detalhes.
 
 | Propriedade | Valores permitidos | Default Value | Descrição |
 | --- | --- | --- | --- |
-| concurrency |Número inteiro <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de atividade parallel, que podem ser efetuadas em setores diferentes. Por exemplo, se precisar de uma atividade de passar por um grande conjunto de dados disponíveis, ter um valor maior da simultaneidade acelera o processamento de dados. |
-| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordenação de setores de dados que estão a ser processados.<br/><br/>Por exemplo, se tiver 2 reparte (uma aconteça às 16:00 e outro às 17:00), e ambos são execução pendente. Se definir o executionPriorityOrder ser NewestFirst, o setor às 17:00 é processado pela primeira vez. Da mesma forma se definir o executionPriorityORder ser OldestFIrst, em seguida, o setor às 16:00 é processado. |
-| retry |Número inteiro<br/><br/>Valor máximo pode ser 10 |0 |Número de tentativas antes do processamento de dados para o setor está marcado como falha. Execução da atividade de um setor de dados é repetida até o número especificado de tentativas. A nova tentativa é feita logo que possível após a falha. |
-| timeout |TimeSpan |00:00:00 |Tempo limite para a atividade. Exemplo: 10: 00:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite é infinito.<br/><br/>Se o tempo de processamento de dados num setor excede o valor de tempo limite, ser cancelada e o sistema tenta repetir o processamento. O número de repetições depende da propriedade de repetição. Quando ocorre o tempo limite, o estado é definido como excedido. |
-| delay |TimeSpan |00:00:00 |Especifica o atraso antes de processamento de dados do setor a ser iniciada.<br/><br/>A execução da atividade de um setor de dados é iniciada depois do atraso é posterior à hora de execução esperada.<br/><br/>Exemplo: 10: 00:00 (implica o atraso de 10 minutos) |
-| longRetry |Número inteiro<br/><br/>Valor máximo: 10 |1 |O número de tentativas de repetição longa antes da execução de setor falhou.<br/><br/>estão espaçadas a tentativas de longRetry, longRetryInterval. Por isso, se tiver de especificar uma hora entre tentativas de repetição, utilize o longRetry. Se forem especificados repetição e longRetry, cada tentativa de longRetry inclui tentativas de repetição e o número máximo de tentativas é tentar * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes definições na política de atividade:<br/>Repetir: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Suponha que existe apenas um setor para executar (estado está a aguardar) e a execução da atividade falha sempre. Inicialmente, deveria haver 3 tentativas de execução consecutivos. Após cada tentativa, o estado do setor seria repetição. Depois de primeiros 3 tentativas ao longo, o estado do setor seria LongRetry.<br/><br/>Depois de uma hora (ou seja, o valor do longRetryInteval), deveria haver outro conjunto de 3 tentativas de execução consecutivos. Depois disso, seria possível executar o estado do setor e não existem mais tentativas devem ser tentadas. Assim geral 6 foram feitas tentativas.<br/><br/>Se qualquer execução for bem-sucedida, o estado do setor seria prontos e não existem mais tentativas são tentadas.<br/><br/>longRetry pode ser usado em situações em que a chegada de dados dependentes em momentos não determinística ou o ambiente geral é instável em que o processamento de dados ocorre. Nesses casos, as repetições não um após o outro podem ajudar ao fazê-lo e fazê-lo após um intervalo de tempo resulta na saída desejada.<br/><br/>Nota de advertência: não definir valores altos para longRetry ou longRetryInterval. Normalmente, os valores mais altos implicam outros problemas sistêmicos. |
-| longRetryInterval |TimeSpan |00:00:00 |O atraso entre tentativas de repetição longa |
+| concurrency |Integer <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Ele determina o número de execuções de atividade paralelas que podem ocorrer em diferentes fatias. Por exemplo, se uma atividade precisar passar por um grande conjunto de dados disponíveis, ter um valor de simultaneidade maior acelera o processamento de dados. |
+| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordenação de fatias de dados que estão sendo processadas.<br/><br/>Por exemplo, se você tiver duas fatias (uma acontecendo em 16:00 e outra às 17:00), e ambas estiverem com execução pendente. Se você definir Executionpriorityorder como como NewestFirst, a fatia em 5 PM será processada primeiro. Da mesma forma, se você definir Executionpriorityorder como como OldestFIrst, a fatia às 4 PM será processada. |
+| retry |Integer<br/><br/>O valor máximo pode ser 10 |0 |Número de repetições antes de o processamento de dados para a fatia ser marcado como falha. A execução da atividade para uma fatia de dados é repetida até a contagem de repetições especificada. A repetição é feita assim que possível após a falha. |
+| timeout |TimeSpan |00:00:00 |Tempo limite para a atividade. Exemplo: 00:10:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite será infinito.<br/><br/>Se o tempo de processamento de dados em uma fatia exceder o valor de tempo limite, ele será cancelado e o sistema tentará repetir o processamento. O número de repetições depende da Propriedade Retry. Quando o tempo limite ocorre, o status é definido como TimedOut. |
+| delay |TimeSpan |00:00:00 |Especifique o atraso antes que o processamento de dados da fatia seja iniciado.<br/><br/>A execução da atividade para uma fatia de dados é iniciada após o atraso ultrapassar o tempo de execução esperado.<br/><br/>Exemplo: 00:10:00 (implica atraso de 10 minutos) |
+| longRetry |Integer<br/><br/>Valor máximo: 10 |1 |O número de tentativas de repetição longas antes da execução da fatia falhar.<br/><br/>as tentativas de longRetry são espaçadas por longRetryInterval. Portanto, se você precisar especificar um tempo entre as tentativas de repetição, use longRetry. Se ambas as opções Retry e longRetry forem especificadas, cada tentativa de longRetry incluirá tentativas de repetição e o número máximo de tentativas será Retry * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes configurações na política de atividade:<br/>Repita 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Suponha que haja apenas uma fatia a ser executada (o status está aguardando) e a execução da atividade falha a cada vez. Inicialmente, haveria três tentativas consecutivas de execução. Após cada tentativa, o status da fatia seria tentar novamente. Após o fim das três primeiras tentativas, o status da fatia seria LongRetry.<br/><br/>Após uma hora (ou seja, o valor de longRetryInteval), haveria outro conjunto de três tentativas de execução consecutivas. Depois disso, o status da fatia seria falhado e não haverá mais tentativas de repetição. Portanto, as 6 tentativas gerais foram feitas.<br/><br/>Se qualquer execução for realizada com sucesso, o status da fatia estará pronto e não haverá mais novas tentativas.<br/><br/>o longRetry pode ser usado em situações em que os dados dependentes chegam em momentos não determinísticos ou o ambiente geral é instável sob o que ocorre o processamento de dados. Nesses casos, fazer novas tentativas uma após a outra pode não ajudar e fazer isso após um intervalo de tempo resulta na saída desejada.<br/><br/>Palavra de cuidado: não defina valores altos para longRetry ou longRetryInterval. Normalmente, valores mais altos implicam outros problemas do sistema. |
+| longRetryInterval |TimeSpan |00:00:00 |O atraso entre as tentativas de repetição longas |
 
 ## <a name="sample-copy-pipeline"></a>Pipeline de cópia de exemplo
 No pipeline de exemplo seguinte, existe uma atividade do tipo **Cópia** na secção **activities**. No exemplo, a [atividade de cópia](data-factory-data-movement-activities.md) copia os dados de um armazenamento de blobs do Azure para uma base de dados SQL do Azure.
@@ -207,9 +205,9 @@ Tenha em atenção os seguintes pontos:
 
 * Na secção atividades, existe apenas uma atividade cujo **type** está definido como **Copy**.
 * A entrada da atividade está definida como **InputDataset** e a saída como **OutputDataset**. Veja o artigo [Conjuntos de dados](data-factory-create-datasets.md) para saber como definir conjuntos de dados em JSON.
-* Na secção **typeProperties**, **BlobSource** está especificado como o tipo de origem e **SqlSink** como o tipo de sink. Na [atividades de movimento de dados](#data-movement-activities) secção, clique o arquivo de dados que pretende utilizar como origem ou sink para saber mais sobre como mover dados de/para esse arquivo de dados.
+* Na secção **typeProperties**, **BlobSource** está especificado como o tipo de origem e **SqlSink** como o tipo de sink. Na seção [atividades de movimentação de dados](#data-movement-activities) , clique no armazenamento de dados que você deseja usar como fonte ou coletor para saber mais sobre como mover dados para/desse armazenamento de dados.
 
-Para obter instruções completas de criar este pipeline, veja [Tutorial: Copiar dados de armazenamento de BLOBs para base de dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Para obter uma explicação completa da criação desse pipeline, [consulte o tutorial: Copiar dados do armazenamento de BLOBs para](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)o banco de dados SQL.
 
 ## <a name="sample-transformation-pipeline"></a>Pipeline de transformação de exemplos
 No pipeline de exemplo seguinte, existe uma atividade do tipo **HDInsightHive** na secção **activities**. Neste exemplo, a [atividade Hive do HDInsight](data-factory-hive-activity.md) transforma dados de um armazenamento de Blobs do Azure mediante a execução de um ficheiro de script de Hive num cluster do Hadoop para o Azure HDInsight.
@@ -263,32 +261,32 @@ Tenha em atenção os seguintes pontos:
 
 * Na secção “activities”, existe apenas uma atividade cujo **type** está definido como **HDInsightHive**.
 * O ficheiro do Script de ramo de registo **partitionweblogs.hql** é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService, denominado **AzureStorageLinkedService**) e na pasta **script** no contentor **adfgetstarted**.
-* O `defines` seção é usada para especificar as definições de tempo de execução que são transmitidas ao script do hive como valores de configuração do Hive (por exemplo `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
+* A `defines` seção é usada para especificar as configurações de tempo de execução que são passadas para o script do hive como `${hiveconf:inputtable}`valores `${hiveconf:partitionedtable}`de configuração do hive (por exemplo,).
 
-A secção **typeProperties** é diferente para cada atividade de transformação. Para saber mais sobre as propriedades do tipo suportadas para uma atividade de transformação, clique na atividade de transformação no [atividades de transformação de dados](#data-transformation-activities) tabela.
+A secção **typeProperties** é diferente para cada atividade de transformação. Para saber mais sobre as propriedades de tipo com suporte para uma atividade de transformação, clique na atividade de transformação na tabela [atividades de transformação de dados](#data-transformation-activities) .
 
-Para obter instruções completas de criar este pipeline, veja [Tutorial: Crie seu primeiro pipeline para processar dados com o cluster do Hadoop](data-factory-build-your-first-pipeline.md).
+Para obter uma explicação completa da criação desse pipeline, [consulte o tutorial: Crie seu primeiro pipeline para processar dados usando o cluster](data-factory-build-your-first-pipeline.md)Hadoop.
 
 ## <a name="multiple-activities-in-a-pipeline"></a>Múltiplas atividades num pipeline
 Os dois pipelines de exemplo anteriores só contêm uma atividade. Pode ter mais de uma atividade num pipeline.
 
-Se tiver múltiplas atividades num pipeline e a saída de uma atividade não é uma entrada de outra atividade, as atividades podem executar em paralelo, se os setores de dados de entrada para as atividades estão prontos.
+Se você tiver várias atividades em um pipeline e a saída de uma atividade não for uma entrada de outra atividade, as atividades poderão ser executadas em paralelo se as fatias de dados de entrada para as atividades estiverem prontas.
 
-Pode encadear duas atividades fazendo com que o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada de outra atividade. A segunda atividade é executado apenas quando primeiro for concluída com êxito.
+Você pode encadear duas atividades fazendo com que o conjunto de dados de saída de uma atividade seja o de entrada da outra atividade. A segunda atividade é executada somente quando a primeira é concluída com êxito.
 
-![Encadeamento de atividades no mesmo pipeline](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
+![Encadeando atividades no mesmo pipeline](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
 
-Neste exemplo, o pipeline tem duas atividades: Activity1 e Activity2. O Activity1 usa Dataset1 como entrada e produz uma saída Dataset2. A atividade usa Dataset2 como entrada e produz uma saída Dataset3. Desde a saída de Activity1 (Dataset2) é a entrada de Activity2, as execuções de Activity2 apenas depois da atividade for concluída com êxito e produz o setor de Dataset2. Se o Activity1 falhar por algum motivo e não produz o setor de Dataset2, a atividade 2 não é executado para essas fatias (por exemplo: 9-me para o 10 AM).
+Neste exemplo, o pipeline tem duas atividades: Atividade1 e da atividade2. O Atividade1 usa dataSet1 como uma entrada e produz um Dataset2 de saída. A atividade usa Dataset2 como uma entrada e produz um Dataset3 de saída. Como a saída de Atividade1 (Dataset2) é a entrada de da atividade2, o da atividade2 é executado somente depois que a atividade é concluída com êxito e produz a fatia Dataset2. Se o Atividade1 falhar por algum motivo e não produzir a fatia Dataset2, a atividade 2 não será executada para essa fatia (por exemplo: 9h às 0,10).
 
-Também pode encadear atividades que estão em diferentes pipelines.
+Você também pode encadear atividades que estão em pipelines diferentes.
 
-![Encadeamento de atividades em dois pipelines](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
+![Encadeando atividades em dois pipelines](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
 
-Neste exemplo, Pipeline1 tem apenas uma atividade que assume Dataset1 como entrada e produz Dataset2 como saída. O Pipeline2 também tem apenas uma atividade que assume o Dataset2 como entrada e Dataset3 como saída.
+Neste exemplo, Pipeline1 tem apenas uma atividade que usa dataSet1 como uma entrada e produz Dataset2 como uma saída. O Pipeline2 também tem apenas uma atividade que usa Dataset2 como entrada e Dataset3 como uma saída.
 
 Para obter mais informações, consulte [agendamento e execução](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
-## <a name="create-and-monitor-pipelines"></a>Criar e monitorizar pipelines
-Pode criar pipelines ao utilizar uma destas ferramentas ou SDKs.
+## <a name="create-and-monitor-pipelines"></a>Criar e monitorar pipelines
+Você pode criar pipelines usando uma dessas ferramentas ou SDKs.
 
 - Assistente de Cópia
 - Visual Studio
@@ -297,18 +295,18 @@ Pode criar pipelines ao utilizar uma destas ferramentas ou SDKs.
 - API REST
 - API .NET
 
-Veja os tutoriais seguintes para obter instruções passo a passo para criar pipelines ao utilizar uma destas ferramentas ou SDKs.
+Consulte os tutoriais a seguir para obter instruções passo a passo para criar pipelines usando uma dessas ferramentas ou SDKs.
 
 - [Criar um pipeline cum uma atividade de transformação de dados](data-factory-build-your-first-pipeline.md)
-- [Criar um pipeline com uma atividade de movimento de dados](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Criar um pipeline com uma atividade de movimentação de dados](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
-Depois de um pipeline é criado/implementado, pode gerir e monitorizar os seus pipelines com o painéis do portal do Azure ou o Monitor e a gerir a aplicação. Consulte os seguintes tópicos para obter instruções passo a passo.
+Depois que um pipeline é criado/implantado, você pode gerenciar e monitorar seus pipelines usando as portal do Azure Blades ou monitorar e gerenciar o aplicativo. Consulte os tópicos a seguir para obter instruções passo a passo.
 
-- [Monitorizar e gerir pipelines com os painéis do portal do Azure](data-factory-monitor-manage-pipelines.md).
-- [Monitorizar e gerir pipelines com a monitorizar e gerir aplicações](data-factory-monitor-manage-app.md)
+- [Monitore e gerencie pipelines usando as folhas de portal do Azure](data-factory-monitor-manage-pipelines.md).
+- [Monitorar e gerenciar pipelines usando o aplicativo monitorar e gerenciar](data-factory-monitor-manage-app.md)
 
-## <a name="onetime-pipeline"></a>Onetime pipeline
-Pode criar e agendar o pipeline seja executado periodicamente (por exemplo: hora a hora ou diariamente) dentro as horas de início e de fim que especificar na definição do pipeline. Ver as atividades de agendamento para obter detalhes. Também pode criar um pipeline que é executado apenas uma vez. Para tal, defina o **pipelineMode** propriedade na definição de pipeline para **onetime** conforme mostrado no seguinte exemplo JSON. O valor predefinido para esta propriedade é **agendada**.
+## <a name="onetime-pipeline"></a>Pipeline de OneTime
+Você pode criar e agendar um pipeline para ser executado periodicamente (por exemplo: por hora ou diariamente) dentro das horas de início e de término especificadas na definição do pipeline. Consulte Agendando atividades para obter detalhes. Você também pode criar um pipeline que é executado apenas uma vez. Para fazer isso, defina a propriedade **pipelinemode** na definição de pipeline como **OneTime** , conforme mostrado no exemplo de JSON a seguir. O valor padrão dessa propriedade é **agendado**.
 
 ```json
 {
@@ -348,11 +346,11 @@ Pode criar e agendar o pipeline seja executado periodicamente (por exemplo: hora
 
 Tenha em atenção o seguinte:
 
-* **Inicie** e **end** vezes para o pipeline não forem especificadas.
-* **Disponibilidade** de entrada e saída é especificado conjuntos de dados (**frequência** e **intervalo**), apesar do Data Factory não utiliza os valores.
-* Vista de diagrama não mostra os pipelines de uso individual. Este comportamento é propositado.
-* Não não possível atualizar os pipelines de uso individual. Pode clonar um único pipeline, mude o nome, atualizar as propriedades e implementá-la para criar outra.
+* Os horários de **início** e **término** do pipeline não são especificados.
+* A **disponibilidade** dos conjuntos de dados de entrada e saída é especificada (**frequência** e **intervalo**), mesmo que data Factory não use os valores.
+* A exibição de diagrama não mostra pipelines de uso único. Este comportamento é propositado.
+* Pipelines de uso único não podem ser atualizados. Você pode clonar um pipeline de uso único, renomeá-lo, atualizar as propriedades e implantá-lo para criar outro.
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Para obter mais informações sobre conjuntos de dados, consulte [criar conjuntos de dados](data-factory-create-datasets.md) artigo.
-- Para obter mais informações sobre como os pipelines são agendados e executados, consulte [agendamento e execução no Azure Data Factory](data-factory-scheduling-and-execution.md) artigo.
+- Para obter mais informações sobre conjuntos de dados, consulte o artigo [criar conjuntos](data-factory-create-datasets.md) de dados.
+- Para obter mais informações sobre como os pipelines são agendados e executados, consulte [agendamento e execução no artigo Azure data Factory](data-factory-scheduling-and-execution.md) .

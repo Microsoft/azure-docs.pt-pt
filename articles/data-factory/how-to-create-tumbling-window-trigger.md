@@ -3,21 +3,20 @@ title: Criar gatilhos de janela em cascata no Azure Data Factory | Microsoft Doc
 description: Saiba como criar um gatilho no Azure Data Factory que executa um pipeline em uma janela do em cascata.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/14/2018
-ms.author: shlo
-ms.openlocfilehash: 0f78136edf58e76ed478bef9c255791d256c34a5
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3fb958b446c3f1e78f78f40f112d8d55d37b0986
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678485"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141559"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Criar um gatilho que executa um pipeline em uma janela do em cascata
 Este artigo fornece etapas para criar, iniciar e monitorar um gatilho de janela em cascata. Para obter informações gerais sobre gatilhos e os tipos com suporte, consulte [execução de pipeline e gatilhos](concepts-pipeline-execution-triggers.md).
@@ -90,18 +89,18 @@ Uma janela em cascata tem as seguintes propriedades de tipo de gatilho:
 
 A tabela a seguir fornece uma visão geral de alto nível dos principais elementos JSON relacionados à recorrência e ao agendamento de um gatilho de janela em cascata:
 
-| Elemento JSON | Descrição | Type | Valores permitidos | Obrigatória |
+| Elemento JSON | Descrição | Type | Valores permitidos | Requerido |
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | O tipo do gatilho. O tipo é o valor fixo "TumblingWindowTrigger". | Cadeia | "TumblingWindowTrigger" | Sim |
 | **runtimeState** | O estado atual do tempo de execução do gatilho.<br/>**Nota**: Esse elemento é \<ReadOnly >. | Cadeia | "Iniciado," "interrompido," "desabilitado" | Sim |
 | **frequency** | Uma cadeia de caracteres que representa a unidade de frequência (minutos ou horas) na qual o gatilho se repete. Se os valores de data de iníciotime forem mais granulares do que o valor de **frequência** , as datas de **iníciotime** serão consideradas quando os limites da janela forem computados. Por exemplo, se o valor de **Frequency** for por hora e o valor de **StartTime** for 2017-09-01T10:10:10z, a primeira janela será (2017-09-01T10:10:10z, 2017-09-01T11:10:10z). | Cadeia | "minuto", "hora"  | Sim |
-| **interval** | Um valor inteiro positivo que indica o intervalo do valor **frequency**, que determina o número de vezes que o acionador é executado. Por exemplo, se o **intervalo** for 3 e a **frequência** for "hora", o gatilho se repetirá a cada 3 horas. | Número inteiro | Um inteiro positivo. | Sim |
+| **interval** | Um valor inteiro positivo que indica o intervalo do valor **frequency**, que determina o número de vezes que o acionador é executado. Por exemplo, se o **intervalo** for 3 e a **frequência** for "hora", o gatilho se repetirá a cada 3 horas. | Integer | Um inteiro positivo. | Sim |
 | **startTime**| A primeira ocorrência, que pode estar no passado. O primeiro intervalo de gatilho é(StartTime + , StartTime**Interval**). | DateTime | Um valor DateTime. | Sim |
 | **endTime**| A última ocorrência, que pode estar no passado. | DateTime | Um valor DateTime. | Sim |
 | **delay** | A quantidade de tempo para atrasar o início do processamento de dados para a janela. A execução do pipeline é iniciada após o tempo de execução esperado mais a quantidade de **atraso**. O **atraso** define por quanto tempo o gatilho espera após o disparo de uma nova execução. O **atraso** não altera a janela **StartTime**. Por exemplo, um valor de **atraso** de 00:10:00 implica um atraso de 10 minutos. | Período de tempo<br/>(hh: mm: SS)  | Um valor TimeSpan em que o padrão é 00:00:00. | Não |
-| **maxConcurrency** | O número de execuções de gatilho simultâneas que são acionadas para o Windows que estão prontas. Por exemplo, para fazer o preenchimento das execuções por hora dos resultados ontem em 24 janelas. Se **maxConcurrency** = 10, os eventos de gatilho serão acionados somente para as primeiras 10 janelas (00:00-01:00-09:00-10:00). Depois que as 10 primeiras execuções de pipeline disparadas forem concluídas, as execuções de gatilho serão acionadas para as 10 próximas janelas (10:00-11:00-19:00-20:00). Continuando com este exemplo de **maxConcurrency** = 10, se houver 10 janelas prontas, haverá 10 execuções de pipeline totais. Se houver apenas 1 janela pronta, haverá apenas 1 execução de pipeline. | Número inteiro | Um inteiro entre 1 e 50. | Sim |
-| **retryPolicy: Count** | O número de repetições antes de a execução do pipeline ser marcada como "falha".  | Número inteiro | Um inteiro, onde o padrão é 0 (sem repetições). | Não |
-| **retryPolicy: intervalInSeconds** | O atraso entre as tentativas de repetição especificadas em segundos. | Número inteiro | O número de segundos, em que o padrão é 30. | Não |
+| **maxConcurrency** | O número de execuções de gatilho simultâneas que são acionadas para o Windows que estão prontas. Por exemplo, para fazer o preenchimento das execuções por hora dos resultados ontem em 24 janelas. Se **maxConcurrency** = 10, os eventos de gatilho serão acionados somente para as primeiras 10 janelas (00:00-01:00-09:00-10:00). Depois que as 10 primeiras execuções de pipeline disparadas forem concluídas, as execuções de gatilho serão acionadas para as 10 próximas janelas (10:00-11:00-19:00-20:00). Continuando com este exemplo de **maxConcurrency** = 10, se houver 10 janelas prontas, haverá 10 execuções de pipeline totais. Se houver apenas 1 janela pronta, haverá apenas 1 execução de pipeline. | Integer | Um inteiro entre 1 e 50. | Sim |
+| **retryPolicy: Count** | O número de repetições antes de a execução do pipeline ser marcada como "falha".  | Integer | Um inteiro, onde o padrão é 0 (sem repetições). | Não |
+| **retryPolicy: intervalInSeconds** | O atraso entre as tentativas de repetição especificadas em segundos. | Integer | O número de segundos, em que o padrão é 30. | Não |
 | **depende: type** | O tipo de TumblingWindowTriggerReference. Necessário se uma dependência for definida. | Cadeia |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | Não |
 | **depende: size** | O tamanho da janela de dependência em cascata. | Período de tempo<br/>(hh: mm: SS)  | Um valor de TimeSpan positivo em que o padrão é o tamanho da janela do gatilho filho  | Não |
 | **depende: offset** | O deslocamento do gatilho de dependência. | Período de tempo<br/>(hh: mm: SS) |  Um valor TimeSpan que deve ser negativo em uma autodependência. Se nenhum valor for especificado, a janela será igual ao próprio gatilho. | Dependência automática: Sim<br/>Outros Não  |
@@ -225,7 +224,7 @@ Esta seção mostra como usar Azure PowerShell para criar, iniciar e monitorar u
     
 Para monitorar execuções de gatilho e execuções de pipeline no portal do Azure, consulte [monitorar execuções de pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações detalhadas sobre gatilhos, consulte [execução de pipeline e gatilhos](concepts-pipeline-execution-triggers.md#triggers).
 * [Criar uma dependência de gatilho de janela em cascata](tumbling-window-trigger-dependency.md)
