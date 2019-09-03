@@ -1,74 +1,73 @@
 ---
 title: Como atualizar uma atribuição existente no portal
-description: Saiba mais sobre o mecanismo para a atualização de uma atribuição existente a partir do portal em esquemas do Azure.
+description: Saiba mais sobre o mecanismo de atualização de uma atribuição existente do portal em plantas do Azure.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: c75bd8c3831bad0c8217f16315843cbe3824fe4d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5697d00c2b0a869667d74e93c3ccae593bf200b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63766567"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231944"
 ---
-# <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma existente da atribuição do esquema
+# <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de plano gráfico existente
 
-Quando lhe for atribuído um plano gráfico, a atribuição pode ser atualizada. Há vários motivos para atualizar uma atribuição existente, incluindo:
+Quando um plano gráfico é atribuído, a atribuição pode ser atualizada. Há várias razões para atualizar uma atribuição existente, incluindo:
 
-- Adicionar ou remover [bloqueio do recurso](../concepts/resource-locking.md)
+- Adicionar ou remover [bloqueio de recursos](../concepts/resource-locking.md)
 - Alterar o valor de [parâmetros dinâmicos](../concepts/parameters.md#dynamic-parameters)
-- Atualizar a atribuição para uma mais recente **publicado** versão do esquema
+- Atualizar a atribuição para uma versão **publicada** mais recente do Blueprint
 
-## <a name="updating-assignments"></a>A atualizar as atribuições
+## <a name="updating-assignments"></a>Atualizando atribuições
 
-1. Selecione **todos os serviços** no painel esquerdo. Procure e selecione **esquemas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
-1. Selecione **atribuído a planos gráficos** partir da página à esquerda.
+1. Selecione **plantas atribuídas** na página à esquerda.
 
-1. Na lista de esquemas, left-click a atribuição do esquema. Em seguida, clique no **atualizar atribuição** ou a atribuição do esquema com o botão direito e selecione **atualizar atribuição**.
+1. Na lista de plantas, clique com o botão esquerdo do mouse na atribuição Blueprint. Em seguida, clique no botão **Atualizar atribuição** ou clique com o botão direito do mouse na atribuição Blueprint e selecione **Atualizar atribuição**.
 
-   ![Atualizar uma existente da atribuição do esquema](../media/update-existing-assignments/update-assignment.png)
+   ![Atualizar uma atribuição de Blueprint existente](../media/update-existing-assignments/update-assignment.png)
 
-1. O **esquema de atribuir** página será carregada previamente preenchido com todos os valores da atribuição original. Pode alterar o **versão da definição do esquema**, o **atribuição de bloqueio** estado e qualquer um dos parâmetros dinâmicos que existem na definição do esquema. Clique em **atribuir** quando terminar de efetuar alterações.
+1. A página **atribuir Blueprint** será carregada previamente preenchida com todos os valores da atribuição original. Você pode alterar a **versão de definição do Blueprint**, o estado de **atribuição de bloqueio** e qualquer um dos parâmetros dinâmicos existentes na definição do Blueprint. Clique em **atribuir** quando terminar de fazer alterações.
 
-1. Na página de detalhes de atribuição atualizada, ver o estado de novo. Neste exemplo, adicionamos **bloqueio** para a atribuição.
+1. Na página detalhes de atribuição atualizados, consulte o novo status. Neste exemplo, adicionamos o **bloqueio** à atribuição.
 
-   ![Atualizar uma atribuição de esquema existentes - alterado de modo de bloqueio](../media/update-existing-assignments/updated-assignment.png)
+   ![Atualizou uma atribuição de Blueprint existente – modo de bloqueio alterado](../media/update-existing-assignments/updated-assignment.png)
 
-1. Para explorar detalhes sobre outras **operações de atribuição** usando a menu pendente. A tabela da **recursos gerenciados** atualizações por operação de atribuição selecionado.
+1. Explore os detalhes sobre outras **operações de atribuição** usando a lista suspensa. A tabela de atualizações de **recursos gerenciados** por operação de atribuição selecionada.
 
-   ![Operações de atribuição de uma atribuição do esquema](../media/update-existing-assignments/assignment-operations.png)
+   ![Operações de atribuição de uma atribuição de Blueprint](../media/update-existing-assignments/assignment-operations.png)
 
-## <a name="rules-for-updating-assignments"></a>Regras para atualizar as atribuições
+## <a name="rules-for-updating-assignments"></a>Regras para atualizar atribuições
 
-A implementação das atribuições atualizadas segue algumas regras importantes. Estas regras determinam o que acontece aos recursos já implementados. A alteração pedida e o tipo de recurso do artefacto a ser implementado ou atualizado determinam quais ações são executadas.
+A implantação das atribuições atualizadas segue algumas regras importantes. Essas regras determinam o que acontece porque os recursos já foram implantados. A alteração solicitada e o tipo de recurso de artefato que está sendo implantado ou atualizado determinam quais ações são executadas.
 
-- Atribuições de Funções
-  - Se a função ou o detentor de função (utilizador, grupo ou aplicação) for alterado, é criada uma nova atribuição de função. Atribuições de funções implementadas anteriormente são deixadas no lugar.
+- Atribuições de Função
+  - Se a função ou o destinatário da função (usuário, grupo ou aplicativo) for alterado, uma nova atribuição de função será criada. As atribuições de função implantadas anteriormente são deixadas em vigor.
 - Atribuições de Política
-  - Se os parâmetros da atribuição de política são alterados, a atribuição existente é atualizada.
-  - Se a definição de atribuição de política é alterada, é criada uma nova atribuição de política. Atribuições de política implementadas anteriormente são deixadas no lugar.
-  - Se o artefacto de atribuição de política é removido do plano gráfico, implementado atribuições são deixadas no lugar de política.
+  - Se os parâmetros da atribuição de política forem alterados, a atribuição existente será atualizada.
+  - Se a definição da atribuição de política for alterada, uma nova atribuição de política será criada. As atribuições de política implantadas anteriormente são deixadas em vigor.
+  - Se o artefato de atribuição de política for removido do plano gráfico, as atribuições de política implantadas serão deixadas em vigor.
 - Modelos do Azure Resource Manager
-  - O modelo é processado através do Resource Manager como um **colocar**. Cada tipo de recurso manipula esta ação de forma diferente, reveja a documentação para cada recurso incluído determinar o impacto desta ação quando executada pelo esquemas.
+  - O modelo é processado por meio do Gerenciador de recursos como um **Put**. Como cada tipo de recurso manipula essa ação de forma diferente, examine a documentação de cada recurso incluído para determinar o impacto dessa ação quando executado por plantas.
 
-## <a name="possible-errors-on-updating-assignments"></a>Possíveis erros sobre como atualizar atribuições
+## <a name="possible-errors-on-updating-assignments"></a>Possíveis erros na atualização de atribuições
 
-Ao atualizar as atribuições, é possível fazer alterações que não funcionam quando executado. Um exemplo é alterar a localização de um grupo de recursos, após já ter sido implementado. Qualquer alteração que são suportadas pelo [do Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md) podem ser feitas, mas qualquer alteração que seria resultarem num erro através do Gestor de recursos do Azure também irá resultar numa falha da atribuição.
+Ao atualizar atribuições, é possível fazer alterações que sejam interrompidas quando executadas. Um exemplo é alterar o local de um grupo de recursos depois que ele já tiver sido implantado. Qualquer alteração compatível com [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md) pode ser feita, mas qualquer alteração que resulte em um erro por meio de Azure Resource Manager também resultará na falha da atribuição.
 
-Não existe nenhum limite no número de vezes que uma atribuição pode ser atualizado. Se ocorrer um erro, determinar o erro e faça outra atualização para a atribuição.  Os exemplos de cenários de erro:
+Não há limite de quantas vezes uma atribuição pode ser atualizada. Se ocorrer um erro, determine o erro e faça outra atualização para a atribuição.  Cenários de erro de exemplo:
 
-- Um parâmetro incorreto
+- Um parâmetro inadequado
 - Um objeto já existente
-- Uma alteração não suportada pelo Azure Resource Manager
+- Uma alteração sem suporte pelo Azure Resource Manager
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o [ciclo de vida de um esquema](../concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do plano gráfico](../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../concepts/resource-locking.md).

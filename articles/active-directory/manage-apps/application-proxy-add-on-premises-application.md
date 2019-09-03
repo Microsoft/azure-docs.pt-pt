@@ -12,12 +12,12 @@ ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd5b1ffa2d66135e0068ef9f459843d616351c19
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: fe6da9b1557293ee9002681c6ce90c1c6c62a25b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162605"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231254"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory
 
@@ -69,7 +69,7 @@ Para ativar o TLS 1.2:
 1. Reinicie o servidor.
 
 > [!IMPORTANT]
-> Para fornecer a melhor criptografia para nossos clientes, estamos fazendo atualizações no serviço de proxy de aplicativo para limitar o acesso a apenas protocolos TLS 1,2. Com base nas alterações de preparação do cliente, elas serão distribuídas gradualmente para clientes que usam apenas protocolos TLS 1,2 e não verão nenhum impacto dessa alteração. A substituição de TLS 1,0 e 1,1 será concluída em 31 de agosto de 2019 e os clientes receberão um aviso antecipado para se preparar para essa alteração. Para se preparar para essa alteração, certifique-se de que todas as combinações de servidor cliente e navegador-servidor sejam atualizadas para usar o TLS 1,2 para manter a conexão com o serviço de proxy de aplicativo. Isso inclui clientes que os usuários estão usando para acessar aplicativos publicados por meio do proxy de aplicativo. Consulte preparando para o [TLS 1,2 no Office 365](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365) para obter referências e recursos úteis.
+> Para fornecer a melhor criptografia para nossos clientes, o serviço de proxy de aplicativo limita o acesso somente a protocolos TLS 1,2. Essas alterações foram distribuídas gradualmente e em vigor desde 31 de agosto de 2019. Certifique-se de que todas as combinações de servidor cliente e navegador-servidor sejam atualizadas para usar o TLS 1,2 para manter a conexão com o serviço de proxy de aplicativo. Isso inclui clientes que os usuários estão usando para acessar aplicativos publicados por meio do proxy de aplicativo. Consulte preparando para o [TLS 1,2 no Office 365](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365) para obter referências e recursos úteis.
 
 ## <a name="prepare-your-on-premises-environment"></a>Preparar seu ambiente local
 

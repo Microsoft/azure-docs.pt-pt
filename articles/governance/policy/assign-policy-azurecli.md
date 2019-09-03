@@ -1,21 +1,20 @@
 ---
-title: Criar uma política para recursos não compatíveis com a CLI do Azure
-description: Utilize a CLI do Azure para criar uma atribuição de política do Azure para identificar recursos incompatíveis.
+title: Criar uma política para recursos sem conformidade com CLI do Azure
+description: Use CLI do Azure para criar uma atribuição de Azure Policy para identificar recursos sem conformidade.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 76f457b7d577fb2a08bbcc386328ce4d8e59f902
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: d2436e09ccb1c134d28a1dc471adc298cf090d05
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979621"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231616"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Início rápido: Criar uma atribuição de política para identificar recursos incompatíveis com a CLI do Azure
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Início rápido: Criar uma atribuição de política para identificar recursos sem conformidade com CLI do Azure
 
 O primeiro passo para compreender a conformidade no Azure consiste em identificar o estado dos seus recursos.
 Este início rápido acompanha-o ao longo do processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão a utilizar discos geridos.
@@ -32,7 +31,7 @@ O início rápido requer que execute a versão 2.0.4 da CLI do Azure ou posterio
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Registe o fornecedor de recursos de informações de política do Azure com a CLI do Azure. Registar o fornecedor de recursos assegura que a sua subscrição funciona com o mesmo. Para registar um fornecedor de recursos, tem de ter permissão para a operação de fornecedor de recursos de registo. Esta operação está incluída nas funções de Contribuinte e Proprietário. Execute o seguinte comando para registar o fornecedor de recursos:
+Registre o provedor de recursos do Azure Policy insights usando CLI do Azure. Registar o fornecedor de recursos assegura que a sua subscrição funciona com o mesmo. Para registar um fornecedor de recursos, tem de ter permissão para a operação de fornecedor de recursos de registo. Esta operação está incluída nas funções de Contribuinte e Proprietário. Execute o seguinte comando para registar o fornecedor de recursos:
 
 ```azurecli-interactive
 az provider register --namespace 'Microsoft.PolicyInsights'

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: a2994602f857c2c8ff9f935b649a8d3e94c10dca
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 09/03/2019
 ms.locfileid: "68444123"
 ---
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos

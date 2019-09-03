@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 08/14/2019
-ms.openlocfilehash: dee813cbe1da6a6300f65b7005bf4a4b0226112a
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 11287ee5ca0df3e51bca20b39c35eb5ce33b88bd
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208655"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231053"
 ---
 1. Entre no [portal do Azure](https://portal.azure.com/) usando as credenciais para a assinatura do Azure que você usa. 
 
@@ -28,9 +28,7 @@ ms.locfileid: "70208655"
 
 1. No painel **Machine Learning espaço de trabalho do serviço** , selecione **criar** para começar.
 
-  
-
-1. Configure seu novo espaço de trabalho fornecendo o nome, a assinatura, o grupo de recursos e o local do espaço de trabalho.
+1. Forneça as seguintes informações para configurar seu novo espaço de trabalho:
 
    Campo|Descrição 
    ---|---

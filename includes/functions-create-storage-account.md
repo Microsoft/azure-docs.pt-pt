@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 25cfcefb600bc12de3dad5b6fe2bcb76d00f0198
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 09/03/2019
 ms.locfileid: "68444138"
 ---
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure

@@ -1,75 +1,74 @@
 ---
 title: Resolver erros comuns
-description: Saiba como resolver problemas de criação, atribuição e remoção de esquemas.
+description: Saiba como solucionar problemas de criação, atribuição e remoção de plantas.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 42fdd6645a7a0e7cd9a2f0a7bc969e8eee62758c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cbefcbadc14c1249d2783f1539e40c99c3be66c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60874965"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231563"
 ---
-# <a name="troubleshoot-errors-using-azure-blueprints"></a>Resolver problemas de erros usando os esquemas do Azure
+# <a name="troubleshoot-errors-using-azure-blueprints"></a>Solucionar erros usando plantas do Azure
 
-Poderão ocorrer erros quando criar ou a atribuição de esquemas. Este artigo descreve vários erros que possam ocorrer e como resolvê-los.
+Você pode encontrar erros ao criar ou atribuir plantas. Este artigo descreve vários erros que podem ocorrer e como resolvê-los.
 
 ## <a name="finding-error-details"></a>Localizando detalhes do erro
 
-Muitos erros será o resultado da atribuição de um plano gráfico para um âmbito. Quando uma tarefa falha, o plano gráfico fornece detalhes sobre a falha na implementação. Estas informações indicam o problema para que pode ser corrigido e a seguinte implementação com êxito.
+Muitos erros serão o resultado da atribuição de um plano gráfico a um escopo. Quando uma atribuição falha, o plano gráfico fornece detalhes sobre a implantação com falha. Essas informações indicam o problema para que ele possa ser corrigido e a próxima implantação seja realizada com sucesso.
 
-1. Selecione **todos os serviços** no painel esquerdo. Procure e selecione **esquemas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
-1. Selecione **atribuído a planos gráficos** partir da página à esquerda e utilize a caixa de pesquisa para filtrar a atribuição de esquema para encontrar a atribuição falhou. Também pode ordenar a tabela de atribuições pela **estado de aprovisionamento** coluna para ver as atribuições de falhas todas agrupados em conjunto.
+1. Selecione **plantas atribuídas** na página à esquerda e use a caixa de pesquisa para filtrar as atribuições de plano gráfico para localizar a atribuição com falha. Você também pode classificar a tabela de atribuições pela coluna **estado de provisionamento** para ver todas as atribuições com falha agrupadas.
 
-1. Esquerdo no esquema com o _falhada_ Estado ou o botão direito do mouse e selecione **ver os detalhes de atribuição**.
+1. Clique no plano gráfico com o status com _falha_ ou clique com o botão direito do mouse e selecione **Exibir detalhes da atribuição**.
 
-1. É uma faixa vermelha aviso de que a atribuição falhou na parte superior da página de atribuição de esquema. Clique em qualquer lugar na faixa para obter mais detalhes.
+1. Uma faixa vermelha avisando que a atribuição falhou está na parte superior da página de atribuição do Blueprint. Clique em qualquer lugar na faixa para obter mais detalhes.
 
-É comum para o erro causado por um artefato e não o plano gráfico como um todo. Se um artefato cria um cofre de chave e o Azure Policy impede a criação do Key Vault, a atribuição de inteira falhará.
+É comum que o erro seja causado por um artefato e não pelo plano gráfico como um todo. Se um artefato criar um Key Vault e Azure Policy impedir a criação de Key Vault, toda a atribuição falhará.
 
 ## <a name="general-errors"></a>Erros gerais
 
-### <a name="policy-violation"></a>Cenário: Violação de política
+### <a name="policy-violation"></a>Cenário Violação de política
 
 #### <a name="issue"></a>Problema
 
-A implementação do modelo falhou devido a violação de política.
+A implantação do modelo falhou devido a uma violação de política.
 
 #### <a name="cause"></a>Causa
 
-Uma política, poderá entrar em conflito com a implantação por uma série de motivos:
+Uma política pode entrar em conflito com a implantação por vários motivos:
 
-- O recurso que está sendo criado é restrita pela diretiva (normalmente restrições SKU ou localização)
-- A implementação é definir campos que estão configurados pela política (comuns com etiquetas)
+- O recurso que está sendo criado é restrito pela política (geralmente as restrições de SKU ou local)
+- A implantação está definindo campos configurados pela política (comum com marcas)
 
 #### <a name="resolution"></a>Resolução
 
-Altere o plano gráfico para que não entra em conflito com as políticas nos detalhes do erro. Se esta alteração não for possível, uma opção alternativa é fazer com o âmbito da atribuição de política foi alterado para que o plano gráfico já não está em conflito com a política.
+Altere o plano gráfico para que ele não entre em conflito com as políticas nos detalhes do erro. Se essa alteração não for possível, uma opção alternativa será ter o escopo da atribuição de política alterado para que o plano gráfico não esteja mais em conflito com a política.
 
-### <a name="escape-function-parameter"></a>Cenário: Parâmetro de esquema é uma função
+### <a name="escape-function-parameter"></a>Cenário O parâmetro Blueprint é uma função
 
 #### <a name="issue"></a>Problema
 
-Parâmetros de esquema que são as funções são processados antes de ser passado para artefactos.
+Os parâmetros de plano gráfico que são funções são processados antes de serem passados para artefatos.
 
 #### <a name="cause"></a>Causa
 
-Passar um parâmetro de esquema que utiliza uma função, como `[resourceGroup().tags.myTag]`para um artefato resulta no resultado processado da função a ser definido no artefacto, em vez da função dinâmica.
+Passar um parâmetro Blueprint que usa uma função, `[resourceGroup().tags.myTag]`como, para um artefato resulta no resultado processado da função que está sendo definida no artefato em vez da função dinâmica.
 
 #### <a name="resolution"></a>Resolução
 
-Para passar uma função através de como um parâmetro, toda a cadeia com de escape `[` , de modo a que o parâmetro de esquema é semelhante a `[[resourceGroup().tags.myTag]`. O caráter de escape faz com que os planos gráficos tratar o valor como uma cadeia de caracteres ao processar o plano gráfico. Planos gráficos locais, em seguida, onde a função no artefacto permitindo que seja dinâmica, conforme o esperado. Para obter mais informações, consulte [estrutura de arquivos de modelo - sintaxe](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax).
+Para passar uma função por meio de como um parâmetro, escape toda a `[` cadeia de caracteres de tal forma que `[[resourceGroup().tags.myTag]`o parâmetro Blueprint se parece com. O caractere de escape faz com que plantas tratem o valor como uma cadeia de caracteres ao processar o plano gráfico. Em seguida, os planos gráficos colocam a função no artefato, permitindo que ele seja dinâmico conforme o esperado. Para obter mais informações, consulte [estrutura do arquivo de modelo-sintaxe](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se não vir o seu problema ou não é possível resolver o problema, visite um dos seguintes canais de suporte mais:
+Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 
-- Obtenha respostas de especialistas do Azure através de [fóruns do Azure](https://azure.microsoft.com/support/forums/).
+- Obtenha respostas de especialistas do Azure por meio dos [fóruns do Azure](https://azure.microsoft.com/support/forums/).
 - Ligue-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ao ligar a comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
-- Se precisar de mais ajuda, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+- Se precisar de mais ajuda, você poderá arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.

@@ -7,17 +7,16 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: c4bb06bd4c75dfeb164341d8cc5084030d3a08a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d158950749a9704276a666b58101bb5ad9dcbc42
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979317"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232635"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Criar políticas e ver os dados de conformidade através de programação
 
-Este artigo descreve a criação e a gestão de políticas por meio de programação. Definições de política do Azure impõem diferentes regras e efeitos aos recursos. Imposição certifica-se de que recursos mantêm-se em conformidade com os seus padrões empresariais e contratos de nível de serviço.
+Este artigo descreve a criação e a gestão de políticas por meio de programação. As definições de Azure Policy impõem diferentes regras e efeitos sobre seus recursos. Imposição certifica-se de que recursos mantêm-se em conformidade com os seus padrões empresariais e contratos de nível de serviço.
 
 Para obter informações sobre a conformidade, consulte [obtenção de dados de conformidade](getting-compliance-data.md).
 
@@ -29,9 +28,9 @@ Antes de começar, certifique-se de que são cumpridos os seguintes pré-requisi
 
 1. Se ainda não o fez, instale o [ARMClient](https://github.com/projectkudu/ARMClient). É uma ferramenta que envia pedidos de HTTP para APIs baseadas no Azure Resource Manager.
 
-1. Atualize seu módulo Azure PowerShell para a versão mais recente. Ver [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps) para obter informações detalhadas. Para obter mais informações sobre a versão mais recente, consulte [do Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
+1. Atualize seu módulo de Azure PowerShell para a versão mais recente. Consulte [instalar Azure PowerShell módulo](/powershell/azure/install-az-ps) para obter informações detalhadas. Para obter mais informações sobre a versão mais recente, consulte [do Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-1. Registe o fornecedor de recursos de informações de política do Azure com o Azure PowerShell para validar que a sua subscrição funciona com o fornecedor de recursos. Para registar um fornecedor de recursos, tem de ter permissão para executar a operação de ação de registo para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário. Execute o seguinte comando para registar o fornecedor de recursos:
+1. Registre o provedor de recursos do Azure Policy insights usando Azure PowerShell para validar que sua assinatura funciona com o provedor de recursos. Para registar um fornecedor de recursos, tem de ter permissão para executar a operação de ação de registo para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário. Execute o seguinte comando para registar o fornecedor de recursos:
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
@@ -77,7 +76,7 @@ Antes de começar, certifique-se de que são cumpridos os seguintes pré-requisi
    ```
 
    O comando cria uma definição de política com o nome _auditoria armazenamento contas aberto a redes públicas_.
-   Para obter mais informações sobre outros parâmetros que pode utilizar, consulte [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
+   Para obter mais informações sobre outros parâmetros que você pode usar, consulte [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
 
    Quando chamado sem parâmetros de localização, `New-AzPolicyDefinition` predefinições para guardar a definição de política na subscrição selecionada do contexto de sessões. Para guardar a definição para uma localização diferente, utilize os seguintes parâmetros:
 
@@ -94,15 +93,15 @@ Antes de começar, certifique-se de que são cumpridos os seguintes pré-requisi
 
    Substitua _ContosoRG_ com o nome do seu grupo de recursos pretendido.
 
-   O **âmbito** parâmetro no `New-AzPolicyAssignment` funciona com o grupo de gestão, subscrição, grupo de recursos ou um único recurso. O parâmetro usa um caminho de recurso completo, que o **ResourceId** propriedade no `Get-AzResourceGroup` devolve. O padrão para **âmbito** para cada contentor é da seguinte forma. Substitua `{rName}`, `{rgName}`, `{subId}`, e `{mgName}` com o nome do recurso, grupo de recursos nome, o ID de subscrição e o nome do grupo de gestão, respectivamente.
-   `{rType}` teriam de ser substituídas com o **tipo de recurso** do recurso, tal como `Microsoft.Compute/virtualMachines` para uma VM.
+   O parâmetro de escopo `New-AzPolicyAssignment` no funciona com grupo de gerenciamento, assinatura, grupo de recursos ou um único recurso. O parâmetro usa um caminho de recurso completo, que o **ResourceId** propriedade no `Get-AzResourceGroup` devolve. O padrão para **âmbito** para cada contentor é da seguinte forma. Substitua `{rName}`, `{rgName}`, e`{subId}`pelo nome do recurso, nome do grupo de recursos, ID da assinatura e nome do grupo de gerenciamento, respectivamente. `{mgName}`
+   `{rType}`seria substituído pelo tipo de **recurso** do recurso, como `Microsoft.Compute/virtualMachines` para uma VM.
 
-   - Recursos- `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Kit`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupo de recursos- `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Subscrição- `/subscriptions/{subId}/`
    - Grupo de gestão- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Para obter mais informações sobre a gestão de políticas de recursos com o módulo PowerShell do Azure Resource Manager, consulte [Az.Resources](/powershell/module/az.resources/#policies).
+Para obter mais informações sobre como gerenciar políticas de recursos usando o módulo Azure Resource Manager PowerShell, consulte [AZ.](/powershell/module/az.resources/#policies)Resources.
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Criar e atribuir uma definição de política com ARMClient
 
@@ -148,7 +147,7 @@ Utilize o procedimento seguinte para criar uma definição de política.
 
    Substitua {subscriptionId} anterior com o ID da sua subscrição ou {managementGroupId} com o ID da sua [grupo de gestão](../../management-groups/overview.md).
 
-   Para obter mais informações sobre a estrutura da consulta, consulte [definições de política do Azure – criar ou atualizar](/rest/api/resources/policydefinitions/createorupdate) e [definições de política – criação ou atualização no grupo de gestão](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   Para obter mais informações sobre a estrutura da consulta, consulte [definições de Azure Policy – criar ou atualizar](/rest/api/resources/policydefinitions/createorupdate) e [definições de política – criar ou atualizar no grupo de gerenciamento](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 Utilize o procedimento seguinte para criar uma atribuição de política e atribuir a definição de política ao nível do grupo de recursos.
 
@@ -210,12 +209,12 @@ Para criar uma definição de política, utilize o seguinte procedimento:
    ```
 
    O comando cria uma definição de política com o nome _auditoria armazenamento contas aberto a redes públicas_.
-   Para obter mais informações sobre outros parâmetros que pode utilizar, consulte [criação da definição de política de az](/cli/azure/policy/definition#az-policy-definition-create).
+   Para obter mais informações sobre outros parâmetros que você pode usar, consulte [AZ Policy Definition Create](/cli/azure/policy/definition#az-policy-definition-create).
 
    Quando chamado sem parâmetros de localização, `az policy definition creation` predefinições para guardar a definição de política na subscrição selecionada do contexto de sessões. Para guardar a definição para uma localização diferente, utilize os seguintes parâmetros:
 
-   - **– subscrição** -guardar para uma subscrição diferente. Requer uma _GUID_ valor para o ID de subscrição ou uma _cadeia de caracteres_ valor para o nome da subscrição.
-   - **– grupo de gestão** -salvar num grupo de gestão. Requer uma _cadeia de caracteres_ valor.
+   - **--assinatura** -salve em uma assinatura diferente. Requer um valor de _GUID_ para a ID da assinatura ou um valor de _cadeia de caracteres_ para o nome da assinatura.
+   - **--Gerenciamento-grupo** -salvar em um grupo de gerenciamento. Requer uma _cadeia de caracteres_ valor.
 
 1. Utilize o seguinte comando para criar uma atribuição de política. Substituir informações de exemplo na &lt; &gt; símbolos pelos seus próprios valores.
 
@@ -223,14 +222,14 @@ Para criar uma definição de política, utilize o seguinte procedimento:
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   O **– âmbito** parâmetro no `az policy assignment create` funciona com o grupo de gestão, subscrição, grupo de recursos ou um único recurso. O parâmetro usa um caminho de recurso completo. O padrão para **– âmbito** para cada contentor é da seguinte forma. Substitua `{rName}`, `{rgName}`, `{subId}`, e `{mgName}` com o nome do recurso, grupo de recursos nome, o ID de subscrição e o nome do grupo de gestão, respectivamente. `{rType}` teriam de ser substituídas com o **tipo de recurso** do recurso, tal como `Microsoft.Compute/virtualMachines` para uma VM.
+   O parâmetro **--Scope** no `az policy assignment create` funciona com grupo de gerenciamento, assinatura, grupo de recursos ou um único recurso. O parâmetro usa um caminho de recurso completo. O padrão para **--Scope** para cada contêiner é o seguinte. Substitua `{rName}`, `{rgName}`, e`{subId}`pelo nome do recurso, nome do grupo de recursos, ID da assinatura e nome do grupo de gerenciamento, respectivamente. `{mgName}` `{rType}`seria substituído pelo tipo de **recurso** do recurso, como `Microsoft.Compute/virtualMachines` para uma VM.
 
-   - Recursos- `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Kit`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupo de recursos- `/subscriptions/{subID}/resourceGroups/{rgName}`
    - Subscrição- `/subscriptions/{subID}`
    - Grupo de gestão- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Pode obter o ID de definição de política do Azure com o PowerShell com o seguinte comando:
+Você pode obter a ID de definição de Azure Policy usando o PowerShell com o seguinte comando:
 
 ```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
@@ -249,7 +248,7 @@ Para obter mais informações sobre como pode gerir as políticas de recursos co
 Reveja os artigos seguintes para obter mais informações sobre os comandos e consultas neste artigo.
 
 - [Recursos da API REST do Azure](/rest/api/resources/)
-- [Módulos do PowerShell do Azure](/powershell/module/az.resources/#policies)
+- [Módulos de Azure PowerShell](/powershell/module/az.resources/#policies)
 - [Comandos de política CLI do Azure](/cli/azure/policy?view=azure-cli-latest)
-- [Fornecedor de recursos do Azure Policy Insights referência da REST API](/rest/api/policy-insights)
-- [Organizar os recursos com grupos de gestão do Azure](../../management-groups/overview.md).
+- [Referência da API REST do provedor de recursos do Azure Policy insights](/rest/api/policy-insights)
+- [Organizar os recursos com os grupos de gestão do Azure](../../management-groups/overview.md).

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: e0309ac70d39272bf045e49ca7ddecd258cc1f36
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 9907bf49b99f3e8a09f2924c386c1f76891a8c15
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992052"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232546"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na Base de Dados do Azure para MySQL
 
@@ -121,10 +121,10 @@ Uma réplica de leitura é criada como um novo servidor de banco de dados do Azu
 
 ### <a name="replica-configuration"></a>Configuração de réplica
 
-Uma réplica é criada usando a mesma configuração de servidor que o mestre. Depois que uma réplica é criada, várias configurações podem ser alteradas independentemente do servidor mestre: geração de computação, vCores, armazenamento, período de retenção de backup e versão do mecanismo MySQL. O tipo de preço também pode ser alterado de forma independente, exceto para ou da camada básica.
+Uma réplica é criada usando a mesma configuração de servidor que o mestre. Depois que uma réplica é criada, várias configurações podem ser alteradas independentemente do servidor mestre: geração de computação, vCores, armazenamento e período de retenção de backup. O tipo de preço também pode ser alterado de forma independente, exceto para ou da camada básica.
 
 > [!IMPORTANT]
-> Antes que uma configuração de servidor mestre seja atualizada para novos valores, atualize a configuração de réplica para valores iguais ou maiores. Essa ação garante que a réplica possa acompanhar as alterações feitas no mestre.
+> Antes de uma configuração de servidor mestre ser atualizada para novos valores, atualize a configuração de réplica para valores iguais ou superiores. Esta ação garante que a réplica pode acompanhar quaisquer alterações feitas no mestre.
 
 ### <a name="stopped-replicas"></a>Réplicas interrompidas
 

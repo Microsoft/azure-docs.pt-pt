@@ -1,50 +1,49 @@
 ---
-title: Compreender a linguagem de consulta
-description: Descreve os operadores de Kusto disponíveis e as funções ser utilizáveis com o gráfico de recursos do Azure.
+title: Entender a linguagem de consulta
+description: Descreve os operadores Kusto e funções disponíveis utilizáveis com o grafo de recursos do Azure.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: dcb21a6aedf16b034fad4f0822e22758dda03c33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6e35d688581d0839e12806117e63c7d71fbc459
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65800515"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231508"
 ---
-# <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do gráfico de recursos do Azure
+# <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do grafo de recursos do Azure
 
-A linguagem de consulta para o gráfico de recursos do Azure suporta um número de operadores e funções. Cada trabalho e operasse com base em [Explorador de dados do Azure](../../../data-explorer/data-explorer-overview.md).
+A linguagem de consulta para o grafo de recursos do Azure dá suporte a vários operadores e funções. Cada trabalho e opera com base no [Azure data Explorer](../../../data-explorer/data-explorer-overview.md).
 
-A melhor forma de saber mais sobre a linguagem de consulta usada pelo gráfico de recursos é começar com a documentação para o Azure Data Explorer [linguagem de consulta](/azure/kusto/query/index). Ele fornece uma compreensão sobre como o idioma é estruturado e como os vários suportados os operadores e funções funcionam em conjunto.
+A melhor maneira de aprender sobre a linguagem de consulta usada pelo grafo de recursos é começar com a documentação para a [linguagem de consulta](/azure/kusto/query/index)de data Explorer do Azure. Ele fornece uma compreensão sobre como a linguagem é estruturada e como os vários operadores e funções com suporte funcionam em conjunto.
 
-## <a name="supported-tabular-operators"></a>Operadores de tabela suportados
+## <a name="supported-tabular-operators"></a>Operadores de tabela com suporte
 
-Eis a lista de operadores tabulares suportados no gráfico de recursos:
+Aqui está a lista de operadores de tabela com suporte no grafo de recursos:
 
 - [count](/azure/kusto/query/countoperator)
 - [distinct](/azure/kusto/query/distinctoperator)
 - [extend](/azure/kusto/query/extendoperator)
 - [limit](/azure/kusto/query/limitoperator)
-- [Ordenar por](/azure/kusto/query/orderoperator)
+- [ordenar por](/azure/kusto/query/orderoperator)
 - [project](/azure/kusto/query/projectoperator)
 - [project-away](/azure/kusto/query/projectawayoperator)
 - [sample](/azure/kusto/query/sampleoperator)
 - [sample-distinct](/azure/kusto/query/sampledistinctoperator)
-- [Ordenar por](/azure/kusto/query/sortoperator)
+- [classificar por](/azure/kusto/query/sortoperator)
 - [summarize](/azure/kusto/query/summarizeoperator)
 - [take](/azure/kusto/query/takeoperator)
-- [top](/azure/kusto/query/topoperator)
+- [Início](/azure/kusto/query/topoperator)
 - [top-nested](/azure/kusto/query/topnestedoperator)
-- [top-hitters](/azure/kusto/query/tophittersoperator)
-- [where](/azure/kusto/query/whereoperator)
+- [Hitters superior](/azure/kusto/query/tophittersoperator)
+- [posição](/azure/kusto/query/whereoperator)
 
-## <a name="supported-functions"></a>Funções suportadas
+## <a name="supported-functions"></a>Funções com suporte
 
-Eis a lista de funções no gráfico de recursos:
+Aqui está a lista de funções com suporte no grafo de recursos:
 
 - [ago()](/azure/kusto/query/agofunction)
 - [buildschema()](/azure/kusto/query/buildschema-aggfunction)
@@ -55,31 +54,31 @@ Eis a lista de funções no gráfico de recursos:
 
 ## <a name="escape-characters"></a>Caracteres de escape
 
-Alguns nomes de propriedade, como os que incluem uma `.` ou `$`, tem de ser encapsuladas ou escape da consulta ou a propriedade nome é interpretado incorretamente e não fornece os resultados esperados.
+Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser encapsulados ou ter escape na consulta ou o nome da propriedade é interpretado incorretamente e não fornece os resultados esperados.
 
-- `.` -Encapsule o nome da propriedade assim: `['propertyname.withaperiod']`
+- `.`-Encapsular o nome da propriedade como tal:`['propertyname.withaperiod']`
   
-  Consulta de exemplo que encapsula num wrapper a propriedade _OData_:
+  Exemplo de consulta que encapsula a propriedade _OData. Type_:
 
   ```kusto
   where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
   ```
 
-- `$` -No nome da propriedade caráter de escape. O caráter de escape utilizado depende o shell que gráfico do recurso é executado a partir.
+- `$`-Escape o caractere no nome da propriedade. O caractere de escape usado depende do grafo de recursos do Shell em execução.
 
   - **bash** - `\`
 
-    Consulta de exemplo que escapes a propriedade  _\$tipo_ no bash:
+    Exemplo de consulta que escapa o  _\$tipo_ de propriedade no bash:
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
     ```
 
-  - **cmd** -não saiam do `$` caráter.
+  - **cmd** -não escapar do `$` caractere.
 
   - **PowerShell** - ``` ` ```
 
-    Consulta de exemplo que escapes a propriedade  _\$tipo_ no PowerShell:
+    Exemplo de consulta que escapa o  _\$tipo_ de propriedade no PowerShell:
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
@@ -87,6 +86,6 @@ Alguns nomes de propriedade, como os que incluem uma `.` ou `$`, tem de ser enca
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Consulte o idioma utilizado na [consultas Starter](../samples/starter.md)
-- Consulte avançada usa no [avançadas consultas](../samples/advanced.md)
+- Consulte o idioma em uso em [consultas de início](../samples/starter.md)
+- Consulte usos avançados em [consultas avançadas](../samples/advanced.md)
 - Aprender a [explorar recursos](explore-resources.md)

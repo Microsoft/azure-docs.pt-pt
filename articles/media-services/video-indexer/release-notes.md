@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/29/2019
 ms.author: juliako
-ms.openlocfilehash: b627a78edef1c0b0fe6b3ed011678145aea397ae
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a7d178972a8c8b413e3c6336c403348f1eb78abb
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845880"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232608"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
 
@@ -27,6 +27,43 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de erros
 * Funcionalidades preteridas
+
+## <a name="august-2019"></a>Agosto de 2019
+ 
+### <a name="video-indexer-deployed-in-uk-south"></a>Video Indexer implantado no Sul do Reino Unido
+
+Agora você pode criar uma conta paga Video Indexer na região do Sul do Reino Unido.
+
+### <a name="new-editorial-shot-type-insights-available"></a>Novas informações de tipo de captura editorial disponíveis
+
+As novas marcas adicionadas às capturas de vídeo fornecem "tipos de captura" editoriais para identificá-las com as frases editoriais comuns usadas no fluxo de trabalho de criação de conteúdo, como: Extreme closeup, closeup, Wide, Medium, two shot, externamente, interno, face esquerda e direita (disponível no JSON).
+
+### <a name="new-people-and-locations-entities-extraction-available"></a>Extração de entidades de novas pessoas e locais disponíveis
+
+Video Indexer identifica locais nomeados e pessoas por meio do NLP (processamento de idioma natural) do OCR e da transcrição do vídeo. Video Indexer usa o algoritmo de aprendizado de máquina para reconhecer quando locais específicos (por exemplo, a torre de Eiffel) ou pessoas (por exemplo, João da Silva) estão sendo chamados em um vídeo.
+
+### <a name="keyframes-extraction-in-native-resolution"></a>Extração de quadros-chave na resolução nativa
+
+Os quadros-chave extraídos por Video Indexer estão disponíveis na resolução original do vídeo.
+ 
+### <a name="ga-for-training-custom-face-models-from-images"></a>GA para treinamento de modelos de face personalizados de imagens
+
+Rostos de treinamento de imagens movidas do modo de visualização para GA (disponível via API e no Portal).
+
+> [!NOTE]
+> Não há impacto de preço relacionado à transição de "visualização para GA".
+
+### <a name="hide-gallery-toggle-option"></a>Ocultar opção de alternância da Galeria
+
+O usuário pode optar por ocultar a guia Galeria do portal (semelhante a ocultar a guia amostras).
+ 
+### <a name="maximum-url-size-increased"></a>Tamanho máximo de URL aumentado
+
+Suporte para cadeia de caracteres de consulta de URL 4096 (em vez de 2048) na indexação de um vídeo.
+ 
+### <a name="support-for-multi-lingual-projects"></a>Suporte para projetos multilíngues
+
+Agora, os projetos podem ser criados com base em vídeos indexados em diferentes idiomas (somente API).
 
 ## <a name="july-2019"></a>Julho de 2019
 
@@ -72,6 +109,6 @@ Ao chamar a [API Update transcrição de vídeo](https://api-portal.videoindexer
 
 Além do formato de legenda oculta já suportado (SRT, VTT e TTML), Video Indexer agora dá suporte ao download da transcrição nos formatos TXT e CSV.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Descrição Geral](video-indexer-overview.md)

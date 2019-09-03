@@ -5,18 +5,18 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 6/27/2019
+ms.date: 09/03/2019
 ms.author: raynew
-ms.openlocfilehash: 6a0e07f338da039be1660e59510b24bcd44eed0c
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: f3ff6e5e05cab9aab5257d810c6785e7691bae45
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491745"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232199"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quais as cargas de trabalho que podem ser protegidas com o Azure Site Recovery?
 
-Este artigo descreve as cargas de trabalho e aplicações que pode proteger para recuperação após desastre com o [do Azure Site Recovery](site-recovery-overview.md) serviço.
+Este artigo descreve as cargas de trabalho e os aplicativos que você pode proteger para a recuperação de desastres com o serviço [Azure site Recovery](site-recovery-overview.md) .
 
 
 
@@ -35,13 +35,13 @@ A Recuperação de Sites contribui para a proteção e recuperação a nível de
 * Aplicação desconhecidas, fornecendo a replicação de quaisquer cargas de trabalho em execução num computador suportado.
 * A replicação quase síncrona com os RPOs em apenas 30 segundos para satisfazer as necessidades das aplicações empresariais mais críticas.
 * Instantâneos consistentes com aplicações para aplicações com uma ou múltiplas camadas.
-* Integração com o AlwaysOn do SQL Server e parceria com outras tecnologias de replicação ao nível da aplicação, incluindo grupos de disponibilidade de base de dados de Exchange de replicação, o AlwaysOn de SQL, do AD (DAGs).
+* Integração com o SQL Server AlwaysOn e parceria com outras tecnologias de replicação em nível de aplicativo, incluindo replicação do AD, SQL AlwaysOn, grupos de disponibilidade de banco de dados do Exchange (DAGs).
 * Planos de recuperação flexíveis que lhe permitem recuperar toda uma pilha de aplicações com um único clique e incluem scripts externos e ações manuais no plano.
 * A gestão de rede avançada na Recuperação de Sites e no Azure para simplificar os requisitos de rede de aplicação, incluindo a capacidade de reserva de endereços IP, configurar o balanceamento de carga e integração com o Gestor de Tráfego do Azure o que reduz as mudanças de rede de RTO.
 * Uma biblioteca de Automatização do Azure completa que fornece scripts específicos de aplicação, prontos para produção, que podem ser transferidos e integrados com os planos de recuperação.
 
 ## <a name="workload-summary"></a>Resumo da carga de trabalho
-A Recuperação de Sites pode replicar qualquer aplicação em execução numa máquina. Além disso, fizemos parcerias com equipas de produto para executar testes adicionais específicos da aplicação.
+A Recuperação de Sites pode replicar qualquer aplicação em execução numa máquina. Além disso, fizemos uma parceria com as equipes de produto para executar testes adicionais para os aplicativos especificados na tabela.
 
 | **Carga de trabalho** |**Replicar VMs do Azure para o Azure** |**Replicar VMs Hyper-V para um site secundário** | **Replicar VMs Hyper-V para o Azure** | **Replicar VMs VMware para um site secundário** | **Replicar VMs VMware para o Azure** |
 | --- | --- | --- | --- | --- |---|

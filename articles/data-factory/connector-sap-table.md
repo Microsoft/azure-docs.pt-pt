@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: faae9ae335e391afac4ed2ef75472f1fecdaca86
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 94bdeebcecdf924468f022ac95867bd82df5a793
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211672"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231331"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiar dados de uma tabela SAP usando Azure Data Factory
 
@@ -35,9 +35,9 @@ Especificamente, esse conector de tabela SAP dá suporte a:
 - Copiando dados de uma tabela SAP em:
 
   - Componente central SAP ERP (SAP ECC) versão 7, 1 ou posterior (em uma pilha recente de pacotes de suporte SAP lançada após 2015).
-  - SAP Business Warehouse (SAP BW) versão 7, 1 ou posterior.
+  - SAP Business Warehouse (SAP BW) versão 7, 1 ou posterior (em uma pilha recente de pacotes de suporte SAP lançada após 2015).
   - SAP S/4HANA.
-  - Outros produtos no SAP Business Suite versão 7, 1 ou posterior.
+  - Outros produtos no SAP Business Suite versão 7, 1 ou posterior (em uma pilha recente do pacote de suporte SAP lançado após 2015).
 
 - Copiar dados de uma tabela transparente do SAP, uma tabela em pool, uma tabela clusterizada e uma exibição.
 - Copiar dados usando a autenticação básica ou a SNC (comunicações de rede segura) se a SNC estiver configurada.

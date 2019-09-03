@@ -1,88 +1,87 @@
 ---
-title: Utilizar parâmetros para a criação de esquemas dinâmicas
-description: Saiba mais sobre os parâmetros de estáticos e dinâmicos e como usá-los cria planos gráficos dinâmicos.
+title: Usar parâmetros para criar plantas dinâmicas
+description: Saiba mais sobre os parâmetros estáticos e dinâmicos e como usá-los cria plantas dinâmicas.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 5c1bb1f959f920ea9bce23082ec531dc83d873ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9670433284ae963783b655322c4b18f748df52c5
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356988"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231950"
 ---
-# <a name="creating-dynamic-blueprints-through-parameters"></a>Criação de esquemas dinâmicas através de parâmetros
+# <a name="creating-dynamic-blueprints-through-parameters"></a>Criando plantas dinâmicas por meio de parâmetros
 
-Um plano gráfico totalmente definido com vários artefactos (por exemplo, grupos de recursos, modelos de Gestor de recursos, as políticas ou atribuições de funções) oferece a criação rápida e consistente criação dos objetos dentro do Azure. Para ativar a utilização flexível desses padrões de design reutilizáveis e contentores, os esquemas do Azure suporta parâmetros. O parâmetro cria flexibilidade, tanto durante a definição e a atribuição, para alterar as propriedades os artefactos implementadas pelo plano gráfico.
+Um plano gráfico totalmente definido com vários artefatos (como grupos de recursos, modelos do Resource Manager, políticas ou atribuições de função) oferece a criação rápida e a criação consistente de objetos no Azure. Para habilitar o uso flexível desses padrões e contêineres de design reutilizáveis, os planos gráficos do Azure dão suporte a parâmetros. O parâmetro cria flexibilidade, durante a definição e atribuição, para alterar propriedades nos artefatos implantados pelo plano gráfico.
 
-Um exemplo simples é o artefacto de grupo de recursos. Quando é criado um grupo de recursos, ele tem dois valores necessários que tem de ser fornecidos: nome e localização. Ao adicionar um grupo de recursos ao seu blueprint, se não existirem parâmetros, definiria esse nome e localização para cada utilização do plano gráfico. Este repetição faria com que cada utilização de esquema para criar artefactos no mesmo grupo de recursos. Os recursos no interior do grupo de recursos poderiam se tornar duplicados e causam um conflito.
+Um exemplo simples é o artefato do grupo de recursos. Quando um grupo de recursos é criado, ele tem dois valores necessários que devem ser fornecidos: nome e local. Ao adicionar um grupo de recursos ao seu plano gráfico, se não houver parâmetros, você definiria esse nome e o local para cada uso do plano gráfico. Essa repetição faria com que cada uso do plano gráfico criasse artefatos no mesmo grupo de recursos. Os recursos dentro desse grupo de recursos se tornarão duplicados e causarão um conflito.
 
 > [!NOTE]
-> Não é um problema para dois esquemas diferentes incluir um grupo de recursos com o mesmo nome.
-> Se um grupo de recursos incluído num plano gráfico já existir, o plano gráfico continua criar os artefactos relacionados nesse grupo de recursos. Isso poderia causar um conflito como dois recursos com o mesmo nome e tipo de recurso não pode existir dentro de uma subscrição.
+> Não é um problema para duas plantas diferentes incluir um grupo de recursos com o mesmo nome.
+> Se um grupo de recursos incluído em um plano gráfico já existir, o plano gráfico continuará criando os artefatos relacionados nesse grupo de recursos. Isso pode causar um conflito, pois dois recursos com o mesmo nome e tipo de recurso não podem existir dentro de uma assinatura.
 
-A solução para esse problema é parâmetros. Planos gráficos permite-lhe definir o valor para cada propriedade do artefacto durante a atribuição para uma subscrição. O parâmetro torna possível reutilizar um plano gráfico que cria um grupo de recursos e outros recursos dentro de uma única subscrição, sem ter de conflito.
+A solução para esse problema são os parâmetros. Os planos gráficos permitem que você defina o valor de cada propriedade do artefato durante a atribuição a uma assinatura. O parâmetro torna possível reutilizar um plano gráfico que cria um grupo de recursos e outros recursos dentro de uma única assinatura sem ter conflito.
 
 ## <a name="blueprint-parameters"></a>Parâmetros de esquema
 
-Através da API REST, os parâmetros podem ser criados no esquema em si. Esses parâmetros são diferentes de parâmetros em cada um dos artefatos suportados. Quando um parâmetro é criado sobre o plano gráfico, pode ser utilizado pelos artefactos nesse esquema. Por exemplo, poderá o prefixo para atribuição de nomes do grupo de recursos. O artefacto pode utilizar o parâmetro de esquema para criar um parâmetro "principalmente dinâmico". Como o parâmetro também pode ser definido durante a atribuição, este padrão permite que uma consistência que pode seguir as regras de nomenclatura. Para obter os passos, consulte [parâmetros estáticos de definição - parâmetro de nível de esquema](#blueprint-level-parameter).
+Por meio da API REST, os parâmetros podem ser criados no próprio plano gráfico. Esses parâmetros são diferentes dos parâmetros em cada um dos artefatos com suporte. Quando um parâmetro é criado no plano gráfico, ele pode ser usado pelos artefatos nesse plano gráfico. Um exemplo pode ser o prefixo para a nomenclatura do grupo de recursos. O artefato pode usar o parâmetro Blueprint para criar um parâmetro "principalmente dinâmico". Como o parâmetro também pode ser definido durante a atribuição, esse padrão permite uma consistência que pode aderir às regras de nomenclatura. Para obter as etapas, consulte [definindo parâmetros estáticos-parâmetro de nível do Blueprint](#blueprint-level-parameter).
 
-### <a name="using-securestring-and-secureobject-parameters"></a>Usando parâmetros secureString e secureObject
+### <a name="using-securestring-and-secureobject-parameters"></a>Usando parâmetros secureString e secureobject
 
-Enquanto um modelo do Resource Manager _artefacto_ suporta parâmetros do **secureString** e **secureObject** tipos, esquemas do Azure requer que cada um ligado com um cofre de chaves do Azure.
-Esta medida de segurança impede a prática de não segura de armazenar segredos, juntamente com o esquema e incentiva o emprego de padrões de seguros. Planos gráficos do Azure suporta esta medida de segurança, detectar a inclusão de qualquer parâmetro seguro num modelo do Resource Manager _artefacto_. Em seguida, pede o serviço durante a atribuição para as seguintes propriedades do Cofre de chaves por parâmetro seguro detetado:
+Embora um _artefato_ de modelo do Resource Manager dê suporte a parâmetros dos tipos **secureString** e **Secureobject** , os planos gráficos do Azure exigem que cada um seja conectado a um Azure Key Vault.
+Essa medida de segurança impede a prática não segura de armazenar segredos junto com o plano gráfico e incentiva o emprego de padrões seguros. Os planos gráficos do Azure dão suporte a essa medida de segurança, detectando a inclusão de um parâmetro seguro em um _artefato_de modelo do Resource Manager. O serviço, em seguida, solicita durante a atribuição as seguintes propriedades de Key Vault por parâmetro seguro detectado:
 
-- ID de recurso do Key Vault
-- Nome secreto do Key Vault
-- Versão de segredo do Key Vault
+- ID do recurso de Key Vault
+- Nome do segredo de Key Vault
+- Key Vault versão de segredo
 
-Se utilizar a atribuição do esquema uma **atribuído ao sistema de identidade gerido**, o referenciado Key Vault _tem_ existe na mesma subscrição, a definição do esquema está atribuída a.
+Se a atribuição Blueprint usar uma **identidade gerenciada atribuída pelo sistema**, o Key Vault referenciado _deverá_ existir na mesma assinatura à qual a definição de Blueprint está atribuída.
 
-Se utilizar a atribuição do esquema uma **atribuído ao utilizador a identidade gerida**, o referenciado Key Vault _poderá_ existe numa subscrição centralizada. A identidade gerida deve ser concedida direitos adequados no Key Vault antes da atribuição do esquema.
+Se a atribuição Blueprint usar uma **identidade gerenciada atribuída pelo usuário**, o Key Vault referenciado _poderá_ existir em uma assinatura centralizada. A identidade gerenciada deve receber os direitos apropriados no Key Vault antes da atribuição de Blueprint.
 
 > [!IMPORTANT]
-> Em ambos os casos, o Cofre de chaves tem de ter **ativar o acesso ao Azure Resource Manager para a implementação de modelo** configurado no **políticas de acesso** página. Para instruções sobre como ativar esta funcionalidade, consulte [Key Vault - ativar a implementação do modelo](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> Em ambos os casos, o Key Vault deve ter **habilitar acesso ao Azure Resource Manager para implantação de modelo** configurada na página **políticas de acesso** . Para obter instruções sobre como habilitar esse recurso, consulte [Key Vault-habilitar implantação de modelo](../../../managed-applications/key-vault-access.md#enable-template-deployment).
 
-Para obter mais informações sobre o Azure Key Vault, consulte [descrição geral do Cofre de chave](../../../key-vault/key-vault-overview.md).
+Para obter mais informações sobre Azure Key Vault, consulte [Key Vault visão geral](../../../key-vault/key-vault-overview.md).
 
 ## <a name="parameter-types"></a>Tipos de parâmetro
 
 ### <a name="static-parameters"></a>Parâmetros estáticos
 
-Um valor de parâmetro definido na definição de um plano gráfico é chamado um **parâmetro estático**, porque cada utilização do plano gráfico irá implementar o artefacto usando esse valor estático. O exemplo de grupo de recursos, enquanto não faz sentido para o nome do grupo de recursos, poderá fazer sentido para a localização. Em seguida, cada atribuição do plano gráfico cria o grupo de recursos, tudo o que é chamado durante a atribuição, na mesma localização. Essa flexibilidade permite-lhe ser seletivo no que definir como necessários vs o que pode ser alterado durante a atribuição.
+Um valor de parâmetro definido na definição de um plano gráfico é chamado de **parâmetro estático**, pois cada uso do Blueprint implantará o artefato usando esse valor estático. No exemplo de grupo de recursos, embora não faça sentido para o nome do grupo de recursos, isso pode fazer sentido para o local. Em seguida, cada atribuição do plano gráfico criaria o grupo de recursos, o que for chamado durante a atribuição, no mesmo local. Essa flexibilidade permite que você seja seletivo no que você define conforme necessário versus o que pode ser alterado durante a atribuição.
 
-#### <a name="setting-static-parameters-in-the-portal"></a>Definir parâmetros estáticos no portal
+#### <a name="setting-static-parameters-in-the-portal"></a>Configurando parâmetros estáticos no portal
 
-1. Selecione **todos os serviços** no painel esquerdo. Procure e selecione **esquemas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
-1. Selecione **definições de esquema** partir da página à esquerda.
+1. Selecione **definições de plantas** na página à esquerda.
 
-1. Clique numa esquema existente e, em seguida, clique em **esquema de edição** ou clique em **+ criar esquema** e preencha as informações sobre o **Noções básicas** separador.
+1. Clique em um plano gráfico existente e, em seguida, clique em **Editar Blueprint** ou clique em **+ criar plano gráfico** e preencha as informações na guia **noções básicas** .
 
-1. Clique em **seguinte: Artefactos** ou clique nas **artefactos** separador.
+1. Clique **em Avançar: Artefatos** ou clique na guia **artefatos** .
 
-1. Artefatos adicionados ao esquema, que tem opções de parâmetro exibir **parâmetros de X de Y preenchidos** no **parâmetros** coluna. Clique na linha de artefacto para editar os parâmetros de artefacto.
+1. Os artefatos adicionados ao plano gráfico com opções de parâmetro exibem **X de parâmetros Y preenchidos** na coluna **parâmetros** . Clique na linha de artefato para editar os parâmetros de artefato.
 
-   ![Parâmetros de esquema numa definição de esquema](../media/parameters/parameter-column.png)
+   ![Parâmetros de Blueprint em uma definição de Blueprint](../media/parameters/parameter-column.png)
 
-1. O **artefacto editar** página apresenta as opções de valor apropriadas para o artefacto clicado. Cada parâmetro no artefacto tem um título, uma caixa de valor e uma caixa de verificação. Definir a caixa desmarcada para torná-lo um **parâmetro estático**. No exemplo abaixo, apenas _localização_ é um **parâmetro estático** porque esta tem desmarcada e _nome do grupo de recursos_ está marcada.
+1. A página **Editar artefato** exibe as opções de valor apropriadas para o artefato clicado. Cada parâmetro no artefato tem um título, uma caixa de valor e uma CheckBox. Defina a caixa como desmarcada para torná-la um **parâmetro estático**. No exemplo a seguir, somente _Location_ é um **parâmetro estático** , pois ele está desmarcado e o _nome do grupo de recursos_ está marcado.
 
-   ![Parâmetros estáticos do esquema num artefacto de esquema](../media/parameters/static-parameter.png)
+   ![Parâmetros estáticos do Blueprint em um artefato do Blueprint](../media/parameters/static-parameter.png)
 
-#### <a name="setting-static-parameters-from-rest-api"></a>Definir parâmetros estáticos a partir da API REST
+#### <a name="setting-static-parameters-from-rest-api"></a>Configurando parâmetros estáticos da API REST
 
 Em cada URI da API REST, existem variáveis que são utilizadas que precisa de substituir pelos seus próprios valores:
 
 - `{YourMG}` - substituir pelo nome do seu grupo de gestão
 - `{subscriptionId}` - substituir pelo ID da subscrição
 
-##### <a name="blueprint-level-parameter"></a>Parâmetro de nível de esquema
+##### <a name="blueprint-level-parameter"></a>Parâmetro de nível do Blueprint
 
-Ao criar um plano gráfico através da REST API, é possível criar [esquema parâmetros](#blueprint-parameters). Para tal, utilize o seguinte formato de URI da API REST e o corpo:
+Ao criar um plano gráfico por meio da API REST, é possível criar [parâmetros de plano gráfico](#blueprint-parameters). Para fazer isso, use o seguinte URI da API REST e o formato do corpo:
 
 - URI da API REST
 
@@ -114,8 +113,8 @@ Ao criar um plano gráfico através da REST API, é possível criar [esquema par
   }
   ```
 
-Depois de criar um parâmetro de nível de esquema, pode ser utilizado em artefatos adicionados a esse esquema.
-O exemplo de REST API seguinte cria um artefacto de atribuição de função no plano gráfico e utiliza o parâmetro de nível de esquema.
+Depois que um parâmetro de nível do plano gráfico é criado, ele pode ser usado em artefatos adicionados a esse plano gráfico.
+O exemplo de API REST a seguir cria um artefato de atribuição de função no Blueprint e usa o parâmetro de nível Blueprint.
 
 - URI da API REST
 
@@ -136,11 +135,11 @@ O exemplo de REST API seguinte cria um artefacto de atribuição de função no 
   }
   ```
 
-Neste exemplo, o **principalIds** propriedade utiliza os **proprietários** esquema de parâmetro de nível utilizando um valor de `[parameters('owners')]`. Definir um parâmetro num artefacto com um parâmetro de nível de esquema ainda é um exemplo de um **parâmetro estático**. O parâmetro de nível de esquema não pode ser definido durante a atribuição do esquema e será o mesmo valor em cada atribuição.
+Neste exemplo, a propriedade **principalIds** usa o parâmetro de nível de planta de **proprietários** usando um valor `[parameters('owners')]`de. Definir um parâmetro em um artefato usando um parâmetro de nível Blueprint ainda é um exemplo de um **parâmetro estático**. O parâmetro de nível do plano gráfico não pode ser definido durante a atribuição do Blueprint e será o mesmo valor em cada atribuição.
 
-##### <a name="artifact-level-parameter"></a>Parâmetro de nível de artefacto
+##### <a name="artifact-level-parameter"></a>Parâmetro de nível de artefato
 
-Criando **parâmetros estáticos** num artefato é semelhante, mas que assume um valor diretamente em vez de usar o `parameters()` função. O exemplo seguinte cria dois parâmetros estáticos, **tagName** e **tagValue**. O valor em cada um é fornecido diretamente e não utiliza uma chamada de função.
+A criação de **parâmetros estáticos** em um artefato é semelhante, mas usa um valor reto em `parameters()` vez de usar a função. O exemplo a seguir cria dois parâmetros estáticos, **TagName** e **tagValue**. O valor em cada um é fornecido diretamente e não usa uma chamada de função.
 
 - URI da API REST
 
@@ -170,23 +169,23 @@ Criando **parâmetros estáticos** num artefato é semelhante, mas que assume um
 
 ### <a name="dynamic-parameters"></a>Parâmetros dinâmicos
 
-O oposto de um parâmetro estático é um **parâmetro dinâmico**. Este parâmetro não está definido no esquema, mas em vez disso, é definido durante a cada atribuição do esquema. O exemplo de grupo de recursos, a utilização de um **parâmetro dinâmico** faz sentido para o nome do grupo de recursos. Ele fornece um nome diferente para cada atribuição do esquema. Para obter uma lista de funções de esquema, consulte a [esquema funções](../reference/blueprint-functions.md) referência.
+O oposto de um parâmetro estático é um **parâmetro dinâmico**. Esse parâmetro não é definido no plano gráfico, mas, em vez disso, é definido durante cada atribuição do plano gráfico. No exemplo de grupo de recursos, o uso de um **parâmetro dinâmico** faz sentido para o nome do grupo de recursos. Ele fornece um nome diferente para cada atribuição do plano gráfico. Para obter uma lista de funções de plano gráfico, consulte a referência de [funções de Blueprint](../reference/blueprint-functions.md) .
 
-#### <a name="setting-dynamic-parameters-in-the-portal"></a>Definir parâmetros dinâmicos no portal
+#### <a name="setting-dynamic-parameters-in-the-portal"></a>Configurando parâmetros dinâmicos no portal
 
-1. Selecione **todos os serviços** no painel esquerdo. Procure e selecione **esquemas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
-1. Selecione **definições de esquema** partir da página à esquerda.
+1. Selecione **definições de plantas** na página à esquerda.
 
-1. Clique com o botão direito no plano de gráfico que pretende atribuir. Selecione **esquema Assign** ou clique no esquema que pretende atribuir, em seguida, clique nas **esquema Assign** botão.
+1. Clique com o botão direito do mouse no plano gráfico que você deseja atribuir. Selecione **atribuir plano gráfico** ou clique no plano gráfico que você deseja atribuir e clique no botão **atribuir Blueprint** .
 
-1. Sobre o **atribuir esquema** página, encontre o **parâmetros de artefacto** secção. Cada artefato com, pelo menos, um **parâmetro dinâmico** apresenta o artefacto e as opções de configuração. Forneça os valores necessários para os parâmetros antes de atribuir o plano gráfico. No exemplo abaixo, _Name_ é um **parâmetro dinâmico** que tem de ser definido para concluir a atribuição do esquema.
+1. Na página **atribuir Blueprint** , localize a seção **parâmetros de artefato** . Cada artefato com pelo menos um **parâmetro dinâmico** exibe o artefato e as opções de configuração. Forneça os valores necessários para os parâmetros antes de atribuir o plano gráfico. No exemplo a seguir, _Name_ é um **parâmetro dinâmico** que deve ser definido para concluir a atribuição de Blueprint.
 
-   ![Parâmetro dinâmico de esquema durante a atribuição do esquema](../media/parameters/dynamic-parameter.png)
+   ![Parâmetro dinâmico do Blueprint durante a atribuição do Blueprint](../media/parameters/dynamic-parameter.png)
 
-#### <a name="setting-dynamic-parameters-from-rest-api"></a>Definir parâmetros dinâmicos a partir da API REST
+#### <a name="setting-dynamic-parameters-from-rest-api"></a>Definindo parâmetros dinâmicos da API REST
 
-A definição **parâmetros dinâmicos** durante a atribuição é feito ao introduzir o valor diretamente. Em vez de usar uma função, como [parameters()](../reference/blueprint-functions.md#parameters), o valor fornecido é uma cadeia de caracteres apropriada. Artefactos para um grupo de recursos são definidos com um "nome de modelo," **name**, e **localização** propriedades. Todos os outros parâmetros para artefactos incluídos são definidos em **parâmetros** com um **\<nome\>** e **valor** par de chaves. Se o esquema estiver configurado para um parâmetro dinâmico, que não foi fornecido durante a atribuição, a atribuição irá falhar.
+A configuração de **parâmetros dinâmicos** durante a atribuição é feita inserindo-se o valor diretamente. Em vez de usar uma função, como [Parameters ()](../reference/blueprint-functions.md#parameters), o valor fornecido é uma cadeia de caracteres apropriada. Os artefatos de um grupo de recursos são definidos com as propriedades "nome do modelo", **nome**e **local** . Todos os outros parâmetros do artefato incluído são definidos em **parâmetros** com um par de **\<\>** chaves de nome e **valor** . Se o Blueprint estiver configurado para um parâmetro dinâmico que não é fornecido durante a atribuição, a atribuição falhará.
 
 - URI da API REST
 
@@ -239,8 +238,8 @@ A definição **parâmetros dinâmicos** durante a atribuição é feito ao intr
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Ver a lista de [esquema funções](../reference/blueprint-functions.md).
-- Saiba mais sobre o [ciclo de vida de um esquema](lifecycle.md).
+- Consulte a lista de [funções de plantas](../reference/blueprint-functions.md).
+- Saiba mais sobre o [ciclo de vida do plano gráfico](lifecycle.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](resource-locking.md).
 - Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).

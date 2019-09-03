@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/03/2019
 ms.author: raynew
-ms.openlocfilehash: 6882476cabc3dc3a737f31eeeb4ccd92e5ea6ee0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d415f303976ae454cb99f07e8d6e15e338e24d7d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872749"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231462"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure para o Azure
 
@@ -66,7 +66,7 @@ Quando você habilita a replicação de VM do Azure, por padrão Site Recovery c
 **Definição de política** | **Detalhes** | **Predefinição**
 --- | --- | ---
 **Retenção do ponto de recuperação** | Especifica por quanto tempo Site Recovery mantém os pontos de recuperação | 24 horas
-**Frequência de instantâneo consistente com o aplicativo** | Com que frequência Site Recovery usa um instantâneo consistente com o aplicativo. | A cada 60 minutos.
+**Frequência de instantâneo consistente com o aplicativo** | Com que frequência Site Recovery usa um instantâneo consistente com o aplicativo. | A cada quatro horas
 
 ### <a name="managing-replication-policies"></a>Gerenciando políticas de replicação
 
@@ -186,6 +186,6 @@ Quando você inicia um failover, as VMs são criadas no grupo de recursos de des
 
 ![Processo de failover](./media/concepts-azure-to-azure-architecture/failover.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Replique rapidamente](azure-to-azure-quickstart.md) uma VM do Azure para uma região secundária.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: c2c9e3d29ced5f75873656e253ecdbab5efe7df8
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: ca5d857e4d473c7f76b7fac62e8a8bab39769b25
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114414"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233126"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para pools de nós do Windows Server e cargas de trabalho de aplicativo no serviço kubernetes do Azure (AKS)
 
@@ -21,47 +21,18 @@ No serviço de kubernetes do Azure (AKS), você pode criar um pool de nós que e
 Este artigo descreve algumas das limitações e os conceitos de sistema operacional para nós do Windows Server no AKS. Os pools de nós do Windows Server estão atualmente em visualização.
 
 > [!IMPORTANT]
-> Os recursos de visualização do AKS são consentimento de autoatendimento. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente com base no melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter outras incompatibilidades, consulte os seguintes artigos de suporte:
+> Os recursos de visualização do AKS são consentimento de autoatendimento. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente com base no melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter informações adicionais, consulte os seguintes artigos de suporte:
 >
 > * [Políticas de suporte do AKS][aks-support-policies]
 > * [Perguntas frequentes do suporte do Azure][aks-faq]
 
-## <a name="limitations-for-windows-server-in-kubernetes"></a>Limitações do Windows Server no kubernetes
+## <a name="which-windows-operating-systems-are-supported"></a>Quais sistemas operacionais Windows têm suporte?
 
-Os contêineres do Windows Server devem ser executados em um host de contêiner baseado no Windows. Para executar contêineres do Windows Server no AKS, você pode [criar um pool de nós que executa o Windows Server][windows-node-cli] como o sistema operacional convidado. O suporte ao pool de nós do servidor de janelas inclui algumas limitações que fazem parte do Windows Server upstream no projeto kubernetes. Essas limitações não são específicas do AKS. Para obter mais informações sobre esse suporte upstream para Windows Server no kubernetes, consulte [contêineres do Windows Server em limitações do kubernetes](https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/#supported-functionality-and-limitations).
+O AKS usa o Windows Server 2019 como a versão do sistema operacional do host e só dá suporte ao isolamento do processo. Não há suporte para imagens de contêiner criadas usando outras versões do Windows Server. [Compatibilidade de versão do contêiner do Windows][windows-container-compat]
 
-As seguintes limitações de upstream para contêineres do Windows Server em kubernetes são relevantes para AKS:
+## <a name="is-kubernetes-different-on-windows-and-linux"></a>O kubernetes é diferente no Windows e no Linux?
 
-- Os contêineres do Windows Server só podem usar o Windows Server 2019, que corresponde ao so do Windows Server node subjacente.
-    - Não há suporte para imagens de contêiner criadas usando o Windows Server 2016 como o sistema operacional base.
-- Contêineres privilegiados não podem ser usados.
-- Recursos específicos do Linux, como os recursos RunAsUser, SELinux, AppArmor ou POSIX, não estão disponíveis em contêineres do Windows Server.
-    - As limitações do sistema de arquivos que são específicas do Linux, como UUI/GUID, por permissões de usuário, também não estão disponíveis em contêineres do Windows Server.
-- Os discos do Azure e os arquivos do Azure são os tipos de volumes com suporte, acessados como volumes NTFS no contêiner do Windows Server.
-    - Não há suporte para volumes/armazenamento baseados em NFS.
-
-## <a name="aks-limitations-for-windows-server-node-pools"></a>Limitações do AKS para pools de nós do Windows Server
-
-As seguintes limitações adicionais se aplicam ao suporte do pool de nós do Windows Server no AKS:
-
-- Um cluster AKS sempre contém um pool de nós do Linux como o primeiro pool de nós. Esse primeiro pool de nós baseado em Linux não pode ser excluído, a menos que o próprio cluster AKS seja excluído.
-- Os clusters AKS devem usar o modelo de rede CNI do Azure (avançado).
-    - Não há suporte para a rede Kubenet (básica). Você não pode criar um cluster AKS que usa kubenet. Para obter mais informações sobre as diferenças em modelos de rede, consulte [conceitos de rede para aplicativos no AKs][azure-network-models].
-    - O modelo de rede CNI do Azure requer planejamento e considerações adicionais para o gerenciamento de endereços IP. Para obter mais informações sobre como planejar e implementar o Azure CNI, consulte [Configurar a rede CNI do Azure no AKs][configure-azure-cni].
-- Os nós do Windows Server no AKS devem ser *atualizados* para uma versão mais recente do windows Server 2019 para manter as correções e atualizações de patch mais recentes. As atualizações do Windows não estão habilitadas na imagem do nó base no AKS. Em um cronograma regular em relação ao ciclo de liberação Windows Update e seu próprio processo de validação, você deve executar uma atualização nos pools de nó do Windows Server em seu cluster AKS. Para obter mais informações sobre como atualizar um pool de nós do Windows Server, consulte [atualizar um pool de nós no AKs][nodepool-upgrade].
-    - Essas atualizações de nó do Windows Server consomem temporariamente endereços IP adicionais na sub-rede da rede virtual, pois um novo nó é implantado, antes que o nó antigo seja removido.
-    - as cotas de vCPU também são consumidas temporariamente na assinatura à medida que um novo nó é implantado e o nó antigo é removido.
-    - Você não pode atualizar e gerenciar automaticamente as reinicializações usando `kured` o como com os nós do Linux no AKs.
-- O cluster AKS pode ter um máximo de oito pools de nós.
-    - Você pode ter um máximo de 400 nós entre esses oito pools de nós.
-- O nome do pool de nós do Windows Server tem um limite de 6 caracteres.
-- Os recursos de visualização no AKS, como a diretiva de rede e o dimensionamento de cluster, não são endossados para nós do Windows Server.
-- Controladores de entrada só devem ser agendados em nós do Linux usando um NodeSelector.
-- Atualmente, o Azure Dev Spaces está disponível apenas para pools de nós baseados em Linux.
-- Suporte ao grupo de contas de serviço gerenciado (gMSA) quando os nós do Windows Server não ingressaram em um domínio de Active Directory não está disponível no momento no AKS.
-    - O projeto [AKs-Engine][aks-engine] de software livre e upstream atualmente fornece suporte a gMSA se você precisar usar esse recurso.
-
-## <a name="os-concepts-that-are-different"></a>Conceitos de sistema operacional que são diferentes
+O suporte ao pool de nós do servidor de janelas inclui algumas limitações que fazem parte do Windows Server upstream no projeto kubernetes. Essas limitações não são específicas do AKS. Para obter mais informações sobre esse suporte upstream para o Windows Server no kubernetes, consulte a seção [funcionalidade e limitações com suporte][upstream-limitations] do [introdução ao suporte do Windows no documento kubernetes][intro-windows] , do projeto kubernetes.
 
 O kubernetes é historicamente focado em Linux. Muitos exemplos usados no site do upstream [kubernetes.Io][kubernetes] são destinados para uso em nós do Linux. Quando você cria implantações que usam contêineres do Windows Server, as seguintes considerações no nível do sistema operacional se aplicam:
 
@@ -71,14 +42,68 @@ O kubernetes é historicamente focado em Linux. Muitos exemplos usados no site d
 - **Caminhos de arquivo** -a Convenção no Windows Server é usar \ em vez de/.
     - Em especificações de Pod que montam volumes, especifique o caminho corretamente para contêineres do Windows Server. Por exemplo, em vez de um ponto de montagem de */mnt/volume* em um contêiner do Linux, especifique uma letra de unidade e um local como */K/volume* para montar como a unidade *K:* .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="what-kind-of-disks-are-supported-for-windows"></a>Que tipos de discos têm suporte para o Windows?
+
+Os discos do Azure e os arquivos do Azure são os tipos de volumes com suporte, acessados como volumes NTFS no contêiner do Windows Server.
+
+## <a name="can-i-run-windows-only-clusters-in-aks"></a>Posso executar clusters somente do Windows no AKS?
+
+Os nós mestres (o plano de controle) em um cluster AKS são hospedados pelo AKS do serviço, você não será exposto ao sistema operacional dos nós que hospedam os componentes mestres. Todos os clusters AKS são criados com um pool de primeiro nó padrão, que é baseado em Linux. Esse pool de nós contém serviços do sistema, que são necessários para que o cluster funcione. É recomendável executar pelo menos dois nós no primeiro pool de nós para garantir a confiabilidade do cluster e a capacidade de realizar operações de cluster. O primeiro pool de nós baseado em Linux não pode ser excluído, a menos que o próprio cluster AKS seja excluído.
+
+## <a name="what-network-plug-ins-are-supported"></a>Quais plug-ins de rede têm suporte?
+
+Clusters AKS com pools de nós do Windows devem usar o modelo de rede CNI do Azure (avançado). Não há suporte para a rede Kubenet (básica). Para obter mais informações sobre as diferenças em modelos de rede, consulte [conceitos de rede para aplicativos no AKs][azure-network-models]. -O modelo de rede CNI do Azure requer planejamento e considerações adicionais para o gerenciamento de endereços IP. Para obter mais informações sobre como planejar e implementar o Azure CNI, consulte [Configurar a rede CNI do Azure no AKs][configure-azure-cni].
+
+## <a name="can-i-change-the-min--of-pods-per-node"></a>Posso alterar o min. # de pods por nó?
+
+Atualmente, é um requisito para ser definido como um mínimo de 30 pods para garantir a confiabilidade de seus clusters.
+
+## <a name="how-do-patch-my-windows-nodes"></a>Como corrigir meus nós do Windows?
+
+Os nós do Windows Server no AKS devem ser *atualizados* para obter as correções e atualizações mais recentes do patch. As atualizações do Windows não estão habilitadas em nós no AKS. O AKS lança novas imagens do pool de nós assim que os patches estão disponíveis, é responsabilidade dos clientes atualizarem pools de nós para permanecerem atualizados sobre patches e hotfix. Isso também é verdadeiro para a versão kubernetes que está sendo usada. As notas de versão do AKS indicarão quando novas versões estão disponíveis. Para obter mais informações sobre como atualizar um pool de nós do Windows Server, consulte [atualizar um pool de nós no AKs][nodepool-upgrade].
+
+> [!NOTE]
+> A imagem atualizada do Windows Server será usada somente se uma atualização de cluster (atualização do plano de controle) tiver sido executada antes da atualização do pool de nós
+>
+
+## <a name="how-many-node-pools-can-i-create"></a>Quantos pools de nós posso criar?
+
+O cluster AKS pode ter um máximo de oito (8) pools de nós. Você pode ter um máximo de 400 nós entre esses pools de nós. [Limitações do pool de nós][nodepool-limitations].
+
+## <a name="what-can-i-name-my-windows-node-pools"></a>O que posso nomear meus pools de nós do Windows?
+
+Você precisa manter o nome em um máximo de 6 (seis) caracteres. Essa é uma limitação atual do AKS.
+
+## <a name="are-all-features-supported-with-windows-nodes"></a>Todos os recursos têm suporte com nós do Windows?
+
+As políticas de rede e kubenet não têm suporte no momento com nós do Windows. 
+
+## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>Posso executar controladores de entrada em nós do Windows?
+
+Sim, um controlador de entrada que dá suporte a contêineres do Windows Server pode ser executado em nós do Windows no AKS.
+
+## <a name="can-i-use-azure-dev-spaces-with-windows-nodes"></a>Posso usar Azure Dev Spaces com nós do Windows?
+
+Atualmente, o Azure Dev Spaces está disponível apenas para pools de nós baseados em Linux.
+
+## <a name="can-my-windows-server-containers-use-gmsa"></a>Meus contêineres do Windows Server podem usar o gMSA?
+
+O suporte ao grupo de contas de serviço gerenciado (gMSA) não está disponível no momento no AKS.
+
+## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>E se eu precisar de um recurso que não tenha suporte?
+
+Trabalhamos muito para reunir todos os recursos de que você precisa para o Windows no AKS, mas se você encontrar lacunas, o projeto de [AKs-Engine][aks-engine] de software livre fornecerá uma maneira fácil e totalmente personalizável de executar o kubernetes no Azure, incluindo o suporte do Windows. Certifique-se de conferir nosso roteiro de recursos que estão chegando ao [roteiro do AKS][aks-roadmap].
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Para começar a usar contêineres do Windows Server no AKS, [crie um pool de nós que executa o Windows Server em AKs][windows-node-cli].
 
 <!-- LINKS - external -->
-[upstream-limitations]: https://kubernetes.io/docs/setup/windows/#limitations
 [kubernetes]: https://kubernetes.io
 [aks-engine]: https://github.com/azure/aks-engine
+[upstream-limitations]: https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/#supported-functionality-and-limitations
+[intro-windows]: https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/
+[aks-roadmap]: https://github.com/Azure/AKS/projects/1
 
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
@@ -88,3 +113,6 @@ Para começar a usar contêineres do Windows Server no AKS, [crie um pool de nó
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
+[nodepool-limitations]: use-multiple-node-pools.md#limitations
+[preview-support]: support-policies.md#preview-features-or-feature-flags
+[windows-container-compat]: https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility#windows-server-2019-host-os-compatibility

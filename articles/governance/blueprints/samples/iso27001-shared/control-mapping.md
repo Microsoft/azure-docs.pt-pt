@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 58ea7c6b455888b18b927ae1511a2240aed524a4
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f7ab1c62578c61a82cfe2c923e1c4dc2600d78af
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515488"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231744"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapeamento de controle do exemplo de plano gráfico dos serviços compartilhados ISO 27001
 
@@ -42,9 +42,9 @@ Compreender os recursos que estão em violação dessas políticas pode ajudá-l
 - \[Versão\]prévia: Implantar a extensão de VM para auditar a VM do Linux permitindo conexões remotas de contas sem senhas
 - \[Versão\]prévia: Auditar contas de VM do Linux sem senhas
 - \[Versão\]prévia: Auditar a VM do Linux permitindo conexões remotas de contas sem senhas
-- Auditar utilização das contas de armazenamento clássicas
-- Auditar a utilização das máquinas virtuais clássicas
-- Auditar VMs que não utilizem discos geridos
+- Auditar o uso de contas de armazenamento clássicas
+- Auditar o uso de máquinas virtuais clássicas
+- Auditar VMs que não usam discos gerenciados
 
 ## <a name="a923-management-of-privileged-access-rights"></a>A. 9.2.3 gerenciamento de direitos de acesso privilegiado
 
@@ -54,9 +54,9 @@ Este projeto ajuda a restringir e controlar direitos de acesso privilegiado atri
 - \[Versão\]prévia: Contas de auditoria com permissões de gravação que não são habilitadas para MFA em uma assinatura
 - \[Versão\]prévia: Auditar contas externas com permissões de proprietário em uma assinatura
 - \[Versão\]prévia: Auditar contas externas com permissões de escrita numa subscrição
-- Auditoria de aprovisionamento de um administrador do Azure Active Directory para o SQL server
-- Auditoria de utilização do Azure Active Directory para autenticação de clientes no Service Fabric
-- Auditar utilização das regras RBAC personalizadas
+- Auditar o provisionamento de um administrador de Azure Active Directory para o SQL Server
+- Auditar o uso de Azure Active Directory para autenticação de cliente no Service Fabric
+- Auditar o uso de regras personalizadas de RBAC
 
 ## <a name="a924-management-of-secret-authentication-information-of-users"></a>A. 9.2.4 o gerenciamento de informações secretas de autenticação de usuários
 
@@ -119,10 +119,10 @@ Entender onde os recursos do Azure podem ter configurações criptográficas nã
 - \[Versão\]prévia: Implantar a extensão de VM para auditar a VM do Windows não deve armazenar senhas usando criptografia reversível
 - \[Versão\]prévia: Auditar a VM do Windows não deve armazenar senhas usando criptografia reversível
 - \[Versão\]prévia: Monitorar discos de VM não criptografados na central de segurança do Azure
-- Auditoria de ativação da encriptação de variáveis de conta de Automatização
-- Auditoria de ativação apenas de ligações seguras à Cache de Redis
-- Auditoria de transferência segura para contas de armazenamento
-- Auditar a definição da propriedade ClusterProtectionLevel para EncryptAndSign no Service Fabric
+- Habilitação de auditoria de criptografia de variáveis de conta de automação
+- Auditoria de habilitação de somente conexões seguras para o cache Redis
+- Auditar a transferência segura para contas de armazenamento
+- Auditar a configuração da propriedade ClusterProtectionLevel para EncryptAndSign em Service Fabric
 - Estado de encriptação de dados transparentes de auditoria
 - Transparent Data Encryption em bancos de dados SQL devem ser habilitadas
 
@@ -136,7 +136,7 @@ Os logs de diagnóstico fornecem informações sobre as operações que foram ex
 - \[Versão\]prévia: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
 - \[Versão\]prévia: Auditoria de implantação de agente de Log Analytics em VMSS-imagem de VM (SO) não listada
 - Definição de diagnóstico de auditoria
-- Auditar as Definições de auditoria ao nível do servidor SQL
+- Auditar configurações de auditoria no nível do SQL Server
 - A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
 
 ## <a name="a1243-administrator-and-operator-logs"></a>Um administrador. 12.4.3 e logs de operador
@@ -148,7 +148,7 @@ Este projeto ajuda a garantir que os eventos do sistema sejam registrados, atrib
 - \[Versão\]prévia: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
 - \[Versão\]prévia: Auditoria de implantação de agente de Log Analytics em VMSS-imagem de VM (SO) não listada
 - Definição de diagnóstico de auditoria
-- Auditar as Definições de auditoria ao nível do servidor SQL
+- Auditar configurações de auditoria no nível do SQL Server
 - A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
 
 ## <a name="a1244-clock-synchronization"></a>Uma sincronização de relógio. 12.4.4
@@ -160,7 +160,7 @@ Este projeto ajuda a garantir que os eventos do sistema sejam registrados, atrib
 - \[Versão\]prévia: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
 - \[Versão\]prévia: Auditoria de implantação de agente de Log Analytics em VMSS-imagem de VM (SO) não listada
 - Definição de diagnóstico de auditoria
-- Auditar as Definições de auditoria ao nível do servidor SQL
+- Auditar configurações de auditoria no nível do SQL Server
 - A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
 
 ## <a name="a1251-installation-of-software-on-operational-systems"></a>Uma instalação do. 12.5.1 do software em sistemas operacionais
@@ -177,7 +177,7 @@ Este projeto ajuda a gerenciar as vulnerabilidades do sistema de informações a
 - \[Versão\]prévia: Monitorar atualizações do sistema ausentes na central de segurança do Azure
 - \[Versão\]prévia: Monitorar vulnerabilidades do sistema operacional na central de segurança do Azure
 - \[Versão\]prévia: Monitorar resultados da avaliação de vulnerabilidade do SQL na central de segurança do Azure
-- \[Versão\]prévia: Monitorizar Vulnerabilidades de VM no Centro de Segurança do Azure
+- \[Versão\]prévia: Monitorar vulnerabilidades de VM na central de segurança do Azure
 
 ## <a name="a1262-restrictions-on-software-installation"></a>A. 12.6.2 restrições na instalação do software
 
@@ -192,16 +192,16 @@ Este projeto ajuda você a gerenciar e controlar redes atribuindo uma definiçã
 - \[Versão\]prévia: Monitorar o acesso à rede permissivo na central de segurança do Azure
 - \[Versão\]prévia: Monitorar pontos de extremidade de rede desprotegidos na central de segurança do Azure
 - \[Versão\]prévia: Monitorar aplicativo Web desprotegido na central de segurança do Azure
-- Auditar o acesso sem restrições à rede para as contas de armazenamento
+- Auditar o acesso irrestrito à rede para contas de armazenamento
 
 ## <a name="a1321-information-transfer-policies-and-procedures"></a>A. 13.2.1 procedimentos e políticas de transferência de informações
 
 O plano gráfico ajuda a garantir que a transferência de informações com os serviços do Azure seja segura atribuindo duas definições de [Azure Policy](../../../policy/overview.md) para auditar conexões inseguras a contas de armazenamento e cache Redis.
 
-- Auditoria de ativação apenas de ligações seguras à Cache de Redis
-- Auditoria de transferência segura para contas de armazenamento
+- Auditoria de habilitação de somente conexões seguras para o cache Redis
+- Auditar a transferência segura para contas de armazenamento
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você analisou o mapeamento de controle do plano gráfico de serviços compartilhados ISO 27001, visite os seguintes artigos para saber mais sobre a arquitetura e como implantar esse exemplo:
 
@@ -211,7 +211,7 @@ Agora que você analisou o mapeamento de controle do plano gráfico de serviços
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 
-- Saiba mais sobre o [ciclo de vida de um esquema](../../concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do plano gráfico](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

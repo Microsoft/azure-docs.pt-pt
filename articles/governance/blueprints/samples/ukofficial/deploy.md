@@ -8,12 +8,12 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d720f220b8903d960e7bba2a75aa5a86bd0391ce
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 10d1e2fc607df205ea8922a81a1322d4121f30f7
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225987"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232289"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Implantar os exemplos do Blueprint oficial do Reino Unido e do Reino Unido NHS
 
@@ -41,7 +41,7 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
    - **Nome do plano gráfico**: Forneça um nome para a sua cópia do exemplo Blueprint.
    - **Local da definição**: Use as reticências e selecione o grupo de gerenciamento para salvar sua cópia do exemplo.
 
-1. Selecione a  guia artefatos na parte superior da página ou **em Avançar: Artefatos** na parte inferior da página.
+1. Selecione a guia artefatos na parte superior da página ou **em Avançar: Artefatos** na parte inferior da página.
 
 1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
 
@@ -67,7 +67,7 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
 
 1. Forneça os valores de parâmetro para a atribuição Blueprint:
 
-   - Noções básicas
+   - Noções Básicas
 
      - **Subscrições**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
      - **Nome da atribuição**: O nome é preenchido previamente para você com base no nome do plano gráfico.
@@ -75,7 +75,7 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
      - **Local**: Selecione uma região na qual a identidade gerenciada deve ser criada. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Versão de definição do Blueprint**: Escolha uma versão **publicada** da sua cópia do exemplo Blueprint.
 
-   - Atribuição de bloqueio
+   - Atribuição de Bloqueio
 
      Selecione a configuração de bloqueio Blueprint para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
 
@@ -83,7 +83,7 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
 
      Deixe a opção de identidade gerenciada _atribuída pelo sistema_ padrão.
 
-   - Parâmetros de artefato
+   - Parâmetros de artefacto
 
      Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele é definido. Esses parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) , pois eles são definidos durante a atribuição do plano gráfico. Para obter uma lista completa ou parâmetros de artefato e suas descrições, consulte [tabela de parâmetros de artefato](#artifact-parameters-table).
 
@@ -96,7 +96,7 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
 
 A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 
-Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
+Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |Iniciativa Blueprint para o Reino Unido ou o NHS UK|Atribuição de política |Tipos de recurso para auditar logs de diagnóstico (política: Iniciativa Blueprint para o Reino Unido ou o NHS UK) |Lista de tipos de recursos para auditoria se a configuração do log de diagnóstico está habilitada.  Para obter valores aceitáveis, consulte [serviços, esquemas e categorias com suporte para logs de diagnóstico do Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
 |\[Versão\]prévia: Implantar o agente de Log Analytics para VMs Linux |Atribuição de política |Opcional: Lista de imagens de VM com suporte do SO Linux para adicionar ao escopo (política: \[Versão\]prévia: Implantar o agente de Log Analytics para VMs do Linux) |Adicional O valor padrão é _None_. Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
@@ -112,7 +112,7 @@ Agora que você analisou as etapas para implantar os exemplos do plano gráfico 
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 
-- Saiba mais sobre o [ciclo de vida de um esquema](../../concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do plano gráfico](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

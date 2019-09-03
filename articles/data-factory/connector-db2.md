@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 16dd40a521a9b0a240574c2f177f896c31508a37
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 2bdec0c70e9f11ca40e0ff9e1aa87898c94e119c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211699"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232985"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados do DB2 usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -32,7 +32,6 @@ Você pode copiar dados de um banco de dados DB2 para qualquer armazenamento de 
 
 Especificamente, esse conector do DB2 dá suporte às seguintes plataformas e versões do IBM DB2 com o DRDA (Distributed Relacionative Database Architecture) versão 9, 10 e 11:
 
-* IBM DB2 para z/OS 12
 * IBM DB2 para z/OS 11,1
 * IBM DB2 para z/OS 10,1
 * IBM DB2 para i 7,3
@@ -205,5 +204,5 @@ Ao copiar dados do DB2, os seguintes mapeamentos são usados de tipos de dados d
 | Xml |Byte[] |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

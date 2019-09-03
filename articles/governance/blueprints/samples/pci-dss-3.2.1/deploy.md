@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 237444cde6e9ccd709f61d13669da03094e5be10
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: f6ae466d10d585b46c9c71614cfeff6b688e6e48
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019427"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231640"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Implantar a amostra do PCI-DSS v 3.2.1 Blueprint
 
@@ -104,7 +104,7 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |Implementar a Auditoria em servidores SQL|Atribuição de Política|Dias de retenção|A retenção de dados em número de dias. O valor padrão é 180, mas o PCI requer 365.| 
 |Implementar a Auditoria em servidores SQL|Atribuição de Política|Nome do grupo de recursos para a conta de armazenamento|A auditoria grava eventos de banco de dados em um log de auditoria na sua conta de armazenamento do Azure (uma conta de armazenamento será criada em cada região em que um SQL Server é criado e será compartilhado por todos os servidores nessa região).| 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você analisou as etapas para implantar o exemplo de plano gráfico PCI-DSS v 3.2.1, visite os seguintes artigos para saber mais sobre a visão geral e o mapeamento de controle:
 
@@ -114,7 +114,7 @@ Agora que você analisou as etapas para implantar o exemplo de plano gráfico PC
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 
-- Saiba mais sobre o [ciclo de vida de um esquema](../../concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do plano gráfico](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

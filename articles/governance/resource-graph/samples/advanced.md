@@ -7,13 +7,12 @@ ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: b5742d4c14d2599b3efa73e427a5d418e5ef1c1e
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f02a6917240fa9200167a244f7f93f895be3e63f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164906"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232671"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas avançadas do Azure Resource Graph
 
@@ -116,7 +115,7 @@ Search-AzGraph -Query "limit 1" -Include DisplayNames
 > Se a consulta não usar o **Project** para especificar as propriedades retornadas, **subscriptionDisplayName** e **tenantDisplayName** serão incluídos automaticamente nos resultados.
 > Se a consulta usar o **Project**, cada um dos campos _DisplayName_ deverá ser incluído explicitamente no **projeto** ou não será retornado nos resultados, mesmo quando o parâmetro **include** for usado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Ver exemplos de [Consultas de introdução](starter.md)
 - Saber mais sobre a [linguagem de consulta](../concepts/query-language.md)

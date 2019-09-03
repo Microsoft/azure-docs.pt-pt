@@ -1,164 +1,164 @@
 ---
-title: Exemplo - esquema de carga de trabalho da ISO 27001 ASE/SQL - implementar passos
-description: Implemente os passos para o exemplo de plano gráfico de carga de trabalho de base de dados do ISO 27001 aplicação serviço ambiente/SQL.
+title: Exemplo-especificação de carga de trabalho do SQL ASE/-ISO 27001 – implantar etapas
+description: Implante as etapas da amostra do plano gráfico de carga de trabalho do banco de dados ISO 27001 Ambiente do Serviço de Aplicativo/SQL.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 78f608aedd53aa1071eaf88864f5a63f8f9e6072
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbd765ef94f4dbb26f076d8bc9520b4e4860bbae
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60875996"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232766"
 ---
-# <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implementar o exemplo de plano gráfico de carga de trabalho de base de dados do ISO 27001 aplicação serviço ambiente/SQL
+# <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implantar a amostra do plano gráfico de carga de trabalho do banco de dados ISO 27001 Ambiente do Serviço de Aplicativo/SQL
 
-Para implementar o exemplo de plano gráfico de carga de trabalho do Azure esquemas ISO 27001 aplicação serviço ambiente/base de dados SQL, é necessário os seguintes passos:
+Para implantar a amostra do plano gráfico de carga de trabalho do banco de dados SQL 27001 Ambiente do Serviço de Aplicativo/projetos do Azure BluePrints, as seguintes etapas devem ser executadas:
 
 > [!div class="checklist"]
-> - Implementar o [ISO 27001 Shared Services](../iso27001-shared/index.md) exemplo de esquema
-> - Criar um novo plano de gráfico do exemplo
-> - Marcar a sua cópia do exemplo de como **publicado**
-> - Atribuir a sua cópia do esquema a uma subscrição existente
+> - Implantar o exemplo de plano gráfico [dos serviços compartilhados ISO 27001](../iso27001-shared/index.md)
+> - Criar um novo plano gráfico por meio do exemplo
+> - Marque sua cópia do exemplo como **publicado**
+> - Atribuir sua cópia do plano gráfico a uma assinatura existente
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
-## <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implementar o exemplo de esquema de serviços de compartilhados do ISO 27001
+## <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implantar o exemplo de plano gráfico dos serviços compartilhados ISO 27001
 
-Antes deste exemplo de esquema pode ser implementado, o [ISO 27001 Shared Services](../iso27001-shared/index.md) exemplo de plano gráfico tem de ser implementado para a subscrição de destino. Sem uma implementação bem-sucedida do exemplo de plano gráfico ISO 27001 Shared Services, este exemplo de plano gráfico irá ser dependências em falta infraestrutura e falhar durante a implementação.
+Antes que este exemplo de plano gráfico possa ser implantado, o exemplo de plano gráfico [dos serviços compartilhados ISO 27001](../iso27001-shared/index.md) deve ser implantado na assinatura de destino. Sem uma implantação bem-sucedida do exemplo de plano gráfico de serviços compartilhados ISO 27001, essa amostra de diagrama não terá dependências de infraestrutura e falhará durante a implantação.
 
 > [!IMPORTANT]
-> Este exemplo de plano gráfico tem de ser atribuído na mesma subscrição que o [ISO 27001 Shared Services](../iso27001-shared/index.md) exemplo de esquema.
+> Este exemplo de projeto deve ser atribuído na mesma assinatura que o exemplo de plano gráfico de [serviços compartilhados ISO 27001](../iso27001-shared/index.md) .
 
-## <a name="create-blueprint-from-sample"></a>Criar o plano gráfico de exemplo
+## <a name="create-blueprint-from-sample"></a>Criar plano gráfico por meio de exemplo
 
-Em primeiro lugar, implementa o exemplo de esquema ao criar uma novo esquema no seu ambiente com o exemplo de como um starter.
+Primeiro, implemente o exemplo Blueprint criando uma nova especificação técnica em seu ambiente usando o exemplo como um início.
 
-1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Sobre o **diretiva** página, selecione **esquemas**.
+1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
 
-1. Do **introdução** página à esquerda, selecione a **Create** botão sob _criar um plano gráfico_.
+1. Na página **Guia de introdução** à esquerda, selecione o botão **criar** em _criar um plano gráfico_.
 
-1. Encontrar o **ISO 27001: Carga de trabalho do ASE/SQL** exemplo de esquema sob _outros exemplos_ e selecione **utilizar este exemplo**.
+1. Encontre o **ISO 27001: Exemplo de Blueprint de** carga de trabalho do ase/SQL em _outros exemplos_ e selecione **usar este exemplo**.
 
-1. Introduza o _Noções básicas_ do exemplo de esquema:
+1. Insira os _conceitos básicos_ do exemplo Blueprint:
 
-   - **Nome do blueprint**: Forneça um nome para a sua cópia do exemplo de plano gráfico de carga de trabalho de ISO 27001 ASE/SQL.
-   - **Localização da definição**: Utilize o botão de reticências e selecione o grupo de gestão para guardar a sua cópia do exemplo para.
+   - **Nome do plano gráfico**: Forneça um nome para a sua cópia do exemplo de especificação de esquema de carga de trabalho do ISO 27001 ASE/SQL.
+   - **Local da definição**: Use as reticências e selecione o grupo de gerenciamento para salvar sua cópia do exemplo.
 
-1. Selecione o _artefactos_ separador na parte superior da página ou **seguinte: Artefactos** na parte inferior da página.
+1. Selecione a guia artefatos na parte superior da página ou **em Avançar: Artefatos** na parte inferior da página.
 
-1. Reveja a lista de artefactos que constituem o exemplo de esquema. Muitos dos artefatos os parâmetros que vamos definir mais tarde. Selecione **Guardar rascunho** quando terminar a rever o exemplo de esquema.
+1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
 
 ## <a name="publish-the-sample-copy"></a>Publicar a cópia de exemplo
 
-Sua cópia do exemplo de plano gráfico agora foi criada no seu ambiente. Ele é criado na **rascunho** modo e têm de ser **publicado** antes de pode ser atribuída e implantada. A cópia do exemplo de esquema pode ser personalizada para seu ambiente e as necessidades, mas que a modificação pode movê-lo para fora da norma ISO 27001.
+Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado no modo de **rascunho** e deve ser **publicado** antes que possa ser atribuído e implantado. A cópia do exemplo de plano gráfico pode ser personalizada para seu ambiente e necessidades, mas essa modificação pode movê-lo para fora do padrão ISO 27001.
 
-1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Sobre o **diretiva** página, selecione **esquemas**.
+1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
 
-1. Selecione o **definições de esquema** página à esquerda. Utilize os filtros para encontrar a sua cópia do exemplo de esquema e, em seguida, selecioná-lo.
+1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
 
-1. Selecione **publicar esquema** na parte superior da página. A nova página à direita, fornecem uma **versão** para obter uma cópia do exemplo de esquema. Esta propriedade é útil para se tornar uma modificação mais tarde. Fornecer **alterar notas** como "primeira versão publicada do exemplo ISO 27001 esquema." Em seguida, selecione **publicar** na parte inferior da página.
+1. Selecione **publicar Blueprint** na parte superior da página. Na nova página à direita, forneça uma **versão** para sua cópia do exemplo Blueprint. Essa propriedade será útil se você fizer uma modificação posteriormente. Forneça **observações de alteração** , como "primeira versão publicada do exemplo de plano gráfico ISO 27001". Em seguida, selecione **publicar** na parte inferior da página.
 
 ## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
-Depois da cópia do exemplo de plano gráfico de ter sido com êxito **publicado**, podem ser atribuído a uma subscrição dentro do grupo de gestão que foram salvos. Este passo é onde os parâmetros são fornecidos para que cada implementação da cópia do exemplo de plano gráfico exclusivo.
+Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela poderá ser atribuída a uma assinatura dentro do grupo de gerenciamento no qual foi salva. Esta etapa é onde os parâmetros são fornecidos para fazer com que cada implantação da cópia do exemplo de plano gráfico seja exclusiva.
 
-1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Sobre o **diretiva** página, selecione **esquemas**.
+1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
 
-1. Selecione o **definições de esquema** página à esquerda. Utilize os filtros para encontrar a sua cópia do exemplo de esquema e, em seguida, selecioná-lo.
+1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
 
-1. Selecione **esquema de atribuir** na parte superior da página de definição de esquema.
+1. Selecione **atribuir plano gráfico** na parte superior da página de definição do Blueprint.
 
-1. Forneça os valores de parâmetro para a atribuição do esquema:
+1. Forneça os valores de parâmetro para a atribuição Blueprint:
 
-   - Noções básicas
+   - Noções Básicas
 
-     - **Subscrições**: Selecione um ou mais das subscrições que estão no grupo de gestão é guardado sua cópia do exemplo de plano gráfico para. Se selecionar mais do que uma subscrição, será criada uma atribuição para cada um usando os parâmetros introduzidos.
-     - **Nome da atribuição**: O nome é preenchido previamente com base no nome do plano gráfico.
-       Altere conforme necessário, ou deixe como está.
-     - **Localização**: Selecione uma região para a identidade gerida a ser criado em. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versão da definição de esquema**: Escolher uma **publicado** versão da sua cópia do exemplo de esquema.
+     - **Subscrições**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
+     - **Nome da atribuição**: O nome é preenchido previamente para você com base no nome do plano gráfico.
+       Altere conforme necessário ou deixe como está.
+     - **Local**: Selecione uma região na qual a identidade gerenciada deve ser criada. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Versão de definição do Blueprint**: Escolha uma versão **publicada** da sua cópia do exemplo Blueprint.
 
    - Atribuição de Bloqueio
 
-     Selecione o bloqueio de esquema definição para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
+     Selecione a configuração de bloqueio Blueprint para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
 
    - Identidade Gerida
 
-     Deixe a predefinição _sistema atribuído_ geridos a opção de identidade.
+     Deixe a opção de identidade gerenciada _atribuída pelo sistema_ padrão.
 
    - Parâmetros de esquema
 
-     Os parâmetros definidos nesta secção são utilizados por muitos dos artefatos na definição do esquema para fornecer consistência.
+     Os parâmetros definidos nesta seção são usados por muitos dos artefatos na definição do Blueprint para fornecer consistência.
 
-     - **Nome da organização**: Introduza um nome curto para a sua organização. Esta propriedade é usada principalmente para atribuir nomes a recursos.
-     - **Partilhado ID de subscrição do serviço**: ID de subscrição em que o [ISO 27001 Shared Services](../iso27001-shared/index.md) exemplo de esquema está atribuído.
-     - **Prefixo de endereço de sub-rede predefinido**: A notação CIDR para a sub-rede de predefinição da rede virtual.
-       Valor predefinido é _10.1.0.0/16_.
-     - **Localização da carga de trabalho**: Determina o local em que os artefactos são implementados. Nem todos os serviços estão disponíveis em todas as localizações. Artefatos de implementação de tais serviços fornecem uma opção de parâmetro para a localização implementar esse artefacto a.
+     - **Nome da organização**: Insira um nome curto para sua organização. Essa propriedade é usada principalmente para nomear recursos.
+     - **ID da assinatura do serviço compartilhado**: ID da assinatura em que o exemplo de plano gráfico [dos serviços compartilhados ISO 27001](../iso27001-shared/index.md) está atribuído.
+     - **Prefixo de endereço de sub-rede padrão**: A notação CIDR para a sub-rede padrão da rede virtual.
+       O valor padrão é _10.1.0.0/16_.
+     - **Local da carga de trabalho**: Determina em qual local os artefatos são implantados. Nem todos os serviços estão disponíveis em todos os locais. Os artefatos que implantam esses serviços fornecem uma opção de parâmetro para o local no qual o artefato será implantado.
 
    - Parâmetros de artefacto
 
-     Os parâmetros definidos nesta secção aplicam-se para o artefacto sob a qual está definido. Esses parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) , uma vez que estão definidos durante a atribuição do esquema. Para ver uma lista completa ou parâmetros de artefacto e suas descrições, veja [tabela de parâmetros de artefacto](#artifact-parameters-table).
+     Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele é definido. Esses parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) , pois eles são definidos durante a atribuição do plano gráfico. Para obter uma lista completa ou parâmetros de artefato e suas descrições, consulte [tabela de parâmetros de artefato](#artifact-parameters-table).
 
-1. Depois de tem sido introduzidos todos os parâmetros, selecione **atribuir** na parte inferior da página. A atribuição do esquema é criada e começa a implementação de artefactos. Implementação demora aproximadamente uma hora. Para verificar o estado da implementação, abra a atribuição do esquema.
+1. Depois que todos os parâmetros forem inseridos, selecione **atribuir** na parte inferior da página. A atribuição Blueprint é criada e a implantação do artefato começa. A implantação leva aproximadamente uma hora. Para verificar o status da implantação, abra a atribuição Blueprint.
 
 > [!WARNING]
-> O serviço de esquemas do Azure e os exemplos de esquema incorporados estão **gratuita**. Recursos do Azure estão [o preço por produto](https://azure.microsoft.com/pricing/). Utilize o [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para calcular o custo da execução de recursos implementados por este exemplo de esquema.
+> O serviço de plantas do Azure e os exemplos de plantas internas são **gratuitos**. Os recursos do Azure são [cobrados por produto](https://azure.microsoft.com/pricing/). Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para estimar o custo da execução de recursos implantados por este exemplo de Blueprint.
 
-## <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefacto
+## <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefato
 
-A tabela seguinte fornece uma lista do plano gráfico de parâmetros de artefacto:
+A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 
 |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|Grupo de recursos do log Analytics|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-workload-log-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos do log Analytics|Grupo de recursos|Location|**Bloqueado** -utiliza o parâmetro de esquema.|
-|Modelo do Log Analytics|Modelo do Resource Manager|Camada de serviços|Define a camada da área de trabalho do Log Analytics. Valor predefinido é _PerNode_.|
-|Modelo do Log Analytics|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. Valor predefinido é _365_.|
-|Modelo do Log Analytics|Modelo do Resource Manager|Location|Região utilizada para criar a área de trabalho do Log Analytics. Valor predefinido é _E.U.A. oeste 2_.|
-|Grupo de recursos de rede|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-workload-net-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos de rede|Grupo de recursos|Location|**Bloqueado** -utiliza o parâmetro de esquema.|
-|Modelo do Grupo de Segurança de Rede|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. Valor predefinido é _365_.|
-|Modelo da Rede Virtual e Tabela de Rotas|Modelo do Resource Manager|IP privado do Azure Firewall|Configura o IP privado dos [firewall do Azure](../../../../firewall/overview.md). Deve fazer parte da notação CIDR definida no _ISO 27001: Serviços compartilhados_ parâmetro de artefacto **prefixo de endereço de sub-rede de Firewall do Azure**. Valor predefinido é _10.0.4.4_.|
-|Modelo da Rede Virtual e Tabela de Rotas|Modelo do Resource Manager|ID da Subscrição dos Serviços partilhados|Valor utilizado para ativar o VNET peering entre uma carga de trabalho e serviços compartilhados.|
-|Modelo da Rede Virtual e Tabela de Rotas|Modelo do Resource Manager|Prefixo do endereço da Rede Virtual|A notação CIDR para a rede virtual. Valor predefinido é _10.1.0.0/16_.|
-|Modelo da Rede Virtual e Tabela de Rotas|Modelo do Resource Manager|Prefixo do endereço de sub-rede predefinido|A notação CIDR para a sub-rede de predefinição da rede virtual. Valor predefinido é _10.1.0.0/16_.|
-|Modelo da Rede Virtual e Tabela de Rotas|Modelo do Resource Manager|Endereço IP do ADDS|Endereço IP da VM adiciona primeiro. Este valor é utilizado como o DNS personalizado da VNET.|
-|Grupo de recursos do Cofre de chaves|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-workload-kv-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos do Cofre de chaves|Grupo de recursos|Location|**Bloqueado** -utiliza o parâmetro de esquema.|
-|Modelo do Key Vault|Modelo do Resource Manager|ID do objeto do AAD|O identificador de objeto do AAD da conta de que necessita de acesso para a instância do Key Vault. Sem predefinição de valor e não pode ser deixado em branco. Para localizar este valor a partir do portal do Azure, procure e selecione "Utilizadores" em _serviços_. Utilize o _nome_ caixa para filtrar para o nome da conta e selecionar essa conta. No _perfil de utilizador_ página, selecione o ícone de "Clique para copiar" junto a _ID de objeto_.|
-|Modelo do Key Vault|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. Valor predefinido é _365_.|
-|Modelo do Key Vault|Modelo do Resource Manager|SKU do Key Vault|Especifica o SKU de Cofre de chaves do que é criado. Valor predefinido é _Premium_.|
-|Modelo do Key Vault|Modelo do Resource Manager|Nome do administrador do SQL Server do Azure|O nome de utilizador utilizada para aceder ao servidor SQL do Azure. Tem de corresponder ao valor da propriedade mesmo nas **modelo de base de dados do Azure SQL**. Valor predefinido é _utilizador de administrador de sql_.|
-|Grupo de recursos de base de dados SQL do Azure|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-workload-azsql-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos de base de dados SQL do Azure|Grupo de recursos|Location|**Bloqueado** -utiliza o parâmetro de esquema.|
-|Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Nome do administrador do SQL Server do Azure|Nome de utilizador para o servidor SQL do Azure. Tem de corresponder ao valor da propriedade mesmo nas **modelo de Key Vault**. Valor predefinido é _utilizador de administrador de sql_.|
-|Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Senha de administrador do Azure do SQL Server (ID de recurso do Key Vault)|O ID de recurso do Cofre de chaves. Utilize "/ subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" e substitua `{subscriptionId}` pelo ID da subscrição e `{orgName}` com o  **Nome da organização** esquema de parâmetro.|
-|Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Senha de administrador do Azure do SQL Server (nome de segredo do Key Vault)|Nome de utilizador do SQL administrador do servidor. Tem de corresponder ao valor na **modelo de Key Vault** propriedade **nome de utilizador de administrador de servidor SQL do Azure**.|
-|Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. Valor predefinido é _365_.|
-|Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|ID de objeto de administrador do AAD|ID de objeto do AAD do utilizador que irá obter atribuído como um administrador do Active Directory. Sem predefinição de valor e não pode ser deixado em branco. Para localizar este valor a partir do portal do Azure, procure e selecione "Utilizadores" em _serviços_. Utilize o _nome_ caixa para filtrar para o nome da conta e selecionar essa conta. No _perfil de utilizador_ página, selecione o ícone de "Clique para copiar" junto a _ID de objeto_.|
-|Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Início de sessão de administrador AAD|Atualmente, as contas Microsoft (como live.com ou outlook.com) não podem ser definidas como administrador. Apenas os utilizadores e grupos de segurança da sua organização podem ser definidos como administrador. Sem predefinição de valor e não pode ser deixado em branco. Para localizar este valor a partir do portal do Azure, procure e selecione "Utilizadores" em _serviços_. Utilize o _nome_ caixa para filtrar para o nome da conta e selecionar essa conta. Sobre o _perfil de utilizador_ página, copie a _nome de utilizador_.|
-|Grupo de recursos de ambiente de serviço de aplicações|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-workload-ase-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos de ambiente de serviço de aplicações|Grupo de recursos|Location|**Bloqueado** -utiliza o parâmetro de esquema.|
-|Modelo do Ambiente do Serviço de Aplicações|Modelo do Resource Manager|Nome de domínio|Nome do Active Directory criadas pelo exemplo. Valor predefinido é _contoso.com_.|
-|Modelo do Ambiente do Serviço de Aplicações|Modelo do Resource Manager|Localização do ASE|Localização do ambiente de serviço de aplicações. Valor predefinido é _E.U.A. oeste 2_.|
-|Modelo do Ambiente do Serviço de Aplicações|Modelo do Resource Manager|Retenção do registo do Gateway de Aplicação em dias|Retenção de dados em dias. Valor predefinido é _365_.|
+|Log Analytics Grupo de recursos|Resource group|Name|**Bloqueado** – concatena o **nome da organização** com `-workload-log-rg` para tornar o grupo de recursos exclusivo.|
+|Log Analytics Grupo de recursos|Resource group|Location|**Locked** -usa o parâmetro Blueprint.|
+|Modelo do Log Analytics|Modelo do Resource Manager|Escalão do serviço|Define a camada do espaço de trabalho Log Analytics. O valor padrãoé PerNode.|
+|Modelo do Log Analytics|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. O valor padrão é _365_.|
+|Modelo do Log Analytics|Modelo do Resource Manager|Location|Região usada para criar o espaço de trabalho Log Analytics. O valor padrão é _oeste dos EUA 2_.|
+|Grupo de recursos de rede|Resource group|Name|**Bloqueado** – concatena o **nome da organização** com `-workload-net-rg` para tornar o grupo de recursos exclusivo.|
+|Grupo de recursos de rede|Resource group|Location|**Locked** -usa o parâmetro Blueprint.|
+|Modelo do Grupo de Segurança de Rede|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. O valor padrão é _365_.|
+|Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|IP privado do Azure Firewall|Configura o IP privado do [Firewall do Azure](../../../../firewall/overview.md). Deve ser parte da notação CIDR definida em _ISO 27001: Parâmetro de_ artefato de serviços compartilhados **prefixo de endereço de sub-rede do firewall do Azure**. O valor padrão é _10.0.4.4_.|
+|Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|ID da Subscrição dos Serviços partilhados|Valor usado para habilitar o emparelhamento VNET entre uma carga de trabalho e os serviços compartilhados.|
+|Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|Prefixo do endereço da Rede Virtual|A notação CIDR para a rede virtual. O valor padrão é _10.1.0.0/16_.|
+|Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|Prefixo do endereço de sub-rede predefinido|A notação CIDR para a sub-rede padrão da rede virtual. O valor padrão é _10.1.0.0/16_.|
+|Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|Adiciona o endereço IP|O endereço IP da primeira adiciona VM. Esse valor é usado como DNS de VNET personalizado.|
+|Key Vault grupo de recursos|Resource group|Name|**Bloqueado** – concatena o **nome da organização** com `-workload-kv-rg` para tornar o grupo de recursos exclusivo.|
+|Key Vault grupo de recursos|Resource group|Location|**Locked** -usa o parâmetro Blueprint.|
+|Modelo do Key Vault|Modelo do Resource Manager|ID do objeto do AAD|O identificador de objeto do AAD da conta que requer acesso à instância de Key Vault. Nenhum valor padrão e não pode ser deixado em branco. Para localizar esse valor no portal do Azure, procure e selecione "usuários" em _Serviços_. Use a caixa _nome_ para filtrar o nome da conta e selecione essa conta. Na página _perfil do usuário_ , selecione o ícone "clique para copiar" ao lado da _ID do objeto_.|
+|Modelo do Key Vault|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. O valor padrão é _365_.|
+|Modelo do Key Vault|Modelo do Resource Manager|SKU do Key Vault|Especifica a SKU do Key Vault que é criado. O valor padrão é _Premium_.|
+|Modelo do Key Vault|Modelo do Resource Manager|Nome do administrador do SQL Server do Azure|O nome de usuário usado para acessar o SQL Server do Azure. Deve corresponder ao mesmo valor de propriedade no **modelo de banco de dados SQL do Azure**. O valor padrão é _SQL-admin-user_.|
+|Grupo de recursos do banco de dados SQL do Azure|Resource group|Name|**Bloqueado** – concatena o **nome da organização** com `-workload-azsql-rg` para tornar o grupo de recursos exclusivo.|
+|Grupo de recursos do banco de dados SQL do Azure|Resource group|Location|**Locked** -usa o parâmetro Blueprint.|
+|Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Nome do administrador do SQL Server do Azure|Nome de usuário para o SQL Server do Azure. Deve corresponder ao mesmo valor de propriedade no **modelo de Key Vault**. O valor padrão é _SQL-admin-user_.|
+|Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Senha de administrador do Azure SQL Server (Key Vault ID do recurso)|A ID de recurso do Key Vault. Use "/Subscription/{SubscriptionId}/resourceGroups/{orgName}-Workload-kV/Providers/Microsoft.KeyVault/Vaults/{orgName}-Workload-kV" e substitua `{subscriptionId}` pela sua ID de assinatura `{orgName}` e pelo **nome da organização** parâmetro Blueprint.|
+|Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Senha de administrador do Azure SQL Server (nome do Key Vault segredo)|Nome de usuário do administrador do SQL Server. Deve corresponder ao valor na propriedade de **modelo Key Vault** o **nome de usuário do administrador do Azure SQL Server**.|
+|Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. O valor padrão é _365_.|
+|Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|ID do objeto de administrador do AAD|ID de objeto do AAD do usuário que será atribuído como um administrador de Active Directory. Nenhum valor padrão e não pode ser deixado em branco. Para localizar esse valor no portal do Azure, procure e selecione "usuários" em _Serviços_. Use a caixa _nome_ para filtrar o nome da conta e selecione essa conta. Na página _perfil do usuário_ , selecione o ícone "clique para copiar" ao lado da _ID do objeto_.|
+|Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Logon de administrador do AAD|Atualmente, as contas da Microsoft (como live.com ou outlook.com) não podem ser definidas como administrador. Somente usuários e grupos de segurança em sua organização podem ser definidos como administrador. Nenhum valor padrão e não pode ser deixado em branco. Para localizar esse valor no portal do Azure, procure e selecione "usuários" em _Serviços_. Use a caixa _nome_ para filtrar o nome da conta e selecione essa conta. Na página _perfil do usuário_ , copie o _nome de usuário_.|
+|Ambiente do Serviço de Aplicativo grupo de recursos|Resource group|Name|**Bloqueado** – concatena o **nome da organização** com `-workload-ase-rg` para tornar o grupo de recursos exclusivo.|
+|Ambiente do Serviço de Aplicativo grupo de recursos|Resource group|Location|**Locked** -usa o parâmetro Blueprint.|
+|Modelo do Ambiente do Serviço de Aplicações|Modelo do Resource Manager|Nome de domínio|Nome do Active Directory criado pelo exemplo. O valor padrão é _contoso.com_.|
+|Modelo do Ambiente do Serviço de Aplicações|Modelo do Resource Manager|Local do ASE|Ambiente do Serviço de Aplicativo local. O valor padrão é _oeste dos EUA 2_.|
+|Modelo do Ambiente do Serviço de Aplicações|Modelo do Resource Manager|Retenção de log do gateway de aplicativo em dias|Retenção de dados em dias. O valor padrão é _365_.|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que reviu os passos para implementar o exemplo de plano gráfico de carga de trabalho de base de dados do ISO 27001 aplicação serviço ambiente/SQL, visite os seguintes artigos para saber mais sobre a arquitetura e o mapeamento de controle:
+Agora que você analisou as etapas para implantar o exemplo de esquema de carga de trabalho do banco de dados do Ambiente do Serviço de Aplicativo/SQL ISO 27001, visite os seguintes artigos para saber mais sobre o mapeamento de arquitetura e controle:
 
 > [!div class="nextstepaction"]
-> [Esquema de carga de trabalho de base de dados do ISO 27001 aplicação serviço ambiente/SQL - descrição geral](./index.md)
-> [esquema da carga de trabalho de base de dados do ISO 27001 aplicação serviço ambiente/SQL - mapeamento de controlo](./control-mapping.md)
+> [ISO 27001 ambiente do serviço de aplicativo/esquema de carga de trabalho do banco de dados SQL-visão geral](./index.md)
+> [ISO 27001 ambiente do serviço de aplicativo/esquema de carga de trabalho do banco de dados SQL](./control-mapping.md)
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 
-- Saiba mais sobre o [ciclo de vida de um esquema](../../concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do plano gráfico](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

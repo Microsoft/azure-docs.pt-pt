@@ -1,5 +1,5 @@
 ---
-title: Configurar seu ambiente para um operador Blueprint
+title: Configurar o seu ambiente para um Operador Blueprint
 description: Saiba como configurar seu ambiente do Azure para uso com a função de RBAC (controle de acesso baseado em função) interna do operador Blueprint.
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,14 +7,14 @@ ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 8c39eadc6f1448e19ffee6d741cc50a7b6e09475
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 27f7c747dfd39fed7a67924da71b9293979e0f94
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70148612"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231887"
 ---
-# <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurar seu ambiente para um operador Blueprint
+# <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurar o seu ambiente para um Operador Blueprint
 
 O gerenciamento de suas definições de plantas e atribuições de Blueprint pode ser atribuído a equipes diferentes. É comum que um arquiteto ou uma equipe de governança seja responsável pelo gerenciamento do ciclo de vida de suas definições de plantas, enquanto uma equipe de operações é responsável por gerenciar atribuições dessas definições de Blueprints controladas centralmente.
 
@@ -38,9 +38,9 @@ Uma definição de Blueprint pode usar identidades gerenciadas atribuídas pelo 
 
 1. Como o **operador Blueprint**, [atribua um plano gráfico](../create-blueprint-portal.md#assign-a-blueprint) que usa a nova identidade gerenciada atribuída pelo usuário.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [ciclo de vida de um esquema](../concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do plano gráfico](../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../concepts/resource-locking.md).

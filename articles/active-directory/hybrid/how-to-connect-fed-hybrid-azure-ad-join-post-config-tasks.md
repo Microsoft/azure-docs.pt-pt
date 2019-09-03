@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e76abcac94a877e6bc7ea5c417c77c8c2febff
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 70e3267792f27a170efa26cc4267d1b25045a099
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032701"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231234"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Publicar tarefas de configuração para associação ao Azure AD Híbrido
 
@@ -31,12 +31,12 @@ Depois de executar Azure AD Connect para configurar sua organização para o ing
 Todos os dispositivos ingressados no domínio que executam o Windows 10 e o Windows Server 2016 se registram automaticamente com o Azure AD após a conclusão de todas as etapas de configuração. Se você preferir uma distribuição controlada em vez desse registro automático, poderá usar a diretiva de grupo para habilitar ou desabilitar seletivamente a distribuição automática.  Essa política de grupo deve ser definida antes de iniciar as outras etapas de configuração:
 * Crie um objeto de política de grupo em seu Active Directory.
 * Nomeie-o (por exemplo, ingresso no Azure AD híbrido).
-* Editar & ir para:  Configurações do computador > políticas > Modelos Administrativos > componentes do Windows > registro de dispositivo.
+* Edite e vá para:  Configurações do computador > políticas > Modelos Administrativos > componentes do Windows > registro de dispositivo.
 
 >[!NOTE]
 >Para 2012R2, as configurações de política estão em **configuração do computador > políticas > Modelos Administrativos > componentes do Windows > Workplace Join > ingressar automaticamente nos computadores cliente do workplace**
 
-* Desabilite essa configuração:  Registrar computadores ingressados no domínio como dispositivos.
+* Habilite essa configuração:  Registrar computadores ingressados no domínio como dispositivos.
 * Aplique e clique em OK.
 * Vincule o GPO ao local de sua escolha (unidade organizacional, grupo de segurança ou domínio para todos os dispositivos).
 

@@ -1,6 +1,6 @@
 ---
-title: Migrar a partir do Azure v2 para a v3 dos serviços de multimédia | Documentos da Microsoft
-description: Este artigo descreve as alterações que foram introduzidas no Serviços de multimédia do Azure v3 e mostra as diferenças entre duas versões. O artigo também fornece orientações de migração para mover de serviços de multimédia v2 para v3.
+title: Migrar dos serviços de mídia do Azure v2 para v3 | Microsoft Docs
+description: Este artigo descreve as alterações que foram introduzidas nos serviços de mídia do Azure v3 e mostra as diferenças entre duas versões. O artigo também fornece diretrizes de migração para a mudança dos serviços de mídia v2 para v3.
 services: media-services
 documentationcenter: na
 author: Juliako
@@ -15,110 +15,113 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: b85b06552dcd0fc419302882f05814adbd454f46
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 901542e2a69d2c7880825d76c1d69d3795713ed2
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542554"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231168"
 ---
-# <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientações de migração para mover de serviços de multimédia v2 para v3
+# <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Diretrizes de migração para mudar dos serviços de mídia v2 para v3
 
-Este artigo descreve as alterações que foram introduzidas no Serviços de multimédia do Azure v3, mostra as diferenças entre duas versões e fornece as orientações de migração.
+Este artigo descreve as alterações que foram introduzidas nos serviços de mídia do Azure v3, mostra as diferenças entre duas versões e fornece as diretrizes de migração.
 
-Se tiver um serviço de vídeo desenvolvido hoje na parte superior dos [APIs de v2 de serviços de multimédia herdadas](../previous/media-services-overview.md), deve rever as seguintes diretrizes e as seguintes considerações antes de migrar para as APIs v3. Existem muitos benefícios e os novos recursos da API v3 que melhoram a experiência de desenvolvedor e recursos dos serviços de multimédia. No entanto, como o chamado no [problemas conhecidos do](#known-issues) secção deste artigo, também existem algumas limitações devido a alterações entre as versões de API. Esta página será mantida à medida que a equipe de serviços de multimédia faz melhorias contínuas para as APIs v3 e aborda as lacunas entre as versões. 
+Se você tiver um serviço de vídeo desenvolvido hoje na parte superior das [APIs do Legacy Media Services v2](../previous/media-services-overview.md), analise as diretrizes e considerações a seguir antes de migrar para as APIs v3. Há muitos benefícios e novos recursos na API v3 que melhoram a experiência do desenvolvedor e os recursos dos serviços de mídia. No entanto, como foi chamado na seção [problemas conhecidos](#known-issues) deste artigo, também há algumas limitações devido a alterações entre as versões da API. Essa página será mantida à medida que a equipe de serviços de mídia fizer melhorias contínuas nas APIs v3 e solucionar as lacunas entre as versões. 
 
 > [!NOTE]
 > Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) suportados.
 
-## <a name="benefits-of-media-services-v3"></a>Benefícios do suporte de dados dos serviços de v3
+## <a name="benefits-of-media-services-v3"></a>Benefícios dos serviços de mídia v3
   
 ### <a name="api-is-more-approachable"></a>A API é mais acessível
 
-*  A v3 baseia-se numa superfície da API unificada que expõe uma funcionalidade incorporada de gestão e de operações no Azure Resource Manager. Modelos Azure Resource Manager podem ser utilizados para criar e implementar as transformações, pontos finais de transmissão em fluxo, os eventos em direto e muito mais.
-* [Especificação de OpenAPI (anteriormente denominadas Swagger)](https://aka.ms/ams-v3-rest-sdk) documento.
-    Expõe o esquema para todos os componentes de serviço, incluindo a codificação baseada em ficheiros.
-* SDKs disponíveis para [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [node. js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [ir](https://aka.ms/ams-v3-go-ref)e Ruby.
-* [CLI do Azure](https://aka.ms/ams-v3-cli-ref) integração para o suporte a script simple.
+*  A v3 baseia-se numa superfície da API unificada que expõe uma funcionalidade incorporada de gestão e de operações no Azure Resource Manager. Azure Resource Manager modelos podem ser usados para criar e implantar transformações, pontos de extremidade de streaming, eventos ao vivo e muito mais.
+* Documento [de especificação openapi (anteriormente chamado de Swagger)](https://aka.ms/ams-v3-rest-sdk) .
+    Expõe o esquema para todos os componentes de serviço, incluindo a codificação baseada em arquivo.
+* SDKs disponíveis para [.net](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [node. js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [go](https://aka.ms/ams-v3-go-ref)e Ruby.
+* [CLI do Azure](https://aka.ms/ams-v3-cli-ref) integração para suporte a scripts simples.
 
 ### <a name="new-features"></a>Novos recursos
 
-* Para o trabalho baseados em ficheiros de processamento, pode utilizar um URL de HTTP (S) como entrada.<br/>Não é necessário ter o conteúdo já armazenado no Azure, nem precisa criar recursos.
-* Apresenta o conceito de [transforma](transforms-jobs-concept.md) para processamento de tarefas baseada em ficheiros. Uma transformação pode ser utilizada para configurações de compilação reutilizáveis, para criar modelos do Azure Resource Manager e isolar as definições de processamento entre vários clientes ou inquilinos.
-* Um elemento pode ter vários [localizadores de transmissão em fluxo](streaming-locators-concept.md) cada uma com diferentes [empacotamento dinâmico](dynamic-packaging-overview.md) e definições de encriptação dinâmica.
-* [Proteção de conteúdo](content-key-policy-concept.md) oferece suporte a recursos com múltiplos principais.
-* Pode transmitir em fluxo eventos em direto, que são até 24 horas longas quando utilizar os serviços de mídia à transcodificação uma contribuição de velocidade de transmissão única para alimentar num fluxo de saída que tenha múltiplas velocidades de transmissão.
-* Novo baixa latência em direto a suporte de transmissão em fluxo eventos em direto. Para obter mais informações, consulte [latência](live-event-latency.md).
-* Suporta a visualização de eventos do Live [empacotamento dinâmico](dynamic-packaging-overview.md) e a encriptação dinâmica. Isto permite que a proteção de conteúdo no empacotamento de pré-visualização, bem como DASH e HLS.
-* Saída em direto é mais simples de usar do que a entidade de programa nas v2 APIs. 
-* Suporte RTMP aprimorado (maior estabilidade e mais suporte do codificador de origem).
-* Ingerir RTMPS seguro.<br/>Quando cria um evento em direto, obtém 4 URLs de inserção. O 4 ingerir URLs são quase idênticos, ter o mesmo token de transmissão em fluxo (AppId), apenas a parte do número de porta é diferente. Dois dos URLs são principais e cópia de segurança para RTMPS.   
-* Tem o controlo de acesso baseado em funções (RBAC) sobre as entidades. 
+* Para o processamento de trabalho baseado em arquivo, você pode usar uma URL HTTP (S) como a entrada.<br/>Você não precisa ter conteúdo já armazenado no Azure, nem precisa criar ativos.
+* Apresenta o conceito de [](transforms-jobs-concept.md) transformações para processamento de trabalho baseado em arquivo. Uma transformação pode ser usada para compilar configurações reutilizáveis, criar Azure Resource Manager modelos e isolar configurações de processamento entre vários clientes ou locatários.
+* Um ativo pode ter vários [localizadores de streaming](streaming-locators-concept.md) , cada um com diferentes configurações de criptografia dinâmica e de [empacotamento dinâmico](dynamic-packaging-overview.md) .
+* A [proteção de conteúdo](content-key-policy-concept.md) dá suporte a recursos de várias chaves.
+* Você pode transmitir eventos ao vivo que têm até 24 horas de duração ao usar os serviços de mídia para transcodificar um feed de contribuição de taxa de bits única em um fluxo de saída com várias taxas de bits.
+* Novo suporte de streaming ao vivo de baixa latência em eventos ao vivo. Para obter mais informações, consulte [latência](live-event-latency.md).
+* A visualização de eventos ao vivo dá suporte ao [empacotamento dinâmico](dynamic-packaging-overview.md) e à criptografia dinâmica. Isso habilita a proteção de conteúdo na visualização, bem como o empacotamento de DASH e HLS.
+* A saída ao vivo é mais simples de usar do que a entidade do programa nas APIs v2. 
+* Suporte a RTMP melhorado (maior estabilidade e mais suporte a codificador de origem).
+* Ingestão segura do RTMPS.<br/>Ao criar um evento ao vivo, você obtém 4 URLs de ingestão. As 4 URLs de ingestão são quase idênticas, têm o mesmo token de streaming (AppId), apenas a parte do número da porta é diferente. Duas das URLs são primárias e de backup para RTMPS.   
+* Você tem o RBAC (controle de acesso baseado em função) em suas entidades. 
 
-## <a name="changes-from-v2"></a>Alterações do v2
+## <a name="changes-from-v2"></a>Alterações da V2
 
-* Para os recursos criados com v3, serviços de multimédia só suporta o [encriptação do armazenamento do lado do servidor de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
-    * Pode usar v3 APIs com recursos que criou com APIs de v2 que tinham [encriptação do armazenamento](../previous/media-services-rest-storage-encryption.md) (AES 256) fornecida pelos serviços de multimédia.
-    * Não é possível criar novos recursos com o AES 256 legado [encriptação do armazenamento](../previous/media-services-rest-storage-encryption.md) através de v3 APIs.
-* Propriedades do recurso da v3 são diferentes da v2, ver [como as propriedades do mapa](assets-concept.md#map-v3-asset-properties-to-v2).
-* Os SDKs de v3 agora estão desassociados do SDK de armazenamento, o que dá-lhe mais controlo sobre a versão do SDK de armazenamento que pretende utilizar e evita problemas de controle de versão. 
-* Nas v3 APIs, todas as taxas de bits de codificação são em bits por segundo. Isto é diferente de v2 que predefine Media Encoder Standard. Por exemplo, a velocidade de transmissão no v2 teria de ser especificada como 128 (kbps), mas na v3 seria 128000 (bits por segundo). 
-* Entidades AssetFiles AccessPolicies e IngestManifests não existem na v3.
-* A propriedade IAsset.ParentAssets não existe na v3.
-* ContentKeys já não é uma entidade, agora é uma propriedade do localizador de transmissão em fluxo.
-* Suporte a eventos Grid substitui NotificationEndpoints.
+* Para ativos criados com v3, os serviços de mídia oferecem suporte apenas à [criptografia de armazenamento do lado do servidor do armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+    * Você pode usar APIs v3 com ativos criados com APIs v2 que tinham [criptografia de armazenamento](../previous/media-services-rest-storage-encryption.md) (AES 256) fornecidas pelos serviços de mídia.
+    * Você não pode criar novos ativos com a criptografia de [armazenamento](../previous/media-services-rest-storage-encryption.md) do AES 256 herdada usando APIs v3.
+* As propriedades do [ativo](assets-concept.md)na v3 diferem de v2, veja [como as propriedades](assets-concept.md#map-v3-asset-properties-to-v2)são mapeadas.
+* Os SDKs do v3 agora são dissociados do SDK de armazenamento, que oferece mais controle sobre a versão do SDK de armazenamento que você deseja usar e evita problemas de controle de versão. 
+* Nas APIs v3, todas as taxas de bits de codificação estão em bits por segundo. Isso é diferente das predefinições de Media Encoder Standard v2. Por exemplo, a taxa de bits em v2 seria especificada como 128 (Kbps), mas, em v3, seria 128000 (bits/segundo). 
+* As entidades AssetFiles, AccessPolicies e os ingestmanifests não existem em v3.
+* A propriedade IAsset. ParentAssets não existe em v3.
+* ContentKeys não é mais uma entidade, agora é uma propriedade do localizador de streaming.
+* O suporte à grade de eventos substitui NotificationEndpoints.
 * As seguintes entidades foram renomeadas
-    * Resultado da tarefa substitui a tarefa e agora é parte de uma tarefa.
-    * Localizador de transmissão em fluxo substitui o localizador.
-    * Substitui o evento em direto canal.<br/>A faturação baseia-se a medidores de canal em direto de eventos em direto. Para obter mais informações, consulte [faturação](live-event-states-billing.md) e [preços](https://azure.microsoft.com/pricing/details/media-services/).
-    * Saída em direto substitui o programa.
-* Início de saídas após a criação do Live e param quando eliminado. Programas de forma diferente se trabalhou nas v2 APIs, eles tinham que ser iniciado após a criação.
-*  Para obter informações sobre uma tarefa, precisa saber o nome de transformação sob as quais a criação da tarefa. 
-
-## <a name="feature-gaps-with-respect-to-v2-apis"></a>Intervalos de funcionalidades em relação a v2 APIs
-
-A API de v3 tem os seguintes intervalos de funcionalidades em relação a API v2. Fechar as lacunas é o trabalho em curso.
-
-* O [codificador Premium](../previous/media-services-premium-workflow-encoder-formats.md) e o legado [processadores de análise de multimédia](../previous/media-services-analytics-overview.md) (pré-visualização do Azure Media Services indexador 2, Editor de rostos, etc.) não estão acessíveis por meio de v3.<br/>Os clientes que pretendem migrar a partir de 1 de indexador de multimédia ou 2 preview imediatamente podem utilizar o AudioAnalyzer predefinir na v3 API.  Esta configuração predefinida nova contém mais recursos do que o indexador 1 mais antigas do suporte de dados ou 2. 
-* Muitas da [recursos avançados do Media Encoder Standard no v2](../previous/media-services-advanced-encoding-with-mes.md) APIs não estão atualmente disponíveis na v3, tais como:
-  
-    * Clips de ativos
-    * Sobreposições
-    * Corte
-    * Sprites em miniatura
-    * Inserir uma faixa de áudio silenciosa quando a introdução possui sem áudio
-    * Inserir um Roteiro de vídeo de entrada quando não tem nenhum vídeo
-* Eventos em direto com transcodificação atualmente não suportam Slate inserção médio stream e o ad inserção de marcadores por meio de chamada de API. 
+    * A saída do trabalho substitui a tarefa e agora faz parte de um trabalho.
+    * O localizador de streaming substitui o localizador.
+    * O evento ao vivo substitui o canal.<br/>A cobrança de eventos ao vivo é baseada em medidores de canal ao vivo. Para obter mais informações, consulte [cobrança](live-event-states-billing.md) e [preços](https://azure.microsoft.com/pricing/details/media-services/).
+    * O Live output substitui o programa.
+* As saídas ao vivo começam na criação e param quando excluídas. Os programas funcionaram de maneira diferente nas APIs v2, eles precisavam ser iniciados após a criação.
+*  Para obter informações sobre um trabalho, você precisa saber o nome da transformação sob a qual o trabalho foi criado. 
 
 > [!NOTE]
-> . Este artigo de marcador e manter a verificação de atualizações.
+> Examine as convenções de nomenclatura que são aplicadas aos [recursos dos serviços de mídia v3](media-services-apis-overview.md#naming-conventions). Examine também os blobs de [nomenclatura](assets-concept.md#naming-blobs).
+
+## <a name="feature-gaps-with-respect-to-v2-apis"></a>Lacunas de recursos em relação às APIs v2
+
+A API v3 tem as lacunas de recursos a seguir em relação à API v2. Fechar as lacunas é o trabalho em andamento.
+
+* O [codificador Premium](../previous/media-services-premium-workflow-encoder-formats.md) e os [processadores de análise de mídia](../previous/media-services-analytics-overview.md) herdados (visualização do indexador do Azure Media Services 2, edição facial etc.) não estão acessíveis por meio de v3.<br/>Os clientes que desejam migrar do indexador de mídia 1 ou 2 Preview podem usar imediatamente a predefinição AudioAnalyzer na API v3.  Essa nova predefinição contém mais recursos do que o indexador de mídia 1 ou 2 mais antigo. 
+* Muitos dos [recursos avançados do Media Encoder Standard em APIs v2](../previous/media-services-advanced-encoding-with-mes.md) não estão disponíveis atualmente na v3, como:
+  
+    * Costura de ativos
+    * Sobreposições
+    * Corte
+    * Sprites de miniatura
+    * Inserindo uma faixa de áudio silenciosa quando a entrada não tem áudio
+    * Inserindo uma faixa de vídeo quando a entrada não tem vídeo
+* Eventos ao vivo com transcodificação atualmente não dão suporte à inserção de Slate MID-Stream e inserção de marcador de anúncio via chamada à API. 
+
+> [!NOTE]
+> Marque este artigo e continue verificando as atualizações.
  
 ## <a name="code-differences"></a>Diferenças de código
 
-A tabela seguinte mostra as diferenças de código entre v2 e v3 para cenários comuns.
+A tabela a seguir mostra as diferenças de código entre V2 e V3 para cenários comuns.
 
-|Cenário|V2 API|V3 API|
+|Cenário|API V2|API V3|
 |---|---|---|
-|Criar um elemento e carregar um ficheiro |[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[exemplo de .NET de v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
-|Submeter uma tarefa|[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[exemplo de .NET de v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Mostra como criar primeiro uma transformação e, em seguida, submeter uma tarefa.|
-|Publicar um elemento com encriptação AES |1. Create ContentKeyAuthorizationPolicyOption<br/>2. Criar ContentKeyAuthorizationPolicy<br/>3. Create AssetDeliveryPolicy<br/>4. Criar elemento e carregar conteúdo ou submeter tarefa e utilizar recursos de saída<br/>5. Associe AssetDeliveryPolicy com elemento<br/>6. Criar ContentKey<br/>7. Anexar ContentKey ativo<br/>8. Criar AccessPolicy<br/>9. Criar o localizador<br/><br/>[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Criar política de chave de conteúdo<br/>2. Criar recurso<br/>3. Carregar conteúdo ou utilizar recursos como JobOutput<br/>4. Criar o localizador de transmissão em fluxo<br/><br/>[exemplo de .NET de v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
-|Obter os detalhes da tarefa e gerir tarefas |[Gerir tarefas com o v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Gerir tarefas com v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
+|Criar um ativo e carregar um arquivo |[exemplo do .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[exemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
+|Enviar um trabalho|[exemplo do .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[exemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Mostra como primeiro criar uma transformação e, em seguida, enviar um trabalho.|
+|Publicar um ativo com criptografia AES |1. Criar ContentKeyAuthorizationPolicyOption<br/>2. Criar ContentKeyAuthorizationPolicy<br/>3. Criar AssetDeliveryPolicy<br/>4. Criar ativo e carregar conteúdo ou enviar trabalho e usar ativo de saída<br/>5. Associar o AssetDeliveryPolicy ao ativo<br/>6. Criar ContentKey<br/>7. Anexar ContentKey ao ativo<br/>8. Criar AccessPolicy<br/>9. Criar localizador<br/><br/>[exemplo do .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Criar política de chave de conteúdo<br/>2. Criar ativo<br/>3. Carregar conteúdo ou usar ativo como JobOutput<br/>4. Criar localizador de streaming<br/><br/>[exemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Obter detalhes do trabalho e gerenciar trabalhos |[Gerenciar trabalhos com v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Gerenciar trabalhos com v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-* Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize o [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, ou um dos SDKs suportados.
-* Terá de aprovisionar unidades reservadas de multimédia (MRUs) na sua conta para controlar a simultaneidade e o desempenho das suas tarefas, especialmente aqueles envolvendo vídeo ou áudio de análise. Para obter mais informações, veja [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md) (Dimensionar o Processamento de Multimédia). Pode gerir os MRUs usando [CLI 2.0 para serviços de multimédia v3](media-reserved-units-cli-how-to.md), utilizando o [portal do Azure](../previous/media-services-portal-scale-media-processing.md), ou utilizando o [v2 APIs](../previous/media-services-dotnet-encoding-units.md). Terá de aprovisionar MRUs, se estiver a utilizar os serviços de multimédia v2 ou v3 APIs.
-* Entidades de serviços de suporte de dados criadas com a v3 que API não pode ser gerida pela v2 API.  
-* Não é recomendado para gerir as entidades que foram criadas com as APIs do v2 por meio das APIs v3. Seguem-se exemplos das diferenças que tornam as entidades em duas versões incompatíveis:   
-    * Trabalhos e tarefas que criou no v2 não aparecem na v3 à medida que não estiverem associados uma transformação. Recomenda-se mudar para a v3 transformações e tarefas. Haverá um período de tempo relativamente curto da necessidade de monitor a v2 em utilização tarefas durante a alternância de.
-    * Canais e programas criados com o v2 (que são mapeados para eventos em direto e Live saídas da v3) não é possível continuar a ser geridas com v3. Recomenda-se mudar para eventos em direto de v3 e Live saídas numa parada de canal conveniente.<br/>Atualmente, não é possível migrar canais continuamente em execução.  
+* Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Use a [API REST](https://aka.ms/ams-v3-rest-sdk), a CLI ou um dos SDKs com suporte.
+* Você precisa provisionar unidades reservadas de mídia (MRUs) em sua conta para controlar a simultaneidade e o desempenho de seus trabalhos, especialmente aqueles que envolvem análise de vídeo ou áudio. Para obter mais informações, veja [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md) (Dimensionar o Processamento de Multimédia). Você pode gerenciar o MRUs usando a [CLI 2,0 para os serviços de mídia v3](media-reserved-units-cli-how-to.md), usando o [portal do Azure](../previous/media-services-portal-scale-media-processing.md)ou usando as [APIs v2](../previous/media-services-dotnet-encoding-units.md). Você precisa provisionar MRUs, esteja usando as APIs dos serviços de mídia v2 ou v3.
+* As entidades dos serviços de mídia criadas com a API v3 não podem ser gerenciadas pela API v2.  
+* Não é recomendável gerenciar entidades que foram criadas com APIs v2 por meio de APIs v3. Veja a seguir exemplos das diferenças que tornam as entidades em duas versões incompatíveis:   
+    * Trabalhos e tarefas criados na v2 não aparecem na v3, pois não estão associados a uma transformação. A recomendação é alternar para transformações e trabalhos v3. Haverá um período de tempo relativamente curto para a necessidade de monitorar os trabalhos do em andamento v2 durante a comutação.
+    * Os canais e programas criados com v2 (que são mapeados para eventos ao vivo e saídas ao vivo no v3) não podem continuar sendo gerenciados com v3. A recomendação é mudar para eventos ao vivo v3 e saídas ao vivo em uma parada de canal conveniente.<br/>Atualmente, você não pode migrar canais em execução contínua.  
 
 > [!NOTE]
-> Esta página será mantida à medida que a equipe de serviços de multimédia faz melhorias contínuas para as APIs v3 e aborda as lacunas entre as versões.
+> Essa página será mantida à medida que a equipe de serviços de mídia fizer melhorias contínuas nas APIs v3 e solucionar as lacunas entre as versões.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, comentários, obter atualizações
+## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, envie comentários, obtenha atualizações
 
-Veja a [Comunidade dos serviços de multimédia do Azure](media-services-community.md) artigo para ver formas diferentes, pode fazer perguntas, comentários e obter atualizações sobre os serviços de multimédia.
+Confira o artigo [da Comunidade dos serviços de mídia do Azure](media-services-community.md) para ver diferentes maneiras que você pode fazer perguntas, fornecer comentários e obter atualizações sobre os serviços de mídia.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

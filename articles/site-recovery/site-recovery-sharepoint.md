@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: bc6d9e7214d2b7cd009e7562357bed420e49f185
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e9b688d54049c21da3276a20e27dcc9ad3d4ceca
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325117"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231486"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurar a recuperação de desastre para um aplicativo do SharePoint de várias camadas para recuperação de desastre usando Azure Site Recovery
 
@@ -56,7 +56,7 @@ O SharePoint pode ser implantado em um ou mais servidores usando topologias em c
 
 ## <a name="site-recovery-support"></a>Suporte do Site Recovery
 
-Para criar este artigo, as máquinas virtuais VMware com o Windows Server 2012 R2 Enterprise foram usadas. O SharePoint 2013 Enterprise Edition e o SQL Server 2014 Enterprise Edition foram usados. Como Site Recovery replicação é independente de aplicativo, as recomendações fornecidas aqui devem ser mantidas para os cenários a seguir também.
+Site Recovery é independente de aplicativo e deve funcionar com qualquer versão do SharePoint em execução em um computador com suporte. Para criar este artigo, as máquinas virtuais VMware com o Windows Server 2012 R2 Enterprise foram usadas. O SharePoint 2013 Enterprise Edition e o SQL Server 2014 Enterprise Edition foram usados.
 
 ### <a name="source-and-target"></a>Origem e destino
 
@@ -67,13 +67,6 @@ Para criar este artigo, as máquinas virtuais VMware com o Windows Server 2012 R
 **Servidor físico** | Sim | Sim
 **Azure** | ND | Sim
 
-### <a name="sharepoint-versions"></a>Versões do SharePoint
-Há suporte para as seguintes versões do SharePoint Server.
-
-* SharePoint Server 2013 Standard
-* SharePoint Server 2013 Enterprise
-* SharePoint Server 2016 Standard
-* SharePoint Server 2016 Enterprise
 
 ### <a name="things-to-keep-in-mind"></a>Coisas para ter em mente
 
@@ -206,5 +199,5 @@ Siga [estas diretrizes](site-recovery-failover.md) para fazer um failover.
 3.  Clique em ' failover '.
 4.  Selecione ponto de recuperação para iniciar o processo de failover.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Você pode aprender mais sobre a [replicação de outros aplicativos](site-recovery-workload.md) usando o site Recovery.

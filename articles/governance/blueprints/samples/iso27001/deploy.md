@@ -7,12 +7,12 @@ ms.date: 07/22/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 00e60d41b34531462a4e85623a19f1dd22c6e4e6
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 4fd162020fc7acf6c005302a1cb8038e8de424d7
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816812"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231698"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>Implantar a amostra do plano gráfico ISO 27001
 
@@ -111,9 +111,9 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |\[Versão\]prévia: Implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows|Atribuição de política|Opcional: Lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional:\[\]|
 |\[Versão\]prévia: Implantar o agente de Log Analytics para VMs do Windows|Atribuição de política|Espaço de trabalho Log Analytics para VMs do Windows|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
 |\[Versão\]prévia: Implantar o agente de Log Analytics para VMs do Windows|Atribuição de política|Opcional: Lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional:\[\]|
-|SKUs de contas de armazenamento permitidas|Atribuição de política|Lista de SKUs de armazenamento permitidas|A lista de SKUs que podem ser especificados para contas de armazenamento.|
+|SKUs de contas de armazenamento permitidas|Atribuição de política|Lista de SKUs de armazenamento permitidas|A lista de SKUs que podem ser especificadas para contas de armazenamento.|
 |SKUs de máquinas virtuais permitidas|Atribuição de política|Lista de SKUs de máquina virtual permitidas|A lista de SKUs que podem ser especificados para máquinas virtuais.|
-|Iniciativa do esquema para ISO 27001|Atribuição de política|Lista de tipos de recursos que devem ter os registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Azure monitor esquemas de logs de diagnóstico](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|Iniciativa do esquema para ISO 27001|Atribuição de política|Lista de tipos de recursos que devem ter logs de diagnóstico habilitados|Lista de tipos de recursos para auditar se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Azure monitor esquemas de logs de diagnóstico](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -125,7 +125,7 @@ Agora que você analisou as etapas para implantar o exemplo de plano gráfico IS
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 
-- Saiba mais sobre o [ciclo de vida de um esquema](../../concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do plano gráfico](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

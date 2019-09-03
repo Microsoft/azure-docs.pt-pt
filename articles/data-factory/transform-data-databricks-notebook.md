@@ -6,18 +6,18 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-author: djpmsft
-ms.author: daperlov
+author: nabhishek
+ms.author: abnarain
 manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: db437c7699c7fddc2b04175537446f53c4c4bc85
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 23166a4a0110629674db6ccc9d225118264b3c15
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140817"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233055"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformar dados executando um notebook do databricks
 
@@ -111,6 +111,19 @@ Na definição da atividade do databricks acima, você especifica esses tipos de
 ```
 
 Para obter mais detalhes, consulte a [documentação](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) do databricks para tipos de biblioteca.
+
+## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Passando parâmetros entre blocos de anotações e Data Factory
+
+Você pode passar data factory parâmetros para blocos de anotações usando a propriedade baseparameters na atividade do databricks. 
+
+Em determinados casos, talvez seja necessário repassar determinados valores do bloco de anotações para data factory, que pode ser usado para o fluxo de controle (verificações condicionais) no data factory ou ser consumido pelas atividades downstream (o limite de tamanho é 2MB). 
+
+1. No bloco de anotações, você pode chamar [dbutils. notebook. Exit ("ReturnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) e o "ReturnValue" correspondente será retornado para data Factory.
+
+2. Você pode consumir a saída em data factory usando expressão como `'@activity('databricks notebook activity name').output.runOutput'`. 
+
+   > [!IMPORTANT]
+   > Se você estiver passando um objeto JSON, poderá recuperar valores acrescentando nomes de propriedade. Exemplo: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Como carregar uma biblioteca no databricks
 

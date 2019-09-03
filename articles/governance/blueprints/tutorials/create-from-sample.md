@@ -1,193 +1,193 @@
 ---
-title: Criar um ambiente a partir de um exemplo de esquema
-description: Utilize um plano gráfico de exemplo para criar uma definição de esquema que define dois grupos de recursos e configura uma atribuição de função para cada um.
+title: Criar um ambiente a partir de um exemplo de Blueprint
+description: Use um exemplo Blueprint para criar uma definição de plano gráfico que configura dois grupos de recursos e configura uma atribuição de função para cada.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b0d5d96ff897ac1710206eb49bca785e8809cb7d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 137764cba91ab94adef4719a0d34b6fb9e6efe29
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798318"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232626"
 ---
-# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Criar um ambiente a partir de um exemplo de esquema
+# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Criar um ambiente a partir de um exemplo de Blueprint
 
-Planos gráficos de exemplo fornecem exemplos do que pode ser feito usando os esquemas do Azure. Cada um é um exemplo com um objetivo específico ou para fins, mas não cria um ambiente completo por conta própria. Cada concebido como um ponto de partida para explorar, utilizando o esquema do Azure com várias combinações de artefactos incluídos, designs e parâmetros.
+Os planos gráficos de exemplo fornecem exemplos do que pode ser feito usando plantas do Azure. Cada um é um exemplo com uma intenção ou finalidade específica, mas não cria um ambiente completo por si só. Cada um é destinado a um local de partida para explorar o uso de plantas do Azure com várias combinações de artefatos, designs e parâmetros incluídos.
 
-O tutorial seguinte utiliza a **grupos de recursos com RBAC** exemplo de plano gráfico para mostrar os diferentes aspectos do serviço de esquemas. São abordados os seguintes passos:
+O tutorial a seguir usa os **grupos de recursos com** a amostra do esquema do RBAC para demonstrar diferentes aspectos do serviço de plantas. As etapas a seguir são abordadas:
 
 > [!div class="checklist"]
-> - Criar uma nova definição de esquema do exemplo
-> - Marcar a sua cópia do exemplo de como **publicado**
-> - Atribuir a sua cópia do esquema a uma subscrição existente
-> - Inspecionar os recursos implementados para a atribuição
-> - Anular atribuição do esquema para remover os bloqueios
+> - Criar uma nova definição de Blueprint a partir do exemplo
+> - Marque sua cópia do exemplo como **publicado**
+> - Atribuir sua cópia do plano gráfico a uma assinatura existente
+> - Inspecionar recursos implantados para a atribuição
+> - Cancelar a atribuição do plano gráfico para remover os bloqueios
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, é necessária uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para concluir este tutorial, é necessária uma assinatura do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-blueprint-definition-from-sample"></a>Criar definição do esquema de exemplo
+## <a name="create-blueprint-definition-from-sample"></a>Criar definição de plano gráfico do exemplo
 
-Em primeiro lugar, implemente o exemplo de esquema. Importar cria uma novo esquema no seu ambiente com base no exemplo.
+Primeiro, implemente o exemplo Blueprint. A importação cria uma nova especificação técnica em seu ambiente com base no exemplo.
 
-1. Selecione **todos os serviços** no painel esquerdo. Procure e selecione **esquemas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
-1. Do **introdução** página à esquerda, selecione a **Create** botão sob _criar um plano gráfico_.
+1. Na página **Guia de introdução** à esquerda, selecione o botão **criar** em _criar um plano gráfico_.
 
-1. Encontrar o **grupos de recursos com RBAC** exemplo de esquema sob _outros exemplos_ e selecione **utilizar este exemplo**.
+1. Encontre os **grupos de recursos com** a amostra do Blueprint do RBAC em _outros exemplos_ e selecione **usar este exemplo**.
 
-1. Introduza o _Noções básicas_ do exemplo de esquema:
+1. Insira os _conceitos básicos_ do exemplo Blueprint:
 
-   - **Nome do blueprint**: Forneça um nome para a sua cópia do exemplo de esquema. Para este tutorial, vamos utilizar o nome _rgs de dois com atribuições função_.
-   - **Localização da definição**: Utilize o botão de reticências e selecione a subscrição ou grupo de gestão para guardar a sua cópia do exemplo para.
+   - **Nome do plano gráfico**: Forneça um nome para a sua cópia do exemplo Blueprint. Para este tutorial, usaremos o nome _dois-RGS-with-role-assignments_.
+   - **Local da definição**: Use as reticências e selecione o grupo de gerenciamento ou a assinatura para salvar sua cópia do exemplo.
 
-1. Selecione o _artefactos_ separador na parte superior da página ou **seguinte: Artefactos** na parte inferior da página.
+1. Selecione a guia artefatos na parte superior da página ou **em Avançar: Artefatos** na parte inferior da página.
 
-1. Reveja a lista de artefactos que constituem o exemplo de esquema. Este exemplo define dois grupos de recursos, com os nomes a apresentar da _ProdRG_ e _PreProdRG_. O nome final e a localização de cada grupo de recursos são definidos durante a atribuição do esquema. O _ProdRG_ grupo de recursos é atribuído a _contribuinte_ função e o _PreProdRG_ grupo de recursos é atribuído o _proprietário_ e  _Os leitores_ funções. As funções atribuídas na definição são estáticas, mas o utilizador, aplicação ou grupo que é atribuído a função é definido durante a atribuição do esquema.
+1. Examine a lista de artefatos que compõem o exemplo Blueprint. Este exemplo define dois grupos de recursos, com nomes de exibição de _ProdRG_ e _PreProdRG_. O nome final e o local de cada grupo de recursos são definidos durante a atribuição do Blueprint. O grupo de recursos _ProdRG_ é atribuído à função _colaborador_ e o grupo de recursos _PreProdRG_ recebe as funções _proprietário_ e _leitores_ . As funções atribuídas na definição são estáticas, mas o usuário, aplicativo ou grupo ao qual a função é atribuída é definido durante a atribuição do Blueprint.
 
-1. Selecione **Guardar rascunho** quando terminar a rever o exemplo de esquema.
+1. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
 
-Este passo cria uma cópia da definição de esquema de exemplo, no grupo de gestão selecionado ou subscrição. A definição do esquema guardado é gerida como qualquer esquema criada do zero. Pode salvar o exemplo ao seu grupo de gestão ou subscrição, o número de vezes conforme necessário. No entanto, cada cópia tem de ser fornecida um nome exclusivo.
+Esta etapa cria uma cópia do exemplo de definição de Blueprint no grupo de gerenciamento ou na assinatura selecionada. A definição de Blueprint salva é gerenciada como qualquer plano gráfico criado do zero. Você pode salvar o exemplo em seu grupo de gerenciamento ou assinatura quantas vezes forem necessárias. No entanto, cada cópia deve fornecer um nome exclusivo.
 
-Uma vez a **gravação de definição do esquema foi efetuada com êxito** aparece a notificação do portal, mover para o passo seguinte.
+Depois que a notificação do portal de **salvamento de definição de planta bem-sucedida** for exibida, vá para a próxima etapa.
 
 ## <a name="publish-the-sample-copy"></a>Publicar a cópia de exemplo
 
-Sua cópia do exemplo de plano gráfico agora foi criada no seu ambiente. Ele é criado na **rascunho** modo e têm de ser **publicado** antes de pode ser atribuída e implantada. A cópia do exemplo de esquema pode ser personalizada para suas necessidades e ambiente. Para este tutorial, iremos não efetue quaisquer alterações.
+Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado no modo de **rascunho** e deve ser **publicado** antes que possa ser atribuído e implantado. A cópia do exemplo de Blueprint pode ser personalizada para seu ambiente e necessidades. Para este tutorial, não faremos nenhuma alteração.
 
-1. Selecione **todos os serviços** no painel esquerdo. Procure e selecione **esquemas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
-1. Selecione o **definições de esquema** página à esquerda. Utilize os filtros para encontrar os _rgs de dois com atribuições função_ definição de esquema e, em seguida, selecioná-lo.
+1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar a definição de planta de _dois-RGS-com-role-assignments_ e, em seguida, selecione-a.
 
-1. Selecione **publicar esquema** na parte superior da página. No novo painel à direita, fornecer **versão** como _1.0_ para obter uma cópia do exemplo de esquema. Esta propriedade é útil para se tornar uma modificação mais tarde. Fornecer **alterar notas** como "primeira versão publicados a partir de grupos de recursos com o exemplo de plano gráfico RBAC." Em seguida, selecione **publicar** na parte inferior da página.
+1. Selecione **publicar Blueprint** na parte superior da página. No novo painel à direita, forneça a **versão** como _1,0_ para sua cópia do exemplo de plano gráfico. Essa propriedade será útil se você fizer uma modificação posteriormente. Forneça **observações de alteração** , como "primeira versão publicada a partir dos grupos de recursos com a amostra de plantas do RBAC". Em seguida, selecione **publicar** na parte inferior da página.
 
-Este passo torna possível atribuir o esquema para uma subscrição. Depois de publicado, ainda podem ser feitas alterações. Publicação com um novo necessitam de alterações adicionais **versão** valor para controlar as diferenças entre versões diferentes da mesma definição de esquema.
+Essa etapa torna possível atribuir o plano gráfico a uma assinatura. Depois de publicadas, as alterações ainda podem ser feitas. Alterações adicionais exigem a publicação com um novo valor de **versão** para acompanhar as diferenças entre diferentes versões da mesma definição de Blueprint.
 
-Uma vez a **publicação foi efetuada com êxito de definição de esquema** aparece a notificação do portal, mover para o passo seguinte.
+Depois que a notificação de **definição de planta de publicação com êxito** do portal for exibida, vá para a próxima etapa.
 
 ## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
-Depois da cópia do exemplo de plano gráfico de ter sido com êxito **publicado**, podem ser atribuído a uma subscrição dentro do grupo de gestão que foram salvos. Este passo é onde os parâmetros são fornecidos para que cada implementação da cópia do exemplo de plano gráfico exclusivo.
+Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela poderá ser atribuída a uma assinatura dentro do grupo de gerenciamento no qual foi salva. Esta etapa é onde os parâmetros são fornecidos para fazer com que cada implantação da cópia do exemplo de plano gráfico seja exclusiva.
 
-1. Selecione **todos os serviços** no painel esquerdo. Procure e selecione **esquemas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
-1. Selecione o **definições de esquema** página à esquerda. Utilize os filtros para encontrar os _rgs de dois com atribuições função_ definição de esquema e, em seguida, selecioná-lo.
+1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar a definição de planta de _dois-RGS-com-role-assignments_ e, em seguida, selecione-a.
 
-1. Selecione **esquema de atribuir** na parte superior da página de definição de esquema.
+1. Selecione **atribuir plano gráfico** na parte superior da página de definição do Blueprint.
 
-1. Forneça os valores de parâmetro para a atribuição do esquema:
+1. Forneça os valores de parâmetro para a atribuição Blueprint:
 
    - Noções Básicas
 
-     - **Subscrições**: Selecione um ou mais das subscrições que estão no grupo de gestão é guardado sua cópia do exemplo de plano gráfico para. Se selecionar mais do que uma subscrição, será criada uma atribuição para cada um usando os parâmetros introduzidos.
-     - **Nome da atribuição**: O nome é preenchido previamente com base no nome da definição de esquema.
-     - **Localização**: Selecione uma região para a identidade gerida a ser criado em. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
-       Neste tutorial, selecione _E.U.A. Leste 2_.
-     - **Versão da definição de esquema**: Escolha o **publicada** versão _1.0_ da sua cópia da definição de esquema de exemplo.
+     - **Subscrições**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
+     - **Nome da atribuição**: O nome é preenchido previamente para você com base no nome da definição do Blueprint.
+     - **Local**: Selecione uma região na qual a identidade gerenciada deve ser criada. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
+       Para este tutorial, selecione _leste dos EUA 2_.
+     - **Versão de definição do Blueprint**: Escolha a versão publicada _1,0_ da sua cópia da definição do Blueprint de exemplo.
 
    - Atribuição de Bloqueio
 
-     Selecione o _só de leitura_ modo de bloqueio de esquema. Para obter mais informações, veja [bloqueio de recurso em esquemas](../concepts/resource-locking.md).
+     Selecione o modo de bloqueio de Blueprint _somente leitura_ . Para obter mais informações, veja [bloqueio de recurso em esquemas](../concepts/resource-locking.md).
 
    - Identidade Gerida
 
-     Deixe a predefinição _sistema atribuído_ opção. Para obter mais informações, consulte [geridos identidades](../../../active-directory/managed-identities-azure-resources/overview.md).
+     Deixe a opção padrão _atribuído pelo sistema_ . Para obter mais informações, [](../../../active-directory/managed-identities-azure-resources/overview.md)consulte identidades gerenciadas.
 
    - Parâmetros de artefacto
 
-     Os parâmetros definidos nesta secção aplicam-se para o artefacto sob a qual está definido. Esses parâmetros são [parâmetros dinâmicos](../concepts/parameters.md#dynamic-parameters) , uma vez que estão definidos durante a atribuição do esquema. Para cada artefato, defina o valor de parâmetro para o que é definido no **valor** coluna. Para `{Your ID}`, selecione a sua conta de utilizador do Azure.
+     Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele é definido. Esses parâmetros são [parâmetros dinâmicos](../concepts/parameters.md#dynamic-parameters) , pois eles são definidos durante a atribuição do plano gráfico. Para cada artefato, defina o valor do parâmetro como o que é definido na coluna **valor** . Para `{Your ID}`, selecione sua conta de usuário do Azure.
 
      |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Value|Descrição|
      |-|-|-|-|-|
-     |Grupo de recursos de ProdRG|Grupo de recursos|Name|ProductionRG|Define o nome do primeiro grupo de recursos.|
-     |Grupo de recursos de ProdRG|Grupo de recursos|Location|E.U.A. Oeste 2|Define a localização do primeiro grupo de recursos.|
-     |Contribuinte|Atribuição de função|Utilizador ou grupo|{Sua ID}|Define o que utilizador ou grupo para conceder a _contribuinte_ atribuição de função no primeiro grupo de recursos.|
-     |Grupo de recursos de PreProdRG|Grupo de recursos|Name|PreProductionRG|Define o nome do segundo grupo de recursos.|
-     |Grupo de recursos de PreProdRG|Grupo de recursos|Location|EUA Oeste|Define a localização do segundo grupo de recursos.|
-     |Proprietário|Atribuição de função|Utilizador ou grupo|{Sua ID}|Define o que utilizador ou grupo para conceder a _proprietário_ atribuição de função dentro do segundo grupo de recursos.|
-     |Leitores|Atribuição de função|Utilizador ou grupo|{Sua ID}|Define o que utilizador ou grupo para conceder a _leitores_ atribuição de função dentro do segundo grupo de recursos.|
+     |Grupo de recursos ProdRG|Resource group|Name|ProductionRG|Define o nome do primeiro grupo de recursos.|
+     |Grupo de recursos ProdRG|Resource group|Location|EUA Oeste 2|Define o local do primeiro grupo de recursos.|
+     |Contribuinte|Atribuição de função|Usuário ou grupo|{Your ID}|Define qual usuário ou grupo deve conceder a atribuição de função de _colaborador_ dentro do primeiro grupo de recursos.|
+     |Grupo de recursos PreProdRG|Resource group|Name|PreProductionRG|Define o nome do segundo grupo de recursos.|
+     |Grupo de recursos PreProdRG|Resource group|Location|EUA Oeste|Define o local do segundo grupo de recursos.|
+     |Owner|Atribuição de função|Usuário ou grupo|{Your ID}|Define qual usuário ou grupo deve conceder a atribuição de função de _proprietário_ dentro do segundo grupo de recursos.|
+     |Leitores|Atribuição de função|Usuário ou grupo|{Your ID}|Define qual usuário ou grupo deve conceder a atribuição de função de _leitores_ dentro do segundo grupo de recursos.|
 
-1. Depois de tem sido introduzidos todos os parâmetros, selecione **atribuir** na parte inferior da página.
+1. Depois que todos os parâmetros forem inseridos, selecione **atribuir** na parte inferior da página.
 
-Este passo implementa os recursos definidos e configura o selecionado **atribuição de bloqueio**. Bloqueios de plano gráfico podem demorar até 30 minutos a aplicar.
+Esta etapa implanta os recursos definidos e configura a **atribuição de bloqueio**selecionada. Os bloqueios do Blueprint podem levar até 30 minutos para serem aplicados.
 
-Uma vez a **atribuir da definição do esquema foi efetuada com êxito** aparece a notificação do portal, mover para o passo seguinte.
+Depois que a notificação **atribuição de plano gráfico com êxito** do portal for exibida, vá para a próxima etapa.
 
-## <a name="inspect-resources-deployed-by-the-assignment"></a>Inspecionar os recursos implementados pela atribuição
+## <a name="inspect-resources-deployed-by-the-assignment"></a>Inspecionar os recursos implantados pela atribuição
 
-A atribuição do esquema cria e controla os artefactos definidos na definição de esquema. Podemos ver o estado dos recursos da página de atribuição de esquema e ao examinar os recursos diretamente.
+A atribuição Blueprint cria e controla os artefatos definidos na definição do Blueprint. Podemos ver o status dos recursos na página de atribuição do Blueprint e examinando os recursos diretamente.
 
-1. Selecione **todos os serviços** no painel esquerdo. Procure e selecione **esquemas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
-1. Selecione o **atribuído a planos gráficos** página à esquerda. Utilize os filtros para encontrar os _Assignment-two-rgs-with-role-assignments_ atribuição de esquema e, em seguida, selecioná-lo.
+1. Selecione a página **plantas atribuídas** à esquerda. Use os filtros para localizar a atribuição de plano de _atribuição-dois-RGS-com-role-assignments_ e, em seguida, selecione-a.
 
-   Nesta página, podemos ver a atribuição concluída com êxito e a lista de recursos criados, juntamente com o respetivo estado de bloqueio de esquema. Se a atribuição é atualizada, o **operação de atribuição** pendente mostra detalhes sobre a implementação de cada versão de definição. Cada recurso listado que foi criado pode ser clicado e abre-se essa página de propriedades de recursos.
+   Nessa página, podemos ver a atribuição bem-sucedida e a lista de recursos criados junto com seu estado de bloqueio Blueprint. Se a atribuição for atualizada, a lista suspensa **operação de atribuição** mostrará detalhes sobre a implantação de cada versão de definição. Cada recurso listado que foi criado pode ser clicado e abre essa página de propriedades de recursos.
 
-1. Selecione o **ProductionRG** grupo de recursos.
+1. Selecione o grupo de recursos **ProductionRG** .
 
-   Vemos que é o nome do grupo de recursos **ProductionRG** e não o nome de exibição de artefacto _ProdRG_. Este nome corresponde ao valor definido durante a atribuição do esquema.
+   Vemos que o nome do grupo de recursos é **ProductionRG** e não o nome de exibição do artefato _ProdRG_. Esse nome corresponde ao valor definido durante a atribuição de Blueprint.
 
-1. Selecione o **controlo de acesso (IAM)** página à esquerda e, em seguida, o **atribuições de funções** separador.
+1. Selecione a página **controle de acesso (iam)** à esquerda e, em seguida, a guia atribuições de **função** .
 
-   Aqui, Vemos que foram concedidas à sua conta a _contribuinte_ função no âmbito da _este recurso_. O _Assignment-two-rgs-with-role-assignments_ atribuição do esquema tem a _proprietário_ função como ele foi utilizada para criar o grupo de recursos. Estas permissões também são utilizadas para gerir os recursos com bloqueios de esquema configurado.
+   Aqui, vemos que sua conta recebeu a função _colaborador_ no escopo deste _recurso_. A atribuição de plano de _atribuição-dois-RGS-com-atribuições de função_ tem a função _proprietário_ como foi usada para criar o grupo de recursos. Essas permissões também são usadas para gerenciar recursos com bloqueios de Blueprint configurados.
 
-1. A trilha de portal do Azure, selecione **Assignment-two-rgs-with-role-assignments** voltar uma página, em seguida, selecione a **PreProductionRG** grupo de recursos.
+1. Na barra de navegação portal do Azure, selecione **atribuição-dois-RGS-com-atribuições de função** para voltar uma página e, em seguida, selecione o grupo de recursos **PreProductionRG** .
 
-1. Selecione o **controlo de acesso (IAM)** página à esquerda e, em seguida, o **atribuições de funções** separador.
+1. Selecione a página **controle de acesso (iam)** à esquerda e, em seguida, a guia atribuições de **função** .
 
-   Aqui, Vemos que sua conta recebeu ambos os _proprietário_ e _leitor_ funções, ambos no âmbito da _este recurso_. A atribuição do esquema também tem o _proprietário_ função, como o primeiro grupo de recursos.
+   Aqui, vemos que sua conta recebeu as funções de _proprietário_ e de _leitor_ , ambas no escopo deste _recurso_. A atribuição Blueprint também tem a função de _proprietário_ como o primeiro grupo de recursos.
 
-1. Selecione o **negar atribuições** separador.
+1. Selecione a guia atribuições de negação.
 
-   A atribuição do esquema de criar um [negar a atribuição](../../../role-based-access-control/deny-assignments.md) no grupo de recursos implementados para impor a _só de leitura_ modo de bloqueio de esquema. A atribuição de negar impede que uma pessoa com direitos adequados no _atribuições de funções_ separador de realizar ações específicas. A atribuição de negar afeta _todos os principais_.
+   A atribuição de Blueprint criou uma [atribuição](../../../role-based-access-control/deny-assignments.md) de negação no grupo de recursos implantado para impor o modo de bloqueio de Blueprint _somente leitura_ . A atribuição Deny impede que alguém com direitos apropriados na guia atribuições de _função_ faça ações específicas. A atribuição de negação afeta _todas as entidades de segurança_.
 
-1. Selecione a atribuição de negar, em seguida, selecione o **negado permissões** página à esquerda.
+1. Selecione a atribuição negar e selecione a página **permissões negadas** à esquerda.
 
-   A atribuição de negação é impedir todas as operações com o **\*** e **ação** configuração, mas permite o acesso de leitura excluindo  **\* /leitura**via **NotActions**.
+   A atribuição de negação está impedindo todas **\*** as operações com a configuração de **ação** e, mas permite acesso de leitura, excluindo  **\*/Read** por meio de **ações**.
 
-1. A trilha de portal do Azure, selecione **PreProductionRG - controlo de acesso (IAM)**. Em seguida, selecione o **descrição geral** página à esquerda e, em seguida, o **eliminar grupo de recursos** botão. Introduza o nome _PreProductionRG_ para confirmar a eliminação e selecione **eliminar** na parte inferior do painel.
+1. No portal do Azure navegação estrutural, selecione **iam (PreProductionRG-Access Control)** . Em seguida, selecione a página **visão geral** à esquerda e, em seguida, o botão **excluir grupo de recursos** . Insira o nome _PreProductionRG_ para confirmar a exclusão e selecione **excluir** na parte inferior do painel.
 
-   A notificação do portal **eliminar grupo de recursos falha PreProductionRG** é apresentado. O erro indica que, enquanto a sua conta tem permissão para eliminar o grupo de recursos, o acesso é negado pela atribuição do esquema. Lembre-se de que selecionamos os _só de leitura_ modo de bloqueio de esquema durante a atribuição do esquema. O bloqueio de esquema impede que uma conta com permissões, até mesmo _proprietário_, de eliminar o recurso. Para obter mais informações, veja [bloqueio de recurso em esquemas](../concepts/resource-locking.md).
+   A notificação do portal **excluir grupo de recursos PreProductionRG falhou** é exibida. O erro informa que, embora sua conta tenha permissão para excluir o grupo de recursos, o acesso é negado pela atribuição Blueprint. Lembre-se de que selecionamos o modo de bloqueio de Blueprint _somente leitura_ durante a atribuição de Blueprint. O bloqueio Blueprint impede que uma conta com permissão, mesmo _proprietário_, exclua o recurso. Para obter mais informações, veja [bloqueio de recurso em esquemas](../concepts/resource-locking.md).
 
-Estes passos mostram que nossos recursos foram criados, conforme definido e os bloqueios de esquema impediam eliminação indesejada, mesmo a partir de uma conta com permissões.
+Essas etapas mostram que nossos recursos foram criados conforme definido e os bloqueios de plantas impediram a exclusão indesejada, mesmo de uma conta com permissão.
 
-## <a name="unassign-the-blueprint"></a>Anular a atribuição do esquema
+## <a name="unassign-the-blueprint"></a>Cancelar a atribuição do plano gráfico
 
-A última etapa é remover a atribuição do esquema e os recursos que ele implementados.
-Remover a atribuição não remove os artefactos implementados.
+A última etapa é remover a atribuição do plano gráfico e os recursos implantados.
+A remoção da atribuição não remove os artefatos implantados.
 
-1. Selecione **todos os serviços** no painel esquerdo. Procure e selecione **esquemas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
-1. Selecione o **atribuído a planos gráficos** página à esquerda. Utilize os filtros para encontrar os _Assignment-two-rgs-with-role-assignments_ atribuição de esquema e, em seguida, selecioná-lo.
+1. Selecione a página **plantas atribuídas** à esquerda. Use os filtros para localizar a atribuição de plano de _atribuição-dois-RGS-com-role-assignments_ e, em seguida, selecione-a.
 
-1. Selecione o **Unassign esquema** botão na parte superior da página. Leia o aviso na caixa de diálogo de confirmação, em seguida, selecione **OK**.
+1. Selecione o botão **desatribuir Blueprint** na parte superior da página. Leia o aviso na caixa de diálogo de confirmação e selecione **OK**.
 
-   Com a atribuição do esquema removida, os bloqueios de plano gráfico também são removidos. Mais uma vez podem ser eliminados os recursos criados por uma conta com permissões.
+   Com a atribuição Blueprint removida, os bloqueios do Blueprint também são removidos. Os recursos criados podem ser novamente excluídos por uma conta com permissões.
 
-1. Selecione **grupos de recursos** no menu do Azure, em seguida, selecione **ProductionRG**.
+1. Selecione **grupos de recursos** no menu do Azure e, em seguida, selecione **ProductionRG**.
 
-1. Selecione o **controlo de acesso (IAM)** página à esquerda e, em seguida, o **atribuições de funções** separador.
+1. Selecione a página **controle de acesso (iam)** à esquerda e, em seguida, a guia atribuições de **função** .
 
-A segurança para cada grupo de recursos tem ainda as atribuições de funções implementadas, mas já não tem a atribuição do esquema _proprietário_ acesso.
+A segurança de cada grupo de recursos ainda tem as atribuições de função implantadas, mas a atribuição de Blueprint não tem mais acesso de _proprietário_ .
 
-Uma vez a **remover atribuição do esquema foi efetuada com êxito** aparece a notificação do portal, mover para o passo seguinte.
+Depois que a notificação do portal de **remoção de atribuição de plano gráfico for bem-sucedida** aparecer, vá para a próxima etapa.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando terminar com este tutorial, elimine os seguintes recursos:
+Ao concluir este tutorial, exclua os seguintes recursos:
 
-- Grupo de recursos _ProductionRG_
-- Grupo de recursos _PreProductionRG_
-- Definição de esquema _rgs de dois com atribuições função_
+- _ProductionRG_ do grupo de recursos
+- _PreProductionRG_ do grupo de recursos
+- Definição de Blueprint _dois-RGS_ com atribuições de função
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saber mais sobre o [ciclo de vida do esquema](../concepts/lifecycle.md)
+- Saiba mais sobre o [ciclo de vida do Blueprint](../concepts/lifecycle.md)
 - Compreender como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md)
 - Saber como utilizar o [bloqueio de recursos de esquema](../concepts/resource-locking.md)
 - Aprender a personalizar a [ordem de sequenciação do esquema](../concepts/sequencing-order.md)

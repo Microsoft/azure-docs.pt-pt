@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9bc9d64d7f21498acd5cb0c23447e7ff77de629
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 07176fbe22e70658856dd266687a15d719e78e9f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195570"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231081"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e usar destinos de computação para treinamento de modelo 
 
@@ -422,6 +422,19 @@ az ml folder attach
 ```
 
 Este comando cria uma subpasta `.azureml` que contém arquivos de configuração de execução de modelo para destinos de computação diferentes. Você pode copiar e editar esses arquivos para personalizar sua configuração, por exemplo, para adicionar pacotes do Python ou alterar as configurações do Docker.  
+
+### <a name="structure-of-run-configuration-file"></a>Estrutura do arquivo de configuração de execução
+
+O arquivo de configuração de execução é YAML formatado, com as seções a seguir
+ * O script a ser executado e seus argumentos
+ * Nome de destino de computação, "local" ou nome de uma computação no espaço de trabalho.
+ * Parâmetros para executar a execução: Framework, Communicator para execuções distribuídas, duração máxima e número de nós de computação.
+ * Seção de ambiente. Consulte [criar e gerenciar ambientes para treinamento e implantação](how-to-use-environments.md) para obter detalhes dos campos nesta seção.
+   * Para especificar os pacotes do Python a serem instalados para a execução, crie o [arquivo de ambiente Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually)e defina o campo __condaDependenciesFile__ .
+ * Execute os detalhes do histórico para especificar a pasta do arquivo de log e para habilitar ou desabilitar a coleta de saída e instantâneos de histórico de execução.
+ * Detalhes de configuração específicos para a estrutura selecionada.
+ * Referência de dados e detalhes do armazenamento de dados.
+ * Detalhes de configuração específicos para Computação do Machine Learning para criar um novo cluster.
 
 ### <a name="create-an-experiment"></a>Criar uma experimentação
 

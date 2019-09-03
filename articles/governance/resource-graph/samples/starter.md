@@ -7,13 +7,12 @@ ms.date: 04/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: a2e315cee204d0fee6f53112af83b4d24e8d3974
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: e5b204aab0dfde8dc6b5ea489de8a5cda15a7c83
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186707"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232239"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas de introdução do Azure Resource Graph
 
@@ -291,7 +290,7 @@ az graph query -q "where type=~'Microsoft.Compute/virtualMachines' | extend alia
 Search-AzGraph -Query "where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saber mais sobre a [linguagem de consulta](../concepts/query-language.md)
 - Aprender a [explorar recursos](../concepts/explore-resources.md)

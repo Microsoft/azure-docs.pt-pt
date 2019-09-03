@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: magoedte
-ms.openlocfilehash: 18297410842b432af0093a71406df71f7e03db9d
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: 311db544a119d4b9bee7d31cfdfac33aa3c4ed79
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602047"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233224"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Entender a integridade de suas máquinas virtuais do Azure
 
@@ -285,7 +285,7 @@ Para ver um estado de integridade atualizado, você pode atualizar a página de 
 
 O Azure Monitor para VMs Health se integra aos [alertas do Azure](../../azure-monitor/platform/alerts-overview.md). Ele gera um alerta quando critérios predefinidos, quando detectados, mudam de um estado íntegro para um estado não íntegro. Os alertas são categorizados por severidade, de Sev 0 a Sev 4, com Sev 0 como o nível mais alto.
 
-Os alertas não estão associados a um grupo de ações para notificá-lo quando o alerta foi disparado. O proprietário da assinatura deve configurar notificações seguindo as etapas na seção [configurar alertas](#configure-alerts) .
+Os alertas não estão associados a um grupo de ações para notificá-lo quando o alerta foi disparado. Um usuário com função de proprietário no escopo da assinatura deve configurar notificações seguindo as etapas na seção [configurar alertas](#configure-alerts) .
 
 O número total de alertas de integridade da VM categorizados por severidade está disponível no painel de **integridade** na seção **alertas** . Quando você seleciona o número total de alertas ou o número correspondente a um nível de severidade, a página **alertas** é aberta e lista todos os alertas que correspondem à sua seleção.
 

@@ -7,17 +7,16 @@ ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 428a1614889409300064420e1d3d4fbc0423a0ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 869be11639fd4e957a991cadb44f2714875ddf7e
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237531"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232716"
 ---
-# <a name="get-compliance-data-of-azure-resources"></a>Obter dados de compatibilidade dos recursos do Azure
+# <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade de recursos do Azure
 
-Um dos maiores benefícios do Azure Policy é as informações e os controles fornece sobre os recursos numa subscrição ou [grupo de gestão](../../management-groups/overview.md) das subscrições. Esse controle pode ser realizado em muitas formas diferentes, tais como impedir os recursos a ser criados no lugar errado, impor a utilização de etiqueta comum e consistente, ou apropriado de auditorias recursos existentes para configurações e definições. Em todos os casos, os dados são gerados pela política do Azure para que possa compreender o estado de conformidade do seu ambiente.
+Um dos maiores benefícios do Azure Policy é as informações e os controles fornece sobre os recursos numa subscrição ou [grupo de gestão](../../management-groups/overview.md) das subscrições. Esse controle pode ser realizado em muitas formas diferentes, tais como impedir os recursos a ser criados no lugar errado, impor a utilização de etiqueta comum e consistente, ou apropriado de auditorias recursos existentes para configurações e definições. Em todos os casos, os dados são gerados pelo Azure Policy para permitir que você compreenda o estado de conformidade do seu ambiente.
 
 Existem várias formas de acessar as informações de conformidade geradas pela sua política e as atribuições de iniciativa:
 
@@ -27,13 +26,13 @@ Existem várias formas de acessar as informações de conformidade geradas pela 
 Antes de examinar os métodos para gerar relatórios sobre compatibilidade, vamos ver quando as informações de conformidade são atualizadas e a frequência e eventos que disparam um ciclo de avaliação.
 
 > [!WARNING]
-> Se está a ser comunicado o estado de conformidade como **não registada**, certifique-se de que o **policyinsights** (controlam o fornecedor de recursos é registado e que o utilizador tem o acesso adequado baseado em funções As permissões RBAC), conforme descrito em [RBAC no Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
+> Se o estado de conformidade estiver sendo relatado como **não registrado**, verifique se o provedor de recursos **Microsoft. PolicyInsights** está registrado e se o usuário tem as permissões RBAC (controle de acesso baseado em função) apropriadas, conforme descrito em [RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>Acionadores de avaliação
 
-Os resultados de um ciclo de avaliação concluída estão disponíveis no `Microsoft.PolicyInsights` fornecedor de recursos por meio `PolicyStates` e `PolicyEvents` operações. Para obter mais informações sobre as operações da API REST de informações de política do Azure, consulte [do Azure Policy Insights](/rest/api/policy-insights/).
+Os resultados de um ciclo de avaliação concluída estão disponíveis no `Microsoft.PolicyInsights` fornecedor de recursos por meio `PolicyStates` e `PolicyEvents` operações. Para obter mais informações sobre as operações da API REST do Azure Policy insights, consulte [Azure Policy](/rest/api/policy-insights/)insights.
 
 Avaliações de políticas atribuídas e iniciativas de acontecem como resultado de vários eventos:
 
@@ -45,7 +44,7 @@ Avaliações de políticas atribuídas e iniciativas de acontecem como resultado
 
 - Ciclo de avaliação de conformidade. Uma vez a cada 24 horas, atribuições automaticamente são reavaliadas. Uma grande política ou iniciativa de muitos recursos pode demorar tempo, portanto, não há nenhuma expectativa predefinida de quando a avaliação ciclo será concluída. Depois de terminar, resultados de compatibilidade atualizados estão disponíveis no portal e SDKs.
 
-- O [configuração do convidado](../concepts/guest-configuration.md) fornecedor de recursos é atualizado com detalhes de conformidade por um recurso gerenciado.
+- O provedor de recursos de [configuração de convidado](../concepts/guest-configuration.md) é atualizado com detalhes de conformidade por um recurso gerenciado.
 
 - Análise a pedido
 
@@ -111,45 +110,45 @@ Neste exemplo, é preciso ter cautela riscos de segurança. Agora que criou uma 
 
 Além disso **compatível** e **em não conformidade**, políticas e de recursos tem três outros Estados:
 
-- **Em conflito**: Existem duas ou mais políticas com regras em conflito. Por exemplo, duas políticas acrescentando a mesma etiqueta com valores diferentes.
-- **Não foi iniciada**: O ciclo de avaliação ainda não foi iniciado para a política ou recurso.
-- **Não registado**: O fornecedor de recursos de política do Azure ainda não foi registado ou a conta que iniciou sessão não tem permissão para ler dados de conformidade.
+- Em **conflito**: Existem duas ou mais políticas com regras conflitantes. Por exemplo, duas políticas acrescentando a mesma etiqueta com valores diferentes.
+- **Não iniciado**: O ciclo de avaliação não foi iniciado para a política ou o recurso.
+- **Não registrado**: O provedor de recursos de Azure Policy não foi registrado ou a conta conectada não tem permissão para ler os dados de conformidade.
 
-Política do Azure utiliza o **tipo** e **nome** campos na definição para determinar se um recurso é uma correspondência. Quando o recurso corresponde, é considerado aplicável e tem o estado deles **compatível** ou **em não conformidade**. Se qualquer um dos **tipo** ou **nome** é a única propriedade na definição, em seguida, todos os recursos são considerados aplicável e são avaliados.
+Azure Policy usa os campos de **tipo** e **nome** na definição para determinar se um recurso é uma correspondência. Quando o recurso corresponde, é considerado aplicável e tem o estado deles **compatível** ou **em não conformidade**. Se qualquer um dos **tipo** ou **nome** é a única propriedade na definição, em seguida, todos os recursos são considerados aplicável e são avaliados.
 
 A percentagem de conformidade é determinada pela divisão **compatível** recursos por _total de recursos_.
 _Total de recursos_ é definido como a soma do **compatível**, **em não conformidade**, e **em conflito** recursos. Os números de conformidade geral são a soma dos recursos distintos que sejam **compatível** dividido pela soma de todos os recursos distintos. Na imagem abaixo, existem 20 recursos distintos que são aplicáveis e é apenas um **em não conformidade**. Conformidade geral do recurso é 95% (19 de 20).
 
-![Exemplo de conformidade com a política da página de conformidade](../media/getting-compliance-data/simple-compliance.png)
+![Exemplo de conformidade de política da página conformidade](../media/getting-compliance-data/simple-compliance.png)
 
 ## <a name="portal"></a>Portal
 
 O portal do Azure apresenta uma experiência gráfica de visualizar e compreender o estado de conformidade no seu ambiente. Sobre o **política** página, o **descrição geral** opção fornece detalhes para âmbitos disponíveis na conformidade das políticas e iniciativas. Juntamente com o estado de conformidade e a contagem por atribuição, contém um gráfico que mostra a conformidade nos últimos sete dias. O **conformidade** página contém grande parte essas mesmas informações (exceto o gráfico), mas fornecem opções de ordenação e filtragem adicionais.
 
-![Exemplo de página de conformidade de política do Azure](../media/getting-compliance-data/compliance-page.png)
+![Exemplo de página de conformidade Azure Policy](../media/getting-compliance-data/compliance-page.png)
 
 Uma vez que uma política ou iniciativa pode ser atribuída a âmbitos diferentes, a tabela inclui o âmbito para cada atribuição e o tipo de definição de que foi atribuída. O número de recursos em não conformidade e políticas de conformidade para cada atribuição também é fornecido. Clicar numa política ou iniciativa na tabela fornece uma análise mais profunda a conformidade para essa atribuição particular.
 
-![Exemplo de página de detalhes de conformidade de política do Azure](../media/getting-compliance-data/compliance-details.png)
+![Exemplo de Azure Policy página de detalhes de conformidade](../media/getting-compliance-data/compliance-details.png)
 
 A lista de recursos sobre o **conformidade do recurso** separador mostra o estado de avaliação dos recursos existentes para a atribuição atual. A guia assume a predefinição **em não conformidade**, mas pode ser filtrada.
 Eventos (acrescentar, auditoria, negar, implementar) acionada pelo pedido para criar um recurso são apresentados sob a **eventos** separador.
 
-![Exemplo de eventos de conformidade de política do Azure](../media/getting-compliance-data/compliance-events.png)
+![Exemplo de eventos de conformidade de Azure Policy](../media/getting-compliance-data/compliance-events.png)
 
 Com o botão direito na linha do evento que pretende recolher mais detalhes sobre e selecione **Mostrar registos de atividades**. Página de registo de atividade é aberto e é previamente filtrada para a pesquisa que mostra os detalhes para a atribuição e os eventos. O registo de atividades fornece o contexto adicional e informações sobre esses eventos.
 
-![Exemplo de registo de atividades de conformidade de política do Azure](../media/getting-compliance-data/compliance-activitylog.png)
+![Exemplo de log de atividades de conformidade Azure Policy](../media/getting-compliance-data/compliance-activitylog.png)
 
-### <a name="understand-non-compliance"></a>Compreender a não conformidade
+### <a name="understand-non-compliance"></a>Entender a não conformidade
 
 <a name="change-history-preview"></a>
 
-Quando um recurso é identificado como sendo **incompatíveis**, existem muitas razões possíveis. Para determinar o motivo é um recurso **incompatíveis** ou para encontrar a alteração responsável, veja [determinar a não conformidade](./determine-non-compliance.md).
+Quando um recurso é determinado como **não compatível**, há muitas razões possíveis. Para determinar o motivo pelo qual um recurso **não está em conformidade** ou para localizar a alteração responsável, consulte [determinar a não conformidade](./determine-non-compliance.md).
 
 ## <a name="command-line"></a>Linha de comandos
 
-As mesmas informações disponíveis no portal podem ser obtidas com a API REST (incluindo com [ARMClient](https://github.com/projectkudu/ARMClient)) ou o Azure PowerShell. Para obter detalhes completos sobre a API do REST, consulte a [do Azure Policy Insights](/rest/api/policy-insights/) referência. As páginas de referência da REST API tem um 'Tente It' botão verde em cada operação que permite que experimente diretamente no navegador.
+As mesmas informações disponíveis no portal podem ser obtidas com a API REST (incluindo com [ARMClient](https://github.com/projectkudu/ARMClient)) ou o Azure PowerShell. Para obter detalhes completos sobre a API REST, consulte a referência do [Azure Policy](/rest/api/policy-insights/) insights. As páginas de referência da REST API tem um 'Tente It' botão verde em cada operação que permite que experimente diretamente no navegador.
 
 Para utilizar os exemplos a seguir no Azure PowerShell, construa um token de autenticação com este código de exemplo. Em seguida, substitua o $restUri a cadeia de caracteres nos exemplos para recuperar um objeto JSON que pode então ser analisado.
 
@@ -178,7 +177,7 @@ $response
 
 ### <a name="summarize-results"></a>Resultados resumidos
 
-Com a API REST, resumo pode ser efetuado por contentor, definição ou atribuição. Eis um exemplo do resumo ao nível da subscrição com o Azure política Insight [resumir para subscrição](/rest/api/policy-insights/policystates/summarizeforsubscription):
+Com a API REST, resumo pode ser efetuado por contentor, definição ou atribuição. Aqui está um exemplo de resumo no nível da assinatura usando o resumo do Azure Policy Insight [para a assinatura](/rest/api/policy-insights/policystates/summarizeforsubscription):
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04
@@ -288,11 +287,11 @@ Os resultados assemelham-se ao seguinte exemplo:
 }
 ```
 
-Para obter mais informações sobre a consulta de eventos de política, consulte a [eventos de política do Azure](/rest/api/policy-insights/policyevents) artigo de referência.
+Para obter mais informações sobre como consultar eventos de política, consulte o artigo de referência de [eventos de Azure Policy](/rest/api/policy-insights/policyevents) .
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-O módulo Azure PowerShell para o Azure Policy está disponível na galeria do PowerShell como [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights).
+O módulo Azure PowerShell para Azure Policy está disponível no Galeria do PowerShell como [AZ. PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights).
 A utilização do PowerShellGet, pode instalar o módulo usando `Install-Module -Name Az.PolicyInsights` (Certifique-se de que tem a versão mais recente [Azure PowerShell](/powershell/azure/install-az-ps) instalado):
 
 ```azurepowershell-interactive
@@ -316,7 +315,7 @@ O módulo tem os seguintes cmdlets:
 - `Start-AzPolicyRemediation`
 - `Stop-AzPolicyRemediation`
 
-Exemplo: Obter o estado de resumo para a política atribuída superior com o maior número de recursos não compatíveis.
+Exemplo: Obter o resumo de estado para a política atribuída mais alta com o maior número de recursos sem conformidade.
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyStateSummary -Top 1
@@ -327,7 +326,7 @@ PolicyAssignments     : {/subscriptions/{subscriptionId}/resourcegroups/RG-Tags/
                         oft.authorization/policyassignments/37ce239ae4304622914f0c77}
 ```
 
-Exemplo: Obter o registo de estado para o máximo avaliou recentemente recursos (a predefinição é por timestamp em ordem decrescente).
+Exemplo: Obtendo o registro de estado para o recurso avaliado mais recentemente (o padrão é por carimbo de data/hora em ordem decrescente).
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyState -Top 1
@@ -353,7 +352,7 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-Exemplo: Obter os detalhes de todos os recursos de rede virtual não compatível.
+Exemplo: Obtendo os detalhes de todos os recursos de rede virtual não compatíveis.
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
@@ -379,7 +378,7 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-Exemplo: Obter eventos relacionados com os recursos de rede virtual não compatível que ocorreram após uma data específica.
+Exemplo: Obtenção de eventos relacionados a recursos de rede virtual não compatíveis que ocorreram após uma data específica.
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
@@ -416,16 +415,16 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
-Se tiver um [área de trabalho do Log Analytics](../../../log-analytics/log-analytics-overview.md) com `AzureActivity` da [solução Log Analytics da atividade](../../../azure-monitor/platform/activity-log-collect.md) vinculado à sua subscrição, pode também ver resultados de não conformidade da utilização de ciclo de avaliação consultas de Kusto simples e o `AzureActivity` tabela. Com detalhes nos registos do Azure Monitor, os alertas podem ser configurados para ver a de não conformidade.
+Se você tiver um [espaço de trabalho log Analytics](../../../log-analytics/log-analytics-overview.md) com `AzureActivity` da [solução análise do log de atividades](../../../azure-monitor/platform/activity-log-collect.md) vinculada à sua assinatura, também poderá exibir os resultados de não conformidade do ciclo de avaliação usando consultas Kusto simples `AzureActivity` e o tabela. Com detalhes em logs de Azure Monitor, os alertas podem ser configurados para observar a não conformidade.
 
 
-![Conformidade de política do Azure com os registos do Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
+![Azure Policy conformidade usando logs de Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Reveja exemplos em [exemplos do Azure Policy](../samples/index.md).
+- Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Veja [Compreender os efeitos do Policy](../concepts/effects.md).
-- Compreender como [criar políticas programaticamente](programmatically-create.md).
-- Saiba como [remediar recursos incompatíveis](remediate-resources.md).
-- Revisão que um grupo de gestão é com [organizar os recursos com grupos de gestão do Azure](../../management-groups/overview.md).
+- Entenda como [criar políticas](programmatically-create.md)programaticamente.
+- Saiba como [corrigir recursos sem conformidade](remediate-resources.md).
+- Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

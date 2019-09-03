@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 08/30/2019
+ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 7623244d8b7de012d80e7e4844a9b3693ccdd662
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: b07adc955b7904c6e6a3278480cec5a2be91ec35
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186688"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232905"
 ---
 ::: zone target="docs"
 
@@ -67,7 +67,7 @@ Inicie sessão no Portal do Azure em [https://aka.ms/azuredataboxfromdiskdocs](h
 > - **Conectar e desbloquear**: Conecte o dispositivo e desbloqueie o disco para copiar os dados.
 > - **Copie os dados para o disco e valide**: Copie dados para os discos nas pastas precriadas.
 > - **Retorne os discos**: Retorne os discos para o datacenter do Azure onde os dados são carregados em sua conta de armazenamento.
-> - **Verifique os dados no Azure**: Verifique se os dados foram carregados em sua conta de armazenamento antes de excluí-los do servidor de data de origem.
+> - **Verifique os dados no Azure**: Verifique se os dados foram carregados em sua conta de armazenamento antes de excluí-los do servidor de dados de origem.
 
 ::: zone-end
 
@@ -157,7 +157,7 @@ Para limpar, pode cancelar a encomenda do Data Box e, em seguida, eliminá-la.
 
     Para eliminar a encomenda, aceda a **Descrição geral** e clique em **Eliminar** na barra de comandos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, implementou o Azure Data Box Disk para ajudar a importar os seus dados para o Azure. Para saber mais sobre a gestão do Azure Data Box Disk, avance para o tutorial seguinte:
 

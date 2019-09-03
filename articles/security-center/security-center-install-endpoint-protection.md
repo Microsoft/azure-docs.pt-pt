@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4274b3684a2e9e79385a561b1cad426b4ffd954e
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 58a220192d6a02c6ad66094e8421405578a82a01
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609939"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231315"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gerenciar problemas do Endpoint Protection com a central de segurança do Azure
 A central de segurança do Azure monitora o status da proteção antimalware e relata isso na folha problemas do Endpoint Protection. A central de segurança realça problemas, como ameaças detectadas e proteção insuficiente, que podem tornar suas VMs (máquinas virtuais) e computadores vulneráveis a ameaças antimalware. Usando as informações em **problemas do Endpoint Protection**, você pode identificar um plano para resolver quaisquer problemas identificados.
@@ -31,12 +31,12 @@ A central de segurança relata os seguintes problemas de proteção de ponto de 
 - Integridade do Endpoint Protection:
 
   - Assinatura desatualizada – uma solução antimalware está instalada nessas VMs e computadores, mas a solução não tem as assinaturas antimalware mais recentes.
-  - Sem proteção em tempo real – uma solução antimalware é instalada nessas VMs e computadores, mas não está configurada para proteção em tempo real.   O serviço pode estar desabilitado ou a central de segurança pode não conseguir obter o status porque a solução não tem suporte. Consulte [integração de parceiros](security-center-os-coverage.md#supported-endpoint-protection-solutions) para obter uma lista de soluções com suporte.
+  - Sem proteção em tempo real – uma solução antimalware é instalada nessas VMs e computadores, mas não está configurada para proteção em tempo real.   O serviço pode estar desabilitado ou a central de segurança pode não conseguir obter o status porque a solução não tem suporte. Consulte [integração de parceiros](security-center-services.md#endpoint-supported) para obter uma lista de soluções com suporte.
   - Sem relatórios – uma solução antimalware está instalada, mas não está relatando dados.
   - Desconhecido – uma solução antimalware está instalada, mas seu status é desconhecido ou está relatando um erro desconhecido.
 
     > [!NOTE]
-    > Consulte [integrar soluções de segurança](security-center-os-coverage.md#supported-endpoint-protection-solutions) para obter uma lista de soluções de segurança do Endpoint Protection integradas à central de segurança.
+    > Consulte [integrar soluções de segurança](security-center-services.md#endpoint-supported) para obter uma lista de soluções de segurança do Endpoint Protection integradas à central de segurança.
     >
     >
 

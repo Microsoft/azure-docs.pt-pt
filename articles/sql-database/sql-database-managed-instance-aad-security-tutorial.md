@@ -9,12 +9,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: 87bd22ec4f2cfae62d1f80284ad8346ca292d016
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 37098411f465c611dc9d2e2443f369e01d6e338c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567678"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70230999"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança de instância gerenciada no banco de dados SQL do Azure usando entidades do Azure AD Server (logons)
 
@@ -55,10 +55,12 @@ Para concluir o tutorial, verifique se você tem os seguintes pré-requisitos:
 
 ## <a name="limiting-access-to-your-managed-instance"></a>Limitando o acesso à sua instância gerenciada
 
-As instâncias gerenciadas só podem ser acessadas por meio de um endereço IP privado. Não há pontos de extremidade de serviço disponíveis para se conectar a uma instância gerenciada de fora da rede de instância gerenciada. Assim como um ambiente SQL Server local isolado, os aplicativos ou usuários precisam acessar a rede de instância gerenciada (VNet) antes que uma conexão possa ser estabelecida. Para obter mais informações, consulte o seguinte artigo, [conectar seu aplicativo a uma instância gerenciada](sql-database-managed-instance-connect-app.md).
+As instâncias gerenciadas podem ser acessadas por meio de um endereço IP privado. Assim como um ambiente SQL Server local isolado, os aplicativos ou usuários precisam acessar a rede de instância gerenciada (VNet) antes que uma conexão possa ser estabelecida. Para obter mais informações, consulte o seguinte artigo, [conectar seu aplicativo a uma instância gerenciada](sql-database-managed-instance-connect-app.md).
+
+Também é possível configurar um ponto de extremidade de serviço na instância gerenciada, que permite conexões públicas, da mesma maneira que o banco de dados SQL do Azure. Para obter mais informações, consulte o seguinte artigo [Configurar o ponto de extremidade público na instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-public-endpoint-configure.md).
 
 > [!NOTE] 
-> Como as instâncias gerenciadas só podem ser acessadas dentro de sua VNET, [as regras de firewall do banco de dados SQL](sql-database-firewall-configure.md) não se aplicam. A instância gerenciada tem seu próprio [firewall interno](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+> Mesmo com pontos de extremidade de serviço habilitados, [as regras de firewall do banco de dados SQL](sql-database-firewall-configure.md) não se aplicam. A instância gerenciada tem seu próprio [firewall interno](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) para gerenciar a conectividade.
 
 ## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>Criar uma entidade de segurança de servidor do Azure AD (logon) para uma instância gerenciada usando o SSMS
 
@@ -148,8 +150,8 @@ Depois que a entidade de segurança do servidor do Azure AD (logon) tiver sido `
 1. Conecte-se à instância gerenciada com a entidade de segurança de servidor do Azure AD (logon), usando SQL Server Management Studio. Insira o nome do host da instância gerenciada. Para autenticação no SSMS, há três opções para escolher ao fazer logon com uma conta do Azure AD:
 
    - Active Directory-universal com suporte a MFA
-   - Active Directory - Palavra-passe
-   - Active Directory - Integrado </br>
+   - Active Directory-senha
+   - Integrado ao Active Directory </br>
 
      ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
@@ -193,7 +195,7 @@ Depois que a entidade de segurança do servidor do Azure AD (logon) tiver sido `
 
 1. Abra uma nova janela de consulta no SQL Server Management Studio.
 
-    Este exemplo supõe que exista um grupo  chamado myGroup no Azure AD. Execute o seguinte comando:
+    Este exemplo supõe que exista um grupo chamado myGroup no Azure AD. Execute o seguinte comando:
 
     ```sql
     USE master
@@ -257,7 +259,7 @@ Para obter mais informações sobre como conceder permissões de banco de dados,
     GO
     ```
 
-    Todos os usuários que pertencem  a myGroup podem acessar o banco de dados **MyMITestDB** .
+    Todos os usuários que pertencem a myGroup podem acessar o banco de dados **MyMITestDB** .
 
     > [!IMPORTANT]
     > Ao criar um **usuário** de uma entidade de segurança de servidor do Azure AD (logon), especifique o user_name como o mesmo Login_name do **logon**.
@@ -278,7 +280,7 @@ Para obter mais informações sobre como conceder permissões de banco de dados,
     );
     ```
 
-1. Crie uma conexão no SSMS com o usuário que foi criado. Você observará que não é possível ver a  tabela TestTable criada pelo `sysadmin` anterior. Precisamos fornecer permissões ao usuário para ler dados do banco de dado.
+1. Crie uma conexão no SSMS com o usuário que foi criado. Você observará que não é possível ver a tabela TestTable criada pelo `sysadmin` anterior. Precisamos fornecer permissões ao usuário para ler dados do banco de dado.
 
 1. Você pode verificar a permissão atual que o usuário tem executando o seguinte comando:
 
@@ -402,7 +404,7 @@ Há suporte para consultas entre bancos de dados para contas do Azure AD com ent
     );
     ```
 
-1. Em uma nova janela de consulta, execute o seguinte comando para criar o  usuário myGroup no novo banco de dados **MyMITestDB2**e conceda permissões SELECT nesse banco de dados para myGroup:
+1. Em uma nova janela de consulta, execute o seguinte comando para criar o usuário myGroup no novo banco de dados **MyMITestDB2**e conceda permissões SELECT nesse banco de dados para myGroup:
 
     ```sql
     USE MyMITestDB2
@@ -413,7 +415,7 @@ Há suporte para consultas entre bancos de dados para contas do Azure AD com ent
     GO
     ```
 
-1. Entre na instância gerenciada usando SQL Server Management Studio como um membro do grupo myGroup do Azure AD. Abra uma nova janela de consulta e execute a instrução SELECT do banco de dados cruzado:
+1. Entre na instância gerenciada usando SQL Server Management Studio como um membro do grupo myGroup doAzure AD. Abra uma nova janela de consulta e execute a instrução SELECT do banco de dados cruzado:
 
     ```sql
     USE MyMITestDB

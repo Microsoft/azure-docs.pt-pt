@@ -1,5 +1,5 @@
 ---
-title: Ativos nos serviços de multimédia do Azure | Documentos da Microsoft
+title: Ativos nos serviços de mídia do Azure | Microsoft Docs
 description: Este artigo fornece uma explicação sobre o que estão ativos, e como elas são usadas pelos serviços de multimédia do Azure.
 services: media-services
 documentationcenter: ''
@@ -9,32 +9,36 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/02/2019
+ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d0a81d5d7ce8e7569b77007b6ad9c322cf626f16
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 2f2dea922b7a3ba45ad6493ce94f0c52649dfa68
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670703"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70230992"
 ---
 # <a name="assets"></a>Elementos
 
-Nos serviços de multimédia do Azure, um [Asset](https://docs.microsoft.com/rest/api/media/assets) contém informações sobre ficheiros digitais são armazenados no armazenamento do Azure (incluindo o vídeo, áudio, imagens, coleções de miniaturas, pistas de texto e ficheiros de legendagem de áudio). 
+Nos serviços de mídia do Azure, um [ativo](https://docs.microsoft.com/rest/api/media/assets) contém informações sobre arquivos digitais armazenados no armazenamento do Azure (incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda codificada). 
 
-Um elemento é mapeado para um contentor de BLOBs no [conta de armazenamento do Azure](storage-account-concept.md) e os ficheiros no elemento são armazenados como blobs de blocos nesse contentor. Serviços de multimédia suportam as camadas de Blob, quando a conta utiliza para fins gerais v2 (GPv2) de armazenamento. Com a GPv2, pode mover arquivos para [acesso esporádico ou arquivo armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). **Arquivo** armazenamento é adequado para arquivamento de arquivos de origem quando já não for necessário (por exemplo, depois de ter sido codificados).
+Um ativo é mapeado para um contêiner de blob na [conta de armazenamento do Azure](storage-account-concept.md) e os arquivos no ativo são armazenados como BLOBs de blocos nesse contêiner. Os serviços de mídia dão suporte a camadas de blob quando a conta usa o armazenamento de uso geral v2 (GPv2). Com o GPv2, você pode mover arquivos para o [armazenamento frio ou de arquivo morto](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). O armazenamento de **arquivo** é adequado para arquivar arquivos de origem quando não for mais necessário (por exemplo, depois que eles tiverem sido codificados).
 
-O **arquivo** camada de armazenamento só é recomendada para ficheiros de origem muito grandes que já tenham sido codificados e o resultado da tarefa de codificação foi colocado num contêiner de blob de saída. Os blobs no contentor de saída que deseja associar um recurso e a utilização para transmitir em fluxo ou analisar os seus conteúdos, tem de existir uma **frequente** ou **esporádico** camada de armazenamento.
+A camada de armazenamento de **arquivo** é recomendada somente para arquivos de origem muito grandes que já foram codificados e a saída do trabalho de codificação foi colocada em um contêiner de blob de saída. Os BLOBs no contêiner de saída que você deseja associar a um ativo e usam para transmitir ou analisar seu conteúdo devem existir em uma camada de armazenamento **quente** ou **fria** .
 
-## <a name="upload-digital-files-into-assets"></a>Ficheiros digitais são carregados nos ativos
+### <a name="naming-blobs"></a>Nomeando BLOBs
 
-Depois dos ficheiros digitais são carregados para o armazenamento e associados a um recurso, eles podem ser usados nos serviços de multimédia de codificação, transmissão em fluxo, analisar fluxos de trabalho de conteúdo. Um dos fluxos de trabalho comuns dos serviços de multimédia é carregar, codificar e transmitir um ficheiro. Esta seção descreve os passos gerais.
+Os nomes de Arquivos/blobs em um ativo devem seguir os [requisitos de nome do blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) e os requisitos de nome do [NTFS](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). O motivo para esses requisitos é que os arquivos podem ser copiados do armazenamento de BLOBs para um disco NTFS local para processamento.
+
+## <a name="upload-digital-files-into-assets"></a>Carregar arquivos digitais em ativos
+
+Depois que os arquivos digitais são carregados no armazenamento e associados a um ativo, eles podem ser usados na codificação de serviços de mídia, no streaming, na análise de fluxos de trabalho de conteúdo. Um dos fluxos de trabalho comuns dos serviços de mídia é carregar, codificar e transmitir um arquivo. Esta seção descreve as etapas gerais.
 
 > [!TIP]
-> Antes de começar a desenvolver, reveja [desenvolver com os serviços de multimédia v3 APIs](media-services-apis-overview.md) (inclui informações sobre como aceder a APIs, as convenções de nomenclatura, etc.)
+> Antes de começar a desenvolver, examine o [desenvolvimento com as APIs dos serviços de mídia v3](media-services-apis-overview.md) (inclui informações sobre como acessar APIs, convenções de nomenclatura, etc.)
 
-1. Utilize a API dos Serviços de Multimédia v3 para criar um Recurso “de entrada” novo. Esta operação cria um contentor na conta de armazenamento associada à sua conta dos Serviços de Multimédia. A API devolve o nome do contentor (por exemplo, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
+1. Utilize a API dos Serviços de Multimédia v3 para criar um Recurso “de entrada” novo. Esta operação cria um contentor na conta de armazenamento associada à sua conta dos Serviços de Multimédia. A API retorna o nome do contêiner (por exemplo `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`,).
    
     Se já tiver um contentor de blobs que queira associar a um Recurso, pode especificar o nome do contentor quando criar o Recurso. Atualmente, os Serviços de Multimédia só suportam blobs na raiz do contentor e sem caminhos no nome de ficheiro. Por esse motivo, um contentor com o nome de ficheiro “input.mp4” funcionará. Contudo, um contentor com o nome de ficheiro "videos/inputs/input.mp4" não funcionará.
 
@@ -46,14 +50,14 @@ Depois dos ficheiros digitais são carregados para o armazenamento e associados 
 2. Obtenha um URL de SAS com permissões de leitura-escrita que será utilizado para carregar ficheiros digitais para o contentor de Recursos. Pode utilizar a API dos Serviços de Multimédia para [listar os URLs do contentor de recursos](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
 3. Utilize as APIs ou os SDKs do Armazenamento do Azure (por exemplo, a [API REST de Armazenamento](../../storage/common/storage-rest-api-auth.md), o [Java SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md) ou o [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para carregar ficheiros para o contentor de Recursos. 
 4. Utilize as APIs dos Serviços de Multimédia v3 para criar uma Transformação e um Trabalho para processar o Recurso “de entrada”. Para obter mais informações, veja [Transforms and Jobs](transform-concept.md) (Transformações e Trabalhos).
-5. Stream o conteúdo do elemento de "saída".
+5. Transmita o conteúdo do ativo de "saída".
 
-Para obter um exemplo de .NET completo que mostra como: criar o elemento, obter um URL de SAS gravável para contentor do recurso no armazenamento, carregue o ficheiro para o contentor no armazenamento com o URL de SAS, consulte [criar uma entrada da tarefa a partir de um ficheiro local](job-input-from-local-file-how-to.md).
+Para obter um exemplo .NET completo que mostra como: criar o ativo, obtenha uma URL SAS gravável para o contêiner do ativo no armazenamento, carregue o arquivo no contêiner no armazenamento usando a URL SAS, consulte [criar uma entrada de trabalho de um arquivo local](job-input-from-local-file-how-to.md).
 
-### <a name="create-a-new-asset"></a>Criar um novo elemento
+### <a name="create-a-new-asset"></a>Criar um novo ativo
 
 > [!NOTE]
-> Propriedades de recurso do tipo Datetime são sempre em formato UTC.
+> As propriedades do ativo do tipo DateTime estão sempre no formato UTC.
 
 #### <a name="rest"></a>REST
 
@@ -61,7 +65,7 @@ Para obter um exemplo de .NET completo que mostra como: criar o elemento, obter 
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
 ```
 
-Para obter um exemplo do REST, veja a [criar um elemento com REST](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) exemplo.
+Para obter um exemplo de REST, consulte o exemplo [criar um ativo com REST](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) .
 
 O exemplo mostra como criar o **Corpo do Pedido**, onde pode especificar informações úteis, como uma descrição, o nome do contentor, a conta de armazenamento, entre outras.
 
@@ -85,20 +89,20 @@ curl -X PUT \
  Asset asset = await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, assetName, new Asset());
 ```
 
-Para obter um exemplo completo, veja [criar uma entrada da tarefa a partir de um ficheiro local](job-input-from-local-file-how-to.md). Em serviços de multimédia v3, entrada de um trabalho também pode ser criada a partir de URLs de HTTPS (veja [criar uma entrada da tarefa a partir de um URL HTTPS](job-input-from-http-how-to.md)).
+Para obter um exemplo completo, consulte [criar uma entrada de trabalho de um arquivo local](job-input-from-local-file-how-to.md). No Media Services V3, a entrada de um trabalho também pode ser criada a partir de URLs HTTPS (consulte [criar uma entrada de trabalho de uma URL https](job-input-from-http-how-to.md)).
 
-## <a name="map-v3-asset-properties-to-v2"></a>Mapear as propriedades dos recursos v3 para v2
+## <a name="map-v3-asset-properties-to-v2"></a>Mapear Propriedades de ativos V3 para v2
 
-A tabela seguinte mostra como o [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)do propriedades na v3 mapeiam para propriedades de recurso no v2.
+A tabela a seguir mostra como as propriedades do [ativo](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)em v3 são mapeadas para as propriedades do ativo na v2.
 
-|Propriedades de v3|Propriedades de v2|
+|Propriedades v3|Propriedades de v2|
 |---|---|
-|ID - (exclusivo) o caminho completo do Azure Resource Manager, consulte exemplos [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
-|nome – (exclusivos) consulte [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions) ||
+|ID-(exclusivo) o caminho de Azure Resource Manager completo, consulte os exemplos no [ativo](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|nome-(exclusivo) consulte [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions) ||
 |alternateId|AlternateId|
-|assetId|ID - valor (exclusivo) começa com o `nb:cid:UUID:` prefixo.|
-|Criado|Criado|
-|description|Nome|
+|assetId|ID-o valor (exclusivo) começa com `nb:cid:UUID:` o prefixo.|
+|criado|Criado|
+|description|Name|
 |lastModified|lastModified|
 |storageAccountName|StorageAccountName|
 |storageEncryptionFormat| Opções (opções de criação)|
@@ -120,10 +124,10 @@ Para proteger os seus ativos inativos, os recursos devem ser encriptados pela en
 
 ## <a name="filtering-ordering-paging"></a>Paginação de filtragem, ordenação,
 
-Ver [filtragem, ordenação, a paginação de entidades de serviços de multimédia](entities-overview.md).
+Consulte [filtragem, ordenação, paginação de entidades de serviços de mídia](entities-overview.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Transmissão de um ficheiro](stream-files-dotnet-quickstart.md)
 * [Using a cloud DVR](live-event-cloud-dvr.md) (Utilizar um DVR na cloud)
-* [Diferenças entre o suporte de dados de serviços v2 e v3](migrate-from-v2-to-v3.md)
+* [Diferenças entre os serviços de mídia V2 e v3](migrate-from-v2-to-v3.md)

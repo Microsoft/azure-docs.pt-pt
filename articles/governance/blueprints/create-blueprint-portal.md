@@ -1,23 +1,22 @@
 ---
 title: Criar um plano gráfico no portal
-description: Utilize planos gráficos do Azure para criar, definir e implementar artefactos através do portal do Azure.
+description: Use plantas do Azure para criar, definir e implantar artefatos por meio do portal do Azure.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 97d0615fcc4f86c295441ec6a0eb8b86ba6b11b5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 473e16c610e7dee0b2838cb1a54ef7cd98958889
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059709"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232983"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Início rápido: Definir e atribuir um plano gráfico no portal
 
-Quando aprender a criar e atribuir esquemas, pode definir padrões comuns para desenvolver as configurações de reutilizáveis e implantáveis rapidamente com base no Azure Resource Manager modelos, políticas, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure esquemas para fazer algumas das tarefas comuns relacionadas com a criação, publicação e atribuir um plano gráfico dentro da sua organização. Essas tarefas incluem:
+Ao aprender a criar e atribuir plantas, você pode definir padrões comuns para desenvolver configurações reutilizáveis e implantáveis rapidamente com base em modelos de Azure Resource Manager, política, segurança e muito mais. Neste tutorial, você aprenderá a usar os planos gráficos do Azure para realizar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um plano gráfico em sua organização. Essas tarefas incluem:
 
 > [!div class="checklist"]
 > - Criar um novo esquema e adicionar vários artefactos suportados
@@ -31,74 +30,74 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="create-a-blueprint"></a>Criar um esquema
 
-O primeiro passo na definição de um padrão de conformidade é compor um esquema a partir dos recursos disponíveis. Neste exemplo, criar um novo plano de gráfico com o nome **MyBlueprint** para configurar as atribuições de função e a política para a subscrição. Em seguida, adicionar um novo grupo de recursos e criar uma atribuição de função e o modelo do Resource Manager no novo grupo de recursos.
+O primeiro passo na definição de um padrão de conformidade é compor um esquema a partir dos recursos disponíveis. Neste exemplo, crie um novo plano gráfico chamado **myblueprint** para configurar atribuições de função e política para a assinatura. Em seguida, adicione um novo grupo de recursos e crie um modelo do Resource Manager e uma atribuição de função no novo grupo de recursos.
 
-1. Selecione **todos os serviços** no painel esquerdo. Procure e selecione **esquemas**.
+1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
-1. Selecione **definições de esquema** da página à esquerda e selecione o **+ criar esquema** botão na parte superior da página.
+1. Selecione **definições de plantas** na página à esquerda e selecione o botão **+ criar Blueprint** na parte superior da página.
 
-   Em alternativa, selecione **Create** da **introdução** página para ir diretamente para a criação de um plano gráfico.
+   Ou então, selecione **criar** na página de **introdução** para ir direto para a criação de um plano gráfico.
 
-   ![Criar um plano gráfico a partir da página de definições de esquema](./media/create-blueprint-portal/create-blueprint-button.png)
+   ![Criar um plano gráfico na página Definições de plantas](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Fornecer um **nome do esquema** como **MyBlueprint**. (Utilize até 48 letras e números, mas sem espaços ou carateres especiais). Deixe **esquema Descrição** em branco por agora.
+1. Forneça um **nome de plano gráfico** , como myblueprint. (Use até 48 letras e números, mas sem espaços ou caracteres especiais). Deixe a **Descrição do plano gráfico** em branco por enquanto.
 
-1. Na **localização da definição** caixa, selecione as reticências à direita, selecione a [grupo de gestão](../management-groups/overview.md) ou uma subscrição onde pretende guardar o plano gráfico e escolha **selecione**.
+1. Na caixa **local da definição** , selecione as reticências à direita, selecione o [grupo de gerenciamento](../management-groups/overview.md) ou a assinatura em que você deseja salvar o plano gráfico e escolha **selecionar**.
 
-1. Certifique-se de que as informações estão corretas. O **nome do esquema** e **localização da definição** campos não não possível alterar mais tarde. Em seguida, selecione **seguinte: Artefactos** na parte inferior da página ou o **artefactos** separador na parte superior da página.
+1. Verifique se as informações estão corretas. Os campos **nome do plano gráfico** e **local de definição** não podem ser alterados posteriormente. Em seguida **, selecione Avançar: Artefatos** na parte inferior da página ou na guia **artefatos** na parte superior da página.
 
-1. Adicione uma atribuição de função ao nível da subscrição:
+1. Adicione uma atribuição de função no nível de assinatura:
 
-   1. Selecione o **+ adicionar artefacto** linha sob **subscrição**. O **adicionar artefacto** é aberta a janela à direita do navegador.
+   1. Selecione a linha **+ Adicionar artefato** em **assinatura**. A janela **Adicionar artefato** é aberta no lado direito do navegador.
 
-   1. Selecione **atribuição de função** para **tipo de Artefato**.
+   1. Selecione **atribuição de função** para **tipo de artefato**.
 
-   1. Sob **função**, selecione **contribuinte**. Deixe o **adicionar utilizador, aplicação ou grupo** caixa de com a caixa de verificação que indica um parâmetro dinâmico.
+   1. Em **função**, selecione **colaborador**. Deixe a caixa **Adicionar usuário, aplicativo ou grupo** com a caixa de seleção que indica um parâmetro dinâmico.
 
-   1. Selecione **adicionar** para adicionar este artefacto ao esquema.
+   1. Selecione **Adicionar** para adicionar este artefato ao plano gráfico.
 
-   ![Atribuição de função para um artefacto de esquema](./media/create-blueprint-portal/add-role-assignment.png)
+   ![Atribuição de função para um artefato do Blueprint](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
-   > A maioria dos artefatos suportam parâmetros. Um parâmetro que tenha atribuído um valor durante a criação de esquema é uma *parâmetro estático*. Se o parâmetro é atribuído durante a atribuição do esquema, é um *parâmetro dinâmico*. Para obter mais informações, veja [Parâmetros de esquema](./concepts/parameters.md).
+   > A maioria dos artefatos dá suporte a parâmetros. Um parâmetro que é atribuído a um valor durante a criação do Blueprint é um *parâmetro estático*. Se o parâmetro for atribuído durante a atribuição de Blueprint, será um *parâmetro dinâmico*. Para obter mais informações, veja [Parâmetros de esquema](./concepts/parameters.md).
 
-1. Adicione uma atribuição de política ao nível da subscrição:
+1. Adicione uma atribuição de política no nível de assinatura:
 
-   1. Selecione o **+ adicionar artefacto** linha sob o artefacto de atribuição de função.
+   1. Selecione a linha **+ Adicionar artefato** no artefato de atribuição de função.
 
-   1. Selecione **atribuição de política** para **tipo de Artefato**.
+   1. Selecione **atribuição de política** para **tipo de artefato**.
 
-   1. Alteração **tipo** ao **incorporadas**. Na **pesquisa**, introduza **marca**.
+   1. Altere o **tipo** para **interno**. Em **Pesquisar**, insira a **marca**.
 
-   1. Clique fora da caixa **Pesquisar** para filtrar os resultados. Selecione **acrescentar etiqueta e respetivo valor predefinido para grupos de recursos**.
+   1. Clique fora da caixa **Pesquisar** para filtrar os resultados. Selecione **acrescentar marca e seu valor padrão para grupos de recursos**.
 
-   1. Selecione **adicionar** para adicionar este artefacto ao esquema.
+   1. Selecione **Adicionar** para adicionar este artefato ao plano gráfico.
 
-1. Selecione a linha de atribuição de política **acrescentar etiqueta e respetivo valor predefinido para grupos de recursos**.
+1. Selecione a linha da marca de acréscimo de atribuição de política **e seu valor padrão para grupos de recursos**.
 
-1. A janela para fornecer os parâmetros para o artefacto como parte da definição do esquema é aberto e permite a definição de parâmetros para todas as atribuições (parâmetros estáticos) com base nesse plano gráfico, em vez de durante a atribuição (parâmetros dinâmicos). Este exemplo utiliza os parâmetros dinâmicos durante a atribuição do esquema, então, deixe as predefinições e selecione **Cancelar**.
+1. A janela para fornecer parâmetros para o artefato como parte da definição do Blueprint é aberta e permite definir os parâmetros de todas as atribuições (parâmetros estáticos) com base neste projeto, em vez de durante a atribuição (parâmetros dinâmicos). Este exemplo usa parâmetros dinâmicos durante a atribuição de Blueprint, portanto, deixe os padrões e selecione **Cancelar**.
 
-1. Adicione um grupo de recursos ao nível da subscrição:
+1. Adicione um grupo de recursos no nível da assinatura:
 
-   1. Selecione o **+ adicionar artefacto** linha sob **subscrição**.
+   1. Selecione a linha **+ Adicionar artefato** em **assinatura**.
 
-   1. Selecione **grupo de recursos** para **tipo de Artefato**.
+   1. Selecione **grupo de recursos** para **tipo de artefato**.
 
-   1. Deixe o **nome a apresentar do artefacto**, **nome do grupo de recursos**, e **localização** caixas em branco, mas certifique-se de que a caixa de verificação está selecionada para cada propriedade de parâmetro para torná-las parâmetros dinâmicos.
+   1. Deixe o **nome de exibição do artefato**, o **nome do grupo de recursos**e as caixas de **local** em branco, mas verifique se a caixa de seleção está marcada para cada propriedade de parâmetro para torná-los parâmetros dinâmicos.
 
-   1. Selecione **adicionar** para adicionar este artefacto ao esquema.
+   1. Selecione **Adicionar** para adicionar este artefato ao plano gráfico.
 
-1. Adicione um modelo no grupo de recursos:
+1. Adicione um modelo sob o grupo de recursos:
 
-   1. Selecione o **+ adicionar artefacto** linha sob o **ResourceGroup** entrada.
+   1. Selecione a linha **+ Adicionar artefato** na entrada do **resourcegroup** .
 
-   1. Selecione **modelo Azure Resource Manager** para **tipo de Artefato**, defina **nome a apresentar do artefacto** para **StorageAccount**e deixe  **Descrição** em branco.
+   1. Selecione **Azure Resource Manager modelo** para **tipo de artefato**, defina **nome de exibição do artefato** como **StorageAccount**e deixe a **Descrição** em branco.
 
    1. No separador **Modelo** na caixa do editor, cole o seguinte modelo do Resource Manager.
-      Depois de o colar o modelo, selecione o **parâmetros** separador e tenha em atenção que os parâmetros de modelo **storageAccountType** e **localização** foram detetados. Cada parâmetro foi automaticamente detectado e preenchido, mas configurado como um parâmetro dinâmico.
+      Depois de colar o modelo, selecione a guia **parâmetros** e observe que os parâmetros de modelo **storageAccountType** e **local** foram detectados. Cada parâmetro foi detectado e preenchido automaticamente, mas configurado como um parâmetro dinâmico.
 
       > [!IMPORTANT]
-      > Se estiver a importar o modelo, certifique-se de que o arquivo é apenas um JSON e não inclui o HTML. Quando está a apontar para um URL no GitHub, certifique-se de que selecionou **RAW** para obter o ficheiro JSON puro e não um inseridos em HTML para exibição no GitHub. Se o modelo importado não for JSON puro, ocorrerá um erro.
+      > Se você estiver importando o modelo, certifique-se de que o arquivo é apenas JSON e não inclui HTML. Quando você estiver apontando para uma URL no GitHub, verifique se selecionou **RAW** para obter o arquivo JSON puro e não aquele encapsulado com HTML para exibição no github. Se o modelo importado não for JSON puro, ocorrerá um erro.
 
       ```json
       {
@@ -149,159 +148,159 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
       }
       ```
 
-   1. Limpar o **storageAccountType** caixa de verificação e tenha em atenção que a lista pendente contém apenas os valores incluídos no modelo do Resource Manager sob **allowedValues**. Selecione a caixa para defini-lo novamente como um parâmetro dinâmico.
+   1. Desmarque a caixa de seleção **storageAccountType** e observe que a lista suspensa contém apenas os valores incluídos no modelo do Resource Manager em **allowedValues**. Selecione a caixa para defini-la de volta para um parâmetro dinâmico.
 
-   1. Selecione **adicionar** para adicionar este artefacto ao esquema.
+   1. Selecione **Adicionar** para adicionar este artefato ao plano gráfico.
 
-   ![Modelo do Resource Manager para o artefacto de esquema](./media/create-blueprint-portal/add-resource-manager-template.png)
+   ![Modelo do Resource Manager para o artefato do Blueprint](./media/create-blueprint-portal/add-resource-manager-template.png)
 
-1. O esquema concluído deve ter um aspeto semelhante ao seguinte. Tenha em atenção que tem de cada artefato  **_x_ de _y_ parâmetros preenchidos** no **parâmetros** coluna. Os parâmetros dinâmicos são definidos durante cada atribuição do esquema.
+1. O esquema concluído deve ter um aspeto semelhante ao seguinte. Observe que cada artefato tem  **_x_ de parâmetros _y_ preenchidos** na coluna **parâmetros** . Os parâmetros dinâmicos são definidos durante cada atribuição do plano gráfico.
 
-   ![Definição do esquema concluída](./media/create-blueprint-portal/completed-blueprint.png)
+   ![Definição de Blueprint concluída](./media/create-blueprint-portal/completed-blueprint.png)
 
-1. Agora que tiverem sido adicionados todos os artefactos planeados, selecione **Guardar rascunho** na parte inferior da página.
+1. Agora que todos os artefatos planejados foram adicionados, selecione **salvar rascunho** na parte inferior da página.
 
 ## <a name="edit-a-blueprint"></a>Editar um esquema
 
-Na [criar um plano gráfico](#create-a-blueprint), não forneça uma descrição ou adicionar a atribuição de função para o novo grupo de recursos. Pode corrigir os dois ao seguir estes passos:
+Em [criar um plano gráfico](#create-a-blueprint), você não forneceu uma descrição ou adicionou a atribuição de função ao novo grupo de recursos. Você pode corrigir ambos seguindo estas etapas:
 
-1. Selecione **definições de esquema** partir da página à esquerda.
+1. Selecione **definições de plantas** na página à esquerda.
 
-1. Na lista de esquemas, com o botão direito aquele que criou anteriormente e selecione **esquema de edição**.
+1. Na lista de plantas, clique com o botão direito do mouse no que você criou anteriormente e selecione **Editar plano gráfico**.
 
-1. Na **esquema Descrição**, fornecer algumas informações sobre o esquema e os artefatos que compõem ele. Neste caso, insira algo parecido com: **Este esquema define a atribuição de política e a função de etiquetas na subscrição, cria um ResourceGroup e implementa uma atribuição de função e o modelo de recurso para esse ResourceGroup.**
+1. Em **Descrição do plano gráfico**, forneça algumas informações sobre o plano gráfico e os artefatos que a compõem. Nesse caso, insira algo como: **Este projeto define a política de marca e a atribuição de função na assinatura, cria um resourcegroup e implanta um modelo de recurso e uma atribuição de função para esse resourcegroup.**
 
-1. Selecione **seguinte: Artefactos** na parte inferior da página ou o **artefactos** separador na parte superior da página.
+1. Selecione **avançar: Artefatos** na parte inferior da página ou na guia **artefatos** na parte superior da página.
 
 1. Adicione uma atribuição de função sob o grupo de recursos:
 
-   1. Selecione o **+ adicionar artefacto** linha diretamente sob o **ResourceGroup** entrada.
+   1. Selecione a linha **+ Adicionar artefato** diretamente sob a entrada **resourcegroup** .
 
-   1. Selecione **atribuição de função** para **tipo de Artefato**.
+   1. Selecione **atribuição de função** para **tipo de artefato**.
 
-   1. Sob **função**, selecione **proprietário**e desmarque a caixa de verificação sob o **adicionar utilizador, aplicação ou grupo** caixa.
+   1. Em **função**, selecione **proprietário**e desmarque a caixa de seleção na caixa **Adicionar usuário, aplicativo ou grupo** .
 
-   1. Procure e selecione um utilizador, aplicação ou grupo a adicionar. Este artefacto utiliza um conjunto de parâmetros estáticos as mesmas em cada atribuição deste esquema.
+   1. Pesquise e selecione um usuário, aplicativo ou grupo para adicionar. Esse artefato usa um parâmetro estático definido da mesma forma em todas as atribuições deste projeto.
 
-   e. Selecione **adicionar** para adicionar este artefacto ao esquema.
+   e. Selecione **Adicionar** para adicionar este artefato ao plano gráfico.
 
-   ![Segundo atribuição de função para o artefacto de esquema](./media/create-blueprint-portal/add-role-assignment-2.png)
+   ![Segunda atribuição de função para o artefato do Blueprint](./media/create-blueprint-portal/add-role-assignment-2.png)
 
-1. O esquema concluído deve ter um aspeto semelhante ao seguinte. Tenha em atenção que a atribuição de função recém-adicionada mostra **parâmetros de 1 de 1 preenchidos**. Isso significa que é um parâmetro estático.
+1. O esquema concluído deve ter um aspeto semelhante ao seguinte. Observe que a atribuição de função recém-adicionada mostra **1 de 1 parâmetro preenchido**. Isso significa que é um parâmetro estático.
 
-   ![Segunda definição para o esquema concluída](./media/create-blueprint-portal/completed-blueprint-2.png)
+   ![Segunda definição para o plano gráfico concluído](./media/create-blueprint-portal/completed-blueprint-2.png)
 
-1. Selecione **Guardar rascunho** agora que ele foi atualizado.
+1. Selecione **salvar rascunho** agora que ele foi atualizado.
 
 ## <a name="publish-a-blueprint"></a>Publicar um esquema
 
 Agora que os artefactos planeados foram adicionados ao esquema, é altura de o publicar.
-Publicação faz com que o esquema disponível para serem atribuídas a uma subscrição.
+A publicação torna o Blueprint disponível para ser atribuído a uma assinatura.
 
-1. Selecione **definições de esquema** partir da página à esquerda.
+1. Selecione **definições de plantas** na página à esquerda.
 
-1. Na lista de esquemas, com o botão direito aquele que criou anteriormente e selecione **publicar esquema**.
+1. Na lista de plantas, clique com o botão direito do mouse no que você criou anteriormente e selecione **publicar plano gráfico**.
 
-1. No painel que se abre, fornecer uma **versão** (letras, números e hífenes com um comprimento máximo de 20 carateres), tal como **v1**. Opcionalmente, introduza o texto no **alterar notas**, tal como **primeiro publicar**.
+1. No painel que é aberto, forneça uma **versão** (letras, números e hifens com um comprimento máximo de 20 caracteres), como **v1**. Opcionalmente, digite o texto em **anotações de alteração**, como **primeira publicação**.
 
 1. Selecione **publicar** na parte inferior da página.
 
 ## <a name="assign-a-blueprint"></a>Atribuir um esquema
 
-Depois de um plano gráfico foi publicado, pode ser atribuída a uma subscrição. Atribua o esquema que criou para uma das subscrições na hierarquia de grupo de gestão. Se o plano gráfico é guardado para uma subscrição, só podem ser atribuído a essa subscrição.
+Depois que um plano gráfico tiver sido publicado, ele poderá ser atribuído a uma assinatura. Atribua o plano gráfico que você criou a uma das assinaturas na hierarquia do grupo de gerenciamento. Se o plano gráfico for salvo em uma assinatura, ele só poderá ser atribuído a essa assinatura.
 
-1. Selecione **definições de esquema** partir da página à esquerda.
+1. Selecione **definições de plantas** na página à esquerda.
 
-1. Na lista de esquemas, com o botão direito aquele que criou anteriormente (ou selecione as reticências) e selecione **esquema de atribuir**.
+1. Na lista de plantas, clique com o botão direito do mouse no que você criou anteriormente (ou selecione as reticências) e selecione **atribuir plano gráfico**.
 
-1. No **atribuir esquema** página, além do **subscrição** na lista pendente, selecione as subscrições que pretende implementar esse plano gráfico para.
+1. Na página **atribuir Blueprint** , na lista suspensa **assinatura** , selecione as assinaturas para as quais você deseja implantar esse projeto.
 
-   Se existirem suportadas Enterprise ofertas disponíveis a partir [faturação do Azure](../../billing/index.md), uma **criar nova** ligação está ativada no **subscrição** caixa. Siga estes passos.
+   Se houver ofertas da empresa com suporte disponíveis na [cobrança do Azure](../../billing/index.md), um link **criar novo** será ativado na caixa **assinatura** . Siga estes passos.
 
-   1. Selecione o **criar novo** ligação para criar uma nova subscrição em vez de selecionar os existentes.
+   1. Selecione o link **criar novo** para criar uma nova assinatura em vez de selecionar as existentes.
 
-   1. Fornecer um **nome a apresentar** para a nova subscrição.
+   1. Forneça um **nome de exibição** para a nova assinatura.
 
-   1. Selecione o disponíveis **oferecem** na lista pendente.
+   1. Selecione a **oferta** disponível na lista suspensa.
 
-   1. Utilize o botão de reticências para selecionar o [grupo de gestão](../management-groups/index.md) que a subscrição será um filho do.
+   1. Use as reticências para selecionar o [grupo de gerenciamento](../management-groups/index.md) do qual a assinatura será filha.
 
    1. Selecione **criar** na parte inferior da página.
 
-   ![Criar uma subscrição para uma subscrição de atribuição do esquema](./media/create-blueprint-portal/assignment-create-subscription.png)
+   ![Criar uma assinatura para uma assinatura de atribuição do Blueprint](./media/create-blueprint-portal/assignment-create-subscription.png)
 
    > [!IMPORTANT]
-   > A nova subscrição é criada imediatamente depois de selecionar **criar**.
+   > A nova assinatura é criada imediatamente depois que você seleciona **criar**.
 
    > [!NOTE]
-   > Uma atribuição é criada para cada subscrição que selecionou. Pode efetuar alterações à atribuição única subscrição numa altura posterior sem forçar alterações no restante das subscrições selecionadas.
+   > Uma atribuição é criada para cada assinatura que você selecionar. Você pode fazer alterações em uma única atribuição de assinatura em um momento posterior sem forçar alterações no restante das assinaturas selecionadas.
 
-1. Para **nome da atribuição**, forneça um nome exclusivo para esta atribuição.
+1. Para **nome da atribuição**, forneça um nome exclusivo para essa atribuição.
 
-1. Na **localização**, selecione uma região para o objeto de implementação de identidade e subscrição gerenciado a ser criada no. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [Identidades geridas para os recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+1. Em **local**, selecione uma região para a identidade gerenciada e o objeto de implantação de assinatura a ser criado no. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [Identidades geridas para os recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-1. Deixe o **versão da definição do esquema** seleção de lista pendente de **publicado** versões no **v1** entrada. (A predefinição é a versão publicada mais recentemente.)
+1. Deixe a seleção da lista suspensa **versão de definição do Blueprint** de versões **publicadas** na entrada **v1** . (O padrão é a versão publicada mais recentemente.)
 
-1. Em **Atribuição de Bloqueio**, deixe a predefinição **Não Bloquear**. Para obter mais informações, consulte [bloqueio de recursos de planos gráficos](./concepts/resource-locking.md).
+1. Em **Atribuição de Bloqueio**, deixe a predefinição **Não Bloquear**. Para saber mais, confira [bloqueio de recursos de planos gráficos](./concepts/resource-locking.md).
 
-   ![Identidades de bloqueios e geridas para a atribuição](./media/create-blueprint-portal/assignment-locking-mi.png)
+   ![Bloqueio e identidades gerenciadas para a atribuição](./media/create-blueprint-portal/assignment-locking-mi.png)
 
-1. Sob **identidade gerido**, deixe a predefinição **sistema atribuído**.
+1. Em **identidade gerenciada**, deixe o padrão **atribuído pelo sistema**.
 
-1. Para a atribuição de função de nível de subscrição **[grupo de utilizadores ou o nome da aplicação]: Contribuinte**, procure e selecione um utilizador, aplicação ou grupo.
+1. Para a atribuição **de função de nível de assinatura [nome do aplicativo ou grupo de usuários]: Colaborador**, procure e selecione um usuário, aplicativo ou grupo.
 
-1. Para a atribuição de política de nível de subscrição, defina **nome da etiqueta** ao **Centrodecustos** e o **valor de etiqueta** para **ContosoIT**.
+1. Para a atribuição de política de nível de assinatura, defina o **nome da marca** como **CostCenter** e o **valor da marca** como **ContosoIT**.
 
-1. Para **ResourceGroup**, forneça um **nome** de **StorageAccount** e uma **localização** de **E.U.A. Leste 2** do a lista pendente.
+1. Para **resourcegroup**, forneça um **nome** de **StorageAccount** e um **local** de leste dos **EUA 2** na lista suspensa.
 
    > [!NOTE]
-   > Para cada artefato que adicionou no grupo de recursos durante a definição do esquema, esse artefato é recuado para alinhar com o grupo de recursos ou o objeto que irá implantá-la com.
-   > Artefatos que não aceitam parâmetros ou não ter parâmetros definidos na atribuição são listados apenas para informações contextuais.
+   > Para cada artefato que você adicionou no grupo de recursos durante a definição do Blueprint, esse artefato é recuado para alinhar-se com o grupo de recursos ou objeto com o qual você o implantará.
+   > Os artefatos que não usam parâmetros ou não têm parâmetros a serem definidos na atribuição são listados apenas para informações contextuais.
 
-1. No modelo do Azure Resource Manager **StorageAccount**, selecione **Standard_GRS** para o **storageAccountType** parâmetro.
+1. No modelo de Azure Resource Manager **StorageAccount**, selecione **Standard_GRS** para o parâmetro **storageAccountType** .
 
-1. Leia a caixa de informações na parte inferior da página e, em seguida, selecione **atribuir**.
+1. Leia a caixa de informações na parte inferior da página e selecione **atribuir**.
 
 ## <a name="track-deployment-of-a-blueprint"></a>Controlar a implementação de um esquema
 
 Após atribuir um esquema a uma ou mais subscrições, acontecem duas coisas:
 
-- O plano gráfico é adicionado para o **atribuído a planos gráficos** página para cada subscrição.
-- O processo de implantação de todos os artefactos definidos pelo plano gráfico começa.
+- O plano gráfico é adicionado à página **plantas atribuídas** para cada assinatura.
+- O processo de implantação de todos os artefatos definidos pelo plano gráfico começa.
 
-Agora que o esquema tiver sido atribuído a uma subscrição, verifique se o progresso da implementação:
+Agora que o plano gráfico foi atribuído a uma assinatura, verifique o progresso da implantação:
 
-1. Selecione **atribuído a planos gráficos** partir da página à esquerda.
+1. Selecione **plantas atribuídas** na página à esquerda.
 
-1. Na lista de esquemas, com o botão direito aquele que atribuído anteriormente e selecione **ver os detalhes de atribuição**.
+1. Na lista de plantas, clique com o botão direito do mouse no que você atribuiu anteriormente e selecione **Exibir detalhes da atribuição**.
 
-   ![Ver detalhes de atribuição da página de planos gráficos de atribuído](./media/create-blueprint-portal/view-assignment-details.png)
+   ![Exibir detalhes de atribuição da página plantas atribuídas](./media/create-blueprint-portal/view-assignment-details.png)
 
-1. Sobre o **esquema atribuição** página, confirme que todos os artefactos foram implementados com êxito e que não havia nenhum erro durante a implementação. Se ocorreram erros, veja [planos gráficos de resolução de problemas](./troubleshoot/general.md) para obter os passos determinar o que correu mal.
+1. Na página **atribuição de Blueprint** , valide se todos os artefatos foram implantados com êxito e se não houve erros durante a implantação. Se ocorrerem erros, consulte [plantas de solução de problemas](./troubleshoot/general.md) para obter as etapas para determinar o que deu errado.
 
 ## <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
 
-Se já não precisar de uma atribuição do esquema, removê-lo a partir de uma subscrição. O plano gráfico pode foram substituído por uma esquema mais recente com padrões atualizadas, políticas e designs. Quando um esquema é removido, os artefactos atribuídos como parte desse esquema são deixados para trás. Para remover uma atribuição de esquema, siga estes passos:
+Se você não precisar mais de uma atribuição de plano gráfico, remova-a de uma assinatura. O plano gráfico pode ter sido substituído por um plano gráfico mais recente com padrões, políticas e designs atualizados. Quando um esquema é removido, os artefactos atribuídos como parte desse esquema são deixados para trás. Para remover uma atribuição de esquema, siga estes passos:
 
-1. Selecione **atribuído a planos gráficos** partir da página à esquerda.
+1. Selecione **plantas atribuídas** na página à esquerda.
 
-1. Na lista de esquemas, selecione o plano gráfico de que pretende anular a atribuição. Em seguida, selecione o **Unassign esquema** botão na parte superior da página.
+1. Na lista de plantas, selecione o plano gráfico que você deseja cancelar a atribuição. Em seguida, selecione o botão **desatribuir Blueprint** na parte superior da página.
 
-1. Leia a mensagem de confirmação e, em seguida, selecione **OK**.
+1. Leia a mensagem de confirmação e selecione **OK**.
 
 ## <a name="delete-a-blueprint"></a>Eliminar um esquema
 
-1. Selecione **definições de esquema** partir da página à esquerda.
+1. Selecione **definições de plantas** na página à esquerda.
 
-1. Com o plano gráfico de que pretende eliminar e selecione o botão direito **esquema de eliminação**. Em seguida, selecione **Sim** na caixa de diálogo de confirmação.
+1. Clique com o botão direito do mouse no plano gráfico que você deseja excluir e selecione **excluir plano gráfico**. Em seguida, selecione **Sim** na caixa de diálogo de confirmação.
 
 > [!NOTE]
-> Eliminar um plano gráfico neste método também elimina a todas as versões publicadas do esquema selecionado.
-> Para eliminar uma única versão, abra o plano gráfico, selecione o **versões publicadas** separador, selecione a versão que pretende eliminar e, em seguida, selecione **eliminar esta versão**. Além disso, não é possível eliminar um plano gráfico até que excluiu todos da atribuição do esquema de definição do esquema.
+> A exclusão de um plano gráfico nesse método também exclui todas as versões publicadas do plano gráfico selecionado.
+> Para excluir uma única versão, abra o plano gráfico, selecione a guia **versões publicadas** , selecione a versão que você deseja excluir e, em seguida, selecione **excluir esta versão**. Além disso, não é possível excluir um plano gráfico até que você tenha excluído toda a atribuição Blueprint da definição do Blueprint.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o [ciclo de vida de esquema](./concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do plano gráfico](./concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](./concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](./concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](./concepts/resource-locking.md).

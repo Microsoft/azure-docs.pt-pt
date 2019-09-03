@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 07/20/2019
-ms.openlocfilehash: cee5801826c78bdee51ba5afb14d6776a1191702
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.date: 09/03/2019
+ms.openlocfilehash: 8065284d65f1b0a91fc05846b451305906c74fc8
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051624"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231112"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treinar seu primeiro modelo de ML
 
@@ -34,6 +34,29 @@ Neste tutorial, você aprende as seguintes tarefas:
 O único pré-requisito é executar a parte um deste tutorial, o [ambiente de instalação e o espaço de trabalho](tutorial-1st-experiment-sdk-setup.md).
 
 Nesta parte do tutorial, você executa o código no bloco de anotações `tutorials/tutorial-1st-experiment-sdk-train.ipynb` Jupyter de exemplo aberto no final da parte 1. Este artigo percorre o mesmo código que está no bloco de anotações.
+
+## <a name="launch-jupyter-web-interface"></a>Iniciar interface da Web do Jupyter
+
+1. Na página do seu espaço de trabalho no portal do Azure, selecione **VMs do notebook** à esquerda.
+
+1. Selecione **Jupyter** na coluna **URI** para a VM que você criou na parte um deste tutorial.
+
+    ![Iniciar o servidor do Jupyter Notebook](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
+
+   O link inicia o servidor do bloco de anotações e abre a página da Web do Jupyter notebook em uma nova guia do navegador.  Esse link funcionará apenas para a pessoa que cria a VM. Cada usuário do espaço de trabalho deve criar sua própria VM.
+
+1. Na página da Web do Jupyter notebook, selecione o Top FolderName, que tem seu nome de usuário.  
+
+
+   Essa pasta existe na conta de [armazenamento](concept-workspace.md#resources) do espaço de trabalho em vez de na própria VM do notebook.  Se você excluir a VM do notebook, ainda manterá todo o seu trabalho.  Quando você criar uma nova VM de bloco de anotações mais tarde, ela carregará essa mesma pasta. Se você compartilhar seu espaço de trabalho com outras pessoas, ele verá sua pasta e você verá seus.
+
+1. Abra o `samples-*` subdiretório e, em seguida, abra o notebook Jupyter`tutorials/tutorial-1st-experiment-sdk-train.ipynb`
+
+   > [!Warning]
+   > Certifique-se de `tutorial-1st-experiment-sdk-train.ipynb` abrir o arquivo, `.yml` **não** o arquivo do > mesmo nome. 
+
+1. O restante deste artigo contém o mesmo conteúdo que você vê no bloco de anotações.  Alterne para o bloco de anotações agora se você quiser executar o código.
+
 
 ## <a name="connect-workspace-and-create-experiment"></a>Conectar espaço de trabalho e criar experimento
 
@@ -200,7 +223,7 @@ Se você usou um servidor de bloco de anotações de nuvem, pare a VM quando nã
 
 Você também pode manter o grupo de recursos, mas excluir um único espaço de trabalho. Exiba as propriedades do espaço de trabalho e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você fez as seguintes tarefas:
 

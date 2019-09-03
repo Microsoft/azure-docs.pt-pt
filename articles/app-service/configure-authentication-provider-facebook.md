@@ -1,6 +1,6 @@
 ---
 title: Configurar autenticação do Facebook – serviço de Azure App
-description: Saiba como configurar a autenticação do Facebook para seu aplicativo de serviços de aplicativos.
+description: Saiba como configurar a autenticação do Facebook para seu aplicativo do serviço de aplicativo.
 services: app-service
 documentationcenter: ''
 author: mattchenderson
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f4d26572dc21e2c7454fb739cb4b5fb5665bd1db
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 410d769d0d9abe3a0a0f9c45e3cf67bb94ec9f4d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098571"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232072"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Como configurar a sua aplicação do Serviço de Aplicações para utilizar o início de sessão do Facebook
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -30,9 +30,9 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Facebook
 
 ## <a name="register"> </a>Registrar seu aplicativo com o Facebook
 1. Navegue até o site de [desenvolvedores do Facebook] e entre com suas credenciais de conta do Facebook.
-3. Adicional Se você não tiver uma conta do Facebook para desenvolvedores, clique em introdução e siga as etapas de registro.
+3. Adicional Se você não tiver uma conta do Facebook para desenvolvedores,clique em introdução e siga as etapas de registro.
 4. Clique em **meus aplicativos** > **Adicionar novo aplicativo**.
-5. Em **nome de exibição**, digite um nome exclusivo para seu aplicativo. Forneça também seu **email de contato**e, em seguida, clique em **criar ID do aplicativo** e conclua a verificação de segurança. Isso o levará para o painel do desenvolvedor do seu novo aplicativo do Facebook.
+5. Em **nome de exibição**, digite um nome exclusivo para seu aplicativo. Forneça também seu **email de contato**e, em seguida, clique em **criar ID do aplicativo** e conclua a verificação de segurança. O painel do desenvolvedor para seu novo aplicativo do Facebook é aberto.
 6. Clique **em painel** > **de** > logon do Facebook configurar Web. > 
 1. No painel de navegação à esquerda, em **logon do Facebook**, clique em **configurações**.
 1. Em **URIs**de redirecionamento OAuth `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback` válidos, digite e substitua  *\<o nome de aplicativo >* pelo nome do seu aplicativo de serviço de Azure app. Clique em **salvar alterações**.
@@ -42,7 +42,7 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Facebook
    > O segredo do aplicativo é uma credencial de segurança importante. Não compartilhe esse segredo com ninguém ou distribua-o em um aplicativo cliente.
    > 
    > 
-9. A conta do Facebook que foi usada para registrar o aplicativo é um administrador do aplicativo. Neste ponto, somente os administradores podem entrar nesse aplicativo. Para autenticar outras contas do Facebook, clique em **revisão do aplicativo** e habilite **tornar \<seu nome de aplicativo > público** para habilitar o acesso público geral usando a autenticação do Facebook.
+9. A conta do Facebook que você usou para registrar o aplicativo é um administrador do aplicativo. Neste ponto, somente os administradores podem entrar nesse aplicativo. Para autenticar outras contas do Facebook, clique em **revisão do aplicativo** e habilite **tornar \<seu nome de aplicativo > público** para habilitar o acesso público geral usando a autenticação do Facebook.
 
 ## <a name="secrets"> </a>Adicionar informações do Facebook ao seu aplicativo
 1. Entre no [Azure portal] e navegue até o aplicativo do serviço de aplicativo. Clique em **configurações** > **autenticação/autorização**e verifique se a **autenticação do serviço de aplicativo** está **ativada**.

@@ -4,8 +4,10 @@
   items:
     - name: Sobre o Centro de Segurança
       href: security-center-intro.md
-    - name: Plataformas e funcionalidades suportadas do Centro de Segurança
+    - name: Plataformas suportadas
       href: security-center-os-coverage.md
+    - name: Funcionalidades suportadas
+      href: security-center-services.md
 - name: Inícios rápidos
   expanded: true
   items:

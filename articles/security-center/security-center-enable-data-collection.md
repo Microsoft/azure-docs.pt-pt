@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2019
+ms.date: 06/10/2019
 ms.author: v-mohabe
-ms.openlocfilehash: e87ea5f6d8a92f18fc1b289ebf9ffd1cc0326812
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 12739bf230eb7a2d5afa4edd57dbc2761907ec4e
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845911"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231345"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
 A central de segurança coleta dados de suas VMs (máquinas virtuais) do Azure, conjuntos de dimensionamento de máquinas virtuais, contêineres de IaaS e computadores não Azure (incluindo locais) para monitorar vulnerabilidades de segurança e ameaças. Os dados são coletados usando o agente de Log Analytics, que lê várias configurações relacionadas à segurança e logs de eventos do computador e copia os dados para o espaço de trabalho para análise. Exemplos destes dados são: operação sistema tipo e versão, (registos de eventos Windows), de registos de sistema operativo processos em execução, nome da máquina, endereços IP e com sessão iniciada no utilizador. O agente de Log Analytics também copia arquivos de despejo de memória para seu espaço de trabalho.
@@ -41,7 +41,7 @@ Para coletar os dados dos computadores, você deve ter o agente de Log Analytics
 > Aprovisionamento automático está desativada por predefinição. Para definir o Centro de segurança para instalar o aprovisionamento automático por predefinição, defina-o como **no**.
 >
 
-Quando o provisionamento automático está ativado, a central de segurança provisiona o agente de Log Analytics em todas as VMs do Azure com suporte e quaisquer novas que forem criadas. Aprovisionamento Automático é vivamente recomendado mas instalação manual de agente também está disponível. [Saiba como instalar a extensão do agente de log Analytics](#manualagent).
+Quando o provisionamento automático está ativado, a central de segurança provisiona o agente de Log Analytics em todas as VMs do Azure com suporte e quaisquer novas que forem criadas. Aprovisionamento Automático é vivamente recomendado mas instalação manual de agente também está disponível. [Saiba como instalar a extensão do agente de log Analytics](#manual-agent).
 
 
 
@@ -59,7 +59,7 @@ Para habilitar o provisionamento automático do agente de Log Analytics:
 
 >[!NOTE]
 > - Para obter instruções sobre como aprovisionar uma instalação já existente, consulte [aprovisionamento automático em casos de uma instalação de agente preexistente](#preexisting).
-> - Para obter instruções sobre o provisionamento manual, consulte [instalar manualmente a extensão do agente de log Analytics](#manualagent).
+> - Para obter instruções sobre o provisionamento manual, consulte [instalar manualmente a extensão do agente de log Analytics](#manual-agent).
 > - Para obter instruções sobre como desativar aprovisionamento automático, consulte [desativar aprovisionamento automático](#offprovisioning).
 > - Para obter instruções sobre como integrar o Centro de segurança com o PowerShell, consulte [automatizar a inclusão do Centro de segurança do Azure com o PowerShell](security-center-powershell-onboarding.md).
 >
@@ -240,7 +240,7 @@ Se optar por desativar aprovisionamento automático após estava anteriormente e
 >  Desabilitar o provisionamento automático não remove o agente de Log Analytics das VMs do Azure em que o agente foi provisionado. Para informações sobre como remover a extensão do OMS, consulte [como posso remover extensões OMS instaladas pelo centro de segurança](security-center-faq.md#remove-oms).
 >
     
-## Manual do agente de aprovisionamento <a name="manualagent"></a>
+## Manual do agente de aprovisionamento <a name="manual-agent"></a>
  
 Há várias maneiras de instalar o agente de Log Analytics manualmente. Ao instalar manualmente, certifique-se de que desativa aprovisionamento automático.
 

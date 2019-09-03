@@ -8,18 +8,40 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 2f645d290175db9692649d825323313fc207a014
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 69d75f9050560eb4a9e394241316c0474fffe7cc
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210274"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232487"
 ---
-# <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
+# <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
+
 Você pode solucionar os erros encontrados ao usar o backup do Azure com as informações listadas abaixo:
 
 ## <a name="backup"></a>Criar cópia de segurança
+
 Esta seção aborda a falha da operação de backup da máquina virtual do Azure.
+
+### <a name="basic-troubleshooting"></a>Resolução de problemas básicos
+
+* Verifique se o agente de VM (agente de WA) é a [versão mais recente](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent-on-the-virtual-machine).
+* Verifique se há suporte para a versão do so da VM do Windows ou Linux, consulte a [matriz de suporte de backup da VM IaaS](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
+* Verifique se outro serviço de backup não está em execução.
+   * Para garantir que não haja problemas de extensão de instantâneo, [desinstale as extensões para forçar a recarga e repita o backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
+* Verifique se a VM tem conectividade com a Internet.
+   * Verifique se outro serviço de backup não está em execução.
+* Em `Services.msc`, verifique se o serviço do **agente convidado do Windows Azure** está **em execução**. Se o serviço do **agente convidado do Windows Azure** estiver ausente, instale-o de [fazer backup de VMs do Azure em um cofre dos serviços de recuperação](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
+* O **log de eventos** pode mostrar falhas de backup que são de outros produtos de backup, por exemplo, backup do Windows Server e não são devidos ao backup do Azure. Use as etapas a seguir para determinar se o problema é com o backup do Azure:
+   * Se houver um erro com um **backup** de entrada na mensagem ou origem do evento, verifique se os backups de backup da VM IaaS do Azure foram bem-sucedidos e se um ponto de restauração foi criado com o tipo de instantâneo desejado.
+    * Se o backup do Azure estiver funcionando, é provável que o problema tenha outra solução de backup. 
+    * Aqui está um exemplo de um erro do Visualizador de eventos em que o backup do Azure estava funcionando bem, mas "Backup do Windows Server" estava falhando:<br>
+    ![Backup do Windows Server falhando](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
+    * Se o backup do Azure estiver falhando, procure o código de erro correspondente na seção erros comuns de backup da VM neste artigo. 
+
+## <a name="common-issues"></a>Problemas comuns
+
+A seguir estão problemas comuns com falhas de backup em máquinas virtuais do Azure.
 
 ## <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime-a cópia dos dados de backup do cofre atingiu o tempo limite
 
@@ -36,7 +58,7 @@ Mensagem de erro: A VM não está num estado que permita cópias de segurança.<
 A operação de backup falhou porque a VM está em estado de falha. Para backup bem-sucedido, o estado da VM deve estar em execução, parado ou parado (desalocado).
 
 * Se a VM estiver em um estado transitório entre **executar** e **desligar**, aguarde o estado ser alterado. Em seguida, dispare o trabalho de backup.
-*  Se a VM for uma VM do Linux e usar o módulo kernel do Linux com segurança avançada, exclua o caminho do agente Linux do Azure **/var/lib/waagent** da política de segurança e verifique se a extensão de backup está instalada.
+* Se a VM for uma VM do Linux e usar o módulo kernel do Linux com segurança avançada, exclua o caminho do agente Linux do Azure **/var/lib/waagent** da política de segurança e verifique se a extensão de backup está instalada.
 
 ## <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed-falha ao congelar um ou mais pontos de montagem da VM para obter um instantâneo consistente do sistema de arquivos
 

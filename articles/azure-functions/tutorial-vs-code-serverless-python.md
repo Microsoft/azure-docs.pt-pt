@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: 4f5c10536992f51ac61815507a3869e521520299
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 43fee2ce25e358bbcff915d2fbef96bf4b7c1a0c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170702"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233115"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Implantar o Python para Azure Functions com Visual Studio Code
 
@@ -56,7 +56,7 @@ Siga as instruções para o seu sistema operacional em [trabalhar com Azure Func
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Depois que a extensão de funções for instalada, entre em sua conta do Azure navegando até o **Azure: Gerenciador** de funções, selecione **entrar no Azure**e siga os prompts.
+Depois que a extensão de funções for instalada, entre em sua conta do Azure acessando o **Azure: Gerenciador** de funções, selecione **entrar no Azure**e siga os prompts.
 
 ![Entre no Azure por meio do Visual Studio Code](media/tutorial-vs-code-serverless-python/azure-sign-in.png)
 
@@ -207,7 +207,7 @@ As partes importantes do código são as seguintes:
 
 ## <a name="debug-locally"></a>Depurar localmente
 
-1. Quando você cria o projeto do functions, a extensão Visual Studio Code também cria uma configuração `.vscode/launch.json` de inicialização no que contém uma única configuração chamada **Attach to Python Functions**. Essa configuração significa que você pode apenas pressionar F5 ou usar o Gerenciador de depuração para iniciar o projeto:
+1. Quando você cria o projeto do functions, a extensão Visual Studio Code também cria uma configuração `.vscode/launch.json` de inicialização no que contém uma única configuração chamada **Attach to Python Functions**. Essa configuração significa que você pode simplesmente selecionar **F5** ou usar o Gerenciador de depuração para iniciar o projeto:
 
     ![Gerenciador de depuração mostrando a configuração de inicialização das funções](media/tutorial-vs-code-serverless-python/launch-configuration.png)
 
@@ -310,7 +310,7 @@ Após sua primeira implantação, você pode fazer alterações no código, como
 
 1. **No Azure: Gerenciador** de funções, selecione o comando **criar função** ou **use Azure Functions: Crie a** função na paleta de comandos. Especifique os seguintes detalhes para a função:
 
-    - Modelo: Acionador HTTP
+    - Modelo: Accionador HTTP
     - Nome: "DigitsOfPi"
     - Nível de autorização: Anónimo
 
@@ -393,7 +393,7 @@ Após sua primeira implantação, você pode fazer alterações no código, como
     }
     ```
 
-1. Inicie o depurador pressionando F5 ou selecionando o comando **depurar** > menu**Iniciar Depuração** . A janela **saída** agora deve mostrar os dois pontos de extremidade em seu projeto:
+1. Inicie o depurador selecionando **F5** ou selecionando o comando **depurar** > menu**Iniciar Depuração** . A janela **saída** agora deve mostrar os dois pontos de extremidade em seu projeto:
 
     ```output
     Http Functions:
@@ -479,15 +479,15 @@ Nesta seção, você adicionará uma associação de armazenamento à função H
             )
     ```
 
-1. Para testar essas alterações localmente, inicie o depurador novamente no Visual Studio Code pressionando F5 ou selecionando o comando **depurar** > menu**Iniciar Depuração** . Como antes, a janela de **saída** deve mostrar os pontos de extremidade em seu projeto.
+1. Para testar essas alterações localmente, inicie o depurador novamente em Visual Studio Code selecionando **F5** ou selecionando o comando **depurar** > menu**Iniciar Depuração** . Como antes, a janela de **saída** deve mostrar os pontos de extremidade em seu projeto.
 
 1. Em um navegador, visite a URL `http://localhost:7071/api/HttpExample?name=VS%20Code` para criar uma solicitação ao ponto de extremidade HttpExample, que também deve gravar uma mensagem na fila.
 
 1. Para verificar se a mensagem foi gravada na fila "perqueue" (como nomeada na associação), você pode usar um dos três métodos:
 
-    1. Entre no [portal do Azure](https://portal.azure.com)e navegue até o grupo de recursos que contém o projeto do functions. Dentro desse grupo de recursos, local e navegue até a conta de armazenamento do projeto e, em seguida, navegue até **filas**. Nessa página, navegue até "perqueue", que deve exibir todas as mensagens registradas.
+    1. Entre no [portal do Azure](https://portal.azure.com)e vá para o grupo de recursos que contém o projeto do functions. Dentro desse grupo de recursos, localize e abra a conta de armazenamento para o projeto e vá para **filas**. Nessa página, vá para "perqueue", que deve exibir todas as mensagens registradas.
 
-    1. Navegue e examine a fila com o Gerenciador de Armazenamento do Azure, que se integra ao Visual Studio, conforme descrito em [funções de conexão para o armazenamento do Azure usando Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md), especialmente a seção [examinar a fila de saída](functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue) .
+    1. Abra e examine a fila com o Gerenciador de Armazenamento do Azure, que se integra ao Visual Studio, conforme descrito em [funções de conexão para o armazenamento do Azure usando Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md), especialmente a seção [examinar a fila de saída](functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue) .
 
     1. Use o CLI do Azure para consultar a fila de armazenamento, conforme descrito em [consultar a fila de armazenamento](functions-add-output-binding-storage-queue-python.md#query-the-storage-queue).
     

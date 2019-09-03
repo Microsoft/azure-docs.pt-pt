@@ -8,14 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9850285482db4f5981c183b51152ba1a3ac4975c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ba648a2bf563b775c39f11ab8d5c4069c4bf740f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640120"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231188"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Proteger um banco de dados individual ou em pool
 
@@ -58,7 +58,7 @@ Para todas as etapas no tutorial, entre no [portal do Azure](https://portal.azur
 
 ## <a name="create-firewall-rules"></a>Criar regras da firewall
 
-Os bancos de dados SQL são protegidos por firewalls no Azure. Por padrão, todas as conexões com o servidor e o banco de dados são rejeitadas, exceto conexões de outros serviços do Azure. Para saber mais, confira [regras de firewall no nível de banco de dados e nível de servidor do Azure SQL Database](sql-database-firewall-configure.md).
+Os bancos de dados SQL são protegidos por firewalls no Azure. Por padrão, todas as conexões com o servidor e o banco de dados são rejeitadas. Para saber mais, confira [regras de firewall no nível de banco de dados e nível de servidor do Azure SQL Database](sql-database-firewall-configure.md).
 
 Defina **permitir acesso aos serviços do Azure** como **desativado** para a configuração mais segura. Em seguida, crie um [IP reservado (implantação clássica)](../virtual-network/virtual-networks-reserved-public-ip.md) para o recurso que precisa se conectar, como uma VM do Azure ou um serviço de nuvem, e permita somente o acesso de endereço IP por meio do firewall. Se você estiver usando o modelo de implantação do [Gerenciador de recursos](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) , um endereço IP público dedicado será necessário para cada recurso.
 
@@ -87,9 +87,6 @@ Para configurar uma regra de firewall no nível de servidor:
    1. Selecione **OK** e feche a página **configurações de firewall** .
 
 Agora, já pode ligar a qualquer base de dados do servidor com o endereço IP ou o intervalo de endereços IP especificado.
-
-> [!IMPORTANT]
-> Por padrão, o acesso por meio do firewall do banco de dados SQL é habilitado para todos os serviços do Azure, em **permitir acesso aos serviços do Azure**. Escolha **desativado** para desabilitar o acesso para todos os serviços do Azure.
 
 ### <a name="setup-database-firewall-rules"></a>Regras de firewall de banco de dados de instalação
 

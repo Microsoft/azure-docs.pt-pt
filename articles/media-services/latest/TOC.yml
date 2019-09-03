@@ -48,6 +48,7 @@
       items:
         - name: Elementos
           href: assets-concept.md
+          displayName: naming
     - name: Codificação
       items:
         - name: Descrição geral
@@ -162,6 +163,7 @@
               href: job-error-codes.md
     - name: Guia de migração de v2 para v3
       href: migrate-from-v2-to-v3.md
+      displayName: naming
 - name: Guias de procedimentos
   items:
     - name: Introdução

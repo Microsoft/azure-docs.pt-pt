@@ -7,13 +7,12 @@ ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 71584c9a69ebab6583973003aa51e94a1afe1b14
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 05cc12f5416cbbbff470b40c870f41647ef37cd5
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991987"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231917"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Entender a sequência de implantação em plantas do Azure
 
@@ -146,7 +145,7 @@ Se uma dependência de artefato for declarada que não alteraria a ordem padrão
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o [ciclo de vida de um esquema](lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do plano gráfico](lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](parameters.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](resource-locking.md).
 - Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).

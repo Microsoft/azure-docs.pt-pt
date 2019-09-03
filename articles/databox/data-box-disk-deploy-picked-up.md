@@ -6,15 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 09/03/2019
+ms.localizationpriority: high
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e58e33efebfe372bd5cacc45f0a8045cec18878d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 259c20aead3bbe7b44c59efe031a079ba80e2905
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135048"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232964"
 ---
 ::: zone target="chromeless"
 
@@ -49,7 +50,7 @@ Antes de começar, verifique se você concluiu o [tutorial: Copie dados para Dis
     - É recomendável que você empacote os discos usando um encapsulamento bolha bem protegido.
     - Certifique-se de que o ajuste esteja ajustado para reduzir os movimentos na caixa.
 
-As próximas etapas são determinadas por onde você está retornando o dispositivo. As instruções são diferentes para nós/Canadá, Austrália ou países na Ásia.
+As próximas etapas são determinadas por onde você está retornando o dispositivo. As instruções são diferentes para nós/Canadá, União Europeia (UE), Austrália ou países na Ásia.
 
 ### <a name="pick-up-in-us-canada"></a>Escolha nos EUA, Canadá
 
@@ -152,7 +153,7 @@ Se necessário, você pode entrar em contato com o suporte da solução Quantium
 
 ::: zone target="docs"
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box Disk, como:
 
