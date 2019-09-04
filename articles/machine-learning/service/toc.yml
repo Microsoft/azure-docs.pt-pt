@@ -290,12 +290,18 @@
               href: ../algorithm-module-reference/edit-metadata.md
             - name: Limpar Dados em Falta
               href: ../algorithm-module-reference/clean-missing-data.md
+            - name: Hashing de Funcionalidade
+              href: ../algorithm-module-reference/feature-hashing.md
+            - name: Extrair Funcionalidades N-Grama a partir de Texto
+              href: ../algorithm-module-reference/extract-n-gram-features-from-text.md
             - name: Adicionar Colunas
               href: ../algorithm-module-reference/add-columns.md
             - name: Adicionar Linhas
               href: ../algorithm-module-reference/add-rows.md
             - name: Remover Linhas Duplicadas
               href: ../algorithm-module-reference/remove-duplicate-rows.md
+            - name: Pré-processar Texto
+              href: ../algorithm-module-reference/preprocess-text.md
             - name: Associar dados
               href: ../algorithm-module-reference/join-data.md
             - name: Dividir Dados

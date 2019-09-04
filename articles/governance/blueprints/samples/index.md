@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 08/21/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
-ms.openlocfilehash: fc05e8c7c1536544d9ac7c2a45f66da8316fe088
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 58deb4fff4cee21acbf99d3c4035a9941697bed4
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076924"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231831"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 
@@ -48,7 +48,7 @@ Existem exemplos de esquema adequados ao cenário de cliente em que os requisito
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [ciclo de vida de um esquema](../concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do esquema](../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../concepts/resource-locking.md).
