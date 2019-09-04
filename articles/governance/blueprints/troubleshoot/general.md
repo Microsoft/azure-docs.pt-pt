@@ -7,12 +7,12 @@ ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 8cbefcbadc14c1249d2783f1539e40c99c3be66c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 14e957986df7a114b8c865ee82e2ac447683dc2c
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231563"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257180"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solucionar erros usando plantas do Azure
 
@@ -63,9 +63,9 @@ Passar um parâmetro Blueprint que usa uma função, `[resourceGroup().tags.myTa
 
 #### <a name="resolution"></a>Resolução
 
-Para passar uma função por meio de como um parâmetro, escape toda a `[` cadeia de caracteres de tal forma que `[[resourceGroup().tags.myTag]`o parâmetro Blueprint se parece com. O caractere de escape faz com que plantas tratem o valor como uma cadeia de caracteres ao processar o plano gráfico. Em seguida, os planos gráficos colocam a função no artefato, permitindo que ele seja dinâmico conforme o esperado. Para obter mais informações, consulte [estrutura do arquivo de modelo-sintaxe](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax).
+Para passar uma função por meio de como um parâmetro, escape toda a `[` cadeia de caracteres de tal forma que `[[resourceGroup().tags.myTag]`o parâmetro Blueprint se parece com. O caractere de escape faz com que plantas tratem o valor como uma cadeia de caracteres ao processar o plano gráfico. Em seguida, os planos gráficos colocam a função no artefato, permitindo que ele seja dinâmico conforme o esperado. Para obter mais informações, consulte [sintaxe e expressões em modelos de Azure Resource Manager](../../../azure-resource-manager/template-expressions.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

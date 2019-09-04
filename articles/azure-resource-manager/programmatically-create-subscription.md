@@ -1,18 +1,18 @@
 ---
 title: Criar programaticamente assinaturas do Azure Enterprise | Microsoft Docs
-description: Saiba como criar assinaturas adicionais do Azure Enterprise ou de desenvolvimento/teste Enterprise por meio de programação.
+description: Saiba como criar assinaturas adicionais do Azure Enterprise ou do Desenvolvimento/Teste Enterprise programaticamente.
 services: azure-resource-manager
 author: jureid
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: jureid
-ms.openlocfilehash: d6ae863aed629f5f5b1497d5a6e0f8108f4703c8
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 755eabe97508b403205ff04a8d2d35feee314eb9
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848701"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258933"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Criar programaticamente assinaturas do Azure Enterprise (versão prévia)
 
@@ -173,7 +173,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `OwnerSignInName`    | Não       | Cadeia | O endereço de email de qualquer usuário que você deseja adicionar como um proprietário do RBAC na assinatura quando ele é criado. Você pode usar esse parâmetro em vez `OwnerObjectId`de.|
 | `OwnerApplicationId` | Não       | Cadeia | A ID do aplicativo de qualquer entidade de serviço que você deseja adicionar como um proprietário do RBAC na assinatura quando ela é criada. Você pode usar esse parâmetro em vez `OwnerObjectId`de. Ao usar esse parâmetro, a entidade de serviço deve ter [acesso de leitura ao diretório](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
-Para ver uma lista completa de todos os parâmetros, consulte [New-AzSubscription](/powershell/module/az.subscription.preview).
+Para ver uma lista completa de todos os parâmetros, consulte [New-AzSubscription](/powershell/module/az.subscription).
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 

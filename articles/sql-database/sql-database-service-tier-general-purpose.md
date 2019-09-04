@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
-ms.openlocfilehash: 2573adcb199ab32467493729842b6c47e3add64b
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 1c6bb557c11cf32449b440b0007e1cef929a026f
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515310"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259399"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Camada de serviço de uso geral-banco de dados SQL do Azure
 
@@ -37,7 +37,7 @@ A figura a seguir mostra quatro nós no modelo de arquitetura padrão com a comp
 
 No modelo de arquitetura da camada de serviço de uso geral, há duas camadas:
 
-- Uma camada de computação sem estado que está `sqlserver.exe` executando o processo e contém somente dados transitórios e em cache (por exemplo – cache de planos, pool de buffers, pool de repositório de coluna). Esse nó de SQL Server sem estado é operado pelo Service Fabric do Azure que inicializa o processo, controla a integridade do nó e executa o failover para outro local, se necessário.
+- Uma camada de computação sem estado que está `sqlservr.exe` executando o processo e contém somente dados transitórios e em cache (por exemplo – cache de planos, pool de buffers, pool de repositório de coluna). Esse nó de SQL Server sem estado é operado pelo Service Fabric do Azure que inicializa o processo, controla a integridade do nó e executa o failover para outro local, se necessário.
 - Uma camada de dados com monitoração de estado com arquivos (. MDF/. ldf) armazenados no armazenamento de BLOBs do Azure. O armazenamento de BLOBs do Azure garante que não haverá nenhuma perda de dados de nenhum registro que seja colocado em qualquer arquivo de banco de dado. O armazenamento do Azure tem redundância/disponibilidade de dados interna que garante que todos os registros no arquivo de log ou na página no arquivo de dados serão preservados mesmo se SQL Server processo falhar.
 
 Sempre que o mecanismo de banco de dados ou o sistema operacional for atualizado, alguma parte da infraestrutura subjacente falhará ou, se algum problema crítico for detectado no processo de SQL Server, o Azure Service Fabric moverá o processo de SQL Server sem estado para outro nó de computação sem estado. Há um conjunto de nós sobressalentes que está aguardando para executar o novo serviço de computação se ocorrer um failover do nó primário a fim de minimizar o tempo de failover. Os dados na camada de armazenamento do Azure não são afetados e os arquivos de dados/log são anexados ao processo de SQL Server inicializado recentemente. Esse processo garante a disponibilidade de 99,99%, mas pode haver algum impacto no desempenho na carga de trabalho pesada em execução devido ao tempo de transição e ao fato de que o novo nó de SQL Server começa com o cache frio.

@@ -4,14 +4,14 @@ description: Saiba como encontrar a cobrança de RU (unidade de solicitação) p
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: 682273524269682f62cd386de1c9161888747f16
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c5699bb851bd0a818a987228155c62683e93f51a
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093715"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240776"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Localizar o encargo de unidade de solicitação em Azure Cosmos DB
 
@@ -176,7 +176,7 @@ No momento, você pode encontrar o encargo da solicitação no portal do Azure a
 
 1. [Crie uma nova conta do Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) e o feed com dados ou selecione uma conta existente que já contenha dados.
 
-1. Vá para o painel de **Data Explorer** e, em seguida, selecione a coleção na qual você deseja trabalhar.
+1. Vá para o painel de **Data Explorer** e, em seguida, selecione o contêiner no qual você deseja trabalhar.
 
 1. Selecione **Nova Consulta**.
 
@@ -301,7 +301,7 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 
 Para obter mais informações, [consulte início rápido: Crie um aplicativo API de Tabela usando o SDK do .NET e o](create-table-dotnet.md)Azure Cosmos DB.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre como otimizar seu consumo de RU, consulte estes artigos:
 

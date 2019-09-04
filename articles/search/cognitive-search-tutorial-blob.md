@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: bb37c9106149397f50e84b340b1be1189e0de7d1
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 726fdd6aeebac970142fa9225381af77114bfe42
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186263"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274120"
 ---
 # <a name="tutorial-add-structure-to-unstructured-content-with-cognitive-search"></a>Tutorial: Adicionar estrutura a "conteúdo não estruturado" com pesquisa cognitiva
 
@@ -22,10 +22,10 @@ Se você tiver conteúdo de imagem ou texto não estruturado, o recurso de [pesq
 
 > [!div class="checklist"]
 > * Comece com documentos inteiros (texto não estruturado), como PDF, MD, DOCX e PPTX no armazenamento de BLOBs do Azure.
-> * Crie um pipeline que extrai texto, detecta o idioma, reconhece entidades e detecta frases-chave.
+> * Defina um pipeline que extrai texto, detecta o idioma, reconhece entidades e detecta frases-chave.
 > * Defina um índice para armazenar a saída (conteúdo bruto, além de pares de nome-valor gerados pelo pipeline).
-> * Execute o pipeline para criar e carregar o índice.
-> * Explore o conteúdo usando a pesquisa de texto completo e uma sintaxe de consulta avançada.
+> * Execute o pipeline para iniciar as transformações e análises e para criar e carregar o índice.
+> * Explore os resultados usando a pesquisa de texto completo e uma sintaxe de consulta avançada.
 
 Você precisará de vários serviços para concluir este passo a passos, além do [aplicativo de área de trabalho do postmaster](https://www.getpostman.com/) ou de outra ferramenta de teste da Web para fazer chamadas à API REST. 
 

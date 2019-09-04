@@ -6,14 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 08/29/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 433c3ac08d8d7d8158d4cc958979782e3b3192e1
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.localizationpriority: high
+ms.openlocfilehash: b2ebb4c5a0df360cede084a90ebe5da041a08aa0
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164424"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241382"
 ---
 ::: zone target = "docs"
 
@@ -133,7 +134,7 @@ O tempo para concluir essa operação depende do tamanho dos dados e da velocida
 2. Conecte-se aos compartilhamentos no dispositivo usando o`\\<IP address of your device>\ShareName`caminho:. Para obter as credenciais de acesso de compartilhamento, vá para a página **conectar & Copiar** na interface do usuário da Web local do data Box Heavy.
 3. Verifique se os nomes de compartilhamento e pasta e os dados seguem as diretrizes descritas nos [limites de serviço de armazenamento e data Box Heavy do Azure](data-box-heavy-limits.md).
 
-## <a name="prepare-to-ship"></a>Preparar para enviar
+## <a name="prepare-to-ship"></a>preparação para envioPreparação para envio
 
 O tempo de conclusão desta operação depende do tamanho dos dados.
 

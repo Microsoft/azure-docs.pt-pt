@@ -4,41 +4,43 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 6d6451d50a00569eb1da8f5b0a0dc10d3c6b1115
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 367ae27a6afec803d2e3f98f54bdcf852330ddc6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67841526"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274561"
 ---
 ## <a name="configure-an-environment-variable-for-authentication"></a>Configurar uma variável de ambiente para autenticação
 
-Os aplicativos precisam autenticar o acesso aos serviços cognitivos utilizam. Para se autenticar, recomendamos que crie uma variável de ambiente para armazenar as chaves para os seus recursos do Azure. 
+Os aplicativos precisam autenticar o acesso aos serviços cognitivas que eles usam. Para autenticar, é recomendável criar uma variável de ambiente para armazenar as chaves para os recursos do Azure. 
 
-Depois de ter a chave, escreva-a uma nova variável de ambiente no computador local executando o aplicativo. Para definir a variável de ambiente, abra uma janela da consola e siga as instruções relevantes para o seu sistema operativo. Substitua `your-key` com uma das chaves para o seu recurso.
+Depois de ter sua chave, grave-a em uma nova variável de ambiente no computador local que executa o aplicativo. Para definir a variável de ambiente, abra uma janela da consola e siga as instruções relevantes para o seu sistema operativo. Substitua `your-key` por uma das chaves do recurso.
 
-* Windows
+#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-    ```console
-    setx COGNITIVE_SERVICE_KEY "your-key"
-    ```
+```console
+setx COGNITIVE_SERVICE_KEY "your-key"
+```
 
-    Depois de adicionar a variável de ambiente, poderá ter de reiniciar todos os programas em execução que irão precisar de ler a variável de ambiente, incluindo a janela da consola. Por exemplo, se estiver a utilizar o Visual Studio como editor, reinicie o Visual Studio antes de executar o exemplo.
+Depois de adicionar a variável de ambiente, poderá ter de reiniciar todos os programas em execução que irão precisar de ler a variável de ambiente, incluindo a janela da consola. Por exemplo, se você estiver usando o Visual Studio como seu editor, reinicie o Visual Studio antes de executar o exemplo.
 
-* Linux
-    
-    ```bash
-    export COGNITIVE_SERVICE_KEY=your-key
-    ```
-    
-    Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir da janela da consola para que as alterações entrem em vigor.
-    
-* macOS
-    
-    Edite o seu .bash_profile e adicione a variável de ambiente:
-    
-    ```bash
-    export COGNITIVE_SERVICE_KEY=your-key
-    ```
-    
-    Depois de adicionar a variável de ambiente, execute `source .bash_profile` a partir da janela da consola para que as alterações entrem em vigor.
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export COGNITIVE_SERVICE_KEY=your-key
+```
+
+Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir da janela da consola para que as alterações entrem em vigor.
+
+#### <a name="macostabunix"></a>[macOS](#tab/unix)
+
+Edite o seu .bash_profile e adicione a variável de ambiente:
+
+```bash
+export COGNITIVE_SERVICE_KEY=your-key
+```
+
+Depois de adicionar a variável de ambiente, execute `source .bash_profile` a partir da janela da consola para que as alterações entrem em vigor.
+
+***

@@ -6,14 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 08/27/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 9f5ccc255310ca42ef39586860c0861b945ac6e9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.localizationpriority: high
+ms.openlocfilehash: d86da3013a3cb4573556bc14ea1e6a0fbab72623
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098889"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240398"
 ---
 ::: zone target="docs"
 

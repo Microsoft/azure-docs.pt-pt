@@ -16,12 +16,12 @@ ms.date: 08/28/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74e0539095701ec104495bf5a44dec668494d444
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: a17b64cbfffbe9cabd909bccb16d55c07bba8bb0
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207168"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241452"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>O que é o Azure AD Identity Governance?
 
@@ -72,7 +72,7 @@ Azure AD Privileged Identity Management (PIM) fornece controles adicionais adapt
 
 ## <a name="least-privileged-roles"></a>Funções menos privilegiadas
 
-O uso do PIM permite que as permissões administrativas de um usuário sejam restritas para segurança adicional. A seguir estão as funções de diretório menos privilegiadas para configuração nos recursos de governança de identidade do Azure AD: 
+É uma prática recomendada usar a função menos privilegiada para executar tarefas administrativas no controle de identidade. Recomendamos que você use o Azure AD PIM para ativar uma função conforme necessário para executar essas tarefas. A seguir estão as funções de diretório menos privilegiadas para configurar os recursos de governança de identidade: 
 
 | Funcionalidade | Função com privilégios mínimos |
 | ------- | --------------------- |

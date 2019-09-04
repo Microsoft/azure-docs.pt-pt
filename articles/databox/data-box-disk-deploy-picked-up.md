@@ -10,12 +10,12 @@ ms.date: 09/03/2019
 ms.localizationpriority: high
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 259c20aead3bbe7b44c59efe031a079ba80e2905
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: aab97257ff2e917dc264017043d3ca11a2ced1fc
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232964"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240199"
 ---
 ::: zone target="chromeless"
 
@@ -153,7 +153,7 @@ Se necessário, você pode entrar em contato com o suporte da solução Quantium
 
 ::: zone target="docs"
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box Disk, como:
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 2bdec0c70e9f11ca40e0ff9e1aa87898c94e119c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: c774725d4a4db4f624cd3980041b2974dfc8ed28
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232985"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275557"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados do DB2 usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -32,6 +32,7 @@ Você pode copiar dados de um banco de dados DB2 para qualquer armazenamento de 
 
 Especificamente, esse conector do DB2 dá suporte às seguintes plataformas e versões do IBM DB2 com o DRDA (Distributed Relacionative Database Architecture) versão 9, 10 e 11:
 
+* IBM DB2 para z/OS 12,1
 * IBM DB2 para z/OS 11,1
 * IBM DB2 para z/OS 10,1
 * IBM DB2 para i 7,3
@@ -99,14 +100,16 @@ As propriedades a seguir têm suporte para o serviço vinculado do DB2:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de banco de e do DB2.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de banco de e do DB2.
 
-Para copiar dados do DB2, defina a propriedade Type do conjunto de dado como **RelationalTable**. São suportadas as seguintes propriedades:
+Para copiar dados do DB2, há suporte para as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **RelationalTable** | Sim |
-| tableName | Nome da tabela no banco de dados DB2. | Não (se for especificada "query" na origem de atividade) |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **Db2Table** | Sim |
+| schema | Nome do esquema. |Não (se for especificada "query" na origem de atividade)  |
+| table | Nome da tabela. |Não (se for especificada "query" na origem de atividade)  |
+| tableName | Nome da tabela com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Use `schema` e`table` para uma nova carga de trabalho. | Não (se for especificada "query" na origem de atividade) |
 
 **Exemplo**
 
@@ -115,15 +118,18 @@ Para copiar dados do DB2, defina a propriedade Type do conjunto de dado como **R
     "name": "DB2Dataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "Db2Table",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<DB2 linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+Se você estivesse usando `RelationalTable` dataset tipado, ele ainda tem suporte como está, enquanto você é sugerido para usar o novo no futuro.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
@@ -131,11 +137,11 @@ Para obter uma lista completa das secções e propriedades disponíveis para a d
 
 ### <a name="db2-as-source"></a>DB2 como fonte
 
-Para copiar dados do DB2, defina o tipo de fonte na atividade de cópia como **RelationalSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados do DB2, há suporte para as seguintes propriedades na seção **origem** da atividade de cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **Db2Source** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Example:**
@@ -159,7 +165,7 @@ Para copiar dados do DB2, defina o tipo de fonte na atividade de cópia como **R
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "Db2Source",
                 "query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""
             },
             "sink": {
@@ -169,6 +175,8 @@ Para copiar dados do DB2, defina o tipo de fonte na atividade de cópia como **R
     }
 ]
 ```
+
+Se você estiver usando `RelationalSource` a fonte digitada, ainda haverá suporte como está, enquanto você é sugerido para usar a nova no futuro.
 
 ## <a name="data-type-mapping-for-db2"></a>Mapeamento de tipo de dados para DB2
 

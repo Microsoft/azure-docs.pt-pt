@@ -8,18 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ee359b76072da3caee9ae1f5fab3d0fc28d25c0e
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: c06cd53e408ebcae24de487fe1d4d25e14aae11b
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972694"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240720"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Conectar de local para CloudSimple usando o ExpressRoute
 
 Se você já tiver uma conexão do ExpressRoute do Azure de um local externo (como no local) para o Azure, você poderá conectá-lo ao seu ambiente CloudSimple. Você pode fazer isso por meio de um recurso do Azure que permite que dois circuitos do ExpressRoute se conectem entre si. Esse método estabelece uma conexão segura, privada, de alta largura de banda e baixa latência entre os dois ambientes.
 
 [![Conexão do ExpressRoute local-Alcance Global](media/cloudsimple-global-reach-connection.png)](media/cloudsimple-global-reach-connection.png)
+
+## <a name="before-you-begin"></a>Antes de começar
+
+Um bloco de endereço de rede **/29** é necessário para estabelecer alcance global conexão do local.  O espaço de endereço/29 é usado para a rede de trânsito entre circuitos do ExpressRoute.  A rede de trânsito não deve se sobrepor a nenhuma das redes virtuais do Azure, redes locais ou redes de nuvem privada CloudSimple.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -63,5 +67,10 @@ Para estabelecer a conexão do ExpressRoute, você deve criar uma autorização 
     * Subscrição: **Assinatura em que o serviço CloudSimple está implantado**
     * Serviço: **Solução VMware por CloudSimple**
     * Tipo de problema: **Solicitação de serviço**
-    * Subtipo de problema: **Criar conexão do ExpressRoute para o local**
+    * Subtipo do problema: **Criar conexão do ExpressRoute para o local**
     * Forneça a ID de recurso e a chave de autorização que você copiou e salvou no painel de detalhes.
+    * Forneça um/29 espaço de endereço de rede para a rede de trânsito.
+
+## <a name="next-steps"></a>Passos Seguintes
+
+* [Saiba mais sobre as conexões de rede do Azure](cloudsimple-azure-network-connection.md)  

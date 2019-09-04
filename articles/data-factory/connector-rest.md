@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 8c7c8faad70022ba985a4041fd578becbaf70078
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0bd97a6b1636d4b540c616958e5531c86362f597
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966873"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276614"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade REST usando Azure Data Factory
 
@@ -25,7 +25,7 @@ Este artigo descreve como usar a atividade de cópia em Azure Data Factory para 
 
 A diferença entre esse conector REST, o [conector http](connector-http.md) e o [conector de tabela da Web](connector-web-table.md) são:
 
-- O **conector REST** especificamente dá suporte à cópia de dados de APIs RESTful; 
+- O **conector REST** oferece suporte especificamente à cópia de dados de APIs RESTful; 
 - O **conector http** é genérico para recuperar dados de qualquer ponto de extremidade http, por exemplo, para baixar o arquivo. Antes que esse conector REST fique disponível, você pode usar o conector HTTP para copiar dados da API RESTful, que tem suporte, mas menos funcional comparando o conector REST.
 - O **conector de tabela da Web** extrai o conteúdo da tabela de uma página HTML.
 
@@ -175,50 +175,23 @@ Para copiar dados do REST, há suporte para as seguintes propriedades:
 |:--- |:--- |:--- |
 | type | A propriedade **Type** do conjunto de conjuntos deve ser definida como **RestResource**. | Sim |
 | relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente a URL especificada na definição de serviço vinculado é usada. | Não |
-| requestMethod | O método HTTP. Os valores permitidos são **Get** (padrão) e **post**. | Não |
-| additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
-| requestBody | O corpo da solicitação HTTP. | Não |
-| paginationRules | As regras de paginação para compor solicitações da próxima página. Consulte a seção [suporte](#pagination-support) à paginação em detalhes. | Não |
 
-**Exemplo 1: Usando o método Get com paginação**
+Se você definiu `requestMethod` `additionalHeaders` `requestBody` , e`paginationRules` no DataSet, ainda terá suporte como está, enquanto você é sugerido para usar o novo modelo na origem da atividade no futuro.
+
+**Example:**
 
 ```json
 {
     "name": "RESTDataset",
     "properties": {
         "type": "RestResource",
+        "typeProperties": {
+            "relativeUrl": "<relative url>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<REST linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "additionalHeaders": {
-                "x-user-defined": "helloworld"
-            },
-            "paginationRules": {
-                "AbsoluteUrl": "$.paging.next"
-            }
-        }
-    }
-}
-```
-
-**Exemplo 2: Usando o método post**
-
-```json
-{
-    "name": "RESTDataset",
-    "properties": {
-        "type": "RestResource",
-        "linkedServiceName": {
-            "referenceName": "<REST linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "requestMethod": "Post",
-            "requestBody": "<body for POST REST request>"
         }
     }
 }
@@ -237,10 +210,14 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **REST**. | Sim |
+| requestMethod | O método HTTP. Os valores permitidos são **Get** (padrão) e **post**. | Não |
+| additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
+| requestBody | O corpo da solicitação HTTP. | Não |
+| paginationRules | As regras de paginação para compor solicitações da próxima página. Consulte a seção [suporte](#pagination-support) à paginação em detalhes. | Não |
 | httpRequestTimeout | O tempo limite (o valor de **TimeSpan** ) para a solicitação HTTP obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. O valor padrão é **00:01:40**.  | Não |
 | requestInterval | O tempo de espera antes de enviar a solicitação para a próxima página. O valor padrão é **00:00:01** |  Não |
 
-**Exemplo**
+**Exemplo 1: Usando o método Get com paginação**
 
 ```json
 "activities":[
@@ -262,6 +239,46 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
         "typeProperties": {
             "source": {
                 "type": "RestSource",
+                "additionalHeaders": {
+                    "x-user-defined": "helloworld"
+                },
+                "paginationRules": {
+                    "AbsoluteUrl": "$.paging.next"
+                },
+                "httpRequestTimeout": "00:01:00"
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+**Exemplo 2: Usando o método post**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromREST",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<REST input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "RestSource",
+                "requestMethod": "Post",
+                "requestBody": "<body for POST REST request>",
                 "httpRequestTimeout": "00:01:00"
             },
             "sink": {
@@ -336,23 +353,19 @@ O Facebook API do Graph retorna a resposta na estrutura a seguir, caso em que a 
 }
 ```
 
-A configuração correspondente do conjunto de DataSet `paginationRules` REST é, especialmente, a seguinte:
+A configuração de origem da atividade de cópia REST `paginationRules` correspondente, especialmente, é a seguinte:
 
 ```json
-{
-    "name": "MyFacebookAlbums",
-    "properties": {
-            "type": "RestResource",
-            "typeProperties": {
-                "relativeUrl": "albums",
-                "paginationRules": {
-                    "AbsoluteUrl": "$.paging.next"
-                }
-            },
-            "linkedServiceName": {
-                "referenceName": "MyRestService",
-                "type": "LinkedServiceReference"
-            }
+"typeProperties": {
+    "source": {
+        "type": "RestSource",
+        "paginationRules": {
+            "AbsoluteUrl": "$.paging.next"
+        },
+        ...
+    },
+    "sink": {
+        "type": "<sink type>"
     }
 }
 ```
@@ -365,6 +378,6 @@ Você pode usar esse conector REST para exportar a resposta JSON da API REST no 
 
 Para copiar dados do ponto de extremidade REST para o coletor tabular, consulte [mapeamento de esquema](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma lista dos arquivos de dados que a atividade de cópia suporta como origens e sinks no Azure Data Factory, veja [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).

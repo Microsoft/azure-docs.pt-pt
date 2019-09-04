@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f54643883028d93b56c7e122f43db95bb6d0b8c1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3bdada262df3778ab8781f967fdbd64a780009b2
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560882"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258288"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Início rápido: Criar um novo aplicativo no portal do LUIS
 
@@ -23,9 +23,9 @@ Neste guia de início rápido, você cria um novo aplicativo no [portal do Luis]
 
 A criação de um aplicativo é gratuita e não requer uma assinatura do Azure. Quando estiver pronto para implantar seu aplicativo, consulte o guia de [início rápido para implantar um aplicativo](get-started-portal-deploy-app.md). Ele mostra como criar um recurso de serviço do Azure cognitiva e atribuí-lo ao aplicativo.
 
-## <a name="create-an-app"></a>Criar uma aplicação
+[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
-1. Abra o [portal do Luis](https://www.luis.ai) em um navegador e entre. Se for a primeira vez que estiver entrando, você precisará criar uma conta de usuário gratuita do portal do LUIS.
+## <a name="create-an-app"></a>Criar uma aplicação
 
 1. Selecione **criar novo aplicativo** na barra de ferramentas de contexto.
 
@@ -33,9 +33,9 @@ A criação de um aplicativo é gratuita e não requer uma assinatura do Azure. 
 
 1. Na janela pop-up, configure o aplicativo com as seguintes configurações e, em seguida, selecione **concluído**.
 
-   |Nome da definição| Valor | Objetivo|
+   |Nome da definição| Value | Objetivo|
    |--|--|--|
-   |Nome|`myEnglishApp`|Nome do aplicativo LUIS exclusivo<br>obrigatório|
+   |Name|`myEnglishApp`|Nome do aplicativo LUIS exclusivo<br>obrigatório|
    |Cultura|**Inglês**|Idioma do declarações dos usuários, **en-US**<br>obrigatório|
    |Descrição|`App made with LUIS Portal`|Descrição do aplicativo<br>opcional|
    | | | |

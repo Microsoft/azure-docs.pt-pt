@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: cf6a5b07dd72c4e2364281b755e77e642f8fe167
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 161539aaec4d3b7162405f437b7fb3dd1f6a00e6
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542978"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258853"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Práticas recomendadas do modelo de Azure Resource Manager
 
@@ -175,7 +175,7 @@ Ao decidir quais [dependências](resource-group-define-dependencies.md) definir,
 
 * Defina um recurso filho como dependente de seu recurso pai.
 
-* Os recursos com o [elemento Condition](resource-group-authoring-templates.md#condition) definido como false são removidos automaticamente da ordem de dependência. Defina as dependências como se o recurso sempre for implantado.
+* Os recursos com o [elemento Condition](conditional-resource-deployment.md) definido como false são removidos automaticamente da ordem de dependência. Defina as dependências como se o recurso sempre for implantado.
 
 * Deixe as dependências em cascata sem defini-las explicitamente. Por exemplo, sua máquina virtual depende de um adaptador de rede virtual e a interface de rede virtual depende de uma rede virtual e de endereços IP públicos. Portanto, a máquina virtual é implantada após todos os três recursos, mas não defina explicitamente a máquina virtual como dependente de todos os três recursos. Essa abordagem esclarece a ordem de dependência e facilita a alteração do modelo posteriormente.
 

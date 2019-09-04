@@ -5,13 +5,13 @@ author: madams0013
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: t-maadam
-ms.openlocfilehash: 01197d91277c59b58c5ab841dfc2abfb78be71de
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.author: jasonh
+ms.openlocfilehash: 75ac837491927881fd8b7547b0f49a069c3f2d47
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877288"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257232"
 ---
 # <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share-preview"></a>Como adicionar conjuntos de dados a um compartilhamento existente na versão prévia do compartilhamento do Azure data share
 
@@ -31,5 +31,5 @@ No painel à direita, selecione o tipo de conjunto de texto que você deseja adi
 
 Depois de clicar em **Adicionar conjuntos**de os, os conjuntos de valores serão adicionados ao seu compartilhamento. Nota: Um instantâneo deve ser disparado por seus consumidores para que eles vejam os novos conjuntos de clientes. Se houver configurações de instantâneo configuradas, os consumidores verão os novos conjuntos de clientes assim que o próximo instantâneo agendado for concluído. Sem configurações de instantâneo configuradas, o consumidor deve disparar manualmente uma cópia completa ou incremental dos dados para receber as atualizações. Para obter mais informações sobre instantâneos, [](terminology.md)consulte instantâneos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Adicionar destinatários a um compartilhamento de dados existente](how-to-add-recipients.md).

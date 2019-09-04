@@ -2,22 +2,22 @@
 title: Início Rápido do Azure - Definir e obter um segredo do Key Vault com a CLI do Azure | Microsoft Docs
 description: Início Rápido que mostra como definir e obter um segredo do Azure Key Vault com a CLI do Azure
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/08/2019
-ms.author: barclayn
-ms.openlocfilehash: e9537c158afad2877bb2df2650500ab218de676f
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.date: 09/03/2019
+ms.author: mbaldwin
+ms.openlocfilehash: 37fc4003ba19e9e8f3d156a7fcb9bb84001d2e90
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726741"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259322"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Início rápido: Definir e obter um segredo a partir do Azure Key Vault com a CLI do Azure
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Início rápido: Definir e recuperar um segredo de Azure Key Vault usando CLI do Azure
 
 O Azure Key Vault é um serviço cloud que funciona como um arquivo de segredos seguro. Pode armazenar chaves, palavras-passe, certificados e outros segredos em segurança. Para obter mais informações sobre o Key Vault, pode ver a [Descrição Geral](key-vault-overview.md). A CLI do Azure é utilizada para criar e gerir recursos do Azure através de comandos ou scripts. Neste início rápido, vai criar um cofre de chaves. Depois de concluir este passo, irá armazenar um segredo.
 
@@ -27,13 +27,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Se optar por instalar e utilizar a CLI localmente, este início rápido requer a versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
-Para iniciar sessão no Azure com a CLI, pode escrever:
+Para entrar no Azure usando a CLI, você pode digitar:
 
 ```azurecli
 az login
 ```
 
-Para obter mais informações sobre as opções de início de sessão através da CLI dar uma olhada [iniciar sessão com a CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Para obter mais informações sobre as opções de logon por meio da CLI, dê uma olhada na [entrada com CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -57,16 +57,16 @@ az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGrou
 
 O resultado deste cmdlet mostra as propriedades do Key Vault recém-criado. Tome nota das duas propriedades listadas abaixo:
 
-- **Nome do cofre**: No exemplo, isto é **Contoso-Vault2**. Irá utilizar este nome para outros comandos do Key Vault.
-- **URI do cofre**: No exemplo, isto é https://contoso-vault2.vault.azure.net/. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
+- **Nome do cofre**: No exemplo, é **contoso-Vault2**. Irá utilizar este nome para outros comandos do Key Vault.
+- **URI do cofre**: No exemplo, isso é https://contoso-vault2.vault.azure.net/. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
 
 Nesta altura, a sua conta do Azure é a única autorizada a realizar quaisquer operações neste novo cofre.
 
 ## <a name="add-a-secret-to-key-vault"></a>Adicionar um segredo ao Key Vault
 
-Para adicionar um segredo ao cofre, apenas tem de efetuar alguns passos adicionais. Esta palavra-passe pode ser utilizada por uma aplicação. A palavra-passe será chamada **ExamplePassword** e irá armazenar o valor de **hVFkk965BuUv** nela.
+Para adicionar um segredo ao cofre, apenas tem de efetuar alguns passos adicionais. Esta palavra-passe pode ser utilizada por uma aplicação. A senha será chamada de **ExamplePassword** e armazenará o valor de **hVFkk965BuUv** nela.
 
-Escreva os comandos abaixo para criar um segredo no Key Vault denominado **ExamplePassword** que irá armazenar o valor **hVFkk965BuUv** :
+Digite os comandos abaixo para criar um segredo em Key Vault chamado **ExamplePassword** , que armazenará o valor **hVFkk965BuUv** :
 
 ```azurecli
 az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "hVFkk965BuUv"
@@ -93,7 +93,9 @@ az group delete --name ContosoResourceGroup
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, criou um Key Vault e armazenou um segredo. Para saber mais sobre o Key Vault e como utilizá-lo com as suas aplicações, avance para o tutorial referente às aplicações Web que funcionam com o Key Vault.
+Neste início rápido, você criou um Key Vault e armazenou um segredo nele. Para saber mais sobre Key Vault e como integrá-lo a seus aplicativos, continue nos artigos abaixo.
 
-> [!div class="nextstepaction"]
-> Para saber como ler um segredo a partir do Key Vault através de uma aplicação Web com identidades geridas para recursos do Azure, avance para o tutorial[Configurar uma aplicação Web do Azure para ler um segredo a partir do Key Vault](quick-create-net.md)
+- Leia uma [visão geral do Azure Key Vault](key-vault-overview.md)
+- Consulte a referência para os [comandos do CLI do Azure AZ keyvault](/cli/azure/keyvault?view=azure-cli-latest)
+- Saiba mais sobre [chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
+- Examinar [Azure Key Vault práticas recomendadas](key-vault-best-practices.md)

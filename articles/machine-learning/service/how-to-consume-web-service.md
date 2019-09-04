@@ -11,18 +11,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03579d75ad9cbaceca1a5d42913ff546088f6cfe
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 5f57be9a1fc5d260ce580b969c8f92c87aea17a8
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982784"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279116"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como um serviço web
 
 Implementar um modelo do Azure Machine Learning como um serviço web cria uma API REST. Pode enviar dados para esta API e receber a predição devolvida pelo modelo. Neste documento, aprenda a criar clientes para o serviço Web usando C#o, o go, o Java e o Python.
 
-Você cria um serviço Web ao implantar uma imagem nas instâncias de contêiner do Azure, no serviço kubernetes do Azure ou em FPGA (matrizes de porta programável por campo). Você cria imagens de modelos registrados e arquivos de pontuação. Você recupera o URI usado para acessar um serviço Web usando o [SDK do Azure Machine Learning](https://aka.ms/aml-sdk). Se a autenticação estiver habilitada, você também poderá usar o SDK para obter as chaves de autenticação ou os tokens.
+Você cria um serviço Web ao implantar uma imagem nas instâncias de contêiner do Azure, no serviço kubernetes do Azure ou em FPGA (matrizes de porta programável por campo). Você cria imagens de modelos registrados e arquivos de pontuação. Você recupera o URI usado para acessar um serviço Web usando o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Se a autenticação estiver habilitada, você também poderá usar o SDK para obter as chaves de autenticação ou os tokens.
 
 O fluxo de trabalho geral para criar um cliente que usa um serviço Web do Machine Learning é:
 

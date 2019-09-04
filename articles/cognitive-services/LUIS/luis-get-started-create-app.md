@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2019
+ms.date: 08/25/2019
 ms.author: diberry
-ms.openlocfilehash: e53f8d6e08b345d417ce54deacd658275cb1cd00
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 34978d552b2a5002906b65c06e0c8ad76f58761b
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563919"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258169"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Início rápido: Usar aplicativo de automação inicial predefinido
 
@@ -26,10 +26,10 @@ Neste início rápido, crie uma aplicação LUIS que utiliza o domínio pré-con
 
 Para este artigo, precisa de uma conta de LUIS gratuita criada no portal do LUIS em [https://www.luis.ai](https://www.luis.ai). 
 
+[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
+
 ## <a name="create-a-new-app"></a>Criar uma nova aplicação
 Pode criar e gerir as suas aplicações em **My Apps** (As Minhas Aplicações). 
-
-1. Inicie sessão no portal do LUIS.
 
 2. Selecione **Create new app** (Criar nova aplicação).
 

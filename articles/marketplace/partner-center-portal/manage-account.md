@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 8c3b9523f6e6991723b0da721dbf7667ee340772
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c28469e15841e2675c20868b74cf044159c4e9ca
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207982"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259181"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerenciar sua conta do Marketplace comercial no Partner Center 
 
@@ -312,7 +312,7 @@ Os usuários da sua empresa podem receber as seguintes funções e permissões p
   - Pode exibir alguns relatórios do Publicador
 
 > [!NOTE]
-> O administrador global, colaborador de negócios, colaborador financeiro e funções de mercado não são usados no programa do Marketplace comercial e não têm permissões associadas.
+> Para o programa do Marketplace comercial, o administrador global, colaborador de negócios, colaborador financeiro e funções de mercado não são usados. A atribuição dessas funções a usuários não tem nenhum efeito. Somente as funções gerente e desenvolvedor concedem permissões aos usuários.
 
 Para obter mais informações sobre como gerenciar funções e permissões em outras áreas do Partner Center, como Azure Active Directory (AD), provedor de soluções de nuvem (CSP), fornecedor do painel de controle (CPV), usuários convidados ou Microsoft Partner Network (MPN), consulte [atribuir funções de usuários e permissões no Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
 
@@ -364,6 +364,6 @@ A seção **contratos** do Partner Center (em **configurações de conta**) perm
 As **ações necessárias** podem aparecer na parte superior desta página se houver atualizações de contrato que precisam de sua atenção. Para aceitar um contrato atualizado, primeiro leia a versão do contrato vinculado e, em seguida, selecione **aceitar contrato**. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Criar uma nova oferta de SaaS](./create-new-saas-offer.md)

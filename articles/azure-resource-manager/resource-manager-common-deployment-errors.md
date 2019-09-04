@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: df5362028a38a86ba8df46efae2e3c3109856463
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: fc6fdde4daa2d671b9d93673c2a78c2d9d85963c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194372"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275746"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solucionar erros comuns de implantação do Azure com o Azure Resource Manager
 
@@ -32,7 +32,7 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | AllocationFailed | O cluster ou a região não tem recursos disponíveis ou não dá suporte ao tamanho de VM solicitado. Repita a solicitação mais tarde ou solicite um tamanho de VM diferente. | [Problemas de provisionamento e alocação para Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [problemas de provisionamento e alocação para o Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) e solucionar problemas de falhas de [alocação](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Aguarde a conclusão da operação simultânea. | |
 | AuthorizationFailed | Sua conta ou entidade de serviço não tem acesso suficiente para concluir a implantação. Verifique a função à qual sua conta pertence e seu acesso para o escopo de implantação.<br><br>Você pode receber esse erro quando um provedor de recursos necessário não está registrado. | [Controle de acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver registro](resource-manager-register-provider-errors.md) |
-| BadRequest | Você enviou valores de implantação que não correspondem ao que é esperado pelo Resource Manager. Verifique a mensagem de status interno para obter ajuda com a solução de problemas. | [Referência de modelo](/azure/templates/) e [locais com suporte](resource-group-authoring-templates.md#resource-location) |
+| BadRequest | Você enviou valores de implantação que não correspondem ao que é esperado pelo Resource Manager. Verifique a mensagem de status interno para obter ajuda com a solução de problemas. | [Referência de modelo](/azure/templates/) e [locais com suporte](resource-location.md) |
 | Conflito | Você está solicitando uma operação que não é permitida no estado atual do recurso. Por exemplo, o redimensionamento de disco é permitido somente ao criar uma VM ou quando a VM é desalocada. | |
 | DeploymentActive | Aguarde a conclusão da implantação simultânea para este grupo de recursos. | |
 | DeploymentFailed | O erro DeploymentFailed é um erro geral que não fornece os detalhes necessários para resolver o erro. Examine os detalhes do erro para obter um código de erro que fornece mais informações. | [Localizar código de erro](#find-error-code) |
@@ -53,7 +53,7 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | InvalidTemplateCircularDependency | Remova dependências desnecessárias. | [Resolver dependências circulares](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | Verifique se sua conta pertence ao mesmo locatário que o grupo de recursos no qual você está implantando. | |
 | LinkedInvalidPropertyId | A ID de recurso de um recurso não está resolvendo corretamente. Verifique se você forneceu todos os valores necessários para a ID do recurso, incluindo a ID da assinatura, o nome do grupo de recursos, o tipo de recurso, o nome do recurso pai (se necessário) e o nome do recurso. | |
-| LocationRequired | Forneça um local para o recurso. | [Definir localização](resource-group-authoring-templates.md#resource-location) |
+| LocationRequired | Forneça um local para o recurso. | [Definir localização](resource-location.md) |
 | MismatchingResourceSegments | Verifique se o recurso aninhado tem o número correto de segmentos em nome e tipo. | [Resolver segmentos de recursos](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Verifique o status de registro do provedor de recursos e os locais com suporte. | [Resolver registro](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registre sua assinatura com o provedor de recursos. | [Resolver registro](resource-manager-register-provider-errors.md) |
@@ -246,7 +246,7 @@ Em alguns casos, a maneira mais fácil de solucionar problemas de seu modelo é 
 Ou, suponha que você esteja encontrando erros de implantação que você acredite que estão relacionados a dependências definidas incorretamente. Teste seu modelo dividindo-o em modelos simplificados. Primeiro, crie um modelo que implanta apenas um único recurso (como um SQL Server). Quando você tiver certeza de que esse recurso está definido corretamente, adicione um recurso que dependa dele (como um banco de dados SQL). Quando você tiver esses dois recursos definidos corretamente, adicione outros recursos dependentes (como políticas de auditoria). Entre cada implantação de teste, exclua o grupo de recursos para verificar se você está testando as dependências adequadamente.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para passar por um tutorial de solução de problemas [, consulte Tutorial: Solucionar problemas de implantações de modelo do Resource Manager](./resource-manager-tutorial-troubleshoot.md)
 * Para saber mais sobre ações de auditoria, consulte [operações de auditoria com o Gerenciador de recursos](resource-group-audit.md).

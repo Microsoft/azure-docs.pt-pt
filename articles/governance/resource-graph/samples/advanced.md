@@ -7,12 +7,12 @@ ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f02a6917240fa9200167a244f7f93f895be3e63f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 33c67f77a26e2a4fc97d7f5483aad53c121e117b
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232671"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239022"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas avançadas do Azure Resource Graph
 
@@ -24,10 +24,9 @@ Vamos examinar as seguintes consultas avançadas:
 > - [Obter capacidade e tamanho do conjunto de dimensionamento de máquinas virtuais](#vmss-capacity)
 > - [Listar todos os nomes de etiquetas](#list-all-tags)
 > - [Máquinas virtuais correspondidas por regex](#vm-regex)
+> - [Incluir os nomes de locatário e assinatura com displaynames](#displaynames)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="language-support"></a>Suporte de idiomas
 

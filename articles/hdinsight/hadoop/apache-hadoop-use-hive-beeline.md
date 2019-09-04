@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7c4af8346b5da20c662b5549284a3540d08908f8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4ebdf1d14b1f8721a3709a7e8c90f2a1db76b6fc
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072931"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259136"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar o cliente Apache beeline com Apache Hive
 
@@ -44,9 +44,9 @@ Substitua `<headnode-FQDN>` pelo nome de domínio totalmente qualificado de um c
 
 ---
 
-### <a name="to-hdinsight-enterprise-security-package-esp-cluster"></a>Para o cluster Enterprise Security Package do HDInsight (ESP)
+### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>Para o cluster Enterprise Security Package do HDInsight (ESP) usando Kerberos
 
-Ao se conectar de um cliente a um cluster Enterprise Security Package (ESP) ingressado no Azure Active Directory (AAD) em um computador no mesmo realm do cluster, você também deve especificar o `<AAD-Domain>` nome de domínio e o nome de uma conta de usuário de domínio com permissões para acessar o cluster `<username>`:
+Ao se conectar de um cliente a um cluster Enterprise Security Package (ESP) ingressado no Azure Active Directory (AAD) – DS em um computador no mesmo realm do cluster, você também deve especificar o `<AAD-Domain>` nome de domínio e o nome de uma conta de usuário de domínio com permissões para acessar o cluster `<username>`:
 
 ```bash
 kinit <username>
@@ -57,12 +57,18 @@ Substitua `<username>` pelo nome de uma conta no domínio com permissões para a
 
 ---
 
-### <a name="over-public-internet"></a>Pela Internet pública
+### <a name="over-public-or-private-endpoints"></a>Em pontos de extremidade públicos ou privados
 
-Ao se conectar a um cluster ESP não ESP ou Azure Active Directory (AAD) ingressado na Internet pública, você deve fornecer o nome da conta de logon do `admin`cluster (padrão) e a senha. Por exemplo, usando o `<clustername>.azurehdinsight.net` beeline de um sistema cliente para se conectar ao endereço. Essa conexão é feita pela porta `443`e é criptografada usando SSL:
+Ao se conectar a um cluster usando os pontos de extremidade públicos ou privados, você deve fornecer o nome da conta de logon `admin`do cluster (padrão) e a senha. Por exemplo, usando o `<clustername>.azurehdinsight.net` beeline de um sistema cliente para se conectar ao endereço. Essa conexão é feita pela porta `443`e é criptografada usando SSL:
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
+```
+
+ou para o ponto de extremidade privado:
+
+```bash
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
 ```
 
 Substitua `clustername` pelo nome do seu cluster do HDInsight. Substitua `admin` pela conta de logon do cluster do cluster. Substitua `password` pela senha da conta de logon do cluster.
@@ -73,13 +79,21 @@ Substitua `clustername` pelo nome do seu cluster do HDInsight. Substitua `admin`
 
 Apache Spark fornece sua própria implementação de HiveServer2, que às vezes é chamada de servidor Thrift do Spark. Esse serviço usa o Spark SQL para resolver consultas em vez de Hive e pode fornecer melhor desempenho dependendo da sua consulta.
 
-#### <a name="over-public-internet-with-apache-spark"></a>Sobre Internet pública com Apache Spark
+#### <a name="through-public-or-private-endpoints"></a>Por meio de pontos de extremidade públicos ou privados
 
-A cadeia de conexão usada durante a conexão pela Internet é um pouco diferente. Em vez de `httpPath=/hive2` conter `httpPath/sparkhive2`:
+A cadeia de conexão usada é ligeiramente diferente. Em vez de `httpPath=/hive2` conter `httpPath/sparkhive2`:
 
 ```bash 
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
 ```
+
+ou para o ponto de extremidade privado:
+
+```bash 
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+Substitua `clustername` pelo nome do seu cluster do HDInsight. Substitua `admin` pela conta de logon do cluster do cluster. Substitua `password` pela senha da conta de logon do cluster.
 
 ---
 

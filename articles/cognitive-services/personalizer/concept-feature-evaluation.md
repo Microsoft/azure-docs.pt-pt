@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: d03c5f66f760a2bea9f99501cec478831a347c5d
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 31243b5e9da55aafbc376fa416c1b00a4499c116
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668726"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242421"
 ---
-# <a name="feature-evaluation"></a>Avaliação de recurso
+# <a name="feature-evaluation"></a>Avaliação de funcionalidade
 
 Quando você executa uma avaliação em seu recurso personalizado do [portal do Azure](https://portal.azure.com), o personalizador fornece informações sobre quais recursos de contexto e ações estão influenciando o modelo. 
 
@@ -32,9 +32,9 @@ Os recursos mais importantes têm pesos mais fortes no modelo. Como esses recurs
 
 ## <a name="getting-feature-importance-evaluation"></a>Obtendo a avaliação de importância do recurso
 
-Para ver os resultados de importância do recurso, você deve executar uma avaliação. As informações resultantes sobre a importância do recurso representam o modelo atual do personalizador online. A avaliação analisa a importância do recurso do modelo salvo na data de término do período de avaliação. 
+Para ver os resultados de importância do recurso, você deve executar uma avaliação. A avaliação cria rótulos de recursos legíveis com base nos nomes de recursos observados durante o período de avaliação.
 
-A avaliação cria rótulos de recursos legíveis com base nos nomes de recursos observados durante o período de avaliação.
+As informações resultantes sobre a importância do recurso representam o modelo atual do personalizador online. A avaliação analisa a importância do recurso do modelo salvo na data de término do período de avaliação, depois de passar todo o treinamento realizado durante a avaliação, com a política de aprendizado online atual. 
 
 Os resultados de importância do recurso não representam outras políticas e modelos testados ou criados durante a avaliação.  A avaliação não incluirá recursos enviados ao personalizado após o término do período de avaliação.
 

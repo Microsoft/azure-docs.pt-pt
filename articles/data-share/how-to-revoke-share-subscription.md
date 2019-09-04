@@ -5,13 +5,13 @@ author: madams0013
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: t-maadam
-ms.openlocfilehash: fb5572aee513172d06b5a75c2d3b11885081f792
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.author: jasonh
+ms.openlocfilehash: dc14bb121d18179091aa5f6f2854b391e72632f1
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877210"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258645"
 ---
 # <a name="how-to-revoke-a-consumers-share-subscription-in-azure-data-share-preview"></a>Como revogar a assinatura de compartilhamento de um consumidor na versão prévia do compartilhamento de dados do Azure
 
@@ -23,7 +23,7 @@ Na visualização do compartilhamento de dados do Azure, navegue até o comparti
 
 ![Revogar assinatura de compartilhamento](./media/how-to/how-to-revoke-share-subscription/revoke-share-subscription.png) 
 
-Marque as caixas ao lado dos destinatários cujas assinaturas de compartilhamento você gostaria de excluir e, em seguida, clique em revogar. O consumidor não receberá mais atualizações de seus dados.
+Marque as caixas ao lado dos destinatários cujas assinaturas de compartilhamento você gostaria de excluir e, em seguida,clique em revogar. O consumidor não receberá mais atualizações de seus dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [monitorar seus compartilhamentos de dados](how-to-monitor.md).

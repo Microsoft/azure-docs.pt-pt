@@ -6,14 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d8d9478441ffe3962f450bed7bfddf2776386617
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.localizationpriority: high
+ms.openlocfilehash: e438fb38afb649f6f4c7f595059ef64800977242
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164384"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240336"
 ---
 ::: zone target = "docs"
 
@@ -35,7 +36,7 @@ Neste tutorial, irá obter informações sobre tópicos, como:
 
 > [!div class="checklist"]
 > * Pré-requisitos
-> * Preparar para enviar
+> * preparação para envioPreparação para envio
 > * Envie Data Box Heavy para a Microsoft
 > * Verificar o carregamento de dados para o Azure
 > * Eliminação de dados de Data Box Heavy
@@ -48,7 +49,7 @@ Antes de começar, verifique se:
 - Trabalhos de cópia concluídos. Preparação para o envio não poderá ser executado se os trabalhos de cópia estiverem em andamento.
 
 
-## <a name="prepare-to-ship"></a>Preparar para enviar
+## <a name="prepare-to-ship"></a>preparação para envioPreparação para envio
 
 [!INCLUDE [data-box-heavy-prepare-to-ship](../../includes/data-box-heavy-prepare-to-ship.md)]
 
@@ -56,7 +57,7 @@ Antes de começar, verifique se:
 
 ::: zone target = "chromeless"
 
-## <a name="prepare-to-ship"></a>Preparar para enviar
+## <a name="prepare-to-ship"></a>preparação para envioPreparação para envio
 
 Antes de se preparar para enviar, verifique se os trabalhos de cópia estão concluídos.
 
@@ -134,7 +135,7 @@ Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 
 > [!div class="checklist"]
 > * Pré-requisitos
-> * Preparar para enviar
+> * preparação para envioPreparação para envio
 > * Envie Data Box Heavy para a Microsoft
 > * Verificar o carregamento de dados para o Azure
 > * Eliminação de dados de Data Box Heavy

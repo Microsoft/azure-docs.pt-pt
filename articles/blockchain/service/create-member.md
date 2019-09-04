@@ -1,70 +1,70 @@
 ---
-title: Criar um serviço do Azure Blockchain com o portal do Azure
-description: Utilize o serviço do Azure Blockchain para criar um membro de consortium.
+title: Criar um membro Blockchain do serviço Blockchain do Azure usando o portal do Azure
+description: Use o serviço Blockchain do Azure para criar um membro do Blockchain.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/29/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 5cb236dc38ae41b202004b7e4806d8129378cfdb
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 9f58379acd88fd93a00edc11b73b41dc3d6226a5
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417510"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241043"
 ---
-# <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>Início rápido: Criar um serviço do Azure Blockchain com o portal do Azure
+# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Início rápido: Criar um membro Blockchain do serviço Blockchain do Azure usando o portal do Azure
 
-O serviço do Azure Blockchain é uma plataforma de blockchain que pode executar a lógica de negócios dentro de um contrato inteligente. Este guia de introdução mostra-lhe como começar ao criar um razão gerido com o portal do Azure.
+O serviço Blockchain do Azure é uma plataforma Blockchain que você pode executar a lógica de negócios em um contrato inteligente. Este guia de início rápido mostra como começar criando um membro blockchain usando o portal do Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-managed-ledger"></a>Criar um livro razão gerido
+## <a name="create-a-blockchain-member"></a>Crie um membro de blockchain
 
-O serviço do Azure Blockchain é criado com um conjunto definido de recursos de computação e armazenamento.
+Crie um membro blockchain que execute o protocolo de razão de quorum em um consórcio novo ou existente.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
-1. Selecione **Blockchain** > **o serviço do Azure Blockchain**.
+1. Selecione **Blockchain** > **Azure Blockchain Service**.
 1. Conclua o modelo.
 
-    ![Criar serviço](./media/create-member/create-member.png)
+    ![Criar Serviço](./media/create-member/create-member.png)
 
     Definição | Descrição
     --------|------------
-    Membro de Blockchain | Escolha um nome exclusivo que identifica o membro de serviço do Azure Blockchain. O nome do membro blockchain só pode conter letras minúsculas e números. O primeiro caráter tem de ser uma letra. O valor tem de ser entre 2 e 20 carateres de comprimento.
-    Subscrição | Selecione a subscrição do Azure que pretende utilizar para o seu serviço. Se tiver várias subscrições, escolha a subscrição na qual o recurso é cobrado.
-    Grupo de recursos | Um nome de grupo de recursos novo ou um já existente na sua subscrição.
-    Região | Localização tem de ser igual para todos os membros do consortium.
-    Palavra-passe da conta de membro | A palavra-passe da conta de membro é utilizada para encriptar a chave privada para a conta de Ethereum, que é criada para o membro. Utilizar a conta de membro e a palavra-passe da conta de membro para a gestão de consortium.
-    Nome de consórcio | Para um consórcio nova, introduza um nome exclusivo. Se associar um consórcio por meio de um convite, o valor é o consortium que estiver associando.
-    Descrição | Descrição do consortium.
-    Protocol |  Pré-visualização suporta o protocolo de quórum.
-    Preços | A configuração do nó para o seu novo serviço. Selecione **padrão**. 2 nós de validador e o nó 1 transação são as configurações padrão.
-    Palavra-passe de nó de transação | A palavra-passe para o nó de transação o membro predefinido. Utilize a palavra-passe para a autenticação básica quando ligar ao ponto de extremidade no padrão transação nó pública do membro de blockchain.
+    Membro Blockchain | Escolha um nome exclusivo que identifique o membro Blockchain do serviço Blockchain do Azure. O nome do membro blockchain pode conter apenas letras minúsculas e números. O primeiro caractere deve ser uma letra. O valor deve ter entre 2 e 20 caracteres.
+    Subscription | Selecione a assinatura do Azure que você deseja usar para o serviço. Se tiver várias subscrições, escolha a subscrição na qual o recurso é cobrado.
+    Resource group | Um nome de grupo de recursos novo ou um já existente na sua subscrição.
+    Região | O local deve ser o mesmo para todos os membros do consórcio.
+    Senha da conta do membro | A senha da conta de membro é usada para criptografar a chave privada para a conta Ethereum que é criada para o seu membro. Use a conta de membro e a senha da conta do membro para o gerenciamento do consórcio.
+    Nome do consórcio | Para um novo consórcio, insira um nome exclusivo. Se estiver unindo um consórcio por meio de um convite, o valor será o consórcio que você está unindo.
+    Descrição | Descrição do consórcio.
+    Protocol |  A versão prévia dá suporte ao protocolo de quorum.
+    Preços | A configuração de nó para o novo serviço. Selecione **padrão**. 2 nós de validador e 1 nó de transação são as configurações padrão.
+    Senha do nó da transação | A senha para o nó de transação padrão do membro. Use a senha para autenticação básica ao se conectar ao ponto de extremidade público do nó de transação padrão do membro do blockchain.
 
-1. Selecione **criar** para aprovisionar o serviço. O aprovisionamento demora cerca de 10 minutos.
-1. Selecione **notificações** na barra de ferramentas para monitorizar o processo de implantação.
-1. Após a implementação, navegue para o membro de blockchain.
+1. Selecione **criar** para provisionar o serviço. O provisionamento leva cerca de 10 minutos.
+1. Selecione **notificações** na barra de ferramentas para monitorar o processo de implantação.
+1. Após a implantação, navegue até o membro blockchain.
 
-Selecione **descrição geral**, pode ver as informações básicas do serviço, incluindo a conta de endereço e membro RootContract.
+Selecione **visão geral**, você pode exibir as informações básicas sobre seu serviço, incluindo o endereço RootContract e a conta de membro.
 
-![Descrição geral de membro de Blockchain](./media/create-member/overview.png)
+![Visão geral do membro do Blockchain](./media/create-member/overview.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Pode usar o membro que criou para o próximo início rápido ou tutorial. Quando já não for necessário, pode eliminar os recursos a eliminar o `myResourceGroup` grupo de recursos que criou o serviço do Azure Blockchain.
+Você pode usar o membro que criou para o próximo início rápido ou tutorial. Quando não for mais necessário, você poderá excluir os recursos excluindo `myResourceGroup` o grupo de recursos criado pelo serviço Blockchain do Azure.
 
-Para eliminar o grupo de recursos:
+Para excluir o grupo de recursos:
 
-1. No portal do Azure, navegue até **grupo de recursos** no painel de navegação esquerda e selecione o grupo de recursos que pretende eliminar.
-2. Selecione **Eliminar grupo de recursos**. Verifique a eliminação ao introduzir o nome do grupo de recursos e selecione **eliminar**.
+1. No portal do Azure, navegue até o **grupo de recursos** no painel de navegação esquerdo e selecione o grupo de recursos que deseja excluir.
+2. Selecione **Eliminar grupo de recursos**. Verifique a exclusão inserindo o nome do grupo de recursos e selecione **excluir**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Utilizar MetaMask para ligar e implementar um contrato inteligente](connect-metamask.md)
+> [Usar a metamáscara para conectar e implantar um contrato inteligente](connect-metamask.md)

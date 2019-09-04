@@ -10,19 +10,67 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 01ee8e5b9d7ab1e8ab4086e559ce8dd8df76252f
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 0880b5706f2621971a4e5c82a6db03cdd22ce4d6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182699"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278298"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
-Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](https://aka.ms/aml-sdk) . 
+Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) . 
 
 Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais sobre erros conhecidos e soluções alternativas.
 
+## <a name="2019-09-03"></a>2019-09-03
+### <a name="azure-machine-learning-sdk-for-python-v1060"></a>Azure Machine Learning SDK para Python v 1.0.60
+
++ **Novos recursos**
+  + Introduziu filedataset, que faz referência a um ou vários arquivos em seus armazenamentos de dados ou URLs públicas. Os arquivos podem ser de qualquer formato. O filedataset fornece a capacidade de baixar ou montar os arquivos em sua computação. Para saber mais sobre filedataset, visite https://aka.ms/file-dataset.
+  + Adicionado suporte de YAML de pipeline para a etapa PythonScript, etapa adla, etapa databrick, DataTransferStep e etapa AzureBatch
+
++ **Correções de bugs e melhorias**
+  + **azureml-automl-Core**
+    + AutoArima agora é um pipeline sugerido para visualização apenas.
+    + Relatório de erros aprimorado para previsão.
+    + Melhorou o registro em log usando exceções personalizadas em vez de genéricas nas tarefas de previsão.
+    + Removida a verificação em max_concurrent_iterations para ser menor que o número total de iterações.
+    + Os modelos AutoML agora retornam AutoMLExceptions
+    + Esta versão melhora o desempenho de execução das execuções locais do Machine Learning automatizado.
+  + **azureml-core**
+    + Introduza `Dataset.get_all()` , que retorna um dicionário `TabularDataset` de `FileDataset` objetos e com chave por seu nome de registro. 
+    
+    ```py 
+    workspace = Workspace.from_config() 
+    all_datasets = Dataset.get_all(workspace) 
+    mydata = all_datasets['my-data'] 
+    ```
+    
+    + Introduza `parition_format` como argumento para `Dataset.Tabular.from_delimited_files` e `Dataset.Tabular.from_parquet.files`. As informações de partição de cada caminho de dados serão extraídas em colunas com base no formato especificado. ' {column_name} ' cria uma coluna de cadeia de caracteres e ' {column_name: YYYY/MM/DD/HH/mm/ss} ' cria a coluna DateTime, onde ' yyyy ', ' MM ', ' dd ', ' HH ', ' mm ' e ' ss ' são usados para extrair year, mês, Day, hour, Minute e Second para o tipo DateTime. O partition_format deve começar da posição da primeira chave de partição até o final do caminho do arquivo. Por exemplo, considerando o caminho '.. /USA/2019/01/01/data.csv ', em que a partição é por país e hora, partition_format = '/{Country}/{PartitionDate: YYYY/MM/DD}/Data. csv ' cria a coluna de cadeia de caracteres ' Country ' com o valor ' EUA ' e a coluna DateTime ' PartitionDate ' com o valor ' 2019-01-01 '.
+    + `to_csv_files`e `to_parquet_files` foram adicionados métodos ao `TabularDataset`. Esses métodos habilitam a conversão `TabularDataset` entre um `FileDataset` e um convertendo os dados em arquivos do formato especificado.
+    + Faça logon automaticamente no registro da imagem base ao salvar um Dockerfile gerado por Model. Package ().
+    + ' gpu_support ' não é mais necessário; O AzureML agora detecta e usa automaticamente a extensão do Docker NVIDIA quando ela está disponível. Ele será removido em uma versão futura.
+    + Adicionado suporte para criar, atualizar e usar PipelineDrafts.
+    + Esta versão melhora o desempenho de execução das execuções locais do Machine Learning automatizado.
+    + Os usuários podem consultar métricas do histórico de execuções por nome.
+    + Melhorou o registro em log usando exceções personalizadas em vez de genéricas nas tarefas de previsão.
+  + **azureml-explain-model**
+    + Adicionado o parâmetro feature_maps ao novo MimicWrapper, permitindo que os usuários obtenham explicações de recursos brutos.
+    + Os carregamentos do conjunto de ativos agora estão desativados por padrão para o upload de explicação e podem ser reabilitados com upload_datasets = true
+    + Adição de parâmetros de filtragem "is_law" para explicar as funções de lista e download.
+    + Adiciona o `get_raw_explanation(feature_maps)` método a objetos de explicação global e local.
+    + Adicionada a verificação de versão para lightgbm com aviso impresso, se abaixo da versão com suporte
+    + Uso otimizado de memória no envio em lote de explicações
+    + Os modelos AutoML agora retornam AutoMLExceptions
+  + **azureml-pipeline-core**
+    + Suporte adicionado para criar, atualizar e usar PipelineDrafts-pode ser usado para manter definições de pipeline mutáveis e usá-las interativamente para executar
+  + **azureml-train-automl**
+    + Foi criado um recurso para instalar versões específicas de pytorch v 1.1.0, CUDA Toolkit 9,0, pytorch que são necessárias para habilitar o BERT/XLNet no ambiente de tempo de execução do Python remoto.
+  + **azureml-train-core**
+    + Falha antecipada de alguns erros de definição de espaço de hiperparâmetro diretamente no SDK, em vez de no lado do servidor.
+
+  
 ## <a name="2019-08-19"></a>2019-08-19
 
 ### <a name="azure-machine-learning-sdk-for-python-v1057"></a>Azure Machine Learning SDK para Python v 1.0.57

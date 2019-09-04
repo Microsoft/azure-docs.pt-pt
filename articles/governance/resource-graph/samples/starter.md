@@ -7,12 +7,12 @@ ms.date: 04/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: e5b204aab0dfde8dc6b5ea489de8a5cda15a7c83
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 688c591cbe94c69c73779843011cb24c3d2fd4cf
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232239"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241082"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas de introdução do Azure Resource Graph
 
@@ -35,8 +35,6 @@ Vamos examinar as seguintes consultas de introdução:
 > - [Mostrar valores distintos para um alias específico](#distinct-alias-values)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="language-support"></a>Suporte de idiomas
 
@@ -290,7 +288,7 @@ az graph query -q "where type=~'Microsoft.Compute/virtualMachines' | extend alia
 Search-AzGraph -Query "where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saber mais sobre a [linguagem de consulta](../concepts/query-language.md)
 - Aprender a [explorar recursos](../concepts/explore-resources.md)

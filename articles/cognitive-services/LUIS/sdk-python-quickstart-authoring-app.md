@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/07/2019
 ms.author: diberry
-ms.openlocfilehash: f5756c479d47e905e0110c9919cf4b5be4e75099
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f8149372e0a96cda81ef38558ee0bcf87eb53bb3
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932134"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258754"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>Início rápido: Biblioteca de cliente de criação de Reconhecimento vocal (LUIS) para Python
 
@@ -37,9 +37,9 @@ Use a biblioteca de cliente de criação de Reconhecimento vocal (LUIS) para Pyt
 
 ## <a name="setting-up"></a>Configurando
 
-### <a name="get-your-language-understanding-luis-authoring-key"></a>Obter sua chave de criação de Reconhecimento vocal (LUIS)
+### <a name="get-your-language-understanding-luis-starter-key"></a>Obter sua chave de início do Reconhecimento vocal (LUIS)
 
-Obtenha sua [chave de criação](luis-how-to-account-settings.md)e [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, nomeada `LUIS_AUTHORING_KEY` e uma variável de ambiente para a região da chave,. `LUIS_REGION`
+Obtenha a [chave inicial](luis-how-to-azure-subscription.md#starter-key)e [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, nomeada `LUIS_AUTHORING_KEY` e uma variável de ambiente para a região da chave,. `LUIS_REGION`
 
 ### <a name="install-the-python-library-for-luis"></a>Instalar a biblioteca do Python para LUIS
 
@@ -101,7 +101,7 @@ Crie um objeto [CognitiveServicesCredentials](https://docs.microsoft.com/python/
 
 
 ## <a name="create-intent-for-the-app"></a>Criar intenção para o aplicativo
-O objeto principal no modelo de um aplicativo LUIS é a intenção. A intenção se alinha com um agrupamento de _intenções_ de expressão do usuário. Um usuário pode fazer uma pergunta ou fazer uma instrução procurando uma resposta pretendida específica de um bot (ou outro aplicativo cliente). Exemplos de intenções estão reservando um vôo, perguntando o clima em uma cidade de destino e solicitando informações de contato para o atendimento ao cliente.   
+O objeto principal no modelo de um aplicativo LUIS é a intenção. A intenção se alinha com um agrupamento de _intenções_de expressão do usuário. Um usuário pode fazer uma pergunta ou fazer uma instrução procurando uma resposta pretendida específica de um bot (ou outro aplicativo cliente). Exemplos de intenções estão reservando um vôo, perguntando o clima em uma cidade de destino e solicitando informações de contato para o atendimento ao cliente.   
 
 Use o método [modelo. Add _intent](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python#add-intent-app-id--version-id--name-none--custom-headers-none--raw-false----operation-config-) com o nome da intenção exclusiva e, em seguida, passe a ID do aplicativo, a ID da versão e o nome da nova tentativa. 
 

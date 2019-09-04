@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: 8065284d65f1b0a91fc05846b451305906c74fc8
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 989775916454b6710aef6c2c5be6792920622dab
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231112"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241299"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treinar seu primeiro modelo de ML
 
@@ -47,25 +47,21 @@ Nesta parte do tutorial, você executa o código no bloco de anotações `tutori
 
 1. Na página da Web do Jupyter notebook, selecione o Top FolderName, que tem seu nome de usuário.  
 
-
    Essa pasta existe na conta de [armazenamento](concept-workspace.md#resources) do espaço de trabalho em vez de na própria VM do notebook.  Se você excluir a VM do notebook, ainda manterá todo o seu trabalho.  Quando você criar uma nova VM de bloco de anotações mais tarde, ela carregará essa mesma pasta. Se você compartilhar seu espaço de trabalho com outras pessoas, ele verá sua pasta e você verá seus.
 
-1. Abra o `samples-*` subdiretório e, em seguida, abra o notebook Jupyter`tutorials/tutorial-1st-experiment-sdk-train.ipynb`
-
-   > [!Warning]
-   > Certifique-se de `tutorial-1st-experiment-sdk-train.ipynb` abrir o arquivo, `.yml` **não** o arquivo do > mesmo nome. 
-
-1. O restante deste artigo contém o mesmo conteúdo que você vê no bloco de anotações.  Alterne para o bloco de anotações agora se você quiser executar o código.
-
+1. Abra o `samples-*` subdiretório e, em seguida, abra o `tutorials/tutorial-1st-experiment-sdk-train.ipynb`bloco de anotações `.yml` Jupyter, **não** o arquivo de mesmo nome. 
 
 ## <a name="connect-workspace-and-create-experiment"></a>Conectar espaço de trabalho e criar experimento
+
+> [!Important]
+> O restante deste artigo contém o mesmo conteúdo que você vê no bloco de anotações.  
+>
+> Alterne para o notebook Jupyter agora se você quiser ler ao executar o código. 
+> Para executar uma única célula de código em um bloco de anotações, clique na célula de código e pressione **Shift + Enter**. Ou então, execute o bloco de anotações inteiro escolhendo a **célula > executar tudo** no menu superior.
 
 Importe a `Workspace` classe e carregue as informações de assinatura do arquivo `config.json` usando a função `from_config().` que procura o arquivo JSON no diretório atual por padrão, mas você também pode especificar um parâmetro de caminho para apontar para o arquivo usando `from_config(path="your/file/path")`o. Em um servidor de bloco de anotações de nuvem, o arquivo é automaticamente no diretório raiz.
 
 Se o código a seguir solicitar autenticação adicional, basta colar o link em um navegador e inserir o token de autenticação.
-
-> [!TIP]
-> Se você for novo no Jupyter notebooks, execute o código clicando em uma célula de código e pressionando **Shift + Enter** para executar as células uma de cada vez. Como alternativa, para executar todo o bloco de anotações ao mesmo tempo, clique em **célula** na barra de menus superior e, em seguida, clique em **executar tudo**.
 
 ```python
 from azureml.core import Workspace

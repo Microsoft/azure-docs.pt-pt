@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 9ee0f4ccfcd75504be6bb636e7ee54a845a10280
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a20a901d5fde251fdc1a044795615acdc1d61c5b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966924"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277636"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiar dados de e para armazenamentos de dados ODBC usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -114,13 +114,13 @@ As propriedades a seguir têm suporte para o serviço vinculado do ODBC:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de ODBC.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de ODBC.
 
-Para copiar dados de/para um armazenamento de dados compatível com ODBC, defina a propriedade Type do conjunto como **RelationalTable**. São suportadas as seguintes propriedades:
+Para copiar dados de/para o armazenamento de dados compatível com ODBC, há suporte para as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **RelationalTable** | Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **Odbctable** | Sim |
 | tableName | Nome da tabela no repositório de dados ODBC. | Não para origem (se "consulta" na origem da atividade for especificada);<br/>Sim para o coletor |
 
 **Exemplo**
@@ -129,7 +129,8 @@ Para copiar dados de/para um armazenamento de dados compatível com ODBC, defina
 {
     "name": "ODBCDataset",
     "properties": {
-        "type": "RelationalTable",
+        "type": "OdbcTable",
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<ODBC linked service name>",
             "type": "LinkedServiceReference"
@@ -141,17 +142,19 @@ Para copiar dados de/para um armazenamento de dados compatível com ODBC, defina
 }
 ```
 
+Se você estivesse usando `RelationalTable` dataset tipado, ele ainda tem suporte como está, enquanto você é sugerido para usar o novo no futuro.
+
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista das propriedades com suporte pela origem ODBC.
 
 ### <a name="odbc-as-source"></a>ODBC como fonte
 
-Para copiar dados do armazenamento de dados compatível com ODBC, defina o tipo de fonte na atividade de cópia como **RelationalSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados do armazenamento de dados compatível com ODBC, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **Odbcname** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Example:**
@@ -175,7 +178,7 @@ Para copiar dados do armazenamento de dados compatível com ODBC, defina o tipo 
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "OdbcSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -185,6 +188,8 @@ Para copiar dados do armazenamento de dados compatível com ODBC, defina o tipo 
     }
 ]
 ```
+
+Se você estiver usando `RelationalSource` a fonte digitada, ainda haverá suporte como está, enquanto você é sugerido para usar a nova no futuro.
 
 ### <a name="odbc-as-sink"></a>ODBC como coletor
 
@@ -283,5 +288,5 @@ Para solucionar problemas de conexão, use a guia **diagnóstico** do **Integrat
 4. Especifique a **cadeia de conexão** usada para se conectar ao armazenamento de dados, escolha a **autenticação** e insira **o nome de usuário**, a **senha**e/ou **as credenciais**.
 5. Clique em **testar conexão** para testar a conexão com o armazenamento de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

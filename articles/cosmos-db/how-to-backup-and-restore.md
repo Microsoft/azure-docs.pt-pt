@@ -1,63 +1,63 @@
 ---
-title: Como restaurar dados do Azure Cosmos DB a partir de uma cópia de segurança
-description: Este artigo descreve como restaurar dados do Azure Cosmos DB a partir de uma cópia de segurança, como contactar o suporte do Azure para restaurar os dados, os passos a efetuar depois dos dados são restaurados.
+title: Como restaurar dados de Azure Cosmos DB de um backup
+description: Este artigo descreve como restaurar dados de Azure Cosmos DB de um backup, como entrar em contato com o suporte do Azure para restaurar dados, etapas a serem executadas depois que os dados forem restaurados.
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 09/01/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: c32c333de94d1ed0089323e00e6dbbaaebb36488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19ca835ca8211202cd358ac2ec3695675183a372
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241038"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240769"
 ---
-# <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Restaurar dados a partir de uma cópia de segurança no Azure Cosmos DB 
+# <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Restaurar dados de um backup no Azure Cosmos DB 
 
-Se eliminar acidentalmente a base de dados ou um contentor, pode [enviar um pedido de suporte]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [contactar o suporte do Azure]( https://azure.microsoft.com/support/options/) para restaurar os dados a partir de cópias de segurança online automáticas. Suporte do Azure só está disponível para planos selecionados como **padrão**, **programador**e planos superiores-los. Suporte do Azure não está disponível com **básica** plano. Para saber mais sobre os planos de suporte a diferentes, veja a [planos de suporte do Azure](https://azure.microsoft.com/support/plans/) página. 
+Se você excluir acidentalmente seu banco de dados ou um contêiner, poderá [arquivar um tíquete de suporte]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [chamar o suporte do Azure]( https://azure.microsoft.com/support/options/) para restaurar os dados de backups online automáticos. O suporte do Azure está disponível para planos selecionados apenas como **Standard**, **Developer**e Plans superiores. O suporte do Azure não está disponível com o plano **básico** . Para saber mais sobre diferentes planos de suporte, consulte a página [planos de suporte do Azure](https://azure.microsoft.com/support/plans/) . 
 
-Para restaurar um instantâneo específico da cópia de segurança, o Azure Cosmos DB requer que os dados estão disponíveis durante o ciclo de cópia de segurança para que o instantâneo.
+Para restaurar um instantâneo específico do backup, Azure Cosmos DB requer que os dados estejam disponíveis durante o ciclo de backup para esse instantâneo.
 
-## <a name="request-a-restore"></a>Pedir um restauro
+## <a name="request-a-restore"></a>Solicitar uma restauração
 
-Deve ter os seguintes detalhes antes de solicitar um restauro:
+Você deve ter os seguintes detalhes antes de solicitar uma restauração:
 
-* Ter seu preparado para ID de subscrição.
+* Prepare sua ID de assinatura.
 
-* Com base em como seus dados foi acidentalmente eliminados ou modificados, deve se preparar para que informações adicionais. Recomenda-se que tem as informações disponíveis em frente para minimizar o back-e-estabelecido que pode ser prejudicial em alguns casos confidenciais do tempo.
+* Com base em como os dados foram acidentalmente excluídos ou modificados, você deve se preparar para ter informações adicionais. É recomendável que você tenha as informações disponíveis para minimizar o apoio que podem ser prejudiciais em alguns casos sensíveis ao tempo.
 
-* Se toda a conta do Azure Cosmos DB for eliminada, terá de fornecer o nome da conta foi eliminada. Se criar outra conta com o mesmo nome que a conta foi eliminada, partilhá-lo com a equipa de suporte porque ajuda a determinar a conta correta para escolher. É recomendado para pedidos de suporte diferente do ficheiro para cada conta eliminada porque minimiza a confusão do Estado da restauração.
+* Se toda a conta de Azure Cosmos DB for excluída, você precisará fornecer o nome da conta excluída. Se você criar outra conta com o mesmo nome da conta excluída, compartilhe-a com a equipe de suporte, pois ela ajuda a determinar a conta certa a ser escolhida. É recomendável arquivar tíquetes de suporte diferentes para cada conta excluída porque minimiza a confusão do estado da restauração.
 
-* Se um ou mais bases de dados são eliminados, deve fornecer a conta do Cosmos do Azure, bem como os nomes de base de dados do Cosmos do Azure e especificar se existe uma nova base de dados com o mesmo nome.
+* Se um ou mais bancos de dados forem excluídos, você deverá fornecer a conta do Azure Cosmos, bem como os nomes do banco de dados Cosmos do Azure e especificar se existe um novo banco de dados com o mesmo nome.
 
-* Se um ou mais contentores são eliminados, deve fornecer o nome de conta do Cosmos do Azure, os nomes de base de dados e os nomes de contentor. E especificar se existe um contentor com o mesmo nome.
+* Se um ou mais contêineres forem excluídos, você deverá fornecer o nome da conta do Azure Cosmos, os nomes de banco de dados e os nomes de contêiner. E especifique se existe um contêiner com o mesmo nome.
 
-* Se tiver eliminado acidentalmente ou danificado seus dados, deve contactar [suporte do Azure](https://azure.microsoft.com/support/options/) dentro de 8 horas para que a equipa do Azure Cosmos DB pode ajudar a restaurar os dados de cópias de segurança.
+* Se você acidentalmente excluiu ou danificou seus dados, deve entrar em contato com o [suporte do Azure](https://azure.microsoft.com/support/options/) dentro de 8 horas para que a equipe de Azure Cosmos DB possa ajudá-lo a restaurar os dados dos backups.
   
-  * Se tiver eliminado acidentalmente a base de dados ou o contentor, abra um incidente de suporte de gravidade B ou a gravidade C Azure. 
-  * Se o ter acidentalmente excluída ou danificada alguns documentos dentro do contêiner, abra um incidente de suporte de gravidade A. 
+  * Se você excluiu acidentalmente seu banco de dados ou contêiner, abra um caso de suporte do Azure Sev B ou Sev C. 
+  * Se você tiver excluído ou corrompido acidentalmente alguns documentos no contêiner, abra um Sev um caso de suporte. 
 
-Quando ocorre a Corrupção de dados e se os documentos dentro de um contêiner serem modificados ou eliminados, **eliminar o contentor logo que possível**. Ao eliminar o contentor, pode evitar o Azure Cosmos DB substituam as cópias de segurança. Se por algum motivo, a eliminação não for possível, deve enviar um pedido de logo que possível. Além do nome da conta do Cosmos do Azure, os nomes de base de dados, nomes de coleções, deve especificar o ponto no tempo para que os dados possam ser restaurados. É importante usarmos o possível ajudar-na determinar as melhor cópias de segurança disponíveis nesse momento. Também é importante especificar a hora em UTC. 
+Quando ocorrer corrupção de dados e se os documentos dentro de um contêiner forem modificados ou excluídos, **exclua o contêiner assim que possível**. Ao excluir o contêiner, você pode evitar Azure Cosmos DB de substituir os backups. Se, por algum motivo, a exclusão não for possível, você deverá arquivar um tíquete assim que possível. Além do nome da conta do Azure Cosmos, nomes de banco de dados, nomes de contêiner, você deve especificar o ponto no tempo para o qual os dados podem ser restaurados. É importante ser o mais preciso possível para nos ajudar a determinar os melhores backups disponíveis naquele momento. Também é importante especificar a hora em UTC. 
 
-Captura de ecrã seguinte ilustra como criar um pedido de suporte para um container(collection/graph/table) restaurar dados com o portal do Azure. Forneça detalhes adicionais, como o tipo de dados, o objetivo da restauração, tempo quando os dados foram eliminados para ajudar-na priorizar o pedido.
+A captura de tela a seguir ilustra como criar uma solicitação de suporte para um contêiner (coleção/grafo/tabela) para restaurar dados usando portal do Azure. Forneça detalhes adicionais, como o tipo de dados, a finalidade da restauração, a hora em que os dados foram excluídos para nos ajudar a priorizar a solicitação.
 
-![Criar um pedido de suporte de cópia de segurança através do portal do Azure](./media/how-to-backup-and-restore/backup-support-request-portal.png)
+![Criar uma solicitação de suporte de backup usando o portal do Azure](./media/how-to-backup-and-restore/backup-support-request-portal.png)
 
-## <a name="post-restore-actions"></a>Ações de pós-restauro
+## <a name="post-restore-actions"></a>Ações de pós-restauração
 
-Depois de restaurar os dados, recebe uma notificação sobre o nome da nova conta (normalmente se encontra no formato `<original-name>-restored1`) e a hora quando a conta foi restaurada para. A conta de restaurada terá o mesmo débito aprovisionado, políticas de indexação e é na mesma região que a conta original. Um utilizador que seja o administrador da subscrição ou um coadmin pode ver a conta restaurada.
+Depois de restaurar os dados, você receberá uma notificação sobre o nome da nova conta (normalmente no formato `<original-name>-restored1`) e a hora em que a conta foi restaurada. A conta restaurada terá a mesma taxa de transferência provisionada, políticas de indexação e está na mesma região que a conta original. Um usuário que é o administrador da assinatura ou um coadministrador pode ver a conta restaurada.
 
-Depois de restaurar os dados, deve inspecionar e validar os dados na conta restaurada e certifique-se de que contém a versão que está esperando. Se estiver tudo correto, deve migrar os dados de volta para a sua conta original com [feed de alterações do Azure Cosmos DB](change-feed.md) ou [do Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
+Depois que os dados são restaurados, você deve inspecionar e validar os dados na conta restaurada e certificar-se de que ele contém a versão esperada. Se tudo estiver correto, você deverá migrar os dados de volta para sua conta original usando [Azure Cosmos DB feed de alterações](change-feed.md) ou [Azure data Factory](../data-factory/connector-azure-cosmos-db.md).
 
-Recomenda-se que elimina o contentor ou a base de dados imediatamente depois de migrar os dados. Se não eliminar as bases de dados restauradas ou contentores, eles incorre em custos para unidades de pedido, armazenamento e saída.
+É recomendável que você exclua o contêiner ou o banco de dados imediatamente após a migração. Se você não excluir os bancos de dados ou contêineres restaurados, eles incorrerão em custo para unidades de solicitação, armazenamento e saída.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Em seguida pode saber mais sobre como migrar os dados de volta para a sua conta original com os seguintes artigos:
+Em seguida, você pode aprender sobre como migrar os dados de volta para sua conta original usando os seguintes artigos:
 
-* Para fazer uma restauração do pedido, contacte o suporte do Azure, [um ticket do portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
-* [Utilize o Cosmos DB alterar feed](change-feed.md) para mover dados para o Azure Cosmos DB.
+* Para fazer uma solicitação de restauração, entre em contato com o suporte do Azure, [arquivar um tíquete do portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
+* [Use Cosmos DB o feed de alterações](change-feed.md) para mover dados para Azure Cosmos DB.
 
-* [Utilize o Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) para mover dados para o Azure Cosmos DB.
+* [Use Azure data Factory](../data-factory/connector-azure-cosmos-db.md) para mover dados para Azure Cosmos DB.

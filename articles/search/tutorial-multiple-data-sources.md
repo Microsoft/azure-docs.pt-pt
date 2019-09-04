@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.author: heidist
-ms.openlocfilehash: 71fa4b590b41324536d740da5205977c0cefc448
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: d55a586d3dfb22b5dad377ff656b8d6a6c940bdb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186501"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241842"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>C#Destina Combinar dados de várias fontes de dados em um índice Azure Search
 
@@ -70,7 +70,7 @@ Este exemplo usa dois conjuntos pequenos de dados que descrevem sete Hotéis fic
 
 1. [Entre no portal do Azure](https://portal.azure.com)e, em seguida, navegue na página Visão geral da conta do Azure Cosmos DB.
 
-1. Na barra de menus, clique em Adicionar contêiner. Especifique "criar novo banco de dados" e use o nome **Hotel-Rooms-DB**. Insira **Hotel-Rooms** para o nome da coleção e **/HotelId** para a chave de partição. Clique em **OK** para criar o banco de dados e o contêiner.
+1. Na barra de menus, clique em Adicionar contêiner. Especifique "criar novo banco de dados" e use o nome **Hotel-Rooms-DB**. Insira **Hotéis** para o nome da coleção e **/HotelId** para a chave de partição. Clique em **OK** para criar o banco de dados e o contêiner.
 
    ![Adicionar Azure Cosmos DB contêiner](media/tutorial-multiple-data-sources/cosmos-add-container.png "Adicionar um contêiner de Azure Cosmos DB")
 

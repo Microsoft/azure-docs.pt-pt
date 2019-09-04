@@ -5,23 +5,26 @@ services: container-instances
 author: dlepow
 manager: gwallace
 ms.service: container-instances
-ms.topic: article
-ms.date: 07/09/2019
+ms.topic: overview
+ms.date: 09/02/2019
 ms.author: danlep
-ms.openlocfilehash: 9b57775040251312c8afbff5983a52ae9d14e6c6
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 1c4846414036e86d460d9abe0bd93e785e710395
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172500"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258482"
 ---
 # <a name="container-instance-logging-with-azure-monitor-logs"></a>Log de instância de contêiner com logs de Azure Monitor
 
-Os espaços de trabalho Log Analytics fornecem um local centralizado para armazenar e consultar dados de log de recursos não apenas do Azure, mas também recursos e recursos locais em outras nuvens. As instâncias de contêiner do Azure incluem suporte interno para enviar dados a logs de Azure Monitor.
+Os espaços de trabalho Log Analytics fornecem um local centralizado para armazenar e consultar dados de log de recursos não apenas do Azure, mas também recursos e recursos locais em outras nuvens. As instâncias de contêiner do Azure incluem suporte interno para enviar logs e dados de eventos para Azure Monitor logs.
 
-Para enviar dados de instância de contêiner para logs de Azure Monitor, você deve especificar uma ID de espaço de trabalho Log Analytics e uma chave de espaço de trabalho ao criar um grupo de contêineres. As secções seguintes descrevem como criar um grupo de contentores com registo ativado e registos de consulta.
+Para enviar dados de log e eventos do grupo de contêineres para Azure Monitor logs, você deve especificar uma ID do espaço de trabalho Log Analytics e uma chave do espaço de trabalho ao criar um grupo de contêineres. As secções seguintes descrevem como criar um grupo de contentores com registo ativado e registos de consulta.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+> [!NOTE]
+> No momento, você só pode enviar dados de eventos de instâncias de contêiner do Linux para Log Analytics.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -99,30 +102,43 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 Deverá receber uma resposta do Azure com detalhes de implementação poucos instantes após a emissão do comando.
 
-## <a name="view-logs-in-azure-monitor-logs"></a>Exibir logs em logs de Azure Monitor
+## <a name="view-logs"></a>Ver registos
 
-Após implementar o grupo de contentores, pode demorar vários minutos (até 10) para as primeiras entradas do registo aparecerem no portal do Azure. Para exibir os logs do grupo de contêineres:
+Após implementar o grupo de contentores, pode demorar vários minutos (até 10) para as primeiras entradas do registo aparecerem no portal do Azure. Para exibir os logs do grupo de contêineres `ContainerInstanceLog_CL` na tabela:
 
 1. Navegue para a sua área de trabalho do Log Analytics no portal do Azure
 1. Em **geral**, selecione **logs**  
-1. Digite a seguinte consulta:`search *`
+1. Digite a seguinte consulta:`ContainerInstanceLog_CL | limit 50`
 1. Selecione **executar**
 
-Deverá ver vários resultados apresentados pela consulta `search *`. Se, a princípio, você não vir nenhum resultado, aguarde alguns minutos e, em seguida, selecione o botão **executar** para executar a consulta novamente. Por padrão, as entradas de log são exibidas em formato de **tabela** . Em seguida, pode expandir uma linha para ver os conteúdos de uma entrada de registo individual.
+Você deve ver vários resultados exibidos pela consulta. Se, a princípio, você não vir nenhum resultado, aguarde alguns minutos e, em seguida, selecione o botão **executar** para executar a consulta novamente. Por padrão, as entradas de log são exibidas em formato de **tabela** . Em seguida, pode expandir uma linha para ver os conteúdos de uma entrada de registo individual.
 
 ![Resultados da Pesquisa de registos no portal do Azure][log-search-01]
+
+## <a name="view-events"></a>Ver eventos
+
+Você também pode exibir eventos para instâncias de contêiner no portal do Azure. Os eventos incluem a hora em que a instância é criada e quando ela é iniciada. Para exibir os dados de evento na `ContainerEvent_CL` tabela:
+
+1. Navegue para a sua área de trabalho do Log Analytics no portal do Azure
+1. Em **geral**, selecione **logs**  
+1. Digite a seguinte consulta:`ContainerEvent_CL | limit 50`
+1. Selecione **executar**
+
+Você deve ver vários resultados exibidos pela consulta. Se, a princípio, você não vir nenhum resultado, aguarde alguns minutos e, em seguida, selecione o botão **executar** para executar a consulta novamente. Por padrão, as entradas são exibidas em formato de **tabela** . Em seguida, você pode expandir uma linha para ver o conteúdo de uma entrada individual.
+
+![Resultados da pesquisa de eventos na portal do Azure][log-search-02]
 
 ## <a name="query-container-logs"></a>Consultar registos de contentor
 
 Os logs de Azure Monitor incluem uma [linguagem de consulta][query_lang] extensiva para extrair informações de potencialmente milhares de linhas de saída de log.
 
-O agente de registo do Azure Container Instances envia entradas para a tabela `ContainerInstanceLog_CL` da sua área de trabalho do Log Analytics. A estrutura básica de uma consulta é a tabela de origem (`ContainerInstanceLog_CL`) seguida de uma série de operadores separados pelo caráter pipe (`|`). Pode encadear vários operadores para refinar os resultados e executar funções avançadas.
+A estrutura básica de uma consulta é a tabela de origem (neste artigo `ContainerInstanceLog_CL` ou `ContainerEvent_CL`) seguida por uma série de operadores separados pelo caractere de barra vertical (`|`). Pode encadear vários operadores para refinar os resultados e executar funções avançadas.
 
-Para ver os resultados da consulta de exemplo, cole a consulta seguinte na caixa de texto de consulta (em "Mostrar conversor de linguagem legada)" e selecione o botão **EXECUTAR** para executar a consulta. Esta consulta apresenta todas as entradas de registo cujo campo "Mensagem" contenha a palavra "aviso":
+Para ver os resultados da consulta de exemplo, Cole a consulta a seguir na caixa de texto de consulta e selecione o botão **executar** para executar a consulta. Esta consulta apresenta todas as entradas de registo cujo campo "Mensagem" contenha a palavra "aviso":
 
 ```query
 ContainerInstanceLog_CL
-| where Message contains("warn")
+| where Message contains "warn"
 ```
 
 Também são suportadas consultas mais complexas. Por exemplo, esta consulta apresenta apenas as entradas de registo para o grupo de contentores "mycontainergroup001" gerado na última hora:
@@ -151,6 +167,7 @@ Para obter informações sobre a monitorização da CPU do Container Instances e
 
 <!-- IMAGES -->
 [log-search-01]: ./media/container-instances-log-analytics/portal-query-01.png
+[log-search-02]: ./media/container-instances-log-analytics/portal-query-02.png
 
 <!-- LINKS - External -->
 [fluentd]: https://hub.docker.com/r/fluent/fluentd/

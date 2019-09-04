@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: nolachar
+ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5443b97febd6bf3831690531bceb540181e7676c
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 429570d81f7e15758d8ea60951bb4d01b96f8f2c
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706983"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256489"
 ---
 # <a name="when-to-use-enum-entities-and-set-entity-actions"></a>Quando usar entidades ENUM e definir ações de entidade
 
@@ -46,14 +46,14 @@ Imagine que você overhear parte de uma conversa entre pessoas próximas e ouve 
 Vamos esclarecer ainda mais o seguinte exemplo:
 
 Bot Você gosta de serviços cognitivas do Azure?
-Utilizador: Sim bot: Você gosta de sorvetes?
-Utilizador: Sim
+Usuário Sim bot: Você gosta de sorvetes?
+Usuário Sim
 
 Nos tutoriais anteriores, examinamos as entidades [treinadas personalizadas](04-introduction-to-entities.md) e sua ideia inicial pode ser criar uma entidade chamada "likesCogServices" e rotular o primeiro "Sim" como essa entidade.  No entanto, o sistema também rotularia o segundo "Sim". Quando tentamos corrigir o rótulo do segundo "Sim" para "likesIceCream", criamos um conflito de duas mesmas entradas "Sim", o que significa coisas diferentes e estaria preso.
 
 Nesses casos, você precisa usar as entidades ENUM e as ações SET_ENTITY.
 
-## <a name="when-to-use-enums-or-setentity-actions"></a>Quando usar ENUMs ou ações SET_ENTITY
+## <a name="when-to-use-enums-or-set_entity-actions"></a>Quando usar ENUMs ou ações SET_ENTITY
 
 Use estas regras abaixo para saber quando usar entidades ENUM e ações SET_ENTITY:
 
@@ -66,13 +66,13 @@ Em outras palavras, use-as para quaisquer prompts de fechamento, como perguntas 
 > No momento, temos uma limitação de até 5 valores por entidade enum. Cada valor usa um dos slots no limite de 64 atual. Consulte [CL-Values-and-fronteiras](../cl-values-and-boundaries.md)
 
 Exemplo: Bot Seu pedido está correto?
-Utilizador: Sim
+Usuário Sim
 
 Quando os valores possíveis da entidade forem abertos e não forem corrigidos, você precisará usar um recurso alternativo, como a [entidade esperada](05-expected-entity.md).
 
 Exemplo: Bot Qual é o seu nome?
-Utilizador: Bot de Matt: Qual é sua cor favorita?
-Utilizador: Prateado
+Usuário Bot de Matt: Qual é sua cor favorita?
+Usuário Prateado
 
 Esses prompts são considerados em aberto porque podem ser respondidos com valores arbitrários.
 

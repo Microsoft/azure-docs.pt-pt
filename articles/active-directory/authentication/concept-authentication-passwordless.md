@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ae8f6854241240249cb3b7494872cbbd8fd41e6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: fc633780d8b816d8fc2e313bb1955a5719979efe
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823752"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240874"
 ---
-# <a name="what-is-passwordless"></a>O que não tem senha?
+# <a name="what-is-passwordless"></a>O que é o modo sem palavra-passe?
 
 A autenticação multifator (MFA) é uma ótima maneira de proteger sua organização, mas os usuários ficam frustrados com a camada adicional sobre a existência de se lembrar de suas senhas. Os métodos de autenticação sem senha são mais convenientes, pois a senha é removida e substituída por algo que você tem algo ou algo que você sabe.
 
@@ -26,7 +26,7 @@ A autenticação multifator (MFA) é uma ótima maneira de proteger sua organiza
 | --- | --- | --- |
 | Sem palavra-passe | Telefone ou chave de segurança | Biometria ou PIN |
 
-Cada organização tem necessidades diferentes quando se trata de autenticação. Atualmente, a Microsoft oferece o Windows Hello, nosso para computadores Windows. Estamos adicionando as chaves de segurança Microsoft Authenticator aplicativo e FIDO2 à família de senha.
+Cada organização tem necessidades diferentes quando se trata de autenticação. Atualmente, a Microsoft oferece o Windows Hello para nossos computadores Windows. Estamos adicionando as chaves de segurança Microsoft Authenticator aplicativo e FIDO2 à família de senha.
 
 ## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator aplicativo
 

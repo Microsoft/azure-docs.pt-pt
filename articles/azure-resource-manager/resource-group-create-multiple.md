@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 09/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: dbacec6e8f91480996150e73f2a81dbcde67550b
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: b349576f5e9f5410afc29f48e40c38e12168252d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494795"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258902"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Recurso, propriedade ou iteração de variável em modelos de Azure Resource Manager
 
@@ -43,13 +43,13 @@ Quando usado com uma variável ou propriedade, o objeto de cópia tem o seguinte
 
 Ambos os usos são descritos mais detalhadamente neste artigo. Para obter um tutorial, consulte [tutorial: criar várias instâncias de recursos usando modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
 
-Se você precisar especificar se um recurso é implantado, consulte [elemento Condition](resource-group-authoring-templates.md#condition).
+Se você precisar especificar se um recurso é implantado, consulte [elemento Condition](conditional-resource-deployment.md).
 
 ## <a name="copy-limits"></a>Limites de cópia
 
 Para especificar o número de iterações, você fornece um valor para a propriedade Count. A contagem não pode exceder 800.
 
-A contagem não pode ser um número negativo. Se você implantar um modelo com a API REST versão **2019-05-10** ou posterior, poderá definir Count como zero. As versões anteriores da API REST não dão suporte a zero para contagem. Atualmente, CLI do Azure ou PowerShell não dão suporte a zero para contagem, mas esse suporte será adicionado em uma versão futura.
+A contagem não pode ser um número negativo. Se você implantar um modelo com Azure PowerShell 2,6 ou posterior, ou a versão de API REST **2019-05-10** ou posterior, poderá definir Count como zero. As versões anteriores do PowerShell e a API REST não dão suporte a zero para contagem. Atualmente, CLI do Azure não dá suporte a zero para Count, mas esse suporte será adicionado em uma versão futura.
 
 Tenha cuidado ao usar a [implantação do modo completo](deployment-modes.md) com a cópia. Se você reimplantar com o modo completo em um grupo de recursos, todos os recursos que não forem especificados no modelo após a resolução do loop de cópia serão excluídos.
 
@@ -526,7 +526,7 @@ Os exemplos a seguir mostram cenários comuns para criar mais de uma instância 
 |[Copie as variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Demonstra as diferentes maneiras de iterar em variáveis. |
 |[Várias regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implanta várias regras de segurança em um grupo de segurança de rede. Ele constrói as regras de segurança a partir de um parâmetro. Para o parâmetro, consulte [vários arquivos de parâmetro NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para percorrer um tutorial, consulte [tutorial: criar várias instâncias de recursos usando modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
 

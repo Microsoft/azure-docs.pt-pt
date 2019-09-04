@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: e55b191e937b6c9f8183b3878b264eb50401b3f1
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: a37280fddf34221a9d08501ef55c6b069cd877a4
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69903910"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242739"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede-Azure Resource Manager os seguintes limites se aplicam somente a recursos de rede gerenciados por meio de **Azure Resource Manager** por região por assinatura. Saiba como [Exibir o uso atual de recursos em relação aos limites de sua assinatura](../articles/networking/check-usage-against-limits.md).
 
@@ -51,7 +51,7 @@ ms.locfileid: "69903910"
 | --- | --- | --- |
 | Endereços IP públicos-dinâmicos | 1\.000 para Basic. |Contacte o suporte. |
 | Endereços IP públicos-estáticos | 1\.000 para Basic. |Contacte o suporte. |
-| Endereços IP públicos-estáticos | 200 para Standard.|Contacte o suporte. |
+| Endereços IP públicos-estáticos | 1\.000 para Standard.|Contacte o suporte. |
 | Comprimento do prefixo IP público | /28 | Contacte o suporte. |
 
 #### <a name="load-balancer"></a>Limites de balanceador de carga

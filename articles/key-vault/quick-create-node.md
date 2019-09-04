@@ -3,18 +3,18 @@ title: Início rápido – definir e recuperar um segredo de Azure Key Vault usa
 description: Neste guia de início rápido, você define e recupera um segredo de Azure Key Vault usando um aplicativo Web de nó
 services: key-vault
 author: msmbaldwin
-manager: sumedhb
+manager: rkarlin
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 09/05/2018
-ms.author: barclayn
+ms.date: 09/03/2010
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 5ca6289b1af02a54d8c66d5a9835e24f61c58559
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4bea46e62f90a41b566781457a39718849ee0e15
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934463"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259231"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Início rápido: Definir e recuperar um segredo de Azure Key Vault usando um aplicativo Web de nó 
 
@@ -69,7 +69,7 @@ Em seguida, crie um cofre de chaves usando o grupo de recursos que você criou n
 
 * Nome do cofre de chaves.
 * Nome do grupo de recursos. O nome deve ser uma cadeia de caracteres de 3-24 e deve conter apenas 0-9, a-z, A-Z e um hífen (-).
-* Localização: **Leste dos EUA**.
+* Local **Leste dos EUA**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "East US"
@@ -196,5 +196,9 @@ Depois disso, ao navegar até `https://<app_name>.azurewebsites.net`, você pode
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-> [!div class="nextstepaction"]
-> [SDK do Azure para Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
+Neste início rápido, você criou um Key Vault e armazenou um segredo nele. Para saber mais sobre Key Vault e como integrá-lo a seus aplicativos, continue nos artigos abaixo.
+
+- Leia uma [visão geral do Azure Key Vault](key-vault-overview.md)
+- Consulte o [Guia do desenvolvedor do Azure Key Vault](key-vault-developers-guide.md)
+- Saiba mais sobre [chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
+- Examinar [Azure Key Vault práticas recomendadas](key-vault-best-practices.md)

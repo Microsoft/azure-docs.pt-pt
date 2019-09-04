@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 03651ecb073d02a373c434b8cb55bdafec6d142a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 46c6ac52e1afb6c1619b814580a1059fd3dfedda
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142207"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279492"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate: Perguntas Mais Frequentes (FAQ)
 
@@ -27,7 +27,7 @@ Consulte a [lista para VMware](https://docs.microsoft.com/azure/migrate/migrate-
 
 As migrações para Azure fornecem um hub centralizado para iniciar a migração, executar e acompanhar a descoberta e a avaliação de máquinas e cargas de trabalho e executar e acompanhar a migração de máquinas e cargas de trabalho para o Azure. [Azure site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) é uma solução de recuperação de desastre. A migração de servidor de migrações para Azure usa Azure Site Recovery no back-end para habilitar cenários de migração para a migração de comparação entre computadores locais e com o deslocamento de precisão.
 
-## <a name="azure-migrate-appliance-vmwarephysical-servers"></a>Dispositivo de migrações para Azure (servidores VMware/físicos)
+## <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
 ### <a name="how-does-the-azure-migrate-appliance-connect-to-azure"></a>Como o dispositivo de migrações para Azure se conecta ao Azure?
 
@@ -87,6 +87,9 @@ Para o Hyper-V, a descoberta usa credenciais de host do Hyper-V. Se as VMs compa
 ### <a name="how-many-vms-can-i-discover-with-a-single-migration-appliance"></a>Quantas VMs posso descobrir com um único dispositivo de migração?
 
 Você pode descobrir até 10.000 VMs VMware e até 5.000 VMs Hyper-V com um único dispositivo de migração. Se você tiver mais computadores no seu ambiente local, saiba como dimensionar o [Hyper-V](scale-hyper-v-assessment.md) e a avaliação do [VMware](scale-vmware-assessment.md) .
+
+### <a name="can-i-delete-the-azure-migrate-appliance-from-the-project"></a>Posso excluir o dispositivo de migrações para Azure do projeto?
+Atualmente, não há suporte para a exclusão do dispositivo do projeto. A única maneira de excluir o dispositivo é excluir o grupo de recursos que tem o projeto de migrações para Azure, associado ao dispositivo, mas que também excluirá outros dispositivos registrados, o inventário descoberto, as avaliações e todos os outros artefatos do Azure associado ao projeto no grupo de recursos.
 
 ## <a name="azure-migrate-server-assessment"></a>Avaliação do servidor de migrações para Azure
 
@@ -197,5 +200,5 @@ Você pode [Visualizar dependências para grupos](https://docs.microsoft.com/azu
 
 A migração de servidor de migrações para Azure usa o mecanismo de replicação Site Recovery para a migração baseada em agente de VMs VMware, a migração de VMs do Hyper-V e a migração de servidores físicos para o Azure. A opção sem agente para migrar VMs VMware é originalmente incorporada à migração de servidor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Leia a [visão geral](migrate-services-overview.md)de migrações para Azure.

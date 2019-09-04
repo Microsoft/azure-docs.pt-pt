@@ -6,14 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 08/30/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 21e784320bc2b0785cdd28354947c0df6c35daf4
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.localizationpriority: high
+ms.openlocfilehash: 47b8fdbe48514665f40114c9820fdc5def38c778
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207991"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241356"
 ---
 ::: zone target="docs"
 

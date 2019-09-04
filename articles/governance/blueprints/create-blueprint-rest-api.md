@@ -7,12 +7,12 @@ ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 54a4da8e6d2720086b86c3573623f9dac2469ea4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f5c2b58fc6877bc196eb98faab88712f474523cb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232918"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241332"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Início rápido: Definir e Atribuir um Azure Blueprint com a API REST
 
@@ -27,8 +27,6 @@ Aprender a criar e atribuir esquemas permite a definição de padrões comuns pa
 > - Remover um esquema que foi atribuído a uma subscrição
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="getting-started-with-rest-api"></a>Introdução à API REST
 
@@ -438,7 +436,7 @@ Para remover o próprio esquema, utilize a seguinte operação da API REST:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o [ciclo de vida do plano gráfico](./concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do esquema](./concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](./concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](./concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](./concepts/resource-locking.md).

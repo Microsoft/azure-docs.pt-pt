@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2019
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 5c310c1943eaf23423be873c6172e27c621fe109
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e9ecdad0fb4d02f160977fa28a484b2a3a5bb30
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564079"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257082"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início rápido: Implantar um aplicativo no portal do LUIS
 
@@ -40,7 +40,7 @@ Você cria o recurso de ponto de extremidade de previsão no portal do Azure. Es
 
    |Definição|Value|Objetivo|
    |--|--|--|
-   |Nome|`my-cognitive-service-resource`|O nome do recurso do Azure. Você precisará desse nome ao atribuir o recurso ao aplicativo no portal do LUIS.|
+   |Name|`my-cognitive-service-resource`|O nome do recurso do Azure. Você precisará desse nome ao atribuir o recurso ao aplicativo no portal do LUIS.|
    |Subscription|A sua subscrição|Selecione uma das assinaturas associadas à sua conta.|
    |Location|**E.U.A. Oeste**|A região do Azure para este recurso.|
    |Escalão de preço|**S0**|O tipo de preço padrão para este recurso.|
@@ -59,11 +59,11 @@ Sempre que você criar um novo recurso para LUIS, será necessário atribuir o r
 
 1. Entre no portal do [Luis](https://www.luis.ai) e escolha o aplicativo **myEnglishApp** na lista de aplicativos.
 
-1. Selecione **gerenciar** no menu superior direito e, em seguida, selecione **chaves e pontos de extremidade**.
+1. Selecione **gerenciar** no menu superior direito e, em seguida, selecione **recursos do Azure**.
 
-1. Para adicionar o LUIS, selecione **atribuir recurso +** .
+1. Para adicionar o LUIS, selecione **Adicionar recurso de previsão**.
 
-   [![Atribuir um recurso ao seu aplicativo](./media/get-started-portal-deploy-app/assign-resource-button.png)](./media/get-started-portal-deploy-app/assign-resource-button.png#lightbox)
+    <!-- TBD: get screenshot-->
 
 1. Selecione seu locatário, assinatura e nome do recurso. Selecione **atribuir recursos**.
 
@@ -131,7 +131,7 @@ Quando você terminar este guia de início rápido, selecione **meus aplicativos
 
 [![Excluir aplicativo da minha lista de aplicativos](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Identificar entidades e intenções comuns](luis-tutorial-prebuilt-intents-entities.md)

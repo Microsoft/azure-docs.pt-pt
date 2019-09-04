@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 64bd71d89446a19d2afe56a32b0c7124e897cb48
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8d7346bb61fad09e3f7c9098809463285ef57e93
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072419"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242485"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Endereços IP do gerenciamento de API do Azure
 
@@ -27,7 +27,9 @@ Você pode usar endereços IP para criar regras de firewall, filtrar o tráfego 
 
 ## <a name="ip-addresses-of-api-management-service"></a>Endereços IP do serviço de gerenciamento de API
 
-Se o serviço de gerenciamento de API for um serviço de camada desenvolvedor, básico, Standard ou Premium, você poderá recuperar os endereços IP do painel Visão geral do recurso no portal do Azure.
+Cada instância do serviço de gerenciamento de API na camada Developer, Basic, Standard ou Premium tem endereços IP públicos, que são exclusivos somente para essa instância de serviço (eles não são compartilhados com outros recursos). 
+
+Você pode recuperar os endereços IP do painel Visão geral do recurso no portal do Azure.
 
 ![Endereço IP de gerenciamento de API](media/api-management-howto-ip-addresses/public-ip.png)
 

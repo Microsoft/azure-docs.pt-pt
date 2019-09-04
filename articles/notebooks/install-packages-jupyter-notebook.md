@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 504158f248cde3a399475cdec99de3e6a4ebfcc5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b0881cb6dac9ec83d2126942c758508e760f9c83
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60598014"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274429"
 ---
 # <a name="install-packages-from-within-a-notebook"></a>Instalar pacotes a partir de um bloco de notas
 
@@ -40,13 +40,13 @@ Se a saída do comando indica que o requisito é satisfeito já, em seguida, blo
 
 ## <a name="r"></a>R
 
-Pacotes de R podem ser instalados partir CRAN ou do GitHub com o `install.packages` função numa célula de código:
+Os pacotes em R podem ser instalados de Cran ou GitHub usando `install.packages` a função em uma célula de código:
 
 ```r
 install.packages("package_name")
 ```
 
-Também pode instalar versões de pré-lançamento e de outros pacotes de desenvolvimento do GitHub com a biblioteca de devtools:
+Você também pode instalar versões de pré-lançamento e outros pacotes de desenvolvimento do GitHub usando a biblioteca devtools:
 
 ```r
 options(unzip = 'internal')
@@ -66,12 +66,22 @@ Em seguida, instale pacotes:
 
 ```fsharp
 Paket.Package
-[ "MathNet.Numerics"
-"MathNet.Numerics.FSharp"
-]
+  [ "MathNet.Numerics"
+    "MathNet.Numerics.FSharp"
+  ]
+```
+
+Em seguida, carregue o gerador de paket:
+```fsharp
+#load "Paket.Generated.Refs.fsx"
+```
+
+Abra o biblioteca:
+```fsharp
+open MathNet.Numerics
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [How to: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [How to: Apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)
+- [How to: Configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
+- [How to: Apresentar uma apresentação de slides](present-jupyter-notebooks-slideshow.md)

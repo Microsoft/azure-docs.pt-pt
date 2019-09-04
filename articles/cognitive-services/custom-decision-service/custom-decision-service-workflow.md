@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 06/04/2018
-ms.author: nolachar
+ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: cce40c53fdfb052cc6c1f2941b2e3b4ae710ae21
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: c9e71d93fa9e5682a65f57ad9cf649e90f34a7e6
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707205"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258819"
 ---
 # <a name="custom-decision-service-workflow"></a>Fluxo de trabalho do Serviço de Decisão Personalizada
 
@@ -26,7 +26,7 @@ ms.locfileid: "68707205"
 
 Adicione uma [cadeia de conexão de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Registar a sua aplicação](custom-decision-service-get-started-register.md) com o Serviço de Decisão Personalizada
 * Começar a otimizar [uma página Web](custom-decision-service-get-started-browser.md) ou [uma aplicação de smartphone](custom-decision-service-get-started-app.md).

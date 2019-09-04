@@ -7,12 +7,12 @@ ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 054f9ed21ee0d7ef725c2b7eee8174c53374b5bc
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 06a767af71f457273e0e20d1248d64c22b3563e7
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232252"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274954"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a configuração de convidado do Azure Policy
 
@@ -21,16 +21,14 @@ Além de auditar e [corrigir](../how-to/remediate-resources.md) recursos do Azur
 Neste momento, Azure Policy configuração de convidado executa apenas uma auditoria de configurações dentro da máquina.
 Ainda não é possível aplicar as configurações.
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
-
 ## <a name="extension-and-client"></a>Extensão e de cliente
 
 Para auditar as configurações dentro de um computador, uma [extensão de máquina virtual](../../../virtual-machines/extensions/overview.md) está habilitada. A extensão transfere a atribuição de política aplicável e a definição de configuração correspondente.
 
-### <a name="limits-set-on-the-exension"></a>Limites definidos no exension
+### <a name="limits-set-on-the-extension"></a>Limites definidos na extensão
 
 Para limitar a extensão de afetar os aplicativos em execução dentro da máquina, a configuração de convidado não tem permissão para exceder mais de 5% da utilização da CPU.
-Isso é verdadeiro Boh para as configurações fornecidas pela Microsoft como "internas" e para configurações personalizadas criadas por clientes.
+Isso é verdadeiro para as configurações fornecidas pela Microsoft como "internas" e para configurações personalizadas criadas por clientes.
 
 ## <a name="register-guest-configuration-resource-provider"></a>Registar fornecedor de recursos de configuração de convidado
 
@@ -145,6 +143,32 @@ Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<ver
 
 Em `<version>` que refere-se ao número de versão atual.
 
+### <a name="collecting-logs-remotely"></a>Coletando logs remotamente
+
+A primeira etapa na solução de problemas de configurações de convidado ou módulos deve ser usar `Test-GuestConfigurationPackage` o cmdlet seguindo as etapas em [testar um pacote de configuração de convidado](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).  Se isso não for bem-sucedido, coletar logs do cliente poderá ajudar a diagnosticar problemas.
+
+#### <a name="windows"></a>Windows
+
+Se você quiser usar a capacidade de comando de execução de VM do Azure para capturar informações de arquivos de log em computadores Windows, o exemplo de script do PowerShell a seguir pode ser útil. Para obter detalhes sobre como executar o script no portal do Azure ou usando Azure PowerShell, consulte [executar scripts do PowerShell em sua VM do Windows com o comando executar](../../../virtual-machines/windows/run-command.md).
+
+```powershell
+$linesToIncludeBeforeMatch = 0
+$linesToIncludeAfterMatch = 10
+$latestVersion = Get-ChildItem -Path 'C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\' | ForEach-Object {$_.FullName} | Sort-Object -Descending | Select-Object -First 1
+Select-String -Path "$latestVersion\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
+```
+
+#### <a name="linux"></a>Linux
+
+Se você quiser usar a capacidade de comando de execução de VM do Azure para capturar informações de arquivos de log em computadores Linux, o exemplo de script de bash a seguir pode ser útil. Para obter detalhes sobre como executar o script no portal do Azure ou usando CLI do Azure, consulte [executar scripts de Shell em sua VM do Linux com o comando executar](../../../virtual-machines/linux/run-command.md)
+
+```Bash
+linesToIncludeBeforeMatch=0
+linesToIncludeAfterMatch=10
+latestVersion=$(find /var/lib/waagent/ -type d -name "Microsoft.GuestConfiguration.ConfigurationforLinux-*" -maxdepth 1 -print | sort -z | sed -n 1p)
+egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' "$latestVersion/GCAgent/logs/dsc.log" | tail
+```
+
 ## <a name="guest-configuration-samples"></a>Exemplos de configuração de convidado
 
 Exemplos de configuração de convidado de política estão disponíveis nos seguintes locais:
@@ -152,7 +176,7 @@ Exemplos de configuração de convidado de política estão disponíveis nos seg
 - [Índice de exemplos – configuração de convidado](../samples/index.md#guest-configuration)
 - [Repositório GitHub de exemplos de Azure Policy](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](definition-structure.md).

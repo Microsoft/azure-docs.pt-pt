@@ -4,14 +4,14 @@ description: Aprenda a criar um contentor no Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 09/01/2019
 ms.author: mjbrown
-ms.openlocfilehash: a88d8f33624278ac6e70b918cec7cef133fe4b34
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 876e35e320e37081cf6e6f89fda4f31af8713571
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093479"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240752"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Criar um contêiner Cosmos do Azure
 
@@ -25,15 +25,15 @@ Este artigo explica as diferentes maneiras de criar um contêiner Cosmos do Azur
 
 1. [Crie uma nova conta do Azure Cosmos](create-sql-api-dotnet.md#create-account)ou selecione uma conta existente.
 
-1. Abra o painel **Data Explorer** e selecione **nova coleção**. Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **Data Explorer** e selecione **novo contêiner**. Em seguida, forneça os seguintes detalhes:
 
    * Indique se você está criando um novo banco de dados ou usando um existente.
-   * Insira uma ID de coleção.
+   * Insira uma ID de contêiner.
    * Insira uma chave de partição.
    * Insira uma taxa de transferência a ser provisionada (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
-![Captura de tela do painel de Data Explorer, com a nova coleção realçada](./media/how-to-create-container/partitioned-collection-create-sql.png)
+![Captura de tela do painel de Data Explorer, com o novo contêiner realçado](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
 ### <a id="portal-mongodb"></a>API de Azure Cosmos DB para MongoDB
 
@@ -41,15 +41,15 @@ Este artigo explica as diferentes maneiras de criar um contêiner Cosmos do Azur
 
 1. [Crie uma nova conta do Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account)ou selecione uma conta existente.
 
-1. Abra o painel **Data Explorer** e selecione **nova coleção**. Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **Data Explorer** e selecione **novo contêiner**. Em seguida, forneça os seguintes detalhes:
 
    * Indique se você está criando um novo banco de dados ou usando um existente.
-   * Insira uma ID de coleção.
+   * Insira uma ID de contêiner.
    * Insira uma chave de fragmentação.
    * Insira uma taxa de transferência a ser provisionada (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
-![Captura de tela da API de Azure Cosmos DB para MongoDB, caixa de diálogo Adicionar coleção](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+![Captura de tela da API Azure Cosmos DB para MongoDB, caixa de diálogo Adicionar contêiner](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 ### <a id="portal-cassandra"></a>API para Cassandra
 

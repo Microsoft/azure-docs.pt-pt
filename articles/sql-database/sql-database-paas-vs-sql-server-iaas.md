@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/22/2019
-ms.openlocfilehash: f303e6ba30b8b68f1bed4c5bcacd746932cbe156
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 998318ad1418c1076676725af03bd7f33c963b3a
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873819"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279923"
 ---
 # <a name="choose-the-right-deployment-option-in-azure-sql"></a>Escolha a opção de implantação correta no SQL do Azure
 
@@ -33,7 +33,7 @@ Um dos primeiros aspetos a compreender em qualquer debate do Azure versus bases 
 
 Como visto no diagrama, cada oferta pode ser caracterizada pelo nível de administração que você tem sobre a infraestrutura e pelo grau de eficiência de custo.
 
-No Azure, você pode ter suas cargas de trabalho de SQL Server em execução como um serviço hospedado ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) ou uma infraestrutura hospedada ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)). No PaaS, você tem várias opções de implantação e camadas de serviço dentro de cada opção de implantação. A principal pergunta que você precisa fazer ao decidir entre PaaS ou IaaS é deseja gerenciar seu banco de dados, aplicar patches, fazer backups ou deseja delegar essas operações ao Azure?
+No Azure, você pode ter suas cargas de trabalho de SQL Server em execução como um serviço hospedado ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) ou uma infraestrutura hospedada ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)). No PaaS, você tem várias opções de implantação e camadas de serviço dentro de cada opção de implantação. A principal pergunta que você precisa fazer ao decidir entre PaaS ou IaaS é desejar gerenciar seu banco de dados, aplicar patches e fazer backups ou deseja delegar essas operações ao Azure?
 
 Dependendo da resposta, você tem as seguintes opções:
 

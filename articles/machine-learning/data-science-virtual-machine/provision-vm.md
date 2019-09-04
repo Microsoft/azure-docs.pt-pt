@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: quickstart
 ms.date: 02/22/2019
-ms.openlocfilehash: 6c0abc20775e604f9ea1c6ba882e5a9ff1d89e90
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ac4b9b4d32d05083ceabd41207243eb483648baa
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195308"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278600"
 ---
 # <a name="quickstart-set-up-a-windows-data-science-virtual-machine-on-azure"></a>Início rápido: Configurar um Máquina Virtual de Ciência de Dados do Windows no Azure
 
@@ -24,7 +24,7 @@ O Microsoft Windows Máquina Virtual de Ciência de Dados (DSVM) é uma imagem d
 
 As seguintes ferramentas estão incluídas em um DSVM:
 
-* SDK do Python para o [serviço de Azure Machine Learning](../service/index.yml).
+* SDK do Python para o [serviço de Azure Machine Learning](../index.yml).
 * [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer edition.
 * Distribuição do anaconda Python.
 * Bloco de notas do Jupyter com o R, Python e PySpark kernels.
@@ -225,10 +225,10 @@ Você pode usar o [Microsoft Web Platform Installer](https://www.microsoft.com/w
 > [!NOTE]
 > Na edição do Windows Server 2012 do DSVM e do Windows Server 2016 Edition antes de março de 2018, o ambiente Anaconda padrão é Python 2,7. O ambiente secundário é Python 3,5, localizado em C:\Anaconda\envs\py35.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Explore as ferramentas no DSVM abrindo o menu **Iniciar** .
-* Saiba mais sobre o serviço de Azure Machine Learning lendo [o que é o serviço Azure Machine Learning?](../service/overview-what-is-azure-ml.md) e experimentando [guias de início rápido e tutoriais](../service/index.yml).
+* Saiba mais sobre o serviço de Azure Machine Learning lendo [o que é o serviço de Azure Machine Learning?](../service/overview-what-is-azure-ml.md) e experimentando [tutoriais](../index.yml).
 * No explorador de arquivos, navegue até C:\Program Programas\microsoft\ml Server\R_SERVER\library\RevoScaleR\demoScripts para obter exemplos que usam a biblioteca RevoScaleR em R que dá suporte à análise de dados em escala empresarial. 
 * Leia o artigo [dez coisas que você pode fazer no máquina virtual de ciência de dados](https://aka.ms/dsvmtenthings).
 * Aprenda a criar soluções de análise de ponto-a-ponto sistematicamente utilizando o [Team Data Science Process](../team-data-science-process/index.yml).

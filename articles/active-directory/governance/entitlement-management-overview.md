@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/10/2019
+ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d93a20494886bb7d563439e2699f60bedb646dcd
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0c99ee1987b592a2e8314d529b118fb26945271e
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032549"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241702"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>O que é a gestão de direitos do Azure AD? (Pré-visualização)
 
@@ -139,6 +139,18 @@ Para entender melhor o gerenciamento de direitos e sua documentação, você dev
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 Nuvens especializadas, como Azure governamental, Azure Alemanha e Azure China 21Vianet, atualmente não estão disponíveis para uso nesta versão prévia.
+
+### <a name="which-users-must-have-licenses"></a>Quais usuários devem ter licenças?
+
+Seu locatário deve ter pelo menos tantas licenças Azure AD Premium P2 quanto você tem usuários membros ativos. Os usuários membros ativos no gerenciamento de direitos incluem:
+
+- Um usuário que inicia ou aprova uma solicitação para um pacote de acesso.
+- Um usuário ao qual foi atribuído um pacote do Access. 
+- Um usuário que gerencia pacotes de acesso.
+
+Como parte das licenças para usuários Membros, você também pode permitir que vários usuários convidados interajam com o gerenciamento de direitos. Para obter informações sobre como calcular o número de usuários convidados que você pode incluir, consulte Diretrizes de licenciamento de [colaboração B2B Azure Active Directory](../b2b/licensing-guidance.md).
+
+Para obter informações sobre como atribuir licenças a seus usuários, consulte [atribuir ou remover licenças usando o portal de Azure Active Directory](../fundamentals/license-users-groups.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

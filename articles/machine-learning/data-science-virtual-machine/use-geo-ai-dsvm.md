@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 01238885e68a39ff713bd346a9206668e16e7ee4
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 2d7532c51e2963c0dc9f8d02e7a0e32864e80f92
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195277"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278422"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Utilizar a máquina de Virtual de ciência de dados de Inteligência Artificial de Geo
 
@@ -44,9 +44,8 @@ Além dos exemplos baseados em estrutura de aprendizado de máquina e de aprendi
 3. [Classificação de uso de terra no nível de pixel](https://github.com/Azure/pixel_level_land_classification): Um tutorial que ilustra como criar um modelo de rede neural profunda que aceita uma imagem aérea como entrada e retorna um rótulo de cobertura de terra. Exemplos de rótulos de tampa terrestre são em uma *floresta* e *água*. O modelo devolve tal uma etiqueta para cada pixel na imagem. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Exemplos adicionais que utilizam a VM de ciência de dados estão disponíveis aqui:
 
 * [Amostras](dsvm-samples-and-walkthroughs.md)
-

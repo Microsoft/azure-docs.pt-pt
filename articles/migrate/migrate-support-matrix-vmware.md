@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: c351ee8290b60c81add173bb927b0c12e37f5c7c
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 7fe2c39871f1cd512da7f9a2c5146e79abbe74a6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018134"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279605"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de suporte para avaliar e migrar o VMware
 
@@ -35,8 +35,7 @@ A tabela resume os cenários com suporte para VMs VMware.
 **Suporte** | **Detalhes**
 --- | ---
 **Permissões do Azure** | Você precisa de permissões de colaborador ou de proprietário na assinatura para criar um projeto de migrações para Azure.
-**Limitações do VMware**  | Avalie até 35.000 VMs VMware em um único projeto. Você pode criar vários projetos em uma assinatura do Azure.
-**Limites do projeto** | Um projeto pode incluir VMs do VMware e VMs do Hyper-V, até os limites de avaliação.
+**Limitações do VMware**  | Avalie até 35.000 VMs VMware em um único projeto. Você pode criar vários projetos em uma assinatura do Azure. Um projeto pode incluir VMs do VMware e VMs do Hyper-V, até os limites de avaliação.
 **Geografia** | Você pode criar um projeto de migrações para Azure em uma série de geografias. Embora você só possa criar projetos nessas regiões, você pode avaliar ou migrar computadores para outros locais de destino. A geografia do projeto é usada somente para armazenar os metadados descobertos.
 
 **Geografia** | **Local de armazenamento de metadados**
@@ -70,14 +69,15 @@ Para avaliação, você precisa de uma conta somente leitura para o vCenter Serv
 
 ## <a name="assessment-appliance-requirements"></a>Avaliação – requisitos de dispositivo
 
-O dispositivo de migração do Azure para VMware é implantado usando um modelo OVA importado para o vCenter Server.
+As migrações para Azure executam um dispositivo leve para descobrir VMs VMware e enviar metadados de VM e dados de desempenho para migrações para Azure. O dispositivo para VMware é implantado usando um modelo OVA importado para o vCenter Server. A tabela a seguir resume os requisitos do dispositivo.
 
 **Suporte** | **Detalhes**
 --- | ---
-**vCenter Server** | Você precisa de recursos suficientes no vCenter Server para alocar uma VM com 32 GB de RAM, 8 vCPUs e um comutador virtual externo.<br/><br/> O dispositivo requer acesso à Internet, seja diretamente ou por meio de um proxy.
-**ESXi** | A VM do dispositivo deve ser implantada em um host ESXi executando a versão 5,5 ou posterior.
-**Projeto de migrações para Azure** | Um dispositivo pode ser associado a um único projeto.
-**vCenter Server** | Um dispositivo pode descobrir até 10.000 VMs VMware em um vCenter Server.<br/> Um dispositivo pode se conectar a um vCenter Server.
+**Implantação de dispositivo** | Você implanta o dispositivo como uma VM VMware. Você precisa de recursos suficientes no vCenter Server para alocar uma VM com 32 GB de RAM, 8 vCPUs e um comutador virtual externo.<br/><br/> O dispositivo requer acesso à Internet, seja diretamente ou por meio de um proxy.<br/> A VM do dispositivo deve ser implantada em um host ESXi executando a versão 5,5 ou posterior. 
+**Projeto de migrações para Azure** | Um dispositivo pode ser associado a um único projeto. <br/> Qualquer número de dispositivos pode ser associado a um único projeto.<br/> Você pode avaliar até 35.000 VMs em um projeto.
+**Descoberta** | Um dispositivo pode descobrir até 10.000 VMs VMware em um vCenter Server.<br/> Um dispositivo pode se conectar a um único vCenter Server.
+**Grupo de avaliação** | Você pode adicionar até 35.000 computadores em um único grupo.
+**Locação** | Você pode avaliar até 35.000 VMs em uma única avaliação.
 
 
 ## <a name="assessment-url-access-requirements"></a>Avaliação-requisitos de acesso à URL
@@ -107,6 +107,8 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 Aplicação | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/><br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivo usando a URL:```https://<appliance-ip-or-name>:44368``` <br/><br/>Conexões de saída na porta 443, 5671 e 5672 para enviar metadados de descoberta e desempenho para migrações para Azure.
 vCenter Server | Conexões de entrada na porta TCP 443 para permitir que o dispositivo colete metadados de configuração e desempenho para avaliações. <br/><br/> O dispositivo se conecta ao vCenter na porta 443 por padrão. Se o servidor vCenter escutar em uma porta diferente, você poderá modificar a porta ao configurar a descoberta.
 
+## <a name="migration---limitations"></a>Migração-limitações
+Você pode selecionar até 10 VMs de uma só vez para replicação. Se você quiser migrar mais máquinas, faça a replicação em grupos de 10. Para a migração sem agente do VMware, você pode executar até 100 replicações simultaneamente.
 
 ## <a name="agentless-migration-vmware-server-requirements"></a>Migração sem agente-requisitos do servidor VMware
 

@@ -8,15 +8,15 @@ editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 30bd7c68ae1c88aba288b515d0ec32581f90b868
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b33f0dec9e6ec685b19e01ce82cfe4adec88b575
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088193"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258600"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Usar referências de Key Vault para o serviço de aplicativo e Azure Functions (visualização)
 
@@ -184,3 +184,27 @@ Um exemplo de psuedo-template para um aplicativo de funções pode ser semelhant
 
 > [!NOTE] 
 > Neste exemplo, a implantação do controle do código-fonte depende das configurações do aplicativo. Esse comportamento normalmente é inseguro, pois a atualização da configuração do aplicativo se comporta de forma assíncrona. No entanto, como incluímos `WEBSITE_ENABLE_SYNC_UPDATE_SITE` a configuração do aplicativo, a atualização é síncrona. Isso significa que a implantação do controle do código-fonte só será iniciada quando as configurações do aplicativo tiverem sido totalmente atualizadas.
+
+## <a name="troubleshooting-key-vault-references"></a>Solucionando problemas de referências de Key Vault
+
+Se uma referência não for resolvida corretamente, o valor de referência será usado em seu lugar. Isso significa que, para as configurações do aplicativo, uma variável de ambiente seria criada cujo `@Microsoft.KeyVault(...)` valor tem a sintaxe. Isso pode fazer com que o aplicativo gere erros, pois estava esperando um segredo de uma determinada estrutura.
+
+Normalmente, isso se deve a uma configuração incorreta da [política de acesso de Key Vault](#granting-your-app-access-to-key-vault). No entanto, também pode ser devido a um segredo não mais existente ou a um erro de sintaxe na própria referência.
+
+Se a sintaxe estiver correta, você poderá exibir outras causas de erro verificando o status atual da resolução usando um detector interno.
+
+### <a name="using-the-detector-for-app-service"></a>Usando o detector para o serviço de aplicativo
+
+1. No portal, navegue até seu aplicativo.
+2. Selecione **diagnosticar e resolver prolems**.
+3. Escolha **disponibilidade e desempenho** e selecione **aplicativo Web inativo.**
+4. Encontre **Key Vault diagnóstico de configurações do aplicativo** e clique em **mais informações**.
+
+
+### <a name="using-the-detector-for-azure-functions"></a>Usando o detector para Azure Functions
+
+1. No portal, navegue até seu aplicativo.
+2. Navegue até **recursos da plataforma.**
+3. Selecione **diagnosticar e resolver prolems**.
+4. Escolha **disponibilidade e desempenho** e selecione **aplicativo de funções ou relatando erros.**
+5. Clique em **Key Vault configurações do aplicativo diagnósticos.**

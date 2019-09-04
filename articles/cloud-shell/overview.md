@@ -12,19 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: f3d7edf21edf116732eceb332cb8725a0dee85dc
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: acdf52022d8498a186ed4cff90284cd6e299d6c0
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742020"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240849"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Visão geral do Azure Cloud Shell
-Azure Cloud Shell é um shell interativo acessível por navegador para gerenciar recursos do Azure.
-Ele fornece a flexibilidade de escolher a experiência de shell que melhor se adapta à maneira como você trabalha.
-Os utilizadores de Linux podem optar por uma experiência de Bash, ao passo que os utilizadores de Windows podem escolher o PowerShell.
+Azure Cloud Shell é um shell interativo, autenticado e acessível por navegador para gerenciar recursos do Azure.
+Ele fornece a flexibilidade de escolher a experiência de shell que melhor se adapta à maneira como você trabalha, seja bash ou PowerShell.
 
 Tente shell.azure.com clicando abaixo.
 
@@ -89,6 +88,6 @@ Saiba mais sobre os recursos do [bash no Cloud Shell](features.md) e [no PowerSh
 ## <a name="pricing"></a>Preços
 O computador que hospeda o Cloud Shell é gratuito, com um pré-requisito de um compartilhamento de arquivos do Azure montado. Os custos de armazenamento regulares se aplicam.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Bash no guia de início rápido Cloud Shell](quickstart.md) <br>
 [PowerShell no guia de início rápido Cloud Shell](quickstart-powershell.md)

@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: d186d0477fd05f4948bd0280ee9ce677ad1b7542
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: d7668f49df1caca6b4261424b0d2c025a640d572
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207320"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258773"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>Início rápido: Biblioteca de cliente de criação de Reconhecimento vocal (LUIS) para .NET
 
@@ -37,9 +37,9 @@ Use a biblioteca de cliente de criação de Reconhecimento vocal (LUIS) para .NE
 
 ## <a name="setting-up"></a>Configurando
 
-### <a name="get-your-language-understanding-luis-authoring-key"></a>Obter sua chave de criação de Reconhecimento vocal (LUIS)
+### <a name="get-your-language-understanding-luis-starter-key"></a>Obter sua chave de início do Reconhecimento vocal (LUIS)
 
-Obtenha sua [chave de criação](luis-how-to-account-settings.md)e [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, denominada. `COGNITIVESERVICE_AUTHORING_KEY`
+Obtenha a [chave inicial](luis-how-to-azure-subscription.md#starter-key)e [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, denominada `COGNITIVESERVICE_AUTHORING_KEY`.
 
 ### <a name="create-a-new-c-application"></a>Criar um novo C# aplicativo
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: fcf56e8088af25c14c022039bf8862f2dc21c77a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: d76b51aa5117e662e9ff17bb91516c758de3071c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172556"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277713"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiar dados do MySQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -61,7 +61,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do MySQL:
 
 É uma cadeia de ligação típica `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Mais de propriedades que pode ser definido por seu caso:
 
-| Propriedade | Descrição | Opções | Necessário |
+| Propriedade | Descrição | Opções | Requerido |
 |:--- |:--- |:--- |:--- |
 | SSLMode | Esta opção especifica se o driver usa a criptografia SSL e a verificação ao se conectar ao MySQL. Por exemplo, `SSLMode=<0/1/2/3/4>`| DISABLED (0)/preferencial (1) **(padrão)** /obrigatório (2)/VERIFY_CA (3)/VERIFY_IDENTITY (4) | Não |
 | UseSystemTrustStore | Esta opção especifica se um certificado de autoridade de certificação deve ser usado do repositório de confiança do sistema ou de um arquivo PEM especificado. Por exemplo, `UseSystemTrustStore=<0/1>;`| Habilitado (1)/desabilitado (0) **(padrão)** | Não |
@@ -144,13 +144,13 @@ Se você estiver usando o serviço vinculado do MySQL com a carga a seguir, ele 
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de conjuntos do MySQL.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de conjuntos do MySQL.
 
-Para copiar dados do MySQL, defina a propriedade Type do conjunto de dado como **RelationalTable**. São suportadas as seguintes propriedades:
+Para copiar dados do MySQL, há suporte para as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **RelationalTable** | Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **MySqltable** | Sim |
 | tableName | Nome da tabela no banco de dados MySQL. | Não (se for especificada "query" na origem de atividade) |
 
 **Exemplo**
@@ -160,15 +160,18 @@ Para copiar dados do MySQL, defina a propriedade Type do conjunto de dado como *
     "name": "MySQLDataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "MySqlTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<MySQL linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+Se você estivesse usando `RelationalTable` dataset tipado, ele ainda tem suporte como está, enquanto você é sugerido para usar o novo no futuro.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
@@ -176,11 +179,11 @@ Para obter uma lista completa das secções e propriedades disponíveis para a d
 
 ### <a name="mysql-as-source"></a>MySQL como fonte
 
-Para copiar dados do MySQL, defina o tipo de fonte na atividade de cópia como **RelationalSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados do MySQL, há suporte para as seguintes propriedades na seção **origem** da atividade de cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **MySqlm** | Sim |
 | query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Example:**
@@ -204,7 +207,7 @@ Para copiar dados do MySQL, defina o tipo de fonte na atividade de cópia como *
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "MySqlSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -214,6 +217,8 @@ Para copiar dados do MySQL, defina o tipo de fonte na atividade de cópia como *
     }
 ]
 ```
+
+Se você estiver usando `RelationalSource` a fonte digitada, ainda haverá suporte como está, enquanto você é sugerido para usar a nova no futuro.
 
 ## <a name="data-type-mapping-for-mysql"></a>Mapeamento de tipo de dados para MySQL
 

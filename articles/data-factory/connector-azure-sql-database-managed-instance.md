@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 0cc7313531e92aa0f57b09a9252902848297bdbf
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: f664e0419396eaf60c037c2adfde70df0034cc5b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996653"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276000"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiar dados de e para Instância Gerenciada do Banco de Dados SQL do Azure usando Azure Data Factory
 
@@ -239,7 +239,9 @@ Para copiar dados de e para Instância Gerenciada do Banco de Dados SQL do Azure
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como **AzureSqlMITable**. | Sim |
-| tableName |Essa propriedade é o nome da tabela ou exibição na instância do banco de dados à qual o serviço vinculado se refere. | Não para a origem, Sim para o sink |
+| schema | Nome do esquema. |Não para a origem, Sim para o sink  |
+| table | Nome da tabela/exibição. |Não para a origem, Sim para o sink  |
+| tableName | Nome da tabela/exibição com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Para nova carga de trabalho `schema` , `table`use e. | Não para a origem, Sim para o sink |
 
 **Exemplo**
 
@@ -255,7 +257,8 @@ Para copiar dados de e para Instância Gerenciada do Banco de Dados SQL do Azure
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }

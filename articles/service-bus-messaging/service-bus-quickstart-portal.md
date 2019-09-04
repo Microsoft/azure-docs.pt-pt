@@ -1,23 +1,22 @@
 ---
-title: Início rápido - utilizar o portal do Azure para criar uma fila do Service Bus | Documentos da Microsoft
-description: Neste guia de introdução, saiba como criar uma fila do Service Bus com o portal do Azure. Em seguida, usar um aplicativo de cliente de exemplo para enviar mensagens para e receber mensagens da fila.
+title: Início rápido – usar o portal do Azure para criar uma fila do barramento de serviço | Microsoft Docs
+description: Neste guia de início rápido, você aprende a criar uma fila do barramento de serviço usando o portal do Azure. Em seguida, você usa um aplicativo cliente de exemplo para enviar mensagens e receber mensagens da fila.
 services: service-bus-messaging
 author: spelluru
-manager: timlt
 ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/10/2019
+ms.date: 09/03/2019
 ms.author: spelluru
-ms.openlocfilehash: 315f8d30b7c7559947c599edd0e18eaa5a99ac22
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: dc9b8260a8ddde6633bc9215d9efff7aaaa71ad3
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67513632"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242384"
 ---
-# <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Início rápido: Utilizar o portal do Azure para criar uma fila do Service Bus
-Este início rápido descreve como enviar e receber mensagens de e para uma fila do Service Bus, utilizando o [portal do Azure][Azure portal] para criar um espaço de nomes de mensagens e uma fila dentro desse espaço de nomes e obter as credenciais de autorização em que espaço de nomes. O procedimento, em seguida, mostra como enviar e receber mensagens desta fila com a [biblioteca .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
+# <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Início rápido: Usar portal do Azure para criar uma fila do barramento de serviço
+Este guia de início rápido descreve como enviar e receber mensagens de e para uma fila do barramento de serviço, usando o [portal do Azure][Azure portal] para criar um namespace de mensagens e uma fila dentro desse namespace e para obter as credenciais de autorização nesse namespace. O procedimento, em seguida, mostra como enviar e receber mensagens desta fila com a [biblioteca .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -26,7 +25,7 @@ Este início rápido descreve como enviar e receber mensagens de e para uma fila
 Para concluir este tutorial, confirme que tem instalada:
 
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita][] antes de começar.
-- [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior. Utilizar o Visual Studio para criar um exemplo que envia mensagens para e recebe a mensagem de uma fila. O exemplo é testar a fila que criou com o PowerShell. 
+- [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior. Você usa o Visual Studio para criar um exemplo que envia mensagens para e recebe a mensagem de uma fila. O exemplo é testar a fila que você criou usando o PowerShell. 
 - [SDK NET Core](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
@@ -34,6 +33,18 @@ Para concluir este tutorial, confirme que tem instalada:
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="send-and-receive-messages"></a>Enviar e receber mensagens
+
+> [!NOTE]
+> O exemplo usado nesta seção para enviar e receber mensagens é um exemplo do .NET. Para obter exemplos de envio/recebimento de mensagens usando outras linguagens de programação, consulte [exemplos de barramento de serviço](service-bus-samples.md). 
+> 
+> Para obter instruções passo a passo para enviar/receber mensagens usando várias linguagens de programação, consulte o início rápido a seguir:
+> - [.NET](service-bus-dotnet-get-started-with-queues.md)
+> - [Java](service-bus-java-how-to-use-queues.md)
+> - [Node. js usando o pacote do Azure/Service-Bus](service-bus-nodejs-how-to-use-queues-new-package.md)
+> - [Node. js usando o pacote Azure-SB](service-bus-nodejs-how-to-use-queues.md)
+> - [PHP](service-bus-php-how-to-use-queues.md)
+> - [python](service-bus-python-how-to-use-queues.md)
+> - [Ruby](service-bus-ruby-how-to-use-queues.md)
 
 Depois de aprovisionar a fila e o espaço de nomes e se tiver as credenciais necessárias, está pronto para enviar e receber mensagens. Pode examinar o código nesta [pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters).
 
@@ -45,7 +56,7 @@ Para executar o código, faça o seguinte:
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 3. Navegue para a pasta `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart` de exemplo.
-4. Copie a cadeia de ligação e a secção de credenciais de nome de fila que obteve a obter o gerenciamento.
+4. Copie a cadeia de conexão e o nome da fila obtidos na seção obter as credenciais de gerenciamento.
 5.  Na linha de comandos, escreva o seguinte comando:
 
     ```
@@ -71,7 +82,7 @@ Esta secção contém mais detalhes sobre o que faz o código de exemplo.
 
 ### <a name="get-connection-string-and-queue"></a>Obter a cadeia de ligação e a fila
 
-O nome da fila e de cadeia de ligação são transmitidos para o `Main()` método como argumentos da linha de comandos. `Main()` declara duas variáveis de cadeia para armazenar estes valores:
+A cadeia de conexão e o nome da fila são `Main()` passados para o método como argumentos de linha de comando. `Main()` declara duas variáveis de cadeia para armazenar estes valores:
 
 ```csharp
 static void Main(string[] args)
@@ -108,7 +119,7 @@ Em seguida, o método `Main()` inicia o ciclo de mensagens assíncronas, `MainAs
 
 ### <a name="message-loop"></a>Ciclo de mensagens
 
-O método MainAsync() cria um cliente de fila com os argumentos da linha de comandos, chama um manipulador de mensagem de recebimento denominado `RegisterOnMessageHandlerAndReceiveMessages()`e envia o conjunto de mensagens:
+O método MainAsync () cria um cliente de fila com os argumentos de linha de comando, chama um manipulador de `RegisterOnMessageHandlerAndReceiveMessages()`mensagens de recebimento chamado e envia o conjunto de mensagens:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
@@ -198,11 +209,11 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 }
 ```
 > [!NOTE]
-> Pode gerir recursos do Service Bus com [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). O Explorador do Service Bus permite aos utilizadores ligar a um espaço de nomes do Service Bus e administrar as entidades de mensagens de uma forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de teste tópico, filas, subscrições, serviços de reencaminhamento, os hubs de notificação e os hubs de eventos. 
+> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necessários para enviar e receber mensagens numa fila. Para saber mais sobre como escrever código para enviar e receber mensagens, avance para os tutoriais a **enviar e receber mensagens** secção. 
+Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necessários para enviar e receber mensagens numa fila. Para saber mais sobre como escrever código para enviar e receber mensagens, continue nos tutoriais na seção **Enviar e receber mensagens** . 
 
 > [!div class="nextstepaction"]
 > [Enviar e receber mensagens](service-bus-dotnet-get-started-with-queues.md)

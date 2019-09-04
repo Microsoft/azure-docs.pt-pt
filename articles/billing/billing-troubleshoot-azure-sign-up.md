@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
-ms.openlocfilehash: 57dc9c05778563bc0c5df1a8ac8895b51008b01f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 5032762c1275d3f1c8d1a020a54d20555f8ba3fe
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657076"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242442"
 ---
 # <a name="troubleshoot-azure-sign-up"></a>Solucionar problemas de inscrição no Azure
 
@@ -106,7 +106,7 @@ Verifique se você está usando as credenciais de entrada corretas. Em seguida, 
 
 ### <a name="cant-activate-new-azure-in-open-subscription"></a>Não é possível ativar uma nova assinatura do Azure no Open
 
-Para criar uma assinatura do Azure no Open, você deve ter uma chave de OSA (ativação de serviço online) válida que tenha pelo menos um token do Azure no Open associado a ela. Se você não tiver uma chave de OSA, entre em contato com um dos parceiros da Microsoft listados no [Microsoft Pinpoint](http://pinpoint.microsoft.com/).
+Para criar uma assinatura do Azure no Open, você deve ter uma chave de OSA (ativação de serviço online) válida que tenha pelo menos um token do Azure no Open associado a ela. Se você não tiver uma chave de OSA, entre em contato com um dos parceiros da Microsoft listados no [Microsoft Pinpoint](https://pinpoint.microsoft.com/).
 
 ### <a name="error-you-are-not-eligible-for-an-azure-subscription"></a>Erro: *Você não está qualificado para uma assinatura do Azure*
 

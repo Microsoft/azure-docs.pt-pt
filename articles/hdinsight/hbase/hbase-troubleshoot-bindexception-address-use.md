@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/08/2019
-ms.openlocfilehash: 8851a4dfb7deafab7ad77ef80619dd49ca46ed71
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.date: 08/16/2019
+ms.openlocfilehash: c2f7575dca5432d90bf421afa5a39a4a4cd79744
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947854"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983050"
 ---
 # <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>Cenário: Bindexception-o endereço já está em uso no Azure HDInsight
 
@@ -31,30 +31,30 @@ Caused by: java.net.BindException: Address already in use
 
 ## <a name="cause"></a>Causa
 
-Reiniciando servidores de região do HBase durante atividade de carga de trabalho pesada. Abaixo está o que acontece nos bastidores quando um usuário inicia a operação de reinicialização no servidor de região HBase da interface do usuário do amAmbari:
+Reiniciando servidores de região do Apache HBase durante atividade de carga de trabalho pesada. Abaixo está o que acontece nos bastidores quando um usuário inicia a operação de reinicialização no servidor de região do HBase da interface do usuário do Apache amAmbari:
 
-1. O agente Ambari enviará uma solicitação de parada para o servidor de região.
+1. O agente Ambari envia uma solicitação de interrupção para o servidor de região.
 
-1. O agente Ambari aguarda 30 segundos para que o servidor de região seja desligado normalmente.
+1. O agente Ambari aguarda 30 segundos para que o servidor de região seja desligado normalmente
 
-1. Se o aplicativo continuar a se conectar com o servidor de região, ele não será desligado imediatamente e, portanto, o tempo limite de 30 segundos expirará mais cedo.
+1. Se o seu aplicativo continuar a se conectar com o servidor de região, o servidor não será desligado imediatamente. O tempo limite de 30 segundos expira antes de o desligamento ocorrer.
 
-1. Após a expiração de 30 segundos, o agente do Ambari enviará um killbit forçado (Kill-9) para o servidor de região.
+1. Após 30 segundos, o agente Ambari envia um comando Force-Kill`kill -9`() para o servidor de região.
 
 1. Devido a esse desligamento abrupta, embora o processo do servidor de região seja eliminado, a porta associada ao processo pode não ser liberada `AddressBindException`, o que eventualmente acarreta.
 
 ## <a name="resolution"></a>Resolução
 
-Reduza a carga nos servidores de região do HBase antes de iniciar uma reinicialização.
+Reduza a carga nos servidores de região do HBase antes de iniciar uma reinicialização. Além disso, é uma boa ideia primeiro liberar todas as tabelas. Para obter uma referência sobre como liberar tabelas, consulte [HDInsight HBase: Como melhorar o tempo de reinicialização do cluster do Apache HBase](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)liberando tabelas.
 
-Como alternativa, tente e reinicie manualmente os servidores de região nos nós de trabalho usando os seguintes comandos:
+Como alternativa, tente reiniciar manualmente os servidores de região nos nós de trabalho usando os seguintes comandos:
 
 ```bash
 sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"
 sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

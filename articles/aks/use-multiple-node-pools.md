@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: b08ce504e96d09b7406f3d8fb1b2afc2c1925e90
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 675d3e2f0dc27e70af497284ce273e87d005a2e1
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164155"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241076"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Visualização – criar e gerenciar vários pools de nós para um cluster no serviço kubernetes do Azure (AKS)
 
@@ -173,7 +173,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > [!NOTE]
 > As operações de atualização e dimensionamento em um cluster ou pool de nós são mutuamente exclusivas. Você não pode ter um cluster ou pool de nós simultaneamente para atualizar e dimensionar. Em vez disso, cada tipo de operação deve ser concluído no recurso de destino antes da próxima solicitação no mesmo recurso. Leia mais sobre isso em nosso [Guia de solução de problemas](https://aka.ms/aks-pending-upgrade).
 
-Quando o cluster AKs foi criado na primeira etapa, um `--kubernetes-version` de *1.13.10* foi especificado. Isso define a versão kubernetes para o plano de controle e o pool de nós inicial. Há comandos diferentes para atualizar a versão kubernetes do plano de controle e o pool de nós. O `az aks upgrade` comando é usado para atualizar o plano de controle, enquanto `az aks nodepool upgrade` o é usado para atualizar um pool de nós individual.
+Quando o cluster AKs foi criado na primeira etapa, um `--kubernetes-version` de *1.13.10* foi especificado. Isso define a versão kubernetes para o plano de controle e o pool de nós inicial. Há diferentes comandos para atualizar a versão kubernetes do plano de controle e o pool de nós que são explicados [abaixo](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > A versão da imagem do sistema operacional do pool de nós está vinculada à versão kubernetes do cluster. Você só obterá atualizações de imagem do sistema operacional, seguindo uma atualização de cluster.
@@ -190,7 +190,7 @@ az aks nodepool upgrade \
 ```
 
 > [!Tip]
-> Para atualizar o plano de controle para *1.14.6*, `az aks upgrade -k 1.14.6`execute.
+> Para atualizar o plano de controle para *1.14.6*, `az aks upgrade -k 1.14.6`execute. Saiba mais sobre as [atualizações de plano de controle com vários pools de nós aqui](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 Liste o status dos pools de nós novamente usando o comando [AZ AKs node pool List][az-aks-nodepool-list] . O exemplo a seguir mostra que *mynodepool* está no estado *atualizando* para *1.13.10*:
 
@@ -229,14 +229,32 @@ Leva alguns minutos para atualizar os nós para a versão especificada.
 
 Como prática recomendada, você deve atualizar todos os pools de nós em um cluster AKS para a mesma versão kubernetes. A capacidade de atualizar pools de nós individuais permite executar uma atualização sem interrupção e agendar pods entre pools de nós para manter o tempo de atividade do aplicativo dentro das restrições acima mencionadas.
 
+## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Atualizar um plano de controle de cluster com vários pools de nós
+
 > [!NOTE]
 > Kubernetes usa o esquema de controle de versão de [controle semântico](https://semver.org/) de versão padrão. O número de versão é expresso como *x. y. z*, em que *x* é a versão principal, *y* é a versão secundária e *z* é a versão do patch. Por exemplo, na versão *1.12.6*, 1 é a versão principal, 12 é a versão secundária e 6 é a versão do patch. A versão kubernetes do plano de controle, bem como o pool de nós inicial, é definida durante a criação do cluster. Todos os pools de nós adicionais têm sua versão kubernetes definida quando são adicionados ao cluster. As versões do kubernetes podem ser diferentes entre pools de nós, bem como entre um pool de nós e o plano de controle, mas as restrições a seguir se aplicam:
 > 
 > * A versão do pool de nós deve ter a mesma versão principal que o plano de controle.
 > * A versão do pool de nós pode ser uma versão secundária menor que a versão do plano de controle.
 > * A versão do pool de nós pode ser qualquer versão de patch contanto que as outras duas restrições sejam seguidas.
-> 
-> Para atualizar a versão kubernetes do plano de controle, use `az aks upgrade`. Se o cluster tiver apenas um pool de nós, `az aks upgrade` o comando também atualizará a versão kubernetes do pool de nós.
+
+Um cluster AKS tem dois objetos de recurso de cluster. A primeira é uma versão kubernetes do plano de controle. O segundo é um pool de agentes com uma versão kubernetes. Um plano de controle é mapeado para um ou vários pools de nós e cada um tem sua própria versão kubernetes. O comportamento de uma operação de atualização depende de qual recurso é direcionado e qual versão da API subjacente é chamada.
+
+1. A atualização do plano de controle requer o uso do`az aks upgrade`
+   * Se o cluster tiver um único pool de agentes, o plano de controle e o pool de agente único serão atualizados juntos
+   * Se o cluster tiver vários pools de agentes, somente o plano de controle será atualizado
+1. Atualizando com o`az aks nodepool upgrade`
+   * Isso atualizará apenas o pool de nós de destino com a versão especificada do kubernetes
+
+A relação entre as versões do kubernetes mantidas por pools de nós também deve seguir um conjunto de regras.
+
+1. Não é possível fazer downgrade do plano de controle ou da versão kubernetes do pool de nós.
+1. Se uma versão de kubernetes do plano de controle não for especificada, o padrão será a versão atual do plano de controle existente.
+1. Se uma versão de kubernetes do pool de nós não for especificada, o padrão será a versão do plano de controle.
+1. Você pode atualizar ou dimensionar um plano de controle ou pool de nós em um determinado momento, não é possível enviar ambas as operações simultaneamente.
+1. Uma versão de kubernetes do pool de nós deve ser a mesma versão principal que o plano de controle.
+1. Uma versão de kubernetes do pool de nós pode ser no máximo duas (2) versões secundárias inferiores ao plano de controle, nunca maior.
+1. Um pool de nós pode ser qualquer versão de patch kubernetes menor ou igual ao plano de controle, nunca maior.
 
 ## <a name="scale-a-node-pool-manually"></a>Dimensionar um pool de nós manualmente
 

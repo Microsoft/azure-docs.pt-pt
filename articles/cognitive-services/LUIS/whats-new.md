@@ -9,20 +9,26 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: a7f64a07378b5ef0085fe77018d6b202984bc1a3
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: b29fdf4e5b3f2719865820695f659df7e75e19b5
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945830"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256431"
 ---
 # <a name="whats-new-in-language-understanding"></a>O que há de novo no Reconhecimento vocal
 
 Saiba o que há de novo no serviço. Esses itens podem ser notas de versão, vídeos, Postagens de blog e outros tipos de informações. Marque esta página para manter-se atualizada com o serviço.  
 
 ## <a name="release-notes"></a>Notas de versão 
+
+### <a name="september-3-2019"></a>3 de setembro de 2019
+
+* Recurso de criação do Azure – [migrar agora](luis-migration-authoring.md).
+* Suporte a turco para entidades predefinidas
+* Suporte italiano para datetimeV2
 
 ### <a name="july-23-2019"></a>23 de julho de 2019
 

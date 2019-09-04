@@ -4,14 +4,14 @@ description: Saiba mais sobre o Azure Cosmos DB. Esta base de dados de distribui
 author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 07/23/2019
+ms.date: 09/01/2019
 ms.author: rimman
-ms.openlocfilehash: 5e53a671c866b9482296622d19d4ad6bec46829d
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: f7396a747852e98b15c8c85e9b0d9a46326e6b25
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905295"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240692"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -96,7 +96,7 @@ O Cosmos DB oferece uma opção de APIs para trabalhar com seus dados armazenado
 
 Qualquer [aplicativo Web, móvel, de jogos e de IOT](use-cases.md) que precise lidar com grandes quantidades de dados, leituras e gravações em uma [escala global](distribute-data-globally.md) com tempos de resposta quase reais para uma variedade de dados se beneficiará da [alta disponibilidade garantida de Cosmos DB ](https://azure.microsoft.com/support/legal/sla/cosmos-db/), alta taxa de transferência, baixa latência e consistência ajustável. Saiba mais sobre como Azure Cosmos DB pode ser usado para criar [IOT e](use-cases.md#iot-and-telematics)telecomerciais, [varejo e marketing](use-cases.md#retail-and-marketing), [jogos](use-cases.md#gaming) e [aplicativos Web e móveis](use-cases.md#web-and-mobile-applications).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre os principais conceitos do Cosmos DB está pronto para a [distribuição global](distribute-data-globally.md) e o [particionamento](partitioning-overview.md) e a [taxa de transferência](request-units.md)provisionada.
 

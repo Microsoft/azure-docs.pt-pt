@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: daf2781113016b20c19a6b8f5365033f1ff1479b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ae186209395078ed56a046aafdbe01bb513fc3a0
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195264"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277434"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Use o aprendizado ativo para melhorar sua base de dados de conhecimento
 
@@ -56,7 +56,7 @@ Quando a pontuação de uma pergunta é altamente confiável, como 80%, o interv
 
 ## <a name="upgrade-your-runtime-version-to-use-active-learning"></a>Atualizar sua versão de tempo de execução para usar o aprendizado ativo
 
-O aprendizado ativo tem suporte na versão de tempo de execução 4.4.0 e posteriores. Se sua base de dados de conhecimento foi criada em uma versão anterior, [atualize seu tempo de execução](set-up-qnamaker-service-azure.md#get-latest-runtime-updates) para usar esse recurso. 
+O aprendizado ativo tem suporte na versão de tempo de execução 4.4.0 e posteriores. Se sua base de dados de conhecimento foi criada em uma versão anterior, [atualize seu tempo de execução](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) para usar esse recurso. 
 
 ## <a name="turn-on-active-learning-to-see-suggestions"></a>Ativar o aprendizado ativo para ver sugestões
 

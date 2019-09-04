@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: b4bd61ea74055a04718d8a9d8d5ccd42671af2ac
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: eead9e0fec8ac4322bc7816de4a4774f8be8129c
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638345"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257961"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Funções de entidade para subtipos contextuais
 
@@ -93,11 +93,11 @@ A entidade e a função estão entre parênteses, `{}`. A entidade e a função 
 
 ## <a name="entity-roles-versus-collaborator-roles"></a>Funções de entidade versus funções de colaborador
 
-As funções de entidade se aplicam ao modelo de dados do aplicativo LUIS. As funções de [colaborador](luis-concept-collaborator.md) se aplicam a níveis de acesso de criação. 
+As funções de entidade se aplicam ao modelo de dados do aplicativo LUIS. [Colaboradores ou](luis-concept-keys.md#contributions-from-other-authors) funções de colaborador se aplicam a níveis de acesso de criação. 
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Use um [tutorial prático](tutorial-entity-roles.md) usando funções de entidade com entidades não aprendidas por máquina
 * Saiba como adicionar [funções](luis-how-to-add-entities.md#add-a-role-to-pattern-based-entity)

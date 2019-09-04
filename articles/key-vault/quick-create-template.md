@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/22/2019
+ms.date: 09/03/2019
 ms.author: jgao
-ms.openlocfilehash: b27caa3d91d67ad63bfbf5e7c549d690980cdd7b
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 13ac8b9f6d82cc8b0060f87237ef3140cb245379
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934446"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259210"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Início rápido: Definir e recuperar um segredo de Azure Key Vault usando o modelo do Resource Manager
 
@@ -66,7 +66,7 @@ O modelo usado neste guia de início rápido é de [modelos de início rápido d
     * **ID de usuário do AD**: Insira sua ID de objeto de usuário do Azure AD que você recuperou dos [pré-requisitos](#prerequisites).
     * **Nome do segredo**: Insira um nome para o segredo que você armazena no cofre de chaves.  Por exemplo, **AdminPassword**.
     * **Valor secreto**: Insira o valor do segredo.  Se você armazenar uma senha, é recomendável usar a senha gerada que você criou em pré-requisitos.
-    * **Eu concordo com o estado dos termos e condições acima**: Selecione.
+    * **Eu concordo com o estado dos termos e condições acima**: Não.
 3. Selecione **Comprar**.
 
 ## <a name="validate-the-deployment"></a>Validar a implementação
@@ -101,7 +101,9 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Home Page do Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
-* [Documentação do Azure Key Vault](index.yml)
-* [Azure SDK For Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault) (SDK do Azure para Node)
-* [Referência à API REST do Azure](https://docs.microsoft.com/rest/api/keyvault/)
+Neste guia de início rápido, você criou um cofre de chaves e um segredo usando um modelo do Azure Resource Manager e validou a implantação. Para saber mais sobre Key Vault e Azure Resource Manager, continue com os artigos abaixo.
+
+- Leia uma [visão geral do Azure Key Vault](key-vault-overview.md)
+- Saiba mais sobre o [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+- Obter mais informações sobre [chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
+- Examinar [Azure Key Vault práticas recomendadas](key-vault-best-practices.md)

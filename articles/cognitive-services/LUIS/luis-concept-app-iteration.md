@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 2a540606a6f9cfa790a2244628e7f0b7bef35986
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 4356d9e1cd3d6f1a924603f7405d612814d35859
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639255"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256920"
 ---
 # <a name="authoring-cycle-for-your-luis-app"></a>Ciclo de criação para seu aplicativo LUIS
 LUIS Aprende melhor num ciclo iterativo de alterações no modelo, exemplos de expressão, publicação e a recolha de dados das consultas de ponto final. 
@@ -38,12 +38,12 @@ Instruir o LUIS para ignorar as expressões que não são relevantes para o dom�
 ## <a name="train-and-publish-the-app"></a>Preparar e publicar a aplicação
 Depois de ter 15 a 30 declarações diferentes em cada tentativa, com as entidades necessárias rotuladas, você precisa [treinar](luis-how-to-train.md) e [publicar](luis-how-to-publish-app.md). A partir de notificação de êxito de publicar, utilize a ligação para obter os pontos finais. Certifique-se de criar e publicar seu aplicativo para que ele esteja disponível nas [regiões de ponto de extremidade](luis-reference-regions.md) de que você precisa. 
 
-## <a name="https-endpoint-testing"></a>Teste de ponto final HTTPS
-Pode testar a aplicação do LUIS partir do ponto final HTTPS. O teste do ponto de extremidade permite que o LUIS escolha qualquer declarações com baixa confiança para [revisão](luis-how-to-review-endpoint-utterances.md).  
+## <a name="https-prediction-endpoint-testing"></a>Teste de ponto de extremidade de previsão HTTPS
+Você pode testar seu aplicativo LUIS do ponto de extremidade de previsão HTTPS. O teste do ponto de extremidade de previsão permite que o LUIS escolha qualquer declarações com baixa confiança para [revisão](luis-how-to-review-endpoint-utterances.md).  
 
 ## <a name="recycle"></a>Reciclagem
 
-Quando tiver terminado com um ciclo de criação, pode começar novamente. Comece com a [revisão do ponto de extremidade declarações](luis-how-to-review-endpoint-utterances.md) Luis marcado com baixa confiança. Verifique estas expressões de com para o objetivo e a entidade. Depois de rever expressões com, a lista de revisão deve estar vazia.  
+Quando tiver terminado com um ciclo de criação, pode começar novamente. Comece com [revisar ponto de extremidade de previsão declarações](luis-how-to-review-endpoint-utterances.md) Luis marcado com baixa confiança. Verifique estas expressões de com para o objetivo e a entidade. Depois de rever expressões com, a lista de revisão deve estar vazia.  
 
 Considere [clonar](luis-concept-version.md#clone-a-version) a versão atual em uma nova versão e, em seguida, comece a criar alterações na nova versão. 
 
@@ -53,4 +53,4 @@ O [teste em lotes](luis-concept-batch-test.md) é uma maneira de ver quantos exe
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Conheça os conceitos [colaboração](luis-concept-collaborator.md).
+Conheça os conceitos [colaboração](luis-concept-keys.md).

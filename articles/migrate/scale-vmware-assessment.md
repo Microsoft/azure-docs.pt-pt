@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: c9c57a07100f2ea6db86408826bf74d05c8df5aa
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 0d279781cdc27dbf2140c0100d84de5128c6a3d5
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868685"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279433"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Avalie grandes números de VMs VMware para migração para o Azure
 
@@ -48,7 +48,8 @@ Use os limites resumidos nesta tabela para planejamento.
 **Planeamento** | **Limites**
 --- | --- 
 **Projetos de migrações para Azure** | Avalie até 35.000 VMs em um projeto.
-**Dispositivo de migrações para Azure** | Um dispositivo só pode se conectar a um único vCenter Server.<br/><br/> Um dispositivo só pode ser associado a um único projeto de migrações para Azure.<br/> Um dispositivo pode descobrir até 10.000 VMs em um vCenter Server.
+**Dispositivo de migrações para Azure** | Um dispositivo pode descobrir até 10.000 VMs em um vCenter Server.<br/> Um dispositivo só pode se conectar a um único vCenter Server.<br/> Um dispositivo só pode ser associado a um único projeto de migrações para Azure.<br/>  Qualquer número de dispositivos pode ser associado a um único projeto de migrações para Azure. <br/><br/> 
+**Grupo** | Você pode adicionar até 35.000 VMs em um único grupo.
 **Avaliação de migrações para Azure** | Você pode avaliar até 35.000 VMs em uma única avaliação.
 
 Com esses limites em mente, aqui estão alguns exemplos de implantações:

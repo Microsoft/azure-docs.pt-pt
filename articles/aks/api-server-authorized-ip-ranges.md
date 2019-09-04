@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: fe0c9d7e870b56bf83b70845af9159ea0703c4ab
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 487940bfb5d6e7c5eebf99f804f57c3e17709377
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533624"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276491"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Visualização-acesso seguro ao servidor de API usando intervalos de endereços IP autorizados no serviço de kubernetes do Azure (AKS)
 
@@ -27,6 +27,8 @@ Este artigo mostra como usar intervalos de endereços IP autorizados do servidor
 > * [Perguntas frequentes do suporte do Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Antes de começar
+
+Este artigo pressupõe que você está trabalhando com clusters que usam [kubenet] [kubenet].  Com os clusters baseados em [CNI (interface de rede de contêiner do Azure)] [CNI-Networking], você não terá a tabela de rotas necessária necessária para proteger o acesso.  Você precisará criar a tabela de rotas manualmente.  Consulte [Gerenciando tabelas de rotas](https://docs.microsoft.com/azure/virtual-network/manage-route-table) para obter mais informações.
 
 Os intervalos de IP autorizados do servidor de API só funcionam para novos clusters AKS que você criar. Este artigo mostra como criar um cluster AKS usando o CLI do Azure.
 
@@ -246,7 +248,7 @@ az aks update \
     --api-server-authorized-ip-ranges ""
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, você habilitou intervalos de IP autorizados do servidor de API. Essa abordagem é uma parte de como você pode executar um cluster AKS seguro.
 

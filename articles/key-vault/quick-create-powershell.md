@@ -2,22 +2,22 @@
 title: Início Rápido do Azure - Definir e obter um segredo do Key Vault com o PowerShell | Microsoft Docs
 description: ''
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
-ms.author: barclayn
-ms.openlocfilehash: 8d6260d462b4c244dfb41630e06710a1ce8baf6c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.date: 09/03/2019
+ms.author: mbaldwin
+ms.openlocfilehash: 5753384d12d31016dff7a33175899835c8bd1fec
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726786"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259248"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Início rápido: Definir e obter um segredo no Azure Key Vault com o PowerShell
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Início rápido: Definir e recuperar um segredo de Azure Key Vault usando o PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -27,7 +27,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a versão 1.0.0 do módulo Azure PowerShell ou posterior. Tipo de `$PSVersionTable.PSVersion` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzAccount` para criar uma ligação com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá Azure PowerShell módulo versão 1.0.0 ou posterior. Digite `$PSVersionTable.PSVersion` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzAccount` para criar uma ligação com o Azure.
 
 ```azurepowershell-interactive
 Login-AzAccount
@@ -57,8 +57,8 @@ New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' 
 
 O resultado deste cmdlet mostra as propriedades do cofre de chaves recém-criado. Tome nota das duas propriedades listadas abaixo:
 
-* **Nome do cofre**: No exemplo que está **Contoso-Vault2**. Irá utilizar este nome para outros cmdlets do Cofre de Chaves.
-* **URI do cofre**: Neste exemplo, que é https://contosokeyvault.vault.azure.net/. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
+* **Nome do cofre**: No exemplo **, é contoso-Vault2**. Irá utilizar este nome para outros cmdlets do Cofre de Chaves.
+* **URI do cofre**: Neste exemplo, isso é https://contosokeyvault.vault.azure.net/. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
 
 Após a criação do cofre, a sua conta do Azure é a única conta autorizada a realizar operações neste novo cofre.
 
@@ -66,15 +66,15 @@ Após a criação do cofre, a sua conta do Azure é a única conta autorizada a 
 
 ## <a name="adding-a-secret-to-key-vault"></a>Adicionar um segredo ao Key Vault
 
-Para adicionar um segredo ao cofre, apenas tem de efetuar alguns passos. Neste caso, vai adicionar uma palavra-passe que possa ser utilizada por uma aplicação. A palavra-passe é denominada **ExamplePassword** e armazena o valor de **hVFkk965BuUv** nela.
+Para adicionar um segredo ao cofre, apenas tem de efetuar alguns passos. Neste caso, vai adicionar uma palavra-passe que possa ser utilizada por uma aplicação. A senha é chamada de **ExamplePassword** e armazena o valor de **hVFkk965BuUv** nela.
 
-Comece por converter o valor de **hVFkk965BuUv** numa cadeia segura ao escrever:
+Primeiro, converta o valor de **hVFkk965BuUv** em uma cadeia de caracteres segura digitando:
 
 ```azurepowershell-interactive
 $secretvalue = ConvertTo-SecureString 'hVFkk965BuUv' -AsPlainText -Force
 ```
 
-Em seguida, escreva os comandos do PowerShell abaixo para criar um segredo no Key Vault denominado **ExamplePassword** com o valor **hVFkk965BuUv** :
+Em seguida, digite os comandos do PowerShell abaixo para criar um segredo no Key Vault chamado **ExamplePassword** com o valor **hVFkk965BuUv** :
 
 ```azurepowershell-interactive
 $secret = Set-AzKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'ExamplePassword' -SecretValue $secretvalue
@@ -92,7 +92,7 @@ Agora, criou um Key Vault, armazenou um segredo e obteve-o.
 
  Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se quiser continuar a trabalhar com outros inícios rápidos e tutoriais, pode manter estes recursos.
 
-Quando já não for necessário, pode utilizar o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) de comando para remover o grupo de recursos, o Cofre de chaves, e todos os recursos relacionados.
+Quando não for mais necessário, você pode usar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, Key Vault e todos os recursos relacionados.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name ContosoResourceGroup
@@ -100,9 +100,9 @@ Remove-AzResourceGroup -Name ContosoResourceGroup
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, criou um Key Vault e armazenou uma chave de software. Para saber mais sobre o Key Vault e como utilizá-lo com as suas aplicações, avance para o tutorial referente às aplicações Web que funcionam com o Key Vault.
+Neste início rápido, você criou um Key Vault e armazenou um segredo nele. Para saber mais sobre Key Vault e como integrá-lo a seus aplicativos, continue nos artigos abaixo.
 
-Para saber como ler um segredo do Key Vault a partir de um aplicativo web usando identidades geridas para recursos do Azure, continue o tutorial
-
-> [!div class="nextstepaction"]
-> [Configurar uma aplicação web do Azure para ler um segredo do Key vault](quick-create-net.md).
+- Leia uma [visão geral do Azure Key Vault](key-vault-overview.md)
+- Consulte a referência para os [cmdlets de Key Vault Azure PowerShell](/powershell/module/az.keyvault/?view=azps-2.6.0#key_vault)
+- Saiba mais sobre [chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
+- Examinar [Azure Key Vault práticas recomendadas](key-vault-best-practices.md)

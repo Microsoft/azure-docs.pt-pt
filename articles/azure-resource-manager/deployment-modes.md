@@ -1,84 +1,84 @@
 ---
-title: Modos de implementação do Azure Resource Manager | Documentos da Microsoft
-description: Descreve como especificar se pretende utilizar um modo de implantação completas ou incrementais com o Azure Resource Manager.
+title: Azure Resource Manager modos de implantação | Microsoft Docs
+description: Descreve como especificar se deseja usar um modo de implantação completo ou incremental com Azure Resource Manager.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8a53ed1eea66c976c46a21378a9c48a1ad5ce902
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: c82d8b90d9da44ab8f4b8ea0aa0e063ea70350e2
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508215"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258967"
 ---
-# <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Azure Resource Manager
+# <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager modos de implantação
 
-Quando a implementação de recursos, especifica que a implementação é uma atualização incremental ou uma atualização completa.  A principal diferença entre esses dois modos é como o Resource Manager processa os recursos existentes no grupo de recursos que não estão no modelo. O modo predefinido é incremental.
+Ao implantar seus recursos, você especifica que a implantação é uma atualização incremental ou uma atualização completa.  A principal diferença entre esses dois modos é como o Resource Manager trata os recursos existentes no grupo de recursos que não estão no modelo. O modo padrão é incremental.
 
-Em ambos os modos, Gestor de recursos tenta criar todos os recursos especificados no modelo. Se o recurso já existe no grupo de recursos e as respetivas definições são iguais, nenhuma operação está a ser utilizada para esse recurso. Se alterar os valores de propriedade para um recurso, o recurso é atualizado com os novos valores. Se tentar atualizar a localização ou o tipo de um recurso existente, a implementação falhar com um erro. Em vez disso, implementar um novo recurso com a localização ou escreva o que precisa.
+Para ambos os modos, o Resource Manager tenta criar todos os recursos especificados no modelo. Se o recurso já existir no grupo de recursos e suas configurações estiverem inalteradas, nenhuma operação será executada para esse recurso. Se você alterar os valores de propriedade de um recurso, o recurso será atualizado com esses novos valores. Se você tentar atualizar o local ou o tipo de um recurso existente, a implantação falhará com um erro. Em vez disso, implante um novo recurso com o local ou tipo de que você precisa.
 
-## <a name="complete-mode"></a>Modo de conclusão
+## <a name="complete-mode"></a>Modo completo
 
-No modo de conclusão, Gestor de recursos **elimina** recursos de que existem no grupo de recursos, mas não estão especificados no modelo. Recursos que são especificados no modelo, mas não implementados porque um [condição](resource-group-authoring-templates.md#condition) for avaliada como falsa, não são eliminados.
+No modo completo, o Gerenciador de recursos **exclui** os recursos que existem no grupo de recursos, mas não são especificados no modelo. Recursos que são especificados no modelo, mas não implantados porque uma [condição](conditional-resource-deployment.md) é avaliada como false, não são excluídos.
 
-Tenha cuidado ao utilizar o modo completo com [copiar loops](resource-group-create-multiple.md). Todos os recursos que não estão especificados no modelo depois de resolver o ciclo de cópia são eliminados.
+Tenha cuidado ao usar o modo completo com loops de [cópia](resource-group-create-multiple.md). Todos os recursos que não são especificados no modelo após a resolução do loop de cópia são excluídos.
 
-Existem algumas diferenças em como tipos de recurso lidar com as eliminações de modo completa. Recursos de principal são automaticamente eliminados quando não num modelo que é implementada no modo de conclusão. Alguns recursos filho não são automaticamente eliminados quando não estiver no modelo. No entanto, esses recursos subordinados são eliminados se o recurso principal é eliminado. 
+Há algumas diferenças em como os tipos de recursos lidam com exclusões de modo completo. Os recursos pai são excluídos automaticamente quando não estão em um modelo implantado no modo completo. Alguns recursos filho não são excluídos automaticamente quando não estão no modelo. No entanto, esses recursos filho serão excluídos se o recurso pai for excluído. 
 
-Por exemplo, se o seu grupo de recursos contém uma zona DNS (tipo de recurso Microsoft.Network/dnsZones) e um registo CNAME (tipo de recurso Microsoft.Network/dnsZones/CNAME), a zona DNS é o recurso principal para o registo CNAME. Se implementar com o modo de conclusão e não incluem a zona DNS no seu modelo, a zona DNS e o registo CNAME são ambos eliminados. Se inclua a zona DNS no seu modelo, mas não incluem o registo CNAME, não é eliminado o CNAME. 
+Por exemplo, se o grupo de recursos contiver uma zona DNS (tipo de recurso Microsoft. Network/dnsZones) e um registro CNAME (tipo de recurso Microsoft. Network/dnsZones/CNAME), a zona DNS será o recurso pai do registro CNAME. Se você implantar o com o modo completo e não incluir a zona DNS em seu modelo, a zona DNS e o registro CNAME serão excluídos. Se você incluir a zona DNS em seu modelo, mas não incluir o registro CNAME, o CNAME não será excluído. 
 
-Para obter uma lista de como tipos de recurso lidar com a eliminação, veja [recursos de eliminação do Azure para implementações no modo completa](complete-mode-deletion.md).
+Para obter uma lista de como os tipos de recursos lidam com a exclusão, consulte [exclusão de recursos do Azure para implantações de modo completo](complete-mode-deletion.md).
 
-Se o grupo de recursos for [bloqueado](resource-group-lock-resources.md), modo completado não elimina os recursos.
+Se o grupo de recursos estiver [bloqueado](resource-group-lock-resources.md), o modo completo não excluirá os recursos.
 
 > [!NOTE]
-> Apenas os modelos de nível de raiz suportam o modo de implantação completa. Para [ligada ou para aninhados modelos](resource-group-linked-templates.md), tem de utilizar o modo de incremental. 
+> Somente modelos de nível raiz dão suporte ao modo de implantação completo. Para [modelos vinculados ou aninhados](resource-group-linked-templates.md), você deve usar o modo incremental. 
 >
-> [Implementações de nível de subscrição](deploy-to-subscription.md) não suporta o modo de conclusão.
+> Implantações de [nível de assinatura](deploy-to-subscription.md) não dão suporte ao modo completo.
 >
-> Atualmente, o portal não suporta o modo de conclusão.
+> Atualmente, o portal não dá suporte ao modo completo.
 >
 
-## <a name="incremental-mode"></a>Modo de incremental
+## <a name="incremental-mode"></a>Modo incremental
 
-No modo de incremental, Gestor de recursos **deixa inalterado** recursos de que existem no grupo de recursos, mas não estão especificados no modelo.
+No modo incremental, o Gerenciador de recursos **deixa** os recursos inalterados que existem no grupo de recursos, mas não são especificados no modelo.
 
-No entanto, quando voltar a implementar um recurso existente no modo de incremental, o resultado é um diferente. Especifica todas as propriedades para o recurso, não apenas aqueles que estiver a atualizar. Um mal-entendido comum é pensar propriedades que não forem especificadas são inalterados do esquerda. Se não especificar determinadas propriedades, o Resource Manager interpreta a atualização como substituir esses valores.
+No entanto, ao reimplantar um recurso existente no modo incremental, o resultado é diferente. Especifique todas as propriedades para o recurso, não apenas aquelas que você está atualizando. Um mal-entendido comum é considerar que as propriedades que não são especificadas são deixadas inalteradas. Se você não especificar determinadas propriedades, o Resource Manager interpretará a atualização ao substituir esses valores.
 
 ## <a name="example-result"></a>Resultado de exemplo
 
-Para ilustrar a diferença entre os modos de incrementais e completas, considere o seguinte cenário.
+Para ilustrar a diferença entre os modos incremental e completo, considere o cenário a seguir.
 
-**Grupo de recursos** contém:
-
-* Recurso A
-* Recurso B
-* Recurso C
-
-**Modelo** contém:
-
-* Recurso A
-* Recurso B
-* Recurso D
-
-Quando implementado num **incremental** modo, o grupo de recursos tem:
+O **grupo de recursos** contém:
 
 * Recurso A
 * Recurso B
 * Recurso C
-* Recurso D
 
-Quando implementado num **concluída** modo, C de recurso é eliminado. O grupo de recursos tem:
+O **modelo** contém:
 
 * Recurso A
 * Recurso B
 * Recurso D
 
-## <a name="set-deployment-mode"></a>Definir o modo de implementação
+Quando implantado no modo **incremental** , o grupo de recursos tem:
 
-Para definir o modo de implementação ao implementar com o PowerShell, utilize o `Mode` parâmetro.
+* Recurso A
+* Recurso B
+* Recurso C
+* Recurso D
+
+Quando implantado no modo **completo** , o recurso C é excluído. O grupo de recursos tem:
+
+* Recurso A
+* Recurso B
+* Recurso D
+
+## <a name="set-deployment-mode"></a>Definir modo de implantação
+
+Para definir o modo de implantação ao implantar com o PowerShell, use `Mode` o parâmetro.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment `
@@ -88,7 +88,7 @@ New-AzResourceGroupDeployment `
   -TemplateFile c:\MyTemplates\storage.json
 ```
 
-Para definir o modo de implementação ao implementar com a CLI do Azure, utilize o `mode` parâmetro.
+Para definir o modo de implantação ao implantar com CLI do Azure, use o `mode` parâmetro.
 
 ```azurecli-interactive
 az group deployment create \
@@ -99,7 +99,7 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-O exemplo seguinte mostra um modelo ligado definido para o modo de implantação incremental:
+O exemplo a seguir mostra um modelo vinculado definido para o modo de implantação incremental:
 
 ```json
 "resources": [
@@ -115,8 +115,8 @@ O exemplo seguinte mostra um modelo ligado definido para o modo de implantação
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre a criação de modelos do Resource Manager, veja [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
-* Para saber mais sobre a implementação de recursos, veja [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md).
-* Para ver as operações de um fornecedor de recursos, consulte [API REST do Azure](/rest/api/).
+* Para saber mais sobre como criar modelos do Resource Manager, confira [criação de modelos de Azure Resource Manager](resource-group-authoring-templates.md).
+* Para saber mais sobre a implantação de recursos, consulte [implantar um aplicativo com Azure Resource Manager modelo](resource-group-template-deploy.md).
+* Para exibir as operações de um provedor de recursos, consulte [API REST do Azure](/rest/api/).

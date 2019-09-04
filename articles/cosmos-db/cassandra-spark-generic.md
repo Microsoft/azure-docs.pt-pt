@@ -7,13 +7,13 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: cc28cf590a1fd2c3fdfe8651f136526188801c04
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.date: 09/01/2019
+ms.openlocfilehash: cb34ea44c069f067d13a6480531a94a1a515f380
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615631"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241249"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Conectar-se ao Azure Cosmos DB API do Cassandra do Spark
 
@@ -29,7 +29,7 @@ Este artigo é um entre uma série de artigos sobre a integração do Azure Cosm
 
 * **Azure Cosmos DB biblioteca auxiliar para API do Cassandra:** Além do conector do Spark, você precisa de outra biblioteca chamada [Azure-Cosmos-Cassandra-Spark-Helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) da Azure Cosmos DB. Esta biblioteca contém a fábrica de conexões personalizada e as classes de política de repetição.
 
-  A política de repetição no Azure Cosmos DB é configurada para tratar exceções de código de status HTTP 429 ("taxa de solicitação grande"). O Azure Cosmos DB API do Cassandra converte essas exceções em erros sobrecarregados no protocolo nativo Cassandra, e você pode tentar novamente com as desvantagens. Como Azure Cosmos DB usa o modelo de taxa de transferência provisionado, as exceções de limitação de taxa de solicitação ocorrem quando as taxas de entrada/saída aumentam. A política de repetição protege seus trabalhos do Spark contra picos de dados que excedem momentaneamente a taxa de transferência alocada para sua coleção.
+  A política de repetição no Azure Cosmos DB é configurada para tratar exceções de código de status HTTP 429 ("taxa de solicitação grande"). O Azure Cosmos DB API do Cassandra converte essas exceções em erros sobrecarregados no protocolo nativo Cassandra, e você pode tentar novamente com as desvantagens. Como Azure Cosmos DB usa o modelo de taxa de transferência provisionado, as exceções de limitação de taxa de solicitação ocorrem quando as taxas de entrada/saída aumentam. A política de repetição protege seus trabalhos do Spark contra picos de dados que excedem momentaneamente a taxa de transferência alocada para seu contêiner.
 
   > [!NOTE] 
   > A política de repetição pode proteger seus trabalhos do Spark apenas contra picos momentâneos. Se você não tiver configurado o RUs suficiente necessário para executar a carga de trabalho, a política de repetição não será aplicável e a classe de política de repetição relançará a exceção.
@@ -113,7 +113,7 @@ spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Os artigos a seguir demonstram a integração do Spark com o Azure Cosmos DB API do Cassandra. 
  

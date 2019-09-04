@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff4259c438fec448ba510e4c248de6f4acc184ab
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: c3d1d211f85c50a482e1dd9c482cb75477942de7
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990493"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278189"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>O que são FPGA (matrizes de portão programável por campo) e como implantar
 
@@ -133,7 +133,7 @@ Siga as instruções para:
 * Consumir o modelo implementado
 * Eliminar serviços implementados
 
-Use o [SDK do Azure Machine Learning para Python](https://aka.ms/aml-sdk) para criar uma definição de serviço. Uma definição de serviço é um arquivo que descreve um pipeline de grafos (Input, featurizer e classificador) com base em TensorFlow. O comando de implantação compacta automaticamente a definição e os grafos em um arquivo ZIP e carrega o ZIP para o armazenamento de BLOBs do Azure. O DNN já está implantado para ser executado no FPGA.
+Use o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) para criar uma definição de serviço. Uma definição de serviço é um arquivo que descreve um pipeline de grafos (Input, featurizer e classificador) com base em TensorFlow. O comando de implantação compacta automaticamente a definição e os grafos em um arquivo ZIP e carrega o ZIP para o armazenamento de BLOBs do Azure. O DNN já está implantado para ser executado no FPGA.
 
 ### <a name="load-azure-ml-workspace"></a>Carregar espaço de trabalho do Azure ML
 
@@ -426,7 +426,7 @@ Todos [os dispositivos](https://docs.microsoft.com/azure/databox-online/data-box
 
 Para proteger seus serviços Web do FPGA, consulte o documento [Secure Web Services](how-to-secure-web-service.md) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Confira estes blocos de anotações, vídeos e Blogs:
 

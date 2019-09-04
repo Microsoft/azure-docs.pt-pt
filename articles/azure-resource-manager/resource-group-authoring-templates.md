@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9858e8a52888304edd48893db02faa992b356b3b
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 53b2f9783b33c859ca2c5de5f35353b8482ea5c7
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774905"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275126"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Entender a estrutura e a sintaxe de modelos de Azure Resource Manager
 
@@ -48,57 +48,6 @@ Em sua estrutura mais simples, um modelo tem os seguintes elementos:
 | [produz](#outputs) |Não |Valores retornados após a implantação. |
 
 Cada elemento tem propriedades que você pode definir. Este artigo descreve as seções do modelo com mais detalhes.
-
-## <a name="syntax"></a>Sintaxe
-
-A sintaxe básica do modelo é JSON. No entanto, você pode usar expressões para estender os valores JSON disponíveis no modelo.  As expressões começam e terminam com colchetes `]`: `[` e, respectivamente. O valor da expressão é avaliado quando o modelo é implantado. Uma expressão pode retornar uma cadeia de caracteres, um inteiro, um booliano, uma matriz ou um objeto. O exemplo a seguir mostra uma expressão no valor padrão de um parâmetro:
-
-```json
-"parameters": {
-  "location": {
-    "type": "string",
-    "defaultValue": "[resourceGroup().location]"
-  }
-},
-```
-
-Dentro da expressão, a sintaxe `resourceGroup()` chama uma das funções que o Gerenciador de recursos fornece para uso em um modelo. Assim como no JavaScript, as chamadas de função são `functionName(arg1,arg2,arg3)`formatadas como. A sintaxe `.location` recupera uma propriedade do objeto retornado por essa função.
-
-As funções de modelo e seus parâmetros não diferenciam maiúsculas de minúsculas. Por exemplo, o Resource Manager resolve **variáveis (' var1 ')** e **variáveis (' var1 ')** como a mesma. Quando avaliado, a menos que a função modifique expressamente maiúsculas de minúsculas (como toUpper ou toLower), a função preserva o caso. Determinados tipos de recursos podem ter requisitos de caso, independentemente de como as funções são avaliadas.
-
-Para que uma cadeia de caracteres literal comece com um `[` colchete esquerdo e termine com um `]`colchete direito, mas não a tenha interpretada como uma expressão, adicione um colchete extra para `[[`iniciar a cadeia de caracteres com. Por exemplo, a variável:
-
-```json
-"demoVar1": "[[test value]"
-```
-
-Resolve para `[test value]`.
-
-No entanto, se a cadeia de caracteres literal não terminar com um colchete, não Percorra o primeiro colchete. Por exemplo, a variável:
-
-```json
-"demoVar2": "[test] value"
-```
-
-Resolve para `[test] value`.
-
-Para passar um valor de cadeia de caracteres como um parâmetro para uma função, use aspas simples.
-
-```json
-"name": "[concat('storage', uniqueString(resourceGroup().id))]"
-```
-
-Para escapar aspas duplas em uma expressão, como adicionar um objeto JSON no modelo, use a barra invertida.
-
-```json
-"tags": {
-    "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
-},
-```
-
-Uma expressão de modelo não pode exceder 24.576 caracteres.
-
-Para obter a lista completa de funções de modelo, consulte [Azure Resource Manager funções de modelo](resource-group-template-functions.md). 
 
 ## <a name="parameters"></a>Parâmetros
 
@@ -501,11 +450,11 @@ Você define recursos com a seguinte estrutura:
 
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
-| condition | Não | Valor booliano que indica se o recurso será provisionado durante essa implantação. Quando `true`, o recurso é criado durante a implantação. Quando `false`, o recurso é ignorado para essa implantação. Consulte a [condição](#condition). |
+| condition | Não | Valor booliano que indica se o recurso será provisionado durante essa implantação. Quando `true`, o recurso é criado durante a implantação. Quando `false`, o recurso é ignorado para essa implantação. Consulte [implantação condicional](conditional-resource-deployment.md). |
 | apiVersion |Sim |Versão da API REST a ser usada para criar o recurso. Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). |
 | type |Sim |Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como **Microsoft. Storage/storageAccounts**). Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). Para um recurso filho, o formato do tipo depende de se ele está aninhado dentro do recurso pai ou definido fora do recurso pai. Consulte [definir nome e tipo para recursos filho](child-resource-name-type.md). |
 | name |Sim |Nome do recurso. O nome deve seguir as restrições de componente de URI definidas em RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso para partes externas validam o nome para verificar se não há uma tentativa de falsificar outra identidade. Para um recurso filho, o formato do nome depende se ele está aninhado dentro do recurso pai ou definido fora do recurso pai. Consulte [definir nome e tipo para recursos filho](child-resource-name-type.md). |
-| location |Varia |Locais geográficos com suporte do recurso fornecido. Você pode selecionar qualquer um dos locais disponíveis, mas, normalmente, faz sentido escolher um que esteja próximo de seus usuários. Normalmente, também faz sentido posicionar recursos que interagem entre si na mesma região. A maioria dos tipos de recursos requer um local, mas alguns tipos (como uma atribuição de função) não exigem um local. |
+| location |Varia |Locais geográficos com suporte do recurso fornecido. Você pode selecionar qualquer um dos locais disponíveis, mas, normalmente, faz sentido escolher um que esteja próximo de seus usuários. Normalmente, também faz sentido posicionar recursos que interagem entre si na mesma região. A maioria dos tipos de recursos requer um local, mas alguns tipos (como uma atribuição de função) não exigem um local. Consulte [definir local do recurso](resource-location.md) |
 | tags |Não |Marcas associadas ao recurso. Aplique marcas para organizar os recursos de forma lógica em sua assinatura. |
 | feitos |Não |Suas notas para documentar os recursos em seu modelo. Para obter mais informações, consulte [comentários em modelos](resource-group-authoring-templates.md#comments). |
 | copiar |Não |Se mais de uma instância for necessária, o número de recursos a serem criados. O modo padrão é Parallel. Especifique o modo Serial quando não quiser que todos ou os recursos sejam implantados ao mesmo tempo. Para obter mais informações, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
@@ -515,31 +464,6 @@ Você define recursos com a seguinte estrutura:
 | type | Não | Alguns recursos permitem um valor que define o tipo de recurso que você implanta. Por exemplo, você pode especificar o tipo de Cosmos DB a ser criado. |
 | intenção | Não | Alguns recursos permitem valores que definem o plano a ser implantado. Por exemplo, você pode especificar a imagem do Marketplace para uma máquina virtual. | 
 | recursos |Não |Recursos filho que dependem do recurso que está sendo definido. Forneça apenas os tipos de recursos que são permitidos pelo esquema do recurso pai. A dependência do recurso pai não está implícita. Você deve definir explicitamente essa dependência. Consulte [definir nome e tipo para recursos filho](child-resource-name-type.md). |
-
-### <a name="condition"></a>Condição
-
-Quando você deve decidir durante a implantação se deseja criar um recurso, use `condition` o elemento. O valor desse elemento é resolvido como verdadeiro ou falso. Quando o valor for true, o recurso será criado. Quando o valor for false, o recurso não será criado. O valor só pode ser aplicado a todo o recurso.
-
-Normalmente, você usa esse valor quando deseja criar um novo recurso ou usar um existente. Por exemplo, para especificar se uma nova conta de armazenamento é implantada ou se uma conta de armazenamento existente é usada, use:
-
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
-```
-
-Para obter um modelo de exemplo completo que `condition` usa o elemento, consulte [VM com uma rede virtual nova ou existente, armazenamento e IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
-
-Se você usar uma função de [referência](resource-group-template-functions-resource.md#reference) ou de [lista](resource-group-template-functions-resource.md#list) com um recurso que é implantado condicionalmente, a função será avaliada mesmo que o recurso não seja implantado. Você receberá um erro se a função se referir a um recurso que não existe. Use a função [If](resource-group-template-functions-logical.md#if) para certificar-se de que a função é avaliada apenas para condições quando o recurso for implantado. Consulte a [função If](resource-group-template-functions-logical.md#if) para obter um modelo de exemplo que usa If e Reference com um recurso implantado condicionalmente.
 
 ### <a name="resource-names"></a>Nomes de recursos
 
@@ -592,65 +516,6 @@ Para tipos de recursos que você acessa principalmente por meio de um recurso di
   "type": "firewallrules",
   "name": "AllowAllWindowsAzureIps",
   ...
-}
-```
-
-### <a name="resource-location"></a>Localização do recurso
-
-Ao implantar um modelo, você deve fornecer um local para cada recurso. Diferentes tipos de recursos têm suporte em locais diferentes. Para obter os locais com suporte para um tipo de recurso, consulte [tipos e provedores de recursos do Azure](resource-manager-supported-services.md).
-
-Use um parâmetro para especificar o local dos recursos e defina o valor padrão como `resourceGroup().location`.
-
-O exemplo a seguir mostra uma conta de armazenamento que é implantada em um local especificado como um parâmetro:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_ZRS",
-        "Premium_LRS"
-      ],
-      "metadata": {
-        "description": "Storage Account type"
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for all resources."
-      }
-    }
-  },
-  "variables": {
-    "storageAccountName": "[concat('storage', uniquestring(resourceGroup().id))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "apiVersion": "2018-07-01",
-      "sku": {
-        "name": "[parameters('storageAccountType')]"
-      },
-      "kind": "StorageV2",
-      "properties": {}
-    }
-  ],
-  "outputs": {
-    "storageAccountName": {
-      "type": "string",
-      "value": "[variables('storageAccountName')]"
-    }
-  }
 }
 ```
 
@@ -840,7 +705,7 @@ No VS Code, você pode definir o modo de linguagem como JSON com comentários. O
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para ver modelos completos para vários tipos de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obter detalhes sobre as funções que pode utilizar a partir de dentro de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
 * Para combinar vários modelos durante a implantação, consulte [usando modelos vinculados com Azure Resource Manager](resource-group-linked-templates.md).

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 14a360e7dc672266e8445a5ae5eb2168ae766af8
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 7708133fcba0d594ecd420afd8da1b2881055aa7
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741870"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241022"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar e executar contêineres de serviço de fala
 
@@ -25,8 +25,8 @@ Os dois contêineres de fala são **conversão de fala em texto** e **texto em f
 
 |Função|Funcionalidades|Mais Recente|
 |-|-|--|
-|Conversão de voz em texto| <li>Transcreve as gravações contínuas de fala em tempo real ou de áudio em lotes em texto com resultados intermediários.|1.1.3|
-|Texto em Voz| <li>Converte texto em voz com som natural. com a entrada de texto sem formatação ou a linguagem de marcação de síntese de fala (SSML). |1.1.0|
+|Conversão de voz em texto| <li>Transcreve as gravações contínuas de fala em tempo real ou de áudio em lotes em texto com resultados intermediários.|1.2.0|
+|Texto em Voz| <li>Converte texto em voz com som natural. com a entrada de texto sem formatação ou a linguagem de marcação de síntese de fala (SSML). |1.2.0|
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -101,10 +101,10 @@ Todas as marcas, exceto `latest` no, estão no seguinte formato, em `<culture>` 
 A marca a seguir é um exemplo do formato:
 
 ```
-1.1.3-amd64-en-us-preview
+1.2.0-amd64-en-us-preview
 ```
 
-A tabela a seguir lista as localidades com suporte para a **conversão de fala em texto** na versão 1.1.3 do contêiner:
+A tabela a seguir lista as localidades com suporte para a **conversão de fala em texto** na versão 1.2.0 do contêiner:
 
 |Localidade do idioma|Tags|
 |--|--|
@@ -129,10 +129,10 @@ Todas as marcas, exceto `latest` para estão no seguinte formato, em que `<cultu
 A marca a seguir é um exemplo do formato:
 
 ```
-1.1.0-amd64-en-us-jessarus-preview
+1.2.0-amd64-en-us-jessarus-preview
 ```
 
-A tabela a seguir lista as localidades com suporte para **conversão de texto em fala** na versão 1.1.0 do contêiner:
+A tabela a seguir lista as localidades com suporte para **conversão de texto em fala** na versão 1.2.0 do contêiner:
 
 |Localidade do idioma|Tags|Vozes com suporte|
 |--|--|--|
