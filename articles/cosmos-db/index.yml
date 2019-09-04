@@ -9,7 +9,7 @@ metadata:
   ms.author: sngun
   ms.service: cosmos-db
   ms.topic: landing-page
-  ms.date: 05/20/2019
+  ms.date: 09/01/2019
 abstract:
   description: 'O Azure Cosmos DB é um serviço de base de dados totalmente gerido com uma distribuição global chave na mão e replicação multimestre transparente. Pode executar cargas de trabalho analíticas e operacionais de baixa latência distribuídas globalmente e IA sobre dados transacionais na sua base de dados. Saiba como utilizar o Azure Cosmos DB com os nossos inícios rápidos, tutoriais e amostras.'
   aside:

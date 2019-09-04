@@ -1,5 +1,5 @@
 - name: Serviço Azure Machine Learning
-  href: service/index.yml
+  href: service/overview-what-is-azure-ml.md
 - name: Azure Machine Learning Studio
   href: studio/index.yml
 - name: Comparar os produtos de ML na Microsoft

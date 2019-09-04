@@ -57,5 +57,7 @@ sections:
         items:
           - title: Linguagens
             html: <p><a href="/dotnet/api/overview/azure/datashare">.NET</a></p>
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0">Azure PowerShell</a></p>'
           - title: REST
             html: <p><a href="/rest/api/datashare">API REST</a></p>
