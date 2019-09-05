@@ -162,7 +162,7 @@ Um evento tem os seguintes dados de nível superior:
 | eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | id | string | Identificador exclusivo para o evento. |
-| data | objeto | Dados de eventos de armazenamento de Blobs. |
+| data | object | Dados de eventos de armazenamento de Blobs. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
@@ -173,8 +173,8 @@ O objeto de dados tem as seguintes propriedades:
 | id | string | O ID de evento. |
 | timestamp | string | A hora em que ocorreu o evento. |
 | action | string | A ação que abrange o evento fornecido. |
-| target | objeto | O destino do evento. |
-| request | objeto | O pedido que gerou o evento. |
+| target | object | O destino do evento. |
+| request | object | O pedido que gerou o evento. |
 
 O objeto de destino tem as seguintes propriedades:
 
