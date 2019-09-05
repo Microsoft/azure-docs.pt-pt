@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 08/27/2019
 ms.author: alkohli
 ms.openlocfilehash: 76b4f9982b8f1f5d435b1acde57ef218efbbe712
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
-ms.translationtype: MT
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 09/05/2019
 ms.locfileid: "70098851"
 ---
 1. Quando o dispositivo Data Box está ligado à rede do datacenter do Azure, o carregamento de dados para o Azure é iniciado automaticamente. 
